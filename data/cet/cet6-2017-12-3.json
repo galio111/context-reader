@@ -1,0 +1,1770 @@
+{
+  "id": "cet6-2017-12-3",
+  "level": 6,
+  "year": 2017,
+  "month": 12,
+  "set": 3,
+  "title": "2017 年 12 月六级 · 第 3 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.12/%E7%9C%9F%E9%A2%98Word/2017%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC3%E5%A5%97%EF%BC%89.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2017.12%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC3%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2017-12-3-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Many European countries have been making the shift to electric vehicles and Germany has just stated that they plan to ban the sale of vehicles using gasoline and diesel as fuel by 2030. The country is also planning to reduce its carbon footprint by 80-95% by 2050, [[26]] a shift to green energy in the country. Effectively, the ban will include the registration of new cars in the country as they will not allow any gasoline [[27]] vehicle to be registered after 2030. Part of the reason this ban is being discussed and [[28]] is because energy officials see that they will not reach their emissions goals by 2050 if they do not [[29]] a large portion of vehicle emissions. The country is still [[30]] that it will meet its emissions goals, like reducing emissions by 40% by 2020, but the [[31]] of electric cars in the country has not occurred as fast as ejected. Other efforts to increase the use of electric vehicles include plans to build over 1 million hybrid and electric car battery changing stations across the country. By 2030, Germany plans on having over 6 million charging stations [[32]] . According to the International Business Times, electric car sales are expected to increase as Volkswagen is still recovering from its emissions scandal. There are [[33]] around 155,000 registered hybrid and electric vehicles on German roads, dwarfed by the 45 million gasoline and diesel cars driving there now. As countries continue setting goals of reducing emissions, greater steps need to be taken to have a [[34]] effect on the surrounding environment. While the efforts are certainly not [[35]] , the results of such bans will likely only start to be seen by generations down the line, bettering the world for the future."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "acceptance"
+        },
+        {
+          "key": "B",
+          "text": "currently"
+        },
+        {
+          "key": "C",
+          "text": "disrupting"
+        },
+        {
+          "key": "D",
+          "text": "eliminate"
+        },
+        {
+          "key": "E",
+          "text": "exhaust"
+        },
+        {
+          "key": "F",
+          "text": "futile"
+        },
+        {
+          "key": "G",
+          "text": "hopeful"
+        },
+        {
+          "key": "H",
+          "text": "implemented"
+        },
+        {
+          "key": "I",
+          "text": "incidentally"
+        },
+        {
+          "key": "J",
+          "text": "installed"
+        },
+        {
+          "key": "K",
+          "text": "noticeable"
+        },
+        {
+          "key": "L",
+          "text": "powered"
+        },
+        {
+          "key": "M",
+          "text": "restoration"
+        },
+        {
+          "key": "N",
+          "text": "skeptical"
+        },
+        {
+          "key": "O",
+          "text": "sparking"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acceptance"
+            },
+            {
+              "key": "B",
+              "text": "currently"
+            },
+            {
+              "key": "C",
+              "text": "disrupting"
+            },
+            {
+              "key": "D",
+              "text": "eliminate"
+            },
+            {
+              "key": "E",
+              "text": "exhaust"
+            },
+            {
+              "key": "F",
+              "text": "futile"
+            },
+            {
+              "key": "G",
+              "text": "hopeful"
+            },
+            {
+              "key": "H",
+              "text": "implemented"
+            },
+            {
+              "key": "I",
+              "text": "incidentally"
+            },
+            {
+              "key": "J",
+              "text": "installed"
+            },
+            {
+              "key": "K",
+              "text": "noticeable"
+            },
+            {
+              "key": "L",
+              "text": "powered"
+            },
+            {
+              "key": "M",
+              "text": "restoration"
+            },
+            {
+              "key": "N",
+              "text": "skeptical"
+            },
+            {
+              "key": "O",
+              "text": "sparking"
+            }
+          ],
+          "answer": "O",
+          "explanation": "【锁定答案】空格句主干指出“德国计划到2050年大幅减少碳排放”,空格后为“转向绿色能源国”, 可见sparking与其语义相符:大幅减少碳排放,以引发向绿色能源国的转变。这也符合第一段1句 Many European countries have been making the shift to electric vehicles and Germany has...暗含事实 “德国正转向电动汽车(绿色能源)”。 disrupting\"扰乱,妨碍”与文意相反;currently、incidentally若承载作者评注,则与文义相悖:这是“将 来计划”而非“当前转变”;这是“计划行为”,而非“偶然、顺便行为”。 【补充语法】一、ing分词作状语,表示方式、结果、伴随状况等(ing分词与逻辑主语之间存在主动关 系)。如本句Thecountry..·,sparkingashift to...,sparking..,说明前述行为的目的。再如:The children sat on small chairs,clappingas the foreign guestswalked in.(孩子们坐在小椅子上,鼓掌欢迎外 宾。),clapping.·.表示伴随动作。 二、评注性副词引发对主句的评判,即:前半句“介绍他人行为”,后半句“作者发起评判”。如:Heis planningtosendhissontostudyabroad,possiblyagoodidea.(他正计划把儿子送出国去学习,这可能 是个不错的想法。)"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acceptance"
+            },
+            {
+              "key": "B",
+              "text": "currently"
+            },
+            {
+              "key": "C",
+              "text": "disrupting"
+            },
+            {
+              "key": "D",
+              "text": "eliminate"
+            },
+            {
+              "key": "E",
+              "text": "exhaust"
+            },
+            {
+              "key": "F",
+              "text": "futile"
+            },
+            {
+              "key": "G",
+              "text": "hopeful"
+            },
+            {
+              "key": "H",
+              "text": "implemented"
+            },
+            {
+              "key": "I",
+              "text": "incidentally"
+            },
+            {
+              "key": "J",
+              "text": "installed"
+            },
+            {
+              "key": "K",
+              "text": "noticeable"
+            },
+            {
+              "key": "L",
+              "text": "powered"
+            },
+            {
+              "key": "M",
+              "text": "restoration"
+            },
+            {
+              "key": "N",
+              "text": "skeptical"
+            },
+            {
+              "key": "O",
+              "text": "sparking"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【锁定答案】powered可在“gasoline(汽油)”与“vehicle(汽车)”之间建立合理的语义逻辑:以汽油为 动力的汽车。且本句willnotallowanygasolinepoweredvehicleto...2030(2030年不再允许注册任何 以汽油为动力的汽车)和段首banthesaleofvehiclesusinggasolineanddieselasfuelby2030(2030年禁 止出售以汽油和柴油为燃料的汽车)呼应(gasolinepoweredvehicle=vehiclesusinggasoline),故正确。 disrupting\"破坏”、implemented\"实施”、installed\"安装”均无法在“汽油”与“汽车”之间建立合理的语 义逻辑,可排除。 【补充语法】一、“名词十ed分词”作定语,修饰另一名词,相当于被动语态的定语从句。如本句: gasolinepoweredvehicle=vehiclewhich/thatispoweredbygasoline.二、“名词+十ing分词”做定语,修 饰另一名词,相当于主动语态的定语从句。如:amatch-sellinggirl=agirlwhosells/issellingmatches. Il OPart of the reason this ban is being discussed and2 28is because energy officials see that they will not reach their emissionsgoals by 2050 if they do 29a large portion ofvehicle emissions. ? not The country is still30that it will meet its emissions goals, like reducing emissions by 40% by 2020,but the31of electric cars in the country has not occurred as fast as expected. 该项禁令之所以正在被讨论和实 施,部分原因在于能源官员们明白,如 果他们不大幅消除汽车尾气排放,则 2050年不能达到其排放目标。德国仍 对达成其排放目标(比如到2020年减少 40%的碳排放)心怀希望,但是该国对 于电动汽车的接受并不像预期那样快。 ·"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acceptance"
+            },
+            {
+              "key": "B",
+              "text": "currently"
+            },
+            {
+              "key": "C",
+              "text": "disrupting"
+            },
+            {
+              "key": "D",
+              "text": "eliminate"
+            },
+            {
+              "key": "E",
+              "text": "exhaust"
+            },
+            {
+              "key": "F",
+              "text": "futile"
+            },
+            {
+              "key": "G",
+              "text": "hopeful"
+            },
+            {
+              "key": "H",
+              "text": "implemented"
+            },
+            {
+              "key": "I",
+              "text": "incidentally"
+            },
+            {
+              "key": "J",
+              "text": "installed"
+            },
+            {
+              "key": "K",
+              "text": "noticeable"
+            },
+            {
+              "key": "L",
+              "text": "powered"
+            },
+            {
+              "key": "M",
+              "text": "restoration"
+            },
+            {
+              "key": "N",
+              "text": "skeptical"
+            },
+            {
+              "key": "O",
+              "text": "sparking"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【锁定答案】与从句主语thisban(该项禁令)能构成合理语义搭配的只能是implemented:禁令正在 被实施。installed“安装、设置”的宾语通常为“设备、软件等”,与“禁令”不能构成合理搭配,可排除。 【补充语法】定语从句中,关系副词when,where,why,how等有时可用that代替、甚至可省略。如本 句:Part of the reason(why/that)this ban is being discussed is...。又如:The reason(that/why)he missedthetrainisthathegotuplate.(他误火车是因为起床迟了。)"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acceptance"
+            },
+            {
+              "key": "B",
+              "text": "currently"
+            },
+            {
+              "key": "C",
+              "text": "disrupting"
+            },
+            {
+              "key": "D",
+              "text": "eliminate"
+            },
+            {
+              "key": "E",
+              "text": "exhaust"
+            },
+            {
+              "key": "F",
+              "text": "futile"
+            },
+            {
+              "key": "G",
+              "text": "hopeful"
+            },
+            {
+              "key": "H",
+              "text": "implemented"
+            },
+            {
+              "key": "I",
+              "text": "incidentally"
+            },
+            {
+              "key": "J",
+              "text": "installed"
+            },
+            {
+              "key": "K",
+              "text": "noticeable"
+            },
+            {
+              "key": "L",
+              "text": "powered"
+            },
+            {
+              "key": "M",
+              "text": "restoration"
+            },
+            {
+              "key": "N",
+              "text": "skeptical"
+            },
+            {
+              "key": "O",
+              "text": "sparking"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【锁定答案】空格词所在表语从句because...指出:如果他们不很大一部分汽车尾气排放,就不 能达到其排放目标,eliminate“消除,消灭”符合该语义。且本句eliminatealargeportionofvehicle emissions和上一段reduceitscarbonfootprintby80-95%by2050及下句reducingemissionsby40% by2020构成呼应,共同强调德国“计划大幅减排”。 exhaust\"用光,耗尽”虽带“减少”之意,但宾语往往为“某种材料、资源(有用之物)”,与此处的“尾气 排放(有害之物)\"不搭。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acceptance"
+            },
+            {
+              "key": "B",
+              "text": "currently"
+            },
+            {
+              "key": "C",
+              "text": "disrupting"
+            },
+            {
+              "key": "D",
+              "text": "eliminate"
+            },
+            {
+              "key": "E",
+              "text": "exhaust"
+            },
+            {
+              "key": "F",
+              "text": "futile"
+            },
+            {
+              "key": "G",
+              "text": "hopeful"
+            },
+            {
+              "key": "H",
+              "text": "implemented"
+            },
+            {
+              "key": "I",
+              "text": "incidentally"
+            },
+            {
+              "key": "J",
+              "text": "installed"
+            },
+            {
+              "key": "K",
+              "text": "noticeable"
+            },
+            {
+              "key": "L",
+              "text": "powered"
+            },
+            {
+              "key": "M",
+              "text": "restoration"
+            },
+            {
+              "key": "N",
+              "text": "skeptical"
+            },
+            {
+              "key": "O",
+              "text": "sparking"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【锁定答案】情况1有disrupting,但其后只接名词、代词,不能接宾语从句。情况2有acceptance、 restoration及exhaust,但三词无论与句子主语thecountry(该国/德国)、还是that从句(它/德国将会达 成减排目标)语义都无法搭配。情况3有hopeful和skeptical,且只看but之前内容似乎都可成立,但 but之后转而指出现实情形、且为否定含义(该国对于电动汽车的..·并不像预期那样迅速),可确定空 格词所在分句表示预期情况、且为积极含义,hopeful正确:德国心怀希望,但现实情形不佳。 【补充语法】一、be十表示心理状态的形容词(或ed分词)在语法上相当于一个及物动词,后面可跟 that 引导的宾语从句。如本句,The country is still hopeful that...=The country still hopes that...。 又如:Hewas afraid(=feared)that he would fail. 二、that同位语从句VSthat定语从句:1that定语从句是形容词性的,其功能是修饰先行词;that 同位语从句是名词性的,其功能是对名词进行解释说明。2that同位语从句中that为连词,不充当句中 任何成分(即,从句本身结构完整);定语从句中that代替先行词,需在从句中作某个成分(主语、宾语、 表语等)。基于以上两条原则,本句中thatitwillmeetitsemissionsgoals(主十谓十宾)只能是“同位语 从句”的可能,绝不可能是“定语从句”。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acceptance"
+            },
+            {
+              "key": "B",
+              "text": "currently"
+            },
+            {
+              "key": "C",
+              "text": "disrupting"
+            },
+            {
+              "key": "D",
+              "text": "eliminate"
+            },
+            {
+              "key": "E",
+              "text": "exhaust"
+            },
+            {
+              "key": "F",
+              "text": "futile"
+            },
+            {
+              "key": "G",
+              "text": "hopeful"
+            },
+            {
+              "key": "H",
+              "text": "implemented"
+            },
+            {
+              "key": "I",
+              "text": "incidentally"
+            },
+            {
+              "key": "J",
+              "text": "installed"
+            },
+            {
+              "key": "K",
+              "text": "noticeable"
+            },
+            {
+              "key": "L",
+              "text": "powered"
+            },
+            {
+              "key": "M",
+              "text": "restoration"
+            },
+            {
+              "key": "N",
+              "text": "skeptical"
+            },
+            {
+              "key": "O",
+              "text": "sparking"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【锁定答案】空格所在句由but连接的两个分句构成,前一分句指出“德国希望能够(推行电动汽车) 达成减排目标”,后一分句转而指出“(但)电动汽车的_并不像预期那样快”,可见只有acceptance符 合语义要求。 disrupting\"破坏”、exhaust\"用尽”均方向错误,可轻易排除。restoration意为“恢复,重新采用”,似乎 能构成转折,因此有较强干扰。但文中并未指出“电动汽车使用中断之后重新采用”,而是“努力持续推 行”,所以也可排除。 l O Other efforts to increase the use of electric 增加电动汽车使用的其他措 vehicles include plans to build over 1 million hybrid and 施还包括拟在全国建立一百多万 electric car battery charging stations across the country. 个混动汽车和电动汽车充电站。 ?By 2030, Germany plans on having over 6 million 到2030年,德国计划建立六百多万 charging stations32_.@According to the International 个充电站。据《国际财经时报》报 Business Times, electric car sales are expected toincrease 道,电动汽车销量有望增加,因为 as Volkswagen is still recoveringfrom its emissions 大众汽车尚未从尾气排放丑闻中 scandal. 恢复元气。 ·"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acceptance"
+            },
+            {
+              "key": "B",
+              "text": "currently"
+            },
+            {
+              "key": "C",
+              "text": "disrupting"
+            },
+            {
+              "key": "D",
+              "text": "eliminate"
+            },
+            {
+              "key": "E",
+              "text": "exhaust"
+            },
+            {
+              "key": "F",
+              "text": "futile"
+            },
+            {
+              "key": "G",
+              "text": "hopeful"
+            },
+            {
+              "key": "H",
+              "text": "implemented"
+            },
+            {
+              "key": "I",
+              "text": "incidentally"
+            },
+            {
+              "key": "J",
+              "text": "installed"
+            },
+            {
+              "key": "K",
+              "text": "noticeable"
+            },
+            {
+              "key": "L",
+              "text": "powered"
+            },
+            {
+              "key": "M",
+              "text": "restoration"
+            },
+            {
+              "key": "N",
+              "text": "skeptical"
+            },
+            {
+              "key": "O",
+              "text": "sparking"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【锁定答案】段首句指出德国计划在全国建立大量充电站。空格所在句具体指出到2030年时的目 标,因此空格词也应表示“计划建立(充电站)\"这层含义,installed符合文意,既可看作是后置定语,也可 视为havesthdone结构。 “建立充电站”具有“计划性”、并非“偶然性”,这是“将来的目标”、并非“现有的事物“,所以可排除 incidentally、currently。futile、skeptical及disrupting均不能修饰chargingstations,也可排除。having over6millionchargingstationsnoticeable若单独看,无论从语法上还是从语义上都可成立,所以具有极 强干扰性,但它远不如installed与上文(build..,chargingstations)衔接,故也舍去。 【点拔技巧】若解题过程中碰到很难完全排除的选项(如本题的noticeable),可先标记存疑、继续解 题,若能确定该词非常适合随后某一空,则此处悬疑自然解除。 【补充语法】\"have十宾语十done”结构有两种语义:l。请(让,叫,使)别人帮自己做某事。如本句 Germanyplansonhavingover6millionchargingstationsinstalled.德国计划(组织人员)建立六百多万个 充电站。又如:Ihad someweddingphotostaken.我(请摄影师)拍了结婚照。2.使得·.·遭遇/经历 ..·(表不幸、意外或痛苦)。如:YesterdayIhadmywalletstolen.咋天我(不小心)钱包被(小偷)偷了。 V0There are33around 155,000 registered hybrid and electric vehicles on German roads, dwarfed by the 45 million gasoline and diesel cars driving there now. @As countries continue setting goals of reducing emissions, greater steps need to be taken to have a 34_effect on the surrounding environment.@While the efforts are certainly not35,the results of such bans will likely only start to be seen by generations down the line, bettering the world for the future. [295words] 目前德国注册上路的混动和电动 汽车约有155,000辆,这与现今行驶 在路上的4500万辆汽油和柴油汽车 相比,可以说是相形见细。在各国纷 纷设定减排目标之时,我们需要采取 更有力的措施才能对周围环境产生显 著影响。虽然这些努力一定不会是徒 劳,但这些禁令的结果可能只有数代 之后开始可见,改善未来世界。 ·"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acceptance"
+            },
+            {
+              "key": "B",
+              "text": "currently"
+            },
+            {
+              "key": "C",
+              "text": "disrupting"
+            },
+            {
+              "key": "D",
+              "text": "eliminate"
+            },
+            {
+              "key": "E",
+              "text": "exhaust"
+            },
+            {
+              "key": "F",
+              "text": "futile"
+            },
+            {
+              "key": "G",
+              "text": "hopeful"
+            },
+            {
+              "key": "H",
+              "text": "implemented"
+            },
+            {
+              "key": "I",
+              "text": "incidentally"
+            },
+            {
+              "key": "J",
+              "text": "installed"
+            },
+            {
+              "key": "K",
+              "text": "noticeable"
+            },
+            {
+              "key": "L",
+              "text": "powered"
+            },
+            {
+              "key": "M",
+              "text": "restoration"
+            },
+            {
+              "key": "N",
+              "text": "skeptical"
+            },
+            {
+              "key": "O",
+              "text": "sparking"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【锁定答案】空格句中dwarfedby(与..·比较,相形见所体现的两个共存的比较对象为“德国公 路上的混动和电动汽车(绿色能源)数量”VS\"汽油和柴油汽车(传统能源)的数量”,文中已经指出后者 指的是目前情形(now),所以相比较的另一方也应该是现如今的情况,currently正确。incidentally意为 “顺便提一下(用来补充说明说过的事)”或“偶然地”,两个释义均不符合,可排除。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acceptance"
+            },
+            {
+              "key": "B",
+              "text": "currently"
+            },
+            {
+              "key": "C",
+              "text": "disrupting"
+            },
+            {
+              "key": "D",
+              "text": "eliminate"
+            },
+            {
+              "key": "E",
+              "text": "exhaust"
+            },
+            {
+              "key": "F",
+              "text": "futile"
+            },
+            {
+              "key": "G",
+              "text": "hopeful"
+            },
+            {
+              "key": "H",
+              "text": "implemented"
+            },
+            {
+              "key": "I",
+              "text": "incidentally"
+            },
+            {
+              "key": "J",
+              "text": "installed"
+            },
+            {
+              "key": "K",
+              "text": "noticeable"
+            },
+            {
+              "key": "L",
+              "text": "powered"
+            },
+            {
+              "key": "M",
+              "text": "restoration"
+            },
+            {
+              "key": "N",
+              "text": "skeptical"
+            },
+            {
+              "key": "O",
+              "text": "sparking"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【锁定答案】空格句指出“在各国纷纷设定减排目标之时,我们需要采取更有力的措施以对周围环 境产生影响”。根据上文(及常识)可知,减排利于环境,所以采取更有力措施定是会对环境产生更 显著的积极影响。且空格后指出,(减排)禁令的结果可能只有数代之后才开始可见(目前并不可见)。 综合两条线索可确定,空格词应为“可见的,显著的”之意,noticeable可确定为正确项。注:此时也可完 全排除32题选noticeable的可能。 futile、skeptical、disrupting均体现“负面性”,与文意不符,可直接排除。havearestorationeffecton thesurroundingenvironment单独来看,无论是语法还是语义都没有明显的不合适,但它有悸23句整 体强调的作者观点“禁令的影响要数代人之后才可能显现,所以应该采更有力措施”,故也可排除。 【点拨技巧】若选项暂时很难有把握地确定或排除(如本题的restoration),可暂时搁置,和下一空格 放到一起解答(综合更多线索、进行更充分的推理)。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acceptance"
+            },
+            {
+              "key": "B",
+              "text": "currently"
+            },
+            {
+              "key": "C",
+              "text": "disrupting"
+            },
+            {
+              "key": "D",
+              "text": "eliminate"
+            },
+            {
+              "key": "E",
+              "text": "exhaust"
+            },
+            {
+              "key": "F",
+              "text": "futile"
+            },
+            {
+              "key": "G",
+              "text": "hopeful"
+            },
+            {
+              "key": "H",
+              "text": "implemented"
+            },
+            {
+              "key": "I",
+              "text": "incidentally"
+            },
+            {
+              "key": "J",
+              "text": "installed"
+            },
+            {
+              "key": "K",
+              "text": "noticeable"
+            },
+            {
+              "key": "L",
+              "text": "powered"
+            },
+            {
+              "key": "M",
+              "text": "restoration"
+            },
+            {
+              "key": "N",
+              "text": "skeptical"
+            },
+            {
+              "key": "O",
+              "text": "sparking"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【锁定答案】空格所在句以While...are certainlynot,.·.·形成“让步转折”逻辑:虽然这些努力一 定不会是,但其结果(让未来的世界更美好)可能到了几代人之后才可见(即:禁令是有效果的,但目 前或近期不可见)。因此空格词需要含“没有效果的、徒劳的,无用的”之意,futile正确。注:至此,可完 全明确作者观点“禁令力度不够、即便生效也要很久以后,所以应采取更有力的措施(23句为因果关 系)”,从而完全确定34题答案为noticeable。 skeptical指“人持怀疑态度,不相信某一事物”,不能和efforts搭配。disrupting带有负面含义,考生 若对句子断章取义(the efforts are certainlynotdisrupting..(theyare)betteringtheworld)很容易误选 此项。但整体看本句可发现:“虽然某一事物不一定是破坏性的,但其结果要很久之后才可见”逻辑不 顺,另外,disrupt为及物动词、需带宾语,故完全排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2017-12-3-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) The battle between Apple and law enforcement officials over unlocking a terrorist's smartphone is the culmination of a slow turning of the tables between the technology industry and the United States government.",
+        "B) After revelations by the former National Security Agency contractor Edward J. Snowden in 2013 that the government both cozied up to (讨好) certain tech companies and hacked into others to gain access to private data on an enormous scale, tech giants began to recognize the United States government as a hostile actor. But if the confrontation has crystallized in this latest battle, it may already be heading toward a predictable conclusion: In the long run, the tech companies are destined to emerge victorious.",
+        "C) It may not seem that way at the moment. On the one side, you have the United States government's mighty legal and security apparatus fighting for data of the most sympathetic sort: the secrets buried in a dead mass murderer's phone. The action steins from a federal court order issued on Tuesday requiring Apple to help the Federal Bureau of Investigation (FBI) to unlock an iPhone used by one of the two attackers who killed 14 people in San Bernardino, California, in December.",
+        "D) In the other corner is the world's most valuable company, whose chief executive, Timothy Cook, has said he will appeal the court's order. Apple argues that it is fighting to preserve a principle that most of us who are addicted to our smartphones can defend: Weaken a single iPhone so that its contents can be viewed by the American government and you risk weakening all iPhones for any government intruder, anywhere.",
+        "E) There will probably be months of legal confrontation, and it is not at all clear which side will prevail in court, nor in the battle for public opinion and legislative favor. Yet underlying all of this is a simple dynamic: Apple, Google, Facebook and other companies hold most of the cards in this confrontation. They have our data, and their businesses depend on the global public's collective belief that they will do everything they can to protect that data.",
+        "F) Any crack in that front could be fatal for tech companies that must operate worldwide. If Apple is forced to open up an iPhone for an American law enforcement investigation, what is to prevent it from doing so for a request from the Russians or the Iranians? If Apple is forced to write code that lets the FBI get into the Phone 5c used by Syed Rizwan Farook, the male attacker in the San Bernardino attack, who would be responsible if some hacker got hold of that code and broke into its other devices?",
+        "G) Apple's stance on these issues emerged post-Snowden, when the company started putting in place a series of technologies that, by default, make use of encryption (加密)to limit access to people's data. More than that, Apple—and, in different ways, other tech companies, including Google, Facebook, Twitter and Microsoft—have made their opposition to the government's claims a point of corporate pride.",
+        "H) Apple's emerging global brand is privacy; it has staked its corporate reputation, not to mention the investment of considerable technical and financial resources, on limiting the sort of mass surveillance that was uncovered by Mr. Snowden. So now, for many cases involving governmental intrusions into data, once-lonely privacy advocates find themselves fighting alongside the most powerful company in the world.",
+        "I) \"A comparison point is in the 1990s battles over encryption,\" said Kurt Opsahl, general counsel of the Electronic Frontier Foundation, a privacy watchdog group. \"Then you had a few companies involved, but not one of the largest companies in the world coming out with a lengthy and impassioned post, like we saw yesterday from Timothy Cook. Its profile has really been raised.\"",
+        "J) Apple and oilier tech companies hold another ace: the technical means to keep making their devices more and more inaccessible. Note that Apple's public opposition to the government's request is itself a hindrance to mass government intrusion. And to get at the contents of a single iPhone, the government says it needs a court order and Apple's help to write new code; in earlier versions of the iPhone, ones that were created before Apple found religion on (热衷于) privacy, the FBI might have been able to break into the device by itself.",
+        "K) You can expect that noose (束缚) to continue to tighten. Experts said that whether or not Apple loses this specific case, measures that it could put into place in the future will almost certainly be able to further limit the government's reach.",
+        "L) That is not to say that the outcome of the San Bernardino case is insignificant. As apple and several security experts have argued, an order compelling Apple to write software that gives the FBI access to the iPhone in question would establish an unsettling precedent. The order essentially asks Apple to hack its own devices, and once it is in place, the precedent could be used to justify law enforcement efforts to get around encryption technologies in other investigations far removed from national security threats.",
+        "M) Once aimed with a method for gaining access to iPhones, the government could ask to use it proactively (先发制人地), before a suspected terrorist attack—leaving Apple in a bind as to whether to comply or risk an attack and suffer a public-relations nightmare. \"This is a brand new move in the war against encryption,\" Mr. Opsahl said. \"We have had plenty of debates in Congress and the media over whether the government should have a backdoor, and this is an end run (迂回战术) around that—here they come with an order to create that backdoor.\"",
+        "N) Yet it is worth noting that even if Apple ultimately loses this case, it has plenty of technical means to close a backdoor over time. \"If they are anywhere near worth their salt as engineers, I bet they are rethinking their threat model as we speak,\" said Jonathan Zdziarski, a digital expert who studies the iPhone and its vulnerabilities.",
+        "O) One relatively simple fix, Mr. Zdziarski said, would be for Apple to modify future versions of the iPhone to require a user to enter a passcode before the phone will accept the sort of modified operating system that the FBI wants Apple to create. That way, Apple could not unilaterally introduce a code that weakens the iPhone—a user would have to consent to it.",
+        "P) \"Nothing is 100 percent hacker-proof,\" Mr. Zdziarski said, but he pointed out that the judge's order in this case required Apple to provide \"reasonable security assistance\" to unlock Mr. Farook's phone. If Apple alters the security model of future iPhones so that even its own engineers' \"reasonable assistance\" will not be able to crack a given device when compelled by the government, a precedent set in this case might lose its lasting force. In other words, even if the FBI wins this case, in the long run, it loses."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "It is a popular belief that tech companies are committed to protecting their customers' private data.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "E",
+          "explanation": "人们普遍相信,科技公司致力于保护客户的隐私数据。 [答案][E][精析]根据[定位词定位]、[核心义匹配]可知本题对应[E]段3句。该句指出人们 普遍认为科技公司会尽其所能保护个人数据。其中they(指代2句Apple,Google,Facebookandother companies)与本题中techcompanies同指,doeverythingtheycan与题中arecommittedto表意相同,故 本题实为该句的同义表达。"
+        },
+        {
+          "number": 37,
+          "stem": "The US government believes that its access to people's iPhones could be used to prevent terrorist attacks.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "M",
+          "explanation": "美国政府认为其对于人们苹果手机的访问权可用于预防恐怖袭击。 [答案][M][精析]根据[定位词定位]、[核心义匹配]可知本题对应[M]段1句。该句 proactively一词强调政府如胜诉可以要求先发制人,即基于“预防恐怖袭击”的理由要求提前查看可疑 人员的手机信息,这表明政府相信如可获取人们的手机信息,就可预防恐袭。试题中couldbeusedto prevent terrorist attacks是对to use it proactively,before a suspected terrorist attack 的同义改写。"
+        },
+        {
+          "number": 38,
+          "stem": "A federal court asked Apple to help the FBI access data in a terrorist's iPhone.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "C",
+          "explanation": "联邦法院要求苹果协助联邦调查局获取一名恐怖主义者的苹果手机里的数据。 [答案][C】[精析]根据定位词定位]、[核心义匹配]可知本题对应[C]段3句。该句介绍了联 邦法院的一项命令“要求苹果协助FBI解锁一名袭击者的手机”,而根据2句fightingfordata.··:the secretsburiedinadeadmassmurderersphone可推断,句中unlockaniPhone的目的是获取嫌犯手机 信息,故试题是对此两句核心文意的高度概括。"
+        },
+        {
+          "number": 39,
+          "stem": "Privacy advocates now have Apple fighting alongside them against government access to personal data.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "H",
+          "explanation": "隐私保护积极分子现在有苹果公司与其并肩作战,反对政府获取个人信息。 [答案][H】[精析]根据[定位词定位]、核心义匹配]可知本题对应[H]段2句。该句指出隐私 权倡导者与苹果并肩对抗政府侵犯隐私的行为。试题是对该句的同义改写,其中Apple是句中the mostpowerful companyintheworld所指对象,government accesstopersonaldata同义改写 governmental intrusions into data。 40斯诺登揭露,美国政府曾想方设法大规模地获取隐私信息。 L答案」[B」精析」根据定位词定位」、L核心义匹配」可知本题对应B」段1句。该句提到斯诺 登披露了政府从科技公司处获取隐私数据的行为,其中bothcoziedup...and hacked into...刻画了政 府想方设法、努力获取数据的嘴脸(对不同公司采取不同策略,既有明里讨好,也有暗地入侵),试题中 hadtriedhard是对该行为的准确概括。"
+        },
+        {
+          "number": 40,
+          "stem": "Snowden revealed that the American government had tried hard to access private data on a massive scale.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "B",
+          "explanation": "[答案][B] [精析]根据[定位词定位]、[核心义匹配]可知本题对应[B]段①句。该句提到斯诺登披露了政府从科技公司处获取隐私数据的行为，其中 both cozied up…and hacked into…刻画了政府想方设法、努力获取数据的嘴脸（对不同公司采取不同策略，既有明里讨好，也有暗地入侵），试题中 had tried hard 是对该行为的准确概括。"
+        },
+        {
+          "number": 41,
+          "stem": "The FBI might have been able to access private data in earlier iPhones without Apple's help.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "J",
+          "explanation": "[答案][J] [精析]根据[定位词定位]、[核心义匹配]可知本题对应[J]段末句。该句指出FBI或许有能力破解早期版本的苹果手机（无法破解较新版本手机）。试题是对该句的同义改写，其中 access private data…without Apple’s help 与句中 break into the device by itself 同义。"
+        },
+        {
+          "number": 42,
+          "stem": "After the Snowden incident, Apple made clear its position to counter government intrusion into personal data by means of encryption.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "G",
+          "explanation": "斯诺登事件之后,苹果公司通过加密的方式明确了其反抗政府侵犯个人信息的立场。 [答案][G][精析]根据[定位词定位]、[核心义匹配]可知本题对应[G]段1句。该句指出,自斯 诺登泄密事件后,苹果开始利用加密手段表明自已保护用户数据(即,反抗政府对数据的人侵)的立场。 试题中counterthegovernment'sintrusion是对句中Apple'sstance内涵的同义转述,且与2句 opposition to the government's claims相符。"
+        },
+        {
+          "number": 43,
+          "stem": "According to one digital expert, no iPhone can be entirely free from hacking.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "P",
+          "explanation": "一位数字化专家表示,没有一台苹果手机可以完全免于入侵。 [答案][P][精析]根据[定位词定位]、[核心义匹配]可知本题对应[P]段1句。该句前半句直 接引用数字化专家Zdziarski观点“没有什么能完全免受人侵”。试题是对该文意的同义改写,其中 entirely free from hacking对应1oo percent hacker-proof。"
+        },
+        {
+          "number": 44,
+          "stem": "Timothy Cook's long web post has helped enhance Apple's image.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "I",
+          "explanation": "[答案][I] [精析]根据[定位词定位]、[核心义匹配]可知本题对应[I]段②③句。两句提到苹果CEO蒂莫西·库克发布了一篇慷慨激昂的长篇帖文，提升了苹果公司的形象。③句是②句的结果和影响，题目中helped一词准确体现了两句关系，enhance Apple’s image 则对应③句 profile…raised。"
+        },
+        {
+          "number": 45,
+          "stem": "Apple's CEO has decided to appeal the federal court's order to unlock a user's iPhone.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "D",
+          "explanation": "苹果公司的CEO已决定就联邦法院要求解锁一名用户的苹果手机的判决提起上诉。 [答案」[D」[精析]根据[定位词定位」、[核心义匹配」可知本题对应[D]段1句。该句指出苹果 CEO库克宣布将对联邦法院指令提起上诉。而由上文可知,“联邦法院下达指令要求解锁一名嫌疑犯的 苹果手机”。试题是对该句的同义转述,其中Apple'sCEO指chief executive,TimothyCook。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2017-12-3-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "At the base of a mountain in Tanzania's Gregory Rift, Lake Natron burns bright red, surrounded by the remains of animals that were unfortunate enough to fall into the salty water. Bats, swallows and more are chemically preserved in the pose in which they perished, sealed in the deposits of sodium carbonate in the water. The lake's landscape is bizarre and deadly—and made even more so by the fact that it's the place where nearly 75 percent of the world's flamingos (火烈鸟)are born. The water is so corrosive that it can burn the skin and eyes of unadapted animals. Flamingos, however, are the only species that actually makes life in the midst of all that death. Once every three or four years, when conditions are right, the lake is covered with the pink birds as they stop flight to breed. Three-quarters of the world's flamingos fly over from other salt lakes in the Rift Valley and nest on salt-crystal islands that appear when the water is at a specific level—too high and the birds can't build their nests, too low and predators can move briskly across the lake bed and attack. When the water hits the right level, the baby birds are kept safe from predators by a corrosive ditch. \"Flamingos have evolved very leathery skin on their legs so they can tolerate the salt water,\" says David Harper, a professor at the University of Leicester. \"Humans cannot, and would die if their legs were exposed for any length of time.\" So far this year, water levels have been too high for the flamingos to nest. Some fish, too, have had limited success vacationing at the lake as less salty lagoons (泻湖) form on the outer edges from hot springs flowing into Lake Natron. Three species of tilapia (罗非鱼) thrive there part-time. \"Fish have a refuge in the streams and can expand into the lagoons when the lake is low and the lagoons are separate,\" Harper said. \"All the lagoons join when the lake is high and fish must retreat to their stream refuges or die.\" Otherwise, no fish are able to survive in the naturally toxic lake. This unique ecosystem may soon be under pressure. The Tanzanian government has once again started mining the lake for soda ash, used for making chemicals, glass and detergents. Although the planned operation will be located more than 40 miles away, drawing the soda ash in through pipelines, conservationists worry it could still upset the natural water cycle and breeding grounds. For now, though, life prevails—even in a lake that kills almost everything it touches."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What can we learn about Lake Natron?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is simply uninhabitable for most animals."
+            },
+            {
+              "key": "B",
+              "text": "It remains little known to the outside world."
+            },
+            {
+              "key": "C",
+              "text": "It is a breeding ground for a variety of birds."
+            },
+            {
+              "key": "D",
+              "text": "It makes an ideal habitat for lots of predators."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]A)。根据首段主旨“纳特龙湖满岸都是动物遗体、却又是火烈鸟的最大诞生地”及第二 段12句文意“纳特龙湖极具腐蚀性、会灼伤不适应的动物,而火烈鸟是唯一繁衍于此的动物”可知“多 数动物不适应纳特龙湖水质、无法栖居于此”,正确项A是对首段surroundedbytheremainsofanimals、 perished、deadly以及第二段首两句 can burn the skin and eyes of unadapted animals、Flamingos...are the onlyspeciesthat actuallymakeslife inthemidstof all thatdeath所形成的近义语义场的合理概括。 [排除干扰]B项复现首段关键词remains(遗体),却将其篡改为动词“继续存在”,且littleknown to the outsideworld与文中所述有关纳特龙湖的细节信息相。C项复现末段关键词breedinggrounds (繁殖地),但foravarietyof birds与第二段2句“火烈鸟是唯一繁衍于此的物种”相悖。D项复现第二 段关键词predators(捕食者),但anideal habitat与第二段4句“水位过低时,捕食者才能穿过河床”相 ,且与第二段2句“火烈鸟是唯一繁衍于此的物种”不符。 [提炼思路事物特征/特点题的解答关键在于区辨选项、明确选项特征分类。解题步骤主要有:1. 提取选项中心词(A)uninhabitable、B)littleknown、C)abreedingground、D)anidealhabitat)并找出选 项区辨点(是否适于栖居、是否为外界所知);2.抓取文中核心语义(或近义表达、或反义烘托)并与选项 区辨点相联结(surroundedby the remains of animals、perished、deadly、so corrosive that、inthemidst of allthatdeath均体现“纳特龙湖危险致命/不适于繁衍栖居”,theonlyspeciesthatactuallymakeslife反 向明确“对绝大多数动物而言,纳特龙湖都不适宜繁衍栖居”,结合选项区辨点即可敲定正确项A。"
+        },
+        {
+          "number": 47,
+          "stem": "Flamingos nest only when the lake water is at a specific level so that their babies can .",
+          "options": [
+            {
+              "key": "A",
+              "text": "find safe shelter more easily"
+            },
+            {
+              "key": "B",
+              "text": "grow thick feathers on their feet"
+            },
+            {
+              "key": "C",
+              "text": "stay away from predators"
+            },
+            {
+              "key": "D",
+              "text": "get accustomed to the salty water"
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]C)。第二段4句破折号前指出火烈鸟在特定水位才会筑巢,破折号后和第3句解释原 因:水位太高,火烈鸟不能筑巢;太低,捕食者能轻易穿过湖床、发动袭击;水位恰恰合适时,幼鸟被腐蚀 性水渠与捕食者隔开、可确保安全。可见,火烈鸟只在湖水处于特定水位时才筑巢的目的是为了使幼 鸟远离捕食者,正确项C是第二段末句arekeptsafefrompredators的同义转述。 [排除干扰]A项复现第二段末句safe,却将被动态arekeptsafefrompredators“被(腐蚀性沟渠)保 护以躲避捕食者”篡改为主动态find safe shelter\"主动寻找安全栖所”,且臆断出比较级“更容易”。B项 复现第三段1句leathery..legs,却借leathery“坚韧如皮革的”与feather的形似捏造出growthick feathers长出浓密羽毛”。D项复现第三段1句thesalt(y)water,却将谓语动词tolerate\"耐受”偷换为 getaccustomedto\"习惯”。 [提炼思路]第二段借助三个when从句反复强调“火烈鸟成鸟的筑巢条件”,重复即重点,本题即以 “火烈鸟在特定水位筑巢对幼鸟的好处”的形式考查“成鸟筑巢条件严苛的原因/目的”。解答时需借助 特殊符号(破折号、引号等)、特殊句式(并列句等),理解句间逻辑、把握语义重心:第二段4句破折号起 解释说明作用,且其后句式(whenthewateris)toohigh.·:(whenthewateris)toolow.,.与3句 Whenthewaterhitstherightlevel...并列,故均为对4句主干的解释“水位过高过低都不行,只有特定 水位才能保护幼鸟远离捕食者”,C项正确。提醒:有些干扰项根据“问一答”逻辑可轻易排除:本题B、D 项干扰源错位,源自第三段1句,而该句实质描述所有火烈鸟(或成鸟或幼鸟)都具备的特征(对咸水的 耐受、腿部肌肤的坚韧),这些特征与题干问题并无直接关联,由此可把题目由“四选一”变为“二选一”。"
+        },
+        {
+          "number": 48,
+          "stem": "Flamingos in the Rift Valley are unique in that .",
+          "options": [
+            {
+              "key": "A",
+              "text": "they can move swiftly across lagoons"
+            },
+            {
+              "key": "B",
+              "text": "they can survive well in salty water"
+            },
+            {
+              "key": "C",
+              "text": "they breed naturally in corrosive ditches"
+            },
+            {
+              "key": "D",
+              "text": "they know where and when to nest"
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]B)。第三段首两句引证指出火烈鸟与人的不同之处:前者已进化出能够耐受咸水的坚 韧腿部肌肤,后者则但凡接触一下威水即可毙命。正确项B是cantoleratethesaltwater的同义表达。 [排除干扰]A项moveswiftlyacross语义复现第二段4句movebrisklyacross,但将动作主体由“捕 食者”偷换为“火烈鸟/被捕食者”、将动作受体由“湖床”篡改为“泻湖”。C项复现第二段3句corrosive ditch,却将其作用“保护幼鸟免受捕食”改为“用作自然繁衍地”。D项虽契合第二段末两句所述火烈 鸟特点“在湖水达到特定水位时才筑巢”,但这是所有生物本能,无法体现其独一无二性。 [提炼思路]本题形似考查因果逻辑“火烈鸟独特的原因”(inthat),实质考查事实细节“火烈鸟的独 特之处”(unique in.·.),所以解题关键仍是典型的回文对应,查找有关unique的蛛丝马迹,解题线索可 以是任何传递unique之意的同义/近义/反义表达或句式结构:第二段中the only以及第三段中 Flamingos...can...humanscannot传递此意,而由第二段theonly处搜寻信息发现,该段仅介绍火烈鸟 在纳特龙湖的筑巢条件,并未提及其独特之处,故而锁定第三段can...cannot...处,发现“咸水耐受性 是其独特之处”。提醒:考查“独特性”的题目,可先排除“普适性/非独特性”选项,以缩小选项范围,如 D项。"
+        },
+        {
+          "number": 49,
+          "stem": "Why can certain species of tilapia sometimes survive around Lake Natron?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They can take refuge in the less salty waters."
+            },
+            {
+              "key": "B",
+              "text": "They can flee quick enough from predators."
+            },
+            {
+              "key": "C",
+              "text": "They can move freely from lagoon to lagoon."
+            },
+            {
+              "key": "D",
+              "text": "They can stand the heat of the spring water."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]A)。第四段12句首先指出某些种类的罗非鱼可以在湖中(准确指“湖边缘形成的低 盐度泻湖中”)短暂栖居;34句进而引证指出原因:除了可以在(没有咸水的)溪流中得到底护,也可以在 相隔开的低盐度泻湖中得到底护。由此可知,他们之所以能在湖边存活就是因为他们能够在湖边形成的 低盐度泻湖中找到庇护,正确项A是1句havehadlimited successvacationingatthelakeaslesssalty lagoons form on the outer edges及3句havearefuge.·.and can expand into thelagoons的合理概括。 [排除干扰]B项利用第二段末两句碎片信息predators、briskly、keptsafefrompredators设置陷阱, 但这些碎片信息实际针对火烈鸟而非罗非鱼而言,且根据第四段可知,罗非鱼要逃离的是“高盐度湖 水”而非“捕食者”。C项与第四段3句罗非鱼在湖边存活条件“相隔开的泻湖里(而非泻湖间)”相悸。 D项theheatofthespringwater复现hotsprings之意,却将罗非鱼存活原因“湖边形成的低盐度泻湖” 偷换成“高温耐受”,且文中并未提及生物的高温耐受问题。 [提炼思路]本题形似考查因果细节“为什么能A”,而由选项内容可知本题考查罗非鱼之“另一能事 (因为能B所以能A,即,能B是能A的条件)”,故本题实则考查“能A的条件”。解题时需:1.首先着重 关注定位处中有关“能/不能”的表达词,诸如limitedsuccessvacationing、canexpandintothelagoons、 Otherwise,no..survive;2.然后根据考查点对号入座,将其锁定在前两者,细究后发现两者后都伴随表 达条件的as、when从句,锁定能存活的条件:有温泉注入纳特龙湖且湖水水位较低→形成分散的低盐 度泻湖→罗非鱼在相隔开的泻湖中繁衍扩张”,就此锁定A项、排除C项。"
+        },
+        {
+          "number": 50,
+          "stem": "What may be the consequence of Tanzanian government's planned operation?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The accelerated extinction of flamingos."
+            },
+            {
+              "key": "B",
+              "text": "The change of flamingos' migration route."
+            },
+            {
+              "key": "C",
+              "text": "The overmining of Lake Natron's soda ash."
+            },
+            {
+              "key": "D",
+              "text": "The disruption of Lake Natron's ecosystem."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]D)。末段23句借环保主义者担忧指出坦桑尼亚政府规划作业的后果:破坏纳特龙湖的天 然水资源及繁殖地,正确项D是3句upsetthenaturalwatercycleandbreedinggrounds的综合概括。 [排除干扰]A项由首句maysoonbeunderpressure\"可能很快面临压力”望文生义出accelerated extinction\"加速灭绝”;且将句子主语“纳特龙湖独有的生态系统”偷换为“火烈鸟的灭绝”,而文中并未 谈及“火烈鸟的灭绝”。B项首先由3句upsetthe.·.breedinggrounds“破坏繁殖地域”捏造出为寻找新 的繁殖区域而改变迁路线”,而该句文意重心实为“纳特龙湖之于火烈鸟的繁殖环境遭到破坏”而非 “火烈鸟需要改变迁徙路线”,且文中并未谈及“火烈鸟的迁徙路线”。C项由2句“再次启动纯碱开采 (hasonceagainstarted)”臆断出“纯碱被过度开采(overmining)”,而文中并未论及纯碱过度开发问题。 [提炼思路]由题干关键词consequence明确本题考查因果逻辑关系中的“果”。解题时需:l.明确题 千所示“因”(由23句Tanzanian governmenthas...started mining...the planned operation明确the plannedoperation即指“坦桑尼亚政府开采纯碱计划”);2.回文查找因果逻辑关系词(3句itcould...中 it即指theplannedoperation;could传递因果关系,意指usedto saythatsomethingispossibleormight happen“可以,可能”);3.顺藤摸瓜,找出被考查之“果”(3句itcould后内容,即stillupsetthenatural watercycleandbreedinggrounds,也即,扰乱纳特龙湖生态环境,D项正确)。 Passage Two假忙碌成为社会地位象征 一、总体分析 来源:《纽约》杂志旗下时尚博客TheCut2016.12.19文章PretendingtoBeBusyIsaStatusSymbol (假装忙碌是一种身份象征)。主题:从反常现象“大多数人年底照常工作不休假”切入,指出“崇拜忙碌” 现象是近年知识密集型经济发展导致的,并建议不要过度忙碌,要利用周末好好休息。脉络:提出并展 示现象(第一至三段)分析现象原因(第四五段)—针对现象给出建议(第六段)。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2017-12-3-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "It is the season for some frantic last-minute math—across the country, employees of all stripes are counting backward in an attempt to figure out just how much paid time-off they have left in their reserves. More of them, though, will skip those calculations altogether and just power through the holidays into 2017: More than half of American workers don't use up all of their allotted vacation days each year. Not so long ago, people would have turned up their noses at that kind of dedication to the job. As marketing professors Silvia Bellezza, Neeru Paharia, and Anat Keinan recently explained in Harvard Business Review (HBR), leisure time was once seen as an indicator of high social status, something attainable only for those at the top. Since the middle of the 20th century, though, things have turned the opposite way—these days, punishing hours at your desk, rather than days off, are seen as the mark of someone important. In a series of several experiments, the researchers illustrated just how much we've come to admire busyness, or at least the appearance of it. Volunteers read two passages, one about a man who led a life of leisure and another about a man who was over-worked and over-scheduled; when asked to determine which of the two had a higher social status, the majority of the participants said the latter. The same held true for people who used products that implied they were short on time: In one experiment, for example, customers of the grocery-delivery service Peapod were seen as of higher status than people who shopped at grocery stores that were equally expensive; in another, people wearing wireless headphones were considered further up on the social ladder than those wearing regular headphones, even when both were just used to listen to music. In part, the authors wrote in HBR, this pattern may have to do with the way work itself has changed over the past several decades. We think that the shift from leisure-as-status to busyness-as-status may be linked to the development of knowledge-intensive economics. In such economies, individuals who possess the human capital characteristics that employers or clients value (e. g. , competence and ambition) are expected to be in high demand and short supply on the job market. Thus, by telling others that we are busy and working all the time, we are implicitly suggesting that we are sought after, which enhances our perceived status. Even if you feel tempted to sacrifice your own vacation days for fake busyness, though, at least consider leaving your weekends unscheduled. It's for your own good."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What do most employees plan to do towards the end of the year?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Go for a vacation."
+            },
+            {
+              "key": "B",
+              "text": "Keep on working."
+            },
+            {
+              "key": "C",
+              "text": "Set an objective for next year."
+            },
+            {
+              "key": "D",
+              "text": "Review the year's achievements."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]B)。该句转承1句“年底,职场人士纷纷进入带薪假清算狂乱期”指出“当中大多数根 本不做清算,而是在假期中仍然奋战在职场一线,多数人未休完带薪假”。正确项B是对will skipthose calculationsaltogetherand justpowerthroughtheholidays的正确解读。 [排除干扰]A项错将powerthroughtheholidays“在假期中奋力工作”篡改为“卖力休假”。C、D项 利用常识“年未进行年终总结、并设定下一年度目标”设置干扰,但文中并未提及相关信息。 [提炼思路]段中2句though引发语义转折,且该句句子较长、成分较多、并掺杂有理解难度较高的 表达powerthrough。而开篇转折处、理解障碍处通常为命题人考查点,故该句实际成为本题直接考点, 借此还可考查学生对全段所述现象的综合掌握。解答此类题时需借助语法知识和语义逻辑理清难句 中各成分关联,用“易理解信息”来推断“难理解的关键词”。如,首先可根据易理解信息skipthose calculationsaltogether\"根本不做清算(管它有剩没剩,工作就是)”以及并列语义关联词and可初步判断 powerthroughtheholidays指“假期中卖力工作”而非“假期中卖力休假”;然后再根据冒号(:)的解释说 明语义关联可推知冒号后内容“每年过半职员未休完带薪假”与冒号前一致,也即冒号前应该指的是 “不休假、而继续工作”。"
+        },
+        {
+          "number": 52,
+          "stem": "How would people view dedication to work in the past?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They would regard it as a matter of course."
+            },
+            {
+              "key": "B",
+              "text": "They would consider it a must for success."
+            },
+            {
+              "key": "C",
+              "text": "They would look upon it with contempt."
+            },
+            {
+              "key": "D",
+              "text": "They would deem it a trick of businessmen."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]C)。该句明确指出:不久前人们对敬业行为的态度是“之以鼻”。正确项C中look upon...withcontempt是对turneduptheirnosesat的同义改写。 [排除干扰]A项错将turneduptheirnosesat\"看不起,鄱视”篡改为“认为理所当然”。B项amust for success虽似复现2句onlyforthoseatthetop,但2句所述对象为“闲暇”,而题干所问对象为“敬业 (即忙碌)”,答非所问。D项利用第三段3句“产品服务”捏造出“商人诡计”,但该句意在说明“当前人们 对忙碌的推崇程度”而非“商人诡计多端”,也属答非所问。 [提炼思路]本题出题思路同上题(第二段首句今昔对比、且内含抽象词组turnupone'snoseat,后 续内容都是对这一对比的进一步延伸。而对比即考点,故该句实为本题直接考点,同时可由此考查对 全段主旨的把握),解答思路也大同小异,即,利用语义逻辑链条来辅助解题。而鉴于本题所考查句子 并非长句、而只是出现了一个比较抽象的表达,所以需要从其他句子人手,也即依靠句群关系来辅助答 题。即:根据时间链条once→Sincethemiddleofthe20thcentury→thesedays推断23句为一个意群, 意在借人们对敬业行为的今昔观念转变来解释1句;而借由2句“闲暇曾被视为上层人士专属品”不难 推知“过去,敬业/忙碌实为碌碌无为者的标志”,换言之,人们对待这种行为不可能是推崇、也不可能是 认为理所当然,而是更倾向于蔑视,故C项正确。 Il 国o In a series of several experiments, the researchers illustrated just how much we've come to admire busyness, or at least the appearance of it. ? Volunteers read two passages, one about a man who led a life of leisure and another about a man who was over- worked and over-scheduled; when asked to determine which of the two had a higher social status, the majority of the participants said the latter. @The same held true for people who used products that implied they were short on time: In one experiment, for example, customers of the grocery-delivery service Peapod were seen as of higher status than people who shopped at grocery stores that were equally expensive; in another, people wearing wireless headphones were considered further up on the social ladder than those wearing regular headphones, even when both were just used to listen to music. 在接连几个实验中,研究人员展 示了我们对忙碌、或者至少对忙碌的 样子到底有多崇拜。志愿者读了两 篇文章,一篇关于一个悠闲度日的 人,另一篇关于一个工作过度、日程 过紧的人;当被要求判断这两个人中 的哪个有更高的社会地位,大部分受 试对象认为是后者。这种情况同样适 用于那些使用了表明他们时间紧张的 产品的人:比如在一项实验中,使用超 市配送服务“豌豆英”的顾客的社会地 位就被认为比去杂货店购物的人更 高,尽管商品价格相同;在另一项实验 中,戴无线耳机的人所处的社会阶层 被认为比戴普通耳机的人更高,尽管 两种耳机都只是用来听音乐。 ·"
+        },
+        {
+          "number": 53,
+          "stem": "What did the researchers find through a series of experiments?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The busier one appears, the more respect one earns."
+            },
+            {
+              "key": "B",
+              "text": "The more one works, the more one feels exploited."
+            },
+            {
+              "key": "C",
+              "text": "The more knowledge one has, the more competent one will be."
+            },
+            {
+              "key": "D",
+              "text": "The higher one's status, the more vacation time one will enjoy."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]A)。第三段1句概述实验发现:人们推崇忙碌、哪怕只是忙碌的样子;23句随后以具 体实验实例加以展示:忙碌者被认为比悠闲者社会地位高,使用看似节约时间的产品的人被认为比不 使用该产品的人的地位高。由此可知,显得越忙就被认为社会地位越高,获得的尊敬也越多,正确项A 是对 admire busyness、the latter (has a higher social status)、The same held true for people who used products that implied theywere short on time的合理概括。 [排除干扰]B项feelsexploited\"感觉被剥削”很明显与admirebusyness“崇尚忙碌(即愿意忙碌)” 相悸。C项knowledge、competent虽复现第五段12句中knowledge、competence,但凭“第五段已从第 三段对现象的展示(即研究发现)过渡到对现象的原因分析”即可排除,且不说选项内容是否与文意相 符。D项虽复现第二段2句leisuretimewasonceseenasanindicatorofhighsocialstatus,但此为过去 状况,并非题干所问研究人员当前实验发现内容。 [提炼思路就实验考实验不会是出题意旨,出题意旨一般在主旨(或段落主旨、或文章主旨)。故 解答时,应将选项与主旨相连,贴合主旨者方可锁定为正确项。如本题:文章从第一段就开始铺设:大 多数人都在忙忙禄碌中度过假期、他们即便还有带薪假期也选择不休息而继续忙碌工作;第二段退而 对比过去人们对这种忙碌工作状态的看法:视,从而强调当今人们对忙碌的崇尚;第三段进而以一系 列实验佐证:人们就是崇尚忙碌、哪怕只是表面的忙碌。由此可知“忙碌”这一反反复复出现的关键词 肯定与文章主旨相关,再结合选项不难敲定A项正确。"
+        },
+        {
+          "number": 54,
+          "stem": "What may account for the change of people's attitude towards being busy?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The fast pace of life in modern society."
+            },
+            {
+              "key": "B",
+              "text": "The fierce competition in the job market."
+            },
+            {
+              "key": "C",
+              "text": "The widespread use of computer technology."
+            },
+            {
+              "key": "D",
+              "text": "The role of knowledge in modern economy."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]D)。该句明确指出:从“闲暇象征地位”到“忙碌象征地位”的转变可能与知识密集型经 济的发展有关。正确项D是对原文thedevelopmentofknowledge-intensiveeconomies的合理拆解。 [排除干扰]A、C项利用常识“现代社会,生活节奏加快、电脑技术广泛运用”设置干扰,但文中并未 提及。B项虽复现2句jobmarket,却将句意“有才能的人在就业市场很紧俏(相对雇主而言,对这一类 型人才的抢夺很激烈)”篡改为“就业市场的竞争很激烈(相对求职者而言,求职竞争压力很大)”。 [提炼思路]按照题干关键词account for明确本题考查因果逻辑中的“因”,解题时应:一、按题干回 文确定“果”(theshiftfromleisure-as-statustobusyness-as-status“人们对忙碌的态度变化”);二、在定位 处寻找因果关系逻辑词(be linked to“与...有关”,其后说明原因);三、确定所考查的“因”(the developmentofknowledge-intensiveeconomies“知识密集型经济的发展”,即知识对于经济的重要性)。"
+        },
+        {
+          "number": 55,
+          "stem": "What does the author advise us to do at the end of the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Schedule our time properly for efficiency."
+            },
+            {
+              "key": "B",
+              "text": "Plan our weekends in a meaningful way."
+            },
+            {
+              "key": "C",
+              "text": "Find time to relax however busy we are."
+            },
+            {
+              "key": "D",
+              "text": "Avoid appearing busy when we are not."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]C)。该句明确指出:不管我们多么想用假期来换取表面上的忙碌,至少也要考虑将周 末腾空。可见,作者意在强调我们不能一直处于忙碌状态,而应该找一定的时间来放松神经。正确项C 是对 consider leaving your weekends unscheduled的合理解读。 [排除干扰」A、B项Schedule、Plan很明显与定位句中unscheduled相悸,且efficiency、meaningful 并非文中论述点。D项虽复现sacrificeyourownvacationdaysforfakebusyness,却一叶障目,未看见其 前temptedto意在表达作者理解人们为何在不忙的时候要假装忙碌,though后才是作者在此基础上提 出的建议:如果不想休带薪假,那起码也得休好周末一无论如何都得找时间休息。 [提炼思路」文末段为作者针对全文所述现象的一个总体评价及相关意见建议,其间涉及多种逻辑 关系,理解起来有难度。就此设题,既可考查理解能力,亦可考查对文章的总体把握。解答时需:一、 结合文章主旨(可由关键词、关键句来推断)排查非相关选项(如,A、B项中efficiency、meaningful文中 未曾出现任何相关字眼,故而落在与关键词busy相关的C、D项);二、区分点评和建议,不可将点评偷 换为建议(如,1句中though前为综上点评“人们想要获取别人眼中的较高社会地位,禁不住为了表 面的忙碌而牺性个人假期时间一一这种现象有内在驱动性”,though后为作者建议“至少考虑不在周 末安排工作一一想假忙碌也行,但不能一直假忙碌,周末需要休息休息”,不能由点评中碎片信息“为 了表面忙碌而忙碌”断章取义出建议“不忙的时候不要假装忙碌”,且D与建议点中at least.. leaving.··unscheduled所传递出的“至少要在..时候休息休息(即,想假忙碌也行,但不能一直假忙 碌)”之意不符)。"
+        }
+      ]
+    }
+  ]
+}

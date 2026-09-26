@@ -1,0 +1,1729 @@
+{
+  "id": "cet4-2015-06-3",
+  "level": 4,
+  "year": 2015,
+  "month": 6,
+  "set": 3,
+  "title": "2015 年 6 月四级 · 第 3 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.06/%E7%9C%9F%E9%A2%98Word/2015%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E4%B8%89%EF%BC%89.doc",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2015%E5%B9%B46%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%B8%89%EF%BC%89.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2015-06-3-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "As a teacher, you could bring the community into your classroom in many ways. The parents and grandparents of your students are resources and [[36]] for their children. They can be [[37]] teachers of their own traditions and histories. Immigrant parents could talk about their country of [[38]] and why they emigrated to the United States. Parents can be invited to talk about their jobs or a community project. Parents, of course, are not the only community resources. Employees at local businesses and staff at community agencies have [[39]] information to share in classrooms. Field trips provide another opportunity to know the community. Many students don’t have the opportunity to [[40]] concerts or visit museums or historical sites except through field trips. A school district should have [[41]] for selecting and conducting field trips. Families must be made [[42]] of field trips and give permission for their children to participate. Through school projects, students can learn to be [[43]] in community projects ranging from planting trees to cleaning up a park to assisting elderly people. Students, [[44]] older ones, might conduct research on a community need that could lead to action by a city council or state government. Some schools require students to provide community service by [[45]] in a nursing home, child care center or government agency. These projects help students understand their responsibility to the larger community."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "assets"
+        },
+        {
+          "key": "B",
+          "text": "attend"
+        },
+        {
+          "key": "C",
+          "text": "aware"
+        },
+        {
+          "key": "D",
+          "text": "especially"
+        },
+        {
+          "key": "E",
+          "text": "excellent"
+        },
+        {
+          "key": "F",
+          "text": "expensive"
+        },
+        {
+          "key": "G",
+          "text": "guidelines"
+        },
+        {
+          "key": "H",
+          "text": "involved"
+        },
+        {
+          "key": "I",
+          "text": "joining"
+        },
+        {
+          "key": "J",
+          "text": "naturally"
+        },
+        {
+          "key": "K",
+          "text": "observe"
+        },
+        {
+          "key": "L",
+          "text": "origin"
+        },
+        {
+          "key": "M",
+          "text": "recruited"
+        },
+        {
+          "key": "N",
+          "text": "up-to-date"
+        },
+        {
+          "key": "O",
+          "text": "volunteering"
+        }
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "第 36 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assets"
+            },
+            {
+              "key": "B",
+              "text": "attend"
+            },
+            {
+              "key": "C",
+              "text": "aware"
+            },
+            {
+              "key": "D",
+              "text": "especially"
+            },
+            {
+              "key": "E",
+              "text": "excellent"
+            },
+            {
+              "key": "F",
+              "text": "expensive"
+            },
+            {
+              "key": "G",
+              "text": "guidelines"
+            },
+            {
+              "key": "H",
+              "text": "involved"
+            },
+            {
+              "key": "I",
+              "text": "joining"
+            },
+            {
+              "key": "J",
+              "text": "naturally"
+            },
+            {
+              "key": "K",
+              "text": "observe"
+            },
+            {
+              "key": "L",
+              "text": "origin"
+            },
+            {
+              "key": "M",
+              "text": "recruited"
+            },
+            {
+              "key": "N",
+              "text": "up-to-date"
+            },
+            {
+              "key": "O",
+              "text": "volunteering"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A) assets。【详解】名词辨析题 。空格前是连词and ,用来连接两个并列的成分。and 前面的resources 为名词,故空格处也应填入一个名词。前句中提到,作为一名老师,你可以用很多种方法把社区搬到你的教 室。父母和祖父母是孩子们的资源,且后文中又表述了他们可以教给孩子们的东西,结合resources 和备选 名词可知,assets“资产,财产”为答案。备选的名词中,guidelines 意为“指导方针”,origin 意为“起源”, 均不适合来解释父母和祖父母的角色,不符合句意,故均排除除。"
+        },
+        {
+          "number": 37,
+          "stem": "第 37 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assets"
+            },
+            {
+              "key": "B",
+              "text": "attend"
+            },
+            {
+              "key": "C",
+              "text": "aware"
+            },
+            {
+              "key": "D",
+              "text": "especially"
+            },
+            {
+              "key": "E",
+              "text": "excellent"
+            },
+            {
+              "key": "F",
+              "text": "expensive"
+            },
+            {
+              "key": "G",
+              "text": "guidelines"
+            },
+            {
+              "key": "H",
+              "text": "involved"
+            },
+            {
+              "key": "I",
+              "text": "joining"
+            },
+            {
+              "key": "J",
+              "text": "naturally"
+            },
+            {
+              "key": "K",
+              "text": "observe"
+            },
+            {
+              "key": "L",
+              "text": "origin"
+            },
+            {
+              "key": "M",
+              "text": "recruited"
+            },
+            {
+              "key": "N",
+              "text": "up-to-date"
+            },
+            {
+              "key": "O",
+              "text": "volunteering"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E) excellent。【详解】形容词辨析题。空格前是be 动词,而空格后是名词teachers,故空格处应为形 容词。除去格处的词义外,句意为:他们可以成为传授其个人传统和历史的老师。用某个形容词来修饰 teachers,备选的形容词中,只有excellent“优秀的”符合句意,故为答案。备选的形容词中,aware “意 识到的”、expensive“昂贵的”、involved“有关的”和up-to-date“最新的”均不可修饰teachers,故均排除。"
+        },
+        {
+          "number": 38,
+          "stem": "第 38 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assets"
+            },
+            {
+              "key": "B",
+              "text": "attend"
+            },
+            {
+              "key": "C",
+              "text": "aware"
+            },
+            {
+              "key": "D",
+              "text": "especially"
+            },
+            {
+              "key": "E",
+              "text": "excellent"
+            },
+            {
+              "key": "F",
+              "text": "expensive"
+            },
+            {
+              "key": "G",
+              "text": "guidelines"
+            },
+            {
+              "key": "H",
+              "text": "involved"
+            },
+            {
+              "key": "I",
+              "text": "joining"
+            },
+            {
+              "key": "J",
+              "text": "naturally"
+            },
+            {
+              "key": "K",
+              "text": "observe"
+            },
+            {
+              "key": "L",
+              "text": "origin"
+            },
+            {
+              "key": "M",
+              "text": "recruited"
+            },
+            {
+              "key": "N",
+              "text": "up-to-date"
+            },
+            {
+              "key": "O",
+              "text": "volunteering"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L) origin。【详解】固定搭配题。空格前为their country of,故空格处单词应该为修饰限定country 的名 词。country of origin 为固定搭配,意思是“起源国,原产国”,这里指的是移民的本土国,故origin“起 源”为 答案。备选的名词中,guidelines 意为“指导方针”,显然不符合句意,故排除。"
+        },
+        {
+          "number": 39,
+          "stem": "第 39 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assets"
+            },
+            {
+              "key": "B",
+              "text": "attend"
+            },
+            {
+              "key": "C",
+              "text": "aware"
+            },
+            {
+              "key": "D",
+              "text": "especially"
+            },
+            {
+              "key": "E",
+              "text": "excellent"
+            },
+            {
+              "key": "F",
+              "text": "expensive"
+            },
+            {
+              "key": "G",
+              "text": "guidelines"
+            },
+            {
+              "key": "H",
+              "text": "involved"
+            },
+            {
+              "key": "I",
+              "text": "joining"
+            },
+            {
+              "key": "J",
+              "text": "naturally"
+            },
+            {
+              "key": "K",
+              "text": "observe"
+            },
+            {
+              "key": "L",
+              "text": "origin"
+            },
+            {
+              "key": "M",
+              "text": "recruited"
+            },
+            {
+              "key": "N",
+              "text": "up-to-date"
+            },
+            {
+              "key": "O",
+              "text": "volunteering"
+            }
+          ],
+          "answer": "N",
+          "explanation": "N) up-to-date。【详解】形容词辨析题。空格前为动词have,空格后为名词information,因此该空格处应 为形容词。该句句意为:当地企业的员工或是社区机构人员都有着 信息可以在课堂中分享。根据常识 判断,和上文中提到的家长相比,企业的员工和社区机构人员能够给孩子们带来更前沿的信息,而up-to- date “最新的” 恰好符合句意,故为答案。备选的形容词中,aware “ 意识到的”、 expensive “昂贵 的”和 involved “有关的”均不符合句意,故均排除。"
+        },
+        {
+          "number": 40,
+          "stem": "第 40 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assets"
+            },
+            {
+              "key": "B",
+              "text": "attend"
+            },
+            {
+              "key": "C",
+              "text": "aware"
+            },
+            {
+              "key": "D",
+              "text": "especially"
+            },
+            {
+              "key": "E",
+              "text": "excellent"
+            },
+            {
+              "key": "F",
+              "text": "expensive"
+            },
+            {
+              "key": "G",
+              "text": "guidelines"
+            },
+            {
+              "key": "H",
+              "text": "involved"
+            },
+            {
+              "key": "I",
+              "text": "joining"
+            },
+            {
+              "key": "J",
+              "text": "naturally"
+            },
+            {
+              "key": "K",
+              "text": "observe"
+            },
+            {
+              "key": "L",
+              "text": "origin"
+            },
+            {
+              "key": "M",
+              "text": "recruited"
+            },
+            {
+              "key": "N",
+              "text": "up-to-date"
+            },
+            {
+              "key": "O",
+              "text": "volunteering"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B) attend。【详解】动词辨析题。空格前为to,根据短语have the opportunity to do sth.可知,空格处应 为动词原形。此处意思是很多学生疫有机会去参加音乐会,故attend“参加”为答案。备选的动词原形 observe 意为“观察”,不符合句意,故排除。"
+        },
+        {
+          "number": 41,
+          "stem": "第 41 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assets"
+            },
+            {
+              "key": "B",
+              "text": "attend"
+            },
+            {
+              "key": "C",
+              "text": "aware"
+            },
+            {
+              "key": "D",
+              "text": "especially"
+            },
+            {
+              "key": "E",
+              "text": "excellent"
+            },
+            {
+              "key": "F",
+              "text": "expensive"
+            },
+            {
+              "key": "G",
+              "text": "guidelines"
+            },
+            {
+              "key": "H",
+              "text": "involved"
+            },
+            {
+              "key": "I",
+              "text": "joining"
+            },
+            {
+              "key": "J",
+              "text": "naturally"
+            },
+            {
+              "key": "K",
+              "text": "observe"
+            },
+            {
+              "key": "L",
+              "text": "origin"
+            },
+            {
+              "key": "M",
+              "text": "recruited"
+            },
+            {
+              "key": "N",
+              "text": "up-to-date"
+            },
+            {
+              "key": "O",
+              "text": "volunteering"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G) guidelines 。【详解】名词辨析题。空格前为 should have,空格后为 for selecting and conducting..., 故该空格处应为名词。上文中提到了实地考察给学生们带来的好处。再根据整句句意,一个学区应该有选 择和实施实地考察的 。故guidelines“指导方针”为答案。"
+        },
+        {
+          "number": 42,
+          "stem": "第 42 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assets"
+            },
+            {
+              "key": "B",
+              "text": "attend"
+            },
+            {
+              "key": "C",
+              "text": "aware"
+            },
+            {
+              "key": "D",
+              "text": "especially"
+            },
+            {
+              "key": "E",
+              "text": "excellent"
+            },
+            {
+              "key": "F",
+              "text": "expensive"
+            },
+            {
+              "key": "G",
+              "text": "guidelines"
+            },
+            {
+              "key": "H",
+              "text": "involved"
+            },
+            {
+              "key": "I",
+              "text": "joining"
+            },
+            {
+              "key": "J",
+              "text": "naturally"
+            },
+            {
+              "key": "K",
+              "text": "observe"
+            },
+            {
+              "key": "L",
+              "text": "origin"
+            },
+            {
+              "key": "M",
+              "text": "recruited"
+            },
+            {
+              "key": "N",
+              "text": "up-to-date"
+            },
+            {
+              "key": "O",
+              "text": "volunteering"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C) aware。【详解】固定搭配题。空格前为be made,空格后为of,可以判断的是这里是被动语态,还原 成主动语态,此处应是be of,故推测空格处为形容词。固定搭配be aware of 意为“知道,有一定认 识”,符合句意,故答案为aware“意识到的”。"
+        },
+        {
+          "number": 43,
+          "stem": "第 43 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assets"
+            },
+            {
+              "key": "B",
+              "text": "attend"
+            },
+            {
+              "key": "C",
+              "text": "aware"
+            },
+            {
+              "key": "D",
+              "text": "especially"
+            },
+            {
+              "key": "E",
+              "text": "excellent"
+            },
+            {
+              "key": "F",
+              "text": "expensive"
+            },
+            {
+              "key": "G",
+              "text": "guidelines"
+            },
+            {
+              "key": "H",
+              "text": "involved"
+            },
+            {
+              "key": "I",
+              "text": "joining"
+            },
+            {
+              "key": "J",
+              "text": "naturally"
+            },
+            {
+              "key": "K",
+              "text": "observe"
+            },
+            {
+              "key": "L",
+              "text": "origin"
+            },
+            {
+              "key": "M",
+              "text": "recruited"
+            },
+            {
+              "key": "N",
+              "text": "up-to-date"
+            },
+            {
+              "key": "O",
+              "text": "volunteering"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H) involved。【详解】固定搭配题。空格前为learn to be,空格后为in community projects,故空格处应 填入一个形容词。根据句中后面部分的ranging from planting trees to cleaning up a park...可知这些都是社 区活动。固定搭配be Involved in 意为“参与”,符合句意,故答案为involved“有关的”。备选的形容词 expensive“昂贵的”不符合句意,故排除。"
+        },
+        {
+          "number": 44,
+          "stem": "第 44 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assets"
+            },
+            {
+              "key": "B",
+              "text": "attend"
+            },
+            {
+              "key": "C",
+              "text": "aware"
+            },
+            {
+              "key": "D",
+              "text": "especially"
+            },
+            {
+              "key": "E",
+              "text": "excellent"
+            },
+            {
+              "key": "F",
+              "text": "expensive"
+            },
+            {
+              "key": "G",
+              "text": "guidelines"
+            },
+            {
+              "key": "H",
+              "text": "involved"
+            },
+            {
+              "key": "I",
+              "text": "joining"
+            },
+            {
+              "key": "J",
+              "text": "naturally"
+            },
+            {
+              "key": "K",
+              "text": "observe"
+            },
+            {
+              "key": "L",
+              "text": "origin"
+            },
+            {
+              "key": "M",
+              "text": "recruited"
+            },
+            {
+              "key": "N",
+              "text": "up-to-date"
+            },
+            {
+              "key": "O",
+              "text": "volunteering"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D) especially。【详解】副词辨析题。空格所在处为插入语,因此可以由其后的形容词older 判断此处 应填入副词。分析句意可知,students 显然是一个大的范围,而older ones 则为其中一个部分,因此是在具 体举例或是特殊强调,只有especially“尤其”能够起到这样的作用,由此确定答案。备选副词naturally “自然地” 不符合句意,故排除。"
+        },
+        {
+          "number": 45,
+          "stem": "第 45 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assets"
+            },
+            {
+              "key": "B",
+              "text": "attend"
+            },
+            {
+              "key": "C",
+              "text": "aware"
+            },
+            {
+              "key": "D",
+              "text": "especially"
+            },
+            {
+              "key": "E",
+              "text": "excellent"
+            },
+            {
+              "key": "F",
+              "text": "expensive"
+            },
+            {
+              "key": "G",
+              "text": "guidelines"
+            },
+            {
+              "key": "H",
+              "text": "involved"
+            },
+            {
+              "key": "I",
+              "text": "joining"
+            },
+            {
+              "key": "J",
+              "text": "naturally"
+            },
+            {
+              "key": "K",
+              "text": "observe"
+            },
+            {
+              "key": "L",
+              "text": "origin"
+            },
+            {
+              "key": "M",
+              "text": "recruited"
+            },
+            {
+              "key": "N",
+              "text": "up-to-date"
+            },
+            {
+              "key": "O",
+              "text": "volunteering"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O) volunteering。【详解】空格前是by,空格后是in a nursing home,故推测此处应填入动词的现在分词 形式。该句前半部分为学校要求学生提供社区服务,而后半部分具体列举在养老院、幼儿托管所或是政府 机构,根据常识判断,学生在这几个地方提供的一般都是志愿者服务,因此volunteering“自愿(做 某 事)”,符合句意,故为答案。备选的动名词中,joining 意为“加入”,但是join in 意思是“加入,参加”, 不符合句意,故排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2015-06-3-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Since Steve Jobs resigned as chief executive of Apple, much has been said about him as a peerless business leader who has created immense wealth for shareholders, and guided the design of hit products that are transforming entire industries, like music and mobile communications.",
+        "B) All true, but let’s think different, to borrow the Apple marketing slogan of years back. Let’s look at Mr. Jobs as a role model.",
+        "C) Above all, he is an innovator (创新者). His creative force is seen in products such as the iPod, iPhone, and iPad, and in new business models for pricing and distributing music and mobile software online. Studies of innovation come to the same conclusion : you can’t engineer innovation, but you can increase the odds of it occurring. And Mr. Jobs’ career can be viewed as a consistent pursuit of improving those odds, both for himself and the companies he has led. Mr. Jobs, of course, has enjoyed singular success. But innovation, broadly defined, is the crucial ingredient in all economic progress—higher growth for nations, more competitive products for companies, and more prosperous careers for individuals. And Mr. Jobs, many experts say, exemplifies what works in the innovation game.",
+        "D) “ We can look at and learn from Steve Jobs what the essence of American innovation is,” says John Kao, an innovation consultant to corporations and governments. Many other nations, Mr. John Kao notes, are now ahead of the United States in producing what are considered the raw materials of innovation. These include government financing for scientific research, national policies to support emerging industries, educational achievement, engineers and scientists graduated, even the speeds of Internet broadband service.",
+        "E) Yet what other nations typically lack, Mr. Kao adds, is a social environment that encourages diversity, experimentation, risk-taking, and combining skills from many fields into products that he calls “ recombinant mash-ups ( 打碎重组 ),” like the iPhone, which redefined the smartphone category. “The culture of other countries doesn’t support the kind of innovation that Steve Jobs exemplifies, as America does,” Mr. John Kao says.",
+        "F) Workers of every rank are told these days that wide-ranging curiosity and continuous learning are vital to thriving in the modem economy. Formal education matters, career counselors say, but real- life experience is often even more valuable.",
+        "G) An adopted child, growing up in Silicon Valley, Mr. Jobs displayed those traits early on. He was fascinated by electronics as a child, building Heath kit do-it-yourself projects, like radios. Mr. Jobs dropped out of Reed College after only a semester and traveled around India in search of spiritual enlightenment, before returning to Silicon Valley to found Apple with his friend, Stephen Wozniak, an engineering wizard (奇才). Mr. Jobs was forced out of Apple in 1985, went off and founded two other companies, Next and Pixar, before returning to Apple in 1996 and becoming chief executive in 1997.",
+        "H) His path was unique, but innovation experts say the pattern of exploration is not unusual. “It’s often people like Steve Jobs who can draw from a deep reservoir of diverse experiences that often generate breakthrough ideas and insights,” says Hal Gregersen, a professor at the European Institute of Business Administration.",
+        "I) Mr. Gregersen is a co-author of a new book, The Innovator's DNA, which is based on an eight-year study of 5000(创业者)and executives worldwide. His two collaborators and co-authors are Jeff Dyer, a professor at Brigham Young University, and Clayton Christensen, a professor at the Harvard Business School, whose 1997 book The Innovators Dilemma popularized the concept of (颠覆性的)innovation. ”",
+        "J) The academics identify five traits that are common to the disruptive innovators: questioning, experimenting, observing, associating and networking. Their bundle of characteristics echoes the ceaseless curiosity and willingness to take risks noted by other experts. Networking, Mr. Hal Gregersen explains, is less about career-building relationships than a consistent search for new ideas. Associating, he adds, is the ability to make idea-producing connections by linking concepts from different disciplines.",
+        "K) “Innovators engage in these mental activities regularly,” Mr. Gregersen says. “It’s a habit for them Innovative companies, according to the authors, typically enjoy higher valuations in the stock market, which they call an “innovation premium (溢价).” It is calculated by estimating the share of a company’s value that cannot be accounted for by its current products and cash flow. The innovation premium tries to quantify(量化)investors’ bets that a company will do even better in the future because of innovation.",
+        "L) Apple, by their calculations, had a 37 percent innovation premium during Mr. Jobs’ first term with the company. His years in exile resulted in a 31 percent innovation discount. After his return, Applet fortunes improved gradually at first, and improved markedly starting in 2005, yielding a 52 percent innovation premium since then.",
+        "M) There is no conclusive proof, but Mr. Hal Gregersen says it is unlikely that Mr. Jobs could have reshaped industries beyond computing, as he has done in his second term at Apple, without the experience outside the company, especially at Pixar—the computer-animation (动画制作)studio that created a string of critically and commercially successful movies, such as “Toy Story” and “Up.”",
+        "N) Mr. Jobs suggested much the same thing during a commencement address to the graduating class at Stanford University in 2005. “It turned out that getting fired from Apple was the best thing that could have ever happened to me,” he told the students. Mr. Jobs also spoke of perseverance (坚持)and will power. “Sometimes life hits you in the head with a brick,” he said. “Don’t lose faith. ”",
+        "O) Mr. Jobs ended his commencement talk with a call to innovation, both in one’s choice of work and in one’s life. Be curious, experiment, take risks, he said to the students. His advice was emphasized by the words on the back of the final edition of The Whole Earth Catalog, which he quoted Stay hungry. Stay foolish. ” “And, Mr. Jobs said, “I have always wished that for myself. And now, as you graduate to begin anew, I wish that for you."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "Steve Jobs called on Stanford graduates to innovate in his commencement address.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "O",
+          "explanation": "Steve Jobs called on Stanford graduates to innovate in his commencement address. O)。【译文】史蒂夫•乔布斯在毕业典礼 致辞中倡导斯坦福的毕业生要创新。 【精析】该段第一句指出乔布斯先生通过对创新的呼吁结束了典礼致辞,根据上文可知,这是在斯坦福大 学的毕业典礼上,因此题干是对定位段画线部分的同义转述,故答案为O)。"
+        },
+        {
+          "number": 47,
+          "stem": "Steve Jobs considered himself lucky to have been fired once by Apple.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "N",
+          "explanation": "Steve Jobs considered himself lucky to have been fired once by Apple. N)。【译文】史蒂夫•乔布斯认为自己经被苹果公司辞退是幸运的。 【精析】文章N)段第二句引用乔布斯的原话:“事实证明被苹果公司辞退是我遇到的最好的事情了。”题 干与 该段的画线部分的意思一致,故答案为N)。"
+        },
+        {
+          "number": 48,
+          "stem": "Steve Jobs once used computers to make movies that were commercial hits.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "M",
+          "explanation": "Steve Jobs once used computers to make movies that were commercial hits. M)。【译文】史蒂夫•乔布斯曾经用电脑 制作的电影是商业力作。 【精析】文章M)段中侧重于介绍乔布斯在离开苹果公司的时间里积累的经验,画线部分提到他在动画制作 工作室里用电脑创作了成功的商业电影,题干中的commercial hits 是原文中的commercially successful movies 的同义转换,故答案为M)。"
+        },
+        {
+          "number": 49,
+          "stem": "Many governments have done more than the US government in providing the raw materials for innovation.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "D",
+          "explanation": "Many governments have done more than the US government in providing the raw materials for innovation. D)。【译文】很多政府比美国政府在 为创新提供原材料方面做得更多。 【精析】文章D)段画线部分提到了 many other nations 和the United States,指出很多其他国家在生产创新的 原材料方面领先于美国。题干与该处意思一致,故答案为D)。"
+        },
+        {
+          "number": 50,
+          "stem": "Great innovators are good at connecting concepts from various academic fields.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "J",
+          "explanation": "Great innovators are good at connecting concepts from various academic fields. J)。【译文】伟大的创新者善于把不同学术领域的概念联系在一起。 【精析】文章J)段主要阐述颠覆性创新者的特点,也就是伟大的创新者的特点。最后一句提到,联想指的 是通过将不同学科的概念联系到一起,从而形成能够产生新想法的关联的能力。题干中的various academic fields 对应原文画线部分的different disciplines,故答案为J)。"
+        },
+        {
+          "number": 51,
+          "stem": "Innovation is vital to driving economic progress.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Innovation is vital to driving economic progress. C)。【译文】创新对于驱动经济发展至关重要。 【精析】该该段定位句指出,创新,广泛地定义为所有经济进步的关键要素。题干中的vital 对应原文中的 crucial,故答案为C)。"
+        },
+        {
+          "number": 52,
+          "stem": "America has a social environment that is particularly favorable to innovation.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "E",
+          "explanation": "America has a social environment that is particularly favorable to innovation. E) 。【译文】美国有着特别有利于创 新的社会环境。 【精析】文章E)段将美国和其他国家进行对比,着重强调的是美国的社会环境对于创新的有利性,指出其 他国家明显缺少的是一种鼓励多样性、实验、冒险和把多种不同领域的技能融入到产晶之中的“打碎重 组”的社会环境。其他国家的文化并不会像美国那样支持乔布斯所示范的创新。题干中的favorable 对应原 文中的 encourages,题干是对该段内容的同义转述,故答案为E)。"
+        },
+        {
+          "number": 53,
+          "stem": "Innovative ideas often come from diverse experiences.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "H",
+          "explanation": "Innovative ideas often come from diverse experiences. H)。【译文】创新的想法经常来自于 不同的经历。 【精析】该段画线部分提到,通常正是像乔布斯这样可以从多种经历中有所借鉴的人才能经常产生突破性 的想法和见解。题干中的come from 对应原文中的draw from,题干中的innovative ideas 是原文 breakthrough ideas 的同义转述,故答案为H)。"
+        },
+        {
+          "number": 54,
+          "stem": "Real-life experience is often more important than formal education for career success.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "F",
+          "explanation": "Real-life experience is often more important than formal education for career success. F)。【译文】在成功的职业发展中,真实的生活经历通常比正规教育更重要。 【精析】该段画线部分提到,正规教育很重要,但是真实的生活经历通常甚至更有价值,且做出这个结论 的是职业顾问,因此是对于成功的职业发展而言的。题干与该部分所表达的意思一致,故答案为F)。"
+        },
+        {
+          "number": 55,
+          "stem": "Applet fortunes suffered from an innovation discount during Jobs’ absence.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "L",
+          "explanation": "Applet fortunes suffered from an innovation discount during Jobs’ absence. L)。【译文】苹果公司的资产在乔布斯离开期间 遭遇了创新折价。 【精析】详解该段主要是讲乔布斯对苹果公司创新溢价的重要性。画线部分提到,他离开的时间里发生了 31%的创新折价。题干中的absence 对应原文中的in exile,故答案为L)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2015-06-3-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Junk food is everywhere. We’re eating way too much of it. Most of us know what we’re doing and yet we do it anyway. So here’s a suggestion offered by two researchers at the Rand Corporation : Why not take a lesson from alcohol control policies and apply them to where food is sold and how it’s displayed? “Many policy measures to control obesity(肥胖症)assume that people consciously and rationally choose what and how much they eat and therefore focus on providing information and more access to healthier foods,” note the two researchers. “In contrast,” the researchers continue, “ many regulations that don’t assume people make rational choices have been successfully applied to control alcohol, a substance—like food—of which immoderate consumption leads to serious health problems. ’’ The research references studies of peopled behavior with food and alcohol and results of alcohol restrictions, and then lists five regulations that the researchers think might be promising if applied to junk foods. Among them: Density restrictions: licenses to sell alcohol aren’t handed out unplanned to all comers but are allotted (分配) based on the number of places in an area that already sell alcohol. These make alcohol less easy to get and reduce the number of psychological cues to drink. Similarly, the researchers say, being presented with junk food stimulates our desire to eat it. So why not limit the density of food outlets, particularly ones that sell food rich in empty calories? And why not limit sale of food in places that aren5t primarily food stores? Display and sales restrictions: California has a rule prohibiting alcohol displays near the cash registers in gas stations, and in most places you can’t buy alcohol at drive-through facilities. At supermarkets, food companies pay to have their wares in places where they’re easily seen. One could remove junk food to the back of the store and ban them from the shelves at checkout lines. The other measures include restricting portion sizes, taxing and prohibiting special price deals for junk foods, and placing warning labels on the products."
+      ],
+      "questions": [
+        {
+          "number": 56,
+          "stem": "What does the author say about junk food?",
+          "options": [
+            {
+              "key": "A",
+              "text": "People should be educated not to eat too much."
+            },
+            {
+              "key": "B",
+              "text": "It is widely consumed despite its ill reputation."
+            },
+            {
+              "key": "C",
+              "text": "Its temptation is too strong for people to resist."
+            },
+            {
+              "key": "D",
+              "text": "It causes more harm than is generally realized."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位:由题干中的 junk food 定位到文章首段:Junk food is everywhere. We’re eating way too much of it...and yet we do it anyway. 详解:事实细节题。文章第一段提到了对垃圾食品的评价:垃圾食品无处不在。我们吃得实在是太多了。我 们中的大多数人都明明知道自己在做什么,但是还依然这么做。由此可知,垃圾食品虽然名声不好,但却 被广泛消费。B)中的it is widely consumed 为该段前两句的同义转述,故答案为B)。 点睛:A)“应该教育人们不要吃太多”,原文未提及,故排除;C)“它的诱惑太大,以至于人们难以抵 制”为本题的强干扰选项,原文并未着重说明垃圾食品诱惑大,而是指出由于它无处不在,所以人们才吃 得太多,故排除;D) “它的害处比人们普遍意识到的还要多”,原文中未提及,故排除。"
+        },
+        {
+          "number": 57,
+          "stem": "What do the Rand researchers think of many of the policy measures to control obesity?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They should be implemented effectively."
+            },
+            {
+              "key": "B",
+              "text": "They provide misleading information."
+            },
+            {
+              "key": "C",
+              "text": "They are based on wrong assumptions."
+            },
+            {
+              "key": "D",
+              "text": "They help people make rational choices."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定位:由题干中的 Rand reseturchers 和 control obesity 定位到文章第三段:“Many policy measures to control (肥胖症)assume that people consciously and rationally choose what and how much they eat and...,note the two researchers. 详解:推理判断题。文章第三段提到,很多控制肥胖症的政策都是假定人们能够有意识并理性地选择吃什 么、吃多少;接下来第四段提到,很多没有假定人们会做出理性选择的规章条例已成功地应用于酒精管 控。根据转折词in contrast 可以推断,很多控制肥胖症的政策是失败的,原因在于其假定错误,故答案为 C)。 点睛: A)“它们应该被有效执行”,原文未提及,且文章第三、四段提到控制肥胖症的政策失败是因为措 施不当,并非执法不严,故排除;B) “它们提供了误导性信息”,第三段后半句提到,控制肥胖症的政策 措施重点在于提供有关健康食品的信息,未提及信息是误导性的,故排除;D)“它们帮助人们做出理性 的选择”,第四段提到,很多没有假定人们会做出理性选择的规章条例已成功地应用于酒精管控,可见, 并非控制肥胖症的措施帮助人们做出理性的选择,故排除。"
+        },
+        {
+          "number": 58,
+          "stem": "Why do policymakers of alcohol control place density restrictions?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Few people are able to resist alcohol’s temptations."
+            },
+            {
+              "key": "B",
+              "text": "There are already too many stores selling alcohol."
+            },
+            {
+              "key": "C",
+              "text": "Drinking strong alcohol can cause social problems."
+            },
+            {
+              "key": "D",
+              "text": "Easy access leads to customers’ over-consumption."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位:由题干中的 density restrictions 定位到文章第六段:Density restrictions: licenses to sell alcohol...These make alcohol less easy to get and reduce the number of psychological cues to drink. 详解:推理判断题。文章第六段指出,售酒许可证是基于某一地区现有售酒场所的数量进行分配的,这使人 们不那么容易买到酒,以此减少饮酒的心理暗示。由此得知,限酒条例制定者之所以要实行密度限制,是 因为人们能够买到酒的场所越多,饮酒的心理暗示会增加,从而导致人们会喝更多的酒,故答案为D)。 点睛:A) “很少有人能够抵制酒精的诱惑”、B) “已经有太多卖酒的商店了”和C) “喝烈酒会引起 社会问题”均未在原文中提及,故排除。"
+        },
+        {
+          "number": 59,
+          "stem": "What is the purpose of California’s rule about alcohol display in gas stations?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To effectively limit the density of alcohol outlets."
+            },
+            {
+              "key": "B",
+              "text": "To help drivers to give up the habit of drinking."
+            },
+            {
+              "key": "C",
+              "text": "To prevent possible traffic jams in nearby areas."
+            },
+            {
+              "key": "D",
+              "text": "To get alcohol out of drivers’ immediate sight."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位:由题干中的California 和in gas stations 定位到文章最后一段第一句:Display and sales restrictions: California has a rule prohibiting alcohol displays near the cash registers in gas stations, and in most places you can’t buy alcohol at drive-through facilities. 详解:推理判断题。根据最后一段第一句可知,加利福尼亚州规定加油站不得将酒类摆放在收银台附近, 是实行酒类摆放与出售限制的例子,根据整篇文章可知,此规定的根本目的是减少人们看见酒类的机会, 故答案为D)。 点睛:A)“以有效限制酒类销售商店的密度'此选项为限制酒类销售的措施,但并非加利福尼亚州限酒条例 的目的,故排除;B) “以帮助司机戒除饮酒的习惯'文章通篇论述如何减少对酒樂和垃圾食品的消费,而 非戒除饮酒习惯,故排除;C) “以防止附近地区可能产生的交通堵塞”未在文中提及,故排除。"
+        },
+        {
+          "number": 60,
+          "stem": "What is the general guideline the Rand researchers suggest about junk food control?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Guiding people to make rational choices about food."
+            },
+            {
+              "key": "B",
+              "text": "Enhancing people’s awareness of their own health."
+            },
+            {
+              "key": "C",
+              "text": "Borrowing ideas from alcohol control measures."
+            },
+            {
+              "key": "D",
+              "text": "Resorting to economic, legal and psychological means."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定位:由题干中的 Rand researchers 定位到文章第备段:So here’s a suggestion offered by two researchers at the Rand Corporation: Why not take a lesson from alcohol control policies and apply them to where food is sold and how it’s displayed? 详解:推理判断题。题干问的是兰德公司研究人员对于控制垃圾食品的建议的总体方针(general guideline) 是什么。文章第一段指出垃圾食品无处不在这一现象,第二段指出兰德公司两名研究人员针对此现象给出 的建议:为什么不借鉴控酒政策?后面几段具体论述减少垃圾食品消费的两项措施,由此得知,文章结构为 由整体到部分,控制垃圾食品的总体方针出现在文章第二段。C)中的borrowing ideas from 为原文中take a lesson from 的同义转述,故答案为C)。 点睛:A)“引导人们对食品做出理性的选择”,这不是控制垃圾食品消费的总体方针,故排除;B) “提 升人们对自身健康的意识”和D)“求助无经济、耷法和心理措施”均未在文中提及,故排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2015-06-3-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Kodak’s decision to file for bankruptcy (破产)protection is a sad, though not unexpected, turning point for a leading American corporation that pioneered consumer photography and dominated the film market for decades, but ultimately failed to adapt to the digital revolution. Although many attribute Kodak’s downfall to “complacency ( 自满)”that explanation doesn’t acknowledge the lengths to which the company went to reinvent itself. Decades ago, Kodak anticipated that digital photography would overtake film—and in fact, Kodak invented the first digital camera in 1975—but in a fateful decision, the company chose to shelf its new discovery to focus on its traditional film business. It wasn’t that Kodak was blind to the future, said Rebecca Henderson, a professor at Harvard Business School, but rather that it failed to execute on a strategy to confront it. By the time the company realized its mistake, it was too late. Kodak is an example of a firm that was very much aware that they had to adapt, and spent a lot of money trying to do so, but ultimately failed. Large companies have a difficult time switching to new markets because there is a temptation to put existing assets into the new businesses. Although Kodak anticipated the inevitable rise of digital photography, its corporate(企业的)culture was too rooted in the successes of the past for it to make the clean break necessary to fully embrace the future. They were a company stuck in time. Their history was so important to them. Now their history has become a liability. Kodak’s downfall over the last several decades was dramatic. In 1976, the company commanded 90% of the market for photographic film and 85% of the market for cameras. But the 1980s brought new competition from Japanese film company Fuji Photo, which undermined Kodak by offering lower prices for film and photo supplies. Kodak’s decision not to pursue the role of official film for the 1984 Los Angeles Olympics was a major miscalculation. The bid went instead to Fuji, which exploited its sponsorship to win a permanent foothold in the marketplace."
+      ],
+      "questions": [
+        {
+          "number": 61,
+          "stem": "What do we learn about Kodak?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It went bankrupt all of a sudden."
+            },
+            {
+              "key": "B",
+              "text": "It is approaching its downfall."
+            },
+            {
+              "key": "C",
+              "text": "It initiated the digital revolution in the film industry."
+            },
+            {
+              "key": "D",
+              "text": "It is playing the dominant role in the film market."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位: 由题干中的 Kodak 和选项中的 bankrupt, digital revolution 和 the dominant role in the film market 定位到文章第一段:Kodak’s decision to file for bankruptcy(破产)protection is a sad,though not unexpected, turning point for a leading American corporation that pioneered consumer photography and dominated the film market for decades, but ultimately failed to adapt to the digital revolution. 详解:推理判断题。第一段第一句指出,柯达公司申请破产保护的决定虽然并不出乎意料,但对这个领先 的美国公司来说是一个令人伤心的转折点。本段最后一句也提到柯达公司未能适应数字化革命这一发展趋 势。由此可见,柯达公司正在走向衰落,故答案为B)。 点睛: 文章开头提到柯达公司决定申请破产保护,由此推断它还没有正式破产,故排除A)“它突然破产 了”;文章第一段最后提到柯达公司未能适应数字化革命这一发展趋势,因此C) “它发起了胶片行业的 数字变革”不符合原文意思,可以排除;文中提到,柯达公司在过去长达几十年的时间里占据着胶片 市场 的主导地位,并非指现在的情况,故排除D) “它在胶片市场正处于主导地位”。"
+        },
+        {
+          "number": 62,
+          "stem": "Why does the author mention Kodak’s invention of the first digital camera?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To show its early attempt to reinvent itself."
+            },
+            {
+              "key": "B",
+              "text": "To show its effort to overcome complacency."
+            },
+            {
+              "key": "C",
+              "text": "To show its quick adaptation to the digital revolution."
+            },
+            {
+              "key": "D",
+              "text": "To show its will to compete with Japan’s Fuji Photo."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。定位:由题干中的 Kodak’s invention of the first digital camera 定位到文章第二段:...that explanation doesn’t acknowledge the lengths to which the company went to reinvent itself...and in fact, Kodak invented the first digital camera in 1975... 详解: 推理判断题。文章第二段一开始指出,尽管很多人将柯达的衰落归因于它的“自满”,但是这个解 释掩盖了柯达公司为了改造自己而做出的长期努力。接下来作者用柯达发明了第一台数码相机来例证柯达 在自我改造上的尝试,A) “为了表明它早期为了改造自己所做的努力”符合题意,故为答案。 点睛:B)“为了表明它为了克服自满所做的努力”和D)“为了表明它愿意与日本的富士胶片竞争” 均和 原文意思不符,故排除;第一段最后一句指出,柯达公司最终未能适应数字化革命这一发展趋势,因此C) “为了表明它快速适应数字化革命”在语义上与之相悖,可以排除。"
+        },
+        {
+          "number": 63,
+          "stem": "Why do large companies have difficulty switching to new markets?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They find it costly to give up their existing assets."
+            },
+            {
+              "key": "B",
+              "text": "They tend to be slow in confronting new challenges."
+            },
+            {
+              "key": "C",
+              "text": "They are unwilling to invest in new technology."
+            },
+            {
+              "key": "D",
+              "text": "They are deeply stuck in their glorious past."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位:由题干中的large companies 和switching to new markets 定位到文章第四段第二句:Large companies have a difficult time switching to new markets because there is a temptation to put existing assets into the new businesses. 详解:推理判断题。文章第四段第二句提到,大公司很难转向新市场,因为把现有的资产投放到新业务上 是要经受住一定诱惑的。接着文章第五段用柯达的事例继续指出,它的企业文化过于沉溺于过去的辉煌, 以至于它无法彻底脱离过去,也就无法全力迎接未来,故答案为D)。 点睛:A) 它们发现放弃现有的资产代价巨大”,原文中没有提及,故排除;文中第四段提到柯达公司意识 到必须适应未来,并且花了大量的金钱去尽力这样做,并且第二段提到柯达公司发明了第一台数码照相机, 可见柯达公司在应对新挑战方面反应并不慢,而且也进行了大量的投资,故排除B) “它们倾 向于在应对 新挑战方面反应迟钝”和C)“它们不愿意投资新技术”。"
+        },
+        {
+          "number": 64,
+          "stem": "What does the author say Kodak’s history has become?",
+          "options": [
+            {
+              "key": "A",
+              "text": "A burden."
+            },
+            {
+              "key": "B",
+              "text": "A mirror."
+            },
+            {
+              "key": "C",
+              "text": "A joke."
+            },
+            {
+              "key": "D",
+              "text": "A challenge."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。定位:由题干中的 Kodak’s history has become 定位到文章第五段最后两句:Their history was so important to them. Now their histoiy has become a liability. 详解:事实细节题。文章第五段指出,柯达公司沉溺于过去辉煌的企业文化,使它无法彻底脱离过去。它 的历史对它来说是如此重要,以至于现在它的历史已经成为了一种负担。定位句中的liability 意为“负担, 债务”,与burden 意思相近,故答案为A)。 点睛:B) “一面镜子”、C) “一个笑话”和D) “一个挑战”均与原文不符,故排除。"
+        },
+        {
+          "number": 65,
+          "stem": "What was Kodak’s fatal mistake?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Its blind faith in traditional photography."
+            },
+            {
+              "key": "B",
+              "text": "Its failure to see Fuji Photo’s emergence."
+            },
+            {
+              "key": "C",
+              "text": "Its refusal to sponsor the 1984 Olympics."
+            },
+            {
+              "key": "D",
+              "text": "Its overconfidence in its corporate culture."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定位:由题干中的Kodak’s fatal mistake 定位到文章最后一段第四句:Kodak’s decision not to pursue the role of official film for the 1984 Los Angeles Olympics was a major miscalculation. 详解:事实细节题。文章最后一段提到,柯达公司决定不寻求成为1984 年洛杉矶奥运会的官方胶片赞助商, 这是它的一个重大决策失误,而它的竞争对手富士胶片获得了竞标,并利用这次赞助在市场上赢得了永久 的立足点,故答案为C)。 点睛:A)“盲目相信传统的摄影术”、B)“没有看到富士胶片的崛起”和D) “对公司文化过度自信” 均 未在原文中提及,故排除。"
+        }
+      ]
+    }
+  ]
+}

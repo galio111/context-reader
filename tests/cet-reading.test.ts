@@ -1,6 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync, readdirSync } from "node:fs";
+import { createHash } from "node:crypto";
 import { mergeCetAttempt, normalizeCetAttempt } from "../lib/cetProgress";
 import type { CetAttempt, CetPaper } from "../types/cet";
 const attempt = (patch: Partial<CetAttempt> = {}): CetAttempt => ({
@@ -86,15 +87,16 @@ test("catalogue ships complete reading papers with answers and explanations, exc
   const files = readdirSync(dir).filter((name) =>
     /^cet[46]-.*\.json$/.test(name),
   );
-  assert.equal(files.length, 53);
+  assert.equal(files.length, 149);
   for (const name of files) {
     const p = JSON.parse(readFileSync(new URL(name, dir), "utf8")) as CetPaper;
     assert.ok(!(p.level === 4 && p.year === 2026));
     assert.equal(p.sections.length, 4);
     const numbers = p.sections.flatMap((s) => s.questions.map((q) => q.number));
+    assert.ok(numbers[0] === 26 || numbers[0] === 36, `${name} invalid source numbering`);
     assert.deepEqual(
       numbers,
-      Array.from({ length: 30 }, (_, i) => i + 26),
+      Array.from({ length: 30 }, (_, i) => i + numbers[0]),
     );
     for (const s of p.sections) {
       assert.ok(s.paragraphs.length);
@@ -129,11 +131,11 @@ test("catalogue ships complete reading papers with answers and explanations, exc
   }
 });
 
-test("five-year coverage separates missing answers from incomplete reading order", () => {
+test("full-archive coverage separates missing answers from incomplete reading order", () => {
   const dir = new URL("../data/cet/", import.meta.url);
   const coverage = JSON.parse(readFileSync(new URL("coverage.json", dir), "utf8"));
   const catalogue = JSON.parse(readFileSync(new URL("catalog.json", dir), "utf8")) as CetPaper[];
-  assert.deepEqual([...new Set(catalogue.map((p) => p.year))].sort(), [2022, 2023, 2024, 2025, 2026]);
+  assert.deepEqual([...new Set(catalogue.map((p) => p.year))].sort(), Array.from({ length: 14 }, (_, i) => 2013 + i));
   for (const id of [...coverage.missingAnswers, ...coverage.incompleteReadingOrder, ...Object.keys(coverage.sharedReading)])
     assert.ok(!catalogue.some((p) => p.id === id), id);
   for (const id of Object.values(coverage.sharedReading))
@@ -158,4 +160,34 @@ test("five-year coverage separates missing answers from incomplete reading order
         assert.ok(!/解析册|结构框图|参考译文|网站上一篇标题/.test(q.explanation || ""), `${p.id} Q${q.number}`);
     }
   }
+});
+
+test("archive expansion preserves existing papers and ships only paired, bounded reading data", () => {
+  const dir = new URL("../data/cet/", import.meta.url);
+  const audit = JSON.parse(readFileSync(new URL("archive-audit.json", dir), "utf8"));
+  const manifest = JSON.parse(readFileSync(new URL("source-manifest.json", dir), "utf8"));
+  const sources = new Set(manifest.files.map((file: { path: string }) => file.path));
+  assert.equal(Object.keys(audit.existingPaperSha256).length, 53);
+  assert.equal(audit.addedPapers.length, 96);
+  for (const [name, expected] of Object.entries(audit.existingPaperSha256))
+    assert.equal(createHash("sha256").update(readFileSync(new URL(name, dir))).digest("hex"), expected, name);
+  const fingerprints = new Set<string>();
+  for (const added of audit.addedPapers) {
+    const bytes = readFileSync(new URL(`${added.id}.json`, dir));
+    assert.equal(createHash("sha256").update(bytes).digest("hex"), added.sha256);
+    assert.ok(bytes.length < 100_000, `${added.id}: unbounded paper payload`);
+    const paper = JSON.parse(bytes.toString("utf8")) as CetPaper;
+    for (const url of [paper.source, paper.answerSource!])
+      assert.ok(sources.has(decodeURIComponent(url.split(`/${audit.revision}/`)[1])), url);
+    const fingerprint = paper.sections.map(section => section.paragraphs.join(" ").replace(/[^a-z]/gi, "").toLowerCase()).join("|");
+    assert.ok(!fingerprints.has(fingerprint), `${added.id}: duplicate full reading paper`);
+    fingerprints.add(fingerprint);
+  }
+  const read = (id: string) => JSON.parse(readFileSync(new URL(`${id}.json`, dir), "utf8")) as CetPaper;
+  const answer = (id: string, number: number) => read(id).sections.flatMap(section => section.questions).find(q => q.number === number)?.answer;
+  assert.equal(answer("cet4-2014-12-1", 46), "F");
+  assert.equal(answer("cet4-2015-12-2", 46), "D");
+  assert.equal(answer("cet6-2020-09-1", 26), "L");
+  assert.equal(answer("cet6-2019-06-3", 34), "H");
+  assert.equal(read("cet6-2020-09-2").sections[0].bank?.find(word => word.key === "N")?.text, "stereotypes");
 });

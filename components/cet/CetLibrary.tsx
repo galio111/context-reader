@@ -189,7 +189,7 @@ export function CetLibrary({
             <div className="cet-login-note">
               <span>
                 游客可阅读本级别的 6 {view === "paper" ? "套试卷" : "篇阅读"}
-                。登录后查看已导入的完整题库，近十年资源将陆续补齐。
+                。登录后查看已导入的完整历年真题。
               </span>
               <button
                 onClick={() =>

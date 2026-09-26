@@ -1,0 +1,1700 @@
+{
+  "id": "cet4-2018-06-1",
+  "level": 4,
+  "year": 2018,
+  "month": 6,
+  "set": 1,
+  "title": "2018 年 6 月四级 · 第 1 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.06/%E7%9C%9F%E9%A2%98PDF/2018.06%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2018%E5%B9%B46%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%B8%80%EF%BC%89.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2018-06-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "An office tower on Miller Street in Manchester is completely covered in solar panels. They are used to create some of the energy used by the insurance company inside. When the tower was first [[26]] in 1962, it was covered with thin square stones. These small square stones became a problem for the building and continued to fall off the face for 40 years until a major renovation was [[27]] . During this renovation the building's owners, CIS, [[28]] the solar panel company, Solar century. They agreed to cover the entire building in solar panels. In 2004, the completed CIS tower became Europe's largest [[29]] of vertical solar panels. A vertical solar project on such a large [[30]] has never been repeated since. Covering a skyscraper with solar panels had never been done before, and the CIS tower was chosen as one of the \"10 best green energy projects\". For a long time after this renovation project, it was the tallest building in the United Kingdom, but it was [[31]] overtaken by the Mill bank Tower. Green buildings like this aren't [[32]] cost - efficient for the investor, but it does produce much less pollution than that caused by energy [[33]] through fossil fuels. As solar panels get [[34]] , the world is likely to see more skyscrapers covered in solar panels, collecting energy much like trees do. Imagine a world where building the tallest skyscraper wasn't a race of [[35]] , but rather one to collect the most solar energy."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "cheaper"
+        },
+        {
+          "key": "B",
+          "text": "cleaner"
+        },
+        {
+          "key": "C",
+          "text": "collection"
+        },
+        {
+          "key": "D",
+          "text": "competed"
+        },
+        {
+          "key": "E",
+          "text": "constructed"
+        },
+        {
+          "key": "F",
+          "text": "consulted"
+        },
+        {
+          "key": "G",
+          "text": "dimension"
+        },
+        {
+          "key": "H",
+          "text": "discovered"
+        },
+        {
+          "key": "I",
+          "text": "eventually"
+        },
+        {
+          "key": "J",
+          "text": "height"
+        },
+        {
+          "key": "K",
+          "text": "necessarily"
+        },
+        {
+          "key": "L",
+          "text": "production"
+        },
+        {
+          "key": "M",
+          "text": "range"
+        },
+        {
+          "key": "N",
+          "text": "scale"
+        },
+        {
+          "key": "O",
+          "text": "undertaken"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "cheaper"
+            },
+            {
+              "key": "B",
+              "text": "cleaner"
+            },
+            {
+              "key": "C",
+              "text": "collection"
+            },
+            {
+              "key": "D",
+              "text": "competed"
+            },
+            {
+              "key": "E",
+              "text": "constructed"
+            },
+            {
+              "key": "F",
+              "text": "consulted"
+            },
+            {
+              "key": "G",
+              "text": "dimension"
+            },
+            {
+              "key": "H",
+              "text": "discovered"
+            },
+            {
+              "key": "I",
+              "text": "eventually"
+            },
+            {
+              "key": "J",
+              "text": "height"
+            },
+            {
+              "key": "K",
+              "text": "necessarily"
+            },
+            {
+              "key": "L",
+              "text": "production"
+            },
+            {
+              "key": "M",
+              "text": "range"
+            },
+            {
+              "key": "N",
+              "text": "scale"
+            },
+            {
+              "key": "O",
+              "text": "undertaken"
+            }
+          ],
+          "answer": "E",
+          "explanation": "答案:E)constructed 建造,构筑 详解:动词辨析题。空格前有系动词was,因此空格处应填入形容词作表语或动词的分词形式与was 一起作谓语, 备选项中的两个形容词均不符合句意,因此应填入动词的分词形式。本句意为,当这座大楼于1962 年首次____时, 它的外墙都是薄薄的方形石板。接下来提到了“翻新”(renovation),由此推知,1962 年是首次建造,故答案为 E)constructed 建造,构筑。备选项中的其他动词均不符合文意,故排除。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "cheaper"
+            },
+            {
+              "key": "B",
+              "text": "cleaner"
+            },
+            {
+              "key": "C",
+              "text": "collection"
+            },
+            {
+              "key": "D",
+              "text": "competed"
+            },
+            {
+              "key": "E",
+              "text": "constructed"
+            },
+            {
+              "key": "F",
+              "text": "consulted"
+            },
+            {
+              "key": "G",
+              "text": "dimension"
+            },
+            {
+              "key": "H",
+              "text": "discovered"
+            },
+            {
+              "key": "I",
+              "text": "eventually"
+            },
+            {
+              "key": "J",
+              "text": "height"
+            },
+            {
+              "key": "K",
+              "text": "necessarily"
+            },
+            {
+              "key": "L",
+              "text": "production"
+            },
+            {
+              "key": "M",
+              "text": "range"
+            },
+            {
+              "key": "N",
+              "text": "scale"
+            },
+            {
+              "key": "O",
+              "text": "undertaken"
+            }
+          ],
+          "answer": "O",
+          "explanation": "答案:O)undertaken 开始进行,着手做 详解:动词辨析题。空格前是系动词was,因此空格处应填入形容词作表语或动词的分词形式与was 一起作谓语, 但备选项中的两个形容词均不符合句意,因此应填入动词的分词形式。本句意为,但这些方形的小石板成了大楼的 问题,四十年来不断地从外墙脱落,直到一项重大的翻新工程______。由下文可知,翻新之后大楼外墙的石板换成 了太阳能电池板,那么直到翻新开始进行之前外墙都是石板,因此答案为建造,构筑。备选项中的其他动词均不符 合文意,故排除。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "cheaper"
+            },
+            {
+              "key": "B",
+              "text": "cleaner"
+            },
+            {
+              "key": "C",
+              "text": "collection"
+            },
+            {
+              "key": "D",
+              "text": "competed"
+            },
+            {
+              "key": "E",
+              "text": "constructed"
+            },
+            {
+              "key": "F",
+              "text": "consulted"
+            },
+            {
+              "key": "G",
+              "text": "dimension"
+            },
+            {
+              "key": "H",
+              "text": "discovered"
+            },
+            {
+              "key": "I",
+              "text": "eventually"
+            },
+            {
+              "key": "J",
+              "text": "height"
+            },
+            {
+              "key": "K",
+              "text": "necessarily"
+            },
+            {
+              "key": "L",
+              "text": "production"
+            },
+            {
+              "key": "M",
+              "text": "range"
+            },
+            {
+              "key": "N",
+              "text": "scale"
+            },
+            {
+              "key": "O",
+              "text": "undertaken"
+            }
+          ],
+          "answer": "F",
+          "explanation": "答案:F)consulted 咨询,商量 详解:动词辨析题。空格前是名词词组the building’s owners,空格后仍然是名词词组the solar panel company,句 子缺少谓语,因此空格处应填入动词。本句意为,在这次翻新期间,大楼的所有者CIS 公司______太阳能电池板公 司Solarcentury。下一句提到,他们就用太阳能电池板覆盖整幢大楼达成一致。由此推断,CIS 公司向Solarcentury 公司咨询了相关事情,两家公司商量后达成一致,故答案为F)consulted 咨询,商量。由时间状语during this renovation 可知,空格处应填入动词的过去式,而且是及物动词,因此排除D)competed、M)range 和N)scale;又因为Solarcentury 这家公司一直存在,并不是新发现的,所以排除H)discovered。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "cheaper"
+            },
+            {
+              "key": "B",
+              "text": "cleaner"
+            },
+            {
+              "key": "C",
+              "text": "collection"
+            },
+            {
+              "key": "D",
+              "text": "competed"
+            },
+            {
+              "key": "E",
+              "text": "constructed"
+            },
+            {
+              "key": "F",
+              "text": "consulted"
+            },
+            {
+              "key": "G",
+              "text": "dimension"
+            },
+            {
+              "key": "H",
+              "text": "discovered"
+            },
+            {
+              "key": "I",
+              "text": "eventually"
+            },
+            {
+              "key": "J",
+              "text": "height"
+            },
+            {
+              "key": "K",
+              "text": "necessarily"
+            },
+            {
+              "key": "L",
+              "text": "production"
+            },
+            {
+              "key": "M",
+              "text": "range"
+            },
+            {
+              "key": "N",
+              "text": "scale"
+            },
+            {
+              "key": "O",
+              "text": "undertaken"
+            }
+          ],
+          "answer": "C",
+          "explanation": "答案:C)collection 收集,采集,组群 详解:名词辨析题。空格前是形容词的最高级largest,因此应填入名词。本句意为,2004 年,完工后的CIS 大楼 成为欧洲最大的垂直太阳能电池板_______。由上文可知,太阳能电池板覆盖整幢大楼,因此此处应填入含有“集 合体”意义的名词,C)collection 收集,采集,组群,符合句意,故为答案。剩余备选名词中,G)dimension 和J) height 不能与largest 搭配;CIS 大楼并没有生产太阳能电池板,排除L)production;M)range 和N)scale 不符合此处句意, 故均排除。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "cheaper"
+            },
+            {
+              "key": "B",
+              "text": "cleaner"
+            },
+            {
+              "key": "C",
+              "text": "collection"
+            },
+            {
+              "key": "D",
+              "text": "competed"
+            },
+            {
+              "key": "E",
+              "text": "constructed"
+            },
+            {
+              "key": "F",
+              "text": "consulted"
+            },
+            {
+              "key": "G",
+              "text": "dimension"
+            },
+            {
+              "key": "H",
+              "text": "discovered"
+            },
+            {
+              "key": "I",
+              "text": "eventually"
+            },
+            {
+              "key": "J",
+              "text": "height"
+            },
+            {
+              "key": "K",
+              "text": "necessarily"
+            },
+            {
+              "key": "L",
+              "text": "production"
+            },
+            {
+              "key": "M",
+              "text": "range"
+            },
+            {
+              "key": "N",
+              "text": "scale"
+            },
+            {
+              "key": "O",
+              "text": "undertaken"
+            }
+          ],
+          "answer": "N",
+          "explanation": "答案:N)scale 规模,程度 详解:名词辨析题。空格前有形容词large,因此应填入名词。本句意为,自那以后,再也没有如此大______的垂 直太阳能电池板工程了。前一句提到,完工后的CIS 大楼成为欧洲最大的垂直太阳能电池板组群,因此此处表达的 意思是这个工程规模很大,所以本题答案为N)scale 规模,程度,on a alarge scale 是固定搭配,意为“大规模的”。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "cheaper"
+            },
+            {
+              "key": "B",
+              "text": "cleaner"
+            },
+            {
+              "key": "C",
+              "text": "collection"
+            },
+            {
+              "key": "D",
+              "text": "competed"
+            },
+            {
+              "key": "E",
+              "text": "constructed"
+            },
+            {
+              "key": "F",
+              "text": "consulted"
+            },
+            {
+              "key": "G",
+              "text": "dimension"
+            },
+            {
+              "key": "H",
+              "text": "discovered"
+            },
+            {
+              "key": "I",
+              "text": "eventually"
+            },
+            {
+              "key": "J",
+              "text": "height"
+            },
+            {
+              "key": "K",
+              "text": "necessarily"
+            },
+            {
+              "key": "L",
+              "text": "production"
+            },
+            {
+              "key": "M",
+              "text": "range"
+            },
+            {
+              "key": "N",
+              "text": "scale"
+            },
+            {
+              "key": "O",
+              "text": "undertaken"
+            }
+          ],
+          "answer": "I",
+          "explanation": "答案:I)eventually 最终,终于; 详解:副词辨析题。空格位于谓语was overtaken 的中间,因此应填入副词。本句意为,这次翻新项目后的很长一 段时间里,CIS 大楼都是英国最高的建筑物,但是它______被米尔班克塔超越了。由句意可知,空格处所填的副词 应于for a long time 形成对比,因此答案为I)eventually 最终,终于;备选项中的K)necessarily 不符合此处句意,故 排除。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "cheaper"
+            },
+            {
+              "key": "B",
+              "text": "cleaner"
+            },
+            {
+              "key": "C",
+              "text": "collection"
+            },
+            {
+              "key": "D",
+              "text": "competed"
+            },
+            {
+              "key": "E",
+              "text": "constructed"
+            },
+            {
+              "key": "F",
+              "text": "consulted"
+            },
+            {
+              "key": "G",
+              "text": "dimension"
+            },
+            {
+              "key": "H",
+              "text": "discovered"
+            },
+            {
+              "key": "I",
+              "text": "eventually"
+            },
+            {
+              "key": "J",
+              "text": "height"
+            },
+            {
+              "key": "K",
+              "text": "necessarily"
+            },
+            {
+              "key": "L",
+              "text": "production"
+            },
+            {
+              "key": "M",
+              "text": "range"
+            },
+            {
+              "key": "N",
+              "text": "scale"
+            },
+            {
+              "key": "O",
+              "text": "undertaken"
+            }
+          ],
+          "answer": "K",
+          "explanation": "答案:K)necessarily 必然,必定 详解:副词辨析题。空格前是aren’t,后面是形容词cost-effcient,因此应填入副词修饰形容词。此处意为,像这 样的绿色建筑对投资者来说不______划算。but 前后形成对比,but 之后用does 来强调动词produce,可以推断but 之前的内容应该不是十分确定。由此可知,空格处填入的副词应与前面的not 一起表示“不一定”的含义,故答案 为K)necessarily 必然,必定,not necessarily 是习惯用法,意为“不一定,未必”。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "cheaper"
+            },
+            {
+              "key": "B",
+              "text": "cleaner"
+            },
+            {
+              "key": "C",
+              "text": "collection"
+            },
+            {
+              "key": "D",
+              "text": "competed"
+            },
+            {
+              "key": "E",
+              "text": "constructed"
+            },
+            {
+              "key": "F",
+              "text": "consulted"
+            },
+            {
+              "key": "G",
+              "text": "dimension"
+            },
+            {
+              "key": "H",
+              "text": "discovered"
+            },
+            {
+              "key": "I",
+              "text": "eventually"
+            },
+            {
+              "key": "J",
+              "text": "height"
+            },
+            {
+              "key": "K",
+              "text": "necessarily"
+            },
+            {
+              "key": "L",
+              "text": "production"
+            },
+            {
+              "key": "M",
+              "text": "range"
+            },
+            {
+              "key": "N",
+              "text": "scale"
+            },
+            {
+              "key": "O",
+              "text": "undertaken"
+            }
+          ],
+          "answer": "L",
+          "explanation": "答案:L)production 生产,产生 详解:名词辨析题。空格前是介词by,后面应该跟名词词组,因此空格处应填入名词。此处意为,但是它产生的 污染确实比通过化石燃料来_______能源所造成的污染少。由句意可知,这里是对比两种方式产生能源的污染情况, 因此答案为L)production 生产,产生。energy 是从fossil fuels 中得来的,因此空格处应填入由动词转化来的名词, 其余备选名词均不符合,故排除。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "cheaper"
+            },
+            {
+              "key": "B",
+              "text": "cleaner"
+            },
+            {
+              "key": "C",
+              "text": "collection"
+            },
+            {
+              "key": "D",
+              "text": "competed"
+            },
+            {
+              "key": "E",
+              "text": "constructed"
+            },
+            {
+              "key": "F",
+              "text": "consulted"
+            },
+            {
+              "key": "G",
+              "text": "dimension"
+            },
+            {
+              "key": "H",
+              "text": "discovered"
+            },
+            {
+              "key": "I",
+              "text": "eventually"
+            },
+            {
+              "key": "J",
+              "text": "height"
+            },
+            {
+              "key": "K",
+              "text": "necessarily"
+            },
+            {
+              "key": "L",
+              "text": "production"
+            },
+            {
+              "key": "M",
+              "text": "range"
+            },
+            {
+              "key": "N",
+              "text": "scale"
+            },
+            {
+              "key": "O",
+              "text": "undertaken"
+            }
+          ],
+          "answer": "A",
+          "explanation": "答案:A)cheaper 更便宜 详解:形容词辨析题。空格前是动词get,可以填入名词作宾语,但备选名词均不符合此处句意,而get 也可以作 为系统词,后面跟形容词作表语,因此此处应填入形容词。此处意为,随着太阳能电池板变得______,世界上有可 能会看到更多被太阳能电池板覆盖的摩天大楼。本段第一句提到,这种绿色建筑未必划算,而本句又提到以后会有 更多太阳能电池板覆盖的摩天大楼,说明太阳能电池板的成本会降低,故答案为A)cheaper 更便宜。太阳能电池板 本身就是清洁能源,不可能“更清洁”,因此排除B)cleaner。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "cheaper"
+            },
+            {
+              "key": "B",
+              "text": "cleaner"
+            },
+            {
+              "key": "C",
+              "text": "collection"
+            },
+            {
+              "key": "D",
+              "text": "competed"
+            },
+            {
+              "key": "E",
+              "text": "constructed"
+            },
+            {
+              "key": "F",
+              "text": "consulted"
+            },
+            {
+              "key": "G",
+              "text": "dimension"
+            },
+            {
+              "key": "H",
+              "text": "discovered"
+            },
+            {
+              "key": "I",
+              "text": "eventually"
+            },
+            {
+              "key": "J",
+              "text": "height"
+            },
+            {
+              "key": "K",
+              "text": "necessarily"
+            },
+            {
+              "key": "L",
+              "text": "production"
+            },
+            {
+              "key": "M",
+              "text": "range"
+            },
+            {
+              "key": "N",
+              "text": "scale"
+            },
+            {
+              "key": "O",
+              "text": "undertaken"
+            }
+          ],
+          "answer": "J",
+          "explanation": "答案:J) height 高度 详解:名词辨析题。空格前是介词of,后面应该跟名词或动名词,备选项中没有动名词,因此空格处应填入名词。 本句意为,想象这样一个世界:建造最高的摩天大楼不再是一个关于________的竞赛,而是一个关于收集最多太阳 能的竞赛。由空格前的tallest 可知,摩天大楼比的是高度,因此本题答案为J) height 高度。其余备选名词均不符合 此处句意,故排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2018-06-1-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Digital learning systems now charge students for access codes needed to complete coursework, take quizzes, and turn in homework. As universities go digital, students are complaining of a new hit to their finances that's replacing—and sometimes joining—expensive textbooks: pricey online access codes that are required to complete coursework and submit assignments.",
+        "B) The codes—which typically range in price from $ 80 to $ 155 per course—give students online access to systems developed by education companies like McGraw Hill and Pearson. These companies, which long reaped big profits as textbook publishers, have boasted that their new online offerings, when pushed to students through universities they partner with, represent the future of the industry.",
+        "C) But critics say the digital access codes represent the same profit - seeking ethos (观念) of the textbook business, and are even harder for students to opt out of. While they could once buy second - hand textbooks, or share copies with friends, the digital systems are essentially impossible to avoid.",
+        "D) \"When we talk about the access code we see it as the new face of the textbook monopoly (垄断), a new way to lock students around this system,\" said Ethan Senack, the higher education advocate for the U.S. Public Interest Research Group, to BuzzFeed News. \"Rather than $ 250 (for a print textbook) you're paying $ 120,\" said Senack. \"But because it's all digital it eliminates the used book market and eliminates any sharing and because homework and tests are through an access code, it eliminates any ability to opt out.\"",
+        "E) Sarina Harpet, a 19 - year - old student at Virginia Tech, was faced with a tough dilemma when she first started college in 2015—pay rent or pay to turn in her chemistry homework. She told BuzzFeed News that her freshman chemistry class required her to use Connect, a system provided by McGraw Hill where students can submit homework, take exams and track their grades. But the code to access the program cost $ 120—a big sum for Harper, who had already put down $ 450 for textbooks, and had rent day approaching.",
+        "F) She decided to wait for her next work - study paycheck, which was typically $ 150 - $ 200, to pay for the code. She knew that her chemistry grade may take a dive as a result. \"It's a balancing act,\" she said. \"Can I really afford these access codes now?\" She didn't hand in her first two assignments for chemistry, which started her out in the class with a failing grade.",
+        "G) The access codes may be another financial headache for students, but for textbook businesses, they're the future. McGraw Hill, which controls 21% of the higher education market, reported in March that its digital content sales exceeded print sales for the first time in 2015. The company said that 45% of its $ 140 million revenue in 2015 \"was derived from digital products.\"",
+        "H) A Pearson spokesperson told BuzzFeed News that \"digital materials are less expensive and a good investment\" that offer new features, like audio texts, personalized knowledge checks and expert videos. Its digital course materials save students up to 60% compared to traditional printed textbooks, the company added. McGraw Hill didn't respond to a request for comment, but its CEO David Levin told the Financial Times in August that \"in higher education, the era of the printed textbook is now over.\"",
+        "I) The textbook industry insists the online systems represent a better deal for students. \"These digital products aren't just mechanisms for students to submit homework, they offer all kinds of features,\" David Anderson, the executive director of higher education with the Association of American Publishers, told BuzzFeed News. \"It helps students understand in a way that you can't do with print homework assignments.\"",
+        "J) David Hunt, an associate professor in sociology at Augusta University, which has rolled out digital textbooks across its math and psychology departments, told BuzzFeed News that he understands the utility of using systems that require access codes. But he doesn't require his students to buy access to a learning program that controls the class assignments. \"I try to make things as inexpensive as possible,\" said Hunt, who uses free digital textbooks for his classes but designs his own curriculum. \"The online systems may make my life a lot easier but I feel like I'm giving up control. The discussions are the things where my expertise can benefit the students most.\"",
+        "K) A 20-year-old junior at Georgia Southern University told BuzzFeed News that she normally spends $ 500-$ 600 on access codes for class. In one case, the professor didn't require students to buy a textbook, just an access code to turn in homework. This year she said she spent $ 900 on access codes to books and programs. \"That's two months of rent,\" she said. \"You can't sell any of it back. With a traditional textbook you can sell it for $ 30 - $ 50 and that helps to pay for your new semester's books. With an access code, you're out of that money. \"",
+        "L) Benjamin Wolverton, a 19-year-old student at the University of South Carolina, told BuzzFeed News that \"it's ridiculous that after paying tens of thousands in tuition we have to pay for all these access codes to do our homework.\" Many of the access codes he's purchased have been required simply to complete homework or quizzes. \"Often it's only 10% of your grade in class,\" he said. \"You're paying so much money for something that hardly affects your grade—but if you didn't have it, it would affect your grades enough. It would be bad to start out at a B or C.\" Wolverton said he spent $ 500 on access codes for digital books and programs this semester.",
+        "M) Harper, a poultry (家禽) science major, is taking chemistry again this year and had to buy a new access code to hand in her homework. She rented her economics and statistics textbooks for about $ 20 each. But her access codes for homework, which can't be rented or bought second-hand, were her most expensive purchases: $ 120 and $ 85.",
+        "N) She still remembers the sting of her first experience skipping an assignment due to the high prices. \"We don't really have a missed assignment policy,\" she said. \"If you miss it, you just miss it. I just got zeros on a couple of first assignments. I managed to pull everything back up. But as a scared freshman looking at their grades, it's not fun.\""
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "A student's yearly expenses on access codes may amount to their rent for two months.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "K",
+          "explanation": "A student’s yearly expenses on [K] A 20-year-old junior at Georgia Southern University told BuzzFeed News access codes may amount to their rent that she normally spends $500-$600 on access codes for class. In one case, the for two months. professor didn’t require students to buy a textbook, just an access code to turn in 译文:学生每年在访问代码上的花费 homework. This year she said she spent $900 on access codes to books and 可能相当于他们两个月的房租。 programs. “That’s two months of rent,” she said. “You can’t sell any of it back. 定位:由题干中rent 和two months 定 With a traditional textbook you can sell it for $30-50$ and that helps to pay for 位到原文画线处。 your new semester’s books. With an access code, you’re out of that money.” 详解:K)段第三、四句指出,佐治亚南方大学一名20 岁的大三学生这一年在书本和程序的访问代码上花费了900 美元。“那可是两个月的房租啊,”她说道。由此可知,学生每年在访问代码上花费可能相当于两个月的房租。题 干是对定位句的同义转述,故答案为K)。"
+        },
+        {
+          "number": 37,
+          "stem": "The online access codes may be seen as a way to tie the students to the digital system.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "D",
+          "explanation": "The online access codes may be [D] “When we talk about the access code we see it as the new face of the textbook seen as a way to tie the students to the monopoly(垄断),a new way to lock students around this system,” said Ethan digital system. Senack, the higher education advocate for the U.S. Public Interest Research 译文:线上访问代码可以被看作是一 Group, to BuzzFeed News. “Rather than $250(for a print textbook)you’re paying 种将捆绑在数字系统上的方式。 $120,”said Senack. “But because it’s all digital it eliminates the used book market 定位:由题干中的a way to tie the and eliminates any sharing and because homework and tests are through an access students 定位到原文画线处。 code, it eliminates any ability to opt out.” 详解:D)段第一句提到,“说起这些访问代码,我们认为这是教科书垄断的新形式,是一种把学生锁在这个系统 中的新方式,”美国公共利益研究集团高等教育倡导者伊桑·斯奈克对BuzzFeed 新闻说道。题干中的tie the stydents to the digital system 对应原文中的lock students around this system,故答案为D)。"
+        },
+        {
+          "number": 38,
+          "stem": "If a student takes a course again, they may have to buy a new access code to submit their assignments.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "M",
+          "explanation": "If a student takes a course again, they may have to [M] Harper, a poultry(家禽)science major, is taking chemistry buy a new access code to submit their assignments. again this year and had to buy a new access code to hand in her 译文:如果学生重修一门课程,那么他们可能不得不 homework. She rented her economics and statistics textbooks 购买一个新的访问代码来提交作业。 for about $20 each. But her access codes for homework, which 定位:由题干中的takes a course again 和buy a new can’t be rented or bought second-hand, were her most access code 定位到原文画线处。 expensive purchases:$120 and $85. 详解:M)段第一句提到,哈珀学的是家禽科学专业,今年要重修化学,她不得不买一个新的访问代码来提交家庭 作业。由此可知,学生重修一门课程需要重新购买一个新的访问代码来提交作业。题干中的submit their assignments 是对原文中hand in her homework 的同义转述,故答案为M)。"
+        },
+        {
+          "number": 39,
+          "stem": "McGraw Hill accounts for over one-fifth of the market share of college textbooks.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "G",
+          "explanation": "McGraw Hill accounts for over one-fifth of [G]The access codes may be another financial headache for students, the market share of college textbooks. but for textbook businesses, they’re the future. McGraw Hill, which 译文:麦格劳·希尔公司占大学教材市场份额的 controls 21% of the higher education market, reported in March that 五分之一以上。 its digital content sales exceeded print sales for the first time in 定位:由题干中的McGraw Hill 和the market share 2015. The company said that 45% of its $140 million revenue in of college textbooks 定位原文画线处。 2015 “was derived from digital products.” 详解:定位句提到,麦格劳·希尔公司掌握着21%高等教育市场。由此可知,麦格劳·希尔公司占大学教材市场 份额的五分之一以上,题干中的accounts for 对原文中的controls;over one-fifth 是对原文中21%的同义转述,故答案为G)。"
+        },
+        {
+          "number": 40,
+          "stem": "Many traditional textbook publishers are now offering online digital products, which they believe will be the future of the publishing business.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Many traditional textbook publishers are now [B]The codes—which typically range in price from $80 to $155 offering online digital products, which they believe will per course—give students online access to systems developed be the future of the publishing business. by education companies like McGraw Hill and Pearson. These 译文:很多传统教材出版商现在提供线上数字产品, companies, which long reaped big profits as textbook 他们认为这些产品是出版行业的未来。 publishers, have boasted that their new online offerings, when 定位:由题干中的textbook publishers、offering online pushed to students through universities they parther with, digital products 和future 定位到原文画线处。 represent the future of the industry. 详解:B)第二句提到,这些公司作为教科书出版商长期以来收益颇丰,现在吹嘘他们新的在线服务代表着教育行 业的未来,同时将这些在线服务通过与他们合作的高校推广至学生。题干中的online digital products 对应原文中的 new online offerings;be the future 是对原文中represent the future 的同义转述,故答案为B)。"
+        },
+        {
+          "number": 41,
+          "stem": "One student complained that they now had to pay for access codes in addition to the high tuition.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "L",
+          "explanation": "One student complained that they [L] Benjamin Wolverton, a 19-year-old student at the University of South now had to pay for access codes in addition Carolina, told BuzzFeed News that “it’s ridiculous that after paying tens of to the high tuition. thousands in tuition we have to pay for all these access codes to do our 译文:一名学生抱怨道,他们现在除了要 homework.” Many of the access codes he’s purchased have been required 支付高额的学费外,还不得不支付访问代 simply to complete homework or quizzes. “Often it’s only 10% of your grade 码的费用。 in class,” he said. “You’re paying so much money for something that hardly 定位:由题干中的student 和the high affects your grade—but if you didn’t have it, it would affect your grade tuition 定位到原文画线处。 enough. It would be bad to start out at a B or C.” Wolverton said he spent $500 on access codes for digital books and programs this semester. 详解:L)段首句提到,本杰明·沃尔弗顿告诉BuzzFeed 新闻说,“这太可笑了,我们已经付了好几万的学费, 却还要支付所有这些访问代码的费用来做作业。”题干中的One student 指代Benjamin Wolverton;题干中的complained 和the high tuition 分别对应原文中的it’s ridiculous that 和tens of thousands in tuition,题干是对定位句的同义转述, 故答案为L)。"
+        },
+        {
+          "number": 42,
+          "stem": "Digital materials can cost students less than half the price of traditional printed books according to a publisher.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "H",
+          "explanation": "Digital materials can cost students less than [H] A Pearson spokesperson told BuzzFeed News that “digital half the price of traditional printed books materials are less expensive and a good investment” that offer new according to a publisher. features, like audio texts, personalized knowledge checks and expert 译文:据一个出版商称,学生在数字材料商花 videos. Its digital course materials save students up to 60% compared 费不到传统印刷书本一半的价格。 to traditional printed textbooks, the company added. McGraw Hill 定位:由题干中的Digital materials 和traditional didn’t respond to a request for comment, but its CEO David Levin told printed books 定位到原文画线处。 the Financial Times in August that “in higher education, the era of the printed textbook is now over.” 详解:H)段第二句指出,相比传统的印刷教材,其数字课程材料能为学生节省60%开销。由此推知,数字材料花 费不到传统印刷书本一半的价格。题干中的cost students less than half the price 对应原文中的save students up to 60%; a publisher 指代Pearson,题干是对定位句的推理判断,故答案为H)。"
+        },
+        {
+          "number": 43,
+          "stem": "One student decided not to buy her access code until she received the pay for her part-time job.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "F",
+          "explanation": "One student decided not to buy her access code [F] She decided to wait for her next work-study paycheck, which until she received the pay for her part-time job. was typically $150-$200, to pay for the code. She knew that her 译文:一名学生决定在收到她的兼职工资后再购买 chemistry grade may take a dive as a result. “It’s a balancing act,” 访问代码。 she said. “Can I really afford these access codes now?” She didn’t 定位:由题干中的the pay for her part-time job 定位 hand in her first two assignments for chemistry, which started her 到原文画线处。 out in the class with a failing grade. 详解:定位句提到,哈珀决定等待下次勤工助学的工资,一般是150 美元至200 美元,用这笔钱来支付这个代码。 题干中的the pay for her part-time job 对应原文中的work-study paycheck,题干是对定位句的同义转述,故答案为F)。"
+        },
+        {
+          "number": 44,
+          "stem": "Online systems may deprive teachers of opportunities to make the best use of their expertise for their students.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "J",
+          "explanation": "Online systems may deprive [J] David Hunt, an associate professor in sociology at Augusta University, which teachers of opportunities to make the has rolled out digital textbooks across its math and psychology departments, told best use of their expertise for their BuzzFeed News that he understands the utility of using systems that require access students. codes. But he doesn’t require his students to buy access to a learning program that 译文:线上系统可能会剥夺老师们 controls the class assignments. “I try to make things as inexpensive as possible,” 充分利用专业知识为学生服务的机 said Hunt, who uses free digital textbooks for his classes but designs his own 会。 curriculum. “The online systems may make my life a lot easier but I feel like I’m 定位:由题干中的Online systems giving up control. The discussions are the things where my expertise can benefit the 和expertise 定位到原文画线处。 students most.” 详解:定位句提到,亨特老师指出,“线上系统或许能让我的生活轻松很多,但是我觉得好像自己不再有控制权。 课上讨论才是我的专业知识最能带给学生益处的地方。”由此推断,线上系统可能会剥夺老师们充分利用专业知识 为学生服务的机会。题干中的deprive...of opportunities to 是对原文中giving up control 的同义转述,故答案为J)。"
+        },
+        {
+          "number": 45,
+          "stem": "Digital access codes are criticized because they are profit-driven just like the textbook business.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Digital access codes are criticized because they are [C] But critics say the digital access codes represent the profit-driven just like the textbook business. same profit-seeking ethos (观念)of the textbook 译文:数字访问代码受到批判是因为它们是以利益为导向 business, and are even harder for students to opt out of. 的,正如教材生意一样。 While they could once buy second-hand textbooks, or 定位:由题干中的criticized、profit-driven 和the textbook share copies with friends, the digital systems are business 定位到原文画线处。 essentially impossible to avoid. 详解:C)段首句提到,但批评家认为这些数字访问代码代表着和教科书生意相同的寻利观念。由此可知,数字访 问代码受到批判是因为它们和教科书生意一样都寻求利益。题干中的criticized 和profit-driven 分别对应原文中的 critics 和profit-seeking,题干是对定位句的同义转述,故答案为C)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2018-06-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Losing your ability to think and remember is pretty scary. We know the risk of dementia (痴呆症) increases with age. But if you have memory slips, you probably needn't worry. There are pretty clear differences between signs of dementia and age-related memory loss.",
+        "After age 50, it's quite common to have trouble remembering the names of people, places and things quickly, says Dr. Kirk Daffner of Brigham and Women's Hospital in Boston.",
+        "The brain ages just like the rest of the body. Certain parts shrink, especially areas in the brain that are important to learning, memory and planning. Changes in brain cells can affect communication between different regions of the brain. And blood flow can be reduced as blood vessels narrow.",
+        "Forgetting the name of an actor in a favorite movie, for example, is nothing to worry about. But if you forget the plot of the movie or don't remember even seeing it, that's far more concerning, Daffner says.",
+        "When you forget entire experiences, he says, that's \"a red flag that something more serious may be involved.\" Forgetting how to operate a familiar object like a microwave oven, or forgetting how to drive to the house of a friend you've visited many times before can also be signs of something going wrong.",
+        "But even then, Daffner says, people shouldn't panic. There are many things that can cause confusion and memory loss, including health problems like temporary stoppage of breathing during sleep, high blood pressure, or depression, as well as medications(药物)like antidepressants.",
+        "You don't have to figure this out on your own. Daffner suggests going to your doctor to check on medications, health problems and other issues that could be affecting memory. And the best defense against memory loss is to try to prevent it by building up your brain's cognitive(认知的)reserve, Daffner says.",
+        "\"Read books, go to movies, take on new hobbies or activities that force one to think in novel ways,\" he says. In other words, keep your brain busy and working. And also get physically active, because exercise is a known brain booster."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "Why does the author say that one needn't be concerned about memory slips?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Not all of them are symptoms of dementia."
+            },
+            {
+              "key": "B",
+              "text": "They occur only among certain groups of people."
+            },
+            {
+              "key": "C",
+              "text": "Not all of them are related to one's age."
+            },
+            {
+              "key": "D",
+              "text": "They are quite common among fifty-year-olds."
+            }
+          ],
+          "answer": "A",
+          "explanation": "答案:A 定位:由题干中的memory slips 定位到首段第三、四句:But if you have memory slips, you probably needn’t worry. There are pretty clear differences between signs of dementia and age-related memory loss. 详解:事实细节题。文章首段第三、四句指出,如果你有时健忘,你很可能不需要担心。因为痴呆症的症状与 年龄相关的记忆缺失的症状有很明显的区别。由此可见,健忘并不一定就是痴呆症的症状,故答案为A。 点睛:B)“它们只发生在一些特定的人群身上”,第一段第二句虽然指出随着年龄增长,患痴呆症的风险会增 大,但是并没有说哪一类人会患痴呆症,故排除;C)“并不是所有的健忘都与年龄有关”,首段最后一句只提到跟 年龄相关的记忆缺失的症状与痴呆症的症状有很明显的区别,并未说明健忘与年龄的关系,故排除;D)“它们在五 十岁的人群中特别普遍”,文章第二段提到五十岁以后,人们在快速记住姓名、地点和物品方面有很困难是很普遍 的,并不是说健忘在50 岁人群中很普遍,故排除。"
+        },
+        {
+          "number": 47,
+          "stem": "What happens as we become aged according to the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Our interaction skills deteriorate."
+            },
+            {
+              "key": "B",
+              "text": "Some parts of our brain stop functioning."
+            },
+            {
+              "key": "C",
+              "text": "Communication within our brain weakens."
+            },
+            {
+              "key": "D",
+              "text": "Our whole brain starts shrinking."
+            }
+          ],
+          "answer": "C",
+          "explanation": "答案:C 定位:由题干中的as we become aged 定位到第三段:The brain ages just like the rest of the body. Certain parts shrink, especially areas in the brain that are important to learning, memory and planning. Changes in brain calls can affect communication between different regions of the brain.... 详解:事实细节题。文章第三段指出,大脑像身体的其它部位一样衰老。某些部位会萎缩,尤其是大脑中那些 对学习、记忆和计划十分重要的区域。脑细胞的变化会影响大脑不同区域之间的交流。由此可见,大脑中不同区域 间的交流会逐渐衰退,故答案为C。 点睛:A)“我们的互动技巧会退化”,根据第三段第三句可知,是大脑内部不同区域之间的交流在逐渐衰退, 而不是人与人之间的互动交流在退化,故排除;B)“我们大脑中某些部位停止工作”,第三段第二句提到某些部位 会萎缩,但萎缩并不意味着完全停止工作,不排除;D)“我们整个大脑开始萎缩”,第三段第二句提到是某些部位 会萎缩,并不是整个大脑,故排除。"
+        },
+        {
+          "number": 48,
+          "stem": "Which memory-related symptom should people take seriously?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Totally forgetting how to do one's daily routines."
+            },
+            {
+              "key": "B",
+              "text": "Inability to recall details of one's life experiences."
+            },
+            {
+              "key": "C",
+              "text": "Failure to remember the names of movies or actors."
+            },
+            {
+              "key": "D",
+              "text": "Occasionally confusing the addresses of one's friends."
+            }
+          ],
+          "answer": "A",
+          "explanation": "答案:A 定位:由题干中的memory-related symptom 和take seriously 定位到第五段:When you forget entire experiences, he says, that’s “a red flag that something more serious may be involved.” Forgetting how to operate a familiar object like a microwave oven, or forgetting how to drive to the house of a friend you’ve visited many times before can also be signs of something going wrong. 详解:事实细节题。文章第五段指出,当你忘记整个经历,那就是“一面红色的信号旗,意味着可能存在更严 重的问题。”忘记如何操作一个熟悉的物品,如微波炉,或是忘记如何开车到一个你以前拜访过很多次的朋友家时, 这也是大脑出现问题的征兆。选项A)中的do one’s daily routines 是对原文中operate a familiar object like a microwave oven 和drive to the house of a friend you’ve visited many times before 的概括,故答案为A。 点睛:B)“无法回忆起人生经历中的细节”,文中明确提到当你忘记整个经历时意味着可能存在更严重的问题, 而不是细节,故排除;C)“无法记住电影的名称或演员的名字”,第四段第一句提到忘记你最喜欢的电影中一个演 员的名字并没有什么需要担心的,所以这并不是什么严重的事情,故排除;D)“偶尔弄混朋友的地址”,第五段第 二句后半部分提到,忘记如何开车到一个你以前拜访过很多次的朋友家时,这也是大脑出现问题的征兆,而不是偶 尔弄地址,故排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What should people do when signs of serious memory loss show up?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Check the brain's cognitive reserve."
+            },
+            {
+              "key": "B",
+              "text": "Stop medications affecting memory."
+            },
+            {
+              "key": "C",
+              "text": "Turn to a professional for assistance."
+            },
+            {
+              "key": "D",
+              "text": "Exercise to improve their well-being."
+            }
+          ],
+          "answer": "C",
+          "explanation": "答案:C 定位:由题干中的people do 和signs of serious memory loss show up 定位到第七段第一、二句:You don’t have to figure this out on your own. Daffner suggests going to your doctor to check on medications, health problems and other issues that could be affecting memory. 详解:事实细节题。第七段前两句提到,你不必自己弄明白这些事情。达夫勒建议人们去看医生,检查药物、 健康问题和其它会影响记忆的因素。由此可见,当出现严重的记忆缺失症状时,人们应该寻求专业人士的帮助,故 答案为C。 点睛:A)“检查大脑的认知储存”,第七段最后一句提到应对记忆缺失最好的办法就是通过建立自己大脑的认 知储备来努力预防,这是提前预防,而不是在已经出现症状时应采取的措施,故排除;B)“停止使用影响记忆的药 物”文中并未提及,故排除;D)“锻炼身体以改善他们的健康状况”,文章最后一段末句提到身体也要动起来,因 为锻炼是著名的大脑助推器,但这也是预防的办法,并非已经出现症状时应采取的措施,故排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What is Dr. Daffner's advice for combating memory loss?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Having regular physical and mental checkups."
+            },
+            {
+              "key": "B",
+              "text": "Taking medicine that helps boost one's brain."
+            },
+            {
+              "key": "C",
+              "text": "Engaging in known memory repair activities."
+            },
+            {
+              "key": "D",
+              "text": "Staying active both physically and mentally."
+            }
+          ],
+          "answer": "D",
+          "explanation": "答案:D 定位:由题干中的Dr. Daffner’s advice for combating memory loss 定位到最后一段:“Read books, go to movies, take on new hobbies or activities that force one to think in novel ways,” he says. In other words, keep your brain busy and working. And also get physically active, because exercise is a known brain booster. 详解:推理判断题。文章最后一段指出,读书、看电影、培养新的兴趣或活动都可以迫使一个人用新奇的方式 思考。换言之,就是让大脑忙碌和运转起来。同样,身体也要动起来,因为锻炼是著名的大脑助推器。由此推断, 要应对记忆的缺失,人们需要在精神和身体两个方面保持积极状态,故答案为D。 点睛:A)“定期进行身体和精神方面的检查”,文中提到让大脑忙碌和运转起来,身体也要动起来,并非进行 身体和精神方面的检查,故排除;B)“吃帮助促进大脑功能的药物”和C)“投身于著名的记忆修复活动”文中并未 提及,故均排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2018-06-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "A letter written by Charles Darwin in 1875 has been returned to the Smithsonian Institution Archives (档案馆) by the FBI after being stolen twice.",
+        "\"We realized in the mid-1970s that it was missing,\" says Effie Kapsalis, head of the Smithsonian Insitution Archives. \"It was noted as missing and likely taken by an intern (实习生), from what the FBI is telling us. Word got out that it was missing when someone asked to see the letter for research purposes,\" and the intern put the letter back. \"The intern likely took the letter again once nobody was watching it.\"",
+        "Decades passed. Finally, the FBI received a tip that the stolen document was located very close to Washington, D.C. Their art crime team recovered the letter but were unable to press charges because the time of limitations had ended. The FBI worked closely with the Archives to determine that the letter was both authentic and definitely Smithsonian's property.",
+        "The letter was written by Darwin to thank an American geologist, Dr. Ferdinand Vandeveer Hayden, for sending him copies of his research into the geology of the region that would become Yellowstone National Park.",
+        "The letter is in fairly good condition, in spite of being out of the care of trained museum staff for so long. \"It was luckily in good shape,\" says Kapsalis, \"and we just have to do some minor things in order to be able to unfold it. It has some glue on it that has colored it slightly, but nothing that will prevent us from using it. After it is repaired, we will take digital photos of it and that will be available online. One of our goals is to get items of high research value or interest to the public online.\"",
+        "It would now be difficult for an intern, visitor or a thief to steal a document like this. \"Archiving practices have changed greatly since the 1970s,\" says Kapsalis, \"and we keep our high value documents in a safe that I don't even have access to.\""
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What happened to Darwin's letter in the 1970s?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It was recovered by the FBI."
+            },
+            {
+              "key": "B",
+              "text": "It was stolen more than once."
+            },
+            {
+              "key": "C",
+              "text": "It was put in the archives for research purposes."
+            },
+            {
+              "key": "D",
+              "text": "It was purchased by the Smithsonian Archives."
+            }
+          ],
+          "answer": "B",
+          "explanation": "答案:B 定位:由题干中的Darwin’s letter 和in the 1970s 定位到第二段:“We realized in the mid-1970s that it was missing,”... “The intern likely took the letter again once nobody was watching it.” 详解:推理判断题。第二段首句指出,史密森学会档案馆的负责人艾菲·卡普萨里斯说:“我们在二十世纪七 十年代中期发现这封信丢失了。”该段末句指出,“这个实习生很有可能在没人看管时又将这封信拿走了。”由此 可见,这封信被盗了不止一次,故答案为B)。 点睛:A)“它被美国联邦调查局找回”,虽然文章第三段第三句指出美国联邦调查局的艺术品犯罪小组找回了 这封信,但这是数十年以后的事情了,并不是发生在二十世纪七十年代的事情,故排除;C)“它被放在档案馆以供 研究”,文章第二段倒数第二句虽然提到有人请求借阅这封信做研究,但这并不等同于它放在档案馆里就是为了做 研究,故排除;D)“史密森学会档案馆购买”文中并未提及,故排除。"
+        },
+        {
+          "number": 52,
+          "stem": "What did the FBI do after the recovery of the letter?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They proved its authenticity."
+            },
+            {
+              "key": "B",
+              "text": "They kept it in a special safe."
+            },
+            {
+              "key": "C",
+              "text": "They arrested the suspect immediately."
+            },
+            {
+              "key": "D",
+              "text": "They pressed criminal charges in vain."
+            }
+          ],
+          "answer": "A",
+          "explanation": "答案:A 定位:由题干中的FBI do after the recovery of the letter 定位到第三段第三、四句:Their art crime team recovered the letter but were unable to press charges because the time of limitations had ended. The FBI worked closely with the Archives to determine that the letter was both authentic and definitely Smithsonian’s property. 详解:事实细节题。文章第三段第三、四句指出,艺术品犯罪小组找回了这封信,但是却不能提起诉讼,因为 已经过了诉讼的时限。联邦调查局与档案馆密切合作最终确定该信件为真迹,故答案为A)。 点睛:B)“他们将它放在一个特殊的保险柜中”,文章最后一段最后一句提到自从二十世纪七十年代以来,档 案管理流程已经发生了巨大的变化,档案馆现在将高价值的文件放在保险柜里,可见并不是联邦调查局处理这封信 件的保管问题,故排除;C)“他们立刻逮捕了嫌疑人”,文中并未提及嫌疑人后来的行踪,故排除;D)“他们提起 了诉讼,但却是徒劳”,第三段第三句明确指出因为过了诉讼的时限所以不能提起诉讼,该项原文表述不符,故排 除。"
+        },
+        {
+          "number": 53,
+          "stem": "What is Darwin's letter about?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The evolution of Yellowstone National Park."
+            },
+            {
+              "key": "B",
+              "text": "His cooperation with an American geologist."
+            },
+            {
+              "key": "C",
+              "text": "Some geological evidence supporting his theory."
+            },
+            {
+              "key": "D",
+              "text": "His acknowledgement of help from a professional."
+            }
+          ],
+          "answer": "D",
+          "explanation": "答案:D 定位:由题干中的Darwin’s letter about 定位到第四段:The letter was written by Darwin to thank an American geologist, Dr. Ferdinand Vandeveer Hayden, for sending him copies of his research into the geology of the region that would become Yellowstone National Park. 详解:事实细节题。第四段提到,达尔文写这封信是为了感谢美国的一位地质学家费迪纳得·万德韦尔·海登 博士,感谢他给自己寄送一个区域地质研究的复印件。由此可见,这封信是一封感谢信。故答案为D。 点睛:A)“黄石公园的演变”,第四段提到该区域之后才成为黄石公园,因此这封信的内容与黄石公园的演变 无关,故排除;B)“他与美国一位地质学家的合作”,文中虽然提到了美国的一位地质学家,但没有提及两人的合 作,故排除;C)“一些支撑他的理论的地质资料”文中并未提及,故排除。"
+        },
+        {
+          "number": 54,
+          "stem": "What will the Smithsonian Institution Archives do with the letter according to Kapsalis?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Reserve it for research purposes only."
+            },
+            {
+              "key": "B",
+              "text": "Turn it into an object of high interest."
+            },
+            {
+              "key": "C",
+              "text": "Keep it a permanent secret."
+            },
+            {
+              "key": "D",
+              "text": "Make it available online."
+            }
+          ],
+          "answer": "D",
+          "explanation": "答案:D 定位:由题干中的Smithsonian Institution Archives do with the letter 和according to Kapsalis 定位到第五段第四句: After it is repaired, we will take digital photos of it and that will be available online. One of our goals is to get items of high research value or interest to the public online. 详解:实施细节题。文章第五段第四句提到,将它修复后,档案馆会拍摄数码照片并将其上传至网上为大家所 用。由此可见,档案馆修复文件后,会将这封信的电子版本上传至网络,为大众所用。故答案为D。 点睛:A)“只为了研究目的保存它”文中并未提及,故排除;B)“将它变成一个让人们很感兴趣的物品”,第 五段最后一句提到档案馆的目标之一就是把那些具有高度研究价值或人们很感兴趣的东西上传至网络,并不是将其 变成人们很感兴趣的物品,故排除;C)“将它作为永远的秘密”,定位句明确提到会拍摄数码照片并将其上传至网 上,该项与原文意思不符,故排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What has the past half century witnessed according to Kapsalis?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Growing interest in rare art objects."
+            },
+            {
+              "key": "B",
+              "text": "Radical changes in archiving practices."
+            },
+            {
+              "key": "C",
+              "text": "Recovery of various missing documents."
+            },
+            {
+              "key": "D",
+              "text": "Increases in the value of museum exhibits."
+            }
+          ],
+          "answer": "B",
+          "explanation": "答案:B 定位:由题干中的the past half century 和according to Kapsalis 定位到文章最后一段第二句:“Archiving practices have changed greatly since the 1970s,” says Kapsalis, “and we keep our high value documents in a safe that I don’t even have access to.” 详解:实施细节题。最后一段第二句提到,自从二十世纪七十年代以来,档案馆流程已经发生了巨大的变化, 故答案为B。 点睛:A)“对稀有艺术品日益增长的兴趣”、C)“找回各种各样丢失的文件”和D)“博物馆展品价值的提升” 文中均未提及,故排除。"
+        }
+      ]
+    }
+  ]
+}

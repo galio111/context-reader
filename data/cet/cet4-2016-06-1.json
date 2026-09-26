@@ -1,0 +1,1705 @@
+{
+  "id": "cet4-2016-06-1",
+  "level": 4,
+  "year": 2016,
+  "month": 6,
+  "set": 1,
+  "title": "2016 年 6 月四级 · 第 1 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.06/%E7%9C%9F%E9%A2%98PDF/2016%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%AC%AC1%E5%A5%97%E7%9C%9F%E9%A2%98.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2016%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%AC%AC1%E5%A5%97%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2016-06-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Physical activity does the body good, and there's growing evidence that it helps the brain too. Researchers in the Netherlands report that children who get more exercise, whether at school or on their own, [[26]] to have higher GPAs and better scores on standardized tests. In a [[27]] of 14 studies that looked at physical activity and academic [[28]] , investigators found that the more children moved, the better their grades were in school, [[29]] in the basic subjects of math, English and reading.",
+        "The data will certainly fuel the ongoing debate over whether physical education classes should be cut as schools struggle to [[30]] on smaller budgets. The arguments against physical education have included concerns that gym time may be taking away from study time. With standardized test scores in the U.S. [[31]] in recent years, some administrators believe students need to spend more time in the classroom instead of on the playground. But as these findings show, exercise and academics may not be [[32]] exclusive. Physical activity can improve blood",
+        "[[33]] to the brain, fueling memory, attention and creativity, which are [[34]] to learning. And exercise releases hormones that can improve [[35]] and relieve stress, which can also help learning. So while it may seem as if kids are just exercising their bodies when they're running around, they may actually be exercising their brains as well."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "attendance"
+        },
+        {
+          "key": "B",
+          "text": "consequently"
+        },
+        {
+          "key": "C",
+          "text": "current"
+        },
+        {
+          "key": "D",
+          "text": "depressing"
+        },
+        {
+          "key": "E",
+          "text": "dropping"
+        },
+        {
+          "key": "F",
+          "text": "essential"
+        },
+        {
+          "key": "G",
+          "text": "feasible"
+        },
+        {
+          "key": "H",
+          "text": "flow"
+        },
+        {
+          "key": "I",
+          "text": "mood"
+        },
+        {
+          "key": "J",
+          "text": "mutually"
+        },
+        {
+          "key": "K",
+          "text": "particularly"
+        },
+        {
+          "key": "L",
+          "text": "performance"
+        },
+        {
+          "key": "M",
+          "text": "review"
+        },
+        {
+          "key": "N",
+          "text": "survive"
+        },
+        {
+          "key": "O",
+          "text": "tend"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "attendance"
+            },
+            {
+              "key": "B",
+              "text": "consequently"
+            },
+            {
+              "key": "C",
+              "text": "current"
+            },
+            {
+              "key": "D",
+              "text": "depressing"
+            },
+            {
+              "key": "E",
+              "text": "dropping"
+            },
+            {
+              "key": "F",
+              "text": "essential"
+            },
+            {
+              "key": "G",
+              "text": "feasible"
+            },
+            {
+              "key": "H",
+              "text": "flow"
+            },
+            {
+              "key": "I",
+              "text": "mood"
+            },
+            {
+              "key": "J",
+              "text": "mutually"
+            },
+            {
+              "key": "K",
+              "text": "particularly"
+            },
+            {
+              "key": "L",
+              "text": "performance"
+            },
+            {
+              "key": "M",
+              "text": "review"
+            },
+            {
+              "key": "N",
+              "text": "survive"
+            },
+            {
+              "key": "O",
+              "text": "tend"
+            }
+          ],
+          "answer": "O",
+          "explanation": "[参考答案]O [解题点拨]分析该句的句子结构可知,宾语从句中的主语children 是名词复数,故空格处应为 动词原形作谓语动词。由上句可推断出,该句大意是孩子锻炼得越多,就越易于拿到更高的 平均绩点,在标准 化考试中也易于取得更好的成绩。备选项中只有tend 有“倾向于......,易 于......”的意思,而且tend to do sth 也是一种固定用法,意为“易于(倾向于)做某事”, 故答案选O。备选项中H flow 流动,M review (回顾),N) survive(生存)虽然也都是动 词原形,但词意不合适,故排除。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "attendance"
+            },
+            {
+              "key": "B",
+              "text": "consequently"
+            },
+            {
+              "key": "C",
+              "text": "current"
+            },
+            {
+              "key": "D",
+              "text": "depressing"
+            },
+            {
+              "key": "E",
+              "text": "dropping"
+            },
+            {
+              "key": "F",
+              "text": "essential"
+            },
+            {
+              "key": "G",
+              "text": "feasible"
+            },
+            {
+              "key": "H",
+              "text": "flow"
+            },
+            {
+              "key": "I",
+              "text": "mood"
+            },
+            {
+              "key": "J",
+              "text": "mutually"
+            },
+            {
+              "key": "K",
+              "text": "particularly"
+            },
+            {
+              "key": "L",
+              "text": "performance"
+            },
+            {
+              "key": "M",
+              "text": "review"
+            },
+            {
+              "key": "N",
+              "text": "survive"
+            },
+            {
+              "key": "O",
+              "text": "tend"
+            }
+          ],
+          "answer": "M",
+          "explanation": "[参考答案]M [解题点拨]分析该句的句子结构可知,空格前为不定冠词a,故空格处应为--个以辅音音素开 头的单 数名词。该句的大意是通过回顾过去做的研究,研究人员发现孩子锻炼越多,他们 的考试分数就越高。 备选项中只有review 有“回顾”的意思,故答案选M。备选项中 H)flow(流动)虽然也为辅音音素开头的单数名词,但词意不合适,故排除。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "attendance"
+            },
+            {
+              "key": "B",
+              "text": "consequently"
+            },
+            {
+              "key": "C",
+              "text": "current"
+            },
+            {
+              "key": "D",
+              "text": "depressing"
+            },
+            {
+              "key": "E",
+              "text": "dropping"
+            },
+            {
+              "key": "F",
+              "text": "essential"
+            },
+            {
+              "key": "G",
+              "text": "feasible"
+            },
+            {
+              "key": "H",
+              "text": "flow"
+            },
+            {
+              "key": "I",
+              "text": "mood"
+            },
+            {
+              "key": "J",
+              "text": "mutually"
+            },
+            {
+              "key": "K",
+              "text": "particularly"
+            },
+            {
+              "key": "L",
+              "text": "performance"
+            },
+            {
+              "key": "M",
+              "text": "review"
+            },
+            {
+              "key": "N",
+              "text": "survive"
+            },
+            {
+              "key": "O",
+              "text": "tend"
+            }
+          ],
+          "answer": "L",
+          "explanation": "[参考答案]L [解题点拨]分析该句的句子结构可知,and 通常连接两个并列结构,and 之前为adj. +n.的结 构,故空格处应为名词。由后一句话中“研究人员发现孩子锻炼越多,他们的考试分数就越 髙”可以看出,之前的14 项研究与体育活动和学习成绩间的关系有关,mademic performance 是固定用法,意为“学4成绩, 学业表现,学术成就”,故答案选L。备选项中A)auendam..e(出 席,参加),C)currem(水;电;气流;趋 势),I) mood(情绪,心境)虽都为名词,但词意不 合适,故排除。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "attendance"
+            },
+            {
+              "key": "B",
+              "text": "consequently"
+            },
+            {
+              "key": "C",
+              "text": "current"
+            },
+            {
+              "key": "D",
+              "text": "depressing"
+            },
+            {
+              "key": "E",
+              "text": "dropping"
+            },
+            {
+              "key": "F",
+              "text": "essential"
+            },
+            {
+              "key": "G",
+              "text": "feasible"
+            },
+            {
+              "key": "H",
+              "text": "flow"
+            },
+            {
+              "key": "I",
+              "text": "mood"
+            },
+            {
+              "key": "J",
+              "text": "mutually"
+            },
+            {
+              "key": "K",
+              "text": "particularly"
+            },
+            {
+              "key": "L",
+              "text": "performance"
+            },
+            {
+              "key": "M",
+              "text": "review"
+            },
+            {
+              "key": "N",
+              "text": "survive"
+            },
+            {
+              "key": "O",
+              "text": "tend"
+            }
+          ],
+          "answer": "K",
+          "explanation": "[参考答案]K [解题点拨]分析该句的句子结构可知,该句主谓宾都不缺,这样的情况下就应该考虑是否缺 状语。 而状语一般由副词和介词短语充当,因为该题B 是选抒某一个词语,而空格后又为 完整的介词短语,由 此可知空格处应为副词。由前一句提到的“研究人员发现孩子锻炼越 多,他们的考试分数就越高”可 知,后一句是对前一句的补充说明,强调体育锻炼尤其对 数学、英语、阅读等基础课程的重要性,备选项中只有particularly 有“尤其,特别”之意, 故答案选K。备选项中B) consequently(因此,结果),J ) mutually (互相地)虽都为副词,但 词意不合适,故排除。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "attendance"
+            },
+            {
+              "key": "B",
+              "text": "consequently"
+            },
+            {
+              "key": "C",
+              "text": "current"
+            },
+            {
+              "key": "D",
+              "text": "depressing"
+            },
+            {
+              "key": "E",
+              "text": "dropping"
+            },
+            {
+              "key": "F",
+              "text": "essential"
+            },
+            {
+              "key": "G",
+              "text": "feasible"
+            },
+            {
+              "key": "H",
+              "text": "flow"
+            },
+            {
+              "key": "I",
+              "text": "mood"
+            },
+            {
+              "key": "J",
+              "text": "mutually"
+            },
+            {
+              "key": "K",
+              "text": "particularly"
+            },
+            {
+              "key": "L",
+              "text": "performance"
+            },
+            {
+              "key": "M",
+              "text": "review"
+            },
+            {
+              "key": "N",
+              "text": "survive"
+            },
+            {
+              "key": "O",
+              "text": "tend"
+            }
+          ],
+          "answer": "N",
+          "explanation": "[参考答案]N [解题点拨]由空格前的straggle to 可以推断出空格处应为动词原形,struggle to do sth.是固定 用法,意 为“努力做某事”。该句大意是学校努力以低成本生存,备选项中只有survive 有 “生存,存活,继续存在” 之意,故答案选N。备选项中H)flow(流动)虽为动词原形,但 词意不合适,故排除"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "attendance"
+            },
+            {
+              "key": "B",
+              "text": "consequently"
+            },
+            {
+              "key": "C",
+              "text": "current"
+            },
+            {
+              "key": "D",
+              "text": "depressing"
+            },
+            {
+              "key": "E",
+              "text": "dropping"
+            },
+            {
+              "key": "F",
+              "text": "essential"
+            },
+            {
+              "key": "G",
+              "text": "feasible"
+            },
+            {
+              "key": "H",
+              "text": "flow"
+            },
+            {
+              "key": "I",
+              "text": "mood"
+            },
+            {
+              "key": "J",
+              "text": "mutually"
+            },
+            {
+              "key": "K",
+              "text": "particularly"
+            },
+            {
+              "key": "L",
+              "text": "performance"
+            },
+            {
+              "key": "M",
+              "text": "review"
+            },
+            {
+              "key": "N",
+              "text": "survive"
+            },
+            {
+              "key": "O",
+              "text": "tend"
+            }
+          ],
+          "answer": "E",
+          "explanation": "[参考答案]E [解题点拨]分析该句的句子结构可知,该句考査的是with 的;g 合结构.with sb./slh. doing (sth.), 是 固定用法,意为“随着......”,所以空格处应为动名同。由后一句话“一些管理人员认 为学生需要花更多 的时间在教室而不是在操场上”可知,近些年美国学生在标准化考试中 的成绩下降了,空格处应填 dropping,意为“下降”,故答案选E。备选项中D)depressing(压 抑的,使人沮丧的)虽为动名词,但词意 不合适,故排除。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "attendance"
+            },
+            {
+              "key": "B",
+              "text": "consequently"
+            },
+            {
+              "key": "C",
+              "text": "current"
+            },
+            {
+              "key": "D",
+              "text": "depressing"
+            },
+            {
+              "key": "E",
+              "text": "dropping"
+            },
+            {
+              "key": "F",
+              "text": "essential"
+            },
+            {
+              "key": "G",
+              "text": "feasible"
+            },
+            {
+              "key": "H",
+              "text": "flow"
+            },
+            {
+              "key": "I",
+              "text": "mood"
+            },
+            {
+              "key": "J",
+              "text": "mutually"
+            },
+            {
+              "key": "K",
+              "text": "particularly"
+            },
+            {
+              "key": "L",
+              "text": "performance"
+            },
+            {
+              "key": "M",
+              "text": "review"
+            },
+            {
+              "key": "N",
+              "text": "survive"
+            },
+            {
+              "key": "O",
+              "text": "tend"
+            }
+          ],
+          "answer": "J",
+          "explanation": "[参考答案]J [解题点拨]分析该句的句子结构可知,该句主谓宾都不缺,这样的情况下就应该考虑是否缺 状语„ 该句大意是之前有关体育活动和学习成绩间的关系的研究表明,二者之间并非相互排 斥。备选项中只 有nuitually 有“相互地”之意,故答案选J。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "attendance"
+            },
+            {
+              "key": "B",
+              "text": "consequently"
+            },
+            {
+              "key": "C",
+              "text": "current"
+            },
+            {
+              "key": "D",
+              "text": "depressing"
+            },
+            {
+              "key": "E",
+              "text": "dropping"
+            },
+            {
+              "key": "F",
+              "text": "essential"
+            },
+            {
+              "key": "G",
+              "text": "feasible"
+            },
+            {
+              "key": "H",
+              "text": "flow"
+            },
+            {
+              "key": "I",
+              "text": "mood"
+            },
+            {
+              "key": "J",
+              "text": "mutually"
+            },
+            {
+              "key": "K",
+              "text": "particularly"
+            },
+            {
+              "key": "L",
+              "text": "performance"
+            },
+            {
+              "key": "M",
+              "text": "review"
+            },
+            {
+              "key": "N",
+              "text": "survive"
+            },
+            {
+              "key": "O",
+              "text": "tend"
+            }
+          ],
+          "answer": "H",
+          "explanation": "[参考答案]H [解题点拨]分析该句的句子结构可知,该句的宾语不完整,时宾语补充完后必须可与介词“to” 连用 该句大意是体育活动可以增加大脑的血流M 备选项中只有flow 有“流景,流动”之意 可与介间“to” 连用,故答案选H。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "attendance"
+            },
+            {
+              "key": "B",
+              "text": "consequently"
+            },
+            {
+              "key": "C",
+              "text": "current"
+            },
+            {
+              "key": "D",
+              "text": "depressing"
+            },
+            {
+              "key": "E",
+              "text": "dropping"
+            },
+            {
+              "key": "F",
+              "text": "essential"
+            },
+            {
+              "key": "G",
+              "text": "feasible"
+            },
+            {
+              "key": "H",
+              "text": "flow"
+            },
+            {
+              "key": "I",
+              "text": "mood"
+            },
+            {
+              "key": "J",
+              "text": "mutually"
+            },
+            {
+              "key": "K",
+              "text": "particularly"
+            },
+            {
+              "key": "L",
+              "text": "performance"
+            },
+            {
+              "key": "M",
+              "text": "review"
+            },
+            {
+              "key": "N",
+              "text": "survive"
+            },
+            {
+              "key": "O",
+              "text": "tend"
+            }
+          ],
+          "answer": "F",
+          "explanation": "[参考答案]F [解题点拨]be + adj. +to Sb./sth.是固定用法,因此空格处应为形容词。该句大意是体育活动可 以增 加大脑的血流量,增强i 己忆力和注意力,提髙创新性,而这些对学习都必不可少。 备选项屮只有essemial 有“基本的,必要的”之意,故答案选F。备选项中C)current (现在的; 流通的),G)feasible(可行的)虽都为形容词,但词意不合适,故排除。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "attendance"
+            },
+            {
+              "key": "B",
+              "text": "consequently"
+            },
+            {
+              "key": "C",
+              "text": "current"
+            },
+            {
+              "key": "D",
+              "text": "depressing"
+            },
+            {
+              "key": "E",
+              "text": "dropping"
+            },
+            {
+              "key": "F",
+              "text": "essential"
+            },
+            {
+              "key": "G",
+              "text": "feasible"
+            },
+            {
+              "key": "H",
+              "text": "flow"
+            },
+            {
+              "key": "I",
+              "text": "mood"
+            },
+            {
+              "key": "J",
+              "text": "mutually"
+            },
+            {
+              "key": "K",
+              "text": "particularly"
+            },
+            {
+              "key": "L",
+              "text": "performance"
+            },
+            {
+              "key": "M",
+              "text": "review"
+            },
+            {
+              "key": "N",
+              "text": "survive"
+            },
+            {
+              "key": "O",
+              "text": "tend"
+            }
+          ],
+          "answer": "I",
+          "explanation": "[参考答案]I [解题点拨]and 连接两个并列的结构,而and 之后是v. +n.的形式,所以and 之前也应为v. +n. 的形 式,由此推断出空格处应为名词。该句大意是体#活动释放出的荷尔蒙可以调节心情, 释放压力。备选项中只有mood 有“情绪,心情”之意,故答案选I。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2016-06-1-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) When your elderly relative needs to enter some sort of long-term care facility—a moment few parents or children approach without fear—what you would like is to have everything made clear.",
+        "B) Does assisted living really mark a great improvement over a nursing home, or has the industry simply hired better interior designers? Are nursing homes as bad as people fear, or is that an out-moded stereotype(固定看法)? Can doing one's homework really steer families to the best places? It is genuinely hard to know.",
+        "C) I am about to make things more complicated by suggesting that what kind of facility an older person lives in may matter less than we have assumed. And that the characteristics adult children look for when they begin the search are not necessarily the things that make a difference to the people who are going to move in. I am not talking about the quality of care, let me hastily add. Nobody flourishes in a gloomy environment with irresponsible staff and a poor safety record. But an accumulating body of research indicates that some distinctions between one type of elder care and another have little real bearing on how well residents do.",
+        "D) The most recent of these studies, published in The journal of Applied Gerontology, surveyed 150 Connecticut residents of assisted living, nursing homes and smaller residential care homes(known in some states as board and care homes or adult care homes). Researchers from the University of Connecticut Health Center asked the residents a large number of questions about their quality of life, emotional well-being and social interaction, as well as about the quality of the facilities.",
+        "E) “We thought we would see differences based on the housing types,” said the lead author of the study, Julie Robison, an associate professor of medicine at the university. A reasonable assumption—don't families struggle to avoid nursing homes and suffer real guilt if they can't?",
+        "F) In the initial results, assisted living residents did paint the most positive picture. They were less likely to report symptoms of depression than those in the other facilities, for instance, and less likely to be bored or lonely. They scored higher on social interaction.",
+        "G) But when the researchers plugged in a number of other variables, such differences disappeared. It is not the housing type, they found, that creates differences in residents' responses. “It is the characteristics of the specific environment they are in, combined with their own personal characteristics—how healthy they feel they are, their age and marital status,” Dr. Robison explained. Whether residents felt involved in the decision to move and how long they had lived there also proved significant.",
+        "H) An elderly person who describes herself as in poor health, therefore, might be no less depressed in assisted living(even if her children preferred it) than in a nursing home. A person who had input into where he would move and has had time to adapt to it might do as well in a nursing home as in a small residential care home, other factors being equal. It is an interaction between the person and the place, not the sort of place in itself, that leads to better or worse experiences. “You can't just say, 'Let's put this person in a residential care home instead of a nursing home—she will be much better off,'” Dr. Robison said. What matters, she added, “is a combination of what people bring in with them, and what they find there.”",
+        "I) Such findings, which run counter to common sense, have surfaced before. In a multi-state study of assisted living, for instance, University of North Carolina researchers found that a host of variables—the facility's type, size or age;whether a chain owned it;how attractive the neighborhood was—had no significant relationship to how the residents fared in terms of illness, mental decline, hospitalizations or mortality. What mattered most was the residents' physical health and mental status. What people were like when they came in had greater consequence than what happened once they were there.",
+        "J) As I was considering all this, a press release from a respected research firm crossed my desk, announcing that the five-star rating system that Medicare developed in 2008 to help families compare nursing home quality also has little relationship to how satisfied its residents or their family members are. As a matter of fact, consumers expressed higher satisfaction with the one-star facilities, the lowest rated, than with the five-star ones.(More on this study and the star ratings will appear in a subsequent post.)",
+        "K) Before we collectively tear our hair out—how are we supposed to find our way in a landscape this confusing?—here is a thought from Dr. Philip Sloane, a geriatrician(老年病学专家)at the University of North Carolina:“In a way, that could be liberating for families.”",
+        "L) Of course, sons and daughters want to visit the facilities, talk to the administrators and residents and other families, and do everything possible to fulfill their duties. But perhaps they don't have to turn themselves into private investigators or Congressional subcommittees. “Families can look a bit more for where the residents are going to be happy,” Dr. Sloane said. And involving the future resident in the process can be very important.",
+        "M) We all have our own ideas about what would bring our parents happiness. They have their ideas, too. A friend recently took her mother to visit an expensive assisted living/nursing home near my town. I have seen this place—it is elegant, inside and out. But nobody greeted the daughter and mother when they arrived, though the visit had been planned;nobody introduced them to the other residents. When they had lunch in the dining room, they sat alone at a table.",
+        "N) The daughter feared her mother would be ignored there, and so she decided to move her into a more welcoming facility. Based on what is emerging from some of this research, that might have been as rational a way as any to reach a decision."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Many people feel guilty when they cannot find a place other than a nursing home for their parents.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "E",
+          "explanation": "[参考答案]E [解题点拨]题干大意:当许多子女不能为他们的父母找到一家比养老院更合适的护理机构 时,他们 会很内疚。由题干中的“feel guilty when they cannot find a place other than a nursing home”可以定位到文 中E 段最后一句话。该句提到“一个合乎情理的假设是,这些成年子 女非要努力避开养老院,而且如果 做不到他们真的会觉得内疚吗? ”与题干相吻合。"
+        },
+        {
+          "number": 37,
+          "stem": "Though it helps for children to investigate care facilities, involving their parents in the decision-making process may prove very important.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "L",
+          "explanation": "[参考答案]L [解题点拨]题干大意:尽管子女去看看那些护理机构对于做决定会有帮助,但是事实证明,让 他们的 父母参与决策的过程也许十分重要。由题千中的“involving their parents in the decision-making process may prove very important”可以定位到文中L 段最后一句话。该句提 到“事实证明让将要去住护理机构的 老年人参与决策的过程十分重要”,与题干相吻合。"
+        },
+        {
+          "number": 38,
+          "stem": "It is really difficult to tell if assisted living is better than a nursing home.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "B",
+          "explanation": "[参考答案]B [解题点拨]题干大意:真的很难说辅助生活型住房是否比养老院好。由题干中的“assisted living is better than nursing house”可以看出辅助生活型住房与养老院存在一种对比的关系, 由此可以定位到文中 B 段第一句话和最后一句话。这两句分别提到“难道辅助生活型住房 真的比养老院有很大改善吗?还是这个行业只是雇佣了一些更好的室内设计师? ”和“这 真的不得而知”,与题干相吻合。"
+        },
+        {
+          "number": 39,
+          "stem": "How a resident feels depends on an interaction between themselves and the care facility they live in.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "H",
+          "explanation": "[参考答案]H [解题点拨]题干大意:住在护理机构里的人感觉如何,取决于他们自己与他们所居住的护理机 构之 间的相互影响。由题干中的“an interaction between themselves and the care facility they live in”可以定位 到文中H 段第三句话。该句提到“是人和住所的相互影响,而不单单是 住所的类型本身.使老年人有更 美好或更差劲的经历”,与题干相吻合。"
+        },
+        {
+          "number": 40,
+          "stem": "The author thinks her friend made a rational decision in choosing a more hospitable place over an apparently elegant assisted living home.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "N",
+          "explanation": "[参考答案]N [解题点拨]题干大意:作者认为她的朋友做出了一个理智的决定,为她的母亲选择了一家热情 友好 的护理机构,而不是一座表面上装修典雅的辅助生活型住房。由题干中的“the author thinks her friend made a rational decision”可以定位到文中N 段最后一句话。该句提到“基于 该调查得出的某些结论,当 子女决定要把父母送进某家护理机构时,这都不失为一种理智 的方式”,与题干相吻合。"
+        },
+        {
+          "number": 41,
+          "stem": "The system Medicare developed to rate nursing home quality is of little help to finding a satisfactory place.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "J",
+          "explanation": "[参考答案]J [解题点拨]题干大意:国家老年人医疗保险制度规定的用于评价养老院质量的体系对找到一 家令人 满意的护理机构帮助不大。由题干中的“the system Medicare deve 丨opetl to rate nursing home quality” 可以 定位到文中J 段第一句话。该句提到“为帮助老年人的家人评 价养老院的服务质量,2008 年国家老年 人医疗保险制度规定了一个五星级评价体系,但该体 系与老年人或其家属的满意度关系不大”,与题干相吻合。"
+        },
+        {
+          "number": 42,
+          "stem": "At first the researchers of the most recent study found residents in assisted living facilities gave higher scores on social interaction.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "F",
+          "explanation": "[参考答案]F [解题点拨]题干大意:起初,最新研究的研究员发现居住在辅助生活型住房的老年人在社交上 表现较好.由题干中的“residents in assisted living facilities gave higher scores on social interaction”可以定位到 文中F 段第二、三句话。这两句分别提到“与居住在其他护理机 构的老年人相比,他们有抑郁症状的可 能性要小,而且觉得厌烦或孤独的可能性也小” 和“他们在社交上表现较好”,与题干相吻合。"
+        },
+        {
+          "number": 43,
+          "stem": "What kind of care facility old people live in may be less important than we think.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "C",
+          "explanation": "[参考答案]C [解题点拨]题干大意:老年人住进什么样的护理机构也许没我们想的那么重要。由题干中的 “care facility old people live in”和“less importan 丨than we think”可以定位到C 段第一句 话。该句提到“老年人 住进什么样的护理机构并没有我们想象的那么重要”,与题干相吻 合。"
+        },
+        {
+          "number": 44,
+          "stem": "The findings of the latest research were similar to an earlier multi-state study of assisted living.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "I",
+          "explanation": "[参考答案]I [解题点拨]题干大意:最新研究的发现与早期对辅助生活沏住房进行多模态研究的发现相似< 由题 干中的“an earlier muhi-state study”可以定位到I 段第一句话和第二句话。这两句提到 “这些与常识背道而驰的发现之前已经出现过。在对辅助生活型住房进行的多模态研究中, 北卡罗来纳大学的研究员发 现有许多变量,比如护理机构的类型、大小、开办年限、是否是 一家连锁机构、其邻居有多吸引人等与老 人在疾病、脑力下降、住院治疗以及死亡等方面 的处境并没有多大关系”,与题干相吻合。"
+        },
+        {
+          "number": 45,
+          "stem": "A resident's satisfaction with a care facility has much to do with whether they had participated in the decision to move in and how long they had stayed there.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "G",
+          "explanation": "[参考答案]G [解题点拨]题干大意:老年人对一家护理机构的满意度与他们本人是否参与决定搬进哪家护 理机构 和他们要在那里待多久有很大关系。由该句中的“participated in the decision to move in”和“how long they had stayed there”可以定位到G 段最后一句话。该句提到“事实证明, 老年人是否觉得自己在搬进护理 机构以及他们®要在那里住多久的决定中有发言权,都至关 重要”,与题干相吻合。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2016-06-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "As Artificial Intelligence (AI) becomes increasingly sophisticated, there are growing concerns that robots could become a threat. This danger can be avoided, according to computer science professor Stuart Russell, if we figure out how to turn human values into a programmable code.",
+        "Russell argues that as robots take on more complicated tasks, it's necessary to translate our morals into AI language.",
+        "For example, if a robot does chores around the house, you wouldn't want it to put the pet cat in the oven to make dinner for the hungry children. “You would want that robot preloaded with a good set of values,” said Russell.",
+        "Some robots are already programmed with basic human values. For example, mobile robots have been programmed to keep a comfortable distance from humans. Obviously there are cultural differences, but if you were talking to another person and they came up close in your personal space, you wouldn't think that's the kind of thing a properly brought-up person would do.",
+        "It will be possible to create more sophisticated moral machines, if only we can find a way to set out human values as clear rules.",
+        "Robots could also learn values from drawing patterns from large sets of data on human behavior. They are dangerous only if programmers are careless.",
+        "The biggest concern with robots going against human values is that human beings fail to do sufficient testing and they've produced a system that will break some kind of taboo(禁忌).",
+        "One simple check would be to program a robot to check the correct course of action with a human when presented with an unusual situation.",
+        "If the robot is unsure whether an animal is suitable for the microwave, it has the opportunity to stop, send out beeps(嘟嘟声), and ask for directions from a human. If we humans aren't quite sure about a decision, we go and ask somebody else.",
+        "The most difficult step in programming values will be deciding exactly what we believe in moral, and how to create a set of ethical rules. But if we come up with an answer, robots could be good for humanity."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What does the author say about the threat of robots?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It may constitute a challenge to computer programmers."
+            },
+            {
+              "key": "B",
+              "text": "It accompanies all machinery involving high technology."
+            },
+            {
+              "key": "C",
+              "text": "It can be avoided if human values are translated into their language."
+            },
+            {
+              "key": "D",
+              "text": "It has become an inevitable peril as technology gets more sophisticated."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[参考答案]C [解题点拨]由题干中的“Ihreal of rebels”可以定位到文中第一段的第二句话。该句提到“计 算机科学 教授斯图尔特•拉塞尔说,如果我们明内如何将人类的价值观转换成一种可编程代 码,这种危险就可以避免”选项C 如果把人类的价值观翻译成机器人的语言,机器人对人 类的威胁即可消除”符合原 文,故答案选C,选项A)机器人对人类的威胁或许会给计算机程 序设计员带来挑战,原文并未提到:选 项B)机器人对人类的威胁在所宥涉及高科技的机器 上都存在.原文并未提到;选项D)随着技术更加高端复杂,这种威胁会成为一种不可避免的危 险,原文并未提到。"
+        },
+        {
+          "number": 47,
+          "stem": "What would we think of a person who invades our personal space according to the author?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are aggressive."
+            },
+            {
+              "key": "B",
+              "text": "They are outgoing."
+            },
+            {
+              "key": "C",
+              "text": "They are ignorant."
+            },
+            {
+              "key": "D",
+              "text": "They are ill-bred."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[参考答案]D [解题点拨]由题干中的“a person who invades our personal space”定位到文中第四段的最后一 句话该句提到“人与人之间的恰当距离因文化而异。但是如果你在跟一个人谈话,这些机器 人走上前来离你很近,侵犯了你的私人空间,你认为一个家教良好的人不会做这种事情\"。由 此可以看出,在作者看来一个侵犯别人空间的人教养不好。选项D 他们教养不好,ill-bred 无 教养的,教养不好的”,与文中的 “properly hronght-up 构成一对反义词,故答案选D。选 项A)他们有攻击性,与原文不符;选项B)他们很外向,与原文不符;选项C)他们很无知,与 原文不符,"
+        },
+        {
+          "number": 48,
+          "stem": "How do robots learn human values?",
+          "options": [
+            {
+              "key": "A",
+              "text": "By interacting with humans in everyday life situations."
+            },
+            {
+              "key": "B",
+              "text": "By following the daily routines of civilized human beings."
+            },
+            {
+              "key": "C",
+              "text": "By picking up patterns from massive data on human behavior."
+            },
+            {
+              "key": "D",
+              "text": "By imitating the behavior of property brought-up human beings."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[参考答案]C [解题点拨]由题干中的“robots leam human values”可以定位到文中第六段第一句话该句提 到“机器人还可以从根据人类行为的大量数据绘制而成的图画中学习人类的价值观”。选项 C)根据人类行为的大盘数据绘制而成的图画,符合原文,故答案选C。选项A)通过跟人类 在日常生活中的交流,原文并 未提到;选项B)通过遵循文明人类的日常规范,原文并未提到; 选项D)通过模仿教养好的人的行为,原文并未提到。"
+        },
+        {
+          "number": 49,
+          "stem": "What will a well-programmed robot do when facing an unusual situation?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Keep a distance from possible dangers."
+            },
+            {
+              "key": "B",
+              "text": "Stop to seek advice from a human being."
+            },
+            {
+              "key": "C",
+              "text": "Trigger its built-in alarm system at once."
+            },
+            {
+              "key": "D",
+              "text": "Do sufficient testing before taking action."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[参考答案]B [解题点拨]由题干中的“a well-programmed robot do when facing an unusual situation”可以定 位到文中 第八段:该段提到\"当曲对异常情况时,城简单的测试方法就是在一个机器人身上 编写一套程序,看看人类在这种情况下会怎样做”选项B)停下来听从人类的建议,符合原 文,故答案选B 选项A)远离 潜在的危险,原文并未提到;选项C)立即后动其内置的报警系 统,原文并未提到;选项D)采取行动之前 做足够的测试,原文并未提到。"
+        },
+        {
+          "number": 50,
+          "stem": "What is most difficult to do when we turn human values into a programmable code?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Determine what is moral and ethical."
+            },
+            {
+              "key": "B",
+              "text": "Design some large-scale experiments."
+            },
+            {
+              "key": "C",
+              "text": "Set rules for man-machine interaction."
+            },
+            {
+              "key": "D",
+              "text": "Develop a more sophisticated program."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[参考答案]A [解题点拨]由题〒中的“when we turn human values into a programmable code”可以定位到文 中最后一 段第一句话.该句提到“在给机器人编写价值观程序时,最困难的一步就是准确地 确定我们信仰的什么 是道德的,以及如何设计一套伦理价值程序”。选项A)确定什么符合 伦理道德,符合原文,故答案选A: 选项B)设计一些大规模的实验,原文并未提到;选项C) 为人机交流制定规则,原文并未提到;选项I)) 开发一个更高端的程序,原文并未提到。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2016-06-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Why do some people live to be older than others? You know the standard explanations: keeping a moderate diet, engaging in regular exercise, etc. But what effect does your personality have on your longevity(长寿)?Do some kinds of personalities lead to longer lives? A new study in the Journal of the American Geriatrics Society looked at this question by examining the personality characteristics of 246 children of people who had lived to be at least 100.",
+        "The study shows that those living the longest are more outgoing, more active and less neurotic (神经质的) than other people. Long-living women are also more likely to be sympathetic and cooperative than women with a normal life span. These findings are in agreement with what you would expect from the evolutionary theory: those who like to make friends and help others can gather enough resources to make it through tough times.",
+        "Interestingly, however, other characteristics that you might consider advantageous had no impact on whether study participants were likely to live longer. Those who were more self-disciplined, for instance, were no more likely to live to be very old. Also, being open to new ideas had no relationship to long life, which might explain all those bad-tempered old people who are fixed in their ways.",
+        "Whether you can successfully change your personality as an adult is the subject of a longstanding psychological debate. But the new paper suggests that if you want long life, you should strive to be as outgoing as possible.",
+        "Unfortunately, another recent study shows that your mother's personality may also help determine your longevity. That study looked at nearly 28,000 Norwegian mothers and found that",
+        "those moms who were more anxious, depressed and angry were more likely to feed their kids unhealthy diets. Patterns of childhood eating can be hard to break when we're adults, which may mean that kids of depressed moms end up dying younger.",
+        "Personality isn't destiny(命运), and everyone knows that individuals can learn to change. But both studies show that long life isn't just a matter of your physical health but of your mental health."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "The aim of the study in the Journal of the American Geriatrics Society is____.",
+          "options": [
+            {
+              "key": "A",
+              "text": "to see whether people's personality affects their life span"
+            },
+            {
+              "key": "B",
+              "text": "to find out if one's lifestyle has any effect on their health"
+            },
+            {
+              "key": "C",
+              "text": "to investigate the role of exercise in living a long life"
+            },
+            {
+              "key": "D",
+              "text": "to examine all the factors contributing to longevity"
+            }
+          ],
+          "answer": "A",
+          "explanation": "[参考答案]A [解题点拨]由题干中的“theaim of the study in the......” 以定位到文中第一段的最后两句话。 最后一句提到“《美国老年医学会杂志》最新刊载研究报告,通过研究那些曾经活到至少100 岁的人的子女(共246 个)的个性特征来关注这个问题”,而“这个问题”就是 指第一段 倒数第二句话中提到的“某些性格特征会使人长寿吗”。选项A)弄明白性格是否影响人的 寿命,符合原又,故答案选A。选项B)为了查明生活方式是否对人的健康有影响,原文并 未提到;选项C) 为了研究锻炼在长寿中的作用,原文并未提到;选项D)为了研究所有对长 寿有益的因素,原文并未提到。"
+        },
+        {
+          "number": 52,
+          "stem": "What does the author imply about outgoing and sympathetic people?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They have a good understanding of evolution."
+            },
+            {
+              "key": "B",
+              "text": "They are better at negotiating an agreement."
+            },
+            {
+              "key": "C",
+              "text": "They generally appear more resourceful."
+            },
+            {
+              "key": "D",
+              "text": "They are more likely to get over hardship."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[参考答案]D [解题点拨]由题干中的“outgoing and sympathetic people”可以定位到文中第二段。第一句话 提到“该研究表明活得最久的人比其他人更外向”,第二句话提到“长寿的女人更有可能比 正常年龄去世的女人 富有同情心'第三句话提到“外向的人喜欢交朋友,富有同情心的人乐 于帮助别人.这会使他们积攒很广的人脉,更有可能渡过难关”。选项I))他们更有可能渡过 难关,符合原文,故答案选选项A)他们很了解进化论,原文并未提到;选项B)他们更捎长通 过谈判达成协议,原文并未提到;选项C)他们一般看起来足智多谋,原文并未提到,"
+        },
+        {
+          "number": 53,
+          "stem": "What finding of the study might prove somewhat out of our expectation?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Easy-going people can also live a relatively long life."
+            },
+            {
+              "key": "B",
+              "text": "Personality characteristics that prove advantageous actually vary with times."
+            },
+            {
+              "key": "C",
+              "text": "Such personality characteristics as self-discipline have no effect on longevity."
+            },
+            {
+              "key": "D",
+              "text": "Readiness to accept new ideas helps one enjoy longevity."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[参考答案]C [解题点拨]由题干中的\"finding of the study might prove somewhat out of ouf expectation”可以 定位到第 三段第一、二句话„第一句提到“然而,有趣的是,也许在你看来有助于长寿的其 他性格特征对研究对象是否长寿没有影响”。第二句提到“自制力较强的人并非更长寿”。 选项C)自律这种性格特征对长寿没 有影响,符合原文,故答案选C。选项A)易于相处的人 也能够相对长寿,这一发现并不出人意料,故排 除;选项B)那些证明有助于长寿的个性特征 因时(fii 异,原文并未提到,故排除;选项D)乐下'接受新观点 有助于长寿,原文中提到“思想 开放.易于接受新观点跟长寿没有任何关系\",故排除。"
+        },
+        {
+          "number": 54,
+          "stem": "What does the recent study of Norwegian mothers show?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Children's personality characteristics are invariably determined by their mothers."
+            },
+            {
+              "key": "B",
+              "text": "People with unhealthy eating habits are likely to die sooner."
+            },
+            {
+              "key": "C",
+              "text": "Mothers' influence on children may last longer than fathers'."
+            },
+            {
+              "key": "D",
+              "text": "Mothers' negative personality characteristics may affect their children's life spans."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[参考答案]D [解题点拨]由题干中的“the recent study of Norwegian mothers”可以定位到第五段第二句话。 该句提到“该研究对将近28 000 位挪威母亲进行跟踪调査”,并在接下来的行文中介绍了 该研究的发现。选项 D)母亲的负面性格特征也许会影响孩子的寿命,符合原文,故答案选 D 选项A)孩子的性格特征总是 由母亲决定,原文并未提到;选项B)有不健康饮食习惯的人 死亡得会较快,原文并未提到;选项C)母亲对孩子的影响要比父亲对孩子的影响持续的时 间长,原文并未提到."
+        },
+        {
+          "number": 55,
+          "stem": "What can we learn from the findings of the two new studies?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Anxiety and depression more often than not cut short one's life span."
+            },
+            {
+              "key": "B",
+              "text": "Longevity results from a combination of mental and physical health."
+            },
+            {
+              "key": "C",
+              "text": "Personality plays a decisive role in how healthy one is."
+            },
+            {
+              "key": "D",
+              "text": "Health is in large part related to one's lifestyle."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[参考答案]B [解题点拨]由题干中的“the findings of the two new studies”可以定位到文中最后一段的最后 一句话。该句提到“这两项研究都表明艮寿不仅与身体健康有关,也与心理健康有关'选项 B)长寿是身心健康 相结合的结果,符合原文,故答案选B。选项A)焦虑和抑郁往往会缩短 人的寿命,两项研究都未提到该 观点,故排除;选项C)性格对人的健康起决定作用,原文提 到“性格不能决定命运,而且我们都知道自己 可以学着改变”,故排除;选项D 生活方式 对人的健康有很大影响,第项研究并未提到,故排除 翻译 【参考答案】 Kung Fu is the folk name of Chinese martial arts, which dates back to the need of self-defense, hunting, and military drill in ancient China. It is one of China's traditional sports, and all people, old and young, would participate in. It has gradually evolved into a unique element of the Chinese culture. As a national treasure of China, it has hundreds of styles. Meanwhile, it is also the most practiced art form in the world. Some styles imitate the movements of animals, while others are inspired by Chinese philosophy, myth and legend."
+        }
+      ]
+    }
+  ]
+}

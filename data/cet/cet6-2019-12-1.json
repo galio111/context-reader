@@ -1,0 +1,1524 @@
+{
+  "id": "cet6-2019-12-1",
+  "level": 6,
+  "year": 2019,
+  "month": 12,
+  "set": 1,
+  "title": "2019 年 12 月六级 · 第 1 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.12/%E7%9C%9F%E9%A2%98Word/2019%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC1%E5%A5%97%EF%BC%89.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2019.12%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E8%A7%A3%E6%9E%90%E7%AC%AC1%E5%A5%97.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2019-12-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "When considering risk factors associated with serious chronic diseases, we often think about health indicators such as cholesterol, blood pressure, and body weight. But poor diet and physical inactivity also each increase the risk of heart disease and have a role to play in the development of some cancers. Perhaps worse, the [[26]] effects of an unhealthy diet and insufficient exercise are not limited to your body. Recent research has also shown that [[27]] in a high-fat and high-sugar diet may have negative effects on your brain, causing learning and memory [[28]]. Studies have found obesity is associated with impairments in cognitive functioning, as [[29]] by a range of learning and memory tests, such as the ability to remember a list of words presented some minutes or hours earlier. There is also a growing body of evidence that diet-induced cognitive impairments can emerge [[30]]—within weeks or even days. For example, one study found healthy adults [[31]] to a high-fat diet for five days showed impaired attention, memory, and mood compared with a low-fat diet control group. Another study also found eating a high-fat and highsugar breakfast each day for as little as four days resulted in problems with learning and memory [[32]] to those observed in overweight and obese individuals. Body weight was not hugely different between the groups eating a healthy diet and those on high fat and sugar diets. So this shows negative [[33]] of poor dietary intake can occur even when body weight has not changed [[34]]. Thus, body weight is not always the best indicator of health and a thin person still needs to eat well and exercise [[35]]."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "assessed"
+        },
+        {
+          "key": "B",
+          "text": "assigned"
+        },
+        {
+          "key": "C",
+          "text": "consequences"
+        },
+        {
+          "key": "D",
+          "text": "conspicuously"
+        },
+        {
+          "key": "E",
+          "text": "deficits"
+        },
+        {
+          "key": "F",
+          "text": "designated"
+        },
+        {
+          "key": "G",
+          "text": "detrimental"
+        },
+        {
+          "key": "H",
+          "text": "digestion"
+        },
+        {
+          "key": "I",
+          "text": "excelling"
+        },
+        {
+          "key": "J",
+          "text": "indulging"
+        },
+        {
+          "key": "K",
+          "text": "loopholes"
+        },
+        {
+          "key": "L",
+          "text": "rapidly"
+        },
+        {
+          "key": "M",
+          "text": "redundant"
+        },
+        {
+          "key": "N",
+          "text": "regularly"
+        },
+        {
+          "key": "O",
+          "text": "similar"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assessed"
+            },
+            {
+              "key": "B",
+              "text": "assigned"
+            },
+            {
+              "key": "C",
+              "text": "consequences"
+            },
+            {
+              "key": "D",
+              "text": "conspicuously"
+            },
+            {
+              "key": "E",
+              "text": "deficits"
+            },
+            {
+              "key": "F",
+              "text": "designated"
+            },
+            {
+              "key": "G",
+              "text": "detrimental"
+            },
+            {
+              "key": "H",
+              "text": "digestion"
+            },
+            {
+              "key": "I",
+              "text": "excelling"
+            },
+            {
+              "key": "J",
+              "text": "indulging"
+            },
+            {
+              "key": "K",
+              "text": "loopholes"
+            },
+            {
+              "key": "L",
+              "text": "rapidly"
+            },
+            {
+              "key": "M",
+              "text": "redundant"
+            },
+            {
+              "key": "N",
+              "text": "regularly"
+            },
+            {
+              "key": "O",
+              "text": "similar"
+            }
+          ],
+          "answer": "G",
+          "explanation": "[锁定答案]2句指出不良饮食和缺乏锻炼会增加心脏病、癌症的风险,3句以“也 许更糟糕的是(Perhapsworse)\"标志递进语义,指出影响不仅限于身体,4句进而解释可能对大脑产生负面 (negative)影响。可推知,空格词应与negative同义,表示\"负面/不利/有害\"之意,G)detrimental正确。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assessed"
+            },
+            {
+              "key": "B",
+              "text": "assigned"
+            },
+            {
+              "key": "C",
+              "text": "consequences"
+            },
+            {
+              "key": "D",
+              "text": "conspicuously"
+            },
+            {
+              "key": "E",
+              "text": "deficits"
+            },
+            {
+              "key": "F",
+              "text": "designated"
+            },
+            {
+              "key": "G",
+              "text": "detrimental"
+            },
+            {
+              "key": "H",
+              "text": "digestion"
+            },
+            {
+              "key": "I",
+              "text": "excelling"
+            },
+            {
+              "key": "J",
+              "text": "indulging"
+            },
+            {
+              "key": "K",
+              "text": "loopholes"
+            },
+            {
+              "key": "L",
+              "text": "rapidly"
+            },
+            {
+              "key": "M",
+              "text": "redundant"
+            },
+            {
+              "key": "N",
+              "text": "regularly"
+            },
+            {
+              "key": "O",
+              "text": "similar"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【锁定答案]空格句大意为;新近研究也表明,高脂高糖的饮食可能对你的大脑产生负面影响, 导致/使得学习和记忆功能 。空27应与negative的明显股义一致,表示“过度摄入/沉迷食用”等意, J)indulging正确。空28所在分向所述对学习和记忆功能的影响体现negativeeffectsonyourbrain,空28应 表示“下降/减退”等意,E)deficits正确。注:cause表“使发生、导致\"时通常引出“不好的结果”。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assessed"
+            },
+            {
+              "key": "B",
+              "text": "assigned"
+            },
+            {
+              "key": "C",
+              "text": "consequences"
+            },
+            {
+              "key": "D",
+              "text": "conspicuously"
+            },
+            {
+              "key": "E",
+              "text": "deficits"
+            },
+            {
+              "key": "F",
+              "text": "designated"
+            },
+            {
+              "key": "G",
+              "text": "detrimental"
+            },
+            {
+              "key": "H",
+              "text": "digestion"
+            },
+            {
+              "key": "I",
+              "text": "excelling"
+            },
+            {
+              "key": "J",
+              "text": "indulging"
+            },
+            {
+              "key": "K",
+              "text": "loopholes"
+            },
+            {
+              "key": "L",
+              "text": "rapidly"
+            },
+            {
+              "key": "M",
+              "text": "redundant"
+            },
+            {
+              "key": "N",
+              "text": "regularly"
+            },
+            {
+              "key": "O",
+              "text": "similar"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【锁定答案]空格句大意为;新近研究也表明,高脂高糖的饮食可能对你的大脑产生负面影响, 导致/使得学习和记忆功能 。空27应与negative的明显股义一致,表示“过度摄入/沉迷食用”等意, J)indulging正确。空28所在分向所述对学习和记忆功能的影响体现negativeeffectsonyourbrain,空28应 表示“下降/减退”等意,E)deficits正确。注:cause表“使发生、导致\"时通常引出“不好的结果”。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assessed"
+            },
+            {
+              "key": "B",
+              "text": "assigned"
+            },
+            {
+              "key": "C",
+              "text": "consequences"
+            },
+            {
+              "key": "D",
+              "text": "conspicuously"
+            },
+            {
+              "key": "E",
+              "text": "deficits"
+            },
+            {
+              "key": "F",
+              "text": "designated"
+            },
+            {
+              "key": "G",
+              "text": "detrimental"
+            },
+            {
+              "key": "H",
+              "text": "digestion"
+            },
+            {
+              "key": "I",
+              "text": "excelling"
+            },
+            {
+              "key": "J",
+              "text": "indulging"
+            },
+            {
+              "key": "K",
+              "text": "loopholes"
+            },
+            {
+              "key": "L",
+              "text": "rapidly"
+            },
+            {
+              "key": "M",
+              "text": "redundant"
+            },
+            {
+              "key": "N",
+              "text": "regularly"
+            },
+            {
+              "key": "O",
+              "text": "similar"
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]空格句大意为:多项研究发现,肥胖与认知功能(如....的能力)障碍密切相关,正如由一系列 学习和记忆测试 的那样。可见“肥辟与认知功能障醇密切相关”是研究结果,(as by) a rangeof...tests为具体研究方式,空格调应表示\"证明/显示/指向/评估/推测\"等意,A)assessed正确。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assessed"
+            },
+            {
+              "key": "B",
+              "text": "assigned"
+            },
+            {
+              "key": "C",
+              "text": "consequences"
+            },
+            {
+              "key": "D",
+              "text": "conspicuously"
+            },
+            {
+              "key": "E",
+              "text": "deficits"
+            },
+            {
+              "key": "F",
+              "text": "designated"
+            },
+            {
+              "key": "G",
+              "text": "detrimental"
+            },
+            {
+              "key": "H",
+              "text": "digestion"
+            },
+            {
+              "key": "I",
+              "text": "excelling"
+            },
+            {
+              "key": "J",
+              "text": "indulging"
+            },
+            {
+              "key": "K",
+              "text": "loopholes"
+            },
+            {
+              "key": "L",
+              "text": "rapidly"
+            },
+            {
+              "key": "M",
+              "text": "redundant"
+            },
+            {
+              "key": "N",
+              "text": "regularly"
+            },
+            {
+              "key": "O",
+              "text": "similar"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【锁定答案]空格句大意为:也有越来越多证据表明,饮食引起的认知障碍可能显露一一在几 周基至几天之内。由\"几周甚至几天之内”可推知空格词应体现“快速/迅速”之意,L)rapidly正确。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assessed"
+            },
+            {
+              "key": "B",
+              "text": "assigned"
+            },
+            {
+              "key": "C",
+              "text": "consequences"
+            },
+            {
+              "key": "D",
+              "text": "conspicuously"
+            },
+            {
+              "key": "E",
+              "text": "deficits"
+            },
+            {
+              "key": "F",
+              "text": "designated"
+            },
+            {
+              "key": "G",
+              "text": "detrimental"
+            },
+            {
+              "key": "H",
+              "text": "digestion"
+            },
+            {
+              "key": "I",
+              "text": "excelling"
+            },
+            {
+              "key": "J",
+              "text": "indulging"
+            },
+            {
+              "key": "K",
+              "text": "loopholes"
+            },
+            {
+              "key": "L",
+              "text": "rapidly"
+            },
+            {
+              "key": "M",
+              "text": "redundant"
+            },
+            {
+              "key": "N",
+              "text": "regularly"
+            },
+            {
+              "key": "O",
+              "text": "similar"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B】assigned。[确定词性]空格所在的宾语从句谓语为showed impaired attention.,·,因此判断to ahigh-fat diet for fivedays作healthyadults的后置定语,空格词应为形容词、ed分词、ing分词,且能与to连用。锁定答案」空格向大意为:一项研究发现,与低脂饮食的实验对照组相比, 五天高脂饮食组的健康成年人出 现了注意力、记忆、情绪受损的情况。可知高脂饮食组是实验人为设置,空格词调应表示“被要求/被指派、分 派\"等意,B)assigned符合要求。注:control此处为科学术语“对照实验,(实验的)对照(物)”\",由compared with、low-fat diet可大致推断其意。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assessed"
+            },
+            {
+              "key": "B",
+              "text": "assigned"
+            },
+            {
+              "key": "C",
+              "text": "consequences"
+            },
+            {
+              "key": "D",
+              "text": "conspicuously"
+            },
+            {
+              "key": "E",
+              "text": "deficits"
+            },
+            {
+              "key": "F",
+              "text": "designated"
+            },
+            {
+              "key": "G",
+              "text": "detrimental"
+            },
+            {
+              "key": "H",
+              "text": "digestion"
+            },
+            {
+              "key": "I",
+              "text": "excelling"
+            },
+            {
+              "key": "J",
+              "text": "indulging"
+            },
+            {
+              "key": "K",
+              "text": "loopholes"
+            },
+            {
+              "key": "L",
+              "text": "rapidly"
+            },
+            {
+              "key": "M",
+              "text": "redundant"
+            },
+            {
+              "key": "N",
+              "text": "regularly"
+            },
+            {
+              "key": "O",
+              "text": "similar"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O)similar。[确定词性」空格前主谓宾成分及信息完整:eating...for...daysresultedinproblems...,故 判斯断 tothose...(those后为过去分词observed...所充当的后置定语,故此处为代词,回指前文 problems)为另一信息群,只能为修饰成分,为状语或定语,空格词应为形容词、ed分词、ing分词,且能与to连 用。「锁定答案」空格句大意为:另一项研究也发现,每天摄入高脂高糖早餐,仅仅凹天就导致了学习和记 忆问题, 超重和肥胖者身上所发现的那些(问题)。可见全句将“短期高脂高糖饮食的健康者”与 “肥胖者”这两类人群相对比,意在说明高脂高糖饮食的危害类似超重。空格调应体现比较意味,O) similar符合要求。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assessed"
+            },
+            {
+              "key": "B",
+              "text": "assigned"
+            },
+            {
+              "key": "C",
+              "text": "consequences"
+            },
+            {
+              "key": "D",
+              "text": "conspicuously"
+            },
+            {
+              "key": "E",
+              "text": "deficits"
+            },
+            {
+              "key": "F",
+              "text": "designated"
+            },
+            {
+              "key": "G",
+              "text": "detrimental"
+            },
+            {
+              "key": "H",
+              "text": "digestion"
+            },
+            {
+              "key": "I",
+              "text": "excelling"
+            },
+            {
+              "key": "J",
+              "text": "indulging"
+            },
+            {
+              "key": "K",
+              "text": "loopholes"
+            },
+            {
+              "key": "L",
+              "text": "rapidly"
+            },
+            {
+              "key": "M",
+              "text": "redundant"
+            },
+            {
+              "key": "N",
+              "text": "regularly"
+            },
+            {
+              "key": "O",
+              "text": "similar"
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]1句指出,健康饮食 组和高脂高糖组的体重并无明显差别。2句在承认1句既定事实的基础上展开逻辑推论:那么这表明, 就算体重没有变化/超重,不良饮食摄入的负面也可能出现。空34所在部分“就算体重没有变化 ”呼应1句“体重并无明显差别\",可知空34应与hugely同义,表示“显著/明显”,D)conspicuously 正确。空33则呼应前文所述“负面影响/结果”等,C)consequences符合要求。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assessed"
+            },
+            {
+              "key": "B",
+              "text": "assigned"
+            },
+            {
+              "key": "C",
+              "text": "consequences"
+            },
+            {
+              "key": "D",
+              "text": "conspicuously"
+            },
+            {
+              "key": "E",
+              "text": "deficits"
+            },
+            {
+              "key": "F",
+              "text": "designated"
+            },
+            {
+              "key": "G",
+              "text": "detrimental"
+            },
+            {
+              "key": "H",
+              "text": "digestion"
+            },
+            {
+              "key": "I",
+              "text": "excelling"
+            },
+            {
+              "key": "J",
+              "text": "indulging"
+            },
+            {
+              "key": "K",
+              "text": "loopholes"
+            },
+            {
+              "key": "L",
+              "text": "rapidly"
+            },
+            {
+              "key": "M",
+              "text": "redundant"
+            },
+            {
+              "key": "N",
+              "text": "regularly"
+            },
+            {
+              "key": "O",
+              "text": "similar"
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]1句指出,健康饮食 组和高脂高糖组的体重并无明显差别。2句在承认1句既定事实的基础上展开逻辑推论:那么这表明, 就算体重没有变化/超重,不良饮食摄入的负面也可能出现。空34所在部分“就算体重没有变化 ”呼应1句“体重并无明显差别\",可知空34应与hugely同义,表示“显著/明显”,D)conspicuously 正确。空33则呼应前文所述“负面影响/结果”等,C)consequences符合要求。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assessed"
+            },
+            {
+              "key": "B",
+              "text": "assigned"
+            },
+            {
+              "key": "C",
+              "text": "consequences"
+            },
+            {
+              "key": "D",
+              "text": "conspicuously"
+            },
+            {
+              "key": "E",
+              "text": "deficits"
+            },
+            {
+              "key": "F",
+              "text": "designated"
+            },
+            {
+              "key": "G",
+              "text": "detrimental"
+            },
+            {
+              "key": "H",
+              "text": "digestion"
+            },
+            {
+              "key": "I",
+              "text": "excelling"
+            },
+            {
+              "key": "J",
+              "text": "indulging"
+            },
+            {
+              "key": "K",
+              "text": "loopholes"
+            },
+            {
+              "key": "L",
+              "text": "rapidly"
+            },
+            {
+              "key": "M",
+              "text": "redundant"
+            },
+            {
+              "key": "N",
+              "text": "regularly"
+            },
+            {
+              "key": "O",
+              "text": "similar"
+            }
+          ],
+          "answer": "N",
+          "explanation": "[锁定答案] 空格调位于\"eat well and exercise ”两个动词短语组成的并列结构中,两个短语均应指向健康的生 活方式。N)regularly\"经常地”与动词exercise共同组成与eatwell相近的结构,语法形式和语义方向上 均一致,符合要求。 ·"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2019-12-1-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Have young people never had it so good? Or do they face more challenges than any previous generation? Our current era in the West is one of high wealth. This means minors enjoy material benefits and legal protections that would have been the envy of those living in the past. But there is an increasing suspicion that all is not well for our youth. And one of the most popular explanations, among some experts and the popular media, is that excessive & quote; screen time & quote; is to blame. (This refers to all the attention young people devote to their phones, tablets and laptops.) However, this is a contentious theory and such claims have been treated skeptically by some scholars based on their reading of the relevant data.",
+        "B) Now a new study has provided another contribution to the debate, uncovering strong evidence that adolescent wellbeing in the United States really is experiencing a decline and arguing that the most likely cause is the electronic riches we have given them. The background to this is that from the 1960s into the early 2000s, measures of average wellbeing went up in the US. This was especially true for younger people. It reflected the fact that these decades saw a climb in general standards of living and avoidance of mass societal traumas like full-scale war or economic deprivation. However, the & quote; screen time & quote; hypothesis, advanced by researchers such as Jean Twenge, is that electronic devices and excessive time spent online may have reversed these trends in recent years, causing problems for young people's psychological health.",
+        "C) To investigate, Twenge and her colleagues dived into the & quote; Monitoring the Future & quot; dataset based on annual surveys of American school students from grades 8, 10, and 12 that started in 1991. In total, 1.1 million young people answered various questions related to their wellbeing. Twenge’s team’s analysis of the answers confirmed the earlier, well-established wellbeing climb, with scores rising across the 1990s, and into the later 2000s. This was found across measures like self-esteem, life satisfaction, happiness and satisfaction with individual domains like job, neighborhood, or friends. But around 2012 these measures started to decline. This continued through 2016, the most recent year for which data is available.",
+        "D) Twenge and her colleagues wanted to understand why this change in average wellbeing occurred. However, it is very hard to demonstrate causes using non-experimental data such as this. In fact, when Twenge previously used this data to suggest a screen time effect, some commentators were quick to raise this problem. They argued that her causal-sounding claims rested on correlational data, and that she had not adequately accounted for other potential causal factors. This time around, Twenge and her team make a point of saying that they are not trying to establish causes as such, but that they are assessing the plausibility of potential causes.",
+        "E) First, they explain that if a given variable is playing a role in affecting wellbeing, then we should expect any change in that variable to correlate with the observed changes in wellbeing. If not, it is not plausible that the variable is a causal factor. So the researchers looked at time spent in a number of activities that could plausibly be driving the wellbeing decline. Less sport, and fewer meetings with peers correlated with lower wellbeing, as did less time reading print media(newspapers) and, surprisingly, less time doing homework .(This last finding would appear to contradict another popular hypothesis that it is our burdening of students with assignments that is causing all the problems.) In addition, more TV watching and more electronic communication both correlated with lower wellbeing. All these effects held true for measures of happiness, life satisfaction and self-esteem, with the effects stronger in the 8th and 10th-graders.",
+        "F) Next, Twenge’s team dug a little deeper into the data on screen time. They found that adolescents who spent a very small amount of time on digital devices—a couple of hours a week—had the highest wellbeing. Their wellbeing was even higher than those who never used such devices. However, higher doses of screen time were clearly associated with lower happiness. Those spending 10-19 hours per week on their devices were 41 percent more likely to be unhappy than lower-frequency users. Those who used such devices 40 hours a week or more (one in ten teenagers) were twice as likely to be unhappy. The data was slightly complicated by the fact that there was a tendency for kids who were social in the real world to also use more online communication, but by bracketing out different cases it became clear that the real-world sociality component correlated with greater wellbeing, whereas greater time on screens or online only correlated with poorer wellbeing.",
+        "G) So far, so plausible. But the next question is, are the drops in average wellbeing happening at the same time strands toward increased electronic device usage? It looks like it-after all, 2012 was the tipping point when more than half of Americans began owning smartphones. Twenge and her colleagues also found that across the key years of 2013-16, wellbeing was indeed lowest in years where adolescents spent more time online, on social media, and reading news online, and when more youth in the United States had smartphones. And in a second analysis, they found that where technology went, dips in wellbeing followed. For instance, years with a larger increase in online usage were followed by years with lower wellbeing, rather than the other way around. This does not prove causality, but is consistent with it. Meanwhile, TV use did not show this tracking. TV might make you less happy, but this is not what seems to be driving the recent declines in young people's average happiness.",
+        "H) A similar but reversed pattern was found for the activities associated with greater wellbeing. For example, years when people spent more time with friends were better years for wellbeing (and followed by better years). Sadly, the data also showed face-to-face socializing and sports activity had declined over the period covered by the survey.",
+        "I) There is another explanation that Twenge and her colleagues wanted to address: the impact of the the great recession of 2007-2009, which hit a great number of American families and might be affecting adolescents. The dataset they used did not include economic data, so instead the researchers looked at whether the 2013-16 wellbeing decline was tracking economic indicators. They found some evidence that some crude measures, like income inequality, correlated with changes in wellbeing, but economic measures with a more direct impact, like family income and unemployment rates (which put families into difficulties), had no relationship with wellbeing. The researchers also note that the recession hit some years before we see the beginning of the wellbeing drop, and before the steepest wellbeing decline, which occurred in 2013.",
+        "J) The researchers conclude that electronic communication was the only adolescent activity that increased at the same time psychological wellbeing declined. I suspect that some experts in the field will be keen to address alternative explanations, such as unassessed variables playing a role in the wellbeing decline. But the new work does go further than previous research and suggests that screen time should still be considered a potential barrier to young people’s flourishing."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "The year when most Americans began using smartphones was identified as a turning point in young Americans' level of happiness.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "G",
+          "explanation": "TheyearwhenmostAmericansbeganusingsmartphoneswas大多数美国人开始使用智能手机的那一 identified asa turningpoint in youngAmericanslevel of年被认定为美国年轻人幸福水平的拐点。 happiness. [答案][G][精解」由定位词定位至G]段3向。该句对上向设问“幸福感下降趋势与电子设备使用增加趋势 是否同步发生?\"给出肯定回答:2012年是转折年,这一年超半数美国人开始拥有智能手机,年轻人幸福感也 开始下降。试题是对该句大意的概括,Theyear..指代2012。"
+        },
+        {
+          "number": 37,
+          "stem": "Scores in various wellbeing measures began to go downward among young Americans in recent years.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Scores invariouswellbeingmeasures begantogo downward近年来,在美国年轻人中,多项幸福感衡 among young Americans in recent years. 量指标的得分开始下降。 [答案][C][精解]由定位词定位至[C]段句(inrecentyears对应around2012/through2016】。两句指出幸 福感多项衡量指标分数于2012年左右开始下降,下降趋势一直贯穿至2016年。试题是对两句大意的概括。"
+        },
+        {
+          "number": 38,
+          "stem": "Unfortunately, activities involving direct contact with people, which contributed to better wellbeing, were found to be on the decline.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "H",
+          "explanation": "Unfortunately,activitiesinvolvingdirectcontactwithpeople,遗滤的是,涉及与人直接接触、有助于提 which contributed tobetterwellbeing,were found to be on升幸福感的活动被发现正在减少。 the decline. [答案][H]】[精解]由定位词定位至[H]段末句。[H]段介绍基于数据的研究发现,2句指出“人们花更多时 间与朋友相处的年份,幸福感会更高”。末向作者转而遗感指出“数据显示,调查所覆盖的时间段内,面对面社 交和体育运动都在减少”。试题是对末句的同义改写。"
+        },
+        {
+          "number": 39,
+          "stem": "In response to past critics, Twenge and her co-researchers stress they are not trying to prove that the use of digital devices reduces young people’s wellbeing.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "D",
+          "explanation": "In response to past critics,Twengeand her co-researchers作为对过去曾受批评的回应,特文格及其 stress they are not trying to prove that the use of digital 合作研究者强调,他们并不是在试图证明 devices reduces young people's wellbeing. 使用电子设备会降低年轻人的幸福感。 [答案」[D][精解」由定位词定位至D段。该段介绍了研究者之前所受批评以及此次做出的调整,末句介绍 研究者特意声明“不论证因采关联,而致力于评估各潜在原因的合理性”。试题是对该向大意的概括。"
+        },
+        {
+          "number": 40,
+          "stem": "In the last few decades of the 20th century, living standards went up and economic depressions were largely averted in the US.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "B",
+          "explanation": "In thelast few decades of the 20th centuryliving standards went二十世纪最后儿十年,美国生活水平提 up and economic depressions were largely averted in the US. ,高,基本免于经济衰退。 [答案][B][精解]由定位词定位至[B段4句。该句介绍社会背景:1960年代到2000年代初,美国整体生活 水平提高,也没有遭受全面战争或经济贫困。试题是对该句大意的概括,largelyaverted改写该句avoidance。"
+        },
+        {
+          "number": 41,
+          "stem": "Contrary to popular belief, doing homework might add to students’ wellbeing.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "E",
+          "explanation": "Contrarytopopularbelief,doinghomeworkmightadd to与普追看法相反,做作业可能提升学生 students' wellbeing. 的幸福感。 [答案」[E][精解]由定位词定位至E段4句。LE段4向指出“做作业时间少”与“幸福感低”相关联,这 一发现今人意外,1句补充指出该发现与一种常见假设“课业繁重是青少年问题的症结\"恰相反。试题是对两 向句中“做作业\"新发现的概括,...mightaddto..体现了4句中“做作业\"与“幸福感提升\"之间的相关性。"
+        },
+        {
+          "number": 42,
+          "stem": "The author believes the researchers’ new study has gone a step further regarding the impact of screen time on wellbeing.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "J",
+          "explanation": "Theauthorbelievesthe researchers'new studyhas gonea作者认为,关于屏慕幕时间对幸福感的影 stepfurtherregardingtheimpactof screen timeonwellbeing.响,这些研究者的新研究又进了一步。 [答案][J][精解]由定位调定位至[J段末句(gofurtherthan...)。该句中,作者对该研究作总体评价,肯定 其研究意义“在先前研究的基础上更进了一步,提出我们应该继续将屏幕时间视为年轻人健康成长的潜在障 碍”。试题是对该句观点的概括,theimpactof screentimeonwellbeing是对研究关注点和研究发现的概括。"
+        },
+        {
+          "number": 43,
+          "stem": "The researchers found that extended screen time makes young people less happy.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "F",
+          "explanation": "Theresearchersfound that extended screentimemakes young研究者发现,屏幕时间越长,年轻人越不 people less happy. 快乐。 [答案][F][精解]由定位调定位至[F]段末句。[F]段聚焦屏幕时间相关数据,末句总结发现“屏幕时间/上 网时间长与幸福感低相关联”。试题是对该发现的概括。"
+        },
+        {
+          "number": 44,
+          "stem": "Data reveals that economic inequality rather than family income might affect people’s wellbeing.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "I",
+          "explanation": "[答案][I] [精析]由定位词定位至[I]段③句。该句介绍研究者发现：“收入不平等”与幸福感相关联，而“家庭收入”和“失业率”则与幸福感无关。试题是对该发现的同义改写，Data reveals 同义替换 They found。"
+        },
+        {
+          "number": 45,
+          "stem": "Too much screen time is widely believed to be the cause of unhappiness among today’s young people.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Toomuch screentimeis widelybelieved to bethe cause of人们善遍认为,屏幕时间过多是当今年 unhappiness among today's young people. 轻人不本稿的原因。 [答案】[A][精解]由定位词定位至[A]段(widelybelieved改写oneof themost popularexplanations)。该段 1句指出人们的疑虑“青少年并不幸福(all isnotwell改写标题中wellbeingdecline+指青少年幸福感下降的 问题)”,句进而提出“屏幕时间过多是青少年不幸橘的罪魁祸首”。试题是对3句大意的同义改写。 ·"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2019-12-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "“The dangerous thing about lying is people don't understand how the act changes us.” says Dan Ariely behavioural psychologist at Duke University. Psychologists have documented children lying as early as the age of two. Some experts even consider lying a developmental milestone, like crawling and walking, because it requires sophisticated planning, attention and the ability to see a situation from someone else’s perspective to manipulate then. But, for most people, lying gets limited as we develop a sense of morality and the ability to self-regulate. Harvard cognitive neuroscientist Joshua Greene says, for most of us, lying takes work. In studies, he gave subjects a chance to deceive for monetary gain while examining their brains in a functional MRI machine, which maps blood flow to active parts of the brain. Some people told the truth instantly and instinctively. But others opted to lie, and they showed increased activity in their frontal parietal (颅腔壁的) control network, which is involved in difficult or complex thinking. This suggests that they were deciding between truth and dishonesty—and ultimately opting for the letter. For a follow-up analysis, he found that people whose neural (神经的) reward centers were more active when they won money were also more likely to be among the group of liars – suggesting that lying may have to do with the inability to resist temptation. External conditions also matter in terms of when and how often we lie. We are more likely to lie, when we are able to rationalise it, when we are stressed and fatigued or see others being dishonest. And we are less likely to lie when we have moral reminders or when we think others are watching. “We as a society need to understand that, when we don’t punish lying, we increase the probability it will happen again.” Ariely says. In a 2016 study published in the journal Nature Neuroscience, Ariely and colleagues showed how dishonesty alters people’s brains, making it easier to tell ties in the future. When people uttered a falsehood, the scientists notice a burst of activity in their amygdala. The amygdala is crucial part of the brain that produces fear, anxiety and emotional responses— including that sinking, guilty feeling you get when you lie. But when scientists had their subjects play a game in which they won money by deceiving their partner, they noticed the negative signals from the amygdala began to decrease. Not only that, but when people faced no consequences for dishonesty, their falsehood tended to get even more sensational. This means that if you give people multiple opportunities to lie for their own benefit, they start with little lies which get bigger over time."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "Why do some experts consider lying a milestone in a child’s development?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It shows they have the ability to view complex situations from different angles."
+            },
+            {
+              "key": "B",
+              "text": "It indicates they have an ability more remarkable than crawling and walking."
+            },
+            {
+              "key": "C",
+              "text": "It represents their ability to actively interact with people around them."
+            },
+            {
+              "key": "D",
+              "text": "It involves the coordination of both their mental and physical abilities."
+            }
+          ],
+          "answer": "A",
+          "explanation": "为什么有些专家将撤谎视为儿童发展的里程碑? A)这表明他们有能力从不同视角看待复杂情形。 B)这表明他们除了爬行和走路之外,还有更显著的能力。 C)这代表他们有能力主动与周国人互动。 D)这涉及他们脑力与体力的相互协作。 工锁定答案」首段3向指出有些专家将搬谎视为儿童发展里程碑的原因:搬蔬需要周密的计划、专注力以及从 他人角度看问题从而操纵他人的能力。A项viewcomplexsituationsfromdifferentangles同义转述向中see a situation from someone else's perspective,教正确。 [排除干扰B将3向中like所传递的相似性(撒谎与爬行和走路均标志儿童发展重要阶段)曲解为优越性(搬 谎比爬行和走路更高超)。C源自3句中seeasituationfromsomeoneelse'sperspective,但它指向的是“撒谎 者对别人的单方面控制(负面意义)”而非“与他人交流时的主动(正面意义)”。D将3向中爬行和走路、周密 规划和关注力等强加关系。"
+        },
+        {
+          "number": 47,
+          "stem": "Why does the Harvard neuroscientist say that lying takes work?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is hard to choose from several options."
+            },
+            {
+              "key": "B",
+              "text": "It is difficult to sound natural or plausible."
+            },
+            {
+              "key": "C",
+              "text": "It requires speedy blood flow into one’s brain."
+            },
+            {
+              "key": "D",
+              "text": "It involves lots of sophisticated mental activity."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]第二段首先概述哈佛神经科学家观点:撒谎需要付出心力,随后借相关研究发现予以说明:撒谎 者额顶叶控制网络的活动增强,而该网络负责高难或复杂思维活动,由此研究者认为撒谎涉及复杂困难的思 维活动,D正确。 [排除干扰」A源自theyweredecidingbetweentruthanddishonesty,但原文所指的是在“诚实与不诚实”两项 之间作选择,而非在多个(several指儿个,至少3个)选择之间做决定。B由生活经验主观脑造而来,原文并未 提及。C将2句“发生在大脑活跃区域的血流量增强”曲解为“血液快速流向大脑”。"
+        },
+        {
+          "number": 48,
+          "stem": "Under what circumstances do people tend to lie?",
+          "options": [
+            {
+              "key": "A",
+              "text": "When they become too emotional."
+            },
+            {
+              "key": "B",
+              "text": "When they face too much peer pressure."
+            },
+            {
+              "key": "C",
+              "text": "When the temptation is too strong."
+            },
+            {
+              "key": "D",
+              "text": "When the consequences are not imminent."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【答案】B。【解析】第三段②句指出诱发撒谎的三种情形：当我们能够合理化谎言时、感到压力或疲倦时、或者看到别人在撒谎时。B体现其中“感到压力”的情形，正确。A将 rationalize 抽换出 rational 并将之与后面的 stressed、fatigued 并行，从而捏造出 emotional，与句文意不符。C源自第二段末句“撒谎与对谎言的弱抵抗力有关”，但原文意在表明撒谎与内在的个人能力有关，而非与外界的诱惑大小有关。D反文设计谎言得到惩罚对撒谎的影响，原文正是强调撒谎后果时间的早晚对撒谎的影响。"
+        },
+        {
+          "number": 49,
+          "stem": "When are people less likely to lie?",
+          "options": [
+            {
+              "key": "A",
+              "text": "When they are worn out and stressed."
+            },
+            {
+              "key": "B",
+              "text": "When they are under watchful eyes."
+            },
+            {
+              "key": "C",
+              "text": "When they think in a rational way"
+            },
+            {
+              "key": "D",
+              "text": "When they have a clear conscience."
+            }
+          ],
+          "answer": "B",
+          "explanation": "什么样的情况下人们不太可能撒谎? A)当他们感到精疲力竭和压力时。 C)当他们以理性方式思考时。 B)当他们身处警觉目光中时。 D)当他们问心无愧时。 工锁定答案]第三段3句指出“当有道德警示时或认为别人看着时,我们不太可能搬谎”,B体现其中一种情况, 其中underwatchful eyes同义替换othersarewatching,故正确。 [排除干扰]A与2向“当感到压力或疲倦时会更容易撒谎\"相悸;C利用2向rationalize设障,但该词指向“对 搬谎这个不良行为寻找辩解理由,也即更易做出撒谎行为”。D利用3句havemoralreminders设障,但它指 向“有来自外界的道德警示”而非“个人内在的道德良心”。"
+        },
+        {
+          "number": 50,
+          "stem": "What does the author say will happen when a liar does not get punished?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They may feel justified."
+            },
+            {
+              "key": "B",
+              "text": "They will tell bigger lies."
+            },
+            {
+              "key": "C",
+              "text": "They will become complacent."
+            },
+            {
+              "key": "D",
+              "text": "They may mix lies and truths."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]末段33句指出,当人们撒谎后却未受到惩到,他们的谎话就会变得更为驳人(sensational)。假 如给人们为了自已利益而搬说的机会,他们的谎言会越变越大,B正确。 [排除干扰]A、C均利用1句“撤谎带来的负面情绪会在撤谎过程中慢慢消退”以及句“搬蔬后不受惩到”设 障,将两者杂棵捏造出“撒谎不受惩罚,撒谎者负面情绪消失,并认为搬谎理所当然,面且得意洋洋”,但原文意 在强调“搬谎不受惩罚,说言将越编越大”。D曲解?句sensational,该句并非指“事实与谎言混杂”而指“蔬言 越来越可帕”。 ·"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2019-12-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Here’s how the Pacific Northwest is preparing for “The Big One”. It’s the mother of all disaster drills for what could be the worst disaster in American history. California has spent years preparing for “The Big One”—the inevitable earthquake that will undoubtedly unleash all kinds of havoc along the famous San Andreas fault (断层). But what if the fault that runs along the Pacific Northwest delivers a gigantic earthquake of its own? If the people of the Cascadia region have anything to do with it, they won’t be caught unawares. The region is engaged in a multi-day earthquake-and-tsunami (海啸) drill involving around 20,000 people. The Cascadia Rising drill gives area residents and emergency responders a chance to practice what to do in case of a 9.0 magnitude earthquake and tsunami along one of the nation’s dangerous—and underestimated—faults. The Cascadia Earthquake Zone is big enough to compete with San Andreas (it’s been called the most dangerous fault in America), but it’s much lesser known than its California cousin. Nearly 700 miles long, the earthquake zone is located by the North American Plate off the coast of Pacific British Columbia, Washington, Oregon and Northern California. Cascadia is what’s known as a “megathrust” fault. Megathrusts are created in earthquake zones—land plate boundaries where two plates converge. In the areas where one plate is beneath another, stress builds up over time. During a megathrust event, all of that stress releases and some of the world’s most powerful earthquakes occur. Remember the 9.1 earthquake and tsunami in the Indian Ocean off Sumatra in 2004? It was caused by megathrust event as the India plate moved beneath the Burma micro-plate. The last time a major earthquake occurred along the Cascadia fault was in 1700, so officials worry that another event could occur any time. To prevent that event from becoming a catastrophe, first responders will join members of the public in rehearsals that involve communication, evacuation, search and rescue, and other scenarios. Thousands of casualties are expected if a 9.0 earthquake were to occur. Fist, the earthquake would shake metropolitan areas including Seattle and Portland. This could trigger a tsunami that would create havoc along the coast. Not all casualties can necessarily be prevented—but by coordinating across local, state, and even national borders, officials hope that the worst-case scenario can be averted. On the exercise’s website, officials explain that the report they prepare during this rehearsal will inform disaster management for years to come. For hundreds of thousands of Cascadia residents. “The Big One” isn’t a question of if, only when. And it’s never too early to get ready for the inevitable."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does “The Big One” refer to?",
+          "options": [
+            {
+              "key": "A",
+              "text": "A gigantic geological fault."
+            },
+            {
+              "key": "B",
+              "text": "A large-scale exercise to prepare for disasters."
+            },
+            {
+              "key": "C",
+              "text": "A massive natural catastrophe."
+            },
+            {
+              "key": "D",
+              "text": "A huge tsunami on the Caledonia coast."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]首段3句破折号内容解释“TheBigOne\"的涵义:一场无可避免的、必定会造成种种混乱的地震, C)正确。 [排除干扰]A》杂棵首段个别调汇fault及Big/gigantic,但由3句可知fault指向“TheBigOne”(*大地震')的 发生地。B)利用考生无法准确判断2句It(应对TheBigOne\"的方式=防灾演习)所指设障,错认为It回指 “TheBigOne”。D)语意杂森3句California及第二段首句tsunami,明显不合文意。"
+        },
+        {
+          "number": 52,
+          "stem": "What is the purpose of the Cascadia Rising drill?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To prepare people for a major earthquake and tsunami."
+            },
+            {
+              "key": "B",
+              "text": "To increase residents’ awareness of imminent disasters."
+            },
+            {
+              "key": "C",
+              "text": "To teach people how to adapt to post-disaster life."
+            },
+            {
+              "key": "D",
+              "text": "To cope with the aftermath of a possible earthquake."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案」第二段2向指出,“卡斯卡迪亚崛起演习给了当地居民以及应急人员一个机会一个知道如 何应对9.0级地震和海啸的机会,可见演习意在让人们提前做好防灾准备,A)正确。 [排除干扰」B)由首段末句won'tbecaughtunawares(不会措手不及》臆测而来,但由末段isn'taquestionof if、onlywhen、theinevitable可知,人们对于这场灾难是有意识的、有感知力的。C)、D)均将演习目的“教人们 在灾难发生时要如何行动)”偷换为“在灾难发生后如何适应生活、处理善后问题”。"
+        },
+        {
+          "number": 53,
+          "stem": "What happens in case of a megathrust earthquake according to the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Two plates merge into one."
+            },
+            {
+              "key": "B",
+              "text": "A variety of forces converge."
+            },
+            {
+              "key": "C",
+              "text": "Boundaries blur between plates."
+            },
+            {
+              "key": "D",
+              "text": "Enormous stress is released."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]第四段1句指出:大型逆冲事件发生时,全部压力被释放,由此发生地囊。可见,D)正确。 [排除干扰]A)利用2句地震带特点twoplatesconverge(两板块聚合)设置干扰,但将converge\"交汇(有上下 重叠部分)\"偷换为merge“合并(拼接成一块)\"。B)由碎片信息converge、allof愿造而来,但文中并未提及除 “压力(stress)”外的其它任何作用力。C)由3句“一个板块移至另一板块下方”测“两板块间不再有明显界 限”,但文意并未指向“两块板块完全重叠”,而是“部分重叠,重叠区城积聚巨大压力”。"
+        },
+        {
+          "number": 54,
+          "stem": "What do the officials hope to achieve through the drills?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Coordinating various disaster-relief efforts."
+            },
+            {
+              "key": "B",
+              "text": "Reducing casualties in the event of a disaster."
+            },
+            {
+              "key": "C",
+              "text": "Minimizing property loss caused by disaster."
+            },
+            {
+              "key": "D",
+              "text": "Establishing disaster and emergency management."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案第六段4句指出,伤亡无可避免,但官员们希望通过协同各方力量来避免最糟糕的情况(即伤亡 惨重),B)正确理解此段信息。 [排除干扰A)源自4句“通过协同地方、州,甚至国家间的力量”,但这属于实现目的的手段,并非最终目的。 C)利用第五段2句及第六段4句演习目的“防止地震成为灾难”、“避免最糟糕的情况发生”以及常识“地震造 成巨大财产损失\"设置干扰,但文中“最糟糕情况\"指向“巨大人员伤亡(人命关天)\"而不是简单的“巨额财物损 失”。D)利用第六段1句disastermanagement设置干扰,但它指向的是“官员们为演习准备的报告的作用:指 引灾难管理工作”而非“演习目的”,且将“指引灾难管理工作”审改为“建立灾难应急管理工作”。"
+        },
+        {
+          "number": 55,
+          "stem": "What does the author say about “The Big One” ?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Whether it will occur remains to be seen."
+            },
+            {
+              "key": "B",
+              "text": "How it will arrive is too early to predict."
+            },
+            {
+              "key": "C",
+              "text": "Its occurrence is just a matter of time."
+            },
+            {
+              "key": "D",
+              "text": "It keeps haunting Cascadia residents."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]末段作者指出,对卡斯卡迪亚居民而言,“TheBigOne\"不是“是否发生”的问题,而是“何时发生”, 为必经之灾做足准备是越早趋好。可见“大地震”必定会发生,只是不知道它何时到来,C)正确,同时排除A)。 [排除干扰]B)将首句“无法预测*大地震\"何时发生\"(only(aquestionof)when表达肯定意义)改为“无法 预测它如何发生”(too..to...表否定意义)。D)强调“大地震”对“卡斯卡迪亚居民”的心理影响“令其魂率梦 紫,使其担忧,令其困扰”,但文中作者并未谈及大地震对卡斯卡迪亚居民的心理影响。 ·"
+        }
+      ]
+    }
+  ]
+}

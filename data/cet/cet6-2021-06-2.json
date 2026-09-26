@@ -1,0 +1,1565 @@
+{
+  "id": "cet6-2021-06-2",
+  "level": 6,
+  "year": 2021,
+  "month": 6,
+  "set": 2,
+  "title": "2021 年 6 月六级 · 第 2 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2021.06/%E7%9C%9F%E9%A2%98Word/2021.06%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC2%E5%A5%97.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2021.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2021.06%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%E7%AC%AC2%E5%A5%97.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2021-06-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        ". I'm always baffled when I walk into a pharmacy and see shelves bursting with various vitamins, extracts and other supplements, all promising to accelerate or promote weight loss. Aisles of marketing genius belie (掩饰) the fact that, [[26]] , weight loss is dictated by the laws of arithmetic . Economist Jessica Irvine wrote a book about how she used math to help her lose more than 18 kilograms. If calories taken in are less than calories [[27]] , weight shall be lost, and so it is with money. Despite the [[28]] of financial products, services and solutions geared towards accumulating wealth, if all begins with the same [[29]] : getting ahead financially requires a reduction of spending, so that income is greater than expenses. I was reminded of this again recently listening to an interview with Nicole Haddow, the author of Smashed Avocado, explaining how she cracked the property market at 31. It was quite a [[30]], given where she had been two years earlier. Nicole didn't celebrate her 30th birthday as she had [[31]]. She was sobbing at the dinner table with her parents, with whom she had just moved back in. She had no stable income, $12,000 in credit-card debt and no plan, but to her [[32]] , her father, an accountant, told her that her financial [[33]] wasn't as bad as she thought. He said, on her income, with some changes, she would be able to buy an investment unit within two years, which she did. Nicole admitted she was fortunate, as she was able to live with her parents and [[34]] her spending and life-to get herself on track financially. Creating a gap between her income and spending required a paradigm shift ·and [[35]]sacrifice and commitment, but by going into financial lockdown, Nicole gained financial independence."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "abundance"
+        },
+        {
+          "key": "B",
+          "text": "astonishment"
+        },
+        {
+          "key": "C",
+          "text": "entailed"
+        },
+        {
+          "key": "D",
+          "text": "envisaged"
+        },
+        {
+          "key": "E",
+          "text": "equation"
+        },
+        {
+          "key": "F",
+          "text": "expended"
+        },
+        {
+          "key": "G",
+          "text": "feat"
+        },
+        {
+          "key": "H",
+          "text": "fiscally"
+        },
+        {
+          "key": "I",
+          "text": "impetus"
+        },
+        {
+          "key": "J",
+          "text": "overhaul"
+        },
+        {
+          "key": "K",
+          "text": "permanently"
+        },
+        {
+          "key": "L",
+          "text": "plight"
+        },
+        {
+          "key": "M",
+          "text": "prosper"
+        },
+        {
+          "key": "N",
+          "text": "shatter"
+        },
+        {
+          "key": "O",
+          "text": "ultimately"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abundance"
+            },
+            {
+              "key": "B",
+              "text": "astonishment"
+            },
+            {
+              "key": "C",
+              "text": "entailed"
+            },
+            {
+              "key": "D",
+              "text": "envisaged"
+            },
+            {
+              "key": "E",
+              "text": "equation"
+            },
+            {
+              "key": "F",
+              "text": "expended"
+            },
+            {
+              "key": "G",
+              "text": "feat"
+            },
+            {
+              "key": "H",
+              "text": "fiscally"
+            },
+            {
+              "key": "I",
+              "text": "impetus"
+            },
+            {
+              "key": "J",
+              "text": "overhaul"
+            },
+            {
+              "key": "K",
+              "text": "permanently"
+            },
+            {
+              "key": "L",
+              "text": "plight"
+            },
+            {
+              "key": "M",
+              "text": "prosper"
+            },
+            {
+              "key": "N",
+              "text": "shatter"
+            },
+            {
+              "key": "O",
+              "text": "ultimately"
+            }
+          ],
+          "answer": "O",
+          "explanation": "【考点】副词辨析题。 O)【语法判断】空格位于that引导的同位语从句的 句首,其后的同位语从句结构完整,句意连贯,因 此空格处应填人副词,修饰整个从句。 【语义判断】上一句提到,药店货架上的商品全都 承诺能加速或促进减肥,紧接着该句指出药店的 销售人员掩盖的事实是减肥是由算术法则决定 的,表明药店的销售人员也明白最终决定减肥的 是算术法则而不是补品。因此,空格处填人的副 词应表达“最终”的意思,故O)ultimately为本题 答案。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abundance"
+            },
+            {
+              "key": "B",
+              "text": "astonishment"
+            },
+            {
+              "key": "C",
+              "text": "entailed"
+            },
+            {
+              "key": "D",
+              "text": "envisaged"
+            },
+            {
+              "key": "E",
+              "text": "equation"
+            },
+            {
+              "key": "F",
+              "text": "expended"
+            },
+            {
+              "key": "G",
+              "text": "feat"
+            },
+            {
+              "key": "H",
+              "text": "fiscally"
+            },
+            {
+              "key": "I",
+              "text": "impetus"
+            },
+            {
+              "key": "J",
+              "text": "overhaul"
+            },
+            {
+              "key": "K",
+              "text": "permanently"
+            },
+            {
+              "key": "L",
+              "text": "plight"
+            },
+            {
+              "key": "M",
+              "text": "prosper"
+            },
+            {
+              "key": "N",
+              "text": "shatter"
+            },
+            {
+              "key": "O",
+              "text": "ultimately"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【考点】动词辨析题。 F)【语法判断】空格前面是名词calories,而该句主语 也是calories,由than可知,两个calories在进行 对比。 【语义判断】过去分词短语takenin作后置定语修 饰第一个calories,因此空格处很可能填动词的过 去分词形式,作后置定语修饰第二个calories。修 饰主语calories的takenin表示“被摄人的”,可推 测空格所在的词应表示“被消耗的”,从而前后形 成对比,故答案为F)expended。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abundance"
+            },
+            {
+              "key": "B",
+              "text": "astonishment"
+            },
+            {
+              "key": "C",
+              "text": "entailed"
+            },
+            {
+              "key": "D",
+              "text": "envisaged"
+            },
+            {
+              "key": "E",
+              "text": "equation"
+            },
+            {
+              "key": "F",
+              "text": "expended"
+            },
+            {
+              "key": "G",
+              "text": "feat"
+            },
+            {
+              "key": "H",
+              "text": "fiscally"
+            },
+            {
+              "key": "I",
+              "text": "impetus"
+            },
+            {
+              "key": "J",
+              "text": "overhaul"
+            },
+            {
+              "key": "K",
+              "text": "permanently"
+            },
+            {
+              "key": "L",
+              "text": "plight"
+            },
+            {
+              "key": "M",
+              "text": "prosper"
+            },
+            {
+              "key": "N",
+              "text": "shatter"
+            },
+            {
+              "key": "O",
+              "text": "ultimately"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【考点】名词辨析题。 A)【语法判断】空格前面是冠词the,后面是介词of, 因此空格处需要填人名词作介词despite的宾语。 【语义判断】由of可知,空格处填人的名词应表示 of之后的并列名词短语financialproducts、 services和solutions共有的特点,结合句首引导让 步状语的介词despite以及主句中的all 可知,空 格处填入的名词应与“数量”有关,故答案为 A) abundance."
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abundance"
+            },
+            {
+              "key": "B",
+              "text": "astonishment"
+            },
+            {
+              "key": "C",
+              "text": "entailed"
+            },
+            {
+              "key": "D",
+              "text": "envisaged"
+            },
+            {
+              "key": "E",
+              "text": "equation"
+            },
+            {
+              "key": "F",
+              "text": "expended"
+            },
+            {
+              "key": "G",
+              "text": "feat"
+            },
+            {
+              "key": "H",
+              "text": "fiscally"
+            },
+            {
+              "key": "I",
+              "text": "impetus"
+            },
+            {
+              "key": "J",
+              "text": "overhaul"
+            },
+            {
+              "key": "K",
+              "text": "permanently"
+            },
+            {
+              "key": "L",
+              "text": "plight"
+            },
+            {
+              "key": "M",
+              "text": "prosper"
+            },
+            {
+              "key": "N",
+              "text": "shatter"
+            },
+            {
+              "key": "O",
+              "text": "ultimately"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【考点】名词辨析题。 E)【语法判断】空格前面是介词with以及限定词the same,因此空格处需要填人名词作介词with的 宾语。 【语义判断】空格后面的冒号表示其后的句子是对 空格处的名词进行解释说明,由incomeisgreater than expenses\"收人大于支出”可知,空格处填人 的名词应与“等式\"有关,故答案为E》equation。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abundance"
+            },
+            {
+              "key": "B",
+              "text": "astonishment"
+            },
+            {
+              "key": "C",
+              "text": "entailed"
+            },
+            {
+              "key": "D",
+              "text": "envisaged"
+            },
+            {
+              "key": "E",
+              "text": "equation"
+            },
+            {
+              "key": "F",
+              "text": "expended"
+            },
+            {
+              "key": "G",
+              "text": "feat"
+            },
+            {
+              "key": "H",
+              "text": "fiscally"
+            },
+            {
+              "key": "I",
+              "text": "impetus"
+            },
+            {
+              "key": "J",
+              "text": "overhaul"
+            },
+            {
+              "key": "K",
+              "text": "permanently"
+            },
+            {
+              "key": "L",
+              "text": "plight"
+            },
+            {
+              "key": "M",
+              "text": "prosper"
+            },
+            {
+              "key": "N",
+              "text": "shatter"
+            },
+            {
+              "key": "O",
+              "text": "ultimately"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【答案】G。【解析】名词辨析题。空格前面是was和冠词a，因此需填入名词作句子表语。空格所在句的主语it指代上一句中提到的“妮可在31岁时进入房地产市场”，结合空格后的“考虑到她两年前的处境”以及下文对她两年前困境的描述可知，空格应表达成就的意思，故答案为feat。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abundance"
+            },
+            {
+              "key": "B",
+              "text": "astonishment"
+            },
+            {
+              "key": "C",
+              "text": "entailed"
+            },
+            {
+              "key": "D",
+              "text": "envisaged"
+            },
+            {
+              "key": "E",
+              "text": "equation"
+            },
+            {
+              "key": "F",
+              "text": "expended"
+            },
+            {
+              "key": "G",
+              "text": "feat"
+            },
+            {
+              "key": "H",
+              "text": "fiscally"
+            },
+            {
+              "key": "I",
+              "text": "impetus"
+            },
+            {
+              "key": "J",
+              "text": "overhaul"
+            },
+            {
+              "key": "K",
+              "text": "permanently"
+            },
+            {
+              "key": "L",
+              "text": "plight"
+            },
+            {
+              "key": "M",
+              "text": "prosper"
+            },
+            {
+              "key": "N",
+              "text": "shatter"
+            },
+            {
+              "key": "O",
+              "text": "ultimately"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【考点】动词辨析题。 D)【语法判断】空格位于as引导的方式状语从句中, 空格前面是主语she和助动词had,结合主句时态 是一般过去时可推知,空格处应填人动词的过去 分词形式,与had一起构成过去完成时作从句 谓语。 【语义判断】主句提到,妮可并未庆祝她的30岁生 日,因此空格处所在从句是指如同她所预想的那 样。空格处填人的动词应表达“设想,想象”的意 思,故D)envisaged为答案。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abundance"
+            },
+            {
+              "key": "B",
+              "text": "astonishment"
+            },
+            {
+              "key": "C",
+              "text": "entailed"
+            },
+            {
+              "key": "D",
+              "text": "envisaged"
+            },
+            {
+              "key": "E",
+              "text": "equation"
+            },
+            {
+              "key": "F",
+              "text": "expended"
+            },
+            {
+              "key": "G",
+              "text": "feat"
+            },
+            {
+              "key": "H",
+              "text": "fiscally"
+            },
+            {
+              "key": "I",
+              "text": "impetus"
+            },
+            {
+              "key": "J",
+              "text": "overhaul"
+            },
+            {
+              "key": "K",
+              "text": "permanently"
+            },
+            {
+              "key": "L",
+              "text": "plight"
+            },
+            {
+              "key": "M",
+              "text": "prosper"
+            },
+            {
+              "key": "N",
+              "text": "shatter"
+            },
+            {
+              "key": "O",
+              "text": "ultimately"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【考点】名词辨析题。 B)【语法判断】空格前面是介词to和形容词性物主 代词her,因此空格处需要填人名词作介词to的 实语。 【语义判断】该句的第一个分句具体指出妮可面临 的困境,而空格所在的第二个分句由but引导,表 示转折,指出父亲告诉她,目前的财务状况没她想 的那么糖糕,由此可知父亲的话令妮可感到非常 吃惊,而短语“to+one's+情感名词”意为“令某 人...”,因此空格处填人的名词应表示“惊诉”的 意思,故B)astonishment为答案。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abundance"
+            },
+            {
+              "key": "B",
+              "text": "astonishment"
+            },
+            {
+              "key": "C",
+              "text": "entailed"
+            },
+            {
+              "key": "D",
+              "text": "envisaged"
+            },
+            {
+              "key": "E",
+              "text": "equation"
+            },
+            {
+              "key": "F",
+              "text": "expended"
+            },
+            {
+              "key": "G",
+              "text": "feat"
+            },
+            {
+              "key": "H",
+              "text": "fiscally"
+            },
+            {
+              "key": "I",
+              "text": "impetus"
+            },
+            {
+              "key": "J",
+              "text": "overhaul"
+            },
+            {
+              "key": "K",
+              "text": "permanently"
+            },
+            {
+              "key": "L",
+              "text": "plight"
+            },
+            {
+              "key": "M",
+              "text": "prosper"
+            },
+            {
+              "key": "N",
+              "text": "shatter"
+            },
+            {
+              "key": "O",
+              "text": "ultimately"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【考点】名词辨析题。 L)【语法判断】空格前面是形容词性物主代词her和 形容词financial,后面为be动词was,因此空格处 需要填人名词作句子主语。 【语义判断】上文指出妮可没有稳定的收人,信用 卡债务高达12000美元,也没有任何计划,可知,妮 可的财务状况并不乐观,因此空格处填人的名词 应表达“困境”的意思,故L)plight为答案。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abundance"
+            },
+            {
+              "key": "B",
+              "text": "astonishment"
+            },
+            {
+              "key": "C",
+              "text": "entailed"
+            },
+            {
+              "key": "D",
+              "text": "envisaged"
+            },
+            {
+              "key": "E",
+              "text": "equation"
+            },
+            {
+              "key": "F",
+              "text": "expended"
+            },
+            {
+              "key": "G",
+              "text": "feat"
+            },
+            {
+              "key": "H",
+              "text": "fiscally"
+            },
+            {
+              "key": "I",
+              "text": "impetus"
+            },
+            {
+              "key": "J",
+              "text": "overhaul"
+            },
+            {
+              "key": "K",
+              "text": "permanently"
+            },
+            {
+              "key": "L",
+              "text": "plight"
+            },
+            {
+              "key": "M",
+              "text": "prosper"
+            },
+            {
+              "key": "N",
+              "text": "shatter"
+            },
+            {
+              "key": "O",
+              "text": "ultimately"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【考点】动词辨析题。 J)【语法判断】空格前面是动词短语livewithher parents和并列连词and,空格后面为名词短语her spending,因此空格处需要填人动词原形,和her spending构成动词短语与livewithherparents 并列。 【语义判断】由该句最后的目的状语“让自已的财 务步人正轨”可知,妮可达到此目的是通过与父母 同住以及改变自已的消费和生活方式,因此空格 处填人的动词应表达“改变”的意思,故J) overhaul为答案。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abundance"
+            },
+            {
+              "key": "B",
+              "text": "astonishment"
+            },
+            {
+              "key": "C",
+              "text": "entailed"
+            },
+            {
+              "key": "D",
+              "text": "envisaged"
+            },
+            {
+              "key": "E",
+              "text": "equation"
+            },
+            {
+              "key": "F",
+              "text": "expended"
+            },
+            {
+              "key": "G",
+              "text": "feat"
+            },
+            {
+              "key": "H",
+              "text": "fiscally"
+            },
+            {
+              "key": "I",
+              "text": "impetus"
+            },
+            {
+              "key": "J",
+              "text": "overhaul"
+            },
+            {
+              "key": "K",
+              "text": "permanently"
+            },
+            {
+              "key": "L",
+              "text": "plight"
+            },
+            {
+              "key": "M",
+              "text": "prosper"
+            },
+            {
+              "key": "N",
+              "text": "shatter"
+            },
+            {
+              "key": "O",
+              "text": "ultimately"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【考点】动词辨析题。 C)【语法判断】空格所在句的谓语required是一般过 去时,其后跟宾语.aparadigmshift,由空格前面的 并列连词and和后面的名词短语sacrificeand commitment可知,空格处需要填人动词的过去式 作谓语,与requireda paradigm shift并列。 【语义判断】由第一个并列谓语“需要范式转变”可 知,实现收人大于支出还需要牺牲和投人,因此空 格处填人的动词应表达“需要”的意思,故 C)entailed为答案。 车消请服"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2021-06-2-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Notre Dame Cathedral in the heart of Paris was within \"15 to 30 minutes\" of complete destruction as firefighters battled to stop flames reaching its bell towers on Monday evening, French authorities have revealed. A greater disaster was averted by members of the Paris fire brigade, who risked their lives to remain inside the burning monument to create a wall of water between the raging fire and the two towers on the west of the building.",
+        "B) The revelation of how close. France came to losing its most famous cathedral emerged as police investigators questioned workers involved in the restoration of the monument to try to estfl.blish the cause of the devastating blaze. Paris prosecutor Remy Heitz said that an initial fire alert was sounded at 6:20 pm on Monday evening but no fire was found. The second alert was sounded at 6:43 pm, and the blaze was discovered on the roof.",
+        "C) More than € 650 million was raised in a few hours on Tuesday as French business leaders and global corporations announced they would donate to a restoration campaign launched by the president, Emmanuel Macron. But as the . emergency services picked through the burnt debris, a row was resurfacing over accusations that the beloved cathedral, immortalised in Victor Hugo's novel, was already crumbling before the fire.",
+        "D) The cathedral is owned by the French state and has been at the centre of a years-long dispute over who should finance restoration work of the collapsing staircases, crumbling statues and cracked walls. Jean Michel Leniaud, the president of the scientific council at the N_ational Heritage Institute, said: \"What happened was bound to happen. .The lack of adequate maintenance and daily attention to such a majestic building is the cause of this catastrophe.\" After the blaze was declared completely extinguished, 15 hours after it started, the junior interior minister, Laurent Nunez, said the structure had been saved but remained vulnerable. He praised the actions of the firefighters but admitted the fate of the cathedral had been uncertain. \"They saved the main structure, but it all came down to 15 - 30 minutes,\" Nunez said.",
+        "E) In a surprise televised address on Tuesday evening, Macron said he wanted to see the cathedral rebuilt within five years. \"The fire at Notre Dame reminds us that we will always have challenges to overcome,\" Macron said, \"Notre Dame is our history, our literature, the centre of ourlife . It is the standard by which we measure our distances. It's so many books, so many paintings. It's the cathedral 六级 2021 年 6 月 27 of every French person, even those who have never visited it . This history is ours and so we will rebuild Notre Dame. It is what the French people expect; it is what our history deserves. It is our deep destiny. We will rebuild Notre Dame so it is even more beautiful than before . I want it done in the next five years . We can do it . After the time of testing comes a time of reflection and then of action.\"",
+        "F) The fire, which had started at the base of the 93-metre spire (尖塔) at about 6: 40 pm on Monday, spread through the cathedral's roof, made up of hundreds of oak beams, some dating back to the 13th century. These beams, known as la foret (the forest) because of their density, formed the cross shaped roof that ran the length of the central part of the cathedral. As hundreds of tourists and Parisians stood and watched the flames leaping from the roof, there was shock and tears as the cathedral spire caught fire, burned and then collapsed into itself .",
+        "G) A collection of dramatic videos and photos quickly spread across social media, showing the horrifying destruction, and attracting emotional responses from people all over the world. Indeed, within minutes the fire occupied headlines of every major global newspaper and television network. This is not surprising given Notre Dame Cathedral, meaning \"Our Lady\", is one of the most recognised symbols of the city of Paris attracting millions of tourists every year.",
+        "H) While the world looked on, the 500 firefighters at the scene then battled to prevent the flames from reaching the two main towers, where the cathedral bells hang. If the wooden frame of the towers had caught fire, it could have sent the bells-the largest of which, the Emmanuel Bell, weighs 13 tons crashing down, potentially causing the collapse of both towers. Police and fire services will spend the next 48 hours assessing the \"security and safety\" of the 850-year-old·structure . Nunez said: \"We have identified vulnerabilities throughout the structure, all of which still need securing .\" As a result, residents of five buildings around the northern side of the cathedral were being temporarily evacuated, he added. Architects have identified three main holes in the structure, in the locations of the spire, the main hall and the upper rooms to the north of the central aisle. Most of the wooden roof beams have been burned, and parts of the concrete holding up the roof have collapsed .",
+        "I) The interior minister, Christophe Castaner, visited the cathedral on Tuesday afternoon to see the extent of the devastation. Ash covered the marble diamond-patterned floor and floated in large pools of grey water from the fire hoses . Behind a heap of blackened oak beams that lay piled up where they had fallen, daylight from vast holes in the cathedral roof lit a golden cross over a statue by Nicolas Coustou, which appeared to have escaped- damage . Preliminary inspections also suggested -the three ornate (装饰华丽的) stained glass \"rose\" windows appeared to have survived the fire, officials said. However, fire officers have said a complete inventory of the damage will not be possible until the cathedral structure has been deemed safe.",
+        "J) The culture minister, Franck Riester, said religious relics saved from the cathedral were being securely held at the Hotel de Ville, and works of art that sustained smoke damage were being taken to the Louvre, the world's largest art museum, where they would be dried out, repaired and stored . Sixteen copper statues that decorated the spire had been removed for restoration only a few days before the fire. Relics at the top of the spire are believed lost as the spire was destroyed. As well as damage from the heat, which firefighters said reached more than 800 ·c , experts also need to assess damage from the vast quantities of water firefighters poured into the cathedral. One casualty of this was The Great Organ constructed in the 1730s, which was said to have escaped the flames but been significantly damaged by water.",
+        "K) French political commentators noted the devastating fire had succeeded where Macron had failed in uniting the country . But criticism over the original state of the building is likely to intensify over coming days. Leniaud told La Croix newspaper: \"This is not about looking for people to blame . The responsibility is collective because this is the most loved monument in the country.\" Alexandre Gady, an art historian, agreed. \"We've been saying for years that the budget for maintaining historic monuments is too low,\" Gady said. The Paris prosecutor's office has opened an inquiry into \"involuntary destruction by fire\", indicating they believe the cause of the blaze was accidental rather than criminal ."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "The total amount of 1amage to Notre Dame Cathedral can be assessed only when its structure is considered safe .",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【定位】由题干中的damage和onlywhenits structureis considered safe定位到文章I)段最后 一句。 I【精析】同义转述题。I段定位句提到,在确认大 教堂结构安全之前,无法完整清点出火灾造成的 损失。题干中的thetotal amount of damage对应 原文中的a complete inventory of thedamage,题 干中的when its structure is considered safe是原 文 until the cathedral structure has been deemed safe的同义转述,题干中的can beassessed only when是对原文中willnotbepossibleuntil的同义 转述,故答案为I)。"
+        },
+        {
+          "number": 37,
+          "stem": "Once again people began to argue whether Notre Dame Cathedral was going to collapse even without the fire .",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的onceagain和wasgoingto collapseevenwithoutthefire定位到C)段第二句。 C)【精析】同义转述题。C)段定位句提到,当应急服 务机构人员在烧毁的废墟中进行搜寻时,争论又 起,人们认为这座大教堂在火灾发生前就已经播 播欲坠了。题干中的onceagain peoplebegan to argue对应原文中的arowwasresurfacingover accusations,题干中的was goingto collapse even without thefire是对原文中was already crumbling beforethefire的同义转述,故答案为C)。"
+        },
+        {
+          "number": 38,
+          "stem": "The Notre Dame Cathedral catastrophe was said to have helped unite the French nation .",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【定位】由题干中的unite theFrench nation定位 到文章K)段第一句。 K)【精析】细节推断题。K段定位句提到,马克龙总 统未能促进国家团结,但这场毁灭性的火灾做到 了,可以推断出,火灾的发生是一个契机,促使全 国人民团结在--起。题干中的havehelped unite theFrenchnation是对该句的理解和推断,故答案 为K)。"
+        },
+        {
+          "number": 39,
+          "stem": "The roof of Notre Dame Cathedral was built with large numbers of densely laid-out wood beams .",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【定位】由题干中的roof、densely和beams定位到 F)段第一、二句。 F)【精析】同义转述题。F)段定位句提到,大教堂的 屋顶由数百根橡木横梁组成,这些横梁因其排列 紧密,被人们称为“森林”。题干中的densely对应 原文中的density,largenumbersof对应原文中的 hundredsof,题干中的wasbuiltwith是原文中 madeupof的同义转述,故答案为F)。"
+        },
+        {
+          "number": 40,
+          "stem": "Renovation workers of Notre Dame Cathedral were questioned to find out the cause of the accident .",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的werequestioned和the cause of theaccident定位到文章B)段第一句。 B)【精析】同义转述题。B)段定位句提到,警方调查 人员询问了参与修复建筑的工人,试图确定引起 火灾的原因。题干中的renovationworkers对应 原文中的workers involved in the restoration of themonument,题干中的werequestioned是原文 中questioned的被动语态形式,题干中的the cause of the accident 是原文中 the cause of the devastatingblaze的同义转述,故答案为B)。"
+        },
+        {
+          "number": 41,
+          "stem": "Had the bell towers' wooden frames burned down, the heavy bells would have crashed down.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【定位】由题干中的woodenframes、bells和 crasheddown定位到H)段第二句。 H)【精析】同义转述题。H)段定位句提到,如果钟楼 的木质框架着火,上面的那些钟有可能会掉下来, 两座钟楼可能会因此倒塌。题干中的wooden frames对应原文中的thewooden frame,burned down对应原文中的caught fire,crashed down和 原文中的crashingdown一致,题干中的\"Had.., the heavy bells would have crashed.是原文中 \"If...had caught fire, it could have sent... crashingdown.\"的同义转述,且都表示一种虚拟 语气,故答案为H)。"
+        },
+        {
+          "number": 42,
+          "stem": "The timely action of the firefighters prevented the fire from reaching the Cathedral's bell towers .",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题干中的firefighters和reachingthe Cathedral'sbell towers定位到文章A)段。 A)【精析】同义转述题。A)段指出,巴黎消防员为了 防止大火烧到钟楼,在时间紧迫的情况下,宣着生 命危险在熊熊大火和建筑西边的两座钟楼之间筑 起一道水墙,从而避免了一场更大的灾难。题干 中的prevented是原文中averted的同义词, reaching the Cathedral's bell towers对应原文中的 reaching its bell towers,timelyaction也对应原文 中within“15to30minutes\"体现出的紧急状态, 故答案为A)。"
+        },
+        {
+          "number": 43,
+          "stem": "Apart from the fire, the water used to extinguish it also caused a lot of damage to Notre Dame Cathedral.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【定位】由题干中的the water used to extinguish it 定位到文章J)段最后两句。 J)【精析】同义转述题。J)段定位句指出,除了高温 造成的损害外,专家们还需要评估由于消防员向 教堂大量泼水而造成的损失。建于18世纪30年 代的大风琴就是其中一个牺牲品,据说它躲过了 火焰,却因水遭到严重损坏。题干中的apartfrom the fire对应原文中的as well as damage from the heat,题干中的 the water used to extinguish it also caused a lot of damage to是对原文中damagefrom the vast quantities of water firefighters poured into thecathedral的同义转述,故答案为J)。"
+        },
+        {
+          "number": 44,
+          "stem": "There has been argument over the years as to who should pay for the restoration of Notre Dame Cathedral .",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的argument和who should pay fortherestorationof定位到文章D)段第一句。 D)【精析】同义转述题。D)段定位句提到,多年来人 们一直在争论,到底谁应该出资修复塌的楼梯、 摇摇欲坠的雕像和破裂的墙壁。题干中的 argument是原文中dispute的同义词,题干中over theyears是原文中years-long的同义转述,题干中 的pay for the restoration of是对原文中finance restorationworkof的同义转述,故答案为D)。"
+        },
+        {
+          "number": 45,
+          "stem": "News of the Notre Dame Cathedral catastrophe instantly caught media attention throughout the world .",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【定位】由题干中的media和·throughouttheworld 定位到文章G)段第一句。 G)【精析】同义转述题。G)段定位句提到,一组视频 和照片记录了圣母院大教堂遭受火灾的过程,它 们迅速在社交媒体上传播,得到了世界各地人们 的关注和情感共鸣。题干中的instantlycaught media attention是对原文中quickly spread across socialmedia的同义转述,题干中的throughoutthe world是原文中allovertheworld的同义词组,故 答案为G)。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2021-06-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "We often think of drawing as something that takes inborn talent, but this kind of thinking stems from our misclassification of drawing as, primarily, an art form rather than a tool for learning . Researchers, teachers, and artists are starting to see how drawing can positively impact a wide variety of skills and disciplines . Most of us have spent some time drawing before, but at some point, most of us stop drawing . There are people who don't, obviously, and thank god for that: a world without designers and artists would be a very shabby one indeed . Some argue that so many adults have abandoned drawing because we've miscategorized it and given it a very narrow definition . In his book, Stick Figures: Drawing as a Human Practice, Professor D. B . Dowd argues that we have misfiled the significance of drawing because we see it as a professional skill instead of a personal capacity. We mistakenly think of \"good\" drawings as those which work as recreations of the real world, as realistic illusions . Rather, drawing should be recategorized as a symbolic tool . Human beings have been drawing for 73,OOO years. It's part of what it means to be human. We don't have the strength of chimpanzees (大猩猩) because we've given up animal strength to manipulate subtle instruments, like hammers, spears, and-later-pens and pencils. The human hand is an extremely dense network of nerve endings . In many ways, human beings are built to draw. Some researchers argue that doodling ( 涂 ) activates the brain's so-called default circuit- essentially, the areas of the brain responsible for maintaining a baseline level of activity in the absence of other stimuli. Because of this, some believe that doodling during a boring lecture can help students pay attention . In one study, participants were asked to listen to a list of names while either doodling or sitting still. Those who doodled remembered 29 percent more of the names than those who did not. There's also evidence that drawing talent is based on how accurately someone perceives the world . The human visual system tends to misjudge size, shape, color, and angles but artists perceive these qualities more accurately than non-artists . Cultivating drawing talent can become an essential tool to improve people's observational skills in fields where the visual is important. Rather than ·think of drawing as a talent that some creative people are gifted in, we should consider it as a tool for seeing and understanding the world better-one that just so happens to double as an art form . Both absent-minded doodling and copying from life have been shown to positively affect your memory and visual perception, so complain loudly the next time your school board slashes the art department's budget ."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What do people generally think about drawing?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is a gift creative people are endowed with."
+            },
+            {
+              "key": "B",
+              "text": "It is a skill that is acquired with practice ."
+            },
+            {
+              "key": "C",
+              "text": "It is an art form that is appreciated by all."
+            },
+            {
+              "key": "D",
+              "text": "It is an ability everyone should cultivate ."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定健】由题干中的generallythinkabout及题文 同序原则定位到首段。 A)【精析】事实细节题。文章首段第一句指出,我们 常常认为绘画是一件需要天赋的事情,而最后一 段第一句重复了这个看法,建议大家不要把绘画 看作是一些有创造力的人所具有的天赋,可知这 是人们对绘画通常的看法,故答案为A): 【避错】根据文章可知,将绘画视为通过练习获得 的技能和人人都应培养的能力,是研究者提出的 新观点,与人们的传统看法不同,故排除B)项和 D)项;C)项有一定迷感性,第一段首句虽然提到 绘画被视为一种艺术形式,但并没有提到大家都 欣贯绘画的问题,故排除。"
+        },
+        {
+          "number": 47,
+          "stem": "What do we learn about designers and artists?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are declining gradually in number ."
+            },
+            {
+              "key": "B",
+              "text": "They are keen on changing shabby surroundings ."
+            },
+            {
+              "key": "C",
+              "text": "They add beauty and charm to the world ."
+            },
+            {
+              "key": "D",
+              "text": "They spend most of their lives drawing ."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的designers and artists定位到第 三段第二句。 C)【精析】推理判断题。定位句提到,幸亏有些人没 有停止画画,因为一个没有设计师和艺术家的世 界将是一个非常糟糕的世界,换言之,因为有了设 计师和艺术家,这个世界变得美好了,可知C)是 对原文内容的合理推断,故为答案。 【避错】A)项曲解了第三段第一句,原文的意思是 很多成年人放弃了绘画,但有些人没有放弃,并成 为了设计师和艺术家,无法推断出他们的人数正 在逐渐减少,故排除B)项为强干扰项,恢用了原 文原词shabby,但两处shabby概念不同:原文中 shabbyworld指的是因为没有设计师和艺术家而 导致的缺乏美感和魅力的世界,是抽象的概念,而 B)项中shabby surroundings指的是破旧的周围环 境,是具体的概念,而且文中并未提及这些人是否 热衰于改变周围环境,故排除;虽然原文提到成为 设计师和艺术家的人没有放弃练习绘画,但不能 据此推断他们一生大部分时间都在画画,故排 除D)。"
+        },
+        {
+          "number": 48,
+          "stem": "What does Professor D . B. Dowd argue in his book?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Everybody is born with the capacity to draw ."
+            },
+            {
+              "key": "B",
+              "text": "Drawing is a skill that requires special training ."
+            },
+            {
+              "key": "C",
+              "text": "The value of drawing tends to be overestimated ."
+            },
+            {
+              "key": "D",
+              "text": "Drawing should be redefined as a realistic illusion ."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题干中的ProfessorD.B.Dowd和in hisbook定位到第四段第二句。 A)【精析】细节理解题。文章第四段第二句指出, D.B.多德教授在他的书中指出,我们应该把绘画 视为个人能力,而不是专业技能,而第五段最后一 句指出,从许多方面而言,人类生来就是画画的。 综合两处信息可知,绘画是每个人生来就具备的 能力,故答案为A)。 【避错】根据第四段第二句,将绘画视为专业技能 的看法是D.B.多德教授所反对的,故排除B);原 文只提到绘画分类错误,且被下了狭的定义,而 不是价值被高估,故排除C);根据第四段倒数第 二句,D.B.多德教授认为,将绘画视为现实的幻 觉是我们错误的看法,可见D)项与他的观点相 ,故排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What have some researchers found from one study about doodling?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is a must for maintaining a base level of brain activity ."
+            },
+            {
+              "key": "B",
+              "text": "It can turn something boring into something interesting ."
+            },
+            {
+              "key": "C",
+              "text": "It is the most reliable stimulant to activate the brain ."
+            },
+            {
+              "key": "D",
+              "text": "It helps improve concentration and memory ."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的study和doodling定位到第六 段第二至四句。 D)【精析】细节理解题。第六段第二句提到,一些人 认为在枯燥的讲座中涂鸦可以帮助学生集中注意 力,而随后两句提到,在一项研究中,参与者被要 求在涂鸦或静坐时听一张名单,涂鸦的人比没有 涂鸦的人多记崔29%的名字。综合可知,涂鸦有 助于提高注意力和记忆力,故答案为D)。 【避错】第六段第一句指出,涂鸦能激活负责维持 活动基本水平的大脑区域,但这是在没有其他刺 激的情况下,也就是说,有其他刺激的情况下,并 不需要涂鸦来激活这个大脑区域,因此涂鸦并非 必要条件,故排除A);B)是针对本段第二句提到 的aboringlecture所设置的干扰,但原文只是说 在枯爆的讲座中涂鸦可以帮助学生集中注意力, 并没有说可以把无聊的事情变得有趣,故排除 B);本段第一句虽然提到涂鸦能激活大脑的某些 区域,但并未提到它是最可靠的,故排除C)。"
+        },
+        {
+          "number": 50,
+          "stem": "What is characteristic of people with drawing talent?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Sensitivity to cognitive stimulation ."
+            },
+            {
+              "key": "B",
+              "text": "Subtlety of representation ."
+            },
+            {
+              "key": "C",
+              "text": "Accuracy in categorization ."
+            },
+            {
+              "key": "D",
+              "text": "Precision in visual perception ."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的drawingtalent定位到第 七段。 D)【精析】细节理解题。第七段第一句指出,绘画天 赋是基于一个人感知世界的准确程度,随后解释 说,人类视觉系统往往会做出错误判断,但艺术家 对事物外观特征的感知更准确,可知这些具有绘 画天赋的人视觉感知更精确,故答案为D)。 【避错】A)是根据第六段首句设置的干扰,而原文 显提到涂鸦能刺激脑回路,但与是否具有绘画天 赋没有关联,故排除;第五段提到人能操控精细工 具,但这是人人具有的能力,不是具有绘画关赋的 人的特点,故排除B);文中提到的分类不准确是 指人们对绘画的定义和划分,并未说明具有绘画 天赋的人能否准确分类,故排除C)。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2021-06-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "The car has reshaped our cities . It seems to offer autonomy for everyone . There is something almost delightful in the detachment from reality of advertisements showing mass-produced cars marketed as symbols of individuality and of freedom when most of their lives will be spent making short journeys on choked roads . For all the fuss made about top speeds, cornering ability and acceleration, the most useful gadgets on a modern car are those which work when you're going very slowly: parking sensors, sound systems, and navigation apps which will show a way around upcoming traffic jams . This seems to be one of the few areas where the benefit of sharing personal information comes straight back to the sharer: because these apps know where almost all the users are, and how fast they are moving almost all the time, they can spot traffic congestion (堵塞) very quickly and suggest ways round it . The problem comes when everyone is using a navigation app which tells them to avoid everyone else using the same gadget . Traffic jams often appear where no one has enough information to avoid them . When a lucky few have access to the knowledge, they will benefit greatly . But when everyone has perfect information, traffic jams simply spread onto the side roads that seem to offer a way round them . This new congestion teaches us two things . The first is that the promises of technology will never be realised as fully as we hope; they will be limited by their unforeseen and unintended consequ,ences . Sitting in a more comfortable car in a different traffic jam is pleasant but hardly the liberation that once seemed to be promised . The second is that self-organisation will not get us where we want to go. The efforts of millions of drivers to get ahead do not miraculously produce a situation in which everyone does better than before’ but one in which almost everyone does rather worse. Central control and collective organisation can produce smoother and fairer outcomes’though even that much is never guaranteed . Similar limits can be foreseen for the much greater advances promised by self~driving cars. Last week’ one operated by the taxi company Uber struck and killed a woman pushing her bicycle across a wide road in Arizona . This was the first recorded death involving a car which was supposed to be fully autonomous. Bxperts have said that it suggests a \"catastrophic failure\" of technology . Increasingly’ even Silicon Valley has to acknowledge the costs of the intoxicating (令人 陶 醉 的) hurry that characterises its culture . What traffic teaches us is that reckless and uncontrolled change is as likely to harm us as it is to benefit us’and that thoughtful regulation is necessary for a better future ."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the author say about car advertisements?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They portray drivers who enjoy speed on the road ."
+            },
+            {
+              "key": "B",
+              "text": "They present a false picture of the autonomy cars provide ."
+            },
+            {
+              "key": "C",
+              "text": "They pursue individuality and originality in design concept."
+            },
+            {
+              "key": "D",
+              "text": "They overestimate the potential market of autonomous cars."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的caradvertisements定位至第 一段第三句。 B)【精析】事实细节题。作者在第一段第三句指出, 超脱现实的广告展示了被宣传为象征个性和自由 的大批量生产的汽车,这几乎是一件令人愉快的 事,但人们大多数驾驶时间都将耗在拥堵的短途 旅程上。这句话揭示了汽车广告的不切实际,即 它们错误地呈现了汽车带给人们的自主性,故答案为B)。 【避错】第一段第三句只提到人们经常会在拥堵的 道路上行进,并未提到司机喜欢在路上飞速行驶, 故排除A);C)项中的individualityand originality 是根据定位甸中of individualityandof freedom 设置的干扰,原文指的是汽车被宣传为象征若个 性和自由,并未提到汽车广告在设计理念上追求 个性和原创性,故排除C);D)项中的market是根 据定位句中的marketed设置的干扰,原文指的是 汽车被宣传为象征若个性和自由,并未提到自动 驾驶汽车的市场问题,故排除D)。"
+        },
+        {
+          "number": 52,
+          "stem": "What does the author imply about the various gadgets on cars?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They can help to alleviate traffic jams."
+            },
+            {
+              "key": "B",
+              "text": "Most of them are as effective as advertised."
+            },
+            {
+              "key": "C",
+              "text": ".Only some can be put to use under current traffic conditions ."
+            },
+            {
+              "key": "D",
+              "text": "They are constantly upgraded to make driving easier and safer ."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的variousgadgetson cars定位 至第二段第一句。 C)【精析】推理判断题。文章第二段第一句指出,尽 管人们高度关注汽车的最高速度、转弯能力和加 速能力,现代汽车上最有用的却是那些在车速很 慢的情况下可以发挥作用的设备,如停车传感器、 音响系统和导航应用程序,说明在目前的交通状 况下,只有部分设备可以得到应用,故答案为C)。 【避错】根据文章第二段可知,导航设备可以帮助 司机规划新的路线以避开交通拥堵,而不是缓解拥 堵间题,并且根据下文可知,当所有人一起使用导 航应用程序时会造成新的拥堵,故排除A);根据第 二、三段可知,汽车最高速度、转弯能力和加速能力 在交通拥堵的情况下都无法发挥作用,导航设备的 使用也可能导致新的拥堵,所以这些设备并不像宜 传的那样有效,故排除B);文中并未提到这些设备 会进行升级来改善驾驶情况,故排除D)。"
+        },
+        {
+          "number": 53,
+          "stem": "What does the author say about the use of navigation apps?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is likely to create traffic jamsin other places."
+            },
+            {
+              "key": "B",
+              "text": "It helps a great deal in easing traffjc congestion ."
+            },
+            {
+              "key": "C",
+              "text": "It sharply reduces the incidence of traffic accidents ."
+            },
+            {
+              "key": "D",
+              "text": ";It benefits those who are learning to drive ."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题干中的navigationapps定位至第 三段。 A)【精析】事实细节题。作者在第三段中指出,当每 个人都在使用导航应用程序时,交通拥堵的情况 就会蔓延到那些本可以让司机绕道而行的小路 上,也就是使原本并不拥堵的地方也变得拥堵,故 答案为A)。 【避错】由第三段可知,导航应用程序并不能缓解 交通拥堵,反而会造成新的拥堵,故排除B);文中 并未提到导航应用程序与交通事故发生率之间的 关系,故排除C);文中没有提到正在学习开车的 人,所以排除D)。"
+        },
+        {
+          "number": 54,
+          "stem": "What does the author say about technology?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Its consequences are usually difficult to assess ."
+            },
+            {
+              "key": "B",
+              "text": "It seldom delivers all the benefits as promised ."
+            },
+            {
+              "key": "C",
+              "text": "It depends on the required knowledge for application ."
+            },
+            {
+              "key": "D",
+              "text": "Its benefits are guaranteed by collective wisdom ."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的technology定位至第四段第 二句。 B)【精析】事实细节题。作者在第四段第二句指出, 技术承诺的好处永远不会像所希望的那样完全实 现;它们将被不可预见和意想不到的后果所限制, 说明技术很难兑现它所承诺的一切好处,故答案 为B)。 【避错】根据文章第四段第五、六句,作者认为技术 产生的结果很难保证,并不是难以评估,故排除 A);文中第三段提到,少数幸运儿若能获取这些信 息,将受益良多,并未提到应用程序所需要的知识, 故排除C);文章第四段第六句提到,通过中央控制 和集体组织可以产生更平稳、更公平的结果,但即 便是这种结果,也从来无法得到保证,故排除D)。"
+        },
+        {
+          "number": 55,
+          "stem": "What key message does the author try to convey in the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The consequences of technological innovation need not be exaggerated ."
+            },
+            {
+              "key": "B",
+              "text": "There is always a price to pay to develop techn,ology for a better world ."
+            },
+            {
+              "key": "C",
+              "text": "Technological innovation should be properly reEulated ."
+            },
+            {
+              "key": "D",
+              "text": "The culture of Silicon Valley ought not to be emulated."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的keymessage定位至全文,通 过通览全文来解题。 【精析】主旨大意题。由原文可知,技术进步后,汽 C) 车带来的并不是它所承诺的自由与自主,而是一 些新的问题。最后一段指出,不计后果和不受控 制的改变对我们可能既有利又有弊,更美好的未 来需要深惠熟虑后的监管,故答案为C)。 【避错】根据第五段中技术的“灾难性失败”及第六 段中“硅谷也不得不承认其令人陶醉的急躁的文 化特点所带来的代价\"可知,作者认为技术创新确 实造成了不可低估的后果,所以不必夸大技术创 新的后果并不是作者要传达的观点,故排除A; 作者提到硅谷承认发展技术的代价是为了说明技 术创新需要监管,而不是强调为建设一个更美好 的世界而发展技术总是要付出代价,更不是说硅 谷的文化不应该被效仿,故排除B)和D)。"
+        }
+      ]
+    }
+  ]
+}

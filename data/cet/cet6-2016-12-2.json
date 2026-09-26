@@ -1,0 +1,1647 @@
+{
+  "id": "cet6-2016-12-2",
+  "level": 6,
+  "year": 2016,
+  "month": 12,
+  "set": 2,
+  "title": "2016 年 12 月六级 · 第 2 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.12/%E7%9C%9F%E9%A2%98Word/2016%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC2%E5%A5%97%EF%BC%89.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2016%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%EF%BC%88%E7%AC%AC2%E5%A5%97%EF%BC%89%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2016-12-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "The tree people in the Lord of the Rings--the Ents--can get around by walking. But for real trees, it's harder to uproot. Because they're literally rooted into the ground, they are unable to leave and go [[26]] . When a tree first starts growing in a certain area, it's likely that the [[27]] envelope—the temperature, humidity, rainfall patterns and so on--suits it. Otherwise, it would be unable to grow from a seedling. But as it [[28]], these conditions may change and the area around it may no longer be suitable for its [[29]] . When that happens, many trees like walnuts, oaks and pines, rely [[30]]on so-called \"scatter hoarders,\" such as birds, to move their seeds to new localities. Many birds like to store food for the winter, which they [[31]] retrieve.when the birds forget to retrieve their food--and they do sometimes--a seedling has a chance to grow. The bird Clark's nutcracker, for example, hides up to 100,000 seeds per year, up to 30 kilometers away from the seed source, and has a very close symbiotic (共生的) relationship with several pine species, most [[32]] the whitebark pine. As trees outgrow their ideal [[33]] in the face of climate change, these flying ecosystem engineers could be a big help in [[34]] trees. It's a solution for us--getting birds to do the work is cheap and effective--and it could give [[35]] oaks and pines the option to truly \"make like a tree and leave. \""
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "ages"
+        },
+        {
+          "key": "B",
+          "text": "breathing"
+        },
+        {
+          "key": "C",
+          "text": "climatic"
+        },
+        {
+          "key": "D",
+          "text": "elsewhere"
+        },
+        {
+          "key": "E",
+          "text": "exclusively"
+        },
+        {
+          "key": "F",
+          "text": "forever"
+        },
+        {
+          "key": "G",
+          "text": "fruitful"
+        },
+        {
+          "key": "H",
+          "text": "habitats"
+        },
+        {
+          "key": "I",
+          "text": "legacy"
+        },
+        {
+          "key": "J",
+          "text": "notably"
+        },
+        {
+          "key": "K",
+          "text": "offspring"
+        },
+        {
+          "key": "L",
+          "text": "replanting"
+        },
+        {
+          "key": "M",
+          "text": "subsequently"
+        },
+        {
+          "key": "N",
+          "text": "vulnerable"
+        },
+        {
+          "key": "O",
+          "text": "withdraws"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "ages"
+            },
+            {
+              "key": "B",
+              "text": "breathing"
+            },
+            {
+              "key": "C",
+              "text": "climatic"
+            },
+            {
+              "key": "D",
+              "text": "elsewhere"
+            },
+            {
+              "key": "E",
+              "text": "exclusively"
+            },
+            {
+              "key": "F",
+              "text": "forever"
+            },
+            {
+              "key": "G",
+              "text": "fruitful"
+            },
+            {
+              "key": "H",
+              "text": "habitats"
+            },
+            {
+              "key": "I",
+              "text": "legacy"
+            },
+            {
+              "key": "J",
+              "text": "notably"
+            },
+            {
+              "key": "K",
+              "text": "offspring"
+            },
+            {
+              "key": "L",
+              "text": "replanting"
+            },
+            {
+              "key": "M",
+              "text": "subsequently"
+            },
+            {
+              "key": "N",
+              "text": "vulnerable"
+            },
+            {
+              "key": "O",
+              "text": "withdraws"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【锁定答案】第一段12句对比指出:树人可以通过行走四处移动,真树则很难移居他处。3句(空 格所在句)强调原因:因为真树扎根在土壤中,无法离开原地去往 。可见,空格应填人表示“四 处、别处”的词,elsewhere符合语义。 forever\"永远”、subsequently\"随后”可与go搭配,有一定干扰。但段中没有涉及“移动的先后关系” 或“离开的时间长短”,可排除。 【点拔技巧】\"借助逻辑词(并列,因果,对比等理清文中语义关系”是有效解题途径。如本段:But表 示转折对比,可知getaroundbywalking和it'shardertouproot体现差异性(getaroundbywalking和uproot 同义);Because体现“23句间”以及句内”两重因果关系,可知unabletoleaveandgo 与rooted intotheground以及it'shardertouproot为同向关系。整体推导即:leaveandgo aroundbywalking同义。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "ages"
+            },
+            {
+              "key": "B",
+              "text": "breathing"
+            },
+            {
+              "key": "C",
+              "text": "climatic"
+            },
+            {
+              "key": "D",
+              "text": "elsewhere"
+            },
+            {
+              "key": "E",
+              "text": "exclusively"
+            },
+            {
+              "key": "F",
+              "text": "forever"
+            },
+            {
+              "key": "G",
+              "text": "fruitful"
+            },
+            {
+              "key": "H",
+              "text": "habitats"
+            },
+            {
+              "key": "I",
+              "text": "legacy"
+            },
+            {
+              "key": "J",
+              "text": "notably"
+            },
+            {
+              "key": "K",
+              "text": "offspring"
+            },
+            {
+              "key": "L",
+              "text": "replanting"
+            },
+            {
+              "key": "M",
+              "text": "subsequently"
+            },
+            {
+              "key": "N",
+              "text": "vulnerable"
+            },
+            {
+              "key": "O",
+              "text": "withdraws"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【锁定答案】envelope常见含义为“信封、包裹”,单看该词难以选出与之搭配的选项,但紧跟其后的 “一thetemperature,humidity,rainfallpatternsand soon(温度、湿度、降雨模式等)一”显然是对the envelope的解释说明,可推断短语表示“气候”之意,可选范围中只有climatic符合该语义,且这 时在envelop基本含义基础之上稍加引申便可知climaticenvelope可表示“总体气候”,恰合文意。 【点拔技巧】破折号引出的内容是选词填空的重要线索,该内容主要有两种作用:一、解释说明前文较 为概括且抽象的内容,如本文中theclimatic envelopethetemperature,humidity,rainfall patterns and so on;二、对前文详述内容进行概括评判,如:itsnorth-southaxisruns3minutes54secondswestofduenorth, while its east-west axis runs 3 minutes 51 seconds north of due east — an amount that's tiny, but similar(其南 北轴线向西偏离正北3'54”,其东西轴线向北偏离正东3'51”——-—差值很小,但非常相似)。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "ages"
+            },
+            {
+              "key": "B",
+              "text": "breathing"
+            },
+            {
+              "key": "C",
+              "text": "climatic"
+            },
+            {
+              "key": "D",
+              "text": "elsewhere"
+            },
+            {
+              "key": "E",
+              "text": "exclusively"
+            },
+            {
+              "key": "F",
+              "text": "forever"
+            },
+            {
+              "key": "G",
+              "text": "fruitful"
+            },
+            {
+              "key": "H",
+              "text": "habitats"
+            },
+            {
+              "key": "I",
+              "text": "legacy"
+            },
+            {
+              "key": "J",
+              "text": "notably"
+            },
+            {
+              "key": "K",
+              "text": "offspring"
+            },
+            {
+              "key": "L",
+              "text": "replanting"
+            },
+            {
+              "key": "M",
+              "text": "subsequently"
+            },
+            {
+              "key": "N",
+              "text": "vulnerable"
+            },
+            {
+              "key": "O",
+              "text": "withdraws"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【锁定答案】空格句指出,随着树(it回指1句atree) ,这些条件可能会发生变化。ages在语 义上能与atree搭配,且能与前文呼应“一棵树开始生长时·随着其成熟变老....”,故为正确项。 withdraws“撤退,退出”与atree无法形成语义搭配。 【点拔技巧】时间/过程的呼应是本题重要的解题线索:Whenatreefirststartsgrowing...Butasit 应该串起“一棵树的生长过程”,所以较容易便可推断ages为空格词。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "ages"
+            },
+            {
+              "key": "B",
+              "text": "breathing"
+            },
+            {
+              "key": "C",
+              "text": "climatic"
+            },
+            {
+              "key": "D",
+              "text": "elsewhere"
+            },
+            {
+              "key": "E",
+              "text": "exclusively"
+            },
+            {
+              "key": "F",
+              "text": "forever"
+            },
+            {
+              "key": "G",
+              "text": "fruitful"
+            },
+            {
+              "key": "H",
+              "text": "habitats"
+            },
+            {
+              "key": "I",
+              "text": "legacy"
+            },
+            {
+              "key": "J",
+              "text": "notably"
+            },
+            {
+              "key": "K",
+              "text": "offspring"
+            },
+            {
+              "key": "L",
+              "text": "replanting"
+            },
+            {
+              "key": "M",
+              "text": "subsequently"
+            },
+            {
+              "key": "N",
+              "text": "vulnerable"
+            },
+            {
+              "key": "O",
+              "text": "withdraws"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【锁定答案】空格所在句的its回指1句atree,该句大意为:随着树长大变老,这些条件可能会发生 变化,其所在区域可能不再适合它的 ,offspring\"后代”符合语义。且第三段1句指出“当这种情 况发生时,许多树会依赖鸟类将其种子带到新的地方”,据此也可反推空格所在句意为“环境不再适合 树木后代生长”,offspring正确无误, habitats“栖息环境”在语义上可与tree搭配(thetree'shabitats),但句中thatareaaroundit即指树 的栖息环境,填入habitats后句子逻辑混乱。 【点拔技巧】\"根据代词的语义呼应、就近回指等原则判断其指代对象”对于解题非常重要。如28、 29题的解答在很大程度上都依赖于对it所指的判断(2句it,3句it...it...its均指段首的atree)。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "ages"
+            },
+            {
+              "key": "B",
+              "text": "breathing"
+            },
+            {
+              "key": "C",
+              "text": "climatic"
+            },
+            {
+              "key": "D",
+              "text": "elsewhere"
+            },
+            {
+              "key": "E",
+              "text": "exclusively"
+            },
+            {
+              "key": "F",
+              "text": "forever"
+            },
+            {
+              "key": "G",
+              "text": "fruitful"
+            },
+            {
+              "key": "H",
+              "text": "habitats"
+            },
+            {
+              "key": "I",
+              "text": "legacy"
+            },
+            {
+              "key": "J",
+              "text": "notably"
+            },
+            {
+              "key": "K",
+              "text": "offspring"
+            },
+            {
+              "key": "L",
+              "text": "replanting"
+            },
+            {
+              "key": "M",
+              "text": "subsequently"
+            },
+            {
+              "key": "N",
+              "text": "vulnerable"
+            },
+            {
+              "key": "O",
+              "text": "withdraws"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【锁定答案】空格所在句大意为:当树的栖息环境发生变化时,它们会 依靠鸟类等传播种子。 forever强调时间的持续性;subsequently强调事情的先后顺序;notably强调情形很容易被观察到; exclusively强调主体对某事物的专有性、特权性。显然四词之中exclusively最合情景:面对栖息地环境 的改变,大多数物种、甚至大多树种都会灭绝,但有一些树却可以借助寄宿伙伴将其种子带到新的地 方,避免灭绝厄运(这是其他物种所没有的特权)。 【点拨技巧】选择动词的“修饰成分(副词)”时可有两种解题思路:1.如果上下文中有对中心词特征 的描述,则概括这些信息,然后对比词性合适的词,最契合的即为答案;2.如果上下文中没有直接描述 性信息,则将词性合适的备选项试着带入空格,以两个标准进行判断:a.是否能够修饰中心词,b.是否符 合上下文语境及暗含的逻辑关系。如本题,上下文均未描述relyon的特点,因此只能将可选范围的词 代入判断:单从修饰中心词上看,四个备选项均可修饰relyon,只能从上下文语境进行推理,得出 exclusively最合适。另:推理过程中若存在暂时难以取舍的情形(如本题中notably和exclusively),可以 暂时标记存疑,待其中一词完全适合随后某空,则悬疑自然解除。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "ages"
+            },
+            {
+              "key": "B",
+              "text": "breathing"
+            },
+            {
+              "key": "C",
+              "text": "climatic"
+            },
+            {
+              "key": "D",
+              "text": "elsewhere"
+            },
+            {
+              "key": "E",
+              "text": "exclusively"
+            },
+            {
+              "key": "F",
+              "text": "forever"
+            },
+            {
+              "key": "G",
+              "text": "fruitful"
+            },
+            {
+              "key": "H",
+              "text": "habitats"
+            },
+            {
+              "key": "I",
+              "text": "legacy"
+            },
+            {
+              "key": "J",
+              "text": "notably"
+            },
+            {
+              "key": "K",
+              "text": "offspring"
+            },
+            {
+              "key": "L",
+              "text": "replanting"
+            },
+            {
+              "key": "M",
+              "text": "subsequently"
+            },
+            {
+              "key": "N",
+              "text": "vulnerable"
+            },
+            {
+              "key": "O",
+              "text": "withdraws"
+            }
+          ],
+          "answer": "M",
+          "explanation": "【锁定答案】空格所在句大意为:许多鸟喜欢为过冬储藏食物,它们会 取用这些食物。 subsequently符合语义要求:先(冬天来临前)存储食物一—后(冬天来临时)取用食物。forever\"永远”、 notably\"显而易见,尤其”均无法与retrieve\"重新得到,找回猎物”搭配。 【点拔技巧】空格所在句及上下文均为描述retrieve的特征,因此采用了上题技巧点拨中的第二种 思路。但相对上题,本题难度较低:推理较为明显,且借助“副词和动词的搭配”也可进行取舍。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "ages"
+            },
+            {
+              "key": "B",
+              "text": "breathing"
+            },
+            {
+              "key": "C",
+              "text": "climatic"
+            },
+            {
+              "key": "D",
+              "text": "elsewhere"
+            },
+            {
+              "key": "E",
+              "text": "exclusively"
+            },
+            {
+              "key": "F",
+              "text": "forever"
+            },
+            {
+              "key": "G",
+              "text": "fruitful"
+            },
+            {
+              "key": "H",
+              "text": "habitats"
+            },
+            {
+              "key": "I",
+              "text": "legacy"
+            },
+            {
+              "key": "J",
+              "text": "notably"
+            },
+            {
+              "key": "K",
+              "text": "offspring"
+            },
+            {
+              "key": "L",
+              "text": "replanting"
+            },
+            {
+              "key": "M",
+              "text": "subsequently"
+            },
+            {
+              "key": "N",
+              "text": "vulnerable"
+            },
+            {
+              "key": "O",
+              "text": "withdraws"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【锁定答案】整体理解空格所在句可知,thewhitebarkpine应该为severalpinespecies中的一例, most 应起“引出典型例子”的作用,notably“尤其、特别是”符合语义,most notably用于举出最符 合上文所描述特征的例子。mostforever语义逻辑不合理。 V0As trees outgrowtheir ideal33in the face of climate change,these flying ecosystemengineers could be a big help in 34trees.@It's a solutionfor usgetting birds to do the work is cheap and effective@and it could give35oaks and pines the optionto truly“make like a tree and leave,\"[277 words] 面对气候的变化,随着树木生长超出其 理想栖息环境的限度,这些“会飞的生态系统 工程师”便能在重新植树方面帮上大忙。这 对我们来说是个办法———让鸟儿们做这项工 作既经济又高效—这也给脆弱的橡树和松 树提供了真正“装扮成一棵树,且能够离开原 地”的选择。 ·"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "ages"
+            },
+            {
+              "key": "B",
+              "text": "breathing"
+            },
+            {
+              "key": "C",
+              "text": "climatic"
+            },
+            {
+              "key": "D",
+              "text": "elsewhere"
+            },
+            {
+              "key": "E",
+              "text": "exclusively"
+            },
+            {
+              "key": "F",
+              "text": "forever"
+            },
+            {
+              "key": "G",
+              "text": "fruitful"
+            },
+            {
+              "key": "H",
+              "text": "habitats"
+            },
+            {
+              "key": "I",
+              "text": "legacy"
+            },
+            {
+              "key": "J",
+              "text": "notably"
+            },
+            {
+              "key": "K",
+              "text": "offspring"
+            },
+            {
+              "key": "L",
+              "text": "replanting"
+            },
+            {
+              "key": "M",
+              "text": "subsequently"
+            },
+            {
+              "key": "N",
+              "text": "vulnerable"
+            },
+            {
+              "key": "O",
+              "text": "withdraws"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【锁定答案】空格所在从句大意为“面对气候变化,树木会生长到超出其理想 的限度”,可见 habitats“栖息环境”符合语境:随着树木自身的生长以及气候的变化,曾经的理想栖息地不再理想。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "ages"
+            },
+            {
+              "key": "B",
+              "text": "breathing"
+            },
+            {
+              "key": "C",
+              "text": "climatic"
+            },
+            {
+              "key": "D",
+              "text": "elsewhere"
+            },
+            {
+              "key": "E",
+              "text": "exclusively"
+            },
+            {
+              "key": "F",
+              "text": "forever"
+            },
+            {
+              "key": "G",
+              "text": "fruitful"
+            },
+            {
+              "key": "H",
+              "text": "habitats"
+            },
+            {
+              "key": "I",
+              "text": "legacy"
+            },
+            {
+              "key": "J",
+              "text": "notably"
+            },
+            {
+              "key": "K",
+              "text": "offspring"
+            },
+            {
+              "key": "L",
+              "text": "replanting"
+            },
+            {
+              "key": "M",
+              "text": "subsequently"
+            },
+            {
+              "key": "N",
+              "text": "vulnerable"
+            },
+            {
+              "key": "O",
+              "text": "withdraws"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【锁定答案】空格所在句大意为“这些会飞的生态系统工程师便能在 方面帮上大忙”,其中 “会飞的生态系统工程师”(flyingecosystemengineers)回指第三、四段的“分散储粮者、鸟类”(scatter hoarders、birds)。结合第三段1句和第四段1句可知:鸟类会将树种带到别处,部分种子会生根发芽。 据此推断,空格词应含“移植、传种”之意,replanting“重新植树”符合语义要求。 【点拨技巧】末段往往是对前文的概括,所以“从整体上把握文章,发现末段与前文的对应关系”是 为其空格选择合适词语的重要线索。如本文末段首句实为对前文的高度概括:从句Astreesoutgrow their ideal in theface of climate对应第二段所述问题情形”,而主句these flying ecosystem engineerscouldbeabighelp.·.则对应第三四段所述“解决方式”。意识到这一点则很容易推断33空答案应意为“栖息地,生长地”,也很容易推断34空答案应表示“再种植,移植”之意。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "ages"
+            },
+            {
+              "key": "B",
+              "text": "breathing"
+            },
+            {
+              "key": "C",
+              "text": "climatic"
+            },
+            {
+              "key": "D",
+              "text": "elsewhere"
+            },
+            {
+              "key": "E",
+              "text": "exclusively"
+            },
+            {
+              "key": "F",
+              "text": "forever"
+            },
+            {
+              "key": "G",
+              "text": "fruitful"
+            },
+            {
+              "key": "H",
+              "text": "habitats"
+            },
+            {
+              "key": "I",
+              "text": "legacy"
+            },
+            {
+              "key": "J",
+              "text": "notably"
+            },
+            {
+              "key": "K",
+              "text": "offspring"
+            },
+            {
+              "key": "L",
+              "text": "replanting"
+            },
+            {
+              "key": "M",
+              "text": "subsequently"
+            },
+            {
+              "key": "N",
+              "text": "vulnerable"
+            },
+            {
+              "key": "O",
+              "text": "withdraws"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【锁定答案】空格上句指出:面对气候变化,当树木的理想栖息环境发生改变时,鸟类可在移植树木 上(将种子传播到其他地方)帮很大忙。空格句则特意强调“橡树和松树”,可推测这两种树木尤其需要 帮助,即它们“更易受环境影响”,vulnerable\"脆弱的”符合语义要求。 fruitful\"多产的”在语义上可与oaksandpines搭配,且可回应上文“树种(seeds)”等信息,有较强干 扰。但文中没有出现任何描述这两种树木“果实多”的表达,且文中并未关注树木的果实多少,故排除。 【点拨技巧】选择名词的“修饰成分(形容词等)”可采用两种解题思路:1.如果上下文中有对中心词 特征的描述,则所选词应该与这些信息同义,或者对其进行概括;2.如果上下文中没有直接描述性信 息,则应选择最能契合下文语境及其逻辑关系的选项。如本题中,vulnerable修饰oaks,恰能体现“本身 脆弱、易受环境影响一一借助鸟类帮助实现迁徙”的逻辑。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2016-12-2-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Americans are working longer and harder hours than ever before.83% of workers say they're stressed about their jobs, nearly 50% say work-related stress is interfering with their sleep, and 60% use their smartphones to check in with work outside of normal working hours. No wonder only 13% of employees worldwide feel engaged in their occupation.",
+        "B) Glimmers (少许) of hope, however, are beginning to emerge in this bruising environment: Americans are becoming aware of the toll their jobs take on them, and employers are exploring ways to alleviate the harmful effects of stress and overwork. Yet much more work remains to be done. To call stress an epidemic isn't exaggeration. The 83% of American employees who are stressed about their jobs--up from 73% just a year before--say that poor compensation and an unreasonable workload are their number-one sources of stress. And if you suspected that the workplace had gotten more stressful than it was just a few decades ago, you're right. Stress levels increased 18% for women and 24% for men from 1983 to 2009. Stress is also starting earlier in life, with some data suggesting that today's teens are even more stressed than adults.",
+        "C) Stress is taking a significant toll on our health, and the collective public health cost may be enormous. Occupational stress increases the risk of heart attack and diabetes, accelerates the aging process, decreases longevity, and contributes to depression and anxiety, among numerous other negative health outcomes. Overall, stress-related health problems account for up to 90% of hospital visits, many of them preventable. Your job is \"literally killing you,\" as The Washington Post put it. It's also hurting our relationships. Working parents say they feel stressed, tired, rushed and short on quality time with their children, friends and partners.",
+        "D) Seven in 10 workers say they struggle to maintain work-life balance. As technology (and with it, work emails) seeps (渗入) into every aspect of our lives, work-life balance has become an almost meaningless term. Add a rapidly changing economy and an uncertain future to this 24/7 connectivity, and you've got a recipe for overwork, according to Phyllis Moen. \"There's rising work demand coupled with the insecurity of mergers, takeovers, downsizing and other factors,\" Moen said. \"Part of the work-life issue has to talk about uncertainty about the future.\"",
+        "E) These factors have converged to create an increasingly impossible situation with many employees overworking to the point of burnout. It's not only unsustainable for workers, but also for the companies that employ them. Science has shown a clear correlation between high stress levels in workers and absenteeism ( 旷工 ), reduced productivity, disengagement and high turnover. Too many workplace policies effectively prohibit employees from developing a healthy work-life balance by barring them from taking time off, even when they need it most.",
+        "F) The U. S. trails far behind every wealthy nation and many developing ones that have family-friendly work policies including paid parental leave, paid sick days and breast-feeding support.according to a 2007 study. The U. S. is also the only advanced economy that does not guarantee workers paid vacation time, and it's one of only two countries in the world that does not offer guaranteed paid maternity leave. But even when employees are given paid time off, workplace norms and expectations that pressure them to overwork often prevent them from taking it. Fulltime employees who do have paid vacation days only use half of them on average.",
+        "G) Our modern workplaces also operate based on outdated time constraints. The practice of clocking in for an eight-hour workday is a leftover from the days of the Industrial Revolution, as reflected in the then-popular saying, \"Eight hours labor, eight hours recreation, eight hours rest.\"",
+        "H) We've held on to this workday structure--but thanks to our digital devices, many employees never really clock out. Today, the average American spends 8.8 hours at work daily, and the majority of working professionals spend additional hours checking in with work during evenings, weekends and even vacations. The problem isn't the technology itself, but that the technology is being used to create more flexibility for the employer rather than the employee. In a competitive work environment, employers are able to use technology to demand more from their employees rather than motivating workers with flexibility that benefits them.",
+        "I) In a study published last year, psychologists coined the term \"workplace telepressure\" to describe an employee's urge to immediately respond to emails and engage in obsessive thoughts about returning an email to one's boss, colleagues or clients. The researchers found that telepressure is a major cause of stress at work, which over time contributes to physical and mental burnout. Of the 300 employees participating in the study, those who experienced high levels of telepressure were more likely to agree with statements assessing burnout, like \"I've no energy for going to work in the morning,\" and to report feeling fatigued and unfocused. Telepressure was also correlated with sleeping poorly and missing work.",
+        "J) Harvard Business School professor Leslie Perlow explains that when people feel the pressure to be always \"on,\" they fmd ways to accommodate that pressure, including altering their schedules, work habits and interactions with family and friends. Perlow calls this vicious cycle the \"cycle of responsiveness\" : Once bosses and colleagues experience an employee's increased responsiveness, they increase their demands on the employee's time. And because a failure to accept these increased demands indicates a lack of commitment to one's work, the employee complies.",
+        "K) To address skyrocketing employee stress levels, many companies have implemented workplace wellness programs, partnering with health care providers that have created programs to promote employee health and well-being. Some research does suggest that these programs hold promise. A study of employees at health insurance provider Aetna revealed that roughly one quarter of those taking in-office yoga and mindfulness classes reported a 28% reduction in their stress levels and a 20% improvement in sleep quality. These less-stressed workers gained an average of 62 minutes per week of productivity. While yoga and meditation (静思) are scientifically proven to reduce stress levels, these programs do little to target the root causes of burnout and disengagement. The conditions creating the stress are long hours, unrealistic demands and deadlines, and work-life conflict.",
+        "L) Moen and her colleagues may have found the solution. In a 2011 study, she investigated the effects of implementing a Results Only Work Environment (ROWE. on the productivity and well-being of employees at Best Buy's corporate headquarters.",
+        "M) For the study,325 employees spent six months taking part in ROWE, while a control group of 334 employees continued with their normal workflow. The ROWE participants were allowed to freely determine when, where and how they worked--the only thing that mattered was that they got the job done. The results were striking. After six months, the employees who participated in ROWE reported reduced work-family conflict and a better sense of control of their time, and they were getting a full hour of extra sleep each night. The employees were less likely to leave their jobs, resulting in reduced turnover. It's important to note that the increased flexibility didn't encourage them to work around the clock. \"They didn't work anywhere and all the time--they were better able to manage their work,\" Moen said. \"Flexibility and control is key,\" she continued."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Workplace norms pressure employees to overwork, deterring them from taking paid time off.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "F",
+          "explanation": "职场规则迫使雇员过度劳累,使他们无法带薪休假。 [答案][F][精析]根据[定位词定位]、[核心义匹配]可知本题对应[F]段3句。该句指出“即便 向雇员提供带薪休假,职场规则也会迫使他们过度工作,阻止他们带薪休假”。试题是对该句的同义转 述,其中deter与prevent同义。"
+        },
+        {
+          "number": 37,
+          "stem": "The overwhelming majority of employees attribute their stress mainly to low pay and an excessive workload.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "B",
+          "explanation": "绝大多数雇员将他们的压力主要归因于工资低、工作量过大。 [答案」[B」[精析]」根据[定位词定位」、[核心义匹配]可知本题对应[B段4句。该句指出“83% 的雇员感到有压力,且认为其压力最大来源是微薄的报酬和不合理(过大的)工作量”。试题是对该句 的同义改写,其中attribute...mainlyto...对应saythat...are their number-one sources of..·。"
+        },
+        {
+          "number": 38,
+          "stem": "According to Moen, flexibility gives employees better control over their work and time.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "M",
+          "explanation": "莫恩认为弹性能使雇员更好地掌控他们的工作和时间。 [答案]][M][精析]根据[定位词定位」、L核心义匹配」可知本题对应[M段3至3句。该段42 句提到“参与ROWE的雇员掌控时间、管理工作的能力变强”。结合3至3句可知,Moen认为“雇员这 些能力变强是因为ROWE实行(让雇员自由掌控工作时间、地点、方式的)弹性制”。试题是对3至3句 内容的概括总结。"
+        },
+        {
+          "number": 39,
+          "stem": "Flexibility resulting from the use of digital devices benefits employers instead of employees.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "H",
+          "explanation": "使用数字设备带来的弹性对雇主而不是雇员有利。 [答案][H[精析]根据[定位词定位]、核心义匹配]可知本题对应[H]段31句。34句指出 “技术为雇主而不是雇员服务,雇主可以利用技术的弹性提高对雇员的要求”。试题是对34句的同义 概括,其中resultingfrom体现technologyisbeingusedtocreatemoreflexibility中技术与弹性之间的关 联;benefits employers instead of employees体现 for the employer rather than the employee..及 employersareableto.·.demandmorefromtheiremployeesratherthan.·.中技术服务的对象雇主而 非雇员”。"
+        },
+        {
+          "number": 40,
+          "stem": "Research finds that if employees suffer from high stress, they will be less motivated, less productive and more likely to quit.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "E",
+          "explanation": "研究发现,如果雇员承受高压,他们的动力会减少,效率会降低,且更有可能辞职。 [答案][E][精析]根据定位词定位]、[核心义匹配]可知本题对应[E]段3句。该句指出“科学 研究表明员工承受高压与效率降低,投人不足和高人员流动率之间存在相关性”。试题是对该句的同 义改写,其中if employees...theywill...体现aclearcorrelationbetween...and...中的“相关性(当一 个事物变化时,另一事物也产生变化)”。"
+        },
+        {
+          "number": 41,
+          "stem": "In-office wellness programs may help reduce stress levels, but they are hardly an ultimate solution to the problem.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "K",
+          "explanation": "办公室健康项目或许有助于减少压力,但它们很难从根本上解决问题。 [答案」[K][精析]根据[定位词定位」、[核心义匹配」可知本题对应[K段。该段首句引出“职场 健康项目”;2至4句首先承认其优点“一定程度上能缓解压力”;33句转而指出其不足“没有针对职 场压力的根本原因/不能从根本上解决问题”。试题是对段落文意的综合概括,其中helpreduce stress levels对应28%reductionintheirstresslevels。"
+        },
+        {
+          "number": 42,
+          "stem": "Health problems caused by stress in the workplace result in huge public health expenses.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "C",
+          "explanation": "职场压力所导致的健康问题会产生巨大的公共医疗费用。 [答案][C】[精析]根据定位词定位]、[核心义匹配]可知本题对应[C]段1至3句。1至3句 指出“职场压力带来健康问题,这些问题可能产生巨额公共医疗费用”。试题是对文意的概括总结,其 中...causedby stress intheworkplace体现stress is taking a significanttoll on,..中职场压力与健康问 题间的因果关系;resultin体现文中暗含的健康问题与公共医疗费用间的因果关系。"
+        },
+        {
+          "number": 43,
+          "stem": "If employees respond quickly to their job assignments, the employer is likely to demand more from them.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【答案】J。【精析】根据“定位词定位”“核心义匹配”可知本题对应[J]段②句。该句指出“当老板感到某位雇员反应变迅速时，他们就会提高对这位雇员的要求”。试题是对该句的同义转述。"
+        },
+        {
+          "number": 44,
+          "stem": "With technology everywhere in our life, it has become virtually impossible for most workers to keep a balance between work and life.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "D",
+          "explanation": "生活中科技已无处不在,因此大多数员工几乎不可能在工作与生活之间保持平衡。 [答案][D][精析]根据[定位词定位]、[核心义匹配]可知本题对应[D]段12句。12句指出 “当技术夹带工作上的联系,进人生活的方方面面,工作与生活的平衡已难以实现”。试题是对两句的 同义概括,其中it has become virtuallyimpossible概括struggle to maintain.../...analmost meaninglessterm等信息;formostworkers对应Seveninloworkers。"
+        },
+        {
+          "number": 45,
+          "stem": "In America today, even teenagers suffer from stress, and their problem is even more serious than grown-ups'.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "B",
+          "explanation": "在今天的美国,甚至青少年也受压力折磨,他们的问题甚至比成年人还严重。 [答案][B][精析]根据[定位词定位]、[核心义匹配]可知本题对应[B]段1句。该句补充指出 “如今的青少年压力比成年人还大”,根据全文背景可知此处“青少年”特指美国青少年。试题是对该句 的同义转述,其中eventeenagers suffer from stress...evenmore serious thangrown-ups'对应today's teens are even more stressed than adults。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2016-12-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Dr. Donald Sadoway at MIT started his own battery company with the hope of changing the world's energy future. It's a dramatic endorsement for a technology most people think about only when their smartphone goes dark. But Sadoway isn't alone in trumpeting energy storage as a missing link to a cleaner, more efficient, and more equitable energy future. Scientists and engineers have long believed in the promise of batteries to change the world.Advanced batteries are moving out of specialized markets and creeping into the mainstream, signaling a tipping point for forward-looking technologies such as electric cars and rooftop solar propels. The ubiquitous (无所不在的) battery has already come a long way, of course. For better or worse, batteries make possible our mobile-first lifestyles, our screen culture, our increasingly globalized world. Still, as impressive as all this is, it may be trivial compared with what comes next.Having already enabled a communications revolution, the battery is now poised to transform just about everything else. The wireless age is expanding to include not just our phones, tablets, and laptops, but also our cars, homes, and even whole communities. In emerging economies, rural communities are bypassing the wires and wooden poles that spread power. Instead, some in Africa and Asia are seeing their first lightbulbs illuminated by the power of sunlight stored in batteries. Today, energy storage is a $ 33 billion global industry that generates nearly 100 gigawatt-hours of electricity per year. By the end of the decade, it's expected to be worth over $ 50 billion and generate 160 gigawatt-hours, enough to attract the attention of major companies that might not otherwise be interested in a decidedly pedestrian technology. Even utility companies, which have long Viewed batteries and alternative forms of energy as a threat, are learning to embrace the technologies as enabling rather than disrupting. Today's battery breakthroughs come as the. world looks to expand modern energy access to the billion or so people without it, while also cutting back on fuels that warm the planet.Those simultaneous challenges appear less overwhelming with increasingly better answers to a centuries-old question: how to make power portable. To be sure, the battery still has a long way to go before the nightly recharge completely replaces the weekly trip to the gas station. A battery-powered world comes with its own risks, too. What happens to the centralized electric grid, which took decades and billions of dollars to build, as more and more people become \"prosumers,\" who produce and consume their own energy onsite? No one knows which--if any--battery technology will ultimately dominate, but one thing remains clear. The future of energy is in how we store it."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What does Dr. Sadoway think of energy storage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It involves the application of sophisticated technology."
+            },
+            {
+              "key": "B",
+              "text": "It is the direction energy development should follow."
+            },
+            {
+              "key": "C",
+              "text": "It will prove to be a profitable business."
+            },
+            {
+              "key": "D",
+              "text": "It is a technology benefiting everyone."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]B)。首段指出Sadoway博士创办电池公司、希望改变世界能源未来;他认为能源存储 是通向更清洁、更高效、更公平的能源未来中缺失的一环。可见,B项符合博士观点。 「排除干扰]A项利用第一段2句atechnology设置干扰,但该词指的便是“电池存储本身”,而非 “电池存储所使用的技术”,且sophisticated为捏造信息,文中并未提及技术复杂性。C项为第五段“作 者观点”,与“Sadoway观点”无关。D项对第一段3句acleaner,moreefficient,andmoreequitable energyfuture过度推导:“电池存储是更清洁、更高效、更公平的能源”并不等于“它能使所有人受益”。 [提炼思路]本题考查人物观点,可采用解题思路:排除符合文中某处信息、但和所考人物无关的选 项(C);排除和文中人物观点相关,但捏造无关信息、或篡改关键内容、或两种错误均有的选项(A)。对 难以取舍的选项,需“紧依原文”并“结合常识、背景等”进行推理判断(结合常识推断“电池存储实现更 清洁更高效的能源未来,必将会损害某些人,如化石燃料商,的利益”,排除D项;综合第一段信息 “Sadoway大力倡导能源存储技术,并亲身创办电池公司”,可推断B项正确。)"
+        },
+        {
+          "number": 47,
+          "stem": "What is most likely to happen when advanced batteries become widely used?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Mobile-first lifestyles will become popular."
+            },
+            {
+              "key": "B",
+              "text": "The globalization process will be accelerated."
+            },
+            {
+              "key": "C",
+              "text": "Communications will take more diverse forms."
+            },
+            {
+              "key": "D",
+              "text": "The world will undergo revolutionary changes."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]D)。第二段先指出科学家观点“电池有望改变世界”,后指出现实“先进电池正步人主 流市场,这标志着电动汽车、太阳能板等前瞻性技术已达引爆点”。可见先进电池的普及将很可能带来 革命性变化,D项正确。 L排除干扰」A项、B项均为第三段2句所提及的“电池已经引发的变革”,并非题目所问“电池将可 能产生的影响”。C项将第三段4句“电池在已经变革了通讯领域后,更将会颠覆其他所有领域”杂曲 解为“电池将带来更多样化的通讯形式”。 [提炼思路]本题考查某一事物的可能影响,文中涉及众多对象和不同时态(已发生的影响VS将发 生的影响)。解题关键在于首先明确题目所问“即将发生的影响(Whatismostlikelytohappen)”,随后 根据时态标记、时间标记(inthepromiseof,signalingatippingpoint,whatcomesnext,isnowpoisedto 等标记“未来”;have already等标记\"过去”),排除“已经发生的影响(A、B)”以及“篡改未来影响(C)”的 选项,留下“同义改写或概括未来影响的选项”(D项Theworldwillundergorevolutionarychanges概括 change the world 及 signaling a tipping point for forward-looking technologies)。 ·真题精解·"
+        },
+        {
+          "number": 48,
+          "stem": "In some rural communities of emerging economies, people have begun to ___________.",
+          "options": [
+            {
+              "key": "A",
+              "text": "find digital devices simply indispensable"
+            },
+            {
+              "key": "B",
+              "text": "communicate primarily by mobile phone"
+            },
+            {
+              "key": "C",
+              "text": "light their homes with stored solar energy"
+            },
+            {
+              "key": "D",
+              "text": "distribute power with wires and wooden poles"
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]C)。第四段2句指出,在新兴经济体中,乡村社区绕过电线和木质电线杆。结合上下 文可知,其完整含义是:不再使用原有的“电线传输”,改为现在的“无线电力/存储太阳能”,C项正确。 [排除干扰]A项digitaldevices来自第四段1句phones,tablets,andlaptops,但此处整体强调“无 线时代已涵盖通讯领域”,并未指出“数字设备不可或缺”。B项对第四段1句wireless.··phones断章 取义得出“靠无线电话(手机)进行联络”,但这里的wireless指的主要是供电情形”而不是“信号传输”, 且文中并未提及新兴国家乡村地区的联络方式。D项与第四段2句“乡村社区正绕过/不再使用 (bypass)电线和木质电线杆配电”相。 [提炼思路]本题难点在于:虽考查事例细节(第四段2句),但该句语义承上文省略(只指出“绕过了 已有的电杆电线”,并未明确“现在采用何种方式”)。可借两条线索得知其完整含义:1.其服务的论点(1 句,指出无线能量存储正在向通讯外领域扩展)人手;2.其并列事例(3句,指出亚非等一些地区第一次借 助太阳能电池实现现代照明)。可见,2句完整含义为“不再使用电杆电线,采用存储太阳能照明”。 V0 Today, energy storage is a $33 billion global industry that generates nearly 100 gigawatt-hours of electricity per year. By the end of the decade, it's expected to be worth over $ 50 billion and generate 160 gigawatt- hours, enough to attract the attention of major companies that might not otherwise be interested in a decidedly pedestrian technology. Even utility companies, which have long viewed batteries and alternative forms of energy as a threat, are learning to embrace the technologies as enabling rather than disrupting. 如今,能源存储是一个价值330亿 美元的全球性产业,每年产生近1000 亿瓦时电量。到本年代末,其预期价值 会超过500亿美元,生产电量1600亿 瓦时,足以吸引大公司的注意,若非如 此,这些公司不会对一项显然平淡无奇 的技术感兴趣。即便是长期将电池和 其他可替代能源形式视作威胁的公共 事业公司,也在学着拥抱这些技术,以 之为“使能性的”,而非“破坏性的”。 ·"
+        },
+        {
+          "number": 49,
+          "stem": "Utility companies have begun to realize that battery technologies ___________.",
+          "options": [
+            {
+              "key": "A",
+              "text": "benefit their business"
+            },
+            {
+              "key": "B",
+              "text": "transmit power faster"
+            },
+            {
+              "key": "C",
+              "text": "promote innovation"
+            },
+            {
+              "key": "D",
+              "text": "encourage competition"
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]A)。第五段3句指出,公共事业公司虽然长期将电池和其它可替代能源形式视作威 胁,但现在已学着拥抱电池技术,将它们看为“使能性的”而不是“破坏性”的,可见公共事业公司已经开 始意识到电池技术对其业务有益,A项正确。 [排除干扰]B项将电池技术的功用“存储能量/省去能量传输”改为“更快传输能量”。C项将enabling ratherthandisrupting曲解为“推动创新”,但文中未提及电池技术对创新的影响。D项利用viewed..·asa threat...enabling捏造干扰encouragecompetition,但文中未提及电池技术对市场竞争的影响。 [提炼思路]解答本题的关键是理解enabling的具体含义,可从两个角度推断:1.借助语法结构: ratherthan提示enabling与disrupting(破坏性的)语义相反,故enabling应指“助益性的”。2.借助上下 文:句中逻辑“公共事业公司将电池等长期视为威胁(athreat)...而现在视为是助益性的(enabling)”, 以及上文“电池技术以其巨大产值和能量引起各大公司的兴趣”可推知这里的“助益性”具体指“对公司 业务发展有益”,确定A项正确。"
+        },
+        {
+          "number": 50,
+          "stem": "What does the author imply about the centralized electric grid?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It might become a thing of the past."
+            },
+            {
+              "key": "B",
+              "text": "It might turn out to be a \"prosumer\"."
+            },
+            {
+              "key": "C",
+              "text": "It will be easier to operate and maintain."
+            },
+            {
+              "key": "D",
+              "text": "It will have to be completely transformed."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]A)。第七段3句设问:随着越来越多的人成为“产消者”,就地生产并消费自已的能源, 那些集中式电网会如何?再结合上句“电池驱动的世界有其风险”可知作者观点:在电池驱动的世界(不 再需要电力传输的世界),集中式电网配电很可能会被淘汰。 [排除干扰]B项将“会成为产消者(prosumer)”的主体“大众(moreandmorepeople)”偷换为“集中 式电网”。C项由“越来越多的人成为产消者/集中式电网使用者减少”主观臆断出“集中式电网将更易 操作和维护”。D项虽然抓住了集中电网的“艰难处境”,但“进行改造”一说违背文章主旨观点“能源的 未来在于存储”。 [提炼思路]本题考查文中特殊句式(第七段3句为长难句兼反问句),解题思路为“多角度分析该 句,推断作者观点”:1.借助WhathappenstoAasB句式以及AB之间的“完全相悖关系(A是集中供 电,靠的是传输VSB是自已生产电能、取缔传输)推断作者观点:A的未来堪忧。2.结合上句...comes withitsownrisks进一步明确作者观点,确定答案。 Passage Two科学家称种族是一种社会建构 一、总体分析 来源:Live Science《科学现场》2016.02.04文章RaceIsaSocial Construct,ScientistsArgue(科学 家称种族是一种社会建构)。主题:种族是一种社会构建,不具备生物学意义,以种族解释遗传差异会 导致诸多问题。脉络:引入科学家观点/指出问题(第一、二段)一一论证科学家观点/分析问题(第三至 五段)—提出建议/解决问题(第六、七段)。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2016-12-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "More than 100 years ago, American sociologist W. E. B. Du Bois was concerned that race was being used as a biological explanation for what he understood to be social and cultural differences between different populations of people. He spoke out against the idea of \"white\" and \"black\" as distinct groups, claiming that these distinctions ignored the scope of human diversity. Science would favor Du Bois. Today, the mainstream belief among scientists is that race is a social construct without biological meaning. In an article published in the journal Science, four scholars say racial categories need to be phased out. \"Essentially, I could not agree more with the authors,\" said Svante Pääbo, a biologist and director of the Max Planck Institute for Evolutionary Anthropology in Germany. In one example that demonstrated genetic differences were not fixed along racial lines, the full genomes (基因组) of James Watson and Craig Venter, two famous American scientists of European ancestry, were compared to that of a Korean scientist, Seong-Jin Kim. It turned out that Watson and Venter shared fewer variations in their genetic sequences than they each shared with Kim. Michael Yudell, a professor of public health at Drexel University in Philadelphia, said that modem genetics research is operating in a paradox: on the one hand, race is understood to be a useful tool to illuminate human genetic diversity, but on the other hand, race is also understood to be a poorly defined marker of that diversity. Assumptions about genetic differences between people of different races could be particularly dangerous in a medical setting. \"If you make clinical predictions based on somebody's race, you're going to be wrong a good chunk of the time,\" Yudell told Live Science. In the paper, he and his colleagues used the example of cystic fibrosis, which is underdiagnosed in people of African ancestry because it is thought of as a \"white\" disease. So what other variables could be used if the racial concept is thrown out? Yudell said scientists need to get more specific with their language, perhaps using terms like \"ancestry\" or \"population\" that might more precisely reflect the relationship between humans and their genes, on both the individual and population level. The researchers also acknowledged that there are a few areas where race as a construct might still be useful in scientific research: as a political and social, but not biological, variable. \"While we argue phasing out racial terminology (术语) in the biological sciences, we also acknowledge that using race as a political or social category to study racism, although filled with lots of challenges, remains necessary given our need to understand how structural inequities and discrimination produce health disparities (差异) between groups. \" Yudell said."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "Du Bois was opposed to the use of race as ________.",
+          "options": [
+            {
+              "key": "A",
+              "text": "a basis for explaining human genetic diversity"
+            },
+            {
+              "key": "B",
+              "text": "an aid to understanding different populations"
+            },
+            {
+              "key": "C",
+              "text": "an explanation for social and cultural differences"
+            },
+            {
+              "key": "D",
+              "text": "a term to describe individual human characteristics"
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]C)。第一段1句指出,DuBois担心“种族”被用来从生物学角度解释不同群体之间的 社会文化差异,可见C正确。题干中wasopposed to明确文中concerned含有的“反对态度”;选项是对 原文used as a biological explanation for...social and cultural differences between...的概括。 [排除干扰]A项为第二至四段所述“如今科学家所反对的做法”,但改变了文中的逻辑:“如今的科 学支持了百年之前的DuBois观点”并不等于“DuBois和科学家反对的内容是完全一致的(现代科学更 进步、更客观)”,从文中无法得知当时DuBois论及了“人类基因多样性”。B项将首段1句中DuBois 所反对的种族概念用途“解释不同群体之间差异”篡改为“理解不同群体”。D项将DuBois关注对象 “不同群体”偷换成“不同个体”。 [提炼思路]第一段介绍人物观点,且其中语义逻辑复杂,在此设题可充分考查学生分析辨别能力。 解答时需要:1.借助语法知识形成对句子的正确理解、理清所涉多个对象(race、biologicalexplanation、 socialandculturaldifferences等)之间关系,明确人物观点。2.仔细辨别段间逻辑关系:虽然如今科学支 持DuBois看法(would favor),但不能将现代科学的观点完全视为DuBois观点,有些观点可能专属现 代科学,DuBois当初并未提及。"
+        },
+        {
+          "number": 52,
+          "stem": "The study by Svante Pääbo served as an example to show ________.",
+          "options": [
+            {
+              "key": "A",
+              "text": "modern genetics research is likely to fuel racial conflicts"
+            },
+            {
+              "key": "B",
+              "text": "race is a poorly defined marker of human genetic diversity"
+            },
+            {
+              "key": "C",
+              "text": "race as a biological term can explain human genetic diversity"
+            },
+            {
+              "key": "D",
+              "text": "genetics research should consider social and cultural variables"
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]B)。第三段23句指出:遗传差异并非随种族界限固定,同种族的两人共有的基因变 异比异种族的两人共有的基因变异还少。概括推理可知,种族并不能反映人类遗传差异,即:作为定义 人类遗传多样性的标识,种族分类存在问题,B项正确。另外,第四段(基于这一研究得出的结论)也指 出,种族是人类基因多样性一项界定不清的标识,进一步确认B项正确。 [排除干扰]A项利用末段racism捏造干扰racialconflicts,但捏造关联:文中并未指出现代遗传学 研究会加剧种族矛盾。C项与研究结论“种族不能反映人类遗传多样性(apoorlydefinedmarker)”相 。D项利用首段social and cultural differences捏造干扰social and cultural variables,但SvantePaabo 研究中并未提及社会文化因素。 [提炼思路]写作目的题的解题关键在于锁定作为论据的“事例”所服务的对象。本题的解题关键 是找到“研究的直接论证对象”--位于研究介绍之前的第二段末句racialcategoriesneed tobephased out,以及“在研究基础之上对现代遗传学当前困境的概括”位于研究之后的第四段,并找到其和研 究内容契合的部分:race is also understood to be a poorlydefinedmarker of that diversity。"
+        },
+        {
+          "number": 53,
+          "stem": "The example of the disease cystic fibrosis underdiagnosed in people of African ancestry demonstrates that ________.",
+          "options": [
+            {
+              "key": "A",
+              "text": "it is absolutely necessary to put race aside in making diagnosis"
+            },
+            {
+              "key": "B",
+              "text": "it is important to include social variables in genetics research"
+            },
+            {
+              "key": "C",
+              "text": "racial categories for genetic diversity could lead to wrong clinical predictions"
+            },
+            {
+              "key": "D",
+              "text": "discrimination against black people may cause negligence in clinical treatment"
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]C)。本段2句指出,以种族为标准进行临床预测,犯错概率很大。3句则举例指出囊 肿性纤维化在非洲血统人群中之所以易漏诊,是因为它被认为是“白人”疾病。可见提及事例是为了证 明种族分类会导致错误的临床预测,C项正确,racialcategoriesforgeneticdiversity对应原文 Assumptions about genetic differences. .. different races 以及 based on somebody's race; lead to wrong clinicalpredictions改写原文be...dangerous、bewrong以及is underdiagnosed。 [排除干扰]A项由2句“以种族为标准进行临床预测很可能犯错”的观点过度推导出“诊断时一定 要抛弃种族概念”的建议。B项利用第六段3句social..,variable干扰,但这里意为“将种族作为社会 学变量看待”并非“在遗传研究中纳人社会变量”。D项将第七段词汇discrimination结合生活中可能存 在的情形设置干扰,但并非文中内容。 [提炼思路]本题解题思路与上题相似,但更为直接,只需根据used theexample明确段落内部语义 逻辑,锁定例子所服务的对象:12句为研究者观点,3句为研究者所做研究,12句主要观点即为例 子服务对象,本题答案应为对其同义改写或概括。"
+        },
+        {
+          "number": 54,
+          "stem": "What is Yudell's suggestion to scientists?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They be more precise with the language they use."
+            },
+            {
+              "key": "B",
+              "text": "They refrain from using politically sensitive terms."
+            },
+            {
+              "key": "C",
+              "text": "They throw out irrelevant concepts in their research."
+            },
+            {
+              "key": "D",
+              "text": "They examine all possible variables in their research."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]A)。第六段2句指出Yudell表示科学家对语言的使用需要更精确(needtogetmore specific withtheirlanguage),A项正确。 [排除干扰]B项将“种族”在本语境下代表的“不精确术语(poorlydefined)”偷换为“政治敏感术语 (politicallysensitive)”。C项利用第六段1句thrownout干扰,却将抛弃的对象“不精确的术语”偷换为 “不相关的概念(irrelevantconcepts)。D项将第六段末句asapoliticalandsocial,butnotbiological, variable的取舍关系理解为并列包含关系,从而捏造出examineallpossiblevariables。 [提炼思路]本题选项分为两类:科学家应采取的(be、examine)与应丢弃(refrainfrom、throwout) 的做法,所以对文中定位内容也要分为两类(need to表示应采取的做法”;throwout表示“应抛弃的对 象”);继续将选项与定位句进行对比,发现specific义同precise,即可确定A项为正确答案,其他三项分 别篡改原文不同处信息。"
+        },
+        {
+          "number": 55,
+          "stem": "What can be inferred from Yudell's remark in the last paragraph?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Clinging to racism prolongs inequity and discrimination."
+            },
+            {
+              "key": "B",
+              "text": "Physiological disparities are quite striking among races."
+            },
+            {
+              "key": "C",
+              "text": "Doing away with racial discrimination is challenging."
+            },
+            {
+              "key": "D",
+              "text": "Racial terms are still useful in certain fields of study."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]D)。在末段中Yudel说“将种族用作政治学或社会学的范畴来研究种族主义.是有 必要的(usingraceasapolitical orsocial categoryto studyracism..·remainsnecessary)”,可见他认为种 族术语在其他一些领域还是有用的,D项正确。 [排除干扰]A项将文中词汇racism、inequityanddiscrimination结合常识“种族主义导致不平等,即 歧视”捏造干扰,但文中并没有提到“坚持种族主义”。B项将不同群体间之间的“健康差异(health disparities)”偷换为“生理差异(physiologicaldisparities)”。C项将具有挑战性的“利用种族术语研究种 族主义(understand howstructural inequities and discrimination produce health disparities)”偷换为“废除 种族歧视(Doing awaywith racial discrimination)”。 [提炼思路]本题以考查人物观点的形式考查对长难句的理解。可采用解题思路:分解句子(分解 为四个小分句:While we argue...,we also acknowledge that...remains necessary,although...,given our needto.·.)并提炼出各自核心语义(“需要废除生物科学中的种族术语”、“在其他领域中使用种族 术语仍有必要”、“使用种族术语研究种族主义挑战重重”、“需要理解不同群体间的健康状况差异”),最 后对比选项得出答案。"
+        }
+      ]
+    }
+  ]
+}

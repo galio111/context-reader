@@ -1,0 +1,1565 @@
+{
+  "id": "cet4-2015-12-3",
+  "level": 4,
+  "year": 2015,
+  "month": 12,
+  "set": 3,
+  "title": "2015 年 12 月四级 · 第 3 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.12/%E7%9C%9F%E9%A2%98Word/2015%E5%B9%B412%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC3%E5%A5%97%EF%BC%89.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2015%E5%B9%B412%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%B8%89%EF%BC%89.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2015-12-3-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Children do not think the way adults do. For most of the first year of life, if something is out of sight, it's out of mind. If you cover a baby's[[36]]toy with a piece of cloth, the baby thinks the toyhas disappeared and stops looking for it. A 4-year-old may [[37]] that a sister has more fruit juice when it is only the shapes of the glasses that differ, not the[[38]] of juice. Yet children are smart in their own way. Like good little scientists, children are always testing their child-sized[[39]] about how things work. When your child throws her spoon on the floor for the sixth time as you try to feed her, and you say, \"That's enough! I will not pick up your spoon again!\" the child will [[40]] test your claim. Are you serious? Are you angry? What will happen if she throws the spoon again? She is not doing this to drive you[[41]]; rather, she is learning that her desires and yours can differ, and that sometimes those[[42]] are important and sometimes they are not. How and why does children's thinking change? In the 1920s, Swiss psychologist Jean Piaget proposed that children's cognitive (认知的) abilities unfold [[43]], like the blooming of a flower, almost independent of what else is[[44]]in their lives. Although many of his specific conclusions havebeen[[45]] or modified over the years, his ideas inspired thousands of studies by investigators all over the world."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "Advocate"
+        },
+        {
+          "key": "B",
+          "text": "amount"
+        },
+        {
+          "key": "C",
+          "text": "confirmed"
+        },
+        {
+          "key": "D",
+          "text": "crazy"
+        },
+        {
+          "key": "E",
+          "text": "definite"
+        },
+        {
+          "key": "F",
+          "text": "Differences"
+        },
+        {
+          "key": "G",
+          "text": "favorite"
+        },
+        {
+          "key": "H",
+          "text": "happening"
+        },
+        {
+          "key": "I",
+          "text": "Immediately"
+        },
+        {
+          "key": "J",
+          "text": "Naturally"
+        },
+        {
+          "key": "K",
+          "text": "Obtaining"
+        },
+        {
+          "key": "L",
+          "text": "Primarily"
+        },
+        {
+          "key": "M",
+          "text": "Protest"
+        },
+        {
+          "key": "N",
+          "text": "Rejected"
+        },
+        {
+          "key": "O",
+          "text": "theories"
+        }
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "第 36 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "Advocate"
+            },
+            {
+              "key": "B",
+              "text": "amount"
+            },
+            {
+              "key": "C",
+              "text": "confirmed"
+            },
+            {
+              "key": "D",
+              "text": "crazy"
+            },
+            {
+              "key": "E",
+              "text": "definite"
+            },
+            {
+              "key": "F",
+              "text": "Differences"
+            },
+            {
+              "key": "G",
+              "text": "favorite"
+            },
+            {
+              "key": "H",
+              "text": "happening"
+            },
+            {
+              "key": "I",
+              "text": "Immediately"
+            },
+            {
+              "key": "J",
+              "text": "Naturally"
+            },
+            {
+              "key": "K",
+              "text": "Obtaining"
+            },
+            {
+              "key": "L",
+              "text": "Primarily"
+            },
+            {
+              "key": "M",
+              "text": "Protest"
+            },
+            {
+              "key": "N",
+              "text": "Rejected"
+            },
+            {
+              "key": "O",
+              "text": "theories"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G.favorite. 形容词辨析题.该空前面是所有格形式baby’s,后面是名词 toy,故推测空格处为形 容词.根据常识推断,婴儿的玩具一般都是他们喜欢的,故答案为favorite“最喜欢 的”.备选形容词中,crazy “发狂的,发疯的”和definite“确定的”均与句意不符,可以排除."
+        },
+        {
+          "number": 37,
+          "stem": "第 37 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "Advocate"
+            },
+            {
+              "key": "B",
+              "text": "amount"
+            },
+            {
+              "key": "C",
+              "text": "confirmed"
+            },
+            {
+              "key": "D",
+              "text": "crazy"
+            },
+            {
+              "key": "E",
+              "text": "definite"
+            },
+            {
+              "key": "F",
+              "text": "Differences"
+            },
+            {
+              "key": "G",
+              "text": "favorite"
+            },
+            {
+              "key": "H",
+              "text": "happening"
+            },
+            {
+              "key": "I",
+              "text": "Immediately"
+            },
+            {
+              "key": "J",
+              "text": "Naturally"
+            },
+            {
+              "key": "K",
+              "text": "Obtaining"
+            },
+            {
+              "key": "L",
+              "text": "Primarily"
+            },
+            {
+              "key": "M",
+              "text": "Protest"
+            },
+            {
+              "key": "N",
+              "text": "Rejected"
+            },
+            {
+              "key": "O",
+              "text": "theories"
+            }
+          ],
+          "answer": "M",
+          "explanation": "M.protest. 动词辨析题.该空前面是情态动词may,故空格处应填入动词 原形.根据下文可知,孩子认为妹妹分到了更多果汁,因此一定会表示不满,由 此确定protest“抗议”为答案.备选动词中,只有两个动词原形,而advocate 意思 为“主张”,不符合句意,可以排除."
+        },
+        {
+          "number": 38,
+          "stem": "第 38 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "Advocate"
+            },
+            {
+              "key": "B",
+              "text": "amount"
+            },
+            {
+              "key": "C",
+              "text": "confirmed"
+            },
+            {
+              "key": "D",
+              "text": "crazy"
+            },
+            {
+              "key": "E",
+              "text": "definite"
+            },
+            {
+              "key": "F",
+              "text": "Differences"
+            },
+            {
+              "key": "G",
+              "text": "favorite"
+            },
+            {
+              "key": "H",
+              "text": "happening"
+            },
+            {
+              "key": "I",
+              "text": "Immediately"
+            },
+            {
+              "key": "J",
+              "text": "Naturally"
+            },
+            {
+              "key": "K",
+              "text": "Obtaining"
+            },
+            {
+              "key": "L",
+              "text": "Primarily"
+            },
+            {
+              "key": "M",
+              "text": "Protest"
+            },
+            {
+              "key": "N",
+              "text": "Rejected"
+            },
+            {
+              "key": "O",
+              "text": "theories"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B.amount. 名词辨析题.该空前面为冠词the,后面为介词of,故推测空 格处应填入名词.根据句意:4 岁大的孩子也许会抗议说妹妹分到了更多果汁,仅 仅是因为玻璃杯的形状不同,而不是果汁的——.形状不同,也许容量是一样的, 由此确定amount“量”为答案.备选名词中,differences“不同”和 theories“理论”均不符合句意,可以排除."
+        },
+        {
+          "number": 39,
+          "stem": "第 39 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "Advocate"
+            },
+            {
+              "key": "B",
+              "text": "amount"
+            },
+            {
+              "key": "C",
+              "text": "confirmed"
+            },
+            {
+              "key": "D",
+              "text": "crazy"
+            },
+            {
+              "key": "E",
+              "text": "definite"
+            },
+            {
+              "key": "F",
+              "text": "Differences"
+            },
+            {
+              "key": "G",
+              "text": "favorite"
+            },
+            {
+              "key": "H",
+              "text": "happening"
+            },
+            {
+              "key": "I",
+              "text": "Immediately"
+            },
+            {
+              "key": "J",
+              "text": "Naturally"
+            },
+            {
+              "key": "K",
+              "text": "Obtaining"
+            },
+            {
+              "key": "L",
+              "text": "Primarily"
+            },
+            {
+              "key": "M",
+              "text": "Protest"
+            },
+            {
+              "key": "N",
+              "text": "Rejected"
+            },
+            {
+              "key": "O",
+              "text": "theories"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O.theories 名词辨析题.空格前为形容词child-sized,空格后为介词 about,故推测该空格处为名词.根据句意:孩子们就像一些很棒的小科学家一样, 总是会验证他们孩子们般大小的事物运转的——.由此可知,theories“理论”符合 句意,故为答案.备选名词differences“区别”不符合句意,可以排除."
+        },
+        {
+          "number": 40,
+          "stem": "第 40 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "Advocate"
+            },
+            {
+              "key": "B",
+              "text": "amount"
+            },
+            {
+              "key": "C",
+              "text": "confirmed"
+            },
+            {
+              "key": "D",
+              "text": "crazy"
+            },
+            {
+              "key": "E",
+              "text": "definite"
+            },
+            {
+              "key": "F",
+              "text": "Differences"
+            },
+            {
+              "key": "G",
+              "text": "favorite"
+            },
+            {
+              "key": "H",
+              "text": "happening"
+            },
+            {
+              "key": "I",
+              "text": "Immediately"
+            },
+            {
+              "key": "J",
+              "text": "Naturally"
+            },
+            {
+              "key": "K",
+              "text": "Obtaining"
+            },
+            {
+              "key": "L",
+              "text": "Primarily"
+            },
+            {
+              "key": "M",
+              "text": "Protest"
+            },
+            {
+              "key": "N",
+              "text": "Rejected"
+            },
+            {
+              "key": "O",
+              "text": "theories"
+            }
+          ],
+          "answer": "I",
+          "explanation": "I.immediately. 副词辨析题.空格前是will,空格后是test,故该空格处应 填入副词.联系上下文,孩子一而再地把勺子扔到地上,直到父母说不再捡起, 随后,孩子便有了各种疑问,故可知孩子会马上验证父母的话.由此确定 immediately“马上,立即”为答案.备选副词中,naturally“自然地”和primarily\"主要 地”均不符合句意,可以排除."
+        },
+        {
+          "number": 41,
+          "stem": "第 41 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "Advocate"
+            },
+            {
+              "key": "B",
+              "text": "amount"
+            },
+            {
+              "key": "C",
+              "text": "confirmed"
+            },
+            {
+              "key": "D",
+              "text": "crazy"
+            },
+            {
+              "key": "E",
+              "text": "definite"
+            },
+            {
+              "key": "F",
+              "text": "Differences"
+            },
+            {
+              "key": "G",
+              "text": "favorite"
+            },
+            {
+              "key": "H",
+              "text": "happening"
+            },
+            {
+              "key": "I",
+              "text": "Immediately"
+            },
+            {
+              "key": "J",
+              "text": "Naturally"
+            },
+            {
+              "key": "K",
+              "text": "Obtaining"
+            },
+            {
+              "key": "L",
+              "text": "Primarily"
+            },
+            {
+              "key": "M",
+              "text": "Protest"
+            },
+            {
+              "key": "N",
+              "text": "Rejected"
+            },
+            {
+              "key": "O",
+              "text": "theories"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D.crazy. 形容词辨析题.空格前为drive you,可以联想到固定结构drive sb.+ adj..根据上文可推知,孩子扔勺子继而试探家长的反应,并不是为了让他们 抓狂,由此确定crazy“发狂的,发疯的”为答案.备选形容词definite“确定的”不符 合句意,可以排除."
+        },
+        {
+          "number": 42,
+          "stem": "第 42 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "Advocate"
+            },
+            {
+              "key": "B",
+              "text": "amount"
+            },
+            {
+              "key": "C",
+              "text": "confirmed"
+            },
+            {
+              "key": "D",
+              "text": "crazy"
+            },
+            {
+              "key": "E",
+              "text": "definite"
+            },
+            {
+              "key": "F",
+              "text": "Differences"
+            },
+            {
+              "key": "G",
+              "text": "favorite"
+            },
+            {
+              "key": "H",
+              "text": "happening"
+            },
+            {
+              "key": "I",
+              "text": "Immediately"
+            },
+            {
+              "key": "J",
+              "text": "Naturally"
+            },
+            {
+              "key": "K",
+              "text": "Obtaining"
+            },
+            {
+              "key": "L",
+              "text": "Primarily"
+            },
+            {
+              "key": "M",
+              "text": "Protest"
+            },
+            {
+              "key": "N",
+              "text": "Rejected"
+            },
+            {
+              "key": "O",
+              "text": "theories"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F. differences. 名词辨析题.空格前为those,空格后是系动词are,故空 格处应填人名词.上文提到,she is learning that her desires and yours Can differ“她 正是在了解她的需求和你的需求是会不同的”,此处指不同之处,所以 differences“区别”为答案."
+        },
+        {
+          "number": 43,
+          "stem": "第 43 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "Advocate"
+            },
+            {
+              "key": "B",
+              "text": "amount"
+            },
+            {
+              "key": "C",
+              "text": "confirmed"
+            },
+            {
+              "key": "D",
+              "text": "crazy"
+            },
+            {
+              "key": "E",
+              "text": "definite"
+            },
+            {
+              "key": "F",
+              "text": "Differences"
+            },
+            {
+              "key": "G",
+              "text": "favorite"
+            },
+            {
+              "key": "H",
+              "text": "happening"
+            },
+            {
+              "key": "I",
+              "text": "Immediately"
+            },
+            {
+              "key": "J",
+              "text": "Naturally"
+            },
+            {
+              "key": "K",
+              "text": "Obtaining"
+            },
+            {
+              "key": "L",
+              "text": "Primarily"
+            },
+            {
+              "key": "M",
+              "text": "Protest"
+            },
+            {
+              "key": "N",
+              "text": "Rejected"
+            },
+            {
+              "key": "O",
+              "text": "theories"
+            }
+          ],
+          "answer": "J",
+          "explanation": "J. naturally. 副词辨析题.空格前为主语abilities 和动词unfold,根据句子 结构可判断空格处为副词.该句句意为:孩子们的认知能力会像花朵一样绽放, 可知这一定是个自然的过程,由此确定naturally“自然地”为答案.备选副词 primarily“主要地”不符合句意,可以排除."
+        },
+        {
+          "number": 44,
+          "stem": "第 44 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "Advocate"
+            },
+            {
+              "key": "B",
+              "text": "amount"
+            },
+            {
+              "key": "C",
+              "text": "confirmed"
+            },
+            {
+              "key": "D",
+              "text": "crazy"
+            },
+            {
+              "key": "E",
+              "text": "definite"
+            },
+            {
+              "key": "F",
+              "text": "Differences"
+            },
+            {
+              "key": "G",
+              "text": "favorite"
+            },
+            {
+              "key": "H",
+              "text": "happening"
+            },
+            {
+              "key": "I",
+              "text": "Immediately"
+            },
+            {
+              "key": "J",
+              "text": "Naturally"
+            },
+            {
+              "key": "K",
+              "text": "Obtaining"
+            },
+            {
+              "key": "L",
+              "text": "Primarily"
+            },
+            {
+              "key": "M",
+              "text": "Protest"
+            },
+            {
+              "key": "N",
+              "text": "Rejected"
+            },
+            {
+              "key": "O",
+              "text": "theories"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H. happening 动词辨析题.空格前为what else is,空格后为介词短语,故 推测该空格处为动词 的分词形式或形容词.上文指出,孩子们的认知能力像花朵绽放一样,与生命中 其他——的事情毫无关联.备选项中,happening“发生”符合句意,故为答案.备选 的动词分词形式中,confirmed 意思是“确认,批准”;obtaining 意思是“获取”; rejected 意思是“拒绝,驳回”,形容生活中的事情都太过于具体,不符合句意, 可以排除."
+        },
+        {
+          "number": 45,
+          "stem": "第 45 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "Advocate"
+            },
+            {
+              "key": "B",
+              "text": "amount"
+            },
+            {
+              "key": "C",
+              "text": "confirmed"
+            },
+            {
+              "key": "D",
+              "text": "crazy"
+            },
+            {
+              "key": "E",
+              "text": "definite"
+            },
+            {
+              "key": "F",
+              "text": "Differences"
+            },
+            {
+              "key": "G",
+              "text": "favorite"
+            },
+            {
+              "key": "H",
+              "text": "happening"
+            },
+            {
+              "key": "I",
+              "text": "Immediately"
+            },
+            {
+              "key": "J",
+              "text": "Naturally"
+            },
+            {
+              "key": "K",
+              "text": "Obtaining"
+            },
+            {
+              "key": "L",
+              "text": "Primarily"
+            },
+            {
+              "key": "M",
+              "text": "Protest"
+            },
+            {
+              "key": "N",
+              "text": "Rejected"
+            },
+            {
+              "key": "O",
+              "text": "theories"
+            }
+          ],
+          "answer": "N",
+          "explanation": "N. rejected. 动词辨析题.空格前是have been,空格后是or modified,故 该空格处应填入动词的过去分词.根据句意,尽管多年来他的很多具体结论被 ——或是修改,他的想法仍然启发了全世界研究者们的诸多研究.由此确定 rejected“拒绝,驳回”为本题答案.备选动词过去分词中,confirmed 意思为“确认, 批准”,不符合句意,可以排除."
+        }
+      ]
+    },
+    {
+      "id": "cet4-2015-12-3-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Looking back on too many years of education, I can identify one truly impossible teacher. She cared about me, and my intellectual life, even when I didn't. Her expectations were high--impossibly so. She was an English teacher. She was also my mother.",
+        "B) When good students turn in an essay, they dream of their instructor returning it to them in exactly the same condition, save for a single word added in the margin of the final page : \"Flawless.\" This dream came true for me one afternoon in the ninth grade. Of course, I had heard that genius could show itself at an early age, so I was only slightly taken aback that I had achieved perfection at the tender age of 14.Obviously, I did what any professional writer would do; I hurried off to spread the good news. I didn't get very far. The first person I told was my mother.",
+        "C) My mother, who is just shy of five feet tall, is normally incredibly soft-spoken, but on the rare occasion when she got angry, she was terrifying. I am not sure if she was more upset by my hubris(得意忘形) or by the fact that my English teacher had let my ego get so out of hand. In any event, my mother and her red pen showed me how deeply flawed a flawless essay could be. At the time, I am sure she thought she was teaching me about mechanics, transitions (过渡), structure, style and voice. But what I learned, and what stuck with me through my time teaching writing at Harvard, was a deeper lesson about the nature of creative criticism.",
+        "D) First off, it hurts. Genuine criticism, the type that leaves a lasting mark on you as a writer, also leaves an existential imprint (印记) on you as a person. I have heard people say that a writer should never take criticism personally. I say that we should never listen to these people.",
+        "E) Criticism, at its best, is deeply personal, and gets to the heart of why we write the way we do. The intimate nature of genuine criticism implies something about who is able to give it, namely, someone who knows you well enough to show you how your mental life is getting in the way of good writing. Conveniently, they are also the people who care enough to see you through this painful realization. For me it took the form of my first, and I hope only, encounter with writer's block--I was not able to produce anything for three years.",
+        "F) Franz Kafka once said: \"Writing is utter solitude (独处), the descent into the cold abyss (深渊) of oneself.\" My mother's criticism had shown me that Kafka is right about the cold abyss, and when you make the introspective (内省的) descent that writing requires you are not always pleased by what you find. But, in the years that followed, her sustained tutoring suggested that Kafka might be wrong about the solitude. I was lucky enough to find a critic and teacher who was willing to make the journey of writing with me.\"It is a thing of no great difficulty,\" according to Plutarch, \"to raise objections against another man's speech, it is a very easy matter; but to produce a better in its place is a work extremely troublesome.\" I am sure I wrote essays in the later years of high school without my mother's guidance, but I can't recall them. What I remember, however, is how she took up the \"extremely troublesome\" work of ongoing criticism.",
+        "G) There are two ways to interpret Plutarch when he suggests that a critic should be able to produce \"a better in its place.\" In a straightforward sense, he could mean that a critic must be more talented than the artist she critiques (评论).My mother was well covered on this count. But perhaps Plutarch is suggesting something slightly different, something a bit closer to Marcus Cicero's claim that one should \"criticize by creation, not by finding fault.\" Genuine criticism creates a precious opening for an author to become better on his own terms--a process that is often extremely painful, but also almost always meaningful.",
+        "H) My mother said she would help me with my writing, but first I had to help myself. For each assignment, I was to write the best essay I could. Real criticism is not meant to find obvious mistakes, so if she found any--the type I could have found on my own--I had to start from scratch. From scratch. Once the essay was \"flawless,\" she would take an evening to walk me through my errors. That was when true criticism, the type that changed me as a person, began.",
+        "I) She criticized me when I included little-known references and professional jargon (行话).She hadno patience for brilliant but irrelevant figures of speech.\"Writers can't bluff (虚张声势) their way through ignorance.\" That was news to me--I would need to freed another way to structure my daily existence.",
+        "J) She trimmed back my flowery language, drew lines through my exclamation marks and argued for the value of restraint in expression.\"John,\" she almost whispered. I leaned in to hear her: \"I can't hear you when you shout at me.\" So I stopped shouting and bluffing, and slowly my writing improved.",
+        "K) Somewhere along the way I set aside my hopes of writing that flawless essay. But perhaps I missed something important in my mother's lessons about creativity and perfection. Perhaps the point of writing the flawless essay was not to give up, but to never willingly finish. Whit man repeatedly reworked \"Song of Myself' between 1855 and 1891.Repeatedly.We do our absolute best with a piece of writing, and come as close as we can to the ideal. And, for the time being, we settle. In critique, however, we are forced to depart, to give up the perfection we thought we had achieved for the chance of being even a little bit better. This is the lesson I took from my mother: If perfection were possible, it would not be motivating."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "The author was advised against the improper use of figures of speech.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "I",
+          "explanation": "The author was advised against theimproper use of figures of speech. 作者被建议不要使用不合适的修辞. 由题干中的figures of speech 定位到文章I 段画线处."
+        },
+        {
+          "number": 47,
+          "stem": "The author's mother taught him a valuable lesson by pointing out lots of flaws in his seemingly perfect essay.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "C",
+          "explanation": "The author's mother taught him a valuable lesson by pointing out lots of flaws in his seemingly perfect essay. 作者的母亲通过指出他看似完美的论文中的错误,给他上了宝贵的一课. 由题干中的flaws 和perfect essay 定位到文章C.段画线处."
+        },
+        {
+          "number": 48,
+          "stem": "A writer should polish his writing repeatedly so as to get closer to perfection.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "K",
+          "explanation": "Awritershouldpolishhiswriting repeatedly so as to get closer to perfection. 一个作家应该反复打磨自己的作品,从而更加接近完美. 由题干中的repeatedly 和perfection 定位到文章K 段画线处."
+        },
+        {
+          "number": 49,
+          "stem": "Writers may experience periods of time in their life when they just can't produce anything.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "E",
+          "explanation": "Writers may experience periods of time in their life when they just can't produce anything. 作家们一生中也许会经历一段无法创作的时期。 由题干中的periods 和can’t produce anything 定位到文章E 段画线处。"
+        },
+        {
+          "number": 50,
+          "stem": "The author was not much surprised when his school teacher marked his essay as \"flawless\".",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "B",
+          "explanation": "The author was not much surprised when his school teacher marked his essay as \"flawless\". 当作者的老师在他的论文上标记“完美”的时候,他并没有非常惊讶。 由题干中的not much surprised 和marked his essay as “flawless”定位到文 章B 段画线处。"
+        },
+        {
+          "number": 51,
+          "stem": "Criticizing someone's speech is said to be easier than coming up with a better one.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "F",
+          "explanation": "Criticizing someone's speech is said to be easier than coming up with a better one. 批评一个人的言论据说比提出一个更好的容易一些。 由 题干中的criticizing someone’s speech 和coming up with a better one 定 位到文章F 段画线处。"
+        },
+        {
+          "number": 52,
+          "stem": "The author looks upon his mother as his most demanding and caring instructor.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "A",
+          "explanation": "The author looks upon his mother as his most demanding and caring instructor. 作者将自己的母亲视为最严格和关心他的导师. 由题干中的most demanding and caring instructor 定位到文章A 段画线处."
+        },
+        {
+          "number": 53,
+          "stem": "The criticism the author received from his mother changed him as a person.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "H",
+          "explanation": "The criticism the author received from his mother changed him as a person. 作者从母亲那里得到的批评让他脱胎换骨地改变了. 由题干中的criticism 和changed him as a person 定位到文章H 段画线处."
+        },
+        {
+          "number": 54,
+          "stem": "The author gradually improved his writing by avoiding fancy language.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "J",
+          "explanation": "The author gradually improved his writing by avoiding fancy language. 作者通过避免使用华丽的语言,从而慢慢地提高了写作水平. 由题干中的improved his writing 和avoiding fancy language 定位到文章J 段画线处."
+        },
+        {
+          "number": 55,
+          "stem": "Constructive criticism gives an author a good start to improve his writing.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "G",
+          "explanation": "Constructive criticism gives an author a good start to improve his writing. 建设性的批评给作者提高写作一个新的开始. 由题干中的a good start 和improve his writing 定位到文章G 段画线处. Passage One"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2015-12-3-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Could you reproduce Silicon Valley elsewhere, or is there something unique about it? It wouldn't be surprising if it were hard to reproduce in other countries, because you couldn't reproduce it in most of the US either. What does it take to make a Silicon Valley? It's the right people. If you could get the right ten thousand people to move from Silicon Valley to Buffalo, Buffalo would become Silicon Valley. You only need two kinds of people to create a technology hub (中心) : rich people and nerds (痴迷科研的人). Observation bears this out. Within the US, towns have become star, up hubs if and only if they have both rich people and nerds. Few startups happen in Miami, for example, because although it's full of rich people, it has few nerds. It's not the kind of place nerds like. Whereas Pittsburgh has the opposite problem: plenty of nerds, but no rich people.The top US Computer Science departments are said to be MIT, Stanford, Berkeley, and Carnegie-Mellon. MIT yielded Route 128.Stanford and Berkeley yielded Silicon Valley. But what did Carnegie-Mellon yield in Pittsburgh? And what happened in Ithaca, home of Cornell University, which is also high on the list? I grew up in Pittsburgh and went to college at Cornell, so I can answer for both. The weather is terrible, particularly in winter, and there's no interesting old city to make up for it, as there is in Boston. Rich people don't want to live in Pittsburgh or Ithaca. So while there're plenty of hackers (电脑迷) who could start startups, there's no one to invest in them Do you really need the rich people? Wouldn't it work to have the government invest in the nerds? No, it would not. Start up investors are a distinct type of rich people. They tend to have a lot of experience themselves in the technology business. This helps them pick the right startups, and means they can supply advice and connections as well as money. And the fact that they have a personal stake in the outcome makes them really pay attention."
+      ],
+      "questions": [
+        {
+          "number": 56,
+          "stem": "What do we learn about Silicon Valley from the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Its success is hard to copy anywhere else."
+            },
+            {
+              "key": "B",
+              "text": "It is the biggest technology hub in the US."
+            },
+            {
+              "key": "C",
+              "text": "Its fame in high technology is incomparable."
+            },
+            {
+              "key": "D",
+              "text": "It leads the world in information technology."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A. 由题干定位到第二段第一句:It wouldn’t be surprising if it were hard to reproduce in other countries,because you couldn’t reproduce it in most of the US either. 事实细节题.文章第二段第一句指出,如果说很难在其他国家复制它,这 并不会令人惊奇,因为在美国的大部分地区你也不可能复制它.从这一句话中可 以得知两个信息:在美国无法复制硅谷;在世界其他国家同样无法复制硅谷.因 此硅谷在其他地方难以复制,故答案为A.. B.“它是美国最大的技术中心”;C.“它在高科技领域的声誉无与伦比”和 D.“它在信息技术方面领先世界”在文中均无体现,故均可排除."
+        },
+        {
+          "number": 57,
+          "stem": "What makes Miami unfit to produce a Silicon Valley?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Lack of incentive for investment."
+            },
+            {
+              "key": "B",
+              "text": "Lack of the right kind of talents."
+            },
+            {
+              "key": "C",
+              "text": "Lack of government support."
+            },
+            {
+              "key": "D",
+              "text": "Lack of famous universities."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B. 由题干中的Miami 定位到第五段第三句:Few startups happen in Miami,for example,because although it’s full of rich people.it has few nerds. 事实细节题.文章第五段第三句提到,比如,在迈阿密很少有创业园区, 因为尽管那里的有钱人比比皆是,但是痴迷科研的人却寥寥无几,即缺少合适的 人才,故答案为B. A.“缺乏投资动机”;C.“缺少政府支持”以及D.“缺乏著名大学”在文中均未 提及,故均可排除."
+        },
+        {
+          "number": 58,
+          "stem": "In what way is Carnegie-Mellon different from Stanford, Berkeley and MIT?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Its location is not as attractive to rich people."
+            },
+            {
+              "key": "B",
+              "text": "Its science departments are not nearly as good."
+            },
+            {
+              "key": "C",
+              "text": "It does not produce computer hackers and nerds."
+            },
+            {
+              "key": "D",
+              "text": "It does not pay much attention to business startups."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A. 由题千中的Carnegie-Mellon 和different 定位到第六段倒数第二句: But what did Carnegie-Mellon yield in Pittsburgh? 推理判断题.文章第六段倒数第二句指出,但是卡内基.梅隆大学在匹兹堡 开辟了什么呢?第七段最后两句表明,有钱人并不想住在匹兹堡或是伊萨卡.所以 尽管此处有很多能够建立创业园区的电脑迷,却并没有一人为他们投资.综合这 几句可知,康奈尔大学不同于斯坦福大学、伯克利大学和麻省理工大学之处在于 其所处的地点匹兹堡不能够吸引有钱人居住,缺乏投资.故答案为A.. B.“它的科学系远非优秀”,由第六段第二句可知,康奈尔大学同样是美国 拥有顶尖计算机科学系的大学之一,故排除;C.“它无法培养出电脑迷和痴迷科 研者”和D.“它不太注重商业创业”,在文中均未提及,故均可排除."
+        },
+        {
+          "number": 59,
+          "stem": "What does the author imply about Boston?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It has pleasant weather all year round."
+            },
+            {
+              "key": "B",
+              "text": "It produces wealth as well as high-tech."
+            },
+            {
+              "key": "C",
+              "text": "It is not likely to attract lots of investors and nerds."
+            },
+            {
+              "key": "D",
+              "text": "It is an old city with many sites of historical interest."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D. 由题干中的Boston 定位到第七段第二句:The weather is terrible, particularly in winter,and there’s no interesting old city to make up for it.as there is in Boston. 推理判断题.文章第七段第二句提到,天气很恶劣,尤其是在冬天,而且 又不像波士顿那样,有古老而有趣的城市可以弥补这一点.由此推断,波士顿的 特点是古老和有趣,选项D.与原文意思相符,故为答案. A.“它全年都有宜人的天气”B.“它在创造高科技的同时也创造了财富”以 及C.“它不可能吸引很多的投资者和痴迷科研者”在文中均未提及,故均排除."
+        },
+        {
+          "number": 60,
+          "stem": "What does the author say about startup investors?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are especially wise in making investments."
+            },
+            {
+              "key": "B",
+              "text": "They have good connections in the government."
+            },
+            {
+              "key": "C",
+              "text": "They can do more than providing money."
+            },
+            {
+              "key": "D",
+              "text": "They are rich enough to invest in nerds."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C. 由题干中的startup investors 定位到第八段第四至六句:Startup investors are a distinct type of rich people. They tend to have a lot of experience themselves in the technology business. This helps them pick the right startups, and means they can supply advice and connections as well as money. 推理判断题.第八段第四句表明,创业园区的投资者是一群截然不同的有 钱人.接着指出,他们自己往往有很多技术商业领域的经验.这一点能够帮助他们 选择正确的创业公司,同时也意味着他们提供金钱的同时也能够提供建议和人际 关系.选项C.“他们除了提供金钱外,还能做更多的事情”和原文意思一致,故为 答案. A.“他们在投资方面尤为精明”,文中只是提到他们能够选择正确的创业 公司,并未提到精明,故排除;B.“他们与政府有着很好的关系”和D.“他们足够 有钱给痴迷科研者投资”,文中均未提及,故均排除."
+        }
+      ]
+    },
+    {
+      "id": "cet4-2015-12-3-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "It's nice to have people of like mind around. Agreeable people boost your confidence and allow you to relax and feel comfortable. Unfortunately, that comfort can hinder the very learning that can expand your company and your career. It's nice to have people agree, but you need conflicting perspectives to dig out the truth .If everyone around you has similar views, your work will suffer from confirmation bias (偏颇). Take a look at your own network. Do your contacts share your point of view on most subjects? If yes, it's time to shake things up .As a leader, it can be challenging to create an environment in which people will freely disagree and argue, but as the saying goes: From confrontation comes brilliance. It's not easy for most people to actively seek conflict. Many spend their lives trying to avoid arguments. There's no need to go out and find people you hate, but you need to do some self-assessment to determine where you have become stale in your thinking. You may need to start by encouraging your current network to help you identify your blind spots. Passionate, energetic debate does not require anger and hard feelings to be effective. But it does require moral strength. Once you have worthy opponents, set some ground rules so everyone understands responsibilities and boundaries. The objective of this debating game is not to win but to get to the truth that will allow you to move faster, farther, and better. Fierce debating can hurt feelings, particularly when strong personalities are involved. Make sure you check in with your opponents so that they are not carrying the emotion of the battles beyond the battlefield. Break the tension with smiles and humor to reinforce the idea that this is friendly discourse and that all are working toward a common goal. Reward all those involved in the debate sufficiently when the goals are reached. Let your sparring partners (拳击陪练) know how much you appreciate their contribution. The more they feel appreciated, the more they'll be willing to get into the ring next time."
+      ],
+      "questions": [
+        {
+          "number": 61,
+          "stem": "What happens when you have like-minded people around you all the while?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It will help your company expand more rapidly."
+            },
+            {
+              "key": "B",
+              "text": "It will create a harmonious working atmosphere."
+            },
+            {
+              "key": "C",
+              "text": "It may prevent your business and career from advancing."
+            },
+            {
+              "key": "D",
+              "text": "It may make you feel uncertain about your own decisions."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C. 由题干的like-minded 定位到第一段第一句和第三句:It’s nice to have people of like mind around...Unfortunately, that comfort can hinder the very learning that can expand your company and your career. 事实细节题.第一段第一句提到,与志趣相投者为伴是一件好事.第三句指 出,不幸的是,那种舒适会阻碍你学习扩展公司和发展事业的知识.故答案为C. A.“它会帮助你的公司更加迅速地扩大”和定位句意思相悖,可以排除; B.“它会创造一个和谐的工作环境”和D.“它可能会让你不确定自己的决定”,文中 均未提及,可以排除."
+        },
+        {
+          "number": 62,
+          "stem": "What does the author suggest leaders do?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Avoid arguments with business partners."
+            },
+            {
+              "key": "B",
+              "text": "Encourage people to disagree and argue."
+            },
+            {
+              "key": "C",
+              "text": "Build a wide and strong business network."
+            },
+            {
+              "key": "D",
+              "text": "Seek advice from their worthy competitors."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B. 由题干中的leaders 定位到第三段第四句:As a leader,it can be challenging to create an environment in which people will freely disagree and argue, but as the saying goes: From confrontation comes brilliance. 推理判断题.定位句指出,作为一个领导,要创造一个人人都自由地辩驳 和争论的环境是充满挑战的,但是常言道:冲突之下,必有精彩.根据but 后面的 内容可知,作者还是建议领导们创造这样的环境,故答案为B.. A.“避免和商业伙伴产生争论”,文中鼓励领导创造自由辩驳和争论的环 境就是为了使员工积极地争辩,A.所述和文章意思不符,可以排除;C.“建立一 个广而强的商业关系网络”和D.“从可以相媲美的竞争对手处寻求建议”,文中均 未提及,可以排除."
+        },
+        {
+          "number": 63,
+          "stem": "What is the purpose of holding a debate?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To find out the truth about an issue."
+            },
+            {
+              "key": "B",
+              "text": "To build up people's moral strength."
+            },
+            {
+              "key": "C",
+              "text": "To remove misunderstandings."
+            },
+            {
+              "key": "D",
+              "text": "To look for worthy opponents."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A. 由题干中的purpose 和debate 定位到第五段最后一句:The objective of this debating game is not to win but to get to the truth that will allow you to move faster, farther, and better. 事实细节题.第五段最后一句表明,这种辩论游戏的目的并不是赢,而是 得到事实真相,能够让你更快更远更好地进步.故答案为A.. B.“增强人们的精神力量”,第五段提到辩论需要精神力量,这是条件,而 非目的,故排除;C.“消除误解”,文中并未提及,可以排除;D.“寻找可以相媲 美的对手”,文中第五段倒数第二句提到,一旦你有了可以相媲美的对手,制定 一些基本规则,从而使大家都明白责任和底线.这并非辩论的目的,可以排除."
+        },
+        {
+          "number": 64,
+          "stem": "What advice does the author give to people engaged in a fierce debate?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They listen carefully to their opponents' views."
+            },
+            {
+              "key": "B",
+              "text": "They show due respect for each other's beliefs."
+            },
+            {
+              "key": "C",
+              "text": "They present their views clearly and explicitly."
+            },
+            {
+              "key": "D",
+              "text": "They take care not to hurt each other's feelings."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D. 由题干中的fierce debate 定位到第六段第一句:Fierce debating can hurt feelings,particularly when strong personalities are involved. 事实细节题.第六段第一句表明,激烈的辩论会伤害感情,下文提出建议: 确保跟你的竞争对手说清楚,这样他们就不会在争论话题之外还带有争论时的情 绪.用笑容和幽默打破这种紧张,并强化一种观念:这是一种友好的交流,而所 有的一切都是朝着一个共同的目标前进.这一切的举动都是为了避免伤害彼此的 感情.故答案为D.. A.“他们认真地倾听对手的意见”、B.“他们对彼此的信念表示应有的尊重” 以及C.“他们清晰直接地陈述自己的观点”,在文中均未提及,均可排除."
+        },
+        {
+          "number": 65,
+          "stem": "How should we treat our rivals after a successful debate?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Try to make peace with them."
+            },
+            {
+              "key": "B",
+              "text": "Try to make up the differences."
+            },
+            {
+              "key": "C",
+              "text": "Invite them to the ring next time."
+            },
+            {
+              "key": "D",
+              "text": "Acknowledge their contribution."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D. 由题干定位到第七段前两句:Reward all those involved in the debate sufficiently when the goals are reached. Let your sparring partners(拳击陪练)know how much you appreciate their contribution. 事实细节题.最后一段前两句指出,当目标达成时,要给予所有那些参与 到辩论中的人充足的奖赏.让你的拳击陪练知道你是多么感激他的付出.选项 D.“感谢他们的付出”与原文意思相符,故为答案. A.“试图与他们和解”,文中提到奖赏和感激,而非和解,可以排除;B.“尽 量弥补差距”,文中并未提及,可以排除;C.“邀请他们下次再来拳击场”,文中 提到,他们对这种感激之情感受得越深,下次就会越愿意走上拳击台,C.所述与 原文意思相悖,可以排除. agreeable adj.一致的,符合的 battlefield n.争论的问题 boost v.激发,促进 reinforce v.加强,强化 confrontation n.冲突,对抗 ring n.拳击台;摔跤台 stale adj.乏味的,没有新意的 dig out 挖掘,找到"
+        }
+      ]
+    }
+  ]
+}

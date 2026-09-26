@@ -1,0 +1,1697 @@
+{
+  "id": "cet4-2018-06-2",
+  "level": 4,
+  "year": 2018,
+  "month": 6,
+  "set": 2,
+  "title": "2018 年 6 月四级 · 第 2 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.06/%E7%9C%9F%E9%A2%98PDF/2018.06%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC2%E5%A5%97.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2018%E5%B9%B46%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%BA%8C%EF%BC%89.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2018-06-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Since the 1940s, southern California has had a reputation for smog. Things are not as bad as they once were but, according to the American Lung Association, Los Angeles is still the worst city in the United States for levels of [[26]] . Gazing down on the city from the Getty Center, an art museum in the Santa Monica Mountains, one would find the view of the Pacific Ocean blurred by the haze (霾). Nor is the state's bad air [[27]] to its south. Fresno, in the central valley, comes top of the list in America for year-round pollution. Residents' hearts and lungs are affected as a [[28]] . All of which, combined with California's reputation as the home of technological [[29]] , makes the place ideal for developing and testing systems designed to monitor pollution in [[30]] . And that is just what Aclima, a new firm in San Francisco, has been doing over the past few months. It has been trying out monitoring stations that are [[31]] to yield minute-to-minute maps of [[32]] air pollution. Such stations will also be able to keep an eye on what is happening inside buildings, including offices.",
+        "To this end, Aclima has been [[33]] with Google's Street View system. Davida Herzl, Aclima's boss, says they have revealed pollution highs on days when San Francisco's transit workers went on strike and the city's [[34]] were forced to use their cars. Conversely, \"cycle to work\" days have done their job by [[35]] pollution lows."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "assisted"
+        },
+        {
+          "key": "B",
+          "text": "collaborating"
+        },
+        {
+          "key": "C",
+          "text": "consequence"
+        },
+        {
+          "key": "D",
+          "text": "consumers"
+        },
+        {
+          "key": "E",
+          "text": "creating"
+        },
+        {
+          "key": "F",
+          "text": "detail"
+        },
+        {
+          "key": "G",
+          "text": "domestic"
+        },
+        {
+          "key": "H",
+          "text": "frequently"
+        },
+        {
+          "key": "I",
+          "text": "inhabitants"
+        },
+        {
+          "key": "J",
+          "text": "innovation"
+        },
+        {
+          "key": "K",
+          "text": "intended"
+        },
+        {
+          "key": "L",
+          "text": "outdoor"
+        },
+        {
+          "key": "M",
+          "text": "pollutants"
+        },
+        {
+          "key": "N",
+          "text": "restricted"
+        },
+        {
+          "key": "O",
+          "text": "sum"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assisted"
+            },
+            {
+              "key": "B",
+              "text": "collaborating"
+            },
+            {
+              "key": "C",
+              "text": "consequence"
+            },
+            {
+              "key": "D",
+              "text": "consumers"
+            },
+            {
+              "key": "E",
+              "text": "creating"
+            },
+            {
+              "key": "F",
+              "text": "detail"
+            },
+            {
+              "key": "G",
+              "text": "domestic"
+            },
+            {
+              "key": "H",
+              "text": "frequently"
+            },
+            {
+              "key": "I",
+              "text": "inhabitants"
+            },
+            {
+              "key": "J",
+              "text": "innovation"
+            },
+            {
+              "key": "K",
+              "text": "intended"
+            },
+            {
+              "key": "L",
+              "text": "outdoor"
+            },
+            {
+              "key": "M",
+              "text": "pollutants"
+            },
+            {
+              "key": "N",
+              "text": "restricted"
+            },
+            {
+              "key": "O",
+              "text": "sum"
+            }
+          ],
+          "answer": "M",
+          "explanation": "答案:M) pollutants 污染物 详解:名词辨析题。空格前有介词of,应填入名词。本段第一句提到,加利福尼亚州以雾霾闻名。接着第二句指 出,虽然现在的情况比以前好一些,但是洛杉矶仍然是美国______水平最高的城市。而下一句也提到了haze(霾)。 综合以上信息可知,洛杉矶的污染非常严重。所以本空应填入与“污染”相关的名词,因此答案为M) pollutants 污 染物。在备选名词中,能与levels 搭配的只有J) innovation 和M) pollutants,而innovation 放在此处不符合上下文意 思,因此排除。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assisted"
+            },
+            {
+              "key": "B",
+              "text": "collaborating"
+            },
+            {
+              "key": "C",
+              "text": "consequence"
+            },
+            {
+              "key": "D",
+              "text": "consumers"
+            },
+            {
+              "key": "E",
+              "text": "creating"
+            },
+            {
+              "key": "F",
+              "text": "detail"
+            },
+            {
+              "key": "G",
+              "text": "domestic"
+            },
+            {
+              "key": "H",
+              "text": "frequently"
+            },
+            {
+              "key": "I",
+              "text": "inhabitants"
+            },
+            {
+              "key": "J",
+              "text": "innovation"
+            },
+            {
+              "key": "K",
+              "text": "intended"
+            },
+            {
+              "key": "L",
+              "text": "outdoor"
+            },
+            {
+              "key": "M",
+              "text": "pollutants"
+            },
+            {
+              "key": "N",
+              "text": "restricted"
+            },
+            {
+              "key": "O",
+              "text": "sum"
+            }
+          ],
+          "answer": "N",
+          "explanation": "答案:N) restricted 狭小的,有限的 详解:动词辨析题。本句是一个倒装句,正常的语序是“The state’s bad air is not_____to its south.”,空格前有is, 应填入形容词或动词分词。本句意为“该州糟糕的空气也不仅______南部。”而下一句指出中央山谷区的夫勒斯诺 市在美国全年污染排行榜上列于首位,说明加利福尼亚州不仅仅是南部污染严重,其他地区也如此。由此可知本题 应填入含有“仅仅是,限于”含义的词,因此本题答案为N) restricted 狭小的,有限的。在备选项中,能与to 搭配 的只有K) intended 和N) restricted,而intended 不符合句意,因此排除。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assisted"
+            },
+            {
+              "key": "B",
+              "text": "collaborating"
+            },
+            {
+              "key": "C",
+              "text": "consequence"
+            },
+            {
+              "key": "D",
+              "text": "consumers"
+            },
+            {
+              "key": "E",
+              "text": "creating"
+            },
+            {
+              "key": "F",
+              "text": "detail"
+            },
+            {
+              "key": "G",
+              "text": "domestic"
+            },
+            {
+              "key": "H",
+              "text": "frequently"
+            },
+            {
+              "key": "I",
+              "text": "inhabitants"
+            },
+            {
+              "key": "J",
+              "text": "innovation"
+            },
+            {
+              "key": "K",
+              "text": "intended"
+            },
+            {
+              "key": "L",
+              "text": "outdoor"
+            },
+            {
+              "key": "M",
+              "text": "pollutants"
+            },
+            {
+              "key": "N",
+              "text": "restricted"
+            },
+            {
+              "key": "O",
+              "text": "sum"
+            }
+          ],
+          "answer": "C",
+          "explanation": "答案:C)consequence 后果 详解:名词辨析题。空格前有不定冠词a,因此应填入名词的单数形式。本句意为“居民的心肺_____受损。”第 一段主要介绍了加利福尼亚州的空气污染之严重,由常识可知空气污染的后果之一就是会影响人们的心肺功能。所 以,本句与前文有因果关系,应填入含有“结果”意义的名词,因此本题答案为C)consequence 后果。在备选名词 中,单数形式有C)consequence、F) detail、J) innovation 和O) sum,而只有consequence 能和as a 搭配构成词组,意 为“因此”,所以排除其他选项。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assisted"
+            },
+            {
+              "key": "B",
+              "text": "collaborating"
+            },
+            {
+              "key": "C",
+              "text": "consequence"
+            },
+            {
+              "key": "D",
+              "text": "consumers"
+            },
+            {
+              "key": "E",
+              "text": "creating"
+            },
+            {
+              "key": "F",
+              "text": "detail"
+            },
+            {
+              "key": "G",
+              "text": "domestic"
+            },
+            {
+              "key": "H",
+              "text": "frequently"
+            },
+            {
+              "key": "I",
+              "text": "inhabitants"
+            },
+            {
+              "key": "J",
+              "text": "innovation"
+            },
+            {
+              "key": "K",
+              "text": "intended"
+            },
+            {
+              "key": "L",
+              "text": "outdoor"
+            },
+            {
+              "key": "M",
+              "text": "pollutants"
+            },
+            {
+              "key": "N",
+              "text": "restricted"
+            },
+            {
+              "key": "O",
+              "text": "sum"
+            }
+          ],
+          "answer": "J",
+          "explanation": "答案:J) innovation 新 详解:名词辨析题。空格前有形容词technological,因此应填入名词。该处意为“加利福尼亚州以科技_____之州 而闻名”。由常识可知,加利福尼亚州是许多科技公司的总部所在地,以创新闻名,因此该空应填J) innovation 新。 本段提到Aclima 是一家新公司,也会让人想到创新,而且其他备选名词均不符合句意,所以排除。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assisted"
+            },
+            {
+              "key": "B",
+              "text": "collaborating"
+            },
+            {
+              "key": "C",
+              "text": "consequence"
+            },
+            {
+              "key": "D",
+              "text": "consumers"
+            },
+            {
+              "key": "E",
+              "text": "creating"
+            },
+            {
+              "key": "F",
+              "text": "detail"
+            },
+            {
+              "key": "G",
+              "text": "domestic"
+            },
+            {
+              "key": "H",
+              "text": "frequently"
+            },
+            {
+              "key": "I",
+              "text": "inhabitants"
+            },
+            {
+              "key": "J",
+              "text": "innovation"
+            },
+            {
+              "key": "K",
+              "text": "intended"
+            },
+            {
+              "key": "L",
+              "text": "outdoor"
+            },
+            {
+              "key": "M",
+              "text": "pollutants"
+            },
+            {
+              "key": "N",
+              "text": "restricted"
+            },
+            {
+              "key": "O",
+              "text": "sum"
+            }
+          ],
+          "answer": "F",
+          "explanation": "答案:F) detail 细节 详解:名词辨析题。空格前有介词in,应填入名词。该处意为“用来______监测污染的系统”而第32 题所在句 提到了精确至分钟的空气污染地图,说明这些系统非常全面、详细,因此应填入F) detail 细节。在备选名词中,只 有in detail 和in sum 是固定搭配,而in sum 意思是“总之”,不符合句意,因此排除。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assisted"
+            },
+            {
+              "key": "B",
+              "text": "collaborating"
+            },
+            {
+              "key": "C",
+              "text": "consequence"
+            },
+            {
+              "key": "D",
+              "text": "consumers"
+            },
+            {
+              "key": "E",
+              "text": "creating"
+            },
+            {
+              "key": "F",
+              "text": "detail"
+            },
+            {
+              "key": "G",
+              "text": "domestic"
+            },
+            {
+              "key": "H",
+              "text": "frequently"
+            },
+            {
+              "key": "I",
+              "text": "inhabitants"
+            },
+            {
+              "key": "J",
+              "text": "innovation"
+            },
+            {
+              "key": "K",
+              "text": "intended"
+            },
+            {
+              "key": "L",
+              "text": "outdoor"
+            },
+            {
+              "key": "M",
+              "text": "pollutants"
+            },
+            {
+              "key": "N",
+              "text": "restricted"
+            },
+            {
+              "key": "O",
+              "text": "sum"
+            }
+          ],
+          "answer": "K",
+          "explanation": "答案:K) intended 打算,想要 详解:动词辨析题。空格前有are,空格后是to,因此该空很可能填入动词名词。空格所在的定语从句修饰stations, 意为“______生成精确至分钟的_______空气污染地图”。下一句指出监测站还能监测室内的空气情况。由此可知 本句是在说明监测站的作用,应填入含有“(打算)用来”意义的动词,因此本题答案为K) intended 打算,想要。 be intended to 意为“打算......,是用来......”。在备选动词中,能与to 搭配的只有K) intended 和N) restricted,而 restricted 不符合句意,因此排除。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assisted"
+            },
+            {
+              "key": "B",
+              "text": "collaborating"
+            },
+            {
+              "key": "C",
+              "text": "consequence"
+            },
+            {
+              "key": "D",
+              "text": "consumers"
+            },
+            {
+              "key": "E",
+              "text": "creating"
+            },
+            {
+              "key": "F",
+              "text": "detail"
+            },
+            {
+              "key": "G",
+              "text": "domestic"
+            },
+            {
+              "key": "H",
+              "text": "frequently"
+            },
+            {
+              "key": "I",
+              "text": "inhabitants"
+            },
+            {
+              "key": "J",
+              "text": "innovation"
+            },
+            {
+              "key": "K",
+              "text": "intended"
+            },
+            {
+              "key": "L",
+              "text": "outdoor"
+            },
+            {
+              "key": "M",
+              "text": "pollutants"
+            },
+            {
+              "key": "N",
+              "text": "restricted"
+            },
+            {
+              "key": "O",
+              "text": "sum"
+            }
+          ],
+          "answer": "L",
+          "explanation": "答案:L) outdoor 户外的 详解:形容词辨析题。空格前是of,空格后是名词短语,因此该空很可能填入形容词。本句及下一句都在介绍这 些监测站的作用,而且下一句提到这些监测站也能监测室内的空气情况,关键词是also,说明本句提到的是相对于 室内的室外空气污染情况,因此本题答案为L) outdoor 户外的。在备选形容词中,G)domestic 和N) restricted 不符 合句意,因此排除。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assisted"
+            },
+            {
+              "key": "B",
+              "text": "collaborating"
+            },
+            {
+              "key": "C",
+              "text": "consequence"
+            },
+            {
+              "key": "D",
+              "text": "consumers"
+            },
+            {
+              "key": "E",
+              "text": "creating"
+            },
+            {
+              "key": "F",
+              "text": "detail"
+            },
+            {
+              "key": "G",
+              "text": "domestic"
+            },
+            {
+              "key": "H",
+              "text": "frequently"
+            },
+            {
+              "key": "I",
+              "text": "inhabitants"
+            },
+            {
+              "key": "J",
+              "text": "innovation"
+            },
+            {
+              "key": "K",
+              "text": "intended"
+            },
+            {
+              "key": "L",
+              "text": "outdoor"
+            },
+            {
+              "key": "M",
+              "text": "pollutants"
+            },
+            {
+              "key": "N",
+              "text": "restricted"
+            },
+            {
+              "key": "O",
+              "text": "sum"
+            }
+          ],
+          "answer": "B",
+          "explanation": "答案:B) collaborating 合作 详解:动词辨析题。空格前有has been,因此应填动词的现在分词或过去分词形式。本句意为“为了达到这个目 的,Aclima 一直与谷歌的街景系统_______。”谷歌的街景系统可以实时显示街道情况,有助于Aclima 的监测站收 集空气信息,由此可推断Aclima 在与谷歌合作,因此本题答案为B) collaborating 合作。在备选动词中可以首先排 除O) sum,而其他动词都不能与with 搭配,因此排除。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assisted"
+            },
+            {
+              "key": "B",
+              "text": "collaborating"
+            },
+            {
+              "key": "C",
+              "text": "consequence"
+            },
+            {
+              "key": "D",
+              "text": "consumers"
+            },
+            {
+              "key": "E",
+              "text": "creating"
+            },
+            {
+              "key": "F",
+              "text": "detail"
+            },
+            {
+              "key": "G",
+              "text": "domestic"
+            },
+            {
+              "key": "H",
+              "text": "frequently"
+            },
+            {
+              "key": "I",
+              "text": "inhabitants"
+            },
+            {
+              "key": "J",
+              "text": "innovation"
+            },
+            {
+              "key": "K",
+              "text": "intended"
+            },
+            {
+              "key": "L",
+              "text": "outdoor"
+            },
+            {
+              "key": "M",
+              "text": "pollutants"
+            },
+            {
+              "key": "N",
+              "text": "restricted"
+            },
+            {
+              "key": "O",
+              "text": "sum"
+            }
+          ],
+          "answer": "I",
+          "explanation": "答案:I) inhabitants 居民 详解:名词辨析题。空格前有名词所有格the city’s,空格后是were,因此应填入名词复数形式。此处是说,旧金 山的运输工人罢工使得该城市的______不得不使用私家车。由句意可知,运输工人罢工的话,人们无法利用公共交 通工具出行,只能被迫开车。本空应填入含有“人们,居民”意义的名词,因此本题答案为I) inhabitants 居民。在 备选的复数名词中,D) consumers 也指人,但是“消费者”覆盖面不够广泛,inhabitants 更加符合句意。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assisted"
+            },
+            {
+              "key": "B",
+              "text": "collaborating"
+            },
+            {
+              "key": "C",
+              "text": "consequence"
+            },
+            {
+              "key": "D",
+              "text": "consumers"
+            },
+            {
+              "key": "E",
+              "text": "creating"
+            },
+            {
+              "key": "F",
+              "text": "detail"
+            },
+            {
+              "key": "G",
+              "text": "domestic"
+            },
+            {
+              "key": "H",
+              "text": "frequently"
+            },
+            {
+              "key": "I",
+              "text": "inhabitants"
+            },
+            {
+              "key": "J",
+              "text": "innovation"
+            },
+            {
+              "key": "K",
+              "text": "intended"
+            },
+            {
+              "key": "L",
+              "text": "outdoor"
+            },
+            {
+              "key": "M",
+              "text": "pollutants"
+            },
+            {
+              "key": "N",
+              "text": "restricted"
+            },
+            {
+              "key": "O",
+              "text": "sum"
+            }
+          ],
+          "answer": "E",
+          "explanation": "答案:E) creating 创造 详解:动词辨析题。空格前是介词by,空格后是名词短语,因此该空很可能填入动词现在分词形式。本句意为“相 反,‘骑行上班’效果明显,______污染低值。”本句与上一句形成对比,上一句提到运输工人罢工的时候人们都 在开车出行,所以污染值高,而骑行上班会减少汽车的使用,因此污染值低。“cycle to work”产生了这样的效果, 因此本空应填含有“产生、带来”含义的词,本题答案为E) creating 创造。在备选动词中,现在分词有B) collaborating 和E) creating,collaborating 是不及物动词,因此排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2018-06-2-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) On a recent fall morning, a large crowd blocked the steps at one of Venice's main tourist sites, the Rialto Bridge. The Rialto Bridge is one of the four bridges spanning the Grand Canal. It is the oldest bridge across the canal, and was the dividing line between the districts of San Marco and San Polo. But on this day, there was a twist: it was filled with Venetians, not tourists.",
+        "B) \"People are cheering and holding their carts in the air,\" says Giovanni Giorgio, who helped organize the march with a grass-roots organization called Generazione '90. The carts he refers to are small shopping carts—the symbol of a true Venetian. \"It started as a joke,\" he says with a laugh. \"The idea was to put blades on the wheels! You know? Like Ben Hur. Precisely like that, you just go around and run people down.\"",
+        "C) Venice is one of the hottest tourist destinations in the world. But that's a problem. Up to 90,000 tourists crowd its streets and canals every day—far outnumbering the 55,000 permanent residents. The tourist increase is one key reason the city's population is down from 175,000 in the 1950s. The outnumbered Venetians have been steadily fleeing. And those who stick around are tired of living in a place where they can't even get to the market without swimming through a sea of picture-snapping tourists. Imagine, navigating through 50,000 people while on the way to school or to work.",
+        "D) Laura Chigi, a grandmother at the march, says the local and national governments have failed to do anything about the crowds for decades, because they're only interested in tourism—the primary industry in Venice, worth more than $3 billion in 2015. \"Venice is a cash cow,\" she says, \"and everyone wants a piece.\"",
+        "E) Just beyond St. Mark's Square, a cruise ship passes, one of hundreds every year that appear over their medieval (中世纪的) surroundings. Their massive wake creates waves at the bottom of the sea, weakening the foundations of the centuries-old buildings themselves. \"Every time I see a cruise ship, I feel sad,\" Chigi says. \"You see the mud it drags; the destruction it leaves in its wake? That hurts the ancient wooden poles holding up the city underwater. One day we'll see Venice break down.\"",
+        "F) For a time, UNESCO, the cultural wing of the United Nations, seemed to agree. Two years ago, it put Italy on notice, saying the government was not protecting Venice. UNESCO considers the entire city a World Heritage Site, a great honor that means Venice, at the cultural level, belongs to all of the world's people. In 2014, UNESCO gave Italy two years to manage Venice's flourishing tourism or the city would be placed on another list—World Heritage In Danger, joining such sites as Aleppo and Palmyra, destroyed by the war in Syria.",
+        "G) Venice's deadline passed with barely a murmur (嘟哝) this summer, just as UNESCO was meeting in Istanbul. Only one representative, Jad Tabet from Lebanon, tried to raise the issue. \"For several years, the situation of heritage in Venice has been worsening, and it has now reached a dramatic situation,\" Tabet told UNESCO. \"We have to act quickly—there is not a moment to waste.\"",
+        "H) But UNESCO didn't even hold a vote. \"It's been postponed until 2017,\" says Anna Somers, the founder and CEO of The Art Newspaper and the former head of Venice in Peril, a group devoted to restoring Venetian art. She says the main reason the U.N. cultural organization didn't vote to declare Venice a World Heritage Site In Danger is because UNESCO has become \"intensely politicized. There would have been some back-room negotiations.\"",
+        "I) Italy boasts more UNESCO World Heritage Sites than any other country in the world, granting it considerable power and influence within the organization. The former head of the UNESCO World Heritage Centre, which oversees heritage sites, is Francesco Bandarin, a Venetian who now serves as UNESCO's assistant director-general for culture.",
+        "J) Earlier this year, Italy signed an accord with UNESCO to establish a task force of police art detectives and archaeologists (考古学家) to protect cultural heritage from natural disasters and terror groups, such as ISIS. The accord underlined Italy's global reputation as a good steward of art and culture.",
+        "K) But adding Venice to the UNESCO endangered list—which is dominated by sites in developing and conflict-ridden countries—would be an international embarrassment, and could even hurt Italy's profitable tourism industry. The Italian Culture Ministry says it is unaware of any government efforts to pressure UNESCO. As for the organization itself, it declined a request for an interview.",
+        "L) The city's current mayor, Luigi Brugnaro, has ridiculed UNESCO and told it to mind its own business, while continuing to support the cruise ship industry, which employs 5,000 Venice residents.",
+        "M) As for Venetians, they're beyond frustrated and hoping for a solution soon. \"It's a nightmare for me. Some situations are really difficult with tourists around,\" says Giorgio as he navigates around a swelling crowd at the Rialto Bridge. \"There are just so many of them. They never know where they are going, and do not walk in an orderly manner. Navigating the streets can be exhausting.\"",
+        "N) Then it hits him: This crowd isn't made up of tourists. They're Venetians. Giorgio says he's never experienced the Rialto Bridge this way in all his 22 years. \"For once, we are the ones who are blocking the traffic,\" he says delightedly. \"It feels unreal. It feels like we're some form of endangered species. It's just nice. The feeling is just pure.\" But, he worries, if tourism isn't managed and his fellow locals continue to move to the mainland, his generation might be the last who can call themselves native Venetians."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "The passing cruise ships will undermine the foundations of the ancient buildings in Venice.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "E",
+          "explanation": "The passing cruise ships will E) Just beyond St. Mark's Square, a cruise ship passes, one of hundreds undermine the foundations of the ancient every year that appear over their medieval (中世纪的) surroundings. Their buildings in Venice. massive wake creates waves at the bottom of the sea, weakening the 译文:穿行的游轮将会破坏威尼斯古建筑 foundations of the centuries-old buildings themselves. \"Every time I see a 的根基。 cruise ship, I feel sad,\" Chigi says. \"You see the mud it drags; the destruction 定位:由题干中的undermine、foundations it leaves in its wake? That hurts the ancient wooden poles holding up the city 和buildings 定位到文章E 段画线处。 underwater. One day we'll see Venice break down.\" 详解:定位段第一句指出,就在圣马克广场那边,每年都有数百艘游轮出现在这些中世纪建筑的周围。第二句接 着指出,这些游轮的巨大尾流在水底翻起波浪,导致这些具有数百年历史的建筑的根基松动。由此可见,穿行的游 轮将会破坏威尼斯古建筑的根基,题干是对定位句地同意转述,故答案为E。"
+        },
+        {
+          "number": 37,
+          "stem": "The Italian government has just reached an agreement with UNESCO to take measures to protect its cultural heritage.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "J",
+          "explanation": "The Italian government has just reached an agreement J) Earlier this year, Italy signed an accord with with UNESCO to take measures to protect its cultural heritage. UNESCO to establish a task force of police art detectives 译文:意大利政府最近刚刚与联合国教科文组织达成协议, and archaeologists ( 考古学家) to protect cultural 将采取措施保护期文化遗产。 heritage from natural disasters and terror groups, such as 定位:由题干中的Italian、UNESCO、protect 和cultural heritage ISIS. The accord underlined Italy's global reputation as a 定位到文章J 段画线处。 good steward of art and culture. 详解:文章J 段第一句提到,今年早些时候,意大利与联合国教科文组织签署了一项正式协议,建立一个由警察 艺术侦探和考古学家组成的工作组,以保护文化遗产免受自然灾害和诸如“伊斯兰国”等恐怖组织的破坏。题干中 的reached an agreement 对应原文中的signed an accord;题干中的take measures to protect its cultural heritage 对应原 文中的establish a task force...to protect cultural heritage,故答案为J。"
+        },
+        {
+          "number": 38,
+          "stem": "The heritage situation in Venice has been deteriorating in the past few years.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "G",
+          "explanation": "The heritage situation in Venice has been G) Venice's deadline passed with barely a murmur (嘟哝) this deteriorating in the past few years. summer, just as UNESCO was meeting in Istanbul. Only one 译文:在过去几年里,威尼斯的遗产状况一直在 representative, Jad Tabet from Lebanon, tried to raise the issue. \"For 恶化。 several years, the situation of heritage in Venice has been worsening, 定位:由题干中的heritage situation in Venice 和in and it has now reached a dramatic situation,\" Tabet told UNESCO. the past few years 定位到文章G 段画线处。 \"We have to act quickly—there is not a moment to waste.\" 详解:文章G 段第三句引用了联合国教科文组织代表佳德·塔贝特的话:多年来,威尼斯的遗产状况一直在恶化, 现在已经到了极度危险的境地。题干中的The heritage situation in Venice 对应原文中的the situation of heritage in Venice;题干中的has been deteriorating 对应原文中的has been worsening;题干中的in the past few years 对应原文中的 For several years,故本题答案为G。"
+        },
+        {
+          "number": 39,
+          "stem": "The decrease in the number of permanent residents in Venice is mainly due to the increase of tourists.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "C",
+          "explanation": "The decrease in the number of C) Venice is one of the hottest tourist destinations in the world. But that's permanent residents in Venice is mainly a problem. Up to 90,000 tourists crowd its streets and canals every day—far due to the increase of tourists. outnumbering the 55,000 permanent residents. The tourist increase is one key 译文:威尼斯永久居民人数的减少主要 reason the city's population is down from 175,000 in the 1950s. The 是由于游客的增加。 outnumbered Venetians have been steadily fleeing. And those who stick around 定位:由题干中的permanent residents are tired of living in a place where they can't even get to the market without 和the increase of tourists 定位到文章C swimming through a sea of picture-snapping tourists. Imagine, navigating 段画线处。 through 50,000 people while on the way to school or to work. 详解:定位句提到,每天都有高达9 万的游客挤在威尼斯的街道和运河上——远远超过威尼斯5.5 万名永久居民 的数量。游客人数的增长是导致该城市人口从20 世纪50 年代的17.5 万人下降到目前人数的一个关键原因。题干是 对这两句的概括归纳,故答案为C。"
+        },
+        {
+          "number": 40,
+          "stem": "If tourism gets out of control, native Venetians may desert the city altogether one day.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "N",
+          "explanation": "If tourism gets out of control, N) Then it hits him: This crowd isn't made up of tourists. They're Venetians. native Venetians may desert the city Giorgio says he's never experienced the Rialto Bridge this way in all his 22 years. altogether one day. \"For once, we are the ones who are blocking the traffic,\" he says delightedly. \"It 译文:如果旅游业失控,威尼斯当 feels unreal. It feels like we're some form of endangered species. It's just nice. The 地人终有一天可能会全部离开这座 feeling is just pure.\" But, he worries, if tourism isn't managed and his fellow locals 城市。 continue to move to the mainland, his generation might be the last who can call 定位:由题干中的tourism 和native themselves native Venetians. Venetians 定位到文章N 段画线处。 详解:定位段最后一句提到乔治的担心:如果旅游业得不到管控,他的威尼斯同乡们继续移居大陆,他们这一代 人可能就是最后一代可以称自己为威尼斯人的人了。换句话说,如果旅游业失控,威尼斯当地人终有一天可能会全 部离开这座城市,故答案为N。"
+        },
+        {
+          "number": 41,
+          "stem": "UNESCO urged the Italian government to undertake its responsibility to protect Venice.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "F",
+          "explanation": "UNESCO urged the Italian F) For a time, UNESCO, the cultural wing of the United Nations, government to undertake its responsibility seemed to agree. Two years ago, it put Italy on notice, saying the government to protect Venice. was not protecting Venice. UNESCO considers the entire city a World 译文:联合国教科文组织敦促意大利政府 Heritage Site, a great honor that means Venice, at the cultural level, belongs 承担保护威尼斯的责任。 to all of the world's people. In 2014, UNESCO gave Italy two years to 定位:由题干中的UNESCO、the Italian manage Venice's flourishing tourism or the city would be placed on another government 和protect Venice 定位到文章F list—World Heritage In Danger, joining such sites as Aleppo and Palmyra, 段画线处。 destroyed by the war in Syria. 详解:定位段第二句提到,两年前,联合国教科文组织警告意大利,指出意大利政府并没有保护威尼斯;接着第 四句又指出2014 年,联合国教科文组织给了意大利两年的时间来管理威尼斯繁荣的旅游业,否则这个城市将被列 入世界濒危遗产名单。换句话说,联合国教科文组织在敦促意大利政府保护威尼斯,如果做不到,会采取惩罚措施。 题干是对定位句的概括归纳,故答案为F。"
+        },
+        {
+          "number": 42,
+          "stem": "The participants in the Venetian march used shopping carts to show they were 100% local residents.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "B",
+          "explanation": "The participants in the Venetian march B) \"People are cheering and holding their carts in the air,\" says used shopping carts to show they were 100% Giovanni Giorgio, who helped organize the march with a grass-roots local residents. organization called Generazione '90. The carts he refers to are small 译文:威尼斯人游行的参与者使用购物车证明 shopping carts—the symbol of a true Venetian. \"It started as a joke,\" he 他们是100%的当地人。 says with a laugh. \"The idea was to put blades on the wheels! You 定位:由题干中的march 和shopping carts 定 know? Like Ben Hur. Precisely like that, you just go around and run 位到文章B 段画线处。 people down.\" 详解:定位段首句引用乔凡尼·乔治的话,介绍了游行的情况:人们欢呼着,把手推车举到半空中。第二句接着 指出,乔治所说的手推车是小型购物车,这是真正的威尼斯人的象征。题干中的100% local residents 对应原文中的 a true Venetian,故本题答案为B。"
+        },
+        {
+          "number": 43,
+          "stem": "Ignoring UNESCO's warning, the mayor of Venice maintains his support of the city's tourism industry.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "L",
+          "explanation": "Ignoring UNESCO's warning, the mayor of Venice maintains his L) The city's current mayor, Luigi Brugnaro, has support of the city's tourism industry. ridiculed UNESCO and told it to mind its own 译文:无视联合国教科文组织的警告,威尼斯市长继续支持该市的 business, while continuing to support the cruise 旅游业。 ship industry, which employs 5,000 Venice 定位:由题干中的mayor、support 和industry 定位到文章L 段画线 residents. 处。 详解:定位段提到,威尼斯市现任市长路易吉·布鲁加洛嘲笑了联合国教科文组织,让它少管闲事,同时他继续 支持雇佣了5,000 名威尼斯人的游轮行业。题干中的maintains his support of the city's tourism industry 与原文中的 continuing to support the cruise ship industry 意思相近,题干是对原文的概括归纳,故本题答案为L。"
+        },
+        {
+          "number": 44,
+          "stem": "One woman says that for decades the Italian government and local authorities have only focused on the revenues from tourism.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "D",
+          "explanation": "One woman says that for decades the Italian D) Laura Chigi, a grandmother at the march, says the local and government and local authorities have only focused on national governments have failed to do anything about the the revenues from tourism. crowds for decades, because they're only interested in 译文:一位女士说,几十年来,意大利政府和地方 tourism—the primary industry in Venice, worth more than $3 当局只关注旅游收入。 billion in 2015. \"Venice is a cash cow,\" she says, \"and everyone 定位:由题干中的government and local authorities 和 wants a piece.\" tourism 定位到文章D 段画线处。 详解:定位句提到,劳拉·齐吉说,当地政府和国家政府几十年来一直没有对拥挤的游客群采取任何措施,只对 旅游业感兴趣,2015 年威尼斯旅游业价值超过30 亿美元。换句话说,意大利政府和地方当局只关注旅游收入,题 干中的only focused on the revenues from tourism 是对原文中的only interested in tourism的同义转述,故本题答案为D。"
+        },
+        {
+          "number": 45,
+          "stem": "UNESCO has not yet decided to put Venice on the list of World Heritage Sites In Danger.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "H",
+          "explanation": "UNESCO has not yet decided to put Venice H) But UNESCO didn't even hold a vote. \"It's been postponed until on the list of World Heritage Sites In Danger. 2017,\" says Anna Somers, the founder and CEO of The Art 译文:联合国教科文组织尚未决定是否将威尼斯 Newspaper and the former head of Venice in Peril, a group devoted 列入世界濒危遗产名录。 to restoring Venetian art. She says the main reason the U.N. cultural 定位:由题干中的UNESCO、has not yet decided organization didn't vote to declare Venice a World Heritage Site In 和World Heritage Sites In Danger 定位到文章H 段 Danger is because UNESCO has become \"intensely politicized. 画线处。 There would have been some back-room negotiations.\" 详解:定位段第三句提到,安娜·萨默斯说,联合国的这一文化组织之所以没有投票宣布威尼斯成为世界濒危遗 产地,主要原因是联合国教科文组织已经变得“极度政治化了”。换句话说,联合国教科文组织还没有决定是否将 威尼斯列入世界濒危遗产名录,题干是对定位句的概括归纳,故本题的答案为H。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2018-06-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Living in an urban area with green spaces has a long-lasting positive impact on people's mental well-being, a study has suggested. UK researchers found moving to a green space had a sustained positive effect, unlike pay rises or promotions, which only provided a short-term boost. Co-author Mathew White, from the University of Exeter, UK, explained that the study showed people living in greener urban areas were displaying fewer signs of depression or anxiety. \"There could be a number of reasons,\" he said, \"for example, people do many things to make themselves happier: they strive for promotion or pay rises, or they get married. But the trouble with those things is that within six months to a year, people are back to their original baseline levels of well-being. So, these things are not sustainable; they don't make us happy in the long term. We found that for some lottery (彩票) winners who had won more than £500,000 the positive effect was definitely there, but after six months to a year, they were back to the baseline.\"",
+        "Dr. White said his team wanted to see whether living in greener urban areas had a lasting positive effect on people's sense of well-being or whether the effect also disappeared after a period of time. To do this, the team used data from the British Household Panel Survey compiled by the University of Essex.",
+        "Explaining what the data revealed, he said: \"What you see is that even after three years, mental health is still better, which is unlike many other things that we think will make us happy.\" He observed that people living in green spaces were less stressed, and less stressed people made more sensible decisions and communicated better.",
+        "With a growing body of evidence establishing a link between urban green spaces and a positive impact on human well-being, Dr. White said, \"There's growing interest among public policy officials, but the trouble is who funds it. What we really need at a policy level is to decide where the money will come from to help support good quality local green spaces.\""
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "According to one study, what do green spaces do to people?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Improve their work efficiency."
+            },
+            {
+              "key": "B",
+              "text": "Add to their sustained happiness."
+            },
+            {
+              "key": "C",
+              "text": "Help them build a positive attitude towards life."
+            },
+            {
+              "key": "D",
+              "text": "Lessen their concerns about material well-being."
+            }
+          ],
+          "answer": "B",
+          "explanation": "答案:B 定位:由题干中的study 和green spaces 定位到首段第一句:Living in an urban area with green spaces has a long-lasting positive impact on people's mental well-being, a study has suggested. 详解:判断推理题。文章首段第一句指出,一项研究表明,在城市,居住在有绿色空间的地方会对人们的心理 健康产生持久的积极影响。由此可知,绿色空间会增加人们的持续幸福感,故答案为B。 点睛:A)“提高他们的工作效率”,原文并未提及相关信息,故排除;C)“帮助他们建立积极的人生态度”, 首段第三句提到,生活在绿化更好的城市地区的人们表现出抑郁或焦虑迹象较少,而非帮助他们建立积极的人生态 度,本选项为过度推理,故排除;D)“减少他们对物质生活水平的忧虑”,首段第一句提到,居住在有绿色空间的 地方会对人们的心理健康产生持久的积极影响,而非减少他们对物质生活水平的忧虑,故排除。"
+        },
+        {
+          "number": 47,
+          "stem": "What does Dr. White say people usually do to make themselves happier?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Earn more money."
+            },
+            {
+              "key": "B",
+              "text": "Settle in an urban area."
+            },
+            {
+              "key": "C",
+              "text": "Gain fame and popularity."
+            },
+            {
+              "key": "D",
+              "text": "Live in a green environment."
+            }
+          ],
+          "answer": "A",
+          "explanation": "答案:A 定位:由题干中的Dr. White 和make themselves happier 定位到首段第四句:\"There could be a number of reasons,\" he said, \"for example, people do many things to make themselves happier: they strive for promotion or pay rises, or they get married...” 详解:事实细节题。文章首段第四句提到,怀特博士认为人们为了让自己更快乐,会做很多事情:他们会争取 晋升或加薪,或者结婚。由此可知,人们为了让自己更快乐,经常会去赚更多的钱,故答案为A。 点睛:B)“在城市定居”和C)“赢得名誉和声望”,文中并没有提到,故均排除;D)“生活在绿色环境中”, 并非人们的常规做法,故排除。"
+        },
+        {
+          "number": 48,
+          "stem": "What does Dr. White try to find out about living in a greener urban area?",
+          "options": [
+            {
+              "key": "A",
+              "text": "How it affects different people."
+            },
+            {
+              "key": "B",
+              "text": "How strong its positive effect is."
+            },
+            {
+              "key": "C",
+              "text": "How long its positive effect lasts."
+            },
+            {
+              "key": "D",
+              "text": "How it benefits people physically."
+            }
+          ],
+          "answer": "C",
+          "explanation": "答案:C 定位:由题干中的find out 和living in a greener urban area 定位到第二段第一句:Dr. White said his team wanted to see whether living in greener urban areas had a lasting positive effect on people's sense of well-being or whether the effect also disappeared after a period of time. 详解:事实细节题。文章第二段第一句指出,怀特博士说,他的研究小组想知道生活在绿化更好的城市地区是 否会对人们的幸福感产生持久的积极影响以及这种积极影响是否在一段时间以后也会消失。由此可知,怀特博士想 发现生活在绿化更好的城市地区对人们有多长时间的积极影响,故答案为C。 点睛:A)“它是如何影响不同人群的”,原文并未提及,故排除;B)“其积极影响会有多大”,定位句指出, 怀特博士想研究的是这种积极影响是否在一段时间以后会消失,即想知道这种影响的持续时长,而非强度,故排除; D)“它是如何使人类的身体受益的”,原文未提及,故排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What did Dr. White's research reveal about people living in a green environment?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Their stress was more apparent than real."
+            },
+            {
+              "key": "B",
+              "text": "Their decisions required less deliberation."
+            },
+            {
+              "key": "C",
+              "text": "Their memories were greatly strengthened."
+            },
+            {
+              "key": "D",
+              "text": "Their communication with others improved."
+            }
+          ],
+          "answer": "D",
+          "explanation": "答案:D 定位:由题干中的Dr. White's research 和reveal 定位到第三段:Explaining what the data revealed, he said: \"What you see is that even after three years, mental health is still better, which is unlike many other things that we think will make us happy.\" He observed that people living in green spaces were less stressed, and less stressed people made more sensible decisions and communicated better. 详解:事实细节题。第三段第二句提到,他评论道。生活在绿色空间的人们压力更小,而压力小的人经常会做 出更明智的决定,且与人交流也会更顺畅。由此可知,生活在绿色环境中,可以改善与他人的沟通,故答案为D)。 点睛:A)“他们的压力比实际的更明显”,定位句指出生活在绿色空间的人们压力会更小,该项与原文表述不 一致,故排除;B)“他们做决定不需要深思熟虑”,定位句指出,生活在绿色空间的人们因为压力小,所以经常会 做出更明智的决定,而非做决定不需要深思熟虑,本选项表述与定位句不一致,故排除;C)“他们的记忆力得到极 大的加强”,原文并未提及,故排除。"
+        },
+        {
+          "number": 50,
+          "stem": "According to Dr. White, what should the government do to build more green spaces in cities?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Find financial support."
+            },
+            {
+              "key": "B",
+              "text": "Improve urban planning."
+            },
+            {
+              "key": "C",
+              "text": "Involve local residents in the effort."
+            },
+            {
+              "key": "D",
+              "text": "Raise public awareness of the issue."
+            }
+          ],
+          "answer": "A",
+          "explanation": "答案:A 定位:由题干中的the government 和build 定位到最后一段最后一句:What we really need at a policy level is to decide where the money will come from to help support good quality local green spaces. 详解:推理判断题。最后一段最后一句提到,在政策层面上,我们真正需要做的决定是从哪里获得资金来支持 高质量的当地绿色空间。由此可知,政府应找到资金来支持绿色空间的构建,故答案为A)。 点睛:B)“改善城市规划”、C)“让当地居民一起努力”和D)“提高公众对于此问题的意识”文中均没有提及, 故排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2018-06-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "You probably know about the Titanic, but it was actually just one of three state-of-the-art (先 进的) ocean ships back in the day. The Olympic class ships were built by the Harland &amp; Wolff ship makers in Northern Ireland for the White Star Line company. The Olympic class included the Olympic, the Britannic and the Titanic. What you may not know is that the Titanic wasn't even the flagship of this class. All in all, the Olympic class ships were marvels of sea engineering, but they seemed cursed to suffer disastrous fates.",
+        "The Olympic launched first in 1910, followed by the Titanic in 1911, and lastly the Britannic in 1914. The ships had nine decks, and White Star Line decided to focus on making them the most luxurious ships on the water.",
+        "Stretching 269.13 meters, the Olympic class ships were wonders of naval technology, and everyone thought that they would continue to be so for quite some time. However, all suffered",
+        "terrible accidents on the open seas. The Olympic got wrecked before the Titanic did, but it was the only one to survive and maintain a successful career of 24 years. The Titanic was the first to sink after famously hitting a huge iceberg in 1912. Following this disaster, the Britannic hit a naval mine in 1916 and subsequently sank as well.",
+        "Each ship was coal-powered by several boilers constantly kept running by exhausted crews below deck. Most recognizable of the ship designs are the ship's smoke stacks, but the fourth stack was actually just artistic in nature and served no functional purpose. While two of these ships sank, they were all designed with double hulls (船体) believed to make them \"unsinkable\", perhaps a mistaken idea that led to the Titanic's and the Britannic's tragic end.",
+        "The Olympic suffered two crashes with other ships and went on to serve as a hospital ship and troop transport in World War I. Eventually, she was taken out of service in 1935, ending the era of the luxurious Olympic class ocean liners."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the passage say about the three Olympic class ships?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They performed marvellously on the sea."
+            },
+            {
+              "key": "B",
+              "text": "They could all break the ice in their way."
+            },
+            {
+              "key": "C",
+              "text": "They all experienced terrible misfortunes."
+            },
+            {
+              "key": "D",
+              "text": "They were models of modern engineering."
+            }
+          ],
+          "answer": "C",
+          "explanation": "答案:C 定位:由题干中的three Olympic class ships 定位到第一段最后一句:All in all, the Olympic class ships were marvels of sea engineering, but they seemed cursed to suffer disastrous fates. 详解:事实细节题。第一段最后一句指出,总而言之,奥林匹克级邮轮是海上工程的奇迹,但他们似乎注定要 遭受灾难性的命运。由此可知,三艘奥林匹克级邮轮都遭受了可怕的灾难,故答案为C。 点睛:A)“它们在海上表现非凡”,本选项是对定位句中的marvels 所设的干扰项,定位句指出,奥林匹克级邮 轮是海上工程的奇迹,但似乎注定要遭受灾难性的命运,由此可知它们的表现并不好,故排除;B)“它们都可以撞 碎前进道路上的冰”,本文第三段倒数第二句指出,1912 年,泰坦尼克号撞上了一座巨大的冰山,成为第一艘沉没 的奥林匹克级邮轮,由此可知,它们并非不怕冰山,故排除;D)“它们曾是现代工程的典范”,文章第一段最后一 句指出,奥林匹克级邮轮是海上工程的奇迹,而非现代工程的典范,故排除。"
+        },
+        {
+          "number": 52,
+          "stem": "What did White Star Line have in mind when it purchased the three ships?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Their capacity of sailing across all waters."
+            },
+            {
+              "key": "B",
+              "text": "The utmost comfort passengers could enjoy."
+            },
+            {
+              "key": "C",
+              "text": "Their ability to survive disasters of any kind."
+            },
+            {
+              "key": "D",
+              "text": "The long voyages they were able to undertake."
+            }
+          ],
+          "answer": "B",
+          "explanation": "答案:B 定位:由题干中的White Star Line 和purchased 定位到第二段第二句:The ships had nine decks, and White Star Line decided to focus on making them the most luxurious ships on the water. 详解:事实细节题。文章第二段第二句指出,白星航运公司决定把重点放在将它们打造成水上最豪华的船只。 由此可知,白星航运公司在购买这三艘邮轮时,想让顾客体验到最舒适的享受,故答案为B。 点睛:A)“它们可在各种水域中行驶的能力”,C)“它们可以抵御各种灾难的能力”和D)“它们可以进行长途 航行”,原文均未提及,故排除。"
+        },
+        {
+          "number": 53,
+          "stem": "What is said about the fourth stack of the ships?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It was a mere piece of decoration."
+            },
+            {
+              "key": "B",
+              "text": "It was the work of a famous artist."
+            },
+            {
+              "key": "C",
+              "text": "It was designed to let out extra smoke."
+            },
+            {
+              "key": "D",
+              "text": "It was easily identifiable from afar."
+            }
+          ],
+          "answer": "A",
+          "explanation": "答案:A 定位:由题干中的the fourth stack of the ships 定位到第四段第二句:Most recognizable of the ship designs are the ship's smoke stacks, but the fourth stack was actually just artistic in nature and served no functional purpose. 详解:事实细节题。第四段第二句提到,最容易辨认的船型设计是船上的烟囱,但实际上第四个烟囱本质上只 具有艺术价值,没有任何实际功能。由此可知,第四个烟囱只是一个装饰品,故答案为A。 点睛:D)“它是一名著名艺术家的作品”,原文并未提及,故排除;C)“该设计旨在排出额外的烟”,定位句 指出,该设计没有任何实际功能,本选项与原文表述不一致,故排除;D)“从远处就可以很容易地辨认出它来”, 原文并未提及,故排除。"
+        },
+        {
+          "number": 54,
+          "stem": "What might have led to the tragic end of the Titanic and the Britannic?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Their unscientific designs."
+            },
+            {
+              "key": "B",
+              "text": "Their captains' misjudgment."
+            },
+            {
+              "key": "C",
+              "text": "The assumption that they were built with the latest technology."
+            },
+            {
+              "key": "D",
+              "text": "The belief that they could never sink with a double-layer body."
+            }
+          ],
+          "answer": "D",
+          "explanation": "答案:D 定位:由题干中的the tragic end of the Titanic and the Britannic 定位到第四段第三句:While two of these ships sank, they were all designed with double hulls (船体) believed to make them \"unsinkable\", perhaps a mistaken idea that led to the Titanic's and the Britannic's tragic end. 详解:事实细节题。第四段第三句指出,这两艘轮船都是双船体设计,据说这种设计可令船只“永不沉没”, 也许正是这个错误的想法导致了泰坦尼克号和不列颠号的悲剧结局。由此可知,泰坦尼克号和不列颠号的悲剧有可 能是因为“双船体设计”可以令船永不沉没的想法,故答案为D。 点睛:A)“它们的设计不科学”和B)“船长判断失误”,原文并未提及,故排除;C)“它们是用最新的技术建 造而成的假象”与定位句表述不一致,故排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What happened to the ship Olympic in the end?",
+          "options": [
+            {
+              "key": "A",
+              "text": "She was used to carry troops."
+            },
+            {
+              "key": "B",
+              "text": "She was sunk in World War I."
+            },
+            {
+              "key": "C",
+              "text": "She was converted into a hospital ship."
+            },
+            {
+              "key": "D",
+              "text": "She was retired after her naval service."
+            }
+          ],
+          "answer": "D",
+          "explanation": "答案:D 定位:由题干中的the ship Olympic in the end 定位到文章最后一段最后一句:Eventually, she was taken out of service in 1935, ending the era of the luxurious Olympic class ocean liners. 详解:事实细节题。最后一段最后一句提到,奥林匹克号最终于1935 年退役,结束了豪华的奥林匹克级远洋客 轮时代。由此可知,奥林匹克号在海军服役后,于1935 年退役了,故答案为D。 点睛:A)“它被用来运输军队”,这是奥林匹克号之前的用途,并非最终结局,故排除;B)“它在第一次世界 大战中沉没了”,文章最后一段第一句指出,在第一次世界大战中,奥林匹克号与其他船只发生了两次碰撞,但并 没有沉没,故排除;C)“它被改成了一艘医用船”,文章最后一段第一句指出,奥林匹克号曾负责医疗和军队的运 输,这是奥林匹克号之前的用途,并非最终结局,故排除。"
+        }
+      ]
+    }
+  ]
+}

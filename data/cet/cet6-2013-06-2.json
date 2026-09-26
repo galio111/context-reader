@@ -1,0 +1,1729 @@
+{
+  "id": "cet6-2013-06-2",
+  "level": 6,
+  "year": 2013,
+  "month": 6,
+  "set": 2,
+  "title": "2013 年 6 月六级 · 第 2 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2013.06/%E7%9C%9F%E9%A2%98Word/2013%E5%B9%B46%E6%9C%88%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%EF%BC%88%E4%BA%8C%EF%BC%89.doc",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2013.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2013%E5%B9%B46%E6%9C%88%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A5%97%EF%BC%89.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2013-06-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Proper street behaviour in the United States requires a nice balance of attention and inattention. You are supposed to look at a passerby just enough to show that you are aware of his [[36]] If you look too little, you appear haughty(目中无人的), too much and you are inquisitive(过分好奇地).Usually what happens is that people eye each other until they are about eight feet apart, at which point both cast down their eyes. Sociologist Erving Goffman describes this as “a kind of [[37]] of lights”. Much of eye behaviour is so [[38]] that we react to it only on the intuitive level. The next time you have a conversation with someone who makes you feel liked, notice what he does with his eyes. Chances are he looks at you more often than is usual with [[39]] a little longer than the normal. You [[40]] this as a sign — a polite one — that he is interested in you as a person rather than just in the topic of conversation. Probably you also feel that he is both self-confident and sincere. All this has been demonstrated in [[41]] experiments. Subjects sit and talk in the psychologist’s laboratory, [[42]] of the fact that their eye behaviour is being observed from a one way vision screen. In one fairly typical experiment, subjects were [[43]] to cheat while performing a task, then were interviewed and observed. It was found that those who had cheated met the interviewer’s eyes less often than was [[44]] , an indication that “shifty eyes” — to use the mystery writers’ stock phrase — can [[45]] be a tip-off(表明)to an attempt to deceive or to feelings of guilt."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "innocent"
+        },
+        {
+          "key": "B",
+          "text": "interpret"
+        },
+        {
+          "key": "C",
+          "text": "sights"
+        },
+        {
+          "key": "D",
+          "text": "dimming"
+        },
+        {
+          "key": "E",
+          "text": "normal"
+        },
+        {
+          "key": "F",
+          "text": "deceived"
+        },
+        {
+          "key": "G",
+          "text": "glances"
+        },
+        {
+          "key": "H",
+          "text": "obscure"
+        },
+        {
+          "key": "I",
+          "text": "actually"
+        },
+        {
+          "key": "J",
+          "text": "subtle"
+        },
+        {
+          "key": "K",
+          "text": "induced"
+        },
+        {
+          "key": "L",
+          "text": "hiding"
+        },
+        {
+          "key": "M",
+          "text": "presence"
+        },
+        {
+          "key": "N",
+          "text": "doubtfully"
+        },
+        {
+          "key": "O",
+          "text": "elaborate"
+        }
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "第 36 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "innocent"
+            },
+            {
+              "key": "B",
+              "text": "interpret"
+            },
+            {
+              "key": "C",
+              "text": "sights"
+            },
+            {
+              "key": "D",
+              "text": "dimming"
+            },
+            {
+              "key": "E",
+              "text": "normal"
+            },
+            {
+              "key": "F",
+              "text": "deceived"
+            },
+            {
+              "key": "G",
+              "text": "glances"
+            },
+            {
+              "key": "H",
+              "text": "obscure"
+            },
+            {
+              "key": "I",
+              "text": "actually"
+            },
+            {
+              "key": "J",
+              "text": "subtle"
+            },
+            {
+              "key": "K",
+              "text": "induced"
+            },
+            {
+              "key": "L",
+              "text": "hiding"
+            },
+            {
+              "key": "M",
+              "text": "presence"
+            },
+            {
+              "key": "N",
+              "text": "doubtfully"
+            },
+            {
+              "key": "O",
+              "text": "elaborate"
+            }
+          ],
+          "answer": "M",
+          "explanation": "M)。空前的his 表明,本空应填名词,C) sights,G) glances,M) presence 入选。上一句提到,得体的 路遇行为要求在注意与不注意之间保持平衡。对于路人,你应该是只要表明你注意到他的存在就够了,故 答案为M) presence (存在)。"
+        },
+        {
+          "number": 37,
+          "stem": "第 37 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "innocent"
+            },
+            {
+              "key": "B",
+              "text": "interpret"
+            },
+            {
+              "key": "C",
+              "text": "sights"
+            },
+            {
+              "key": "D",
+              "text": "dimming"
+            },
+            {
+              "key": "E",
+              "text": "normal"
+            },
+            {
+              "key": "F",
+              "text": "deceived"
+            },
+            {
+              "key": "G",
+              "text": "glances"
+            },
+            {
+              "key": "H",
+              "text": "obscure"
+            },
+            {
+              "key": "I",
+              "text": "actually"
+            },
+            {
+              "key": "J",
+              "text": "subtle"
+            },
+            {
+              "key": "K",
+              "text": "induced"
+            },
+            {
+              "key": "L",
+              "text": "hiding"
+            },
+            {
+              "key": "M",
+              "text": "presence"
+            },
+            {
+              "key": "N",
+              "text": "doubtfully"
+            },
+            {
+              "key": "O",
+              "text": "elaborate"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。空前后的两个of 表明,本空应填名词或动名词,C) sights,D) dimming, G) glances, L) hiding 入选。 本句中的this 指的是土一句提到的both cast down their eyes (双方都会垂下眼帘),由此可以推知,这是一种 暗淡的光,故答案为D) dimming (暗淡)。"
+        },
+        {
+          "number": 38,
+          "stem": "第 38 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "innocent"
+            },
+            {
+              "key": "B",
+              "text": "interpret"
+            },
+            {
+              "key": "C",
+              "text": "sights"
+            },
+            {
+              "key": "D",
+              "text": "dimming"
+            },
+            {
+              "key": "E",
+              "text": "normal"
+            },
+            {
+              "key": "F",
+              "text": "deceived"
+            },
+            {
+              "key": "G",
+              "text": "glances"
+            },
+            {
+              "key": "H",
+              "text": "obscure"
+            },
+            {
+              "key": "I",
+              "text": "actually"
+            },
+            {
+              "key": "J",
+              "text": "subtle"
+            },
+            {
+              "key": "K",
+              "text": "induced"
+            },
+            {
+              "key": "L",
+              "text": "hiding"
+            },
+            {
+              "key": "M",
+              "text": "presence"
+            },
+            {
+              "key": "N",
+              "text": "doubtfully"
+            },
+            {
+              "key": "O",
+              "text": "elaborate"
+            }
+          ],
+          "answer": "J",
+          "explanation": "J)。空前的is so 表明,本空应填形容词,A) innocent,E) normal,H) obscure, J) subtle, 0) elaborate 入选。 从空后的that 从句(我们只是在直觉上对其做出反应)可以推知,眼睛的许多动作应该是非常微妙的,本 句用so... that...(如此...以至于...)来强调眼睛动作的微妙,故答案为J) subtle (微妙的)。"
+        },
+        {
+          "number": 39,
+          "stem": "第 39 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "innocent"
+            },
+            {
+              "key": "B",
+              "text": "interpret"
+            },
+            {
+              "key": "C",
+              "text": "sights"
+            },
+            {
+              "key": "D",
+              "text": "dimming"
+            },
+            {
+              "key": "E",
+              "text": "normal"
+            },
+            {
+              "key": "F",
+              "text": "deceived"
+            },
+            {
+              "key": "G",
+              "text": "glances"
+            },
+            {
+              "key": "H",
+              "text": "obscure"
+            },
+            {
+              "key": "I",
+              "text": "actually"
+            },
+            {
+              "key": "J",
+              "text": "subtle"
+            },
+            {
+              "key": "K",
+              "text": "induced"
+            },
+            {
+              "key": "L",
+              "text": "hiding"
+            },
+            {
+              "key": "M",
+              "text": "presence"
+            },
+            {
+              "key": "N",
+              "text": "doubtfully"
+            },
+            {
+              "key": "O",
+              "text": "elaborate"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G)。空前的with 表明,本空应填名词,C) sights, G) glances 入选。本句的前半句提到,他看(looks at) 你的次数很可能比平时多,那么后面应该是,扫视你的时间也比正常时间要长,故答案为G) glances (—瞥, 扫视)。Chances are that...意为“很可能...”。"
+        },
+        {
+          "number": 40,
+          "stem": "第 40 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "innocent"
+            },
+            {
+              "key": "B",
+              "text": "interpret"
+            },
+            {
+              "key": "C",
+              "text": "sights"
+            },
+            {
+              "key": "D",
+              "text": "dimming"
+            },
+            {
+              "key": "E",
+              "text": "normal"
+            },
+            {
+              "key": "F",
+              "text": "deceived"
+            },
+            {
+              "key": "G",
+              "text": "glances"
+            },
+            {
+              "key": "H",
+              "text": "obscure"
+            },
+            {
+              "key": "I",
+              "text": "actually"
+            },
+            {
+              "key": "J",
+              "text": "subtle"
+            },
+            {
+              "key": "K",
+              "text": "induced"
+            },
+            {
+              "key": "L",
+              "text": "hiding"
+            },
+            {
+              "key": "M",
+              "text": "presence"
+            },
+            {
+              "key": "N",
+              "text": "doubtfully"
+            },
+            {
+              "key": "O",
+              "text": "elaborate"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。空前的You 表明,本空应填动词原形,B) interpret 入选。本句中的this 指的是上句提到的他看你 的次数很可能比平时多,扫视你的时间也比正常时间要长这一行为,因此,你可以把这理解成一种信号, interpret 指理解比较难懂的文字、意义等抽象的东西,interpret sth as sth 为固定搭配,故答案为B) interpret。"
+        },
+        {
+          "number": 41,
+          "stem": "第 41 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "innocent"
+            },
+            {
+              "key": "B",
+              "text": "interpret"
+            },
+            {
+              "key": "C",
+              "text": "sights"
+            },
+            {
+              "key": "D",
+              "text": "dimming"
+            },
+            {
+              "key": "E",
+              "text": "normal"
+            },
+            {
+              "key": "F",
+              "text": "deceived"
+            },
+            {
+              "key": "G",
+              "text": "glances"
+            },
+            {
+              "key": "H",
+              "text": "obscure"
+            },
+            {
+              "key": "I",
+              "text": "actually"
+            },
+            {
+              "key": "J",
+              "text": "subtle"
+            },
+            {
+              "key": "K",
+              "text": "induced"
+            },
+            {
+              "key": "L",
+              "text": "hiding"
+            },
+            {
+              "key": "M",
+              "text": "presence"
+            },
+            {
+              "key": "N",
+              "text": "doubtfully"
+            },
+            {
+              "key": "O",
+              "text": "elaborate"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O)。空后的experiments 表明,本空应填形容词,A) innocent,E) normal, H) obscure, 0) elaborate 入选。 从本句后面的内容如in the psychologist’s laboratory,one way vision screen 等可知,这些实验是精心设计的, 故答案为O) elaborate (精心计划的)。"
+        },
+        {
+          "number": 42,
+          "stem": "第 42 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "innocent"
+            },
+            {
+              "key": "B",
+              "text": "interpret"
+            },
+            {
+              "key": "C",
+              "text": "sights"
+            },
+            {
+              "key": "D",
+              "text": "dimming"
+            },
+            {
+              "key": "E",
+              "text": "normal"
+            },
+            {
+              "key": "F",
+              "text": "deceived"
+            },
+            {
+              "key": "G",
+              "text": "glances"
+            },
+            {
+              "key": "H",
+              "text": "obscure"
+            },
+            {
+              "key": "I",
+              "text": "actually"
+            },
+            {
+              "key": "J",
+              "text": "subtle"
+            },
+            {
+              "key": "K",
+              "text": "induced"
+            },
+            {
+              "key": "L",
+              "text": "hiding"
+            },
+            {
+              "key": "M",
+              "text": "presence"
+            },
+            {
+              "key": "N",
+              "text": "doubtfully"
+            },
+            {
+              "key": "O",
+              "text": "elaborate"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。分析句子结构可知,空之后的句子作伴随状语,又因为空处与of 连用,本空应填形容词,A) innocent, H) obscure 入选。既然实验是精心设计的(elaborate),实验过程中,实验对象往往是在不知情的情况下被 观察。innocent of 为固定搭配,意为“对某些特定的事物毫无了解的;无知的”,故答案为A) innocent (无 知的)。"
+        },
+        {
+          "number": 43,
+          "stem": "第 43 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "innocent"
+            },
+            {
+              "key": "B",
+              "text": "interpret"
+            },
+            {
+              "key": "C",
+              "text": "sights"
+            },
+            {
+              "key": "D",
+              "text": "dimming"
+            },
+            {
+              "key": "E",
+              "text": "normal"
+            },
+            {
+              "key": "F",
+              "text": "deceived"
+            },
+            {
+              "key": "G",
+              "text": "glances"
+            },
+            {
+              "key": "H",
+              "text": "obscure"
+            },
+            {
+              "key": "I",
+              "text": "actually"
+            },
+            {
+              "key": "J",
+              "text": "subtle"
+            },
+            {
+              "key": "K",
+              "text": "induced"
+            },
+            {
+              "key": "L",
+              "text": "hiding"
+            },
+            {
+              "key": "M",
+              "text": "presence"
+            },
+            {
+              "key": "N",
+              "text": "doubtfully"
+            },
+            {
+              "key": "O",
+              "text": "elaborate"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K)。空前的were 和空后的to 表明,本空应填过去分词形式的动词,F) deceived, K) induced 入选。既 然实验是精心设计的(elaborate),实验人往往会诱导实验对象按照自己设计好的方案进行实验,故实验对象 应该是被引诱进行欺骗。K) induced (引诱)常用于induce sb to do sth,意为“引诱某人做某事”,符合此 处语义,故为答案。deceive 常用于deceive sb into doing sth,意为“欺骗某人(去做某事)”,故从用法上 可排除F) deceived。"
+        },
+        {
+          "number": 44,
+          "stem": "第 44 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "innocent"
+            },
+            {
+              "key": "B",
+              "text": "interpret"
+            },
+            {
+              "key": "C",
+              "text": "sights"
+            },
+            {
+              "key": "D",
+              "text": "dimming"
+            },
+            {
+              "key": "E",
+              "text": "normal"
+            },
+            {
+              "key": "F",
+              "text": "deceived"
+            },
+            {
+              "key": "G",
+              "text": "glances"
+            },
+            {
+              "key": "H",
+              "text": "obscure"
+            },
+            {
+              "key": "I",
+              "text": "actually"
+            },
+            {
+              "key": "J",
+              "text": "subtle"
+            },
+            {
+              "key": "K",
+              "text": "induced"
+            },
+            {
+              "key": "L",
+              "text": "hiding"
+            },
+            {
+              "key": "M",
+              "text": "presence"
+            },
+            {
+              "key": "N",
+              "text": "doubtfully"
+            },
+            {
+              "key": "O",
+              "text": "elaborate"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E)。空前was 表明,本空应填形容词,E) normal, H) obscure 入选。本实验结果都是与正常情况作比较, 上段第三句中的a little longer than the normal 有很强的提示作用,故答案为E) normal (正常的)。"
+        },
+        {
+          "number": 45,
+          "stem": "第 45 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "innocent"
+            },
+            {
+              "key": "B",
+              "text": "interpret"
+            },
+            {
+              "key": "C",
+              "text": "sights"
+            },
+            {
+              "key": "D",
+              "text": "dimming"
+            },
+            {
+              "key": "E",
+              "text": "normal"
+            },
+            {
+              "key": "F",
+              "text": "deceived"
+            },
+            {
+              "key": "G",
+              "text": "glances"
+            },
+            {
+              "key": "H",
+              "text": "obscure"
+            },
+            {
+              "key": "I",
+              "text": "actually"
+            },
+            {
+              "key": "J",
+              "text": "subtle"
+            },
+            {
+              "key": "K",
+              "text": "induced"
+            },
+            {
+              "key": "L",
+              "text": "hiding"
+            },
+            {
+              "key": "M",
+              "text": "presence"
+            },
+            {
+              "key": "N",
+              "text": "doubtfully"
+            },
+            {
+              "key": "O",
+              "text": "elaborate"
+            }
+          ],
+          "answer": "I",
+          "explanation": "I)。空前的can 和空后的be 表明,本空应填副词,I)actually, N)doubtfally 入选。空前面提到的“躲躲 闪闪的目光”应该是能够透露出一个人想要欺骗的企图和内疚感,空处的副词加强了肯定的语气,I) actually (实际上)符合此处语义故为答案。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2013-06-2-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) The scene inside the Home Depot on Weyman Avenue here would give the old-time American craftsman pause. In Aisle 34 is precut plastic flooring, the glue already in place. In Aisle 26 are prefabricated windows. Stacked near the checkout counters, and as colourful as a Fisher-Price toy, is a not-so-serious-looking power tool: a battery-operated saw-and-drill combination. And if you don’t want to do it yourself, head to Aisle 23 or Aisle 35, where a help desk will arrange for an installer.",
+        "B) It’s all very handy stuff, I guess, a convenient way to be a do-it-yourselfer without being all that good with tools. But at a time when the American factory seems to be a shrinking presence, and when good manufacturing jobs have vanished, perhaps never to return, there is something deeply troubling about this dilution of American craftsmanship.",
+        "C) This isn’t a lament(伤感) — or not merely a lament — for bygone times. It’s a social and cultural issue, as well as an economic one. The Home Depot approach to craftsmanship — simplify it, dumb it down, hire a contractor— is one signal that mastering tools and working with one’s hands is receding in America as a hobby, as a valued skill, as a cultural influence that shaped thinking and behaviour in vast sections of the country.",
+        "D) That should be a matter of concern in a presidential election year. Yet neither Barack Obama nor Mitt Romney promotes himself as tool-savvy(使用工具很在行的)presidential timber, in the mold of a Jimmy Carter, a skilled carpenter and cabinet maker. The Obama administration does worry publicly about manufacturing, a first cousin of craftsmanship. When the Ford Motor Company, for example, recently announced that it was bringing some production home, the White House cheered. “When you see things like Ford moving new production from Mexico to Detroit, instead of the other way around, you know things are changing,” says Gene Sperling, director of the National Economic Council.",
+        "E) Ask the administration or the Republicans or most academics why America needs more manufacturing, and they respond that manufacturing gives birth to innovation, brings down the trade deficit, strengthens the dollar, generates jobs, arms the military and brings about a recovery from recession. But rarely, if ever, do they publicly take the argument a step further, asserting that a growing manufacturing sector encourages craftsmanship and that craftsmanship is, if not a birthright, then a vital ingredient of the American self-image as a can-do, inventive, we-can-make-anything people.",
+        "F) Traditional vocational training in public high schools is gradually declining, stranding thousands of young people who seek training for a craft without going to college. Colleges, for their part, have since 1985 graduated fewer chemical, mechanical, industrial and metallurgical(冶金的)engineers, partly in response to the reduced role of manufacturing, a big employer of them. The decline started in the 1950s, when manufacturing generated a sturdy 28% of the national income, or gross domestic product, and employed one-third of the workforce. Today, factory output generates just 12% of GDP and employs barely 9% of the nation’s workers.",
+        "G) Mass layoffs and plant closings have drawn plenty of headlines and public debate over the years, and they still occasionally do. But the damage to skill and craftsmanship — what’s needed to build a complex airliner or a tractor, or for a worker to move up from assembler to machinist to supervisor — went largely unnoticed.",
+        "H) “In an earlier generation, we lost our connection to the land, and now we are losing our connection to the machinery we depend on,” says Michael Hout, a sociologist at the University of California, Berkeley. “People who work with their hands,” he went on, “are doing things today that we call service jobs, in restaurants and laundries, or in medical technology and the like.”",
+        "I) That’s one explanation for the decline in traditional craftsmanship. Lack of interest is another. The big money is in fields like finance. Starting in the 1980s, skill in finance grew in importance, and, as depicted in the news media and the movies, became a more appealing source of income. By last year, Wall Street traders, bankers and those who deal in real estate generated 21% of the national income, double their share in the 1950s. And Warren Buffett, the good-natured financier, became a homespun folk hero, without the tools and overalls (工作服).",
+        "J) “Young people grow up without developing the skills to fix things around the house,” says Richard Curtin, director of the Thomson Reuters/University of Michigan Surveys of Consumers. “They know about computers, of course, but they don’t know how to build them.”",
+        "K) Manufacturing’s shrinking presence undoubtedly helps explain the decline in craftsmanship, if only because many of the nation’s assembly line workers were skilled in craft work, if not on the job then in their spare time. In a late 1990s study of blue-collar employees at a General Motors plant (now closed) in Linden, NJ, the sociologist Ruth Milkman of City University of New York found that many line workers, in their off-hours, did home renovation and other skilled work. “I have often thought,” Ms Milkman says, “that these extracurricular jobs were an effort on the part of the workers to regain their dignity after suffering the degradation of repetitive assembly line work in the factory.”",
+        "L) Craft work has higher status in nations like Germany, which invests in apprenticeship(学徒)programmes for high school students. “Corporations in Germany realised that there was an interest to be served economically and patriotically in building up a skilled labour force at home; we never had that ethos(风气),”says Richard Sennett, a New York University sociologist who has written about the connection of craft and culture.",
+        "M) The damage to American craftsmanship seems to parallel the steep slide in manufacturing employment. Though the decline started in the 1970s, it became much steeper beginning in 2000. Since then, some 5.3 million jobs, or one-third of the workforce in manufacturing, have been lost. A stated goal of the Obama administration is to restore a big chunk of this employment, along with the multitude of skills that many of the jobs required.",
+        "N) As for craftsmanship itself, the issue is how to preserve it as a valued skill in the general population. Ms Milkman, the sociologist, argues that American craftsmanship isn’t disappearing as quickly as some would argue — that it has instead shifted to immigrants. “Pride in craft, it is alive in the immigrant world,” she says.",
+        "O) Sol Axelrod, 37, the manager of the Home Depot here, fittingly learned to fix his own car as a teenager, even changing the brakes. Now he finds immigrant craftsmen. gathered in abundance outside his store in the early morning, waiting for it to open so they can buy supplies for the day’s work as contractors. Skilled day laborers, also mostly immigrants, wait quietly in hopes of being hired by the contractors. Mr Axelrod also says the recession and persistently high unemployment have forced many people to try to save money by doing more themselves, and Home Depot in response offers classes in fixing water taps and other simple repairs. The teachers are store employees, many of them older and semi-retired from a skilled trade, or laid off. “Our customers may not be building cabinets or outdoor decks; we try to do that for them,’’ Mr Axelrod says, “but some are trying to build up skill so they can do more for themselves in these hard times.”"
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "Mastering tools and working with one’s hands shapes people’s thinking and behaviour.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】根据题目中的mastering tools and working.with one’s hands 及thinking and behaviour 可以将本题 出处定位于[C]段末句。 【精析】[C]。[C]段末句提到,家得宝对手工技术的态度—将其简化,傻瓜化,雇用承包人__________ 标 志着在美国,精通工具和自己动手作为一种爱好、一项值得珍惜的技能、一种塑造思维和行为(shapes thinking and behavior)的文化力量,正日益退化由此可知,作者认为精通工具和手工是一种文化力量,能塑 造思维和行为。本题是对原文信息的再现。"
+        },
+        {
+          "number": 47,
+          "stem": "The factor that people can earn more money in fields other than manufacturing contributes to the decline in traditional craftsmanship.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【定位】根据题目中的money in fields 及the decline in traditional craftsmanship 可以将本题出处定位于[I] 段第1-3 句。 【精析】[I]。[I]段第1 句提到,这(指代前一句说的“那些靠手工吃饭的人们现在做着......服务性工作”) 是传统手工技术衰落的原因之一。第2 句接着说,缺乏兴趣是另一个原因。第3 句进一步解释说:金融这 样的领域才能挣大钱。由此可知,制造业不挣钱,人们都转到其他挣钱的领咸去工这也是传统手工技术衰 落的原因之一。故本题正是对原文的概括。"
+        },
+        {
+          "number": 48,
+          "stem": "According to the author, manufacturing encourages craftsmanship.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【定位】根据题目中的manufacturing 及encourages craftsmanship 可以将本题出处定位于[E]段末句。 【精析】[E]。[E]段首句先讲述了美国政府、共和党和学者对制造业的看法。第2 句作者用But 转折指出, 这些人认识中的不足,其中提到:这些人很少会认为制造业的增长有利于手工技术的发展(a growing manufacturing sector encourage scraftsmanship)。由此可知,在作者看来,制造业有利于手工技术的发展,故 本题正是由此推断得出的偉息。"
+        },
+        {
+          "number": 49,
+          "stem": "According to Ruth Milkman, American craftsmanship, instead of disappearing, is being taken up by immigrants.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【定位】根据题目中的milkman, American craftsmanship, instead 及immigrants 可以将本题出处定位于[N] 段第2 句。 【精析】[N]。[N]段第2 句提到,社会学家米尔克曼女士认为,美国手工技术的消失并没有像一些人所说 的那么快——而是转移到了移民手上。由此可知,按照鲁思•米尔克曼的说法,美国的手工技术并没有消失, 而是变成由移民来做。题中的is being taken up by 对应原文中的has... shifted to。"
+        },
+        {
+          "number": 50,
+          "stem": "The White House welcomed Ford’s announcement to bring some production back to America.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】根据题目中的the White House, Ford’s announcement 及bring some production 可以将本题出处 定位于[D]段倒数第2 句。 【精析】[D]。[D]段倒数第2 句提到,最近,当福特汽车公司宣布要将部分生产转移回本土的时候,白宫 上下一片欢声(theWhiteHousecheered)。由此可知,白宫对福特公司的决定表示欢迎。题中的bring some production back to America 与文中的bringing some production home 同义;welcomed 对应cheered。"
+        },
+        {
+          "number": 51,
+          "stem": "According to Mr Axelrod of Home Depot, people are trying to ride out the recession by doing more themselves.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "O",
+          "explanation": "【定位】根据题目中的Mr Axelrod, trying to, the recession 及by doing more themselves 可以将本题出处 定位于[O]段第4 句。 【精析】[O]。[O]段第4 句提到,阿克塞尔罗德先生还认为,经济衰退和持续居高不下的失业率迫使许多 人努力通过自己干更多的活以节约钱。由此可知,按照阿克塞尔罗德先生的说法,许多人正努力通过自己 干更多的活来度过经济衰退期。故本题正是对[O]段第4 句的合理推断。"
+        },
+        {
+          "number": 52,
+          "stem": "America’s manufacturing in the 1950s constituted 28% of the gross domestic product.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【定位】根据题目中的manufacturing, in the 1950s, 28%及the gross domestic product 可以将本题出处定 位于[F]段倒数第2 句。 【精析】[F]。[F]段倒数第2 句提到,这种重要性的下降(指制造业)始于20 世纪50 年代,当时,制造业 足足创造了国民收入或国内生产总值(GDP)的28%,雇用了全国三分之一的劳动力。由此可知,在20 世纪 50 年代,制造业产值占了国内生产总值的28%,故本题正是对这一信息的转述。题中的constituted 与原文 中的generated 同义。"
+        },
+        {
+          "number": 53,
+          "stem": "In Ruth Milkman’s opinion, many assembly line workers did home renovation and other skilled work in their off-hours in order to regain their dignity.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "K",
+          "explanation": "根据题目中的Ruth Milkman, line workers,did home renovation and other skilled work,in their off- hours 及regain their dignity 可以将本题出处定位于[K]段最后两句。 【精析】[K]。[K]段第2 句提到,鲁思•米尔克曼发现,许多流水线工人下班后都会做一些房子翻新或其他 手工技术活(home renovation and other skilled work in their off-hours )。紧接着第3 句引用鲁思•米尔克曼的 原话“我常想,就工人而言...这些工作之余的手工活(these extracurricular j obs )是他们在努力重拾自尊。” these extracurricular jobs 指的是第2 句中的home renovation...off-hours,由此可知,鲁思•米尔克曼认为许多 流水线工人下班后做一些房子翻新或其他手工技术活是为了重拾自尊。故本题正是对原文信息的概括。"
+        },
+        {
+          "number": 54,
+          "stem": "The author felt troubled about the weakening of American craftsmanship.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】根据题目中的troubled about 及American craftsmanship 可以将本题出处定位于[B]段末句。 【精析】[B]。[B]段第2 句通过but 转折指出,在美国的工厂越来越少、好的制造业岗位已经消失的情况下 (at a time when...,and when...),美国手工技术的削弱(this dilution of American craftsman)让人深感担忧 (deeply troubling about ),其中this dilution of American craftsman 指的是文章开头提到的家得宝商店里那些 便捷的工具和材料对手工技术的简化、削弱。题中的weakening 对应原文中的dilution。"
+        },
+        {
+          "number": 55,
+          "stem": "Compared with that in America, the status of craft work in Germany is higher.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【定位】根据题目中的status,craft work, Germany 及higher 可以将本题出处定位于[L]段首句。 【精析】[L]。[L]段首句提到,手工工作在德国这样的国家拥有较高的地位。由此可知,相比美国,德国的 手工工作的地位较高,故本题正是对[L]段首句的同义转述。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2013-06-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "The report from the Bureau of Labour Statistics was just as gloomy as anticipated. Unemployment in January jumped to a 16-year high of 7.6 percent, as 598,000 jobs were slashed from U.S. payrolls in the worst single-month decline since December, 1974. With 1.8 million jobs lost in the last three months, there is urgent desire to boost the economy as quickly as possible. But Washington would do well to take a deep breath before reacting to the grim numbers. Collectively, we rely on the unemployment figures and other statistics to frame our sense of reality. They are a vital part of an array of data that we use to assess if we’re doing well or doing badly, and that in turn shapes government policies and corporate budgets and personal spending decisions. The problem is that the statistics aren’t an objective measure of reality; they are simply a best approximation. Directionally, they capture the trends, but the idea that we know precisely how many are unemployed is a myth. That makes finding a solution all the more difficult. First, there is the way the data is assembled. The official unemployment rate is the product of a telephone survey of about 60,000 homes. There is another survey, sometimes referred to as the “payroll survey”, that assesses 400,000 businesses based on their reported payrolls. Both surveys have problems. The payroll survey can easily double-count someone: if you are one person with two jobs, you show up as two workers. The payroll survey also doesn’t capture the number of self- employed, and so says little about how many people are generating an independent income. The household survey has a larger problem. When asked straightforwardly, people tend to lie or shade the truth when the subject is sex, money or employment. If you get a call and are asked if you’re employed, and you say yes, you’re employed. If you say no, however, it may surprise you to learn that you are only unemployed if you’ve been actively looking for work in the past four weeks; otherwise, you are “marginally attached to the labour force” and not actually unemployed. The urge to quantify is embedded in our society. But the idea that statisticians can then capture an objective reality isn’t just impossible. It also leads to serious misjudgments. Democrats and Republicans can and will take sides on a number of issues, but a more crucial concern is that both are basing major policy decisions on guesstimates rather than looking at the vast wealth of raw data with a critical eye and an open mind."
+      ],
+      "questions": [
+        {
+          "number": 56,
+          "stem": "What do we learn from the first paragraph?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The US economic situation is going from bad to worse."
+            },
+            {
+              "key": "B",
+              "text": "Washington is taking drastic measures to provide more jobs."
+            },
+            {
+              "key": "C",
+              "text": "The US government is slashing more jobs from its payrolls."
+            },
+            {
+              "key": "D",
+              "text": "The recent economic crisis has taken the US by surprise."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】根据题干中的first paragraph 可以将本题出处定位于首段。 【精析】A)。首段提到,1 月失业率增至16 年来新高,打破了1974 年12 月以来的单月最差纪录。仅仅在 过去的3 个月里,就有180 万人失业。由there is urgent desire... as possible 可知,失业人数的增加实际反映 的是经济形势的恶化,故答案为A 项。首段末句虽然提到了华盛顿方面将会应对激增的失业人口数量,但 没看提到其“正表采取强力措施(is taking drastic measures) ”,故排除B 项。工作数量的减少不是美国政 府所为,相反,政府为缓解经济颓势,应该为人民创造更多就业机会,故C 项可以排除。D 项是与首段首 句...as gloomy as anticipated (跟人们預期的一样糟糕)矛盾,说明美国政府并未感到措手不及,故排除D 项。"
+        },
+        {
+          "number": 57,
+          "stem": "What does the author think of the unemployment figures and other statistics?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They form a solid basis for policy making."
+            },
+            {
+              "key": "B",
+              "text": "They represent the current situation."
+            },
+            {
+              "key": "C",
+              "text": "They signal future economic trends."
+            },
+            {
+              "key": "D",
+              "text": "They do not fully reflect the reality."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】根据题干中的unemployment figures and other statistics 可以将本题出处定位于第2 段。 【精析】D)。第2 段先对unemployment figures and other statistics 的一般用途作了介绍,继而转折提出用 这些数据来反映现实存在的问题——数据不能客观衡量现实情况,不可能准确反映失业人数的精确数字。 D 项中fully 对应原文的precisely; reflect the reality 对应原文的objective measure of reality,故答案为D 项。 文中提到unemployment figures and other statistics 只是我们用来感知、评估现实状况的众多数据中的重要一 环,而我们对现实的评估反过来会影响政府政策、公司预算等决策。A 项将unemployment figures and other statistics 说成“政策制定的坚实基础”,显然与原文意思不符,故排除A 项。第2 段后半部分提到,这些 统计数据并不能客观衡量现实,故排除B 项。文中说统计数据只能在方向上描述现实中的经济动向,并不 能说明这些数据能够预示未来的经济趋势。故排除C 项。"
+        },
+        {
+          "number": 58,
+          "stem": "One problem with the payroll survey is that .",
+          "options": [
+            {
+              "key": "A",
+              "text": "it does not include all the businesses"
+            },
+            {
+              "key": "B",
+              "text": "it fails to count in the self-employed"
+            },
+            {
+              "key": "C",
+              "text": "it magnifies the number of the jobless"
+            },
+            {
+              "key": "D",
+              "text": "it does not treat all companies equally"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】据题干中的problem with the payroll survey 可以将本题出处定位于第3 段第4、5、6 句。 【精析】B)。第3 段第4 句提到,两种调查方法都有各自的缺点。接着指出工资单调查法存在两个问题:一 是很容矣将一些人记名两次(double-count someone);二是不能涵盖个体经营者(doesn’t capture the number of self-employed)。B 项项是对原文的同义转述,其中fails to count in 对应原文的doesn’t capture the number; self-employed 原词复现,故答案为B 项。A 项项属于无中生有,文中提及的payroll survey 存在的两个问题 不涉及调查是否涵盖所有行业,故A 项可排除。C 项说法错误,由于payroll survey 中不包括个体经营者, 这类人群失去工作后就不会在payroll survey 中体现出来,所以payroll survey 体现的失业人数者可能比实际 情况更少,而不是“放大”,所以C 项可以排除。D 项是对The payroll survey also doesn’t capture the number of self-employed 的错误理解,容易排除。"
+        },
+        {
+          "number": 59,
+          "stem": "The household survey can be faulty in that .",
+          "options": [
+            {
+              "key": "A",
+              "text": "people tend to lie when talking on the phone"
+            },
+            {
+              "key": "B",
+              "text": "not everybody is willing or ready to respond"
+            },
+            {
+              "key": "C",
+              "text": "some people won’t provide truthful information"
+            },
+            {
+              "key": "D",
+              "text": "the definition of unemployment is too broad"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】根据题+中的household survey 可以将本题出处定位于第4 段。 【精析】C)。第4 段首句即指出,家庭调查存在更大的问题,因为一般人们被问及性、金钱或者就业的问 题时往往会撒谎或者遮掩事实(tend to lie or shade the truth )。也就是说,有些人不会提供真实信息(won’t provide truthful information)。C 项表意与原文相符,故答案为C 项。文章第4 段说人们被问及性、金钱、 就业等问题时会撒谎或有所隐瞒,没有说人们在打电话时爱撒谎,所以排除A 项。B 项无中生有,从原文 中无从得出,可排除。D 项是对第4 段末句的错误理解,接电话人撒谎或者遮掩事实才是household survey 存在缺陷的主要原因。"
+        },
+        {
+          "number": 60,
+          "stem": "At the end of the passage, the author suggests that .",
+          "options": [
+            {
+              "key": "A",
+              "text": "statisticians improve their data assembling methods"
+            },
+            {
+              "key": "B",
+              "text": "decision makers view the statistics with a critical eye"
+            },
+            {
+              "key": "C",
+              "text": "politicians listen more before making policy decisions"
+            },
+            {
+              "key": "D",
+              "text": "Democrats and Republicans cooperate on crucial issues"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】根据题干中的at the end of the passage 可以将本题出处定位于文章结尾处。 【精析】B) 。文末提到,共和党和民主党都会基于估计猜测作出重要决策,而不是用批判的眼光(with a critical eye)和开放的思维(open mind)看待原始数据。作者用rather than 间接表明了自己对文中问题的看法, 言外之意,作者认为他们应该用批判的眼光看待统计数据,故答案为B 项。B 项中的decision makers 对应 原文的Democrats and Republicans; view the statistics 与文中的looking at the ...raw data 同义,with a critical eye 原词复现。本题考查作者的建议,末段第2 句说,靠统计学家反映客观现实的想法不仅不可能成为现实, 而且会造成严重的错误判断。可见A 项不可能是作者的建议,可排除。C 项中的listen more 和D 项中的 Democrats and Republicans cooperate 无中生有,从原文中无从得出,可以排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2013-06-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "At some point in 2008, someone, probably in either Asia or Africa, made the decision to move from the countryside to the city. This nameless person pushed the human race over a historic threshold, for it was in that year that mankind became, for the first time in its history, a predominantly urban species. It is a trend that shows no sign of slowing. Demographers(人 口统计学家)reckon that three-quarters of humanity could be city-dwelling by 2050, with most of the increase coming in the fast-growing towns of Asia and Africa. Migrants to cities are attracted by plentiful jobs, access to hospitals and education, and the ability to escape the boredom of a farmer’s agricultural life. Those factors are more than enough to make up for the squalor(肮脏 )disease and spectacular poverty that those same migrants must often at first endure when they become urban dwellers. It is the city that inspires the latest book from Peter Smith. His main thesis is that the buzz of urban life, and the opportunities it offers for cooperation and collaboration, is what attracts people to the city, which in turn makes cities into the engines of art, commerce, science and progress. This is hardly revolutionary, but it is presented in a charming format. Mr Smith has written a breezy guidebook, with a series of short chapters dedicated to specific aspects of urbanity — parks, say, or the various schemes that have been put forward over the years for building the perfect city. The result is a sort of high-quality, unusually rigorous coffee-table book, designed to be dipped into rather than read from beginning to end. In the chapter on skyscrapers, for example, Mr Smith touches on construction methods, the revolutionary invention of the automatic lift, the practicalities of living in the sky and the likelihood that, as cities become more crowded, apartment living will become the norm. But there is also time for brief diversions onto bizarre ground, such as a discussion of the skyscraper index (which holds that a boom in skyscraper construction is a foolproof sign of an imminent recession). One obvious criticism is that the price of breadth is depth: many of Mr Smith’s essays raise as many questions as they answer. Although that can indeed be frustrating, this is probably the only way to treat so grand a topic. The city is the building block of civilisation and of almost everything people do; a guidebook to the city is really, therefore, a guidebook to how a large and ever-growing chunk of humanity chooses to live. Mr Smiths book serves as an excellent introduction to a vast subject, and will suggest plenty of further lines of inquiry."
+      ],
+      "questions": [
+        {
+          "number": 61,
+          "stem": "In what way is the year 2008 historic?",
+          "options": [
+            {
+              "key": "A",
+              "text": "For the first time in history, urban people outnumbered rural people."
+            },
+            {
+              "key": "B",
+              "text": "An influential figure decided to move from the countryside to the city."
+            },
+            {
+              "key": "C",
+              "text": "It is in this year that urbanisation made a start in Asia and Africa."
+            },
+            {
+              "key": "D",
+              "text": "The population increase in cities reached a new peak in Asia and Africa."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】根据题干中的2008 和historic 可以将本题出处定位于首段。 【精析】A)。首段for it was in that year 后的句子对historic—词进行了解释:在人类历史上,人类首次变成 了以城镇人口为主的物种(predominantly urban species )。也就是说,在此之前,城镇人口并不比乡村人口 多,故答案为A 项。A 项中的outnumbered 对应predominantly,都说明“历史意义” 在于城镇人口与乡村 人口相比之下的数量变化。首段只是将第一个由农村搬到城市的人说成“某个人” (someone),没有提到他 是否为有影响力的人(influential figure),故B 项可排除;首段虽然提到亚非国家的确是于2008 年开始的城 市化进程,但是这不是2008 年具有历史意义的原因,真正的原因在于人类成了聚居城市为主的物种 (predominantly urban species ),故C 项也可以排除;D 项犯了与C 项同样的毛病,只注意到了城镇人口的增 多,没有理解“具有历史意义”是因为“城镇人口已经超过乡村人口数量,占据了主导地位”这一;根本原 因,故D 项也应排除。"
+        },
+        {
+          "number": 62,
+          "stem": "What does the author say about urbanisation?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Its impact is not easy to predict."
+            },
+            {
+              "key": "B",
+              "text": "Its process will not slow down."
+            },
+            {
+              "key": "C",
+              "text": "It is a milestone in human progress."
+            },
+            {
+              "key": "D",
+              "text": "It aggravates the squalor of cities."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】本题问作者对于城市化的看法,文中有关城市化的讨论主要集中在第2 段,故将本题出处定 位于第2 段。 【精析】B)。第2 段首句为该段的主题句,作者在首句指出:城市化进程没有显示出任何放缓的迹象(shows no sign of slowing),B 项为该句的同义转述,slow 同根词复现,照应原文的slowing,故答案为B 项。A 项中 的impact 在文中根本没有提及,故可排除;C 项中milestone 纯属无中生有,可以排除;文中提到刚刚住 进城市的人会最先忍受肮脏等一些不利因素,但并没有说城镇化会加重城市环境的恶化,故D 项可以排除。"
+        },
+        {
+          "number": 63,
+          "stem": "How does the author comment on Peter Smith’s new book?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is but an ordinary coffee-table book."
+            },
+            {
+              "key": "B",
+              "text": "It is flavoured with humorous stories."
+            },
+            {
+              "key": "C",
+              "text": "It serves as a guide to art and commerce."
+            },
+            {
+              "key": "D",
+              "text": "It is written in a lively and interesting style."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】本题问作者对于彼得.史密斯的新书的评价,根据选项中的coffee-table book, art 以及commerce 等词可以将本题出处定位于第3 段。 【精析】D)。第3 段中,作者对于彼得•史密斯的新书的评价始于第4 句,直至该段末尾。其中,第4 句 中的breezy—词表示“活泼的;风趣的”。可见,作者认为彼得•史密斯新书的风格是生动有趣的(lively and interesting ),故答案为D 项。A 项中的ordinary 与原文high-quality, unusually rigorous 的表述不符,所以 排除;虽然作者提到史密斯的新书活泼风趣,但并没有说书中有幽默故事(humorous stories),所以排除B 项;C 项是根据文中词汇编造的选项,史密斯的新书是城市生活的指南,城市在城镇化的作用下变成了艺 术和贸易的引擎,而史密斯的新书和art, commerce 之间没有任何关系,故C 项应该排除。"
+        },
+        {
+          "number": 64,
+          "stem": "What does the author say in the chapter on skyscrapers?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The automatic lift is indispensable in skyscrapers."
+            },
+            {
+              "key": "B",
+              "text": "People enjoy living in skyscrapers with a view."
+            },
+            {
+              "key": "C",
+              "text": "Skyscrapers are a sure sign of a city’s prosperity."
+            },
+            {
+              "key": "D",
+              "text": "Recession closely follows a skyscraper boom."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】根据题干中的in the chapter on skyscrapers 可以将本题出处定位于第4 段。 【精析】D)。第4 段末句括号内的句子对skyscraper index 这种观点进行了解释:摩天楼数量的增多明显是 经济衰退临近的迹象(a boom in skyscraper construction is a foolproof sign of an imminent recession)。也就是 说,经济衰退会紧跟着摩天楼数量的增多而到来,D 项与该句子表意相符,故为答案。D 项中closely follows 照应原文的imminent。文中虽然提到automatic lift,但是indispensable 纯属无中生有,A 项可以排除;第4 段中仅仅谈到了居住在高空中的现实性,enjoy living in skyscrapers 无从得出,故B 项可以排除;C 项是根 据人们的主观认识编造的选项,从第4 段末可看出,摩天楼数量的增多将带来经济衰退,而不是城市繁荣, 故C 项可以排除。"
+        },
+        {
+          "number": 65,
+          "stem": "What may be one criticism of Mr Smith’s book?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It does not really touch on anything serious."
+            },
+            {
+              "key": "B",
+              "text": "It is too long for people to read from cover to cover."
+            },
+            {
+              "key": "C",
+              "text": "It does not deal with any aspect of city life in depth."
+            },
+            {
+              "key": "D",
+              "text": "It fails to provide sound advice to city dwellers."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】题干中的criticism—词可以将本题出处定位于文章末段。 【精析】C)。末段首句就提到了criticism,即该书“宽泛的代价就是缺乏深度”(the price of breadth is depth), 也就是说,史密斯的新书内容宽泛程度有余而深度不足。C 项“该书没有深入讨论城市生活的任何方面” 的说法与该处评论意思相符,故答案为C 项。A 项项与第4 段首句的表述不符,也不是人们对史密斯新书 的评论,故可排除;文中只是提到史密斯的新书内容很宽泛,too long to read 无从得出,故排除B 项;由a guidebook to the city is really, therefore, a guidebook to how a large and ever-growing chunk of humanity chooses to live—句可以看出,史密斯的新书给城市居住者提供了很好的建议,故D 项应该排除。"
+        }
+      ]
+    }
+  ]
+}

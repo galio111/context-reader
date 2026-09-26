@@ -1,0 +1,1688 @@
+{
+  "id": "cet4-2014-06-3",
+  "level": 4,
+  "year": 2014,
+  "month": 6,
+  "set": 3,
+  "title": "2014 年 6 月四级 · 第 3 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.06/%E7%9C%9F%E9%A2%98Word/2014%E5%B9%B46%E6%9C%88%E5%B9%B4%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%EF%BC%88%E4%B8%89%EF%BC%89.doc",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2014%E5%B9%B46%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%B8%89%EF%BC%89.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2014-06-3-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "The fact is, the world has been finding less oil than it has been using for more than twenty years now. Not only has demand been [[36]] , but the oil we have been finding is coming from places that are [[37]] to reach. At the same time, more of this newly [[38]] oil is of the type that requires a greater investment to [[39]] . And because demand for this precious resource will grow, according to some, by over 40 percent by 2025, fueling the world’s economic [[40]]will take a lot more energy from every possible source. The energy industry needs to get more from existing fields while continuing to search for new [[41]] . Automakers must continue to improve fuel efficiency and perfect hybrid (混合动力的)vehicles. Technological improvements are needed so that wind, solar and hydrogen can be more [[42]] parts of the energy equation. Governments need to formulate energy policies that promote [[43]] and environmentally sound development. Consumers must be willing to pay for some of these solutions, while practicing conservation efforts of their own. Inaction is not an [[44]] . So let’s work together to balance this equation. We are taking some of the [[45]] needed to get started, but we need your help to go the rest of the way."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "consequently"
+        },
+        {
+          "key": "B",
+          "text": "cultivate"
+        },
+        {
+          "key": "C",
+          "text": "declining"
+        },
+        {
+          "key": "D",
+          "text": "derived"
+        },
+        {
+          "key": "E",
+          "text": "difficult"
+        },
+        {
+          "key": "F",
+          "text": "discovered"
+        },
+        {
+          "key": "G",
+          "text": "economically"
+        },
+        {
+          "key": "H",
+          "text": "exception"
+        },
+        {
+          "key": "I",
+          "text": "feasible"
+        },
+        {
+          "key": "J",
+          "text": "growth"
+        },
+        {
+          "key": "K",
+          "text": "option"
+        },
+        {
+          "key": "L",
+          "text": "refine"
+        },
+        {
+          "key": "M",
+          "text": "reserves"
+        },
+        {
+          "key": "N",
+          "text": "soaring"
+        },
+        {
+          "key": "O",
+          "text": "steps"
+        }
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "第 36 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "consequently"
+            },
+            {
+              "key": "B",
+              "text": "cultivate"
+            },
+            {
+              "key": "C",
+              "text": "declining"
+            },
+            {
+              "key": "D",
+              "text": "derived"
+            },
+            {
+              "key": "E",
+              "text": "difficult"
+            },
+            {
+              "key": "F",
+              "text": "discovered"
+            },
+            {
+              "key": "G",
+              "text": "economically"
+            },
+            {
+              "key": "H",
+              "text": "exception"
+            },
+            {
+              "key": "I",
+              "text": "feasible"
+            },
+            {
+              "key": "J",
+              "text": "growth"
+            },
+            {
+              "key": "K",
+              "text": "option"
+            },
+            {
+              "key": "L",
+              "text": "refine"
+            },
+            {
+              "key": "M",
+              "text": "reserves"
+            },
+            {
+              "key": "N",
+              "text": "soaring"
+            },
+            {
+              "key": "O",
+              "text": "steps"
+            }
+          ],
+          "answer": "N",
+          "explanation": "N) soaring。【详解】空格所在句为not only...but...句型,由于本句以not only 开头,出现了倒装,正常 语序应该为demand has been ,因此空格中应该填入动词的现在分词形式,构成现在完成进行时。第一 句中讲到,目前世界上石油的勘探量已经赶不上石油的消耗量,可见石油的需求是在上升。由此确定soaring 为本题答案,意思为“猛增,骤升”。备选词中,动词的现在分词形式只有两个,即declining 和soaring, 而declining 意思为“下降” ,与此处要表达的“上升,增长”意思不符合,可以排除。"
+        },
+        {
+          "number": 37,
+          "stem": "第 37 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "consequently"
+            },
+            {
+              "key": "B",
+              "text": "cultivate"
+            },
+            {
+              "key": "C",
+              "text": "declining"
+            },
+            {
+              "key": "D",
+              "text": "derived"
+            },
+            {
+              "key": "E",
+              "text": "difficult"
+            },
+            {
+              "key": "F",
+              "text": "discovered"
+            },
+            {
+              "key": "G",
+              "text": "economically"
+            },
+            {
+              "key": "H",
+              "text": "exception"
+            },
+            {
+              "key": "I",
+              "text": "feasible"
+            },
+            {
+              "key": "J",
+              "text": "growth"
+            },
+            {
+              "key": "K",
+              "text": "option"
+            },
+            {
+              "key": "L",
+              "text": "refine"
+            },
+            {
+              "key": "M",
+              "text": "reserves"
+            },
+            {
+              "key": "N",
+              "text": "soaring"
+            },
+            {
+              "key": "O",
+              "text": "steps"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E) difficult。【详解】空格所在句为that 引导的定语从句,修饰places,此处可以理解为places are to reach, 由此可判断,空格处需要填入形容词,修饰places。本句前半句中说,石油需求量在上升,由not only...but... 句型可知,此处所说到的新发现的油田所在地也应该不容易抵达。由此确定形容词difficult 为本题答案, 意思为“困难的,艰难的”。备选形容词中,能够修饰Places 并与to reach 相搭配的只有difficult,虽然 feasible 也可以和to reach 搭配,但它的意思为“可行的,能实行的”,不符合句意,可以排除。"
+        },
+        {
+          "number": 38,
+          "stem": "第 38 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "consequently"
+            },
+            {
+              "key": "B",
+              "text": "cultivate"
+            },
+            {
+              "key": "C",
+              "text": "declining"
+            },
+            {
+              "key": "D",
+              "text": "derived"
+            },
+            {
+              "key": "E",
+              "text": "difficult"
+            },
+            {
+              "key": "F",
+              "text": "discovered"
+            },
+            {
+              "key": "G",
+              "text": "economically"
+            },
+            {
+              "key": "H",
+              "text": "exception"
+            },
+            {
+              "key": "I",
+              "text": "feasible"
+            },
+            {
+              "key": "J",
+              "text": "growth"
+            },
+            {
+              "key": "K",
+              "text": "option"
+            },
+            {
+              "key": "L",
+              "text": "refine"
+            },
+            {
+              "key": "M",
+              "text": "reserves"
+            },
+            {
+              "key": "N",
+              "text": "soaring"
+            },
+            {
+              "key": "O",
+              "text": "steps"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F) discovered。【详解】空格处前面有副词newly,后面有名词oil,因此需要填入动词过去分词形式来修 饰名词oil。第一段第二句中提到了the oil we have been finding,与之相对应,此处所提到的oil 也应该是 “新发现的”,因此填入discovered 。此处,discover 的过去分词形式作定语,表示oil 是“被发现的”。 在备选词中,derived 和discovered 都是动词的过去分词形式,但derived 的意思为“得到,获得”,与第二 句中的finding —词不符,可以排除。"
+        },
+        {
+          "number": 39,
+          "stem": "第 39 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "consequently"
+            },
+            {
+              "key": "B",
+              "text": "cultivate"
+            },
+            {
+              "key": "C",
+              "text": "declining"
+            },
+            {
+              "key": "D",
+              "text": "derived"
+            },
+            {
+              "key": "E",
+              "text": "difficult"
+            },
+            {
+              "key": "F",
+              "text": "discovered"
+            },
+            {
+              "key": "G",
+              "text": "economically"
+            },
+            {
+              "key": "H",
+              "text": "exception"
+            },
+            {
+              "key": "I",
+              "text": "feasible"
+            },
+            {
+              "key": "J",
+              "text": "growth"
+            },
+            {
+              "key": "K",
+              "text": "option"
+            },
+            {
+              "key": "L",
+              "text": "refine"
+            },
+            {
+              "key": "M",
+              "text": "reserves"
+            },
+            {
+              "key": "N",
+              "text": "soaring"
+            },
+            {
+              "key": "O",
+              "text": "steps"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L) refine。【详解】空格所在部分为that 引导的定语从句,修饰type,由谓语动词requires 和空格前的 to 可以判断,空格处需要填入动词原形,形成require sth. to do 的用法。备选的动词原形只有两个,即cultivate 和refine,只有refine 能够与oil 共同使用,意思为“炼油”,因此,refine 为本题答案。在备选动词原形中, cultivate 意思为“培养,耕作”,与文章意思不符,可以排除。"
+        },
+        {
+          "number": 40,
+          "stem": "第 40 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "consequently"
+            },
+            {
+              "key": "B",
+              "text": "cultivate"
+            },
+            {
+              "key": "C",
+              "text": "declining"
+            },
+            {
+              "key": "D",
+              "text": "derived"
+            },
+            {
+              "key": "E",
+              "text": "difficult"
+            },
+            {
+              "key": "F",
+              "text": "discovered"
+            },
+            {
+              "key": "G",
+              "text": "economically"
+            },
+            {
+              "key": "H",
+              "text": "exception"
+            },
+            {
+              "key": "I",
+              "text": "feasible"
+            },
+            {
+              "key": "J",
+              "text": "growth"
+            },
+            {
+              "key": "K",
+              "text": "option"
+            },
+            {
+              "key": "L",
+              "text": "refine"
+            },
+            {
+              "key": "M",
+              "text": "reserves"
+            },
+            {
+              "key": "N",
+              "text": "soaring"
+            },
+            {
+              "key": "O",
+              "text": "steps"
+            }
+          ],
+          "answer": "J",
+          "explanation": "J) growth。 【详解】空格后有情态动词will,空格所在部分为整句话的主语,而空格前又有形容词economic, 由此可知空格处应该填入名词。空格所在句前半句提到对石油的需求会增长,因此,刺激世界经济增长将 通过各种可能的途径获取更多资源。因此,growth“增长,发展”与文章意思相符,故为答案。在备选名 词中,能够与economic 搭配的词还有option 和reserves,但economic option“经济选择”和economic reserves“经济储备”都不能与fueling 搭配,因此均可以排除。"
+        },
+        {
+          "number": 41,
+          "stem": "第 41 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "consequently"
+            },
+            {
+              "key": "B",
+              "text": "cultivate"
+            },
+            {
+              "key": "C",
+              "text": "declining"
+            },
+            {
+              "key": "D",
+              "text": "derived"
+            },
+            {
+              "key": "E",
+              "text": "difficult"
+            },
+            {
+              "key": "F",
+              "text": "discovered"
+            },
+            {
+              "key": "G",
+              "text": "economically"
+            },
+            {
+              "key": "H",
+              "text": "exception"
+            },
+            {
+              "key": "I",
+              "text": "feasible"
+            },
+            {
+              "key": "J",
+              "text": "growth"
+            },
+            {
+              "key": "K",
+              "text": "option"
+            },
+            {
+              "key": "L",
+              "text": "refine"
+            },
+            {
+              "key": "M",
+              "text": "reserves"
+            },
+            {
+              "key": "N",
+              "text": "soaring"
+            },
+            {
+              "key": "O",
+              "text": "steps"
+            }
+          ],
+          "answer": "M",
+          "explanation": "M) reserves。【详解】空格位于介词for 和形容词new 之后,所以需要填入名词形式,构成介词短语。 空格前半句提到,能源工业需要从现有油田开采更多石油,而同时,也需要继续寻找新的,由此可以推测空 格处的意思应该是能够发现石油的地方,也就是石油储备地,因此空格处填入名词reserves,表示“储备”。 在备选名词中,除exception外,都可以与new搭配,去除前面已经用过的growth,还有option, reserves和steps 可选。本空格处,search for new steps 与句子意思不符,可以排除,而option —词填入本空虽然意思可以, 但option 是单数形式,新发现的石油不可能只有一处,因此排除。"
+        },
+        {
+          "number": 42,
+          "stem": "第 42 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "consequently"
+            },
+            {
+              "key": "B",
+              "text": "cultivate"
+            },
+            {
+              "key": "C",
+              "text": "declining"
+            },
+            {
+              "key": "D",
+              "text": "derived"
+            },
+            {
+              "key": "E",
+              "text": "difficult"
+            },
+            {
+              "key": "F",
+              "text": "discovered"
+            },
+            {
+              "key": "G",
+              "text": "economically"
+            },
+            {
+              "key": "H",
+              "text": "exception"
+            },
+            {
+              "key": "I",
+              "text": "feasible"
+            },
+            {
+              "key": "J",
+              "text": "growth"
+            },
+            {
+              "key": "K",
+              "text": "option"
+            },
+            {
+              "key": "L",
+              "text": "refine"
+            },
+            {
+              "key": "M",
+              "text": "reserves"
+            },
+            {
+              "key": "N",
+              "text": "soaring"
+            },
+            {
+              "key": "O",
+              "text": "steps"
+            }
+          ],
+          "answer": "I",
+          "explanation": "I) feasible。【详解】空格位于more 之后,名词parts 之前,由此可知,空格中必须填入形容词,构成 形容词的比较级。本句中提到,技术层面也有待提高,从而使风能、太阳能、氢能都能成为能量方程里更 第10 页共14 页 可行的组成部分,因此,填入feasible,意思为“可行的,能实行的。”备选项中能够构成形容词比较级的 词为difficult 和feasible,而difficult 放在此处明显与句子意思不符,且在前面已经用过,可以排除。"
+        },
+        {
+          "number": 43,
+          "stem": "第 43 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "consequently"
+            },
+            {
+              "key": "B",
+              "text": "cultivate"
+            },
+            {
+              "key": "C",
+              "text": "declining"
+            },
+            {
+              "key": "D",
+              "text": "derived"
+            },
+            {
+              "key": "E",
+              "text": "difficult"
+            },
+            {
+              "key": "F",
+              "text": "discovered"
+            },
+            {
+              "key": "G",
+              "text": "economically"
+            },
+            {
+              "key": "H",
+              "text": "exception"
+            },
+            {
+              "key": "I",
+              "text": "feasible"
+            },
+            {
+              "key": "J",
+              "text": "growth"
+            },
+            {
+              "key": "K",
+              "text": "option"
+            },
+            {
+              "key": "L",
+              "text": "refine"
+            },
+            {
+              "key": "M",
+              "text": "reserves"
+            },
+            {
+              "key": "N",
+              "text": "soaring"
+            },
+            {
+              "key": "O",
+              "text": "steps"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G) economically。【详解】空格处后面有并列连词and 和副词environmentally,由此判定空格处需要填 入副词,与environmentally 形成并列关系。文章前面曾提到过economic growth,结合本句上下文,应填入副 词economically“经济上”。备选的副词只有两个,其中consequently“结果,必然地”无法与environmen- tally 并列使用,可以排除。"
+        },
+        {
+          "number": 44,
+          "stem": "第 44 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "consequently"
+            },
+            {
+              "key": "B",
+              "text": "cultivate"
+            },
+            {
+              "key": "C",
+              "text": "declining"
+            },
+            {
+              "key": "D",
+              "text": "derived"
+            },
+            {
+              "key": "E",
+              "text": "difficult"
+            },
+            {
+              "key": "F",
+              "text": "discovered"
+            },
+            {
+              "key": "G",
+              "text": "economically"
+            },
+            {
+              "key": "H",
+              "text": "exception"
+            },
+            {
+              "key": "I",
+              "text": "feasible"
+            },
+            {
+              "key": "J",
+              "text": "growth"
+            },
+            {
+              "key": "K",
+              "text": "option"
+            },
+            {
+              "key": "L",
+              "text": "refine"
+            },
+            {
+              "key": "M",
+              "text": "reserves"
+            },
+            {
+              "key": "N",
+              "text": "soaring"
+            },
+            {
+              "key": "O",
+              "text": "steps"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K) option。【详解】空格位于简单句中,句子主语和系动词都有,还缺少一个表语,而空格前还有一 个不定冠词an,因此,空格处需要填入以元音音素开头的单数名词。空格后句子中说let’s work together,因 此,inaction 就不应该是我们的选择,所以,option “选择”为答案。在备选名词中,符合语法条件的 只有两个,即exception 和option,而exception“例外”与上下文意思不符,因此可以排除。"
+        },
+        {
+          "number": 45,
+          "stem": "第 45 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "consequently"
+            },
+            {
+              "key": "B",
+              "text": "cultivate"
+            },
+            {
+              "key": "C",
+              "text": "declining"
+            },
+            {
+              "key": "D",
+              "text": "derived"
+            },
+            {
+              "key": "E",
+              "text": "difficult"
+            },
+            {
+              "key": "F",
+              "text": "discovered"
+            },
+            {
+              "key": "G",
+              "text": "economically"
+            },
+            {
+              "key": "H",
+              "text": "exception"
+            },
+            {
+              "key": "I",
+              "text": "feasible"
+            },
+            {
+              "key": "J",
+              "text": "growth"
+            },
+            {
+              "key": "K",
+              "text": "option"
+            },
+            {
+              "key": "L",
+              "text": "refine"
+            },
+            {
+              "key": "M",
+              "text": "reserves"
+            },
+            {
+              "key": "N",
+              "text": "soaring"
+            },
+            {
+              "key": "O",
+              "text": "steps"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O) steps。【详解】空格位于some of the 之后,因此,空格处需要填入名词,符合句意且可以与take 搭 配使用的名词为steps“步”,take steps 意思为“采取行动”,因此steps 为答案。备选名词中,其他名词均 不能与take some of 连用,构成符合文章上下文意思的表达,因此均可排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2014-06-3-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) In 2008, at a German zoo, a gorilla(大猩猩)named Gana gave birth to a male infant, who died after three months. Photographs of Gana, looking stricken and inconsolable (伤心欲绝的), attracted crowds to the zoo. Sad as the scene was, the humans, not Gana, were the only ones crying. The notion that animals can weep has no scientific basis. Years of observations by biologists Dian Fossey, who observed gorillas, and Jane Goodall, who worked with chimpanzees (黑猩猩), could not prove that animals cry tears from emotion.",
+        "B) It’s true that many animals shed tears, especially in response to pain. Tears protect the eye by keeping it moist. But crying as an expression of feeling is unique to humans and has played an essential role in human evolution and the development of human cultures.",
+        "C) Within two days an infant can imitate sad and happy faces. If an infant does not cry out, it is unlikely to get the attention it needs to survive. Around 3-4 months, the relationship between the human infant and its environment takes on a more organized communicative role, and tearful crying begins to serve interpersonal purposes: the search for comfort and pacification (抚慰). As we get older, crying becomes a tool of social interaction: grief and joy, shame and pride, fear and manipulation.",
+        "D) Tears are as universal as laughter, and grief is more complex than joy. But although we all cry, we do so in different ways. Women cry more frequently and intensely than men, especially when exposed to emotional events. Like crying, depression is, around the world, more commonly seen in women than in men. One explanation might be that women, who despite decades of social advances still suffer from economic inequality, discrimination (歧视) and even violence, might have more to cry about. Men not only cry for shorter periods than women, but they also are less inclined to explain their tears, usually shed them more quietly, and tend more frequently to apologize when they cry openly. Men, like women, report crying at the death of a loved one and in response to a moving religious experience. They are more likely than women to cry when their core identities—as providers and protectors, as fathers and fighters—are questioned.",
+        "E) People who score on personality tests as more sympathetic cry more than those who are more rigid or have more self-control. Frequency of crying varies widely: some shed tears at any novel or movie, others only a handful of times in their lives. Crying in response to stress and conflict in the home, or after emotional trauma (创伤), lasts much longer than tears induced by everyday sadness—which in turn last longer than tears of delight and joy.",
+        "F) Sadness is our primary association with crying, but the fact is that people report feeling happier after crying. Surveys estimate that 85% of women and 73% of men report feeling better after shedding tears. Surprisingly, crying is more commonly associated with minor forms of depression than with major depression involving suicidal thoughts.",
+        "G) People widely report that crying relieves tension, restores emotional balance and provides “catharsis,” a washing out of bad feelings. The term “catharsis” has religious implications of removing evil and sin; it’s no surprise that religious ceremonies are, around the world, one of the main settings for the release of tears.",
+        "H) Crying is a nearly universal sign of grief, though some mourners report that, despite genuine sorrow, they cannot shed tears—sometimes even for years after their loved one has gone. Unlike today, when the privacy of grief is more respected, the public or ceremonial shedding of tears, at the graveside of a spouse or the funeral of a king or queen, was once considered socially or even politically essential.",
+        "I) Crying has also served other social purposes. Rousseau wrote in his Confessions that while he considered tears the most powerful expression of love, he also just liked to cry over nothing.",
+        "J) The association of tears with art has ancient roots. The classic Greek tragedies of the fifth century B. C. were primarily celebrations of gods. Tragedies, like poetry and music, were staged religious events. Even then it was recognized that crying in response to drama brought pleasure.",
+        "K) I have argued that there are neurobiological(神经生物方面的^associations linking the arts and mood disorders. When I lecture on crying, I ask my audience to let me know, by a show of hands, which art forms most move them to tears. About 80% say music, followed closely by novels (74% ), but then the figures fall sharply, to 43% , for poetry, and 10 -22% for paintings, sculpture and architecture.",
+        "L) The physical act of crying is mainly one of breathing in air, which is why we choke up when we weep. This suggests to language scientists that emotional crying evolved before language, perhaps explaining why tears communicate states of mind and feelings that are often so difficult to express in words. Of course, from an evolutionary perspective, recognition of emotion (usually through facial gesture) was essential for survival.",
+        "M) The earliest humans arrived several million years ago, but only 150,000 to 200,000 years ago, did cultures, language, religion and the arts arise. Along the way, tears became more than a biological necessity to lubricate(润滑)the eye and developed into a sign of intense emotion and a signal of social bonding. The development of self-consciousness and the notion of individual identity, or ego; storytelling about the origins of the world, the creation of humanity and life after death; and the ability to feel others, sadness—all were critical parts of the neurobiological changes that made us human.",
+        "N) More recently, we’ve learned from neuroscience that certain brain circuits(回路)are activated(E活), rapidly and unconsciously, when we see another in emotional distress. In short, our brain evolved circuits to allow us to experience sympathy, which in turn made civilization, and an ethics based on sympathy, possible. So the next time you reach a tissue box, or sob on a Mend’s shoulder, or shed tears at the movies, stop and reflect on why we cry and what it means to cry. Because ultimately, while we love to cry, we also cry to love."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "Nowadays people respect the privacy of grief more than in the past.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "H",
+          "explanation": "Nowadays people respect the privacy of grief more than in the past. H)。【译文】如今,人们比以往更加尊重哀伤的隐私。 【精析】定位句提到,不像对哀伤的隐私更加尊重的今天,过去在公共场合或某些仪式上流下泪水、在配偶 的墓前或是国王或王后的葬礼上痛哭,曾经被认为具有重要的社会意义甚至政治意义。由此可知,与过去 相比,如今,人们更加尊重哀伤的隐私权。题干是对原文unlike today,when the privacy of grief is more respected 的同义转述,故答案为H)。"
+        },
+        {
+          "number": 47,
+          "stem": "Infants cry to attract attention for survival.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Infants cry to attract attention for survival. C)。【译文】婴儿通过哭泣来吸引生存所需的关注。 【精析】定位句提到,如果婴儿不能放声大哭,它就很存可能得不到生存所必需的关注。题干中的infants 和原文中的an infant 虽然有単复数的区别,但意思相同;题干中的for survival 是对原文中to survive 的同义 转述,故答案为C)。"
+        },
+        {
+          "number": 48,
+          "stem": "There is no scientific evidence as yet that animals can shed tears from emotion.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "A",
+          "explanation": "There is no scientific evidence as yet that animals can shed tears from emotion. A)。【译文】还没有科学证据表明动物可以流下饱含感情的泪水。 【精析】定位句提到,动物能够哭泣的观点没有任何科学依据。生物学家迪安•弗塞对大猩猩的多年观察和 简•古道尔对黑猩猩的长期研究都无法证明动物能够流下饱含感情的泪水。题干中的scientific evidence 与原 文中的scientific basis 意思相近,而题干中的shed tears from emotion 与原文中的cry tears from emotion 意思 相同,故答案为A)。"
+        },
+        {
+          "number": 49,
+          "stem": "Tears can perform certain communicative functions which words cannot.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "L",
+          "explanation": "Tears can perform certain communicative functions which words cannot. L)。【译文】泪水能够执行某些语言所无法执行的交际功能。 【精析】定位句提到,这使得语言学家们认为,充满感情的哭泣在语言之前得到进化,这也许可以解释 为什么当语言难以表达时,泪水却往往可以交流思想状态和感受。题干中的Which words cairnot 与原文 中的that are often so difficult to express in words 意思相近,而题干中的communicative functions 指的就是 原文中的communicate states of mind and feelings,故答案为L)。"
+        },
+        {
+          "number": 50,
+          "stem": "Our ability to experience sympathy is essential to the development of civilization.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "N",
+          "explanation": "Our ability to experience sympathy is essential to the development of civilization. N)。【译文】我们体验同情的能力对文明的发展至关重要。 【精析】定位句提到,我们的大脑中已经进化出了让我们体验到同情的回路,反过来使文明和基于同情 的伦理成为可能。由此可知,体验同情的能力对文明的发展至关重要。题干中的ability to experience sympathy 对应原文中的allow us to experience sympathy, 而题干中用essential — 词代替原文中的 第11 页共14 页 made...possible,题干是对定位句的同义转述,故答案为N)。"
+        },
+        {
+          "number": 51,
+          "stem": "People are more inclined to cry when suffering minor forms of depression.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "F",
+          "explanation": "People are more inclined to cry when suffering minor forms of depression. F)。【译文】人们遭受轻度抑郁时,更容易哭泣。 【精析】定位句提到,比起会产生自杀想法的严重抑郁,哭泣通常与轻度抑郁症患者的关联更大,换句话 说,当人们遭受小挫折时,更容易哭泣。题干是对定位句的同义转述,故答案为F)。"
+        },
+        {
+          "number": 52,
+          "stem": "Sometimes people cannot cry despite genuine grief.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "H",
+          "explanation": "Sometimes people cannot cry despite genuine grief. H) 。【译文】有时,虽然十分伤心,人们却哭不出来。 【精析】定位句提到,哭泣几乎是悲伤的普遍表现,尽管也有哀悼者说,虽然他们真的十分伤心,却怎么 也哭不出来——有时甚至在心爱的人去世多年以后依然如此。由此可知,有时,伤心并不一定意味着哭泣。 题干中的cannot ciy 与原文中的cannot shed tears 意思相同,而题干中的genuine grief 和原文中的genuine sorrow 属于同义转述,故答案为H)。"
+        },
+        {
+          "number": 53,
+          "stem": "In humans, long history, tears have developed an essential role in social relationships.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "M",
+          "explanation": "In humans, long history, tears have developed an essential role in social relationships. M)。【译文】在人类历史长河中,泪水已经发展成为社会关系中必不可少的角色。 【精析】定位句提到,早在几百万年前,人类就已经存在,而直到15 万至20 万年前,才出现了文化、语言、 宗教和艺术。在此期间,泪水已远远不仅是润滑眼睛的生理需要,而已经发展成为强烈感情的标志和社会 关系的信号。几百万年的历史不可谓不长,与题干中的in humans’ long history 相对应,而题干中的social relationships 对应原文中的social bonding。题干是对原文的同义转述,故答案为M)。"
+        },
+        {
+          "number": 54,
+          "stem": "Men are less likely to give reasons for their tears.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "D",
+          "explanation": "Men are less likely to give reasons for their tears. D)。【译文】男性不太愿意解释他们哭泣的原因。 【精析】定位句提到,男性不仅哭泣的时间比女性短,也更不愿意解释沟己哭泣的原因,他们通常都是默 默地流泪,而且在公开场合哭泣时,表达歉意的频率也更高。题干中的less likely to 和give reasons for their tears 分别对应原文中的less inclined to 和explain their tears,故答案为D)。"
+        },
+        {
+          "number": 55,
+          "stem": "Crying has long been associated with art.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "J",
+          "explanation": "Crying has long been associated with art. J)。【译文】长久以来,哭泣都与艺术有所关联。 【精析】定位句提到,泪水与艺术之间的关联有很深的根源,也就是说,长久以来,人们就将艺术和泪水 关联在一起。题干中的crying 对应原文中的tears,题干中的associated 是对原文中association —词的词性转 换,而题干中的long —词则对应原文中的has ancient roots,故答案为J)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2014-06-3-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Hospitals, hoping to curb medical error, have invested heavily to put computers, smartphones and other devices into the hands of medical staff for instant access to patient data, drug information and case studies. But like many cures, this solution has come with an unintended side effect: doctors and nurses can be focused on the screen and not the patient, even during moments of critical care. A poll showed that half of medical technicians had admitted texting during a procedure. This phenomenon has set off an intensifying discussion at hospitals and medical schools about a problem perhaps best described as “distracted doctoring.” In response, some hospitals have begun limiting the use of electronic devices in critical settings, while schools have started reminding medical students to focus on patients instead of devices. “You justify carrying devices around the hospital to do medical records, but you can surf the Internet or do Facebook, and sometimes Facebook is more tempting,” said Dr. Peter Papadakos at the University of Rochester Medical Center. “My gut feeling(本能的感觉)is lives are in danger,” said Dr. Papadakos. “We’re not educating people about the problem, and ifs getting worse.” A survey of 439 medical technicians found that 55 percent of technicians who monitor bypass machines acknowledged that they had talked on cellphones during heart surgery. Half said they had texted while in surgery. The study concluded, “ Such distractions have the potential to be disastrous.” Medical professionals have always faced interruptions from cellphones, and multitasking is simply a fact of life for many medical jobs. What has changed, say doctors, especially younger ones, is that they face increasing pressure to interact with their devices. The pressure stems from a mantra(信条)of modem medicine that patient care must be “data driven,” and informed by the latest, instantly accessible information. By many accounts, the technology has helped reduce medical error by providing instant access to patient data or prescription details. Dr. Peter Carmel, president of the American Medical Association, said technology “offers great potential in health care,” but he added that doctors, first priority should be with the patient."
+      ],
+      "questions": [
+        {
+          "number": 56,
+          "stem": "Why do hospitals equip their staff with computers, smartphones and other devices?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To reduce medical error."
+            },
+            {
+              "key": "B",
+              "text": "To cope with emergencies."
+            },
+            {
+              "key": "C",
+              "text": "To facilitate administration."
+            },
+            {
+              "key": "D",
+              "text": "To simplify medical procedures."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。定位:由题干中的computers, smartphones and other devices 定位到文章第一段:Hospitals, hoping to curb medical error, have invested heavily to put computers, smartphones and other devices into the hands of medical staff for instant access to patient data, drug information and case studiess. 详解:推理判断题。文章开篇第一段就指出医院给医务人员配置各种现代设备的原因:医院希望能减少医 疗过失,于是投人巨资给医务人员配备计算机、智能手机和其他设备,以便他们能及时获取与病人有关的 数据、药物信息和个案研究。由此可见,医院为员工配备计算机等现代设备是为了减少医疗过失,故答案 为A)。 点睛:B)“处理紧急情况”、C) “便于管理”和D) “简化医疗程序”,虽然可能是配置设备后带来的 效果,但此三项在原文中都没有提及,故排除。"
+        },
+        {
+          "number": 57,
+          "stem": "What does the author refer to by “distracted doctoring” ?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The disservice done by modem devices to doctors, nurses, as well as patients."
+            },
+            {
+              "key": "B",
+              "text": "The tendency of medical institutions encouraging the use of modem devices."
+            },
+            {
+              "key": "C",
+              "text": "The problem of devices preventing doctors from focusing on their patients."
+            },
+            {
+              "key": "D",
+              "text": "The phenomenon of medical staff attending to personal affairs while working."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定位:由题干中的distracted doctoring 定位到文章第三段第一句:This phenomenon has set off an intensifying discussion at hospitals and medical schools about a problem perhaps best described as “distracted doctoring. ” 详解:语义理解题。第三段第一句指出,这一现象在医院和医学院中引起一番激烈的讨论,讨论的问题或 许被描述为“分心治疗”最为恰当,而该句中的this phenomenon 指代第二段提到的现象:医生和护士可能 会把注意力集中在显示屏而非病人身上,故答案为C)。 第12 页共14 页 点睛:A)“现代设备给医生、护士以及病人带来的损害”,第六段末句提到,该项研究得出结论:“这种 分心有可能导致灾难性的后果。”可见配置设备确实会给医生和病人带来不利的影响,但这是“分心治疗” 的后果,而并非是“分心治疗”所指代的内容,故此项可排除;B) “医疗机构鼓励使用现代设备的倾向”, 第三段末句提到,作为回应,一些医院已经开始限制在关键场所使用电子设备。虽然文章第一段指出医院 投入巨资给医务人员配备现代设备,且第八段第一句指出现代医学的一个信条就是病人的护理必须基于数 据分析之上,并且需要了解最新的、即时获得的信息,但这些并非“分心治疗”所指代的内容,故此项可排 除;D) “医护人员在工作时处理私事的现象”,此选项迷惑性较大,但根据第三段末句“一些医院已经开 始限制在关键场所使用电子设备,而一些院校开始提醒学生要关注病人而不是设备”以及第四段帕帕达克 斯博士的话可知,医务人员使用现代设备既可能是为了私事,如浏览网站,也可能是为了做医疗记录,但不 论哪一种情况都有可能使医务人员的注意力转到设备上,而不是关注病人本身,此项概括的内容不是“分心 治疗”的全部,故排除。"
+        },
+        {
+          "number": 58,
+          "stem": "What does Dr. Peter Papadakos worry about?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Medical students are not adequately trained to use modem technology."
+            },
+            {
+              "key": "B",
+              "text": "Doctors’ interaction with their devices may endanger patients, lives."
+            },
+            {
+              "key": "C",
+              "text": "Doctors are relying too heavily on modem electronic technology."
+            },
+            {
+              "key": "D",
+              "text": "Pressures on the medical profession may become overwhelming."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位:由题干中的Dr. Peter Papadakos 定位到文章第五段:“My gun feeling(本能的感觉)is lives are in danger, ” said Dr. Papadakos. “We’re not educating people about the problem, and it’s getting worse. ” 详解:推理判断题。文章第五段帕帕达克斯博士指出,他觉得生命正处于危险之中,而且这个问题日渐恶 化,即他认为医生对设备的关注可能会将病人置于危险的境地,故答案为B)。 点睛:A) “医学生在使用现代设备方面没有得到足够的训练”,文中提到医学生是在第三段末句,即一 些院校开始提醒学生要关注病人而不是设备,其他并未提及,故此项可排除;C) “医生太过依赖于现代电 子技术”,第七、八段提到医生在使用现代设备方面正面临越来越大的压力,这源于现代医学认为病人的 护理必须基于数据分析之上,但这并不是帕帕达克斯博士所担心的,博士担心的是医生对设备的关注可能 会将病人置于危险的境地,故此项可排除;D)“医疗行业的压力可能会变得让人难以承受”,第七段提到 医生在与设备互动过程中正面临越来越大的压力,但并没有提到医疗行业整体的压力状况,故此项可排除。"
+        },
+        {
+          "number": 59,
+          "stem": "Why do doctors feel increasing pressure to use modem devices?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Patients trust doctors who use modem technology."
+            },
+            {
+              "key": "B",
+              "text": "Use of modem devices adds hospitals’ revenues."
+            },
+            {
+              "key": "C",
+              "text": "Data is given too much importance in patient care."
+            },
+            {
+              "key": "D",
+              "text": "Patients’ data has to be revised from time to time."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定位:由题干中的increasing pressure 定位到文章第七段末句:What has changed, say doctors, especially younger ones, is that they face increasing pressure to interact with their devices.以及第八段:The pressure stems from a mantra (信条)of modem medicine that patient care must be “data driven,”. 详解:推理判断题。第七段末句提到,医生在与设备互动过程中正面临越来越大的压力,接着第八段说明 了压力的来源,即现代医学的信条是病人的护理必须基于数据分析之上,并且需要了解最新的、即时获得的 信息。许多报道指出,科技提供了病人的数据或处方细节的即时获取途径,帮助降低了医疗过失。这说明 在病人护理过程中,现代医学过于看重数据的作用,故答案为C)。 点睛:A) “病人信任使用现代技术的医生”,文中并没有提及病人对现代技术对医学领域作用的态 度;B)“现代设备的使用增加了医院的收人”,文中未提及;D)“病人的数据必须时时修正”,此项迷惑性 较大,虽然第八段第一句提到医生需要了解最新的、即时获得的信息,但这并不是说病人的数据必须时时 更新,故此项可排除。 B)"
+        },
+        {
+          "number": 60,
+          "stem": "What is Peter Carmel’s advice to doctors?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They follow closely the advances in medical science."
+            },
+            {
+              "key": "B",
+              "text": "They focus their attention on the patient’s condition."
+            },
+            {
+              "key": "C",
+              "text": "They observe hospital rules and regulations."
+            },
+            {
+              "key": "D",
+              "text": "They make the best use of modem devices."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位:由题干中的Peter Carmel 定位到文章最后一段:Dr. Peter Carmel, president of the American Medical Association, said technology “ offers great potential in health care,” but he added that doctors, first priority should be with the patient. 详解:事实细节题。最后一段列举了彼得•卡梅尔博士关于科技在卫生保健领域作用的观点,并提到了他对 医生的建议,即医生最优先考虑的应该是病人,故答案为B)。 点睛:A) “他们应紧密跟随医疗科学的进步”、C)“他们应遵守医院的法律法规”和D)“他们应最大化 地利用现代设备”均不是彼得•卡梅尔博士对医生的建议。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2014-06-3-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "I have closely watched my generation, known as The Millennials, for 29 years now. Joel Stein wrote an extensive piece on Millennials and he remains rather optimistic about our potential. I hesitate to share his optimism because of paradox (矛盾的现象)we seem to exhibit, namely, that there are more avenues for us to entertain ourselves than ever before, yet we are more bored than ever before. Entertainment has never been more varied. We have more cable channels, television shows, and movies than ever before. Internet providers allow instant viewing of almost any movie or television program ever created. Social drinking and partying are also widely available for Millennials. Every generation develops these habits at a certain age, but Millennials seem to be extending this phase of life as they postpone marriage. Some of this is undoubtedly due to The Great Recession. Milleimials are having a difficult time finding jobs; only 47 percent of 16-to-24-year-olds are employed, the smallest share since government started recording data in 1948. But do Millennials respond to these economic troubles by doing whatever it takes to make ends meet? Hardly. In fact, of the four generations Pew Research has data for, the Milennial generation does not cite work ethic(勤奋工作) as distinctive of itself. Millennials want to save the world, but they sit and wait for that world-changing opportunity to be handed to them. Instead of working 2-3 jobs, launching a business, or doing what it takes to succeed, they retreat. Millennials may be the first generation to have a lower standard of living than their parents, but with this response to adversity (逆境), perhaps deservingly so. Much ink has been spilled in management books discussing how to get the most out of these youths in the workplace. Largely, they come to the same conclusion: Millennials are entitled, over-confident, and expect too much too quickly. We should not be surprised. Today’s young adults were raised by parents who made sure to boost their self-esteem at every turn, telling them they could achieve whatever they set their minds to, and handing out prizes for the sixth place."
+      ],
+      "questions": [
+        {
+          "number": 61,
+          "stem": "What does the author of the passage think of Millennials?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They show little interest in entertainment."
+            },
+            {
+              "key": "B",
+              "text": "They are not confident about their ability."
+            },
+            {
+              "key": "C",
+              "text": "They enjoy an easy life due to high technology."
+            },
+            {
+              "key": "D",
+              "text": "They may not have bright prospects for success."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位: 本题询问作者对Milleimlals 的看法,由各选项可知,应结合全篇来排除答案。 详解:推理判断题。文章第四段第二句表明,千禧一代就业困难。在16 至24 岁的人群中,只有47%的人 在职,这是自1948 年政府开始统计相关数据以来,在职比率最低的一代。第五段表明,面对经济困难,千 禧一代并没做出必要的努力以改变现状,而是坐等改变世界的时机来到。从以上信息可以看出,作者认为 第13 页共14 页 千禧一代成功的前景不容乐观,故答案为D)。 点睛: A) “他们对娱乐活动没有什么兴趣”,第三段第一句表明千禧一代的娱乐活动多姿多彩,末句指出 千禧一代推迟了婚期,而把用于社交娱乐的生命时段延长了,故此项可排除;B) “他们对自己的能力不自 信”,文章末段第二句表明千禧一代过于自信,而并非不自信,故此项可排除;C) “他们因高科技而享受 着轻松的生活”,文章第三段表明,高科技使千禧一代的娱乐生活多姿多彩,比如各种有线电视频道、电 视节目和电影。但是第四段指出经济大萧条使得千禧一代就业困难。由此可见,千禧一代的生活并不轻松, 只是高科技使得他们的娱乐方式多样化,故此项可排除。"
+        },
+        {
+          "number": 62,
+          "stem": "How do Millennials feel about their life?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They can hardly do anything about it."
+            },
+            {
+              "key": "B",
+              "text": "There is little in it to get excited about."
+            },
+            {
+              "key": "C",
+              "text": "It is not as good as their parents’."
+            },
+            {
+              "key": "D",
+              "text": "It is full of opportunities for success."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位:由题干中的Millennials feel 定位到文章第二段:...yet we are more bored than ever before.. 详解: 推理判断题。文章第二段提到,千禧一代拥有比以往任何时候都要多的途径来娱乐自己,但是他们 比以往任何时候都要无聊,故答案为B)。 点睛:A)“他们对生活几乎无能为力”,第五段指出,面对经济困难,千禧一代并没有做出必要的努力来 解决问题,只是坐等改变世界的机会降临。文章最后一段指出,千禧一代被给予了特权和过于自信,因此 千禧一代并不是对生活无能为力,而是不愿意辛苦工作以改变生活现状,故此项可排除;C) “生活不如父 母辈的好”,该选项迷惑性较大。第五段末句提到,千禧一代或许是第一代所持生活标准比父母辈更低的 人,这并不是说千禧一代自己觉得生活不如父母辈的好,只是他们对生活的标准定得比父母辈要低;D) “生 活中充满成功的机遇”,第四段指出经济大萧条让千禧一代机遇不佳,第五段第三、四句表明千禧一代并不 重视勤奋工作,只是坐等机会来临,故此项可以排除。"
+        },
+        {
+          "number": 63,
+          "stem": "In what way are Millennials different from previous generations according to Pew Research?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They spend less time socializing."
+            },
+            {
+              "key": "B",
+              "text": "They are indifferent to others.-"
+            },
+            {
+              "key": "C",
+              "text": "They do not value hard work."
+            },
+            {
+              "key": "D",
+              "text": "They are more independent."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定位:由题干中的Pew Research 定位到文章第五段第三句:In feet, of the four generations Pew Research has data for, the Millennial generation does not cite work ethic(勤奋工作)as distinctive of itself.. 详解:事实细节题。第五段第三句指出,皮尤研究关于四代人的数据显示,千禧一代并不认为勤奋工作是 本代人的特色,故答案为C)。 点睛:A)“他们用于社交的时间更少”,第三段末句指出千禧一代推迟了婚期,而把用于社交娱乐的生命时 段延长了,故此项可排除;B) “他们对其他人漠不关心”和D) “他们更独立”,文中均未提及,故可排 除。"
+        },
+        {
+          "number": 64,
+          "stem": "What should Millennials do according to the author?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Remain optimistic in face of adversity."
+            },
+            {
+              "key": "B",
+              "text": "Start a business as early as possible."
+            },
+            {
+              "key": "C",
+              "text": "Make full use of new opportunities."
+            },
+            {
+              "key": "D",
+              "text": "Take action to change their situation."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位:由题干中的what should Millennials do 定位到文章第五段。 详解:推理判断题。第五段指出,千禧一代面对经济困难并未做出必要的努力,而且皮尤研究表明千禧一 代并不重视勤奋工作。他们期望拯救世界,却只是坐等机会降临,并没有为获得成功而采取实际行动,由此 可推断出作者认为千禧一代应该采取实际行动改变自身处境,故答案为D)。 点睛:A) “逆境面前保持乐观”、B) “尽早创立一番事业”和C) “充分利用新机会”,文中均未提及, 故可排除。"
+        },
+        {
+          "number": 65,
+          "stem": "Why are Millennials over-confident about themselves?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They have been spoiled by their parents."
+            },
+            {
+              "key": "B",
+              "text": "They can always get whatever they expect."
+            },
+            {
+              "key": "C",
+              "text": "They are misguided by management books."
+            },
+            {
+              "key": "D",
+              "text": "They think they are young and energetic."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A) 。定位:由题干中的 over-confident 定位到文章末段第二句:...Millenrdals are entitled, over-confi-dent, and expect too much too quickly 和最后一句:Today’s young adults were raised by parents who made sure to boost their self-esteem at every turn, telling them they could achieve whatever they set their minds to, and handing out prizes for the sixth place. 详解:推理判断题。文章末段指出,大量的管理学书籍得出了相同的结论:千禧一代被给予了特权,过于自 信,动辄就抱有过多的期望。然后文章解释了出现这种现象的原因:千禧一代的父母在抚育孩子的过程中, 总是想方设法激发他们的自尊心;告诉孩子们,他们的任何想法都能达成;即使他们名次不佳,也会被奖 励。由此可以看出,千禧一代被父母惯坏了,故答案为A)。 点睛:B) “他们总是能得到他们期望的任何东西”,这是千禧一代的父母在养育孩子的过程中告诉他们 的话,并非事实,故此项可以排除;C) “他们被管理学书籍误导了” ,末段第二句表明,千禧一代过于自 信是大量管理学书籍的一致结论,而管理学书籍并非是导致他们过于自信的原因,故此项可以排除;D) “他 们认为自己年轻、有活力”,文中未提及,故此项可以排除。"
+        }
+      ]
+    }
+  ]
+}

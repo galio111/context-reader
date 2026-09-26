@@ -1,0 +1,1565 @@
+{
+  "id": "cet4-2016-12-3",
+  "level": 4,
+  "year": 2016,
+  "month": 12,
+  "set": 3,
+  "title": "2016 年 12 月四级 · 第 3 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.12/%E7%9C%9F%E9%A2%98Word/2016%E5%B9%B412%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC%E4%B8%89%E5%A5%97%29.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2016%E5%B9%B412%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E7%AC%AC%E4%B8%89%E5%A5%97%EF%BC%89.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2016-12-3-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "When someone commits a criminal act, we always hope the punishment will match the offense. But when it comes to one of the crudest crimes—animal fighting—things [[26]] work out that way. Dog-fighting victims are [[27]] and killed for profit and “sport,” yet their criminal abusers often receive a [[28]] sentence for causing a lifetime of pain. Roughly half of all federally-convicted animal fighters only get probation (缓刑). Some progress has been made in the prosecution(起诉)of animal fighters. But federal judges often rely heavily on the U.S. Sentencing Guidelines when they [[29]] penalties, and in the case of animal fighting, those guidelines are outdated and extremely [[30]] . The U.S. Sentencing Commission, which [[31]] these sentencing guidelines, is revisiting them, proposing to raise the minimum sentence from 6-12 to 21-27 months. This is a step in the right [[32]] , but we’d like to see the U.S. Sentencing Commission make further changes to the guidelines. Along with this effort, we’re working with animal advocates and state and federal lawmakers to [[33]] anti-cruelty laws across the country, as well as supporting laws and policies that assist overburdened animal [[34]] that care for animal fighting victims. This help is[[35]] important because the high cost of caring for animal victims is a major factor that prevents people from getting involved in cruelty cases in the first place."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "convenient"
+        },
+        {
+          "key": "B",
+          "text": "creates"
+        },
+        {
+          "key": "C",
+          "text": "critically"
+        },
+        {
+          "key": "D",
+          "text": "determine"
+        },
+        {
+          "key": "E",
+          "text": "direction"
+        },
+        {
+          "key": "F",
+          "text": "hesitate"
+        },
+        {
+          "key": "G",
+          "text": "inadequate"
+        },
+        {
+          "key": "H",
+          "text": "inspired"
+        },
+        {
+          "key": "I",
+          "text": "method"
+        },
+        {
+          "key": "J",
+          "text": "minimal"
+        },
+        {
+          "key": "K",
+          "text": "rarely"
+        },
+        {
+          "key": "L",
+          "text": "shelters"
+        },
+        {
+          "key": "M",
+          "text": "strengthen"
+        },
+        {
+          "key": "N",
+          "text": "sufferings"
+        },
+        {
+          "key": "O",
+          "text": "tortured"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "convenient"
+            },
+            {
+              "key": "B",
+              "text": "creates"
+            },
+            {
+              "key": "C",
+              "text": "critically"
+            },
+            {
+              "key": "D",
+              "text": "determine"
+            },
+            {
+              "key": "E",
+              "text": "direction"
+            },
+            {
+              "key": "F",
+              "text": "hesitate"
+            },
+            {
+              "key": "G",
+              "text": "inadequate"
+            },
+            {
+              "key": "H",
+              "text": "inspired"
+            },
+            {
+              "key": "I",
+              "text": "method"
+            },
+            {
+              "key": "J",
+              "text": "minimal"
+            },
+            {
+              "key": "K",
+              "text": "rarely"
+            },
+            {
+              "key": "L",
+              "text": "shelters"
+            },
+            {
+              "key": "M",
+              "text": "strengthen"
+            },
+            {
+              "key": "N",
+              "text": "sufferings"
+            },
+            {
+              "key": "O",
+              "text": "tortured"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K)空格前为名词,后面是动词短语workout,因此应填人副词,以修饰其后的动词。首句中 提到人们总希望惩罚与罪行相当。空格所在句句首的But说明该句为前一句的转折,故空格 处应填人表示否定意义的副词,修饰workout。故选rarely“很少地”。C)critically意为“特 别地,关键地”不符合句意,故排除。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "convenient"
+            },
+            {
+              "key": "B",
+              "text": "creates"
+            },
+            {
+              "key": "C",
+              "text": "critically"
+            },
+            {
+              "key": "D",
+              "text": "determine"
+            },
+            {
+              "key": "E",
+              "text": "direction"
+            },
+            {
+              "key": "F",
+              "text": "hesitate"
+            },
+            {
+              "key": "G",
+              "text": "inadequate"
+            },
+            {
+              "key": "H",
+              "text": "inspired"
+            },
+            {
+              "key": "I",
+              "text": "method"
+            },
+            {
+              "key": "J",
+              "text": "minimal"
+            },
+            {
+              "key": "K",
+              "text": "rarely"
+            },
+            {
+              "key": "L",
+              "text": "shelters"
+            },
+            {
+              "key": "M",
+              "text": "strengthen"
+            },
+            {
+              "key": "N",
+              "text": "sufferings"
+            },
+            {
+              "key": "O",
+              "text": "tortured"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O)空格后为连词and,分析句子结构可知,空格处的词语与后面的动词killed为并列关系, 因此应填人动词过去式。killed意为“杀害”,结合备选项可知,tortured虐待,折磨”符合句 意,故选O)。H)inspired意为“激发;鼓舞”不符合句意,故排除。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "convenient"
+            },
+            {
+              "key": "B",
+              "text": "creates"
+            },
+            {
+              "key": "C",
+              "text": "critically"
+            },
+            {
+              "key": "D",
+              "text": "determine"
+            },
+            {
+              "key": "E",
+              "text": "direction"
+            },
+            {
+              "key": "F",
+              "text": "hesitate"
+            },
+            {
+              "key": "G",
+              "text": "inadequate"
+            },
+            {
+              "key": "H",
+              "text": "inspired"
+            },
+            {
+              "key": "I",
+              "text": "method"
+            },
+            {
+              "key": "J",
+              "text": "minimal"
+            },
+            {
+              "key": "K",
+              "text": "rarely"
+            },
+            {
+              "key": "L",
+              "text": "shelters"
+            },
+            {
+              "key": "M",
+              "text": "strengthen"
+            },
+            {
+              "key": "N",
+              "text": "sufferings"
+            },
+            {
+              "key": "O",
+              "text": "tortured"
+            }
+          ],
+          "answer": "J",
+          "explanation": "J)空格前为不定冠词a,后面为名词sentence,因此应填人形容词来修饰sentence。根据句意:角 判决。空格所在句中的“yet”,说明该句为转折句,即施虐者受到的惩罚过轻,故选J)。 A)convenient意为“方便的”不符合句意,故排除;G)inadequate意为“不充分的”,前面的不 定冠词应是an,故排除。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "convenient"
+            },
+            {
+              "key": "B",
+              "text": "creates"
+            },
+            {
+              "key": "C",
+              "text": "critically"
+            },
+            {
+              "key": "D",
+              "text": "determine"
+            },
+            {
+              "key": "E",
+              "text": "direction"
+            },
+            {
+              "key": "F",
+              "text": "hesitate"
+            },
+            {
+              "key": "G",
+              "text": "inadequate"
+            },
+            {
+              "key": "H",
+              "text": "inspired"
+            },
+            {
+              "key": "I",
+              "text": "method"
+            },
+            {
+              "key": "J",
+              "text": "minimal"
+            },
+            {
+              "key": "K",
+              "text": "rarely"
+            },
+            {
+              "key": "L",
+              "text": "shelters"
+            },
+            {
+              "key": "M",
+              "text": "strengthen"
+            },
+            {
+              "key": "N",
+              "text": "sufferings"
+            },
+            {
+              "key": "O",
+              "text": "tortured"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)空格位于when引导的状语从句中,空格前为从句的主语they,空格后为名词penalties, 因此应填入动词作从句的谓语,且可与后面的名词搭配。根据句意:但是联邦法官们通常都 严格依照《美国量刑准则》来。准则应该是被用来“判决”案件的,故选D)。B)creates 为第三人称单数,与主语they不符合语法要求,故排除;F)hesitate意为“犹豫”和M) strengthen意为“增强,强化”不符合语义,故排除。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "convenient"
+            },
+            {
+              "key": "B",
+              "text": "creates"
+            },
+            {
+              "key": "C",
+              "text": "critically"
+            },
+            {
+              "key": "D",
+              "text": "determine"
+            },
+            {
+              "key": "E",
+              "text": "direction"
+            },
+            {
+              "key": "F",
+              "text": "hesitate"
+            },
+            {
+              "key": "G",
+              "text": "inadequate"
+            },
+            {
+              "key": "H",
+              "text": "inspired"
+            },
+            {
+              "key": "I",
+              "text": "method"
+            },
+            {
+              "key": "J",
+              "text": "minimal"
+            },
+            {
+              "key": "K",
+              "text": "rarely"
+            },
+            {
+              "key": "L",
+              "text": "shelters"
+            },
+            {
+              "key": "M",
+              "text": "strengthen"
+            },
+            {
+              "key": "N",
+              "text": "sufferings"
+            },
+            {
+              "key": "O",
+              "text": "tortured"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G)空格前为副词extremely,应填入形容词。且空格前为连词and,可知,空格处与前面的 outdated为并列关系。outdated意为\"过时的”,结合备选项可知,inadequate\"不足的,不充分 的”符合句意,此处意为“准则惩罚不充分,过轻”,故选G)。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "convenient"
+            },
+            {
+              "key": "B",
+              "text": "creates"
+            },
+            {
+              "key": "C",
+              "text": "critically"
+            },
+            {
+              "key": "D",
+              "text": "determine"
+            },
+            {
+              "key": "E",
+              "text": "direction"
+            },
+            {
+              "key": "F",
+              "text": "hesitate"
+            },
+            {
+              "key": "G",
+              "text": "inadequate"
+            },
+            {
+              "key": "H",
+              "text": "inspired"
+            },
+            {
+              "key": "I",
+              "text": "method"
+            },
+            {
+              "key": "J",
+              "text": "minimal"
+            },
+            {
+              "key": "K",
+              "text": "rarely"
+            },
+            {
+              "key": "L",
+              "text": "shelters"
+            },
+            {
+              "key": "M",
+              "text": "strengthen"
+            },
+            {
+              "key": "N",
+              "text": "sufferings"
+            },
+            {
+              "key": "O",
+              "text": "tortured"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)空格所在句为which引导的非限制性定语从句,which是从句的主语,空格后的名词短语 these sentencingguidelines为从句的宾语,应填人谓语动词。且前面的主语为美国量刑委员 会,是机构名称,故应为第三人称单数形式。根据句意:美国量刑委员会是判刑准则的 机构。准则是需要被“制定”的,故选B)。L)shelters意为“收入所”不符合语义,故排除。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "convenient"
+            },
+            {
+              "key": "B",
+              "text": "creates"
+            },
+            {
+              "key": "C",
+              "text": "critically"
+            },
+            {
+              "key": "D",
+              "text": "determine"
+            },
+            {
+              "key": "E",
+              "text": "direction"
+            },
+            {
+              "key": "F",
+              "text": "hesitate"
+            },
+            {
+              "key": "G",
+              "text": "inadequate"
+            },
+            {
+              "key": "H",
+              "text": "inspired"
+            },
+            {
+              "key": "I",
+              "text": "method"
+            },
+            {
+              "key": "J",
+              "text": "minimal"
+            },
+            {
+              "key": "K",
+              "text": "rarely"
+            },
+            {
+              "key": "L",
+              "text": "shelters"
+            },
+            {
+              "key": "M",
+              "text": "strengthen"
+            },
+            {
+              "key": "N",
+              "text": "sufferings"
+            },
+            {
+              "key": "O",
+              "text": "tortured"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E)空格前为形容词right,因此应填人名词。根据句意:美国量刑委员会正在提议对虐待动物者 加以重罚,与文章所述观点一致,说明所走的方向是正确的,故选E)direction“方向,趋势”。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "convenient"
+            },
+            {
+              "key": "B",
+              "text": "creates"
+            },
+            {
+              "key": "C",
+              "text": "critically"
+            },
+            {
+              "key": "D",
+              "text": "determine"
+            },
+            {
+              "key": "E",
+              "text": "direction"
+            },
+            {
+              "key": "F",
+              "text": "hesitate"
+            },
+            {
+              "key": "G",
+              "text": "inadequate"
+            },
+            {
+              "key": "H",
+              "text": "inspired"
+            },
+            {
+              "key": "I",
+              "text": "method"
+            },
+            {
+              "key": "J",
+              "text": "minimal"
+            },
+            {
+              "key": "K",
+              "text": "rarely"
+            },
+            {
+              "key": "L",
+              "text": "shelters"
+            },
+            {
+              "key": "M",
+              "text": "strengthen"
+            },
+            {
+              "key": "N",
+              "text": "sufferings"
+            },
+            {
+              "key": "O",
+              "text": "tortured"
+            }
+          ],
+          "answer": "M",
+          "explanation": "M)空格前为不定式to,根据句意:我们还与动物保护者,州和联邦立法者一起,在全国范围内 反虐待法案。说明所做的努力是想要达到某种目的,故此处为to引导的目的状语,应填 人动词原形。结合备选项可知,strengthen意为“加强,强化”符合句意,故选M)。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "convenient"
+            },
+            {
+              "key": "B",
+              "text": "creates"
+            },
+            {
+              "key": "C",
+              "text": "critically"
+            },
+            {
+              "key": "D",
+              "text": "determine"
+            },
+            {
+              "key": "E",
+              "text": "direction"
+            },
+            {
+              "key": "F",
+              "text": "hesitate"
+            },
+            {
+              "key": "G",
+              "text": "inadequate"
+            },
+            {
+              "key": "H",
+              "text": "inspired"
+            },
+            {
+              "key": "I",
+              "text": "method"
+            },
+            {
+              "key": "J",
+              "text": "minimal"
+            },
+            {
+              "key": "K",
+              "text": "rarely"
+            },
+            {
+              "key": "L",
+              "text": "shelters"
+            },
+            {
+              "key": "M",
+              "text": "strengthen"
+            },
+            {
+              "key": "N",
+              "text": "sufferings"
+            },
+            {
+              "key": "O",
+              "text": "tortured"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L)空格位于第一个that引导的定语从句中,that为从句的主语,assist为谓语动词,后面应 该是名词短语作assist\"帮助,辅助”的宾语。因此,空格前的overburdenedanimal为定语,空 格处应填人名词。根据句意:以帮助那些不堪重负的动物 一。能照顾受害动物的地方即 “收容所”,故选L)。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "convenient"
+            },
+            {
+              "key": "B",
+              "text": "creates"
+            },
+            {
+              "key": "C",
+              "text": "critically"
+            },
+            {
+              "key": "D",
+              "text": "determine"
+            },
+            {
+              "key": "E",
+              "text": "direction"
+            },
+            {
+              "key": "F",
+              "text": "hesitate"
+            },
+            {
+              "key": "G",
+              "text": "inadequate"
+            },
+            {
+              "key": "H",
+              "text": "inspired"
+            },
+            {
+              "key": "I",
+              "text": "method"
+            },
+            {
+              "key": "J",
+              "text": "minimal"
+            },
+            {
+              "key": "K",
+              "text": "rarely"
+            },
+            {
+              "key": "L",
+              "text": "shelters"
+            },
+            {
+              "key": "M",
+              "text": "strengthen"
+            },
+            {
+              "key": "N",
+              "text": "sufferings"
+            },
+            {
+              "key": "O",
+              "text": "tortured"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)空格前为be动词is,后面为形容词,空格处应填人副词来修饰形容词important。结合备选项 可知,critically\"特别地,关键地”符合句意,criticallyimportant意为至关重要,极其重要”,故选C)。 .16. 2016-12四级试题(第3套)"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2016-12-3-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) What motivates employees to do their jobs well? Competition with coworkers, for some. The promise of rewards, for others. Pure enjoyment of problem-solving, for a lucky few.",
+        "B) Increasingly, companies are tapping into these desires directly through what has come to be known as “gamification”: essentially, turning work into a game. “Gamification is about understanding what it is that makes games engaging and what game designers do to create a great experience in games, and taking those learnings and applying them to other contexts such as the workplace and education,” explains Kevin Werbach, a gamification expert who teaches at the Wharton School of Business at the University of Pennsylvania in the United States.",
+        "C) It might mean monitoring employee productivity on a digital leaderboard and offering prizes to the winners, or giving employees digital badges or stars for completing certain activities. It could also mean training employees how to do their jobs through video game platforms. Companies from Google to L’Oreal to IBM to Wells Fargo are known to use some degree of gamification in their workplaces. And more and more companies are joining them. A recent report suggests that the global gamification market will grow from $1.65 billion in 2015 to $11.1 billion by 2020.",
+        "D) The concept of gamification is not entirely new, Werbach says. Companies, marketers and teachers have long looked for fun ways to engage people’s reward-seeking or competitive spirits. Cracker Jacks has been “gamifying” its snack food by putting a small prize inside for more than 100 years, he adds, and the turn-of- the-century steel magnate(巨头)Charles Schwab is said to have often come into his factory and written the number of tons of steel produced on the past shift on the factory floor, thus motivating the next shift of workers to beat the previous one.",
+        "E) But the word “gamification” and the widespread, conscious application of the concept only began in earnest about five years ago, Werbach says. Thanks in part to video games, the generation now entering the workforce is especially open to the idea of having their work gamified. “ We are at a point where in much of the developed world the vast majority of young people grew up playing video games, and an increasingly high percentage of adults play these video games too,” Werbach says.",
+        "F) A number of companies have sprung up—GamEffective, Bunchball and Badgeville, to name a few—in recent years offering gamification platforms for businesses. The platforms that are most effective turn employees’ ordinary job tasks into part of a rich adventure narrative. “What makes a game game-like is that the player actually cares about the outcome,” Werbach says. “The principle is about understanding what is motivating to this group of players, which requires some understanding of psychology.”",
+        "G) Some people, Werbach says, are motivated by competition. Sales people often fall into this category. For them, the right kind of gamification might be turning their sales pitches into a competition with other team members, complete with a digital leaderboard showing who is winning at all times. Others are more motivated by collaboration and social experiences. One company Werbach has studied uses gamification to create a sense of community and boost employees’ morale (士气).When employees log in to their computers, they’re shown a picture of one of their coworkers and asked to guess that person’s name.",
+        "H) Gamification does not have to be digital. Monica Cometti runs a company that gamifies employee trainings. Sometimes this involves technology, but often it does not. She recently designed a gamification strategy for a sales training company with a storm-chasing theme. Employees formed “storm chaser teams” and competed in storm-themed educational exercises to earn various rewards. “Rewards do not have to be stuff,” Cometti says. “Rewards can be flexible working hours.” Another training, this one for pay roll law, used a Snow White and the Seven Dwarfs theme. “Snow White” is available for everyone to use, but the “dwarfs” are still under copyright, so Cometti invented sound-alike characters (Grumpy Gus, Dopey Dan) to illustrate specific pay roll law principles.",
+        "I) Some people do not take naturally to gamified work environments, Cometti says. In her experience, people in positions of power or people in finance or engineering do not tend to like the sound of the word. “If we are designing for engineers, I’m not talking about a ‘game’at all,” Cometti says. “I’m talking about a ‘simulation’(模拟) ,I’m talking about ‘ being able to solve this problem. ’ ”",
+        "J) Gamification is “not a magic bullet,” Werbach warns. A gamification strategy that is not sufficiently thought through or well tailored to its players may engage people for a little while, but it will not motivate people in the long term. It can also be exploitative, especially when used with vulnerable populations. For workers, especially low-paid workers, who desperately need their jobs yet know they can be easily replaced, gamification may feel more like the Hunger Games. Werbach gives the example of several Disneyland hotels in Anaheim, California, which used large digital leaderboards to display how efficiently laundry workers were working compared to one another. Some employees found the board motivating. To others, it was the opposite of fun. Some began to stop taking bathroom breaks, worried that if their productivity fell they would be fired. Pregnant employees struggled to keep up. In a Los Angeles Times article, one employee referred to the board as a “digital whip.” “It actually had a very negative effect on morale and performance, ” Werbach says.",
+        "K) Still, gamification only stands to become more popular, he says, “as more and more people come into the workforce who are familiar with the structures and expressions of digital games.” “We are far from reaching the peak,” Cometti agrees. “There is no reason this will go away.”"
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Some famous companies are already using gamification and more are trying to do the same.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)根据题目意思:一些知名公司已使用了游戏化策略,更多公司正试图效仿。根据题干线索 词femouscompanies和gamification定位至C)段。该段提到,公司可以通过游戏化策略激 发员工的工作热情。其中,以谷歌、欧莱雅、IBM、富国银行等知名公司为例,说明这些公司都 不同程度地运用了游戏化的思维并且有越来越多的公司也正在加人他们。可知题干是对该 段的概括总结,故答案选C)。"
+        },
+        {
+          "number": 37,
+          "stem": "Gamification is not a miracle cure for all workplaces as it may have negative results.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "J",
+          "explanation": "J)根据题目意思:游戏化不是解决所有公司问题的灵丹妙药,因为它可能会产生消极的后 果。根据题干线索词notamiraclecure和negativeresults定位至J)段。该段首句就提到, 游戏化“不是灵丹妙药”,随后举例说明滥用游戏化会影响员工的工作热情,末句总结说, 这实际上对士气和绩效有非常不利的影响。因此,整段都在讲述工作游戏化的负面影响, 可知题干是对该段的概括总结,故答案选J)。"
+        },
+        {
+          "number": 38,
+          "stem": "To enhance morale, one company asks its employees to identify their fellow workers when starting their computers.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G)根据题目意思:为增强士气,某公司要求员工在打开电脑时辨识他们的同事。根据题干线 索词enhancemorale和startingtheircomputers定位至G)段。该段以某公司要求员工在打 开电脑时辨识他们的同事为例,指出工作中游戏化的好处,即游戏化可以鼓舞员工的士气,故 答案选G)。"
+        },
+        {
+          "number": 39,
+          "stem": "The idea of gamification was practiced by some businesses more than a century ago.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)根据题目意思:在一个多世纪前,一些企业就实践了游戏化思维。根据题干线索词 gamification和morethanacenturyago定位至D)段。该段旨在说明游戏化思维的来源。 第三句提到了,饼干杰克食品公司一百多年以来一直运用“游戏思维”,把小额奖品放人其零 食中。可知早在一个多世纪以前一些企业就实行了游戏化思维,故答案选D)。"
+        },
+        {
+          "number": 40,
+          "stem": "There is reason to believe that gamification will be here to stay.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K)根据题目意思:有理由相信游戏化将会存在下去。根据题干线索词reason和behereto stay定位至K)段末句。文章末段对游戏化的发展趋势做了预测,即随着越来越多熟悉电子 18· 2016-12四级试题(第3套) 游戏的人成为劳动力,游戏化会越来越流行。科尔内蒂特认为,我们有理由相信游戏化会继 续发展下去。其中“我们还远未达到顶峰”,说明游戏化的发展空间很大,可知题干是对该段 的概括总结,故答案选K)。"
+        },
+        {
+          "number": 41,
+          "stem": "Video games contributed in some ways to the wide application of gamification.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E)根据题目意思:电子游戏在一定程度上促进了游戏化的广泛运用。根据题干线索词 Videogames和applicationofgamification定位至E)段首句。该句提到,但“游戏化”一词广 泛的传播及对其概念有意识的应用仅始于五年前,沃巴赫说。由于电子游戏的缘故,现在这 一代劳动力很容易接受将工作游戏化的思维。说明电子游戏在一定程度上促进了游戏化的 发展。可知题干是对该段的概括总结,故答案选E)。"
+        },
+        {
+          "number": 42,
+          "stem": "When turning work into a game, it is necessary to understand what makes games interesting.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)根据题目意思:要把工作变成游戏,我们需要了解游戏的迷人之处。根据题干线索词 whatmakesgamesinteresting定位至B)段第二句。该句提到,游戏化就是指通过学习游戏 的迷人之处,以及游戏设计者如何创造这种快乐体验,并把这些学问运用到其他活动中。可 知题干是对该段的概括总结,故答案选B)。"
+        },
+        {
+          "number": 43,
+          "stem": "Gamification in employee training does not always need technology.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H)根据题目意思:游戏化在员工培训工作中不总是需要技术支持。根据题干线索词 employeetraining定位至H)段首句。该句提到,游戏化不一定需要数字技术。莫妮卡·科 尔内蒂特经营一家用游戏方式培训员工的公司。有时这需要涉及一点数字技术,但通常不需 要。可知题干是对该段的概括总结,故答案选H)。"
+        },
+        {
+          "number": 44,
+          "stem": "The most successful gamification platforms transform daily work assignments into fun experiences.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F)根据题目意思:最成功的游戏化平台能把日常工作变成有趣的经历。根据题干线索词 platforms和transformdailyworkassignments定位至F)段第二句。该句指出,最有效的平 台是将员工乏味的工作任务转变为有趣的冒险经历。可知题干是对该段的概括总结,故答案 选F)。其中的transformdailyworkassignmentsintofunexperiences与原文中的turn :employeesordinary job tasks into partof a rich adventure narrative相对应。"
+        },
+        {
+          "number": 45,
+          "stem": "It is necessary to use terms other than “gamification” for some professions.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "I",
+          "explanation": "I)根据题目意思:对于某些职业需要使用不同于“游戏化”的表达术语。根据题干线索词 terms定位至I)段。该段提到,如果为工程师们设计,就完全不能说这是“游戏”,而要说这是 “模拟”,是“解决问题”。可知,某些职业和某些人不喜欢“游戏化”一词,需要采用其他的方式 来表达,故答案选I)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2016-12-3-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Recently I attended several meetings where we talked about ways to retain students and keep younger faculty members from going elsewhere. It seems higher education has become an industry of meeting-holders whose task it is to “solve” problems— real or imagined. And in my position as a professor at three different colleges, the actual problems in educating our young people and older students have deepened, while the number of people hired—not to teach but to hold meetings—has increased significantly. Every new problem creates a new job for an administrative fixer. Take our Center for Teaching Excellence. Contrary to its title, the center is a clearing house(信息交流中心)for using technology in classrooms and in online courses. It’s an administrative sham(欺诈)of the kind that has multiplied over the last 30 years. I offer a simple proposition in response: Many of our problems—class attendance, educational success, student happiness and well-being—might be improved by cutting down the bureaucratic(官僚的)mechanisms and meetings and instead hiring an army of good teachers. If we replaced half of our administrative staff with classroom teachers, we might actually get a majority of our classes back to 20 or fewer students per teacher. This would be an environment in which teachers and students actually knew each other. The teachers must be free to teach in their own way—the curriculum should be flexible enough so that they can use their individual talents to achieve the goals of the course. Additionally, they should be allowed to teach, and be rewarded for doing it well. Teachers are not people who are great at and consumed by research and happen to appear in a classroom. Good teaching and research are not exclusive, but they are also not automatic companions. Teaching is an art and a craft, talent and practice; it is not something that just anyone can be good at. It is utterly confusing to me that people do not recognize this, despite the fact that pretty much anyone who has been a student can tell the difference between their best and worst teachers."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What does the author say about present-day universities?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are effectively tackling real or imagined problems."
+            },
+            {
+              "key": "B",
+              "text": "They often fail to combine teaching with research."
+            },
+            {
+              "key": "C",
+              "text": "They are over-burdened with administrative staff."
+            },
+            {
+              "key": "D",
+              "text": "They lack talent to fix their deepening problems."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)题目就当今大学提问。根据题干关键词present-dayuniversities定位至第二段第二句。 该句表明,作者在三所不同的大学任教授,当今大学雇用的行政人员越来越多,可教育中存 在的真正的问题却日趋严重,随后指出真正的问题是“大学中的行政人员过多”,故答案选C) 项。A)项“他们正有效地解决那些或现实或想象出来的问题”根据第二段可知,这些问题并 未有效地解决,故排除;B)项“他们通常无法把教学与科研相结合”和D)项“他们缺乏天赋来 解决这些不断加深的问题”在文中并未提及,故排除。"
+        },
+        {
+          "number": 47,
+          "stem": "According to the author, what kind of people do universities lack most?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Good classroom teachers."
+            },
+            {
+              "key": "B",
+              "text": "Efficient administrators."
+            },
+            {
+              "key": "C",
+              "text": "Talented researchers."
+            },
+            {
+              "key": "D",
+              "text": "Motivated students."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)题目就大学中最缺少什么人才提问。根据题干关键词universitieslack定位至第三段首 句。该句提到,我们遇到的问题或许都可以通过减少官僚机构和会议,而雇用一支好的师资 队伍来解决。可知,大学中缺少的应该是好老师,故答案选A)项。B)项“高效的行政人员” 根据首句提到的,应削减官僚机构的数量可知,学校中行政人员数量过多,无需增加,故排除; C)项“有天分的研究人员”和D)项“积极的学生”在文中并未提及,故排除。"
+        },
+        {
+          "number": 48,
+          "stem": "What does the author imply about the classes at present?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They facilitate students’ independent learning."
+            },
+            {
+              "key": "B",
+              "text": "They help students form closer relationships."
+            },
+            {
+              "key": "C",
+              "text": "They have more older students than before."
+            },
+            {
+              "key": "D",
+              "text": "They are much bigger than is desirable."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)题目就目前的班级情况作者暗示了什么提问。根据题干关键词theclasses和atpresent 定位至第三段第二句。该句提到,如果我们用优秀的任课教师来替换我们一半的行政人员, 我们或许真的能够将大部分班级的人数降至每班20人或更少。因此作者暗示目前的班级学 生人数过多,故答案选D)项。A)项它们为学生的独立学习提供了便利”、B)项“它们帮助学 生形成更亲密的关系”和C)项“班级中年纪较大的学生比以前多”在文中并提及,故排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What does the author think of teaching ability?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It requires talent and practice."
+            },
+            {
+              "key": "B",
+              "text": "It is closely related to research."
+            },
+            {
+              "key": "C",
+              "text": "It is a chief factor affecting students’ learning."
+            },
+            {
+              "key": "D",
+              "text": "It can be acquired through persistent practice."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)题目就作者认为教书的能力是什么提问。根据题干关键词theauthor和teachingability 定位至末段。该段倒数第二句提到,教书是一门艺术和手艺,是天分也是实践;它不是任何人 都可以胜任的。故答案选A)项“它需要天分和实践”。B)项“它与研究密切相关”和C)项“它 是影响学生学习的主要因素”在文中并未提及,故排除;D)项“它可以通过不断实践获得”,末 段虽提及实践,但题干问的是教书能力的定义,而不是获取方式,故排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What is the author’s suggestion for improving university teaching?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Creating an environment for teachers to share their teaching experiences."
+            },
+            {
+              "key": "B",
+              "text": "Hiring more classroom teachers and allowing them to teach in their own way."
+            },
+            {
+              "key": "C",
+              "text": "Using high technology in classrooms and promoting exchange of information."
+            },
+            {
+              "key": "D",
+              "text": "Cutting down meetings and encouraging administrative staff to go to classrooms."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)题目就改进高校教育的建议提问。根据题干关键词suggestion和improvinguniversity teaching定位至第三段首句。该句指出,我提出一个简单的提议..,随后指出,众多问题都 可通过多雇用优秀的教师来解决。且第四段首句也提到,教师必须以自已的方式来教学才能 实现课程目标,故答案选B)项“雇用更多的教师,并允许他们以自已的方式教学”。A)项“创 造环境让教师分享教学经验”在文中并未提及,故排除;C)项“在教室中使用高科技并且促进 信息交流”,根据第二段中提到的卓越教学中心这一反例可知,为提高教学水平而设立的机构 最终成为信息交流中心,说明这并非改进教学的方法,故排除;D)项“削减会议数量,鼓励行 政人员进课堂”,削减会议的数量虽在第二段中提到,但后半部分的鼓励行政人员进课堂并未 提及,故排除。 ·20:: 2016-12四级试题(第3套)"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2016-12-3-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "The secret to eating less and being happy about it may have been cracked years ago—by McDonald’s. According to a new study from Cornell University’s Food and Brand Lab, small non-food rewards—like the toys in McDonald’s Happy Meals—stimulate the same reward centers in the brain as food does. The researchers, led by Martin Reimann, carried out a series of experiments to see if people would choose a smaller meal if it was paired with a non-food item. They found that the majority of both kids and adults opted for a half-sized portion when combined with a prize. Both options were priced the same. Even more interesting is that the promise of a future reward was enough to make adults choose the smaller portion. One of the prizes used was a lottery ticket(彩票), with a S10, $50 or $100 payout, and this was as effective as a tangible gift in persuading people to eat less. “The fact that participants were willing to substitute part of a food item for the mere prospect of a relatively small monetary award is interesting,” says Reimann. He theorizes that it is the emotional component of these intangible prizes that make them effective. In fact, vaguely-stated possibilities of winning a prize were more effective than options with hard odds included. “One explanation for this finding is that possible awards may be more emotionally provoking than certainty awards,” says Reimann. “The uncertainty of winning provides added attraction and desirability through emotional ‘thrills.’ The possibility of receiving an award also produces a state of hope—a state that is in itself psychologically rewarding.” In other words, there’s a reason why people like to gamble. How might this knowledge be used to help people eat more healthily? One possibility is a healthy option that offers the chance to win a spa(温泉疗养)weekend. Or maybe the reward of a half-sized portion could be a half-sized dessert to be claimed only on a future date. That would get you back in the restaurant—and make you eat a little less."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What do we learn about McDonald’s inclusion of toys in its Happy Meals?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It may shed light on people's desire to crack a secret."
+            },
+            {
+              "key": "B",
+              "text": "It has proved to be key to McDonald’s business success."
+            },
+            {
+              "key": "C",
+              "text": "It appeals to kid’s curiosity to find out what is hidden inside."
+            },
+            {
+              "key": "D",
+              "text": "It may be a pleasant way for kids to reduce their food intake."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)题目就麦当劳开心乐园餐中的玩具提问。根据题干关键词McDonald'sinclusionoftoys 定位至首段。该段指出,麦当劳开心乐园餐中的玩具可以同食物一样刺激大脑中的奖励中 枢,让人们吃得少的同时还可以感受到快乐,故答案选D)项“对孩子们来说,这可能是一个令 人愉快的方式来减少他们的食物摄入量”。A)项“有助于理解人们破解秘密的欲望”、B)项 “证明了麦当劳商业成功的关键”和C)项“它能满足孩子们想要知道里面藏了什么的好奇心” 在文中并未提及,故排除。"
+        },
+        {
+          "number": 52,
+          "stem": "What is the finding of the researchers led by Martin Reimann?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Reducing food intake is not that difficult if people go to McDonald’s more."
+            },
+            {
+              "key": "B",
+              "text": "Most kids and adult s don’t actually feel hungry when they eat half of their meal."
+            },
+            {
+              "key": "C",
+              "text": "Eating a smaller portion of food does good to the health of kids and adults alike."
+            },
+            {
+              "key": "D",
+              "text": "Most kids and adults would choose a smaller meal that came with a non-food item."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)题目就马丁:雷曼领导的研究员们有何发现提问。根据题干关键词findingofthe researchers定位至第三段首句。该句提到,他们发现,当与奖品结合时,大多数的孩子和成 年人选择了半份的食物。而两种选择的价格是相同的。故答案选D)项。A)项“如果人们多 光顾麦当劳,减少食物的摄人并不难”,文中并未提及人们减少食物的摄入量与光顾麦当劳次 数的关系,故排除;B)项“大多数孩子和成年人在吃了减半的食物后并不会真正地感到饥饿” 和C)项“吃小份的食物对孩子和成年人的健康有同样的好处”在文中并未提及,故排除。"
+        },
+        {
+          "number": 53,
+          "stem": "What is most interesting in Martin Reimann’s finding?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Kids preferred an award in the form of money to one in the form of a toy."
+            },
+            {
+              "key": "B",
+              "text": "Adults chose the smaller portion on the mere promise of a future award."
+            },
+            {
+              "key": "C",
+              "text": "Both kids and adults felt satisfied with only half of their meal portions."
+            },
+            {
+              "key": "D",
+              "text": "Neither children nor adults could resit the temptation of a free toy."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)题目就马丁·雷曼最有趣的发现是什么提问。根据题干关键词mostinteresting和 findings定位至第四段首句。该句提到,更有趣的是,一个对未来奖品的承诺足以使成年人 选择小份食品。故答案选B)项“成年人选择小份食品仅仅为了对未来奖励的承诺”。A)项 2016-12四级试题(第3套) 21· D)项“孩子和成人都无法拒绝免费玩具的诱惑”在文中并未提及,故排除。"
+        },
+        {
+          "number": 54,
+          "stem": "How does Martin Reimann interpret his finding?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The emotional component of the prizes is at work."
+            },
+            {
+              "key": "B",
+              "text": "People now care more about quality than quantity."
+            },
+            {
+              "key": "C",
+              "text": "People prefer certainty awards to possible awards."
+            },
+            {
+              "key": "D",
+              "text": "The desire for a future reward is overwhelming."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)题目就马丁·雷曼如何解释他的发现提问。根据题干关键词Reimann,interpret和 finding定位至第六段首句。该句提到,他认为从理论上来讲,这些无形奖励中的情感成分使 它们起了作用。即他对上述研究发现的解读,故答案选A)项。B)项“人们现在更关心质量 而不是数量”在文中并未提及,故排除;C)项“比起可能的奖励,人们更喜欢确定的奖励”与文 章所述意思相反,故排除;D)项“对未来奖励的渴望压倒了一切”,文章虽提及人们喜欢这种 未来的不确定的奖励,但并没有提及这种渴望是否压倒一切,故排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What can we infer from Martin Reimann’s finding?",
+          "options": [
+            {
+              "key": "A",
+              "text": "People should eat much less if they wish to stay healthy and happy."
+            },
+            {
+              "key": "B",
+              "text": "More fast food restaurants are likely to follow McDonald’s example."
+            },
+            {
+              "key": "C",
+              "text": "We can lead people to eat less while helping the restaurant business."
+            },
+            {
+              "key": "D",
+              "text": "More studies are needed to find out the impact of emotion on behavior."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)题目就从马丁·雷曼的发现中推断出什么提问。通读文章可知,雷曼的研究主要发现了 人们愿意为奖励而放弃大份的食物,且当这种奖励存在某种不确定性时,人们的欲望被不确 定性所刺激因而产生更大的吸引力。文章末段提出,如果餐厅能利用这一发现而设置奖励, 不仅可以让顾客再次光临餐厅,还可以让人们吃得更少,故答案选C)项“我们可以引导人们 少吃同时还有助于餐厅发展”。A)项“如果人们希望保持健康和快乐就该少吃一点”,文章讲 的是用小奖励代替部分食物的方法被人们所接受,并未提到想要健康快乐就应该少吃,故排 除;B)项“大部分快餐店都可能效仿麦当劳的做法”在文中并未提及,故排除;D)项“需要更多 的研究来发现情感对行为的影响”其中“impactofemotion onbehavior\"并非文章中提到的研 究主题,故排除。"
+        }
+      ]
+    }
+  ]
+}

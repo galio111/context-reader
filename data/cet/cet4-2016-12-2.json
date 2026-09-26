@@ -1,0 +1,1565 @@
+{
+  "id": "cet4-2016-12-2",
+  "level": 4,
+  "year": 2016,
+  "month": 12,
+  "set": 2,
+  "title": "2016 年 12 月四级 · 第 2 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.12/%E7%9C%9F%E9%A2%98Word/2016%E5%B9%B412%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A5%97%EF%BC%89.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2016%E5%B9%B412%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A5%97%EF%BC%89.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2016-12-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "The ocean is heating up. That's the conclusion of a new study that finds that Earth's oceans now [[26]] heat at twice the rate they did 18 years ago. Around half of ocean heat intake since 1865 has taken place since 1997, researchers report online in Nature Climate Change. Warming waters are known to [[27]] to coral bleaching (珊瑚白化) and they take up more space than cooler waters, raising sea [[28]] While the top of the ocean is well studied, its depths are more difficult to [[29]] The researchers gathered 150 years of ocean temperature data in order to get abetter [[30]] of heat absorption from surface to seabed. They gathered together temperature readings collected by everything from a 19th century [[31]] of British naval ships to modem automated ocean probes. The extensive data sources, [[32]] with computer simulations ( 计算机模拟), created a timeline of ocean temperature changes, including cooling from volcanic outbreaks and warming from fossil fuel [[33]] About 35 percent of the heat taken in by the oceans during the industrial era now resides at a [[34]] of more than 700 meters, the researchers found. They say they're [[35]]whether the deep-sea warming canceled out warming at the sea's surface."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "absorb"
+        },
+        {
+          "key": "B",
+          "text": "Combined"
+        },
+        {
+          "key": "C",
+          "text": "Contribute"
+        },
+        {
+          "key": "D",
+          "text": "depth"
+        },
+        {
+          "key": "E",
+          "text": "emissions"
+        },
+        {
+          "key": "F",
+          "text": "excursion"
+        },
+        {
+          "key": "G",
+          "text": "explore"
+        },
+        {
+          "key": "H",
+          "text": "floor"
+        },
+        {
+          "key": "I",
+          "text": "heights"
+        },
+        {
+          "key": "J",
+          "text": "indifferent"
+        },
+        {
+          "key": "K",
+          "text": "levels"
+        },
+        {
+          "key": "L",
+          "text": "mixed"
+        },
+        {
+          "key": "M",
+          "text": "picture"
+        },
+        {
+          "key": "N",
+          "text": "unsure"
+        },
+        {
+          "key": "O",
+          "text": "voyage"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "absorb"
+            },
+            {
+              "key": "B",
+              "text": "Combined"
+            },
+            {
+              "key": "C",
+              "text": "Contribute"
+            },
+            {
+              "key": "D",
+              "text": "depth"
+            },
+            {
+              "key": "E",
+              "text": "emissions"
+            },
+            {
+              "key": "F",
+              "text": "excursion"
+            },
+            {
+              "key": "G",
+              "text": "explore"
+            },
+            {
+              "key": "H",
+              "text": "floor"
+            },
+            {
+              "key": "I",
+              "text": "heights"
+            },
+            {
+              "key": "J",
+              "text": "indifferent"
+            },
+            {
+              "key": "K",
+              "text": "levels"
+            },
+            {
+              "key": "L",
+              "text": "mixed"
+            },
+            {
+              "key": "M",
+              "text": "picture"
+            },
+            {
+              "key": "N",
+              "text": "unsure"
+            },
+            {
+              "key": "O",
+              "text": "voyage"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)空格前为that引导的宾语从句,其主语为Earth'soceans,后面是宾语heat,因此应填人 动词。根据后面的heat可知,热量应该是被“吸收”的,且第三句中提到了heat intake,intake 意为“摄人,吸人”,因此空格处应填人与之相近义的词,故选A)absorb“吸收”。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "absorb"
+            },
+            {
+              "key": "B",
+              "text": "Combined"
+            },
+            {
+              "key": "C",
+              "text": "Contribute"
+            },
+            {
+              "key": "D",
+              "text": "depth"
+            },
+            {
+              "key": "E",
+              "text": "emissions"
+            },
+            {
+              "key": "F",
+              "text": "excursion"
+            },
+            {
+              "key": "G",
+              "text": "explore"
+            },
+            {
+              "key": "H",
+              "text": "floor"
+            },
+            {
+              "key": "I",
+              "text": "heights"
+            },
+            {
+              "key": "J",
+              "text": "indifferent"
+            },
+            {
+              "key": "K",
+              "text": "levels"
+            },
+            {
+              "key": "L",
+              "text": "mixed"
+            },
+            {
+              "key": "M",
+              "text": "picture"
+            },
+            {
+              "key": "N",
+              "text": "unsure"
+            },
+            {
+              "key": "O",
+              "text": "voyage"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)空格前为beknownto,其后应为动词原形。根据句意:温热的海水是 _珊瑚白化的 原因,可知本句介绍海水变暖与珊瑚白化之间的关系,应填入表因果关系的动词,且可与后面 的to进行搭配,故选C)。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "absorb"
+            },
+            {
+              "key": "B",
+              "text": "Combined"
+            },
+            {
+              "key": "C",
+              "text": "Contribute"
+            },
+            {
+              "key": "D",
+              "text": "depth"
+            },
+            {
+              "key": "E",
+              "text": "emissions"
+            },
+            {
+              "key": "F",
+              "text": "excursion"
+            },
+            {
+              "key": "G",
+              "text": "explore"
+            },
+            {
+              "key": "H",
+              "text": "floor"
+            },
+            {
+              "key": "I",
+              "text": "heights"
+            },
+            {
+              "key": "J",
+              "text": "indifferent"
+            },
+            {
+              "key": "K",
+              "text": "levels"
+            },
+            {
+              "key": "L",
+              "text": "mixed"
+            },
+            {
+              "key": "M",
+              "text": "picture"
+            },
+            {
+              "key": "N",
+              "text": "unsure"
+            },
+            {
+              "key": "O",
+              "text": "voyage"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K)空格前为sea作修饰语,因此应填人名词。根据句意:温热的海水比凉爽的海水占据了更 多的空间,会让海 上升,可知上升的应该是“海平面”,故选K)。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "absorb"
+            },
+            {
+              "key": "B",
+              "text": "Combined"
+            },
+            {
+              "key": "C",
+              "text": "Contribute"
+            },
+            {
+              "key": "D",
+              "text": "depth"
+            },
+            {
+              "key": "E",
+              "text": "emissions"
+            },
+            {
+              "key": "F",
+              "text": "excursion"
+            },
+            {
+              "key": "G",
+              "text": "explore"
+            },
+            {
+              "key": "H",
+              "text": "floor"
+            },
+            {
+              "key": "I",
+              "text": "heights"
+            },
+            {
+              "key": "J",
+              "text": "indifferent"
+            },
+            {
+              "key": "K",
+              "text": "levels"
+            },
+            {
+              "key": "L",
+              "text": "mixed"
+            },
+            {
+              "key": "M",
+              "text": "picture"
+            },
+            {
+              "key": "N",
+              "text": "unsure"
+            },
+            {
+              "key": "O",
+              "text": "voyage"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G)空格前为bedifficultto,因此后面应填人动词原形。根据句意:虽然海洋表面已得到了充 分的研究,但深海更难 一,可知应填人含有“探索;探测”意思的动词,故选G)。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "absorb"
+            },
+            {
+              "key": "B",
+              "text": "Combined"
+            },
+            {
+              "key": "C",
+              "text": "Contribute"
+            },
+            {
+              "key": "D",
+              "text": "depth"
+            },
+            {
+              "key": "E",
+              "text": "emissions"
+            },
+            {
+              "key": "F",
+              "text": "excursion"
+            },
+            {
+              "key": "G",
+              "text": "explore"
+            },
+            {
+              "key": "H",
+              "text": "floor"
+            },
+            {
+              "key": "I",
+              "text": "heights"
+            },
+            {
+              "key": "J",
+              "text": "indifferent"
+            },
+            {
+              "key": "K",
+              "text": "levels"
+            },
+            {
+              "key": "L",
+              "text": "mixed"
+            },
+            {
+              "key": "M",
+              "text": "picture"
+            },
+            {
+              "key": "N",
+              "text": "unsure"
+            },
+            {
+              "key": "O",
+              "text": "voyage"
+            }
+          ],
+          "answer": "M",
+          "explanation": "M)空格前有不定冠词a和形容词better作修饰语,因此应填人单数名词。根据句意:研究人员 收集......数据,以便更好地 从海洋表面到海床的热量吸收情况。可知研究人员应对数据 进行“研究”并“了解”情况,getabetterpictureof意为“对...进行更好的了解”,故选M)。 ·16 2016-12四级试题(第2套)"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "absorb"
+            },
+            {
+              "key": "B",
+              "text": "Combined"
+            },
+            {
+              "key": "C",
+              "text": "Contribute"
+            },
+            {
+              "key": "D",
+              "text": "depth"
+            },
+            {
+              "key": "E",
+              "text": "emissions"
+            },
+            {
+              "key": "F",
+              "text": "excursion"
+            },
+            {
+              "key": "G",
+              "text": "explore"
+            },
+            {
+              "key": "H",
+              "text": "floor"
+            },
+            {
+              "key": "I",
+              "text": "heights"
+            },
+            {
+              "key": "J",
+              "text": "indifferent"
+            },
+            {
+              "key": "K",
+              "text": "levels"
+            },
+            {
+              "key": "L",
+              "text": "mixed"
+            },
+            {
+              "key": "M",
+              "text": "picture"
+            },
+            {
+              "key": "N",
+              "text": "unsure"
+            },
+            {
+              "key": "O",
+              "text": "voyage"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O)空格前的a19thcentury作前置修饰语,后面的ofBritishnavalships作后置修饰语,因 此应填入名词。根据句意:他们把包括从英国海军舰队19世纪的一次—到现代...,可 知与navalship搭配的应该是含有“航行,航程”意思的名词,故选O)。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "absorb"
+            },
+            {
+              "key": "B",
+              "text": "Combined"
+            },
+            {
+              "key": "C",
+              "text": "Contribute"
+            },
+            {
+              "key": "D",
+              "text": "depth"
+            },
+            {
+              "key": "E",
+              "text": "emissions"
+            },
+            {
+              "key": "F",
+              "text": "excursion"
+            },
+            {
+              "key": "G",
+              "text": "explore"
+            },
+            {
+              "key": "H",
+              "text": "floor"
+            },
+            {
+              "key": "I",
+              "text": "heights"
+            },
+            {
+              "key": "J",
+              "text": "indifferent"
+            },
+            {
+              "key": "K",
+              "text": "levels"
+            },
+            {
+              "key": "L",
+              "text": "mixed"
+            },
+            {
+              "key": "M",
+              "text": "picture"
+            },
+            {
+              "key": "N",
+              "text": "unsure"
+            },
+            {
+              "key": "O",
+              "text": "voyage"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)空格后的withcomputersimulations为介宾短语,withcomputersimulations为 伴随状语,因此应填人动词。根据句意:利用广泛的数据源并与计算机模拟相 一,才能得 出温度变化的时间线,可知应填人含有“结合,组合”意思且可与with搭配的动词,故选B)。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "absorb"
+            },
+            {
+              "key": "B",
+              "text": "Combined"
+            },
+            {
+              "key": "C",
+              "text": "Contribute"
+            },
+            {
+              "key": "D",
+              "text": "depth"
+            },
+            {
+              "key": "E",
+              "text": "emissions"
+            },
+            {
+              "key": "F",
+              "text": "excursion"
+            },
+            {
+              "key": "G",
+              "text": "explore"
+            },
+            {
+              "key": "H",
+              "text": "floor"
+            },
+            {
+              "key": "I",
+              "text": "heights"
+            },
+            {
+              "key": "J",
+              "text": "indifferent"
+            },
+            {
+              "key": "K",
+              "text": "levels"
+            },
+            {
+              "key": "L",
+              "text": "mixed"
+            },
+            {
+              "key": "M",
+              "text": "picture"
+            },
+            {
+              "key": "N",
+              "text": "unsure"
+            },
+            {
+              "key": "O",
+              "text": "voyage"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E)空格前有from,因此应填入名词作from的宾语。根据句意:包括火山爆发后的冷却和化 石燃料后导致的升温。and前后为并列结构,故应填人与outbreak“爆发”相近义的 词,来表示化石燃料被释放,故选E)emissions“排放”。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "absorb"
+            },
+            {
+              "key": "B",
+              "text": "Combined"
+            },
+            {
+              "key": "C",
+              "text": "Contribute"
+            },
+            {
+              "key": "D",
+              "text": "depth"
+            },
+            {
+              "key": "E",
+              "text": "emissions"
+            },
+            {
+              "key": "F",
+              "text": "excursion"
+            },
+            {
+              "key": "G",
+              "text": "explore"
+            },
+            {
+              "key": "H",
+              "text": "floor"
+            },
+            {
+              "key": "I",
+              "text": "heights"
+            },
+            {
+              "key": "J",
+              "text": "indifferent"
+            },
+            {
+              "key": "K",
+              "text": "levels"
+            },
+            {
+              "key": "L",
+              "text": "mixed"
+            },
+            {
+              "key": "M",
+              "text": "picture"
+            },
+            {
+              "key": "N",
+              "text": "unsure"
+            },
+            {
+              "key": "O",
+              "text": "voyage"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)空格前为不定冠词a,后面的ofmorethan作后置修饰语,因此应填人名词。根据句意: 工业时期海洋吸收热量的35%现停留在700多米 的地方。可知,700多米指的是海洋 的深度,故选D)。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "absorb"
+            },
+            {
+              "key": "B",
+              "text": "Combined"
+            },
+            {
+              "key": "C",
+              "text": "Contribute"
+            },
+            {
+              "key": "D",
+              "text": "depth"
+            },
+            {
+              "key": "E",
+              "text": "emissions"
+            },
+            {
+              "key": "F",
+              "text": "excursion"
+            },
+            {
+              "key": "G",
+              "text": "explore"
+            },
+            {
+              "key": "H",
+              "text": "floor"
+            },
+            {
+              "key": "I",
+              "text": "heights"
+            },
+            {
+              "key": "J",
+              "text": "indifferent"
+            },
+            {
+              "key": "K",
+              "text": "levels"
+            },
+            {
+              "key": "L",
+              "text": "mixed"
+            },
+            {
+              "key": "M",
+              "text": "picture"
+            },
+            {
+              "key": "N",
+              "text": "unsure"
+            },
+            {
+              "key": "O",
+              "text": "voyage"
+            }
+          ],
+          "answer": "N",
+          "explanation": "N)根据前面的系动词are可知,空格处作表语,因此应填人形容词。根据句意:他们说他们 深海变暖是否抵消了海洋表面的变暖。因为表语从句由whether引导,可知研究者们 对深海变暖是否抵消海洋表面的变暖是“不确定”的,故选N)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2016-12-2-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) I first began to investigate the basis of human motivation--and how people persevere after setbacks--as a psychology graduate student at Yale University in the 1960s. Animal experiments by psychologists at the University of Pennsylvania had shown that after repeated failures, most animals conclude that a situation is hopeless and beyond their control. After such an experience an animal often remains passive even when it can effect change--a state they called learned helplessness.",
+        "B) People can learn to be helpless, too. Why do some students give up when they encounter difficulty, whereas others who are no more skilled continue to strive and learn? One answer, I soon discovered, lay in people's beliefs about why they had failed.",
+        "C) In particular, attributing poor performance to a lack of ability depresses motivation more than does the belief that lack of effort is to blame. When I told a group of school children who displayed helpless behavior that a lack of effort led to their mistakes in math, they learned to keep trying when the problems got tough. Another group of helpless children who were simply rewarded for their success on easier problems did not improve their ability to solve hard math problems. These experiments indicated that a focus on effort can help resolve helplessness and generate success.",
+        "D) Later, I developed a broader theory of what separates the two general classes of learners—helpless versus mastery-oriented. I realized these different types of students not only explain their failures differently, but they also hold different \"theories\" of intelligence. The helpless ones believe intelligence is a fixed characteristic: you have only a certain amount, and that's that. I call this a \"fixed mind-set (思维模式). \" Mistakes crack their self-confidence because they attribute errors to a lack of ability, which they feel powerless to change. They avoid challenges because challenges make mistakes more likely. The mastery-oriented children, on the other hand, think intelligence is not fixed and can be developed through education and hard work. Such children believe challenges are energizing rather than intimidating (令人生畏); they offer opportunities to learn. Students with such a growth mind-set were destined (注定) for greater academic success and were quite likely to outperform their counterparts.",
+        "E) We validated these expectations in a study in which two other psychologists and I monitored 373students for two years during the transition to junior high school, when the work gets more difficult and the grading more strict, to determine how their mind-sets might affect their math grades. At the beginning of seventh grade, we assessed the students' mind-sets by asking them to agree or disagree with statements such as \"Your intelligence is something very basic about you that you can't really change. \" We then assessed their beliefs about other aspects of learning and looked to see what happened to their grades.",
+        "F) As predicted, the students with a growth mind-set felt that learning was a more important goal than getting good grades. In addition, they held hard work in high regard. They understood that even geniuses have to work hard. Confronted by a setback such as a disappointing test grade, students with a growth mind-set said they would study harder or try a different strategy. The students who held a fixed mind-set, however, were concerned about looking smart with less regard for learning. They had negative views of effort, believing that having to work hard was a sign of low ability. They thought that a person with talent or intelligence did not need to work hard to do well. Attributing a bad grade to their own lack of ability, those with a fixed mind-set said that they would study less in the future, try never to take that subject again and consider cheating on future tests.",
+        "G) Such different outlooks had a dramatic impact on performance. At the start of junior high, the math achievement test scores of the students with a growth mind-set were comparable to those of students who displayed a fixed mind-set. But as the work became more difficult, the students with a growth mind-set showed greater persistence. As a result, their math grades overtook those of the other students by the end of the first semester--and the gap between the two groups continued to widen during the two years we followed them.",
+        "H) A fixed mind-set can also hinder communication and progress in the workplace and discourage or ignore constructive criticism and advice. Research shows that managers who have a fixed mind-set are less likely to seek or welcome feedback from their employees than are managers with a growth mind-set.",
+        "I) How do we transmit a growth mind-set to our children? One way is by telling stories about achievements that result from hard work. For instance, talking about mathematical geniuses who were more or less born that way puts students in a fixed mind-set, but descriptions of great mathematicians who fell in love with math and developed amazing skills produce a growth mind-set.",
+        "J) In addition, parents and teachers can help children by providing explicit instruction regarding the mind as a learning machine. I designed an eight-session workshop for 91 students whose math grades were declining in their first year of junior high. Forty-eight of the students received instruction in study skills only, whereas the others attended a combination of study skills sessions and classes in which they learned about the growth mind-set and how to apply it to schoolwork. In the growth mind-set classes, students read and discussed an article entitled \"You Can Grow Your Brain. \" They were taught that the brain is like a muscle that gets stronger with use and that learning prompts the brain to grow new connections. From such instruction, many students began to see themselves as agents of their own brain development. Despite being unaware that there were two types of instruction, teachers reported significant motivational changes in 27% of the children in the growth mind-set workshop as compared with only 9% of students in the control group.",
+        "K) Research is converging (汇聚) on the conclusion that great accomplishment and even genius is typically the result of years of passion and dedication and not something that flows naturally from a gift."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "The author's experiment shows that students with a fixed mind-set believe having to work hard is an indication of low ability.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F)根据题目意思:作者的实验表明,具有固定思维模式的学生相信必须努力才能完成某些事 是低能的表现。根据题干线索词havingtoworkhard和anindicationoflowability定位至 F)段第五、六句。该句提到,他们对努力持消极看法,相信必须努力做某些事情是低能的标志。 故答案选F)。"
+        },
+        {
+          "number": 37,
+          "stem": "Focusing on effort is effective in helping children overcome frustration and achieve success.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)根据题目意思:专注于努力可以有效地帮助孩子战胜挫折并取得成功。根据题干线索词 Focusingoneffort和achievesuccess定位至C)段。该段指出,应该让孩子专注于付出努力 会帮助他们勇敢地面对挫折并取得成功。且末句总结,专注于努力可以帮助解决无助性并促 进成功。可知题干是对该段的概括总结,故答案选C)。"
+        },
+        {
+          "number": 38,
+          "stem": "We can cultivate a growth mind-set in children by telling success stories that emphasize hard work and love of learning.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "I",
+          "explanation": "I)根据题目意思:我们可以通过给孩子讲述强调努力工作和热爱学习的成功故事来培养其 成长思维模式。根据题干线索词cultivateagrowthmind-set和successstories定位至I)段。 该段首先提出如何培养孩子的成长思维模式呢?随后,以成功故事为例,来帮助孩子形成成 长思维模式。可知题干是对该段的概括总结,故答案选I)。"
+        },
+        {
+          "number": 39,
+          "stem": "Students' belief about the cause of their failure explains their attitude toward setbacks.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)根据题目意思:学生对于失败原因的看法解释了他们面对挫折的态度。根据题干线索词 belief和thecauseof theirfailure定位至B)段第二句。该句中作者提出疑问,“为什么有些 在于人们对自已为什么失败的看法,可知题干是对该段的概括总结,故答案选B)。"
+        },
+        {
+          "number": 40,
+          "stem": "In the author's experiment, students with a growth mind-set showed greater perseverance in solving difficult math problems.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G)根据题目意思:在作者的实验中,拥有成长思维模式的学生在解决数学难题时表现出极大 的毅力。根据题干线索词greaterperseverance和difficult定位至G)段。该段提到,这两种 思维模式对学生学业产生的影响并不会在开始就显现出来,而是随着功课难度的增加,具有 成长思维模式的学生表现出更大的毅力。可知题干是对该段的概括总结,故答案选G)。"
+        },
+        {
+          "number": 41,
+          "stem": "The author conducted an experiment to find out about the influence of students' mind-sets on math learning.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E)根据题目意思:作者做了一项实验来研究学生的思维模式对数学学习的影响。根据题 干线索词findout和influence定位至E)段。该段提到,作者和另外两位心理学家进行了一 项跟踪调查,旨在确定思维模式会怎样影响他们的数学成绩。可知题干是对该段的概括 总结,故答案选E)。"
+        },
+        {
+          "number": 42,
+          "stem": "After failing again and again, most animals give up hope.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)根据题目意思:在一次又一次的失败之后,大多数动物都会放弃了希望。根据题干线索 词failingagainandagain和giveuphope定位至A)段。该段指出,动物实验表明,大多数动 物在遭遇一次又一次的失败后,都会认为没有希望了,对于糟糕的情况它们束手无策。可知 题干是对该段的概括总结,故答案选A)。"
+        },
+        {
+          "number": 43,
+          "stem": "Informing students about the brain as a learning machine is a good strategy to enhance their motivation for learning.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "J",
+          "explanation": "J)根据题目意思:告知学生把大脑当作一台学习机器是一个很好策略以增强他们的学习动 机。根据题干线索词brainasalearningmachine定位至J)段首句。此处提到,家长和老师 还可以提供明确的指导,帮助孩子把大脑视为一台学习机器。随后作者以曾经做过的一个课 程项目为例,来说明帮助学生将大脑视为学习机器并学习如何建立成长型思维模式,将有助 于增强学生的学习动机。可知题干是对该段的概括总结,故答案选J)。"
+        },
+        {
+          "number": 44,
+          "stem": "People with a fixed mind-set believe that one's intelligence is unchangeable.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)根据题目意思:固定思维模式的人认为人的智力是不可改变的。根据题干线索词afixed mind-set和unchangeable定位至D)段第三句。该句指出,无助取向的人认为智力具有固定 特征:你只有那么多,这没办法。我称之为“固定思维模式”。可知题干是对该段的概括总结, 故答案选D)。"
+        },
+        {
+          "number": 45,
+          "stem": "In the workplace, feedback may not be so welcome to managers with a fixed mind-set.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H)根据题目意思:在职场中,有着固定思维模式的经理可能不太欢迎员工的反馈。根据题 干线索词workplace,feedback和managers定位至H)段。该段指出,固定的思维模式也会 阻碍职场中的沟通和进步,影响或忽视建设性的批评和建议。研究表明,具有固定思维模式 的经理与具有成长思维模式的经理相比,不太可能寻求或欢迎来自员工的反馈。可知题干是 对该段的概括总结,故答案选H)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2016-12-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "\"Sugar, alcohol and tobacco,\" economist Adam Smith once wrote,\" are commodities which are nowhere necessaries of life, which have become objects of almost universal consumption, and which are, therefore, extremely popular subjects of taxation. \" Two and a haft centuries on, most countries impose some sort of tax on alcohol and tobacco. With surging obesity levels putting increasing strain on public health systems, governments around the world have begun to toy with the idea of taxing sugar as well. Whether such taxes work is a matter of debate. A preliminary review of Mexico's taxation found a fall in purchases of taxed drinks as well as a rise in sales of untaxed and healthier drinks. By contrast, a Danish tax on foods high in fats was abandoned a year after its introduction, amid claims that consumers were avoiding it by crossing the border to Germany to satisfy their desire for cheaper, fattier fare. The food industry has, in general, been firmly opposed to such direct government action. Nonetheless, the renewed focus on waistlines means that industry groups are under pressure to demonstrate their products are healthy as well as tasty. Over the past three decades, the industry has made some efforts to improve the quality of its offerings. For example, some drink manufacturers have cut the amount of sugar in their beverages. Many of the reductions over the past 30 years have been achieved either by reducing the amount of sugar, salt or fat in a product, or by finding an alternative ingredient. More recently, however, some companies have been investing money in a more ambitious undertaking: learning how to adjust the fundamental make-up of the food they sell. For example, having salt on the outside, but none on the inside, reduces the salt content without changing the taste. While reformulating recipes ( 配方) is one way to improve public health, it should be part of a multi-sided approach. The key is to remember that there is not just one solution. To deal with obesity, mixture of approaches--including reformulation, taxation and adjusting portion sizes--will be needed. There is no silver bullet."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What did Adam Smith say about sugar, alcohol and .tobacco?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They were profitable to manufacture."
+            },
+            {
+              "key": "B",
+              "text": "They were in ever-increasing demand."
+            },
+            {
+              "key": "C",
+              "text": "They were subject to taxation almost everywhere."
+            },
+            {
+              "key": "D",
+              "text": "They were no longer considered necessities of life."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)题目就亚当·斯密关于糖,酒和烟说了什么提问。根据题干关键词AdamSmith定位至 首段。首段通过亚当·斯密的话引人对糖、酒和烟征税的话题。可知,糖、酒和烟是极为受欢 B)项“对它们的需求量不断增长”在文中并未提及,故排除;D)项“它们不再被认为是生活必 需品”根据首段中提到的,绝不是生活的必需品,可知它们从一开始就不是生活必须品,因此 D)项中的nolonger“不再”表述不符合原文语义,故排除。"
+        },
+        {
+          "number": 47,
+          "stem": "Why have many countries started to consider taxing sugar?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are under growing pressure to balance their national budgets."
+            },
+            {
+              "key": "B",
+              "text": "They find it ever harder to cope with sugar-induced health problems."
+            },
+            {
+              "key": "C",
+              "text": "The practice of taxing alcohol and tobacco has proved both popular and profitable."
+            },
+            {
+              "key": "D",
+              "text": "The sugar industry is overtaking alcohol and tobacco business in generating profits."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)题目就许多国家开始考虑对糖类征税的原因提问。根据题干关键词manycountries startedtoconsidertaxingsugar定位至第二段第二句。该句提到,世界各国政府也开始考虑 对糖类征税。其中With引出的是原因状语,即征收糖税的原因在于肥胖水平的激增给公共 卫生系统带来越来越大的压力,故答案选B)项“他们发觉应对由糖引发的健康问题越来越困 难”。A)项“他们为平衡国家的预算承受着越来越大的压力”和D)项“糖业在赢利方面已经 图”根据第三段首句提到的,这种税收(即对糖、酒和烟收税)是否奏效有待商榷,可知C)项所 述内容并未得到证实,故排除。"
+        },
+        {
+          "number": 48,
+          "stem": "What do we learn about Danish taxation on fat-rich foods?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It did not work out as well as was expected."
+            },
+            {
+              "key": "B",
+              "text": "It gave rise to a lot of problems on the border."
+            },
+            {
+              "key": "C",
+              "text": "It could not succeed without German cooperation."
+            },
+            {
+              "key": "D",
+              "text": "It met with firm opposition from the food industry."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)题目就丹麦的一项高脂肪食品税提问。可定位至第三段第三句。该段讨论了糖、酒和烟 税的有效性问题。其中提到丹麦征收的高脂肪食品税却在执行一年后就被废除了,原因是消 费者为避免纳税可以跨境去德国购买能满足其需求且更便宜,脂肪含量更高的食品。说明丹 麦的这一税种并未起作用,故答案选A)项“没有如预期的那样有效”。B)项“它导致了许多 .20· 2016-12四级试题(第2套) 业的坚决反对”虽在第四段首句提及,但文章并未提到丹麦的政策是否遇到了抵制,故排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What is the more recent effort by food companies to make foods and drinks both healthy and tasty?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Replacing sugar or salt with alternative ingredients."
+            },
+            {
+              "key": "B",
+              "text": "Setting a limit on the amount of sugar or salt in their products."
+            },
+            {
+              "key": "C",
+              "text": "Investing in research to find ways to adapt to consumers' needs."
+            },
+            {
+              "key": "D",
+              "text": "Adjusting the physical composition of their products."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)题目就食品公司为了使食品既健康又美味做了哪些努力提问。根据题干关键词themore recenteffortbyfoodcompanies定位至第六段第二句。该句提到,最近的努力方向是学习如 何调整食品的基本构成,故答案选D)项“调整其产品的物质构成”。A)项“用替代成分取代 的做法,而题干要求为“morerecent”,故排除;C)项“投资于找到适应消费者需求方法的研 究”在文中并未提及,因此排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What does the author mean by saying, at the end of the passage, \"There is no silver bullet\" ( Line 4, Para.7)?",
+          "options": [
+            {
+              "key": "A",
+              "text": "There is no single easy quick solution to the problem."
+            },
+            {
+              "key": "B",
+              "text": "There is no hope of success without public cooperation."
+            },
+            {
+              "key": "C",
+              "text": "There is no hurry in finding ways to solve the obesity problem."
+            },
+            {
+              "key": "D",
+              "text": "There is no effective way to reduce people's sugar consumption."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)根据题干关键词There isnosilverbullet定位至末段。该段是对全文的总结,在末段作 者总结了改善公共健康的多方面措施,包括重新设计配方、征税和调整各成分含量等。 “Thereisnosilverbullet”是对前一句的总结,故答案选A)项“该问题没有唯一的轻松快速 解决的方案”。B)项“没有公众的合作就没有成功的希望”、C)项“无须急于找到解决肥胖问 题的方法”和D)项“没有有效的方式来减少人们对糖的消费”在文中并未提及,故排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2016-12-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "You may have heard some of the fashion industry horror stories: models eating tissues or cotton balls to hold off hunger, and models collapsing from hunger-induced heart attacks just seconds after they step off the runway. Excessively skinny models have been a point of controversy for decades, and two researchers say a model's body mass should be a workplace health and safety issue. In an editorial released Monday in the American Journal of Public Health, Katherine Record and Bryn Austin made their case for government regulation of the fashion industry. The average international runway model has a body mass index (BMI) under 16--low enough to indicate starvation by the World Health Organization's standard. And Record and Austin are worried not just about the models themselves, but about the vast number of girls and women their images influence. \"Especially girls and teens,\" says Record. \"Seventy percent of girls aged 10 to 18 report that they define perfect body image based on what they see in magazines. \" That's especially worrying, she says, given that anorexia (厌食症) results in more deaths than does any other mental illness, according to the National Institute of Mental Health. It's commonly known that certain diseases are linked with occupations like lung disease in coalminers. Professional fashion models are particularly vulnerable to eating disorders resulting from occupational demands to maintain extreme thinness. Record's suggestion is to prohibit agents from hiring models with a BMI below 18. In April, France passed a law setting lower limits for a model's weight. Agents and fashion houses who hire models with a BMI under 18 could pay $ 82,000 in fines and spend up to 6 months in jail. Regulating the fashion industry in the United States won't be easy, Record says. But with the new rules in France, U.S. support could make a difference. \"A designer can't survive without participating in Paris Fashion Week\", she says, adding,\" Our argument is that the same would be true of New York Fashion Week. \""
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What do Record and Austin say about fashion models' body mass?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It has caused needless controversy."
+            },
+            {
+              "key": "B",
+              "text": "It is but a matter of personal taste."
+            },
+            {
+              "key": "C",
+              "text": "It is the focus of the modeling business."
+            },
+            {
+              "key": "D",
+              "text": "It affects models' health and safety."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)题目就克劳德和奥斯汀关于模特的体重说了什么提问。根据题干关键词fashionmodels bodymass定位至第二段首句。该句提到,两个研究人员称模特的体重应该是职业健康的安 全问题。其中“两个研究人员”就是克劳德和奥斯汀,故答案选D)项“这将影响模特的健康与 安全”。A)项“这引起了不必要的争论”根据该句提到的:几十年来过瘦的模特一直是争论的 焦点,可知争论早就存在,故排除;B)项“这只是个人品味的问题”和C)项“这是模特业的焦 点”在文中并未提及,因此排除。 2016-12四级试题(第2套)"
+        },
+        {
+          "number": 52,
+          "stem": "What are Record and Austin advocating in the Monday editorial?",
+          "options": [
+            {
+              "key": "A",
+              "text": "A change in the public's view of female beauty."
+            },
+            {
+              "key": "B",
+              "text": "Government legislation about models' weight."
+            },
+            {
+              "key": "C",
+              "text": "Elimination of forced weight loss by models."
+            },
+            {
+              "key": "D",
+              "text": "Prohibition of models eating non-food stuff."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)题目就在周一社论中克劳德和奥斯汀支持什么观点提问。根据题干关键词inthe Mondayeditorial定位至第二段第二句。该句提到,凯瑟琳·克劳德和布莱恩·奥斯汀就政 府对时装业的监管提出了他们的理由。其中case意为“理由,论据”,说明她们拥护政府的做 法,而政府的做法是对时装业进行监管,控制模特过瘦,即“立法规定模特体重”,故答案选B) 项。A)项“改变公众对女性美的看法”、C)项“取消强制模特减肥的标准”和D)项“禁止模特 吃非食物的东西”均不符合题意,故排除。"
+        },
+        {
+          "number": 53,
+          "stem": "Why are Record and Austin especially worried about the low body mass index of models?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It contributes to many mental illnesses."
+            },
+            {
+              "key": "B",
+              "text": "It defines the future of the fashion industry."
+            },
+            {
+              "key": "C",
+              "text": "It has great influence on numerous girls and women."
+            },
+            {
+              "key": "D",
+              "text": "It keeps many otherwise qualified women off the runway."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)题目就克劳德和奥斯汀担心模特体重指数的原因提问。根据题干关键词worriedabout thelowbodymassindexofmodels定位至第三段第二句。该句提到,克劳德和奥斯汀担心 的不仅仅是模特本身,还有受模特形象影响的大量女性。故答案选C)项“它对许多女性有巨 大影响”。A)项“它导致了许多精神疾病”、B)项“它定义了时尚业的未来”和D)项“这使许多 其他方面合格的女性不能成为模特”在文中并未提及,因此排除。"
+        },
+        {
+          "number": 54,
+          "stem": "What do we learn about France's fashion industry?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It has difficulty hiring models."
+            },
+            {
+              "key": "B",
+              "text": "It has now a new law to follow."
+            },
+            {
+              "key": "C",
+              "text": "It allows girls under 18 on the runway."
+            },
+            {
+              "key": "D",
+              "text": "It has overtaken that of the United States."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)题目就法国时尚业的情况提问。根据题干关键词France'sfashionindustry定位至第七 段首句。该句提到,法国四月份通过了一项法律,规定了模特体重的下限。后一句解释称,任 何雇用体重指数低于18的模特公司都会受到处罚。故答案选B)项“现在有一项新的法律要 遵守”。A)项“它很难雇用模特”和D)项“它已经超越了美国的时尚业”在文中并未提及,故 排除;C)项“它允许18岁以下的女孩走T台”与原文所述意思相反,故排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What does Record expect of New York Fashion Week?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It will create a completely new set of rules."
+            },
+            {
+              "key": "B",
+              "text": "It will do better than Paris Fashion Week."
+            },
+            {
+              "key": "C",
+              "text": "It will differ from Paris Fashion Week."
+            },
+            {
+              "key": "D",
+              "text": "It will have models with a higher BMI."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)题目就克劳德对纽约时装周的预期提问。根据题干关键词NewYorkFashionWeek定 位至第七段末句。该句提到,克劳德希望纽约时装周也能如此。末段主要讲了法国通过了新 规,要求雇用体重指数高于18的模特,而设计师要想生存就要参加巴黎时装周和纽约时装 周,可知,纽约时装周上也会出现体重指数更高的模特,故答案选D)项。A)项“它将会创造 中并未提及,故排除。"
+        }
+      ]
+    }
+  ]
+}

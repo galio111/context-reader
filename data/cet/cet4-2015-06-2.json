@@ -1,0 +1,1859 @@
+{
+  "id": "cet4-2015-06-2",
+  "level": 4,
+  "year": 2015,
+  "month": 6,
+  "set": 2,
+  "title": "2015 年 6 月四级 · 第 2 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.06/%E7%9C%9F%E9%A2%98PDF/2015%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E4%BA%8C%EF%BC%89.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2015%E5%B9%B46%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%BA%8C%EF%BC%89.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2015-06-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Ifs our guilty pleasure: Watching TV is the most common everyday activity, after work and sleep, in many parts of the",
+        "world. Americans view five hours of TV each day, and while we know that spending so much time sitting [[36]] can lead to",
+        "obesity/(肥胖症)and other diseases, researchers have now quantified just how [[37]] being a couch potato can be.",
+        "In an analysis of data from eight large [[38]] .published studies, a Harvard-led group reported in the that for every two hours",
+        "per day spent channel [[39]] , the risk of developing Type 2 diabetes Journal of the American Medical Asociation (糖尿病)rose",
+        "20% over 8. 5 years, the risk of heart disease increased 15% over a [[40]] , and the odds of dying prematurely [[41]] 13% during",
+        "a seven-year follow-up. All of these [[42]] are linked to a lack of physical exercise. But compared with other sedentary (久坐",
+        "的)activities, like knitting, viewing TV may be especially [[43]] at promoting unhealthy habits. For one, the sheer number of",
+        "hours we pass watching TV dwarfs the time we spend on anything else. And other studies have found that watching ads for beer",
+        "and popcorn may make you more likely to [[44]] them.",
+        "Even so, the authors admit that they didn’t compare different sedentary activities to [[45]] whether TV watching was linked",
+        "to a greater risk of diabetes, heart disease or early death compared with, say, reading."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "climbed"
+        },
+        {
+          "key": "B",
+          "text": "consume"
+        },
+        {
+          "key": "C",
+          "text": "decade"
+        },
+        {
+          "key": "D",
+          "text": "determine"
+        },
+        {
+          "key": "E",
+          "text": "effective"
+        },
+        {
+          "key": "F",
+          "text": "harmful"
+        },
+        {
+          "key": "G",
+          "text": "outcomes"
+        },
+        {
+          "key": "H",
+          "text": "passively"
+        },
+        {
+          "key": "I",
+          "text": "previously"
+        },
+        {
+          "key": "J",
+          "text": "resume"
+        },
+        {
+          "key": "K",
+          "text": "suffered"
+        },
+        {
+          "key": "L",
+          "text": "surfing"
+        },
+        {
+          "key": "M",
+          "text": "term"
+        },
+        {
+          "key": "N",
+          "text": "terminals"
+        },
+        {
+          "key": "O",
+          "text": "twisting"
+        }
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "第 36 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "climbed"
+            },
+            {
+              "key": "B",
+              "text": "consume"
+            },
+            {
+              "key": "C",
+              "text": "decade"
+            },
+            {
+              "key": "D",
+              "text": "determine"
+            },
+            {
+              "key": "E",
+              "text": "effective"
+            },
+            {
+              "key": "F",
+              "text": "harmful"
+            },
+            {
+              "key": "G",
+              "text": "outcomes"
+            },
+            {
+              "key": "H",
+              "text": "passively"
+            },
+            {
+              "key": "I",
+              "text": "previously"
+            },
+            {
+              "key": "J",
+              "text": "resume"
+            },
+            {
+              "key": "K",
+              "text": "suffered"
+            },
+            {
+              "key": "L",
+              "text": "surfing"
+            },
+            {
+              "key": "M",
+              "text": "term"
+            },
+            {
+              "key": "N",
+              "text": "terminals"
+            },
+            {
+              "key": "O",
+              "text": "twisting"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H) passively。【详解】解副词辨析题。空格位于动词sitting 后面,此处应填入副词。由上文可知“花 这么多时间坐着”是指坐着看电视,这不是积极的活动,所以答案是H) passively“消极地。备选副词中, previously 意为“先前”,与文意不符,因此排除。"
+        },
+        {
+          "number": 37,
+          "stem": "第 37 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "climbed"
+            },
+            {
+              "key": "B",
+              "text": "consume"
+            },
+            {
+              "key": "C",
+              "text": "decade"
+            },
+            {
+              "key": "D",
+              "text": "determine"
+            },
+            {
+              "key": "E",
+              "text": "effective"
+            },
+            {
+              "key": "F",
+              "text": "harmful"
+            },
+            {
+              "key": "G",
+              "text": "outcomes"
+            },
+            {
+              "key": "H",
+              "text": "passively"
+            },
+            {
+              "key": "I",
+              "text": "previously"
+            },
+            {
+              "key": "J",
+              "text": "resume"
+            },
+            {
+              "key": "K",
+              "text": "suffered"
+            },
+            {
+              "key": "L",
+              "text": "surfing"
+            },
+            {
+              "key": "M",
+              "text": "term"
+            },
+            {
+              "key": "N",
+              "text": "terminals"
+            },
+            {
+              "key": "O",
+              "text": "twisting"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F) harmful【详解】形容词辨析题。在how 引导的宾语从句中,being a couch potato 是主语,can be 是谓 语,how 是表语,而how 是关系副词,因此本空应填入形容词。由上文可知,看电视会导致肥胖症和其他 疾病,a couch potato 指“长时间坐在沙发上看电视的人”,由此可推断,本句是在说长时间看电视的坏处, 因此答案是F) harmful。解答本题的关键在于理解 a couch potato 的意思。此外,备选形容词中 effective 意 为“有效的,与文意不符,因此排除。"
+        },
+        {
+          "number": 38,
+          "stem": "第 38 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "climbed"
+            },
+            {
+              "key": "B",
+              "text": "consume"
+            },
+            {
+              "key": "C",
+              "text": "decade"
+            },
+            {
+              "key": "D",
+              "text": "determine"
+            },
+            {
+              "key": "E",
+              "text": "effective"
+            },
+            {
+              "key": "F",
+              "text": "harmful"
+            },
+            {
+              "key": "G",
+              "text": "outcomes"
+            },
+            {
+              "key": "H",
+              "text": "passively"
+            },
+            {
+              "key": "I",
+              "text": "previously"
+            },
+            {
+              "key": "J",
+              "text": "resume"
+            },
+            {
+              "key": "K",
+              "text": "suffered"
+            },
+            {
+              "key": "L",
+              "text": "surfing"
+            },
+            {
+              "key": "M",
+              "text": "term"
+            },
+            {
+              "key": "N",
+              "text": "terminals"
+            },
+            {
+              "key": "O",
+              "text": "twisting"
+            }
+          ],
+          "answer": "I",
+          "explanation": "I) previously。【详解】副词辨析题。空格位于large 和published 之间,用来修饰published,因此应填入 副。published 意为“已发布的”,那么应该是以前发布的,因此答案是I) previously。"
+        },
+        {
+          "number": 39,
+          "stem": "第 39 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "climbed"
+            },
+            {
+              "key": "B",
+              "text": "consume"
+            },
+            {
+              "key": "C",
+              "text": "decade"
+            },
+            {
+              "key": "D",
+              "text": "determine"
+            },
+            {
+              "key": "E",
+              "text": "effective"
+            },
+            {
+              "key": "F",
+              "text": "harmful"
+            },
+            {
+              "key": "G",
+              "text": "outcomes"
+            },
+            {
+              "key": "H",
+              "text": "passively"
+            },
+            {
+              "key": "I",
+              "text": "previously"
+            },
+            {
+              "key": "J",
+              "text": "resume"
+            },
+            {
+              "key": "K",
+              "text": "suffered"
+            },
+            {
+              "key": "L",
+              "text": "surfing"
+            },
+            {
+              "key": "M",
+              "text": "term"
+            },
+            {
+              "key": "N",
+              "text": "terminals"
+            },
+            {
+              "key": "O",
+              "text": "twisting"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L) surfing。【详解】名词辨析题。空格位于名词channel 后面,应该填入外一个名词根据文意可知,本 段在列举看电视的坏处的量化结果,因此空格表达的内容应该与“看电视”有关,channel 在此处意为“频 道”,而且channel surfing 是固定搭配,意为“频繁更换电视频道(以寻找有趣节目)”,因此答案是L) surfing。"
+        },
+        {
+          "number": 40,
+          "stem": "第 40 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "climbed"
+            },
+            {
+              "key": "B",
+              "text": "consume"
+            },
+            {
+              "key": "C",
+              "text": "decade"
+            },
+            {
+              "key": "D",
+              "text": "determine"
+            },
+            {
+              "key": "E",
+              "text": "effective"
+            },
+            {
+              "key": "F",
+              "text": "harmful"
+            },
+            {
+              "key": "G",
+              "text": "outcomes"
+            },
+            {
+              "key": "H",
+              "text": "passively"
+            },
+            {
+              "key": "I",
+              "text": "previously"
+            },
+            {
+              "key": "J",
+              "text": "resume"
+            },
+            {
+              "key": "K",
+              "text": "suffered"
+            },
+            {
+              "key": "L",
+              "text": "surfing"
+            },
+            {
+              "key": "M",
+              "text": "term"
+            },
+            {
+              "key": "N",
+              "text": "terminals"
+            },
+            {
+              "key": "O",
+              "text": "twisting"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C) decade。【详解】解名词辨析题。空格位于不定冠词a 之后,应填入名词。分析上下文可知,本句 与前一句及后一句是哈佛大学领导的小组的研究结果,另外两句的研究结果都是历经一段时间的,本句也不 例外。 因此,本空应填入表示时间的词,备选词中表示时间的词只有C) decade,由此得出答案。"
+        },
+        {
+          "number": 41,
+          "stem": "第 41 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "climbed"
+            },
+            {
+              "key": "B",
+              "text": "consume"
+            },
+            {
+              "key": "C",
+              "text": "decade"
+            },
+            {
+              "key": "D",
+              "text": "determine"
+            },
+            {
+              "key": "E",
+              "text": "effective"
+            },
+            {
+              "key": "F",
+              "text": "harmful"
+            },
+            {
+              "key": "G",
+              "text": "outcomes"
+            },
+            {
+              "key": "H",
+              "text": "passively"
+            },
+            {
+              "key": "I",
+              "text": "previously"
+            },
+            {
+              "key": "J",
+              "text": "resume"
+            },
+            {
+              "key": "K",
+              "text": "suffered"
+            },
+            {
+              "key": "L",
+              "text": "surfing"
+            },
+            {
+              "key": "M",
+              "text": "term"
+            },
+            {
+              "key": "N",
+              "text": "terminals"
+            },
+            {
+              "key": "O",
+              "text": "twisting"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A) climbed。【详解】动词辨析题。分析句子结构可知,本句缺少谓语,所以空格处应填入动词作谓语。 根据文意可知,本句仍然指看电视带来的坏处,因此过早死亡的几率应该是增加的,故答案是A) climbed。"
+        },
+        {
+          "number": 42,
+          "stem": "第 42 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "climbed"
+            },
+            {
+              "key": "B",
+              "text": "consume"
+            },
+            {
+              "key": "C",
+              "text": "decade"
+            },
+            {
+              "key": "D",
+              "text": "determine"
+            },
+            {
+              "key": "E",
+              "text": "effective"
+            },
+            {
+              "key": "F",
+              "text": "harmful"
+            },
+            {
+              "key": "G",
+              "text": "outcomes"
+            },
+            {
+              "key": "H",
+              "text": "passively"
+            },
+            {
+              "key": "I",
+              "text": "previously"
+            },
+            {
+              "key": "J",
+              "text": "resume"
+            },
+            {
+              "key": "K",
+              "text": "suffered"
+            },
+            {
+              "key": "L",
+              "text": "surfing"
+            },
+            {
+              "key": "M",
+              "text": "term"
+            },
+            {
+              "key": "N",
+              "text": "terminals"
+            },
+            {
+              "key": "O",
+              "text": "twisting"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G) outcomes。【详解】名词辨析题。空格位于代词these 之后,应填入复数名词。these —般指代上 文中出现的内容,而前一句在介绍哈佛大学领导的小组的研究结果,因此空格处应填入含有“结果”意义的 名词,由此得出答案是G) outcomes 备选复数名词中,terminals 意为“航空站,终点站”,与文意不符,因 此排除。"
+        },
+        {
+          "number": 43,
+          "stem": "第 43 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "climbed"
+            },
+            {
+              "key": "B",
+              "text": "consume"
+            },
+            {
+              "key": "C",
+              "text": "decade"
+            },
+            {
+              "key": "D",
+              "text": "determine"
+            },
+            {
+              "key": "E",
+              "text": "effective"
+            },
+            {
+              "key": "F",
+              "text": "harmful"
+            },
+            {
+              "key": "G",
+              "text": "outcomes"
+            },
+            {
+              "key": "H",
+              "text": "passively"
+            },
+            {
+              "key": "I",
+              "text": "previously"
+            },
+            {
+              "key": "J",
+              "text": "resume"
+            },
+            {
+              "key": "K",
+              "text": "suffered"
+            },
+            {
+              "key": "L",
+              "text": "surfing"
+            },
+            {
+              "key": "M",
+              "text": "term"
+            },
+            {
+              "key": "N",
+              "text": "terminals"
+            },
+            {
+              "key": "O",
+              "text": "twisting"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E) effective。【详解】形容词辨析题。空格位于副词和介词之间,be 动词之后,所以应填入形容词。 空格前一句提到,所有上述结果都与缺乏体育锻炼有关。本句进行转折,指出与其他久坐不动的行为比起 来,看电视可能在促成不健康的习惯方面尤其。由句意可推断出,看电视可能在使人们养成不健康的习惯 方面尤其有效,因此答案是E) effective。"
+        },
+        {
+          "number": 44,
+          "stem": "第 44 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "climbed"
+            },
+            {
+              "key": "B",
+              "text": "consume"
+            },
+            {
+              "key": "C",
+              "text": "decade"
+            },
+            {
+              "key": "D",
+              "text": "determine"
+            },
+            {
+              "key": "E",
+              "text": "effective"
+            },
+            {
+              "key": "F",
+              "text": "harmful"
+            },
+            {
+              "key": "G",
+              "text": "outcomes"
+            },
+            {
+              "key": "H",
+              "text": "passively"
+            },
+            {
+              "key": "I",
+              "text": "previously"
+            },
+            {
+              "key": "J",
+              "text": "resume"
+            },
+            {
+              "key": "K",
+              "text": "suffered"
+            },
+            {
+              "key": "L",
+              "text": "surfing"
+            },
+            {
+              "key": "M",
+              "text": "term"
+            },
+            {
+              "key": "N",
+              "text": "terminals"
+            },
+            {
+              "key": "O",
+              "text": "twisting"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B) consume。【详解】动词辨析题。空格位于make you more likely to 和 them 之间,应填入动词原 形。本句意思是,其他研究表明,观看啤酒和爆米花的广告使人更有可能 它们。由句意可知,them 指代beer and popcorn ,空格处应填人含有“吃,喝”意义的动词,因此答案是B) consume。"
+        },
+        {
+          "number": 45,
+          "stem": "第 45 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "climbed"
+            },
+            {
+              "key": "B",
+              "text": "consume"
+            },
+            {
+              "key": "C",
+              "text": "decade"
+            },
+            {
+              "key": "D",
+              "text": "determine"
+            },
+            {
+              "key": "E",
+              "text": "effective"
+            },
+            {
+              "key": "F",
+              "text": "harmful"
+            },
+            {
+              "key": "G",
+              "text": "outcomes"
+            },
+            {
+              "key": "H",
+              "text": "passively"
+            },
+            {
+              "key": "I",
+              "text": "previously"
+            },
+            {
+              "key": "J",
+              "text": "resume"
+            },
+            {
+              "key": "K",
+              "text": "suffered"
+            },
+            {
+              "key": "L",
+              "text": "surfing"
+            },
+            {
+              "key": "M",
+              "text": "term"
+            },
+            {
+              "key": "N",
+              "text": "terminals"
+            },
+            {
+              "key": "O",
+              "text": "twisting"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D) determine。【详解】动词辨析题。空格位于to 和whether 引导的从句之间,应填入动词。本句even so 意思是“即便如此”,接着指出研究者们并没有比较不同的久坐不动的活动,因此并不能确定看电视是 否有更高的风险患糖尿病、心脏病或过早死亡,因此答案是D) determine。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2015-06-2-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Imagine taking a college exam, and, instead of handing in a blue book and getting a grade from a professor a few weeks later, clicking the “send” button when you are done and receiving a grade back instantly, your essay scored by a software program. And then, instead of being done with that exam, imagine that the system would immediately let you rewrite the test to try to improve your grade.",
+        "B) EdX, the nonprofit enterprise founded by Harvard and the Massachusetts Institute of Technology (MIT) to offer courses on the Internet, has just introduced such a system and will make its automated(自动的)software available free on the Web to any institution that wants to use it. The software uses artificial intelligence to grade student essays and short written answers, freeing professors for other tasks.",
+        "C) The new service will bring the educational consortium(联盟)into a growing conflict over the role of automation in education. Although automated grading systems for multiple-choice and true-false tests are now widespread, the use of artificial intelligence technology to grade essay answers has not yet received widespread acceptance by educators and has many critics.",
+        "D) Anant Agarwal, an electrical engineer who is president of EdX, predicted that the instant-grading software would be a useful teaching tool, enabling students to take tests and write essays over and over and improve the quality of their answers. He said the technology would offer distinct advantages over the traditional classroom system, where students often wait days or weeks for grades. “There is a huge value in learning with instant feedback,” Dr. Agarwal said. “Students are telling us they learn much better with instant feedback.”",
+        "E) But skeptics (怀疑者) the automated system is no match for live teachers. One longtime critic , Les Perelman, has drawn national attention several times for putting together nonsense essays that have fooled software grading programs into giving high marks. He has also been highly critical of studies claiming that the software compares well to human graders.",
+        "F) He is among a group of educators who last month began circulating a petition (呼吁) opposing automated assessment software. The group, which calls itself Professionals Against Machine Scoring of Student Essays in High-Stakes Assessment, has collected nearly 2,000 signatures, including some from famous people like Noam Chomsky.",
+        "G) “Let’s face the realities of automatic essay scoring,” the group’s statement reads in part. “Computers cannot ‘read’. They cannot measure the essentials of effective written communication: accuracy, reasoning, adequacy of evidence, good sense, ethical ( 伦理的) position, convincing argument, meaningful organization, and clarity, among others.",
+        "H) But EdX expects its software to be adopted widely by schools and universities. It offers free online classes from Harvard, MIT and the University of California-Berkeley; this fall, it will add classes from Wellesley, Georgetown and the University of Texas. In all, 12 universities participate in EdX, which offers certificates for course completion and has said that it plans to continue to expand next year, including adding international schools.",
+        "I) The EdX assessment tool requires human teachers, or graders, to first grade 100 essays or essay questions. The system then uses a variety of machine-learning techniques to train itself to be able to grade any number of essays or answers automatically and almost instantly. The software will assign a grade depending on the scoring system created by the teacher, whether it is a letter grade or numerical(数字的)rank.",
+        "J) EdX is not the first to use the automated assessment technology, which dates to early computers in the 1960s. There is now a range of companies offering commercial programs to grade written test answers, and four states—Louisiana, North Dakota, Utah and West Virginia—are using some form of the technology in secondary schools. A fifth, Indiana, has experimented with it. In some cases the software is used as a “second reader,” to check the reliability of the human graders.",
+        "K) But the growing influence of the EdX consortium to set standards is likely to give the technology a boost. On Tuesday, Stanford announced that it would work with EdX to develop a joint educational system that will make use of the automated assessment technology.",
+        "L) Two start-ups, Coursera and Udacity, recently founded by Stanford faculty members to create “massive open online courses,” or MOOCs, are also committed to automated assessment systems because of the value of instant feedback. “It allows students to get immediate feedback on their work, so that lean turns into a game, with students naturally(吸引) toward resubmitting the work until they get it right,” said Daphne Roller, a computer scientist and a founder of Coursera.",
+        "M) Last year the Hewlett Foundation, a grant-making organization set up by one of the Hewlett- Packard founders and his wife, sponsored two $100,000 prizes aimed at improving software that grades essays and short answers. More than 150 teams entered each category. A winner of one of the Hewlett contests, Vik Paruchuri, was hired by EdX to help design its assessment software.",
+        "N) “One of our focuses is to help kids learn how to think critically,” said Victor Vuchic, a program officer at the Hewlett Foundation. “ It’s probably impossible to do that with multiple-choice tests. The challenge is that this requires human graders, and so they cost a lot more and they take a lot more time. ”",
+        "O) Mark D. Shermis, a professor at the University of Akron in Ohio, supervised the Hewlett Foundation’s contest on automated essay scoring and wrote a paper about the experiment. In his view, the technology—though imperfect—has a place in educational settings.",
+        "P) With increasingly large classes, it is impossible for most teachers to give students meaningful feedback on writing assignments, he said. Plus, he noted, critics of the technology have tended to come from the nation’s best universities, where the level of teaching is much better than at most schools.",
+        "Q) Often they come from very famous institutions where, in fact, they do a much better job of providing feedback than a machine ever could,” Dr. Shermis said. “ There seems to be a lack of appreciation of what is actually going on in the real world.”"
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "Some professionals in education are collecting signatures to voice their opposition to automated essay grading.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "F",
+          "explanation": "Some professionals in education are collecting signatures to voice their opposition to automated essay grading. F)。【译文】一些教育专家正在收集签名以表 明他们反对自动化短文评分。 【精析】F)段提到,一个教育工作者团体从上个月起开始散发反对自动化评估软件的请愿书。该团体已收 集 到了近2000 个签名,包括诺姆•乔姆斯基等知名人士在内。题干是对该段的概括,故答案为F)。"
+        },
+        {
+          "number": 47,
+          "stem": "Using software to grade students’ essays saves teachers time for other work.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Using software to grade students’ essays saves teachers time for other work. B)。【译文】利用软件给学:生的作文评分可 以节约教师的时间来开展其他工作。 【精析】B)段介绍EdX 这家非营利性组织引人了自动评分软件,然后简要介绍该软件利用人工智能对学生 的短文和简答题进行评分,将教授们解放出来以开展其他工作。题干中的saves teachers time for other work 是原文中freeing professors for other tasks 的同义转述,故答案为B)。"
+        },
+        {
+          "number": 48,
+          "stem": "The Hewlett contests aim at improving essay grading software.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "M",
+          "explanation": "The Hewlett contests aim at improving essay grading Software. M)。【译文】休利特竞赛旨在改良作文评分软件。 【精析】M)段提到,休利特基金会赞助了两个金额10 万美元的奖项,旨在对短文和简答题评分软件进行 改进。本段最后一句将这种比赛称为Hewlett contest,而且题干中的essay grading software 是原文中的 software that grades essays and short answers 的同义转述,故答案为 M)。"
+        },
+        {
+          "number": 49,
+          "stem": "Though the automated grading system is widely used in multiple-choice tests, automated essay grading is still criticized by many educators.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Though the automated grading system is widely used in multiple-choice tests, automated essay grading is still criticized by many educators. C)。【译文】尽管自动化评分系统广泛应用于选择题测验中,但是短文自动评分仍然受到很多教育工作者 的批评。 【精析】C)段第二句指出,虽然现在针对选择题和判断正误题的自动评分系统已经非常普遍,但利用人工 智 能技术对短文进行评分尚未得到教育工作者的广泛认可,而且批评声也很多。由B)段可知,人工智能 技术就 是短文自动化评分系统,因此题干是对C)段画线部分的概括,故答案为C)。"
+        },
+        {
+          "number": 50,
+          "stem": "Some people don’t believe the software grading system can do as good a job as human graders.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "E",
+          "explanation": "Some people don’t believe the software grading system can do as good a job as human graders. E)。【译文】一些人认为软件评分系统做得没有人工打分那么好。 【精析】E)段提到,怀疑人士表示,自动化系统比不上活生生的老师。莱斯•佩雷尔曼就是其中一人,他将 文理不通的文章组合在一起,而软件评分程序不明就里,给出了很高的分数。此外,对于有关软件评分优 于人力评分的研究,他也持强烈的批评态度。题干是对本段最后一句话的同义转述,故答案为E)。"
+        },
+        {
+          "number": 51,
+          "stem": "Critics of automated essay scoring do not seem to know the true realities in less famous universities.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "Q",
+          "explanation": "Critics of automated essay scoring do not seem to know the true realities in less famous universities. Q)。【译文】短文自动评分的批评者似乎不知道不那么著名的大学里的真实现状。 【精析】舍米斯博士认为批评者们大多来自于非常著名的机构,他们给出的反馈的确优于机器的反馈。但 是他们似乎缺乏对现实世界中真实情况的了解。Q)段最后一句中的appreciation 意思是“理解”,in the real world 指的是教学条件不是很好的学校,题干与该句意思相符,故答案为Q)。"
+        },
+        {
+          "number": 52,
+          "stem": "Critics argue many important aspects of effective writing cannot be measured by computer rating programs.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "G",
+          "explanation": "Critics argue many important aspects of effective writing cannot be measured by computer rating programs. G) 。【译文】批评者认为有效写作的很多重要方面无法被计算机评分程序所衡量。 【精析】G)段提到了反对短文自动化评分软件的理由。他们称计算机不能“阅读”,计算机无法衡量有效 书 面表达的基本要素:准确性、逻辑、充足的论据、完整的意义、伦理立场等。题干中的important aspects 和原文 中的the essentials 是同义转述,writing 和written communication 是同义转述,故答案为G)。"
+        },
+        {
+          "number": 53,
+          "stem": "As class size grows, most teachers are unable to give students valuable comments as to how to improve their writing.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "P",
+          "explanation": "As class size grows,most teachers are unable to give students valuable comments as to how to improve their writing. P)。【译文】随着课堂规模的增大,大多数老师不 能就如何提高写作给予学生宝贵的评论。 【精析】P)段第一句提到,随着班级规模的不断扩大,大多数老师都不太可能就学生的作文给出有意义的 反馈。题干中的 give students valuable comments 是对原文中的 give students meaningful feedback 的同义转 述,故答案为P)。"
+        },
+        {
+          "number": 54,
+          "stem": "The automated assessment technology is sometimes used to double check the work of human graders.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "J",
+          "explanation": "The automated assessment technology is sometimes used to double check the work of human graders. J)。【译文】自动化评分技术有时被用来 检验人工打分的工作。 【精析】J 段介绍了短文自动评分系统的使用情况。很多商业公司和美国五个州的中学都在使用。最后 一句提到,在某些情况下,该软件充当了“第二阅卷者”的角色,用来检验人工评分的可靠性。题干是对本 句的同义转述,故答案为J)。"
+        },
+        {
+          "number": 55,
+          "stem": "Students find instant feedback helps improve their learning considerably.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "D",
+          "explanation": "Students find instant feedback helps improve their learning considerably. D)。【译文】学生们发现即时反馈有助于极大地提高他们的学习。 【精析】D)段提到,EdX总裁阿加瓦尔博士认为短文自动评分软件的优点是能够给予即时反馈,学生们也 告诉他们说有了即时反馈,他们学得更好。题干与本段最后一句是同义转述,故答案为D)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2015-06-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "The endless debate about “work-life balance ’’ often contains a hopeful footnote about stay-at- home dads. If American",
+        "society and business won5t make it easier on future female leaders who choose to have children, there is still the ray of hope that",
+        "increasing numbers of full-time fathers will. But based on today’s socioeconomic trends, this hope is, unfortunately, misguided.",
+        "It’s true that the number of men who have left work to do their thing as full-time parents has doubled in a decade, but ifs still",
+        "very small: only 0. 8% of married couples where the stay-at-home father was out of the labor force for a year. Even that",
+        "percentage is likely inflated by men thrust into their caretaker role by a downsizing. This is simply not a large enough group to",
+        "reduce the social stigma(污名)and force other adjustments necessary to supporting men in this decision, even if only for a",
+        "relatively short time.",
+        "Even shorter times away from work for working fathers are already difficult. A study found that 85% of new fathers take",
+        "some time off after the birth of a child—but for all but a few, it’s a week or two at most. Meanwhile, the average for women who",
+        "take leave is more than 10 weeks.",
+        "Such choices impact who moves up in the organization. While you’re away, someone else is doing your work, making your",
+        "sales, taking care of your customers. That can’t help you at work. It can only hurt you. Women, of course, face the same issues of",
+        "returning after a long absence. But with many more women than men choosing to leave the workforce entirely to raise families,",
+        "returning from an extended parental leave doesn’t raise as many eyebrows as it does for men.",
+        "Women would make more if they didn't break their earning trajectory (轨迹)by leaving the workforce, or if higher-paying",
+        "professions were more family-friendly. In the foreseeable future, stay- at-home fathers may make all the difference for",
+        "individual families, but their presence won’t reduce the numbers of high-potential women who are forced to choose between",
+        "family and career."
+      ],
+      "questions": [
+        {
+          "number": 56,
+          "stem": "What gives women a ray of hope to achieve work-life balance?",
+          "options": [
+            {
+              "key": "A",
+              "text": "More men taking an extended parental leave."
+            },
+            {
+              "key": "B",
+              "text": "Peopled changing attitudes towards family."
+            },
+            {
+              "key": "C",
+              "text": "More women entering business management."
+            },
+            {
+              "key": "D",
+              "text": "The improvement of their socioeconomic status."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位:由题干中的 hope 和 balance 定位到首段第一、二句:The endless debate about “work-life balance” often contains a hopeful footnote about stay-at-home dads. If American society and business won5t make it easier on future female leaders who choose to have children, there is still the ray of hope that increasing numbers of full-time fathers will. 详解:推理判断题。由文章第一段第一、二句可知,全职父亲的增多给女性职工在工作和家庭之间进行选 择的两难境地带来了一丝希望。根据常识可知,在传统的观念里,女性更多地承担家庭责任,选项B)“人 们对于家庭的态度的转变 ”,也就是文中所述的越来越多的男性回归家庭,故答案为B)。 点睛:A) “更多的男性休延长的产假”,首段中提到的是full-time fathers“全职父亲”,而并非休产假的父 亲,可以排除;C) “更多的女性加人企业管理层”,文中并未提及,可以排除;D) “她们的社会经济地位 的提升”,首段最后一句提到,基于现在的社会经济趋势,这种希望是被误导的,其暗指的意思是,在大 的趋势下,女性并不能从家庭中真正解放出来,可见该选项的意思正好与文章意思相悖,可以排除。"
+        },
+        {
+          "number": 57,
+          "stem": "Why does the author say the hope for more full-time fathers is misguided?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Women are better at taking care of children."
+            },
+            {
+              "key": "B",
+              "text": "Many men value work more than their family."
+            },
+            {
+              "key": "C",
+              "text": "Their number is too small to make a difference."
+            },
+            {
+              "key": "D",
+              "text": "Not many men have the chance to stay at home."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定位:立由题干中的 misguided 定位到第一段最后一句:But based on today’s socioeconomic trends, this hope is,unfortunately,misguided.和第二段第一句:It’s true that the number of men who have left work to do their thing as full-time parents has doubled in a decade,but it’s still very small... 详解:推理判断题。文章第一段最后一句提到了 misguided —词,接着第二段第一句提到,近十年里放弃 工作成为全职父亲的人数翻倍的确是事实,但是这个数字仍然很小,该句是解释这种希望是被误导的原 因。选项C) “这个数字太小以至于产生不了什么影响”,是原文的同义转述,故答案为C)。 点睛:A) “女性在照顾孩子方面更擅长”,虽然从常识判断该选项正确,但是文中没有提及,并且这也不 是女性能够从家庭中被解放出来的原因,可以排除;B) “很多男人相比家庭而言更看重事业”,文中并未 提及,可以排除;D)“没有很多男人有机会待在家里”,从文中信息判断越来越多的男性成为全职父亲, 从趋势上看,该选项意思与文意并不相符,可以排除。"
+        },
+        {
+          "number": 58,
+          "stem": "Why do few men take a long parental leave?",
+          "options": [
+            {
+              "key": "A",
+              "text": "A long leave will have a negative impact on their career."
+            },
+            {
+              "key": "B",
+              "text": "They just have too many responsibilities to fulfill at work."
+            },
+            {
+              "key": "C",
+              "text": "The economic loss will be too much for their family to bear."
+            },
+            {
+              "key": "D",
+              "text": "They are likely to get fired if absent from work for too long."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。定位:由题干中的parental leave 定位到文章第四段前四句:Such choices impact who moves up in the organization. While you’re away, someone else is doing your work, making your sales, taking care of your customers. That can’t help you at work. It can only hurt you. 详解:推理判断题。文章第四段前四句指出,这样的选择(即长期休假)会影响到那些在组织中希望晋升的 人。当你离开的时候,其他人会承担你的工作,替你完成销售,照顾你的客户。这些并不能有助于你的工 作。这只能伤害你。由此可知,答案为A)。 点睛:B) “他们在工作中有太多的职责要去履行”,文章中并未提及,可以排除;C) “经济损失会让一 个家庭无法承担”,文中并未提及男性停止工作后在经济上有很多的损失,可以排除;D)“如果长时间脱 离工作岗位,他们可能会被解雇”,根据文中信息,男性长期休假回来后会遭到某些非议或不满,但并不 至于被解雇,可以排除。"
+        },
+        {
+          "number": 59,
+          "stem": "What is the most likely reaction to men returning from an extended parental leave?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Jealousy."
+            },
+            {
+              "key": "B",
+              "text": "Surprise."
+            },
+            {
+              "key": "C",
+              "text": "Admiration."
+            },
+            {
+              "key": "D",
+              "text": "Sympathy."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位:由题干中的 returning from an extended parental leave 定位到文章第四段最后一句:But with many more women than men choosing to leave the workforce entirely to raise families,returning from an extended parental leave doesn’t raise as many eyebrows as it does for men. 详解:详解推理判断题。文章第四段最后一句中 raise eyebrows 表示“惊讶”,surprise 是该词组的同义转 述,故答案为B)。 点睛:A) “嫉妒,C) “崇敬,和D) “同情”均与原文意思不符,可以排除。"
+        },
+        {
+          "number": 60,
+          "stem": "What does the author say about high-potential women in the not-too-distant future?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They will benefit from the trend of more fathers staying at home."
+            },
+            {
+              "key": "B",
+              "text": "They will find high-paying professions a bit more family-friendly."
+            },
+            {
+              "key": "C",
+              "text": "They are unlikely to break their career trajectory to raise a family."
+            },
+            {
+              "key": "D",
+              "text": "They will still face the difficult choice between career and children."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位:由题干中的high-potential women 和not-too-distant future 定位到最后一段最后一句:...but their presence won’t reduce the numbers of high-potential women who are forced to choose between family and career. 详解: 推理判断题。文章最后一段最后一句提到,在可以预见的未来,全职父亲可能会给个体家庭带来改 变,但是他们的存在并不能减少那些在工作和家庭之间被迫做选择的很有潜力的女性的数量。 选项D) “女性仍然会面临家庭和事业的两难选择”是对文章意思的合理推断,故答案为D)。 点睛:A) “ 她们会受益于更多全职父亲这一趋势”,与文意相悖,可以排除;B) “她们会找到高薪的更 利于家庭生活的职业”,文中第四段中只是提到如果高薪职业更有利于家庭生活,女性会得到很好的发展, 而这只是一种假设,并不一定会实现,可以排除;C)“她们不可能为了家庭而中断自己的事业发展”,与 原文不符,可以排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2015-06-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Some of the world’s most significant problems never hit headlines. One example comes from agriculture. Food riots and",
+        "hunger make news. But the trend lying behind these matters is rarely talked about. This is the decline in the growth in yields of",
+        "some of the world’s major crops. A new study by the University of Minnesota and McGill University in Montreal looks at where,",
+        "and how far, this decline is occurring.",
+        "The authors take a vast number of data points for the four most important crops :rice, wheat, com and soyabeans (大",
+        "豆).They find that on between 24% and 39% of all harvested areas, the improvement in yields that took place before the 1980s",
+        "slowed down in the 1990s and 2000s.",
+        "There are two worrying features of the slowdown. One is that it has been particularly sharp in the world’s most (人口",
+        "多的)countries, India and China. Their ability to feed themselves has been an important source of relative stability both within",
+        "the countries and on world food markets. That self-sufficiency cannot be taken for granted if yields continue to slow down or",
+        "reverse.",
+        "Second, yield growth has been lower in wheat and rice than in com and soyabeans. This is problematic because wheat and",
+        "rice are more important as foods, accounting for around half of all calories consumed. Com and soyabeans are more important as",
+        "feed grains. The authors note that “we have preferentially focused our crop improvement efforts on feeding animals and cars",
+        "rather than on crops that feed people and are the basis of food security in much of the world. ”,",
+        "The report qualifies the more optimistic findings of another new paper which suggests that the world will not have to dig up",
+        "a lot more land for farming in order to feed 9 billion people in 2050, as the Food and Agriculture Organisation has argued.",
+        "Instead, it says, thanks to slowing population growth, land currently ploughed up for crops might be able to revert (回返)",
+        "to forest or wilderness. This could happen. The trouble is that the forecast assumes continued improvements in yields, which",
+        "may not actually happen."
+      ],
+      "questions": [
+        {
+          "number": 61,
+          "stem": "What does the author try to draw attention to?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Food riots and hunger in the world."
+            },
+            {
+              "key": "B",
+              "text": "News headlines in the leading media."
+            },
+            {
+              "key": "C",
+              "text": "The decline of the grain yield growth."
+            },
+            {
+              "key": "D",
+              "text": "The food supply in populous countries."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定位由题干中的draw attention to 定位到第一段第三至五句:Food riots and hunger make news. But the trend lying behind these matters is rarely talked about. This is the decline in the growth in yields of some of the world’s major crops. 详解:推理判断题。由第一段第三、四句可知,食物短缺引发的暴乱和饥饿通常是大新闻。但是很少有人 谈论这些事情背后的发展趋势。第五句中的this 指的就是第四句中的the trend lying behind these matters, 所以作者想让大家关注的是 the decline in the growth in yields of some of the world’s nuajor crops,故答案为C) “粮食产量增速下”。 点睛:A) “世界上食物引发的暴乱和饥饿”通常是新闻报道的关注点,但并不是作者关心的问题; B) “主 流媒体的新标题”与原文内容无关;D)“人口众多的国家的食物供应”是原文第三段提到的粮食产量增速 减缓的特点之一,过于片面,因此排除。"
+        },
+        {
+          "number": 62,
+          "stem": "Why does the author mention India and China in particular?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Their self-sufficiency is vital to the stability of world food markets."
+            },
+            {
+              "key": "B",
+              "text": "Their food yields have begun to decrease sharply in recent years."
+            },
+            {
+              "key": "C",
+              "text": "Their big populations are causing worldwide concerns."
+            },
+            {
+              "key": "D",
+              "text": "Their food self-sufficiency has been taken for granted."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。定位:由题干中的India and China 定位到原文第三段第二、三句:One is that it has been particularly sharp in the world’s most populous (人口 多的)countries, India and China. Their ability to feed themselves has been an important source of relative stability both within the countries and on world food markets. 详解:推理判断题。由第三段第二句可知,研究发现印度和中国粮食产量增速下降尤其剧烈。第三 句进一 步解释这一点为什么令人担心,原因在于这两个国家人口众多,它们养活自己的能力是保证两国 内和世界 粮食市场相对稳定的重要来源,故答案为A) “他们的自给自足对世界粮食市场的稳定性至关重要”。 点睛:B)“它们的粮食产量在最近几年急剧下降”不符合原文,原文提到的是粮食产量増速下降,而不是 实际产量下降;C)“它们的众多人口引起了世界广泛的关注”不符合文意;D) “他们粮食能够自给自足被 认为是理所当然的”不符合文意,因此排除。"
+        },
+        {
+          "number": 63,
+          "stem": "What does the new study by the two universities say about recent crop improvement efforts?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They fail to produce the same remarkable results as before the 1980s."
+            },
+            {
+              "key": "B",
+              "text": "They contribute a lot to the improvement of human food production."
+            },
+            {
+              "key": "C",
+              "text": "They play a major role in guaranteeing the food security of the world."
+            },
+            {
+              "key": "D",
+              "text": "They focus more on the increase of animal feed than human food grains."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位:由题干中的crop improvement efforts 定位到原文第四段第四句:The authors note that “We have preferentially focused our crop improvement efforts on feeding animals and cars rather than on crops that feed people and are the basis of food security in much of the world. 详解:推理判断题。由第四段第四句可知,研究者们认为人们偏向专注于提高喂养动物和为汽车提供能源 的农作物的产量,而不是能养活人类的农作物的产量,故答案为D) “他们更加关注动物饲料而不是人类粮 食产量的增加”。 点睛:A) “他们没能达到同20世纪80年代之前同样出色的结果”、B) “他们对增加人类粮食产量做出 了巨大贡献”和C)“他们在保证世界食品安全方面扮演了重要角色”在原文中均未提及,因此排除。"
+        },
+        {
+          "number": 64,
+          "stem": "What does the Food and Agriculture Organisation say about world food production in the coming decades?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The growing population will greatly increase the pressure on world food supplies."
+            },
+            {
+              "key": "B",
+              "text": "The optimistic prediction about food production should be viewed with caution."
+            },
+            {
+              "key": "C",
+              "text": "The \"slowdown of the growth in yields of major food crops will be reversed."
+            },
+            {
+              "key": "D",
+              "text": "The world will be able to feed its population without increasing farmland."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位:由题干中的 the Food and Agriculture Organisation 定位到原文第五段:The report...which suggests that the world will not have to dig up a lot more land for farming in order to feed 9 billion people in 2050, as the Food and Agriculture Organisation has argued. 详解: 推理判断题。第五段中which suggests 后面即是联合国粮食农业组织的观点,它认为人们不需要再 开垦更多的土地来耕种以养活到2050年的90亿人口,故答案为D)“不增加农田世界也能养活 所有人口”。 点睛):A)“不断增长的人口将会大大地增加世界粮食供应的压力”和C)“主要粮食作物产量增速的下降 将被逆转”在原文中均未提及,故排除;B)“应该谨慎对待对粮食生产的乐观预测”是作者的观点, 而不 是联合国粮食农业组织的观点,因此排除。"
+        },
+        {
+          "number": 65,
+          "stem": "How does the author view the argument of the Food and Agriculture Organisation?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is built on the findings of a new study."
+            },
+            {
+              "key": "B",
+              "text": "It is based on a doubtful assumption."
+            },
+            {
+              "key": "C",
+              "text": "It is backed by strong evidence."
+            },
+            {
+              "key": "D",
+              "text": "It is open to further discussion."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位:由题干中的 the author view the argument 定位到原文最后一段第三句:The trouble is that the forecast assumes continued improvements in yields, which may not actually happen. 详解:观点态度题。原文第五段提到了联合国粮食农业组织的乐观预测,最后一段第一、二句首先 说明这 一预测是有可能发生的,而第三句才是作者真正的观点,即该预测的问题在于假设产量会持续增加,但是 这未必会发生。故答案为B) “它是基于不可靠的假设”。 点睛:A) “它是基于一项新研究的发现”是原文第五段提到的事实,并不是作者的观点;C) “它有强有力 的证据支持”和D)“它有待于进一步讨论”在原文中均未提及,因此排除。"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1729 @@
+{
+  "id": "cet4-2014-06-2",
+  "level": 4,
+  "year": 2014,
+  "month": 6,
+  "set": 2,
+  "title": "2014 年 6 月四级 · 第 2 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.06/%E7%9C%9F%E9%A2%98Word/2014%E5%B9%B46%E6%9C%88%E5%B9%B4%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%EF%BC%88%E4%BA%8C%EF%BC%89.doc",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2014%E5%B9%B46%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%BA%8C%EF%BC%89.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2014-06-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Global warming is a trend toward warmer conditions around the world. Part of the warming is natural; we have experienced a 20,000-year-long warming as the last ice age ended and the ice [[36]] away. However, we have already reached temperatures that are in [[37]] with other minimum-ice periods, so continued warming is likely not natural. We are [[38]] to a predicted worldwide increase in temperatures [[39]] between 1 °C and 6 °C over the next 100 years. The warming will be more [[40]] in some areas, less in others, and some places may even cool off. Likewise, the [[41]] of this warming will be very different depending on where you are—coastal areas must worry about rising sea levels, while Siberia and northern Canada may become more habitable (宜居的) and [[42]] for humans than these areas are now. The fact remains, however, that it will likely get warmer, on [[43]] , everywhere. Scientists are in general agreement that the warmer conditions we have been experiencing are at least in part the result of a human-induced global warming trend. Some scientists [[44]] that the changes we are seeing fall within the range of random (无规律的)variation—some years are cold, others warm, and we have just had an unremarkable string of warm years [[45]] —but that is becoming an increasingly rare interpretation in the face of continued and increasing warm conditions."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "appealing"
+        },
+        {
+          "key": "B",
+          "text": "average"
+        },
+        {
+          "key": "C",
+          "text": "contributing"
+        },
+        {
+          "key": "D",
+          "text": "dramatic"
+        },
+        {
+          "key": "E",
+          "text": "frequently"
+        },
+        {
+          "key": "F",
+          "text": "impact"
+        },
+        {
+          "key": "G",
+          "text": "line"
+        },
+        {
+          "key": "H",
+          "text": "maintain"
+        },
+        {
+          "key": "I",
+          "text": "melted"
+        },
+        {
+          "key": "J",
+          "text": "persist"
+        },
+        {
+          "key": "K",
+          "text": "ranging"
+        },
+        {
+          "key": "L",
+          "text": "recently"
+        },
+        {
+          "key": "M",
+          "text": "resolved"
+        },
+        {
+          "key": "N",
+          "text": "sensible"
+        },
+        {
+          "key": "O",
+          "text": "shock"
+        }
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "第 36 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "appealing"
+            },
+            {
+              "key": "B",
+              "text": "average"
+            },
+            {
+              "key": "C",
+              "text": "contributing"
+            },
+            {
+              "key": "D",
+              "text": "dramatic"
+            },
+            {
+              "key": "E",
+              "text": "frequently"
+            },
+            {
+              "key": "F",
+              "text": "impact"
+            },
+            {
+              "key": "G",
+              "text": "line"
+            },
+            {
+              "key": "H",
+              "text": "maintain"
+            },
+            {
+              "key": "I",
+              "text": "melted"
+            },
+            {
+              "key": "J",
+              "text": "persist"
+            },
+            {
+              "key": "K",
+              "text": "ranging"
+            },
+            {
+              "key": "L",
+              "text": "recently"
+            },
+            {
+              "key": "M",
+              "text": "resolved"
+            },
+            {
+              "key": "N",
+              "text": "sensible"
+            },
+            {
+              "key": "O",
+              "text": "shock"
+            }
+          ],
+          "answer": "I",
+          "explanation": "I) melted。【详解】空格前面是名词ice,后面为副词away,因此空格处需要填入动词形式,和away 搭 配。前一句提到冰期结束,该句话以冰作主语,应该是指冰融化。因此,空格处需要填入一个表示“融化” 的动词。由此确定动词melted 为本题答案,意思为“融化”。备选词语中有多个动词,而and 前动词形式 为ended,and 前后连接两个并列的句子,因此此处动词也应为动词过去式,其他动词均不符合,可以排除。"
+        },
+        {
+          "number": 37,
+          "stem": "第 37 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "appealing"
+            },
+            {
+              "key": "B",
+              "text": "average"
+            },
+            {
+              "key": "C",
+              "text": "contributing"
+            },
+            {
+              "key": "D",
+              "text": "dramatic"
+            },
+            {
+              "key": "E",
+              "text": "frequently"
+            },
+            {
+              "key": "F",
+              "text": "impact"
+            },
+            {
+              "key": "G",
+              "text": "line"
+            },
+            {
+              "key": "H",
+              "text": "maintain"
+            },
+            {
+              "key": "I",
+              "text": "melted"
+            },
+            {
+              "key": "J",
+              "text": "persist"
+            },
+            {
+              "key": "K",
+              "text": "ranging"
+            },
+            {
+              "key": "L",
+              "text": "recently"
+            },
+            {
+              "key": "M",
+              "text": "resolved"
+            },
+            {
+              "key": "N",
+              "text": "sensible"
+            },
+            {
+              "key": "O",
+              "text": "shock"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G) line。【详解】空格前面有介词in,后面也有介词with,因此空格处需要填入名词,能与in 和with 搭配。文章下一句提到温度持续升高可能就不是自然原因了,这一句也提到我们现在已经达到了一个温度, 句子后面部分是间冰期温度,因此这里是将两者相比较,因此这里应该有“一致”或“比较”的意思。由 此确定名词line 为 本题答案,意思为“一致”。备选名词中,average 和impact 均无法与in 和with —起 搭配,可以排除。"
+        },
+        {
+          "number": 38,
+          "stem": "第 38 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "appealing"
+            },
+            {
+              "key": "B",
+              "text": "average"
+            },
+            {
+              "key": "C",
+              "text": "contributing"
+            },
+            {
+              "key": "D",
+              "text": "dramatic"
+            },
+            {
+              "key": "E",
+              "text": "frequently"
+            },
+            {
+              "key": "F",
+              "text": "impact"
+            },
+            {
+              "key": "G",
+              "text": "line"
+            },
+            {
+              "key": "H",
+              "text": "maintain"
+            },
+            {
+              "key": "I",
+              "text": "melted"
+            },
+            {
+              "key": "J",
+              "text": "persist"
+            },
+            {
+              "key": "K",
+              "text": "ranging"
+            },
+            {
+              "key": "L",
+              "text": "recently"
+            },
+            {
+              "key": "M",
+              "text": "resolved"
+            },
+            {
+              "key": "N",
+              "text": "sensible"
+            },
+            {
+              "key": "O",
+              "text": "shock"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C) contributing。【详解】空格处前面有系动词are,后面有介词to,因此需要填入动词。本句的主语是 “我 们”,空格后是全球气温升高,前文已经说明气候变暖不是自然原因,因此本句是要说明我们导致气候变 暖,由此确定动词contributing 为本题答案,意思为“导致”。备选动词中,ranging 不能和to 搭配,故排 除;appealing 也可以作动词讲,和to 搭配表示“呼吁,提起诉讼”,不符合句意,也应排除。"
+        },
+        {
+          "number": 39,
+          "stem": "第 39 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "appealing"
+            },
+            {
+              "key": "B",
+              "text": "average"
+            },
+            {
+              "key": "C",
+              "text": "contributing"
+            },
+            {
+              "key": "D",
+              "text": "dramatic"
+            },
+            {
+              "key": "E",
+              "text": "frequently"
+            },
+            {
+              "key": "F",
+              "text": "impact"
+            },
+            {
+              "key": "G",
+              "text": "line"
+            },
+            {
+              "key": "H",
+              "text": "maintain"
+            },
+            {
+              "key": "I",
+              "text": "melted"
+            },
+            {
+              "key": "J",
+              "text": "persist"
+            },
+            {
+              "key": "K",
+              "text": "ranging"
+            },
+            {
+              "key": "L",
+              "text": "recently"
+            },
+            {
+              "key": "M",
+              "text": "resolved"
+            },
+            {
+              "key": "N",
+              "text": "sensible"
+            },
+            {
+              "key": "O",
+              "text": "shock"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K) ranging。【详解】空格前为名词短语increase in temperatures,空格后为介词短语between...and..., 根 据句子结构,此处应填入动词现在分词形式。空格前提到气温的增长,空格后列出了温度的区间,因此这 里应该是“变化”或“浮动”的意思。由此确定动词ranging 为本题答案,意思为“变化”。备选动词中, 只有 contributing 和ranging 为动词现在分词形式,而contributing 已在上一题中选过,故可以排除。"
+        },
+        {
+          "number": 40,
+          "stem": "第 40 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "appealing"
+            },
+            {
+              "key": "B",
+              "text": "average"
+            },
+            {
+              "key": "C",
+              "text": "contributing"
+            },
+            {
+              "key": "D",
+              "text": "dramatic"
+            },
+            {
+              "key": "E",
+              "text": "frequently"
+            },
+            {
+              "key": "F",
+              "text": "impact"
+            },
+            {
+              "key": "G",
+              "text": "line"
+            },
+            {
+              "key": "H",
+              "text": "maintain"
+            },
+            {
+              "key": "I",
+              "text": "melted"
+            },
+            {
+              "key": "J",
+              "text": "persist"
+            },
+            {
+              "key": "K",
+              "text": "ranging"
+            },
+            {
+              "key": "L",
+              "text": "recently"
+            },
+            {
+              "key": "M",
+              "text": "resolved"
+            },
+            {
+              "key": "N",
+              "text": "sensible"
+            },
+            {
+              "key": "O",
+              "text": "shock"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D) dramatic。【详解】空格前面为be 动词加程度副词more,由此可知空格处应填入多音节的形容词。该 句表明,地区不同,气温变化也不同,后面句子讲到一些地区气温变化幅度较小,甚至会变冷,那么前半部 分应该是指气温增长较快。由此确定形容词dramatic 为本题答案,意思为“急剧的”。在备选形容词中, appealing, resolved 和 sensible 都不可以修饰气候变暖,可以排除。"
+        },
+        {
+          "number": 41,
+          "stem": "第 41 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "appealing"
+            },
+            {
+              "key": "B",
+              "text": "average"
+            },
+            {
+              "key": "C",
+              "text": "contributing"
+            },
+            {
+              "key": "D",
+              "text": "dramatic"
+            },
+            {
+              "key": "E",
+              "text": "frequently"
+            },
+            {
+              "key": "F",
+              "text": "impact"
+            },
+            {
+              "key": "G",
+              "text": "line"
+            },
+            {
+              "key": "H",
+              "text": "maintain"
+            },
+            {
+              "key": "I",
+              "text": "melted"
+            },
+            {
+              "key": "J",
+              "text": "persist"
+            },
+            {
+              "key": "K",
+              "text": "ranging"
+            },
+            {
+              "key": "L",
+              "text": "recently"
+            },
+            {
+              "key": "M",
+              "text": "resolved"
+            },
+            {
+              "key": "N",
+              "text": "sensible"
+            },
+            {
+              "key": "O",
+              "text": "shock"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F) impact。【详解】空格前是定冠词the,后有谓语will be,所以需要填入名词作句子的主语。下文提到, 沿海地区必然会担心海平面上升问题,而西伯利亚和加拿大北部地区则变得更加宜居,也就是说气温上升给 不同地区带来不同的影响。由此确定名词impact 为本题答案,意思为“影响”。备选名词中line 已经被选 过,可以排除;average 与句意不符,也可以排除。"
+        },
+        {
+          "number": 42,
+          "stem": "第 42 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "appealing"
+            },
+            {
+              "key": "B",
+              "text": "average"
+            },
+            {
+              "key": "C",
+              "text": "contributing"
+            },
+            {
+              "key": "D",
+              "text": "dramatic"
+            },
+            {
+              "key": "E",
+              "text": "frequently"
+            },
+            {
+              "key": "F",
+              "text": "impact"
+            },
+            {
+              "key": "G",
+              "text": "line"
+            },
+            {
+              "key": "H",
+              "text": "maintain"
+            },
+            {
+              "key": "I",
+              "text": "melted"
+            },
+            {
+              "key": "J",
+              "text": "persist"
+            },
+            {
+              "key": "K",
+              "text": "ranging"
+            },
+            {
+              "key": "L",
+              "text": "recently"
+            },
+            {
+              "key": "M",
+              "text": "resolved"
+            },
+            {
+              "key": "N",
+              "text": "sensible"
+            },
+            {
+              "key": "O",
+              "text": "shock"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A) appealing。【详解】空格前是形容词habitable 和连词and,通过分析句子结构可知,and 连接的是两 个并列的成分,所以空格处应该填入形容词。这句表明气温的升高使西伯利亚和加拿大北部地区变得比现 在更加宜居,因此空格处也应表示相近的意思。由此确定形容词appealing 为本题答案,意思为“吸引人 的”。备选形容词中,dramatic 已经被选过,可以排除;而resolved 和sensible 与habitable 意思相差太远,不 符合句意,也可以排除。"
+        },
+        {
+          "number": 43,
+          "stem": "第 43 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "appealing"
+            },
+            {
+              "key": "B",
+              "text": "average"
+            },
+            {
+              "key": "C",
+              "text": "contributing"
+            },
+            {
+              "key": "D",
+              "text": "dramatic"
+            },
+            {
+              "key": "E",
+              "text": "frequently"
+            },
+            {
+              "key": "F",
+              "text": "impact"
+            },
+            {
+              "key": "G",
+              "text": "line"
+            },
+            {
+              "key": "H",
+              "text": "maintain"
+            },
+            {
+              "key": "I",
+              "text": "melted"
+            },
+            {
+              "key": "J",
+              "text": "persist"
+            },
+            {
+              "key": "K",
+              "text": "ranging"
+            },
+            {
+              "key": "L",
+              "text": "recently"
+            },
+            {
+              "key": "M",
+              "text": "resolved"
+            },
+            {
+              "key": "N",
+              "text": "sensible"
+            },
+            {
+              "key": "O",
+              "text": "shock"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B) average。【详解】空格前面有介词on,因此空格处需要填入一个名词,与on 搭配。前一段表明,有 些地方气温升高,有些地方气温降低,因此此句表明变暖实际上是在世界范围内平均来讲的。由此确定名 词 average 为本题答案,意思为“平均”。在备选名词中,impact 和line 均已被选过,可以排除。"
+        },
+        {
+          "number": 44,
+          "stem": "第 44 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "appealing"
+            },
+            {
+              "key": "B",
+              "text": "average"
+            },
+            {
+              "key": "C",
+              "text": "contributing"
+            },
+            {
+              "key": "D",
+              "text": "dramatic"
+            },
+            {
+              "key": "E",
+              "text": "frequently"
+            },
+            {
+              "key": "F",
+              "text": "impact"
+            },
+            {
+              "key": "G",
+              "text": "line"
+            },
+            {
+              "key": "H",
+              "text": "maintain"
+            },
+            {
+              "key": "I",
+              "text": "melted"
+            },
+            {
+              "key": "J",
+              "text": "persist"
+            },
+            {
+              "key": "K",
+              "text": "ranging"
+            },
+            {
+              "key": "L",
+              "text": "recently"
+            },
+            {
+              "key": "M",
+              "text": "resolved"
+            },
+            {
+              "key": "N",
+              "text": "sensible"
+            },
+            {
+              "key": "O",
+              "text": "shock"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H) maintain。【详解】详解空格前面为名词scientists,空格后为that 引导的从句,所以空格处需要填入 动词,作该句谓语。本句中提到气温的变化是无规律的,是科学家的一种观点或主张。由此确定动词maintain 为本题答案,意思为“主张”。在备选的动词中,contributing,ranging 和melted 都已被选过,可以排除;persist 和shock 均与句意不符,也可以排除。"
+        },
+        {
+          "number": 45,
+          "stem": "第 45 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "appealing"
+            },
+            {
+              "key": "B",
+              "text": "average"
+            },
+            {
+              "key": "C",
+              "text": "contributing"
+            },
+            {
+              "key": "D",
+              "text": "dramatic"
+            },
+            {
+              "key": "E",
+              "text": "frequently"
+            },
+            {
+              "key": "F",
+              "text": "impact"
+            },
+            {
+              "key": "G",
+              "text": "line"
+            },
+            {
+              "key": "H",
+              "text": "maintain"
+            },
+            {
+              "key": "I",
+              "text": "melted"
+            },
+            {
+              "key": "J",
+              "text": "persist"
+            },
+            {
+              "key": "K",
+              "text": "ranging"
+            },
+            {
+              "key": "L",
+              "text": "recently"
+            },
+            {
+              "key": "M",
+              "text": "resolved"
+            },
+            {
+              "key": "N",
+              "text": "sensible"
+            },
+            {
+              "key": "O",
+              "text": "shock"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L) recently。【详解】空格前面为一个完整的句子,不缺少成分,根据句子结构分析可知,这里缺少一 个时间副词,所以空格处应填入一个副词。根据句子的现在完成时形式,可知此处所缺时间副词可以修饰 现在完成时。由此确定副词recently 为本题答案,意思为“最近”。备选副词中,frequently 表示事情发生的 频率,与句意不符,可以排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2014-06-2-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Amazon, by far the largest bookseller in the country, reported on May 19 that it is now selling more books in its electronic Kindle format than in the old paper-and-ink format. That is remarkable, considering that the Kindle has only been around for four years. E-books now account for 14 percent of all book sales in this country and are increasing far faster than overall book sales. E-book sales are up 146 percent over last year, while hardback sales increased 6 percent and paperbacks decreased 8 percent.",
+        "B) Does this spell the doom of the physical book? Certainly not immediately, and perhaps not at all. What it does mean is that the book business will go through a transformation in the next decade or so more profound than any it has seen since Gutenberg introduced printing from moveable type in the 1450s.",
+        "C) Physical books will surely become much rarer in the marketplace. Mass market paperbacks, which have been declining for years anyway, will probably disappear, as will hardbacks for mysteries, thrillers, “romance fiction,” etc. Such books, which only rarely end up in permanent collections, either private or public, will probably only be available as e-books within a few years. Hardback and trade paperbacks for “serious” nonfiction and fiction will surely last longer. Perhaps it will become the mark of an author to reckon with that he or she is still published in hard copy.",
+        "D) As for children’s books, who knows? Children’s books are like dog food in that the purchasers are not the consumers, so the market (and the marketing) is inherently strange.",
+        "E) For clues to the book’s future, let’s look at some examples of technological change and see what happened to the old technology.",
+        "F) One technology replaces another only because the new technology is better, cheaper, or both. The greater the difference, the sooner and more thoroughly the new technology replaces the old. Printing with moveable type on paper dramatically reduced the cost of producing a book compared with the old-fashioned ones handwritten on vellum, which comes from sheepskin. A Bible—to be sure, a long book—required vellum made from 300 sheepskins and countless man-hours of labor. Before printing arrived, a Bible cost more than a middle-class house. There were perhaps 50,000 books in all of Europe in 1450. By 1500 there were 10 million.",
+        "G) But while printing quickly caused the handwritten book to die out, handwriting lingered on (继续存在)well into the 16th century. Very special books are still occasionally produced on vellum, but they are one-of-a-kind show pieces.",
+        "H) Sometimes a new technology doesn’t drive the old one out, but only parts of it while forcing the rest to evolve. The movies were widely predicted to drive live theater out of the marketplace, but they didn’t, because theater turned out to have qualities movies could not reproduce. Equally, TV was supposed to replace movies but, again, did not.",
+        "I) Movies did, however, fatally impact some parts of live theater. And while TV didn’t kill movies, it did kill second-rate pictures, shorts, and cartoons.",
+        "J) Nor did TV kill radio. Comedy and drama shows (“Jack Benny, “Amos and Andy, “The Shadow”) all migrated to television. But because you can’t drive a car and watch television at the same time, rush hour became radio’s prime time, while music, talk, and news radio greatly enlarged their audiences. Radio is today a very different business than in the late 1940s and a much larger one.",
+        "K) Sometimes old technology lingers for centuries because of its symbolic power. Mounted cavalry (骑兵)replaced the chariot(G轮战车^on the battlefield around 1000 BC. But chariots maintained their place in parades and triumphs right up until the end of the Roman Empire 1,500 years later. The sword hasn’t had a military function for a hundred years, but is still part of an officer’s full- dress uniform, precisely because a sword always symbolized “ an officer and a gentleman.’’",
+        "L) Sometimes new technology is a little cranky(不稳定的)at first. Television repairman was a common occupation in the 1950s, for instance. And so the old technology remains as a backup. Steamships captured the North Atlantic passenger business from sail in the 1840s because of its much greater speed. But steamships didn’t lose their sails until the 1880s, because early marine engines had a nasty habit of breaking down. Until ships became large enough (and engines small enough) to mount two engines side by side, they needed to keep sails. (The high cost of steam and the lesser need for speed kept the majority of the world’s ocean freight moving by sail until the early years of the 20th century.)",
+        "M) Then there is the fireplace. Central heating was present in every upper- and middle-class home by the second half of the 19th century. But functioning fireplaces remain to this day a powerful selling point in a house or apartment. I suspect the reason is a deep-rooted love of fire. Fire was one of the earliest major technological advances for humankind, providing heat, protection, and cooked food (which is much easier to eat and digest). Human control of fire goes back far enough (over a million years) that evolution could have produced a genetic leaning towards fire as a central aspect of human life.",
+        "N) Books—especially books the average person could afford—haven’t been around long enough to produce evolutionary change in humans. But they have a powerful hold on many people nonetheless, a hold extending far beyond their literary content. At their best, they are works of art and there is a tactile (触觉的)pleasure in books necessarily lost in e-book versions. The ability to quickly thumb through pages is also lost. And a room with books in it induces, at least in some, a feeling not dissimilar to that of a fire in the fireplace on a cold winter’s night.",
+        "O) For these reasons I think physical books will have a longer existence as a commercial product than some currently predict. Like swords, books have symbolic power. Like fireplaces, they induce a sense of comfort and warmth. And, perhaps, similar to sails, they make a useful backup for when the lights go out."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "Authors still published in printed versions will be considered important ones.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Authors still published in printed versions will be considered important ones. C)。【译文】仍然出版印刷版本图书的作家会被认为是很重要的作家。 【精析】定位句指出,一个作家的作品是否仍然出版纸质版本,将成为评判该作家的标准。也就是说,如 果一个作家的书能被印刷出来,在市场上销售,通常会被认作是很重要的作家。题干中的considered 与原 文中的 reckon with 为同义转述,题干中的important 与原文中的the mark of 相对应,故答案为C)。"
+        },
+        {
+          "number": 47,
+          "stem": "Some people are still in favor of printed books because of the sense of touch they can provide.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "N",
+          "explanation": "Some people are still in favor of printed books because of the sense of touch they can provide. N)。【译文】—些人因为印刷版本图书所带来的触觉感受而依旧很喜欢它们。 【精析】文章N)段指出,书有一种覆盖范围远远超出了它们的文学内容的控制力,能够带来在电子书版本 中所体会不到的触觉上的愉悦。题干中的the sense of toucli 与原文中的a tactile pleasure 为同义转述,故答案为N)。"
+        },
+        {
+          "number": 48,
+          "stem": "The radio business has changed greatly and now attracts more listeners.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "J",
+          "explanation": "The radio business has changed greatly and now attracts more listeners. J)。【译文】广播业务发生了巨大变化,现在吸引了更多听众。 【精析】文章J)段的大意为电视没能消除收音机的存在。由于一个人不可能一边开车一边看电视,所以广 播得以发展,听众群随之扩大,同20 世纪40 年代后期相比,发生了很大转变。题干中的changed greatly 与原文中的 very different 相对应,题干中的 attracts more listeners 与原文中的 enlarged their audiences 为 同义转述,故答案为J)。"
+        },
+        {
+          "number": 49,
+          "stem": "Contrary to many peopled prediction of its death, the film industry survived.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "H",
+          "explanation": "Contrary to many people’s prediction of its death, the film industry survived. H)。【译文】与许多人预计的相反,电影行业没有消亡,而是幸存下来了。 【精析】文中H)段主要是说明有时新技术产生之后,旧的技术不一定消亡,以戏剧、电影、电视为例, 曾有预言说电影会把现场戏剧表演挤出市场,结果却没有,电视的产生同样没对电影产生预言的结果。 题干中的 prediction 与原文中的was supposed to 相对应,题干中的survived 与原文中的replace...did not 为同义转述,故答案为H)。"
+        },
+        {
+          "number": 50,
+          "stem": "Remarkable changes have taken place in the book business.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Remarkable changes have taken place in the book business. A)。【译文】图书行业发生了重大的变化。 【精析】题干是对A)段所描述的电子书在几年内大幅度增长的概括。文中指出金读电子书的销量远大于纸 质书,变化显著。电子书销量的大幅增长,在图书销售中引起了重大的变化。该句是对本段落的概括,故 答案为 A)。"
+        },
+        {
+          "number": 51,
+          "stem": "Old technology sometimes continues to exist because of its reliability.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "L",
+          "explanation": "Old technology sometimes continues to exist because of its reliability. L)。【译文】有时旧技术由于其稳定性而继续存在。 【精析】文章L)段主要是陈述新技术产生之后,旧技术依旧存在。由于新技术的不稳定性,旧技术作为备 份而继续存在。题干中的continues to exist 与原文中的remains 为同义转述,故答案为L)。"
+        },
+        {
+          "number": 52,
+          "stem": "The increase of e-book sales will force the book business to make changes not seen for centuries.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "B",
+          "explanation": "The increase of e-book sales will force the book business to make changes not seen for centuries. B) 。【译文】电子书销量的增长会迫使图书行业发生几个世纪以来不曾有的变化。 【精析】文章B)段主要阐述了纸质书的命运:图书的销售形式在未来十年会发生转变,其影响极其深远。 题干中的make changes 与原文中的go through a transformation 为同义转述,故答案为B)。"
+        },
+        {
+          "number": 53,
+          "stem": "A new technology is unlikely to take the place of an old one without a clear advantage.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "F",
+          "explanation": "A new technology is unlikely to take the place of an old one without a clear advantage. F)。【译文】若没有明显的优势,新技术很难取代旧技术。 【精析】文章F)段主要是陈述新技术取代旧技术所需达到的条件,即“更好”、“更便宜”或“两者兼备”。 题干中的take the place of 与原文中的replaces 为同义转述,题干是对F)段的总括,故答案为F)。"
+        },
+        {
+          "number": 54,
+          "stem": "Paperbacks of popular literature are more likely to be replaced by e-books.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Paperbacks of popular literature are more likely to be replaced by e-books. C)。【译文】平装的流行文学更有可能被电子书所取代。 【精析】文章C)段主要是陈述平装书越来越没有市场。大众市场平装书会逐渐减少,最后可能会消失。题 干中的 paperbacks of popular literature 与原文中的 mass market paperbacks 对应,故答案为 C)。"
+        },
+        {
+          "number": 55,
+          "stem": "A house with a fireplace has a stronger appeal to buyers.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "M",
+          "explanation": "A house with a fireplace has a stronger appeal to buyers. M)。【译文】有壁炉的房子对买家有更强的吸引力。 【精析】 文章M)段主要是讲壁炉的作用。截至19 世纪下半叶,集中供暖出现在每一个上层和中产阶级家 中,但是功能壁炉现如今仍然是房子或公寓的重要卖点。题干中的a stronger appeal 与原文中的a powerful selling point 相对应,故答案为M)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2014-06-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "The question of whether our government should promote science and technology or the liberal arts in higher education isn’t an either/or proposition (命题), although the current emphasis on preparing young Americans for STEM (science, technology, engineering, maths)-related fields can make it seem that way. The latest congressional report acknowledges the critical importance of technical training, but also asserts that the study of the humanities (人文学科)and social sciences must remain central components of America’s educational system at all levels. Both areas are critical to producing citizens who can participate effectively in our democratic society, become innovative(创新的)leaders, and benefit from the spiritual enrichment that the reflection on the great ideas of mankind over time provides. Parents and students who have invested heavily in higher education worry about graduates, job prospects as technological advances and changes in domestic and global markets transform professions in ways that reduce wages and cut jobs. Under these circumstances, it’s natural to look for what may appear to be the most “practical” way out of the problem: “Major in a subject designed to get you a job” seems the obvious answer to some, though this ignores the fact that many disciplines in the humanities characterized as “soft” often, in fact, lead to employment and success in the long run. Indeed, according to surveys, employers have expressed a preference for students who have received a broadly-based education that has taught them to write well, think critically, research creatively, and communicate easily. Moreover, students should be prepared not just for their first job, but for their 4th and 5th jobs, as there’s little reason to doubt that people entering the workforce today will be called upon to play many different roles over the course of their careers. The ones who will do the best in this new environment will be those whose educations have prepared them to be flexible. The ability to draw upon every available tool and insight—picked up from science, arts, and technology—to solve the problems of the future, and take advantage of the opportunities that present themselves, will be helpful to them and the United States."
+      ],
+      "questions": [
+        {
+          "number": 56,
+          "stem": "What does the latest congressional report suggest?",
+          "options": [
+            {
+              "key": "A",
+              "text": "STEM-related subjects help students find jobs in the information society."
+            },
+            {
+              "key": "B",
+              "text": "The humanities and STEM subjects should be given equal importance."
+            },
+            {
+              "key": "C",
+              "text": "The liberal arts in higher education help enrich students’ spiritual life."
+            },
+            {
+              "key": "D",
+              "text": "Higher education should be adjusted to the practical needs of society."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位:由题干中的 latest congressional report 定位到文章第二段第一句:The latest congressional report acknowledges the critical importance of technical training,but also asserts that the study of the humanities (人文 学科)and social sciences must remain central components of America’ educational system at all levels. 详解:事实细节题。文中提到最新的国会报告坚称人文学科与社会科学的研究仍是美国教育系统各个阶段 的中心,可见其重要性,这里两种学科的地位是平等的,故答案为B)。 点睛:A) “STEM 相关的学科能够帮助学生在这个信息化的社会中找到工作”,在第三段中有所提及,但 并不是国会报告的内容,故排除;C)“高等教育中的人文学科能够帮助学生丰富精神生活”,第二段第二 句指出,人文学科培养了能够在精神层面上从人类伟大的思想中受益的领导者,这是作者的见解,也不是 国会报告的内容,故排除;D)“高等教育应根据社会的实际需要做相应的调整”,在文中并没有明确的表 述,第二段第一句提到,国会报告坚称人文学科与社会科学的研究必须仍是美国教育系统各个阶段的中心, 并未指出要做调整,故排除。"
+        },
+        {
+          "number": 57,
+          "stem": "What is the main concern of students when they choose a major?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Their interest in relevant subjects."
+            },
+            {
+              "key": "B",
+              "text": "The academic value of the courses."
+            },
+            {
+              "key": "C",
+              "text": "The quality of education to receive."
+            },
+            {
+              "key": "D",
+              "text": "Their chances of getting a good job."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位:由题干中的main concern of students 和choose a major 定位到文章第三段第一、二句:Parents and students who have invested heavily in higher education worry about graduates’ job prospects... Under these circumstances, it’s natural to look for what may appear to be the most “practical” way out of the problem: “Major in a subject designed to get you a job” seems the obvious answer to some.... 详解:推理判断题。第三段第一、二句指出,由于技术进步和国内外市场的变化,家长与学生对毕业生的 就业前景忧心忡忡就读一个能够帮助你找到工作的专业”对有些人来说是显而易见的答案,故答案为D)。 点睛:A) “他们对相关科目的兴趣”、B) “课程的学术价值”和C) “所接受教育的质量”均未在文中 提及,故排除。"
+        },
+        {
+          "number": 58,
+          "stem": "What does the author say about the so-called soft subjects?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They benefit students in their future life."
+            },
+            {
+              "key": "B",
+              "text": "They broaden students’ range of interests."
+            },
+            {
+              "key": "C",
+              "text": "They improve students’ communication skills."
+            },
+            {
+              "key": "D",
+              "text": "They are essential to students’ healthy growth."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。定位:由题干中的 the so-called soft subjects 金位到文章第三段第二句:though this ignores the fact that many disciplines in the humanities characterized as “soft” often, in fact, lead to employment and success in the long run. 详解:推理判断题。题干中的the so-called soft subjects 实际上是指humanities (人文学科)。文中指出,从 长远来看,许多以“软”为特点的人文学科经常会带来就业和成功,故答案为A)。 点睛:B) “它们拓宽学生的兴趣”在文中没有体现,故排除;C)“它们提高学生的沟通能力”,第三段最 后一句指出,雇主更青睐易于沟通的学生,但文中未指出人文学科能提高学生的沟通能力,故排除;D)“它 们对学生的健康成长至关重要”在文中没有明确指出,故排除亦。"
+        },
+        {
+          "number": 59,
+          "stem": "What kind of job applicants do employers look for?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Those who have a strong sense of responsibility."
+            },
+            {
+              "key": "B",
+              "text": "Those who are good at solving practical problems."
+            },
+            {
+              "key": "C",
+              "text": "Those who are likely to become innovative leaders."
+            },
+            {
+              "key": "D",
+              "text": "Those who have received a well-rounded education."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位:由题干中的employers 定位到文章第三段最后一句:employers have expressed a preference for students who have received a broadly-based education that has taught them to write well, think critically, research creatively, and communicate easily. 详解:事实细节题。文中明确指出,雇主更青睐那些接受了综合性教育的学生,他们擅长写作,批判性地 思考问题,创新性地进行研究,而且易于沟通。well-rounded 与broadly-based 意思相近,故答案为D)。 点睛:A) “那些具有很强责任感的人”、B) “那些善于解决实际问题的人”和C) “那些有可能成为创 新型领导者的人”在文中均没有提及,故排除。"
+        },
+        {
+          "number": 60,
+          "stem": "What advice does the author give to college students?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Seize opportunities to tap their potential."
+            },
+            {
+              "key": "B",
+              "text": "Try to take a variety of practical courses."
+            },
+            {
+              "key": "C",
+              "text": "Prepare themselves for different job options."
+            },
+            {
+              "key": "D",
+              "text": "Adopt a flexible approach to solving problems."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定位:由题干中的advice 定位到文章最后一段第一句:Moreover, students should be prepared not just for their first job, but for their 4th and 5th jobs, as there’s little reason to doubt that people entering the workforce today will be called upon to play many different roles over the course of their careers. 详解:推理判断题。在文章末段,作者给学生提出了建议,即“学生不应只为他们的第一份工作而准备, 还应考虑到第四、五份工作,因为毋庸置疑,现在人们步入工作之后,很可能在职业生涯中扮演许多不同的 角色”。由此可知,学生需要做多重准备,以应对形势变化,故答案为C)。 点睛:A) “抓住机遇挖掘自身潜力”和B) “努力去上各种应用课程”在文中并没有明确的表述,故排除;D) “采取灵活的方式解决问题”,最后一段第二句提到,教育能够使人变得灵活,并未提到解决问题的方式, 故排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2014-06-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Energy independence. It has a nice ring to it, doesn’t it? If you think so, you’re not alone, because energy independence has been the dream of American presidents for decades, and never more so than in the past few years, when the most recent oil price shock has been partly responsible for kicking off the great recession. “Energy independence” and its rhetorical(修辞的)companion “energy security” are, however, slippery concepts that are rarely thought through. What is it we want independence from, exactly? Most people would probably say that they want to be independent from imported oil. But there are reasons that we buy all that oil from elsewhere. The first reason is that we need it to keep our economy running. Yes, there is a trickle(涓涓细流)of biofuel(生物燃料)available, and more may become available, but most biofuels cause economic waste and environmental destruction. Second, Americans have basically decided that they don’t really want to produce all their own oil. They value the environmental quality they preserve over their oil imports from abroad. Vast areas of the United States are off-limits to oil exploration and production in the name of environmental protection. To what extent are Americans really willing to endure the environmental impacts of domestic energy production in order to cut back imports? Third, there are benefits to trade. It allows for economic efficiency, and when we buy things from places that have lower production costs than we do, we benefit. And although you don’t read about this much, the United States is also a large exporter of oil products, selling about 2 million barrels of petroleum products per day to about 90 countries. There is no question that the United States imports a great deal of energy and, in fact, relies on that steady flow to maintain its economy. When that flow is interrupted, we feel the pain in short supplies and higher prices. At the same time, we derive massive economic benefits when we buy the most affordable energy on the world market and when we engage in energy trade around the world."
+      ],
+      "questions": [
+        {
+          "number": 61,
+          "stem": "What does the author say about energy independence for America?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It sounds very attractive."
+            },
+            {
+              "key": "B",
+              "text": "It ensures national security."
+            },
+            {
+              "key": "C",
+              "text": "It will bring oil prices down."
+            },
+            {
+              "key": "D",
+              "text": "It has long been everyone’s dream."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。定位:由题干中的 energy independence 定位到文章第一段的第一、二句:Energy independence. It has a nice ring to it, doesn’t it? 详解:事实细节题。文章第一段提到能源独立,原文中的has a nice ring to it 相当于A)项中的sounds very attractive“听起来非常吸引人”,故答案为A)。 点睛: B) “它保障国家安全”,在文中并没有明确提及,所以排除;C) “它会使石油降价”,文中并没有 明确提出能源独立之后,石油价格会下降,故排除;D) “它是每个人长久以来的梦想”,第一段第三句只 是提出能源独立是历届美国总统的梦想,并未涉及每个人,所以排除。"
+        },
+        {
+          "number": 62,
+          "stem": "What does the author think of biofuels?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They keep America’s economy running healthily."
+            },
+            {
+              "key": "B",
+              "text": "They prove to be a good alternative to petroleum."
+            },
+            {
+              "key": "C",
+              "text": "They do not provide a sustainable energy supply."
+            },
+            {
+              "key": "D",
+              "text": "They cause serious damage to the environment."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位:由题干中的biofuels 定位到文章第四段第二句:Yes, there is a trickle (涓涓细流)of biofuel (生 物燃料)available, and more may become available, but most biofuels cause economic waste and environmental destruction. 详解: 事实细节题。文中指出,有少量可用的生物燃料,但是大多数生物燃料会导致经济浪费和环境破坏, 故答案为D)。 点睛:A) “它们保持美国经济健康发展”,'第四段提到,需要进口石油来保持美国经济运行,生物燃料 的使用不但不能使经济健康发雇,反而会造成经济浪费,所以排除;B) “它们被证明是石油的良好替代 品”,第四段第二句提到,生物燃料的使用会造成经济浪费和环境破坏,不能称之为良好替代品,所以排 除;C)“它们不能提供持续的能源供应”,第四段第二句提到,有少量可用的生物能源,而且可能会越来越 多,所以排除。"
+        },
+        {
+          "number": 63,
+          "stem": "Why does America rely heavily on oil imports?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It wants to expand its storage of crude oil."
+            },
+            {
+              "key": "B",
+              "text": "Its own oil reserves are quickly running out."
+            },
+            {
+              "key": "C",
+              "text": "It wants to keep its own environment intact."
+            },
+            {
+              "key": "D",
+              "text": "Its own oil production falls short of demand."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定位:由题干中的rely 和oil imports 定位到文章第五段前两句:Second, Americans have basically decided that they don’t really want to produce all their own oil. They value the environmental quality they preserve over their oil imports from abroad. 详解:事实细节题。文中指出,美国基本上已经决定不在石油上实现自给自足,相较于从国外进口石油, 他们更珍视环境质量,也就是想保持好的环境,故答案为C)。 点睛:A)“它想扩大原油储备”,第六段第三句提到,美国每年也有石油产品的出口,依赖石油进口的主 要原因是减少对环境的破坏,故排除;B) “其自身的石油储备很快将消耗尽”,第五段第三句提到,美国 绝大部分地区禁止石油勘探和开发主要是为了保护环境,并非“石油储备即将耗尽”,所以排除;D) “其 自身的石油产量不能满足需求”,第五段第三句明确指出,美国绝大部分区域禁止石油勘探和开发, 所以 排除。"
+        },
+        {
+          "number": 64,
+          "stem": "What does the author say about oil trade?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It proves profitable to both sides."
+            },
+            {
+              "key": "B",
+              "text": "It improves economic efficiency."
+            },
+            {
+              "key": "C",
+              "text": "It makes for economic prosperity."
+            },
+            {
+              "key": "D",
+              "text": "It saves the cost of oil exploration."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位 :由题干中的 oil trade 定位到文章第六段第一二句:Third, there are benefits to trade. It allows for economic efficiency, and when we buy things from places that have lower production costs than we do, we benefit. 详解:事实细节题。文中提到,石油贸易是有好处的,能够提高经济效率,故答案为B)。 点睛:A) “它对食易双方来说均有利可图”,第六段第二句指出,当我们从生产成本低的地方购买东西 的时候,我们是受益方,故排除;C)“它促进经济繁荣”,在文中没有明确的表述,所以排除;D)“它节省 了石油勘探的费用”,在文中没有提及,故排除。"
+        },
+        {
+          "number": 65,
+          "stem": "What is the author’s purpose in writing the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To justify America’s dependence on oil imports."
+            },
+            {
+              "key": "B",
+              "text": "To arouse Americans’ awareness of the energy crisis."
+            },
+            {
+              "key": "C",
+              "text": "To stress the importance of energy conservation."
+            },
+            {
+              "key": "D",
+              "text": "To explain the increase of international oil trade."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。定位:由题干中的 the author’s purpose 定位到文章最后一段:There is no question that...When that flow is interrupted, we feel the pain in short supplies and higher prices. At the same time, we derive massive economic benefits when we buy the most affordable energy on the world market 详解:推理判断题。作者在最后一段指出,美国以进口能源来保持经济稳定发展,并且当它在世界大市场 上购买最经济实惠的能源并参与世界性能源贸易时,美国也将获得巨大的经济利益。由此可知,作者写这 篇文章的目的是为美国依赖进口石油进行辩解,故答案为A)。 点睛:B) “唤起美国民众的能源危机意识”、C) “强调能源保护的重要性”和D) “解释国际石油贸易 增长”在文中均没有明确的表述,所以排除。"
+        }
+      ]
+    }
+  ]
+}

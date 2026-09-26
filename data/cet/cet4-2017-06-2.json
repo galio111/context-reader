@@ -1,0 +1,1524 @@
+{
+  "id": "cet4-2017-06-2",
+  "level": 4,
+  "year": 2017,
+  "month": 6,
+  "set": 2,
+  "title": "2017 年 6 月四级 · 第 2 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.06/%E7%9C%9F%E9%A2%98Word/2017%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%982.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2017%E5%B9%B46%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E5%8D%B7%E4%BA%8C%EF%BC%89%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2017-06-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "As if you needed another reason to hate the gym, it now turns out that exercise can exhaust not only your muscles, but also your eyes. Fear not, however, for coffee can stimulate them again. During [[26]] exercise, our muscles tire as they run out of fuel and build up waste products. Muscle performance can also be affected by a [[27]] called \"central fatigue,” in which an imbalance in the body’s chemical messengers prevents the central nervous system from directing muscle movements[[28]]. It was not known, however, whether central fatigue might also affect motor systems not directly [[29]] _______ in the exercise itself, such as those that move the eyes. To find out, researchers gave 11 volunteer cyclists a carbohydrate (碳水化合物的)[[30]] either with a moderate dose of caffeine (咖啡因),which is known to stimulate the central nervous system, or as a placebo (安慰剂) without, during 3 hours of [[31]] . After exercising, the scientists tested the cyclists with eyetracking cameras to see how well their brains could still [[32]] their visual system. The team found that exercise reduced the speed of rapid eye movements by about 8%, [[33]] their ability to capture new visual information. The caffeine, the equivalent of two strong cups of coffee, was [[34]] to reverse this effect, with some cyclists even displaying [[35]] eye movement speeds. So it might be a good idea to get someone else to drive you home after that marathon."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "cautiously"
+        },
+        {
+          "key": "B",
+          "text": "commit"
+        },
+        {
+          "key": "C",
+          "text": "control"
+        },
+        {
+          "key": "D",
+          "text": "cycling"
+        },
+        {
+          "key": "E",
+          "text": "effectively"
+        },
+        {
+          "key": "F",
+          "text": "increased"
+        },
+        {
+          "key": "G",
+          "text": "involved"
+        },
+        {
+          "key": "H",
+          "text": "limited"
+        },
+        {
+          "key": "I",
+          "text": "phenomenon"
+        },
+        {
+          "key": "J",
+          "text": "preventing"
+        },
+        {
+          "key": "K",
+          "text": "sensitive"
+        },
+        {
+          "key": "L",
+          "text": "slowing"
+        },
+        {
+          "key": "M",
+          "text": "solution"
+        },
+        {
+          "key": "N",
+          "text": "sufficient"
+        },
+        {
+          "key": "O",
+          "text": "vigorous"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "cautiously"
+            },
+            {
+              "key": "B",
+              "text": "commit"
+            },
+            {
+              "key": "C",
+              "text": "control"
+            },
+            {
+              "key": "D",
+              "text": "cycling"
+            },
+            {
+              "key": "E",
+              "text": "effectively"
+            },
+            {
+              "key": "F",
+              "text": "increased"
+            },
+            {
+              "key": "G",
+              "text": "involved"
+            },
+            {
+              "key": "H",
+              "text": "limited"
+            },
+            {
+              "key": "I",
+              "text": "phenomenon"
+            },
+            {
+              "key": "J",
+              "text": "preventing"
+            },
+            {
+              "key": "K",
+              "text": "sensitive"
+            },
+            {
+              "key": "L",
+              "text": "slowing"
+            },
+            {
+              "key": "M",
+              "text": "solution"
+            },
+            {
+              "key": "N",
+              "text": "sufficient"
+            },
+            {
+              "key": "O",
+              "text": "vigorous"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O)vigorous。详解形容词辨析题。空格位于名词前,应填入形容词修饰exercise。本句句意为: 在 运动时,随着能量耗尽、废物积累,我们的肌肉会感到疲劳。由此可知,在剧烈运动时肌肉才会 感到疲劳,故本题答案为O)。备选形容词中,F)increased、G)involved、K)sensitive都不能与exercise搭 配;H)limited不符合句意;因为原句提到了run outoffuel,所以N)sufficient在程度上不如O)vigorous。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "cautiously"
+            },
+            {
+              "key": "B",
+              "text": "commit"
+            },
+            {
+              "key": "C",
+              "text": "control"
+            },
+            {
+              "key": "D",
+              "text": "cycling"
+            },
+            {
+              "key": "E",
+              "text": "effectively"
+            },
+            {
+              "key": "F",
+              "text": "increased"
+            },
+            {
+              "key": "G",
+              "text": "involved"
+            },
+            {
+              "key": "H",
+              "text": "limited"
+            },
+            {
+              "key": "I",
+              "text": "phenomenon"
+            },
+            {
+              "key": "J",
+              "text": "preventing"
+            },
+            {
+              "key": "K",
+              "text": "sensitive"
+            },
+            {
+              "key": "L",
+              "text": "slowing"
+            },
+            {
+              "key": "M",
+              "text": "solution"
+            },
+            {
+              "key": "N",
+              "text": "sufficient"
+            },
+            {
+              "key": "O",
+              "text": "vigorous"
+            }
+          ],
+          "answer": "I",
+          "explanation": "I)phenomenon。详解)名词辨析题。空格位于冠词a之后,而且后面没有名词,因此应填入名词。本 句意为:肌肉的性能也受被称之为“中央疲倦” 的影响。inwhich引导的非限制性定语从句解释什 么是“centralfatigue”,由此可知“中央疲倦\"是人体中央神经系统作用受限的一种现象,故本题答案为I)。 在备选名词中,其他选项都不适合语境,故排除。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "cautiously"
+            },
+            {
+              "key": "B",
+              "text": "commit"
+            },
+            {
+              "key": "C",
+              "text": "control"
+            },
+            {
+              "key": "D",
+              "text": "cycling"
+            },
+            {
+              "key": "E",
+              "text": "effectively"
+            },
+            {
+              "key": "F",
+              "text": "increased"
+            },
+            {
+              "key": "G",
+              "text": "involved"
+            },
+            {
+              "key": "H",
+              "text": "limited"
+            },
+            {
+              "key": "I",
+              "text": "phenomenon"
+            },
+            {
+              "key": "J",
+              "text": "preventing"
+            },
+            {
+              "key": "K",
+              "text": "sensitive"
+            },
+            {
+              "key": "L",
+              "text": "slowing"
+            },
+            {
+              "key": "M",
+              "text": "solution"
+            },
+            {
+              "key": "N",
+              "text": "sufficient"
+            },
+            {
+              "key": "O",
+              "text": "vigorous"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E)effectively。详解副词辨析题。空格位于directingmusclemovements之后,而且这是一个完整的 动宾结构,因此应填入副词作状语修饰directing。该定语从句意为:身体中传递化学物质的信使不均衡,导 致中央神经系统不能指导肌肉运动。由主句可知,肌肉性能受“中央疲倦\"的影响,不能正常发挥 作用,因此应填人含有“有效、正常\"等类似含义的副词,故本题答案为E)。备选副词中,A)cautiously明显 不符合句意,故排除。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "cautiously"
+            },
+            {
+              "key": "B",
+              "text": "commit"
+            },
+            {
+              "key": "C",
+              "text": "control"
+            },
+            {
+              "key": "D",
+              "text": "cycling"
+            },
+            {
+              "key": "E",
+              "text": "effectively"
+            },
+            {
+              "key": "F",
+              "text": "increased"
+            },
+            {
+              "key": "G",
+              "text": "involved"
+            },
+            {
+              "key": "H",
+              "text": "limited"
+            },
+            {
+              "key": "I",
+              "text": "phenomenon"
+            },
+            {
+              "key": "J",
+              "text": "preventing"
+            },
+            {
+              "key": "K",
+              "text": "sensitive"
+            },
+            {
+              "key": "L",
+              "text": "slowing"
+            },
+            {
+              "key": "M",
+              "text": "solution"
+            },
+            {
+              "key": "N",
+              "text": "sufficient"
+            },
+            {
+              "key": "O",
+              "text": "vigorous"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G)involved。详解形容词辨析题。空格位于副词directly之后,应填入形容词。本句意为:但是,之 前人们并不知道中央疲倦是否可能影响未直接 锻炼的运动肌肉系统,例如那些使眼睛活动的肌肉。 由句意可知,本文将肌肉分为两类,一类是参与锻炼的,另一类是未参与的,例如眼部肌肉。前者受中央疲倦 的影响,而后者是否受其影响人们以前并不知道,所以研究人员才做实验进行研究。因此,空格处应填人含 有\"参与、参加\"含义的形容词,故本题答案为G)。备选形容词中,能与介词in搭配的只有G)involved,故排 除其他选项。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "cautiously"
+            },
+            {
+              "key": "B",
+              "text": "commit"
+            },
+            {
+              "key": "C",
+              "text": "control"
+            },
+            {
+              "key": "D",
+              "text": "cycling"
+            },
+            {
+              "key": "E",
+              "text": "effectively"
+            },
+            {
+              "key": "F",
+              "text": "increased"
+            },
+            {
+              "key": "G",
+              "text": "involved"
+            },
+            {
+              "key": "H",
+              "text": "limited"
+            },
+            {
+              "key": "I",
+              "text": "phenomenon"
+            },
+            {
+              "key": "J",
+              "text": "preventing"
+            },
+            {
+              "key": "K",
+              "text": "sensitive"
+            },
+            {
+              "key": "L",
+              "text": "slowing"
+            },
+            {
+              "key": "M",
+              "text": "solution"
+            },
+            {
+              "key": "N",
+              "text": "sufficient"
+            },
+            {
+              "key": "O",
+              "text": "vigorous"
+            }
+          ],
+          "answer": "M",
+          "explanation": "M)solution。详解)名词辨析题。空格位于givesb.sth.结构中,应填入名词。本句意为:研究人员给 11名自行车手志愿者一支碳水化合物 ,有的含有适量的咖啡因,能够刺激中央神经系统;有的是作 为安慰剂,不含咖啡因。由句意可知,研究人员给自行车手的应该是含有咖啡因或不含咖啡因的碳水化合物 食物或饮料之类的制品,因此本题答案为M)solution。在备选名词中,除了M)solution之外,其他三项都 不能和carbohydrate搭配,故排除。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "cautiously"
+            },
+            {
+              "key": "B",
+              "text": "commit"
+            },
+            {
+              "key": "C",
+              "text": "control"
+            },
+            {
+              "key": "D",
+              "text": "cycling"
+            },
+            {
+              "key": "E",
+              "text": "effectively"
+            },
+            {
+              "key": "F",
+              "text": "increased"
+            },
+            {
+              "key": "G",
+              "text": "involved"
+            },
+            {
+              "key": "H",
+              "text": "limited"
+            },
+            {
+              "key": "I",
+              "text": "phenomenon"
+            },
+            {
+              "key": "J",
+              "text": "preventing"
+            },
+            {
+              "key": "K",
+              "text": "sensitive"
+            },
+            {
+              "key": "L",
+              "text": "slowing"
+            },
+            {
+              "key": "M",
+              "text": "solution"
+            },
+            {
+              "key": "N",
+              "text": "sufficient"
+            },
+            {
+              "key": "O",
+              "text": "vigorous"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)cycling。详解名词辨析题。空格位于介词of之后,应填人名词或动名词。上文中出现了volunteer cyclists,而该研究又涉及锻炼(exercise),空格所在句意为\"3个小时的骑行\",因此空格处应填D)cycling。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "cautiously"
+            },
+            {
+              "key": "B",
+              "text": "commit"
+            },
+            {
+              "key": "C",
+              "text": "control"
+            },
+            {
+              "key": "D",
+              "text": "cycling"
+            },
+            {
+              "key": "E",
+              "text": "effectively"
+            },
+            {
+              "key": "F",
+              "text": "increased"
+            },
+            {
+              "key": "G",
+              "text": "involved"
+            },
+            {
+              "key": "H",
+              "text": "limited"
+            },
+            {
+              "key": "I",
+              "text": "phenomenon"
+            },
+            {
+              "key": "J",
+              "text": "preventing"
+            },
+            {
+              "key": "K",
+              "text": "sensitive"
+            },
+            {
+              "key": "L",
+              "text": "slowing"
+            },
+            {
+              "key": "M",
+              "text": "solution"
+            },
+            {
+              "key": "N",
+              "text": "sufficient"
+            },
+            {
+              "key": "O",
+              "text": "vigorous"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)control。详解动词辨析题。空格前有情态动词could,因此应填人动词原形。本句意为:在锻炼后, 科学家用追踪眼动的摄像机检测这些车手,以发现他们的大脑对视觉系统 如何。由上文可知,本研究 的目的是确定中央疲倦是否会影响眼部肌肉,即大脑对眼部肌肉的控制在锻炼后是否会发生改变,故本题答案 为C)control。在备选动词中,只有B)commit和C)control是原形,而commit与句意不符,因此排除。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "cautiously"
+            },
+            {
+              "key": "B",
+              "text": "commit"
+            },
+            {
+              "key": "C",
+              "text": "control"
+            },
+            {
+              "key": "D",
+              "text": "cycling"
+            },
+            {
+              "key": "E",
+              "text": "effectively"
+            },
+            {
+              "key": "F",
+              "text": "increased"
+            },
+            {
+              "key": "G",
+              "text": "involved"
+            },
+            {
+              "key": "H",
+              "text": "limited"
+            },
+            {
+              "key": "I",
+              "text": "phenomenon"
+            },
+            {
+              "key": "J",
+              "text": "preventing"
+            },
+            {
+              "key": "K",
+              "text": "sensitive"
+            },
+            {
+              "key": "L",
+              "text": "slowing"
+            },
+            {
+              "key": "M",
+              "text": "solution"
+            },
+            {
+              "key": "N",
+              "text": "sufficient"
+            },
+            {
+              "key": "O",
+              "text": "vigorous"
+            }
+          ],
+          "answer": "J",
+          "explanation": "J)preventing。详解动词辨析题。空格后面的名词ability前有their修饰,因此只能填入动词。此 外,空格前分句的主语exercise与空格处的动词是主动关系,而不是被动,说明应填入动词的现在分词形式。 本句意为:研究团队发现,锻炼大约降低了快速眼动速度的8%,从而 了眼睛捕捉新的视觉信息的 能力。由句意可知,眼动速度降低,眼睛捕捉新视觉信息的能力会下降,因此本空应填人含有“降低、阻碍” 等含义的动词,故本题答案为J)。在备选动词中,符合语法要求的只剩下L)slowing,而slowing不能与 ability搭配,可以排除。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "cautiously"
+            },
+            {
+              "key": "B",
+              "text": "commit"
+            },
+            {
+              "key": "C",
+              "text": "control"
+            },
+            {
+              "key": "D",
+              "text": "cycling"
+            },
+            {
+              "key": "E",
+              "text": "effectively"
+            },
+            {
+              "key": "F",
+              "text": "increased"
+            },
+            {
+              "key": "G",
+              "text": "involved"
+            },
+            {
+              "key": "H",
+              "text": "limited"
+            },
+            {
+              "key": "I",
+              "text": "phenomenon"
+            },
+            {
+              "key": "J",
+              "text": "preventing"
+            },
+            {
+              "key": "K",
+              "text": "sensitive"
+            },
+            {
+              "key": "L",
+              "text": "slowing"
+            },
+            {
+              "key": "M",
+              "text": "solution"
+            },
+            {
+              "key": "N",
+              "text": "sufficient"
+            },
+            {
+              "key": "O",
+              "text": "vigorous"
+            }
+          ],
+          "answer": "N",
+          "explanation": "N)sufficient。详解形容词辨析题。空格位于系动词was之后,可以填形容词或名词。本句中,the equivalentoftwostrongcupsofcoffee是同位语,说明研究人员给自行车手的溶剂中咖啡因的含量之高相 当于两杯浓咖啡,所以能够扭转这一影响。因此,空格处应填含有“充足、充分”意义的词,故本题答案为 N) sufficient。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "cautiously"
+            },
+            {
+              "key": "B",
+              "text": "commit"
+            },
+            {
+              "key": "C",
+              "text": "control"
+            },
+            {
+              "key": "D",
+              "text": "cycling"
+            },
+            {
+              "key": "E",
+              "text": "effectively"
+            },
+            {
+              "key": "F",
+              "text": "increased"
+            },
+            {
+              "key": "G",
+              "text": "involved"
+            },
+            {
+              "key": "H",
+              "text": "limited"
+            },
+            {
+              "key": "I",
+              "text": "phenomenon"
+            },
+            {
+              "key": "J",
+              "text": "preventing"
+            },
+            {
+              "key": "K",
+              "text": "sensitive"
+            },
+            {
+              "key": "L",
+              "text": "slowing"
+            },
+            {
+              "key": "M",
+              "text": "solution"
+            },
+            {
+              "key": "N",
+              "text": "sufficient"
+            },
+            {
+              "key": "O",
+              "text": "vigorous"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F)increased。详解形容词辨析题。空格位于名词词组eyemovementspeeds之前,应填人形容词作 修饰语。空格前提到,咖啡因能扭转这一影响,而且even表示程度更进一步,由此推断,有的自行车手的眼 动速度不降反升,因此空格处填F)increased。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2017-06-2-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Teams have become the basic building blocks of organizations. Recruitment advertisements routinely call for “team players”. Business schools grade their students in part on their performance in group projects. Office managers knock down walls to encourage team building. Teams are as old as civilization, of course: even Jesus had 12 co-workers. But a new report by Deloitte, “Global Human Capital Trends”, based on a survey of more than 7,000 executives in over 130 countries, suggests that the fashion for teamwork has reached a new high. Almost half of those surveyed said their companies were either in the middle of restructuring or about to embark on (开始)it; and for the most part, restructuring meant putting more emphasis on teams.",
+        "B) Companies are abandoning conventional functional departments and organising employees into cross-disciplinary teams that focus on particular products, problems or customers. These teams are gaining more power to run their own affairs. They are also spending more time working with each other rather than reporting upwards. Deloitte argues that a new organisational form is on the rise: a network of teams is replacing the conventional hierarchy (等级体制).",
+        "C) The fashion for teams is driven by a sense that the old way of organising people is too rigid for both the modem marketplace and the expectations of employees. Technological innovation places greater value on agility (灵活性).John Chambers, chairman of Cisco Systems Inc., a worldwide leader in electronics products, says that “we compete against market transitions (过渡),not competitors. Product transitions used to take five or seven years; now they take one or two. ” Digital technology also makes it easier for people to co-ordinate their activities without resorting to hierarchy. The “millennials” (千禧一代) who will soon make up half the workforce in rich countries were raised from nursery school onwards to work in groups.",
+        "D) The fashion for teams is also spreading from the usual corporate suspects (such as GE and IBM) to some more unusual ones. The Cleveland Clinic, a hospital operator, has reorganised its medical staff into teams to focus on particular treatment areas; consultants, nurses and others collaborate closely instead of being separated by speciality (专业)and rank. The US Army has gone the same way. In his book, “Team of Teams' General Stanley McChrystal describes how the army’s hierarchical structure hindered its operations during the early stages of the Iraq war. His solution was to learn something from the insurgents it was fighting: decentralise authority to self-organising teams.",
+        "E) A good rule of thumb is that as soon as generals and hospital administrators jump on a management bandwagon, it is time to ask questions. Leigh Thompson of Kellogg School of Management in Illinois warns that, ‘Teams are not always the answer—teams may provide insight, creativity and knowledge in a way that a person working independently cannot; but teamwork may also lead to confusion, delay and poor decision-making.” The late Richard Hackman of Harvard University once argued, “I have no question that when you have a team, the possibility exists that it will generate magic, producing something extraordinary... But don’t count on it.”",
+        "F) Hackman (who died in 2013) noted that teams are hampered by problems of co-ordination and motivation that chip away at the benefits of collaboration. High-flyers forced to work in teams may be undervalued and free-riders empowered. Groupthink may be unavoidable. In a study of 120 teams of senior executives, he discovered that less than 10% of their supposed members agreed on who exactly was on the team. If it is hard enough to define a team’s membership, agreeing on its purpose is harder still.",
+        "G) Profound changes in the workforce are making teams trickier to manage. Teams work best if their members have a strong common culture. This is hard to achieve when, as is now the case in many big firms, a large proportion of staff are temporary contractors. Teamwork improves with time: America’s National Transportation Safety Board found that 73% of the incidents in its civil-aviation database occurred on a crew’s first day of flying together. However, as Amy Edmondson of Harvard points out, organisations increasingly use “team” as a verb rather than a noun: they form teams for specific purposes and then quickly disband them.",
+        "H) The least that can be concluded from this research is that companies need to think harder about managing teams. They need to rid their minds of sentimentalism (感情用事):the most successful teams have leaders who are able to set an overall direction and take immediate action. They need to keep teams small and focused: giving in to pressure to be more “inclusive” is a guarantee of dysfunction. Jeff Bezos, Amazon’s boss, says that “If I see more than two pizzas for lunch, the team is too big.” They need to immunize teams against group-think: Hackman argued that the best ones contain “deviants” (离经叛道者)who are willing to do something that maybe upsetting to others.",
+        "I) A new study of 12,000 workers in 17 countries by Steelcase, a furniture-maker which also does consulting, finds that the best way to ensure employees are “engaged” is to give them more control over where and how they do their work―which may mean liberating them from having to do everything in collaboration with others.",
+        "J) However, organisations need to learn something bigger than how to manage teams better: they need to be in the habit of asking themselves whether teams are the best tools for the job. Teambuilding skills are in short supply: Deloitte reports that only 12% of the executives they contacted feel they understand the way people work together in networks and only 21% feel confident in their ability to build cross-functional teams. Loosely managed teams can become hotbeds of distraction―employees routinely complain that they can’t get their work done because they are forced to spend too much time in meetings or compelled to work in noisy offices. Even in the age of open-plan offices and social networks some work is best left to the individual."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Successful team leaders know exactly where the team should go and are able to take prompt action.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "H",
+          "explanation": "Successful team leaders H) The least that can be concluded from this research is that companies know exactly where the need to think harder about managing teams. They need to rid their team should go and are minds of sentimentalism(感情用事):themost successfulteams able to take prompt action. have leaders who are able to set an overall direction and take 译文)成功的团队领导 immediate action. They need to keep teams small and focused: 者们清楚地知道团队的发展 giving in to pressure to be more \"inclusive\" is a guarantee of 方向,并能果断采取行动。 dysfunction. Jeff Bezos, Amazon's boss, says that \"If I see more than 定位由题干中的 two pizzas for lunch, the team is too big. \" They need to immunise Successful team leaders 和 teams against group-think: Hackman argued that the best ones contain“deviant”(离经叛道者)who arewillingto do something takeprompt action定位到 that may be upsetting to others. 原文画线处。 详解H)段第一句提到,公司需要好好思考一下团队管理的问题。接着,定位句就团队管理问题向管理者 提出了要求,即能够设定总体方向,并能果断采取行动。题干中的wheretheteam shouldgo对应原文中的 overalldirection;prompt对应原文中的immediate,题干是对定位句的同义转述,故答案为H)。"
+        },
+        {
+          "number": 37,
+          "stem": "Decentralisation of authority was also found to be more effective in military operations.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "D",
+          "explanation": "Decentralisation of authority D) The fashion for teams is also spreading from the usual corporate was also found to be more suspects (such as GE and IBM) to some more unusual ones. The military effective in Cleveland Clinic, a hospital operator, has reorganised its medical operations. staff into teams to focus on particular treatment areas; consultants, 译文在军队管理中,分 nurses and others collaborate closely instead of being separated by 散权力也被认为是更有效的 specialty (专业) and rank. The US Army has gone the same way. In 方法。 his book, Team of Teams, General Stanley McChrystal describes 定位由题干中的 how the army's hierarchical structure hindered its operations during Decentralisation和 authority the early stages of the Irag war. His solution was to learn something 定位到原文画线处。 from the rebels it was fighting: decentralising authority to self- organising teams. 详解定位句提到,在伊拉克战争初期,军队的等级制度阻碍了军队的运行管理,紧接着作者提出 斯坦利·麦克里斯托尔将军给出的解决方法是学习叛乱者,将权力分散到团队之中。综合以上两句可以推 断,将权力分散是一种更加有效的管理军队的方法,故答案为D)。"
+        },
+        {
+          "number": 38,
+          "stem": "In many companies, the conventional form of organisation is giving way to a network of teams.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "B",
+          "explanation": "In many companies, the conventional B) Companiesareabandoningconventional form of organisation is giving way to a network of teams. 译文在许多公司里,传统的组织 形式正在让位于团队。 定位)由题干中的conventional form和anetworkofteams定位到原 文画线处。 functional departments and organising employees into cross- disciplinary teams that focus on particular products, problems or customers. These teams are gaining more power to run their own affairs. They are also spending more time working with each other rather than reporting upwards. Deloitte argues that a new organisational form is on the rise: a network of teams is replacing the conventionalhierarchy(等级体制) 详解B)段前几句提到很多公司正在摒弃传统的职能部门,建立一些跨领域团队,在这些特定的团队中员 工们有更大的自主权,花费更多时间相互协作而不是受到等级体制的限制需要向上级汇报。因此,在许多公 司里出现了这样一种新型组织形式,即团队正在取代传统的等级制的组织形式。题干中的givingwayto是对 原文中replacing的同义替换,故答案为B)。"
+        },
+        {
+          "number": 39,
+          "stem": "Members of poorly managed teams are easily distracted from their work.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "J",
+          "explanation": "Members of poorly J) However, organisations need to lean something bigger than how to managed teams are easily manage teams better: they need to be in the habit of asking themselves distracted from their work. whether teams are the best tools for the job. Team-building skills are 译文在管理不佳的团 in short supply: Deloitte reports that only 12% of the executives they 队中,成员更容易不专心 contacted feel they understand the way people work together in 工作。 networks and only 21% feel confident in their ability to build cross- 定位由题干中的 functional teams. Loosely managed teams can become hotbeds of distraction-employees routinely complain that they can't get their poorly managed teams 和 distracted定位到原文画 work done because they are forced to spend too much time in meetings 线处。 or compelled to work in noisy offices. Even in the age of open-plan offices and social networks some work is best left to the individual. 详解定位句提到管理宽松的团队可能会变成分散注意力的温床,员工也会常常抱怨工作做不完,因为会 议太多,工作环境太赠杂。题干中的poorlymanagedteams对应原文中的Looselymanagedteams; distracted对应原文中的distraction,故答案为J)。"
+        },
+        {
+          "number": 40,
+          "stem": "Teamwork is most effective when team members share the same culture.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "G",
+          "explanation": "Teamwork is most effective G) Profound changes in the workforce are making teams trickier to when team members share manage. Teams work best if their members have a strong common the same culture. culture. This is hard to achieve when, as is now the case in many 译文当团队成员拥有 big firms, a large proportion of staff are temporary contractors. 相同的文化时,团队合作最 Teamwork improves with time: America's National Transportation 高效。 Safety Board found that 73% of the incidents in its civil-aviation 定位 由题干中的 database occurred on a crew's first day of flying together. However, as Amy Edmondson of Harvard points out, organisations increasingly members 和 share the same culture定位到原文画线处。 use \"team\" as a verb rather than a noun: they form teams for specific purposes and then quickly disband them. 详解G)段开头提到,劳动力的深刻变化让团队更加难以管理。接着定位句解释说,如果团队成员拥有共 同文化,团队协作的效果才是最好的。因此,题干是对定位句的同义转述,故答案为G)。"
+        },
+        {
+          "number": 41,
+          "stem": "According to a report by Deloitte, teamwork is becoming increasingly popular among companies.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "A",
+          "explanation": "According to a report by A) Teams have become the basic building blocks of organisations. Deloitte, teamwork is Recruitment advertisements routinely call for \" team players\". becoming increasingly Business schools grade their students in part on their performance in popular among companies. group projects. Office managers knock down walls to encourage 译文根据德勤的报告, team building. Teams are as old as civilisation, of course: even 团队合作在公司中正日益 Jesus had 12 co-workers. But a new report by Deloitte, \" Global 流行。 Human Capital Trends\", based on a survey of more than 7, 000 定位由题干中的report executives in over 130 countries, suggests that the fashion for teamwork has reached a new high. Almost half of those surveyed 和Deloitte定位到原文画 线处。 said their companies were either in the middle of restructuring or about to embark om(开始)it;and for the most part, restructuring meant putting more emphasis on teams. 详解A)段首句提到,团队已经成为建构组织的基石。接着,作者又提到招聘广告、商学院评价学生、经理 进行团队建设等来说明团队的重要性和普遍性。定位句中提到德勤公司的研究报告表明,团队合作的热潮已 经达到新的高度。题干中的becomingincreasinglypopular对应原文中的hasreachedanewhigh,故答案 为A)。"
+        },
+        {
+          "number": 42,
+          "stem": "Some team members find it hard to agree on questions like membership and the team’s purpose.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "F",
+          "explanation": "Some team members find it hard to F) Hackman (who died in 2013) noted that teams are hindered agree on questions like membership by problems of co-ordination and motivation that chip away and the team's purpose. 译文一些团队成员发现很难在 成员身份和团队目标方面达成一致。 定位)由题干中的membership 和purpose定位到原文画线处。 at thebenefits of collaboration.High-flyers(能于的人)who are forced to work in teams may be undervalued and free- riders empowered. Group-think may be unavoidable. In a study of 120 teams of senior executives, he discovered that less than 10% of their supposed members agreed on who exactly was on the team. If it is hard enough to define a team's membership, agreeing on its purpose is harder still. 详解F)段倒数第二句介绍了一项针对企业高管的研究,发现能够在确认成员身份时达成一致意见的只 占不到10%,比例非常低,因此对于一些成员来讲,这是很困难的事情。定位句得出结论,如果定义团队的成 员身份已经足够困难,那么,在团队目标上达成一致会更难。题干是对定位句的同义转述,故答案为F)。"
+        },
+        {
+          "number": 43,
+          "stem": "Some scholars think teamwork may not always be reliable, despite its potential to work wonders.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "E",
+          "explanation": "Some scholars think teamwork E) A good rule of thumb is that as soon as generals and hospital may not always be reliable, administratorsjumponamanagementbandwagon(追随一种 despite its potential to work 管理潮流),it is time to ask questions.Leigh Thompson of wonders. Kellogg School of Management in Illinois warns that, \" Teams 译文一些学者认为,团队合 are not always the answerteams may provide insight, 作或许不总是可靠的,尽管它有 creativity and knowledge in a way that a person working 创造奇迹的潜力。 independently cannot; but teamwork may also lead to 定位由题干中的notalways confusion, delay and poor decision-making. \" The late Richard be reliable和work wonders定 Hackman of Harvard University once argued, \" I have no 位到原文画线处。 question that when you have a team, the possibility exists that it will generate magic, producing something extraordinary... But don't count on it.\" 详解定位句提到,已故学者理查德·汉克曼认为,团队确实有产生奇迹的可能性,但我们不能指望它。由 此可推断出,这位学者认为团队并不总是可靠的。题干中的notalwaysbereliable对应原文中的don'tcount onit;workwonders对应原文中的generatemagic,故答案为E)。"
+        },
+        {
+          "number": 44,
+          "stem": "To ensure employees’ commitment, it is advisable to give them more flexibility as to where and how they work.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "I",
+          "explanation": "To ensure employees' commitment, it is advisable to give them more flexibility as to where and how they work. 译文为了确保员工专心工作,公司应该给予 他们较大的灵活性来选择在哪里工作和如何工作。 定位由题干中的ensure和whereandhow theywork定位到原文画线处。 I) A new study of 12,000 workers in 17 countries by Steelcase, a fumiture-maker which also does consulting, finds that the best way to ensure employees are \"engaged\" is to give them more control over where and how they do their work-which may mean liberating them from having to do everything in collaboration with others. 详解定位段提到,家具生产商斯蒂尔卡斯的一项新研究发现,确保员工“投人\"的最好方式是赋予他们更 多的权力来掌控自已在哪里以何种方式工作。采用这种方式,员工不必凡事都与他人合作。题干中的 employees’commitment是对原文中employeesare“engaged\"的同义转述;moreflexibility对应原文中的 morecontrol,题干是对该段的总结,故答案为I)。"
+        },
+        {
+          "number": 45,
+          "stem": "Product transitions take much less time now than in the past.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Product transitions take C) The fashion for teams is driven by a sense that the old way of organising much less time now than people is too rigid for both the modem marketplace and the expectations in the past. of employees. Technological innovation places greater value on agility 译文和过去相比,现 (灵活性).John Chambers,chairman of Cisco Systems Inc.,a 在产品转型花费的时间 worldwide leader in electronics products, says that \" we compete against 更少。 market transitions(过渡),notcompetitors.Producttransitions used to take five or seven years; now they take one or two.\" Digital 定位由题干中的 technology also makes it easier for people to co-ordinate their activities Product transitions 定位 without resorting to hierarchy.The“millennials\"(千禧一代)who will 到原文画线处。 soon make up half the workforce in rich countries were raised from nursery school onwards to work in groups. 详解C)段第三句提到思科系统公司主席对于竞争的看法,即他们是和市场转型竞争,而不是与对手竞 争。然后接下来继续说明,在过去产品转型通常需要五到七年,而现在只需要一到两年。由此可见,和从前相 比,产品转型的时间缩短了很多。题干是对定位句的归纳,故答案为C)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2017-06-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Shoppers in the UK are spending less money on toilet paper to save money, research has shown. Penny-pinching UK consumers choose cheaper products from discounters such as Aldi and Lidl rather than luxury alternatives. This has wiped 6% off the value of the soft tissue paper market in the UK. It has shrunk from £1.19 billion in 2011 to £1.12 billion in 2015,according to a new report from market research company Mintel. Furthermore, the future of the market looks far from rosy, with sales expected to fall further to £1.11 billion in 2016. In the last year alone, despite an increase in the UK population and a subsequent rise in the number of households, sales of toilet paper fell by 2%, with the average household reducing their toilet roll spending from £43 in 2014 to £41 in 2015. Overall, almost three in five people say they try to limit their usage of paper—including facial tissue and kitchen roll―to save money. “Strength,softness and thickness remain the leading indicators of toilet paper quality, with just a small proportion of consumers preferring more luxurious alternatives, such as those with flower patterns of perfume,said Mintel analyst Jack Duckett. ''These extra features are deemed unnecessary by the majority of shoppers, which probably reflects how these types of products are typically more expensive than regular toilet paper, even when on special offer.” While consumers are spending less on toilet paper, they remain fussy―in theory at least—when it comes to paper quality. Top of Britons’ toilet paper wish list is softness (57%) followed by strength (45%) and thickness (36%). One in 10 buyers rand toilet rolls made from recycled paper among their top considerations, highlighting how overall the environment is much less of a consideration for shoppers than product quality. In a challenge for manufacturers, 81% of paper product users said they would consider buying recycled toilet tissue if it were comparable in quality to standard paper."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "The market sales of toilet paper have decreased because .",
+          "options": [
+            {
+              "key": "A",
+              "text": "Britons have cut their spending on it"
+            },
+            {
+              "key": "B",
+              "text": "its prices have gone up over the years"
+            },
+            {
+              "key": "C",
+              "text": "its quality has seen marked improvement"
+            },
+            {
+              "key": "D",
+              "text": "Britons have developed the habit of saving"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。定位)由题干中的marketsales和decreased定位到文章第一段:ShoppersintheUKarespending less money on toilet paper to save money,research has shown.和第三段第一句:This has wiped 6% off the value of the soft tissue paper market in the UK. 详解推理判断题。第一个定位句指出,研究发现,英国的消费者们为了省钱在厕纸上的花费日趋 减少;而第二个定位句指出,这已经减少了英国卫生用纸市场6%的价值。可见,厕纸销量的减少和消 费者削减厕纸开销有直接关系,故答案为A)。 点睛)B)“厕纸的价格在逐年上涨”,文章中提到价格相关信息的只有第五段最后一句:具备某些 特殊特征的厕纸的价格比其他普通产品要高一些,而并不是指厕纸的价格在上涨,可以排除;C)“厕纸 的质量有了明显的改善”,文中主要在最后一段提到了厕纸的质量,但是文意为消费者们对厕纸的质量 有着比较高的要求,并且希望回收用纸制造的厕纸可以提高质量,可以排除;D)“英国人养成了钱的 习惯”,文中只是说英国消费者们在厕纸方面的开销有所减少,并不能直接概括为英国人形成了揽钱的 习惯,可以排除。"
+        },
+        {
+          "number": 47,
+          "stem": "What does the author think of the future of the tissue paper market in the UK?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It will expend in time."
+            },
+            {
+              "key": "B",
+              "text": "It will remain gloomy."
+            },
+            {
+              "key": "C",
+              "text": "It will experience ups and downs."
+            },
+            {
+              "key": "D",
+              "text": "It will recover as population grows."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位由题干中的thefutureofthetissuepapermarket定位到第三段最后一句:Furthermore,the future of the market looks far from rosy, with sales expected to fall further to S1. 11 billion in 2016. 详解)事实细节题。定位句提到,该市场的未来也非常不乐观,2016年的预期销售额会跌至11.1亿 英铸。B)中的gloomy一词是对定位句中farfromrosy的同义转述,故答案为B)。 点睛A)“它会及时地扩张”,文章第三段主要描述了英国厕纸市场销量的下降,并未提及市场扩 张的计划或预期,可以排除;C)“它会经历起起伏伏”,第三段通过2011年至2015年的销售额举例,以 及对于2016年的展望,可以看出厕纸销售额会一直下降,而不是起起伏伏,可以排除;D)“它会随着人 口的上涨而恢复原状”,由第四段可知,人口上涨并不能扭转销售额下降的趋势,可以排除。"
+        },
+        {
+          "number": 48,
+          "stem": "What does Jack Duckett say about toilet paper?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Special offers would promote its sales."
+            },
+            {
+              "key": "B",
+              "text": "Consumers are loyal to certain brands."
+            },
+            {
+              "key": "C",
+              "text": "Luxurious features add much to the price."
+            },
+            {
+              "key": "D",
+              "text": "Consumers have a variety to choose from."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定位)由题干中的JackDuckett定位到第五段最后一句:“These extrafeaturesaredeemed unnecessary by the majority of shoppers, which probably reflects how these types of products are typically more expensive than regular toilet paper, even when on special offer. * 详解事实细节题。由定位句可知,杰克认为这些额外的特征会导致此类产品要比常规性的产品 更加昂贵,即便是在特价期间,故答案为C)。 点睛A)“特价会促进销量”,文中只有第五段最后一句提到了特价,但是文意为即使在特价期间, - -些特殊厕纸也比普通厕纸价格高,可以排除;B)“消费者忠于某些品牌\",文章只是就英国消费者对 于厕纸的消费量减少展开论述,并未提及他们对于品牌的选择问题,可以排除;D)“消费者们有着众多 选择”,杰克的主要观点是,消费者们更加关注厕纸的三大指标,而非额外的一些特征,并未指出消费者 的选择众多,可以排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What do we learn about Britons concerning toilet paper?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are particular about the quality of toilet paper."
+            },
+            {
+              "key": "B",
+              "text": "They emphasize the strength of toilet paper the most."
+            },
+            {
+              "key": "C",
+              "text": "They prefer cheap toilet paper to recycled toilet paper."
+            },
+            {
+              "key": "D",
+              "text": "They reject using toilet paper with unnecessary features."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。定位由题干中的Britonsconcermingtoiletpaper定位到第六段第一句:While consumersare spending less on toilet paper, they remain fussy—in theory at least—when it comes to paper quality. 详解事实细节题。定位句指出,尽管消费者们在厕纸上花费的越来越少,他们仍然对纸的质量很 挑剔。A)中的particular和定位句中的fussy为同义词,故答案为A)。 点睛B“他们最重视厕纸的韧度”,定位段指出,英国人对厕纸的要求最高的方面当属柔软度,占 57%,可以排除;C)“相对于回收厕纸,他们更习惯便宜的厕纸”,最后一段指出,81%的用纸消费者说 如果回收用纸制造的厕纸质量可以和普通纸媲美,他们也会考虑购买,可见消费者们对回收厕纸的担 忧主要在于质量,而非价格,可以排除;D)“他们拒绝使用带有无用特征的厕纸”,第五段中指出,只有 一少部分消费者会倾向于更加奢侈的品种,比如带有印花图案或是有香水味道的,因此不能以偏概全 地得出,英国消费者们都拒绝使用这类厕纸,可以排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What can we infer from the last paragraph?",
+          "options": [
+            {
+              "key": "A",
+              "text": "More and more Britons buy recycled toiler paper to protect the environment."
+            },
+            {
+              "key": "B",
+              "text": "Toilet paper manufacturers are facing a great challenge in promoting its sales."
+            },
+            {
+              "key": "C",
+              "text": "Toilet paper manufacturers compete with one another to improve product quality."
+            },
+            {
+              "key": "D",
+              "text": "Environmental protection is not much of a concern when Britons buy toilet paper."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位)由题干中的thelastparagraph定位到最后一段第一句:Onein10buyersranktoiletrolls made from recycled paper among their top considerations, highlighting how overall the environment is much less of a consideration for shoppers than product quality. 详解)推理判断题。由定位句可知,1/10的购买者会将回收用纸制造的厕纸作为首选,这表明对于 消费者而言,对环保方面的考虑远不及产品质量,故答案为D)。 点睛)A)“越来越多的英国人为了环保而购买回收厕纸”,定位句指出,只有1/10的消费者如此,可 以排除;B)“厕纸生产商正面临着提升销量的巨大挑战”,由最后一段可知,81%的用纸消费者说如果 回收用纸制造的厕纸质量可以和普通纸媲美,他们也会考虑购买,可见生产商的挑战在于提高质量,而 非销量,可以排除;C)“厕纸生产商为了提高产品质量互相竞争”,文中只是说,生产商们面临提高质量 的挑战,未提及相互竞争的问题,可以排除。 ?"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2017-06-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "“One of the reasons I find this topic very interesting is because my mom was a smoker when I was younger,” says Lindson-Hawley, who studies tobacco and health at the University of Oxford. By studying about 700 adult smokers, she found out that her mom quit the right way—by stopping abruptly and completely. In her study, participants were randomly (随机地)assigned to two groups. One had to quit abruptly on a given day, going from about a pack a day to zero. The other cut down gradually over the course of two weeks. People in both groups used nicotine (尼古丁)patches before they quit, in addition to a second form of nicotine replacement, like gum or spray. They also had talk therapy with a nurse before and after quit day. Six months out, more people who had quit abruptly had stuck with it—more than one-fifth of them, compared to about one-seventh in the other group. Although these numbers appear low, it is much higher than if people try without support. And the quit rates were particularly convincing given that before the study started, most of the people had said they’d rather cut down gradually before quitting. “If you’re training for a marathon, you wouldn’t expect to turn up and just be able to run it. And I think people see that for smoking as well. They think,‘ Well, if I gradually reduce, it’s like practice,’” says Lindson-Hawley. But that wasn’t the case. Instead of giving people practice, the gradual reduction likely gave them cravings (瘾)and withdrawal symptoms before they even reached quit day, which could be why fewer people in that group actually made it to that point. “Regardless of your stated preference, if you’re ready to quit, quitting abruptly is more effective,”says Dr. Gabriela Ferreira. “When you can quote a specific number like a fifth of the patients were able to quit, that’s compelling. It gives them the encouragement, I think, to really go for it,’’ Ferreira says. People rarely manage to quit the first time they try. But at least, she says, they can maximize the odds of success."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does Lindson-Hawley say about her mother?",
+          "options": [
+            {
+              "key": "A",
+              "text": "She quit smoking with her daughter’s help."
+            },
+            {
+              "key": "B",
+              "text": "She succeeded in quitting smoking abruptly."
+            },
+            {
+              "key": "C",
+              "text": "She was also a researcher of tobacco and health."
+            },
+            {
+              "key": "D",
+              "text": "She studied the smoking patterns of adult smokers."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位)由题干中的Lindson-Hawley和hermother定位到文章第二段:By studyingabout700adult smokers, she found out that her mom quit the right wayby stopping abruptly and completely. 详解事实细节题。定位段指出,林德逊-郝雷通过研究约700名成年吸烟者,发现她母亲用正确的 方式戒了烟通过突然且彻底的方式,故答案为B)。 点睛)A)“她在女儿的帮助下戒了烟,文章第一段指出,林德逊-郝雷发现此研究话题有趣的原因 之一是其母亲曾经是一名吸烟者,但并未提及她帮助母亲戒烟,可以排除;C)“她也是一名烟草与健康 的研究者”,文中只提及林德逊-郝雷是一名烟草与健康的研究者,并未提及其母亲也是,可以排除; D)“她研究了成年吸烟者的吸烟模式”,文中只说林德逊-郝雷研究了成年吸烟者的吸烟模式,未提及其 母亲研究成年人的吸烟模式,可以排除。"
+        },
+        {
+          "number": 52,
+          "stem": "What kind of support did smokers receive to quit smoking in Lindson-Hawley’s study?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They were given physical training."
+            },
+            {
+              "key": "B",
+              "text": "They were looked after by physicians."
+            },
+            {
+              "key": "C",
+              "text": "They were encouraged by psychologists."
+            },
+            {
+              "key": "D",
+              "text": "They were offered nicotine replacements."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位)由题千中的support定位到第三段第四句:Peopleinbothgroupsusednicotine(尼古丁) patches before they quit, in addition to a second form of nicotine replacement, like gum or spray. 详解)事实细节题。定位句提到,两组人员在戒烟前都会使用尼古丁贴片,作为诸如口香糖或是喷 剂的尼古丁替代品的补充,故答案为D)。 点睛)A)“他们接受体能训练”,文中提到的研究并未涉及戒烟者接受任何体能训练,可以排除; B)“他们被内科医生照料”,文中提到戒烟者接受护士的谈话治疗,未提及内科医生,可以排除;C)“他 们受到心理学家的鼓励”,文中未提及与心理医生相关的信息,可以排除。"
+        },
+        {
+          "number": 53,
+          "stem": "How does Dr. Gabriela Ferreira view the result of Lindson-Hawley’s experiment?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is idealized."
+            },
+            {
+              "key": "B",
+              "text": "It is unexpected."
+            },
+            {
+              "key": "C",
+              "text": "It is encouraging."
+            },
+            {
+              "key": "D",
+              "text": "It is misleading."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定位由题干中的Dr.Gabriela Ferreira定位到第五段最后:“When youcan quotea specific number like a fifth of the patients were able to quit, that's compelling. It gives them the encouragement, I think, to really go for it,\" Ferreira says. 详解事实细节题。定位句提到,费雷拉说,“当你指出已经有1/5的戒烟者成功时,这是很引人注 目的。我认为这会给他们勇气去尝试。\"故答案为C)。 点睛A)“这是理想化的”,费雷拉的观点是,1/5的成功者案例可以鼓励其他戒烟者,但并未表示 这个数字是非常理想的结果,可以排除;B)“这是意料之外的”,费雷拉并没有认为1/5的成功比例是 意料之外的事情,可以排除;D)“这是有误导性的”,费雷拉希望这个结论可以鼓励戒烟者的戒烟行为, 这是一个积极作用,并没有误导性,可以排除。"
+        },
+        {
+          "number": 54,
+          "stem": "The idea of “a marathon” (Line 2, Para. 5) illustrates the popular belief that quitting smoking",
+          "options": [
+            {
+              "key": "A",
+              "text": "is something few can accomplish"
+            },
+            {
+              "key": "B",
+              "text": "needs some practice first"
+            },
+            {
+              "key": "C",
+              "text": "requires a lot of patience"
+            },
+            {
+              "key": "D",
+              "text": "is a challenge at the beginning"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位由题干中的marathon定位到第五段第二至四句:Ifyou'retrainingforamarathon,you wouldn't expect to tun up and just be able to run it. And I think people see that for smoking as well... 详解推理判断题。定位句提到,如果你在训练跑马拉松,你不会预想到,只要一参加,就可以跑下 来。我认为,人们看待吸烟也是如此。可见,在人们的意识中,戒烟和马拉松一样,起初需要一定的训 练,然后循序渐进,故答案为B)。 点睛)A)“是很少有人能完成的\",文中引用马拉松的例子,是为了借助马拉松循序渐进的训练过 程来类比戒烟的过程,并没有指出其很难完成,可以排除;C)“需要很大的耐心”,文中未提到这两者精 神层面上需求的信息,可以排除;D)“最开始的时候是一个挑战”,文中对马拉松的描述并未提及其最 初是一个挑战,可以排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What happens when people try to quit smoking gradually?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They find it even more difficult."
+            },
+            {
+              "key": "B",
+              "text": "They are simply unable to make it."
+            },
+            {
+              "key": "C",
+              "text": "They show fewer withdrawal symptoms."
+            },
+            {
+              "key": "D",
+              "text": "They feel much less pain in the process."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。定位)由题干中的quitsmokinggradually定位到第五段中间:Insteadofgivingpeoplepractice, the gradual reduction likely gave them cravings () ... Regardless of your stated preference, if you're ready to quit, quitting abruptly is more effective... 详解推理判断题。定位句指出,逐渐减少吸烟量并非给人一种训练,而会让他们在彻底戒掉之前 再次上瘾。结合后一句,不管你偏好哪种戒烟观点,如果你已经准备好戒烟了,突然地戒掉会更加有 效。该句中提到的偏好,指的就是研究中的两种戒烟方法:一是突然戒烟;二是慢慢戒烟。该句指出, 突然戒掉更有效,言外之意,慢慢戒烟更困难,故答案为A)。 点睛B)“他们不可能实现戒烟”,文中提及的研究,两种方法都有戒烟成功的案例,并不能说慢慢 戒烟不会成功,可以排除;C)“他们更少地表现出恢复到原来的症状”,根据研究发现,这种戒烟方法成 功的人更少,可以排除;D)“他们在此过程中感受到的痛苦更少”,研究并未指出两种戒烟方法的痛苦 感,可以排除。 4"
+        }
+      ]
+    }
+  ]
+}

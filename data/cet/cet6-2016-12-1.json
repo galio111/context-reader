@@ -1,0 +1,1606 @@
+{
+  "id": "cet6-2016-12-1",
+  "level": 6,
+  "year": 2016,
+  "month": 12,
+  "set": 1,
+  "title": "2016 年 12 月六级 · 第 1 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.12/%E7%9C%9F%E9%A2%98Word/2016%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC1%E5%A5%97%EF%BC%89.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2016%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%EF%BC%88%E7%AC%AC1%E5%A5%97%EF%BC%89%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2016-12-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "It is important that scientists be seen as normal people asking and answering important questions. Good, sound science depends on [[26]] , experiments and reasoned methodologies. It requires a willingness to ask new questions and try new approaches. It requires one to take risks and experience failures. But good science also requires [[27]] understanding,clear explanation and concise presentation. Our country needs more scientists who are willing to step out in the public [[28]] and offer their opinions on important matters. We need more scientists who can explain what they are doing in language that is [[29]] and understandable to the public. Those of us who are not scientists should also be prepared to support public engagement by scientists, and to [[30]] scientific knowledge into our public communications. Too many people in this country, including some among our elected leadership, still do not understand how science works or why robust, long-range investments in research vitally matter. In the 1960s, the United States [[31]] nearly 17% of discretionary (可酌情支配的) spending to research and development,[[32]] decades of economic growth. By 2008, the figure had fallen into the single [[33]] This occurs at a time when other nations have made significant gains in their own research capabilities. At the University of California (UC), we [[34]] ourselves not only on the quality of our research, but also on its contribution to improving our world. To [[35]] the development of science from the lab bench to the market place, UC is investing our own money in our own good ideas."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "arena"
+        },
+        {
+          "key": "B",
+          "text": "contextual"
+        },
+        {
+          "key": "C",
+          "text": "convincing"
+        },
+        {
+          "key": "D",
+          "text": "devoted"
+        },
+        {
+          "key": "E",
+          "text": "digits"
+        },
+        {
+          "key": "F",
+          "text": "hasten"
+        },
+        {
+          "key": "G",
+          "text": "hypotheses"
+        },
+        {
+          "key": "H",
+          "text": "impairing"
+        },
+        {
+          "key": "I",
+          "text": "incorporate"
+        },
+        {
+          "key": "J",
+          "text": "indefinite"
+        },
+        {
+          "key": "K",
+          "text": "indulge"
+        },
+        {
+          "key": "L",
+          "text": "inertia"
+        },
+        {
+          "key": "M",
+          "text": "pride"
+        },
+        {
+          "key": "N",
+          "text": "reaping"
+        },
+        {
+          "key": "O",
+          "text": "warrant"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "arena"
+            },
+            {
+              "key": "B",
+              "text": "contextual"
+            },
+            {
+              "key": "C",
+              "text": "convincing"
+            },
+            {
+              "key": "D",
+              "text": "devoted"
+            },
+            {
+              "key": "E",
+              "text": "digits"
+            },
+            {
+              "key": "F",
+              "text": "hasten"
+            },
+            {
+              "key": "G",
+              "text": "hypotheses"
+            },
+            {
+              "key": "H",
+              "text": "impairing"
+            },
+            {
+              "key": "I",
+              "text": "incorporate"
+            },
+            {
+              "key": "J",
+              "text": "indefinite"
+            },
+            {
+              "key": "K",
+              "text": "indulge"
+            },
+            {
+              "key": "L",
+              "text": "inertia"
+            },
+            {
+              "key": "M",
+              "text": "pride"
+            },
+            {
+              "key": "N",
+              "text": "reaping"
+            },
+            {
+              "key": "O",
+              "text": "warrant"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【锁定答案】空格句指出“好的、可靠的科学依赖于 、实验以及合乎逻辑的方法”,空格词与 “实验和合乎逻辑的方法”一同作为“好科学”的要素,G)hypotheses符合这一语境:“做出假设→进行实 验→利用合乎逻辑的方法进行分析”构建科学研究的过程。digits“数字”与experiments、methodologies 无法形成并列语义。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "arena"
+            },
+            {
+              "key": "B",
+              "text": "contextual"
+            },
+            {
+              "key": "C",
+              "text": "convincing"
+            },
+            {
+              "key": "D",
+              "text": "devoted"
+            },
+            {
+              "key": "E",
+              "text": "digits"
+            },
+            {
+              "key": "F",
+              "text": "hasten"
+            },
+            {
+              "key": "G",
+              "text": "hypotheses"
+            },
+            {
+              "key": "H",
+              "text": "impairing"
+            },
+            {
+              "key": "I",
+              "text": "incorporate"
+            },
+            {
+              "key": "J",
+              "text": "indefinite"
+            },
+            {
+              "key": "K",
+              "text": "indulge"
+            },
+            {
+              "key": "L",
+              "text": "inertia"
+            },
+            {
+              "key": "M",
+              "text": "pride"
+            },
+            {
+              "key": "N",
+              "text": "reaping"
+            },
+            {
+              "key": "O",
+              "text": "warrant"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【锁定答案】空格句指出“好的科学还需要 的理解、清楚的解释以及简明的展示”,概括可知, 句子整体上指向“对研究结果的解读和传达”,C)contextual\"符合一定情景/背景的”贴合文意:对研究发 现做出符合特定场景的解读→做出清晰的解释→进行简明的展示。 indefinite不明确的、无限的”与文意(clear、concise)相反,较易排除。convincing意为“令人信服 的”,修饰的是“观点、结论”等,而这里understanding显然强调的是“行为、动作”,故搭配不够合理;同 样,devoted表示“投入的、忠诚的”时,修饰的往往是人(如adevoted father/fan);表示“专用于...的” 修饰物时,用作后置定语而非前置定语(如:amuseumdevotedtophotography摄影博物馆),和 understanding搭配也不合理。另外,无论是convincing还是devoted都带有很强的“主观评判”,和 clear、concise的“相对客观”不一致。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "arena"
+            },
+            {
+              "key": "B",
+              "text": "contextual"
+            },
+            {
+              "key": "C",
+              "text": "convincing"
+            },
+            {
+              "key": "D",
+              "text": "devoted"
+            },
+            {
+              "key": "E",
+              "text": "digits"
+            },
+            {
+              "key": "F",
+              "text": "hasten"
+            },
+            {
+              "key": "G",
+              "text": "hypotheses"
+            },
+            {
+              "key": "H",
+              "text": "impairing"
+            },
+            {
+              "key": "I",
+              "text": "incorporate"
+            },
+            {
+              "key": "J",
+              "text": "indefinite"
+            },
+            {
+              "key": "K",
+              "text": "indulge"
+            },
+            {
+              "key": "L",
+              "text": "inertia"
+            },
+            {
+              "key": "M",
+              "text": "pride"
+            },
+            {
+              "key": "N",
+              "text": "reaping"
+            },
+            {
+              "key": "O",
+              "text": "warrant"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【锁定答案】空格句指出“我们国家需要更多的科学家在公众 站出来”,显然状语in the..·应 表示“某个地点/领域”,可选范围中能够表示地点或场所的只有arena,它符合“科学家在公众舞台中站 出来,就重要事件发表自已观点”的语境。 digits“数字”、Warrant\"凭据、保证、授权”、inertia惯性、惰性”、pride“骄傲、自豪”均无法与inthe public搭配。 【点拔技巧】和汉语类似,英语中也讲求结构平行、对仗工整,这可作为我们解答选词填空题的辅助线 索。如本题,根据“对仗工整原则”可推测stepoutinthepublic 与 offer their opinions on important matters很可能均为“谓语动词(stepoutoffertheiropinions)十介词短语(inthepublic _;on important matters)”结构,从而得知空格处为名词。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "arena"
+            },
+            {
+              "key": "B",
+              "text": "contextual"
+            },
+            {
+              "key": "C",
+              "text": "convincing"
+            },
+            {
+              "key": "D",
+              "text": "devoted"
+            },
+            {
+              "key": "E",
+              "text": "digits"
+            },
+            {
+              "key": "F",
+              "text": "hasten"
+            },
+            {
+              "key": "G",
+              "text": "hypotheses"
+            },
+            {
+              "key": "H",
+              "text": "impairing"
+            },
+            {
+              "key": "I",
+              "text": "incorporate"
+            },
+            {
+              "key": "J",
+              "text": "indefinite"
+            },
+            {
+              "key": "K",
+              "text": "indulge"
+            },
+            {
+              "key": "L",
+              "text": "inertia"
+            },
+            {
+              "key": "M",
+              "text": "pride"
+            },
+            {
+              "key": "N",
+              "text": "reaping"
+            },
+            {
+              "key": "O",
+              "text": "warrant"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【锁定答案】空格所在定语从句修饰language,说明我们所需要的科学家“在解释自已所做之事时 所用语言”应具备的特点:且令公众易懂,convincing符合文意。 indefinite“模糊的”与understandable语义方向相反,不符合and所体现的同向”关系;D)devoted 意为“投人的、忠诚的”时,不能修饰language,意为“专用于....”时,可修饰language,但language devotedtothepublic(专用于公众的语言)不合逻辑,故也可以排除。 补充:解题时需抓大方向、不可过多纠结于细节:本句中thatisconvincingandunderstandabletothe public最准确的切分虽然是convincingandunderstandable(tothepublic),但若切分为convincing(and understandabletothe public)语法上成立、语义上也没太大差别,解题过程中可不去纠结。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "arena"
+            },
+            {
+              "key": "B",
+              "text": "contextual"
+            },
+            {
+              "key": "C",
+              "text": "convincing"
+            },
+            {
+              "key": "D",
+              "text": "devoted"
+            },
+            {
+              "key": "E",
+              "text": "digits"
+            },
+            {
+              "key": "F",
+              "text": "hasten"
+            },
+            {
+              "key": "G",
+              "text": "hypotheses"
+            },
+            {
+              "key": "H",
+              "text": "impairing"
+            },
+            {
+              "key": "I",
+              "text": "incorporate"
+            },
+            {
+              "key": "J",
+              "text": "indefinite"
+            },
+            {
+              "key": "K",
+              "text": "indulge"
+            },
+            {
+              "key": "L",
+              "text": "inertia"
+            },
+            {
+              "key": "M",
+              "text": "pride"
+            },
+            {
+              "key": "N",
+              "text": "reaping"
+            },
+            {
+              "key": "O",
+              "text": "warrant"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【锁定答案】该段前两句指出“科学家”在增强公众对于科学的参与方面需要做的事,空格句指出 “不是科学家的我们”应如何做:做好支持科学家的准备,并把科学知识 进我们的大众传播。 incorporate符合语义逻辑:把科学知识融人大众传播,促进公众参与。注:incorporatesthintosth为固 定搭配,意为“把.融人...”。 pride\"使得意,以.·自豪”、warrant\"保证”、indulge\"放纵,纵容”在语法、语义上都不成立,可轻易 排除;hasten语义符合(加速知识传播)、有一定干扰,但不能用于sthinto sth结构,也可排除。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "arena"
+            },
+            {
+              "key": "B",
+              "text": "contextual"
+            },
+            {
+              "key": "C",
+              "text": "convincing"
+            },
+            {
+              "key": "D",
+              "text": "devoted"
+            },
+            {
+              "key": "E",
+              "text": "digits"
+            },
+            {
+              "key": "F",
+              "text": "hasten"
+            },
+            {
+              "key": "G",
+              "text": "hypotheses"
+            },
+            {
+              "key": "H",
+              "text": "impairing"
+            },
+            {
+              "key": "I",
+              "text": "incorporate"
+            },
+            {
+              "key": "J",
+              "text": "indefinite"
+            },
+            {
+              "key": "K",
+              "text": "indulge"
+            },
+            {
+              "key": "L",
+              "text": "inertia"
+            },
+            {
+              "key": "M",
+              "text": "pride"
+            },
+            {
+              "key": "N",
+              "text": "reaping"
+            },
+            {
+              "key": "O",
+              "text": "warrant"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【锁定答案】空格句指出,美国 近17%的可自由支配支出在研发上。上文指出一些领导人不 了解为何对于研究进行强劲的长期投资极其重要。因此可推知空格句举例指出:1960年代美国在科研 方面进行大力投资,D)devoted符合文意,确认为答案。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "arena"
+            },
+            {
+              "key": "B",
+              "text": "contextual"
+            },
+            {
+              "key": "C",
+              "text": "convincing"
+            },
+            {
+              "key": "D",
+              "text": "devoted"
+            },
+            {
+              "key": "E",
+              "text": "digits"
+            },
+            {
+              "key": "F",
+              "text": "hasten"
+            },
+            {
+              "key": "G",
+              "text": "hypotheses"
+            },
+            {
+              "key": "H",
+              "text": "impairing"
+            },
+            {
+              "key": "I",
+              "text": "incorporate"
+            },
+            {
+              "key": "J",
+              "text": "indefinite"
+            },
+            {
+              "key": "K",
+              "text": "indulge"
+            },
+            {
+              "key": "L",
+              "text": "inertia"
+            },
+            {
+              "key": "M",
+              "text": "pride"
+            },
+            {
+              "key": "N",
+              "text": "reaping"
+            },
+            {
+              "key": "O",
+              "text": "warrant"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【锁定答案】空格上文已指出对于研究进行强劲长期投资极其重要。空格句主干指出“美国把近 17%的可自由支配支出用于研发”,状语指出“ 了几十年的经济增长”,可推知,空格句的主干和 状语之间为“说明事实—一指出结果”的逻辑,空格处填词应能体现“对于研发的大力投资带来好处”, reaping符合文意:收获经济长期增长。H)impairing\"削弱,损害”与文意相反。 【点拨思路】“观点”和“举例”之间“严密的对应关系”是解题的重要线索。如本段中,1句(观点句) 中暗含因果“对研究进行强劲的投资会带来很大益处”,2句(以1960年代情形例证上句)则在主干和 状语之中形成与之对应的因果关系“大幅投资研究带来长期经济增长”。把握住这一对应关系会大大 化解31、32题的难度。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "arena"
+            },
+            {
+              "key": "B",
+              "text": "contextual"
+            },
+            {
+              "key": "C",
+              "text": "convincing"
+            },
+            {
+              "key": "D",
+              "text": "devoted"
+            },
+            {
+              "key": "E",
+              "text": "digits"
+            },
+            {
+              "key": "F",
+              "text": "hasten"
+            },
+            {
+              "key": "G",
+              "text": "hypotheses"
+            },
+            {
+              "key": "H",
+              "text": "impairing"
+            },
+            {
+              "key": "I",
+              "text": "incorporate"
+            },
+            {
+              "key": "J",
+              "text": "indefinite"
+            },
+            {
+              "key": "K",
+              "text": "indulge"
+            },
+            {
+              "key": "L",
+              "text": "inertia"
+            },
+            {
+              "key": "M",
+              "text": "pride"
+            },
+            {
+              "key": "N",
+              "text": "reaping"
+            },
+            {
+              "key": "O",
+              "text": "warrant"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【锁定答案】空格句指出“到了2008年,这一数字已经降到了.....”,能与“数字下降”相关的只有 digits。singledigits表示“个位数”。其余备选项均无法衔接。 【补充语法】when引导定语从句,置于时间名词(即先行词,如atime,1970s等)之后,when在定 语从句中作状语。如文中at a timewhen othernations...。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "arena"
+            },
+            {
+              "key": "B",
+              "text": "contextual"
+            },
+            {
+              "key": "C",
+              "text": "convincing"
+            },
+            {
+              "key": "D",
+              "text": "devoted"
+            },
+            {
+              "key": "E",
+              "text": "digits"
+            },
+            {
+              "key": "F",
+              "text": "hasten"
+            },
+            {
+              "key": "G",
+              "text": "hypotheses"
+            },
+            {
+              "key": "H",
+              "text": "impairing"
+            },
+            {
+              "key": "I",
+              "text": "incorporate"
+            },
+            {
+              "key": "J",
+              "text": "indefinite"
+            },
+            {
+              "key": "K",
+              "text": "indulge"
+            },
+            {
+              "key": "L",
+              "text": "inertia"
+            },
+            {
+              "key": "M",
+              "text": "pride"
+            },
+            {
+              "key": "N",
+              "text": "reaping"
+            },
+            {
+              "key": "O",
+              "text": "warrant"
+            }
+          ],
+          "answer": "M",
+          "explanation": "【锁定答案】空格句指出“我们不仅为自已研究的质量而 ,还为这些研究为改善世界所做出 的贡献 ”,pride恰能表达出“我们”对于“加州大学的研究水平以及其对世界的贡献”的情感与感 受,确认无误。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "arena"
+            },
+            {
+              "key": "B",
+              "text": "contextual"
+            },
+            {
+              "key": "C",
+              "text": "convincing"
+            },
+            {
+              "key": "D",
+              "text": "devoted"
+            },
+            {
+              "key": "E",
+              "text": "digits"
+            },
+            {
+              "key": "F",
+              "text": "hasten"
+            },
+            {
+              "key": "G",
+              "text": "hypotheses"
+            },
+            {
+              "key": "H",
+              "text": "impairing"
+            },
+            {
+              "key": "I",
+              "text": "incorporate"
+            },
+            {
+              "key": "J",
+              "text": "indefinite"
+            },
+            {
+              "key": "K",
+              "text": "indulge"
+            },
+            {
+              "key": "L",
+              "text": "inertia"
+            },
+            {
+              "key": "M",
+              "text": "pride"
+            },
+            {
+              "key": "N",
+              "text": "reaping"
+            },
+            {
+              "key": "O",
+              "text": "warrant"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【锁定答案】空格句指出“为了 科学发展从实验台到市场,加州大学正在把“自已的钱”投人到 “自已的好想法”,加州大学“投资好想法”,显然是为了促进科学发展,F)hasten\"加快,促进”符合文意。 K)indulge\"沉溺,沉面”不符合语义。O)warrant的“保证”之意看似符合语义要求,但该词指“保证 (某物是真的)”,如:Allentrantsmustwarrantthattheirentryisentirelytheirownwork.(所有参赛者必 须保证其参赛作品完全是自已创作的),与此处涉及对象“某事的发生”不符。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2016-12-1-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Scan the highlights of this year's Consumer Electronics Show ( CES ), and you may get a slight feeling of having seen them before. Many of the coolest gadgets this year are the same as the coolest gadgets last year--or the year before, even. The booths are still exciting, and the demos are still just as crazy. It is still easy to be dazzled by the display of drones (无人机),3D printers,virtual reality goggles ( 眼镜) and more \"smart\" devices than you could ever hope to catalog.Upon reflection, however, it is equally easy to feel like you have seen it all before. And it is hard not to think: Are we in an innovation lull ( 间歇期) ?",
+        "B) In some ways, the answer is yes. For years, smartphones, televisions, tablets, laptops and desktops have made up a huge part of the market and driven innovation. But now these segments are looking at slower growth curves--or shrinking markets in some cases--as consumers are not as eager to spend money on new gadgets. Meanwhile, emerging technologies--the drones,3D printers and smart-home devices of the world--now seem a bit too old to be called \"the next big thing. \"",
+        "C) Basically the tech industry seems to be in an awkward period now. \"There is not any one-hit wonder, and there will not be one for years to come,\" said Gary Shapiro, president and chief executive of the Consumer Technology Association (CTA). In his eyes, however, that doesn't necessarily mean that innovation has stopped. It has just grown up a little. \"Many industries are going out of infancy and becoming adolescents,\" Shapiro said.",
+        "D) For instance, new technologies that are building upon existing technology have not found their footing well enough to appeal to a mass audience, because, in many cases, they need to work effectively with other devices to realize their full appeal. Take the evolution of the smart home,for example. Companies are pushing it hard but make it almost overwhelming even to dip a toe in the water for the average consumer, because there are so many compatibility issues to think about. No average person wants to figure out whether their favorite calendar software works with their fridge or whether their washing machine and tablet get along. Having to install a different app for each smart appliance in your home is annoying; it would be nicer if you could manage everything together. And while you may forgive your smartphone an occasional fault, you probably have less patience for error messages from your door lock.",
+        "E) Companies are promoting their own standards, and the market has not had time to choose a winner yet as this is still very new. Companies that have long focused on hardware now have to think of ecosystems instead to give consumers practical solutions to their everyday problems.\"The dialogue is changing from what is technologically possible to what is technologically meaningful,\" said economist Shawn DuBravac. DuBravac works for CTA--which puts on the show each year--and said that this shift to a search for solutions has been noticeable as he researched his predictions for 2016.",
+        "F) \"So much of what CES has been about is the cool. It is about the flashiness and the gadgets,\" said John Curran, managing director of research at Accenture. \"But over the last couple of years,and in this one in particular, we are starting to see companies shift from what is the largest screen size, the smallest form factor or the shiniest object and more into what all of these devices do that is practical in a consumer's life. \" Even the technology press conferences, which have been high- profile in the past and reached a level of drama and theatrics fitting for a Las Vegas stage, have a different bent to them. Rather than just dazzling with a high cool factor, there is a focus on the practical. Fitbit, for example, released its first smartwatch Monday, selling with a clear purpose--to improve your fitness--and promoting it as a \"tool, not a toy. \" Not only that, it supports a number of platforms: Apple's iOS, Google's Android and Microsoft's Windows phone.",
+        "G) That seems to be what consumers are demanding, after all. Consumers are becoming increasingly bored with what companies have to offer: A survey of 28,000 consumers in 28 countries released by Accenture found consumers are not as excited about technology as they once were. For example, when asked whether they would buy a new smartphone this year, only 48 percent said yes--a six-point drop from 2015.",
+        "H) And when it comes to the hyper-connected super-smart world that technology firms are painting for us, it seems that consumers are growing more uneasy about handing over the massive amounts of consumer data needed to provide the personalized, customized solutions that companies need to improve their services. That could be another explanation for why companies seem to be strengthening their talk of the practicality of their devices.",
+        "I) Companies have already won part of the battle, having driven tech into every part of our lives, tracking our steps and our very heartbeats. Yet the persistent question of \" Why do I need that?\"--or, perhaps more tellingly, \"Why do you need to know that?\"--dogs the steps of many new ventures. Only 13 percent of respondents said that they were interested in buying a smartwatch in 2016, for example--an increase of just one percent from the previous year despite a year of high-profile launches. That is bad news for any firm that may hope that smartwatches can make up ground for maturing smartphone and tablet markets. And the survey found flat demand for fitness monitors, smart thermostats (恒温器) and connected home cameras, as well.",
+        "J) According to the survey, that lack of enthusiasm could stem from concerns about privacy and security. Even among people who have bought connected devices of some kind,37 percent said that they are going to be more cautions about using these devices and services in the future. A full 18 percent have even returned devices until they feel they can get safer guarantees against having their sensitive information hacked.",
+        "K) That, too, explains the heavy Washington presence at this year's show, as these new technologies intrude upon heavily regulated areas. In addition to many senior officials from the Federal Trade and Federal Communications commissions, this year's list of policy makers also includes appearances from Transportation Secretary Anthony Foxx, to talk about smart cities, and Federal Aviation Administration Administrator Michael Huerta, to talk about drones.",
+        "L) Curran, the Accenture analyst, said that increased government interest in the show makes sense as technology becomes a larger part of our lives. \"There is an incompatibility in the rate at which these are advancing relative to the way we're digesting it,\" he said. \"Technology is becoming bigger and more aspirational, and penetrating almost every aspect of our lives. We have to understand and think about the implications, and balance these great innovations with the potential downsides they naturally carry with them. \""
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Consumers are often hesitant to try smart-home devices because they are worried about compatibility problems.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "D",
+          "explanation": "消费者常常犹豫是否尝试智能家居设备,因为他们担心兼容性问题。 [答案][D][精析]根据[定位词定位]、[核心义匹配]可知本题对应[D]段23句。两句指出“普通 消费者对尝试智能家居感到犹豫,是因为他们必须考虑兼容性问题”。试题是对此两句的同义概括,其中 Consumers are often hesitant 对应 overwhelming...for the average consumer,try与 dip a toe in the water同义。"
+        },
+        {
+          "number": 37,
+          "stem": "This year's electronics show featured the presence of many officials from the federal government.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "K",
+          "explanation": "今年电子产品展的特色是有许多联邦政府官员出席。 [答案][[K][精析」根据[定位词定位」、[核心义匹配]可知本题对应[K段。该段指出“相较往 年,出席今年展会的联邦政府官员尤其多”。试题是对本段内容的概括总结,其中thisyear'selectronics show即对应thisyear’sshow(由本文只提及一类展会可知show特指CES展)。"
+        },
+        {
+          "number": 38,
+          "stem": "The market demand for electronic devices is now either declining or not growing as fast as before.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "B",
+          "explanation": "如今对于电子设备的市场需求不是在减少,就是增长在放缓。 [答案][B][精析]根据[定位词定位]、[核心义匹配]可知本题对应[B]段3句。该句指出“电子 产品市场增速放缓,甚至缩小”,试题是对该句的同义转述。"
+        },
+        {
+          "number": 39,
+          "stem": "One analyst suggests it is necessary to accept both tlie positive and negative aspects of innovative products.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "L",
+          "explanation": "一名分析师建议,创新型产品的正面和负面我们都有必要承认。 [答案][L][精析]根据定位词定位]、[核心义匹配]可知本题对应[L]段4句。该句介绍分析 师克兰的建议“要平衡伟大的创新及其负面效应”。试题是对该句建议的同义转述,其中it is necessary to...对应wehaveto,acceptboth.·.and...传递balance\"一分为二、辩证看待”之意。"
+        },
+        {
+          "number": 40,
+          "stem": "The Consumer Electronics Show in recent years has begun to focus more on the practical value than the showiness of electronic devices.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "F",
+          "explanation": "近年来,消费类电子产品展对电子设备实用价值的关注开始多于华丽外表。 [答案][[F][精析]根据[定位词定位]、[核心义匹配]可知本题对应[F]段1至3句。此三句 介绍近年来CES的转变“从极尽可能打造亮丽外表到更注重实用性”。试题是对此文意的同义概括, 其中focusmore...than.··.与shiftfrom...andmoreinto....同义,electronicdevices体现CES展品 “电子设备”。"
+        },
+        {
+          "number": 41,
+          "stem": "Fewer innovative products were found at this year's electronic products show.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "A",
+          "explanation": "今年的电子产品展上,有新意的产品变少了。 [答案][A][精析]根据[定位词定位]、[核心义匹配]可知本题对应[A]段。该段介绍今年CES 展的缺陷“许多亮点产品与往年相同(即:相对去年,今年有新意的产品较少)”。试题是对本段内容的 同义概括,其中fewerinnovativeproducts是对段中having seenthembefore/have seenitallbefore/many of...arethesameas...lastyearortheyearbefore的合理概括。"
+        },
+        {
+          "number": 42,
+          "stem": "Consumers are becoming more worried about giving personal information to tech companies to get customized products and services.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "H",
+          "explanation": "消费者对将个人信息交给科技企业以获取个性化产品和服务这种做法越来越担忧。 [答案][H[精析]根据[定位词定位]、核心义匹配]可知本题对应[H]段1句。该句指出“为 了获取企业的个性化服务,消费者需要向其交出数据,而他们对这一做法感到担忧”。试题是对该句的 同义转述,其中giving...to techcompaniestoget...体现句中handingover...toProvide...that companiesneed...“消费者交出数据以获取企业服务”这一交换关系。"
+        },
+        {
+          "number": 43,
+          "stem": "The Consumer Technology Association is the sponsor of the annual Consumer Electronics Show.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "E",
+          "explanation": "[答案][E] [精析] 根据[定位词定位]、[核心义匹配]可知本题对应[E]段④句。该句介绍杜布拉瓦克身份时提及CTA，并解释该机构每年都会举办展览。试题是对该句which定语从句的同义转述，其中the sponsor of the annual Consumer Electronics Show是对句中puts on the show each year（the show指代the Consumer Electronics Show）的同义转述。"
+        },
+        {
+          "number": 44,
+          "stem": "Many consumers wonder about the necessity of having their fitness monitored.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【答案】I。【精析】根据“定位词定位”“核心义匹配”可知本题对应[I]段。该段①句谈到科技无孔不入，甚至开始监测人们的步数和心跳；②句转而指出消费者对于这种新产品持犹疑态度；③至⑤句进而以消费者对智能手表、健康监测器、智能恒温器等电子产品的热情不足予以说明。试题是对该段文意的合理推断，其中wonder about the necessity of传递出文中Why do I need that?、flat demand隐蔽文意“对于科技产品的必要性存有疑虑”。"
+        },
+        {
+          "number": 45,
+          "stem": "The electronic industry is maturing even though no wonder products hit the market.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "C",
+          "explanation": "尽管没有奇迹产品上市,电子产业仍在日趋成熟。 L答案」[C」[精析」根据定位词定位」、L核心义匹配」可知本题对应C」段。本段先承认“科技产 业目前缺乏爆品”后转而表示“许多产业正在成熟”。试题是对本段内容的总结概括,eventhough体现 两部分之间的转折关系。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2016-12-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "The Paris climate agreement finalised in December last year heralded a new era for climate action.For the first time, the world's nations agreed to keep global warming well below 2°C. This is vital for climate-vulnerable nations. Fewer than 4% of countries are responsible for more than half of the world's greenhouse gas emissions. In a study published in Nature Scientific Reports, we reveal just how deep this injustice runs. Developed nations such as Australia, the United States, Canada, and European countries are essentially climate \"free-riders\": causing the majority of the problems through high greenhouse gas emissions, while incurring few of the costs such as climate change's impact on food and water. In other words, a few countries are benefiting enormously from the consumption of fossil fuels, while at the same time contributing disproportionately to the global burden of climate change. On the flip side, there are many \"forced riders\", who are suffering from the climate change impacts despite having scarcely contributed to the problem. Many of the world's most climate vulnerable countries, the majority of which are African or small island states, produce a very small quantity of emissions. This is much like a non-smoker getting cancer from second-hand smoke, while the heavy smoker is fortunate enough to smoke in good health. The Paris agreement has been widely hailed as a positive step forward in addressing climate change for all, although the details on addressing \"climate justice\" can be best described as sketchy. The goal of keeping global temperature rise \"well below\" 2~C is commendable but the emissions-reduction pledges submitted by countries leading up to the Paris talks are very unlikely to deliver on this. More than $100 billion in funding has been put on the table for supporting developing nations to reduce emissions. However, the agreement specifies that there is no formal distinction between developed and developing nations in their responsibility to cut emissions, effectively ignoring historical emissions. There is also very little detail on who will provide the funds or, importantly, who is responsible for their provision. Securing these funds, and establishing who is responsible for raising them will also be vital for the future of climate-vulnerable countries. The most climate-vulnerable countries in the world have contributed very little to creating the global disease from which they now suffer the most. There must urgently be a meaningful mobilisation of the policies outlined in the agreement if we are to achieve national emissions reductions while helping the most vulnerable countries adapt to climate change. And it is clearly up to the current generation of leaders from high-emitting nations to decide whether they want to be remembered as climate change tyrants or pioneers."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "The author is critical of the Paris climate agreement because",
+          "options": [
+            {
+              "key": "A",
+              "text": "it is unfair to those climate-vulnerable nations"
+            },
+            {
+              "key": "B",
+              "text": "it aims to keep temperature rise below 2°C only"
+            },
+            {
+              "key": "C",
+              "text": "it is beneficial to only fewer than 4% of countries"
+            },
+            {
+              "key": "D",
+              "text": "it burdens developed countries with the sole responsibility"
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]A)。第五段语义转折之后强调巴黎协定的局限性“仅包含解决气候正义问题的粗略性 政策(暗示不能切实解决问题)”,随后两段具体解释这种局限性,尤其第七段暗示了协议的伪公正性: 在减排的责任分配上忽视发达国家的历史排放,对于气候脆弱国至关重要的援助资金问题缺乏具体细 则(未明确发达国家/高排放国家的出资责任),这些对于气候脆弱国实质上是不公平的,故A项正确。 [排除干扰]B项与首段及第六段传达的作者观点“把气温升幅控制在2°C之内预示着气候行动的 新时代,这一控温目标值得赞扬”不符。C项复现第二段Fewerthan4%ofcountries(指高排放的发达 国家),但选项含意“巴黎协定只对高排放的发达国家有利”显然违背巴黎协定的最终目标“应对全球气 候变化(这对全球有利,尤其对气候脆弱国至关重要)”。D项与第七段2句信息“巴黎协定规定发达国 家和发展中国家的减排责任没有区别”相。 提炼思路」本题考查对细节信息的推理概括。根据题干关键信息“作者对巴黎协定的具体态度” 锁定大致的信息搜索范围:第五至七段;然后分析第五至七段发现:第五段存在语义转折(although前 后):先赞扬巴黎协定的进步性,后批评其局限性;随后两段重点解释其局限性(标志词but、However); 对围绕“局限性”的信息进行推理概括可确定A项符合文意。"
+        },
+        {
+          "number": 47,
+          "stem": "Why does the author call some developed countries climate \"free-riders\"?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They needn't worry about the food and water they consume."
+            },
+            {
+              "key": "B",
+              "text": "They are better able to cope with the global climate change."
+            },
+            {
+              "key": "C",
+              "text": "They hardly pay anything for the problems they have caused."
+            },
+            {
+              "key": "D",
+              "text": "They are free from the greenhouse effects affecting \"forced riders\"."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]C)。第三段1句climate“free-riders”之后以冒号引出解释性信息,解释了这一称号的来 源/原因:这些高排放的发达国家是气候问题的主要责任者,却几乎未遭受相应的损失/付出相应的代价 (costs意为“损失,代价”),正确项C是对冒号后causingthemajorityoftheproblems.·,whileincurringfew of the costs...这一对比逻辑的合理解读。 [排除干扰]A、B、D项干扰均源自while后信息,而free-riders实际囊括while前后对比信息“一面 制造问题、一面不用付出代价”,也即,这三个选项并未全面体现free-riders之意。与此同时,A项只从 while后例证信息做文章,尽管这属于合理推断,但实际脱离气候问题这一主题;B、D项则将“发达国家 几乎未受气候变化影响”分别篡改为“它们更有能力应对气候变化”、夸大为“完全不受气候变化影响”。 注:D项中“侵害“强制搭车者”的温室效应”代指气候变化。 [提炼思路」本题题干所问可转化为“免费搭车者的本质特点”,即意在考查对抽象概念的正确理解。 由题干抽象概念climate“free-riders\"很容易定位到第三段,该段1句出现free-riders,其后随即出现语用功 能为“引出对前文的解释说明”的冒号(:)以及“表述前文的隐层含义”的Inotherwords。由此可知,冒号 及Inotherwords后信息均是对free-riders的解读,而这两部分均包含一个蕴藏语义对比的while,其中冒 号后语义对比为“制造大部分问题、却不受惩罚”、inotherwords后语义对比为既是既得利益者、又是问 题制造者”。纵观四个选项,唯有C项体现出这种语义对比关系,而A、B、D项均体现出词义的一个面“未 受惩罚、既得利益”,却未体现另一面“问题制造者”。"
+        },
+        {
+          "number": 48,
+          "stem": "Why does the author compare the \"forced riders\" to second-hand smokers?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They have little responsibility for public health problems."
+            },
+            {
+              "key": "B",
+              "text": "They are vulnerable to unhealthy environmental conditions."
+            },
+            {
+              "key": "C",
+              "text": "They have to bear consequences they are not responsible for."
+            },
+            {
+              "key": "D",
+              "text": "They are unaware of the potential risks they are confronting."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]C)。第四段12句介绍强制搭车者的特点“几乎未对气候问题造成影响(产生的排放 很少),却在遭受气候问题的影响”,3句将强制搭车者类比为因吸二手烟而患上癌症的不吸烟者,由此 可推断两者的共同点是:他们自身都不是问题制造者,却要被迫遭受问题产生的恶果。正确项是对 forced\"强制的/被迫的”、second-hand“二手的/被动的”所示共同点的体现。 [排除干扰]A项中“公共卫生问题”是“二手烟民”所涉话题,与“强制搭车者”无关。B项虽体现“被 迫遭受问题不良影响”却未体现“不是问题的制造者”。D项中“对潜在风险的意识问题”文中并未提及。 [提炼思路]题干表面考查“把强制搭车者比作二手烟民的原因”,实质也可转化为“强制搭车者的 本质特点”,只需找到论述“强制搭车者”的段落,从中总结归纳出其最为本质的特点。同上题类似,由 题干关键词“forcedriders”可直接定位至第四段首句,其后随即出现修饰说明性的定语从句,且从句中 包含一个蕴藏语义对比的despite“几乎不是问题的制造者,却要承担问题的后果”;随后发现类比句中 同样包含一个蕴藏语义对比的while“二手烟民虽不吸烟,却要承担二手烟的后果,而问题制造者却还 “道遥法外””。纵观四个选项,唯有C项体现出这种语义对比关系。"
+        },
+        {
+          "number": 49,
+          "stem": "What does the author say about the $100 billion funding?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It will motivate all nations to reduce carbon emissions."
+            },
+            {
+              "key": "B",
+              "text": "There is no final agreement on where it will come from."
+            },
+            {
+              "key": "C",
+              "text": "There is no clarification of how the money will be spent."
+            },
+            {
+              "key": "D",
+              "text": "It will effectively reduce greenhouse emissions worldwide."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]B)。第七段3句指出“关于谁负责提供资金(资金来源)的细节也很少”,可知巴黎协定 没有规定这部分资金的来源,也即资金来源没有达成共识。正确项Thereisnofinalagreementon是对 句中Thereisverylittledetailon的合理解读。 [排除干扰]A项将第七段1句所述1000亿资金的用途“支持发展中国家减排”篡改为“激励所有 国家减排”。C项偷换概念,将第七段34句论述的未被明确阐明的对象“资金来源”偷换为“资金用 途”,而由本段1句可知资金用途为“用于支持发展中国家减排”。D项将第七段2句的cut emissions、 effectively杂曲解出“有效减少排放”,而实际上该段只论及减排责任、出资责任问题,未谈论1000亿 资金的减排效果,effectively在文中意为“事实上,实际上”,用于引出某情形的真实情况。 [提炼思路]解答事实细节题时要学会研读选项,本题四个选项中A、D项指向“预期结果”,B、C项 指向“协定细则”,而据由定位段核心主旨(通常由同义复现等手段体现,如本题所定位第七段即根据 thereisnoformaldistinction、Thereisalsoverylittledetailon可知信息聚焦“协定细则”,最后再由三个 who从句所复现文意“谁是筹集这笔资金的真正责任人”)可知B项所述“资金来源未达共识”正确。 Vll O The most climate-vulnerable countries in the 世界上气候最脆弱国家对这一 world have contributed very little to creating the global 全球性疾病几乎不负责任,却遭受到 disease from which they now suffer the most. There 其最严重的影响。如果我们要在帮 must urgently be a meaningful mobilisation of the policies 助最脆弱的国家适应气候变化的同 outlinedin the agreement if we are to achieve national 时实现国家的减排目标,就必须迫切 emissions reductions while helping the most vulnerable 需要将协议中概述的政策转化为有 countries adapt to climate change. 效的行动。 ·"
+        },
+        {
+          "number": 50,
+          "stem": "what urgent action must be taken to realise the Paris climate agreement?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Encouraging high-emitting nations to take the initiative."
+            },
+            {
+              "key": "B",
+              "text": "Calling on all the nations concerned to make joint efforts."
+            },
+            {
+              "key": "C",
+              "text": "Pushing the current world leaders to come to a consensus."
+            },
+            {
+              "key": "D",
+              "text": "Putting in effect the policies in the agreement at once."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]D)。该句呼吁指出“如果我们要实现国家的减排目标就必须迫切将协议中的政策大纲 落实为有效的行动”,由此可知作者认为要实现巴黎协定的目标必须尽快落实协议中的政策,正确项D 是对句中Theremusturgentlybe ameaningful mobilisationof thepolicies的同义改写。 [排除干扰]A项源自文末句暗含文意“高排放国家的领导人要成为落实巴黎协定的先驱者,take the initiative(带头行动)对应pioneers(先驱),但它答非所问,并不属于题干所问urgentaction“紧急行 动”的内容;B项源自文首段末句theworld'snationsagreed to...所暗藏文意“全世界各国都应做出共 同努力”,但同A项,亦属答非所问;C项实际由文末句“高排放国家的领导人面临两种执择”捏造而来。 [提炼思路]本题同上题,亦需研读选项,找出解题契机。题干所问为“实现巴黎协定的紧急行动”, 而A、B、C项“鼓励带头行动/呼吁.共同努力/推动.达成共识”并未体现出“紧迫感”,唯有D 项不仅提及巴黎协定本身,且Puttingineffect...atonce也体现出“紧迫”之意,故正确。 Passage Two青少年的抑郁风险行为 学一、总体分析 来源:Time《时代周刊》2014.2.13文章SurprisingBehaviorsThatPutTeens at SeriousRisk of Depression(出人意料、置青少年于严重抑郁风险的行为)。主题:隐形风险行为常被人忽视,却严重危 及青少年心理健康。脉络:全文以某一研究发现为主线,第一至四段概述研究发现“隐形风险行为威胁 青少年心理健康”,第五至七段具体介绍研究内容及结果“隐形风险群体的抑郁风险超出预期”,第八、 九段说明研究意义“为青少年心理健康问题提供新的预警信号”。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2016-12-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Teenagers at risk of depression, anxiety and suicide often wear their troubles like a neon (霓虹灯)sign. Their risky behaviors--drinking too much alcohol, using illegal drugs, smoking cigarettes and skipping school--can alert parents and teachers that serious problems are brewing. But a new study finds that there's another group of adolescents who are in nearly as much danger of experiencing the same psychiatric symptoms: teens who use tons of media, don't get enough sleep and have a sedentary (不爱活动的) lifestyle. Of course, that may sound like a description of every teenager on the planet. But the study warns that it is teenagers who engage in all three of these practices in the extreme who are truly in jeopardy.Because their behaviors are not usually seen as a red flag, these young people have been dubbed the \"invisible risk\" group by the study's authors. \"In some ways they're at greater risk of falling through the cracks,\" says researcher Vladimir Carli. \"While most parents, teachers and clinicians would react to an adolescent using drugs or getting drunk, they may easily overlook teenagers who are engaging in inconspicuous behaviors.\" The study's authors surveyed 12,395 students and analyzed nine risk behaviors, including excessive alcohol use, illegal drug use, heavy smoking, high media use and truancy (逃学). Their aim was to determine the relationship between these risk behaviors and mental health issues in teenagers. About 58% of the students demonstrated none or few of the risk behaviors. Some 13% scored high on all nine of the risk behaviors. And 29%, the \"invisible risk\" group, scored high on three in particular: They spent five hours a day or more on electronic devices. They slept six hours a night or less. And they neglected \"other healthy activities.\" The group that scored high on all nine of the risk behaviors was most likely to show symptoms of depression; in all, nearly 15% of this group reported being depressed, compared with just 4% of the low-risk group. But the invisible group wasn't far behind the high-risk set, with more than 13% of them exhibiting depression. The findings caught Carli off guard. \"We were very surprised,\" he says. \"The high-risk group and low-risk group are obvious. But this third group was not only unexpected, it was so distinct and so large--nearly one third of our sample--that it became a key finding of the study. \" Carli says that one of the most significant things about his study is that it provides new early-warning signs for parents, teachers and mental health-care providers. And early identification, support and treatment for mental health issues, he says, are the best ways to keep them from turning into full-blown disorders."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the author mean by saying \"Teenagers at risk of depression, anxiety and suicide often wear their troubles like a neon sign\" (Lines 1 - 2, Para.1 ) ?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Mental problems can now be found in large numbers of teenagers."
+            },
+            {
+              "key": "B",
+              "text": "Teenagers' mental problems are getting more and more attention."
+            },
+            {
+              "key": "C",
+              "text": "Teenagers' mental problems are often too conspicuous not to be observed."
+            },
+            {
+              "key": "D",
+              "text": "Depression and anxiety are the most common symptoms of mental problems."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]C)。考查句字面义为“面临抑郁、焦虑、自杀风险的青少年常常将其问题(即抑郁、焦虑 等心理问题)展现得如霓虹灯一般”,言外之意即为“青少年的心理问题如同霓虹灯那样,表现得醒目而 耀眼,不可能不引起关注”;第二句随后以“青少年的危险行为(即心理问题的直观表现形式)极易给家 长和教师以警示作用(即引起警惕/关注)”说明1句。正确项是对首段核心文意的综合概括。 [排除干扰]A项由1句Teenagersatriskof中核心名词Teenagers的复数形式出发,将该结构的 含义“有心理问题风险的青少年”曲解为“许多青少年出现心理问题”,而文中并未谈及该人群的数量问 题。B项由2句Theirriskybehaviors..canalert.中alert\"使..警觉,向.发出警报”出发,将该句含 义重心“青少年危险行为给家长和教师的警示作用(可以尽早发现心理问题并予以救助或治疗)”偷换为 “外界对青少年心理健康问题日益关注”。D项利用文首句depression、anxiety碎片信息并结合常识\"抑郁、 焦虑是心理问题的常见症状”捏造干扰,而这并非文首句真实句意所指,并未体现该句weartheirtroubles likeaneonsign所强调的核心文意“包括抑郁、焦虑在内的心理问题表现得就像霓虹灯一样醒目”。 [提炼思路]句意理解题的解答可分为两个步骤:1.抓住句中关键词对句子本身进行理解。如本题 的neonsign(霓虹灯)为句中关键词,根据霓虹灯自身的特点可知,首段1句意在说明青少年心理问题 (troubles)的显著性。2.从文中找出相关信息进行佐证。首段2句对1句进行阐释,alert呼应neon sign的警示功能,进一步说明问题的显著性,从而印证正确选项为C。"
+        },
+        {
+          "number": 52,
+          "stem": "What is the finding of the new study?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Teenagers' lifestyles have changed greatly in recent years."
+            },
+            {
+              "key": "B",
+              "text": "Many teenagers resort to drugs or alcohol for mental relief."
+            },
+            {
+              "key": "C",
+              "text": "Teenagers experiencing psychological problems tend to use a lot of media."
+            },
+            {
+              "key": "D",
+              "text": "Many hitherto unobserved youngsters may have psychological problems."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]D)。第二段直指研究新发现:还存在另一群体,他们跟酗酒、吸毒等青少年一样,经历 着相同心理病症、处于相同危险中。而由“新发现”可知这一群体并未被注意到。由后续第三、四段“这 一群体因其行为(大量使用媒体、缺乏充足睡眠、过着久坐不动生活)通常不被视为警示信号而被家长 和教师等忽视”亦可佐证这一推断。正确项D是对这一内容的同义转述。 [排除干扰]A项由段中冒号后teenswho...lifestyle曲解而来,但新研究并未对比青少年生活方 式的变化,其研究重点在“青少年的心理问题”而非“青少年生活方式”。B项源于首段2句drinkingtoo muchalcohol,usingillegaldrugs等危险行为,但这并非新研究的发现。C项源自段中冒号后usetons of media,但这只是有心理问题青少年的表征之一,而非唯一,故而排除。 [提炼思路]本题虽易定位,但由定位处却并不容易确保答案的正确性。因此应利用段群意识,将 几个有着紧密语义逻辑关联的段落组合在一起,根据整体的主旨文意(通常通过词义复现、特殊句式结 构等方式体现)佐证正确项的正确性:本题定位的第二段与第三、四段实际有着紧密的逻辑语义关联 (Ofcourse、But、Because等逻辑词表明起承转合及因果等关联,that、theirbehaviors、theseyoungpeople 等指代词明确前后指代关联),故而将其视为一个整体。而这一段落群中notusuallyseenasaredflag “未被视为示警信号”、invisible“无形的”、greaterriskof fallingthroughthecracks“更易被忽视”、easily overlook“易忽视”、inconspicuous“不引人注意的”等所展示出的语义重心只在D项unobserved中得以体 现,故而可将其确定为正确选项。"
+        },
+        {
+          "number": 53,
+          "stem": "Why do the researchers refer to teens who use tons of media, don't get enough sleep and have a sedentary lifestyle as the \"invisible risk\" group?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Their behaviors can be an invisible threat to society."
+            },
+            {
+              "key": "B",
+              "text": "Their behaviors do not constitute a warning signal."
+            },
+            {
+              "key": "C",
+              "text": "Their behaviors do not tend towards mental problems."
+            },
+            {
+              "key": "D",
+              "text": "Their behaviors can be found in almost all teenagers on earth."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]B)。第三段3句明确指出:由于他们的行为(回指2句所述青少年使用大量媒体、缺乏 足够睡眠、久坐不动这三大行为)通常不被看作警示信号,因此研究人员将他们称为“隐形风险”群体。 正确项B中donotconstituteawarningsignal是对句中arenotusuallyseenasaredflag的同义改写。 [排除干扰]A项虽似复现3句invisible,却将其含义“隐形的、造成青少年心理问题的危险行为”偷换为 “给社会造成隐形威胁”。C项与2句“以极端方式从事这三项行为的青少年真正处于危险中(即,面临心理 问题)”相悖。D项虽语义复现1句,但该句意在说明此类行为在青少年当中极为普遍,而与“隐形风险”群体 所直接对应的2句“三种行为都表现得极为极端的人”存在语义对比(But),两者指向不同,故而答非所问。 [提炼思路」本题D项在语义上复现原文,且暗示“隐形风险”群体的隐形性特点,具有较强的干扰性。 但与B项对比后可以发现,D项侧重于说明隐形风险行为在青少年当中的普遍性,并非“隐形风险”群体 的直接定义原因,B项才是真正对应定位处所述研究人员提出“隐形风险”群体这一概念的原因 (Because),完美契合题干所问Why。当题目中出现多个疑似符合题意的选项时,应从中选取最接近原文, 最契合题干问题的选项。"
+        },
+        {
+          "number": 54,
+          "stem": "What does the new study find about the invisible group?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are almost as liable to depression as the high-risk group."
+            },
+            {
+              "key": "B",
+              "text": "They suffer from depression without showing any symptoms."
+            },
+            {
+              "key": "C",
+              "text": "They do not often demonstrate risky behaviors as their peers."
+            },
+            {
+              "key": "D",
+              "text": "They do not attract the media attention the high-risk group does."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]A)。该句将“隐形风险”群体患抑郁症的比例与高风险群体相比,指出两者差距并不 大。正确项almostasliabletodepressionas是对第七段2句中wasn'tfarbehind及数据对比(15%VS 13%)的同义改写。 [排除干扰]B项与第六段3句““隐形风险\"群体在三种危险行为中得分特别高(即,三种症状尤为 明显)”相悖。C项将第三、四段文意“隐形风险群体危险行为比较隐蔽(inconspicuousbehaviors)”直接 曲解为“不表现出危险行为(donotdemonstrateriskybehaviors)”。D项利用文中碎片信息overlook、 usetonsofmedia、thehigh-riskgroup设置干扰,将文意“青少年大量使用媒体等隐形危险行为未被家长 和教师关注”曲解为“隐形风险群体未受到媒体关注”。 [提炼思路]事实细节题不一定非要采取“回文定位,一一比对”这一经典做法,亦可借鉴“主旨贴合 法”予以解答。如本题,文章着重介绍某一研究,而该研究的关键性要务是“寻找危险行为与心理健康 问题之间的关联”,换言之,研究结果应该与这一要务相关,而纵观四个选项,提及心理问题的唯有A项 和B项,但是B项中withoutshowinganysymptoms太过绝对,且事实上也与文意不符。 Il The findings caught Carli off guard. \"We were very surprised, he says. 3\"The high-risk group and low-risk group are obvious. But this third group was not only unexpected, it was so distinct and so largenearly one third of our samplethat it became a key finding of the study.\" 研究结果让卡利措手不及。他说,“我 们非常惊诉。高风险群体和低风险群体是 显而易见的,但是这第三个群体不仅出人意 料,而且如此显著、如此庞大几乎占到 我们样本的三分之一—使它成为本研究 的一个关键性发现。” ·"
+        },
+        {
+          "number": 55,
+          "stem": "What is the significance of Vladimir Carli's study?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It offers a new treatment for psychological problems among teenagers."
+            },
+            {
+              "key": "B",
+              "text": "It provides new early-warning signals for identifying teens in trouble."
+            },
+            {
+              "key": "C",
+              "text": "It may have found an ideal way to handle teenagers with behavioral problems."
+            },
+            {
+              "key": "D",
+              "text": "It sheds new light on how unhealthy behaviors trigger mental health problems."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]B)。定位句指出:研究最重要的意义之一是提供了新的预警信号;随后2句指出预警 信号的作用:帮助尽早识别、救助、治疗心理问题。正确项中providesnewearly-warningsignals复现原 文,identifying teens in trouble是对early identification...formental health issues的同义转述。 [排除干扰]A、C项分别利用2句treatmentformentalhealthissues、thebestways设置干扰,却将 文意“研究提供的预警信号有助于家长、教师和心理健康师识别青少年心理问题,从而及时给予救助和 治疗”中所暗示的治疗方法提供者“心理健康师(mentalhealth-careProviders)”偷换为“卡利的研究 (Carlisstudy)”,文意强调的是预警作用,而两项强调的是治疗/应对办法。D项过度推断,由第五段所 述研究目的“弄清楚危险行为与心理健康问题之间的关联”、第六、七段所述研究结果“危险行为引发心 理健康问题”直接过度延伸到“危险行为对心理健康的作用机制”,而这一点文中并未涉及。 [提炼思路]本题考查研究意义,解题时可从正面与侧面两个方向展开。第九段1句直接指出,研 究最重要的意义之一是为家长、教师和心理健康保健师提供预警信号。根据选项复现信息,可基本确 定正确项为B。再根据上文介绍的研究内容和结果,可以发现研究只涉及青少年危险行为与心理问题 的关系,并未涉及干扰项中的治疗方法和影响机制,从侧面排除了A、C、D选项,进一步明确了正确项。"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1773 @@
+{
+  "id": "cet4-2020-12-3",
+  "level": 4,
+  "year": 2020,
+  "month": 12,
+  "set": 3,
+  "title": "2020 年 12 月四级 · 第 3 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.12/%E7%9C%9F%E9%A2%98PDF/cet4_2020_12_3.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2020_12_3_ans.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2020-12-3-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "The things people make, and the way they make them, determine how cities grow and decline, and influence how empires rise and fall. So, any disruption to the world's factories [[26]] . And that disruption is surely coming. Factories are being digitised, filled with new sensors and new computers to make them quicker, more [[27]] , and more efficient.",
+        "Robots are breaking free from the cages that surround them, learning new skills and new ways of working. And 3D printers have long [[28]] a world where you can make anything, anywhere, from a computerised design. That vision is [[29]] closer to reality. These forces will lead to cleaner factories, producing better goods at lower prices, personalised to our individual needs and desires. Humans will be [[30]] many of the dirty, repetitive, and dangerous jobs that have long been a [[31]] of factory life.",
+        "Greater efficiency [[32]] means fewer people can do the same work. Yet factory bosses in many developed countries are worried about a lack of skilled human workers—and see [[33]] and robots as a solution. But economist Helena Leurent says this period of rapid change in manufacturing is a [[34]] opportunity to make the world a better place. “Manufacturing is the one system where you have got the biggest source of innovation, the biggest source of economic growth, and the biggest source of great jobs in the past. You can see it changing. That's an opportunity to [[35]] that system differently, and if we can, it will have tremendous significance.”"
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "automation"
+        },
+        {
+          "key": "B",
+          "text": "concerns"
+        },
+        {
+          "key": "C",
+          "text": "enormously"
+        },
+        {
+          "key": "D",
+          "text": "fantastic"
+        },
+        {
+          "key": "E",
+          "text": "fascinated"
+        },
+        {
+          "key": "F",
+          "text": "feature"
+        },
+        {
+          "key": "G",
+          "text": "flexible"
+        },
+        {
+          "key": "H",
+          "text": "inevitably"
+        },
+        {
+          "key": "I",
+          "text": "interaction"
+        },
+        {
+          "key": "J",
+          "text": "leaning"
+        },
+        {
+          "key": "K",
+          "text": "matters"
+        },
+        {
+          "key": "L",
+          "text": "moving"
+        },
+        {
+          "key": "M",
+          "text": "promised"
+        },
+        {
+          "key": "N",
+          "text": "shape"
+        },
+        {
+          "key": "O",
+          "text": "spared"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "automation"
+            },
+            {
+              "key": "B",
+              "text": "concerns"
+            },
+            {
+              "key": "C",
+              "text": "enormously"
+            },
+            {
+              "key": "D",
+              "text": "fantastic"
+            },
+            {
+              "key": "E",
+              "text": "fascinated"
+            },
+            {
+              "key": "F",
+              "text": "feature"
+            },
+            {
+              "key": "G",
+              "text": "flexible"
+            },
+            {
+              "key": "H",
+              "text": "inevitably"
+            },
+            {
+              "key": "I",
+              "text": "interaction"
+            },
+            {
+              "key": "J",
+              "text": "leaning"
+            },
+            {
+              "key": "K",
+              "text": "matters"
+            },
+            {
+              "key": "L",
+              "text": "moving"
+            },
+            {
+              "key": "M",
+              "text": "promised"
+            },
+            {
+              "key": "N",
+              "text": "shape"
+            },
+            {
+              "key": "O",
+              "text": "spared"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【考点】动词辨析题。 K)【语法判断】空格所在句缺少谓语,因此应填入 动词。 【语义判断】本句指出,任何对世界上工厂的破坏都 。本句与前一句构成因果关系。前一句提 到,人们制造的东西以及制造东西的方式十分重要, 那么任何对工厂的破坏也很重要,因此空格处应填人 含有\"重要,要紧\"意义的动词,故答案为K)matters。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "automation"
+            },
+            {
+              "key": "B",
+              "text": "concerns"
+            },
+            {
+              "key": "C",
+              "text": "enormously"
+            },
+            {
+              "key": "D",
+              "text": "fantastic"
+            },
+            {
+              "key": "E",
+              "text": "fascinated"
+            },
+            {
+              "key": "F",
+              "text": "feature"
+            },
+            {
+              "key": "G",
+              "text": "flexible"
+            },
+            {
+              "key": "H",
+              "text": "inevitably"
+            },
+            {
+              "key": "I",
+              "text": "interaction"
+            },
+            {
+              "key": "J",
+              "text": "leaning"
+            },
+            {
+              "key": "K",
+              "text": "matters"
+            },
+            {
+              "key": "L",
+              "text": "moving"
+            },
+            {
+              "key": "M",
+              "text": "promised"
+            },
+            {
+              "key": "N",
+              "text": "shape"
+            },
+            {
+              "key": "O",
+              "text": "spared"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【考点】形容词辨析题。 G)【语法判断】本空位于more之后,作them的宾语 补足语,因此应填人形容词。 【语义判断】本句指出,工厂正在被数字化,安装的 新传感器和新电脑使它们更快、更 、更高 效。分析句子结构可知,空格前的them指的是 Factories。工厂被数字化之后,利用电脑、传感器 等可以提高生产率,因此空格处的形容词应该能 反映生产率提高,故本题答案为G)flexible。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "automation"
+            },
+            {
+              "key": "B",
+              "text": "concerns"
+            },
+            {
+              "key": "C",
+              "text": "enormously"
+            },
+            {
+              "key": "D",
+              "text": "fantastic"
+            },
+            {
+              "key": "E",
+              "text": "fascinated"
+            },
+            {
+              "key": "F",
+              "text": "feature"
+            },
+            {
+              "key": "G",
+              "text": "flexible"
+            },
+            {
+              "key": "H",
+              "text": "inevitably"
+            },
+            {
+              "key": "I",
+              "text": "interaction"
+            },
+            {
+              "key": "J",
+              "text": "leaning"
+            },
+            {
+              "key": "K",
+              "text": "matters"
+            },
+            {
+              "key": "L",
+              "text": "moving"
+            },
+            {
+              "key": "M",
+              "text": "promised"
+            },
+            {
+              "key": "N",
+              "text": "shape"
+            },
+            {
+              "key": "O",
+              "text": "spared"
+            }
+          ],
+          "answer": "M",
+          "explanation": "【考点】动词辨析题。 MD【语法判断】本空位于助动词have之后,因此应填 人动词的-ed形式。 【语义判断】本句指出,3D打印机一直在向人们 个这样的世界,在这个世界,你可以在 任何地方从计算机设计中做出任何东西。由下一 句中的vision可知,本句描述的世界还没有完全 实现,因此空格处应填入可以表示未来意义的动 词,故本题答案为M)promised。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "automation"
+            },
+            {
+              "key": "B",
+              "text": "concerns"
+            },
+            {
+              "key": "C",
+              "text": "enormously"
+            },
+            {
+              "key": "D",
+              "text": "fantastic"
+            },
+            {
+              "key": "E",
+              "text": "fascinated"
+            },
+            {
+              "key": "F",
+              "text": "feature"
+            },
+            {
+              "key": "G",
+              "text": "flexible"
+            },
+            {
+              "key": "H",
+              "text": "inevitably"
+            },
+            {
+              "key": "I",
+              "text": "interaction"
+            },
+            {
+              "key": "J",
+              "text": "leaning"
+            },
+            {
+              "key": "K",
+              "text": "matters"
+            },
+            {
+              "key": "L",
+              "text": "moving"
+            },
+            {
+              "key": "M",
+              "text": "promised"
+            },
+            {
+              "key": "N",
+              "text": "shape"
+            },
+            {
+              "key": "O",
+              "text": "spared"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【考点】动词辨析题。 L)【语法判断】本空位于is之后,应填人动词的-ing 形式,构成现在进行时。 【语义判断】本句中的Thatvision指的是前一句 中描述的未来世界,而由于技术的飞速发展,人们 已经可以用3D打印机制造很多东西,因此人们距 离实现这一愿景越来越近。因此,空格处应填入表 示“距离发生改变,缩短”意义的动词,故本题答案 为L)moving。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "automation"
+            },
+            {
+              "key": "B",
+              "text": "concerns"
+            },
+            {
+              "key": "C",
+              "text": "enormously"
+            },
+            {
+              "key": "D",
+              "text": "fantastic"
+            },
+            {
+              "key": "E",
+              "text": "fascinated"
+            },
+            {
+              "key": "F",
+              "text": "feature"
+            },
+            {
+              "key": "G",
+              "text": "flexible"
+            },
+            {
+              "key": "H",
+              "text": "inevitably"
+            },
+            {
+              "key": "I",
+              "text": "interaction"
+            },
+            {
+              "key": "J",
+              "text": "leaning"
+            },
+            {
+              "key": "K",
+              "text": "matters"
+            },
+            {
+              "key": "L",
+              "text": "moving"
+            },
+            {
+              "key": "M",
+              "text": "promised"
+            },
+            {
+              "key": "N",
+              "text": "shape"
+            },
+            {
+              "key": "O",
+              "text": "spared"
+            }
+          ],
+          "answer": "O",
+          "explanation": "【考点】语义推断题。 O)【语法判断】本空位于willbe之后,因此应填人动 词或形容词。 【语义判断】本段描述了机器人和3D打印机给工 厂带来的改变。既然机器人可以做越来越多的工 作,那么这些航脏、重复和危险的工作就不需要人 类来做了。空格所在部分指出,人类将 那些航脏、重复和危险的工作。因此,空格处应填 人含有“不需要做,摆脱”意义的动词,故本题答案 为0)spared。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "automation"
+            },
+            {
+              "key": "B",
+              "text": "concerns"
+            },
+            {
+              "key": "C",
+              "text": "enormously"
+            },
+            {
+              "key": "D",
+              "text": "fantastic"
+            },
+            {
+              "key": "E",
+              "text": "fascinated"
+            },
+            {
+              "key": "F",
+              "text": "feature"
+            },
+            {
+              "key": "G",
+              "text": "flexible"
+            },
+            {
+              "key": "H",
+              "text": "inevitably"
+            },
+            {
+              "key": "I",
+              "text": "interaction"
+            },
+            {
+              "key": "J",
+              "text": "leaning"
+            },
+            {
+              "key": "K",
+              "text": "matters"
+            },
+            {
+              "key": "L",
+              "text": "moving"
+            },
+            {
+              "key": "M",
+              "text": "promised"
+            },
+            {
+              "key": "N",
+              "text": "shape"
+            },
+            {
+              "key": "O",
+              "text": "spared"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【考点】名词辨析题。 F)【语法判断】本空位于冠词a之后,因此应填人名 词的单数形式。 【语义判断】由常识可知,一提到工厂,人们就会想 到肮脏的工作环境、机械重复的流水线等,因此文 中提到的“航脏、重复和危险的工作”都是工厂的 特点。由此可知,本空应填人含有“特点”意义的 名词,故本题答案为F)feature。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "automation"
+            },
+            {
+              "key": "B",
+              "text": "concerns"
+            },
+            {
+              "key": "C",
+              "text": "enormously"
+            },
+            {
+              "key": "D",
+              "text": "fantastic"
+            },
+            {
+              "key": "E",
+              "text": "fascinated"
+            },
+            {
+              "key": "F",
+              "text": "feature"
+            },
+            {
+              "key": "G",
+              "text": "flexible"
+            },
+            {
+              "key": "H",
+              "text": "inevitably"
+            },
+            {
+              "key": "I",
+              "text": "interaction"
+            },
+            {
+              "key": "J",
+              "text": "leaning"
+            },
+            {
+              "key": "K",
+              "text": "matters"
+            },
+            {
+              "key": "L",
+              "text": "moving"
+            },
+            {
+              "key": "M",
+              "text": "promised"
+            },
+            {
+              "key": "N",
+              "text": "shape"
+            },
+            {
+              "key": "O",
+              "text": "spared"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【考点】副词辨析题。 H【语法判断】本空位于主语和谓语动词之间,因此 应填人副词。 【语义判断】本句指出,更高的效率意味着更少的 人可以做同样的工作。由句意可知,效率提高,意 味着同样的工作需要的劳动力变少了,因此本空 应填人含有“一定,必然”意义的副词来修饰整个 句子,故本题答案为H)inevitably。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "automation"
+            },
+            {
+              "key": "B",
+              "text": "concerns"
+            },
+            {
+              "key": "C",
+              "text": "enormously"
+            },
+            {
+              "key": "D",
+              "text": "fantastic"
+            },
+            {
+              "key": "E",
+              "text": "fascinated"
+            },
+            {
+              "key": "F",
+              "text": "feature"
+            },
+            {
+              "key": "G",
+              "text": "flexible"
+            },
+            {
+              "key": "H",
+              "text": "inevitably"
+            },
+            {
+              "key": "I",
+              "text": "interaction"
+            },
+            {
+              "key": "J",
+              "text": "leaning"
+            },
+            {
+              "key": "K",
+              "text": "matters"
+            },
+            {
+              "key": "L",
+              "text": "moving"
+            },
+            {
+              "key": "M",
+              "text": "promised"
+            },
+            {
+              "key": "N",
+              "text": "shape"
+            },
+            {
+              "key": "O",
+              "text": "spared"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【考点】名词辨析题。 A)【语法判断】本空位于动词see之后,作宾语,且和 and后的robots并列,因此应填人名词。 【语义判断】本句指出,然而,许多发达国家的工厂 老板担心缺乏熟练的人力工人,并将, _和 机器人视为解决方案。由句意可知,本空填入的 名词应表达出能够替代人类劳动力的意义,故本 题答案为A)automation。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "automation"
+            },
+            {
+              "key": "B",
+              "text": "concerns"
+            },
+            {
+              "key": "C",
+              "text": "enormously"
+            },
+            {
+              "key": "D",
+              "text": "fantastic"
+            },
+            {
+              "key": "E",
+              "text": "fascinated"
+            },
+            {
+              "key": "F",
+              "text": "feature"
+            },
+            {
+              "key": "G",
+              "text": "flexible"
+            },
+            {
+              "key": "H",
+              "text": "inevitably"
+            },
+            {
+              "key": "I",
+              "text": "interaction"
+            },
+            {
+              "key": "J",
+              "text": "leaning"
+            },
+            {
+              "key": "K",
+              "text": "matters"
+            },
+            {
+              "key": "L",
+              "text": "moving"
+            },
+            {
+              "key": "M",
+              "text": "promised"
+            },
+            {
+              "key": "N",
+              "text": "shape"
+            },
+            {
+              "key": "O",
+              "text": "spared"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【考点】形容词辨析题。 D)【语法判断】本空位于冠词a之后,名词opportunity 之前,因此应填入形容词。 【语义判断】本句指出,制造业的这段快速变化时 期是一个让世界变得更美好的机会。由 本段最后一句可知,这位经济学家认为制造业的 变革具有重大意义,因此这是一个改变世界的好 机会。空格处应填入含有积极意义的形容词,故 本题答案为D)fantastic。E)fascinated虽然也 具有积极的内涵,但是它只能形容人,不能形容 物,因此排除。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "automation"
+            },
+            {
+              "key": "B",
+              "text": "concerns"
+            },
+            {
+              "key": "C",
+              "text": "enormously"
+            },
+            {
+              "key": "D",
+              "text": "fantastic"
+            },
+            {
+              "key": "E",
+              "text": "fascinated"
+            },
+            {
+              "key": "F",
+              "text": "feature"
+            },
+            {
+              "key": "G",
+              "text": "flexible"
+            },
+            {
+              "key": "H",
+              "text": "inevitably"
+            },
+            {
+              "key": "I",
+              "text": "interaction"
+            },
+            {
+              "key": "J",
+              "text": "leaning"
+            },
+            {
+              "key": "K",
+              "text": "matters"
+            },
+            {
+              "key": "L",
+              "text": "moving"
+            },
+            {
+              "key": "M",
+              "text": "promised"
+            },
+            {
+              "key": "N",
+              "text": "shape"
+            },
+            {
+              "key": "O",
+              "text": "spared"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【考点】动词辨析题。 N)【语法判断】本空位于不定式符号to之后,名词词 组thatsystem之前,因此应填人动词。 【语义判断】本句中的thatsystem指的是 manufacturing。由本段可知,制造业正在经历巨 大的变革,这是一个重新塑造制造业的机会,因此 应填入含有“塑造,改变”意义的动词,故本题答案 为 N) shape。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2020-12-3-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) It was made of shiny, bright pink plastic with a Little Mermaid sticker on the front, and I carried it with me nearly every single day. My lunch box was one of my first prized possessions, a proud statement to everyone in my kindergarten; \"I love Mermaid-Ariel on my lunch box.\"",
+        "B) That bulky container served me well through my first and second grades, until the live-action version of 101 Dalmatians hit theaters, and I needed the newest red plastic box with characters like Pongo and Perdita on the front. I know I'm not alone here—I bet you loved your first lunch box, too.",
+        "C) Lunch boxes have been connecting kids to cartoons and TV shows and super-heroes for decades. But it wasn't always that way. Once upon a time, they weren't even boxes. As schools have changed in the past century, the midday meal container has evolved right along with them.",
+        "D) Let's start back at the beginning of the 20th century—the beginning of the lunch box story, really. While there were neighborhood schools in cities and suburbs, one-room schoolhouses were common in rural areas. As grandparents have been saying for generations, kids would travel miles to school in the countryside (often on foot).",
+        "E) \"You had kids in rural areas who couldn't go home from school for lunch, so bringing your lunch wrapped in a cloth, in oiled paper, in a little wooden box or something like that was a very long-standing rural tradition,\" says Paula Johnson, head of food history section at the Smithsonian National Museum of American History in Washington, D.C.",
+        "F) City kids, on the other hand, went home for lunch and came back. Since they rarely carried a meal, the few metal lunch buckets on the market were mainly for tradesmen and factory workers.",
+        "G) After World War II, a bunch of changes reshaped schools—and lunches. More women joined the workforce. Small schools consolidated into larger ones, meaning more students were farther away from home. And the National School Lunch Act in 1946 made cafeterias much more common. Still, there wasn't much of a market for lunch containers—yet. Students who carried their lunch often did so in a re-purposed bucket or tin of some kind.",
+        "H) And then everything changed in the year of 1950. You might as well call it the Year of the Lunch Box, thanks in large part to a genius move by a Nashville-based manufacturer, Aladdin Industries. The company already made square metal meal containers, the kind workers carried, and some had started to show up in the hands of school kids.",
+        "I) But these containers were really durable, lasting years on end. That was great for the consumer, not so much for the manufacturer. So executives at Aladdin hit on an idea that would harness the newfound popularity of television. They covered lunch boxes with striking red paint and added a picture of TV and radio cowboy Hopalong Cassidy on the front.",
+        "J) The company sold 600,000 units the first year. It was a major \"Ah-ha!\" moment, and a wave of other manufacturers jumped on board to capitalize on new TV shows and movies. \"The Partridge Family, the Addams Family, the Six Million Dollar Man, the Bionic Woman-everything that was on television ended up on a lunch box,\" says Allen Woodall. He's the founder of the Lunch Box Museum in Columbus, Georgia. \"It was a great marketing tool because kids were taking that TV show to school with them, and then when they got home they had them captured back on TV,\" he says.",
+        "K) And yes, you read that right: There is a lunch box museum, right near the Chattahoochee River. Woodall has more than 2,000 items on display. His favorite? The Green Hornet lunch box, because he used to listen to the radio show back in the 1940s.",
+        "L) The new trend was also a great example of planned obsolescence, that is, to design a product so that it will soon become unfashionable or impossible to use and will need replacing. Kids would beg for a new lunch box every year to keep up with the newest characters, even if their old lunch box was perfectly usable.",
+        "M) The metal lunch box craze lasted until the mid-1980s, when plastic took over. Two theories exist as to why. The first-and most likely-is that plastic had simply become cheaper. The second theory-possibly an urban myth-is that concerned parents in several states proposed bans on metal lunch boxes, claiming kids were using them as \"weapons\" to hit one another. There's a lot on the internet about a state-wide ban in Florida, but a few days worth of digging by a historian at the Florida State Historical Society found no such legislation. Either way, the metal lunch box was out.",
+        "N) The last few decades have brought a new lunch box revolution, of sorts. Plastic boxes changed to lined cloth sacks, and eventually, globalism brought tiffin containers from India and bento boxes from Japan. Even the old metal lunch boxes have regained popularity. \"I don't think the heyday (鼎盛时期) has passed,\" says D. J. Jayasekara, owner and founder of lunchbox.com, a retailer in Pasadena, California. \"I think it has evolved. The days of the ready-made, 'you stick it in a lunch box and carry it to school' are kind of done.\"",
+        "O) The introduction of backpacks changed the lunch box scene a bit, he adds. Once kids started carrying book bags, that bulky traditional lunch box was hard to fit inside. \"But you can't just throw a sandwich in a backpack,\" Jayasekara says. \"It still has to go into a container.\" That is, in part, why smaller and softer containers have taken off-they fit into backpacks.",
+        "P) And don't worry-whether it's a plastic bento box or a cloth bag, lunch containers can still easily be covered with popular culture. \"We keep pace with the movie industries so we can predict which characters are going to be popular for the coming months,\" Jayasekara says. \"You know, kids are kids.\""
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Lunch containers were not necessary for school kids in cities.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【定位】由题干中的notnecessary和schoolkids incities定位到文章F)段。 F)【精析】同义转述题。定位段提到,城市里的孩子 回家吃午饭,然后再回来。因为他们很少带午饭, 市场上极少的金属饭桶主要是卖给商人或工厂工 人的。题干中的schoolkidsincities对应定位段中 的Citykids,题干中的notnecessary是对定位段中 theyrarelycarriedameal的同义转述,故答案为F)。"
+        },
+        {
+          "number": 37,
+          "stem": "Putting TV characters on lunch boxes proved an effective marketing strategy.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【定位】由题干中的TVcharacters、lunchboxes 和effectivemarketingstrategy定位到文章J)段 最后一句。 J)【精析】同义转述题。定位句指出,这是一个很好 的销售工具,因为孩子们正带着电视节目去学校, 然后当他们回到家时,又被电视所吸引。题干中 的TVcharacters onlunchboxes和effective marketingstrategy分别对应定位句中的TV show和agreatmarketingtool,而题干中的 PuttingTVcharactersonlunchboxes指的就是 定位句中的It,故答案为J)。"
+        },
+        {
+          "number": 38,
+          "stem": "Smaller lunch boxes are preferred because they fit easily into backpacks.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "O",
+          "explanation": "【定位】由题干中的Smallerlunchboxes和theyfit easilyintobackpacks定位到文章O)段最后一句。 O)【精析】同义转述题。定位句提到,这就是更小更 软的容器受到人们欢迎的原因,因为它们适合放 在背包里。定位句中的smallerandsofter containers指的就是题干中的Smallerlunch boxes,题干中的are preferred和theyfiteasily intobackpacks对应定位句中的havetakenoff和 theyfitintobackpacks,故答案为O)。"
+        },
+        {
+          "number": 39,
+          "stem": "Lunch boxes have evolved along with the transformation of schools.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的Lunchboxes和the transformationofschools定位到文章C)段最后 一句。 C)【精析】同义转述题。定位句指出,在过去的一个 世纪里,随着学校发生改变,盛午饭的容器也发生 了演变。题干中的Lunchboxes和have.evolved alongwith分别对应定位句中的themiddaymeal container 和 has evolved right along with thcm, 而题干中的thetransformationofschools指的就是 定位句中的schoolshavechanged,故答案为C)。"
+        },
+        {
+          "number": 40,
+          "stem": "Around the beginning of the nineteen fifties, some school kids started to use metal meal containers.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【定位】由题干中的thenineteenfifties和metal mealcontainers定位到文章HD段最后一句。 H)【精析】细节推断题。定位句提到,该公司已经制 作了工人们用的那种方形的金属饭盒,而且一些 已经开始出现在学校孩子们的手中。定位句中的 some指的就是metalmealcontainers。题干中的 someschoolkids和metalmealcontainers对应原 文中的school kids和 squaremetal meal containers,题干中的startedtouse是对定位句中 startedtoshowup的解释说明,而题干中的 Aroundthebeginningof thenineteenfifties指的 是定位段中的intheyearof1950,故答案为H)。"
+        },
+        {
+          "number": 41,
+          "stem": "School kids are eager to get a new lunch box every year to stay in fashion.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【定位】由题干中的Schoolkids和anewlunch boxeveryyear定位到文章L)段最后一句。 L)【精析】细节推断题。定位句指出,孩子们每年都 会央求买一个新的饭盒以期跟上最新的屏幕角 色,即使它们的旧饭盒还很好用。题干中的 Schoolkids对应定位句中的Kids,题干中的are eagerto指的是定位句中的wouldbegfor,题干 中的stayinfashion是对定位句中keepupwith thenewestcharacters的解释说明,故答案为L)。"
+        },
+        {
+          "number": 42,
+          "stem": "Rural kids used to walk a long way to school in the old days.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的Ruralkids和walkalongway to school定位到文章D)段最后一句。 D)【精析】同义转述题。定位句提到,就像祖辈们对 后代说的那样,在乡下,孩子们需要(徒步)走数英 里才能到达学校。题干中的Ruralkids对应原文 中的kids..,inthecountryside,题干中的usedto walkalongwaytoschool是对定位句中travel milestoschool的同义转述,故答案为D)。"
+        },
+        {
+          "number": 43,
+          "stem": "The author was proud of using a lunch box in her childhood.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题干中的Theauthor和usingalunch boxinherchildhood定位到文章A)段最后一句。 A)【精析】细节推断题。定位句指出,“我”的饭盒是 “我”最初珍视的物品之一,是对幼儿园里每一个 人骄傲的宣言:““我”爱我饭盒上的美人鱼爱丽 儿”。题干中的The author和usinga lunchbox inherchildhood分别对应定位句中的I和My lunchbox...inmykindergarten,而题干中的 wasproudof指的是定位句中的aproud statement,故答案为A)。"
+        },
+        {
+          "number": 44,
+          "stem": "The most probable reason for the popularity of plastic lunch boxes is that they are less expensive.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "M",
+          "explanation": "【定位】由题干中的Themostprobablereason、 plasticlunchboxes和less expensive定位到文章 M)段第一至三句。 M)【精析】同义转述题。定位句指出,对于金属饭盒 的狂热持续到20世纪80年代中期,它被塑料饭 盒所取代。究其原因有两个理论。首先,也是最 有可能的,就是塑料制品变得更便宜。题干中的 Themostprobablereason和lessexpensive分别 对应定位句中的Thefirst一andmostlikely和 cheaper,而题干中的thepopularityof plastic lunchboxes是对定位句中plastictookover的同 义转述,故答案为M)。"
+        },
+        {
+          "number": 45,
+          "stem": "The durability of metal meal containers benefited consumers.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【答案】I。【定位】由题干中的Thedurabilityofmetalmeal containers和consumers定位到文章I)段第一、 二句。 I)【精析】同义转述题。定位句提到,这样的饭盒很 耐用,可以用好多年。对于消费者来说,这是很好 的,但是对于生产者来说却未必。题干中的 durability和consumers对应定位句中的durable 和theconsumer,题于中的benefited是对定位句 中great的同义转述,故答案为I。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2020-12-3-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "A growing number of U. S. bike riders are attracted to electric bikes for convenience, health benefits and their fun factor. Although ebikes first appeared in the 90s, cheaper options and longer-lasting batteries are breathing new life into the concept. Established bike companies and startups are embracing ebikes to meet demand. About 34 million ebikes were sold worldwide last year, according to data from eCycleElectric Consultants. Most were sold in Europe and China, where the bikes already have exploded in popularity. Recently, the U. S. market has grown to 263,000 bikes, a 25% gain from the prior year. The industry is benefiting from improved batteries as suppliers over the years developed technology for laptops, smartphones and electric cars. In 2004, the price of batteries used on ebikes fell, spurring European sales. But lower cost options are emerging, too. This month, three U. S. bikeshare companies, Motivate, LimeBike and Spin, announced electric bicycles will be added to their fleets. New York-based Jump Bikes is already operating an electric bikeshare in Washington, D. C., and is launching in San Francisco Thursday. Rides cost $2 for 30 minutes. The system works like existing dockless bikeshare systems, where riders unlock bikes through a smartphone app. \"This is the beginning of a long-term shift away from regular pedal (踏板) to electric bikes,\" said Jump Bikes CEO Ryan Rzepecki. \"When people first jump on an ebike, their face lights up. It's exciting and joyful in a way that you don't get from a regular bike.\" Two years ago, CEO Chris Cocalis of Pivot Cycles, which sells high-end mountain bikes, found that U. S. bike shops weren't interested in stocking ebikes. Some retailers warned Cocalis that they'd drop the brand if it came out with an electric bike. Now that sales are taking off, the vast majority of bike dealers are asking Cocalis when he'll make an ebike available. \"There's tremendous opportunity to get a generation of people for whom suffering isn't their thing,\" Cocalis said. \"Ebike riders get the enjoyable part of cycling without the massive suffering of climbing huge hills.\""
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What do we learn from the passage about ebikes?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Their health benefits and fun values outweigh their cost."
+            },
+            {
+              "key": "B",
+              "text": "They did not catch public attention in the United States until the 1990s."
+            },
+            {
+              "key": "C",
+              "text": "They did not become popular until the emergence of improved batteries."
+            },
+            {
+              "key": "D",
+              "text": "Their widespread use is attributable to people's environmental awareness."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的ebikes和题文同序原则定位 到首段第二句。 C)【精析】细节辨认题。定位句指出,尽管电动自行 车早在90年代就出现了,但更低廉的价格和更耐 用的电池给这个概念注人了新的活力。由此可 见,直到改进电池的出现,电动自行车才开始流 行,故答案为C)。 【避错】首段第一句提到,越来越多的美国自行车 骑手都被电动自行车所吸引,因为电动自行车方 便、有益健康,而且有趣。但文中并没有指出其健 康益处和娱乐价值超过了它们的成本,故排除"
+        },
+        {
+          "number": 47,
+          "stem": "What brought about the boost in ebike sales in Europe at the beginning of the century?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Updated technology of bike manufacture."
+            },
+            {
+              "key": "B",
+              "text": "The falling prices of ebike batteries."
+            },
+            {
+              "key": "C",
+              "text": "Changed fashion in short-distance travel."
+            },
+            {
+              "key": "D",
+              "text": "The rising costs for making electric cars."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的Europe和thebeginningof thecentury定位到第三段。 B)【精析】推理判断题。定位段提到,供应商多年来 开发了用于笔记本电脑、智能手机和电动汽车的 技术,电动自行车行业正受益于电池的改进。 2004年,电动自行车上使用的电池价格下跌,刺激 了欧洲的销量。由此可知,电池价格下跌使电动 自行车在欧洲的销量增加,故答案为B)。 【避错】第三段第一句提到,笔记本电脑、智能手机 和电动汽车的开发促进了电池的不断改进,面非 最新的自行车制造技术推动了欧洲电动自行车的 销量,A)的表述错误,故排除。本文并未提及短途 旅行,故排除C)。文中并未提及制造电动汽车的 成本,故排除D)。"
+        },
+        {
+          "number": 48,
+          "stem": "What is the prospect of the bike industry according to Ryan Rzepecki?",
+          "options": [
+            {
+              "key": "A",
+              "text": "More will be invested in bike battery research."
+            },
+            {
+              "key": "B",
+              "text": "The sales of ebikes will increase."
+            },
+            {
+              "key": "C",
+              "text": "It will profit from ebike sharing."
+            },
+            {
+              "key": "D",
+              "text": "It will make a difference in people's daily lives."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的RyanRzepecki定位到第五段 第二、三句。 D【精析】推理判断题。定位句指出JumpBikes首 席执行官莱恩·雷兹皮茨基的观点:这是从普通 踏板向电动自行车的长期转变的开始,当人们第 一次骑上电动自行车时,他们的脸会兴奋得发光。 这种兴奋和快乐是普通自行车所没有的。由此可 见,莱恩·雷兹皮茨基认为电动自行车会改变人 们的日常生活,故答案为D)。 【避错】文中并未提及更多的资金将投入到自行车 电池的研究中,故排除A)。本段第二句指出,这 是从普通踏板向电动自行车的长期转变的开始, 而非电动自行车销量会增加,B)为过度推理,故排 除。文中并未提及共享电动自行车的收益,故排 除C)。"
+        },
+        {
+          "number": 49,
+          "stem": "What prevented Chris Cocalis from developing ebikes sooner?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Retailers' refusal to deal in ebikes."
+            },
+            {
+              "key": "B",
+              "text": "High profits from conventional bikes."
+            },
+            {
+              "key": "C",
+              "text": "Users' concern about risks of ebike riding."
+            },
+            {
+              "key": "D",
+              "text": "His focus on selling costly mountain bikes."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题干中的ChrisCocalis和developing ebikes定位到第六段。 A)【精析】推理判断题。定位段提到,两年前,销售 高端山地车的PivotCycles首席执行官 克里斯·科卡利斯发现,美国自行车商店对储备 电动自行车不感兴趣。一些零售商警告科卡利 斯,如果他们品牌推出电动自行车,他们就放弃该 品牌。由此可见,零售商拒绝交易电动自行车,这 阻止了克里斯·科卡利斯更早地开发电动自行 车,故答案为A)。 【避错】第六段并未提及传统自行车利润高,故排 除B)。文章并未提及有关电动自行车的骑行安 全间题,故排除C)。定位段只是指出克里斯·科 卡利斯是做山地车的,而非他只专注做昂贵的山 地车而响了开发电动自行车,D)不符合文义,故 排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What makes Chris Cocalis believe there is a greater opportunity for ebike sales?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The further lowering of ebike prices."
+            },
+            {
+              "key": "B",
+              "text": "The public's concern for their health."
+            },
+            {
+              "key": "C",
+              "text": "The increasing interest in mountain climbing."
+            },
+            {
+              "key": "D",
+              "text": "The younger generation's pursuit of comfortable riding."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的ChrisCocalis和agreater opportunity定位到最后一段第二、三句。 D)【精析】推理判断题。定位句指出,对于这一代人 来说,苦难不是他们的事情,这是一个巨大的机 会。骑电动自行车的人可以享受骑自行车的乐 趣,同时又不用忍受爬山的巨大痛苦。由此可知, 克里斯·科卡利斯认为电动自行车具有巨大前景 是因为年轻一代追求安逸舒适的骑行,故答案 为D)。 【避错】文中没有提及电动自行车价格进一步下调 的问题,故排除A)。定位句指出,现在的人不愿 意受苦,喜欢追求舒适,而非他们关注健康,故排 除B)。本段最后一句指出电动自行车骑手既可 以享受骑自行车的乐趣,同时又不用忍受爬山的 巨大痛苦,而非人们越来越喜欢爬山,故排除C)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2020-12-3-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "The terms \"global warming\" and \"climate change\" are used by many, seemingly interchangeably. But do they really mean the same thing? Scientists shaped the history of the terms while attempting to accurately describe how humans continue to alter the planet. Later, political strategists adopted the terms to influence public opinion. In 1975, geochemist Wallace Broecker introduced the term \"climate change\" in an article published by Science. In 1979, a National Academy of Sciences report used the term \"global warming\" to define increases in the Earth's average surface temperature, while \"climate change\" more broadly referred to the numerous effects of this increase, such as sea-level rise and ocean acidification (酸化). During the following decades, some industrialists and politicians launched a campaign to sow doubt in the minds of the American public about the ability of fossil-fuel use, deforestation and other human activities to influence the planet's climate. Word use played a critical role in developing that doubt. For example, the language and polls expert Frank Luntz wrote a memo encouraging the use of \"climate change\" because the phrase sounded less scary than \"global warming,\" reported the Guardian. However, Luntz's recommendation wasn't necessary. A Google Ngram Viewer chart shows that by 1993 climate change was already more commonly used in books than global warming. By the end of the next decade both words were used more frequently, and climate change was used nearly twice as often as global warming. NASA used the term \"climate change\" because it more accurately reflects the wide range of changes to the planet caused by increasing amounts of greenhouse gases in the atmosphere. The debate isn't new. A century ago, chemist Svante Arrhenius started one of the first debates over the potential for humans to influence the planet's climate. Arrhenius calculated the capability of carbon dioxide to trap heat in the Earth's atmosphere, but other chemists disagreed. Some argued that humans weren't producing enough greenhouse gases, while others claimed the effects would be tiny. Now, of 四级 2020 年 12 月 51",
+        "course, we know that whatever you call it, human behavior is warming the planet, with grave consequences ahead."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "Why did politicians use the two terms \"global warming\" and \"climate change\"?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To sway public opinion of the impact of human activities on Earth."
+            },
+            {
+              "key": "B",
+              "text": "To more accurately describe the consequences of human activities."
+            },
+            {
+              "key": "C",
+              "text": "To win more popular votes in their campaign activities."
+            },
+            {
+              "key": "D",
+              "text": "To assure the public of the safety of existing industries."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题干中的politicians、twoterms和 “globalwarming”and“climatechange”定位到第 一段、第二段末句以及第四段。 A)【精析】推理判断题。第一段引入两个术语,第二 段最后一句指出,政治策略家们采用这些术语来 影响公众意见。第四段进一步提到,一些工业家 和政治家发起了一场运动,使美国公众的心里对 化石燃料的使用、溢伐森林以及其他人类活动影 响地球气候的能力产生怀。由此可见,政治家 们采用全球变暖和气候变化这两个术语是为了动 播公众对于人类活动影响地球的看法,故答案 为A)。 【避错】选项B)是将第七段中accurately和末段 中consequences杂设置的干扰项,政治家使用 这两个术语并不是为了更准确地描述人类活动的 后果,故排除。选项C)是根据第四段中launched acampaign设置的干扰项,但文中并没有提到在 竞选活动中赢得更多的选票,故排除。选项D)是 根据第四段中industrialists设置的干扰项,本段 主要表达工业家和政治家发起运动的目的,而不 是向公众保证现存企业的安全性,故排除。"
+        },
+        {
+          "number": 52,
+          "stem": "As used in a National Academy of Sciences report, the term \"climate change\" differs from \"global warming\" in that ___.",
+          "options": [
+            {
+              "key": "A",
+              "text": "it sounds less vague"
+            },
+            {
+              "key": "B",
+              "text": "it looks more scientific"
+            },
+            {
+              "key": "C",
+              "text": "it covers more phenomena"
+            },
+            {
+              "key": "D",
+              "text": "it is much closer to reality"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题千中的NationalAcademyofSciences 定位到第三段第二句。 C)【精析】推理判断题。定位句提到,美国国家科学 院的报告使用了“全球变暖”这一术语来定义地球 表面平均温度的升高,而“气候变化”更广泛地指 代这一升高所导致的众多影响,比如海平面上升 和海洋酸化。由此可知,这两个术语的不同之处 在于“全球变暇”表述了现象,而“气候变化”则表 述了该现象所带来的后果,因此“气候变化”涵盖 更多的现象,故答案为C)。 【避错】定位句提到,“全球变暖”这一术语指的是 地球表面平均温度的升高,而“气候变化”则描述 这一升高所带来的后果。由此可见,二者在模糊 性上并没有差异,故排除A)。“全球变暖”与“气 候变化”这两个术语均出现在美国国家科学院的 报告中,文中并没有描述哪个更具有科学性,故排 除B)。“全球变暖”和“气候变化”都是对地球气 候变化的真实描述,文中并没有指出哪个更接近 现实,故排除D)。"
+        },
+        {
+          "number": 53,
+          "stem": "What did industrialists of the late 20th century resort to in order to mislead Americans?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Made-up survey results."
+            },
+            {
+              "key": "B",
+              "text": "Hired climate experts."
+            },
+            {
+              "key": "C",
+              "text": "False research findings."
+            },
+            {
+              "key": "D",
+              "text": "Deliberate choice of words."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的industrialistsofthelate20th century和misleadAmericans定位到第四、五段。 D)【精析】推理判断题。文章第四段指出,一些工业 家和政治家发起了一场运动,使美国公众的心里 对化石燃料的使用、溢伐森林以及其他人类活动 影响地球气候的能力产生怀疑。第五段第一句点 明,措辞的使用在推动那一质疑的过程中起到了 关键的作用。第二句举例说明,“气候变化”这一 说法听起来没有“全球变暖”那么可怕。由此可 见,工业家们对文字的蓄意选择可以起到误导民 众的作用,故答案为D)。 【避错】文中未提及A“编造的调研结果”、B)“雇 用的气候专家”和C)“错误的研究发现”,故排除。"
+        },
+        {
+          "number": 54,
+          "stem": "Why did NASA choose the term \"climate change\"?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To obtain more funds."
+            },
+            {
+              "key": "B",
+              "text": "For greater precision."
+            },
+            {
+              "key": "C",
+              "text": "For political needs."
+            },
+            {
+              "key": "D",
+              "text": "To avoid debate."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的NASA定位到第七段。 B)【精析】细节辨认题。定位段提到,美国国家航空 航天局使用“气候变化”这一术语,因为它更准确 地反映了大气中不断增加的温室气体给地球带来 的广泛变化。由此可见,美国国家航空航天局之 所以选择“气候变化”这一术语,是因为在涉及温 室效应所引起的不良后果时,这一术语的表述更 为准确,故答案为B)。 【避错】文中并没有涉及资金的话题,故排除A】。 第二段最后一句指出,政治策略家们采用这些术 语来影响公众意见,而美国国家航空航天局不带 有政治属性,因此它对术语的选择与政治无关,故 排除C)。选项D)是根据最后一段第一句中The debate设置的干扰项,争论是存在于科学家之间 的,与美国国家航空航天局无关,故排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What is the author's final conclusion?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Global warming is the more accurate term."
+            },
+            {
+              "key": "B",
+              "text": "Accuracy of terminology matters in science."
+            },
+            {
+              "key": "C",
+              "text": "Human activities have serious effects on Earth."
+            },
+            {
+              "key": "D",
+              "text": "Politics interferes with serious scientific debate."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的theauthor'sfinalconclusion 和题文同序原则定位到最后一段最后一句。 C【精析】推理判断题。最后一段开始,作者概括性 地介绍了对于术语的争论有史以来就存在。定位 句指出,我们知道,不管你怎么称呼它,人类的行 为正在使地球变暖,而且面临着严重的后果。由 此可见,作者认为无论采用哪个术语,人类的活动 都正在给地球带来不好的后果,故答案为C)。 【避错】第七段第一句提到,“气候变化”这一术语 可以更准确地反映温室气体对地球变化的影响, 故排除A)。虽然文中涉及科学界对于这两个术 语的争辩,但并未提及科学中术语正确的重要性, 故排除B)。文中并没有表达政治干扰严肃的科 学辩论这一观点,故排除D)。"
+        }
+      ]
+    }
+  ]
+}

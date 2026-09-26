@@ -1,0 +1,1565 @@
+{
+  "id": "cet4-2016-12-1",
+  "level": 4,
+  "year": 2016,
+  "month": 12,
+  "set": 1,
+  "title": "2016 年 12 月四级 · 第 1 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.12/%E7%9C%9F%E9%A2%98Word/2016%E5%B9%B412%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC%E4%B8%80%E5%A5%97%EF%BC%89.doc",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2016%E5%B9%B412%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E7%AC%AC%E4%B8%80%E5%A5%97%EF%BC%89.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2016-12-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Many men and women have long bought into the idea that there are “male” and “female” brains, believing that explains just about every difference between the sexes. A new study [[26]] that belief, questioning whether brains really can be distinguished by gender. In the study, Tel Aviv University researchers [[27]] for sex differences the entire human brain. And what did they find? Not much. Rather than offer evidence for [[28]] brains as “male” or “female,” research shows that brains fall into a wide range, with most people falling right in the middle. Daphna Joel, who led the study, said her research found that while there are some gender-based [[29]] , many different types of brain can't always be distinguished by gender. While the “average” male and “average” female brains were [[30]] different, you couldn't tell it by looking at individual brain scans. Only a small [[31]] of people had “all-male” or “all-female” characteristics. Larry Cahill, an American neuroscientist(神经科学家), said the study is an important addition to a growing body of research questioning [[32]] beliefs about gender and brain function. But he cautioned against concluding from this study that all brains are the same, [[33]] of gender. “There's a mountain of evidence [[34]] the importance of sex influences at all levels of brain function,” he told The Seattle Times. If anything, he said, the study [[35]] that gender plays a very important role in the brain “even when we are not clear exactly how.”"
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "abnormal"
+        },
+        {
+          "key": "B",
+          "text": "applied"
+        },
+        {
+          "key": "C",
+          "text": "briefly"
+        },
+        {
+          "key": "D",
+          "text": "categorizing"
+        },
+        {
+          "key": "E",
+          "text": "challenges"
+        },
+        {
+          "key": "F",
+          "text": "figure"
+        },
+        {
+          "key": "G",
+          "text": "percentage"
+        },
+        {
+          "key": "H",
+          "text": "proving"
+        },
+        {
+          "key": "I",
+          "text": "regardless"
+        },
+        {
+          "key": "J",
+          "text": "searched"
+        },
+        {
+          "key": "K",
+          "text": "similarities"
+        },
+        {
+          "key": "L",
+          "text": "slightly"
+        },
+        {
+          "key": "M",
+          "text": "suggests"
+        },
+        {
+          "key": "N",
+          "text": "tastes"
+        },
+        {
+          "key": "O",
+          "text": "traditional"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abnormal"
+            },
+            {
+              "key": "B",
+              "text": "applied"
+            },
+            {
+              "key": "C",
+              "text": "briefly"
+            },
+            {
+              "key": "D",
+              "text": "categorizing"
+            },
+            {
+              "key": "E",
+              "text": "challenges"
+            },
+            {
+              "key": "F",
+              "text": "figure"
+            },
+            {
+              "key": "G",
+              "text": "percentage"
+            },
+            {
+              "key": "H",
+              "text": "proving"
+            },
+            {
+              "key": "I",
+              "text": "regardless"
+            },
+            {
+              "key": "J",
+              "text": "searched"
+            },
+            {
+              "key": "K",
+              "text": "similarities"
+            },
+            {
+              "key": "L",
+              "text": "slightly"
+            },
+            {
+              "key": "M",
+              "text": "suggests"
+            },
+            {
+              "key": "N",
+              "text": "tastes"
+            },
+            {
+              "key": "O",
+              "text": "traditional"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E)空格前的名词Anewstudy作句子主语,空格后的名词thatbelief作宾语,因此空格处应 填人动词作谓语。根据句意:一项新的研究了这种信念,质疑大脑是否真的可以通过 性别来区分。可知,空格处动词的词义应与“质疑”相近,且为第三人称单数形式,故选E)。 M)suggests意为“建议,暗示”,与后面的questioning无关,故排除。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abnormal"
+            },
+            {
+              "key": "B",
+              "text": "applied"
+            },
+            {
+              "key": "C",
+              "text": "briefly"
+            },
+            {
+              "key": "D",
+              "text": "categorizing"
+            },
+            {
+              "key": "E",
+              "text": "challenges"
+            },
+            {
+              "key": "F",
+              "text": "figure"
+            },
+            {
+              "key": "G",
+              "text": "percentage"
+            },
+            {
+              "key": "H",
+              "text": "proving"
+            },
+            {
+              "key": "I",
+              "text": "regardless"
+            },
+            {
+              "key": "J",
+              "text": "searched"
+            },
+            {
+              "key": "K",
+              "text": "similarities"
+            },
+            {
+              "key": "L",
+              "text": "slightly"
+            },
+            {
+              "key": "M",
+              "text": "suggests"
+            },
+            {
+              "key": "N",
+              "text": "tastes"
+            },
+            {
+              "key": "O",
+              "text": "traditional"
+            }
+          ],
+          "answer": "J",
+          "explanation": "J)空格前为名词researchers,后面是介词for,故空格处应填入动词,且与for构成搭配。根 据句意:在研究中,特拉维夫大学的研究人员在所有人类大脑中性别方面的差异,并结 合备选项可知,searchfor意为“搜寻”符合句意,故选J)。appliedfor虽也可构成搭配,但意 为“申请”,不符合句意,故排除。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abnormal"
+            },
+            {
+              "key": "B",
+              "text": "applied"
+            },
+            {
+              "key": "C",
+              "text": "briefly"
+            },
+            {
+              "key": "D",
+              "text": "categorizing"
+            },
+            {
+              "key": "E",
+              "text": "challenges"
+            },
+            {
+              "key": "F",
+              "text": "figure"
+            },
+            {
+              "key": "G",
+              "text": "percentage"
+            },
+            {
+              "key": "H",
+              "text": "proving"
+            },
+            {
+              "key": "I",
+              "text": "regardless"
+            },
+            {
+              "key": "J",
+              "text": "searched"
+            },
+            {
+              "key": "K",
+              "text": "similarities"
+            },
+            {
+              "key": "L",
+              "text": "slightly"
+            },
+            {
+              "key": "M",
+              "text": "suggests"
+            },
+            {
+              "key": "N",
+              "text": "tastes"
+            },
+            {
+              "key": "O",
+              "text": "traditional"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)空格前为介词for,后面为名词brains,且跟随as结构。故空格处应填人动名词形式,并能与 as构成搭配。根据句意:他们不能提供能把大脑 为“男性”或“女性”的证据,结合备选项 可知,categorizing与as搭配,意为“把分类/归类为.....”,符合句意,故选D)。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abnormal"
+            },
+            {
+              "key": "B",
+              "text": "applied"
+            },
+            {
+              "key": "C",
+              "text": "briefly"
+            },
+            {
+              "key": "D",
+              "text": "categorizing"
+            },
+            {
+              "key": "E",
+              "text": "challenges"
+            },
+            {
+              "key": "F",
+              "text": "figure"
+            },
+            {
+              "key": "G",
+              "text": "percentage"
+            },
+            {
+              "key": "H",
+              "text": "proving"
+            },
+            {
+              "key": "I",
+              "text": "regardless"
+            },
+            {
+              "key": "J",
+              "text": "searched"
+            },
+            {
+              "key": "K",
+              "text": "similarities"
+            },
+            {
+              "key": "L",
+              "text": "slightly"
+            },
+            {
+              "key": "M",
+              "text": "suggests"
+            },
+            {
+              "key": "N",
+              "text": "tastes"
+            },
+            {
+              "key": "O",
+              "text": "traditional"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K)空格前为形容词gender-based,且该句为thereare句型,故空格处应填入复数名词。根 据句意:虽然有一些基于性别的 一,但许多不同类型的大脑并不能根据性别来区分。 while在句中表示“虽然,尽管”,说明句子前后为转折关系,结合备选项可知,similarities意 为“相似之处”符合句意,故选K)。N)tastes虽也为名词复数,但意为“品尝,品味”,不符合 :16· 2016-12四级试题(第1套) 句意,故排除。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abnormal"
+            },
+            {
+              "key": "B",
+              "text": "applied"
+            },
+            {
+              "key": "C",
+              "text": "briefly"
+            },
+            {
+              "key": "D",
+              "text": "categorizing"
+            },
+            {
+              "key": "E",
+              "text": "challenges"
+            },
+            {
+              "key": "F",
+              "text": "figure"
+            },
+            {
+              "key": "G",
+              "text": "percentage"
+            },
+            {
+              "key": "H",
+              "text": "proving"
+            },
+            {
+              "key": "I",
+              "text": "regardless"
+            },
+            {
+              "key": "J",
+              "text": "searched"
+            },
+            {
+              "key": "K",
+              "text": "similarities"
+            },
+            {
+              "key": "L",
+              "text": "slightly"
+            },
+            {
+              "key": "M",
+              "text": "suggests"
+            },
+            {
+              "key": "N",
+              "text": "tastes"
+            },
+            {
+              "key": "O",
+              "text": "traditional"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L)空格前为be动词were,空格后为形容词different,故空格处应填入副词,修饰形容词 过只看个体性的大脑扫描图就下定论。可知,男女大脑间的区别不明显,结合备选项可知, slightly意为“轻微地”,故选L)。C)briefly意为“短暂地,简略地”,不适合修饰形容词 different,故排除。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abnormal"
+            },
+            {
+              "key": "B",
+              "text": "applied"
+            },
+            {
+              "key": "C",
+              "text": "briefly"
+            },
+            {
+              "key": "D",
+              "text": "categorizing"
+            },
+            {
+              "key": "E",
+              "text": "challenges"
+            },
+            {
+              "key": "F",
+              "text": "figure"
+            },
+            {
+              "key": "G",
+              "text": "percentage"
+            },
+            {
+              "key": "H",
+              "text": "proving"
+            },
+            {
+              "key": "I",
+              "text": "regardless"
+            },
+            {
+              "key": "J",
+              "text": "searched"
+            },
+            {
+              "key": "K",
+              "text": "similarities"
+            },
+            {
+              "key": "L",
+              "text": "slightly"
+            },
+            {
+              "key": "M",
+              "text": "suggests"
+            },
+            {
+              "key": "N",
+              "text": "tastes"
+            },
+            {
+              "key": "O",
+              "text": "traditional"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G)空格前为asmall,后面为of,故空格处应填入名词单数,并可与前后词搭配,共同修饰后 面的people。根据句意:只有极少_的人具有“完全男性”或“完全女性”的特点。a small percentageof意为“少数比例的,一小部分”,符合句意,故选G)。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abnormal"
+            },
+            {
+              "key": "B",
+              "text": "applied"
+            },
+            {
+              "key": "C",
+              "text": "briefly"
+            },
+            {
+              "key": "D",
+              "text": "categorizing"
+            },
+            {
+              "key": "E",
+              "text": "challenges"
+            },
+            {
+              "key": "F",
+              "text": "figure"
+            },
+            {
+              "key": "G",
+              "text": "percentage"
+            },
+            {
+              "key": "H",
+              "text": "proving"
+            },
+            {
+              "key": "I",
+              "text": "regardless"
+            },
+            {
+              "key": "J",
+              "text": "searched"
+            },
+            {
+              "key": "K",
+              "text": "similarities"
+            },
+            {
+              "key": "L",
+              "text": "slightly"
+            },
+            {
+              "key": "M",
+              "text": "suggests"
+            },
+            {
+              "key": "N",
+              "text": "tastes"
+            },
+            {
+              "key": "O",
+              "text": "traditional"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O)空格前为动词questioning,空格后为名词beliefs,故空格处应填人形容词修饰beliefs。 根据句意:这项研究对那些质疑 性别和大脑功能理念的研究是一个重要补充。文中提 到的是新的研究,必定质疑了“传统的”理念,故选○)。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abnormal"
+            },
+            {
+              "key": "B",
+              "text": "applied"
+            },
+            {
+              "key": "C",
+              "text": "briefly"
+            },
+            {
+              "key": "D",
+              "text": "categorizing"
+            },
+            {
+              "key": "E",
+              "text": "challenges"
+            },
+            {
+              "key": "F",
+              "text": "figure"
+            },
+            {
+              "key": "G",
+              "text": "percentage"
+            },
+            {
+              "key": "H",
+              "text": "proving"
+            },
+            {
+              "key": "I",
+              "text": "regardless"
+            },
+            {
+              "key": "J",
+              "text": "searched"
+            },
+            {
+              "key": "K",
+              "text": "similarities"
+            },
+            {
+              "key": "L",
+              "text": "slightly"
+            },
+            {
+              "key": "M",
+              "text": "suggests"
+            },
+            {
+              "key": "N",
+              "text": "tastes"
+            },
+            {
+              "key": "O",
+              "text": "traditional"
+            }
+          ],
+          "answer": "I",
+          "explanation": "I)空格前面为完整句子,空格后为ofgender,故空格处应填入副词,并与of构成搭配。根据 句意:但他告诚不要从这项研究中得出性别如何,所有的大脑都是相同的结论。结合"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abnormal"
+            },
+            {
+              "key": "B",
+              "text": "applied"
+            },
+            {
+              "key": "C",
+              "text": "briefly"
+            },
+            {
+              "key": "D",
+              "text": "categorizing"
+            },
+            {
+              "key": "E",
+              "text": "challenges"
+            },
+            {
+              "key": "F",
+              "text": "figure"
+            },
+            {
+              "key": "G",
+              "text": "percentage"
+            },
+            {
+              "key": "H",
+              "text": "proving"
+            },
+            {
+              "key": "I",
+              "text": "regardless"
+            },
+            {
+              "key": "J",
+              "text": "searched"
+            },
+            {
+              "key": "K",
+              "text": "similarities"
+            },
+            {
+              "key": "L",
+              "text": "slightly"
+            },
+            {
+              "key": "M",
+              "text": "suggests"
+            },
+            {
+              "key": "N",
+              "text": "tastes"
+            },
+            {
+              "key": "O",
+              "text": "traditional"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H)空格所在句子的主干结构完整,前面为名词evidence,后面为名词the importance,故空格处 应填入动词的分词形式,与后面构成非谓语动词短语,作evidence的定语。结合备选项可知, 句意,故选H)。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abnormal"
+            },
+            {
+              "key": "B",
+              "text": "applied"
+            },
+            {
+              "key": "C",
+              "text": "briefly"
+            },
+            {
+              "key": "D",
+              "text": "categorizing"
+            },
+            {
+              "key": "E",
+              "text": "challenges"
+            },
+            {
+              "key": "F",
+              "text": "figure"
+            },
+            {
+              "key": "G",
+              "text": "percentage"
+            },
+            {
+              "key": "H",
+              "text": "proving"
+            },
+            {
+              "key": "I",
+              "text": "regardless"
+            },
+            {
+              "key": "J",
+              "text": "searched"
+            },
+            {
+              "key": "K",
+              "text": "similarities"
+            },
+            {
+              "key": "L",
+              "text": "slightly"
+            },
+            {
+              "key": "M",
+              "text": "suggests"
+            },
+            {
+              "key": "N",
+              "text": "tastes"
+            },
+            {
+              "key": "O",
+              "text": "traditional"
+            }
+          ],
+          "answer": "M",
+          "explanation": "M)空格前为名词thestudy,空格后为that从句,故空格处应填入动词作谓语,且为第三人 称单数形式。根据句意:这项研究出性别在大脑中扮演着非常重要的作用一一“即使 目前我们不确定是如何起作用的。可知,suggests意为“暗示,建议”符合句意,故选M)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2016-12-1-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Any product that promises to protect your home deserves careful examination. So it isn't surprising that you'll find plenty of strong opinions about the potential vulnerabilities of popular home-security systems.",
+        "B) The most likely type of burglary(入室盗窃)by far is the unsophisticated crime of opportunity, usually involving a broken window or some forced entry. According to the FBI, crimes like these accounted roughly two-thirds of all household burglaries in the US in 2013.The wide majority of the rest were illegal, unforced entries that resulted from something like a window being left open. The odds of a criminal using technical means to bypass a security system are so small that the FBI doesn't even track those statistics.",
+        "C) One of the main theoretical home-security concerns is whether or not a given system is vulnerable to being blocked from working altogether. With wired setups, the fear is that a burglar(入室盗贼)might be able to shut your system down simply by cutting the right cable. With a wireless setup, you stick battery-powered sensors up around your home that keep an eye on windows, doors, motion, and more. If they detect something wrong while the system is armed, they'll transmit a wireless alert signal to a base station that will then raise the alarm. That approach will eliminate most cord-cutting concerns—but what about their wireless equivalent, jamming? With the right device tuned to the right frequency, what's to stop a thief from jamming your setup and blocking that alert signal from ever reaching the base station?",
+        "D) Jamming concerns are nothing new, and they're not unique to security systems. Any device that's built to receive a wireless signal at a specific frequency can be overwhelmed by a stronger signal coming in on the same frequency. For comparison, let's say you wanted to “jam” a conversation between two people—all you'd need to do is yell in the listener's ear.",
+        "E) Security devices are required to list the frequencies they broadcast on—that means that a potential thief can find what they need to know with minimal Googling. They will, however, need so know what system they're looking for. If you have a sign in your yard declaring what setup you use, that'd point them in the right direction, though at that point, we're talking about a highly targeted, semi-sophisticated attack, and not the sort forced-entry attack that makes up the majority of burglaries. It's easier to find and acquire jamming equipment for some frequencies than it is for others.",
+        "F) Wireless security providers will often take steps to help combat the threat of jamming attacks. SimpliSafe, winner of our Editor's Choice distinction, utilizes a special system that's capable of separating incidental RF interference from targeted jamming attacks. When the system thinks it's being jammed, it'll notify you via push alert(推送警报). From there, it's up to you to sound the alarm manually.",
+        "G) SimpliSafe was singled out in one recent article on jamming, complete with a video showing the entire system being effectively bypassed with handheld jamming equipment. After taking appropriate measures to contain the RF interference to our test lab, we tested the attack out for ourselves, and were able to verify that it's possible with the right equipment. However, we also verified that SimpliSafe's anti-jamming system works. It caught us in the act, sent an alert to my smartphone, and also listed our RF interference on the system's event log. The team behind the article and video in question make no mention of the system, or whether or not in detected them.",
+        "H) We like the unique nature of that software. It means that a thief likely wouldn't be able to Google how the system works, then figure out a way around it. Even if they could, SimpliSafe claims that its system is always evolving, and that it varies slightly from system to system, which means there wouldn't be a universal magic formula for cracking it. Other systems also seem confident on the subject of jamming. The team at Frontpoint addresses the issue in a blog on its site, citing their own jam protection software and claiming that there aren't any documented cases of successful jam attack since the company began offering wireless security sensors in the 1980s.",
+        "I) Jamming attacks are absolutely possible. As said before, with the right equipment and the right know-how, it's possible to jam any wireless transmission. But how probable is it that someone will successfully jam their way into your home and steal your stuff?",
+        "J) Let's imagine that you live in a small home with a wireless security setup that offers a functional anti-jamming system. First, a thief is going to need to target your home, specifically. Then, he's going to need to know the technical details of your system and acquire the specific equipment necessary for jamming your specific setup. Presumably, you keep your doors locked at night and while you're away. So the thief will still need to break in. That means defeating the lock somehow, or breaking a window. He'll need to be jamming you at this point, as a broken window or opened door would normally release the alarm. So, too, would the motion detectors in your home, so the thief will need to continue jamming once he's inside and searching for things to steal. However, he'll need to do so without tripping the anti-jamming system, the details of which he almost certainly does now have access to.",
+        "K) At the end of the day, these kinds of systems are primarily designed to protect against the sort of opportunistic smash-and-grab attack that makes up the majority of burglaries. They're also only a single layer in what should ideally be a many-sided approach to securing your home, one that includes common sense things like sound locks and proper exterior lighting at night. No system is impenetrable, and none can promise to eliminate the worst case completely. Every one of them has vulnerabilities that a knowledgeable thief could theoretically exploit. A good system is one that keeps that worst-case setting as improbable as possible while also offering strong protection in the event of a less-extraordinary attack."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "It is possible for burglars to make jamming attacks with the necessary equipment and skill.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "I",
+          "explanation": "I)根据题目意思:窃贼在使用合适的设备和技术的情况下成功实施阻断性攻击是有可能的。 根据题干线索词makejammingattacks和necessaryequipmentandskill定位至I)段。该段 提到,信号阻断攻击是绝对有可能的。正如之前所述,使用合适的设备和合适的技术,任何无 线传输都是可能被阻断的。与题干同义,且原文及题干均提到了possible一词,故答案选I)。"
+        },
+        {
+          "number": 37,
+          "stem": "Interfering with a wireless security system is similar to interfering with a conversation.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)根据题目意思:干扰一个无线安保系统类似于干扰一段对话一样。根据题干线索词 interferingwithaconversation定位至D)段。该段提到,假设你想“阻断”两个人之间的谈 话一一你需要做的就是对着听者的耳朵大喊。题干中的similarto将前后进行对比,与D)段 定位句中的forcomparison作用一致,都是将两件事情相提并论,故答案选D)。"
+        },
+        {
+          "number": 38,
+          "stem": "A burglar has to continuously jam the wireless security device to avoid triggering the alarm, both inside and outside the house.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "J",
+          "explanation": "J)根据题目意思:一个窃贼不得不持续地阻断无线安保设备以避免触发警报,不管是在室内 还是在室外。根据题干线索词bothinsideandoutsidethehouse定位至J)段。该段提到,窃 贼在进人室内时需要阻断你的安保系统,因为破碎的窗户或被撬开的门必然会引发警报。同 理,你家内部的运动传感器也会报警。因此,在窃贼进人室内,仍然需要不断阻断系统。也就 是说从室外到室内,需要不断地进行信号阻断行为,故答案选J)。"
+        },
+        {
+          "number": 39,
+          "stem": "SimpliSafe provides devices that are able to distinguish incidental radio interference from targeted jamming attacks.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F)根据题目意思:SimpliSafe提供了能够区分偶发性信号干扰和有目的性的信号阻断攻击设备。根据题干线索词incidental,interference和targetedjammingattacks定位至F)段。 题干为该段内容的同义转述,故答案选F)。"
+        },
+        {
+          "number": 40,
+          "stem": "Only a very small proportion of burglaries are committed by technical means.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)根据题目意思:只有很少比例的入室盗窃是通过技术手段来实施的。根据题干线索词 technicalmeans(技术手段)定位至B)段。该段提到,犯罪分子使用技术手段绕过安保系统 的可能性非常小,以至于联邦调查局甚至不屑于跟踪这些数据。其中,题干中的proportion 与原文中的odds都表示使用技术手段实施盗窃可能性,故答案选B)。"
+        },
+        {
+          "number": 41,
+          "stem": "It is difficult to crack SimpliSafe as its system keeps changing.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H)根据题目意思:由于系统不断变化,很难破解SimpliSafe。根据题干线索词keeps changing定位至H)段。该段提到,SimpliSafe声称其系统总是在不断优化的.这意味着 不会有一个通用的公式来破解这些系统。说明SimpliSafe很难破解,故答案选H)。"
+        },
+        {
+          "number": 42,
+          "stem": "Wireless devices will transmit signals so as to activate the alarm once something wrong is detected.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)根据题目意思:一旦有异常的情况被检测到,无线设备将会发出信号去触发警报。根据题 干线索词oncesomethingwrongisdetected定位至C)段。该段提到,如果在系统布防时检 测到异常情况,它们将向基站发送无线报警信号,然后基站将引发报警,故答案选C)。"
+        },
+        {
+          "number": 43,
+          "stem": "Different measures should be taken to protect one's home from burglary in addition to the wireless security system.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K)根据题目意思:除了无线安保系统,应采取不同的措施来防止家里被盗。题干主要强调 是除了无线安保系统以外的保护措施。其中“many-sided”也表示还有很多其他方法可以防 止家里被盗。故答案选K)。"
+        },
+        {
+          "number": 44,
+          "stem": "SimpliSafe's device can send a warning to the house owner's cellphone.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G)根据题目意思:SimpliSafe设备可以向房主的手机发送警告。根据题干线索词senda Warningtothehouseowner'scellphone定位至G)段。该段提到,SimpliSafe在运行中搜索 到了我们,并向我的手机发出警报。说明题干为该段内容的同义转述,故答案选G)。"
+        },
+        {
+          "number": 45,
+          "stem": "Burglars can easily get a security device's frequency by Internet search.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E)根据题目意思:窃贼可以轻易地通过网络搜索来获得安保设备的频率。根据题干线索词 Internet search定位至E)段。该段提到,安保设备被要求列出它们发出信号的频率一这 2016-12四级试题(第1套) 。19· 意味着潜在的窃贼可以通过简单的在谷歌上搜索一下,就能找到他们需要的信息。说明题干 为该段内容的同义转述,故答案选E)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2016-12-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "As a person who writes about food and drink for a living. I couldn't tell you the first thing about Bill Perry or whether the beers he sells are that great. But I can tell you that I like this guy. That's because he plans to ban tipping in favor of paying his servers an actual living wage. I hate tipping. I hate it because it's an obligation disguised as an option. I hate it for the post-dinner math it requires of me. But mostly, I hate tipping because I believe I would be in a better place if pay decisions regarding employees were simply left up to their employers, as is the custom in virtually every other industry. Most of you probably think that you hate tipping, too. Research suggests otherwise. You actually love tipping! You like to feel that you have a voice in how much money your server makes. No matter how the math works out, you persistently view restaurants with voluntary tipping systems as being a better value, which makes it extremely difficult for restaurants and bars to do away with the tipping system. One argument that you tend to hear a lot from the pro-tipping crowd seems logical enough: the service is better when waiters depend on tips, presumably because they see a benefit to successfully veiling their contempt for you. Well, if this were true, we would all be slipping a few 100-dollar bills to our doctors on the way out their doors, too. But as it turns out, waiters see only a tiny bump in tips when they do an exceptional job compared to a passable one. Waiters, keen observers of humanity that they are, are catching on to this; in one poll, a full 30% said they didn't believe the job they did had any impact on the tips they received. So come on, folks: get on board with ditching the outdated tip system. Pay a little more upfront for your beer or burger. Support Bill Perry's pub, and any other bar or restaurant that doesn't ask you to do drunken math."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What can we learn about Bill Perry from the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "He runs a pub that serves excellent beer."
+            },
+            {
+              "key": "B",
+              "text": "He intends to get rid of the tipping practice."
+            },
+            {
+              "key": "C",
+              "text": "He gives his staff a considerable sum for tips."
+            },
+            {
+              "key": "D",
+              "text": "He lives comfortably without getting any tips."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)题目就我们能了解到比尔·佩里的哪些信息提问。根据题干关键词BillPerry定位至首 段。该段提到,比尔·佩里打算取消小费,故答案选B)项。A)项“他经营一家供应优质啤酒 的酒吧”根据首句可知作者无法告知比尔·佩里卖的啤酒是否是优质的,故排除;C)项“他给 他的工作人员相当多的小费”和D)项“他在没有收到任何小费的情况下生活得非常舒适”在 文中并未提及,故排除。"
+        },
+        {
+          "number": 47,
+          "stem": "What is the main reason why the author hates tipping?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It sets a bad example for other industries."
+            },
+            {
+              "key": "B",
+              "text": "It adds to the burden of ordinary customers."
+            },
+            {
+              "key": "C",
+              "text": "It forces the customer to compensate the waiter."
+            },
+            {
+              "key": "D",
+              "text": "It poses a great challenge for customers to do math."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)题目就作者讨厌小费最主要的原因提问。根据题干关键词hatestipping定位到第三段末 句。该句提到,作者希望服务员的报酬由雇主来决定,而非消费者。说明小费制度强迫消费 者给服务人员支付劳动报酬,故答案选C)项。A)项“它为其他行业树立了一个坏榜样”文中 虽提及了其他行业,但是以其他行业为例,说明雇主给雇员支付劳动报酬的合理性,并未提及 小费制度造成的影响,故排除;B)项“它增加了普通消费者的负担”在文中并提及,故排除;D) 项“让消费者们做数学功课给他们带来了很大的挑战”,作者虽在第三段第二句中提到支付小 费需要消费者做数学功课,但这并不是作者讨厌小费的主要原因,故排除。"
+        },
+        {
+          "number": 48,
+          "stem": "Why do many people love tipping according to the author?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They help improve the quality of the restaurants they dine in."
+            },
+            {
+              "key": "B",
+              "text": "They believe waiters deserve such rewards for good service."
+            },
+            {
+              "key": "C",
+              "text": "They want to preserve a wonderful tradition of the industry."
+            },
+            {
+              "key": "D",
+              "text": "They can have some say in how much their servers earn."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)题目就作者认为,为什么许多人喜欢给小费提问。根据题干关键词manypeoplelove tipping定位至第四段第三、四句。该句提到,你们真的很喜欢给小费!后一句为喜欢给小费 的原因,即你很享受对为你服务的员工收人多少有发言权的感觉,故答案选D)项。A)项“他 .20: 2016-12四级试题(第1套) 们帮助提高了他们就餐餐厅的质量”,文章第四段提到,你坚持认为带有小费体制的餐厅有着 更高的品质,是说消费者认为有小费的餐厅质量偏高,而不是说消费者提高了餐厅质量,故排 行业的优良传统”,在文中并未提及,因此排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What have some waiters come to realize according to a survey?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Service quality has little effect on tip size."
+            },
+            {
+              "key": "B",
+              "text": "It is in human mature to try to save on tips."
+            },
+            {
+              "key": "C",
+              "text": "Tips make it more difficult to please customers."
+            },
+            {
+              "key": "D",
+              "text": "Tips benefit the boss rather that the employees."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)题目就调查可知,一些服务生意识到了什么提问。根据题干关键词waiters cometo realize和asurvey定位至倒数第二段末句。该句提到,在一项调查中,3o%的受访者认为他 们做的工作和收到的小费之间没有太大的关系。故答案选A)项“服务质量对小费的多少几 乎没有影响”。B)项“节省小费是人的本性”、C)项“小费使消费者们更难被取悦”和D)项“小 费让老板受益而非服务员”在文中均未提及,因此排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What does the author argue for in the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Restaurants should calculate the tips for customers."
+            },
+            {
+              "key": "B",
+              "text": "Customers should pay more tips to help improve service."
+            },
+            {
+              "key": "C",
+              "text": "Waiters deserve better than just relying on tips for a living."
+            },
+            {
+              "key": "D",
+              "text": "Waiters should be paid by employers instead of customers."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)题目就作者支持的观点提问,根据题干关键词authorarguefor可知,开篇作者就提到他 支持比尔·佩里打算取消小费的举动,且第三段末句提到,如果雇员的工资完全由雇主来决定,消费者会处于一个更舒适的位置。故答案选D)项“服务人员的报酬应由雇主支付而非消 费者”。A)项“餐厅应该替消费者计算小费”和C)项“服务员们应得到更好的待遇,而不是依 赖小费为生”在文中并未提及,故排除;B)项“消费者应该支付更多的小费以帮助改善服务”, 与作者观点相反,故排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2016-12-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "In the past, falling oil prices have given a boost to the world economy, but recent forecasts for global growth have been toned down, even as oil prices sink lower and lower. Does that mean the link between lower oil prices and growth has weakened? Some experts say there are still good reasons to believe cheap oil should heat up the world economy. Consumers have more money in their pockets when they're paying less at the pump. They spend that money on other things, which stimulates the economy. The biggest gains go to countries that import most of their oil like China, Japan, and India, But doesn't the extra money in the pockets of those countries' consumers mean an equal loss in oil producing countries, cancelling out the gains? Not necessarily, says economic researcher Sara Johnson. “Many oil producers built up huge reserve funds when prices were high, so when prices fall they will draw on their reserves to support government spending and subsidies(补贴)for their consumers.” But not all oil producers have big reserves, In Venezuela, collapsing oil prices have sent its economy into free-fall. Economist Carl Weinberg believes the negative effects of plunging oil prices are overwhelming the positive effects of cheaper oil. The implication is a sharp decline in global trade, which has plunged partly because oil-producing nations can't afford to import as much as they used to. Sara Johnson acknowledges that the global economic benefit from a fall in oil prices today is likely lower than it was in the past. One reason is that more countries are big oil producers now, so the nations suffering from the price drop account for a larger share of the global economy. Consumers, in the U.S. at least, are acting cautiously with the savings they're getting at the gas pump, as the memory of the recent great recession is still fresh in their mind. And a number of oil-producing countries are trimming their gasoline subsidies and raising taxes, so the net savings for global consumers is not as big as the oil price plunge might suggest."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the author mainly discuss in the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The reasons behind the plunge of oil prices."
+            },
+            {
+              "key": "B",
+              "text": "Possible ways to stimulate the global economy."
+            },
+            {
+              "key": "C",
+              "text": "The impact of cheap oil on global economic growth."
+            },
+            {
+              "key": "D",
+              "text": "The effect of falling oil prices on consumer spending."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)题目就整篇文章作者主要论述的主题是什么提问。通读文章可知,作者在文中主要讨论 了石油价格与经济发展之间的关系。首段就通过用过去与现在对比的方式,提出石油价格的 降低对全球经济增长的贡献已经弱化,并提出油价下降和经济增长之间的联系已经减弱的问 题,故答案选C)项“低油价对全球经济增长的影响”。A)项“油价暴跌背后的原因”、B)项“刺 2016-12四级试题(第1套) .21."
+        },
+        {
+          "number": 52,
+          "stem": "Why do some experts believe cheap oil will stimulate the global economy?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Manufacturers can produce consumer goods at a much lower cost."
+            },
+            {
+              "key": "B",
+              "text": "Lower oil prices have always given a big boost to the global economy."
+            },
+            {
+              "key": "C",
+              "text": "Oil prices may rise or fall but economic laws are not subject to change."
+            },
+            {
+              "key": "D",
+              "text": "Consumers will spend their saving from cheap oil on other commodities."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)题目就为什么一些专家认为低油价会刺激全球经济提问。根据题干关键词experts和 cheapoilwillstimulatetheglobaleconomy定位至第二段。该段提到专家的看法,消费者们 在加油站花的钱少了,他们的口袋里有更多的钱。他们把这笔钱消费在其他方面,从而刺激 经济。故答案选D)项“消费者会将从低油价中省出钱花在其他商品中”。A)项“生产商们可 以制造更低成本的消费品”在文中并未提及,故排除;B)项“降低油价总是能够促进全球经济 的增长”,根据首段首句提到的,如今油价下跌对于经济的上升影响并不明显了,可排除;C) 选项所述意思相反,因此排除。"
+        },
+        {
+          "number": 53,
+          "stem": "What happens in many oil-exporting countries when oil prices go down?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They suspend import of necessities from overseas."
+            },
+            {
+              "key": "B",
+              "text": "They reduce production drastically to boost oil prices."
+            },
+            {
+              "key": "C",
+              "text": "They use their money reserves to back up consumption."
+            },
+            {
+              "key": "D",
+              "text": "They try to stop their economy from going into free-fall."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)题目就当石油价格下跌时,石油出口国会怎样提问。根据题干关键词oil-exporting countries和oilpricesgodown定位至第三段末句。该句提到,许多石油生产国在价格下跌 时,将利用储备金来支撑政府开支并补贴消费者。故答案选C)项“他们利用储备金来援助消 项“他们试图阻止经济直线下滑”在文中均未提及,因此排除。"
+        },
+        {
+          "number": 54,
+          "stem": "How does Carl Weinberg view the current oil price plunge?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is one that has seen no parallel in economic history."
+            },
+            {
+              "key": "B",
+              "text": "Its negative effects more than cancel out its positive effects."
+            },
+            {
+              "key": "C",
+              "text": "It still has a chance to give rise to a boom in the global economy."
+            },
+            {
+              "key": "D",
+              "text": "Its effects on the global economy go against existing economic laws."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)题目就卡尔·温伯格对石油价格暴跌的看法提问。根据题干关键词CarlWeinberg和 thecurrentoilpriceplunge定位至第五段首句。该句提到,经济学家卡尔·温伯格认为,油 价暴跌所带来的负面影响远远大于低油价所带来的积极影响。B)项中的morethancancel B)项。A)项“这在历史上史无前例”和D)项“它对全球经济的影响与现有经济规律不符”在 文中并未提及,故排除;C)项“它仍然有可能让全球经济增长”与原文意思相反,故排除。"
+        },
+        {
+          "number": 55,
+          "stem": "Why haven't falling oil prices boosted the global economy as they did before?",
+          "options": [
+            {
+              "key": "A",
+              "text": "People are not spending all the money they save on gas."
+            },
+            {
+              "key": "B",
+              "text": "The global economy is likely to undergo another recession."
+            },
+            {
+              "key": "C",
+              "text": "Oil importers account for a larger portion of the global economy."
+            },
+            {
+              "key": "D",
+              "text": "People the world over are afraid of a further plunge in oil prices."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)题目就为何油价下跌不像以前那样促使全球经济增长提问。通读文章可知,油价下跌带 来的经济增长大不如前,其原因是油价下跌影响了越来越多的石油出口国,而人们从油价中 节省下来的钱又由于担心经济危机而不愿意消费,故答案选A)项。B)项“全球经济很有可 能经历另一次衰退”和D)项“全球人民都担心油价的进一步下跌”在文中并未提及,故排除; 的国家成为了石油生产国,所以这些国家受油价下跌的影响占全球经济的更大比重,而选项 中提到的是“进口国”,故排除。"
+        }
+      ]
+    }
+  ]
+}

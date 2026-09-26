@@ -1,0 +1,1729 @@
+{
+  "id": "cet6-2013-12-2",
+  "level": 6,
+  "year": 2013,
+  "month": 12,
+  "set": 2,
+  "title": "2013 年 12 月六级 · 第 2 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2013.12/%E7%9C%9F%E9%A2%98Word/2013%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%EF%BC%88%E4%BA%8C%EF%BC%89.doc",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2013.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2013%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A5%97%EF%BC%89.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2013-12-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Cell phones provide instant access to people. They are creating a major [[36]] in the social experiences of both children and adolescents. In one recent U.S. survey, about half the teens polled said that their cell phone had [[37]] their communications with friends. Almost all said that their cell phone was the way they stayed in touch with peers, one-third had used the cell phone to help a peer in need, and about 80% said the phone made them feel safer. Teenagers in Australia, [[38]] , said that their mobile phones provided numerous benefits and were an [[39]] part of their lives; some were so [[40]] to their phones that the researchers considered it an addiction. In Japan, too, researchers are concerned about cell phone addiction. Researchers in one study in Tokyo found that more than half of junior high school students used their phones to exchange e-mails with schoolmates more than 10 times a day. Cell phones [[41]] social connections with peers across time and space. They allow young people to exchange moment-by-moment experiences in their daily lives with special partners and thus to have a more [[42]] sense of connection with friends. Cell phones also can [[43]] social tolerance because they reduce children’s interactions with others who are different from them. In addition to connecting peers, cell phones connect children and parents. Researchers studying teenagers in Israel concluded that, in that [[44]] environment, mobile phones were regarded as “security objects” in parent-teen relationships — important because they provided the possibility of [[45]] and communication at all times."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "affiliated"
+        },
+        {
+          "key": "B",
+          "text": "attached"
+        },
+        {
+          "key": "C",
+          "text": "contact"
+        },
+        {
+          "key": "D",
+          "text": "contend"
+        },
+        {
+          "key": "E",
+          "text": "continuous"
+        },
+        {
+          "key": "F",
+          "text": "diminish"
+        },
+        {
+          "key": "G",
+          "text": "endurance"
+        },
+        {
+          "key": "H",
+          "text": "foster"
+        },
+        {
+          "key": "I",
+          "text": "hazardous"
+        },
+        {
+          "key": "J",
+          "text": "improved"
+        },
+        {
+          "key": "K",
+          "text": "instantaneous"
+        },
+        {
+          "key": "L",
+          "text": "intrinsic"
+        },
+        {
+          "key": "M",
+          "text": "relatively"
+        },
+        {
+          "key": "N",
+          "text": "shift"
+        },
+        {
+          "key": "O",
+          "text": "similarly"
+        }
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "第 36 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affiliated"
+            },
+            {
+              "key": "B",
+              "text": "attached"
+            },
+            {
+              "key": "C",
+              "text": "contact"
+            },
+            {
+              "key": "D",
+              "text": "contend"
+            },
+            {
+              "key": "E",
+              "text": "continuous"
+            },
+            {
+              "key": "F",
+              "text": "diminish"
+            },
+            {
+              "key": "G",
+              "text": "endurance"
+            },
+            {
+              "key": "H",
+              "text": "foster"
+            },
+            {
+              "key": "I",
+              "text": "hazardous"
+            },
+            {
+              "key": "J",
+              "text": "improved"
+            },
+            {
+              "key": "K",
+              "text": "instantaneous"
+            },
+            {
+              "key": "L",
+              "text": "intrinsic"
+            },
+            {
+              "key": "M",
+              "text": "relatively"
+            },
+            {
+              "key": "N",
+              "text": "shift"
+            },
+            {
+              "key": "O",
+              "text": "similarly"
+            }
+          ],
+          "answer": "N",
+          "explanation": "N) shift。空格前的a major 提示所填词为单数可数名词,C) contact 和N) shift 入选。从后文中列举的不 同国家青少年使用手机的情况分析来看,本句要表达的意思是手机改变了他们的生活,所以选择有“改变” 之意的N) shift 为答案。"
+        },
+        {
+          "number": 37,
+          "stem": "第 37 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affiliated"
+            },
+            {
+              "key": "B",
+              "text": "attached"
+            },
+            {
+              "key": "C",
+              "text": "contact"
+            },
+            {
+              "key": "D",
+              "text": "contend"
+            },
+            {
+              "key": "E",
+              "text": "continuous"
+            },
+            {
+              "key": "F",
+              "text": "diminish"
+            },
+            {
+              "key": "G",
+              "text": "endurance"
+            },
+            {
+              "key": "H",
+              "text": "foster"
+            },
+            {
+              "key": "I",
+              "text": "hazardous"
+            },
+            {
+              "key": "J",
+              "text": "improved"
+            },
+            {
+              "key": "K",
+              "text": "instantaneous"
+            },
+            {
+              "key": "L",
+              "text": "intrinsic"
+            },
+            {
+              "key": "M",
+              "text": "relatively"
+            },
+            {
+              "key": "N",
+              "text": "shift"
+            },
+            {
+              "key": "O",
+              "text": "similarly"
+            }
+          ],
+          "answer": "J",
+          "explanation": "J) improved。空格前的had 以及空后的宾语their communications 提示所填词是动词的过去分词,故A) affiliated,B) attached 和J) improved 入选,文章此处讨论的是使用手机带来的好处,所以说使用手机加强 了朋友之间的联系符合逻辑,故答案为J)improved (提高,改善)。"
+        },
+        {
+          "number": 38,
+          "stem": "第 38 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affiliated"
+            },
+            {
+              "key": "B",
+              "text": "attached"
+            },
+            {
+              "key": "C",
+              "text": "contact"
+            },
+            {
+              "key": "D",
+              "text": "contend"
+            },
+            {
+              "key": "E",
+              "text": "continuous"
+            },
+            {
+              "key": "F",
+              "text": "diminish"
+            },
+            {
+              "key": "G",
+              "text": "endurance"
+            },
+            {
+              "key": "H",
+              "text": "foster"
+            },
+            {
+              "key": "I",
+              "text": "hazardous"
+            },
+            {
+              "key": "J",
+              "text": "improved"
+            },
+            {
+              "key": "K",
+              "text": "instantaneous"
+            },
+            {
+              "key": "L",
+              "text": "intrinsic"
+            },
+            {
+              "key": "M",
+              "text": "relatively"
+            },
+            {
+              "key": "N",
+              "text": "shift"
+            },
+            {
+              "key": "O",
+              "text": "similarly"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O) similarly。本句句子结构与语义均完整,空格处应该填入副词与上文承接,M) relatively 和 O) similarly 入选。上一句讲述了美国青少年对手机的青睐,本句讲的是澳大利亚的情况,从numerous benefits 可以看 出澳大利亚青少年同样认可手机,所以选择O) similarly (同样地),展示两个国家的情况相似。"
+        },
+        {
+          "number": 39,
+          "stem": "第 39 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affiliated"
+            },
+            {
+              "key": "B",
+              "text": "attached"
+            },
+            {
+              "key": "C",
+              "text": "contact"
+            },
+            {
+              "key": "D",
+              "text": "contend"
+            },
+            {
+              "key": "E",
+              "text": "continuous"
+            },
+            {
+              "key": "F",
+              "text": "diminish"
+            },
+            {
+              "key": "G",
+              "text": "endurance"
+            },
+            {
+              "key": "H",
+              "text": "foster"
+            },
+            {
+              "key": "I",
+              "text": "hazardous"
+            },
+            {
+              "key": "J",
+              "text": "improved"
+            },
+            {
+              "key": "K",
+              "text": "instantaneous"
+            },
+            {
+              "key": "L",
+              "text": "intrinsic"
+            },
+            {
+              "key": "M",
+              "text": "relatively"
+            },
+            {
+              "key": "N",
+              "text": "shift"
+            },
+            {
+              "key": "O",
+              "text": "similarly"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A) affiliated。空格前的an 以及空后的part 提示所填词是以元音音素开头的形容词,A) affiliated, B) attached, K) instantaneous 和 L) intrinsic 入选。 澳大利亚的青少年们说手机带给他们无数便利, 是他们生 活的一部分,而且后面提到研究者认为他们使用手机成瘾(addiction),可见手机已成为隶属于他们生活中 的一部分,所以选A) affiliated,作形容词,意为“隶属的,附属的”。B) attached 表达 “附属于”之意时, 意为附加于或贴附在另一物上,attached part of their lives 指生活中多出来的部分,而不是指融合于生活的 一部分,所以排除attached; K) instantaneous (瞬间的,及时的)和L) intrinsic (本质的,固有的)与此处语 义相差甚远,排除。"
+        },
+        {
+          "number": 40,
+          "stem": "第 40 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affiliated"
+            },
+            {
+              "key": "B",
+              "text": "attached"
+            },
+            {
+              "key": "C",
+              "text": "contact"
+            },
+            {
+              "key": "D",
+              "text": "contend"
+            },
+            {
+              "key": "E",
+              "text": "continuous"
+            },
+            {
+              "key": "F",
+              "text": "diminish"
+            },
+            {
+              "key": "G",
+              "text": "endurance"
+            },
+            {
+              "key": "H",
+              "text": "foster"
+            },
+            {
+              "key": "I",
+              "text": "hazardous"
+            },
+            {
+              "key": "J",
+              "text": "improved"
+            },
+            {
+              "key": "K",
+              "text": "instantaneous"
+            },
+            {
+              "key": "L",
+              "text": "intrinsic"
+            },
+            {
+              "key": "M",
+              "text": "relatively"
+            },
+            {
+              "key": "N",
+              "text": "shift"
+            },
+            {
+              "key": "O",
+              "text": "similarly"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B) attached。空格所在词位于be... to sth.结构中,应填入形容词。本句指出一些人对手机的这种...使 得研究者视其为瘾(addition),可见空格所在分句承接上一分句,进一步表达一些青少年对手机的依赖程度, 所填词与第39 题的affiliated 同义,所以答案为B) attached, be attached to...意为“依恋于...”。"
+        },
+        {
+          "number": 41,
+          "stem": "第 41 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affiliated"
+            },
+            {
+              "key": "B",
+              "text": "attached"
+            },
+            {
+              "key": "C",
+              "text": "contact"
+            },
+            {
+              "key": "D",
+              "text": "contend"
+            },
+            {
+              "key": "E",
+              "text": "continuous"
+            },
+            {
+              "key": "F",
+              "text": "diminish"
+            },
+            {
+              "key": "G",
+              "text": "endurance"
+            },
+            {
+              "key": "H",
+              "text": "foster"
+            },
+            {
+              "key": "I",
+              "text": "hazardous"
+            },
+            {
+              "key": "J",
+              "text": "improved"
+            },
+            {
+              "key": "K",
+              "text": "instantaneous"
+            },
+            {
+              "key": "L",
+              "text": "intrinsic"
+            },
+            {
+              "key": "M",
+              "text": "relatively"
+            },
+            {
+              "key": "N",
+              "text": "shift"
+            },
+            {
+              "key": "O",
+              "text": "similarly"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H)。foster。空格位于句子的谓语部分,主语cell phones 以及下文的时态提示所填词为动词原形,C) contact (接触),D) contend (竞争),F) diminish (削弱,减少)和H) foster (促进,培养)入选。本句为段首总起句, 分析下一句They allow young people to exchange...所述,手机对同辈人之间的社会联系起到的是促进作用, 所以选H) foster。"
+        },
+        {
+          "number": 42,
+          "stem": "第 42 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affiliated"
+            },
+            {
+              "key": "B",
+              "text": "attached"
+            },
+            {
+              "key": "C",
+              "text": "contact"
+            },
+            {
+              "key": "D",
+              "text": "contend"
+            },
+            {
+              "key": "E",
+              "text": "continuous"
+            },
+            {
+              "key": "F",
+              "text": "diminish"
+            },
+            {
+              "key": "G",
+              "text": "endurance"
+            },
+            {
+              "key": "H",
+              "text": "foster"
+            },
+            {
+              "key": "I",
+              "text": "hazardous"
+            },
+            {
+              "key": "J",
+              "text": "improved"
+            },
+            {
+              "key": "K",
+              "text": "instantaneous"
+            },
+            {
+              "key": "L",
+              "text": "intrinsic"
+            },
+            {
+              "key": "M",
+              "text": "relatively"
+            },
+            {
+              "key": "N",
+              "text": "shift"
+            },
+            {
+              "key": "O",
+              "text": "similarly"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E) continuous。空格前的a more 以及空后的sense 提示所填词为形容词,剩余选项中E) continuous, I) hazardous , K) instantaneous 和 L) intrinsic 入选 。空格所在部分阐述手机使年轻人在日常生活中每时每 刻都能与特殊同伴相互交流经验,have a more 42 sense of connection with friends 对应前面的 exchange moment-by-moment...with special partners,所以所填词与moment-by-moment 语义相近,说明这种联系是无 时无刻知在持续的,答案为E)continuous(持续的,连绵不断的)。"
+        },
+        {
+          "number": 43,
+          "stem": "第 43 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affiliated"
+            },
+            {
+              "key": "B",
+              "text": "attached"
+            },
+            {
+              "key": "C",
+              "text": "contact"
+            },
+            {
+              "key": "D",
+              "text": "contend"
+            },
+            {
+              "key": "E",
+              "text": "continuous"
+            },
+            {
+              "key": "F",
+              "text": "diminish"
+            },
+            {
+              "key": "G",
+              "text": "endurance"
+            },
+            {
+              "key": "H",
+              "text": "foster"
+            },
+            {
+              "key": "I",
+              "text": "hazardous"
+            },
+            {
+              "key": "J",
+              "text": "improved"
+            },
+            {
+              "key": "K",
+              "text": "instantaneous"
+            },
+            {
+              "key": "L",
+              "text": "intrinsic"
+            },
+            {
+              "key": "M",
+              "text": "relatively"
+            },
+            {
+              "key": "N",
+              "text": "shift"
+            },
+            {
+              "key": "O",
+              "text": "similarly"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F) diminish。空格前的can 提示所填词为动词原形,剩余选项中还有C) contact, D) contend 和F) diminish 入选。空格后的because 从句指出使用手机减少了孩子们与不同性格的同辈人之间的互动,显然结果是社 交容忍度随之被削弱,故答案为F) diminish (削弱,减少),与reduce 同义复现。"
+        },
+        {
+          "number": 44,
+          "stem": "第 44 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affiliated"
+            },
+            {
+              "key": "B",
+              "text": "attached"
+            },
+            {
+              "key": "C",
+              "text": "contact"
+            },
+            {
+              "key": "D",
+              "text": "contend"
+            },
+            {
+              "key": "E",
+              "text": "continuous"
+            },
+            {
+              "key": "F",
+              "text": "diminish"
+            },
+            {
+              "key": "G",
+              "text": "endurance"
+            },
+            {
+              "key": "H",
+              "text": "foster"
+            },
+            {
+              "key": "I",
+              "text": "hazardous"
+            },
+            {
+              "key": "J",
+              "text": "improved"
+            },
+            {
+              "key": "K",
+              "text": "instantaneous"
+            },
+            {
+              "key": "L",
+              "text": "intrinsic"
+            },
+            {
+              "key": "M",
+              "text": "relatively"
+            },
+            {
+              "key": "N",
+              "text": "shift"
+            },
+            {
+              "key": "O",
+              "text": "similarly"
+            }
+          ],
+          "answer": "I",
+          "explanation": "I) hazardous。所填词是修饰environment 的形容词,剩余的形容词选项还有I) hazardous, K) in- stantaneous 和L) intrinsic。这里要说明的是以色列的情况,凭常识也可以得出答案为I) hazardous (有危险的),hazardous 与后面security objects 中的security 形成反义对照。"
+        },
+        {
+          "number": 45,
+          "stem": "第 45 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affiliated"
+            },
+            {
+              "key": "B",
+              "text": "attached"
+            },
+            {
+              "key": "C",
+              "text": "contact"
+            },
+            {
+              "key": "D",
+              "text": "contend"
+            },
+            {
+              "key": "E",
+              "text": "continuous"
+            },
+            {
+              "key": "F",
+              "text": "diminish"
+            },
+            {
+              "key": "G",
+              "text": "endurance"
+            },
+            {
+              "key": "H",
+              "text": "foster"
+            },
+            {
+              "key": "I",
+              "text": "hazardous"
+            },
+            {
+              "key": "J",
+              "text": "improved"
+            },
+            {
+              "key": "K",
+              "text": "instantaneous"
+            },
+            {
+              "key": "L",
+              "text": "intrinsic"
+            },
+            {
+              "key": "M",
+              "text": "relatively"
+            },
+            {
+              "key": "N",
+              "text": "shift"
+            },
+            {
+              "key": "O",
+              "text": "similarly"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C) contact。所填词与communication 并列,语义相近,从剩佘的名词选项C) contact (接触,联系)与 G) endurance (忍耐)中锁定答案为C )。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2013-12-2-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) By 2075, the United Nations’ mid-range projection for global population is about 9.5 billion. This means that there could be an extra three billion mouths to feed by the end of the century, a period in which substantial changes are anticipated in the wealth, calorie intake and dietary preferences of people in developing countries across the world. Such a projection presents mankind with wide-ranging social, economic, environmental and political issues that need to be addressed today to ensure a sustainable future for all. One key issue is how to produce more food in a world of finite resources.",
+        "B) Today, we produce about four billion metric tones of food per year. Yet due to poor practices in harvesting, storage and transportation, as well as market and consumer wastage, it is estimated that 30-50% of all food produced never reaches a human stomach. Furthermore, this figure does not reflect the fact that large amounts of land, energy, fertilisers and water have also been lost in the production of foodstuffs which simply end up as waste. This level of wastage is a tragedy that cannot continue if we are to succeed in the challenge of sustainably meeting our future food demands. Where Food Waste Happens",
+        "C) In 2010, the Institution of Mechanical Engineers identified three principal emerging population groups across the world, based on characteristics associated with their current and projected stage of economic development. • Fully developed, mature, post-industrial societies, such as those in Europe, characterised by stable or declining populations which are increasing in age. • Late-stage developing nations that are currently industrialising rapidly, for example China, which will experience declining rates of population growth, coupled with increasing affluence (富裕)and age profile. • Newly developing countries that are beginning to industrialise, primarily in Africa, with high to very high population growth rates, and characterised by a predominantly young age profile.",
+        "D) Each group over the coming decades will need to address different issues surrounding food production, storage and transportation, as well as consumer expectations, if we are to continue to feed all our people.",
+        "E) In less-developed countries, such as those of sub-Saharan Africa and South-East Asia, wastage tends to occur primarily at the farmer-producer end of the supply chain. Inefficient harvesting, inadequate local transportation and poor infrastructure(基础设施)mean that produce is frequently handled inappropriately and stored under unsuitable farm site conditions.",
+        "F) In mature, fully developed countries such as the UK, more-efficient fanning practices and better transport, storage and processing facilities ensure that a larger proportion of the food produced reaches markets and consumers. However, characteristics associated with modem consumer culture mean produce is often wasted through retail and customer behaviour.",
+        "G) Major supermarkets, in meeting consumer expectations, will often reject entire crops of perfectly edible fruit and vegetables at the farm because they do not meet exacting marketing standards for their physical characteristics, such as size and appearance.",
+        "H) Of the produce that does appear in the supermarket, commonly used sales promotions frequently encourage customers to purchase excessive quantities which, in the case of perishable foodstuffs, inevitably generate wastage in the home. Overall between 30% and 50% of what has been bought in developed countries is thrown away by the purchaser. Better Use of Our Finite Resources",
+        "I) Wasting food means losing not only life-supporting nutrition but also precious resources, including land, water and energy. As a global society, therefore, tackling food waste will help contribute towards addressing a number of key resource issues.",
+        "J) Land Usage: Over the last five decades, improved farming techniques and technologies have helped to significantly increase crop yields along with a 12% expansion of. farmed land use. However, a further increase in farming area without impacting unfavourably on what remains of the worlds natural ecosystems appears unlikely. The challenge is that an increase in animal- based production will require more land, and resources, as livestock(牲畜)farming demands extensive land use.",
+        "K) Water Usage: Over the past century, human use of fresh water has increased at more than double the rate of population growth. Currently about 3.8 trillion m3 of water is used by humans per year. About 70% of this is consumed by the global agriculture sector, and the level of use will continue to rise over the coming decades.",
+        "L) Better irrigation can dramatically improve crop yield and about 40% of the worlds food supply is currently derived from irrigated land. However, water used in irrigation is often sourced unsustainably. In processing foods after the agricultural stage, there are large additional uses of water that need to be tackled in a world of growing demand. This is particularly crucial in the case of meat production, where beef uses about 50 times more water than vegetables. In the future, more effective washing techniques, management procedures, and recycling and purification of water will be needed to reduce wastage.",
+        "M) Energy Usage: Energy is an essential resource across the entire food production cycle, with estimates showing an average of 7-10 calories of input being required in the production of one calorie of food. This varies dramatically depending on crop, from three calories for plant crops to 35 calories in the production of beef. Since much of this energy comes from the utilisation of fossil fuels, wastage of food potentially contributes to unnecessary global warming as well as inefficient resource utilisation.",
+        "N) In the modern industrialised agricultural process — which developing nations are moving towards in order to increase future yields — energy usage in the making and application of fertilisers and pesticides represents the single biggest component. Wheat production takes 50% of its energy input for these two items alone. Indeed, on a global scale, fertiliser manufacturing consumes about 3-5% of the world’s annual natural gas supply. With production anticipated to increase by 25% between now and 2030, sustainable energy sourcing will become an increasingly major issue. Energy to power machinery, both on the farm and in the storage and processing facilities, adds to the energy total, which currently represents about 3.1% of annual global energy consumption. Recommendations",
+        "O) Rising population combined with improved nutrition standards and shifting dietary preferences will exert pressure for increases in global food supply. Engineers, scientists and agriculturalists have the knowledge, tools and systems that will assist in achieving productivity increases. However, pressure will grow on finite resources of land, energy and water. The potential to provide 60-100% more food by simply eliminating losses, while simultaneously freeing up land, energy and water resources for other uses, is an opportunity that should not be ignored. In order to begin tackling the challenge, the Institution recommends that: • The UN Food and Agriculture Organisation work with the international engineering community to ensure governments of developed nations put in place programmes that transfer engineering knowledge, design know-how, and suitable technology to newly developing countries. This will help improve produce handling in the harvest, and immediate post-harvest stages of food production. • Governments of rapidly developing countries incorporate waste minimisation thinking into the transport infrastructure and storage facilities currently being planned, engineered and built. • Governments in developed nations devise and implement policy that changes consumer expectations. These should discourage retailers from wasteful practices that lead to the rejection of food on the basis of cosmetic characteristics, and losses in the home due to excessive purchasing by consumers."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "Elimination of waste alone can potentially provide over sixty percent more food for the growing world population.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "O",
+          "explanation": "【定位】根据题目中的elimination、potentially 和food 将本题出处定位于[O]段第4 句。 【精析】 [O]。[O]段第4 句提到仅仅通过减少浪费同时腾出土地、能源和水资源另作他用就有望提供 60% 至100%的食物,题目与该句同义,其中的alone 与该句中的simply 同义,over sixty percent more 对应 60%-100% more。"
+        },
+        {
+          "number": 47,
+          "stem": "The production and application of fertilisers and pesticides account for the largest part of energy use in the modem industrialised agricultural process.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【定位】根据题目中的fertilisers 和in the modem industrialised agricultural process 将本题出处定位于[N] 段首句。 【精析】[N]。[N]段首句指出在现代工业化的农业生产过程中......制作和使用化肥和杀虫剂所消耗的能源 是最多的。题目与该句同义,其中的energy use 与该句中的energy usage 同义,account for 与该句中的 represents 同义,the largest part 对应该句中的biggest component。"
+        },
+        {
+          "number": 48,
+          "stem": "Consumers in developed countries throw away nearly half of their food purchases because they tend to buy in excessive quantities.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【定位】根据题目中的in developed countries、throw away 和excessive quantities 将本题出处定位于[H] 段。 【精析】[H]。 [H]段指出由于超市的频繁促销导致消费者过量购买,一些食物就成为了家中的垃圾,大体 来说,在发达国家,有30%至50%的商品买回家后都会被购买者扔掉。题目是对该段内容的概括,其中 consumers 与该段中的 purchaser 同义,nearly half of their food purchases 对应该段中的between 30% and 50% of what has been bought。"
+        },
+        {
+          "number": 49,
+          "stem": "It is recommended that engineering knowledge and suitable technology in developed countries be introduced to developing countries to improve produce handling in the harvest.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "O",
+          "explanation": "【定位】根据题目中的engineering knowledge、suitable technology 和improve produce handling in the har- vest 将题出处定位于[O]段第一个建议。 【精析】[O]。[O]段第一个建议第1 句指出应保证发达国家政府能够付诸行动,将工程学知识、设计知识 和合适的技术传授给新兴的发展中国家。第2 句中的this 即指上句的做法,指出这么做将会提高收割量。 题目是对这两句内容的概括。"
+        },
+        {
+          "number": 50,
+          "stem": "The predicted global population growth means that ways have to be found to produce more food with finite resources.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】根据题目中的produce more food 和finite resources 将本题出处定位于[A]段末句。 【精析】[A]。[A]段开头指出联合国预测到2075 年,世界人口将达到约95 亿。倒数第二句指出,这项预 测给人类提出了很多问题。末句指出,其中一个关键问题就是如何利用有限的资源生产出更多的食物。题 目是对该段内容的概括。"
+        },
+        {
+          "number": 51,
+          "stem": "A further expansion of farming area will adversely impact on the worlds natural ecosystems.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【定位】根据题目中的further、farming area 和impact on the world’s nature ecosystems 将本题出处定位 于[J]段第2 句。 【精析】[J]。[J]段第2 句指出,然而,进一步增加农耕土地面积而不会对世界自然生态系统造成不良影响 看起是不大可能的。题目与此同义,其中的adversely 与该句中的unfavourably 同义。"
+        },
+        {
+          "number": 52,
+          "stem": "Perfectly eatable fruit and vegetable crops often fail to reach supermarkets due to their size or physical appearance.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【定位】根据题目中的Perfectly eatable fruit and vegetable、size 和physical appearance 将本题出处定位于 [G 段。 【精析】[G]。[G]段指出,超市会拒绝农场上的一些非常好的可食用水果和蔬菜,因为其物理特性,如大 小或外观,不符合超市的严格标准。题目与该句同义。"
+        },
+        {
+          "number": 53,
+          "stem": "Poor practices in harvesting, storage and transportation have resulted in a waste of much of the food we produce and thus a waste of land and resources.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】根据题目中的poor practices in harvesting, storage and transportation 将本题出处定位于[B]段第2 句。 【精析】[B]。[B]段第2 句指出由于收割、贮藏和运输方面的不当操作,再加上市场和消费者的浪费,据 估计,生产出来的食物中约有30%至50%未被人们食用。接下来第3 句指出这一数字还不包括被浪费掉的 食物在生产时所耗费的大量土地、能源、肥料和水。也就是说,由于收割、贮藏和运输方面的不当操作, 浪费了很多食物,也浪费了很多土地和资源。题目是对这两句的概括。"
+        },
+        {
+          "number": 54,
+          "stem": "Food waste in less-developed countries happens mainly at the producers’ end.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【定位】根据题目中的Food waste、in less-developed countries 和the producers’ end 将本题出处定位于[E] 段首句。 【精析】[E]。该句中的wastage 即指food waste,该句指出,在欠发达国家 浪费主要发生在供应链的农民 生产者一方。题目与该句同义,其中的happens mainly 和该句中的occur primarily 同义。"
+        },
+        {
+          "number": 55,
+          "stem": "Beef consumes far more water to produce than vegetables.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【定位】根据题目中的beef、more water 和vegetables 将本题出处定位于[L]段倒数第2 句。 【精析】[L]。[L]段倒数第二句指出在肉类的生产过程中,这一点(指上句所说的在食物加工阶段,需要更 多的水)尤其重要,牛肉需要的水大约是疏菜的50 倍。题目与此同义,其中consumes far more water than 对应该句中的uses about 50 times more water than。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2013-12-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Call it the “learning paradox”: the more you struggle and even fail while you’re trying to learn new information, the better you’re likely to recall and apply that information later. The learning paradox is at the heart of “productive failure,” a phenomenon identified by researcher Manu Kapur. Kapur points out that while the model adopted by many teachers when introducing students to new knowledge — providing lots of structure and guidance early on, until the students show that they can do it on their own — makes intuitive sense, it may not be the best way to promote learning. Rather, it5s better to let the learners wrestle(较劲)with the material on their own for a while, refraining from giving them any assistance at the start. In a paper published recently, Kapur applied the principle of productive failure to mathematical problem solving in three schools. With one group of students, the teacher provided strong “scaffolding” — instructional support 一 and feedback. With the teacher’s help, these pupils were able to find the answers to their set of problems. Meanwhile, a second group was directed to solve the same problems by collaborating with one another, without any prompts from their instructor. These students weren’t able to complete the problems correctly. But in the course of trying to do so, they generated a lot of ideas about the nature of the problems and about what potential solutions would look like. And when the two groups were tested on what they’d learned, the second group “significantly outperformed” the first. The apparent struggles of the floundering(挣扎的)group have what Kapur calls a “hidden efficacy”: they lead people to understand the deep structure of problems, not simply their correct solutions. When these students encounter a new problem of the same type on a test, they’re able to transfer the knowledge they’re gathered more effectively than those who were the passive recipients of someone else’s expertise. In the real world, problems rarely come neatly packaged, so being able to discern their deep structure is key. But, Kapur notes, none of us like to fail, no matter how often Silicon Valley entrepreneurs praise the beneficial effects of an idea that fails or a start-up company that crashes and bums. So we need to “design for productive failure” by building it into the learning process. Kapur has identified three conditions that promote this kind of beneficial struggle. First, choose problems to work on that “challenge but do not frustrate.” Second, provide learners with opportunities to explain and elaborate on what they’re doing. Third, give learners the chance to compare and contrast good and bad solutions to the problems. And to those students who protest this tough-love teaching style: you’ll thank me later."
+      ],
+      "questions": [
+        {
+          "number": 56,
+          "stem": "Why does the author call the learning process a paradox?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Pains do not necessarily lead to gains."
+            },
+            {
+              "key": "B",
+              "text": "What is learned is rarely applicable in life."
+            },
+            {
+              "key": "C",
+              "text": "Failure more often than not breeds success."
+            },
+            {
+              "key": "D",
+              "text": "The more is taught, the less is learnt."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】根据题干中的call, learning 和paradox 将本题出处定位于首段。 【精析】C)。首段提到,“学习悖论”就是你在尝试学习新知识时努力挣扎得越多,甚至是失败得越多, 你后来就有可能记得越牢,运用得越好,C)是对该句的转述,故为答案。其中的success 是对文中 the better you’re likely to recall and apply that information later 的概括。more often than not 意为“多半,通常”。A)的 意思与原文正好相反,予以排除。B)和D)都属于无中生有。"
+        },
+        {
+          "number": 57,
+          "stem": "What does Kapur disapprove of in teaching?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Asking students to find and solve problems on their own."
+            },
+            {
+              "key": "B",
+              "text": "Developing students’ ability to apply what they learn."
+            },
+            {
+              "key": "C",
+              "text": "Giving students detailed guidance and instruction."
+            },
+            {
+              "key": "D",
+              "text": "Allowing students a free hand in problem solving."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】题干中的 disapprove of in teaching 是对文中第 2 段第 2 句中的it may not be the best way to promote learning 的转述,故将本题出处定位于此。 【精析】C)。第2 段第2 句卡普尔指出,许多老师在给学生传授新知识时从一开始就提供许多的知识框架 和指导的这种方法并不是促进学习的最好方法。由此可见,卡普尔不赞同给学生提倍太多的指导,故 C) 符合文意。根据文中第2 段第 3 句中的Rather, it’s better to let the learners wrestle with the material on their own for a while 可以排除A)和D)。B)在文中未提及。"
+        },
+        {
+          "number": 58,
+          "stem": "What do people tend to think of providing strong “scaffolding” in teaching?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It will make teaching easier."
+            },
+            {
+              "key": "B",
+              "text": "It is a sensible way of teaching."
+            },
+            {
+              "key": "C",
+              "text": "It can motivate average students."
+            },
+            {
+              "key": "D",
+              "text": "It will enhance students’ confidence."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】根据题干中的providing strong “scaffolding”将本题出处定位于第3 段首句。 【精析】B)。第3 段前两句提到,在教学指导(即强大的“脚手架”)的帮助下,学生能够找到一系列问 题的答案。即,提供教学指导在教学中产生了一定的效果,由此可以推断,人们应该会认为给学习者提供 强大的“脚手架”是一种明智的教学方法,故本题答案为B)。其他三项在文中均找不到依据,予以排除。"
+        },
+        {
+          "number": 59,
+          "stem": "What kind of problem should be given to students to solve according to Kapur?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It should be able to encourage collaborative learning."
+            },
+            {
+              "key": "B",
+              "text": "It should be easy enough so as not to frustrate students."
+            },
+            {
+              "key": "C",
+              "text": "It should be solvable by average students with ease."
+            },
+            {
+              "key": "D",
+              "text": "It should be difficult enough but still within their reach."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】根据题干中的Kapur,再结合命题按照文章顺序进行的规律可将本题出处定位于第4、5 段。 【精析】D)。第5 段第4 句提到,卡普尔已经发现了三种能够促进有益挣扎的条件。接着下一句指出,首 先就是要选择“具有挑战性但是不会使人灰心的”问题。D)是对第5 段第5 句的同义转述,其中的 difficult 对应文中的challenge, withintheirreach 对应donotfmstrate,故答案为D)。 A)是针对文中第3 段第 3 句中的... by collaborating with one another...设置的干扰项。B))的说法与原文矛盾,予以排除。C)中的 with ease 与文 中第5 段第5 句中的challenge 矛盾。"
+        },
+        {
+          "number": 60,
+          "stem": "What can be expected of “this tough-love teaching style” (Lines 8-9, Para. 5)?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Students will be grateful in the long run."
+            },
+            {
+              "key": "B",
+              "text": "Teachers will meet with a lot of resistance."
+            },
+            {
+              "key": "C",
+              "text": "Parents will think it too harsh on their kids."
+            },
+            {
+              "key": "D",
+              "text": "It may not be able to yield the desired results."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】根据题干中的this tough-love teaching style 将本题出处定位于第5 段最后一句。 【精析】A)。第5 段最后一句提到,要告诉那些反对这种严爱教学风格的学生和工作者:你们以后会感激 我的。由此可见,从长远来看,学生会感激这种严爱教学方式,故答案为A)。B)是针对文中第5 段最后一 句中的protest 设置的干扰项_C)和D)在文中均找不到依据,也予以排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2013-12-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Vernon Bowman, a 75-year-old farmer from rural Indiana, did something that got him sued. He planted soybeans(大豆)sold as cattle feed. But Monsanto, the agricultural giant, insists it has a patent on the kind of genetically modified seeds Bowman used — and that the patent continues to all of the progeny(后代)of those seeds. Have we really gotten to the point that planting a seed can lead to a high-stakes Supreme Court patent lawsuit? We have, and that case is Bowman vs. Monsanto, which is being argued on Tuesday. Monsanto’s critics have attacked the company for its “merciless legal battles against small farmers,” and they are hoping this will be the case that puts it in its place. They are also hoping the court’s ruling will rein in patent law, which is increasingly being used to claim new life forms as private property. Monsanto and its supporters, not surprisingly, see the case very differently. They argue that when a company like Monsanto goes to great expense to create a valuable new genetically modified seed, it must be able to protect its property interests. If farmers like Bowman are able to use these seeds without paying the designated fee, it will remove the incentives for companies like Monsanto to innovate. Monsanto accused Bowman of patent infringement and won an $84,456 damage award. Rather than pay up or work out a settlement, Bowman decided to appeal — all the way to the Supreme Court. He said “Monsanto should not be able, just because they’ve got billions of dollars to spend on legal fees, to try to terrify farmers into obeying their agreements by massive force and threats.” The central issue in the case is whether patent rights to living things extend to the progeny of those things. Monsanto argues that its patents extend to later generations. But Bowman’s supporters argue that Monsanto is trying to expand the scope of patents in ways that would enrich big corporations and hurt small farmers. They say that if Monsanto wins, the impact will extend far beyond agriculture — locking up property rights in an array of important areas. Knowledge Ecology International contends that the Supreme Court’s ruling could have “profound effects” on other biotech industries. If this were a Hollywood movie, the courageous old Indiana farmer would beat the profit-minded corporation before the credits rolled. But this is a real-life argument before a Supreme Court that has a well-earned reputation for looking out for the interests of large corporations. This case gives the court an opportunity to rein in the growing use of patents to protect genetically engineered crops and other life forms — but the court may well use it to give this trend a powerful new endorsement."
+      ],
+      "questions": [
+        {
+          "number": 61,
+          "stem": "Why did Vernon Bowman get sued?",
+          "options": [
+            {
+              "key": "A",
+              "text": "He used genetically modified seeds to feed his cattle."
+            },
+            {
+              "key": "B",
+              "text": "He planted soybeans without paying for the patent."
+            },
+            {
+              "key": "C",
+              "text": "He made a profit out of Monsanto’s commercial secrets."
+            },
+            {
+              "key": "D",
+              "text": "He obtained Monsanto’s patented seeds by illegal means."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】根据题干中的Vernon Bowman get sued 将本题出处定位于文章首段首句。 【精析】B)。首段首句提到,印第安纳75 岁的农民弗农.鲍曼做了一些让他吃官司的事情。接着下文具体 说明了让他吃官司的事情是什么:他种了用作牛饲料出售的大豆。但是农业巨头孟山都公司坚持认为鲍曼 所使用的转基因种子该公司已经获得专利权——而且该专利范围延伸至那些种子的所有后代。概括起来就 是,弗农.鲍曼没有支付专利的钱就种植大豆,故B)符合文意。A)是针对文中首段第2 句He planted soybeans sold as cattle feed 设置的干扰项,注意sold as cattle feed 修饰的是soybeans,说明鲍曼种植的大豆是市场上出 售用作牛饲料的大豆。C)和D)的说法从文中都找不到依据,予以排除。"
+        },
+        {
+          "number": 62,
+          "stem": "What are Monsanto’s critics hoping the Supreme Court will do?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Allow small farmers to grow genetically modified soybeans."
+            },
+            {
+              "key": "B",
+              "text": "Punish Monsanto for infringing on small farmer’s interests."
+            },
+            {
+              "key": "C",
+              "text": "Rule against Monsanto’s excessive extension of its patent rights."
+            },
+            {
+              "key": "D",
+              "text": "Abolish the patent law concerning genetically engineered seeds."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】根据题干中的Monsanto’s critics, hoping 和Court 将本题出处定位于第2 段最后两句。 【精析】C)。第2 段最后一句提到,他们(指批评孟山都公司的人)也希望法院的判决能够约束专利法, 因为专利法正在被滥用于声称对新生生物的私有权。C)是对该句中的hoping the court’s ruling will rein in patent law... increasingly being used to claim new life forms as private property 的同义转述,故答案为C)。A) 是针对文中第2 段倒数第2 句中的small formers 设置的干扰项。B)是针对第4 段首句中的infringement 设 置的干扰项。 D) 是针对首段末句中的genetically modified seeds、 第 3 段第2 句中的genetically modi- fled seed 以及最后一段末句中的genetically engineered crops 设置的干扰项。"
+        },
+        {
+          "number": 63,
+          "stem": "What is the argument of Monsanto and its supporters?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Patent rights should be protected to encourage innovation."
+            },
+            {
+              "key": "B",
+              "text": "Bowman cannot plant the seeds without Monsanto’s consent."
+            },
+            {
+              "key": "C",
+              "text": "Monsanto has the right to recover the costs of its patented seeds."
+            },
+            {
+              "key": "D",
+              "text": "Patent law on genetically modified seeds should not be challenged."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】根据题干中的argument 和Monsanto and its supporters 将本题出处定位于第3 段前两句。 【精析】A)。第3 段提及孟山都公司及其支持者的观点,其中最后两句提到,他们认为所有权利益理应受 到专利法的保护,因为如果农民不需要缴纳特定的费用就能使用这些种子的话,那将会浇灭像孟山都这样 的公司创新的激情。由此可见,孟山都公司及其支持者认为专利权应该受到保护,这样才能激发创新,故 答案为A)。B)和C)的说法都缺乏原文依据,可以予以排除。D)不是孟山都公司及其支持者的观点。"
+        },
+        {
+          "number": 64,
+          "stem": "What is the key issue in the Bowman vs. Monsanto case?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Whether patent for seeds is harmful to agricultural production."
+            },
+            {
+              "key": "B",
+              "text": "Whether the biotech industry should take priority over agriculture."
+            },
+            {
+              "key": "C",
+              "text": "Whether measures should be introduced to protect small farmers."
+            },
+            {
+              "key": "D",
+              "text": "Whether patent for living things applies to their generations."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】题干中的the key issue 与文中第5 段首句中的the central issue 同义,故将本题出处定位于此。 【精析】D)。第5 段首句提到,这起案件的核心问题是专利法是否在那些生物的后代身上也适用。D)是对 该句的同义转述,其中的applies to their generations 对应文中的extend to the progeny of those things。A) 是 针对第1 段末句中的agricultural 设置的干扰项。B)是针对第5 段末句提到的biotech industries 设置的干扰 项。C) 是针对第2 段倒数第2 句中的small farmers 设置的干扰项。"
+        },
+        {
+          "number": 65,
+          "stem": "What do we learn from the last paragraph?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Hollywood movies usually have an unexpected, dramatic impact on real-life arguments."
+            },
+            {
+              "key": "B",
+              "text": "The Supreme Court will try to change its reputation for supporting large corporations."
+            },
+            {
+              "key": "C",
+              "text": "The Supreme Court is likely to persuade the parties concerned to work out a settlement."
+            },
+            {
+              "key": "D",
+              "text": "The ruling would be in Bowman’s favor if the case were argued in a Hollywood movie."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】根据题干中的the last paragraph 将本题出处定位于最后一段。 【精析】D)。最后一段首句提到,如果这是一部好莱坞电影,那么在演职人员列表播放前,这位有胆识的 印第安纳老农应该会战胜那家利欲熏心的大公司。由此可知,如果案件发生在好莱坞电影里,判决可能会 对鲍曼有利,故D)符合文意,其中的would be in Bowman’s favor 对应文中的the courageous old Indiana farmers would beat the profit-minded corporation, if the case were argued in a Hollywood movie 对应If this were a Hollywood movie。A)是针对最后一段首句中的a Hollywood movie 设置的干扰项。B)是针对最后一段第2 句中的Supreme Court 和a well-earned reputation 设置的干扰项。C)说法从文中找不到依据,也可予以排除。"
+        }
+      ]
+    }
+  ]
+}

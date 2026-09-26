@@ -1,0 +1,1565 @@
+{
+  "id": "cet4-2019-12-1",
+  "level": 4,
+  "year": 2019,
+  "month": 12,
+  "set": 1,
+  "title": "2019 年 12 月四级 · 第 1 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.12/%E7%9C%9F%E9%A2%98Word/2019%E5%B9%B412%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2019.12%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E8%A7%A3%E6%9E%90%E7%AC%AC1%E5%A5%97.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2019-12-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "When travelling overseas, do you buy water in plastic bottles or take your chances with tap water? Imagine you are wandering about on a Thai island or [[26]] the ruins of Angkor. It’s hot so you grab a bottle of water from a local vendor. It’s the safe thing to do, right? The bottle is [[27]] , and the label says “pure water”. But maybe what’s inside is not so [[28]] . Would you still be drinking it if you knew that more than 90 percent of all bottled water sold around the world [[29]] microplastics? That’s the conclusion of a recently [[30]] study, which analysed 259 bottles from 11 brands sold in nine countries, [[31]] an average of 325 plastic particles per litre of water. These microplastics included a [[32]] commonly known as PET and widely used in the manufacture of clothing and food and [[33]] containers. The study was conducted at the State University of New York on behalf of Orb Media, a journalism organisation. About a million bottles are bought every minute, not only by thirsty tourists but also by many of the 2.1 billion worldwide who live with unsafe drinking water. Confronted with this [[34]] , several bottled-water manufacturers including Nestle and Coca-Cola undertook their own studies using the same methodology. These studies showed that their water did contain microplastics, but far less than the Orb study suggested. Regardless, the World Health Organisation has launched a review into the [[35]] health risks of drinking water from plastic bottles."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "adequate"
+        },
+        {
+          "key": "B",
+          "text": "admiring"
+        },
+        {
+          "key": "C",
+          "text": "contains"
+        },
+        {
+          "key": "D",
+          "text": "defending"
+        },
+        {
+          "key": "E",
+          "text": "evidence"
+        },
+        {
+          "key": "F",
+          "text": "instant"
+        },
+        {
+          "key": "G",
+          "text": "liquid"
+        },
+        {
+          "key": "H",
+          "text": "modified"
+        },
+        {
+          "key": "I",
+          "text": "natural"
+        },
+        {
+          "key": "J",
+          "text": "potential"
+        },
+        {
+          "key": "K",
+          "text": "released"
+        },
+        {
+          "key": "L",
+          "text": "revealing"
+        },
+        {
+          "key": "M",
+          "text": "sealed"
+        },
+        {
+          "key": "N",
+          "text": "solves"
+        },
+        {
+          "key": "O",
+          "text": "substance"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adequate"
+            },
+            {
+              "key": "B",
+              "text": "admiring"
+            },
+            {
+              "key": "C",
+              "text": "contains"
+            },
+            {
+              "key": "D",
+              "text": "defending"
+            },
+            {
+              "key": "E",
+              "text": "evidence"
+            },
+            {
+              "key": "F",
+              "text": "instant"
+            },
+            {
+              "key": "G",
+              "text": "liquid"
+            },
+            {
+              "key": "H",
+              "text": "modified"
+            },
+            {
+              "key": "I",
+              "text": "natural"
+            },
+            {
+              "key": "J",
+              "text": "potential"
+            },
+            {
+              "key": "K",
+              "text": "released"
+            },
+            {
+              "key": "L",
+              "text": "revealing"
+            },
+            {
+              "key": "M",
+              "text": "sealed"
+            },
+            {
+              "key": "N",
+              "text": "solves"
+            },
+            {
+              "key": "O",
+              "text": "substance"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【考点】动词辨析题。 B)【语法判断】空格前面有or,说明空格所在部分 the ruins of Angkor 与 wandering about onaThaiisland构成并列结构。并列结构前后成 分要一致,因此本空应填人动词的-ing形式。 【语义判断】本句是在设想出国旅游的情形。空格 前面提到,想象你正在泰国的一个小岛上漫步,空 格后面应该表示你在“欣赏”或者“游览”吴哥遗 址。因此,本题答案为B)admiring。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adequate"
+            },
+            {
+              "key": "B",
+              "text": "admiring"
+            },
+            {
+              "key": "C",
+              "text": "contains"
+            },
+            {
+              "key": "D",
+              "text": "defending"
+            },
+            {
+              "key": "E",
+              "text": "evidence"
+            },
+            {
+              "key": "F",
+              "text": "instant"
+            },
+            {
+              "key": "G",
+              "text": "liquid"
+            },
+            {
+              "key": "H",
+              "text": "modified"
+            },
+            {
+              "key": "I",
+              "text": "natural"
+            },
+            {
+              "key": "J",
+              "text": "potential"
+            },
+            {
+              "key": "K",
+              "text": "released"
+            },
+            {
+              "key": "L",
+              "text": "revealing"
+            },
+            {
+              "key": "M",
+              "text": "sealed"
+            },
+            {
+              "key": "N",
+              "text": "solves"
+            },
+            {
+              "key": "O",
+              "text": "substance"
+            }
+          ],
+          "answer": "M",
+          "explanation": "【考点】语义推断题。 M)【语法判断】空格前面是系动词is,因此可填入形 容词或名词作句子的表语,也可填入动词分词形 式构成被动句或现在进行时。 【语义判断】本句中的Thebottle指上文提到的随 手从当地小贩那里买的abottleofwater,由此可 以推断,瓶子是密封的、未打开的,故本题答案为 M) sealed."
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adequate"
+            },
+            {
+              "key": "B",
+              "text": "admiring"
+            },
+            {
+              "key": "C",
+              "text": "contains"
+            },
+            {
+              "key": "D",
+              "text": "defending"
+            },
+            {
+              "key": "E",
+              "text": "evidence"
+            },
+            {
+              "key": "F",
+              "text": "instant"
+            },
+            {
+              "key": "G",
+              "text": "liquid"
+            },
+            {
+              "key": "H",
+              "text": "modified"
+            },
+            {
+              "key": "I",
+              "text": "natural"
+            },
+            {
+              "key": "J",
+              "text": "potential"
+            },
+            {
+              "key": "K",
+              "text": "released"
+            },
+            {
+              "key": "L",
+              "text": "revealing"
+            },
+            {
+              "key": "M",
+              "text": "sealed"
+            },
+            {
+              "key": "N",
+              "text": "solves"
+            },
+            {
+              "key": "O",
+              "text": "substance"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【考点】语义推断题。 D【语法判断】空格前面有系动词is和副词so,因此 应填入形容词作句子的表语。 【语义判断】本句中的But表示该句语义与上一句 构成转折关系。上一句提到,瓶子的标签上写着 “纯净水”,由转折关系可知,本句是在说明瓶子里 面的水不一定是纯净的,因此应填人含有“纯净, 天然”意义的形容词,故本题答案为D)natural。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adequate"
+            },
+            {
+              "key": "B",
+              "text": "admiring"
+            },
+            {
+              "key": "C",
+              "text": "contains"
+            },
+            {
+              "key": "D",
+              "text": "defending"
+            },
+            {
+              "key": "E",
+              "text": "evidence"
+            },
+            {
+              "key": "F",
+              "text": "instant"
+            },
+            {
+              "key": "G",
+              "text": "liquid"
+            },
+            {
+              "key": "H",
+              "text": "modified"
+            },
+            {
+              "key": "I",
+              "text": "natural"
+            },
+            {
+              "key": "J",
+              "text": "potential"
+            },
+            {
+              "key": "K",
+              "text": "released"
+            },
+            {
+              "key": "L",
+              "text": "revealing"
+            },
+            {
+              "key": "M",
+              "text": "sealed"
+            },
+            {
+              "key": "N",
+              "text": "solves"
+            },
+            {
+              "key": "O",
+              "text": "substance"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【考点】动词辨析题。 C)【语法判断】分析句子结构可知,空格位于that引 导的宾语从句中,这个从句缺少谓语动词,又因为 从句主语是morethan90percentofallbottled water,因此空格处应填人动词的第三人称单数 形式。 【语义判断】本句承接上一句,说明瓶装水并不纯 净。空格所在宾语从句指出,全世界出售的90% 以上的瓶装水中 塑料微粒。因此,空格 处应填人含有“包含,含有”意义的动词,故本题答案为C)contains。备选项中,另外一个动词的第 三人称单数形式是N)solves,填入空格不符合上 下文语义,故排除。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adequate"
+            },
+            {
+              "key": "B",
+              "text": "admiring"
+            },
+            {
+              "key": "C",
+              "text": "contains"
+            },
+            {
+              "key": "D",
+              "text": "defending"
+            },
+            {
+              "key": "E",
+              "text": "evidence"
+            },
+            {
+              "key": "F",
+              "text": "instant"
+            },
+            {
+              "key": "G",
+              "text": "liquid"
+            },
+            {
+              "key": "H",
+              "text": "modified"
+            },
+            {
+              "key": "I",
+              "text": "natural"
+            },
+            {
+              "key": "J",
+              "text": "potential"
+            },
+            {
+              "key": "K",
+              "text": "released"
+            },
+            {
+              "key": "L",
+              "text": "revealing"
+            },
+            {
+              "key": "M",
+              "text": "sealed"
+            },
+            {
+              "key": "N",
+              "text": "solves"
+            },
+            {
+              "key": "O",
+              "text": "substance"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【考点】语义推断题。 K)【语法判断】空格位于介词短语of arecently study中,前有副词recently,后有名词 study,因此应填人形容词或动词的分词形式。 【语义判断】根据常识可知,只有公开了研究结果, 人们才能知道研究的结论,因此可推断本空应填 人含有“公开,公布”意义的词,故答案为K) released。备选项中,L)revealing有“揭示,揭露” 的含义,但是study应该是被公开,应用过去分词, 故排除L)。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adequate"
+            },
+            {
+              "key": "B",
+              "text": "admiring"
+            },
+            {
+              "key": "C",
+              "text": "contains"
+            },
+            {
+              "key": "D",
+              "text": "defending"
+            },
+            {
+              "key": "E",
+              "text": "evidence"
+            },
+            {
+              "key": "F",
+              "text": "instant"
+            },
+            {
+              "key": "G",
+              "text": "liquid"
+            },
+            {
+              "key": "H",
+              "text": "modified"
+            },
+            {
+              "key": "I",
+              "text": "natural"
+            },
+            {
+              "key": "J",
+              "text": "potential"
+            },
+            {
+              "key": "K",
+              "text": "released"
+            },
+            {
+              "key": "L",
+              "text": "revealing"
+            },
+            {
+              "key": "M",
+              "text": "sealed"
+            },
+            {
+              "key": "N",
+              "text": "solves"
+            },
+            {
+              "key": "O",
+              "text": "substance"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【考点】动词辨析题。 L)【语法判断】第二段首句的主干是That'sthe conclusion,其后的which引导非限制性定语从 句,修饰study,其后空格所在部分应该是结果状 语,表明这项研究的结果,由此推测空格处应填入 动词的分词形式。 【语义判断】空格后内容表明,每升水中平均有 325个塑料微粒,这应该是该研究的结果,故空格 处应填人含有“发现”意义的动词。所以,本题答案为L)revealing\"揭示,揭露”。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adequate"
+            },
+            {
+              "key": "B",
+              "text": "admiring"
+            },
+            {
+              "key": "C",
+              "text": "contains"
+            },
+            {
+              "key": "D",
+              "text": "defending"
+            },
+            {
+              "key": "E",
+              "text": "evidence"
+            },
+            {
+              "key": "F",
+              "text": "instant"
+            },
+            {
+              "key": "G",
+              "text": "liquid"
+            },
+            {
+              "key": "H",
+              "text": "modified"
+            },
+            {
+              "key": "I",
+              "text": "natural"
+            },
+            {
+              "key": "J",
+              "text": "potential"
+            },
+            {
+              "key": "K",
+              "text": "released"
+            },
+            {
+              "key": "L",
+              "text": "revealing"
+            },
+            {
+              "key": "M",
+              "text": "sealed"
+            },
+            {
+              "key": "N",
+              "text": "solves"
+            },
+            {
+              "key": "O",
+              "text": "substance"
+            }
+          ],
+          "answer": "O",
+          "explanation": "【考点】名词辨析题。 O)【语法判断】空格前面有冠词a,后面是过去分词 短语作后置定语,因此推测空格处应填入可数名 词的单数形式。 【语义判断】空格所在部分指出,这些塑料微粒包 括一种俗称PET的 —。PET应该是一种 化学物质,因此本空应填人含有“物质,材料”意义 的名词,故答案为O)substance。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adequate"
+            },
+            {
+              "key": "B",
+              "text": "admiring"
+            },
+            {
+              "key": "C",
+              "text": "contains"
+            },
+            {
+              "key": "D",
+              "text": "defending"
+            },
+            {
+              "key": "E",
+              "text": "evidence"
+            },
+            {
+              "key": "F",
+              "text": "instant"
+            },
+            {
+              "key": "G",
+              "text": "liquid"
+            },
+            {
+              "key": "H",
+              "text": "modified"
+            },
+            {
+              "key": "I",
+              "text": "natural"
+            },
+            {
+              "key": "J",
+              "text": "potential"
+            },
+            {
+              "key": "K",
+              "text": "released"
+            },
+            {
+              "key": "L",
+              "text": "revealing"
+            },
+            {
+              "key": "M",
+              "text": "sealed"
+            },
+            {
+              "key": "N",
+              "text": "solves"
+            },
+            {
+              "key": "O",
+              "text": "substance"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【考点】语义推断题。 G【语法判断】clothing、food和 _containers 由and连接,是并列关系,因此空格处应填人形容 词或名词,修饰containers。 【语义判断】空格所在部分指出,PET这种物质广泛 用于制造服装、食品和 容器。由上文可知, PET是在瓶装水里发现的,由此可推断PET也可用 于生产盛液体的容器,故本题答案为G)liquid。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adequate"
+            },
+            {
+              "key": "B",
+              "text": "admiring"
+            },
+            {
+              "key": "C",
+              "text": "contains"
+            },
+            {
+              "key": "D",
+              "text": "defending"
+            },
+            {
+              "key": "E",
+              "text": "evidence"
+            },
+            {
+              "key": "F",
+              "text": "instant"
+            },
+            {
+              "key": "G",
+              "text": "liquid"
+            },
+            {
+              "key": "H",
+              "text": "modified"
+            },
+            {
+              "key": "I",
+              "text": "natural"
+            },
+            {
+              "key": "J",
+              "text": "potential"
+            },
+            {
+              "key": "K",
+              "text": "released"
+            },
+            {
+              "key": "L",
+              "text": "revealing"
+            },
+            {
+              "key": "M",
+              "text": "sealed"
+            },
+            {
+              "key": "N",
+              "text": "solves"
+            },
+            {
+              "key": "O",
+              "text": "substance"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【考点】名词辨析题。 E)【语法判断】空格前有限定词this,因此应填入名 词单数形式或不可数名词。 【语义判断】本句指出,包括雀巢、可口可乐在内 的几家瓶装水生产商利用同样的方法进行了他 们自己的研究。由此可知,this 指的就 是第二段研究的结果,所以空格处应填人含有 “发现,结论,结果”意义的名词。备选项中只有 E)evidence符合文义,填入空格表示“面对这一 证据”。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adequate"
+            },
+            {
+              "key": "B",
+              "text": "admiring"
+            },
+            {
+              "key": "C",
+              "text": "contains"
+            },
+            {
+              "key": "D",
+              "text": "defending"
+            },
+            {
+              "key": "E",
+              "text": "evidence"
+            },
+            {
+              "key": "F",
+              "text": "instant"
+            },
+            {
+              "key": "G",
+              "text": "liquid"
+            },
+            {
+              "key": "H",
+              "text": "modified"
+            },
+            {
+              "key": "I",
+              "text": "natural"
+            },
+            {
+              "key": "J",
+              "text": "potential"
+            },
+            {
+              "key": "K",
+              "text": "released"
+            },
+            {
+              "key": "L",
+              "text": "revealing"
+            },
+            {
+              "key": "M",
+              "text": "sealed"
+            },
+            {
+              "key": "N",
+              "text": "solves"
+            },
+            {
+              "key": "O",
+              "text": "substance"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【考点】形容词辨析题。 J)【语法判断】空格前有定冠词the,后面有名词,因 此应填入形容词。 【语义判断】空格所在句前一句提到,瓶装水生产 商自已的研究发现,他们的水中含有的塑料微粒 比奥博媒体的研究发现的要少得多。但是无论多 少,水中的塑料微粒对人体健康都是有害的,因此 世界卫生组织发起这项审查,不过目前风险还不 明确,因此本空应填人含有“潜在的,隐藏的”意义 的形容词,故本题答案为J)potential。 新"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2019-12-1-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) On Wednesday, a polar wind brought bitter cold to the Midwest. Overnight, Chicago reached a low of 21 degrees Fahrenheit below zero, making it slightly colder than Antarctica (南极洲), Alaska, and the North Pole Wind chills were 64 degrees below zero in Park Rapids, Minnesota and 45 degrees below zero in Buffalo, North Dakota, according to the National Weather Service. Schools, restaurants, and businesses closed, and more than 1,000 flights were canceled.",
+        "B) Even the United States Postal Service (USPS) suspended mail delivery. “Due to this arctic outbreak and concerns for the safety of USPS employees,” USPS announced Wednesday morning, “the Postal Service is suspending delivery Jan. 30 in some 3-digit ZIP Code locations.” Twelve regions were listed as unsafe on Wednesday, on Thursday, eight remained.",
+        "C) As global surface temperatures increase, so does the likelihood of extreme weather. In 2018 alone, wildfires, volcanic, eruptions, hurricanes, mudslides, and other natural disasters cost at least $49 billion in the United States. As my colleague Vann Newkirk reported, Puerto Rico is still confronting economic and structural destruction and resource scarcity from 2017’s Hurricane Maria. Natural disasters can wreck a community’s infrastructure, disrupting systems for months or years. Some services, however, remind us that life will eventually return, in some form, to normal.",
+        "D) Days after the deadly 2017 wildfires in Santa Rosa, California, a drone (无人机)caught footage (连续镜头)of a USPS worker, Trevor Smith, driving through burned homes in that familiar white van, collecting mail in an affected area. The video is striking: The operation is familiar, but the scene looks like the end of the world. According to Rae Ann Haight, the program manager for the national-preparedness office at USPS, Smith was fulfilling a request made by some of the home owners to pick up any mail that was left untouched. For Smith, this was just another day on the job. “I followed my route like I normally do,” Smith told a reporter. “As I came across a box that was up but with no house, I checked, and there was mail—outgoing mail—in it. And so we picked those up and carried on.”",
+        "E) USPS has sophisticated emergency plans for natural disasters. Across the country, 285 emergency management teams are devoted to crisis control. These teams are trained annually using a framework known as the three Ps: people, property, product. After mail service stops due to weather, the agency’s top priority is ensuring that employees are safe. Then it evaluates the health of infrastructure, such as the roads that mail carriers drive on. Finally, it decides when and how to re-open operations. If the destruction is extreme, mail addressed to the area will get sent elsewhere. In response to Hurricane Katrina in 2005, USPS redirected incoming New Orleans mail to existing mail facilities in Houston. Mail that was already processed in New Orleans facilities was moved to an upper floor so it would be protected from water damage.",
+        "F) As soon as it’s safe enough to be outside, couriers (邮递员) start distributing accumulated mail on the still-accessible routes. USPS urges those without standing addresses to file change-of-address forms with their new location. After Hurricane Katrina hit in 2005, mail facilities were set up in dozens of locations across the country in the two weeks that USPS was unable to provide street delivery.",
+        "G) Every day, USPS processes, on average, 493.4 million pieces of mail—anything from postcards to Social Security checks to medicine. Spokespeople from both USPS and UPS told me all mail is important. But some mail can be extremely sensitive and timely. According to data released in January 2017, 56 percent of bills are paid online, which means that just under half of payments still rely on delivery services to be completed.",
+        "H) It can be hard to identify which parcels are carrying crucial items such as Social Security checks, but USPS and UPS try their best to prioritize sensitive material. They will coordinate with the Social Security Administration to make sure that Social Security checks reach the right people in a timely fashion. After Hurricane Florence and Hurricane Michael last fall, USPS worked with state and local election boards to make sure that absentee ballots were available and received or time.",
+        "I) Mail companies are logistics (物流)companies, which puts them in a special position to help when disaster strikes. In a 2011 USPS case study, the agency emphasized its massive infrastructure as a “unique federal asset” to be called upon in a disaster or terrorist attack. “I think we’re unique as a federal agency,” USPS official Mike Swigart told me, “because we’re in literally every community in this country...We’re obligated to deliver to that point on a daily basis.”",
+        "J) Private courier companies, which have more dollars to spend, use their expertise in logistics to help revitalize damaged areas after a disaster. For more than a decade, FedEx has supported the American Red Cross in its effort to get emergency supplies to areas affected by disasters, both domestically and internationally. In 2012, the company distributed more than 1,200 MedPacks to Medical Reserve Corps groups in California. They also donated space for 3.1 million pounds of charitable shipping globally. Last October, the company pledged $1 million in cash and transportation support for Hurricanes Florence and Michael. UPS's charitable arm, the UPS Foundation, uses the company’s logistics to help disaster-struck areas rebuild. “We realize that as a company with people, trucks, warehouses, we needed to play a larger role,” said Eduardo Martinez, the president of the UPS Foundation. The company employs its trucks and planes to deliver food, medicine, and water. The day before I spoke to Martinez in November, he had been touring the damage from Hurricane Michael in Florida with the American Red Cross. “We have an obligation to make sure our communities are thriving,” he said.",
+        "K) Rebuilding can take a long time, and even then, impressions of the disaster may still remain. Returning to a normal life can be difficult, but some small routines—mail delivery being one of them—may help residents remember that their communities are still their communities. “When they see that carrier back out on the street,” Swigart said, “that’s the first sign to them that life is starting to return to normal.”"
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "The United States Postal Service has a system to ensure its employees’ safety.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【定位】由题干中的employees’safety定位到文章 E)段第四句。 E)【精析】同义转述题。定位句提到,由于天气原因 导致的邮寄服务停止后,该机构的首要任务是确 保员工的安全。原文中的theagency指的就是 The United States Postal Service,题干中的 ensure its cmployees”safety对应定位句中的 ensuringthatemployeesare safe,故答案为E)。"
+        },
+        {
+          "number": 37,
+          "stem": "One official says USPS is unique in that it has more direct reach to communities compared with other federal agencies.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【答案】I。【定位】由题干中的unique、communities和 federalagencies定位到文章I段倒数第二句。 I)【精析】同义转述题。定位句指出,美国邮政署官 员迈克·斯威格特认为美国邮政署作为一个联邦 机构是独一无二的,因为它几乎存在于这个国家 的每个社区。题干中的Oneofficial指的是原文 中的USPSofficialMikeSwigart,题干中的more directreachtocommunities是对定位句中we're in literally every community in this country的同 义转述,故答案为I)。"
+        },
+        {
+          "number": 38,
+          "stem": "Natural disasters can have a long-lasting impact on community life.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的Naturaldisasters和 communitylife定位到文章C)段倒数第二句。 C)【精析】同义转述题。定位句指出,自然灾害能够 破坏一个社区的基础设施,扰乱系统达几个月或 几年之久。由此可知,自然灾害对于社区生活有 着持久的影响。题干中的havea long-lasting impactoncommunitylife是对定位句中wrecka community's infrastructure, disrupting systems formonthsoryears的同义转述,故答案为C)。"
+        },
+        {
+          "number": 39,
+          "stem": "Mail delivery service is still responsible for the completion of almost half of payments.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【定位】由题干中的Maildeliveryservice和 payments定位到文章G)段最后一句。 G)【精析】同义转述题。定位句指出,根据2017年 1月份公布的数据,56%的账单是通过线上支付 的,这意味着只有不到一半的账单仍然依靠邮政 服务来完成。由此可知,邮递服务仍要负责几乎 一半的账单递送工作。题干中的is...responsible for对应定位句中的relyon,题干中的almosthalf ofpayments对应定位句中的underhalfof payments,故答案为G)。"
+        },
+        {
+          "number": 40,
+          "stem": "The sight of a mailman on the street is a reassuring sign of life becoming normal again.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【定位】由题干中的amailmanonthe street、sign 和lifebecomingnormal定位到文章K)段最后 一句。 K)【精析】同义转述题。定位句指出,斯威格特说,当 人们看到邮递员再次出现在街上,那对于他们来 说就是生活开始恢复正常的第一个信号。题干中 的amailmanonthestreet对应定位句中的 carrierback out on the street,题干中的 sign of lifebecomingnormalagain对应定位句中的sign to them that life is starting to return to normal, 故答案为K)。"
+        },
+        {
+          "number": 41,
+          "stem": "After Hurricane Katrina interrupted routine delivery, temporary mail service points were set up.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【定位】由题干中的HurricaneKatrina和mail servicepoints定位到文章F)段最后一句。 F)【精析】同义转述题。定位句指出,2005年飓风 “卡特里娜”来袭后,在美国邮政无法提供街道投 递服务的地方,全国各地两周内新建了几十个邮 政设施。题干中的interruptedroutinedelivery和 temporarymailservicepoints分别对应定位句中 的 USPS was unable to provide street delivery和 mailfacilities,故答案为F)。"
+        },
+        {
+          "number": 42,
+          "stem": "Postal service in some regions in the U.S. was suspended due to extreme cold weather.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题中的suspended和extremecold weather定位到文章B)段第一、二句。 B)【精析】细节归纳题。定位句指出,甚至美国邮政 署也暂停了邮件投递业务。美国邮政署周三早上 宣布:“由于这次极寒天气爆发,出于对公司员工 的安全考虑,美国邮政署将暂停1月30日在一些 三位数邮编地区的邮递服务。”题干提到的美国一 些地区的邮递服务由于极寒天气而暂停是对定位 句的归纳概括,故答案为B)。"
+        },
+        {
+          "number": 43,
+          "stem": "Private postal companies also support disaster relief efforts by distributing urgent supplies.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【定位】由题干中的Privatepostalcompanies、 disasterrelief efforts和urgent supplies定位到文 章J)段第一句。 J)【精析】细节归纳题。定位句指出,私人快递公司 有更多的钱可以花,他们利用自已在物流领域的 专长,帮助灾后受损地区恢复生机。接下来的第 二至四句通过举例说明了一些私人快递公司在灾 后所做的工作。题干是对J)段内容的归纳概括, 故答案为J)。"
+        },
+        {
+          "number": 44,
+          "stem": "A dedicated USPS employee was on the job carrying out duties in spite of extreme conditions.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的AdedicatedUSPSemployee 和extremeconditions定位到文章D)段第一句。 D)【精析】同义转述题。定位句指出,2017年,加利 福尼亚州圣罗莎那场致命的火灾过后几天,一架 无人机捕提到了一位美国邮政署员工特雷弗·史 密斯的连续镜头。他正开着那辆熟悉的白色货车 穿梭在楚毁的房子中间,揽收受灾区内的邮件。 题干中的Adedicated USPS employee和on the job分别对应定位句中的aUSPSworker和 collectingmail inan affected area,故答案为D)。"
+        },
+        {
+          "number": 45,
+          "stem": "Postal services work hard to identify items that require priority treatment.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【定位】由题干中的workhard、identify和priority treatment定位到文章HD段第一句。 H)【精析】同义转述题。定位句指出,虽然很难识别 出哪些包裹装着社保账单等关键物品,但是美国 邮政署和美国联合包裹运送服务公司都会尽他们 的最大努力来优先处理敏感材料。题干中的 workhard对应定位句中的trytheirbest,题干中 的prioritytreatment对应定位句中的prioritize sensitivematerial,故答案为H)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2019-12-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Professor Ashok Goel of Georgia Tech developed an artificially intelligent teaching assistant to help handle the enormous number of student questions in the online class, Knowledge-Based Artificial Intelligence. This online course is a core requirement of Georgia Tech’s online Master of Science in Computer Science program Professor Goel already had eight teaching assistants, but that wasn’t enough to deal with the overwhelming number of daily questions from students. Many students drop out of online courses because of the lack of teaching support. When students feel isolated or confused and reach out with questions that go unanswered, their motivation to continue begins to fade. Professor Goel decided to do something to remedy this situation and his solution was to create a virtual assistant named Jill Watson, which is based on the IBM Watson platform. Goel and his team developed several versions of Jill Watson before releasing her to the online forums. At first, the virtual assistant wasn’t too great. But Goel and his team sourced the online discussion forum to find all 40,000 questions that had ever been asked since the class was launched. Then they began to feed Jill with the questions and answers. After some adjustments, and sufficient time, Jill was able to answer the students’ questions correctly 97% of the time. The virtual assistant became so advanced and realistic that the students didn’t know she was a computer. The students, who were studying artificial intelligence, were interacting with the virtual assistant and couldn’t tell it apart from a real human being. Goel didn’t inform them about Jill’s true identity until April 26. The students were actually very positive about the experience. The goal of Professor Goel’s virtual assistant next year is to take over answering 40% of all the questions posed by students on the online forum. The name Jill Watson will, of course, change to something else next semester. Professor Goel has a much rosier outlook on the future of artificial intelligence than, say, Elon Musk, Stephen Hawking, Bill Gates or Steve Wozniak."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What do we learn about Knowledge-Based Artificial Intelligence?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is a robot that can answer students' questions."
+            },
+            {
+              "key": "B",
+              "text": "It is a course designed for students to learn online."
+            },
+            {
+              "key": "C",
+              "text": "It is a high-tech device that revolutionizes teaching."
+            },
+            {
+              "key": "D",
+              "text": "It is a computer program that aids student learning."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的Knowledge-BasedArtificial Intelligence定位到首段第一、二句。 B)【精析】细节辨认题。定位句指出,戈埃尔教授开 发了一个人工智能助教来帮助处理在线课程中大 量的学生问题,这门在线课程名叫“基于知识的人 工智能”,是佐治亚理工学院计算机科学在线硕士 课程的核心要求。由此可见,“基于知识的人工智 能”是一门为学生在线学习而设计的课程,故答案 为B)。 【避错】首段第一句提到,戈埃尔教授开发了一个 人工智能助教,但“基于知识的人工智能”并非这 个智能助教的名字,而是在线课程的名称,故排除 A)。首段第二句提到,这门在线课程是佐治亚理 工学院计算机科学在线硕士课程的核心要求,由 此可知,“基于知识的人工智能”不是高科技设备, 也不是电脑程序,故排除C)、D)两项。"
+        },
+        {
+          "number": 47,
+          "stem": "What problem did Professor Goel meet with?",
+          "options": [
+            {
+              "key": "A",
+              "text": "His students were unsatisfied with the assistants."
+            },
+            {
+              "key": "B",
+              "text": "His course was too difficult for the students."
+            },
+            {
+              "key": "C",
+              "text": "Students' questions were too many to handle."
+            },
+            {
+              "key": "D",
+              "text": "Too many students dropped out of his course."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的problem和ProfessorGoel定 位到第一段最后一句。 C)【精析】推理判断题。定位句指出,戈埃尔教授已 经有了8名助教,但这还不足以应对学生每天提 出的大量问题。由此可知,学生的问题太多了,很 难处理,故答案为C)。 【避错】文章第三段第二句提到,这个虚拟助理一 开始做得并不太好,但并非学生对人工助教不满 意,A)项表述错误,故排除。文章第二段第一句指 出,由于缺乏教学支持,许多学生退出了在线课 程,并非他的课程让学生觉得很困难,B)项属于过 度推理,故排除。文章第二段第一句虽然提到许 多学生因为缺乏教学支持退出了在线课程,但文 中并未指出学生退出了哪位老师的课程,D)项说 法过于绝对,故排除。"
+        },
+        {
+          "number": 48,
+          "stem": "What do we learn about Jill Watson?",
+          "options": [
+            {
+              "key": "A",
+              "text": "She turned out to be a great success."
+            },
+            {
+              "key": "B",
+              "text": "She got along pretty well with students."
+            },
+            {
+              "key": "C",
+              "text": "She was unwelcome to students at first."
+            },
+            {
+              "key": "D",
+              "text": "She was released online as an experiment."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题干中的JillWatson定位到第三段第 五、六句。 A)【精析】推理判断题。定位句指出,经过一些调整 和足够的时间后,吉尔回答学生问题的正确率能 够达到97%。虚拟助理变得非常先进而且逼真, 以至于学生们都不知道她是一台计算机。由此可 知,吉尔最后取得了巨大的成功,故答案为A)。 【避错】定位句只提到吉尔的成功,未提及与学生 们的相处,B)项为过度推理,故排除。第三段第二 句指出,一开始,这个虚拟助理做得并不太好。但 并没有说明学生不喜欢吉尔,故排除C)项。文中 未提及D)“她被作为实验发布到网上”,故排除。"
+        },
+        {
+          "number": 49,
+          "stem": "How did the students feel about Jill Watson?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They thought she was a bit too artificial."
+            },
+            {
+              "key": "B",
+              "text": "They found her not as capable as expected."
+            },
+            {
+              "key": "C",
+              "text": "They could not but admire her knowledge."
+            },
+            {
+              "key": "D",
+              "text": "They could not tell her from a real person."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的studentsfeelaboutJill Watson定位到第三段最后三句。 D)【精析】推理判断题。定位句指出,学习人工智能 的学生与虚拟助理进行互动,而且无法将其与真 人区分开来,故答案为D)。 【避错】文中未提及A)“他们认为她有点太假了”、 B)“他们发现她不如预期的那么有能力”和C)“他 们不得不钦佩她的知识”,故排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What does Professor Goel plan to do next with Jill Watson?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Launch different versions of her online."
+            },
+            {
+              "key": "B",
+              "text": "Feed her with new questions and answers."
+            },
+            {
+              "key": "C",
+              "text": "Assign her to answer more of students’ questions."
+            },
+            {
+              "key": "D",
+              "text": "Encourage students to interact with her more freely."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的ProfessorGoel和plantodo 定位到最后一段第一句。 C【精析】推理判断题。定位句指出,戈埃尔教授的 虚拟助教明年的目标是回答网上论坛里学生提出 的40%的问题。由此可见,戈埃尔教授会让虚拟 助教回答更多的学生问题,故答案为C)。 【避错】最后一段第二句指出,吉尔·沃森这个名 字会在下个学期被换成别的名字,而非发布不同 的版本,故排除A)项。文中并未提及B)“给她新 的问题和答案”和D)“鼓励学生与她更自由地互 动”,故排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2019-12-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Thinking small, being engaging, and having a sense of humor don’t hurt. Those are a few of the traits of successful science crowdfunding efforts that emerge from a recent study that examined nearly 400 campaigns. But having a large network and some promotional skills may be more crucial. Crowdfunding, raising money for a project through online appeals, has taken off in recent years for everything from making movies to producing water-saving gadgets. Scientists have tried to tap Internet donors, too, with mixed success. Some raised more than twice their goals, but others have fallen short of reaching even modest targets. To determine what separates science crowdfunding triumphs from failures, a team led by science communications scholar Mike Schafer of the University of Zurich examined the content of the webpages for 371 recent campaigns. Four traits stood out for those that achieved their goals, the researchers report in Public Understanding of Science. For one, they use a crowdfunding platform that specializes in raising money for science, and not just any kind of project. Although sites like Kickstarter take all comers, platforms such as Experiment. corn and Petridish org only present scientific projects. For another, they present the project with a funny video because good visuals and a sense of humor improved success. Most of them engage with potential donors, since projects that answered questions from interested donors fared better. And they target a small amount of money. The projects included in the study raised $4000 on average, with 30% receiving less than $1000. The more money a project sought, the lower the chance it reached its goal, the researchers found. Other factors may also significantly influence a project’s success, most notably, the size of a scientist's personal and professional networks, and how much a researcher promotes a project on their own. Those two factors are by far more critical than the content on the page. Crowdfunding can be part of researchers’ efforts to reach the public, and people give because “they feel a connection to the person” who is doing the fundraising—not necessarily to the science."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What do we learn about the scientists trying to raise money online for their projects?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They did not raise much due to modest targets."
+            },
+            {
+              "key": "B",
+              "text": "They made use of mixed fundraising strategies."
+            },
+            {
+              "key": "C",
+              "text": "Not all of them achieved their anticipated goals."
+            },
+            {
+              "key": "D",
+              "text": "Most of them put movies online for the purpose."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的the scientists和raisemoney online定位到第二段第二、三句。 C)【精析】细节辨认题。定位句指出,科学家们也曾 尝试利用互联网捐助者,但成败参半。有些筹到 的资金比目标多了一倍多,但有些却连小的目标 都没达到。由此可见,并非所有的科学家都成功 地筹集到了资金,故答案为C)。 【避错】第二段最后一句提到,有些筹到的资金比 目标多了一倍多,但有些却连小的目标都没达到, 故排除A)“由于目标不高,他们没有筹集到多少 资金”。第二段只是指出科学家众筹成败参半 (withmixedsuccess),并未提及筹集资金的具体 方法,故排除B)“他们采用了混合融资策略”。第 二段第一句提到,近年来,众筹风靡于各个领域, 从制作电影到生产节水设备等,而非大多数科学 家把电影放到网上就是为了众筹,故排除D)。"
+        },
+        {
+          "number": 52,
+          "stem": "What is the purpose of Mike Schafer’s research of recent crowdfunding campaigns?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To create attractive content for science websites."
+            },
+            {
+              "key": "B",
+              "text": "To identify reasons for their different outcomes."
+            },
+            {
+              "key": "C",
+              "text": "To help scientists to launch innovative projects."
+            },
+            {
+              "key": "D",
+              "text": "To separate science projects from general ones."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的MikeSchafer'sresearch定位 到第三段。 B)【精析】细节辨认题。定位段提到,为了确定科学 众筹成功与失败的原因,苏黎世大学的科学传播 学学者迈克·沙费尔领导的一个团队调查了最近 371个活动的网页内容。由此可知,迈克·沙费尔 做该项研究是为了找出造成不同结果的原因,故 答案为B)。 【避错】文章第三段并未提及为科学网站创造有吸 引力的内容,只是指出了对最近371个活动的网 页内容进行了调查,故排除A)“为科学网站创造 有吸引力的内容”。文中没有提到C)“帮助科学 家启动创新项目”和D)“把科学项目与普通项目 区分开”,故排除。"
+        },
+        {
+          "number": 53,
+          "stem": "What trait contributes to the success of a crowdfunding campaign?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The potential benefit to future generations."
+            },
+            {
+              "key": "B",
+              "text": "Its interaction with prospective donors."
+            },
+            {
+              "key": "C",
+              "text": "Its originality in addressing financial issues."
+            },
+            {
+              "key": "D",
+              "text": "The value of the proposed project."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的trait和contributesto定位到 第四段第五句。 B)【精析】细节辨认题。定位句指出,大多数成功的 科学众筹项目都与潜在的捐助者有密切联系,因 为回答那些感兴趣的捐助者问题的项目会进展得 更顺利。由此可知,与可能的捐助者互动有助于 众筹活动的成功,故答案为B)。 【避错】文中未提及A)“对后代的潜在好处”、 C)“在解决金融问题上的独创性”和D)“建议项目 的价值”,故排除。"
+        },
+        {
+          "number": 54,
+          "stem": "What did the researchers think of the financial targets of crowdfunding projects?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They should be small to be successful."
+            },
+            {
+              "key": "B",
+              "text": "They should be based on actual needs."
+            },
+            {
+              "key": "C",
+              "text": "They should be assessed with great care."
+            },
+            {
+              "key": "D",
+              "text": "They should be ambitious to gain notice."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题干中的financial targetsofcrowdfunding projects定位到第四段最后三句。 A)【精析】细节辨认题。定位句提到,成功众筹项目 的目标是一小笔钱。研究中涉及的项目平均筹集 金额为4,000美元,其中30%的项目获得的资金 不足1,000美元。研究人员发现,项目需要的资 金越多,它实现目标的机会就越小。由此可知,研 究人员认为科学众筹要想成功,应设立较小的目 标资金,故答案为A)。 【避错】文中未提及B)“目标应该以实际需要为基 础”和C)“应该小心地评估目标”,故排除。D)“目 标资金巨大才能获得关注”表述与定位句相反,故 排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What motivates people to donate in a crowdfunding campaign?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The ease of access to the content of the webpage."
+            },
+            {
+              "key": "B",
+              "text": "Their desire to contribute to the cause of science."
+            },
+            {
+              "key": "C",
+              "text": "The significance and influence of the project itself."
+            },
+            {
+              "key": "D",
+              "text": "Their feeling of connection to the scientists themselves."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的motivates和donate定位到最 后一段最后一句。 D)【精析】推理判断题。定位句指出,众筹可以成为 研究人员努力接触公众的一部分,人们捐款是因 为“他们感觉与筹款人有联系”——而不是与科学 有联系。由此可见,人们捐款是因为他们感觉与 科学家有联系,故答案为D)。 【避错】文中没有提及A)“访问网页内容的便利 性”,故排除。由定位句可知,人们捐款是因为“他 们感觉与筹款人有联系”—而不是与科学有联 系,故排除B)“他们对科学事业作出贡献的愿 望”。文中没有提及C)“项目本身的意义和影 响”,故排除。"
+        }
+      ]
+    }
+  ]
+}

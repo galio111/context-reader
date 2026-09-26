@@ -1,0 +1,1571 @@
+{
+  "id": "cet4-2020-09-2",
+  "level": 4,
+  "year": 2020,
+  "month": 9,
+  "set": 2,
+  "title": "2020 年 9 月四级 · 第 2 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.09/%E7%9C%9F%E9%A2%98PDF/cet4_2020_09_2.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.09/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2020_09_2_ans.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2020-09-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "It can be seen from the cheapest budget airlines to the world's largest carriers: Airlines across the globe [[26]] various shades of blue in their cabin seats, and it is no [[27]] . There does appear to be some psychology behind it. Blue is [[28]] with the positive qualities of trust, efficiency, quietness, coolness, reflection and calm.",
+        "Nigel Goode is a leading aviation designer who works at a company which has been delivering aircraft interiors for airlines for 30 years. \"Our job as designers is to reinforce the airline's brand and make it more [[29]] ,\" he says. \"But our primary concern is to deliver an interior that [[30]]comfort to create a pleasant environment.\"",
+        "\"It's all about making the traveling experience less [[31]] and blue is said to induce a feeling of calm. While some of the budget airlines might use brighter, bolder shades, most others go with softened tones. The [[32]] aim is to create a home-like relaxing feel, so airlines tend to use soft colors that feel domestic, [[33]] and earthy for that reason.\"",
+        "It's also a trend that emerged decades ago and has [[34]] stuck. \"Blue became the color of choice because it's a conservative, agreeable, corporate shade that [[35]] being trustworthy and safe. That's why you see it used in all of the older airlines like British Airways,\" Nigel Goode added."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "associated"
+        },
+        {
+          "key": "B",
+          "text": "coincidence"
+        },
+        {
+          "key": "C",
+          "text": "determined"
+        },
+        {
+          "key": "D",
+          "text": "drastically"
+        },
+        {
+          "key": "E",
+          "text": "enormous"
+        },
+        {
+          "key": "F",
+          "text": "imitate"
+        },
+        {
+          "key": "G",
+          "text": "indication"
+        },
+        {
+          "key": "H",
+          "text": "integrate"
+        },
+        {
+          "key": "I",
+          "text": "maximizes"
+        },
+        {
+          "key": "J",
+          "text": "natural"
+        },
+        {
+          "key": "K",
+          "text": "principal"
+        },
+        {
+          "key": "L",
+          "text": "recognizable"
+        },
+        {
+          "key": "M",
+          "text": "simply"
+        },
+        {
+          "key": "N",
+          "text": "stressful"
+        },
+        {
+          "key": "O",
+          "text": "symbolizes"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "associated"
+            },
+            {
+              "key": "B",
+              "text": "coincidence"
+            },
+            {
+              "key": "C",
+              "text": "determined"
+            },
+            {
+              "key": "D",
+              "text": "drastically"
+            },
+            {
+              "key": "E",
+              "text": "enormous"
+            },
+            {
+              "key": "F",
+              "text": "imitate"
+            },
+            {
+              "key": "G",
+              "text": "indication"
+            },
+            {
+              "key": "H",
+              "text": "integrate"
+            },
+            {
+              "key": "I",
+              "text": "maximizes"
+            },
+            {
+              "key": "J",
+              "text": "natural"
+            },
+            {
+              "key": "K",
+              "text": "principal"
+            },
+            {
+              "key": "L",
+              "text": "recognizable"
+            },
+            {
+              "key": "M",
+              "text": "simply"
+            },
+            {
+              "key": "N",
+              "text": "stressful"
+            },
+            {
+              "key": "O",
+              "text": "symbolizes"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【考点】动词辨析题。 H)【语法判断】分析空格所在句子可知,空格前后均 为名词词组,句中缺少谓语动词,因此本空应填入 动词。 【语义判断】本句指出,世界上大大小小的航空公 司的飞机座椅都会用到蓝色。因此,本空应填入 含有“使用,利用”意义的动词,由此可知本题答案 为H)integrate\"使融人”。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "associated"
+            },
+            {
+              "key": "B",
+              "text": "coincidence"
+            },
+            {
+              "key": "C",
+              "text": "determined"
+            },
+            {
+              "key": "D",
+              "text": "drastically"
+            },
+            {
+              "key": "E",
+              "text": "enormous"
+            },
+            {
+              "key": "F",
+              "text": "imitate"
+            },
+            {
+              "key": "G",
+              "text": "indication"
+            },
+            {
+              "key": "H",
+              "text": "integrate"
+            },
+            {
+              "key": "I",
+              "text": "maximizes"
+            },
+            {
+              "key": "J",
+              "text": "natural"
+            },
+            {
+              "key": "K",
+              "text": "principal"
+            },
+            {
+              "key": "L",
+              "text": "recognizable"
+            },
+            {
+              "key": "M",
+              "text": "simply"
+            },
+            {
+              "key": "N",
+              "text": "stressful"
+            },
+            {
+              "key": "O",
+              "text": "symbolizes"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【考点】名词辨析题。 B)【语法判断】空格前是限定词no,因此本空应填入 名词。 【语义判断】由下一句可知,所有航空公司的飞机 座椅都会融人蓝色是有其心理学原因的,所以这 不是巧合。由此可知,本空应填人含有“巧合”意 义的名词,故本题答案为B)coincidence\"巧合”。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "associated"
+            },
+            {
+              "key": "B",
+              "text": "coincidence"
+            },
+            {
+              "key": "C",
+              "text": "determined"
+            },
+            {
+              "key": "D",
+              "text": "drastically"
+            },
+            {
+              "key": "E",
+              "text": "enormous"
+            },
+            {
+              "key": "F",
+              "text": "imitate"
+            },
+            {
+              "key": "G",
+              "text": "indication"
+            },
+            {
+              "key": "H",
+              "text": "integrate"
+            },
+            {
+              "key": "I",
+              "text": "maximizes"
+            },
+            {
+              "key": "J",
+              "text": "natural"
+            },
+            {
+              "key": "K",
+              "text": "principal"
+            },
+            {
+              "key": "L",
+              "text": "recognizable"
+            },
+            {
+              "key": "M",
+              "text": "simply"
+            },
+            {
+              "key": "N",
+              "text": "stressful"
+            },
+            {
+              "key": "O",
+              "text": "symbolizes"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【考点】形容词辨析题。 A)【语法判断】空格前是is,空格后是with,因此本空 应填入形容词或动词的分词形式。 【语义判断】空格前一句提到,航空公司的飞机座 椅都会用到蓝色,其背后有心理学原因。本句揭 示原因:蓝色能让人联想到信任、效率、安静、凉 爽、沉思和平静这些积极的品质。因此,本空应填 人含有“联系到,联想到“意义的形容词或动词的 分词形式,故本题答案为A)associated\"(与...) 相关联的”。在备选的形容词或动词的分词形式 中,其他选项都不能与with搭配,因此排除。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "associated"
+            },
+            {
+              "key": "B",
+              "text": "coincidence"
+            },
+            {
+              "key": "C",
+              "text": "determined"
+            },
+            {
+              "key": "D",
+              "text": "drastically"
+            },
+            {
+              "key": "E",
+              "text": "enormous"
+            },
+            {
+              "key": "F",
+              "text": "imitate"
+            },
+            {
+              "key": "G",
+              "text": "indication"
+            },
+            {
+              "key": "H",
+              "text": "integrate"
+            },
+            {
+              "key": "I",
+              "text": "maximizes"
+            },
+            {
+              "key": "J",
+              "text": "natural"
+            },
+            {
+              "key": "K",
+              "text": "principal"
+            },
+            {
+              "key": "L",
+              "text": "recognizable"
+            },
+            {
+              "key": "M",
+              "text": "simply"
+            },
+            {
+              "key": "N",
+              "text": "stressful"
+            },
+            {
+              "key": "O",
+              "text": "symbolizes"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【考点】形容词辨析题。 L)【语法判断】空格前是more,而且空格处所填词作 it的宾语补足语,因此本空应填入形容词。 【语义判断】空格前的it指代theairline'sbrand。 由句意可知,奈杰尔古德认为,设计师的工作是 强化航空公司的品牌,从而使更多的人认识该品 牌。因此,本空应填入含有“可识别的,可辨认的” 意义的形容词,由此确定本题答案为L) recognizable“可辨认的,可认出的”。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "associated"
+            },
+            {
+              "key": "B",
+              "text": "coincidence"
+            },
+            {
+              "key": "C",
+              "text": "determined"
+            },
+            {
+              "key": "D",
+              "text": "drastically"
+            },
+            {
+              "key": "E",
+              "text": "enormous"
+            },
+            {
+              "key": "F",
+              "text": "imitate"
+            },
+            {
+              "key": "G",
+              "text": "indication"
+            },
+            {
+              "key": "H",
+              "text": "integrate"
+            },
+            {
+              "key": "I",
+              "text": "maximizes"
+            },
+            {
+              "key": "J",
+              "text": "natural"
+            },
+            {
+              "key": "K",
+              "text": "principal"
+            },
+            {
+              "key": "L",
+              "text": "recognizable"
+            },
+            {
+              "key": "M",
+              "text": "simply"
+            },
+            {
+              "key": "N",
+              "text": "stressful"
+            },
+            {
+              "key": "O",
+              "text": "symbolizes"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【考点】动词辨析题。 I【语法判断】分析句子结构可知,空格所在部分是 定语从句,that指代先行词aninterior,作从句的 主语,而该从句中没有谓语动词。又因为主语是 第三人称单数,因此本空应填入动词的第三人称 单数形式。 【语义判断】由空格后面的tocreateapleasant environment(以创造令人愉悦的环境)可知,飞机 的内饰应该让人感到十分舒适。因此,本空应填 人含有“产生,制造”意义的动词,结合所给选项, I)maximizes“使增加到最大限度”最符合句意,故 为正确答案。在备选的动词第三人称单数形式 中,O)symbolizes不符合句意,因此排除。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "associated"
+            },
+            {
+              "key": "B",
+              "text": "coincidence"
+            },
+            {
+              "key": "C",
+              "text": "determined"
+            },
+            {
+              "key": "D",
+              "text": "drastically"
+            },
+            {
+              "key": "E",
+              "text": "enormous"
+            },
+            {
+              "key": "F",
+              "text": "imitate"
+            },
+            {
+              "key": "G",
+              "text": "indication"
+            },
+            {
+              "key": "H",
+              "text": "integrate"
+            },
+            {
+              "key": "I",
+              "text": "maximizes"
+            },
+            {
+              "key": "J",
+              "text": "natural"
+            },
+            {
+              "key": "K",
+              "text": "principal"
+            },
+            {
+              "key": "L",
+              "text": "recognizable"
+            },
+            {
+              "key": "M",
+              "text": "simply"
+            },
+            {
+              "key": "N",
+              "text": "stressful"
+            },
+            {
+              "key": "O",
+              "text": "symbolizes"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【考点】形容词辨析题。 N)【语法判断】空格前是less,而且空格处所填词作 thetravelingexperience的宾语补足语,因此本空 应填人形容词。 【语义判断】本段解释飞机座椅采用蓝色的原因。 and后面的句子指出,据说蓝色能产生冷静的感 觉。也就是说,为了让飞行体验不那么紧张而使 用蓝色。因此,本空应填入含有“紧张的,有压力 的”意义的形容词,由此确定本题答案为N) stressful\"充满压力的,紧张的”。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "associated"
+            },
+            {
+              "key": "B",
+              "text": "coincidence"
+            },
+            {
+              "key": "C",
+              "text": "determined"
+            },
+            {
+              "key": "D",
+              "text": "drastically"
+            },
+            {
+              "key": "E",
+              "text": "enormous"
+            },
+            {
+              "key": "F",
+              "text": "imitate"
+            },
+            {
+              "key": "G",
+              "text": "indication"
+            },
+            {
+              "key": "H",
+              "text": "integrate"
+            },
+            {
+              "key": "I",
+              "text": "maximizes"
+            },
+            {
+              "key": "J",
+              "text": "natural"
+            },
+            {
+              "key": "K",
+              "text": "principal"
+            },
+            {
+              "key": "L",
+              "text": "recognizable"
+            },
+            {
+              "key": "M",
+              "text": "simply"
+            },
+            {
+              "key": "N",
+              "text": "stressful"
+            },
+            {
+              "key": "O",
+              "text": "symbolizes"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【考点】形容词辨析题。 K】【语法判断】空格前是定冠词The,后面是名词 aim,因此本空应填人形容词。 【语义判断】本句指出, 目的是营造像在 家一样的令人放松的感觉。本段第一句也提到, 所有工作都是为了让飞行体验不那么紧张。由此 可推断,营造令人放松的感觉是主要的目的,因此 本空应填人含有“主要的”意义的形容词,故本题 答案为K)principal\"最重要的,主要的”。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "associated"
+            },
+            {
+              "key": "B",
+              "text": "coincidence"
+            },
+            {
+              "key": "C",
+              "text": "determined"
+            },
+            {
+              "key": "D",
+              "text": "drastically"
+            },
+            {
+              "key": "E",
+              "text": "enormous"
+            },
+            {
+              "key": "F",
+              "text": "imitate"
+            },
+            {
+              "key": "G",
+              "text": "indication"
+            },
+            {
+              "key": "H",
+              "text": "integrate"
+            },
+            {
+              "key": "I",
+              "text": "maximizes"
+            },
+            {
+              "key": "J",
+              "text": "natural"
+            },
+            {
+              "key": "K",
+              "text": "principal"
+            },
+            {
+              "key": "L",
+              "text": "recognizable"
+            },
+            {
+              "key": "M",
+              "text": "simply"
+            },
+            {
+              "key": "N",
+              "text": "stressful"
+            },
+            {
+              "key": "O",
+              "text": "symbolizes"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【考点】形容词辨析题。 J)【语法判断】空格前的feel作系动词,而且空格处 所填词与domestic、earthy是并列关系,因此本空 应填入形容词。 【语义判断】由句意可知,航空公司的主要目的是 营造轻松的感觉,因此倾向于使用柔和的颜色,给 人一种像家的、朴实的感觉。因此,本空应填入含 有“轻松,放松”意义的形容词,J)natural\"自然的, 不做作的”的词义最接近,由此确定为本题答案。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "associated"
+            },
+            {
+              "key": "B",
+              "text": "coincidence"
+            },
+            {
+              "key": "C",
+              "text": "determined"
+            },
+            {
+              "key": "D",
+              "text": "drastically"
+            },
+            {
+              "key": "E",
+              "text": "enormous"
+            },
+            {
+              "key": "F",
+              "text": "imitate"
+            },
+            {
+              "key": "G",
+              "text": "indication"
+            },
+            {
+              "key": "H",
+              "text": "integrate"
+            },
+            {
+              "key": "I",
+              "text": "maximizes"
+            },
+            {
+              "key": "J",
+              "text": "natural"
+            },
+            {
+              "key": "K",
+              "text": "principal"
+            },
+            {
+              "key": "L",
+              "text": "recognizable"
+            },
+            {
+              "key": "M",
+              "text": "simply"
+            },
+            {
+              "key": "N",
+              "text": "stressful"
+            },
+            {
+              "key": "O",
+              "text": "symbolizes"
+            }
+          ],
+          "answer": "M",
+          "explanation": "【考点】副词辨析题。 M)【语法判断】空格位于谓语动词hasstuck之间,因 此应填入副词。 【语义判断】本句说明飞机座椅采用蓝色的趋势在 数十年前就出现了,一直沿用到现在。stuck(原形 是stick)本义有“卡住”的意思,说明选用蓝色的传 统就像被卡住一样,被保留至今。因此,本空应填 入含有“只是,只不过”意义的副词,故本题答案为 M)simply“只是,仅仅”。备选副词中,D) drastically\"激烈地,急剧地”一般用于说明改变的 程度,与句意不符,因此排除。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "associated"
+            },
+            {
+              "key": "B",
+              "text": "coincidence"
+            },
+            {
+              "key": "C",
+              "text": "determined"
+            },
+            {
+              "key": "D",
+              "text": "drastically"
+            },
+            {
+              "key": "E",
+              "text": "enormous"
+            },
+            {
+              "key": "F",
+              "text": "imitate"
+            },
+            {
+              "key": "G",
+              "text": "indication"
+            },
+            {
+              "key": "H",
+              "text": "integrate"
+            },
+            {
+              "key": "I",
+              "text": "maximizes"
+            },
+            {
+              "key": "J",
+              "text": "natural"
+            },
+            {
+              "key": "K",
+              "text": "principal"
+            },
+            {
+              "key": "L",
+              "text": "recognizable"
+            },
+            {
+              "key": "M",
+              "text": "simply"
+            },
+            {
+              "key": "N",
+              "text": "stressful"
+            },
+            {
+              "key": "O",
+              "text": "symbolizes"
+            }
+          ],
+          "answer": "O",
+          "explanation": "【考点】动词辨析题。 O)【语法判断】分析句子结构可知,空格所在部分是 定语从句,that指代先行词shade,作从句的主语, 而该从句中没有谓语动词。又因为主语是第三人 称单数,因此本空应填入动词的第三人称单数 形式。 【语义判断】第一段最后一句提到,蓝色与信任、效 率、安静、凉爽、沉思和平静这些积极的品质有关。 而本句又提到,蓝色是一种令人愉悦的能代表公 司的传统颜色, 可信和安全。所以,本句 也是在解释蓝色的象征意义。因此,本空应填人 含有“象征,代表”意义的动词第三人称单数形式, 故本题答案为O)symbolizes\"象征”。在备选的动 词第三人称单数形式中,I)maximizes不符合句 意,因此排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2020-09-2-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) I still remember my fourth-grade social studies project. Our class was studying the Gold Rush, something all California fourth-graders learned. I was excited because I had asked to research Chinese immigrants during that era. Growing up in the San Francisco Bay Area, I had always known that \"San Francisco\" translated to \"Gold Mountain\" in Chinese. The name had stuck ever since Chinese immigrants arrived on the shores of Northern California in the 1850s, eager to try their luck in the gold mines. Now I'd have the chance to learn about them.",
+        "B) My excitement was short-lived. I remember heading to the library with my class and asking for help. I remember the librarian's hesitation. She finally led me past row after row of books, to a corner of the library where she pulled an oversized book off the shelf. She checked the index and turned over to a page about early Chinese immigrants in California. That was all there was in my entire school library in San Francisco, home of the nation's first Chinatown. That was it.",
+        "C) I finally had the opportunity to learn about Asian Americans like myself, and how we became part of the fabric of the United States when I took an introductory class on Asian-American history in college. The class was a revelation. I realized how much had been missing in my textbooks as I grew up. My identity had been shaped by years of never reading, seeing, hearing, or learning about people who had a similar background as me. Why, I wondered, weren't the stories, histories, and contributions of Asian Americans taught in K-12 schools, especially in the elementary schools? Why are they still not taught?",
+        "D) Our students—Asian, Latino, African American, Native American, and, yes, white—stand to gain from a multicultural curriculum. Students of color are more engaged and earn better grades when they see themselves in their studies. Research has also found that white students benefit by being challenged and exposed to new perspectives.",
+        "E) For decades, activists have called for schools to offer anti-racism or multicultural curricula. Yet a traditional American K-12 curriculum continues to be taught from a Eurocentric point of view. Being multicultural often falls back on weaving children of color into photographs, or creating a few supporting characters that happen to be ethnic—an improvement, but superficial nonetheless. Elementary school classrooms celebrate cultural holidays—Lunar New Year! Red envelopes! Lion dancers!—but they're quick to gloss over (掩饰) the challenges and injustices that Asian Americans have faced. Most students don't, for example, learn about the laws that for years excluded Asians from immigrating to the U.S. They don't hear the narratives of how and why Southeast Asian refugees (难民) had to rebuild their lives here.",
+        "F) Research into what students learn in school has found just how much is missing in their studies. In an analysis, Christine Sleeter, a professor in the College of Professional Studies at California State University, Monterey Bay, reviewed California's history and social studies framework, the curriculum determined by state educators that influences what is taught in K-12 classrooms. Of the nearly 100 Americans recommended to be studied, 77% were white, 18% African American, 4% Native American, and 1% Latino. None were Asian American.",
+        "G) Worse, when Asian Americans do make an appearance in lesson books, it is often laced with problems. \"There hasn't been much progress,\" says Nicholas Hartlep, an assistant professor at Metropolitan State University. His 2016 study of K-12 social studies textbooks and teacher manuals found that Asian Americans were poorly represented at best, and subjected to racist caricatures (拙劣 的模仿)at worst. The wide diversity of Asian Americans was overlooked; there was very little mention of South Asians or Pacific Islanders, for example. And chances were, in the images, Asian Americans appeared in stereotypical(模式化的)roles, such as engineers.",
+        "H) Teachers with a multicultural background or training could perhaps overcome such curriculum challenges, but they're few and far between. In California, 65% of K-12 teachers are white, compared with a student population that is 75% students of color. Nationwide, the gap is even greater. It isn't a requirement that teachers share the same racial or ethnic background as their students, but the imbalance poses challenges, from the potential for unconscious bias to a lack of knowledge or comfort in discussing race and culture.",
+        "I) How race and ethnicity is taught is crucial, says Allyson Tintiangco-Cubales, an Asian-American studies professor at San Francisco State University. She added that it's not so much about the teacher's background, but about training. \"You can have a great curriculum but if you don't have teachers dedicated(专注于)to teaching it well,\" she says, \"it won't work as well as you want it to.\"",
+        "J) Some teachers are finding ways to expose students to Asian-American issues—if not during school hours, then outside of them. This summer, Wilson Wong will lead a class of rising fifth-graders at a day camp dedicated to Chinese culture and the Chinese-American community in Oakland, California. His students, for instance, will learn about how Chinese immigrants built the railroads in California, and even have a chance to \"experience\" it themselves: They will race each other to build a railroad model on the playground, with some students being forced to \"work\" longer and faster and at cheaper wages. Wong, a middle school teacher during the school year, hopes he's exposing the students to how Chinese Americans contributed to the U.S., something that he didn't get as a student growing up in the San Francisco Bay Area. \"I planted the seeds early,\" he says. \"That's what I'm hoping for.\"",
+        "K) And, despite setbacks, the tide may finally be turning. California legislators passed a bill last year that will bring ethnic studies to all its public high schools. Some school districts, including San Francisco and Los Angeles, already offer ethnic studies at its high schools. High schools in Portland, Chicago, and elsewhere have either implemented or will soon introduce ethnic studies classes. And, as more high schools begin teaching it, the door could crack open for middle schools, and, perhaps inevitably, elementary schools, to incorporate a truly more multicultural curriculum. Doing so will send an important message to the nation's youngest citizens: Whatever your race or ethnicity, you matter. Your history matters. Your story matters."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "While cultural holidays are celebrated, the injustices experienced by Asian Americans are not exposed in elementary school classrooms.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【定位】由题干中的culturalholidays、injustices和 elementaryschoolclassrooms定位到E)段第 四句。 E)【精析】同义转述题。定位句提到,小学课堂庆祝 一些文化节日一一农历新年!发红包!舞狮 子!但是他们很快地掩饰了亚裔美国人面对 的挑战和不公平。题干中的theinjustices experiencedbyAsianAmericans是对定位句中 injustices that Asian Americans have faced 的同 义转述,故答案为E)。"
+        },
+        {
+          "number": 37,
+          "stem": "Little information can be found about Chinese immigrants in the author's school library.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的Chineseimmigrants和the author'sschoollibrary定位到B)段第二至七句。 B)【精析】细节归纳题。定位句提到,作者和同班同 学一起去图书馆寻求帮助,图书管理员带着他来 到图书馆的一个角落,从架子上拿下一本硕大的 图书,她查阅索引,翻到了关于早期来到加利福尼 亚州的中国移民的一页,这就是在旧金山作者的 校图书馆里能找到的所有。根据这段的描述可以 看出,作者学校的图书馆里关于中国移民的信息 少之又少,故答案为B)。"
+        },
+        {
+          "number": 38,
+          "stem": "A middle school teacher is making a great effort to help students learn about the contributions made by Chinese immigrants to America.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【定位】由题干中的Amiddleschoolteacher、 contributions和Chinese immigrants to America 定位到J)段倒数第三句。 J)【精析】同义转述题。定位句提到,身为一名中学 教师的王老师希望他能让学生们了解华裔美国人 是如何为美国做出贡献的,这是他曾经还是旧金 山港湾区的学生的时候并未得到的。题干中的 helpstudentslearnabout对应定位句中的he's exposingthe students to,题干中的Chinese immigrantstoAmerica对应定位句中的Chinese Americans,故答案为J)。"
+        },
+        {
+          "number": 39,
+          "stem": "No Asian Americans were included in the list of historical figures recommended for study in K-12 classrooms.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【定位】由题干中的NoAsianAmericans和 recommendedforstudy定位到F)段最后两句。 F)【精析】细节归纳题。定位句提到,在受到推荐接 受研究的近100名美国人中,77%是白人,18%是 非裔美国人,4%是印第安人,1%是拉丁美洲人。 没有一个是亚裔美国人。由此可知,用于K-12课 堂研究、受到推荐的历史人物名单中,不包含亚裔 美国人,故答案为F)。"
+        },
+        {
+          "number": 40,
+          "stem": "There is an obvious lack of teachers with a multicultural perspective to meet the curriculum challenges in America.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【定位】由题干中的lackofteachers、a multicultural perspective和 curriculum challenges 定位到H)段第一句。 H)【精析】同义转述题。定位句提到,有着多文化背 景或是经过这种培训的老师或许能够克服这种课 程挑战,但是他们的数量非常稀少。题干中的 teacherswithamulticulturalperspective对应定 位句中的Teacherswithamulticultural background or training,题干中的meet the curriculumchallenges对应定位句中的overcome such curriculumchallenges,故答案为H)。"
+        },
+        {
+          "number": 41,
+          "stem": "Students of ethnic backgrounds learn better from a multicultural curriculum.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的ethnicbackgrounds、learn better和amulticulturalcurriculum定位到D)段 第一、二句。 D)【精析】细节归纳题。定位句提到,我们的学 生一—亚裔美国人、拉丁美洲人、非裔美国人,印 第安人,还有白人一会从跨文化课程中有所收 获。当有色人种的学生们在学习过程中看到了关 于自己的内容,他们会更加专注而且取得更好的 成绩。也就是说,在这种多文化融合的课程中,有 色人种的学生们收获更大。题干中的learnbetter 是对定位句中aremoreengagedandearnbetter grades的归纳概括,故答案为D)。"
+        },
+        {
+          "number": 42,
+          "stem": "Now more and more high schools in America are including ethnic studies in their curriculums.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【定位】由题干中的highschoolsinAmerica、 ethnicstudies和curriculums定位到K)段第二至 四句。 K)【精析】细节归纳题。定位句提到,去年,加利福尼 亚州的立法者通过了一项法案,将把种族研究纳 入所有公立高中。包括旧金山和洛杉矶在内的一 些学区已经在其高中开设了种族研究课程。波特 兰市、芝加哥和其他地方的高中已经实施或即将 引入种族研究课程。归纳该部分意,可以概括 为:越来越多的美国高中正在将种族研究纳人课 程体系中,故答案为K)。"
+        },
+        {
+          "number": 43,
+          "stem": "A study of some K-12 textbooks and teacher manuals showed that Asian Americans were inadequately and improperly represented in them.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【定位】由题干中的someK-12textbooksand teacher manuals 和 inadequately and improperly represented定位到G)段第三句。 G)【精析】同义转述题。定位句提到,他在2016年对 K-12社会研究课本和教师手册的研究中发现,最 好的情况是亚裔美国人被描述的非常恶劣,最坏 的情况是他们受到了种族主义者拙劣的模仿。由 此可知,K-12教科书和教师手册中对亚裔美国人 的描述是不恰当的。题干中的inadequatelyand improperlyrepresented对应定位句中的poorly represented,故答案为G)。"
+        },
+        {
+          "number": 44,
+          "stem": "When taking a class in college, the author realized that a lot of information about Asian Americans was left out of the textbooks he studied.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的takingaclassincollege、 informationaboutAsianAmericans和leftoutof thetextbooks定位到C)段第一至三句。 C)【精析】同义转述题。定位句提到,当作者在大学 学习一门关于亚裔美国人历史的入门课程时,他 最终有机会了解像他一样的亚裔美国人,以及他 们是如何成为美国社会结构的一部分。这门课程 揭露了真相。伴随着作者的成长,他意识到教科 书中缺失了多少信息。综合来看这三句,作者在 学习了大学课程后了解了更多关于亚裔美国人的 信息,同时也发现K-12教育阶段缺失很多信息。 题干中的wasleftout是对定位句中hadbeen missing的同义转述,故答案为C)。"
+        },
+        {
+          "number": 45,
+          "stem": "An Asian-American studies professor placed greater emphasis on teacher training than on teachers' background.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【定位】由题干中的AnAsian-Americanstudies professor、teacher training和teachers background定位到D段第一、二句。 【精析】同义转述题。定位句提到,旧金山州立大学 D 的亚裔美国人研究教授阿里森·廷天科-库贝尔斯 说,如何教授种族和民族问题至关重要。她补充 说,这与老师的背景没多大关系,但是与培训有 关。题干中的placedgreateremphasisonteacher trainingthanonteachers'background对应定位 句中的 not so much about the teacher's background,butabouttraining,故答案为I)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2020-09-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "When is cleaning walls a crime? When you're doing it to create art, obviously. A number of street artists around the world have started expressing themselves through a practice known as reverse graffiti (涂鸦). They find dirty surfaces and paint them with images or messages using cleaning brushes or pressure hoses (高压水管). Either way, it's the same principle: the image is made by cleaning away the dirt. Each artist has their own individual style but all artists share a common aim: to draw attention to the pollution in our cities. The UK's Paul Curtis, better known as Moose, operates around Leeds and London and has been commissioned by a number of companies to make reverse graffiti advertisements. Brazilian artist, Alexandre Orion, turned one of Sao Paulo's transport tunnels into an amazing wall painting in 2006 by getting rid of the dirt. Made up of a series of white skulls (颅骨), the painting reminds drivers of the effect their pollution is having on the planet. \"Every motorist sits in the comfort of their car, but they don't give any consideration to the price their comfort has for the environment and consequently for themselves,\" says Orion. The anti-pollution message of the reverse graffiti artists confuses city authorities since the main argument against graffiti is that it spoils the appearance of both types of property: public and private. This was what Leeds City Council said about Moose's work: \"Leeds residents want to live in clean and attractive neighbourhoods. We view this kind of advertising as environmental damage and will take strong action against it.\" Moose was ordered to \"clean up his act.\" How was he supposed to do this: by making all property he had cleaned dirty again? As for the Brazilian artist's work, the authorities were annoyed but could find nothing to charge him with. They had no other option but to clean the tunnel—but only the parts Alexandre had already cleaned. The artist merely continued his campaign on the other side. The city officials then decided to take drastic action. They not only cleaned the whole tunnel but every tunnel in Sao Paulo."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What do we learn from the passage about reverse graffiti?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It uses paint to create anti-pollution images."
+            },
+            {
+              "key": "B",
+              "text": "It creates a lot of trouble for local residents."
+            },
+            {
+              "key": "C",
+              "text": "It causes lots of distraction to drivers."
+            },
+            {
+              "key": "D",
+              "text": "It turns dirty walls into artistic works."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的reversegraffiti定位到种段第 三句。 D)【精析】战节辨认题。定位句后的两句指出,他们 找到一些有污垢的墙面,然后用清洁刷或高压水 历在上面画上图像或文字。不历用哪种方式,原 则是一样的:通过擦解污垢画上图像。由此可知, 反向涂鸦使肌脏的墙面变成了艺术作品,故答案 为D)。 【避错】种段第四句提到,街头艺术家找到一些有 污垢的墙面,然后用清洁刷或高压水历在上面画 上图像或文字,而不是使用颜料,故排除A)。种 段倒数第二句提到,所有的艺术家都有一个共同 的目的,即提醒人们注意我们城市里的污染,而非 给当地市民造成困扰,故排除B)。第二段提及一 条交通隧农里的反向涂鸦壁画旨在提醒司机他们 造成的污染对地球的影响,但并未说反向涂鸦会 分散司机的注意力,故排除C。"
+        },
+        {
+          "number": 47,
+          "stem": "What do reverse graffiti artists try to do?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Publicise their artistic pursuit."
+            },
+            {
+              "key": "B",
+              "text": "Beautify the city environment."
+            },
+            {
+              "key": "C",
+              "text": "Raise public awareness of environmental pollution."
+            },
+            {
+              "key": "D",
+              "text": "Express their dissatisfaction with local governments."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的reversegraffiti artists定位到 种段倒数第二句。 C)【精析】战节辨认题。定位句指出,所有的艺术家 都有一个共同的目的:提醒人们注意我们城市里 的污染。由此可知,反向涂鸦艺术家想提高公众 对于环境污染的意识,故答案为C)。 【避错】文中没有提及反向涂鸦艺术家想要宣传他 们的艺术追求,故排除A)。反向涂鸦虽然产生了 美化城市的效果,但这并不是反向涂鸦艺术家的 目的,故排除B)。文中没有提及反向涂鸦艺术家 想要表达他们对当地政府的不满,故排除D)。"
+        },
+        {
+          "number": 48,
+          "stem": "What do we learn about Brazilian artist Alexandre Orion?",
+          "options": [
+            {
+              "key": "A",
+              "text": "He was good at painting white skulls."
+            },
+            {
+              "key": "B",
+              "text": "He chose tunnels to do his graffiti art."
+            },
+            {
+              "key": "C",
+              "text": "He suggested banning all polluting cars."
+            },
+            {
+              "key": "D",
+              "text": "He was fond of doing creative artworks."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的BrazilianartistAlexandre Orion定位到第二段第一句。 B【精析】推理判断题。定位句指出,巴西艺术家 亚历山大·奥利恩在2006年通过清除灰尘把圣 保罗的一条交通隧道变成了一幅令人惊叹的壁 画。由此可见,亚历山大·奥利恩选择了在隧道 里创作他的涂鸦艺术,故答案为B)。 【避错】第二段第二句指出,亚历山大·奥利恩创 作的反向涂鸦壁画是由一系列的白色颅骨构成 的,但由此并不能推断出亚历山大·奥利恩擅长 画白色的颅骨,故排除A)。第二段最后一句指 出,奥利恩认为,每一位汽车驾驶员舒服地坐在他 们的车里,但是他们丝毫没有考虑到他们的舒适 给环境进而给他们自已带来的代价。奥利恩确实 提醒司机要注意环境污染问题,但由此无法推出 奥利恩建议禁正所有污染环境的汽车,C)为过度 推断,故排除。第二段只是指出亚历山大·奥利恩 创作了一幅令人惊叹的反向涂鸦壁画,由此无法 推断他喜欢创作艺术作品,D)为过度推断,故 排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What does the author imply about Leeds City Council's decision?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is simply absurd."
+            },
+            {
+              "key": "B",
+              "text": "It is well-informed."
+            },
+            {
+              "key": "C",
+              "text": "It is rather unexpected."
+            },
+            {
+              "key": "D",
+              "text": "It is quite sensible."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题干中的LeedsCityCouncil'sdecision 定位到第三段第二至五句。 A)【精析】观点态度题。定位句提到,利兹市议会对 穆斯的作品作出这样的评价:“利兹市民想要生活 在干净和有魅力的社区里。我们认为这种广告是 对环境的破坏,我们会采取强硬措施来抵制它。” 穆斯被要求“清理自己做过的事”。他应该怎么做 呢?要把他已经清洁的所有墙面再弄脏吗?作者 以反讽的语气说明无法清除已经创作好的反向涂 鸦作品。由此可见,作者暗示利兹市议会的决定 很荒谬,故答案为A)。 【避错】根据定位句,作者并不认为利兹市议会的 决定非常有见地、很出人意料或非常明智,故排除 B)、C)和D)。"
+        },
+        {
+          "number": 50,
+          "stem": "How did Sao Paulo city officials handle Alexandre Orion's reverse graffiti?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They made him clean all the tunnels in Sao Paulo."
+            },
+            {
+              "key": "B",
+              "text": "They took drastic action to ban all reverse graffiti."
+            },
+            {
+              "key": "C",
+              "text": "They charged him with polluting tunnels in the city."
+            },
+            {
+              "key": "D",
+              "text": "They made it impossible for him to practice his art."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的SaoPaulocityofficials定位 到最后一段最后两句。 D)【精析】推理判断题。定位句指出,圣保罗市官员 决定采取严厉措施。他们不仅清理了整个隧道, 而且把圣保罗的每一条隧道都清理了。由此可 知,所有隧道被清理干净了,亚历山大就无法在隧 道里进行反向涂鸦创作了,故答案为D)。 【避错】最后一段第二句指出,当局没有别的选择, 只能把隧道清理了一但只是清理了亚历山大已 经清理的那部分,而不是让亚历山大亲自去清理, 故排除A)。最后一段倒数第二句指出,圣保罗市 官员决定采取严厉措施,即清理了该市所有的隧 道,而非禁止所有反向涂鸦创作,故排除B)。最 后一段第一句指出,对于那位巴西艺术家的作品, 当局非常恼怒,但是找不到任何理由指控他,C)与 本句说法相矛盾,故排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2020-09-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "The practice of paying children an allowance became popular in America about 100 years ago. Nowadays, American kids on average receive about $ 800 per year in allowance. But the vast majority of",
+        "American parents who pay allowance tie it to the completion of housework. Although many parents believe that paying an allowance for completing chores benefits their children, a range of experts expressed concern that tying allowance very closely to chores may not be ideal. In fact, the way chores work in many households worldwide points to another way.",
+        "Suniya Luthar, a psychologist, is against paying kids for chores. Luthar is not opposed to giving allowances, but she thinks it's important to establish that chores are done not because they will lead to payment, but because they keep the household running. Luthar's suggested approach to allowance is compatible with that of writer Ron Lieber, who advises that allowances be used as a means of showing children how to save, give, and spend on things they care about. Kids should do chores, he writes, \"for the same reason adults do, because the chores need to be done, and not with the expectation of compensation.\"",
+        "This argument has its critics, but considering the way chores are undertaken around the world may change people's thinking. Professor David Lancy of Utah State University has studied how families around the world handle chores. At about 18 months of age, Lancy says, most children become eager to help their parents, and in many cultures, they begin helping with housework at that age. They begin with very simple tasks, but their responsibilities gradually increase. And they do these tasks without payment. Lancy contrasts this with what happens in America. \"We deny our children's bids to help until they are 6 or 7 years old,\" Lancy says, \"when many have lost the desire to help and then try to motivate them with payment. The solution to this problem is not to try to use money as an incentive to do housework, but to get children involved in housework much earlier, when they actually want to do it.\""
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What do some experts think about paying children for doing chores?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It may benefit children in more ways than one."
+            },
+            {
+              "key": "B",
+              "text": "It may help children learn the worth of labor."
+            },
+            {
+              "key": "C",
+              "text": "It may not turn out to be the best thing to do."
+            },
+            {
+              "key": "D",
+              "text": "It may not be accepted by low-income parents."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的someexperts、payingchildren 和chores定位到首段第四句。 C)【精析】细节辨认题。定位句指出,尽管很多父母 认为因为完成家务活而给孩子零用钱对他们的孩 子来说是有益的,但很多专家担心把零用钱和做 家务联系得太紧密了可能并不理想。由此可知, 专家认为给孩子钱让他们做家务可能不是最好的 办法,故答案为C)。选项C)中的thebestthing 对应定位句中的ideal。 【避错】首段第四句提到,很多父母认为因为完成 家务活而给孩子零用钱对他们的孩子是有益的, 这是很多美国父母的想法,非专家的看法,故排除 A)。首段第二句提到大多数美国父母把给孩子零 用钱和完成家务活联系在一起,但并未指出专家 认为这会让孩子懂得劳动的价值,故排除B)。原 文并未提及低收入家庭,故排除D)。"
+        },
+        {
+          "number": 52,
+          "stem": "According to Suniya Luthar, doing chores will help children learn to ___.",
+          "options": [
+            {
+              "key": "A",
+              "text": "share family responsibilities"
+            },
+            {
+              "key": "B",
+              "text": "appreciate the value of work"
+            },
+            {
+              "key": "C",
+              "text": "cultivate the spirit of independence"
+            },
+            {
+              "key": "D",
+              "text": "manage domestic affairs themselves"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题干中的SuniyaLuthar定位到第二段 第一、二句。 A【精析】细节辨认题。定位句提到,心理学家 苏妮娅·卢瑟反对因为做家务而给孩子钱。卢瑟 不反对给孩子零用钱,但是她认为重要的是应该 明确不是因为做家务能得到钱而做家务,而是因 为做家务能让一个家庭正常运转。由此可知, 苏妮娅·卢瑟认为做家务能帮孩子学会分担家庭 责任,故答案为A)。 【避错】文中没有提及欣赏工作的价值,故排除 B)。第二段第三、四句指出,卢瑟建议的获取零用 钱的方法与作家罗恩·利伯建议的方法一致。 罗恩·利伯建议零用钱被用作一种向孩子展示如 何节省、给予和花在他们在乎的东西上的方法,由 此无法推出做家务可培养孩子的独立精神,故排 除C)。第二段第二句指出,卢瑟认为应该明确不 是因为能得到钱而做家务,而是因为做家务能让 一个家庭正常运转,由此不能推出让孩子们自己 操持家庭事务,D)为过度推理,故排除。"
+        },
+        {
+          "number": 53,
+          "stem": "What does Ron Lieber think should be the goal of giving children allowances?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To help to strengthen family ties."
+            },
+            {
+              "key": "B",
+              "text": "To teach them how to manage money."
+            },
+            {
+              "key": "C",
+              "text": "To motivate them to do more housework."
+            },
+            {
+              "key": "D",
+              "text": "To show parents' appreciation of their help."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的RonLieber定位到第二段第 三句。 B)【精析】推理判种题。定位句指出,罗恩·利伯建 议零用钱被用作一种向孩子展示如产节省、给予 和花在他们在乎的东西上的方法。由此可见, 罗恩·利伯认为零花钱教会孩子如产管理金钱, 故答案为B)。 【避错】罗恩·利伯采未提及零花钱可增强制庭纽 它关系,故排除A)。本么第三句指出,罗恩·利伯 认为孩子们应该做制务,但采未指出零花钱可激 励孩子做更多的制务,C)为过度推理,故排除。原 文采未提及父母赏识孩子所提供的帮助,故排 除D)。"
+        },
+        {
+          "number": 54,
+          "stem": "What does David Lancy say about 18-month-olds?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They have a natural instinct to help around the house."
+            },
+            {
+              "key": "B",
+              "text": "They are too young to request money for what they do."
+            },
+            {
+              "key": "C",
+              "text": "They should learn to understand family responsibilities."
+            },
+            {
+              "key": "D",
+              "text": "They need a little incentive to get involved in housework."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题何中的DavidLancy和18-month- olds定位到第三么第三句。 A)【精析】推理判种题。定位句提到,兰西认为大多 数孩子在大约18个月的时候会渴望帮助他们的 父母。由此可见,18个月的孩子本能地想在制里 帮忙,故答案为A)。 【避错】兰西采未提及18个月的孩子因为太小而 没法要求付钱,故排除B)。本么第四句指出,他 们从很简单的任务开始,但是他们的责任会逐渐 增长,原文中兰西采未提及18个月的孩子应该学 会理解制庭责任,故排除C)。本么第七句指出, 在员国,直到孩子六七岁失去了帮忙的意愿时,父 母才以报酬的方法来激励他们。这采非针对 18个月孩子的做法,故排除D)。"
+        },
+        {
+          "number": 55,
+          "stem": "What does David Lancy advise American parents to do?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Set a good example for children in doing housework."
+            },
+            {
+              "key": "B",
+              "text": "Make children do housework without compensation."
+            },
+            {
+              "key": "C",
+              "text": "Teach children how to do housework."
+            },
+            {
+              "key": "D",
+              "text": "Accept children's early bids to help."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题何中的DavidLancy和advise定位到 第三么最后一句。 D)【精析】推理判种题。定位句指出兰西的观点:解 决这个问题的办法不是试首用金钱来激励孩子做 制务,而是当他们真正想做的时候,让他们更早地 参与到制务中。由此可知,兰西认为员国父母应 细受孩子早期想帮忙的尝试,故答案为D)。 【避错】原文采未提及员国父母在做制务方面给孩 子树立好榜样,故排除A)。B)是针对第管么末句 中的not with the expectation of compensation设 置的何扰,此处是表达孩子们应该做制务,而不是 为了期望得到补边而做制务,采不是表达让孩子 们无边做制务,故排除B)。原文采未提及教孩子 们如产做制务,故排除C)。"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1770 @@
+{
+  "id": "cet4-2017-06-1",
+  "level": 4,
+  "year": 2017,
+  "month": 6,
+  "set": 1,
+  "title": "2017 年 6 月四级 · 第 1 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.06/%E7%9C%9F%E9%A2%98Word/2017%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%981.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2017%E5%B9%B46%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E5%8D%B7%E4%B8%80%EF%BC%89%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2017-06-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "The method for making beer has changed over time. Hops (啤酒花),for example, which give many a modem beer its bitter flavor, are a [[26]] recent addition to the beverage. This was first mentioned in reference to brewing in the ninth century. Now, researchers have found a [[27]]ingredient in residue (残留物) from 5,000-year-old beer brewing equipment. While digging two pits at a site in the central plains of China, scientists discovered fragments from pots and vessels. The different shapes of the containers [[28]] they were used to brew, filter, and store beer. They may be ancient “beer-making tools,” and the earliest [[29]] evidence of beer brewing in China, the researchers reported in the Proceedings of the National Academy of Sciences. To [[30]] that theory, the team examined the yellowish, dried [[31]] inside the vessels. The majority of the grains, about 80%, were from cereal crops like barley (大麦),and about 10% were bits of roots, [[32]]lily, which would have made the beer sweeter, the scientists say. Barley was an unexpected find: the crop was domesticated in Western Eurasia and didn't become a [[33]]food in central China until about 2,000 years ago, according to the researchers. Based on that timing, they indicate barley may have [[34]] in the region not as food, but as [[35]]material for beer brewing."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "arrived"
+        },
+        {
+          "key": "B",
+          "text": "consuming"
+        },
+        {
+          "key": "C",
+          "text": "direct"
+        },
+        {
+          "key": "D",
+          "text": "exclusively"
+        },
+        {
+          "key": "E",
+          "text": "including"
+        },
+        {
+          "key": "F",
+          "text": "inform"
+        },
+        {
+          "key": "G",
+          "text": "raw"
+        },
+        {
+          "key": "H",
+          "text": "reached"
+        },
+        {
+          "key": "I",
+          "text": "relatively"
+        },
+        {
+          "key": "J",
+          "text": "remains"
+        },
+        {
+          "key": "K",
+          "text": "resources"
+        },
+        {
+          "key": "L",
+          "text": "staple"
+        },
+        {
+          "key": "M",
+          "text": "suggest"
+        },
+        {
+          "key": "N",
+          "text": "surprising"
+        },
+        {
+          "key": "O",
+          "text": "test"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "arrived"
+            },
+            {
+              "key": "B",
+              "text": "consuming"
+            },
+            {
+              "key": "C",
+              "text": "direct"
+            },
+            {
+              "key": "D",
+              "text": "exclusively"
+            },
+            {
+              "key": "E",
+              "text": "including"
+            },
+            {
+              "key": "F",
+              "text": "inform"
+            },
+            {
+              "key": "G",
+              "text": "raw"
+            },
+            {
+              "key": "H",
+              "text": "reached"
+            },
+            {
+              "key": "I",
+              "text": "relatively"
+            },
+            {
+              "key": "J",
+              "text": "remains"
+            },
+            {
+              "key": "K",
+              "text": "resources"
+            },
+            {
+              "key": "L",
+              "text": "staple"
+            },
+            {
+              "key": "M",
+              "text": "suggest"
+            },
+            {
+              "key": "N",
+              "text": "surprising"
+            },
+            {
+              "key": "O",
+              "text": "test"
+            }
+          ],
+          "answer": "I",
+          "explanation": "I)relatively。详解副词辨析题。空格前面是不定冠词a,后面为形容词recent,因此空格处需要填人 副词,以修饰其后的形容词。前一句中提到啤酒花给现代啤酒增添了一丝苦味,后面说这一点在九世纪关于 酿造的参考材料中被首次提到,由此推出啤酒花的出现年代并不久远,而是相当近的,因此I)relatively“相 对地,相当地\"符合句意。在备选副词中,exclusively“专门地,排外地”与此处要表达的“相当地”意思不符 合,可以排除。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "arrived"
+            },
+            {
+              "key": "B",
+              "text": "consuming"
+            },
+            {
+              "key": "C",
+              "text": "direct"
+            },
+            {
+              "key": "D",
+              "text": "exclusively"
+            },
+            {
+              "key": "E",
+              "text": "including"
+            },
+            {
+              "key": "F",
+              "text": "inform"
+            },
+            {
+              "key": "G",
+              "text": "raw"
+            },
+            {
+              "key": "H",
+              "text": "reached"
+            },
+            {
+              "key": "I",
+              "text": "relatively"
+            },
+            {
+              "key": "J",
+              "text": "remains"
+            },
+            {
+              "key": "K",
+              "text": "resources"
+            },
+            {
+              "key": "L",
+              "text": "staple"
+            },
+            {
+              "key": "M",
+              "text": "suggest"
+            },
+            {
+              "key": "N",
+              "text": "surprising"
+            },
+            {
+              "key": "O",
+              "text": "test"
+            }
+          ],
+          "answer": "N",
+          "explanation": "N)surprising。详解)形容词辨析题。空格前面有不定冠词a,后面是名词ingredlient\"成分”,因此空格 处需填入形容词来修饰后面的名词。句中提到,研究人员在5000年前的啤酒酿造设备的残留物中发现了 这一成分,说明该成分还是很令人吃惊的,因此N)surprising符合句意。在备选形容词中,direct和raw不 能与ingredient搭配使用,而staple与句意不符,故均排除。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "arrived"
+            },
+            {
+              "key": "B",
+              "text": "consuming"
+            },
+            {
+              "key": "C",
+              "text": "direct"
+            },
+            {
+              "key": "D",
+              "text": "exclusively"
+            },
+            {
+              "key": "E",
+              "text": "including"
+            },
+            {
+              "key": "F",
+              "text": "inform"
+            },
+            {
+              "key": "G",
+              "text": "raw"
+            },
+            {
+              "key": "H",
+              "text": "reached"
+            },
+            {
+              "key": "I",
+              "text": "relatively"
+            },
+            {
+              "key": "J",
+              "text": "remains"
+            },
+            {
+              "key": "K",
+              "text": "resources"
+            },
+            {
+              "key": "L",
+              "text": "staple"
+            },
+            {
+              "key": "M",
+              "text": "suggest"
+            },
+            {
+              "key": "N",
+              "text": "surprising"
+            },
+            {
+              "key": "O",
+              "text": "test"
+            }
+          ],
+          "answer": "M",
+          "explanation": "M)suggest。详解)动词辨析题。空格前面是名词短语differentshapesofthecontainers“容器的不同 形状\",空格后面是一个完整的从句theywereused to...,由此推出空格处应填人动词作整个句子的谓语。 空格前面提到“容器的不同形状”,后面提到“它们是被用来酿造、过滤和储存啤酒的”,由此推出M)suggest “表明,暗示”符合句意,即“不同的形状表明它们有各自的用途”。在备选动词中,consuming和including为 动名词形式,均不能作谓语,可以排除;其他动词arrived、inform、reached、test均与句意不符,可以排除。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "arrived"
+            },
+            {
+              "key": "B",
+              "text": "consuming"
+            },
+            {
+              "key": "C",
+              "text": "direct"
+            },
+            {
+              "key": "D",
+              "text": "exclusively"
+            },
+            {
+              "key": "E",
+              "text": "including"
+            },
+            {
+              "key": "F",
+              "text": "inform"
+            },
+            {
+              "key": "G",
+              "text": "raw"
+            },
+            {
+              "key": "H",
+              "text": "reached"
+            },
+            {
+              "key": "I",
+              "text": "relatively"
+            },
+            {
+              "key": "J",
+              "text": "remains"
+            },
+            {
+              "key": "K",
+              "text": "resources"
+            },
+            {
+              "key": "L",
+              "text": "staple"
+            },
+            {
+              "key": "M",
+              "text": "suggest"
+            },
+            {
+              "key": "N",
+              "text": "surprising"
+            },
+            {
+              "key": "O",
+              "text": "test"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)direct。详解形容词辨析题。空格前为形容词最高级,空格后为名词,由此推断仍需填入形容词, 与前面的theearliest一起修饰evidence。空格所在句意为“这些容器可能就是古代的酿酒工具,这也成为 中国古代酿酒最早的证据”。根据句意可知,容器也是非常直接的证据,故C)dlirect“直接的\"为答案。备选 项中其他的形容词raw,surprising和staple无法与evidence搭配,均排除。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "arrived"
+            },
+            {
+              "key": "B",
+              "text": "consuming"
+            },
+            {
+              "key": "C",
+              "text": "direct"
+            },
+            {
+              "key": "D",
+              "text": "exclusively"
+            },
+            {
+              "key": "E",
+              "text": "including"
+            },
+            {
+              "key": "F",
+              "text": "inform"
+            },
+            {
+              "key": "G",
+              "text": "raw"
+            },
+            {
+              "key": "H",
+              "text": "reached"
+            },
+            {
+              "key": "I",
+              "text": "relatively"
+            },
+            {
+              "key": "J",
+              "text": "remains"
+            },
+            {
+              "key": "K",
+              "text": "resources"
+            },
+            {
+              "key": "L",
+              "text": "staple"
+            },
+            {
+              "key": "M",
+              "text": "suggest"
+            },
+            {
+              "key": "N",
+              "text": "surprising"
+            },
+            {
+              "key": "O",
+              "text": "test"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O)test。详解)动词辨析题。空格前面有不定式符号to,后面是名词短语thattheory,由此可知空格处 应填人动词原形。上文中提到了考古研究人员的一些发现,下文中提到团队又对某些物质进行了检验,由此 推出研究人员应该是想通过检验来证实这些理论,故O)test\"证实,测试\"符合句意。在备选动词中,inform 也是动词原形,但用在此处与句意不符,故排除。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "arrived"
+            },
+            {
+              "key": "B",
+              "text": "consuming"
+            },
+            {
+              "key": "C",
+              "text": "direct"
+            },
+            {
+              "key": "D",
+              "text": "exclusively"
+            },
+            {
+              "key": "E",
+              "text": "including"
+            },
+            {
+              "key": "F",
+              "text": "inform"
+            },
+            {
+              "key": "G",
+              "text": "raw"
+            },
+            {
+              "key": "H",
+              "text": "reached"
+            },
+            {
+              "key": "I",
+              "text": "relatively"
+            },
+            {
+              "key": "J",
+              "text": "remains"
+            },
+            {
+              "key": "K",
+              "text": "resources"
+            },
+            {
+              "key": "L",
+              "text": "staple"
+            },
+            {
+              "key": "M",
+              "text": "suggest"
+            },
+            {
+              "key": "N",
+              "text": "surprising"
+            },
+            {
+              "key": "O",
+              "text": "test"
+            }
+          ],
+          "answer": "J",
+          "explanation": "J)remains。详解)名词辨析题。空格前有形容词yellowish和dried,其后是介词短语insidethe vessels,由此推出空格处应填人名词作宾语。该句提到这是容器中一种黄色、干燥的物质,再结合备选项可 知,J)remains“残留物,遗址\"符合句意。而K)resources“资源\"与句意不符,可以排除。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "arrived"
+            },
+            {
+              "key": "B",
+              "text": "consuming"
+            },
+            {
+              "key": "C",
+              "text": "direct"
+            },
+            {
+              "key": "D",
+              "text": "exclusively"
+            },
+            {
+              "key": "E",
+              "text": "including"
+            },
+            {
+              "key": "F",
+              "text": "inform"
+            },
+            {
+              "key": "G",
+              "text": "raw"
+            },
+            {
+              "key": "H",
+              "text": "reached"
+            },
+            {
+              "key": "I",
+              "text": "relatively"
+            },
+            {
+              "key": "J",
+              "text": "remains"
+            },
+            {
+              "key": "K",
+              "text": "resources"
+            },
+            {
+              "key": "L",
+              "text": "staple"
+            },
+            {
+              "key": "M",
+              "text": "suggest"
+            },
+            {
+              "key": "N",
+              "text": "surprising"
+            },
+            {
+              "key": "O",
+              "text": "test"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E)including。详解动词辨析题。空格所在句位于由and连接的并列句中,且其前为名词roots,其后 为名词lily,故此处只能填入动词的现在分词或过去分词形式表示从属关系。句子表达的意思是“约80%为 谷物,约10%为植物的根茎”。而“百合\"恰好属于根茎类植物,由此推出E)includling“包含\"符合句意。备 选项中的arrived、consuming和reached均与句意不符,可以排除。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "arrived"
+            },
+            {
+              "key": "B",
+              "text": "consuming"
+            },
+            {
+              "key": "C",
+              "text": "direct"
+            },
+            {
+              "key": "D",
+              "text": "exclusively"
+            },
+            {
+              "key": "E",
+              "text": "including"
+            },
+            {
+              "key": "F",
+              "text": "inform"
+            },
+            {
+              "key": "G",
+              "text": "raw"
+            },
+            {
+              "key": "H",
+              "text": "reached"
+            },
+            {
+              "key": "I",
+              "text": "relatively"
+            },
+            {
+              "key": "J",
+              "text": "remains"
+            },
+            {
+              "key": "K",
+              "text": "resources"
+            },
+            {
+              "key": "L",
+              "text": "staple"
+            },
+            {
+              "key": "M",
+              "text": "suggest"
+            },
+            {
+              "key": "N",
+              "text": "surprising"
+            },
+            {
+              "key": "O",
+              "text": "test"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L)staple。详解)形容词辨析题。空格前面有不定冠词a,后面为名词food,因此空格处应填入形容词, 用于修饰其后的名词food。空格前提到这种农作物是在西欧亚大陆被培育出来的,由此推出并非是当时中 国中原地区的主要食物来源,故L)staple“主要的,基本的\"符合句意。备选项中的形容词raw虽可与food 搭配,但与句意不符,可以排除。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "arrived"
+            },
+            {
+              "key": "B",
+              "text": "consuming"
+            },
+            {
+              "key": "C",
+              "text": "direct"
+            },
+            {
+              "key": "D",
+              "text": "exclusively"
+            },
+            {
+              "key": "E",
+              "text": "including"
+            },
+            {
+              "key": "F",
+              "text": "inform"
+            },
+            {
+              "key": "G",
+              "text": "raw"
+            },
+            {
+              "key": "H",
+              "text": "reached"
+            },
+            {
+              "key": "I",
+              "text": "relatively"
+            },
+            {
+              "key": "J",
+              "text": "remains"
+            },
+            {
+              "key": "K",
+              "text": "resources"
+            },
+            {
+              "key": "L",
+              "text": "staple"
+            },
+            {
+              "key": "M",
+              "text": "suggest"
+            },
+            {
+              "key": "N",
+              "text": "surprising"
+            },
+            {
+              "key": "O",
+              "text": "test"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)arrived。详解)动词辨析题。空格处于indicate后的宾语从句中,其前面为助动词have,其后为介 词短语intheregion,由此推出应填人动词的过去分词作从句的谓语。备选项中动词的过去分词只有 arrived和reached,而reached不能与后面的介词in搭配,因此A)arrived为答案。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "arrived"
+            },
+            {
+              "key": "B",
+              "text": "consuming"
+            },
+            {
+              "key": "C",
+              "text": "direct"
+            },
+            {
+              "key": "D",
+              "text": "exclusively"
+            },
+            {
+              "key": "E",
+              "text": "including"
+            },
+            {
+              "key": "F",
+              "text": "inform"
+            },
+            {
+              "key": "G",
+              "text": "raw"
+            },
+            {
+              "key": "H",
+              "text": "reached"
+            },
+            {
+              "key": "I",
+              "text": "relatively"
+            },
+            {
+              "key": "J",
+              "text": "remains"
+            },
+            {
+              "key": "K",
+              "text": "resources"
+            },
+            {
+              "key": "L",
+              "text": "staple"
+            },
+            {
+              "key": "M",
+              "text": "suggest"
+            },
+            {
+              "key": "N",
+              "text": "surprising"
+            },
+            {
+              "key": "O",
+              "text": "test"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G)raw。详解形容词辨析题。空格前面有介词as,后面有不可数名词material,由此推出应填人形容 词修饰后面的名词material。句中提到大麦最初传人这一地区并不是作为食物,而是作为酿酒的材料,raw material为固定搭配,意为“原材料”,故G)raw\"生的,未经加工的\"为答案。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2017-06-1-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) For most of us, memory is a mess of blurred and faded pictures of our lives. As much as we would like to cling on to our past, even the saddest moments can be washed away with time.",
+        "B) Ask Nima Veiseh what he was doing for any day in the past 15 years, however, and he will give you the details of the weather, what he was wearing, or even what side of the train he was sitting on his journey to work. “My memory is like a library of video tapes, walk-throughs of every day of my life from waking to sleeping,” he explains.",
+        "C) Veiseh can even put a date on when those tapes started recording: 15 December 2000, when he met his first girlfriend at his best friend's 16th birthday party. He had always had a good memory, but the thrill of young love seems to have shifted a gear in his mind: from now on, he would start recording his whole life in detail. “I could tell you everything about every day after that.”",
+        "D) Needless to say, people like Veiseh are of great interest to neuroscientists hoping to understand the way the brain records our lives. A couple of recent papers have finally opened a window on these people’s extraordinary minds. And such research might even suggest ways for us all to relive our past with greater clarity.",
+        "E) “Highly superior autobiographical memory” (or HSAM for short) first came to light in the early 2000s, with a young woman named Jill Price. Emailing the neuroscientist and memory researcher Jim McGaugh one day, she claimed that she could recall every day of her life since the age of 12. Could he help explain her experiences?",
+        "F) McGaugh invited her to his lab, and began to test her: he would give her a date and ask her to tell him about the world events on that day. True to her word, she was correct almost every time.",
+        "G) It didn’t take long for magazines and documentary film-makers to come to understand her “total recall”, and thank to the subsequent media interest, a few dozen other subjects (including Veiseh) have since come forward and contacted the team at the University of California, Irvine.",
+        "H) Interestingly, their memories are highly self-centred: although they can remember “autobiographical” life events in extraordinary detail, they seem to be no better than average at recalling impersonal information, such as random (任意选取的)lists of words. Nor are they necessarily better at remembering a round of drinks, say. And although their memories are vast, they are still likely to suffer from “false memories”.Clearly, there is no such thing as a “perfect” memory—their extraordinary minds are still using the same flawed tools that the rest of us rely on. The question is, how?",
+        "I) Lawrence Patihis at the University of Southern Mississippi recently studied around 20 people with HSAM and found that they scored particularly high on two measures: fantasy proneness (倾向)and absorption. Fantasy proneness could be considered a tendency to imagine and daydream, whereas absorption is the tendency to allow your mind to become fully absorbed in an activity to pay complete attention to the sensations (感受)and the experiences. “I’m extremely sensitive to sounds, smells and visual detail,” explains Nicole Donohue, who has taken part in many of these studies. “I definitely feel things more strongly than the average person.”",
+        "J) The absorption helps them to establish strong foundations for recollection, says Patihis, and the fantasy proneness means that they revisit those memories again and again in the coming weeks and months. Each time this initial memory trace is “replayed”, it becomes even stronger. In some ways, you probably go through that process after a big event like your wedding day,but the difference is that thanks to their other psychological tendencies, the HSAM subjects are doing it day in, day out, for the whole of their lives.",
+        "K) Not everyone with a tendency to fantasise will develop HSAM, though, so Patihis suggests that something must have caused them to think so much about their past. “Maybe some experience in their childhood meant that they became obsessed (着迷)with calendars and what happened to them,” says Patihis.",
+        "L) The people with HSAM I’ve interviewed would certainly agree that it can be a mixed blessing. On the plus side, it allows you to relive the most transformative and enriching experiences. Veiseh, for instance, travelled a lot in his youth. In his spare time, he visited the local art galleries, and the paintings are now lodged deep in his autobiographical memories.",
+        "M) “Imagine being able to remember every painting, on every wall, in every gallery space, between nearly 40 countries,” he says. “That’s a big education in art by itself.” With this comprehensive knowledge of the history of art, he has since become a professional painter.",
+        "N) Donohue, now a history teacher, agrees that it helped during certain parts of her education. “I can definitely remember what I learned on certain days at school. I could imagine what the teacher was saying or what it looked like in the book.”",
+        "O) Not everyone with HSAM has experienced these benefits, however. Viewing the past in high definition can make it very difficult to get over pain and regret. “It can be very hard to forget embarrassing moments,” says Donohue. “You feel the same emotions—it is just as raw, just as fresh... You can’t turn off that stream of memories, no matter how hard you try.” Veiseh agrees. “It is like having these open wounds—they are just a part of you,” he says.",
+        "P) This means they often have to make a special effort to lay the past to rest. Bill, for instance, often gets painful “flashbacks”,in which unwanted memories intrude into his consciousness, but overall he has chosen to see it as the best way of avoiding repeating the same mistakes. “Some people are absorbed in the past but not open to new memories, but that’s not the case for me. I look forward to each day and experiencing something new.”"
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "People with HSAM have the same memory as ordinary people when it comes to impersonal information.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "H",
+          "explanation": "People with HSAM have the H) Interestingly, their memories are highly self-centred: although same memory as ordinary people when it comes to impersonal information 译文涉及非个人信息时,拥 有HSAM者和普通人记忆水平 相同。 they can remember “ autobiographical \"life events in extraordinary detail, they seem to be no better than average at recallingimpersonal information,such as random(任意选取 的) lists of words. Nor are they necessarily better at remembering a round of drinks, say. And although their memories are vast, they are still likely to suffer from \" false 定位由题干中的memory和 memories\". Clearly, there is no such thing as a “perfect\" impersonal information定位到原 memorytheir extraordinary minds are still using the same 文画线处。 flawed tools that the rest of us rely on. The question is, how? 详解定位句说明了拥有HSAM者的记忆特征是高度自我中心化的:尽管他们能够非常详细地记住“自传 式\"生活事件,但是在记忆非个人信息方面,比如随机排列的单词,他们似乎不比普通人强。题干中的have the samememoryasordinarypeople是对定位句中seem tobenobetterthanaverage的同义转述,故答案为H)。"
+        },
+        {
+          "number": 37,
+          "stem": "Fantasy proneness will not necessarily cause people to develop HSAM.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "K",
+          "explanation": "Fantasy proneness will not necessarily K) Not everyone with a tendency to fantasies will develop cause people to develop HSAM. 译文幻想倾向不一定能使人具有 “超级自传式记忆”的能力。 定位由题干中的Fantasy和develop HSAM定位到原文画线处。 HSAM, though, so Patihis suggests that something must have caused them to think so much about their past. \" Maybe some experience in their childhood meant that they became obsessed(着迷)with calendars and what happened to them,\" says Patihis. 详解定位句提到,不是每一个有幻想倾向的人都能具有“超级自传体记忆\"的能力。题干中的Fantasy proneness对应定位句中a tendencytofantasise;notnecessarily对应定位句中的Not everyone,故答案 为K)。"
+        },
+        {
+          "number": 38,
+          "stem": "Veiseh began to remember the details of his everyday experiences after he met his first young love.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Veiseh began to remember the details of : C) Veiseh can even put a date on when those tapes started his everyday experiences after he met his : recording: 15 December 2000, when he met his first first young love. girlfriend at his best friend's 16th birthday party. He 译文自从遇到他少年时的初恋,维瑟 开始能记住自已每天的生活细节。 定位由题干中的Veiseh和first younglove定位到原文画线处。 had always had a good memory, but the thrill of young love seems to have shifted a gear in his mind: from now on, he would start recording his whole life in detail. \"I could tell you everything about every day after that. \" 详解定位段主要介绍了维瑟的超强记忆启动的经历:在最好朋友的生日晚会上遇到自已的初恋后,维瑟 开始能记住生活中的每个细节。题干是对定位段的总结,故答案为C)。"
+        },
+        {
+          "number": 39,
+          "stem": "Many more people with HSAM started to contact researchers due to the mass media.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "G",
+          "explanation": "Many more people with HSAM started to contact researchers due to the mass media. 译文大众传媒促使更多拥有HSAM者 开始和研究者取得联系。 定位由题干中的contact,dueto和 media定位到原文画线处。 G) It didn't take long for magazines and documentary film-makers to come to understand her total recall\", and thanks to the subsequent media interest, a few dozen other subjects (including Veiseh) have since come forward and contacted the team at the University of California, Irvine. 详解)由定位段可知,得益于这些媒体后续的兴趣,几十个其他的受试者(包括维瑟)自告奋勇与加利福尼 亚大学欧文分校的研究团队取得了联系。题干中的dueto themassmedia是对定位句中thanks tothe subsequentmedlia interest的同义转述;researchers对应定位句中的theteam,故答案为G)。"
+        },
+        {
+          "number": 40,
+          "stem": "People with HSAM often have to make efforts to avoid focusing on the past.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "P",
+          "explanation": "People with HSAM often have to make efforts to avoid focusing on the past. 译文拥有HSAM者常常必须努力 避免专注于过去。 定位由题干中的havetomake efforts和thepast定位到原文画线处。 P) This means they often have to make a special effort to lay the past to rest. Bill, for instance, often gets painful \"flashbacks\", in which unwanted memories intrude into his consciousness, but overall he has chosen to see it as the best way of avoiding repeating the same mistakes. \"Some people are absorbed in the past but not open to new memories, but that's not the case for me. I look forward to each day and experiencing something new. \" 详解定位句提到,这意味着他们常常不得不付出额外的努力来放下过去。根据上下文可知,they指的就 是题干中的PeoplewithHSAM。题干中的avoidfocusingonthepast是对定位句中laythepasttorest的同 义转述,为故答案为P)。"
+        },
+        {
+          "number": 41,
+          "stem": "Most people do not have clear memories of past events.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Most people do not have clear memories of past events. 译文)大部分人对过去发生的事件没有清晰的记忆。 定位由题干中的Mostpeople,memories和past 定位到原文画线处。 A) For most of us, memory is a mess of blurred and faded pictures of our lives. As much as we would like to cling on to our past, even the saddest moments can be washed away with time. 详解定位段指出,对于大多数人而言,记忆就像一本逐渐模糊、褪色的人生画册。无论我们多想要抓住过 去,即使最痛苦的时刻也会随着时间消逝。也就是说,大部分人对过去发生的事件没有清晰的记忆。题干是 对定位段的概括,故答案为A)。"
+        },
+        {
+          "number": 42,
+          "stem": "HSAM can be both a curse and a blessing.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "L",
+          "explanation": "HSAM can be both a curse and a L) The people with HSAM I've interviewed would certainly agree blessing. that it can be a mixed blessing. On the plus side, it allows you 2017.619(第1套) 译文HSAM是福也是祸。 定位)由题干中的HSAM和 blessing定位到原文画线处。 to relive the most transformative and enriching experiences. Veiseh, for instance, travelled a lot in his youth. In his spare time, he visited the local art galleries, and the paintings are now lodged deep in his autobiographical memories. 详解定位句提出了文章主题:拥有HSAM的人福祸相依。下文分别举例解释福和祸的具体内容。题干中 的bothacurseandablessing是对定位句中amixedblessing的同义转述,故答案为L)。"
+        },
+        {
+          "number": 43,
+          "stem": "A young woman sought explanation from a brain scientist when she noticed her unusual memory.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "E",
+          "explanation": "A young woman sought explanation from a brain E)“Highly superior autobiographical memory\" (or scientist when she noticed her unusual memory. 译文当一位年轻的女士注意到自己非凡的 记忆力时,她曾向一位大脑科学家寻求解释。 定位由题干中的Ayoungwoman, explanation和brain scientist定位到原文画线处。 HSAM for short) , first came to light in the early 2000s, with a young woman named Jill Price. Emailing the neuroscientist and memory researcher Jim McGaugh one day, she claimed that she could recall every day of her life since the age of 12. Could he help explain her experiences? 详解定位段提到,一位名叫吉尔·普莱斯的年轻女士给神经科学专家兼记忆研究员吉姆·麦克高夫发邮 件,声称她可以回忆起12岁以来每一天的生活。麦克高夫能否帮助解释她的经历呢?题干中的herunusual memory是对定位段中she could recall every day of her life sincetheage of 12的概括。整个题干是对定位 段的概括归纳,故答案为E)。"
+        },
+        {
+          "number": 44,
+          "stem": "Some people with HSAM find it very hard to get rid of unpleasant memories.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "O",
+          "explanation": "Some people with HSAM find it O) Not everyone with HSAM has experienced these benefits, very hard to get rid of unpleasant memories. 译文一些拥有HSAM的人发 现很难忘记不开心的记忆。 定位由题干中的HSAM和find itveryhard定位到原文画线处。 however. Viewing the past in high definition can make it very difficult to get over pain and regret. \" It can be very hard to forget embarrassing moments,\" says Donohue. \" You feel the same emotions—it is just as raw, just as fresh... You can't turn off that stream of memories, no matter how hard you try. \" Veiseh agrees : \"It is like having these open wounds- they are just a part of you,\" he says. 详解定位句提到,不是每一个拥有HSAM的人都能体会这些好处。对过去记得太清楚就会很难从痛苦和 遗撼中解脱出来。题干中的getrid of unpleasantmemories对应定位句中的getoverpainand regret。题干 是对定位句的同义转述,故答案为0)。"
+        },
+        {
+          "number": 45,
+          "stem": "A recent study of people with HSAM reveals that they are liable to fantasy and full absorption in an activity.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "I",
+          "explanation": "A recent study of people with I) Lawrence Patihis at the University of Southern Mississippi HSAM reveals that they are liable to fantasy and full absorption in an activity. 译文近期一项对拥有HSAM 者的研究表明,他们易于幻想,在 活动中易于全神贯注。 定位由题干中的fantasy, absorption和in an activity定位 到原文画线处。 recently studied around 20 people with HSAM and found that fantasy they scored particularly high on two measures: proneness(倾向)and absorption.Fantasy proneness could be considered a tendency to imagine and daydream, whereas absorption is the tendency to allow your mind to become fully absorbed in an activity-to pay complete attention to the sensations (感受)and the experiences.“I'm extremely sensitive to sounds, smells and visual detail,\" explains Nicole Donohue, who has taken part in many of these studies. \"I definitely feel things more strongly than the average person. \" 详解)定位句指出,南密西西比大学的劳伦斯·帕特西斯近来研究了约20位拥有HSAM者,发现他们在幻 想倾向和专注力两方面得分特别高。幻想倾向可以理解为想象和做白日梦的倾向,而专注力则是使自已的思 维全神贯注于某种活动(对感受和经历投入全部的关注)的倾向。题干是对定位句的同义转述,故答案为I)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2017-06-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "The phrase almost completes itself: midlife crisis. It’s the stage in the middle of the journey when people feel youth vanishing, their prospects narrowing and death approaching. There’s only one problem with the cliche (套话).It isn’t true. “In fact, there is almost no hard evidence for midlife crisis other than a few small pilot studies conducted decades ago,” Barbara Hagerty writes in her new book, Life Reimagined. The vast bulk of the research shows that there may be a pause, or a shifting of gears in the 40s or 50s, but this shift “can be exciting, rather than terrifying”. Barbara Hagerty looks at some of the features of people who turn midlife into a rebirth. They break routines, because “autopilot is death”. They choose purpose over happiness一having a clear sense of purpose even reduces the risk of Alzheimer’s disease. They give priority to relationships, as careers often recede(逐渐淡化). Life Reimagined paints a picture of middle age that is far from gloomy. Midlife seems like the second big phase of decision-making. Your identity has been formed; you’ve built up your resources; and now you have the chance to take the big risks precisely because your foundation is already secure. Karl Barth described midlife precisely this way. At middle age, he wrote, “the sowing is behind; now is the time to reap. The run has been taken; now is the time to leap. Preparation has been made; now is the time for the venture of the work itself.” The middle-aged person, Barth continued, can see death in the distance, but moves with a “measured haste” to get big new things done while there is still time. What Barth wrote decades ago is even truer today. People are healthy and energetic longer. We have presidential candidates running for their first term in office at age 68, 69 and 74. A longer lifespan is changing the narrative structure of life itself. What could have been considered the beginning of a descent is now a potential turning point—the turning point you are most equipped to take full advantage of."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What does the author think of the phrase “midlife crisis”?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It has led to a lot of debate."
+            },
+            {
+              "key": "B",
+              "text": "It is widely acknowledged."
+            },
+            {
+              "key": "C",
+              "text": "It is no longer fashionable."
+            },
+            {
+              "key": "D",
+              "text": "It misrepresents real life."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位由题干中的the phrase\"midlife crisis\"定位到首段:Thephrase almost completes itself: midlife crisis. It's the stage in the middle of the journey when people feel youth vanishing, their prospects nairowing and death approaching.和第二段:There's only one problem with the cliche (套 话).It isn't true. 详解推理判断题。第一段指出“中年危机”这个短语几近完美地诠释了它自身。在旅途中段,人 们感到青春消逝,未来暗淡。第二段讲述了这个老生常谈的话题只有一个问题,那就是它不是真实的。 由此推出作者认为它错误地阐述了真实的人生,故答案为D)。 点睛)A)“它引起了大量的讨论”,文中并没有提到,故排除;B)“它已被大众认可”,本文主要针对 “中年危机”这一概念做出了讨论,并未提及这一术语本身是否被认可,故排除;C)“它已不再流行”,文 中提到人们对这一时期的感受,说明这一概念并未过时,故排除。"
+        },
+        {
+          "number": 47,
+          "stem": "How does Barbara Hagerty view midlife?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It may be the beginning of a crisis."
+            },
+            {
+              "key": "B",
+              "text": "It can be a new phase of one’s life."
+            },
+            {
+              "key": "C",
+              "text": "It can be terrifying for the unprepared."
+            },
+            {
+              "key": "D",
+              "text": "It may see old-age diseases approaching."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位由题干中的viewmidlife定位到第四段第一句:BarbaraHagertylooksatsomeofthe features of people who turn midlife into a rebirth. 详解事实细节题。定位句表达的意思是芭芭拉·哈格蒂对那些在中年时期重获新生的人们所共 有的一些特征进行了研究。由此可知,在她看来,中年生活是重新开始人生的好时机,故答案为B)。 点睛)A)“它或许是危机的开始”,文中并没有提到,故排除;C)“对于没有准备好的人来说它是很 可怕的”,第三段最后一句提到,她认为这种转变将是非常令人激动的,而非可怕的,故排除;D)“中年 预示着那些满身病痛的老年时代即将来临”,作者在文章首段中确实提到了这一点,但是紧随其后作者 就表达了自已的观点一“这并不是真的”,故排除。"
+        },
+        {
+          "number": 48,
+          "stem": "How is midlife pictured in the book Life Reimagined?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It can be quite rosy."
+            },
+            {
+              "key": "B",
+              "text": "It can be burdensome."
+            },
+            {
+              "key": "C",
+              "text": "It undergoes radical transformation."
+            },
+            {
+              "key": "D",
+              "text": "It makes for the best part of one’s life."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定位)由题干中的midlifepictured和lifeReimagined定位到第五段:LifeReimaginedpaintsa picture of middle age that is far from gloomy.is already secure. 详解推理判断题。定位段主要写了《重新构想生活》一书中描述的中年生活并不令人沮丧。中年 似乎成了人生中的第二个决策阶段。此时你的个性已然形成;你已经积累了足够的资源;因为根基牢 固你可以承担更大的风险。此外,第三段最后一句:大量研究表明,四五十岁时,可能会出现停滞或转 变,但这种转变是振奋人心的,而不是令人恐慌的,故选C)“它经历了巨大的改变”。 点睛)文中只是提到中年生活将是一个重生,是一个设定更清晰目标的阶段,至于中年生活是否非 常美好并未提及,可以排除A)和D);B)“它充满了负担\",文中并没有提到,故排除。"
+        },
+        {
+          "number": 49,
+          "stem": "According to Karl Barth, midlife is the time_______.",
+          "options": [
+            {
+              "key": "A",
+              "text": "to relax"
+            },
+            {
+              "key": "B",
+              "text": "to mature"
+            },
+            {
+              "key": "C",
+              "text": "to harvest"
+            },
+            {
+              "key": "D",
+              "text": "to reflect"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位)由题干中的KarlBarth和midlifeisthetime定位到文章第七段。 详解推理判断题。定位段提到,巴特认为人处中年,可以遥望到远处的死亡,但是他仍会在大好时 光里以“慎重而缓慢的节奏\"去完成那些远大而新鲜的事业。由此推出,在卡尔·巴特眼中,中年时代 是更“成熟的面对生活,故答案为B)。 点睛A)“放松\"和D)“反思\"均未在文中提及,故排除;C)“收获\"只是在第六段中卡尔·巴特描 写中年生活的一个表象,并非重点表达的主题,故排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What does the author say about midlife today?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is more meaningful than other stages of life."
+            },
+            {
+              "key": "B",
+              "text": "It is likely to change the narrative of one’s life,"
+            },
+            {
+              "key": "C",
+              "text": "It is more important to those with a longer lifespan."
+            },
+            {
+              "key": "D",
+              "text": "It is likely to be a critical turning point in one’s life."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位由题干中的midlifetoday定位到第八段第一句:WhatBarthwrotedecadesagoiseventruer today.和最后一句:What could have been considered the beginning of a descent is now a potential tuming point... 详解)推理判断题。在这两句中作者提到,芭芭拉几十年前所写的内容在今天看来更加符合现实。 曾被认为是下坡路开始的时刻现在则是充满潜力的转折点。由此可知,如今的中年生活是生命当中一 个关键的转折点,故答案为D)。 点睛)A)“它比生命中的其他阶段更有意义”,文中没有对生命中的各个阶段进行比较,故排除; B)“它会改变生活的叙述模式”,根据定位段第三句可知,改变这一模式的并非中年时期,而是人们更 长的寿命,故排除;C)“对于寿命更长的人来说中年时期更为重要”与文意不符,故排除。 ?"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2017-06-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "In spring, chickens start laying again, bringing a welcome source of protein at winter’s end. So it’s no surprise that cultures around the world celebrate spring by honoring the egg. Some traditions are simple, like the red eggs that get baked into Greek Easter breads. Others elevate the egg into a fancy art, like the heavily jewel-covered “eggs” that were favored by the Russians starting in the 19th century. One ancient form of egg art comes to us from Ukraine. For centuries, Ukrainians have been drawing complicated patterns on eggs. Contemporary artists have followed this tradition to create eggs that speak to the anxieties of our age: Life is precious, and delicate. Eggs are, too. “There’s something about their delicate nature that appeals to me,” says New Yorker cartoonist Roz Chast. Several years ago, she became interested in eggs and learned the traditional Ukrainian technique to draw her very modem characters. “I’ve broken eggs at every stage of the process—from the very beginning to the very, very end.” But there’s an appeal in that vulnerability. “There’s part of this sickening horror of knowing you’re walking on the edge with this, that I kind of like, knowing that it could all fall apart at any second.” Chast’s designs, such as a worried man alone in a tiny rowboat, reflect that delicateness. Traditional Ukrainian decorated eggs also spoke to those fears. The elaborate patterns were believed to offer protection against evil. “There’s an ancient legend that as long as these eggs are made, evil will not prevail in the world,” says Joan Brander, a Canadian egg-painter who has been painting eggs for over 60 years, having learned the art from her Ukrainian relatives. The tradition, dating back to 300 B.C., was later incorporated into the Christian church. The old symbols, however, still endure. A decorated egg with a bird on it, given to a young married couple, is a wish for children. A decorated egg thrown into the field would be a wish for a good harvest."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "Why do people in many cultures prize the egg?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is a welcome sign of the coming of spring."
+            },
+            {
+              "key": "B",
+              "text": "It is their major source of protein in winter."
+            },
+            {
+              "key": "C",
+              "text": "It can easily be made into a work of art."
+            },
+            {
+              "key": "D",
+              "text": "It can bring wealth and honor to them."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。定位由题干中的prize theegg定位到第一段:In spring,chickens start layingagain,bringing a welcome source of protein at winter's end. So it's no surprise that cultures around the world celebrate spring by honoring the egg. 详解)推理判断题。定位段第一句提到鸡蛋是蛋白质的重要来源,接下来指出在全世界文化中,人 们都愿意通过赞扬鸡蛋的方式来庆祝春天的到来,故答案为A)。 点睛)B)“鸡蛋是人们冬季获取蛋白质的主要来源”,文中提到的是在冬季即将结束时鸡蛋才成为 蛋白质来源的,故排除;C)“鸡蛋很容易制成艺术品”,曲解了原文的意思,故排除;D)“它可以给人们 带来财富和荣誉”,文中并未提到,故排除。"
+        },
+        {
+          "number": 52,
+          "stem": "What do we learn about the decorated “eggs” in Russia?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are shaped like jewel cases."
+            },
+            {
+              "key": "B",
+              "text": "They are cherished by the rich."
+            },
+            {
+              "key": "C",
+              "text": "They are heavily painted in red."
+            },
+            {
+              "key": "D",
+              "text": "They are favored as a form of art."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位由题干中的the decorated“eggs”in Russia定位到第二段第二句:Others elevate theegg into a fancy art, like the heavily jewel-covered \"eggs\" that were favored by the Russians starting in the 19th century. 详解推理判断题。定位句指出,其他的文化将鸡蛋上升到华丽的艺术层面,例如俄罗斯人喜欢用 珠宝来装饰鸡蛋,故答案为D)。 点睛A)“鸡蛋被制成首饰盒的形状”、B)“它们被富人珍藏起来\"和C)“它们被重重地涂成红 色”,这三点内容文中都没有提及,故排除。"
+        },
+        {
+          "number": 53,
+          "stem": "Why have contemporary artists continued the egg art tradition?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Eggs serve as an enduring symbol of new life."
+            },
+            {
+              "key": "B",
+              "text": "Eggs have an oval shape appealing to artists."
+            },
+            {
+              "key": "C",
+              "text": "Eggs reflect the anxieties of people today."
+            },
+            {
+              "key": "D",
+              "text": "Eggs provide a unique surface to paint on."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定位)由题干中的contemporaryartists和continuedtheeggarttradition定位到第三段第三句。 详解)推理判断题。第三段第一句中提到,装饰彩蛋这种艺术形式源于乌克兰。接下来定位句中指 出,现代艺术家们追随这一传统创造出各种各样的鸡蛋就是为了表达当代生活中的焦虑,故答案为C)。 点睛)A)“鸡蛋是新生命的长久象征”、B)“椭圆形的鸡蛋吸引了艺术家”和D)“鸡蛋提供的独特 表面可以用来绘画”原文中都没有提及,故排除。"
+        },
+        {
+          "number": 54,
+          "stem": "Why does Chast enjoy the process of decorating eggs?",
+          "options": [
+            {
+              "key": "A",
+              "text": "She never knows if the egg will break before the design is completed."
+            },
+            {
+              "key": "B",
+              "text": "She can add multiple details to the design to communicate her idea."
+            },
+            {
+              "key": "C",
+              "text": "She always derives great pleasure from designing something new."
+            },
+            {
+              "key": "D",
+              "text": "She is never sure what the final design will look like until the end."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。定位由题干中的Chast和processofdecoratingeggs定位到第五段前两句:Buthere's anappeal in that vulnerability. \" There's part of this sickening horror...that I kind of like, ..** 详解)事实细节题。本题问的是为什么查斯特喜欢装饰鸡蛋的过程,定位句中提到正是这种脆弱让 它(装饰鸡蛋)具有吸引力,这种让人害怕的恐惧也正是她所喜欢的,故答案为A)。 点睛B)“她可以在设计时增添许多细节来表达自已的观点\"和C)“她总是从设计新作品中得到 很大的乐趣”,文中并没有提到,故均排除;D)“不到最后她也无从知道最终的设计是什么样子”,文中 提到在设计的过程中鸡蛋可能随时会碎掉,所以她无法确定每个鸡蛋最后是否都能成为艺术品,这是 她不能确定的东西,该选项与文意不符,故排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What do we learn from the passage about egg-painting?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It originated in the eastern part of Europe."
+            },
+            {
+              "key": "B",
+              "text": "It has a history of over two thousand years."
+            },
+            {
+              "key": "C",
+              "text": "It is the most time-honored form of fancy art."
+            },
+            {
+              "key": "D",
+              "text": "It is especially favored as a church decoration."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位)由题干及各选项可定位至最后一段第一句。 详解事实细节题。定位句提到,这一传统可以追溯到公元前300年,那么计算一下,距今恰好有两 千多年的历史了,故答案为B)。 点睛)A)“它起源于欧洲东部”,乌克兰虽位于欧洲东部,但这并不等同于乌克兰就是绘制彩蛋这 门艺术的起源地,故排除;C)“这是一种最受大家夸赞的精美艺术形式”,文中并没有把鸡蛋装饰这种 艺术与别的艺术形式进行比较,故排除;D)“这一形式尤其被教堂装饰所青睐”,文中提到彩蛋装饰这 一传统后来被融入基督教文化中,但并没有提到教堂喜欢用它来进行装饰,故排除。 ?"
+        }
+      ]
+    }
+  ]
+}

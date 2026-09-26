@@ -1,0 +1,1688 @@
+{
+  "id": "cet4-2018-12-3",
+  "level": 4,
+  "year": 2018,
+  "month": 12,
+  "set": 3,
+  "title": "2018 年 12 月四级 · 第 3 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.12/%E7%9C%9F%E9%A2%98Word/2018%E5%B9%B412%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC%E4%B8%89%E5%A5%97.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2018.12%E5%9B%9B%E7%BA%A7%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%E7%AC%AC%E4%B8%89%E5%A5%97.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2018-12-3-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "A few months ago, I was down with a terrible cold which ended in a persistent bad cough. No matter how many different [[26]] I tried, I still couldn’t get rid of the cough. Not only did it [[27]] my teaching but also my life as a whole. Then one day after class, a student came up to me and [[28]] traditional Chinese medicine. From her description, Chinese medicine sounded as if it had magic power that worked wonders. I was [[29]] because I knew so little about it and have never it before. Eventually, my cough got so much [[30]] that I couldn’t sleep at night, so I decided to give it a try. The Chinese doctor took my pulse and asked to see my tongue, both of which were new [[31]] to me because they are both non-existent in Western medicine. Then the doctor gave me a scraping(刮)treatment known as “Gua Sha”. I was a little [[32]] at first because he used a smooth edged tool to scrape the skin on my neck and shoulders. A few minutes later, the [[33]] strokes started to produce a relieving effect and my body and mind began to [[34]] deeper into relaxation. I didn’t feel any improvement in my condition in the first couple of days, but after a few more regular visits to the doctor, my cough started to [[35]] . Then, within a matter of weeks, it was completely gone!"
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "deepen"
+        },
+        {
+          "key": "B",
+          "text": "experiences"
+        },
+        {
+          "key": "C",
+          "text": "hesitant"
+        },
+        {
+          "key": "D",
+          "text": "inconvenience"
+        },
+        {
+          "key": "E",
+          "text": "lessen"
+        },
+        {
+          "key": "F",
+          "text": "licenses"
+        },
+        {
+          "key": "G",
+          "text": "pressured"
+        },
+        {
+          "key": "H",
+          "text": "recommended"
+        },
+        {
+          "key": "I",
+          "text": "remedies"
+        },
+        {
+          "key": "J",
+          "text": "scared"
+        },
+        {
+          "key": "K",
+          "text": "sensitive"
+        },
+        {
+          "key": "L",
+          "text": "sink"
+        },
+        {
+          "key": "M",
+          "text": "temporary"
+        },
+        {
+          "key": "N",
+          "text": "tremble"
+        },
+        {
+          "key": "O",
+          "text": "worse"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "deepen"
+            },
+            {
+              "key": "B",
+              "text": "experiences"
+            },
+            {
+              "key": "C",
+              "text": "hesitant"
+            },
+            {
+              "key": "D",
+              "text": "inconvenience"
+            },
+            {
+              "key": "E",
+              "text": "lessen"
+            },
+            {
+              "key": "F",
+              "text": "licenses"
+            },
+            {
+              "key": "G",
+              "text": "pressured"
+            },
+            {
+              "key": "H",
+              "text": "recommended"
+            },
+            {
+              "key": "I",
+              "text": "remedies"
+            },
+            {
+              "key": "J",
+              "text": "scared"
+            },
+            {
+              "key": "K",
+              "text": "sensitive"
+            },
+            {
+              "key": "L",
+              "text": "sink"
+            },
+            {
+              "key": "M",
+              "text": "temporary"
+            },
+            {
+              "key": "N",
+              "text": "tremble"
+            },
+            {
+              "key": "O",
+              "text": "worse"
+            }
+          ],
+          "answer": "I",
+          "explanation": "I)remedies。详解)名词辩析题。空格前面是howmanydifferent,后面是Itried,故推断该词为名词, 且为复数形式。根据上文语义,作者因感冒而引发严重的咳嗽,那么尝试的事情应与疾病相关,名词选项中 remedies一词意为“药物”,且为复数形式,从语义和语法角度均适合,故为答案。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "deepen"
+            },
+            {
+              "key": "B",
+              "text": "experiences"
+            },
+            {
+              "key": "C",
+              "text": "hesitant"
+            },
+            {
+              "key": "D",
+              "text": "inconvenience"
+            },
+            {
+              "key": "E",
+              "text": "lessen"
+            },
+            {
+              "key": "F",
+              "text": "licenses"
+            },
+            {
+              "key": "G",
+              "text": "pressured"
+            },
+            {
+              "key": "H",
+              "text": "recommended"
+            },
+            {
+              "key": "I",
+              "text": "remedies"
+            },
+            {
+              "key": "J",
+              "text": "scared"
+            },
+            {
+              "key": "K",
+              "text": "sensitive"
+            },
+            {
+              "key": "L",
+              "text": "sink"
+            },
+            {
+              "key": "M",
+              "text": "temporary"
+            },
+            {
+              "key": "N",
+              "text": "tremble"
+            },
+            {
+              "key": "O",
+              "text": "worse"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)inconvenience。详解)动词辨析题。空格前为主语it,空格后为宾语teaching,故推断该词为动词, 且该句为倒装句,not onlydidit后面应为动词原形。根据上文,作者的咳嗽一直无法痊愈,那么带来的结果 一定是不好的,inconvenience有“带来不便,添麻烦”的意思,可以和后面的宾语teaching搭配,且符合句意, 故为答案。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "deepen"
+            },
+            {
+              "key": "B",
+              "text": "experiences"
+            },
+            {
+              "key": "C",
+              "text": "hesitant"
+            },
+            {
+              "key": "D",
+              "text": "inconvenience"
+            },
+            {
+              "key": "E",
+              "text": "lessen"
+            },
+            {
+              "key": "F",
+              "text": "licenses"
+            },
+            {
+              "key": "G",
+              "text": "pressured"
+            },
+            {
+              "key": "H",
+              "text": "recommended"
+            },
+            {
+              "key": "I",
+              "text": "remedies"
+            },
+            {
+              "key": "J",
+              "text": "scared"
+            },
+            {
+              "key": "K",
+              "text": "sensitive"
+            },
+            {
+              "key": "L",
+              "text": "sink"
+            },
+            {
+              "key": "M",
+              "text": "temporary"
+            },
+            {
+              "key": "N",
+              "text": "tremble"
+            },
+            {
+              "key": "O",
+              "text": "worse"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H)recommended。详解动词辨析题。空格前为连词and,后面为traditionalChinesemedicine,故推 断该词为动词,且and前后的并列关系决定了该词应为动词过去式。结合上文语义,作者咳嗽不见好转,给 工作和生活带来了困扰,她的学生因此推荐中医疗法,recommended意为“推荐”,且为过去式,故为答案。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "deepen"
+            },
+            {
+              "key": "B",
+              "text": "experiences"
+            },
+            {
+              "key": "C",
+              "text": "hesitant"
+            },
+            {
+              "key": "D",
+              "text": "inconvenience"
+            },
+            {
+              "key": "E",
+              "text": "lessen"
+            },
+            {
+              "key": "F",
+              "text": "licenses"
+            },
+            {
+              "key": "G",
+              "text": "pressured"
+            },
+            {
+              "key": "H",
+              "text": "recommended"
+            },
+            {
+              "key": "I",
+              "text": "remedies"
+            },
+            {
+              "key": "J",
+              "text": "scared"
+            },
+            {
+              "key": "K",
+              "text": "sensitive"
+            },
+            {
+              "key": "L",
+              "text": "sink"
+            },
+            {
+              "key": "M",
+              "text": "temporary"
+            },
+            {
+              "key": "N",
+              "text": "tremble"
+            },
+            {
+              "key": "O",
+              "text": "worse"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)hesitant。详解)形容词辨析题。空格前为was,空格后为because引导的原因状语从句,故推测该 “词为形容词或动词分词形式。根据because后的从句句意,可知作者对中医知之甚少,且从未尝试过,那么 必然对此疗法心存疑虑,hesitant意为“犹豫的”,符合语境,故为答案。作者对中医知之甚少,且从未尝试 过,所以作者只是犹豫要不要尝试中医疗法,还未达到害怕的程度,故排除J)scared\"害怕的,畏惧的”。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "deepen"
+            },
+            {
+              "key": "B",
+              "text": "experiences"
+            },
+            {
+              "key": "C",
+              "text": "hesitant"
+            },
+            {
+              "key": "D",
+              "text": "inconvenience"
+            },
+            {
+              "key": "E",
+              "text": "lessen"
+            },
+            {
+              "key": "F",
+              "text": "licenses"
+            },
+            {
+              "key": "G",
+              "text": "pressured"
+            },
+            {
+              "key": "H",
+              "text": "recommended"
+            },
+            {
+              "key": "I",
+              "text": "remedies"
+            },
+            {
+              "key": "J",
+              "text": "scared"
+            },
+            {
+              "key": "K",
+              "text": "sensitive"
+            },
+            {
+              "key": "L",
+              "text": "sink"
+            },
+            {
+              "key": "M",
+              "text": "temporary"
+            },
+            {
+              "key": "N",
+              "text": "tremble"
+            },
+            {
+              "key": "O",
+              "text": "worse"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O)worse。详解)形容词辨析题。空格前为mycoughgotsomuch,故推断该词为形容词。根据上下 文,作者起初并未尝试过刮痧,而后来却尝试了这种疗法,可见一定是病情加重了,worse为bad的比较级, 且可被much修饰,故为答案。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "deepen"
+            },
+            {
+              "key": "B",
+              "text": "experiences"
+            },
+            {
+              "key": "C",
+              "text": "hesitant"
+            },
+            {
+              "key": "D",
+              "text": "inconvenience"
+            },
+            {
+              "key": "E",
+              "text": "lessen"
+            },
+            {
+              "key": "F",
+              "text": "licenses"
+            },
+            {
+              "key": "G",
+              "text": "pressured"
+            },
+            {
+              "key": "H",
+              "text": "recommended"
+            },
+            {
+              "key": "I",
+              "text": "remedies"
+            },
+            {
+              "key": "J",
+              "text": "scared"
+            },
+            {
+              "key": "K",
+              "text": "sensitive"
+            },
+            {
+              "key": "L",
+              "text": "sink"
+            },
+            {
+              "key": "M",
+              "text": "temporary"
+            },
+            {
+              "key": "N",
+              "text": "tremble"
+            },
+            {
+              "key": "O",
+              "text": "worse"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)experiences。详解)名词辨析题。空格前为be动词were和形容词new,故推测该处为名词复数。 上文提及中医为作者把脉、看舌头,下文又提到这些在西医里并不存在,因此此处应填人experiences “经历”。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "deepen"
+            },
+            {
+              "key": "B",
+              "text": "experiences"
+            },
+            {
+              "key": "C",
+              "text": "hesitant"
+            },
+            {
+              "key": "D",
+              "text": "inconvenience"
+            },
+            {
+              "key": "E",
+              "text": "lessen"
+            },
+            {
+              "key": "F",
+              "text": "licenses"
+            },
+            {
+              "key": "G",
+              "text": "pressured"
+            },
+            {
+              "key": "H",
+              "text": "recommended"
+            },
+            {
+              "key": "I",
+              "text": "remedies"
+            },
+            {
+              "key": "J",
+              "text": "scared"
+            },
+            {
+              "key": "K",
+              "text": "sensitive"
+            },
+            {
+              "key": "L",
+              "text": "sink"
+            },
+            {
+              "key": "M",
+              "text": "temporary"
+            },
+            {
+              "key": "N",
+              "text": "tremble"
+            },
+            {
+              "key": "O",
+              "text": "worse"
+            }
+          ],
+          "answer": "J",
+          "explanation": "J)scared。详解)形容词辨析题。空格前为Iwasalittle,空格后为because引导的原因状语从句,故 推断该词为形容词。根据because从句含义,医生用一种边缘平滑的工具刮我的颈部和肩膀的皮肤,由此推 断作者感受为scared害怕的”。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "deepen"
+            },
+            {
+              "key": "B",
+              "text": "experiences"
+            },
+            {
+              "key": "C",
+              "text": "hesitant"
+            },
+            {
+              "key": "D",
+              "text": "inconvenience"
+            },
+            {
+              "key": "E",
+              "text": "lessen"
+            },
+            {
+              "key": "F",
+              "text": "licenses"
+            },
+            {
+              "key": "G",
+              "text": "pressured"
+            },
+            {
+              "key": "H",
+              "text": "recommended"
+            },
+            {
+              "key": "I",
+              "text": "remedies"
+            },
+            {
+              "key": "J",
+              "text": "scared"
+            },
+            {
+              "key": "K",
+              "text": "sensitive"
+            },
+            {
+              "key": "L",
+              "text": "sink"
+            },
+            {
+              "key": "M",
+              "text": "temporary"
+            },
+            {
+              "key": "N",
+              "text": "tremble"
+            },
+            {
+              "key": "O",
+              "text": "worse"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G)pressured。详解形容词辨析题。空格前为定冠词the,空格后为名词strokes,故推测该词为形容 词或动词分词形式。该句描述作者接受刮痧治疗后的感受,根据上文对刮痧的描述,医生用工具刮病人的皮 肤,那么这种按压应非常有力,pressured表示“有压力的”,除了表示心理感受,也可以表示身体感受,故为 答案。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "deepen"
+            },
+            {
+              "key": "B",
+              "text": "experiences"
+            },
+            {
+              "key": "C",
+              "text": "hesitant"
+            },
+            {
+              "key": "D",
+              "text": "inconvenience"
+            },
+            {
+              "key": "E",
+              "text": "lessen"
+            },
+            {
+              "key": "F",
+              "text": "licenses"
+            },
+            {
+              "key": "G",
+              "text": "pressured"
+            },
+            {
+              "key": "H",
+              "text": "recommended"
+            },
+            {
+              "key": "I",
+              "text": "remedies"
+            },
+            {
+              "key": "J",
+              "text": "scared"
+            },
+            {
+              "key": "K",
+              "text": "sensitive"
+            },
+            {
+              "key": "L",
+              "text": "sink"
+            },
+            {
+              "key": "M",
+              "text": "temporary"
+            },
+            {
+              "key": "N",
+              "text": "tremble"
+            },
+            {
+              "key": "O",
+              "text": "worse"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L)sink。详解动词辨析题。空格前为不定式符号to,空格后为deeperintorelaxation,故推断该词为 动词原形,为不及物动词,且和into搭配。根据句意,这种有力的按压开始产生一种让人放松的效果,故推断 作者的身心都开始深深地沉没在放松状态之中。sink表示下沉,沉浸”,可以和into搭配,故为答案。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "deepen"
+            },
+            {
+              "key": "B",
+              "text": "experiences"
+            },
+            {
+              "key": "C",
+              "text": "hesitant"
+            },
+            {
+              "key": "D",
+              "text": "inconvenience"
+            },
+            {
+              "key": "E",
+              "text": "lessen"
+            },
+            {
+              "key": "F",
+              "text": "licenses"
+            },
+            {
+              "key": "G",
+              "text": "pressured"
+            },
+            {
+              "key": "H",
+              "text": "recommended"
+            },
+            {
+              "key": "I",
+              "text": "remedies"
+            },
+            {
+              "key": "J",
+              "text": "scared"
+            },
+            {
+              "key": "K",
+              "text": "sensitive"
+            },
+            {
+              "key": "L",
+              "text": "sink"
+            },
+            {
+              "key": "M",
+              "text": "temporary"
+            },
+            {
+              "key": "N",
+              "text": "tremble"
+            },
+            {
+              "key": "O",
+              "text": "worse"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E)lessen。详解动词辨析题。空格前为不定式符号to,空格后无宾语,故推断该词为动词原形,且为 不及物动词。作者首先指出,在最初的几天里,并没有感到情况有何好转,之后用but连词进行转折,推断后 文表示病情有所好转,咳嗽情况有所减少。lessen意为“减少,降低”,符合句意。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2018-12-3-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) When you drop a piece of food on the floor, is it really OK to eat if you pick it up within five seconds? An urban food myth contends that if food spends just a few seconds on the floor, dirt and germs won’t have much of a chance to contaminate it. Research in my lab has focused on how food becomes contaminated, and we’ve done some work on this particular piece of wisdom.",
+        "B) While the “five-second rule” might not seem like the most pressing issue for food scientists to get to the bottom of, it’s still worth investigating food myths like this one because they shape our beliefs about when food is safe to eat.",
+        "C) So is five seconds on the floor the critical threshold(门槛)that separates a piece of eatable food from a case of food poisoning? It’s a bit more complicated than that. It depends on just how many bacteria can make it from floor to food in a few seconds and just how dirty the floor is.",
+        "D) Wondering if food is still OK to eat after it’s dropped on the floor is a pretty common experience. And it’s probably not a new one either. A well-known, but inaccurate, story about Julia Child may have contributed to this food myth. Some viewers of her cooking show, The French Chef, insist they saw Child drop lamb on the floor and pick it up, with the advice that if they were alone in the kitchen, their guests would never know.",
+        "E) In fact it was a potato pancake, and it fell on the stovetop, not on the floor. Child put it back in the pan, saying, “But you can always pick it up and if you’re alone in the kitchen, who’s going to see it?” But the misremembered story persists. It’s harder to pin down the origins of the oft-quoted five-second rule, but a 2003 study reported that 70% of women and 56% of men surveyed were familiar with the five-second rule and that women were more likely than men to eat food that had dropped on the floor.",
+        "F) So what does science tell us about what a few moments on the floor means for the safety of your food? The earliest research report on the five-second rule is attributed to Jillian Clarke, a high school student participating in a research project at the University of Illinois. Clarke and her colleagues introduced bacteria to floor tiles(瓷砖)and then placed cookies on the tiles for varying times. They reported bacteria were transferred from the tiles to the cookies within five seconds, but didn’t report the specific amount of bacteria that made it from the tiles to the food.",
+        "G) But how many bacteria actually transfer in five seconds? In 2007, my lab at Clemson University published a study in the Journal of Applied Microbiology. We wanted to know if the length of time food is in contact with a contaminated surface affected the rate of transfer of bacteria to the food. To find out, we introduced bacteria to squares of tile, carpet or wood. Five minutes after that, we placed either bacon or bread on the surface for 5,30 or 60 seconds, and then measured the number of bacteria transferred to the food. We repeated this exact procedure after the bacteria had been on the surface for 2,4,8 and 24 hours.",
+        "H) We found that the number of bacteria transferred to either kind of food didn’t depend much on how long the food was in contact with the contaminated surface—whether for a few seconds or for a whole minute. The overall number of bacteria on the surface mattered more, and this decreased over time after the initial introduction. It looks like what’s at issue is less how long your food stays on the floor and much more how contaminated with bacteria that patch of floor happens to be.",
+        "I) We also found that the kind of surface made a difference as well. Carpets, for instance, seem to be slightly better places to drop your food than wood or tile. When a carpet was contaminated, less than 1% of the bacteria were transferred. But when the food was in contact with tile or wood, 45-70% of bacteria were.",
+        "J) Last year, a study from Aston University in the UK used nearly identical parameters(参数)to our study and found similar results. They also reported that 87% of people asked either would eat or had eaten food fallen on the floor.",
+        "K) Should you eat food fallen on the floor then? From a food safety standpoint, if you have millions or more bacteria on a surface, 0.1% is still enough to make you sick. Also, certain types of bacteria are extremely harmful, and it takes only a small number to make you sick. For example, 10 bacteria or less of an especially deadly strain of bacteria can cause severe illness and death in people with compromised immune systems. But the chance of these bacteria being on most surfaces is very low.",
+        "L) And it’s not just dropping food on the floor that can lead to bacterial contamination. Bacteria are carried by various “media”, which can include raw food, moist surfaces where bacteria have been left, our hands or skin and from coughing or sneezing(打喷嚏). Hands, foods and utensils(器皿)can carry individual bacteria living in communities contained within a protective film. These microscopic layers of deposits containing bacteria are known as biofilms and they are found on most surfaces and objects. Biofilm communities can harbor bacteria longer and are very difficult to clean. Becteria in these communities also have an enhanced resistance to sanitizers(清洁剂)and antibiotics compared to bacteria living on their own.",
+        "M) So the next time you consider eating fallen food, the odds are in your favor that you can eat it without getting sick. But in the rare chance that there is a micro-organism that there is a micro-organism that can make you sick on the exact spot where the food dropped, you can be fairly sure that the bug is on the food you are about to put in your mouth.",
+        "N) Research or common sense tells us that the best thing to do is keep your hands, utensils and other surfaces clean."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "A research project found bacteria made their way to the food on the floor in five seconds.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "F",
+          "explanation": "A research project found bacteria F) So what does science tell us about what a few moments on madetheirwaytothefood onthe floor in five seconds. 译文一个研究项目发现细菌能够 在五秒内移动到地上的食物上。 定位由题干中的a research project、bacteria和infiveseconds定 位到文章F)段画线处。 the floor means for the safety of your food? The earliest research report on the five-second rule is attributed to Jillian Clarke, a high school student participating in a research project at the University of Ilinois. Clarke and her colleagues introduced bacteria to floor tiles(瓷砖)and then placed cookies on the tiles for varying times. They reported bacteria were transferred from the tiles to the cookies within five seconds, but didn't report the specific amount of bacteria that made it from the tiles to the food. 详解F)段最后一句提到了最早期的对五秒法则的研究报告。她们的报告指出细菌在五秒之内从地砖转 移到饼干上。题干中指出的细菌能够在五秒内移动到地上的食物上是对原文的同义转述,故答案为F)。"
+        },
+        {
+          "number": 37,
+          "stem": "Whether food is contaminated depends much on the number of bacteria that get onto it.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Whetherfoodiscontaminated depends muchonthenumber of bacteria that get onto it. 译文食物是否被污染很大程度 上取决于到达其上面的细菌数量。 定位由题干中的dependsmuch onthenumberofbacteria定位到文 章C)段画线处。 C)So isfive seconds on thefloor thecritical threshold(门槛) that separates a piece of eatable food from a case of food poisoning? It's a bit more complicated than that. It depends on just how many bacteria can make it from floor to food in a few seconds and just how dirty the floor is. 详解C)段定位句指出,这(指食物是否被污染)取决于有多少细菌会在几秒内从地上到达食物上以及地 面到底有多脏。 题干中的 the number of bacteria that get onto it 与原文中的 how many bacteria can make it fromfloortofood属于同义转述,故答案为C)"
+        },
+        {
+          "number": 38,
+          "stem": "Food contamination may result from various factors other than food dropping on the floor.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "L",
+          "explanation": "Food contamination may result L) And it's not just dropping food on the flor that can lead to from various factorsother than food dropping on the floor. 译文除了掉在地上的食物以 外,各种不同的因素也可能导致食 物污染。 定位由题干中的food contamination和resultfrom定位 到文章L)段画线处。 own. Bacteria are carried by various bacterial contamination.F \"media\",which can include raw food, moist surfaces where bacteria have been left, our hands or skin and from coughing or sneezing(打喷嚏).Hands,foods and utensils(器)can carry individual bacteria living in communities contained within a protective film. These microscopic layers of deposits containing bacteria are known as biofilms and they are found on most surfaces and objects.Biofilm communities can harbor bacteria longer and are very difficult to clean. Becteria in these communities also have an enhanced resistance to sanitizers (清洁剂) and antibiotics compared to bacteria living on their 详解) 题干是关于食物污染的起因,由定位句中的 lead to bacterial contamination 可推断 L) 段是在探讨 什么因素导致了食物被细菌污染的间题。定位句指出,不仅仅是把食物掉在地上就会引起细菌污染,细菌会 被各种不同的“媒介”携带,这与题干的内容相同,故答案为L)。"
+        },
+        {
+          "number": 39,
+          "stem": "Males are less likely than females to eat food that may have been contaminated.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "E",
+          "explanation": "Males are less likely than females to eat food that may have been contaminated. 译文 男性和女性相比,有更 小的可能性去吃被污染的食物。 定位 由题干中的 males 和 females 定位到文章E)段画线处。 E) In fact it was a potato pancake, and it fell on the stovetop, not on the floor. Child put it back in the pan, saying, \"But you can always pick it up and if you're alone in the kitchen, who's going to see it?\" But the misremembered story persists. It's harder to see it?\" But the misremembered story persists. It's harder to pin down the origins of the oft-quoted five-second rule, but a 2003 study reported that 70% of women and 56% of men surveyed were familiar with the five-second rule and that women were more likely than men to eat food that had dropped on the floor. 详解 根据定位句的含义,2003 年的一项研究报告指出,女性比男性更有可能吃掉在地上的食物。题干中的 food that may have been contaminated和原文中的 food that had dropped on the floor属于同义转述,而题干中的 males are less likely than females 和原文中的 women were more likely than men 也属于同义转述,故答案为 E)。"
+        },
+        {
+          "number": 40,
+          "stem": "The author’s research centers around how food gets contaminated.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "A",
+          "explanation": "The author's research centers around how food gets contaminated. 译文 作者的研究围绕食物如何被污染而展开。 定位 由题干中的 the author's research 和 how food gets contaminated 定位到文章 A)段画线处。 A) When you drop a piece of food on the floor, is it really OK to eat it if you pick it up within five seconds? An urban food myth contends that if food spends just a few seconds on the floor, dirt and germs won't have much of a chance to contaminate it. Research in my lab has focused on how food becomes contaminated, and we've done some work on this particular piece of wisdom. 详解 A)段定位句指出,作者的实验室的研究关注食物是如何被污染的。题干中的 centers around 和定位句中的 focused on 是同义转述,且后面英语内容一致,故答案为 A)。"
+        },
+        {
+          "number": 41,
+          "stem": "Keeping everything clean is the best way to stay healthy.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "N",
+          "explanation": "Keeping everything clean is the best way to stay healthy. 译文 让所有事物保持干净是保持健康的最好途径。 定位 由题干中的 keeping everything clean 和 the best way to stay healthy 定位到文章 N)段。 N) Research or common sense tells us that the best thing to do is keep your hands, utensils and other surfaces clean. 详解 结合上几段内容,作者一直在谈论如何远离疾病、保持健康的方法,而定位段指出,最好的方法是,让你的双手、器皿和其他任何表面保持干净,这与题干所述内容一致,故答案为 N)。"
+        },
+        {
+          "number": 42,
+          "stem": "Chances are you will not fall sick because of eating food picked up from the floor.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "M",
+          "explanation": "Chances are you will not fall sick because of eating food picked up from the floor. 译文 你有可能不会因为吃从地上捡起的食物而患病。 定位 由题干中的 chances 和 not fall sick 定位到文章 M)段画线处。 M) So the next time you consider eating fallen food, the odds are in your favor that you can eat it without getting sick. But in the rare chance that there is a micro-organism that can make you sick on the exact spot where the food dropped, you can be fairly sure that the bug is on the food you are about to put in your mouth. 详解 定位句中的假设是吃掉在地上的食物后你不会生病,但是也提到了只是有一定的可能性。题干中的 chances 和原文中的 odds 是近义词,题干中的 will not fall sick 和原文中的 without getting sick 是同义转述,故答案为 M)。"
+        },
+        {
+          "number": 43,
+          "stem": "For a long time people have had the experience of deciding whether or not to eat food picked up from the floor.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【答案】D。【解析】根据定位句的含义，想知道食物在掉到地上之后是否可以食用是一个很普通的经历，同时可能也不是什么新鲜事了。原文中的 a pretty common experience 和 not a new one 比较表示人们都有的一个很普遍的经历，并不是什么新鲜事了，这与题干中的 for a long time people have had the experience 含义相同。"
+        },
+        {
+          "number": 44,
+          "stem": "Some strains of bacteria are so harmful that a tiny few can have deadly consequences.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "K",
+          "explanation": "Some strains of bacteria are so K)Should you eatfood fallen on thefloor then? From a food safety harmful that a tiny few can have standpoint, if you have millions or more bacteria on a surface, deadly consequences. 0.1% is stll enough to make you sick. Also, certain types of 译文某些菌种如此有害,以 bacteriaare extremelyharmful,and ittakes only a small 至于极少量就可以带来致命的 number to make you sick.For example,10 bacteria orless of an especially deadly strain of bacteria can cause severe illness 后果。 and death in people with compromised immune systems. But 定位由题干中的harmful和 the chance of these bacteria being on most surfaces is very deadlyconsequences定位到文章 K)段画线处。 low. 详解根据K)段定位句,某些种类的细菌极为有害,只需要一点点就可以让你生病。接着举例说明,十个 或更少的某种尤其致命的细菌就能导致免疫系统缺乏抵抗力的人患上严重的疾病甚至死亡。题干是对原文 的概述,故答案为K)。"
+        },
+        {
+          "number": 45,
+          "stem": "Researchers found how many bacteria got onto the food did not have much to do with how long the food stayed on a contaminated floor.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "H",
+          "explanation": "Researchers found how many bacteria got onto the food did not have much to do with how long the food stayed on a contaminated floor. 译文研究者们发现到达食物上的细菌量 与食物在被污染的地面上停留的时间长短并 无太大关系。 定位由题干中的bacteriagotontothe food和howlongthefood stayed ona contaminatedfloor定位到文章H)段画线处。 H)Wefound that thenumberof bacteriatransferred to either kind of food didn't depend much on how longthefoodwasincontactwiththe contaminated surfacewhether for a few seconds orfor a wholeminute.The overall number of bacteria on the surface mattered more, and this decreased over time after the initial introduction. It looks like what's at issue is less how long your food stays on the floor and much more how contaminated with bacteria that patch of floor happens to be. 详解H)段定位句指出,我们发现转移到任何一种食物上的细菌数量并不那么取决于食物接触被污染表 面的时间长短。题干中的 stayed on 和定位句中的 was in contact with 是同义转述,且结论一致,故答案 为H)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2018-12-3-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "The latest in cat research reveals that the lovely animal seems to have a basic grasp on both the laws of physics and the ins and outs of cause and effect. According to a newly published study, cats seem to be able to predict the location of hiding prey(猎物)using both their ears and an inborn(天生的)understanding of how the physical world works. In a recent experiment, Japanese researchers taped 30 domestic cats reacting to a container that a team member shook. Some containers rattled(发出响声);others did not. When the container was tipped over, sometimes an object fell out and sometimes it didn’t. It turns out that the cats were remarkably smart about what would happen when a container was tipped over. When an object did not drop out of the bottom of a rattling container, they looked at it for a longer time than they did when the container behaved as expected. “Cats use a causal-logical understanding of noise or sounds to predict the appearance of invisible objects,” lead researcher Saho Takagi says in a press release. The researchers conclude that cats’ hunting style may have developed based on their common-sense abilities to infer where prey is, using their hearing. Scientists have explored this idea with other endearing creatures: babies. Like cats, babies appear to engage in what’s called “preferential looking”—looking longer at things that are interesting or unusual than things they perceive as normal. When babies’ expectations are violated in experiments like the ones performed with the cats, they react much like their animal friends. Psychologists have shown that babies apparently expect their world to comply with the laws of physics and cause and effect as early as two months of age. Does the study mean that cats will soon grasp the ins and outs of cause and effect? Maybe. Okay, so cats may not be the next physics faculty members at America’s most important research universities. But by demonstrating their common sense, they’ve shown that the divide between cats and humans may not be that great after all."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What do we learn from a newly published study about cats?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They can be trained to understand the physical world."
+            },
+            {
+              "key": "B",
+              "text": "They know what kind of prey might be easier to hunt."
+            },
+            {
+              "key": "C",
+              "text": "They have a natural ability to locate animals they hunt."
+            },
+            {
+              "key": "D",
+              "text": "They are capable of telling which way their prey flees."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定位由题干中的anewlypublished study about cats定位到第二段:Accordingto a newly published study, cats seem to be able to predict the location of hiding prey (猎物) using both their earsand an inborn(天生的)understanding of howthephysicalworldworks. 详解事实细节题。定位句指出,根据一项最新发布的研究,猫似乎能够通过自已的耳朵以及一种 天生的对于物理世界如何运转的理解力来预测隐藏猎物的位置。这里提及的 prey和 C)选项中的 animalstheyhunt为同义转述,而an inbormunderstanding和C)选项中的a natural ability也是同义 转述,故答案为C)。 点睛)A)“它们可以被训练去理解物理世界”,这里的betrained和定位句中的inbom矛盾,故排 除;B)“它们知道何种猎物更易捕获”,定位句中虽然提及猎物,但并未对猎物进行区分,故排除; D)“它们能够辨别猎物逃走的方向”,定位句中提到 predicthe location of hiding prey(预测隐藏猎物 的位置),而非猎物逃走的方向,故排除。"
+        },
+        {
+          "number": 47,
+          "stem": "What may account for the cats’ response to the noise from the containers?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Their inborn sensitivity to noise."
+            },
+            {
+              "key": "B",
+              "text": "Their unusual sense of direction."
+            },
+            {
+              "key": "C",
+              "text": "Their special ability to perceive."
+            },
+            {
+              "key": "D",
+              "text": "Their mastery of cause and effect."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位由题干中的 account for 和 cats' response to the noise 定位到第五段首句:“Cats use a causal-logical understanding of noise or sounds to predict the appearance of invisible objects,lead researcher Saho Takagi says in a press release. 详解)推理判断题。第五段主要围绕实验结论阐述原因。定位句指出,猫利用对于噪音或声音的一 种因果逻辑理解来预测看不见的物体的出现。定位句中的 causal-logial 和 D)项中的 cause and effect为同义替换,故答案为D)。 点髓)A)“它们天生对噪音的敏感性\",文中强调的是猎对因果关系的理解,并非对噪音的敏感性, 故排除;B)\"它们不同寻常的方向感\";文中未提及猎对方向的辨别能力,故排除;C)“它们特殊的察觉 能力”,该选项内容过于宽泛,并未指出察觉什么,且定位句中的动词 predict pereive 并非同义,故 排除。"
+        },
+        {
+          "number": 48,
+          "stem": "What is characteristic of the way cats hunt, according to the Japanese researchers?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They depend on their instincts."
+            },
+            {
+              "key": "B",
+              "text": "They rely mainly on their hearing."
+            },
+            {
+              "key": "C",
+              "text": "They wait some time before attack."
+            },
+            {
+              "key": "D",
+              "text": "They use both their ears and eyes."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位由题干中的characteristic of the way cats hunt 和 the Japanese researchers 定位到第五段第 二句 : The researchers conclude that cats hunting style may have developed based on their common- sense abilities to infer where prey is, using their hearing. 详解推理判断题。定位句指出,研究者们总结说,猫的捕猎方式也许是通过使用它们的听觉,基于 它们的常识性能力来推断猎物的位置而培养起来的,由此推断出猫捕猎时主要依靠听觉,故答案为B)。 点睛)A)“它们依靠直觉”,根据定位句,猫基于它们的常识性能力来推断猎物的位置,而并非依靠 直觉,故排除;C)“它们在攻击前等待一段时间”,文中未提及,故排除;D)“它们用耳朵和眼睛”,文中 提及了听觉,未提及视觉,故排除。"
+        },
+        {
+          "number": 49,
+          "stem": "In what way do babies behave like cats?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They focus on what appears odd."
+            },
+            {
+              "key": "B",
+              "text": "They view the world as normal."
+            },
+            {
+              "key": "C",
+              "text": "They do what they prefer to do."
+            },
+            {
+              "key": "D",
+              "text": "They are curious about everything."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。 定位由题干中的babies behave like cats 定位到第六段第二句:Like cats,babies appearto engage in what's called “preferential looking\"-looking longer at things that are interesting or unusual than things they perceive as normal. 详解事实细节题。定位句指出,和猫一样,婴儿似乎也会进行所谓的“优先注视”,对有趣的或不 同寻常的事物注视更久。A)选项中的focuson和原文中的lookinglonger为同义替换,odd和 interestingorunusual也是同义替换,故答案为A)。 点睛B)“它们将世界看作是正常的”,虽然文中提及它们会对不同寻常的事物注视更久,并未提 及它们将世界看作是正常的,故排除;C)“它们做自已更喜欢的事情”,文中未提及,可以排除;D)“它 们对所有事物都感到好奇”,文中只是提到猫对不同寻常的事物注视更久,未指出猫对所有事物都好 奇,故排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What can we conclude about cats from the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They have higher intelligence than many other animals."
+            },
+            {
+              "key": "B",
+              "text": "They interact withe the physical world much like humans."
+            },
+            {
+              "key": "C",
+              "text": "They display extraordinarily high intelligence in hunting."
+            },
+            {
+              "key": "D",
+              "text": "They can aid physics professors in their research work."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位)由题干中的concludeaboutcats定位到末段最后一句:Butbydemonstratingtheircommon sense, they've shown that the divide between cats and humans may not be that great after all. 详解)推理判断题。定位句指出,猫通过展示它们的常识能力,它们已经证明了自己和人类之间的 区别也许并没有那么大。这里的“区别”需要联系全文来理解。文章主要讨论猫和人类对声音的产生 的因果判断,也就是B)选项提到的interactwiththephysicalworld,故答案为B)。 点睛A)“它们比很多其他动物有更高的智力”,文中未对不同动物的智力进行比较,故排除;C) “它们在捕猎方面展现了超高的智力”,文中强调猫对因果的推断能力,并非智力,故排除;D)“它们能 够在研究方面辅助物理学教授”,定位段提到,猫不会成为物理学教员,故排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2018-12-3-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Imagine you enter a car with no steering wheel, no brake or accelerator padals(踏板). Under a voice-activated command, you say an address. “The fastest route will take us 15.3 minutes. Should I take it?” You say “yes” and you are on your way. The car responds and starts moving all by itself. All you have to do is sit back and relax. How weird would it be if, one day in the future, everyone had such a car? No crazy driving, no insults, no cutting in; traffic laws would be respected and driving much safer. On the other hand, imagine the cost savings for local police enforcement and town budgets without all those speeding and parking tickets. A new technology has the potential to change modern society in radical ways. There’s no question that self-driving vehicles could be an enormous benefit. The potential for safer cars means accident statistics would drop: some 94% of road accidents in the U.S. involve human error. Older drivers and visually-or physically-impaired people would gain a new level of freedom. Maintaining safe speeds and being electric, self-driving cars would drastically reduce pollution levels and dependency on non-renewable fuels. Roads would be quieter, people safer. But we must also consider the impact of the new technology on those who now depend on driving for their livelihoods. According to the U.S. Department of Labor, in May 2015 there were 505,560 registered school bus drivers. The American Trucking Association lists approximately 3.5 million professional truck drivers in the U.S. The companies developing self-driving vehicles should be partnering with state and federal authorities to offer retraining for this massive workforce, many of whom will be displaced by the new technology. This is similar to what’s happening in the coal and oil industries, a situation that fuels much of the current political discontent in this country. New technologies will, and should, be developed. This is how society moves forward. However, progress can’t be one-sided. It is necessary for the companies and state agencies involved to consider the ethical consequences of these potential changes to build a better future for all."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What would be the impact of the extensive use of driverless cars?",
+          "options": [
+            {
+              "key": "A",
+              "text": "People would be driving in a more civilized way."
+            },
+            {
+              "key": "B",
+              "text": "It would save local governments a lot of money."
+            },
+            {
+              "key": "C",
+              "text": "More policemen would be patrolling the streets."
+            },
+            {
+              "key": "D",
+              "text": "Traffic regulations would be a thing of the past."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位由题干中的 impact 和 the extensive use of driverless cars定位到第二段第三句:On the other hand, imagine the cost savings for local police enforcement and town budgets without all those speeding and parking tickets. 详解)推理判断题。定位句提到,设想一下所有这些没有超速和违规停车罚单的情况对于当地警力 和市镇预算的成本节约。由此可知,无人驾驶汽车的广泛使用将可以为当地政府省下很多钱,故答案 为B)。 点睛)A)“人们将会以更文明的方式开车”,题干中出现的driverlesscars说明人们不用亲自开车, 故排除;C)“更多的警察将会在街上巡逻”,和后文所述节省警力矛盾,故排除;D)“交通规则将成为历 史”,虽然文中描绘了一番和谐交通的前景,但并不意味着交通规则会被取缔,此项属于无中生有,故 排除。"
+        },
+        {
+          "number": 52,
+          "stem": "How would the elderly and the disabled benefit from driverless cars?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They could enjoy greater mobility."
+            },
+            {
+              "key": "B",
+              "text": "They would suffer no road accidents."
+            },
+            {
+              "key": "C",
+              "text": "They would have no trouble driving."
+            },
+            {
+              "key": "D",
+              "text": "They could go anywhere they want."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。定位)由题干中的theelderlyandthedisabled定位到第三段第四句:Olderdriversandvisually-or physically-impaired people would gain a new level of freedom. 详解)推理判断题。第三段指出,无人驾驶汽车益处无穷,老年司机和视力或身体上有残疾的人将 获得新程度的自由。根据上下文语境可推断,这里的 freedom 指的是这些特殊群体将不受驾驶技术限 制而可以自由出行,也就是说,他们将享有更大的活动性,故答案为A)。 点睛B)“他们将免于道路事故”,文中并未完全否认道路事故的可能性,故排除;C)“他们将在驾 驶方面没有困难”,根据文章,无人驾驶汽车并不需要人驾驶,选项和文意不符,故排除;D)“他们可以 去任何想去的地方”,虽然定位句中提到了 freedom,但根据推断可知,这里指的是无需驾驶即可出行 的“自由”,文章并未说他们可以去任何地方,故排除。 58. D)。G定位)由题干中的 the negative impact 定位到第四段首句;But we must also considerthe impact .of the new technology onthose who now depend on driving for theirliveihoods.和第五段首句The companesdeveoping sldiving vhiceshouldbareringwithseandfederalauthoiest rnomssivewmwhwlldadyew 详解)推理判断题。第四段首句指出,我们也必须考虑到这种新技术对那些以驾驶为生的人的影 响。第五段首句又提到,这些驾驶员中很多人将会被新技术取代。由此可以推断,大量的职业司机将 需要另谋出路来维持生计,放答案为D)。 点腾)A)“劳资双方的矛盾将加剧\",文章主要关注无人驾驶这一新技术的应用对于职业司机的影 响,未提及劳资关系,敬排除;B)\"不同社会行业之间的差距将扩大”,文章未提及,故排除;C)“职业司 机适应新路况将很困难\",文中提及他们的潜在威胁是失业,而非对新路况的适应,故排除。 4 A)。定由题干中的 resul eneryindusties 定位到第五般第二旬 Tisisilarto whats 详事实细节题。 定位旬指出,这(无人帮胶汽车的开发)类似于煤炭和石油行业的状况,它引发 in this country. 乳实离了很多当前国内在政治上的不满情绪,可见能源行业对新技术的应用也引起了政治上的不满情绪,A) 选项中的dissatisfaction和原文中的discontent为同义替换,故答案为A)。,舒金 7! 点睛B)“员工再培训”、C)“化石燃料保护\"和D)“企业重组\"在文中均未提及,故均排除。》"
+        },
+        {
+          "number": 53,
+          "stem": "What would be the negative impact of driverless cars?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The conflict between labor and management would intensify."
+            },
+            {
+              "key": "B",
+              "text": "The gap between various sectors of society would be widened."
+            },
+            {
+              "key": "C",
+              "text": "Professional drivers would have a hard time adapting to new road conditions."
+            },
+            {
+              "key": "D",
+              "text": "Numerous professional drivers would have to find new ways of earning a living."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【答案】D。【解析】推理判断题。第四段首句指出，我们也必须考虑到这种新技术对那些以驾驶为生的人的影响。第五段首句又提到，这些驾驶员中间很多人将会被新技术取代。由此可以推断，大量的职业司机将需要另谋出路来维持生计。A项文章主要关注无人驾驶这一新技术的应用对于职业司机的影响，未提及劳资关系；B项不同社会行业之间的差距将扩大，文章未提及；C项职业司机适应新路况将很困难，文中提及他们的潜在威胁是失业，而非对新路况的适应。"
+        },
+        {
+          "number": 54,
+          "stem": "What is the result of the introduction of new technologies in energy industries?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Political dissatisfaction."
+            },
+            {
+              "key": "B",
+              "text": "Retraining of employees."
+            },
+            {
+              "key": "C",
+              "text": "Fossil fuel conservation."
+            },
+            {
+              "key": "D",
+              "text": "Business restructuring."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【答案】A。【解析】事实细节题。定位句指出，这（无人驾驶汽车的开发）类似于煤炭和石油行业的状况，它引发了很多当前国内在政治上的不满情绪，可见能源行业对新技术的应用也引起了政治上的不满情绪。A选项中的 dissatisfaction 和原文中的 discontent 为同义替换。B员工再培训、C化石燃料保护和D企业重组在文中均未提及。"
+        },
+        {
+          "number": 55,
+          "stem": "What does the author suggest businesses and the government do?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Keep pace with technological developments."
+            },
+            {
+              "key": "B",
+              "text": "Make new technologies affordable to everyone."
+            },
+            {
+              "key": "C",
+              "text": "Enable everyone to benefit from new technologies."
+            },
+            {
+              "key": "D",
+              "text": "Popularize the use of new technologies and devices."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定位由题干中的 businesses and the govemment 定位到最后一段末句:It is necesary for the companies and state agencies involved to consider the ethical consequences of these potential changes to build a better future for all. 详解推理判断题。定位句指出,相关企业和国家机构有必要考虑一下这些潜在的变化所带来的伦 理问题,从而创造一个对所有人都更美好的未来。由此可推断,企业和政府应当确保每个人都能从新 技术中受益,故答案为C)。 点睛A)“和技术发展保持同步”,文中未提及,故排除;B)“让每个人都承担得起新技术”,文中只 或是提到对大家均有益处,并未特指经济上可以承担,故排除;D)“普及新技术和设备的使用”,文中强调 新技术所带来的伦理问题,未强调其使用,故排除。 【"
+        }
+      ]
+    }
+  ]
+}

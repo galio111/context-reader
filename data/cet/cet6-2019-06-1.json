@@ -1,0 +1,1729 @@
+{
+  "id": "cet6-2019-06-1",
+  "level": 6,
+  "year": 2019,
+  "month": 6,
+  "set": 1,
+  "title": "2019 年 6 月六级 · 第 1 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.06/%E7%9C%9F%E9%A2%98Word/2019%E5%B9%B406%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC1%E5%A5%97%EF%BC%89.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2019%E5%B9%B406%E6%9C%88%E7%9C%9F%E9%A2%98%E8%A7%A3%E6%9E%90%E7%AC%AC1%E5%A5%97.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2019-06-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Pasta is no longer off the menu, after a new review of studies suggested that the carbohydrate can form part of a healthy diet, and even help people lose weight. For years, nutritionists have recommended that pasta be kept to a [[26]], to cut calories, prevent fat build-up and stop blood sugar [[27]] up. The low-carbohydrate food movement gave birth to such diets as the Atkins, Paleo and Keto, which advised swapping foods like bread, pasta and potatoes for vegetables, fish and meat. More recently the trend of swapping spaghetti for vegetables has been [[28]] by clean-eating experts. But now a [[29]] review and analysis of 30 studies by Canadian researchers found that not only does pasta not cause weight gain, but three meals a week can help people drop more than half a kilogram over four months. The reviewers found that pasta had been unfairly demonized (妖魔化) because it had been [[30]]in with other, more ft-promoting carbohydrates. “The study found that pasta didn’t [[31]] to weight gain or increase in body fat,” said lead author Dr. John Sievenpiper. “In [[32]] the evidence, we can now say with some confidence that pasta does not have an [[33]] effect on body weigh outcomes when it is consumed as part of a healthy dietary pattern.” In fact, analysis actually showed a small weigh loss [[34]] to concerns. Perhaps pasta can be part of a healthy diet. Those involved in the [[35]] trials on average ate 3.3 servings of pasta a week instead of other carbohydrates, one serving equaling around half a cup. They lost around half a kilogram over an average follow-up of 12 weeks."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "adverse"
+        },
+        {
+          "key": "B",
+          "text": "championed"
+        },
+        {
+          "key": "C",
+          "text": "clinical"
+        },
+        {
+          "key": "D",
+          "text": "contrary"
+        },
+        {
+          "key": "E",
+          "text": "contribute"
+        },
+        {
+          "key": "F",
+          "text": "intimate"
+        },
+        {
+          "key": "G",
+          "text": "lumped"
+        },
+        {
+          "key": "H",
+          "text": "magnified"
+        },
+        {
+          "key": "I",
+          "text": "minimum"
+        },
+        {
+          "key": "J",
+          "text": "radiating"
+        },
+        {
+          "key": "K",
+          "text": "ration"
+        },
+        {
+          "key": "L",
+          "text": "shooting"
+        },
+        {
+          "key": "M",
+          "text": "subscribe"
+        },
+        {
+          "key": "N",
+          "text": "systematic"
+        },
+        {
+          "key": "O",
+          "text": "weighing"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adverse"
+            },
+            {
+              "key": "B",
+              "text": "championed"
+            },
+            {
+              "key": "C",
+              "text": "clinical"
+            },
+            {
+              "key": "D",
+              "text": "contrary"
+            },
+            {
+              "key": "E",
+              "text": "contribute"
+            },
+            {
+              "key": "F",
+              "text": "intimate"
+            },
+            {
+              "key": "G",
+              "text": "lumped"
+            },
+            {
+              "key": "H",
+              "text": "magnified"
+            },
+            {
+              "key": "I",
+              "text": "minimum"
+            },
+            {
+              "key": "J",
+              "text": "radiating"
+            },
+            {
+              "key": "K",
+              "text": "ration"
+            },
+            {
+              "key": "L",
+              "text": "shooting"
+            },
+            {
+              "key": "M",
+              "text": "subscribe"
+            },
+            {
+              "key": "N",
+              "text": "systematic"
+            },
+            {
+              "key": "O",
+              "text": "weighing"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【锁定答案】1句以nolonger、newreview形成今普对比:(过去意面被弃于某单之外VS(现在)新研究表 明碳水化合物可成为健康食品,甚至有助于减肥。2句以Foryears引入对\"历来情形\"的进一步介绍;营养学 家建议人们将面食摄入量保持在 联系可知,2句需呼应1句“意面曾被视为不健康食物而竭力避 免”,表示\"(严格)限制意面摄入量\",D)正确,固定表达bekepttoaminimum意为\"保持在最低限度\"。 K)ration有\"限制..的量\"之意,有一定干扰,但可从以下角度排除;一、该调强调的是“由于某物短缺, 所以定量配给”,不合此处情形“由于不健康而限制”;二、该词表示“一定的量”,不符合此处程度“竭力避免(off themenu)”。三、该调一般后面跟of sth,或带修饰成分,如theweeklymeatration(肉类的每周配给量)、a smallrationof sugar(少量的糖),而不会单独使用(即:bekepttoaration语义不完整)。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adverse"
+            },
+            {
+              "key": "B",
+              "text": "championed"
+            },
+            {
+              "key": "C",
+              "text": "clinical"
+            },
+            {
+              "key": "D",
+              "text": "contrary"
+            },
+            {
+              "key": "E",
+              "text": "contribute"
+            },
+            {
+              "key": "F",
+              "text": "intimate"
+            },
+            {
+              "key": "G",
+              "text": "lumped"
+            },
+            {
+              "key": "H",
+              "text": "magnified"
+            },
+            {
+              "key": "I",
+              "text": "minimum"
+            },
+            {
+              "key": "J",
+              "text": "radiating"
+            },
+            {
+              "key": "K",
+              "text": "ration"
+            },
+            {
+              "key": "L",
+              "text": "shooting"
+            },
+            {
+              "key": "M",
+              "text": "subscribe"
+            },
+            {
+              "key": "N",
+              "text": "systematic"
+            },
+            {
+              "key": "O",
+              "text": "weighing"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【锁定答案】空格所在不定式并列结构to...,(to)...and(to)...意在表明\"限制意面摄入量\"的目的,cut calories、preventfatbuild-up均体现“限制某不良身体指标上升”,再结合常识可知空格处应表示“(避免血糖) 升高”,L)正确。图定表达shootup意为\"鼠升,暴涨”, 【点拨技巧】26、27两题的解答关键在于借路标调no longer、a newreview、foryears识别今普对比,并对 信息归类:一、Pasta和carbohydrate同指,为关注对象;二,off themenu、bekeptto a ,to...and stop blood sugar up一体,均指向“多年来对面食的排斥”,三,a healthydiet,helppeopleloseweight为另一 组,指向“如今对面食的认可”。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adverse"
+            },
+            {
+              "key": "B",
+              "text": "championed"
+            },
+            {
+              "key": "C",
+              "text": "clinical"
+            },
+            {
+              "key": "D",
+              "text": "contrary"
+            },
+            {
+              "key": "E",
+              "text": "contribute"
+            },
+            {
+              "key": "F",
+              "text": "intimate"
+            },
+            {
+              "key": "G",
+              "text": "lumped"
+            },
+            {
+              "key": "H",
+              "text": "magnified"
+            },
+            {
+              "key": "I",
+              "text": "minimum"
+            },
+            {
+              "key": "J",
+              "text": "radiating"
+            },
+            {
+              "key": "K",
+              "text": "ration"
+            },
+            {
+              "key": "L",
+              "text": "shooting"
+            },
+            {
+              "key": "M",
+              "text": "subscribe"
+            },
+            {
+              "key": "N",
+              "text": "systematic"
+            },
+            {
+              "key": "O",
+              "text": "weighing"
+            }
+          ],
+          "answer": "B",
+          "explanation": "答案:B)championed 【确定词性】空格前为hasbeen,后为by...experts,空格调应为ed分词(构成现在完成时被动式)。 ,空格词搭建“一种风 尚\"和“一群专家\"的关系,应表示\"支持、赞同\"或“反对、抵制\"。第三段以But now转折指出,(但)新研究证明 意面有助于减重。可推知净食专家认为意面会导致增重,支持以蔬菜换意面的风尚。B)符合文意。 H)magnified(意为“放大(声音等)”,可喻指“放大(现象、观点等)\"既符合调性要求,也符合“净食专家与 低糖倡导者观点一致、与最近研究发现相反”的逻辑,因此干扰性极强。但可从两个角度排除;一、该调往往 指\"被某种设备放大”,而不是“被某人放大”,而这里的施动者是“专家(experts)\";二、该词指\"将较弱的/小 的事物放大”,而这里无论1句描速,还是2句trend(时尚)一调均表明低糖饮食运动“已经如火如茶”。 Il 0But now a29_review and analysis of 30 但现在,加拿大的研究者们对30项研 studies by Canadian researchers found that not only does 究所进行的系统性回顾和分析发现,意面 pasta not cause weight gain, but three meals a week can 不仅不会导致体重增加,每周吃三次还能 help people drop more than half a kilogram over four 帮助人们在四个月内甩择超过0.5千克的 months. The reviewers found that pasta had been 体重。研究者们发现意面过去被不公平 unfairly demonized(妖魔化)because it had been_30 地妖魔化了,因为人们将它与其他更能生 in with other, more fat-promoting carbohydrates. 成脂肪的碳水化合物混为一谈。 ·"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adverse"
+            },
+            {
+              "key": "B",
+              "text": "championed"
+            },
+            {
+              "key": "C",
+              "text": "clinical"
+            },
+            {
+              "key": "D",
+              "text": "contrary"
+            },
+            {
+              "key": "E",
+              "text": "contribute"
+            },
+            {
+              "key": "F",
+              "text": "intimate"
+            },
+            {
+              "key": "G",
+              "text": "lumped"
+            },
+            {
+              "key": "H",
+              "text": "magnified"
+            },
+            {
+              "key": "I",
+              "text": "minimum"
+            },
+            {
+              "key": "J",
+              "text": "radiating"
+            },
+            {
+              "key": "K",
+              "text": "ration"
+            },
+            {
+              "key": "L",
+              "text": "shooting"
+            },
+            {
+              "key": "M",
+              "text": "subscribe"
+            },
+            {
+              "key": "N",
+              "text": "systematic"
+            },
+            {
+              "key": "O",
+              "text": "weighing"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【锁定答案】空格句指出,研究者对30项研究的 回顾及分析证明意面不仅不会造成增重,还有助于 减重。即;这一综述分析了多项研究(30 studies)、推翻了过去人们对意面的错误认知,空格词应体现研究的 综合性/系统性/全面性/重大性”,N)正确。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adverse"
+            },
+            {
+              "key": "B",
+              "text": "championed"
+            },
+            {
+              "key": "C",
+              "text": "clinical"
+            },
+            {
+              "key": "D",
+              "text": "contrary"
+            },
+            {
+              "key": "E",
+              "text": "contribute"
+            },
+            {
+              "key": "F",
+              "text": "intimate"
+            },
+            {
+              "key": "G",
+              "text": "lumped"
+            },
+            {
+              "key": "H",
+              "text": "magnified"
+            },
+            {
+              "key": "I",
+              "text": "minimum"
+            },
+            {
+              "key": "J",
+              "text": "radiating"
+            },
+            {
+              "key": "K",
+              "text": "ration"
+            },
+            {
+              "key": "L",
+              "text": "shooting"
+            },
+            {
+              "key": "M",
+              "text": "subscribe"
+            },
+            {
+              "key": "N",
+              "text": "systematic"
+            },
+            {
+              "key": "O",
+              "text": "weighing"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【锁定答案】空格所在的because从句解释主句原因,应体现“意面被妖魔化(demonized)”和“这是不公平 的(unfairly)\"两重含义。结合前句可推知其中逻样:意面并非像人们一直认为的那么增肥,反而有助于减肥, 人们之所以将其妖魔化是固为将它与其他更容易生成脂肪的碳水化合物相混/混为一谈(这对意面是一种 不公),G)正确,lumpAinwithB为固定搭配,意为“将A与B混为一谈”。 【点拨技巧】\"情感色彩一致\"可作为本段两题的辅助线索1句体现出综述研究分析范围广、结果意义大, 带有明显“肯定”,空29应体现“衰义”,systematic“系统的,有条理的\"恰带有明显衰义;2句主句中unfairly和 demonized均带强烈贬义,原因从句电应与其一致,lump\"(错误地、胡乱地)堆积到一起\"带有明显贬义。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adverse"
+            },
+            {
+              "key": "B",
+              "text": "championed"
+            },
+            {
+              "key": "C",
+              "text": "clinical"
+            },
+            {
+              "key": "D",
+              "text": "contrary"
+            },
+            {
+              "key": "E",
+              "text": "contribute"
+            },
+            {
+              "key": "F",
+              "text": "intimate"
+            },
+            {
+              "key": "G",
+              "text": "lumped"
+            },
+            {
+              "key": "H",
+              "text": "magnified"
+            },
+            {
+              "key": "I",
+              "text": "minimum"
+            },
+            {
+              "key": "J",
+              "text": "radiating"
+            },
+            {
+              "key": "K",
+              "text": "ration"
+            },
+            {
+              "key": "L",
+              "text": "shooting"
+            },
+            {
+              "key": "M",
+              "text": "subscribe"
+            },
+            {
+              "key": "N",
+              "text": "systematic"
+            },
+            {
+              "key": "O",
+              "text": "weighing"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【锁定答案】空格句介绍研究发现(Thestudyfound):意面不会 体重增加或体脂增多。该发现应与 第三段研究结论(Canadian researchers found)\"意面不仅不会导致体重增加,还能帮助人们减肥(not onlydoes pasta notcauseweightgain)\"一致,空格调应与cause近义,表“造成/导致\",E)正确。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adverse"
+            },
+            {
+              "key": "B",
+              "text": "championed"
+            },
+            {
+              "key": "C",
+              "text": "clinical"
+            },
+            {
+              "key": "D",
+              "text": "contrary"
+            },
+            {
+              "key": "E",
+              "text": "contribute"
+            },
+            {
+              "key": "F",
+              "text": "intimate"
+            },
+            {
+              "key": "G",
+              "text": "lumped"
+            },
+            {
+              "key": "H",
+              "text": "magnified"
+            },
+            {
+              "key": "I",
+              "text": "minimum"
+            },
+            {
+              "key": "J",
+              "text": "radiating"
+            },
+            {
+              "key": "K",
+              "text": "ration"
+            },
+            {
+              "key": "L",
+              "text": "shooting"
+            },
+            {
+              "key": "M",
+              "text": "subscribe"
+            },
+            {
+              "key": "N",
+              "text": "systematic"
+            },
+            {
+              "key": "O",
+              "text": "weighing"
+            }
+          ],
+          "answer": "O",
+          "explanation": "【锁定答案】空格句以In theevidence,wecannowsay...体现\"研究方法——研究发现”的关系。 其中,the evidence 国指 30 studies;pasta does not have an effect on body weight outcomes 回应 pasta didn't contributeto weightgainor increase in body fat,所以,空32应与review、analysis近义,表示“回顾/分 析/考量/权衡\"等,O)正确;空33应表示\"增加的、促进的\"或\"负面的/不良的\",A)正确。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adverse"
+            },
+            {
+              "key": "B",
+              "text": "championed"
+            },
+            {
+              "key": "C",
+              "text": "clinical"
+            },
+            {
+              "key": "D",
+              "text": "contrary"
+            },
+            {
+              "key": "E",
+              "text": "contribute"
+            },
+            {
+              "key": "F",
+              "text": "intimate"
+            },
+            {
+              "key": "G",
+              "text": "lumped"
+            },
+            {
+              "key": "H",
+              "text": "magnified"
+            },
+            {
+              "key": "I",
+              "text": "minimum"
+            },
+            {
+              "key": "J",
+              "text": "radiating"
+            },
+            {
+              "key": "K",
+              "text": "ration"
+            },
+            {
+              "key": "L",
+              "text": "shooting"
+            },
+            {
+              "key": "M",
+              "text": "subscribe"
+            },
+            {
+              "key": "N",
+              "text": "systematic"
+            },
+            {
+              "key": "O",
+              "text": "weighing"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【锁定答案】空格句以In theevidence,wecannowsay...体现\"研究方法——研究发现”的关系。 其中,the evidence 国指 30 studies;pasta does not have an effect on body weight outcomes 回应 pasta didn't contributeto weightgainor increase in body fat,所以,空32应与review、analysis近义,表示“回顾/分 析/考量/权衡\"等,O)正确;空33应表示\"增加的、促进的\"或\"负面的/不良的\",A)正确。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adverse"
+            },
+            {
+              "key": "B",
+              "text": "championed"
+            },
+            {
+              "key": "C",
+              "text": "clinical"
+            },
+            {
+              "key": "D",
+              "text": "contrary"
+            },
+            {
+              "key": "E",
+              "text": "contribute"
+            },
+            {
+              "key": "F",
+              "text": "intimate"
+            },
+            {
+              "key": "G",
+              "text": "lumped"
+            },
+            {
+              "key": "H",
+              "text": "magnified"
+            },
+            {
+              "key": "I",
+              "text": "minimum"
+            },
+            {
+              "key": "J",
+              "text": "radiating"
+            },
+            {
+              "key": "K",
+              "text": "ration"
+            },
+            {
+              "key": "L",
+              "text": "shooting"
+            },
+            {
+              "key": "M",
+              "text": "subscribe"
+            },
+            {
+              "key": "N",
+              "text": "systematic"
+            },
+            {
+              "key": "O",
+              "text": "weighing"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【锁定答案】空格句指出,研究分析实际上显示了小幅度的减重,这一减重与人们的担忧 。weight loss与前文人们一直以来排斥意面的原因“担心造成增重、不利健康(fatbuild-up、weightgain、increase in bodyfat等)”恰恰相反,空格调应表“相反的/对立的\",D)正确,contraryto为固定用法,意为\"与相反\"。 【点拨技巧】一、研究者话语往往是对研究方法、结论的回顾总结,应与文中的研究介绍一致,解题时需导 找对应信息。空31、33均总结研究发现/结论”,回应第一段thecarbohydrate canformpart of ahealthy diet...及第三段notonlydoes pasta notcauseweightgain,but...;空32回顾研究方法\",指向第一段anew reviewofstudies及第三段a systematicreviewandanalysisof30studies。二、文中\"反驳关系\"会多处体现,解 题过程中需时刻谨记。空33聚焦文中“以新结论反驳旧认识\"的关系,回应第一段Pasta is nolongeroff the menu, after a new review of studies... 及第 三段 But now a systematic review... The reviewers found that pasta had been unfairly demonized体现的反驳关系。 trials on average"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adverse"
+            },
+            {
+              "key": "B",
+              "text": "championed"
+            },
+            {
+              "key": "C",
+              "text": "clinical"
+            },
+            {
+              "key": "D",
+              "text": "contrary"
+            },
+            {
+              "key": "E",
+              "text": "contribute"
+            },
+            {
+              "key": "F",
+              "text": "intimate"
+            },
+            {
+              "key": "G",
+              "text": "lumped"
+            },
+            {
+              "key": "H",
+              "text": "magnified"
+            },
+            {
+              "key": "I",
+              "text": "minimum"
+            },
+            {
+              "key": "J",
+              "text": "radiating"
+            },
+            {
+              "key": "K",
+              "text": "ration"
+            },
+            {
+              "key": "L",
+              "text": "shooting"
+            },
+            {
+              "key": "M",
+              "text": "subscribe"
+            },
+            {
+              "key": "N",
+              "text": "systematic"
+            },
+            {
+              "key": "O",
+              "text": "weighing"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【锁定答案】末段指出,那些参与 试验的人平均每周吃3.3份意面,每份约半杯的量,平均12周后 体重下降0.5千克。可见试验涉及对参与试验者的控制处理、密切观察,备选项中只有C)适合。 【点拨技巧】确定\"名词修饰成分\"可采用思路:对前后文描述性内客进行概括推理,能体现其主要特征的 备选项即为正确项。本段3.3servings of pasta a week...one serving equaling around half a cup...lost aroundhalfakilogram...12weeks以\"多个精确数字”暗示试验涉及“严格控制、密切观察\",备选项中只有 clinical\"临床的,住院(观察)的\"与之契合。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2019-06-1-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Retail profits are falling sharply. Stores are closing. Malls are emptying. The depressing stories just keep coming. Reading the earnings announcements of large retail stores like Macy’s, Nordstrom, and Target is about as uplifting as a tour of an intensive care unit. The interact is apparently taking down yet another industry. Brick and mortar stores (实体店) seem to be going the way of the yellow pages. Sure enough, the Census Bureau just released data showing that online retail sales surged 15.2 percent between the first quarter of 2015 and the first quarter of 2016.",
+        "B) But before you dump all of your retail stocks, there are more facts you should consider. Looking only at that 15.2 percent “surge” would be misleading. It was an increase that was on a small base of 6.9 percent. Even when a tiny number grows by a large percentage terms, it is often still tiny.",
+        "C) More than 20 years after the internet was opened to commerce, the Census Bureau tells us that brick and mortar sales accounted for 92.3 percent of retail sales in the first quarter of 2016. Their data show that only 0.8 percent of retail sales shifted from offline to online between the beginning of 2015 and 2016.",
+        "D) So, despite all the talk about drone (无人机) deliveries to your doorstep, all the retail executives expressing anxiety over consumers going online, and even a Presidential candidate exclaiming that Amazon has a “huge antitrust problem,” the Census data suggest that physical retail is thriving. Of course, the closed stores, depressed executives, and sinking stocks suggest otherwise. What’s the real story?",
+        "E) Many firms operating brick and mortar stores are in trouble. The retail industry is getting reinvented, as we describe in our new book Matchmakers. It’s standing in the Path of what Schumpeter called a gale (大风) of creative destruction. That storm has been brewing for some time, and as it has reached gale force, most large retailers are searching for a response. As the CFO of Macy’s put it recently, “We’re frankly scratching our heads.”",
+        "F) But it’s not happening as experts predicted. In the peak of the dot. com bubble, brick and mortar retail was one of those industries the internet was going to kill-and quickly. The dot.com bust discredited most predictions of that sort and in the years that followed, conventional retailers’ confidence in the future increased as Census continued to report weak online sales. And then the gale hit.",
+        "G) It is becoming increasingly clear that retail reinvention isn’t a simple battle to the death between bricks and clicks. It is about devising retail models that work for people who are making increasing use of a growing array of internet-connected tools to change how they search, shop, and buy. Creative retailers are using the new technologies to innovate just about everything stores do from managing inventory, to marketing, to getting paid.",
+        "H) More than drones dropping a new supply of underwear on your doorstep, Apple’s massively successful brick-and-mortar-and-glass retail stores and Amazon’s small steps in the same direction are what should keep old-fashioned retailers awake at night. Not to mention the large number of creative new retailers, like Bonobos, that are blending online and offline experiences in creative ways.",
+        "I) Retail reinvention is not a simple process, and it’s also not happening on what used to be called “Internet Time.” Some internet-driven changes have happened quickly, of course. Craigslist quickly overtook newspaper classified ads and turned newspaper economics upside down. But many widely anticipated changes weren’t quick, and some haven’t really started. With the benefit of hindsight (后见之明), it looks like the interact will transform the economy at something like the pace of other great inventions like electricity. B2B commerce, for example, didn’t move mainly online by 2005 as many had predicted in 2000, nor even by 2016, but that doesn’t mean it won’t do so over the next few decades.",
+        "J) But the gale is still blowing. The sudden decline in foot traffic in recent years, even though it hasn’t been accompanied by a massive decline in physical sales, is a critical warning. People can shop more efficiently online and therefore don’t need to go to as many stores to find what they want. There’s a surplus of physical shopping space for the crowds, which is one reason why stores are downsizing and closing.",
+        "K) The rise of the mobile phone has recently added a new level of complexity to the process of retail reinvention. Even five years ago most people faced a choice. Sit at your computer, probably at home or at the office, search and browse, and buy. Or head out to the mall, or Main Street, look and shop, and buy. Now, just about everyone has a smartphone, connected to the internet almost everywhere almost all the time. Even when a retailer gets a customer to walk in the store, she can easily see if there’s a better deal online or at another store nearby.",
+        "L) So far, the main thing many large retailers have done in response to all this is to open online stores, so people will come to them directly rather than to Amazon and its smaller online rivals. Many are having the same problem that newspapers have. Even if they get online traffic, they struggle to make enough money online to compensate for what they are losing offline.",
+        "M) A few seem to be making this work. Among large traditional retailers, Walmart recently reported the best results, leading its stock price to surge, while Macy’s, Target, and Nordstrom’s dropped. Yet Walmart’s year-over-year online sales only grew 7 percent, leading its CEO to lament (哀叹), “Growth here is too slow.” Part of the problem is that almost two decades after Amazon filed the one. Click patent, the online retail shopping and buying experience is filled with frictions. A recent study graded more than 600 internet retailers on how easy it was for consumers to shop, buy, and pay. Almost half of the sites didn’t get a passing grade and only 18 percent got an A or B.",
+        "N) The turmoil on the ground in physical retail is hard to square with the Census data. Unfortunately, part of the explanation is that the Census retail data are unreliable. Our deep 100k into those data and their preparation revealed serious problems. It seems likely that Census simply misclassifies a large chunk of online sales. It is certain that the Census procedures, which lump the online sales of major traditional retailers like Walmart with “non-store retailers” 1ike food trucks can mask major changes in individual retail categories. The bureau could easily present their data in more useful ways. But they have chosen not to.",
+        "O) Despite the turmoil, brick and mortar won’t disappear any time soon. The big questions are which, if any, of the large traditional retailers will still be on the scene in a decade or two because they have successfully reinvented themselves, which new players will operate busy stores on Main Streets and maybe even in shopping malls, and how the shopping and buying experience will have changed in each retail category. Investors shouldn’t write off brick and mortar. Whether they should bet on the traditional players who run those stores now is another matter."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Although online retailing has existed for some twenty years, nearly half of the internet retailers still fail to receive satisfactory feedback from consumers, according to a recent survey.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "M",
+          "explanation": "近期一项调查表明,尽管线上零售已存在约二十年,但近半数网络零售商仍不能从消费者那里得到满 意的反馈。 [答案】[M][精解】[M]段3句介绍近期对在线零售商展开的调查“评定消费者消费是否便利\",3句介 绍调查结果“近半数零售商未能达标”。结合[C]段1句信息可知目前亚联网零售已有20多年历史,故试题是 在推测调查所处时间节点的基础上,对于调查结果的合理概括,其中fail to receive satisfactory feedback对应 didn't get a passing grade."
+        },
+        {
+          "number": 37,
+          "stem": "Innovative retailers integrate internet technologies with conventional retailing to create new retail models.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "G",
+          "explanation": "有创意的零售商将互联网技术与传统零售相结合,以创造新的零售模式。 [答案][G][精解][G]段2句指出“重塑零售业意味着发明新的零售模式,以迎合消费者使用联网工具 购物的新习惯”,4句举例说明创意零售商如何迎合这类新习惯\"同样利用(联网工具)这类新技术来革新现有 模式\"。试题是对两句内容的归纳概括,其中integrateInternet technologieswith conventional retailing对应 using the new technologies to innovate just about everything stores do(将新技术与旧模式结合=用新技术改 造旧模式)。"
+        },
+        {
+          "number": 38,
+          "stem": "Despite what the Census data suggest, the value of physical retail’s stocks has been dropping.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "D",
+          "explanation": "尽管人口普查数据加以暗示,实体零售的股价仍持续下跌。 [答案][D][精解][D]段1句主句总结人口普查局数据所反映的实体零售乐观情形(isthriving),1句 让步状语及2句(despite、suggestotherwise)则指出股票下控等完全相反的消极述象。可见试题是对两句内 容的归纳概括,其中 the value of physical retail's stocks...dropping对应 sinking stocks。"
+        },
+        {
+          "number": 39,
+          "stem": "Innovative—driven changes in the retail industry didn’t take place as quickly as widely anticipated.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【答案】I。【解析】I段①句总述“互联网黄金时期并没（如预期般）见证零售业的重塑”，②至④句分述“万众期待的变化并没有很快发生，甚至还没开始”，⑤⑥句进而以实例说明人们高估了互联网对于传统零售业的影响速度。可见试题是对全段要义的概括总结，其中 didn’t take place as quickly as widely anticipated 准确解决大众预期与现实情况之间的落差。"
+        },
+        {
+          "number": 40,
+          "stem": "Statistics indicate that brick and mortar sales still made up the lion’s share of the retail business.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "C",
+          "explanation": "统计数据表明,实体销售仍占据零售业的最大份额。 [答案][C][[精解]】[C]段1句引用人口普查局数据“目前实体销售额占零售总额的92.3%”,试题是对 该句的同义转述。其中madeup与accountedfor同义。"
+        },
+        {
+          "number": 41,
+          "stem": "Companies that successfully combine online and offline business models may prove to be a big concern for traditional retailers.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "H",
+          "explanation": "对传统零售商来说,那些成功结合线上和线下商业模式的公司可能是一大担忧。 [答案][H[精解][H投1句对比指出\"相较于新技术(无人机送货),新零售模式(全透明零售店)才 更应让传统零售商夜不能麻”,2句进而补充“更别说融合线上线下体验的公司了”。可见作者认为融合线上 线下模式的公司是录值得传统零售商担忧的对手,试题是对该段观点的合理概括,其中mayprovetobeabig concern正确解读morethan→Nottomention所含递进逻辑。"
+        },
+        {
+          "number": 42,
+          "stem": "Brick and mortar retailers’ faith in their business was strengthened when the dot com bubble burst.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "F",
+          "explanation": "当互联网泡沫破裂时,实体零售商对自己行业的信心提升了。 [答案][F][精解】[F]段2句介绍专家预测“互联网将迅速消灭实体零售”,31句描选这一预测如何 失效“随着互联网公司的破产(互联网泡沫破裂)在线销售疲软,传统实体零售商信心增强”。试题是对三句内 容的概括总结,其中faith...was strengthened改写confidence...increased(变主动为被动)。"
+        },
+        {
+          "number": 43,
+          "stem": "Despite the tremendous challenges from online retailing, traditional retailing will be here to stay for quite some time.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "O",
+          "explanation": "尽管面临在线零售的严峻挑战,传统零售仍会存续相当长一段时间。 [答案][O][精解][O]段1句作者对实体店作出预测\"虽然正经历动荡,但不会马上消亡”。结合[A] 段可知,此处turmoil指代实体店/传统零售受到在线零售的巨大冲击,试题是结合1句内含上下文关系对其 进行的同义改写。"
+        },
+        {
+          "number": 44,
+          "stem": "With the rise of online commerce, physical retail stores are likely to suffer the same fate as the yellow pages.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "A",
+          "explanation": "随着在线商务的兴起,实体零售店可能遭遇与黄页相同的命运。 [答案][A】[精解][A]段31句就零售业的低速景象指出“互联网看来正击墙又一个产业,实体零售 即将走黄页的老路”,3句援引“在线零售额猛增这一数据加以说明。试题是对3至3句内容的归纳概括。 其中With和is...takingdown都体现互联网/在线商务对实体零售的影响。"
+        },
+        {
+          "number": 45,
+          "stem": "The wide use of smartphones has made it more complex for traditional retailers to reinvent their business.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "K",
+          "explanation": "智能手机的广泛使用使传统零售商彻底改造自身业务更加复杂。 [答案][K][精解][K]段1句指出使零售重塑复杂化的固素“手机”,句以“智能手机的流行使人们 可以随时随地在实体店和网店、实体店和实体店之间做比较\"加以说明。由此可知,智能手机的广泛应用使传 统实体零售商自我重塑更复杂,试题是对两句内容的概括推理。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2019-06-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Professor Stephen Hawking has warned that the creation of powerful artificial intelligence (AI) will be “either the best, or the worst thing, ever to happen to humanity”, and praised the creation of an academic institute dedicated to researching the future of intelligence as “ crucial to the future of our civilisation and our species”. Hawking was speaking at the opening of the Leverhulme Centre for the Future of Intelligence (LCFI) at Cambridge University, a multi-disciplinary institute that will attempt to tackle some of the open-ended questions raised by the rapid pace of development in AI research. “We spend a great deal of time study in history,” Hawking said, “which, let’s face it, is mostly the history of stupidity. So it’s a welcome change that people are studying instead the future of intelligence.” While the world-renowned physicist has often been cautious about AI, raising concerns that humanity could be the architect of its own destruction if it creates a super-intelligence with a will of its own, he was also quick to highlight the positives that AI research can bring. “The potential benefits of creating intelligence are huge,” he said. “We cannot predict what we might achieve when our own minds are amplified by AI. Perhaps with the tools of this new technological revolution, we will be able to undo some of the damage done to the natural world by the last one —industrialisation. And surely we will aim to finally eradicate disease and poverty. And every aspect of our lives will be transformed. In short, success in creating AI could be the biggest event in the history of our civilisation.” Huw Price, the centre’s academic director and the Bertrand Russell professor of philosophy at Cambridge University, where Hawking is also an academic, said that the centre came about partially as a result of the university’s Centre for Existential Risk. That institute examined a wider range of potential problems for humanity, while the LCFI has a narrow focus. AI pioneer Margaret Boden, professor of cognitive science at the University of Sussex, praised the progress of such discussions. As recently as 2009, she said, the topic wasn’t taken seriously, even among AI researchers. “AI is hugely exciting,” she said, “but it has limitations, which present grave dangers given uncritical use.” The academic community is not alone in warning about the potential dangers of AI as well as the potential benefits. A number of pioneers from the technology industry, most famously the entrepreneur Elon Musk, have also expressed their concerns about the damage that a super-intelligent AI could do to humanity."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What did Stephen Hawking think of artificial intelligence?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It would be vital to the progress of human civilisation."
+            },
+            {
+              "key": "B",
+              "text": "It might be a blessing or a disaster in the making."
+            },
+            {
+              "key": "C",
+              "text": "It might present challenges as well as opportunities."
+            },
+            {
+              "key": "D",
+              "text": "It would be a significant expansion of human intelligence."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]B)。首段指出霍金暨告\"AI将会是人类历史最好的事,抑或是最精的事”,B符合此意,inthe making(在发展中,在形成中)对应文中willbe(尚未出现),a blessingoradisaster对应文中eitherthebest,or the worst thing. [排除干扰】A将第一段霍金观点“创建未来智能研究机构对人类文明至关重要”偷换为“人工智能对人 类文明至关重要\"。C将第一段霍全眼中AI的\"非此即彼(要么是人类最大的幸事,要么是最大的灾难)\"偷换 为“并列关系(机遇与挑战并存)”,且“带来机遇和挑战”无法体现霍金认为的严重性“关乎人类存亡”。D将第 三段3句霍金口中的“不确定情形;无法预知当我们的大脑被AI放大时可能会取得何种成就曲解为“确定情 形:AI会显著提升人类的智力”。 [提炼思路]本题考查霍金对AI的总体看法,需对其话语进行联系推理。先从首段前半句霍金就AI发出 的警告willbe“eitherthebest,ortheworstthing”中推出AI\"非此即被”的两种可能影响:成为人类之大幸"
+        },
+        {
+          "number": 47,
+          "stem": "What did Hawking say about the creation of the LCFI?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It would accelerate the progress of AI research."
+            },
+            {
+              "key": "B",
+              "text": "It would mark a step forward in the AI industry."
+            },
+            {
+              "key": "C",
+              "text": "It was extremely important to the destiny of humankind."
+            },
+            {
+              "key": "D",
+              "text": "It was an achievement of multi-disciplinary collaboration."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]C)。首段霍金赞扬“创建一个致力于研究未来智能的学术机构(即LCFI)\"道;这对人类文明 和人类物种的未来至关重要。第二段进一步指出,LCFI致力于研究智能的来来,这是一个可喜的变化,可见 C正确体现霍金观点。 [排除干扰]A将第二段1句LCFI的宗旨“解决AI研究飞快发展中出现的开放性问题(不排除控制AI 发展的可能)\"曲解为“加快AI研究进展”。B关注“AI产业\"层面,而文中并未提及。D将第二段1句所述事 实“LCFI是跨学科机构/开展跨学科研究”改为霍金观点\"LCFI是多个学科合作的成果”。 [提炼思路]本题考查霍金对LCFI的看法,线索来自三个层面:1.对该事物的直接评判;2.对该事物的间 接评论;3.背景知识(霍金身份等)。具体来看:考生若认识到第一投an academic institute指LCFI,则很容易 根据霍金对其直接评判crucial to the future of our civilisation and our species 得到答案(C 中extremely importanttothedestinyofhumankind与其同义);也可根据第二段24句对研究方向的评判间接推知答案 (LCFI代表智能研究方向的可喜大转变→对人类至关重要);还可借助霍金身份(伟大的科学家、思想家、哲学 家)大胆推测(相比AI产业和机构的建立,他更可能关注的是人类命,从而舍B、D,选C)。"
+        },
+        {
+          "number": 48,
+          "stem": "What did Hawking say was a welcome change in AI research?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The shift of research focus from the past to the future."
+            },
+            {
+              "key": "B",
+              "text": "The shift of research from theory to implementation."
+            },
+            {
+              "key": "C",
+              "text": "The greater emphasis on the negative impact of AI."
+            },
+            {
+              "key": "D",
+              "text": "The increasing awareness of mankind’s past stupidity."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]A)。第二段末两句中霍全指出,我们花了大量时间研究历史,但大部分历史是愿鑫的。所以 人们现在转而研究智能的未来是一个可喜的转变,可见A是对霍全观点的正确概括。 [排除干扰]B由常识\"强AI高处于理论阶段\"捏造出原文未论及的信息“AI研完应该从理论转向实践”。 C由第一段事实“霍金警告人们关注AI威胁\"主观推知\"他认为更加关注AI负面性是可喜变化”,但这一变化 是第五段博登言论暗示信息,不属于霍全言论。D将第二段末两句逻辑“霍全认为人类历史是愿轰的,所以现 在开始研究未来是一个可喜的转变\"曲解为“AI研究(者)认识到人类历史是愿鑫的(所以开始研究未来),霍 金认为这是可喜的转变”。 [提炼思路]本题考查霍金所提出的\"AI研究的可喜转变”,首先可确定答案直接源自第二段末句it'sa welcome change that..中从句内容people are studying instead the future of intelligence,并明确转变后的关 注点“智能的未来”;随后借instead体现的“取舍\"、so体现的“固果”回看上句,并借spendagreatdealof time..let's faceit...stupidity意识到转变前关注点\"研究历史\"以及霍金对其否定态度,从而确定答案:可喜 转变指从关注过去到关注未来”。"
+        },
+        {
+          "number": 49,
+          "stem": "What concerns did Hawking raise about AI?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It may exceed human intelligence sooner or later."
+            },
+            {
+              "key": "B",
+              "text": "It may ultimately over-amplify the human mind."
+            },
+            {
+              "key": "C",
+              "text": "Super-intelligence may cause its own destruction."
+            },
+            {
+              "key": "D",
+              "text": "Super-intelligence may eventually ruin mankind."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]D)。第三段1句说明霍金的担忧\"人类偏若创造出具有自身意志的超级智能,很可能会缔造 自己的毁灭”,D符合此信息,ruinmankind对应humanity...itsowndestruction。 [排除干扰]A由第三段1句信息“人类可能会创造出超级智能\"推出“AI可能会超越人类智力”,但霍全 担忧的不是\"AI到底有多强”,而是“AI对人类的影响(是否会超出人类控制,段灭人类)\"。B利用第三段3句 干扰,但“我们无法预知当我们的大脑被AI放大时会取得何种成就”表明的是“AI放大人类大脑”带来的益 处,并非担此。C将第三段1句thearchitectof its own destruction的含义“人类(创造出超级智能)可能会自取 灭亡”曲解为“超级智能可能会自取灭亡”。 [提炼思路]本题考查人物观点细节信息。解题关键是正确梳理定位句/长难句(第三投1句),尤其是理 解句中三个代调(its...it..,its)所指。结合语法和逻辑可知;第一个its和it均回指humanity(人类),第二个 its则回指super-intelligence(超级智能/AI),进而明确句内关系:人类创造(有自已意识的)超级智能很可能会 自取天亡。"
+        },
+        {
+          "number": 50,
+          "stem": "What do we learn about some entrepreneurs from the technology industry?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are much influenced by the academic community."
+            },
+            {
+              "key": "B",
+              "text": "They are most likely to benefit from AI development."
+            },
+            {
+              "key": "C",
+              "text": "They share the same concerns about AI as academics."
+            },
+            {
+              "key": "D",
+              "text": "They believe they can keep AI under human control."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]C)。末段指出:并非只有学术界在告诚人们AI的潜在威胁及益处,科技行业的一些先驱人物 (包括知名企业家埃隆·马斯克)电已对超级智能AI的潜在风险表达了担忧。C符合此意。 [排除干扰]A由末段信息“科技界的一些企业家与学术界有同样的担忧\"腾断出“这些企业家深受学术界 的影响”,而文中并未提及二者之间的影响。B利用常识“AI发展龄科技公司带来了巨大商业利益\"干扰犹,文 中并未提及。D由末段信息“科技界企业家担优AI失控会损害人类腾断出原文未提及的信息“这些企业家 可以让AI不脱离人类控制”。 [提炼思路]本题考查事实细节。解题关键是正确把握两个群体的关系;由末段两句的逻辑关联词Ais notalone in...Balso...(不仅A做了某事,B也做了同样的事)可知段落重在指出“学术界(Theacademic community)\"和\"科技界(the technology industry)\"的共同之处;再概括warning about..,AI...expressed their concernsabout...AL...可知二者共同之处在于\"对AI的担忧”。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2019-06-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "The market for products designed specifically for older adults could reach $30 billion by next year, and startups (初创公司) want in on the action. What they sometimes lack is feedback from the people who they hope will use their products. So Brookdale, the country’s largest owner of retirement communities, has been inviting a few select entrepreneurs just to move in for a few days, show off their products and hear what the residents have to say. That’s what brought Dayle Rodriguez, 28, all the way from England to the dining room of Brookdale South Bay in Torrance, California. Rodriguez is the community and marketing manager for a company called Sentab. The startup’s product, SentabTV, enables older adults who may not be comfortable with computers to access email, video chat and social media using just their televisions and a remote control. “It’s nothing new, it’s nothing too complicated and it’s natural because lots of people haveTV remotes,” says Rodriguez. But none of that is the topic of conversation in the Brookdale dining room. Instead, Rodriguez solicits residents’ advice on what he should get on his cheeseburger and how he should spend the afternoon. Playing cards was on the agenda, as well as learning to play mahjong (麻将). Rodriguez says it’s important that residents here don’t feel like he’s selling them something. “I’ve had more feedback in a passive approach,” he says. “Playing pool, playing cards, having dinner, having lunch,” all work better “than going through a survey of questions. When they get to know me and to trust me, knowing for sure I’m not selling them something—there’ll be more honest feedback from them.” Rodriguez is just the seventh entrepreneur to move into one of Brookdale’s 1,100 senior living communities. Other new products in the program have included a kind of full-body blow dryer and specially designed clothing that allows people with disabilities to dress and undress themselves. Mary Lou Busch, 93, agreed to try the Sentab system. She tells Rodriguez that it might be good for someone, but not for her. “I have the computer and FaceTime, which I talk with my family on, ”she explains. She also has an iPad and a smartphone. “So I do pretty much everything I need to do.” To be fair, if Rodriguez had wanted feedback from some more technophobic (害怕技术的) seniors, he might have ended up in the wrong Brookdale community. This one is located in the heart of Southern California’s aerospace corridor. Many residents have backgrounds in engineering, business and academic circles. But Rodriguez says he’s still learning something important by moving into this Brookdale community: “People are more tech-proficient than we thought.” And besides, where else would he learn to play mahjong?"
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the passage say about the startups?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They never lose time in upgrading products for seniors."
+            },
+            {
+              "key": "B",
+              "text": "They want to have a share of the seniors’ goods market."
+            },
+            {
+              "key": "C",
+              "text": "They invite seniors to their companies to try their products."
+            },
+            {
+              "key": "D",
+              "text": "They try to profit from promoting digital products to seniors."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]B)。文首句指出,老年人用品市场价值巨大,初创公司也想参与其中分杯类(wantin onthe action),故B正确。 [排除干扰]A与12句“初创公司想进军老年人用品市场分杯类,但有时欠缺目标顾客对产品的反馈” 所隐藏的“愿为老年人对产品升级换代\"相悼。C将4句“受邀入住退休社区展示产品\"至曲为“邀请老年人去 公司体验产品”。D将1句“想进军老年人用品市场分杯美”与3句“向老年人展示产品从而获取反馈信息 (showoff意指“展示”而非\"炫耀\")\"结合捏造出“试图推销数字产品以获利\",且\"数字产品\"过于窄化。 [提炼思路]本题考查对抽象表达wantinontheaction的理解,应结含上下文语义逻辑(借助逻辑调、情 感词、语法手投等)对其做出合理推断。 句式Whattheysometimeslack is...(主语从句\"他们所欠缺的是..\"传递一定强调意味)所展现出来的语义 逻辑为:初创公司wantinontheaction实因利润巨大的老年用品市场而起(and传递1句两分句间因果关 联),而Brookdale的邀请又能满足初创公司的产品反馈需求(So传递23句间果关联),从而合理推断出 “初创公司想要在庞大市场中有一席之地,而围于自己欠缺产品反馈而无法使产品更新换代(最终无法占有一 席之地),Brookdale则迎合这一需求向创业家发出入住邀请\"这一语义链条。"
+        },
+        {
+          "number": 52,
+          "stem": "Some entrepreneurs have been invited to Brookdale to",
+          "options": [
+            {
+              "key": "A",
+              "text": "have an interview with potential customers"
+            },
+            {
+              "key": "B",
+              "text": "conduct a survey of retirement communities"
+            },
+            {
+              "key": "C",
+              "text": "collect residents’ feedback on their products"
+            },
+            {
+              "key": "D",
+              "text": "show senior residents how to use IT products"
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]C)。定位句指出,Brookdale邀请少数创业家入住老年社区,向住户展示产品并聆听他们的 意见,亦即收集产品反馈,C正确。 [排除干扰]A中potential customers\"潜在顾客\"虽然义同2句the peoplewho theyhopewill usetheir products,即指“老年人”,但interview\"采访\"与向尾showoff...andhear.等举动所展示出的\"随意性”相停, 且与下文例子中Sentab公司社区营销经理罗德里格斯“以隐蔽方式获取反馈\"的做法不符。B将创业者的调 查对象“老年人(对产品的反馈)”窜改为“老年社区”。D将\"展示产品\"的目的“获取产品反馈”歪曲为“教会老 年人使用”,且将“产品”窄化为“IT产品”。 [提炼思路】本题实质考查对长难句的理解,应根据题干所问编窄考查范图,题千指向invite to后具体行 为内容,故应锁定未尾tomovein...showoff.and hear..三个并列谓语动调所构成的动调不定式,该部分 中and有向后依次推进之意,故重心落在hearwhat...say\"听取说法/意见”,然后结合前文内容“想在庞大老 年用品市场占据一席之地却苦于缺乏产品回馈\"即可推断正确项为C。"
+        },
+        {
+          "number": 53,
+          "stem": "What do we know about SentabTV?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is a TV program catering to the interest of the elderly."
+            },
+            {
+              "key": "B",
+              "text": "It is a digital TV which enjoys popularity among seniors."
+            },
+            {
+              "key": "C",
+              "text": "It is a TV specially designed for seniors to view programs."
+            },
+            {
+              "key": "D",
+              "text": "It is a communication system via TV instead of a computer."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]D)。定位句指出,SentabTV让不习惯用电脑的老年人用电视和遮控器就能收发电邮、视频 聊天、访问社交媒体,意即通过电视而非电脑来与别人交流/通信,故D正确。 [排除干扰]A将SentabTV的属性“电视设备审改为“电视节月”,且捏遗“迎合老年人兴趣”。B中“受 老年人欢迎\"纯属捏造,由第一段“创业家获邀进入老年社区收集潜在用户反馈”可知,该产品是否深受老年人 喜爱尚不可知。C将SentabTV的主要功能“网络通信\"盂曲为“观看电视节目”。 [提炼思路本题定位句详速SentabTV功能细节,而选项均为对SentabTV的精炼概这,因此考生需: 一、概括归纳定位句核心语义“电视设备:利用电视和逸控器做电脑能做之事(收发电邮、视频聊天、访问社交 媒体)\",二、提取各项核心义(A\"电视节目;迎合兴趣”、B\"电视设备:深受喜爱\"、C\"电视设务;观看节目”、D\"电 视设备;利用电视而非电脑通信\"),三、两相对比,即可确定正确答案为D。"
+        },
+        {
+          "number": 54,
+          "stem": "What does Rodriguez say is important in promoting products?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Winning trust from prospective customers."
+            },
+            {
+              "key": "B",
+              "text": "Knowing the likes and dislikes of customers."
+            },
+            {
+              "key": "C",
+              "text": "Demonstrating their superiority on the spot."
+            },
+            {
+              "key": "D",
+              "text": "Responding promptly to customer feedback."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]A)。定位句指出,罗德里格斯认为“不让住户觉得自已在推销很重要”。本段接着援引他的 说法指出,通过打桌球、玩纸牌等方式接触老年住户,让他们了解并相信自己、知道自己不是在推销,这样就能 获得更多中肯的意见。固此要点在于取得顾客信任,A正确。 [排除干扰]B.C均根据常识捏造,原文缺乏相关信息支择。D将罗德里格斯关注点“获得反馈\"曲为 “回应反馈”。 句)的解释说明,亦即,罗德里格斯引语的重点内容在于解释“不让老年住户党得自已在卖东西”如何重要。梳 理段落内容即可知,他的行为逻辑是“通过日常生活接触老年住户 获得他们的信任、不让他们觉得自已在 卖东西 收获更多有关产品的中肯意见”,从而锁定答案为A。 MI o Rodriguez is just the seventh entrepreneur to 罗德里格斯只是入住Brookdale旗 into one of Brookdale's 1,100 senior living move 下1100家(参与活动项目的)老年生活 @ Other new products in the program have communities. 社区之一的第七位创业家。活动中其 included a kind of full-body blow dryer and specially 他新产品还包括一款全身吹风机以及 designed clothing that allows people with disabilities to 专为残障人士设计、能让其自主穿脱的 dress and undress themselves. 服装。 ·"
+        },
+        {
+          "number": 55,
+          "stem": "What do we learn about the seniors in the Brookdale community?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Most of them are interested in using the Sentab."
+            },
+            {
+              "key": "B",
+              "text": "They are quite at ease with high-tech products."
+            },
+            {
+              "key": "C",
+              "text": "They have much in common with seniors elsewhere."
+            },
+            {
+              "key": "D",
+              "text": "Most of them enjoy a longer life than average people."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]B)。第九段1句首先指出,罗德里格斯来到的Brookdale南湾社区的老年住户并不害怕技术 (technophobic)。23句进而解释:南湾社区坐落于南加州航空航天密集区中心地带,住户大多有工程界、商 界、学术界背景。意即,他们懂高科技技术,对高科技产品运用自如。B正确。 [排除干扰]A将第七段个例\"93岁的玛丽同意尝试Sentab设备”至曲为普遍现象“大多数老年住户都有 意使用Sentab设务”。C与24句“罗德里格斯入住错了Brookdale的社区,这个社区.\"所隐含文意\"这个 社区与其他地区与众不同(老人们更懂技术)\"相峰。D利用第七段人物\"93岁高龄的玛丽\"过度推断出该社区 老年住户的寿命大多超过平均水平。 [提炼思路]有关Brookdale南湾社区老年住户的描述遗布第九段全段,故需借助语法衔接、逻辑词、语义 场、特殊句式等对整个段落进行肢解以把握全段语义重心。投中语义对比technophobic\"技术悉惧\"(1句)"
+        }
+      ]
+    }
+  ]
+}

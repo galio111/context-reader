@@ -1,0 +1,1729 @@
+{
+  "id": "cet6-2017-12-1",
+  "level": 6,
+  "year": 2017,
+  "month": 12,
+  "set": 1,
+  "title": "2017 年 12 月六级 · 第 1 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.12/%E7%9C%9F%E9%A2%98Word/2017%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC1%E5%A5%97%EF%BC%89.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2017.12%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC1%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2017-12-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "In the past 12 months,Nigeria has suffered from a shrinking economy, a sliding currency, and a prolonged fuel shortage. Now, Africa’s largest in facing a food crisis as major tomato fields have been destroyed by an insect,leading to a nationwide shortage and escalating prices. The insect, Tutaabsoluta, has destroyed 80% of farms in Kaduna, Nigeria's largest tomato producing state, leading the government there to declare a state of [[26]] .The insect, also known as the tomato leaf miner, devastates crops by [[27]] on fruits and digging into and moving through stalks.It [[28]] incredibly quickly, breeding up to 12 generations per year if conditions are favorable. it is believed to have [[29]] in South America in the early 1900s, and later spread to Europe before crossing over to sub-Saharan Africa. In Nigeria, where tomatoes are a staple of local diets,the insect's effects are devastating. Retail prices for a [[30]] of tomatoes at local markets have risen from $0. 50 to $2.50. Farmers are reporting steep losses and a new $20 million tomato-paste factory has [[31]] production due to the shortages. Given the moth's ability also to attack crops like pepper and potatoes, Audu Ogbeh, Nigeria's minister of agriculture, has warned that the pest may\"create serious problems for food [[32]] \"in the country. Ogbeh says experts are investigating how to control the pest’s damage and prevent its spread, which has gone largely [[33]] until now. Despite being the continent's second-largest producer of tomatoes, Nigeria is [[34]] on $1 billion worth of tomato-paste imports every year.as around 75% of the local harvest goes to waste thanks to a lack of proper storage facilities. A further [[35]] in local supplies is yet another unwelcome setback to the industry."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "dependent"
+        },
+        {
+          "key": "B",
+          "text": "embarking"
+        },
+        {
+          "key": "C",
+          "text": "emergency"
+        },
+        {
+          "key": "D",
+          "text": "feeding"
+        },
+        {
+          "key": "E",
+          "text": "grazes"
+        },
+        {
+          "key": "F",
+          "text": "halted"
+        },
+        {
+          "key": "G",
+          "text": "handful"
+        },
+        {
+          "key": "H",
+          "text": "multitude"
+        },
+        {
+          "key": "I",
+          "text": "originated"
+        },
+        {
+          "key": "J",
+          "text": "reduction"
+        },
+        {
+          "key": "K",
+          "text": "reproduces"
+        },
+        {
+          "key": "L",
+          "text": "security"
+        },
+        {
+          "key": "M",
+          "text": "terror"
+        },
+        {
+          "key": "N",
+          "text": "unchecked"
+        },
+        {
+          "key": "O",
+          "text": "untouched"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "dependent"
+            },
+            {
+              "key": "B",
+              "text": "embarking"
+            },
+            {
+              "key": "C",
+              "text": "emergency"
+            },
+            {
+              "key": "D",
+              "text": "feeding"
+            },
+            {
+              "key": "E",
+              "text": "grazes"
+            },
+            {
+              "key": "F",
+              "text": "halted"
+            },
+            {
+              "key": "G",
+              "text": "handful"
+            },
+            {
+              "key": "H",
+              "text": "multitude"
+            },
+            {
+              "key": "I",
+              "text": "originated"
+            },
+            {
+              "key": "J",
+              "text": "reduction"
+            },
+            {
+              "key": "K",
+              "text": "reproduces"
+            },
+            {
+              "key": "L",
+              "text": "security"
+            },
+            {
+              "key": "M",
+              "text": "terror"
+            },
+            {
+              "key": "N",
+              "text": "unchecked"
+            },
+            {
+              "key": "O",
+              "text": "untouched"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【锁定答案】空格所在句主句指出“尼日利亚最大番茄生产地遭遇严重虫害”,空格所在部分指出 “致使当地政府宣布进入 状态”,emergency符合文义:政府宣布进入紧急状态(采取应对措施)。 terror体现的是“极度恐惧的状态”,似乎符合语境,但文中并非是说明“人们陷入状态”,而是“政 府宣布进入 状态”。 【补充语法】1,逗号标注同位语、进行解释说明,阅读时可借其推断词义、理解概念等。如本段首句 便有两组:1Theinsect,Tutaabsoluta(指出昆虫的名称);2Kaduna,Nigeria'slargesttomato-producing state(介绍卡杜纳的属性地位)。2.现在分词作状语,可表示结果。如本段首句leadingthegovernment there to declare a state of emergency."
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "dependent"
+            },
+            {
+              "key": "B",
+              "text": "embarking"
+            },
+            {
+              "key": "C",
+              "text": "emergency"
+            },
+            {
+              "key": "D",
+              "text": "feeding"
+            },
+            {
+              "key": "E",
+              "text": "grazes"
+            },
+            {
+              "key": "F",
+              "text": "halted"
+            },
+            {
+              "key": "G",
+              "text": "handful"
+            },
+            {
+              "key": "H",
+              "text": "multitude"
+            },
+            {
+              "key": "I",
+              "text": "originated"
+            },
+            {
+              "key": "J",
+              "text": "reduction"
+            },
+            {
+              "key": "K",
+              "text": "reproduces"
+            },
+            {
+              "key": "L",
+              "text": "security"
+            },
+            {
+              "key": "M",
+              "text": "terror"
+            },
+            {
+              "key": "N",
+              "text": "unchecked"
+            },
+            {
+              "key": "O",
+              "text": "untouched"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【锁定答案】空格词位于by引领的短语之中,说明“昆虫破坏农作物(The insect·.·devastates crops)”的具体方式,feeding符合语境:通过咬食果实(feedon意为“以.为食”)等破坏农作物。 embarking也能和on搭配,所以有较强干扰性,但embarkon意为“开始、着手(做某事)”或“登上(飞机、 车船),无法接fruits。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "dependent"
+            },
+            {
+              "key": "B",
+              "text": "embarking"
+            },
+            {
+              "key": "C",
+              "text": "emergency"
+            },
+            {
+              "key": "D",
+              "text": "feeding"
+            },
+            {
+              "key": "E",
+              "text": "grazes"
+            },
+            {
+              "key": "F",
+              "text": "halted"
+            },
+            {
+              "key": "G",
+              "text": "handful"
+            },
+            {
+              "key": "H",
+              "text": "multitude"
+            },
+            {
+              "key": "I",
+              "text": "originated"
+            },
+            {
+              "key": "J",
+              "text": "reduction"
+            },
+            {
+              "key": "K",
+              "text": "reproduces"
+            },
+            {
+              "key": "L",
+              "text": "security"
+            },
+            {
+              "key": "M",
+              "text": "terror"
+            },
+            {
+              "key": "N",
+              "text": "unchecked"
+            },
+            {
+              "key": "O",
+              "text": "untouched"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【锁定答案】空格句后半部分指出“如果条件适宜,每年会繁殖12代”,这显然是对该害虫繁殖速度 的具体说明,reproduces符合该语义。grazes“(动物)吃草”不符合语境。 29答案:I)originated 【确定词性】由句子结构Itisbelievedtohave ···andlaterspreadto.··,可知空格处为“过去 分词”,与have构成现在完成时,可选范围:F)halted、I)originated。 【锁定答案】空格句指出“人们认为其20世纪初期的南美洲,后来传播到了欧洲(and later 清楚表明先后过程)”,能够传播的前提是已经存在或发生,originated符合文意。halted意为“停止、犹 豫”,无法连接后续传播进程。 【补充语法】不定式的完成式:“瞬间动作动词”表示一个已经完成的动作;“持续动作动词”表示一 个一直持续的动作。常见用法:1.接在如happen/see/appear/prove/pretend/seem等动词后,如:He seemedtohavelivedahappylife.(他似乎一直过得很幸福)。2.接在如glad/happy/sad/disappointed/ satisfied/sorry等形容词后,如:I'msorrytohavekeptyouwaitingforalongtime.对不起,让你久等了 (说话时已经等了很久)。3.用于“主语十besaid/reported/thought/supposed/expected/believed等”结构 后,相当于\"People say/report...that...”,如本文中:It isbelieved to have originated..·。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "dependent"
+            },
+            {
+              "key": "B",
+              "text": "embarking"
+            },
+            {
+              "key": "C",
+              "text": "emergency"
+            },
+            {
+              "key": "D",
+              "text": "feeding"
+            },
+            {
+              "key": "E",
+              "text": "grazes"
+            },
+            {
+              "key": "F",
+              "text": "halted"
+            },
+            {
+              "key": "G",
+              "text": "handful"
+            },
+            {
+              "key": "H",
+              "text": "multitude"
+            },
+            {
+              "key": "I",
+              "text": "originated"
+            },
+            {
+              "key": "J",
+              "text": "reduction"
+            },
+            {
+              "key": "K",
+              "text": "reproduces"
+            },
+            {
+              "key": "L",
+              "text": "security"
+            },
+            {
+              "key": "M",
+              "text": "terror"
+            },
+            {
+              "key": "N",
+              "text": "unchecked"
+            },
+            {
+              "key": "O",
+              "text": "untouched"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【锁定答案】空格句指出“人们认为其——20世纪初期的南美洲，后来传播到了欧洲（and later暗示传播先后过程）”，能够传播的前提是已经存在或发生，originated符合文意。halted意为“停止、犹豫”，无法连接后续传播进程。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "dependent"
+            },
+            {
+              "key": "B",
+              "text": "embarking"
+            },
+            {
+              "key": "C",
+              "text": "emergency"
+            },
+            {
+              "key": "D",
+              "text": "feeding"
+            },
+            {
+              "key": "E",
+              "text": "grazes"
+            },
+            {
+              "key": "F",
+              "text": "halted"
+            },
+            {
+              "key": "G",
+              "text": "handful"
+            },
+            {
+              "key": "H",
+              "text": "multitude"
+            },
+            {
+              "key": "I",
+              "text": "originated"
+            },
+            {
+              "key": "J",
+              "text": "reduction"
+            },
+            {
+              "key": "K",
+              "text": "reproduces"
+            },
+            {
+              "key": "L",
+              "text": "security"
+            },
+            {
+              "key": "M",
+              "text": "terror"
+            },
+            {
+              "key": "N",
+              "text": "unchecked"
+            },
+            {
+              "key": "O",
+              "text": "untouched"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【锁定答案】空格句指出“在当地市场, 番茄的零售价格已经从0.5美元涨到了2.5美元”,可 见G)handful与语义相符,ahandfulof表示“少量几个,一把”,体现出昆虫的毁灭性影响所导致的番茄 价格升。amultitudeof表示“许多,大量”,与文意相悖。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "dependent"
+            },
+            {
+              "key": "B",
+              "text": "embarking"
+            },
+            {
+              "key": "C",
+              "text": "emergency"
+            },
+            {
+              "key": "D",
+              "text": "feeding"
+            },
+            {
+              "key": "E",
+              "text": "grazes"
+            },
+            {
+              "key": "F",
+              "text": "halted"
+            },
+            {
+              "key": "G",
+              "text": "handful"
+            },
+            {
+              "key": "H",
+              "text": "multitude"
+            },
+            {
+              "key": "I",
+              "text": "originated"
+            },
+            {
+              "key": "J",
+              "text": "reduction"
+            },
+            {
+              "key": "K",
+              "text": "reproduces"
+            },
+            {
+              "key": "L",
+              "text": "security"
+            },
+            {
+              "key": "M",
+              "text": "terror"
+            },
+            {
+              "key": "N",
+              "text": "unchecked"
+            },
+            {
+              "key": "O",
+              "text": "untouched"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【锁定答案】空格句指出“由于番茄短缺,一家新建的番茄酱工厂 生产”,F)halted\"停止、终 止”语义相符:番茄酱工厂因原材料短缺而停产。这也符合上文(1句)theinsect'seffectsare devastating揭示的事实:昆虫的影响是毁灭性的。 A)dependent\"依靠的,从属的”、B)embarking\"开始从事”无法修饰production。N)unchecked\"未受 抑制的”、O)untouched\"未受影响的”虽能修饰production,但不能体现“消极影响”、无法在and前后两 分句间建立顺接关系。 【点拔技巧】当段首句高度抽象、概括时,基本可以判断该句统领全段,借此可以区分检验选项。如 本题,段首theinsect'seffectsaredevastating(昆虫的影响是毁灭性的)引领全段,可用于检验自已对空 格30、31的选择:价格升、工厂停产恰能体现毁灭性影响,选择正确。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "dependent"
+            },
+            {
+              "key": "B",
+              "text": "embarking"
+            },
+            {
+              "key": "C",
+              "text": "emergency"
+            },
+            {
+              "key": "D",
+              "text": "feeding"
+            },
+            {
+              "key": "E",
+              "text": "grazes"
+            },
+            {
+              "key": "F",
+              "text": "halted"
+            },
+            {
+              "key": "G",
+              "text": "handful"
+            },
+            {
+              "key": "H",
+              "text": "multitude"
+            },
+            {
+              "key": "I",
+              "text": "originated"
+            },
+            {
+              "key": "J",
+              "text": "reduction"
+            },
+            {
+              "key": "K",
+              "text": "reproduces"
+            },
+            {
+              "key": "L",
+              "text": "security"
+            },
+            {
+              "key": "M",
+              "text": "terror"
+            },
+            {
+              "key": "N",
+              "text": "unchecked"
+            },
+            {
+              "key": "O",
+              "text": "untouched"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【锁定答案】句子以Given(鉴于....)形成因果关系,且空格句前半部分指出“这种昆虫能侵蚀多种 农作物”,因此后半句所强调的严重问题应该是“粮食的产量、质量等问题”,security符合文义。 J)reduction可指(粮食的)减少,体现“问题型”,因此有一定干扰,但createproblemsforfood reduction语义搭配错误(如果for改为of,此搭配成立)。其他备选项均不合语境。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "dependent"
+            },
+            {
+              "key": "B",
+              "text": "embarking"
+            },
+            {
+              "key": "C",
+              "text": "emergency"
+            },
+            {
+              "key": "D",
+              "text": "feeding"
+            },
+            {
+              "key": "E",
+              "text": "grazes"
+            },
+            {
+              "key": "F",
+              "text": "halted"
+            },
+            {
+              "key": "G",
+              "text": "handful"
+            },
+            {
+              "key": "H",
+              "text": "multitude"
+            },
+            {
+              "key": "I",
+              "text": "originated"
+            },
+            {
+              "key": "J",
+              "text": "reduction"
+            },
+            {
+              "key": "K",
+              "text": "reproduces"
+            },
+            {
+              "key": "L",
+              "text": "security"
+            },
+            {
+              "key": "M",
+              "text": "terror"
+            },
+            {
+              "key": "N",
+              "text": "unchecked"
+            },
+            {
+              "key": "O",
+              "text": "untouched"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【锁定答案】空格所在句前半部分指出“专家们正在研究如何控制该害虫的损害和如何防止其传 播”,也就是说这种虫害还未得到有效控制和治理,N)unchecked符合文意,gounchecked表示“某一坏 事未得到抑制、控制”。 A)dependent\"依靠的”与语境不符,可较容易排除;O)untouched有“未被改变的,未被提及的”似乎 符合语境,但旋即会发现,这与专家们\"已经开始着手研究(are investigating...)”相违背。 【补充语法】一、不完全联系动词:英语中有40多个不完全联系动词(go,keep,rest,stand, remain,continue,feel等),表示感觉、变化等,表述主语的特征、性质、身份或状态,碰到此类动词需从两 个角度加以考虑:1.实意动词、2.联系动词。作为联系动词,其最常用结构为:1.联系动词十形容词 (如:本句gounchecked。又如:Hiseyeswentgreenwithenvy.他眼中充满妒意。)2.联系动词十名词 (如:Sheemergedavictor.她成了胜利者。) 二、非限制性定语从句的功用:1.附加说明先行词(类似于限制性定语从句,但和中心词之间用逗号隔 开,关系相对没那么紧密,若省去句子语义依然完整)。如本句中,which引导的非限制性定语从句修饰pest's damageand itsspread。2.修饰整个句子(非限制性定语从句特有的功能)。如:Inthepresenceof somany people hewasa bit nervous,whichwasunderstandable.(在众人面前他有点紧张,这可以理解。)"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "dependent"
+            },
+            {
+              "key": "B",
+              "text": "embarking"
+            },
+            {
+              "key": "C",
+              "text": "emergency"
+            },
+            {
+              "key": "D",
+              "text": "feeding"
+            },
+            {
+              "key": "E",
+              "text": "grazes"
+            },
+            {
+              "key": "F",
+              "text": "halted"
+            },
+            {
+              "key": "G",
+              "text": "handful"
+            },
+            {
+              "key": "H",
+              "text": "multitude"
+            },
+            {
+              "key": "I",
+              "text": "originated"
+            },
+            {
+              "key": "J",
+              "text": "reduction"
+            },
+            {
+              "key": "K",
+              "text": "reproduces"
+            },
+            {
+              "key": "L",
+              "text": "security"
+            },
+            {
+              "key": "M",
+              "text": "terror"
+            },
+            {
+              "key": "N",
+              "text": "unchecked"
+            },
+            {
+              "key": "O",
+              "text": "untouched"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【锁定答案】首先,空格所在整体句以Despite形成让步转折:尽管是非洲第二大番茄生产国,但尼 日利亚每年却 _价值10亿美元的进口番茄酱”。其次,句中以as、thanksto形成因果逻辑:鉴于缺 少合适的存储设备,所以尼日利亚每年 _价值10亿美元的进口番茄酱。可见dependent符合语义 (bedependenton意为“依赖于......\")、能体现这两重逻辑关系:由于缺少存储设备,尼日利亚虽是番茄 生产大国,却依然依赖进口番茄酱。 B)embarking虽可以和随后的on连接,但无法体现句中的让步转折,更是违背句中的因果逻辑。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "dependent"
+            },
+            {
+              "key": "B",
+              "text": "embarking"
+            },
+            {
+              "key": "C",
+              "text": "emergency"
+            },
+            {
+              "key": "D",
+              "text": "feeding"
+            },
+            {
+              "key": "E",
+              "text": "grazes"
+            },
+            {
+              "key": "F",
+              "text": "halted"
+            },
+            {
+              "key": "G",
+              "text": "handful"
+            },
+            {
+              "key": "H",
+              "text": "multitude"
+            },
+            {
+              "key": "I",
+              "text": "originated"
+            },
+            {
+              "key": "J",
+              "text": "reduction"
+            },
+            {
+              "key": "K",
+              "text": "reproduces"
+            },
+            {
+              "key": "L",
+              "text": "security"
+            },
+            {
+              "key": "M",
+              "text": "terror"
+            },
+            {
+              "key": "N",
+              "text": "unchecked"
+            },
+            {
+              "key": "O",
+              "text": "untouched"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【锁定答案】空格句指出“当地供应的进一步 是该行业另一不希望看到的阻碍”。由前文可 知,原本因为缺乏合适的存储设备,尼日利亚的番茄酱产业就本地供应不足,而当前番茄遭遇病虫害无 异于雪上加霜,会导致番茄供应进一步减少。因此J)reduction符合文意。H)multitude、M)terror、B) embarking均不符合语境。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2017-12-1-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) \"Nearly everyone i know is addicted in some measure to the internet, \"wrote tony Schwartz in The New York Times. it's a common complaint these days. A steady stream of similar headlines accuse the net and its offspring apps, social media sites and online games of addicting us to distraction.",
+        "B) There's little doubt that nearly everyone who comes in contact with the net has difficulty concentration than it takes to post a status update. as one person ironically put it in the comments section of Schwartz's online article, \"As I was reading this very excellent article.I stopped at least half a dozen times to cheek my email.",
+        "C) There's something different about this technology: it is both invasive and persuasive. but who's at fault for its overuse? To find solutions, it's important to understand what we’re dealing with.There are four parties conspiring to keep you connected the tech, your boss, your friends and you.",
+        "D) The technologies themselves and their makers, are the easiest suspects to blame for our diminishing attention spans. Nicholas Carr,author of The Shallows: what the internet is doing Our brains, wrote, The net is designed to be an interruption system, a machine geared to dividing attention.",
+        "E) Online services like Facebook, twitter and the like, are called out of manipulation--making, products so good that people can't stop using them. after studying these products for several years, I wrote a book about how they do it. I learned it all starts with the business model. since these services rely on advertising revenue, The more frequently you use money they make.It’s no winder these companies employ teams of people focused on engineering their services to be as engaging as possible. these products aren't habit-forming by chance; it's by design. they have an incentive to keep us hooked.",
+        "F) However, as good as these services are, there are simple steps we can take to keep them at bay.For example, we can change how often we receive the distracting notifications that trigger our urge to check.According to Adam Marchick, CEO of mobile marketing company kahuna, less than 15 percent of smartphone users ever bother to adjust their notification setlings--meaning the remaining 85 percent of us default to the app makers' every preset trigger.Google and Apple have made it far too difficult to adjust these settings so it's up to us to take steps ensure we set these triggers to suit our own needs, not the needs of the app makers.",
+        "G) While companies like Facebook harvest attention to generate revenue from advertisers, other technologies have no such agenda. take email, for example. this system couldn't care less how often you use it. Yet to many, email is the most habit-forming medium of all.We check email at all hours of the day--we're obsessed, but why? Because that's what the boss wants.For almost all white-collar jobs, email is the primary tool of corporate communication. A slow response to a message could hurt not only your reputation but also your livelihood.",
+        "H) Your friends are also responsible.Think about this familiar scene.People gathered around a table, enjoying food and each others company. there's laughter and a bit of kidding. Then, during an interval in the conversation, someone takes out their phone to check who knows what.Barely anyone notices and no one says a thing.",
+        "I) Now imagine the same dinner,but instead of checking their phone, the person belches(打嗝)-loudly.Everyone notices. unless the meal takes place in a beer house, this is considered bad manners. The impolite act violates the basic rules of etiquette. one has to wonder why don’t we apply the same social norms to checking phones during meals, meetings and conversations as we do to other antisocial behaviors somehow, we accept it and say nothing when someone offends.",
+        "J) The reality is taking one's phone out at the wrong time is worse than belching because, unlike other minor offense, checking tech is contagious. once one person looks at their phone,other people feel compelled to do the same, starting a chain reaction. the more people are on their phones, the fewer people are talking until finally you are the only one left not reading email or checking twitter. from a societal perspective, phone checking is less like belching in public and more like another bad habit. our phones are like cigarettes-something to do when were bored or when our fingers need something to toy with seeing others enjoy a smoke,or sneak a quick glance, is too tempting to resist and soon everyone is doing it.",
+        "K) The technology, your boss, and your friends, all influence how often you find yourself using (or overusing )these gadgets. but there's still someone who deserves scrutiny--the person holding the phone.",
+        "L) I have a confession. even though i study habit-forming technology for a living, disconnecting is not easy for me.I'm online far more than I'd like like Schwartz and so many others, I often find myself distracted and off tack.I wanted to know why so i began self-monitoring to try to understand my behavior. that's when i discovered an uncomfortable truth. i use technology as an escape. when I'm doing something I'd rather not do, or when I'm someplace I'd rather not attention was often a good thing, like when passing time on public transportation, but frequently my tech use was not so benign. when i faced difficult work, like thinking through an article idea or editing the same draft for the hundredth time, for example, a more sinister screen would draw me in. i could easily escape discomfort.temporarlly.by answering email or browsing ing the web under the pretense of so-called\"research. \"though I desperately wanted to lay blame elsewhere, i finally had to admit that my bad habits had less to do with new-age.technology and more to do with old-fashioned procrastination(拖延).",
+        "M) It's easy to blame technology for being so distracting, but distraction is nothing new. Aristotle and Socrates debated nature of “akrasia”--our tendency to do things against our interests. If we're honest with ourselves, tech is just another way to occupy our time and minds,if we weren’t on our devices. We’d likely do similarly unproductive.",
+        "N) Personal technology is indeed more engaging than ever, and there's no doubt companies are engineering their products and services to be more compelling and attractive but would want it any other way the intended result of making something better is that people use it more. that's not necessarily a problem, that's progress.",
+        "O) These improvements don't mean we shouldn't attempt to control our use of technology. In order to make sure it doesn't control us, we should come to terms with the fact that it's more than the technology itself that’s responsible for our habits. our workplace culture, social norns and individual behaviors all play a part to put technology in its place, we must be conscious not only of how technology is changing, but also of how it is changing us."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Online services are so designed that the more they are used, the more profit they generate.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "E",
+          "explanation": "在线服务的设计模式导致它们被使用的频率越高,产生的利润越多。 [答案][E][精析]根据[定位词定位]、核心义匹配]可知本题对应[E]段34句。两句指出“在 线服务商依赖广告,这一商业模式使得其不得不设计尽可能吸引人的产品,从而吸引足够多的人使用, 这样产生的利润也会很多”。本题是对该句的同义改写,其中themoretheyareused,themoreprofit theygenerate对应句the more frequentlyyou use them,the more moneytheymake。"
+        },
+        {
+          "number": 37,
+          "stem": "The author admits using technology as an escape from the task at hand.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "L",
+          "explanation": "作者承认自已用技术逃避手头的工作。 [答案][L[精析]根据[定位词定位」、[核心义匹配]可知本题对应[L段23句。该段作者先 坦诚自已有网瘾,后指出自已在做一些不想做的事情时常将技术用作逃避工具。本题是对此两句的同 义转述,其中admits对应总领全段的haveaconfession,thetaskathand为?句WhenI'mdoing somethingI'drathernotdo的同义转述。"
+        },
+        {
+          "number": 38,
+          "stem": "Checking phones at dinners is now accepted as normal but not belching.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【答案】I。【解析】根据定位词定位、核心义匹配可知本题对应I段。该段对比人们对打嗝和看手机的不同态度：③句 this is considered bad manners 体现对打嗝的反感，对应题中 but not belching；⑥句 we accept it 体现对看手机的宽容，对应题中 Checking phones…accepted as normal。本题是对该段核心文意的综合概括。"
+        },
+        {
+          "number": 39,
+          "stem": "To make proper use of technology, we should not only increase our awareness of how it is changing but also how it is impacting us.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "O",
+          "explanation": "为了合理利用技术,我们不仅应更加了解技术如何变化,还应更加了解技术如何影响我们。 [答案][O][精析]根据[定位词定位]、[核心义匹配]可知本题对应[O]段末句。该句指出“为了 合理利用技术,我们既要关注科技的变化,也要关注科技怎样改变我们”。试题是对该句的同义转述, 其中make properuse of...、increase ourawareness分别对应句中put...initsplace、be consciousof。"
+        },
+        {
+          "number": 40,
+          "stem": "Most of us find it hard to focus on our immediate tasks because of internet distractions.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "B",
+          "explanation": "我们中大多数人都觉得,由于互联网让人分心,自已难以专注于当前的任务。 [答案][B」[精析]」根据[定位词定位]、核心义匹配]可知本题对应[B段12句。1句指出“多 数人都有网瘾”,2句随后分析网瘾的后果“令人分心,难以专注完成任务”。试题中because of是对此 两句隐藏因果关联的直观表达。"
+        },
+        {
+          "number": 41,
+          "stem": "when one person starts checking their phone, the others will follow suit.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "J",
+          "explanation": "当一个人开始查看手机,其他人也会跟着做。 [答案][[精析]根据[定位词定位]、[核心义匹配]可知本题对应[段2句。该句指出“当一 个人看手机,其他人就会跟着做,引发连锁效应”。试题是对该句的同义改写,其中startscheckingtheir phone、When one person...the others...分别对应句中looks attheir phone、Once oneperson...other people. . . o"
+        },
+        {
+          "number": 42,
+          "stem": "The great majority of smartphone users don' t take the trouble to adjust their settings to suit their own purposes.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "F",
+          "explanation": "大多数智能手机用户懒得调整设置来适应自己的需求。 [答案][F」[精析]根据[定位词定位]、[核心义匹配]可知本题对应[F]段3句。该句指出“只有 15%的用户会特地调整通知设置”,句中lessthan15percent...everbotherto...与题中thegreat majorityof.·.don'ttakethetrouble.·.表意相同。此外,段末句作者呼吁“调整设置以适应自已的需求” (suitourownneeds)可知多数用户没有考虑自已的需求,与题中don't..tosuittheirownpurposes相 符,故本题实为段中核心文意的同义改写。"
+        },
+        {
+          "number": 43,
+          "stem": "The internet is regarded by some as designed to distract our attention.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "D",
+          "explanation": "有人认为互联网的设计是为了分散我们的注意力。 L答案」[D[精析」根据L定位词定位」、L核心义匹配」可知本题对应D」段2句。该句借卡尔的 话指出“互联网被设计为分散注意力的机器”。句中NicolasCarr..wrote与题中isregardedbysome 对应、dividingattention与distract.··attention同义,试题为文意的同义转述。"
+        },
+        {
+          "number": 44,
+          "stem": "The author attributes his tech addiction chiefly to his habit of putting off doing what he should do right away.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "L",
+          "explanation": "作者将他的科技瘾主要归咎于自已推迟应该马上做的事情的习惯。 [答案][L】[精析]根据[定位词定位]、[核心义匹配]可知本题对应[L]段末句。该句指出“相 较于科技本身,作者的科技瘾更多是因为拖延症”。试题是对该句的同义改写,其中techaddiction、habit of puttingoff..·、attributes.·.chieflyto...分别对应badhabits(指代“科技瘾”)、old-fashioned procrastination、less to do with... more to do with... ."
+        },
+        {
+          "number": 45,
+          "stem": "White-collar workers check email round the clock because it is required by their employers.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "L",
+          "explanation": "白领员工日夜不停地查看电子邮件,因为雇主要求他们这样做。 L答案」LG」[精析」根据L定位词定位」、L核心义匹配可知本题对应LG」段?至3句。5至3句 先分析我们不停查看电邮的原因“老板的要求”,再补充电邮对白领工作的重要性,可见“我们”应指“白 领”。1句中Because that'swhatthe bosswants与题中becauseit isrequired by...employers同义。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2017-12-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "You may have heard that Coca-Cola once contained an ingredient capable of sparking particular devotion in consumers: cocaine. The \"Coca\" in the name referred to the extracts of coca leaf that the drink's originator, chemist John Pemberton, mixed with his sugary syrup (浆汁). At the time, coca leaf extract mixed with wine was a common tonic (滋补品), and Pemberton's sweet brew was a way to get around local laws prohibiting the sale of alcohol. But the other half of the name presents another ingredient, less infamous (名声不好的), perhaps, but also strangely potent: the kola nut. In West Africa, people have long chewed kola nuts as stimulants, because they contain caffeine that also occurs naturally in tea, coffee, and chocolate. They also have heart stimulants. Historian Paul Lovejoy relates that the cultivation of kola nuts in West Africa is hundreds of years old. The leafy, spreading trees were planted on graves and as part of traditional rituals. Even though the nuts, which need to stay moist, can be somewhat delicate to transport, traders carried them hundreds of miles throughout the forests and grasslands. Europeans did not know of them until the 1500s, when Portuguese ships arrived on the coast of what is now Sierra Leone. And while the Portuguese took part in the trade, ferrying nuts down the coast along with other goods, by 1620, when English explorer Richard Jobson made his way up the Gambia, the nuts were still peculiar to his eyes. By the late 19th century, kola nuts were being shipped by the tonne to Europe and the US. Many made their way into medicines, intended as a kind of energy boost. One such popular medicinal drink was Vin Mariani, a French product consisting of coca extract mixed with red wine. It was created by a French chemist, Angelo Mariani, in 1863. So when Pemberton created his drink, it represented an ongoing trend. When cocaine eventually fell from grace as a beverage ingredient, kola-extract colas became popular. The first year it was available, Coca-Cola averaged nine servings a day across all the Atlanta soda fountains where it was sold. As it grew more popular, the company sold rights to bottle the soda, so it could travel easily. Today about 1.9 billion Cokes are purchased daily. It's become so iconic that attempts to change its taste in 1985—sweetening it in a move projected to boost sales—proved disastrous, with widespread anger from consumers. \"Coca-Cola Classic\" returned to store shelves just three months after the \"New Coke\" was released. These days, the Coca-Cola recipe is a closely guarded secret. But it's said to no longer contain kola nut extract, relying instead on artificial imitations to achieve the flavour."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What do we learn about chemist John Pemberton?",
+          "options": [
+            {
+              "key": "A",
+              "text": "He used a strangely potent ingredient in a food supplement."
+            },
+            {
+              "key": "B",
+              "text": "He created a drink containing alcohol without breaking law."
+            },
+            {
+              "key": "C",
+              "text": "He became notorious because of the coca drink he developed."
+            },
+            {
+              "key": "D",
+              "text": "He risked breaking local law to make a drink with coca leaves."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]D)。两句指出彭伯顿未按照当时流行的古柯饮品配方搭配葡萄酒制作成滋补品、而搭 配糖浆调制成甜酿,以规避当地酒精销售禁令。可见,彭伯顿在用古柯叶调制饮品过程中实际面临违 法风险,而他巧借糖浆替换葡萄酒的方法规避了这一风险。正确项D是对Pemberton'ssweetbrewwas awaytogetaround local laws的正确解读。 [排除干扰]A项复现首段末句strangelypotent,却将inthedrink/sweetbrew(=Coca-Cola)偷换 为inafood supplement。B项containingalcohol\"含酒精”与2句mixedwithhissugarysyrup\"与糖浆混 合”、3句getaroundlocallawsprohibitingthesaleofalcohol避开酒精禁售令”相悖。C项notorious复 现末句infamous,但该词意在说明的“可卡因因其令人成瘾而声名狼籍”而非“彭伯顿因制作含可卡因的 古柯饮品而声名狼籍”,且文中并未谈及彭伯顿声名的起落。 [提炼思路]本题考查对文中细节的推理判断能力,解答时必须紧扣文意进行合理引申,而不可篡 改、扭曲文意或是偷换概念。思路1(词):由3句getaroundlocallaws“围绕法律兜兜转转、规避法律” 可推知彭伯顿最有可能是冒着违法风险在制作古柯饮品。思路2(排除法):A项将段落主述对象 “drink/brew\"偷换为\"food supplement\",B项containingalcohol很明显与mixedwith sugarysyrup相悸, 而C项中notorious的主体由ingredient偷换成了He(=Pemberton)。"
+        },
+        {
+          "number": 47,
+          "stem": "What does the passage say about kola nuts?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Their commercial value was first discovered by Portuguese settlers."
+            },
+            {
+              "key": "B",
+              "text": "They contain some kind of energy boost not found in any other food."
+            },
+            {
+              "key": "C",
+              "text": "Many were shipped to Europe in the late 19th century for medicinal use."
+            },
+            {
+              "key": "D",
+              "text": "They were strange to the Europeans when first imported from West Africa."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]C)。第五段首两句即指出19世纪末大量可乐果被运往欧洲和美国,其中许多可乐果人 了药。C项是kola nuts were being shipped...to Europe...Many made theirway into medicines的同义改写。 [排除干扰]A项源自第四段2句thePortuguesetookpartinthetrade,却忽略tookpartin所传递 出的“商业贸易早在葡萄牙人之前就已存在”以及第三段末句traderscarried them.·.所传递出的“西 非商人才是可乐果商业价值的最早发现者”。B项与第二段“茶、咖啡和巧克力中亦有咖啡因”、第五 段3句“精力提振型药饮维·马里亚尼配方为古柯和红葡萄酒/不含可乐果”相悖。D项将第四段2 句后半句“1620年英国探险家乔布森初见可乐果的态度”泛化为“欧洲人整体态度”,而由该句前半句 “葡萄牙人(1500s一1620年间)参与可乐果贸易活动”可知“乔布森个人无法代表欧洲人整体”。 [提炼思路]由题干关键词定位比较宽泛的事实细节题,通常可以采取二次定位法,即,选项定位 法。选项定位时注意:一、识别选项用词与文中原词的近义/同义替换(如A项commercialvalue对应 traders、B项energyboost对应stimulants);二、利用关键名词性信息定位、利用动词性信息进行比对 (如:A项由commercialvalue、Portuguesesettlers定位至第三段3句traders、第四段thePortuguese tookpartinthetrade,却借firstdiscovered不匹配tookpartin而排除;B项由energyboost定位至第二 段stimulants、第五段energyboost,却借notfound不匹配alsooccurs而排除;C项由thelate19th century定位至第五段Bythe late19th century...,借were shipped...formedicinal use匹配上made theirwayintomedicines而选定;D项由Europeanswhen...定位至第四段Europeansdidnotknowof... until..,却借strangetoEuropeans不匹配peculiartohiseyes而排除)。"
+        },
+        {
+          "number": 48,
+          "stem": "How come kola-extract colas became popular?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Cocaine had become notorious."
+            },
+            {
+              "key": "B",
+              "text": "Alcoholic drinks were prohibited."
+            },
+            {
+              "key": "C",
+              "text": "Fountains were set up to sell them."
+            },
+            {
+              "key": "D",
+              "text": "Rights were sold to bottle the soda."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]A)。该句指出“当可卡因作为一种饮料成分最终失宠时,含可乐果萃取物的可乐流行 起来”,可见,“可卡因声名不再”促成了“(功效相当的)可乐果饮料一可乐”的流行。正确项A是 cocaineeventuallyfellfromgrace的同义改写。 [排除干扰]B项虽复现首段3句prohibitingthesaleofalcohol,却答非所问,将题干所问“可乐如何流 行”偷换为“可乐如何诞生”。C、D项分别复现第六段1句fountainswhereitwassold、2句soldrightsto bottlethe soda,却强拉因果关联,而“设立冷饮柜”、“售卖瓶装权”与“可乐流行”并无直接因果关联。 [提炼思路]本题为因果关系细节题,题目虽易于定位,但错误项干扰较大,解题需:一、注意判别多 组相关关系(B项是可乐不含酒精的原因,而非可乐流行的原因);二、注意区分间接推动性因素和主要 决定性因素(第五段句When.··kola-extractcolasbecamepopular明确“可卡因为人病”是可乐得 以流行的直接因素,而“小卖部售卖可乐”和“装瓶权出售”都是可乐渐趋流行的推动性因素)。"
+        },
+        {
+          "number": 49,
+          "stem": "What is known about the taste of Coca-Cola?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It was so designed as to create addiction in consumers."
+            },
+            {
+              "key": "B",
+              "text": "It still relies on traditional kola nut extract."
+            },
+            {
+              "key": "C",
+              "text": "It has become more popular among the old."
+            },
+            {
+              "key": "D",
+              "text": "It has remained virtually unchanged since its creation."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]D)。此两句以事件“可乐公司1985年尝试改变口味激起众怒、仅3个月后经典可乐就 重回货架”强调“可乐口味深人人心、已成经典”,暗示“自初创以来,可乐口味几乎未变”。正确项D是 对It's become so iconic that attempts to change its taste...proved disastrous的合理推断。 [排除干扰]A项由“可口可乐中古柯叶含可卡因、可乐果含咖啡因”而来,但由首段3句“古柯叶是 当时常见滋补品流行成分”、第五段2句“可乐果入药意在提振精神”、第五段3句“这种调制方式迎合 当年时尚”可知,可口可乐意在滋补、提神而非成瘾。B项still与第七段2句传言“现如今可口可乐已不 再含有可乐果提取物”相悖。C项amongtheold由第六段4句iconic捏造而来,而该词意在说明“口味 经久不衰”而非“更青睐于老年人”。 [提炼思路]第六段4句中so...that.·.结构实际承载作者观点,而且关键词iconic难以理解,同时 句式结构又很复杂,这使得该句成为本题直接考点,实际却又能全面考查学生对本段的概括能力。解 答时需:一、借助语法知识和语义逻辑理清长难句各部分关系,用“易理解信息”来解决或避开“难理解 的关键词”(如,根据so...that...结构中that结果状语从句所述事件推断消费者并不希望口味被改 变);二、借助意群关联佐证理解(如,根据justthreemonthsafter可知3句接续4句that结构介绍事件 后续,两句同属一个意群,而该句中的Coca-ColaClassicreturnedto...非常明确地表示出了消费者对最 初可乐口味的情有独钟)。 MI These days, the Coca-Cola recipe is a closely guarded secret. @But it's said to no longer contain kola nut extract, relying instead on artificial imitationsto achieve the flavour.[456 words] 现今,可口可乐调制法是个严格 保守的秘密。但是据说它已不再含有 可乐果提取物,而是依靠人工仿制品 获取那种味道。 ·"
+        },
+        {
+          "number": 50,
+          "stem": "What is the passage mainly about?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The evolution of Coca-Cola."
+            },
+            {
+              "key": "B",
+              "text": "The success story of Coca-Cola."
+            },
+            {
+              "key": "C",
+              "text": "The medicinal value of Coca-Cola."
+            },
+            {
+              "key": "D",
+              "text": "The business strategy of Coca-Cola."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]A)。首段先由“Coca-Cola的名字组成”引出“可乐果”,随后第二至五段以可乐果为线 介绍了可口可乐的诞生,最后第六、七段则以可乐果口味为轴阐释了可口可乐的经典永留存。可见,全 文实则围绕“可口可乐的诞生、成长”展开。正确项A是对全文时间链条(untilthe1500s...by1620... By the late 19th century...These days...)、事件链条(the cultivation of kola nuts...the Portuguese ferrying nuts down the coast... Many made their way into medicines... kola-extract colas became popular...nolongercontainkolanutextract...)所展示出的“可乐果经种植、传播、人药、成为可口可乐 主要成分、又成全可口可乐当今盛名的全过程”的综合概括。 [排除干扰]B、C、D项分别源自第六段“可口可乐由面市之初的惨淡销量到现如今的巨额销量、由 普通到经典的成长历程”、第五段23句“可乐果因其药用价值而入药、而被彭伯顿用于可乐中”、第六 段24句“可口可乐出售装瓶权以扩展销售范围、意图改变口味以提升销量”,但它们均为局部细节信 息、不足以概括全篇。 [提炼思路]思路1:抓取文章逻辑链条(或时间、或空间、或事件发展等)、找到与之匹配的关键词(A 项中evolution既体现了文章的时间逻辑顺序,又契合关键词kola nut所串联的可口可乐成长史)。思 路2:代入检查,看代表全局信息还是局部信息(正确项在语义上一定要具有宏观性,代入原文可发现它 在全文诸段皆有体现,而干扰项通常为局部信息,如本题B、C、D项)。 Passage Two18小时城的崛起 一、总体分析 来源:joannedwards.com文章Riseofthe18-hourCity(18小时城的崛起)。主题:兼具24小时城 喧器和朝九晚五城静谧的“18小时城”的崛起。脉络:引出18小时城(第一、二段)一一分析18小时城 的优势(第三、四段)一说明18小时城的影响(第五段)。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2017-12-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Twenty years ago, the Urban Land Institute defined the two types of cities that dominated the US landscape: smaller cities that operated around standard 9-5 business hours and large metropolitan areas that ran all 24 hours of the day. Analyzing and comparing cities using the lens of this basic divide gives interesting context to how investment capital flows and housing prices have shifted. In recent years, many mid-sized cities have begun to adopt a middle-of-the-road approach incorporating the excitement and opportunity of large cities with small cities' quiet after midnight. These 18-hour cities are beginning to make waves in real estate rankings and attract more real estate investment. What is underlying this new movement in real estate, and why do these cities have so much appeal? 18-hour cities combine the best of 24-hour and 9-5 cities, which contributes to downtown revitalization. For decades, many downtown cores in small to mid-sized cities were abandoned after work hours by workers who lived in the suburbs. Movement out of city centers was widespread, and downtown tenants were predominantly made up of the working poor. This generated little commerce for downtown businesses in the evenings, which made business and generating tax revenue for municipal upkeep difficult. With the rise of a new concept in urban planning that aims to make life easier and more convenient, however, increasing popularity for urban areas that cased the real estate pushes, in major cities like San Francisco or New York, has inspired a type of forward thinking urbanity and in smaller cities. Transforming downtown areas so that they incorporate modern housing and improved walkability to local restaurants, retail, and entertainment—especially when combined with improved infrastructure for cyclists and public transit—makes them appeal to a more affluent demographic. These adjustments encourage employers in the knowledge and talent industries to keep their offices downtown. Access to foot traffic and proximity to transit allow the type of entertainment-oriented businesses such as bars and restaurants to stay open later, which attracts both younger, creative workers and baby boomers nearing retirement alike. Because of their smaller size, most keep hours that allow people to enjoy themselves, then have some quiet after midnight, as opposed to large major cities like New York, where the buzz of activity is ongoing. These 18-hour cities are rapidly on the rise and offer great opportunities for homeowner investment. In many of these cities such as Denver, a diverse and vigorous economy attracted to the urban core has offered stable employment for residents. The right urban mix has propped up home occupancy, increased property values, and attracted significant investment capital."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What do we learn about American cities twenty years ago?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They were divided into residential and business areas."
+            },
+            {
+              "key": "B",
+              "text": "Their housing prices were linked with their prosperity."
+            },
+            {
+              "key": "C",
+              "text": "There was a clear divide between large and small cities."
+            },
+            {
+              "key": "D",
+              "text": "They were places where large investment capital flowed."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]C】。文首句先借defined指出20年前美国主流城市被界定为两类:24小时全天候运转 型的大城市、朝九晚五8小时运转型的小城市;2句进而以thisbasicdivide强调这种运转时间差异是划 分两类城市的根本/基本。由此不难得知,大小城市之间的界限分明。正确项C中a cleardivide是对 defined、thisbasicdivide的合理改写。 [排除干扰]A项既由段末investmentcapitalflowsandhousingprices望文生义出“商业区及居住 区”,又借常识“城市规划时会划分多个功能区,如居住区和商业区”形成干扰,但原文只谈及城市类型 (typesof cities)而未涉及城市功能区。B项复现首段2句housingprices,却将文意“与城市类型有关” 曲解为“与城市繁荣度有关”。D项复现首段2句investmentcapitalflows,却漏掉关键信息shifted,即 将文意“投资资本流动变化”单向套改为“大量投资资本流入”。 「提炼思路开篇今昔对比处常为题点所在,可分别就“今”、“昔”设题,解题关键是根据时间链条划 分今昔意群,然后借助语法知识、用词手法或逻辑词等来确定所考意群(今/昔)主旨。如本题,首先根 据首两段Twentyyearsago、Inrecentyears时间链条可推断本题答题关键在于了解首段主旨,而借助段 中语义复现(thisbasicdivide复现definedthetwotypesofcities..·,重复即重点)可推知文意重点在“两 类城市类型的清晰界定、这种差异极为根本/基本”,故而锁定C项;A、B、D项虽复现个别词(divided、 housingprices、investmentcapitalflows),但这些词中除了A项divided能算得上是主旨中的部分信息之 外,其他词均与主旨信息无关,且它们均添加了新的信息(residentialandbusinessareas、linkedwith.·· prosperity、wherelarge...flowed),故排除。"
+        },
+        {
+          "number": 52,
+          "stem": "What can be inferred from the passage about 18-hour cities?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They especially appeal to small businesses."
+            },
+            {
+              "key": "B",
+              "text": "They have seen a rise in property prices."
+            },
+            {
+              "key": "C",
+              "text": "They have replaced quiet with excitement."
+            },
+            {
+              "key": "D",
+              "text": "They have changed America's landscape."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]B)。第二段2句首次提到:18小时城在房地产排行榜上掀起波澜,吸引到更多房地产 投资;文末句再度提及:18小时城增加了房产价值、吸引到巨额投资资本。由此可知,18小时城见证了 房产价格的上涨。正确项B是对makewaves...real estateinvestment、(has)increasedpropertyvalues 的合理概括。 [排除干扰]A项干扰源于第四段末句their smallersize,但文中说的是相对于大城市而言的18小 时城,而非小企业。C项干扰源于第二段1句,但18小时城是“结合了刺激与宁静”,而非“用刺激取代 了宁静”。D项利用第一段碎片信息theUSlandscape设障,而文意在“美国地盘上的城市景观图”而非 “18小时城改变美国景观”。 [提炼思路]思路1:本题定位跨度大,故乍看无所适从,但通常借由选项再缩小定位:如由A项 smallbusinesses锁定至第四段3句businesses..theirsmallersize,由B项propertyprices定位至第 二段1句real estate rankings...real estate investment、文末句propertyvalues,由C项quiet... excitement定位至第二段1句,由D项America\"slandscape定位至文首句。思路2:全局题一般与主旨 贴合,而主旨一般会在首末段中显露,如文首段末“城市类型划分标准可以透露资金流向、房价变化”、 文末段尾“18小时城提升了住房占有率、增加了房产价值、吸引到了巨额投资资本”,由此能有效帮助快 速解题且保证一定准确率。"
+        },
+        {
+          "number": 53,
+          "stem": "Years ago, many downtown cores in small to mid-sized cities .",
+          "options": [
+            {
+              "key": "A",
+              "text": "had hardly any business activity"
+            },
+            {
+              "key": "B",
+              "text": "were crowded in business hours"
+            },
+            {
+              "key": "C",
+              "text": "exhibited no signs of prosperity"
+            },
+            {
+              "key": "D",
+              "text": "looked deserted in the evenings"
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]D)。定位句指出:几十年来,很多中小城市一到下班时间就被居住在郊区的上班族离 弃;随后两句进一步做出说明:下班后撤离市中心现象很普遍、市中心留住的多是没有经济能力的穷忙 族,从而造成市中心晚间几乎没有什么商业娱乐活动。由此可知,很多中小型城市的市中心原来一到 晚上就生意萧条,荒无人烟。正确项D是对wereabandonedafterworkhours和littlecommercefor downtownbusinessesintheevenings的综合概括。 [排除干扰」A、C项看似一个更窄(business)、一个更宽(prosperity),但实际均指向“经济状况”,也 即两者放置文中实际指向相同、差异很小,两项虽都复现littlecommerce之意,却漏掉关键信息inthe evenings。B项crowded很明显与littlecommerce相背而驰。 [提炼思路]本题同51题,就“昔/旧”设置考点。解题可采取与之相似思路“关联意群主旨”,即先 由题干Years ago同义替换的For decades发散,由were abandoned...Movement out of city centers... Thisgenerated...whichmade...所形成的“语义复现、因果逻辑”推断234句为一个意群,其主旨为 “市中心晚间被离弃造成的影响:营业活动少、难以上缴城市养护税费”,而与之契合的唯有D项。思路 2:借选项解题,纵览选项发现四个选项皆关乎“(市中心的)繁荣景象问题”,其中A、C项虽表述不同、但 取义一致,均指向“不繁荣”、且使用绝对词any、no;B项指向“繁荣”、D项指向“夜间不繁荣”,首先可以 剔除A、C项(因为选此即可选彼被,且绝对表达词所在选项通常因其极端性而予以排除);随后关注B、D 项发现两者实际暗藏部分反向,B项crowded明显与abandoned、littlecommerce相悖,故排除;而D项不 仅契合abandoned、littlecommerce,还契合其发生的时间段afterworkhours、intheevenings,故正确。"
+        },
+        {
+          "number": 54,
+          "stem": "What characterizes the new downtown areas in 18-hour cities?",
+          "options": [
+            {
+              "key": "A",
+              "text": "A sudden emergence of the knowledge industry."
+            },
+            {
+              "key": "B",
+              "text": "Flooding in of large crowds of migrant workers."
+            },
+            {
+              "key": "C",
+              "text": "Modernized housing and improved infrastructure."
+            },
+            {
+              "key": "D",
+              "text": "More comfortable life and greater upward mobility."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]C)。第四段1句指出,改造后的市中心区域不仅配备现代化住宅,步行到各种商店也 更方便,基础设施也得到改进。正确项C是对原文incorporatemodernhousing.·.whencombinedwith improvedinfrastructure的同义改写。 [排除干扰]A项将2句中keep“留住”之意篡改为a suddenemergence“突然涌现”。B项由1句 “对更富裕人群有吸引力”、3句“对年轻有想法者、临退休的婴儿潮一族有吸引力”过度推断出“这些人 流大批量涌人改造后的市中心区域”(即“有吸引力不代表会大批涌人”)。D项morecomfortablelife\"更 舒适生活”虽由1句“结合现代化住宅、步行更便利、基础设施更完善”合理推断而来,但greaterupward mobility\"更强向上流动性(即个人/家庭等进人更高的社会阶层)”却无从推知。 [提炼思路]本题就“今新特点”设题,解答特点题需:1.比对选项与原文、刨除原文重合信息、明确 选项语义重点:通常而言,语义重点在核心名词信息(如A项suddenemergence、B项Floodingin)、核心 形容词信息(如C项Modernized、improved,D项Morecomfortable、greaterupward);2.将语义重点与文 意贴合,看哪项有直接复现的词,如果有那项即为正确答案(很明显C项复现,故正确)。"
+        },
+        {
+          "number": 55,
+          "stem": "What have 18-hour cities brought to the local residents?",
+          "options": [
+            {
+              "key": "A",
+              "text": "More chances for promotion."
+            },
+            {
+              "key": "B",
+              "text": "Healthier living environment."
+            },
+            {
+              "key": "C",
+              "text": "Greater cultural diversity."
+            },
+            {
+              "key": "D",
+              "text": "Better job opportunities."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]D)。定位句指出,18小时城市中心吸引到了多元而活跃的经济,为居民提供了稳定的 工作。由此可知,18小时城能够提供比原来更好的工作机会。正确项D是对原文hasoffered stable employment的合理推断。 [排除干扰」A项由“稳定的工作”过度推断出“晋升机会多”。B项由第三段末句“使生活更便利”、 第四段首句“融合现代化住宅、更便利出行”而来,即文中只谈及“生活设施更便捷”,但无法由此得知 “更健康”。C项将2句“经济多元化”偷换成“文化多元化”。 [提炼思路」此题解答关键在于区别“合理推断”与“过度推断”。如本题的A、D项均出自定位处 stableemployment,那么熟对敦错,其中有一个巧劲,那就是会发现D项“更好的工作机会”函括A项 “更多晋升机会”,故选包容项、排除被包容项(因为选A必选D)。 ·全局真题精解·"
+        }
+      ]
+    }
+  ]
+}

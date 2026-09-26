@@ -1,0 +1,1770 @@
+{
+  "id": "cet6-2015-12-3",
+  "level": 6,
+  "year": 2015,
+  "month": 12,
+  "set": 3,
+  "title": "2015 年 12 月六级 · 第 3 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.12/%E7%9C%9F%E9%A2%98Word/2015%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC3%E5%A5%97%EF%BC%89.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2015.12%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC3%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2015-12-3-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "As it is, sleep is so undervalued that getting by on fewer hours has become a badge of honor. Plus, we live in a culture that [[26]] to the late-nighter, from 24-hour grocery stores to online shopping sites that never close. It’s no surprise, then, that more than half of American adults don’t get the 7 to 9 hours of shut-eye every night as [[27]] by sleep experts. Whether or not we can catch up on sleep—on the weekend, say —is a hotly [[28]] topic among sleep researchers. The latest evidence suggests that while it isn’t [[29]] , it might help. When Liu, the UCLA sleep researcher and professor of medicine, brought [[30]] sleep-restricted people into the lab for a weekend of sleep during which they logged about 10 hours per night, they showed [[31]] in the ability of insulin(胰岛素) to process blood sugar. That suggests that catch-up sleep may undo some but not all of the damage that sleep [[32]] causes, which is encouraging given how many adults don’t get the hours they need each night. Still, Liu isn’t [[33]] to endorse the habit of sleeping less and making up for it later. Sleeping pills, while helpful for some, are not [[34]] an effective remedy either. “A sleeping pill will [[35]] one area of the brain, but there’s never going to be a perfect sleeping pill, because you couldn’t really replicate(复制) the different chemicals moving in and out of different parts of the brain to go through the different stages of sleep,” says Dr. Nancy Collop, director of the Emory University Sleep Center."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "alternatively"
+        },
+        {
+          "key": "B",
+          "text": "caters"
+        },
+        {
+          "key": "C",
+          "text": "chronically"
+        },
+        {
+          "key": "D",
+          "text": "debated"
+        },
+        {
+          "key": "E",
+          "text": "deprivation"
+        },
+        {
+          "key": "F",
+          "text": "ideal"
+        },
+        {
+          "key": "G",
+          "text": "improvements"
+        },
+        {
+          "key": "H",
+          "text": "necessarily"
+        },
+        {
+          "key": "I",
+          "text": "negotiated"
+        },
+        {
+          "key": "J",
+          "text": "pierce"
+        },
+        {
+          "key": "K",
+          "text": "presumption"
+        },
+        {
+          "key": "L",
+          "text": "ready"
+        },
+        {
+          "key": "M",
+          "text": "recommended"
+        },
+        {
+          "key": "N",
+          "text": "surpasses"
+        },
+        {
+          "key": "O",
+          "text": "target"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alternatively"
+            },
+            {
+              "key": "B",
+              "text": "caters"
+            },
+            {
+              "key": "C",
+              "text": "chronically"
+            },
+            {
+              "key": "D",
+              "text": "debated"
+            },
+            {
+              "key": "E",
+              "text": "deprivation"
+            },
+            {
+              "key": "F",
+              "text": "ideal"
+            },
+            {
+              "key": "G",
+              "text": "improvements"
+            },
+            {
+              "key": "H",
+              "text": "necessarily"
+            },
+            {
+              "key": "I",
+              "text": "negotiated"
+            },
+            {
+              "key": "J",
+              "text": "pierce"
+            },
+            {
+              "key": "K",
+              "text": "presumption"
+            },
+            {
+              "key": "L",
+              "text": "ready"
+            },
+            {
+              "key": "M",
+              "text": "recommended"
+            },
+            {
+              "key": "N",
+              "text": "surpasses"
+            },
+            {
+              "key": "O",
+              "text": "target"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B) caters 语法判断:分析此处句式结构可知,空格位于由that引导的定语从句中,空格处应填入动调,充当定语 从句的谓语。由前面的weliveinaculture可知,此处是一般现在时,故空格处应填入第三人称单数形 式的动调,符合语法条件的选项有caters(迎合)和surpasses(超过,超越)。 语义判断:文章首句提到,睡眠的重要性被严重低估了,以至于少睡几个小时已经被视为一件光影的 事情。由空格所在句中的Plus,weliveina culture(我们生活在一种文化中)和from24-hourgrocery storestoonlineshoppingsitesthatneverclose(从24小时营业的食品杂货店到永不打烊的网上购物网站, 无不如此)可知,此处承接上文,说明睡眠重要性被低估的原因,由此判定,此处应填入caters,与后面 的to构成固定短语caterto(迎合),此处意为\"迎合夜猫子喜好的文化”,故本题选B。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alternatively"
+            },
+            {
+              "key": "B",
+              "text": "caters"
+            },
+            {
+              "key": "C",
+              "text": "chronically"
+            },
+            {
+              "key": "D",
+              "text": "debated"
+            },
+            {
+              "key": "E",
+              "text": "deprivation"
+            },
+            {
+              "key": "F",
+              "text": "ideal"
+            },
+            {
+              "key": "G",
+              "text": "improvements"
+            },
+            {
+              "key": "H",
+              "text": "necessarily"
+            },
+            {
+              "key": "I",
+              "text": "negotiated"
+            },
+            {
+              "key": "J",
+              "text": "pierce"
+            },
+            {
+              "key": "K",
+              "text": "presumption"
+            },
+            {
+              "key": "L",
+              "text": "ready"
+            },
+            {
+              "key": "M",
+              "text": "recommended"
+            },
+            {
+              "key": "N",
+              "text": "surpasses"
+            },
+            {
+              "key": "O",
+              "text": "target"
+            }
+          ],
+          "answer": "M",
+          "explanation": "M) recommended 语法判断:空格前是as,空格后是bysleepexperts,初步判定空格处应填入一个过去分词,与as一起 构成一个省略了主语和be动调的被动语态句子。符合语法条件的选项有debated(讨论,争论)、 negotiated(谈判,协商)和recommended(建议)。 语义判断:联系上文说到的睡眠的重要性被低估的内容,并结合本句中的It'sno surprise可知,此处是 说,超过半数的美国成年人,不会像睡眠专家“建议”的那样每天晚上瞻7到9个小时的觉, recommended符合题意,故本题选M。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alternatively"
+            },
+            {
+              "key": "B",
+              "text": "caters"
+            },
+            {
+              "key": "C",
+              "text": "chronically"
+            },
+            {
+              "key": "D",
+              "text": "debated"
+            },
+            {
+              "key": "E",
+              "text": "deprivation"
+            },
+            {
+              "key": "F",
+              "text": "ideal"
+            },
+            {
+              "key": "G",
+              "text": "improvements"
+            },
+            {
+              "key": "H",
+              "text": "necessarily"
+            },
+            {
+              "key": "I",
+              "text": "negotiated"
+            },
+            {
+              "key": "J",
+              "text": "pierce"
+            },
+            {
+              "key": "K",
+              "text": "presumption"
+            },
+            {
+              "key": "L",
+              "text": "ready"
+            },
+            {
+              "key": "M",
+              "text": "recommended"
+            },
+            {
+              "key": "N",
+              "text": "surpasses"
+            },
+            {
+              "key": "O",
+              "text": "target"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D) debated 语法判断:空格前是isahotly,空格后是topic,可见空格处应填入一个被制词hotly修饰的形容调或分 词,充当topic的定语。符合语法条件的形容词和分调选项有debated(争论)、ideal(理想的)、negotiated (谈判,协商)、ready(准备好的;愿意的)。 语义判断:第一段提到睡眠的重要性被低估,本段介绍科研人员所做的实验。结合后面的amongsleep researchers可判断,此处是说,我们能否补充睡眠,比如说在周末,是睡眠研究人页热烈讨论的一个话 题,备选项中debated符合上下文语境,故本题选D。hotlydebated表示\"热烈讨论的,热议的\"。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alternatively"
+            },
+            {
+              "key": "B",
+              "text": "caters"
+            },
+            {
+              "key": "C",
+              "text": "chronically"
+            },
+            {
+              "key": "D",
+              "text": "debated"
+            },
+            {
+              "key": "E",
+              "text": "deprivation"
+            },
+            {
+              "key": "F",
+              "text": "ideal"
+            },
+            {
+              "key": "G",
+              "text": "improvements"
+            },
+            {
+              "key": "H",
+              "text": "necessarily"
+            },
+            {
+              "key": "I",
+              "text": "negotiated"
+            },
+            {
+              "key": "J",
+              "text": "pierce"
+            },
+            {
+              "key": "K",
+              "text": "presumption"
+            },
+            {
+              "key": "L",
+              "text": "ready"
+            },
+            {
+              "key": "M",
+              "text": "recommended"
+            },
+            {
+              "key": "N",
+              "text": "surpasses"
+            },
+            {
+              "key": "O",
+              "text": "target"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F) ideal 语法判断:空格前是whileitisn't,空格后是返号及itmighthelp,可以判断,此处是while引导的让步 状语从句,空格处应填入形容调构成系表结构,或者填入过去分调,构成被动语态。符合语法条件的形 容调和过去分调选项还有ideal、negotiated和ready。 语义判断:由while引导的让步状语从句的主句itmighthelp(可能会起作用)可以判断,让步状语从句 是说“补充睡眠即便不是理想的(解决办法)\",可知此处应填入ideal,故本题选F。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alternatively"
+            },
+            {
+              "key": "B",
+              "text": "caters"
+            },
+            {
+              "key": "C",
+              "text": "chronically"
+            },
+            {
+              "key": "D",
+              "text": "debated"
+            },
+            {
+              "key": "E",
+              "text": "deprivation"
+            },
+            {
+              "key": "F",
+              "text": "ideal"
+            },
+            {
+              "key": "G",
+              "text": "improvements"
+            },
+            {
+              "key": "H",
+              "text": "necessarily"
+            },
+            {
+              "key": "I",
+              "text": "negotiated"
+            },
+            {
+              "key": "J",
+              "text": "pierce"
+            },
+            {
+              "key": "K",
+              "text": "presumption"
+            },
+            {
+              "key": "L",
+              "text": "ready"
+            },
+            {
+              "key": "M",
+              "text": "recommended"
+            },
+            {
+              "key": "N",
+              "text": "surpasses"
+            },
+            {
+              "key": "O",
+              "text": "target"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C) chronically 语法判断:空格前是brought,空格后是sleep-restrictedpeopleintothelab,可知空格处应填入副词,修 饰分调sleep-restricted。符合语法条件的副调选项有altematively(或者,二者择一地)和chronically(长 期;慢性地)和necessarily(必然地)。 语义判断:既然研究人页要对睡眠不足的人进行测试,必然选最具代表性的实验对象,由此可推断此 处是说刘教授将“长期\"熟夜的人带入实验室进行睡眠实验,chronically符合题意,故本题选C。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alternatively"
+            },
+            {
+              "key": "B",
+              "text": "caters"
+            },
+            {
+              "key": "C",
+              "text": "chronically"
+            },
+            {
+              "key": "D",
+              "text": "debated"
+            },
+            {
+              "key": "E",
+              "text": "deprivation"
+            },
+            {
+              "key": "F",
+              "text": "ideal"
+            },
+            {
+              "key": "G",
+              "text": "improvements"
+            },
+            {
+              "key": "H",
+              "text": "necessarily"
+            },
+            {
+              "key": "I",
+              "text": "negotiated"
+            },
+            {
+              "key": "J",
+              "text": "pierce"
+            },
+            {
+              "key": "K",
+              "text": "presumption"
+            },
+            {
+              "key": "L",
+              "text": "ready"
+            },
+            {
+              "key": "M",
+              "text": "recommended"
+            },
+            {
+              "key": "N",
+              "text": "surpasses"
+            },
+            {
+              "key": "O",
+              "text": "target"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G)improvements 语法判断:空格前是theyshowed,空格后是intheabilityofinsulinto processbloodsugar,可判断,空格 处应填入名词,充当showed的宾语。符合语法条件的名词选项还有deprivation(利夺)、improvements (改善,提高)、presumption(假定,推测)和target(靶子;目标)。 语义判断:根据下文“这表明,补充性睡眠可能修复一些(而不是全部)..损伤\"可知,在实验中,补 充性睡眠使实验对象身上显示出了胰岛素调节血糖能力的“提高”,improvements符合题意,故本题应 选G。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alternatively"
+            },
+            {
+              "key": "B",
+              "text": "caters"
+            },
+            {
+              "key": "C",
+              "text": "chronically"
+            },
+            {
+              "key": "D",
+              "text": "debated"
+            },
+            {
+              "key": "E",
+              "text": "deprivation"
+            },
+            {
+              "key": "F",
+              "text": "ideal"
+            },
+            {
+              "key": "G",
+              "text": "improvements"
+            },
+            {
+              "key": "H",
+              "text": "necessarily"
+            },
+            {
+              "key": "I",
+              "text": "negotiated"
+            },
+            {
+              "key": "J",
+              "text": "pierce"
+            },
+            {
+              "key": "K",
+              "text": "presumption"
+            },
+            {
+              "key": "L",
+              "text": "ready"
+            },
+            {
+              "key": "M",
+              "text": "recommended"
+            },
+            {
+              "key": "N",
+              "text": "surpasses"
+            },
+            {
+              "key": "O",
+              "text": "target"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E) deprivation 语法判断:空格前是thedamagethatsleep,空格后是causes,可判断空格位于that引导的定语从句中, 该定语从句修饰先行调thedamage,由此判断causes是定语从句的谓语动词,从句缺少主语,且被 sleep修饰,故空格处应填入名词。符合语法条件的名调选项还有deprivation、presumption和target。 语义判断:本句叙述的是实验的结果,由此可以判断,此处是说,补充性睡眠可能修复一些(而不是全 部)由于剥夺睡眠时间而导致的损伤,sleepdeprivation(睡眠剥夺)符合语境,故本题应选E。注意, deprivation本身为名词,翻译时应根据汉语的习惯将其转译为动调。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alternatively"
+            },
+            {
+              "key": "B",
+              "text": "caters"
+            },
+            {
+              "key": "C",
+              "text": "chronically"
+            },
+            {
+              "key": "D",
+              "text": "debated"
+            },
+            {
+              "key": "E",
+              "text": "deprivation"
+            },
+            {
+              "key": "F",
+              "text": "ideal"
+            },
+            {
+              "key": "G",
+              "text": "improvements"
+            },
+            {
+              "key": "H",
+              "text": "necessarily"
+            },
+            {
+              "key": "I",
+              "text": "negotiated"
+            },
+            {
+              "key": "J",
+              "text": "pierce"
+            },
+            {
+              "key": "K",
+              "text": "presumption"
+            },
+            {
+              "key": "L",
+              "text": "ready"
+            },
+            {
+              "key": "M",
+              "text": "recommended"
+            },
+            {
+              "key": "N",
+              "text": "surpasses"
+            },
+            {
+              "key": "O",
+              "text": "target"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L) ready 语法判断:空格前是Liuisn't,空格后是toendorsethehabit,可判断,此处缺少一个形容词,构成“形容 词+不定式\"的结构。符合语法条件的形容词选项只剩下ready。 语义判断:上文提到实验证明补充性睡眠对身体有一些帮助,并总结说,考虑到有如此多的成年人每 ·2015年12月六级真题(第三套)· 天晚上得不到他们所需的睡眠时间,这一研究的结果是今人鼓舞的。由表示让步关系的副调still(尽管 如此)可知,此处是说,尽管如此,刘先生并不“愿意\"认可先是睡眠不足而后补觉的习惯,bereadyto do sth.意为\"乐于、愿意做某事\",符合此处语境,故空格处应填入ready,答案选L。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alternatively"
+            },
+            {
+              "key": "B",
+              "text": "caters"
+            },
+            {
+              "key": "C",
+              "text": "chronically"
+            },
+            {
+              "key": "D",
+              "text": "debated"
+            },
+            {
+              "key": "E",
+              "text": "deprivation"
+            },
+            {
+              "key": "F",
+              "text": "ideal"
+            },
+            {
+              "key": "G",
+              "text": "improvements"
+            },
+            {
+              "key": "H",
+              "text": "necessarily"
+            },
+            {
+              "key": "I",
+              "text": "negotiated"
+            },
+            {
+              "key": "J",
+              "text": "pierce"
+            },
+            {
+              "key": "K",
+              "text": "presumption"
+            },
+            {
+              "key": "L",
+              "text": "ready"
+            },
+            {
+              "key": "M",
+              "text": "recommended"
+            },
+            {
+              "key": "N",
+              "text": "surpasses"
+            },
+            {
+              "key": "O",
+              "text": "target"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H) necessarily 语法判断:空格前是arenot,空格后是aneffectiveremedy,由此可知,空格处应填入一个副调,与not 一起修饰限定are。符合语法条件的副调选项还有altematively和necessarily。 语义判断:由前面表示让步关系的whilehelpfulforsome(虽然对于一些人来说有所帮助)和后面的 either(也)可知,此处是说,虽然安眠药对于一些人来说有所都助,但是它们也未“必\"是一种有效的治 疗方式,显然necessarily(必然地)持合语境,故本题应选H。notnecessarily意为“未必\"。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alternatively"
+            },
+            {
+              "key": "B",
+              "text": "caters"
+            },
+            {
+              "key": "C",
+              "text": "chronically"
+            },
+            {
+              "key": "D",
+              "text": "debated"
+            },
+            {
+              "key": "E",
+              "text": "deprivation"
+            },
+            {
+              "key": "F",
+              "text": "ideal"
+            },
+            {
+              "key": "G",
+              "text": "improvements"
+            },
+            {
+              "key": "H",
+              "text": "necessarily"
+            },
+            {
+              "key": "I",
+              "text": "negotiated"
+            },
+            {
+              "key": "J",
+              "text": "pierce"
+            },
+            {
+              "key": "K",
+              "text": "presumption"
+            },
+            {
+              "key": "L",
+              "text": "ready"
+            },
+            {
+              "key": "M",
+              "text": "recommended"
+            },
+            {
+              "key": "N",
+              "text": "surpasses"
+            },
+            {
+              "key": "O",
+              "text": "target"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O)target 语法判断:空格前是助动调will,空格后是名调短语oneareaofthebrain,由此可知,空格处应填入一 个动调原形,充当句子的谓语。符合语法条件的动调选项还剃下pierce(刺穿;穿入)和target(针对, 以为目标)。 语义判断:上文提到安眠药未必是一种有效的治疗方式,判断此处是在引述专业人士的话来证明前文 说法,故可判断此处是说,安眠药“针对\"的是大脑的一个区域,故target符合上下文语境,本题应选O。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2015-12-3-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) The road to climate hell is paved with our good intentions. Politicians may tackle polluters while scientists do battle with carbon emissions. But the most pervasive problem is less obvious: our own behaviour. We get distracted before we can turn down the heating. We break our promise not to fly after hearing about a neighbour’s trip to India. Ultimately, we can’t be bothered to change our attitude. Fortunately for the planet, social science and behavioural economics may be able to do that for us.",
+        "B) Despite mournful polar bears and charts showing carbon emissions soaring, most people find it hard to believe that global warming will affect them personally. Recent polls by the Pew Research Centre in Washington, DC, found that 75-80 percent of participants regarded climate change as an important issue. But respondents ranked it last on a list of priorities.",
+        "C) This inconsistency largely stems from a feeling of powerlessness. “When we can’t actually remove the source of our fear, we tend to adapt psychologically by adopting a range of defense mechanisms,” says Tom Crompton, change strategist for the environmental organization World Wide Fund for Nature.",
+        "D) Part of the fault lies with our inner caveman. Evolution has programmed humans to pay most attention to issues that will have an immediate impact. “We worry most about now because if we don’t survive for the next minute, we’re not going to be around in ten years’ time,” says Professor Elke Weber of the Centre for Research on Environmental Decisions at Columbia University in New York. If the Thames were lapping around Big Ben, Londoners would face up to the problem of emissions pretty quickly. But in practice, our brain discounts the risks —and benefits—associated with issues that lie some way ahead.",
+        "E) Matthew Rush worth, of the Department of Experimental Psychology at the University of Oxford, sees this in his lab every day. “One of the ways in which all agents seem to make decisions is that they assign a lower weighting to outcomes that are going to be further away in the future,” he says. “This is a very sensible way for an animal to make decisions in the wild and would have been very helpful for humans for thousands of years.”",
+        "F) Not any longer. By the time we wake up to the threat posed by climate change, it could well be too late. And if we’re not going to make rational decisions about the future, others may have to help us to do so.",
+        "G) Few political libraries are without a copy of Nudge: Improving Decisions About Health, Wealth and Happiness, by Richard Thaler and Cass Sunstein. They argue that governments should persuade us into making better decisions—such as saving more in our pension plans—by changing the default options. Professor Weber believes that environmental policy can make use of similar tactics. If, for example, building codes included green construction guidelines, most developers would be too lazy to challenge them.",
+        "H) Defaults are certainly part of the solution. But social scientists are most concerned about crafting messages that exploit our group mentality (心态). “We need to understand what motivates people, what it is that allows them to make change,” says Professor Neil Adger, of the Tyndall Centre for Climate Change Research in Norwich. “It is actually about what their peers think of them, what their social norms are, what is seen as desirable in society.” In other words, our inner caveman is continually looking over his shoulder to see what the rest of the tribe are up to.",
+        "I) The passive attitude we have to climate change as individuals can be altered by counting us in —and measuring us against—our peer group. “Social norms are primitive and elemental,” says Dr. Robert Cialdini, author of Influence: The Psychology of Persuasion. “Birds flock together, fish school together, cattle herd together.. .just perceiving norms is enough to cause people to adjust their behavior in the direction of the crowd.",
+        "J) These norms can take us beyond good intentions. Cialdini conducted a study in San Diego in which coat hangers bearing messages about saving energy were hung on people’s doors. Some of the messages mentioned the environment, some financial savings, others social responsibility. But it was the ones that mentioned the actions of neighbours that drove down power use.",
+        "K) Other studies show that simply providing the facility for people to compare their energy use with the local average is enough to cause them to modify their behaviour. The Conservatives plan to adopt this strategy by making utility companies print the average local electricity and gas usage on people’s bills.",
+        "L) Social science can also teach politicians how to avoid our collective capacity for self-destructive behaviour. Environmental campaigns that tell us how many people drive SUVs unwittingly(不经意地)imply that this behaviour is widespread and thus permissible. Cialdini recommends some careful framing of the message. “Instead of normalising the undesirable behaviour, the message needs to marginalise it, for example, by stating that if even one person buys yet another SUV, it reduces our ability to be energy-independent.”",
+        "M) Tapping into how we already see ourselves is crucial. The most successful environmental strategy will marry the green message to our own sense of identity. Take your average trade union member, chances are they will be politically motivated and be used to collective action—much like Erica Gregory. A retired member of the Public and Commercial Services Union, she is setting up one of 1,100 action groups with the support of Climate Solidarity, a two-year environmental campaign aimed at trade unionists.",
+        "N) Erica is proof that a great-grandmother can help to lead the revolution if you get the psychology right—in this case, by matching her enthusiasm for the environment with a fondness for organising groups. “I think it’s a terrific idea,” she says of the campaign. “The union backing it makes members think there must be something in it.” She is expecting up to 20 people at the first meeting she has called, at her local pub in the Cornish village of Polperro.",
+        "O) Nick Perks, project director for Climate Solidarity, believes this sort of activity is where the future of environmental action lies. “Using existing civil society structures or networks is a more effective way of creating change... and obviously trade unions are one of the biggest civil society networks in the UK,” he says. The “Love Food, Hate Waste” campaign entered into a collaboration last year with another such network—the Women’s Institute. Londoner Rachel Taylor joined the campaign with the aim of making new friends. A year on, the meetings have made lasting changes to what she throws away in her kitchen. “It’s always more of an incentive if you’re doing it with other people,” she says. “It motivates you more if you know that you’ve got to provide feedback to a group.”",
+        "P) The power of such simple psychology in fighting climate change is attracting attention across the political establishment. In the US, the House of Representatives Science Committee has approved a bill allocating $ 10 million a year to studying energy-related behaviour. In the UK, new studies are in development and social scientists are regularly spotted in British government offices. With the help of psychologists, there is fresh hope that we might go green after all."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "When people find they are powerless to change a situation, they tend to live with it.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C 解析:注意抓住题干中的关键调powerless和tendtolivewith。注意到C段出现了powerless的名调形 式powerlessness,该段首句概括说\"这种矛盾主要源于一种无力感(afeelingofpowerlessness)\",然后引 用汤姆·克朗普顿的话“当我们无法真正消除忍惧的根源时,我们往往会通过采取一系列防御机制从心 理上去适应”,由此可知题干是对原文的同义转述,因此答案选C。"
+        },
+        {
+          "number": 37,
+          "stem": "To be effective, environmental messages should be carefully framed.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L 解析:注意抓住题干中的关键词environmentalmessages和carefullyframed。注意到L段出现了message 和carefulframing,该段提到“西奥迪尼建议应精心拟定这种信息”,文中的themessage指的就是 environmentalmessages。由此可知题干是对原文内容的概括,题干中的carefullyframed对应原文中的 carefulframing。故答案为L。"
+        },
+        {
+          "number": 38,
+          "stem": "It is the government’s responsibility to persuade people into making environment-friendly decisions.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "G",
+          "explanation": "[答案][G] 解析：注意抓住题干中的关键词the government’s responsibility、persuade和decisions。文中同时提到government和persuade的是G段。G段提到理查德·泰勒和卡斯·桑斯坦的观点：They argue that governments should persuade us into making better decisions（他们认为政府应该通过改变默认选择，说服人们做出更好的决策），其中governments should对应题干中的the government’s responsibility，persuade和decisions都是原文中词汇的复现。故答案为G。"
+        },
+        {
+          "number": 39,
+          "stem": "Politicians are beginning to realise the importance of enlisting psychologists, help in fighting climate change.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "P",
+          "explanation": "P 解析:注意抓住题干中的关键词psychologists'help和fightingclimatechange。文中提到这两个关键词 的是P段。P段指出,这种与气候变化做斗争的简单的心理学策略所产生的力量正吸引着政治机构的 注意力。然后分别列举了美国和英国政府的积极做法,最后说“在心理学家的协助下,我们最终的绿色 前景重燃新的希望\"。其中withthehelpof psychologists对应题干中的psychologistshelp,fighting climatechange是原文中调汇的复现。故答案为P。"
+        },
+        {
+          "number": 40,
+          "stem": "To find effective solutions to climate change, it is necessary to understand what motivates people to make change.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H 解析:注意抓住题干中的关键词solutions、motivates和makechange。文中出现这三个关键词的是H 段。H段提到尼尔·艾格观点,他认为\"我们需要明白什么能激励人们,到底什么会让他们做出改变\"。由此 可知题干是对原文的同义转述,故答案为H。"
+        },
+        {
+          "number": 41,
+          "stem": "In their evolution, humans have learned to pay attention to the most urgent issues instead of long-term concerns.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D 解析:注意抓住题干中的关键调evolution和mosturgentissues。文中提到evolution的只有D段,该段 (人类的进化使我们最关注会造成直接影响的事件),其中issuesthatwillhavean immediateimpact与 the mosturgentissues对应,并在最后一句提到“我们的大脑会低估与远期间题相关的风险和利益”,即 人们往往对于长远的问题考虑不足,由此可知题是对原文内容的概括。因此答案为D。"
+        },
+        {
+          "number": 42,
+          "stem": "One study shows that our neighbours’ actions are influential in changing our behaviour.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "J",
+          "explanation": "J 解析:注意抓住题干中的关键词neighbours'actions。文中提到ncighbours和actions的是J段。J段最后 句提到 But it was the ones that mentioned the actions of neighbours that drove down power use.(但是,只 有提到邻居做法的那些信息才降低了能源的使用量),“降低了能源的使用量\"正是自身的行为改变的 结果。题干是对原文内容的概括,因此答案为J。"
+        },
+        {
+          "number": 43,
+          "stem": "Despite clear signs of global warming, it is not easy for most people to believe climate change will affect their own lives.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B 解析:注意抓住题干中的关键调globalwarming、mostpeople、believe和affect。文中提到全球变暖 (globalwarming)和大多数人态度的是B段。B段提到\"尽管慧伤的北极熊和数据图表告诉我们碳排放 量在急剧增加,大多数人却很难相信全球气候变暖会给他们自身带来影响\"。题干中的globalwarming 和 affect 都是文中原调复现,it is not easy for most people to believe是most people find it hard to believe 的同义转速。故答案为B。"
+        },
+        {
+          "number": 44,
+          "stem": "We should take our future into consideration in making decisions concerning climate change before it is too late.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F 解析:注意抓住题干中的关键词future、makingdecisions和toolate。这三个关键调出现在F段。F段提 到“当我们意识到气候变化带来的威胁时,可能为时已晚。如果我们不能为未来做出理智的决策,那么 其他人就不得不帮我们这样做”。由此可知题干是对原文内容的概括,因此答案为F。"
+        },
+        {
+          "number": 45,
+          "stem": "Existing social networks can be more effective in creating change in people’s behaviour.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O 解析:注意抓住题干中的关键词socialnetworks和creatingchange。同时提到socialnetworks和creating change的是O段。O段指出“利用现有的民间社会组织和网络是创造变化更有效的方式\",题干中的 canbemoreeffective对应原文中的is amore effectiveway,固此答案为O。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2015-12-3-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "More than a decade ago, cognitive scientists John Bransford and Daniel Schwartz, both then at Vanderbilt University, found that what distinguished young adults from children was not the ability to retain facts or apply prior knowledge to a new situation but a quality they called “preparation for future learning.” The researches asked fifth graders and college students to create a recovery plan to protect bald eagles from extinction. Shockingly, the two groups came up with plans of similar quality (though the college students had better spelling skills). From the standpoint of a traditional educator, this outcome indicated that schooling had failed to help students think about ecosystems and extinction, major scientific ideas. The researchers decided to go deeper, however. They asked both groups to generate questions about important issues needed to create recovery plans. On this task, they found large differences. College students focused on critical issues of interdependence between eagles and their habitat(栖息地)Fifth graders tended to focus on features of individual eagles (“How big are they?” and “What do they eat?”). The college students had cultivated the ability to ask questions, the cornerstone of critical thinking. They had learned how to learn. Museums and other institutions of informal learning may be better suited to teach this skill than elementary and secondly schools. At the Exploratorium in San Francisco, we recently studied how learning to ask good questions can affect the quality of people’s scientific inquiry. We found that when we taught participants to ask “What if?” and “How can?” questions that nobody present would know the answer to and that would spark exploration, they engaged in better inquiry at the next exhibit —asking more questions, performing more experiments and making better interpretations of their results. Specially, their questions became more comprehensive at the new exhibit. Rather than merely asking about something they wanted to try, they tended to include both cause and effect in their question. Asking juicy questions appears to be a transferable skill for deepening collaborative inquiry into the science content found in exhibits. This type of learning is not confined to museums or institutional settings. Informal learning environment tolerate failure better than schools. Perhaps many teachers have too little time to allow students to form and pursue their own questions and too much ground to cover in the curriculum. But people must acquire this skill somewhere. Our society depends on them being able to make critical decisions about their own medical treatment, say, or what we must do about global energy needs and demands. For that, we have a robust informal system that gives no grades, takes all comers, and is available even on holidays and weekends."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What is traditional educators’ interpretation of the research outcome mentioned in the first paragraph?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Students are not able to apply prior knowledge to new problems."
+            },
+            {
+              "key": "B",
+              "text": "College students are no better than fifth graders in memorizing issues."
+            },
+            {
+              "key": "C",
+              "text": "Education has not paid enough attention to major environmental issues."
+            },
+            {
+              "key": "D",
+              "text": "Education has failed to lead students to think about major scientific ideas."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D 定位:根据题干的信息词traditional educators'interpretation和inthefirstparagraph,可以把答题线案定 位到第一段最后一句。 解析:该句指出:“从传统教育工作者的角度来看,这一结果表明,学校教育未能帮助学生思考生态系 统和物种灭绝这两个重要的科学概念。”由此可知,传统教育工作者认为教育未能引导学生思考重要 的科学概念,选项D符合文意,故为答案。第一段第一句提及研究发现,指出年轻的成年人和儿童的区 别并非在于记住事实或将之前学过的知识应用于新情况的能力,且这也不是传统教育工作者的解读, 故A项应排除。本段第三句只提到大学生的辨写能力比五年级学生更优秀,并没有对两者的记忆力进 行对比,故B项应排除。本段最后一句提到学校教育未能帮助学生思考生态系统和物种灭绝这两个重 要的科学概念,但由此无法得出“教育未对重要的环境问题给予足够的关注”,环境问题涉及面广,该 说法明显把范围扩大化了,以偏概全,故C项也应排除。"
+        },
+        {
+          "number": 47,
+          "stem": "In what way are college students different from children?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They have learned to think critically."
+            },
+            {
+              "key": "B",
+              "text": "They are concerned about social issues."
+            },
+            {
+              "key": "C",
+              "text": "They are curious about specific features."
+            },
+            {
+              "key": "D",
+              "text": "They have learned to work independently."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A 定位:根据题干的信息词collegestudents different fromchildren,可以把答题线索定位到第二段第三句 和第六句。 解析:第二段第三句指出“在这项任务中,他们发现了巨大的差异”,接着介绍了具体的差异,第六句 则指出“大学组的学生已经培养了提出问题的能力,这是批判性思维的基础”,由此可知,大学生与 儿童的差异在于大学生学会了提问,学会了批判性思考,A项符合文意,故为答案。原文并未提及关注 社会问题,应排除B项。根据第二段第五句,领向于关注秃鹰的个体特征的是五年级组的学生,故排除 C项。第二段最后两句指出大学生学会了提问和学习,但没有提到学会了独立工作,D项也可排除。"
+        },
+        {
+          "number": 48,
+          "stem": "What is benefit of asking questions with no ready answers?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It arouses students’ interest in things around them."
+            },
+            {
+              "key": "B",
+              "text": "It cultivates students’ ability to make scientific inquiries."
+            },
+            {
+              "key": "C",
+              "text": "It trains students’ ability to design scientific experiments."
+            },
+            {
+              "key": "D",
+              "text": "It helps students realize not every question has an answer."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B 定位:根据题干的信息词benefitofaskingquestions和withnoreadyanswers,可以把答题线索定位到第 三段第三句。 解析:该句指出;“我们发现,当我们教参与者提出\"如果会急样?\"和急样才能?\"这些现场没 人知道答案但又会激发探索欲的问题时,参与者会在参加下次展览时进行更好的探究一—提出更多的 于激发学生的探究欲和培养他们科学探究的能力,B项符合文意,为正确答案。文中只提及这会激发探 索欲,培养其科学探究的能力,并未提到会引起学生对周边事物的兴趣,A项不符合文意,应排除。文 中提及学生会进行更多的实验,没有提及设计科学实验,C项也不待合文意,应排除。文中提及教学生 提出现场没人知道答案的问题,但并来指出这有助于学生认识到并非每个问题都有答案,D项与文意 不特,应排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What is said to be the advantage of informal learning?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It allows for failures."
+            },
+            {
+              "key": "B",
+              "text": "It is entertaining."
+            },
+            {
+              "key": "C",
+              "text": "It charges no tuition."
+            },
+            {
+              "key": "D",
+              "text": "It meets practical need."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A 定位:根据题干的信息调advantageofinformallearning,可以把答题线索定位到第四段第二句。 解析:该句指出:“与学校相比,非正式的学习环境对失败的宽容度更高。”即非正式的学习允许失败, 更能容忍失败,A项特合文意,故为答案。文中并未提及非正式学习是否有趣,B项应排除。文中最后 提到非正式学习系统不评分,来者不拒,甚至在节假日和周末都能使用,但没有提到是否收费,也没有 提到是否符合实际需要,故C、D两项都应排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What does the author seem to encourage educators to do at the end of the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Train students to think about global issues."
+            },
+            {
+              "key": "B",
+              "text": "Design more interactive classroom activities."
+            },
+            {
+              "key": "C",
+              "text": "Make full use of informal learning resources."
+            },
+            {
+              "key": "D",
+              "text": "Include collaborative inquiry in the curriculum."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C 定位:根据题干的信息词encourageeducatorstodo和attheendofthepassage,可以把答题线索定位到 文章最后部分。 解析:最后一段最后三句指出:“但是人们必须从某些地方获得这项技能。我们的社会依赖于能对自己 的医疗方案做出关键性决定,或者说在全球能源需求问题的解决方案中能做出重大决策的人。为此, 我们需要一个健全的非正式学习系统,这个系统不评分,来者不拒,甚至在节假日和周末都能使用。 也就是说,为了传投人们技能,为了培养社会所依赖的能力出众者,应该建立和使用健全的非正式学 习系统,让想学习的人能随时使用,即鼓励 非正式学习资源,C项符合文意,故为 答案。文中提及社会依赖于在全球能源 能做出重大决策的人,但没有提到训练 学生思考全球问题,A项应排除。 的课堂活动的内容,B项应排除。最后 一段第三句提到很多老师在课程中 提及课程要涵盖协作探究;第三段最后一 句提到,提出有趣的问间题可用于深化协作探究展览中所发现的科学知识,但这与题干中的教育工作者 和课程无关,D项是对文中内容的错误拼读,与文意不符,也应排除。 ·2015年12月六级真题(第三套)·"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2015-12-3-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "“There’s an old saying in the space world: amateurs talk about technology, professionals talk about insurance.” In an interview last year with The Economist, George Whitesides, chief executive of space-tourism firm Virgin Galactic, was placing his company in the latter category. But insurance will be cold comfort following the failure on October 31st of VSS Enterprise, resulting in the death of one pilot and the severe injury to another. On top of the tragic loss of life, the accident in California will cast a long shadow over the future of space tourism, even before it has properly begun. The notion of space tourism took hold in 2001 with a $ 20 million flight aboard a Russian spacecraft by Dennis Tito, a millionaire engineer with an adventurous streak. Just half a dozen holiday-makers have reached orbit since then, for similarly astronomical price tags. But more recently, companies have begun to plan more affordable “suborbital” flights —briefer ventures just to the edge of space’s vast darkness. Virgin Galactic had, prior to this week’s accident, seemed closest to starting regular flights. The company has already taken deposits from around 800 would-be space tourists, including Stephen Hawking. After being dogged by technical delays for years, Sir Richard Branson, Virgin Galactic’s founder, had recently suggested that a SpaceShipTwo craft would carry its first paying customers as soon as February 2015. That now seems an impossible timeline. In July, a sister craft of the crashed spaceplane was reported to be about half-finished. The other half will have to wait, as authorities of America’s Federal Aviation Administration (FAA) and National Transportation Safety Board work out what went wrong. In the meantime, the entire space tourism industry will be on tenterhooks (坐立不安). The 2004 Commercial Space Launch Amendments Act, intended to encourage private space vehicles and services, prohibits the transportation secretary (and thereby the FAA) from regulating the design or operation of private spacecraft, unless they have resulted in a serious or fatal injury to crew or passengers. That means that the FAA could suspend Virgin Galactic’s license to fly. It could also insist on checking private manned spacecraft as thoroughly as it does commercial aircraft. While that may make suborbital travel safer, it would add significant cost and complexity to an emerging industry that has until now operated largely as the playground of billionaires and dreamy engineers. How Virgin Galactic, regulators and the public respond to this most recent tragedy will determine whether and how soon private space travel can transcend that playground. There is no doubt that spaceflight entails risks, and to pioneer a new mode of travel is to free those risks, and to reduce them with the benefit of hard-won experience."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What is said about the failure of VSS Enterprise?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It may lead to the bankruptcy of Virgin Galactic."
+            },
+            {
+              "key": "B",
+              "text": "It has a strong negative impact on space tourism."
+            },
+            {
+              "key": "C",
+              "text": "It may discourage rich people from space travel."
+            },
+            {
+              "key": "D",
+              "text": "It has aroused public attention to safety issues."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B 定位:根据题干中的信息词thefailureofVSSEnterprise可以将答案线索定位到文章第一段最后一句和 第二段。 解析:文章第一段最后一句提到:“维珍太空船进取号在10月31号坠毁,一名飞行员不幸雁难,另一 名伤势严重,此时保险也于事无补。”接着第二段提到:“发生在加利福尼亚的这起事故除了遗成人员 确答案,选项中的hasastrongnegativeimpact对应原文中的castalongshadow原文第五段提到这起事 故意味着联邦航空管理局可能会吊销维珍银河公司的执熙,但没有提到该公司会破产,选项A属于过 度推理,应排除。文中没有提到此次事故会阻止富人参加太空旅行或引起了公众对安全问题的关注, 故也排除选项C和D。"
+        },
+        {
+          "number": 52,
+          "stem": "What do we learn about the space-tourism firm Virgin Galactic?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It has just built a craft for commercial flights."
+            },
+            {
+              "key": "B",
+              "text": "It has sent half a dozen passengers into space."
+            },
+            {
+              "key": "C",
+              "text": "It was about ready to start regular business."
+            },
+            {
+              "key": "D",
+              "text": "It is the first to launch “suborbital” flights."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C 定位:仅仅根据题干中的信息调thespace-tourismfirmVirginGalactic我们很难直接定位答案线案,这 时我们可以采用排除法,逐一排除错误选项,进而锁定正确答案。 解析:原文第一段提到VSSEnterprise的坠毁,第四段提到与VSSEnterprise同类型的飞船已经建成一 半,但另一率将必须停工。显然,维珍银河公司的这两架飞船都不是商用,而且也不符合选项中说的 justbuilt(刚附建成),故选项A错误。原文第三段提到“从那之后,仅有六个度假者到达外太空轨道”, 所以加上第一位去外太空旅行的人应该一共有七个人进入太空旅行,而且文中并没有说明后来的这六 个人都是维珍银河公司运送的,所以选项B错误。原文第三投最后两句提到“在本周事故发生之前,维 珍银河公司差点就准备开展太空定期航班业务。该公司已经从大约800位准备参加太空旅行的人页 (包括史蒂芬·霍金)那里收取了定金\"。选项C是对这两句的总结概括,故为正确答案。选项D的关键 ·2015年12月六级真题(第三套)· 调是\"suborbital\"flights,文中提到一些公司开始策划“亚轨道\"航行,但没有提及维珍银河是最先开始 运营“亚轨道\"航行的,故也可排除。"
+        },
+        {
+          "number": 53,
+          "stem": "What is the purpose of the 2004 Commercial Space Launch Amendments Act?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To ensure space travel safety."
+            },
+            {
+              "key": "B",
+              "text": "To limit the FAA’s functions."
+            },
+            {
+              "key": "C",
+              "text": "To legalize private space explorations."
+            },
+            {
+              "key": "D",
+              "text": "To promote the space tourism industry."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D 定位:根据题干中的信息词the2004CommercialSpaceLaunchAmendmentsAct可以将答案线索定位到 文章第五段第二句。 解析:文章第五段第二句提到:2004年制定的《商业太空发射行为修正案》旨在鼓励私人太空飞行器 对应原文中的intendedto。选项A和C文中没有提及,很容易排除。选项B是强干扰项,很多考生可能 会因为第五段提到该法案“禁止交通部长(也意味着联邦航空管理局)插手监管私人太空飞船的设计或 运行”而误选,但这里只是陈述该法案的相关规定,并不是该法案制定的目的,所以不符合题干要求。"
+        },
+        {
+          "number": 54,
+          "stem": "What might the FAA do after the recent accident in California?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Impose more rigid safety standards."
+            },
+            {
+              "key": "B",
+              "text": "Stop certifying new space-tourist agencies."
+            },
+            {
+              "key": "C",
+              "text": "Amend its 2004 Commercial Space Launch Amendments Act."
+            },
+            {
+              "key": "D",
+              "text": "Suspend Virgin Galactic’s licence to take passengers into space."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D 定位:根据题干中的信息调FAA和aftertherecentaccident可以将答案线索定位到文章第五段第三句。 解析:文章第五段第三句提到:“这意味着此次事故后,美国联邦航空管理局可能会吊销维珍银河公司 的飞行执照。”选项D的表述与此一致,故为正确答案。选项A、B在文中未提及,可排除。文中第五段 第二句虽然提到了2004版的《商业太空发射修正案》,但主要陈述的是该法案的制定目的和相关条例, 没有提及联邦航空管理局要对该法案再次进行修订,故C项也可排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What does the author think of private space travel?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is worth promoting despite the risks involved."
+            },
+            {
+              "key": "B",
+              "text": "It should not be confined to the rich only."
+            },
+            {
+              "key": "C",
+              "text": "It should be strictly regulated."
+            },
+            {
+              "key": "D",
+              "text": "It is too risky to carry on."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A 定位:本题对作者的观点进行提问,根据题干中的信息词theauthorthink和private spacetravel可以将 答案线案定位到文章最后一段。 解析:文章最后一段末句提到:“毫无疑问,航天必然有风险,开辟一种新的旅行模式就要规避这些风 险,并通过受益于这种来之不易的经验来减少风险。”从这句语可以看出,作者认同太空旅行有风险, 但认为我们可以开辟一种新的旅行模式来规避和降低风险,选项A是对该部分的概括,故为正确签 案。文中只提到目前私人太空旅行的主要顾客是富人,没有提及要扩大客户范图,选项B错误。选项C 在文中电没有提及,可排除。选项D的内容与文意相反,故也排除。"
+        }
+      ]
+    }
+  ]
+}

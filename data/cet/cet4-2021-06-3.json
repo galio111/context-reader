@@ -1,0 +1,1572 @@
+{
+  "id": "cet4-2021-06-3",
+  "level": 4,
+  "year": 2021,
+  "month": 6,
+  "set": 3,
+  "title": "2021 年 6 月四级 · 第 3 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2021.06/%E7%9C%9F%E9%A2%98PDF/cet4_2021_06_3.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2021.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2021_06_3_ans.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2021-06-3-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Nowadays you can't buy anything without then being asked to provide a rating of a company's performance on a five-star scale.",
+        "I've been asked to rate my \"store [[26]] \" on the EFTPOS terminal before I can pay. Even the most [[27]] activities, such as calling Telstra or picking up a parcel from Australia Post, are followed by texts or emails with surveys asking, \"How did we do?\"",
+        "Online purchases are [[28]] followed up by a customer satisfaction survey. Companies are so [[29]] for a hit of stars that if you delete the survey the company sends you another one.",
+        "We're [[30]] to rate our apps when we've barely had a chance to use them. One online course provider I use asks you what you think of the course after you've only completed [[31]] 2 per cent of it.",
+        "Economist Jason Murphy says that companies use customer satisfaction ratings because a [[32]] display of star feedback has become the nuclear power sources of the modern economy.",
+        "However, you can't help but [[33]] if these companies are basing their business on fabrications (捏造的东西). I [[34]] that with online surveys I just click the [[35]] that's closest to my mouse cursor (光标) to get the damn thing off my screen. Often the star rating I give has far more to do with the kind of day I'm having than the purchase I just made."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "announce"
+        },
+        {
+          "key": "B",
+          "text": "commonplace"
+        },
+        {
+          "key": "C",
+          "text": "confess"
+        },
+        {
+          "key": "D",
+          "text": "desperate"
+        },
+        {
+          "key": "E",
+          "text": "experience"
+        },
+        {
+          "key": "F",
+          "text": "fascinated"
+        },
+        {
+          "key": "G",
+          "text": "option"
+        },
+        {
+          "key": "H",
+          "text": "prompted"
+        },
+        {
+          "key": "I",
+          "text": "roughly"
+        },
+        {
+          "key": "J",
+          "text": "routinely"
+        },
+        {
+          "key": "K",
+          "text": "shining"
+        },
+        {
+          "key": "L",
+          "text": "showering"
+        },
+        {
+          "key": "M",
+          "text": "variety"
+        },
+        {
+          "key": "N",
+          "text": "voyage"
+        },
+        {
+          "key": "O",
+          "text": "wonder"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "announce"
+            },
+            {
+              "key": "B",
+              "text": "commonplace"
+            },
+            {
+              "key": "C",
+              "text": "confess"
+            },
+            {
+              "key": "D",
+              "text": "desperate"
+            },
+            {
+              "key": "E",
+              "text": "experience"
+            },
+            {
+              "key": "F",
+              "text": "fascinated"
+            },
+            {
+              "key": "G",
+              "text": "option"
+            },
+            {
+              "key": "H",
+              "text": "prompted"
+            },
+            {
+              "key": "I",
+              "text": "roughly"
+            },
+            {
+              "key": "J",
+              "text": "routinely"
+            },
+            {
+              "key": "K",
+              "text": "shining"
+            },
+            {
+              "key": "L",
+              "text": "showering"
+            },
+            {
+              "key": "M",
+              "text": "variety"
+            },
+            {
+              "key": "N",
+              "text": "voyage"
+            },
+            {
+              "key": "O",
+              "text": "wonder"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【考点】名词辨析题。 E)【语法判断】空格位于形容词性物主代词my之 后,因此空格处需要填入名词。 【语义判断】本句意为:在付款之前,我被要求在 EFTPOS终端上对\"店铺 ”进行评分。由 第一段可知,每次购买东西以后,都需要对该公司 的表现进行评分,也就是顾客对店铺体验评分,因 此空格处应填入含有“体验,经历”意义的名词,故 本题答案为E)experience。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "announce"
+            },
+            {
+              "key": "B",
+              "text": "commonplace"
+            },
+            {
+              "key": "C",
+              "text": "confess"
+            },
+            {
+              "key": "D",
+              "text": "desperate"
+            },
+            {
+              "key": "E",
+              "text": "experience"
+            },
+            {
+              "key": "F",
+              "text": "fascinated"
+            },
+            {
+              "key": "G",
+              "text": "option"
+            },
+            {
+              "key": "H",
+              "text": "prompted"
+            },
+            {
+              "key": "I",
+              "text": "roughly"
+            },
+            {
+              "key": "J",
+              "text": "routinely"
+            },
+            {
+              "key": "K",
+              "text": "shining"
+            },
+            {
+              "key": "L",
+              "text": "showering"
+            },
+            {
+              "key": "M",
+              "text": "variety"
+            },
+            {
+              "key": "N",
+              "text": "voyage"
+            },
+            {
+              "key": "O",
+              "text": "wonder"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【考点】形容词辨析题。 B)【语法判断】空格位于themost之后、名词 activities之前,因此空格处需要填人形容调。 【语义判断】本句意为:即使是最 的活动, 比如打电话给澳洲电信或从澳大利亚邮政领取包 裹,也会收到短信或电子邮件调查,询间“我们做 得怎么样?”。由列举的例子可知,这些都是很常 见的事情,因此空格处应填人含有“常见的,普通 的”意义的形容词,故本题答案为B) commonplace。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "announce"
+            },
+            {
+              "key": "B",
+              "text": "commonplace"
+            },
+            {
+              "key": "C",
+              "text": "confess"
+            },
+            {
+              "key": "D",
+              "text": "desperate"
+            },
+            {
+              "key": "E",
+              "text": "experience"
+            },
+            {
+              "key": "F",
+              "text": "fascinated"
+            },
+            {
+              "key": "G",
+              "text": "option"
+            },
+            {
+              "key": "H",
+              "text": "prompted"
+            },
+            {
+              "key": "I",
+              "text": "roughly"
+            },
+            {
+              "key": "J",
+              "text": "routinely"
+            },
+            {
+              "key": "K",
+              "text": "shining"
+            },
+            {
+              "key": "L",
+              "text": "showering"
+            },
+            {
+              "key": "M",
+              "text": "variety"
+            },
+            {
+              "key": "N",
+              "text": "voyage"
+            },
+            {
+              "key": "O",
+              "text": "wonder"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【考点】副词辨析题。 J)【语法判断】空格位于本句的谓语arefollowedup 之间,因此空格处需要填入副词。 【语义判断】本句意为:网上购物之后, 会 有客户满意度调查。第一段提到,购买任何东西 都需要评分,那么网购也不例外。因此空格处应 填入含有“通常”意义的副词,备选副词中J) routinely\"例行地,惯常地”最符合句意,故为本题 答案。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "announce"
+            },
+            {
+              "key": "B",
+              "text": "commonplace"
+            },
+            {
+              "key": "C",
+              "text": "confess"
+            },
+            {
+              "key": "D",
+              "text": "desperate"
+            },
+            {
+              "key": "E",
+              "text": "experience"
+            },
+            {
+              "key": "F",
+              "text": "fascinated"
+            },
+            {
+              "key": "G",
+              "text": "option"
+            },
+            {
+              "key": "H",
+              "text": "prompted"
+            },
+            {
+              "key": "I",
+              "text": "roughly"
+            },
+            {
+              "key": "J",
+              "text": "routinely"
+            },
+            {
+              "key": "K",
+              "text": "shining"
+            },
+            {
+              "key": "L",
+              "text": "showering"
+            },
+            {
+              "key": "M",
+              "text": "variety"
+            },
+            {
+              "key": "N",
+              "text": "voyage"
+            },
+            {
+              "key": "O",
+              "text": "wonder"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【考点】形容词辨析题。 D)【语法判断】空格位于副词sO之后,因此空格处需 要填人形容词。 【语义判断】本句意为:很多公司都 需要 星评,所以如果你删除了调查,公司就会再给你发 一个。由句意可知,很多公司会锲而不舍地追着 顾客让他们点评,因为他们非常需要顾客的评价, 因此空格处应填入含有“迫切的,急需的”意义的 形容词,故本题答案为D)desperate。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "announce"
+            },
+            {
+              "key": "B",
+              "text": "commonplace"
+            },
+            {
+              "key": "C",
+              "text": "confess"
+            },
+            {
+              "key": "D",
+              "text": "desperate"
+            },
+            {
+              "key": "E",
+              "text": "experience"
+            },
+            {
+              "key": "F",
+              "text": "fascinated"
+            },
+            {
+              "key": "G",
+              "text": "option"
+            },
+            {
+              "key": "H",
+              "text": "prompted"
+            },
+            {
+              "key": "I",
+              "text": "roughly"
+            },
+            {
+              "key": "J",
+              "text": "routinely"
+            },
+            {
+              "key": "K",
+              "text": "shining"
+            },
+            {
+              "key": "L",
+              "text": "showering"
+            },
+            {
+              "key": "M",
+              "text": "variety"
+            },
+            {
+              "key": "N",
+              "text": "voyage"
+            },
+            {
+              "key": "O",
+              "text": "wonder"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【考点】语义理解题。 H)【语法判断】空格位于be动词are之后,空格处应 填入形容词或动词的分词形式。 【语义判断】本句意为:当我们才刚刚有机会使用 给它们打分。 一些应用软件时,我们就会, 由下一句可知,一个在线课程提供商在顾客刚刚 使用不久时,就催促顾客为其打分,因此空格处应 填入含有“催促,促使”意义的词,故本题答案为 H prompted。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "announce"
+            },
+            {
+              "key": "B",
+              "text": "commonplace"
+            },
+            {
+              "key": "C",
+              "text": "confess"
+            },
+            {
+              "key": "D",
+              "text": "desperate"
+            },
+            {
+              "key": "E",
+              "text": "experience"
+            },
+            {
+              "key": "F",
+              "text": "fascinated"
+            },
+            {
+              "key": "G",
+              "text": "option"
+            },
+            {
+              "key": "H",
+              "text": "prompted"
+            },
+            {
+              "key": "I",
+              "text": "roughly"
+            },
+            {
+              "key": "J",
+              "text": "routinely"
+            },
+            {
+              "key": "K",
+              "text": "shining"
+            },
+            {
+              "key": "L",
+              "text": "showering"
+            },
+            {
+              "key": "M",
+              "text": "variety"
+            },
+            {
+              "key": "N",
+              "text": "voyage"
+            },
+            {
+              "key": "O",
+              "text": "wonder"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【考点】副词辨析题。 I【语法判断】分析句子结构可知,空格所在部分结 构完整,不缺成分,因此空格处需要填人副词。 【语义判断】本句意为:我使用过的一家在线课程 提供商在你只完成了—2%的课程后,就询 问你对这门课程的看法。由句意可知,2%未必是 确切的数字,是强调刚刚使用不久,因此空格处应 填入含有“大约”意义的词,故本题答案为I) roughly。另外一个备选副词J)routinely不符合 句意,因此排除。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "announce"
+            },
+            {
+              "key": "B",
+              "text": "commonplace"
+            },
+            {
+              "key": "C",
+              "text": "confess"
+            },
+            {
+              "key": "D",
+              "text": "desperate"
+            },
+            {
+              "key": "E",
+              "text": "experience"
+            },
+            {
+              "key": "F",
+              "text": "fascinated"
+            },
+            {
+              "key": "G",
+              "text": "option"
+            },
+            {
+              "key": "H",
+              "text": "prompted"
+            },
+            {
+              "key": "I",
+              "text": "roughly"
+            },
+            {
+              "key": "J",
+              "text": "routinely"
+            },
+            {
+              "key": "K",
+              "text": "shining"
+            },
+            {
+              "key": "L",
+              "text": "showering"
+            },
+            {
+              "key": "M",
+              "text": "variety"
+            },
+            {
+              "key": "N",
+              "text": "voyage"
+            },
+            {
+              "key": "O",
+              "text": "wonder"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【考点】形容词辨析题。 K)【语法判断】空格位于不定冠词a之后,名词 display之前,因此空格处需要填入形容词。 【语义判断】空格所在部分意为:因为一个 星星反馈已经成为现代经济的核心影响 力来源。根据前文可知,商家评分用的是星星,而 星星通常给人闪闪发光的联想,因此空格处应填 人含有“闪亮的”意义的形容词,故本题答案为K shining."
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "announce"
+            },
+            {
+              "key": "B",
+              "text": "commonplace"
+            },
+            {
+              "key": "C",
+              "text": "confess"
+            },
+            {
+              "key": "D",
+              "text": "desperate"
+            },
+            {
+              "key": "E",
+              "text": "experience"
+            },
+            {
+              "key": "F",
+              "text": "fascinated"
+            },
+            {
+              "key": "G",
+              "text": "option"
+            },
+            {
+              "key": "H",
+              "text": "prompted"
+            },
+            {
+              "key": "I",
+              "text": "roughly"
+            },
+            {
+              "key": "J",
+              "text": "routinely"
+            },
+            {
+              "key": "K",
+              "text": "shining"
+            },
+            {
+              "key": "L",
+              "text": "showering"
+            },
+            {
+              "key": "M",
+              "text": "variety"
+            },
+            {
+              "key": "N",
+              "text": "voyage"
+            },
+            {
+              "key": "O",
+              "text": "wonder"
+            }
+          ],
+          "answer": "O",
+          "explanation": "【考点】动词辨析题。 O)【语法判断】空格位于can'thelpbut结构中,根据 固定搭配,空格处应填入动词原形。 【语义判断】本句意为:然而,你不禁——,这 些公司的业务是否以捏造的东西为基础。由句意 可知,f在此处意为“是否”,因此空格处应填人含 有“想知道,想了解”意义的动词,故本题答案为 O) wonder,"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "announce"
+            },
+            {
+              "key": "B",
+              "text": "commonplace"
+            },
+            {
+              "key": "C",
+              "text": "confess"
+            },
+            {
+              "key": "D",
+              "text": "desperate"
+            },
+            {
+              "key": "E",
+              "text": "experience"
+            },
+            {
+              "key": "F",
+              "text": "fascinated"
+            },
+            {
+              "key": "G",
+              "text": "option"
+            },
+            {
+              "key": "H",
+              "text": "prompted"
+            },
+            {
+              "key": "I",
+              "text": "roughly"
+            },
+            {
+              "key": "J",
+              "text": "routinely"
+            },
+            {
+              "key": "K",
+              "text": "shining"
+            },
+            {
+              "key": "L",
+              "text": "showering"
+            },
+            {
+              "key": "M",
+              "text": "variety"
+            },
+            {
+              "key": "N",
+              "text": "voyage"
+            },
+            {
+              "key": "O",
+              "text": "wonder"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【考点】动词辨析题。 C)【语法判断】空格位于主语I之后,空格所在部分 缺少谓语,因此空格处需要填人动词。 【语义判断】本句意为:我 ,在做网上调查 时,我只是点击离我鼠标光标最近的—,以 便把这讨厌的东西从屏幕上弄掉。上一句提到, 公司的业务也许是基于编造的东西,而本句作者 以自身为例进行说明。因此空格处应填人含有 “承认”意义的动词,故本题答案为C)confess。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "announce"
+            },
+            {
+              "key": "B",
+              "text": "commonplace"
+            },
+            {
+              "key": "C",
+              "text": "confess"
+            },
+            {
+              "key": "D",
+              "text": "desperate"
+            },
+            {
+              "key": "E",
+              "text": "experience"
+            },
+            {
+              "key": "F",
+              "text": "fascinated"
+            },
+            {
+              "key": "G",
+              "text": "option"
+            },
+            {
+              "key": "H",
+              "text": "prompted"
+            },
+            {
+              "key": "I",
+              "text": "roughly"
+            },
+            {
+              "key": "J",
+              "text": "routinely"
+            },
+            {
+              "key": "K",
+              "text": "shining"
+            },
+            {
+              "key": "L",
+              "text": "showering"
+            },
+            {
+              "key": "M",
+              "text": "variety"
+            },
+            {
+              "key": "N",
+              "text": "voyage"
+            },
+            {
+              "key": "O",
+              "text": "wonder"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【考点】名词辨析题。 G)【语法判断】空格位于动词click和定冠词the之 后,因此空格处需要填入名词。 【语义判断】本句意为:在做网上调查时,我只是点 击离我鼠标光标最近的 ,以便把这讨厌 的东西从屏幕上弄掉。根据常识可知,做问卷调 查就是根据实际情况选择不同的回答。因此空格 处应填入含有“答案,选项”意义的名词,故本题答案为G)option。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2021-06-3-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) How do early career setbacks affect our long-term success? Failures can help us learn and overcome our fears. But disasters can still wound us. They can screw us up and set us back. Wouldn't it be nice if there was genuine, scientifically documented truth to the expression \"what doesn't kill you makes you stronger\"?",
+        "B) One way social scientists have probed the effects of career setbacks is to look at scientists of very similar qualifications. These scientists, for reasons that are mostly arbitrary, either just missed getting a research grant or just barely made it. In social sciences, this is known as examining \"near misses\" and \"narrow wins\" in areas where merit is subjective. That allows researchers to measure only the effects of being chosen or not. Studies in this area have found conflicting results. In the competitive game of biomedical science, research has been done on scientists who narrowly lost or won grant money. It suggests that narrow winners become even bigger winners down the line. In other words, the rich get richer.",
+        "C) A 2018 study published in the Proceedings of the National Academy of Sciences, for example, followed researchers in the Netherlands. Researchers concluded that those who just barely qualified for a grant were able to get twice as much money within the next eight years as those who just missed out. And the narrow winners were 50 percent more likely to be given a professorship.",
+        "D) Others in the US have found similar effects with National Institutes of Health early-career fellowships launching narrow winners far ahead of close losers. The phenomenon is often referred to as the Matthew effect, inspired by the Bible's wisdom that to those who have, more will be given. There's a good explanation for the phenomenon in the book The Formula: The Universal Laws of Success by Albert Laszlo Barabasi. According to Barabasi, it's easier and less risky for those in positions of power to choose to hand awards and funding to those who've already been so recognized.",
+        "E) This is bad news for the losers. Small early career setbacks seem to have a disproportionate effect down the line. What didn't kill them made them weaker. But other studies using the same technique have shown there's sometimes no penalty to a near miss. Students who just miss getting into top high schools or universities do just as well later in life as those who just manage to get accepted. In this case, what didn't kill them simply didn't matter. So is there any evidence that setbacks might actually improve our career prospects? There is now.",
+        "F) In a study published in Nature Communications, Northwestern University sociologist Dashun Wang tracked more than 1,100 scientists who were on the border between getting a grant and missing out between 1990 and 2005. He followed various measures of performance over the next decade. These included how many papers they authored and how influential those papers were, as measured by the number of subsequent citations. As expected, there was a much higher rate of attrition(减员)among scientists who didn't get grants. But among those who stayed on, the close losers performed even better than the narrow winners. To make sure this wasn't by chance, Wang conducted additional tests using different performance measures. He examined how many times people were first authors on influential studies, and the like.",
+        "G) One straightforward reason close losers might outperform narrow winners is that the two groups have comparable ability. In Wang's study, he selected the most determined, passionate scientists from the loser group and culled (剔除) what he deemed the weakest members of the winner group. Yet the persevering losers still came out on top. He thinks that being a close loser might give people a psychological boost, or the proverbial kick in the pants.",
+        "H) Utrecht University sociologist Arnout van de Rijt was the lead author on the 2018 paper showing the rich get richer. He said the new finding is apparently reasonable and worth some attention. His own work showed that although the narrow winners did get much more money in the near future, the actual performance of the close losers was just as good.",
+        "I) He said the people who should be paying regard to the Wang paper are the funding agents who distribute government grant money. After all, by continuing to pile riches on the narrow winners, the taxpayers are not getting the maximum bang for their buck if the close losers are performing just as well or even better. There's a huge amount of time and effort that goes into the process of selecting who gets grants, he said, and the latest research shows that the scientific establishment is not very good at distributing money. \"Maybe we should spend less money trying to figure out who is better than who,\" he said, suggesting that some more equal dividing up of money might be more productive and more efficient. Van de Rijt said he's not convinced that losing out gives people a psychological boost. It may yet be a selection effect. Even though Wang tried to account for this by culling the weakest winners, it's impossible to know which of the winners would have quit had they found themselves on the losing side.",
+        "J) For his part, Wang said that in his own experience, losing did light a motivating fire. He recalled a recent paper he submitted to a journal, which accepted it only to request extensive editing, and then reversed course and rejected it. He submitted the unedited version to a more respected journal and got accepted.",
+        "K) In sports and many areas of life, we think of failures as evidence of something we could have done better. We regard these disappointments as a fate we could have avoided with more careful preparation, different training, a better strategy, or more focus. And there it makes sense that failures show us the road to success. These papers deal with a kind of failure people have little control over—rejection. Others determine who wins and who loses. But at the very least, the research is starting to show that early setbacks don't have to be fatal. They might even make us better at our jobs. Getting paid like a winner, though? That's a different matter."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Being a close loser could greatly motivate one to persevere in their research.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【定位】由题干中的aclose loser和perseverein theirresearch定位到文章G)段倒数第一、二句。 G)【精析】细节辨认题。倒数第一句提到,作为一个 略输者可能会给人们带来心理上的激励,或俗话 所说的一种有激励效果的意外挫折。题干中的 motivate对应原文中的givepeoplea psychological boost,题干中的persevere in their research对应原文中的perseveringlosers,故答案 为G)。"
+        },
+        {
+          "number": 37,
+          "stem": "Grant awarders tend to favor researchers already recognized in their respective fields.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的researchersalready recognized定位到文章D)段最后一句。 D)【精析】细节归纳题。定位句指出,巴拉巴西认为, 对于那些掌权者来说,选择把奖项和资金交给那 些已经得到认可的人更容易,风险也更小。题干中 的 Grant.awarders 和 researchers already recognized分别对应定位句中的thosein positions of power 和 those who've already been sorecognized,而题干中的favor表明颁奖者的倾 向,与定位句中的easierandlessrisky相对应,故 答案为D)。"
+        },
+        {
+          "number": 38,
+          "stem": "Suffering early setbacks might help people improve their job performance.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【定位】由题干中的earlysetbacks和job performance定位到文章K)段倒数第三、四句。 K)【精析】同义转述题。定位句提到,但至少,研究开 始表明,早期的挫折不一定是致命的。它们甚至 可以让我们在工作上做得更好。题干中的help peopleimprovetheirjobperformance对应原文 中的makeusbetteratourjobs,故答案为K)。"
+        },
+        {
+          "number": 39,
+          "stem": "Research by social scientists on the effects of career setbacks has produced contradictory findings.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题于中的contradictoryfindings定位到 文章B)段倒数第四句。 B)【精析】同义转述题。定位句指出,这一领域的研 究发现了相互矛盾的结果。题干中的Research by social scientists on the effects of career setbacks指的就是定位句中的Studiesinthis area,而题干中的contradictoryfindings对应定位 句中的conflictingresults,故答案为B)。"
+        },
+        {
+          "number": 40,
+          "stem": "It is not to the best interest of taxpayers to keep giving money to narrow winners.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的thebest interestof taxpayers 和narrowwinners定位到文章D段第二句。 D【精析】同义转述题。定位句提到,如果略输者表 现同样好甚至更好,通过继续把财富积累在少数 赢家身上,纳税人并没有得到最大的回报。定位 句中的riches指的就是money。题干中的the best interest of taxpayers和keep giving money to narrowwinners对应原文中的gettingthe maximum bang for their buck 和 continuing to pilericheson thenarrowwinners,故答案为D。"
+        },
+        {
+          "number": 41,
+          "stem": "Scientists who persisted in research without receiving a grant made greater achievements than those who got one with luck, as suggested in one study.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【定位】由题干中的Scientistswhopersistedin research without receiving a grant 和 made greaterachievements定位到文章F)段倒数第 三句。 F)【精析】细节辨认题。定位句指出,在那些留下来 的人中,略输者甚至比险胜者表现得更好。题干 中的 Scientists who persisted in research without receiving a grant 和 made greater achievements 分别对应定位句中的thecloselosers和 performed evenbetter,而题千中的thosewho got onewithluck指的就是定位句中的thenarrow winners,题干中的persistedinresearch是对定 位句中的stayedon的同义转述,故答案为F)。"
+        },
+        {
+          "number": 42,
+          "stem": "A research paper rejected by one journal may get accepted by another.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【定位】由题干中的rejected、one journal和get accepted定位到文章J)段第二、三句。 J)【精析】细节归纳题。定位句提到,他回忆起最近 他提交给某杂志的一篇论文,该杂志接受了这篇 论文,却要求进行大量的编辑,然后又改口拒绝了 这篇论文。他将未经编辑的版本提交给了一家更 受尊敬的杂志,并被接受了。题干中的A researchpaper对应原文中的arecentpaper,题 干是对定位句的归纳概括,故答案为J)。"
+        },
+        {
+          "number": 43,
+          "stem": "According to one recent study, narrow winners of research grants had better chances to be promoted to professors.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的narrowwinnersofresearch grants、betterchances 和bepromotedto professors定位到文章C)段最后一句。 C)【精析】细节辨认题。定位句指出,险胜的人获得 教授职位的可能性高出50%。题干中的narrow winnersofresearchgrants和professors分别对 应定位句中的thenarrowwinners和 professorship,而题干中的hadbetterchances就 是对定位句中的were50percentmorelikely的 同义转述,故答案为C)。"
+        },
+        {
+          "number": 44,
+          "stem": "One researcher suggests it might be more fruitful to distribute grants on a relatively equal basis.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【答案】I。【定位】由题干中的morefruitful、distribute grants和onarelativelyequalbasis定位到文章 I)段倒数第四句。 I)【精析】同义转述题。定位句指出,也许我们应该 花更少的钱来弄清楚谁比谁更优秀,这暗示一些 更平等的资金分配可能会更有成效,更有效率。 题干中的morefruitful和onarelativelyequal basis分别对应定位句中的moreproductiveand moreefficient和moreequal,而题干中的 distributegrants是对定位句中的dividingupof money的同义转述,故答案为I"
+        },
+        {
+          "number": 45,
+          "stem": "Minor setbacks in their early career may have a strong negative effect on the career of close losers.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【定位】由题干中的Minor setbacksintheircarly career和astrongnegative'effect定位到文章E) 段第二、三句。 E)【精析】同义转述题。定位句提到,职业生涯早期 的小挫折似乎会对未来产生不成比例的影响。那 些没有杀死他们的东西让他们变得更弱了。题干 中的Minor setbacks intheir early career 和 a strongnegativeeffect分别对应原文中的Small early career setbacks和 have a disproportionate effect,故答案为E)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2021-06-3-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Boredom has become trendy. Studies point to how boredom is good for creativity and innovation, as well as mental health. It is found that people are more creative following the completion of a tedious task. When people are bored, they have an increase in \"associative thought\"—the process of making new connections between ideas, which is linked to innovative thinking. These studies are impressive, but in reality, the benefits of boredom may be related to having time to clear your mind, be quiet, or daydream. In our stimulation-rich world, it seems unrealistic that boredom could occur at all. Yet, there are valid reasons boredom may feel so painful. As it turns out, boredom might signal the fact that you have a need that isn't being met. Our always-on world of social media may result in more connections, but they are superficial and can get in the way of building a real sense of belonging. Feeling bored may signal the desire for a greater sense of community and the feeling that you fit in with others around you. So take the step of joining an organization to build face-to-face relationships. You'll find depth that you won't get from your screen no matter how many likes you get on your post. Similar to the need for belonging, bored people often report that they feel a limited sense of meaning. It's a fundamental human need to have a larger purpose and to feel like we're part of something bigger than ourselves. When people are bored, they're more likely to feel less meaning in their lives. If you want to reduce boredom and increase your sense of meaning, seek work where you can make a unique contribution, or find a cause you can support with your time and talent. If your definition of boredom is being quiet, mindful, and reflective, keep it up. But if you're struggling with real boredom and the emptiness it provokes, consider whether you might seek new connections and more significant challenges. These are the things that will genuinely relieve boredom and make you more effective in the process."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What have studies found about boredom?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It facilitates innovative thinking."
+            },
+            {
+              "key": "B",
+              "text": "It is a result of doing boring tasks."
+            },
+            {
+              "key": "C",
+              "text": "It helps people connect with others."
+            },
+            {
+              "key": "D",
+              "text": "It does harm to one's mental health."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题干中的studies和boredom定位到第 一段第二、三句。 A【精析】细节辨认题。文章第一段第二句提到,研 究指出,无聊是如何有利于创造力的。第三句提 到,研究发现,人们在完成一项枯燥乏味的任务后 更有创造力。第四句进一步指出,当人们感到无 聊时,他们会增加“联想思维”,这与创新思维有 关。由此可见,科学家对无聊所做的研究表明,无 聊可以激发人们的创造性思维,故答案为A。 【避错】文章第一段第三句提到,人们在完成一项 枯燥乏味的任务后更有创造力,从事无聊工作的 结果是有创造力,而不是更加无聊,故排除B)。 C)项是根据第四句中newconnections设置的干 扰项,文中是指“联想思维”是在思想之间建立新 联系的过程,而非无聊帮人们与他人建立联系,故 排除。文章第一段第二句提到,无聊如何有利于 创造力和创新,以及心理健康。由此可见,无聊对 心理健康是有益的,而非有害的,故排除D)。"
+        },
+        {
+          "number": 47,
+          "stem": "What does the author say boredom might indicate?",
+          "options": [
+            {
+              "key": "A",
+              "text": "A need to be left alone."
+            },
+            {
+              "key": "B",
+              "text": "A desire to be fulfilled."
+            },
+            {
+              "key": "C",
+              "text": "A conflict to be resolved."
+            },
+            {
+              "key": "D",
+              "text": "A feeling to be validated."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的boredommightindicate定位 到第二段最后一句。 B)【精析】推理判断题。定位句提到,事实证明,无聊 可能表明你的需求没有得到满足。由此可知,当 人们感到无聊时,这表明人们的某种需求未得到 满足,故答案为B)。 【避错】文章第五段第一句提到,如果你对无聊的 定义是安静、专注和反省,那就坚持下去。但并未 提到无聊意味着需要独处,由此可知,该选项过于 片面,故排除A)。文中并未提及无聊意味着需要 解决的冲突,故排除C)。文章第三段第二句提 到,感到无聊可能表明更强烈的群体意识渴望,并 且想要融入你周围的人之中,这与想法或情感被 认同有所不同,故排除D)。"
+        },
+        {
+          "number": 48,
+          "stem": "What do we learn about social media from the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It may be an obstacle to expanding one's connections."
+            },
+            {
+              "key": "B",
+              "text": "It may get in the way of enhancing one's social status."
+            },
+            {
+              "key": "C",
+              "text": "It may prevent people from developing a genuine sense of community."
+            },
+            {
+              "key": "D",
+              "text": "It may make people feel that they ought to fit in with the outside world."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的socialmedia定位到第三段第 一、二句。 C)【精析】推理判断题。定位句指出,我们一直在线 的社交媒体世界可能会产生更多的联系,但这些 联系是肤浅的,可能会妨碍建立真正的归属感。 感到无聊可能表明更强烈的群体意识的欲望,并 且想要融人你周国的人之中。由此可见,过多的 社交媒体会妨碍我们建立真正的归属感,造成群 体意识的缺失,故答案为C)。 【避错】文章第三段第一句指出,我们一直在线的 社交媒体世界可能会产生更多的联系,由此可见, 社交媒体是可以扩大人际关系的,故排除A)。文 中并未提及社交媒体会妨碍人们提高社会地位, 故排除B)。文章第三段第二句指出,感到无聊可 能表明更强烈的群体意识欲望,并且想要融入你 周围的人之中,由此可见,社交媒体并不能帮助人 们融人周围的人群中,而是妨碍了人们现实生活 的粘合度,故排除D)。"
+        },
+        {
+          "number": 49,
+          "stem": "What does the author suggest people do to get rid of boredom?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Count the likes they get on their posts."
+            },
+            {
+              "key": "B",
+              "text": "Reflect on how they relate to others."
+            },
+            {
+              "key": "C",
+              "text": "Engage in real-life interactions."
+            },
+            {
+              "key": "D",
+              "text": "Participate in online discussions."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的getridofboredom定位到第 三段第三句和最后一段第二、三句。 C)【精析】推理判断题。第三段第三句提到采取措施 加人一个组织,建立面对面的关系。最后一段第 二句提到,如果你正与真正的无聊和它所引发的 空虚作斗争,考虑一下你是否可能寻求新的联系 和更重大的挑战。这些事情将真正缓解无聊,让 你在这个过程中更有效率。综合两部分内容可 知,答案为C)。 【避错】文章第三段最后一句明确提到,你会拥有 深度的人际交往,这是你无论在你的帖子上得到 多少点费都获得不了的。由此可见,社交媒体上 获得的关注,并不能满足人们现实生活中的情感 需要,故排除A)。文章并未提及人们可以通过反 思如何与他人相处来摆脱无聊,故排除B)。文章 第三段最后一句只提到了发表帖子这种网络社交 方式,并未提及在线讨论,D)不符合文义,故排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What should people do to enhance their sense of meaning?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Try to do something original."
+            },
+            {
+              "key": "B",
+              "text": "Confront significant challenges."
+            },
+            {
+              "key": "C",
+              "text": "Define boredom in their unique way."
+            },
+            {
+              "key": "D",
+              "text": "Devote themselves to a worthy cause."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的enhancetheirsenseof meaning定位到第四段最后一句。 D)【精析】推理判断题。定位句指出,如果你想减少 无聊感,增加你的意义感,找一份你能做出独特贡 献的工作,或者找一个你能用时间和才能支持的 事业。由此可见,作者认为,人们想要增加意义感 的两种方法为:一、找一份可以做出独特贡献的工 作;二、找一份能有时间和才能支持的事业。故答案为D)。 【避错】文章第四段最后一句指出,要增加意义感, 找一份你能做出独特贡献的工作,但原创的事情 并不一定能做出独特的贡献,故排除A)。最后一 段第二句提到,寻求新的联系和更重大的挑战可 以真正缓解无聊。由此可见,这是缓解无聊的一 种方式,与意义感无关,故排除B)。文中并未提 及以独特的方式定义无聊,故排除C)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2021-06-3-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Can you remember what you ate yesterday? If asked, most people will be able to give a vague description of their main meals: breakfast, lunch, dinner. But can you be sure you've noted every snack bar in your car, or every handful of nuts at your desk? Most people will have a feeling that they've missed something out. We originally had this suspicion back in 2016, puzzled by the fact that national statistics showed calorie consumption falling dramatically over past decades. We found reliable evidence that people were drastically under-reporting what they ate. Now the Office for National Statistics has confirmed that we are consuming 50% more calories than our national statistics claim. Why is this happening? We can point to at least three potential causes. One is the rise in obesity levels itself. Under-reporting rates are much higher for obese people, because they simply consume more food, and thus have more to remember. Another cause is that the proportion of people who are trying to lose weight has been increasing over time. People who want to lose weight are more likely to under-report their eating—regardless of whether they are overweight or not. This may be driven partly by self-deception or \"wishful thinking\". The final potential cause is an increase in snacking and eating out over recent decades—both in terms of how often they happen and how much they contribute to our overall energy intake. Again, there is",
+        "evidence that food consumed out of the home is one of the most poorly recorded categories in surveys.",
+        "So, what's the message conveyed? For statistics, we should invest in more accurate measurement options. For policy, we need to focus on options that make it easy for people to eat fewer calories. If people do not know how much they are eating, it can be really hard for them to stick to a diet. Also, we should be looking for new ways to ensure what people eat wouldn't have much impact on their waistlines. If this works, it won't matter if they can't remember what they ate yesterday."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What did the author suspect back in 2016?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Calorie consumption had fallen drastically over the decades."
+            },
+            {
+              "key": "B",
+              "text": "Most people surveyed were reluctant to reveal what they ate."
+            },
+            {
+              "key": "C",
+              "text": "The national statistics did not reflect the actual calorie consumption."
+            },
+            {
+              "key": "D",
+              "text": "Most people did not include snacks when reporting their calorie intake."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的suspect和backin2016定位 到第二段。 C)【精析】推理判断题。定位段指出,早在2016年他 们就有了这种怀疑,因为国家统计数据显示,在过 去几十年,卡路里消耗量大幅下降,这让他们感到 困感。有可靠的证据证明人们严重地漏报了他们 吃的东西。由此可见,有证据显示人们漏报了自 已摄人的食物,因此作者怀疑国家统计局数据的 真实性,故答案为C)。 【避错】文章第二段指出,国家统计数据显示,过去 几十年,卡路里消耗量大幅下降,这让他们感到困 感。由此可见,卡路里消耗量的下降数据令人困 感,这是引起怀疑的原因,并非怀疑的内容,故排 除A)。下文中提到人们漏报数据的原因,并非不 想透露,而是因为某些原因无法准确汇报,故排除 B)。文章第一段倒数第二句提到,你能确定你注 意到了你在车里吃的小吃,或者你桌子上的每一 把坚果吗,这是一个反间的句子,并不是作者的怀 疑,而是一个事实,故排除D)。"
+        },
+        {
+          "number": 52,
+          "stem": "What has the Office for National Statistics verified?",
+          "options": [
+            {
+              "key": "A",
+              "text": "People's calorie intake was far from accurately reported."
+            },
+            {
+              "key": "B",
+              "text": "The missing out of main meals leads to the habit of snacking."
+            },
+            {
+              "key": "C",
+              "text": "The nation's obesity level has much to do with calorie intake."
+            },
+            {
+              "key": "D",
+              "text": "Calorie consumption is linked to the amount of snacks one eats."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题干中的theOfficeforNational Statistics和verified定位到第三段。 A)【精析】细节辨认题。定位段提到,现在国家统计 局已经证实,我们消耗的卡路里比国家统计数据 声称的多50%。由此可知,国家统计局所报道的 数据,与人们消耗卡路里的真实数据有很大的出 人,故答案为A)。 【避错】文章第三段提到,现在国家统计局已经证 实,我们消耗的卡路里比国家统计数据声称的多 50%。由此可见,国家统计局仅仅证实了这一个 方面,即人们消耗卡路里的真实情况,故排除B)、 C)和D)项。"
+        },
+        {
+          "number": 53,
+          "stem": "What do we learn about obese people from the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They usually keep their eating habits a secret."
+            },
+            {
+              "key": "B",
+              "text": "They overlook the potential causes of obesity."
+            },
+            {
+              "key": "C",
+              "text": "They cannot help eating more than they should."
+            },
+            {
+              "key": "D",
+              "text": "They have difficulty recalling what they have eaten."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的obesepeople定位到第四段最 后一句。 D)【精析】推理判断题。定位句指出,肥胖者的漏报 率要高得多,因为他们的确吃了更多的食物,因此 需要记住更多的信息。由此可见,肥胖者因为自 已摄入的食物过多,因此无法事无巨细地将自已 所吃的食物完全记住,故答案为D)。 【避错】文章第四段最后一句指出,肥胖者的漏报 率要高得多,因为他们的确吃了更多的食物,因此 需要记住更多的信息。由此可见,肥胖者漏报率 较高的原因,并不是不愿意泄露自己的饮食情况, 而是记不全,故排除A)。文中并未提及肥胖者忽 视了肥胖的潜在原因,故排除B)。文章第四段最 后一句提到,肥胖者吃更多的食物,但未提及他们 忍不住吃得比他们应该吃的多,故排除C)。"
+        },
+        {
+          "number": 54,
+          "stem": "What often goes unnoticed in surveys on food consumption?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The growing trend of eating out."
+            },
+            {
+              "key": "B",
+              "text": "The potential causes of snacking."
+            },
+            {
+              "key": "C",
+              "text": "People's home energy consumption."
+            },
+            {
+              "key": "D",
+              "text": "People's changing diet over the years."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题干中的unnoticedinsurveysonfood consumption和题文同序原则定位到第六段。 A)【精析】细节辨认题。第六段提到,最后一个潜在 的原因是,近几十年来,吃零食和外出吃饭的人越 来越多,有证据表明,在调查中,外出吃掉的食物 是记录最少的类别之一。由此可见,外出就餐通 常被人们忽略,故答案为A)。 【避错】第六段第一句提到吃零食的人越来越多, 但并未提及吃零食的潜在原因,故排除B)。第六 段只是提到外出就餐对人们整体能量摄入的影 响,并未提及家庭能源的消耗,故排除C)。文章 第六段提到人们在吃零食以及外出就餐这两个方 面的变化,但饮食习惯的变化并不是食物摄人量 调查中经常被忽视的方面,D)项不符合文义,故 排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What does the author suggest policymakers do about obesity?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Remind people to cut down on snacking."
+            },
+            {
+              "key": "B",
+              "text": "Make sure people eat non-fattening food."
+            },
+            {
+              "key": "C",
+              "text": "Ensure people don't miss their main meals."
+            },
+            {
+              "key": "D",
+              "text": "See that people don't stick to the same diet."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的policymakersdoabout obesity定位到最后一段第三至五句。 B)【精析】推理判断题。定位句指出,在政策方面,我 们需要关注那些让人们容易摄人更少卡路里的选 择。如果人们不知道自己吃了多少,那他们就真 的很难坚持节食了。此外,我们应该寻找新的方 法来确保人们的饮食不会对他们的腰围产生太大 影响。由此可见,作者认为,政策制定者应该引导 人们多吃一些卡路里较少的食物,使之尽量减少 对体重的影响,故答案为B)。 【避错】定位句提到,在政策方面,我们需要关注那 些让人们容易摄人更少卡路里的选择。我们应该 寻找新的方法来确保人们的饮食不会对他们的腰 围产生太大影响。由此可见,这是一个全面低卡 饮食的建议,并不是只针对零食,故排除A)。文 中提到用低卡路里饮食来确保腰围不再增加,并 没有提到主餐的话题,故排除C)。最后一段第四 句指出,如果人们不知道自已吃了多少,那他们就 真的很难坚持节食了。由此可见,作者认为肥胖 者应坚持节食,而不是让人们坚持不同的饮食,故 排除D)。"
+        }
+      ]
+    }
+  ]
+}

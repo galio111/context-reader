@@ -1,0 +1,1688 @@
+{
+  "id": "cet4-2019-06-1",
+  "level": 4,
+  "year": 2019,
+  "month": 6,
+  "set": 1,
+  "title": "2019 年 6 月四级 · 第 1 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.06/%E7%9C%9F%E9%A2%98Word/2019%E5%B9%B46%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC%E4%B8%80%E5%A5%97.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2019%E5%B9%B46%E6%9C%88%E4%BB%BD%E5%9B%9B%E7%BA%A7%EF%BC%88%E7%AC%AC%E4%B8%80%E5%A5%97%EF%BC%89%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2019-06-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "The center of American automobile innovation has in the past decade moved 2,000 miles away. It has [[26]] from Detroit to Silicon Valley, where self-driving vehicles are coming into life. In a [[27]] to take production back to Detroit, Michigan lawmakers have introduced [[28]] that could make their state the best place in the country, if not the world, to develop self-driving vehicles and put them on the road. “Michigan’s [[29]] in auto research and development is under attack from several states and countries which desire to [[30]] our leadership in transportation. We can’t let happen,” says Senator Mike Kowall, the lead [[31]] of four bills recently introduced. If all four bills pass as written, they would [[32]] a substantial update of Michigan’s 2013 law that allowed the testing of self-driving vehicles in limited conditions. Manufacturer would have nearly total freedom to test their self-driving technology on public roads. They would be allowed to send groups of self-driving cars on cross-state road trips, and even set on-demand [[33]] of self-driving cars, like the one General Motors and Lyft are building. Lawmakers in Michigan clearly want to make the state ready for the commercial application of self-driving technology. In [[34]] , California, home of Silicon Valley, recently proposed far more [[35]] rules that would require human drivers be ready to take the wheel, and commercial use of self-driving technology."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "bid"
+        },
+        {
+          "key": "B",
+          "text": "contrast"
+        },
+        {
+          "key": "C",
+          "text": "deputy"
+        },
+        {
+          "key": "D",
+          "text": "dominance"
+        },
+        {
+          "key": "E",
+          "text": "fleets"
+        },
+        {
+          "key": "F",
+          "text": "knots"
+        },
+        {
+          "key": "G",
+          "text": "legislation"
+        },
+        {
+          "key": "H",
+          "text": "migrated"
+        },
+        {
+          "key": "I",
+          "text": "replace"
+        },
+        {
+          "key": "J",
+          "text": "represent"
+        },
+        {
+          "key": "K",
+          "text": "restrictive"
+        },
+        {
+          "key": "L",
+          "text": "reward"
+        },
+        {
+          "key": "M",
+          "text": "significant"
+        },
+        {
+          "key": "N",
+          "text": "sponsor"
+        },
+        {
+          "key": "O",
+          "text": "transmitted"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bid"
+            },
+            {
+              "key": "B",
+              "text": "contrast"
+            },
+            {
+              "key": "C",
+              "text": "deputy"
+            },
+            {
+              "key": "D",
+              "text": "dominance"
+            },
+            {
+              "key": "E",
+              "text": "fleets"
+            },
+            {
+              "key": "F",
+              "text": "knots"
+            },
+            {
+              "key": "G",
+              "text": "legislation"
+            },
+            {
+              "key": "H",
+              "text": "migrated"
+            },
+            {
+              "key": "I",
+              "text": "replace"
+            },
+            {
+              "key": "J",
+              "text": "represent"
+            },
+            {
+              "key": "K",
+              "text": "restrictive"
+            },
+            {
+              "key": "L",
+              "text": "reward"
+            },
+            {
+              "key": "M",
+              "text": "significant"
+            },
+            {
+              "key": "N",
+              "text": "sponsor"
+            },
+            {
+              "key": "O",
+              "text": "transmitted"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【答案】H】migrated 【语法分析】空格前为Ithas,后为fromAtoB介词结构,空格词应为名词或ed 分词。 【答案解析】第一段的1句指出美国汽车创新中心已发生迁移(has...moved... away)。2句以It回指Thecenterof...以固定结构fromAtoB表示\"从A地到B地\"。 表示“迁移,转移\",H)migrated正确。 O)transmitted符合词性要求,能与from...to...搭配,且词义亦体现\"移动、转 移”,所以有很强干扰。但transmit和from..to...搭配的用法有两种:1.用于主动句式 A transmit B from. . . to... (, Mosquitoes may transmit diseasefrom animals to humans. 蚊子可能会把疾病从动物传到人身上);2.用于被动句式Abetransmittedfrom...to... (如,Mathematicalknowledge istransmitedfrom teacherto student.数学知识由教师传 授给学生)。本空显然不符合上述任何一种,可排除。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bid"
+            },
+            {
+              "key": "B",
+              "text": "contrast"
+            },
+            {
+              "key": "C",
+              "text": "deputy"
+            },
+            {
+              "key": "D",
+              "text": "dominance"
+            },
+            {
+              "key": "E",
+              "text": "fleets"
+            },
+            {
+              "key": "F",
+              "text": "knots"
+            },
+            {
+              "key": "G",
+              "text": "legislation"
+            },
+            {
+              "key": "H",
+              "text": "migrated"
+            },
+            {
+              "key": "I",
+              "text": "replace"
+            },
+            {
+              "key": "J",
+              "text": "represent"
+            },
+            {
+              "key": "K",
+              "text": "restrictive"
+            },
+            {
+              "key": "L",
+              "text": "reward"
+            },
+            {
+              "key": "M",
+              "text": "significant"
+            },
+            {
+              "key": "N",
+              "text": "sponsor"
+            },
+            {
+              "key": "O",
+              "text": "transmitted"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【答案】A】bid 【语法分析】空27前为Ina,后为不定式totake..,空格词应为可数名词单数。 【答案解析】空格所在句以totake..、thatcould..、todevelop...体现逻辑关系: 汽车创新中心从“(位于密歇根州的)底特律市\"迁移到“(位于加州的)硅谷”(首 段)一→因此,密歇根欲重新夺回底特律的中心地位(Ina27_totake...backto Detroit)→就此,密歇根立法者提出了新法规/规定,将密歇根州打造成全国最适合 开发、应用自动驾驶汽车的地区。空27应体现解决问题的意图/决心,A)正确(in abidto为固定搭配,意为\"为了努力.....\")"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bid"
+            },
+            {
+              "key": "B",
+              "text": "contrast"
+            },
+            {
+              "key": "C",
+              "text": "deputy"
+            },
+            {
+              "key": "D",
+              "text": "dominance"
+            },
+            {
+              "key": "E",
+              "text": "fleets"
+            },
+            {
+              "key": "F",
+              "text": "knots"
+            },
+            {
+              "key": "G",
+              "text": "legislation"
+            },
+            {
+              "key": "H",
+              "text": "migrated"
+            },
+            {
+              "key": "I",
+              "text": "replace"
+            },
+            {
+              "key": "J",
+              "text": "represent"
+            },
+            {
+              "key": "K",
+              "text": "restrictive"
+            },
+            {
+              "key": "L",
+              "text": "reward"
+            },
+            {
+              "key": "M",
+              "text": "significant"
+            },
+            {
+              "key": "N",
+              "text": "sponsor"
+            },
+            {
+              "key": "O",
+              "text": "transmitted"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【答案】G】legislation 【语法分析】空28前为及物动词introduced,后为that从句,空格词应为名词。 【答案解析】空格所在句以totake..、thatcould..、todevelop...体现逻辑关系: 汽车创新中心从“(位于密歇根州的)底特律市\"迁移到“(位于加州的)硅谷”(首 段)一→因此,密歇根欲重新夺回底特律的中心地位一就此,密歇根立法者提出了新 法规/规定,将密歇根州打造成全国最适合开发、应用自动驾驶汽车的地区(have introduced_28_that..,)。空28应体现解决问题的举措/政策/法律/提案,G)正确。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bid"
+            },
+            {
+              "key": "B",
+              "text": "contrast"
+            },
+            {
+              "key": "C",
+              "text": "deputy"
+            },
+            {
+              "key": "D",
+              "text": "dominance"
+            },
+            {
+              "key": "E",
+              "text": "fleets"
+            },
+            {
+              "key": "F",
+              "text": "knots"
+            },
+            {
+              "key": "G",
+              "text": "legislation"
+            },
+            {
+              "key": "H",
+              "text": "migrated"
+            },
+            {
+              "key": "I",
+              "text": "replace"
+            },
+            {
+              "key": "J",
+              "text": "represent"
+            },
+            {
+              "key": "K",
+              "text": "restrictive"
+            },
+            {
+              "key": "L",
+              "text": "reward"
+            },
+            {
+              "key": "M",
+              "text": "significant"
+            },
+            {
+              "key": "N",
+              "text": "sponsor"
+            },
+            {
+              "key": "O",
+              "text": "transmitted"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【答案】D】dominance 可数名词或可数名词单数。 【答案解析】空格句引用参议员MikeKowall话语指出,密歇根在汽车研发上 的正受到一些州和国家的威胁,它们试图其在交通领域的领先地位。联系句 子前后可知Michigan's_in auto research and development与our leadership in transportation同指\"密歇根优势;可见,空29应意为领先地位/优势等;答案为D)"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bid"
+            },
+            {
+              "key": "B",
+              "text": "contrast"
+            },
+            {
+              "key": "C",
+              "text": "deputy"
+            },
+            {
+              "key": "D",
+              "text": "dominance"
+            },
+            {
+              "key": "E",
+              "text": "fleets"
+            },
+            {
+              "key": "F",
+              "text": "knots"
+            },
+            {
+              "key": "G",
+              "text": "legislation"
+            },
+            {
+              "key": "H",
+              "text": "migrated"
+            },
+            {
+              "key": "I",
+              "text": "replace"
+            },
+            {
+              "key": "J",
+              "text": "represent"
+            },
+            {
+              "key": "K",
+              "text": "restrictive"
+            },
+            {
+              "key": "L",
+              "text": "reward"
+            },
+            {
+              "key": "M",
+              "text": "significant"
+            },
+            {
+              "key": "N",
+              "text": "sponsor"
+            },
+            {
+              "key": "O",
+              "text": "transmitted"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【答案】I】replace 【语法分析】空30前为whichdesireto,后为名词短语ourleadership,空格词应为 动词原形。 【答案解析】空格句引用参议员MikeKowall话语指出,密歇根在汽车研发上 的正受到一些州和国家的威胁,它们试图其在交通领域的领先地位。under attack与desireto_30_ourleadership反向同义:前者体现\"密歇根/底特律受到攻 击”,后者指出\"其他州和国家发起攻击\",空30应意为取代/抢走等,答案为I)。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bid"
+            },
+            {
+              "key": "B",
+              "text": "contrast"
+            },
+            {
+              "key": "C",
+              "text": "deputy"
+            },
+            {
+              "key": "D",
+              "text": "dominance"
+            },
+            {
+              "key": "E",
+              "text": "fleets"
+            },
+            {
+              "key": "F",
+              "text": "knots"
+            },
+            {
+              "key": "G",
+              "text": "legislation"
+            },
+            {
+              "key": "H",
+              "text": "migrated"
+            },
+            {
+              "key": "I",
+              "text": "replace"
+            },
+            {
+              "key": "J",
+              "text": "represent"
+            },
+            {
+              "key": "K",
+              "text": "restrictive"
+            },
+            {
+              "key": "L",
+              "text": "reward"
+            },
+            {
+              "key": "M",
+              "text": "significant"
+            },
+            {
+              "key": "N",
+              "text": "sponsor"
+            },
+            {
+              "key": "O",
+              "text": "transmitted"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【答案】N】sponsor 【语法分析】空格词位于SenatorMikeKowall的同位语theleadof..中,应 为(单数)名词。 【答案解析】空格所在名词短语是对SenatorMikeKowall身份/行为等的介绍。 由其话语(尤其是Wecan'tletthathappen)可知他代表密歇根州。再联系上段可知, four bills recently introduced 呼应 Michigan lawmakers have introduced legislation,即: MikeKowal支持新立法,空格词应意为\"支持者/倡议者\",备选项中只有N)符 合文意。 C)deputy为指\"人\"的单数名词,且可指\"政府官员\",因此有较强干扰。但仔 细分析该词具体准确含义可知它并不合适:该词意为副手\"时往往和名词连用(如 theDeputySecretaryofState助理国务卿);意为(美国)县行政司法官助理\"时不合 本文情形(本文分析的是“州\"层面);意为(法国等一些国家的)议员\"时更显然不 合本文谈及地域(美国)。由此提醒考生:务必准确掌握每个大纲词的含义。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bid"
+            },
+            {
+              "key": "B",
+              "text": "contrast"
+            },
+            {
+              "key": "C",
+              "text": "deputy"
+            },
+            {
+              "key": "D",
+              "text": "dominance"
+            },
+            {
+              "key": "E",
+              "text": "fleets"
+            },
+            {
+              "key": "F",
+              "text": "knots"
+            },
+            {
+              "key": "G",
+              "text": "legislation"
+            },
+            {
+              "key": "H",
+              "text": "migrated"
+            },
+            {
+              "key": "I",
+              "text": "replace"
+            },
+            {
+              "key": "J",
+              "text": "represent"
+            },
+            {
+              "key": "K",
+              "text": "restrictive"
+            },
+            {
+              "key": "L",
+              "text": "reward"
+            },
+            {
+              "key": "M",
+              "text": "significant"
+            },
+            {
+              "key": "N",
+              "text": "sponsor"
+            },
+            {
+              "key": "O",
+              "text": "transmitted"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【答案】J】represent 【语法分析】空格前为theywould,空格后为名词短语asubstantialupdate,空格词 应为动词原形。 【答案解析】空格句指出,四项议案若得以通过,则会密歇根2013年的一 项法规得到实质性的更新。随后介绍新旧法规的差异:旧法(Michigan's2013law) 允许制造商在限制条件下进行自动驾驶汽车测试VS新法(fourbillsrecently introduced)允许制造商几乎可以完全自由地进行自动驾驶汽车测试。可见新法标志 着密歇根州在自动驾驶技术法规”方面取得实质性更新,空格词应表示“代表/象征/ 标志\"等,J)符合要求。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bid"
+            },
+            {
+              "key": "B",
+              "text": "contrast"
+            },
+            {
+              "key": "C",
+              "text": "deputy"
+            },
+            {
+              "key": "D",
+              "text": "dominance"
+            },
+            {
+              "key": "E",
+              "text": "fleets"
+            },
+            {
+              "key": "F",
+              "text": "knots"
+            },
+            {
+              "key": "G",
+              "text": "legislation"
+            },
+            {
+              "key": "H",
+              "text": "migrated"
+            },
+            {
+              "key": "I",
+              "text": "replace"
+            },
+            {
+              "key": "J",
+              "text": "represent"
+            },
+            {
+              "key": "K",
+              "text": "restrictive"
+            },
+            {
+              "key": "L",
+              "text": "reward"
+            },
+            {
+              "key": "M",
+              "text": "significant"
+            },
+            {
+              "key": "N",
+              "text": "sponsor"
+            },
+            {
+              "key": "O",
+              "text": "transmitted"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【答案】E)fleets 【语法分析】主体结构Theywould be allowed to send...and even setup on -demand,空格前为动词setup+修饰成分on-demand,后为介词短语of.,空格词应 为名词。 【答案解析】由andeven体现的语义递进可知\"派出自动驾驶车队在跨州公路 上行驶(sendgroupsofself-drivingcars.)”与\"组建按需型自动驾驶汽车的(set upon-demand33_of self-drivingcars)\"语义同向(均体现\"给予制造商在自动驾 控制→按需组建车队涉及情况更复杂,难度更大),空格词应与groups近义,表示 “(车)队,组”,E)正确。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bid"
+            },
+            {
+              "key": "B",
+              "text": "contrast"
+            },
+            {
+              "key": "C",
+              "text": "deputy"
+            },
+            {
+              "key": "D",
+              "text": "dominance"
+            },
+            {
+              "key": "E",
+              "text": "fleets"
+            },
+            {
+              "key": "F",
+              "text": "knots"
+            },
+            {
+              "key": "G",
+              "text": "legislation"
+            },
+            {
+              "key": "H",
+              "text": "migrated"
+            },
+            {
+              "key": "I",
+              "text": "replace"
+            },
+            {
+              "key": "J",
+              "text": "represent"
+            },
+            {
+              "key": "K",
+              "text": "restrictive"
+            },
+            {
+              "key": "L",
+              "text": "reward"
+            },
+            {
+              "key": "M",
+              "text": "significant"
+            },
+            {
+              "key": "N",
+              "text": "sponsor"
+            },
+            {
+              "key": "O",
+              "text": "transmitted"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【答案】B)contrast 【语法分析】空34前为介词in,后为逗号,空格词应为名词(In作状语)。 【答案解析】末段12句分别介绍密歇根州、加州对待自动驾驶技术的态度:密歇 根意欲推广自动驾驶技术的商业应用;加州要求人类驾驶员做好掌控方向盘的准备, 并禁止自动驾驶技术的商用。比较可知,二者对待自动驾驶技术的态度截然不同: 前者给予极大自由,后者则更为审慎,立法进行限制。所以,空34应体现“巨大差 异,鲜明对比\",选B"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bid"
+            },
+            {
+              "key": "B",
+              "text": "contrast"
+            },
+            {
+              "key": "C",
+              "text": "deputy"
+            },
+            {
+              "key": "D",
+              "text": "dominance"
+            },
+            {
+              "key": "E",
+              "text": "fleets"
+            },
+            {
+              "key": "F",
+              "text": "knots"
+            },
+            {
+              "key": "G",
+              "text": "legislation"
+            },
+            {
+              "key": "H",
+              "text": "migrated"
+            },
+            {
+              "key": "I",
+              "text": "replace"
+            },
+            {
+              "key": "J",
+              "text": "represent"
+            },
+            {
+              "key": "K",
+              "text": "restrictive"
+            },
+            {
+              "key": "L",
+              "text": "reward"
+            },
+            {
+              "key": "M",
+              "text": "significant"
+            },
+            {
+              "key": "N",
+              "text": "sponsor"
+            },
+            {
+              "key": "O",
+              "text": "transmitted"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【答案】K】restrictive 【语法分析】空35前为比较级标志(far)more,后为名词rules,空格词应为形容 词。 【答案解析】先看整体结构,再看具体内容。末段12句分别介绍密歇根州、加州 对待自动驾驶技术的态度:密歇根意欲推广自动驾驶技术的商业应用;加州要求人 类驾驶员做好掌控方向盘的准备,并禁止自动驾驶技术的商用。比较可知,二者对 待自动驾驶技术的态度截然不同:前者给予极大自由,后者则更为审慎,立法进行 限制,空34,35均体现二者关系。所以空35应体现(加州规定更为)严格/审慎”, 选K)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2019-06-1-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Today in the United States there are 72,000 centenarians(百岁老人).Worldwide, Probably 450,000. If current trends continue, then by 2050 there will be more than a million in the US alone. According to the work of Professor James Vaupel and his co-researchers, 50% of babies born in the US in 2007 have a life expectancy of 104 or more. Broadly the same holds for the UK, Germany, France, Italy and Canada, and for Japan 50% of 2007 babies can expect to live to 107.",
+        "B) Understandably, there are concerns about what this means for public finances given the associated health and pension challenges. These challenges are real, and society urgently needs to address them. But it is also important to look at the wider picture of what happens when so many people live for 100 years. It is a mistake to simply equate longevity (长寿) with issues of old age. Longer lives have implications for all of life, not just the end of it.",
+        "C) Our view is that if many people are living for longer, and are healthier for longer, then this will result in an inevitable redesign of work and life. When people live longer, they are not only older for longer, but also younger for longer. There is some truth in the saying that “70 is the new 60” or “40 the new 30.” If you age more slowly over a longer time period, then you are in some sense younger for longer.",
+        "D) But the changes go further than that. Take, for instance, the age at which people make commitments such as buying a house, getting married, having children, or starting a career. These are all fundamental commitments that are now occurring later in life. In 1962, 50% of Americans were married by age 21. By 2014, that milestone(里程碑)had shifted to age 29.",
+        "E) While there are numerous factors behind these shifts, one factor is surely a growing realization for the young that they are going to live longer. Options are more valuable the longer they can be held. So if you believe you will live longer, then options become more valuable, and early commitment becomes less attractive. The result is that the commitments that previously characterized the beginning of adulthood are now being delayed, and new patterns of behavior and a new stage of life are emerging for those in their twenties.",
+        "F) Longevity also pushes back the age of retirement, and not only for financial reasons. Yes, unless people are prepared to save a lot more, our calculations suggest that if you are now in your mid-40s, then you are likely to work until your early 70s; and if you are in your early 20s, there is a real chance you will need to work until your late 70s or possibly even into your 80s. But even if people are able to economically support a retirement at 65, over thirty years of potential inactivity is harmful to cognitive(认知的) and emotional vitality. Many people may simply not want to do it.",
+        "G) And yet that does not mean that simply extending our careers is appealing. Just lengthening that second stage of full-time work may secure the financial assets needed for a 100-year life, but such persistent work will inevitably exhaust precious intangible assets such as productive skills, vitality, happiness, and friendship.",
+        "H) The same is true for education. It is impossible that a single shot of education, administered in childhood and early adulthood, will be able to support a sustained, 60-year career. If you factor in the projected rates of technological change, either your skills will become unnecessary, or your industry outdated. That means that everyone will, at some point in their life, have to make a number of major reinvestments in their skills.",
+        "I) It seems likely, then, that the traditional three-stage life will evolve into multiple stages containing two, three, or oven more different careers. Each of these stages could potentially be different. In one the focus could be on building financial success and personal achievement, in another on creating a better work/life balance, still another on exploring and understanding options more fully, or becoming an independent producer, yet another on making a social contribution. These stages will span sectors, take people to different cities, and provide foundation for building a wide variety of skills.",
+        "J) Transitions between stages could be marked with sabbaticals (休假) as people find time to rest and recharge their health, re-invest in their relationships, or improve their skills. At times, these breaks and transitions will be self-determined, at others they will be forced as existing roles, firms, or industries cease to exist.",
+        "K) A multi-stage life will have profound changes not just in how you manage your career, but also in your approach to life. An increasingly important skill will be your ability to deal with change and even welcome it. A three-stage life has few transitions, while a multi-stage life has many. That is why being self-aware, investing in broader networks of friends, and being open to new ideas will become even more crucial skills.",
+        "L) These multi-stage lives will create extraordinary variety across groups of people simply because there are so many ways of sequencing the stages. More stages mean more possible sequences.",
+        "M) With this variety will come the end of the close association of age and stage. I n a three-stage life, people leave university at the same time and the same age, they tend to start their careers and family at the same age, they proceed through middle management all roughly the same time, and then move into retirement within a few years of each other. In a multi-stage life, you could be an undergraduate at 20, 40, or 60; a manager at 30, 50, or 70; and become an independent producer at any age.",
+        "N) Current life structures, career paths, educational choices, and social norms are out of tune with the emerging reality of longer lifespans. The three-stage life of full-time education, followed by continuous work, and then complete retirement may have worked for our parents or even grandparents, but it is not relevant today. We believe that to focus on longevity as primarily an issue of aging is to miss its full implications. Longevity is not necessarily about being older for longer. It is about living longer, being older later, and being younger longer."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "An extended lifespan in the future will allow people to have more careers than now.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【答案】I。【解析】[I]段①句指出长寿的影响“传统的三阶段人生将演变成多阶段人生，会包含多个不同的职业生涯”，本题是对该句的同义改写，其中an extended lifespan对应全文论述主题“长寿”。"
+        },
+        {
+          "number": 37,
+          "stem": "Just extending one’s career may have both positive and negative effects.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【译文】仅仅延长一个人的职业生涯可能利弊兼有。 【答案】[G] 【解析】[G]段1句总起指出延迟退休并非全是好处(notmean...appealing..),2 句具体说明利弊:虽能获得更多财富,但却耗尽某些无形资产,如活力、幸福感等。本 题总结该段大意。"
+        },
+        {
+          "number": 38,
+          "stem": "Nowadays, many Americans have on average delayed their marriage by some eight years.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【译文】如今,许多美国人将平均结婚年龄推迟了约八年。 【答案】[D] 【解析】[D]段43句列举数字说明美国人平均结婚年龄的推退现象:从1962 年的21岁推迟到了2014年的29岁,也即推迟了8岁。本题是对两句的同义改写。"
+        },
+        {
+          "number": 39,
+          "stem": "Because of their longer lifespan, young people today no longer follow the pattern of life of their parents or grandparents.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【译文】由于寿命更长,今天的年轻人不再遵循他们父辈或祖父辈的生活模式。 【答案】[N] 【解析】[N]段2句指出“传统的三阶段人生适用于父辈或祖父辈,但如今不再 适用了”,言外之意即“年轻人不再遵循父辈们的生活方式”本题是对该句的合理引申。"
+        },
+        {
+          "number": 40,
+          "stem": "Many more people will be expected to live over 100 by the mid-21st century.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【译文】到21世纪中叶,预计将有更多的人活到100岁以上。 【答案】[A] 【解析】[A]段首先以美国为例指出,当前美国有7万多名百岁老人,到2050 年这一数量将超过100万。随即引用研究结论指出,无论在美国还是英、德、法、 意、加、日,婴儿的预期寿命越来越长,50%能达到百岁以上,即未来会有更多人活 到100岁以上。本题是对该段主旨大意的总结概括。"
+        },
+        {
+          "number": 41,
+          "stem": "A longer life will cause radical changes in people’s approach to life.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【译文】寿命的延长将使人们的生活方式发生根本变化。 【答案】[K] 【解析】[K]段1句继续说明多阶段的人生,即长寿的影响给人们生活方式带 来深远影响\"(willhaveprofoundchanges..inyourapproachtolife),本题是对该句的同 义改写。"
+        },
+        {
+          "number": 42,
+          "stem": "Fast technological change makes it necessary for one to constantly upgrade their skills.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【译文】技术快速变化使人们有必要不断地提高技能。 【答案】[H] 【解析】[H段3句指出\"技术快速发展使人们的技能、所在行业过时、甚至消 失”,4句提出人们的应对措施“必须适时进行重大技能投资以不断提高技能”。本题 是对两句大意的概括总结。"
+        },
+        {
+          "number": 43,
+          "stem": "Many people may not want to retire early because it would do harm to their mental and emotional well-being.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【译文】许多人可能不想提前退休,因为这会损害他们的精神和情感健康。 【答案】[F] 【解析】[F]段3句指出,人们提前退休后不工作的状态也有害处:影响精神 和情感活力:4句评论指出多数人不愿提早退休。本题是对该两句的概括改写。"
+        },
+        {
+          "number": 44,
+          "stem": "The close link between age and stage may cease to exist in a multi-stage life.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "M",
+          "explanation": "【译文】在一个多阶段的生命中,年龄和阶段之间的密切联系可能会消失。 【答案】[M] 【解析】[M]段1句指出多阶段人生的影响“年龄和人生阶段的密切联系将会消 失”。本题是对该句的同义改写。"
+        },
+        {
+          "number": 45,
+          "stem": "People living a longer and healthier life will have to rearrange their work and life.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【译文】更长寿、更健康的人们将不得不重新规划他们的工作和生活。 【答案】[C] 【解析】[C]段1句指出长寿的影响“将导致人们重新规划工作和生活”。本题 是对该句的同义改写。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2019-06-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "In the classic marriage vow(誓约), couples promise to stay together in sickness and in health. But a new study finds that the risk of divorce among older couples rises when the wife-not the husband—becomes seriously ill. “Married women diagnosed with a serious health condition may find themselves struggling with the impact of their disease while also experiencing the stress of divorce,” said researcher Amelia Karraker. Karraker and co-author Kenzie Latham analyzed 20 years of data on 2,717 marriages from a study conducted by Indiana University since 1992. At the time of the first interview, at least one of the partners was over the age of 50. The researchers examined how the onset(发生)of four serious physical illnesses affected marriages. They found that, overall, 31% of marriages ended in divorce over the period studied. The incidence of new chronic(慢性的)illness onset increased over time as will, with more husbands than wives developing serious health problems. “We found that women are doubly vulnerable to marital break-up in the face of illness,” Karraker said. “They’re more likely to be widowed, and if they’re the noes who become ill, they’re more likely to get divorced.” While the study didn’t assess why divorce in more likely when wives but not husbands become seriously ill, Karraker offers a few possible reasons. “Gender norms and social expectations about caregiving many make it more difficult for men to provide care to sick spouses,” Karraker said. “And because of the imbalance in marriage markets, especially in older ages, divorced men have more choices among prospective partners than divorced women.” Given the increasing concern about health care costs for the aging population, Karraker believes policymakers should be aware of the relationship between disease and risk of divorce. “Offering support services to spouses caring for their other halves may reduce marital stress and prevent divorce at older ages,” she said. “But it’s also important to recognize that the pressure to divorce may be health-related and that sick ex-wives may need additional care and services to prevent worsening health and increased health costs.”"
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What can we learn about marriage vows from the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They may not guarantee a lasting marriage."
+            },
+            {
+              "key": "B",
+              "text": "They are as binding as they used to be."
+            },
+            {
+              "key": "C",
+              "text": "They are not taken seriously any more."
+            },
+            {
+              "key": "D",
+              "text": "They may help couples tide over hard times."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【答案】A 【定位】本题考查\"婚姻誓约的相关信息\"。由题干关键词marriagevows定位至 首段。 【解析】本题考查对首段信息的概括推理。解题关键是借同义/反义表达把握婚 姻普约与研究发现的关联:2句couples/wife/husband、seriouslyil分别原词/近义对 应1句couples、sickness,而2句divorce则反义对应1句staytogether,借此可推知开 篇引出“永远不离不弃\"的誓约意在反讽现实,也即婚姻普约未必能保障两人白头借 老。B、D被首段1句内容障目,忽视2句转折引出的研究发现才是真正重要的信 息。C将文中所述情形的范围“年长夫妻\"扩大为\"所有夫妻\",其次开篇并未从“世风 发生今昔变化\"的角度论述。"
+        },
+        {
+          "number": 47,
+          "stem": "What did Karraker and co-author Kenzie Latham find about elderly husbands?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are generally not good at taking care of themselves."
+            },
+            {
+              "key": "B",
+              "text": "They can become increasingly vulnerable to serious illnesses."
+            },
+            {
+              "key": "C",
+              "text": "They can develop different kinds of illnesses just like their wives."
+            },
+            {
+              "key": "D",
+              "text": "They are more likely to contract serious illnesses than their wives."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【答案】D 【定位】本题考查\"研究发现”。由题干关键词Karraker...KenzieLatham定位至 第三段(Karraker and co-authorKenzie Latham analyzed..)及第四段(Theresearchers examined...) 【解析】本题考查研究发现细节信息。A将第六段2句信息“(老年夫妻中)男 性更难做到照顾患病配偶\"曲解为“老年男性不善于照顾自已”。B干扰源于第四段3 句中“慢性/严重疾病发病率也随时间推移上升”,该内容虽为主干信息,却是对整体 趋势(年老夫妻双方)的说明(“人越老越易得病\"是基于数据得出的常识性发现, 并非核心发现),题干仅就“年老丈夫”一方发问也暗示本题考查的是“基于男女比较 的核心发现/信息(句中由with引导的独立主格表现)\",故该项偏离研究重心。C 项justliketheirwives与第四段末\"其中丈夫比妻子更容易患重病\"矛盾。D)第三段 介绍研究数据,第四段介绍研究发现,其中发现之一是“(随着时间推移)丈夫比妻 子更容易患上重疾”,同时第五段也提及“疾病面前女性更有可能丧偶(即丈夫比妻 子更容易因病去世)”,综合推知D项正确。"
+        },
+        {
+          "number": 48,
+          "stem": "What does Karraker say about women who fall ill?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are more likely to be widowed."
+            },
+            {
+              "key": "B",
+              "text": "They are more likely to get divorced."
+            },
+            {
+              "key": "C",
+              "text": "They are less likely to receive good care."
+            },
+            {
+              "key": "D",
+              "text": "They are less likely to bother their spouses."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【答案】B 【定位】本题考查\"研究发现\"。由题干关键词Karraker,womenwhofall ill定位 至第二段(Married women...health condition)和第五段(Karraker said...if they're the ones who become ill..) 【解析】本题同上题类似,均考查研究发现。A源自第五段They'remorelikelyto bewidowed,但这属于丈夫患病去世导致婚姻破裂的情形,而非“自已患病而丧偶”。 C将第六段2句卡拉克言论暗含的对比“惠病女性相比患病男性更难被另一半好好 照顾\"泛化为“患病女性很难受到悉心照顾”。D将第六段2句“被动局面一一(患病 女性)更难被配偶照顾\"窜改为“主动选择一患病女性不太会烦扰(到)配偶\"。B) 第五段以直接引语介绍卡拉克的发现:疾病面前女性易遭受婚姻破裂有双重原因, 一是丈夫更易患重病(致丧偶),二是自己患病时更可能离婚;题干询问妻子患病情 形,B符合文意。"
+        },
+        {
+          "number": 49,
+          "stem": "Why is it more difficult for men to take care of their sick spouses according to Karraker?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are more accustomed to receiving care."
+            },
+            {
+              "key": "B",
+              "text": "They find it more important to make money for the family."
+            },
+            {
+              "key": "C",
+              "text": "They think it more urgent to fulfill their social obligations."
+            },
+            {
+              "key": "D",
+              "text": "They expect society to do more of the job."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【答案】A 【定位】本题考查\"卡拉克的观点看法\"。由题干关键信息moredifficultformento takecareoftheirsickspouses定位至o第六段2句(moredifficultformentoprovide care to sick spouses) 【解析】本题为因果题,首先应确定相关逻辑词,根据第六段2句因果动词make (致使)锁定描述原因的主语Gendernormsandsocial expectationsaboutcaregiving, 结合后半句关键词providecare可知该原因聚焦(性别规范与社会期望)在 caregiving(照顾/看护)方面约定俗成的社会观念,B、C过度推断定位句信息:“丈 离全文“客观介绍研究发现”的大前提。可首先排除,其次根据normssocial expectations暗含的客观社会规范可确定描述客观习惯的A为正确项。同时排除D, D将末段卡拉克建议“(社会)应该为照顾惠病配偶的丈夫提供支持服务、为惠病 妻子提供额外照顾和服务”偷换为“男性的主观看法”。"
+        },
+        {
+          "number": 50,
+          "stem": "What does Karraker think is also important?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Reducing marital stress on wives."
+            },
+            {
+              "key": "B",
+              "text": "Stabilizing old couples’s relations."
+            },
+            {
+              "key": "C",
+              "text": "Providing extra care for divorced women."
+            },
+            {
+              "key": "D",
+              "text": "Making men pay for their wives’ health costs."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【答案】C 【定位】本题考查\"卡拉克的建议\"。由题干关键词Karraker,also important可定 位至末段末句。 【解析】本题解题关键是根据表达建议的主观性标记词识别出具体建议:末段 1句以mayreduce/prevent(主观推测情态动词+表示结果/作用的因果动词)标明主 语所述方面的重要性(指向建议一);2句以mayneed(主观推测情态动词+表示必 要性的动词)标明宾语所述方面的必要性(指向建议二);选项中A、B将末段首句 第一条建议(社会应为照顾另一半患病的老年人提供支持服务)的结果/作用“减轻 婚姻压力、避免离婚\"错当作建议本身,且题干询问的是另一条建议。D将末段2句 第二条建议“社会应为离异患病女性提供额外照顾\"曲解为\"男性应该支付妻子的医 疗费”。只有C正确总结了建议二的内容,末段末句介绍卡拉克的另一建议“应认识到 离婚压力可能与健康有关,患病女性离婚后可能需要额外的照顾和服务以防止健康 状况恶化和医疗费用增加\"C符合此建议。 【原文译文】"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2019-06-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "If you were like most children, you probably got upset when your mother called you by a sibling’s(兄弟姐妹的)name. How could she not know you? Did it mean she loved you less? Probably not. According to the first research to tackle this topic head-on, misnaming the most familiar people in our life is a common cognitive (认知的)error that has to do with how our memories classify and store familiar names. The study, published online in April in the journal Memory and Cognition,found that the “wrong” name is not random but is invariably fished out from the same relationship pond: children, siblings, friends. The study did not examine the possibility of deep psychological significance to the mistake, says psychologist David Rubin, “but it does tell us who’s in and who’s out of the group.” The study also found that within that group, misnamings occurred where the names shared initial or internal sounds, like Jimmy and Joanie or John and Bob. Physical resemblance between people was not a factor. Nor was gender. The researchers conducted five separate surveys of more than 1,700 people. Some of the surveys included only college students; others were done with a mixed-age population. Some asked subjects about incidents where someone close to them—family or friend—had called them by another person’s name. The other surveys asked about times when subjects had themselves called someone close to them by the wrong name. All the surveys found that people mixed up names within relationship groups such as grandchildren, friends and siblings but hardly ever crossed these boundaries. In general, the study found that undergraduates were almost as likely as old people to make this mistake and men as likely as women. Older people and this mistake and men as likely as women. Older people and women made the mistake slightly more often, but that may be because grandparents have more grandchildren to mix up than parents have children. Also, mothers may call on their children more often than fathers, given traditional gender norms. There was no evidence that errors occurred more when the misnamer was frustrated, tired or angry."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "How might people often feel when they were misnamed?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Unwanted."
+            },
+            {
+              "key": "B",
+              "text": "Unhappy."
+            },
+            {
+              "key": "C",
+              "text": "Confused."
+            },
+            {
+              "key": "D",
+              "text": "Indifferent."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【答案】B 【定位】本题考查\"人们被叫错名字时的心理感受\",由whentheyweremisnamed 定位至首段(whenyourmothercalledyoubya sibling'sname)。 【解析】A将3句疑问之意“是否爱得更少\"偷换为肯定之意“爱得更少”,然后 再将“爱得更少”程度加深为\"不爱”,从而捏造出\"不被需要,多余”。C由23句连 续发问臆断出被叫错名字者“困惑:不知道到底是因为不认识还是因为爱得更少而被 叫错”,而2句Howcould..not、3句Diditmean...less实质均暗含被叫错名字者\"失 落、沮丧\"的态度。D与被叫错名字者内心感受upset、心中疑惑Howcould...Didit mean...所传递的(对名字被叫错之事)极为在乎\"态度相悖。B)文首句指出多数孩 子的一种普遍心理:在被妈妈唤错名字时不高兴,然后借助“you(代指读者,泛指 任何人)与多数孩子的相似性(like)\"将这一心理投射到所有人身上,意即,被唤 错名字时,人们通常都会不高兴,故B正确。Unhappy义同upset。"
+        },
+        {
+          "number": 52,
+          "stem": "What did David Rubin’s research find about misnaming?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is related to the way our memories work."
+            },
+            {
+              "key": "B",
+              "text": "It is a possible indicator of a faulty memory."
+            },
+            {
+              "key": "C",
+              "text": "It occurs mostly between kids and their friends."
+            },
+            {
+              "key": "D",
+              "text": "It often causes misunderstandings among people."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【答案】A 【定位]本题考查戴维·鲁宾的研究发现,定位范围宽泛(由表ZJK特指的thefirst research,Thestudy,Theresearchers可知第二至六段所述为同一研究),但结合试题命 总述研究发现,后续段落详述研究具体内容及结果)。 【解析]B中faulty虽意同第二段2句中error,但却将具体指向“认知\"偷换为\"记 忆”:文意实为“由于记忆的分类储存方法(如兄弟姊妹、子女、朋友),人们容易 发生叫错名字这个问题\",其属于认知问题(信息提取时出错)而非记忆问题(对人 名的记忆并没出错)。C将第三段1句“被叫错的名字的常见来源:同一关系池(孩 子、朋友、兄弟姐妹)”曲解为“叫错名字现象易发人群:孩子与其朋友之间”。D 利用首段末两句隐藏文意“被叫错名字者常会感觉不被爱、不被认可”捏造而来,但 并非研究发现。A)。第二段2句介绍研究发现:将最熟悉的人的名字叫错是一种常 见认知错误,这与我们的记忆如何对熟悉的名字进行分类与储存有关;意即,叫错 名字跟我们的记忆运作方式有关,A是对该句的高度概括,其中relatedto同义改写 do with, the way our memories work 括how our memories classify and storefamiliar names."
+        },
+        {
+          "number": 53,
+          "stem": "What is most likely the cause of misnaming?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Similar personality traits."
+            },
+            {
+              "key": "B",
+              "text": "Similar spellings of names."
+            },
+            {
+              "key": "C",
+              "text": "Similar physical appearance."
+            },
+            {
+              "key": "D",
+              "text": "Similar pronunciation of names."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【答案】D 【定位】本题考查叫错名字的原因(causeofmisnaming),可定位至第四段 (misnamings occurred where. .. a factor...) 【解析】A由第三段首句“被叫错者通常属于同一个关系池:朋友、兄弟姐妹、 子女\"捏造而来,认为“属同一个关系池的人大多个性特征相似”,但“同属关系池\"*“个 性特征相似”。B将第四段首句\"发音相似(shared...sounds)\"窜改为\"拼写相似 (similarspellings)\"。C与2句\"外貌相似不是(导致名字叫错的)因素\"相悸。D)。 第四段首句指出:在一个关系池里,如果名字开头或中间发音相同则会出现叫错现 象,如Jimmy和Joanie,或者John和Bob。可见,名字发音相似很可能是叫错名字的 原因,D正确。"
+        },
+        {
+          "number": 54,
+          "stem": "What did the surveys of more than 1,700 subjects find about misnaming?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It more often than not hurts relationships."
+            },
+            {
+              "key": "B",
+              "text": "It hardly occurs across gender boundaries."
+            },
+            {
+              "key": "C",
+              "text": "It is most frequently found in extended families."
+            },
+            {
+              "key": "D",
+              "text": "It most often occurs within a relationship groups."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【答案】D 【定位】本题题点为\"针对1700多人的调查(结果\",可由thesurveysofmorethan 1,700 subjects定位至第五段首末句(surveysofmorethan1700people.·.Allthe surveys found. . ) 【解析】A由首段现象“叫错名字让被叫错者不高兴\"及全文复现词relationship 杂捏造而来,但文中无据可依。E将末句中theseboundaries具体所指boundariesof relationshipgroups偷换为genderboundaries,而第四段末句明确指出\"叫错名字与性 别无关(即,会跨越性别界限)\"。C由grandchildren衍生出extendedfamilies(与核 心家庭相对,指几代同堂的大家庭),将文中个例“子孙辈名字(、朋友名字、兄弟 娣妹名字等其他属于同一关系池内部的名字)容易搞混\"窄化曲解为“叫错名字常见 于大家庭中\"。D)。第五段首句引出研究人员开展的调查:针对1700多人展开了五 项独立调查;末句指出调查结果:人们只将同一关系池内部(孙辈、朋友、兄弟姐 妹)的人名搞错,几乎从未跨越过这些关系池的界限。可见,将名字搞混最常发生 在一个关系群内部,D正确。"
+        },
+        {
+          "number": 55,
+          "stem": "Why do mothers misname their children more often than fathers?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They suffer more frustrations."
+            },
+            {
+              "key": "B",
+              "text": "They become worn out more often."
+            },
+            {
+              "key": "C",
+              "text": "They communicate more with their children."
+            },
+            {
+              "key": "D",
+              "text": "They generally take on more work at home."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【答案】C 【定位】本题考查母亲比父亲更常叫错孩子名字的原因,可定位至第六段23 句(women...more often,mothers...more often than fathers)。 【解析】A中frustrations、B中wornout均源自末句,但该句句意实为\"叫错名 字的几率与叫错名字行为人是否感到沮丧、疲倦、愤怒无关”,选项做了反向干扰。 D由3句traditionalgendernorms\"传统性别规范\"望文生义出“母亲(比父亲)承担更 多家务”但该词实际指向\"母亲更多呼唤孩子”。C)。末段23句指出:老人和女性 叫错名字的频率略高,可能是因为祖父母比父母有更多的孙辈混淆,母亲比父亲更 常召唤孩子。由此可见,母亲比父亲更常叫错孩子名字是因为母亲和孩子交流更多, 常常召唤孩子。故C正确。"
+        }
+      ]
+    }
+  ]
+}

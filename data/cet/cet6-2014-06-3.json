@@ -1,0 +1,1729 @@
+{
+  "id": "cet6-2014-06-3",
+  "level": 6,
+  "year": 2014,
+  "month": 6,
+  "set": 3,
+  "title": "2014 年 6 月六级 · 第 3 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.06/%E7%9C%9F%E9%A2%98Word/2014%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%EF%BC%88%E4%B8%89%EF%BC%89.doc",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2014%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%EF%BC%88%E4%B8%89%EF%BC%89.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2014-06-3-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Millions of Americans are entering their 60s and are more concerned than ever about retirement. They know they need to save, but how much? And what exactly are they saving for—to spend more time [[36]] the grandkids, go traveling, or start another career? It turns out that husbands and wives may have [[37]] different ideas about the subject. The deepest divide is in the way spouses envisage their lifestyle in their later years. Fidelity Investments Inc. found 41 percent of the 500 couples it surveyed [[38]] on whether both or at least one spouse will work in retirement. Wives are generally right regarding their husbands’ retirement age, but men [[39]] the age their wives will be when they stop working. And husbands are slightly more [[40]] about their standard of living than wives are. Busy juggling (穷于应付)careers and families, most couples don’t take the time to sit down, [[41]]or together, and think about what they would like to do 5, 10 or 20 years from now. They [[42]] they are on the same page, but the [[43]] is they have avoided even talking about it. If you are self-employed or in a job that doesn’t have a standard retirement age, you may be more apt to delay thinking about these issues, It is often a [[44]] retirement date that provides the catalyst (催化剂)to start planning. Getting laid off or accepting an early-retirement [[45]] can force your hand. But don’t wait until you get a severance (遣散费)check to begin planning."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "assume"
+        },
+        {
+          "key": "B",
+          "text": "confidential"
+        },
+        {
+          "key": "C",
+          "text": "disagree"
+        },
+        {
+          "key": "D",
+          "text": "formula"
+        },
+        {
+          "key": "E",
+          "text": "forthcoming"
+        },
+        {
+          "key": "F",
+          "text": "illustrating"
+        },
+        {
+          "key": "G",
+          "text": "mysteriously"
+        },
+        {
+          "key": "H",
+          "text": "observe"
+        },
+        {
+          "key": "I",
+          "text": "optimistic"
+        },
+        {
+          "key": "J",
+          "text": "package"
+        },
+        {
+          "key": "K",
+          "text": "radically"
+        },
+        {
+          "key": "L",
+          "text": "reality"
+        },
+        {
+          "key": "M",
+          "text": "separately"
+        },
+        {
+          "key": "N",
+          "text": "spoiling"
+        },
+        {
+          "key": "O",
+          "text": "underestimate"
+        }
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "第 36 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assume"
+            },
+            {
+              "key": "B",
+              "text": "confidential"
+            },
+            {
+              "key": "C",
+              "text": "disagree"
+            },
+            {
+              "key": "D",
+              "text": "formula"
+            },
+            {
+              "key": "E",
+              "text": "forthcoming"
+            },
+            {
+              "key": "F",
+              "text": "illustrating"
+            },
+            {
+              "key": "G",
+              "text": "mysteriously"
+            },
+            {
+              "key": "H",
+              "text": "observe"
+            },
+            {
+              "key": "I",
+              "text": "optimistic"
+            },
+            {
+              "key": "J",
+              "text": "package"
+            },
+            {
+              "key": "K",
+              "text": "radically"
+            },
+            {
+              "key": "L",
+              "text": "reality"
+            },
+            {
+              "key": "M",
+              "text": "separately"
+            },
+            {
+              "key": "N",
+              "text": "spoiling"
+            },
+            {
+              "key": "O",
+              "text": "underestimate"
+            }
+          ],
+          "answer": "N",
+          "explanation": "N)。动词辨析题。空格前为spend more time,后为the grandkids,所以此处需要填人动词的-ing 形式,构成spend time doing sth.结构。备选项中符合条件的有illustrating 和spoiling,能与空格 后的grandkids 构成合理搭配的只有spoiling,意为“ 花更多的时间去溺爱孙辈” ,故答案为 spoiling“溺爱”。"
+        },
+        {
+          "number": 37,
+          "stem": "第 37 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assume"
+            },
+            {
+              "key": "B",
+              "text": "confidential"
+            },
+            {
+              "key": "C",
+              "text": "disagree"
+            },
+            {
+              "key": "D",
+              "text": "formula"
+            },
+            {
+              "key": "E",
+              "text": "forthcoming"
+            },
+            {
+              "key": "F",
+              "text": "illustrating"
+            },
+            {
+              "key": "G",
+              "text": "mysteriously"
+            },
+            {
+              "key": "H",
+              "text": "observe"
+            },
+            {
+              "key": "I",
+              "text": "optimistic"
+            },
+            {
+              "key": "J",
+              "text": "package"
+            },
+            {
+              "key": "K",
+              "text": "radically"
+            },
+            {
+              "key": "L",
+              "text": "reality"
+            },
+            {
+              "key": "M",
+              "text": "separately"
+            },
+            {
+              "key": "N",
+              "text": "spoiling"
+            },
+            {
+              "key": "O",
+              "text": "underestimate"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K)。副词辨析题。空格位于动词have 之后,名词短语different ideas 之前,且句子结构完整, 据此判断此处应填人修饰different 的副词,或是与different 并列修饰ideas 的形容词。本句提到, 丈夫和妻子对这个问题可能持有不同的看法,备选项中只有radically 能修饰different 且符合句 意,故radically“根本地”为答案。"
+        },
+        {
+          "number": 38,
+          "stem": "第 38 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assume"
+            },
+            {
+              "key": "B",
+              "text": "confidential"
+            },
+            {
+              "key": "C",
+              "text": "disagree"
+            },
+            {
+              "key": "D",
+              "text": "formula"
+            },
+            {
+              "key": "E",
+              "text": "forthcoming"
+            },
+            {
+              "key": "F",
+              "text": "illustrating"
+            },
+            {
+              "key": "G",
+              "text": "mysteriously"
+            },
+            {
+              "key": "H",
+              "text": "observe"
+            },
+            {
+              "key": "I",
+              "text": "optimistic"
+            },
+            {
+              "key": "J",
+              "text": "package"
+            },
+            {
+              "key": "K",
+              "text": "radically"
+            },
+            {
+              "key": "L",
+              "text": "reality"
+            },
+            {
+              "key": "M",
+              "text": "separately"
+            },
+            {
+              "key": "N",
+              "text": "spoiling"
+            },
+            {
+              "key": "O",
+              "text": "underestimate"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。动词辨析题。空格位于found 的宾语从句中,在该宾语从句中,41 percent of the 500 couples 为主语,it surveyed 是定语从句修饰500 couples,宾语从句缺少谓语,所以空格处应填人动词,且 能与介词on 构成搭配。由第二段首句可知,最大的分歧在于夫妻们如何设想他们晚年的生活方 式。空格所在句是对该句的进一步说明,因此,空格处应填入表示“分歧”意义的词。结合备选 项,确定答案为disagree“不同意,有分歧”。"
+        },
+        {
+          "number": 39,
+          "stem": "第 39 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assume"
+            },
+            {
+              "key": "B",
+              "text": "confidential"
+            },
+            {
+              "key": "C",
+              "text": "disagree"
+            },
+            {
+              "key": "D",
+              "text": "formula"
+            },
+            {
+              "key": "E",
+              "text": "forthcoming"
+            },
+            {
+              "key": "F",
+              "text": "illustrating"
+            },
+            {
+              "key": "G",
+              "text": "mysteriously"
+            },
+            {
+              "key": "H",
+              "text": "observe"
+            },
+            {
+              "key": "I",
+              "text": "optimistic"
+            },
+            {
+              "key": "J",
+              "text": "package"
+            },
+            {
+              "key": "K",
+              "text": "radically"
+            },
+            {
+              "key": "L",
+              "text": "reality"
+            },
+            {
+              "key": "M",
+              "text": "separately"
+            },
+            {
+              "key": "N",
+              "text": "spoiling"
+            },
+            {
+              "key": "O",
+              "text": "underestimate"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O)。动词辨析题。空格位于but 连接的并列句中,空格前是主语men,空格后是宾语the age, 由此推断空格处应填入动词作谓语。根据句意可知,第一个分句与第二个分句构成转折关系,而 第一个分句提到妻子一般能正确 判断丈夫的退休年龄,由此可知丈夫应该与妻子相反,也就是 说丈夫不能正确判断妻子的退休年龄,故答案为 underestimate “低估”。"
+        },
+        {
+          "number": 40,
+          "stem": "第 40 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assume"
+            },
+            {
+              "key": "B",
+              "text": "confidential"
+            },
+            {
+              "key": "C",
+              "text": "disagree"
+            },
+            {
+              "key": "D",
+              "text": "formula"
+            },
+            {
+              "key": "E",
+              "text": "forthcoming"
+            },
+            {
+              "key": "F",
+              "text": "illustrating"
+            },
+            {
+              "key": "G",
+              "text": "mysteriously"
+            },
+            {
+              "key": "H",
+              "text": "observe"
+            },
+            {
+              "key": "I",
+              "text": "optimistic"
+            },
+            {
+              "key": "J",
+              "text": "package"
+            },
+            {
+              "key": "K",
+              "text": "radically"
+            },
+            {
+              "key": "L",
+              "text": "reality"
+            },
+            {
+              "key": "M",
+              "text": "separately"
+            },
+            {
+              "key": "N",
+              "text": "spoiling"
+            },
+            {
+              "key": "O",
+              "text": "underestimate"
+            }
+          ],
+          "answer": "I",
+          "explanation": "I)。形容词辨析题。由空格前面的more 可推知空格处应填人形容词或副词原形与more—起 构成比较级,而且该空格又位于be 动词之后,与slightly more—起作表语:,所以此处应填人形 容词。根据句意可知,该句主要是将丈夫与妻子对生活水平的态度进行对比,故答案为optimistic “乐观的”。"
+        },
+        {
+          "number": 41,
+          "stem": "第 41 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assume"
+            },
+            {
+              "key": "B",
+              "text": "confidential"
+            },
+            {
+              "key": "C",
+              "text": "disagree"
+            },
+            {
+              "key": "D",
+              "text": "formula"
+            },
+            {
+              "key": "E",
+              "text": "forthcoming"
+            },
+            {
+              "key": "F",
+              "text": "illustrating"
+            },
+            {
+              "key": "G",
+              "text": "mysteriously"
+            },
+            {
+              "key": "H",
+              "text": "observe"
+            },
+            {
+              "key": "I",
+              "text": "optimistic"
+            },
+            {
+              "key": "J",
+              "text": "package"
+            },
+            {
+              "key": "K",
+              "text": "radically"
+            },
+            {
+              "key": "L",
+              "text": "reality"
+            },
+            {
+              "key": "M",
+              "text": "separately"
+            },
+            {
+              "key": "N",
+              "text": "spoiling"
+            },
+            {
+              "key": "O",
+              "text": "underestimate"
+            }
+          ],
+          "answer": "M",
+          "explanation": "M)。副词辨析题。根据空格后的or 可知,空格处填人的单词应与together 词性相同、意思 相反,故答案为separately “单独地”。"
+        },
+        {
+          "number": 42,
+          "stem": "第 42 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assume"
+            },
+            {
+              "key": "B",
+              "text": "confidential"
+            },
+            {
+              "key": "C",
+              "text": "disagree"
+            },
+            {
+              "key": "D",
+              "text": "formula"
+            },
+            {
+              "key": "E",
+              "text": "forthcoming"
+            },
+            {
+              "key": "F",
+              "text": "illustrating"
+            },
+            {
+              "key": "G",
+              "text": "mysteriously"
+            },
+            {
+              "key": "H",
+              "text": "observe"
+            },
+            {
+              "key": "I",
+              "text": "optimistic"
+            },
+            {
+              "key": "J",
+              "text": "package"
+            },
+            {
+              "key": "K",
+              "text": "radically"
+            },
+            {
+              "key": "L",
+              "text": "reality"
+            },
+            {
+              "key": "M",
+              "text": "separately"
+            },
+            {
+              "key": "N",
+              "text": "spoiling"
+            },
+            {
+              "key": "O",
+              "text": "underestimate"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。动词辨析题。空格位于主语They 之后,宾语从句之前,由此推断空格处应填入动词作 谓语。由空格所在部分的句意可知,他们 他们的想法一致,后半部分的but 表明事实并非 如此,只是他们自己“认为”,故答案为assume“认为,假设”。"
+        },
+        {
+          "number": 43,
+          "stem": "第 43 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assume"
+            },
+            {
+              "key": "B",
+              "text": "confidential"
+            },
+            {
+              "key": "C",
+              "text": "disagree"
+            },
+            {
+              "key": "D",
+              "text": "formula"
+            },
+            {
+              "key": "E",
+              "text": "forthcoming"
+            },
+            {
+              "key": "F",
+              "text": "illustrating"
+            },
+            {
+              "key": "G",
+              "text": "mysteriously"
+            },
+            {
+              "key": "H",
+              "text": "observe"
+            },
+            {
+              "key": "I",
+              "text": "optimistic"
+            },
+            {
+              "key": "J",
+              "text": "package"
+            },
+            {
+              "key": "K",
+              "text": "radically"
+            },
+            {
+              "key": "L",
+              "text": "reality"
+            },
+            {
+              "key": "M",
+              "text": "separately"
+            },
+            {
+              "key": "N",
+              "text": "spoiling"
+            },
+            {
+              "key": "O",
+              "text": "underestimate"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L)。名词辨析题。空格位于the 之后,is 之前,故空格处应填人名词作句子的主语。由but 可知前后两个分句的句意相反,第一个分句提到夫妻双方自认为他们的想法一致,即假设,所以 第二个分句应该是描述事实,故答案为reality“事实”。"
+        },
+        {
+          "number": 44,
+          "stem": "第 44 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assume"
+            },
+            {
+              "key": "B",
+              "text": "confidential"
+            },
+            {
+              "key": "C",
+              "text": "disagree"
+            },
+            {
+              "key": "D",
+              "text": "formula"
+            },
+            {
+              "key": "E",
+              "text": "forthcoming"
+            },
+            {
+              "key": "F",
+              "text": "illustrating"
+            },
+            {
+              "key": "G",
+              "text": "mysteriously"
+            },
+            {
+              "key": "H",
+              "text": "observe"
+            },
+            {
+              "key": "I",
+              "text": "optimistic"
+            },
+            {
+              "key": "J",
+              "text": "package"
+            },
+            {
+              "key": "K",
+              "text": "radically"
+            },
+            {
+              "key": "L",
+              "text": "reality"
+            },
+            {
+              "key": "M",
+              "text": "separately"
+            },
+            {
+              "key": "N",
+              "text": "spoiling"
+            },
+            {
+              "key": "O",
+              "text": "underestimate"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E)。形容词辨析题。空格位于不定冠词a 和名词短语retirement date 之间,由此推断空格处 应填人形容词、动词的分词形式或名词修饰retirement date。空格所在句句意为:常常是 退 休日期成了退休规划的催化剂,备选项中,只有forthcoming“即将到来的”符合句意,故为答案。"
+        },
+        {
+          "number": 45,
+          "stem": "第 45 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assume"
+            },
+            {
+              "key": "B",
+              "text": "confidential"
+            },
+            {
+              "key": "C",
+              "text": "disagree"
+            },
+            {
+              "key": "D",
+              "text": "formula"
+            },
+            {
+              "key": "E",
+              "text": "forthcoming"
+            },
+            {
+              "key": "F",
+              "text": "illustrating"
+            },
+            {
+              "key": "G",
+              "text": "mysteriously"
+            },
+            {
+              "key": "H",
+              "text": "observe"
+            },
+            {
+              "key": "I",
+              "text": "optimistic"
+            },
+            {
+              "key": "J",
+              "text": "package"
+            },
+            {
+              "key": "K",
+              "text": "radically"
+            },
+            {
+              "key": "L",
+              "text": "reality"
+            },
+            {
+              "key": "M",
+              "text": "separately"
+            },
+            {
+              "key": "N",
+              "text": "spoiling"
+            },
+            {
+              "key": "O",
+              "text": "underestimate"
+            }
+          ],
+          "answer": "J",
+          "explanation": "J)。名词辨析题。空格位于动名词短语之中,由空格前面的an early-retirement 可以推断, 空格处应填人可数名词单数形式。备选项中,符合条件的只有formula 和package。此处填入 package“一套建议”符合句意,意为“遭到解雇或者接受提前退休建议可以迫使你开始行动”。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2014-06-3-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) The most recent recession in the United States began in December 2007 and ended in June 2009, according to the National Bureau of Economic Research. However, two years after the official end of the recession, few Americans would say that economic troubles are behind us. The unemployment rate, in particular, remains above 9%. Some labor market indicators, such as the proportion of long-term unemployed, are worse now than for any postwar recession.",
+        "B) There are two widely circulated narratives to explain what’s going on. The Keynesian narrative is that there has been a major drop in aggregate demand. According to this narrative, the slump can be largely cured by using monetary and fiscal (财政的)stimulus. The main anti-Keynesian narrative is that businesses are suffering from uncertainty and over-regulation. According to this narrative, the slump can be cured by having the government commit to and follow a more hands-off approach.",
+        "C) I want to suggest a third interpretation. Without ruling out a role for aggregate demand or for the regulatory environment, I wish to suggest that structural change is an important factor in the current rate of high unemployment. The economy is in a state of transition, in which the middle-class jobs that emerged after World WarII have begun to decline. As Erik Brynjolfsson and Andrew McAfee put it in a recent e-book Race Against the Machine : “The root of our problems is not that we’re in a great recession, or a great stagnation (停滞),but rather that we are in the early throes(阵痛)of a great restructuring. ’’",
+        "D) In fact, I believe the Great Depression of the 1930s can also be interpreted in part as an economic transition. The impact of the internal combustion engine (内燃机)and the small electric motor on farming and manufacturing reduced the value of uneducated laborers. Instead, by the 1950s, a middle class of largely clerical (从事文秘考必工作的)workers was the most significant part of the labor force. Between 1930 and 1950, the United States economy underwent a great transition. Demand fell for human effort such as lifting, squeezing, and hammering. Demand increased for workers who could read and follow directions. The evolutionary process eventually changed us from a nation of laborers to a nation of clerks.",
+        "E) The proportion of employment classified as “clerical workers” grew from 5.2% in 1910 to a peak of 19.3% in 1980. (However, by 2000 this proportion had edged down to 17. 4%.) Overall, workers classified as clerical workers, technical workers, managers and officials exceeded 50% of the labor force by 2000. Corresponding declines took place in the manual occupations. Workers classified as laborers, other than farm hands or miners, peaked at 11. 4% of the labor force in 1920 but were barely 6% by 1950 and less than 4% by 2000. Farmers and farm laborers fell from 33% of the labor force in 1910 to less than 15% by 1950 and only 1.2% in 2000.",
+        "F) The introduction of the tractor and improvements in the factory rapidly reduced the demand for uneducated workers. By the 1930s, a marginal farm hand could not produce enough to justify his employment. Sharecropping, never much better than a subsistence occupation, was no longer viable (可行的)。 Meanwhile, machines were replacing manufacturing occupations like cigar rolling and glass blowing for light bulbs.",
+        "G) The structural-transition interpretation of the unemployment problem of the 1930s would be that the demand for uneducated workers in the United States had fallen, but the supply remained high. The high school graduation rate was only 8.8% in 1912 and still just 29% in 1931. By 1950, it had reached 59%. With a new generation of workers who had completed high school, the mismatch between skills and jobs had been greatly reduced.",
+        "H) What took place after World WarII was not the revival of a 1920s economy, with its small farming units, urban manufacturing, and plurality of laborers. Instead, the 1950s saw the creation of a new suburban economy, with a plurality of white-collar workers. With an expanded transportation and communications infrastructure(基础设施),businesses needed telephone operators, shipping clerks and similar occupations. If you could read, follow simple instructions, and settle into a routine, you could find a job in the post-war economy.",
+        "I) The trend away from manual labor has continued. Even within the manufacturing sector, the share of production and non-supervisory workers in manufacturing employment went from, over 85% just after World WarII to less than 70% in more recent years. To put this another way, the proportion of white- collar work in manufacturing has doubled over the past 50 years. On the factory floor itself, work has become less physically demanding. Instead, it requires more cognitive skills and the ability to understand and carry out well-defined procedures.",
+        "J) As noted earlier, the proportion of clerical workers in the economy peaked in 1980. By that date, computers and advanced communications equipment had already begun to affect telephone operations and banking. The rise of the personal computer and the Internet has widened the impact of these technologies to include nearly every business and industry.",
+        "K) The economy today differs from that of a generation ago. Mortgage and consumer loan underwriters (风 险评估人)have been replaced by credit scoring. Record stores have been replaced by music downloads. Book stores are closing, while sales of books on electronic readers have increased. Data entry has been moved off shore. Routine customer support also has been outsourced (外包)overseas.",
+        "L) These trends serve to limit the availability of well-defined jobs. If a job can be characterized by a precise set of instructions, then that job is a candidate to be automated or outsourced to modestly educated workers in developing countries. The result is what David Autor calls the polarization of the American job market.",
+        "M) Using the latest Census Bureau data, Matthew Slaughter found that from 2000 to 2010 the real earnings of college graduates (with no advanced degree) fell by more in percentage terms than the earnings of high school graduates. In fact, over this period the only education category to show an increase in earnings was those with advanced degrees.",
+        "N) The outlook for mid-skill jobs would not appear to be bright. Communications technology and computer intelligence continue to improve, putting more occupations at risk. For example, many people earn a living as drivers, including trucks and taxicabs. However, the age of driverless vehicles appears to be moving closer. Another example is in the field of education. In the fall of 2011, an experiment with an online course in artificial intelligence conducted by two Stanford professors drew tens of thousands of registrants(报名者)。 This increases the student-teacher ratio by a factor of close to a thousand. Imagine the number of teaching jobs that might be eliminated if this could be done for math, economics, chemistry, and so on.",
+        "O) It’s important to bear in mind that when we offer a structural interpretation of unemployment,a “loss of jobs” means an increase in productivity. Traditionally, economists have argued that productivity increases are a good thing, even though they may cause unemployment for some workers in the short run. In the long run, the economy does not run out of jobs. Rather, new jobs emerge as old jobs disappear. The story we tell is that average well-being rises, and the more people are able to adapt, the more widespread the improvement becomes."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "Even factory floor work today has become intellectually challenging rather than physically demanding.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "I",
+          "explanation": "Even factory floor work today has become intellectually challenging rather than physically demanding. I)。【译文】如今,甚至工厂车间的工作都已变成是对智力的挑战,而不是对体力的要求。 【精析】细节归纳题。由题干中的factory floor 和physically demanding 定位到I)段倒数第二 句。 定位句提到,在工厂车间,工作已不那么需要体力劳动;最后一句接着指出,相反,它需要更多 的认知技能,以及理解和执行明确程序的能力,即对智力的挑战。题干是对定位句的归纳总结, 故答案为I)。"
+        },
+        {
+          "number": 47,
+          "stem": "Increases in productivity prove beneficial though some people may lose their jobs temporarily.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "O",
+          "explanation": "Increases in productivity prove beneficial though some people may lose their jobs temporarily. O)。【译文】生产力的提高被证明是有利的,虽然有些人可能会暂时失业。 【精析】细节辨认题。由题干中的Increases in productivity 和 lose their jobs temporarily 定位到 O)段第一、二句。定位句提到,失业意味着生产力的提高。从传统意义上来说,经济学家们认 为, 生产力的提高是一件好事,即使可能会导致一些工人在短期内失业。题干中的lose their jobs temporarily 对应定位句中的 cause unemployment for some workers in the short run,故答案为O)。"
+        },
+        {
+          "number": 48,
+          "stem": "The unemployment rate remained high even two years after the government declared the recent recession was over.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "A",
+          "explanation": "The unemployment rate remained high even two years after the government declared the recent recession was over. A)。【译文】即使在政府宣布最近一轮经济衰退结束的两年后,失业率仍居高不下。 【精析】细节辨认题。由题干中的The unemployment rate 和 two years after 定位到A)段第二、 三句。定位句指出,,在宫方宣布经济衰退结束的两年后,没有几个美国人会说已经摆脱了经济 问题,尤其是失业率,仍然保持在9%以上。题干中的remained high 对应定位句中的 kemains above 9%,the government...over 对应定位句中的 the official end of the recession,故笞案为A)。"
+        },
+        {
+          "number": 49,
+          "stem": "The author suggests that the recent high unemployment rate is mainly caused by a decrease of middle- class jobs.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "C",
+          "explanation": "The author suggests that the recent high unemployment rate is mainly caused by a decrease of middle-class jobs. C)。【译文】作者表明,近期的高失业率主要是由中产阶级工作岗位减少引起的。 【精析】细节推断题。由题干中的high unemployment rate 和 middle-class jobs 定位到C)段第 二、三句。C)段第二句提到作者想表明的是,结构变化是当前高失业率的一个重要因素。紧接 着在第三句提到,经济正处于转型期,二战以后出现的中产阶级的工作岗位已经开始减少。题干 中的the recent high unemployment rate 对应定位句中的 the current rate of high unemployment, decrease,对应定位句中的decline,故答案为C)。"
+        },
+        {
+          "number": 50,
+          "stem": "The creation of a suburban economy in the 1950s created lots of office jobs.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "H",
+          "explanation": "The creation of a suburban economy in the 1950s created lots of office jobs. H)。【译文】20 世纪50 年代建立的郊区经济创造了大量的办公室工作岗位。 【精析】细节辨认题。由题干中的suburban economy 以及the 1950s 定位到H)段第二句。定位句 提到,20 世纪50 年代建立了拥有大量白领工人的新郊区经济。题干中的lots of office jobs 对应 定位句中的 a plurality of white-collar workers,故答案为H)。"
+        },
+        {
+          "number": 51,
+          "stem": "In the first decade of the 21st century, only people with postgraduate degrees experienced an increase in earnings.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "M",
+          "explanation": "In the first decade of the 21st century, only people with postgraduate degrees experienced an increase in earnings. M)。【译文】在21 世纪的头十年里,只有拥有硕士学位的人的收入才有所增长。 【精析】细节辨认题。由题干中的the first decade of the 21st century 和 an increase in earnings 定位到M)段。M)段首句提到,从2000 年至2010 年,高校毕业生(无高级学位的)的实际收入 下降的比例比高中毕业生的要多,这里的高级学位是指本科以上的学位;M)段第二句指出,事实 上,在此期间,唯一显示收入增加的教育类别就是那些具有高级学位的毕业生。题干中的 In the first decade of the 21st century 对应定位段中的 from 2000 to 2010,with postgraduate degrees 对 应定位段中的 with advanced degrees,故答案为M)。"
+        },
+        {
+          "number": 52,
+          "stem": "One economics theory suggests using monetary and fiscal stimulus to cope with an economic recession.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "B",
+          "explanation": "One economics theory suggests using monetary and fiscal stimulus to cope with an economic recession. B)。【译文】一种经济理论建议使用货币和财政刺激方案来应对经济衰退。 【精析】细节辨认题。由题干中的monetary and fiscal stimulus 定位到B)段第三句。定位句提到, 根据该说法,经济不景气可以通过使用货币和财政刺激基本上得到解决。此处的该说法是 指前 一句中提到的凯恩斯主义的说法,与题干中的One economics theory 对应。题干中的 cope with 对应定位句中的cured,an economic recession 对应定位句中的the slump,故答案为B)。"
+        },
+        {
+          "number": 53,
+          "stem": "The popularity of online courses may eliminate many teaching jobs.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "N",
+          "explanation": "The popularity of online courses may eliminate many teaching jobs. N)。【译文】在线课程的普及可能会淘汰许多教学岗位。 【精析】细节归纳题。由题干中的online courses,eliminate 和teaching jobs 定位到N)段倒数第 三句和最后一句。N)段倒数第三句提到,两位斯坦福大学教授进行的人工智能在线课程的实验 吸引了数以万计的报名者。N)段最后一句提到,如果数学、经济学、化学等课程也开设在线课 程的话,那么大量的教学岗位会被淘汰。题干中的may eliminate many teaching jobs 对应定位句 中的 teaching jobs that might be eliminated,故答案为N)。"
+        },
+        {
+          "number": 54,
+          "stem": "Computer technology has brought about revolutionary changes in the record and book business.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "K",
+          "explanation": "Computer technology has brought about revolutionary changes in the record and book business. K)。【译文】电脑技术导致唱片和图书行业发生了革命性的变化。 【精析】细节推断题。由题干中的record and book business 定位到K)段第三、四句。J)段提到, 个人电脑和互联网的兴起已扩大了这些技术的影响,几乎影响了所有的企业和行业。接着定 位 句中具体介绍了个人电脑和互联网对各行各业的影响,如唱片店已被音乐下载所取代,书店在倒 闭,而电子书的销量却在增加。由此可推知,音乐下载和电子书这些电脑技术导致唱片和图书行 业发生了革命性的变化。题干中的Computer technology 对应定位句中的music downloads 和 books on electronic readers,故答案为K)。"
+        },
+        {
+          "number": 55,
+          "stem": "White-collar workers accounted for more than half of the labor force by the end of the 20th century.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "E",
+          "explanation": "White-collar workers accounted for more than half of the labor force by the end of the 20th century. E)。【译文】到20 世纪末,白领工人占劳动力总数的一半以上。 【精析】细节辨认题。由题干中的half of the labor force 和 by the end of the 20th century 定位 到E)段第三句。定位句提到,到2000 年,被划分为文职人员、技术工人、管理人员和行政人员 的劳动者超过了劳动力总数的50%,该句中的文职人员、技术工人、管理人员和行政人员就是指 白领工人。题干中的accounted for more than half of the labor force 对应定位句中的 exceeded 50% of the labor force, by the end of the 20th century 对应定位句中的by 2000,故答案为E)。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2014-06-3-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "“Deep reading” —as opposed to the often superficial reading we do on the Web —is an endangered practice, one we ought to take steps to preserve as we would a historic building or a significant work of art. Its disappearance would jeopardize the intellectual and emotional development of generations growing up online, as well as the preservation of a critical part of our culture: the novels, poems and other kinds of literature that can be appreciated only by readers whose brains, quite literally, have been trained to understand them. Recent research in cognitive science and psychology has demonstrated that deep reading —slow, immersive, rich in sensory detail and emotional and moral complexity—is a distinctive experience, different in kind from the mere decoding of words. Although deep reading does not, strictly speaking, require a conventional book, the built-in limits of the printed page are uniquely helpful to the deep reading experience. A book’s lack of hyperlinks(超链接), for example, frees the reader from making decisions—Should I click on this link or not? —allowing her to remain fully immersed in the narrative. That immersion is supported by the way the brain handles language rich in detail, indirect reference and figures of speech: by creating a mental representation that draws on the same brain regions that would be active if the scene were unfolding in real life. The emotional situations and moral dilemmas that are the stuff of literature are also vigorous exercise for the brain? propelling us inside the heads of fictional characters and even, studies suggest, increasing our real-life capacity for empathy (认同)。 None of this is likely to happen when we’re browsing through a website. Although we call the activity by the same name, the deep reading of books and the information-driven reading we do on the Web are very different, both in the experience they produce and in the capacities they develop. A growing body of evidence suggests that online reading may be less engaging and less satisfying, even for the “digital natives” to whom it is so familiar. Last month, for example, Britain’s National Literacy Trust released the results of a study of 34 910 young people aged 8 to 16. Researchers reported that 39% of children and teens read daily using electronic devices, but only 28% read printed materials every day. Those who read only onscreen were three times less likely to say they enjoy reading very much and a third less likely to have a favorite book. The study also found that young people who read daily only onscreen were nearly two times less likely to be above-average readers than those who read daily in print or both in print and onscreen."
+      ],
+      "questions": [
+        {
+          "number": 56,
+          "stem": "What does the author say about “deep reading”?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It serves as a complement to online reading."
+            },
+            {
+              "key": "B",
+              "text": "It should be preserved before it is too late."
+            },
+            {
+              "key": "C",
+              "text": "It is mainly suitable for reading literature."
+            },
+            {
+              "key": "D",
+              "text": "It is an indispensable part of education."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。事实细节题【考频:★★★】。由题干中的“deep reading”定位到首段第一句。定位句指 出,深阅读是一种濒临消失的阅读行为,我们应当像保护古建筑或重要的艺术品那样对其采取保 护措施。由此可见,作者认为我们 应该保护深阅读,以免为时过晚,故答案为B)。"
+        },
+        {
+          "number": 57,
+          "stem": "Why does the author advocate the reading of literature?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It helps promote readers’ intellectual and emotional growth."
+            },
+            {
+              "key": "B",
+              "text": "It enables readers to appreciate the complexity of language."
+            },
+            {
+              "key": "C",
+              "text": "It helps readers build up immersive reading habits."
+            },
+            {
+              "key": "D",
+              "text": "It is quickly becoming an endangered practice."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。推理判断题【考频: ★★★】。由题干中的the reading of literature 定位到第一段第二 句。定位句指出,深阅读的消失将会危及伴随网络长大的几代人的智力和情感发展,以及对人类 文化关键组成部分一小说、诗歌和 其他文学类型—的保护。由此可以推出,作者提倡文学阅读 的原因是它有助于促进读者的智力和情感发展,故答案为A)。"
+        },
+        {
+          "number": 58,
+          "stem": "In what way does printed-page reading differ from online reading?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It ensures the reader’s cognitive growth."
+            },
+            {
+              "key": "B",
+              "text": "It enables the reader to be fully engaged."
+            },
+            {
+              "key": "C",
+              "text": "It activates a different region of the brain."
+            },
+            {
+              "key": "D",
+              "text": "It helps the reader learn rhetorical devices."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。推理判断题【考频:★★★】。由题干中的printed-page 定位到第二段第二句。第二段 第一句指出深阅读与单纯认字型的阅读不同。第二句提到,虽然深阅读严格说来并不需要传统书 籍,但是印刷品内在的限制却对深阅读体验特别有益,紧接着第三句以书籍没有超链接为例说明 这可以令读者完全沉浸在故事之中,故答案为B)。"
+        },
+        {
+          "number": 59,
+          "stem": "What do the studies show about online reading?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It gradually impairs one’s eyesight."
+            },
+            {
+              "key": "B",
+              "text": "It keeps arousing readers’ curiosity."
+            },
+            {
+              "key": "C",
+              "text": "It provides up-to-date information."
+            },
+            {
+              "key": "D",
+              "text": "It renders reading less enjoyable."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。推聲判断题【考频:★★★】。由题干中的the studies 和online reading 定位到第四段第 三句。定位句指出,越来越多的证据表明,在线阅读可能不那么吸引人,也不太令人满意,也就 是说在线阅读不那么令人愉快,故答案为D)。"
+        },
+        {
+          "number": 60,
+          "stem": "What do we learn from the study released by Britain’s National Literacy Trust?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Onscreen readers may be less competent readers."
+            },
+            {
+              "key": "B",
+              "text": "Those who do reading in print are less informed."
+            },
+            {
+              "key": "C",
+              "text": "Young people find reading onscreen more enjoyable."
+            },
+            {
+              "key": "D",
+              "text": "It is now easier to find a favorite book online to read."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。推理判断题【考频:★★★】。由题干中的Britain’s National Literacy Trust 定位到第四 段第四句和最后一句。本段最后一句指出,每天阅读纸质书或者既读纸质书也读电子书的年轻人 的阅读能力高于平均水平的可能性是每天只看电子书的年轻人的两倍,由此推出用电子设备阅读 的读者可能阅读能力稍差,故答案为A)。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2014-06-3-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Many current discussions of immigration issues talk about immigrants in general, as if they were abstract people in an abstract world. But the concrete differences between immigrants from different countries affect whether their coming here is good or bad for the American people. The very thought of formulating- immigration laws from the standpoint of what is best for the American people seems to have been forgotten by many who focus on how to solve the problems of illegal immigration . It is hard to look for “ the ideal outcome” on immigration in the abstract. Economics professor Milton Friedman once said, “The best is the enemy of the good,” which to me meant that attempts to achieve an unattainable ideal can prevent us from reaching good outcomes that are possible in practice. Too much of our current immigration controversy is conducted in terms of abstract ideals, such as “We are a nation of immigrants.” Of course we are a nation of immigrants. But we are also a nation of people who wear shoes. Does it follow that we should admit anybody who wears shoes? The immigrants of today are very different from those who arrived here a hundred years ago. Moreover, the society in which they arrive is different. To me, it is better to build a wall around the welfare state than the country. But the welfare state is already here —and, far from having a wall built around it, the welfare state is expanding in all directions. We do not have a choice between the welfare state and open borders. Anything we try to do as regards immigration laws has to be done in the context of a huge welfare state that is already a major, inescapable fact of life. Among other facts of life utterly ignored by many advocates of de facto amnesty(事实上的大救)is that the free international movement of people is different from free international trade in goods. Buying cars or cameras from other countries is not the same as admitting people from those countries or any other countries. Unlike inanimate objects, people have cultures and not all cultures are compatible with the culture in this country that has produced such benefits for the American people for so long. Not only the United States, but the Western world in general, has been discovering the hard way that admitting people with incompatible cultures is an irreversible decision with incalculable consequences. If we do not see that after recent terrorist attacks on the streets of Boston and London, when will we see it? “Comprehensive immigration reform” means doing everything all together in a rush, without time to look before we leap, and basing ourselves on abstract notions about abstract people."
+      ],
+      "questions": [
+        {
+          "number": 61,
+          "stem": "What does the author say about immigrants in America?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They all hope to gain citizenship and enjoy the welfare."
+            },
+            {
+              "key": "B",
+              "text": "They come to America with different dreams and purposes."
+            },
+            {
+              "key": "C",
+              "text": "Their background may determine whether they benefit the American people."
+            },
+            {
+              "key": "D",
+              "text": "Their cultures affect the extent to which they will achieve success in America."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。事实细节题【考频:★★★】。由题干中的immigrants in America 定位到首段最后一句。 定位句指出,来自不同国家的移民之间的具体差异会影响他们的到来对美国人而言是好还是坏, 也就是说移民的背景决定他们是否有利于美国人的利益,故答案为C)。"
+        },
+        {
+          "number": 62,
+          "stem": "What does the author try to say by citing Milton Friedman’s remark?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is hardly practical to find an ideal solution to America’s immigration problem."
+            },
+            {
+              "key": "B",
+              "text": "Ideal outcomes could be produced only by comprehensive immigration reform."
+            },
+            {
+              "key": "C",
+              "text": "As for immigration, good results cannot be achieved without good intentions."
+            },
+            {
+              "key": "D",
+              "text": "The proper solution of immigration issues is an ideal of the American public."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。推理判断题【考频:★★★】。由题干中的Milton Friedman 定位到第三段第二句。由 定位句可知,经济学教授Milton Friedman 曾经说过:“至善者善之敌。”紧接着作者给出了对这 句话的理解:企图实现一个无法企及的理想可能会使我们无法取得在实践中有可能得到的好结果; 该段首句也指出,从抽象的角度很难给移民问题找出“理想出路”。由此推出作者试图通过引用 Milton Friedman 的话来表明给美国移民问题找到理想的解决方法实际上行不通,因为这个目标 过高,故答案为A)。"
+        },
+        {
+          "number": 63,
+          "stem": "What is the author’s view regarding America’s immigration policy?",
+          "options": [
+            {
+              "key": "A",
+              "text": "America should open its borders to immigrants from different countries."
+            },
+            {
+              "key": "B",
+              "text": "Immigrants have contributed greatly to the welfare of American people."
+            },
+            {
+              "key": "C",
+              "text": "Unrestricted immigration will undermine the American welfare state."
+            },
+            {
+              "key": "D",
+              "text": "There is no point building a wall around the American welfare state."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。推理判断题【考频: ★★★】。根据题干中的the author’s view 及America’s immigration policy 定位到第五段最后一句以及第六段。第五段最后一句提到作者的观点:给国家建起围墙不 如给福利制度筑起壁垒。也就是说,作者认为限制移民不如限制福制度。紧接着第六段的第一句 用But 转折,提到事实是福利制度并未加以限制;第二句指出在福利制度和开放边界之间我们没 有选择。第三句提到,福利体制已成为生活中一个重大不可避免的事实,关于移民法我们所尝试 做的任何事情都要考虑到此背景。定位句暗含的意思就是作者认为必须限制移民,否则会破坏美 国的福利制度,故答案为C。"
+        },
+        {
+          "number": 64,
+          "stem": "What is the author’s purpose in citing the recent terrorist attacks on the streets of Boston and London?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To show that America should join hands with Europe in fighting terrorists."
+            },
+            {
+              "key": "B",
+              "text": "To prove that it is high time America made comprehensive immigration reforms."
+            },
+            {
+              "key": "C",
+              "text": "To prove that terrorism is the most dangerous threat to America and the world in general."
+            },
+            {
+              "key": "D",
+              "text": "To show that immigrants’ cultural incompatibility with the host country has consequences."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。推理判断题【考频:★★★】。 由题干中的terrorist attacks 及Boston and London 定位 到倒数第二段最后一句+定位句指出,如果在近来波士顿和伦敦街头发生的恐怖袭击之后我们还 没有认识到这一点,那么我们什么时候才能认识到呢?该句中的“这一点”是指前一句中提到的 “准许拥有不兼容文化的人移人本国是不可逆 转的、会带来无法估量的后果的决定”,由此可 知,移民与东道国的文化不兼容会带来后果,故答案为D)。"
+        },
+        {
+          "number": 65,
+          "stem": "What is the author’s attitude towards “comprehensive immigration reform”?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Supportive."
+            },
+            {
+              "key": "B",
+              "text": "Negative."
+            },
+            {
+              "key": "C",
+              "text": "Wait-and-see."
+            },
+            {
+              "key": "D",
+              "text": "Indifferent."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。观点态度题【考频:★★☆】。由题干中的“comprehensive immigration reform”定位 到文章最后一段。定位段指出,“全面移民改革”意味着草率行事,没有时间三思而后行,并以 抽象人的抽象概念为依据。由“草率行事” 和“没有时间三思而后行”可知,作者对“全面移 民改革”持否定的态度,故答案为B)。"
+        }
+      ]
+    }
+  ]
+}

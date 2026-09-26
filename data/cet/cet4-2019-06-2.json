@@ -1,0 +1,1565 @@
+{
+  "id": "cet4-2019-06-2",
+  "level": 4,
+  "year": 2019,
+  "month": 6,
+  "set": 2,
+  "title": "2019 年 6 月四级 · 第 2 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.06/%E7%9C%9F%E9%A2%98Word/2019%E5%B9%B46%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC%E4%BA%8C%E5%A5%97.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2019%E5%B9%B46%E6%9C%88%E4%BB%BD%E5%9B%9B%E7%BA%A7%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A5%97%EF%BC%89%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2019-06-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Just because they can’t sing opera or ride a bicycle doesn’t mean that animals don’t have culture. There’s no better example of this than killer whales. As one of the most [[26]] predators(食肉动物),killer whales may not fit the [[27]] of a cultured creature. However, these beasts of the sea do display a vast range of highly [[28]] behaviors that appear to be driving their genetic development. The word “culture” comes from the Latin “colere,” which [[29]] means “to cultivate.” In other words, it refers to anything that is [[30]] or learnt, rather than instinctive or natural. Among human populations, culture not only affects the way we live, but also writes itself into our genes, affecting who we are. For instance, having spent many generations hunting the fat marine mammals of the Arctic, the Eskimos of Greenland have developed certain genetic [[31]] that help them digest and utilize this fat-rich diet, thereby allowing them to [[32]] in their cold climate. Like humans, killer whales have colonized a range of different [[33]] across the globe, occupying every ocean basin on the planet, with an empire that [[34]] from pole to pole. As such, different populations of killer whales have had to learn different hunting techniques in order to gain the upper hand over their local prey(猎物). This, in turn, has a major effect on their diet, leading scientists to [[35]] that the ability to learn population-specific hunting methods could be driving the animals’ genetic development."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "acquired"
+        },
+        {
+          "key": "B",
+          "text": "adaptations"
+        },
+        {
+          "key": "C",
+          "text": "brutal"
+        },
+        {
+          "key": "D",
+          "text": "deliberately"
+        },
+        {
+          "key": "E",
+          "text": "expressed"
+        },
+        {
+          "key": "F",
+          "text": "extends"
+        },
+        {
+          "key": "G",
+          "text": "habitats"
+        },
+        {
+          "key": "H",
+          "text": "humble"
+        },
+        {
+          "key": "I",
+          "text": "image"
+        },
+        {
+          "key": "J",
+          "text": "literally"
+        },
+        {
+          "key": "K",
+          "text": "refined"
+        },
+        {
+          "key": "L",
+          "text": "revolves"
+        },
+        {
+          "key": "M",
+          "text": "speculate"
+        },
+        {
+          "key": "N",
+          "text": "structure"
+        },
+        {
+          "key": "O",
+          "text": "thrive"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acquired"
+            },
+            {
+              "key": "B",
+              "text": "adaptations"
+            },
+            {
+              "key": "C",
+              "text": "brutal"
+            },
+            {
+              "key": "D",
+              "text": "deliberately"
+            },
+            {
+              "key": "E",
+              "text": "expressed"
+            },
+            {
+              "key": "F",
+              "text": "extends"
+            },
+            {
+              "key": "G",
+              "text": "habitats"
+            },
+            {
+              "key": "H",
+              "text": "humble"
+            },
+            {
+              "key": "I",
+              "text": "image"
+            },
+            {
+              "key": "J",
+              "text": "literally"
+            },
+            {
+              "key": "K",
+              "text": "refined"
+            },
+            {
+              "key": "L",
+              "text": "revolves"
+            },
+            {
+              "key": "M",
+              "text": "speculate"
+            },
+            {
+              "key": "N",
+              "text": "structure"
+            },
+            {
+              "key": "O",
+              "text": "thrive"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【答案】C】brutal 【答案】I】image 【语法分析】空26位于副词most和名词predators之间,应为形容词或ed分词。the_27 ofaculturedcreature作宾语,空27应为名词。 【答案解析】3句As(\"作为....\",用于指出某物/人理当有的作用或特点)与notfit (不符合、不..致)提示句中26predators\"与\"27_ofaculturedcreature\"存在矛盾, 而现有信息“食肉动物VS文化的生物\"已能体现该矛盾(即食肉动物按理不该有文化/不该具 有....的特征/形象),故空27应为image;空26应进一步强化两者间的矛盾,结合食肉动 物的惯常特征,可推知空26应表示\"凶猛、残暴、野蛮”,brutal正确。注:3句XofY结 构中,of功能为谈及某物(Y)的特征或品质(X)\",如thelengthoftheswimmingpool\" 泳池的长度”。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acquired"
+            },
+            {
+              "key": "B",
+              "text": "adaptations"
+            },
+            {
+              "key": "C",
+              "text": "brutal"
+            },
+            {
+              "key": "D",
+              "text": "deliberately"
+            },
+            {
+              "key": "E",
+              "text": "expressed"
+            },
+            {
+              "key": "F",
+              "text": "extends"
+            },
+            {
+              "key": "G",
+              "text": "habitats"
+            },
+            {
+              "key": "H",
+              "text": "humble"
+            },
+            {
+              "key": "I",
+              "text": "image"
+            },
+            {
+              "key": "J",
+              "text": "literally"
+            },
+            {
+              "key": "K",
+              "text": "refined"
+            },
+            {
+              "key": "L",
+              "text": "revolves"
+            },
+            {
+              "key": "M",
+              "text": "speculate"
+            },
+            {
+              "key": "N",
+              "text": "structure"
+            },
+            {
+              "key": "O",
+              "text": "thrive"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【答案】I】image 【语法分析】空26位于副词most和名词predators之间,应为形容词或ed分词。the_27 ofaculturedcreature作宾语,空27应为名词。 【答案解析】3句As(\"作为....\",用于指出某物/人理当有的作用或特点)与notfit (不符合、不..致)提示句中26predators\"与\"27_ofaculturedcreature\"存在矛盾, 而现有信息“食肉动物VS文化的生物\"已能体现该矛盾(即食肉动物按理不该有文化/不该具 有....的特征/形象),故空27应为image;空26应进一步强化两者间的矛盾,结合食肉动 物的惯常特征,可推知空26应表示\"凶猛、残暴、野蛮”,brutal正确。注:3句XofY结 构中,of功能为谈及某物(Y)的特征或品质(X)\",如thelengthoftheswimmingpool\" 泳池的长度”。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acquired"
+            },
+            {
+              "key": "B",
+              "text": "adaptations"
+            },
+            {
+              "key": "C",
+              "text": "brutal"
+            },
+            {
+              "key": "D",
+              "text": "deliberately"
+            },
+            {
+              "key": "E",
+              "text": "expressed"
+            },
+            {
+              "key": "F",
+              "text": "extends"
+            },
+            {
+              "key": "G",
+              "text": "habitats"
+            },
+            {
+              "key": "H",
+              "text": "humble"
+            },
+            {
+              "key": "I",
+              "text": "image"
+            },
+            {
+              "key": "J",
+              "text": "literally"
+            },
+            {
+              "key": "K",
+              "text": "refined"
+            },
+            {
+              "key": "L",
+              "text": "revolves"
+            },
+            {
+              "key": "M",
+              "text": "speculate"
+            },
+            {
+              "key": "N",
+              "text": "structure"
+            },
+            {
+              "key": "O",
+              "text": "thrive"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【答案】K】refined 【语法分析】空格词位于副词highly和名词behaviors之间,应为形容词或ed分词。 【答案解析】结合However所含转折语气及上句大意\"虎鲸在惯常认知中不属于有文化 的生物\"可推知,空格词应与cultured近义,表示\"有文化、有教养”,K)正确。A)acquired 虽能与behaviors搭配且符合下文实例\"虎鲸学习特定捕猎技巧\",但与highly不搭,与上文 的语义关联不紧密(However明示与上文的转折关系,故应优先考虑与上文的语义关联); H)humble从语义上也能与behaviors搭配,但不符合行文逻辑(上文提到虎鲸给人的印象 是“[与文化相对的]野蛮”而非“傲慢”\")。 由第二段得:"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acquired"
+            },
+            {
+              "key": "B",
+              "text": "adaptations"
+            },
+            {
+              "key": "C",
+              "text": "brutal"
+            },
+            {
+              "key": "D",
+              "text": "deliberately"
+            },
+            {
+              "key": "E",
+              "text": "expressed"
+            },
+            {
+              "key": "F",
+              "text": "extends"
+            },
+            {
+              "key": "G",
+              "text": "habitats"
+            },
+            {
+              "key": "H",
+              "text": "humble"
+            },
+            {
+              "key": "I",
+              "text": "image"
+            },
+            {
+              "key": "J",
+              "text": "literally"
+            },
+            {
+              "key": "K",
+              "text": "refined"
+            },
+            {
+              "key": "L",
+              "text": "revolves"
+            },
+            {
+              "key": "M",
+              "text": "speculate"
+            },
+            {
+              "key": "N",
+              "text": "structure"
+            },
+            {
+              "key": "O",
+              "text": "thrive"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【答案】J】literally 【语法分析】空格词所在which从句成分完整,可知空格词应为副词。 【答案解析】空格句指出,“文化”一词源自..意思是\"培养”。结合常识(介绍某个 词的词源时,往往会提及其最初含义)及下句内容(进一步解释该词的深层含义)可推知空 格句意在介绍culture一词\"原本、字面、最基本地\"的含义.literally正确。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acquired"
+            },
+            {
+              "key": "B",
+              "text": "adaptations"
+            },
+            {
+              "key": "C",
+              "text": "brutal"
+            },
+            {
+              "key": "D",
+              "text": "deliberately"
+            },
+            {
+              "key": "E",
+              "text": "expressed"
+            },
+            {
+              "key": "F",
+              "text": "extends"
+            },
+            {
+              "key": "G",
+              "text": "habitats"
+            },
+            {
+              "key": "H",
+              "text": "humble"
+            },
+            {
+              "key": "I",
+              "text": "image"
+            },
+            {
+              "key": "J",
+              "text": "literally"
+            },
+            {
+              "key": "K",
+              "text": "refined"
+            },
+            {
+              "key": "L",
+              "text": "revolves"
+            },
+            {
+              "key": "M",
+              "text": "speculate"
+            },
+            {
+              "key": "N",
+              "text": "structure"
+            },
+            {
+              "key": "O",
+              "text": "thrive"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【答案】A】acquired 【语法分析】空格词位于系动词is之后,与learnt为并列关系(由or连接),故空格词 应为ed分词。 【答案解析】空格句指出,该词指的是任何一、学到的而非本能、天生的东西。可见, 空格词语义应与learnt相近,与instinctive和natural相反,表示\"后天习得的\",acquired正确。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acquired"
+            },
+            {
+              "key": "B",
+              "text": "adaptations"
+            },
+            {
+              "key": "C",
+              "text": "brutal"
+            },
+            {
+              "key": "D",
+              "text": "deliberately"
+            },
+            {
+              "key": "E",
+              "text": "expressed"
+            },
+            {
+              "key": "F",
+              "text": "extends"
+            },
+            {
+              "key": "G",
+              "text": "habitats"
+            },
+            {
+              "key": "H",
+              "text": "humble"
+            },
+            {
+              "key": "I",
+              "text": "image"
+            },
+            {
+              "key": "J",
+              "text": "literally"
+            },
+            {
+              "key": "K",
+              "text": "refined"
+            },
+            {
+              "key": "L",
+              "text": "revolves"
+            },
+            {
+              "key": "M",
+              "text": "speculate"
+            },
+            {
+              "key": "N",
+              "text": "structure"
+            },
+            {
+              "key": "O",
+              "text": "thrive"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【答案】B】adaptations 【答案】O】thrive 【语法分析】空31为所在句宾语,由certain,genetic修饰,结合其后help可知其为名 词(复数)。空32位于allowsbtodo结构中,应为动词原形。 【答案解析】空格句大意为:数代爱斯基摩人狩猎北极地区脂肪丰富的海洋哺乳动物, 使自身发展出了有助于其消化、利用这种高脂饮食的某些遗传_31,从而使其能在寒冷的 气候中32。结合常识“生物长期生活在某种特定环境下并形成某种饮食习惯,身体会逐 渐适应,最终成功地在这种环境下繁衍生息\"可推知:空31应表示“(对于新情况的)适应 性、特性”,adaptations正确;空32应表示“繁衍、壮大”,thrive正确。 由第三段得:"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acquired"
+            },
+            {
+              "key": "B",
+              "text": "adaptations"
+            },
+            {
+              "key": "C",
+              "text": "brutal"
+            },
+            {
+              "key": "D",
+              "text": "deliberately"
+            },
+            {
+              "key": "E",
+              "text": "expressed"
+            },
+            {
+              "key": "F",
+              "text": "extends"
+            },
+            {
+              "key": "G",
+              "text": "habitats"
+            },
+            {
+              "key": "H",
+              "text": "humble"
+            },
+            {
+              "key": "I",
+              "text": "image"
+            },
+            {
+              "key": "J",
+              "text": "literally"
+            },
+            {
+              "key": "K",
+              "text": "refined"
+            },
+            {
+              "key": "L",
+              "text": "revolves"
+            },
+            {
+              "key": "M",
+              "text": "speculate"
+            },
+            {
+              "key": "N",
+              "text": "structure"
+            },
+            {
+              "key": "O",
+              "text": "thrive"
+            }
+          ],
+          "answer": "O",
+          "explanation": "【答案】O】thrive 【语法分析】空31为所在句宾语,由certain,genetic修饰,结合其后help可知其为名 词(复数)。空32位于allowsbtodo结构中,应为动词原形。 【答案解析】空格句大意为:数代爱斯基摩人狩猎北极地区脂肪丰富的海洋哺乳动物, 使自身发展出了有助于其消化、利用这种高脂饮食的某些遗传_31,从而使其能在寒冷的 气候中32。结合常识“生物长期生活在某种特定环境下并形成某种饮食习惯,身体会逐 渐适应,最终成功地在这种环境下繁衍生息\"可推知:空31应表示“(对于新情况的)适应 性、特性”,adaptations正确;空32应表示“繁衍、壮大”,thrive正确。 由第三段得:"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acquired"
+            },
+            {
+              "key": "B",
+              "text": "adaptations"
+            },
+            {
+              "key": "C",
+              "text": "brutal"
+            },
+            {
+              "key": "D",
+              "text": "deliberately"
+            },
+            {
+              "key": "E",
+              "text": "expressed"
+            },
+            {
+              "key": "F",
+              "text": "extends"
+            },
+            {
+              "key": "G",
+              "text": "habitats"
+            },
+            {
+              "key": "H",
+              "text": "humble"
+            },
+            {
+              "key": "I",
+              "text": "image"
+            },
+            {
+              "key": "J",
+              "text": "literally"
+            },
+            {
+              "key": "K",
+              "text": "refined"
+            },
+            {
+              "key": "L",
+              "text": "revolves"
+            },
+            {
+              "key": "M",
+              "text": "speculate"
+            },
+            {
+              "key": "N",
+              "text": "structure"
+            },
+            {
+              "key": "O",
+              "text": "thrive"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【答案】G】habitats 【答案】F】extends 【语法分析】空33作宾语,由arangeofdifferent修饰,应为名词(复数)。空34作that 定语从句的谓语.从句主语(先行词)anempire为可数名词单数,故空34应为动词的第三人 称单数形式。 【答案解析】空格句大意为:虎鲸和人类一样,聚居在全球不同的_33,占据着地球 上每一片海洋盆地,拥有从一极_34至另一极的帝国。可见,整句意在指出虎鲸分布之广, “虎鲸帝国\"覆盖全球、跨越两极。因而空33应表示“区域、栖息地”,habitats正确;空34 应表示“跨越、延伸”,extends正确。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acquired"
+            },
+            {
+              "key": "B",
+              "text": "adaptations"
+            },
+            {
+              "key": "C",
+              "text": "brutal"
+            },
+            {
+              "key": "D",
+              "text": "deliberately"
+            },
+            {
+              "key": "E",
+              "text": "expressed"
+            },
+            {
+              "key": "F",
+              "text": "extends"
+            },
+            {
+              "key": "G",
+              "text": "habitats"
+            },
+            {
+              "key": "H",
+              "text": "humble"
+            },
+            {
+              "key": "I",
+              "text": "image"
+            },
+            {
+              "key": "J",
+              "text": "literally"
+            },
+            {
+              "key": "K",
+              "text": "refined"
+            },
+            {
+              "key": "L",
+              "text": "revolves"
+            },
+            {
+              "key": "M",
+              "text": "speculate"
+            },
+            {
+              "key": "N",
+              "text": "structure"
+            },
+            {
+              "key": "O",
+              "text": "thrive"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【答案】F】extends 【语法分析】空33作宾语,由arangeofdifferent修饰,应为名词(复数)。空34作that 定语从句的谓语.从句主语(先行词)anempire为可数名词单数,故空34应为动词的第三人 称单数形式。 【答案解析】空格句大意为:虎鲸和人类一样,聚居在全球不同的_33,占据着地球 上每一片海洋盆地,拥有从一极_34至另一极的帝国。可见,整句意在指出虎鲸分布之广, “虎鲸帝国\"覆盖全球、跨越两极。因而空33应表示“区域、栖息地”,habitats正确;空34 应表示“跨越、延伸”,extends正确。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acquired"
+            },
+            {
+              "key": "B",
+              "text": "adaptations"
+            },
+            {
+              "key": "C",
+              "text": "brutal"
+            },
+            {
+              "key": "D",
+              "text": "deliberately"
+            },
+            {
+              "key": "E",
+              "text": "expressed"
+            },
+            {
+              "key": "F",
+              "text": "extends"
+            },
+            {
+              "key": "G",
+              "text": "habitats"
+            },
+            {
+              "key": "H",
+              "text": "humble"
+            },
+            {
+              "key": "I",
+              "text": "image"
+            },
+            {
+              "key": "J",
+              "text": "literally"
+            },
+            {
+              "key": "K",
+              "text": "refined"
+            },
+            {
+              "key": "L",
+              "text": "revolves"
+            },
+            {
+              "key": "M",
+              "text": "speculate"
+            },
+            {
+              "key": "N",
+              "text": "structure"
+            },
+            {
+              "key": "O",
+              "text": "thrive"
+            }
+          ],
+          "answer": "M",
+          "explanation": "【答案】M】speculate 【语法分析】空格词位于leadsbtodo结构中,应为动词原形。 【答案解析】空格句大意为:(由于分布极广,各地虎鲸需学会各种狩猎技巧,)转而又会对 其饮食习惯产生重大影响,导致科学家:学习种群特有狩猎方式的能力可能正推动虎 鲸的遗传发展。XcouldbedrivingY很明显是\"推测性的判断”,即科学家基于对虎鲸群体的 观察所做的推测,空格词应表示“下结论、推断、猜测\",speculate正确。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2019-06-2-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Broad demographic (人口的)shifts is marital status, educational attainment and employment have transformed the way young adults in the U.S. are living, and a new Pew Research Center analysis highlights the implications of these changes for the most basic element of their lives—where they call home. In 2014,for the first time in more than 130 years, adults ages 18 to 34 were slightly more likely to be living in their parents’ home than they were to be living with a spouse or partner in their own household.",
+        "B) This turn of events is fueled primarily by the dramatic drop in the share of young Americans who are choosing to settle down romantically before age 35. Dating back to 1880, the most common living arrangement among young adults has been living with a romantic partner, whether a spouse or a significant other. This type of arrangement peaked around 1960, when 62% of the nation’s 18-to 34-year-olds were living with a spouse or partner in their own household, and only one-in-five were living with their parents.",
+        "C) By 2014, 31.6% of young adults were living with a spouse or partner in their own household, below the share living in the home of their parent(s) (32.1%). Some 14% of young adults lived alone, were a single parent or lived with one or more roommates. The remaining 22% lived in the home of another family member (such as a grandparent, in-law or sibling (兄弟姐妹), a non-relative, or in group quarters like college dormitories.",
+        "D) It’s worth noting that the overall share of young adults living with their parents was not at a record high in 2014. This arrangement peaked around 1940, when about 35% of the nation’s 18-to 34-year-olds lived with mom and/or dad (compared with 32% in 2014). What has changed, instead, is the relative share adopting different ways of living in early adulthood, with the decline of romantic coupling pushing living at home to the top of a much less uniform list of living arrangements.",
+        "E) Among young adults, living arrangements differ significantly by gender. For men ages 18 to 34, living at home with mom and/or dad has been the dominant living arrangement since 2009, In 2014,28% of young men were living with a spouse of partner in their own home, while 35% were living in the home of their parent(s). Young women, however,are still more likely to be living with a spouse of romantic partner(35%) than they are to be living with their parent(s)(29%).",
+        "F) In 2014, more young women (16%) than young men (13%) were heading up a household without a spouse or partner.This is mainly because women are more likely than men to be single parents living with their children. For their part, young men (25%) are more likely than young women (19%) to be living in the home of another family member, a non-relative or in some type of group quarters.",
+        "G) A variety of factors contribute to the long-run increase in the share of young. Adults living with the parents. The first in the postponement of, if not retreat from, marriage. The average age of first marriage has risen steadily for decades. In addition, a growing share of young adult may be avoiding marriage altogether. A previous Pew Research Center analysis projected that as many as one-in-four of today’s young adult may never marry. While cohabitation(同居)has been on the rise, the overall share of young adults either married or living with an unmarried partner has substantially fallen since 1990.",
+        "H) In addition, trends in both employment status and wages have likely contributed to the growing share of young adults who are living in the home of their parent(s), and this is especially true of young men. Employed young men are much less likely to live at home than young men without a job, and employment among young men has fallen significantly in recent decades. The share of young men with jobs peaked around 1960 at 84%. In 2014, only 71% of 18-to-34-year-old men were employed. Similarly with earnings, young men’s wages (after adjusting for inflation) have been on a downward trajectory (轨迹) since 1970 and fell significantly form 2000 to 2010. As wages have fallen ,the share of young men living in the home of their parent(s) has risen.",
+        "I) Economic factors seem to explain less of why young adult women are increasingly likely to live at home. Generally, young women have had growing success in the paid labor market since 1960 and hence might increasingly be expected to be a be to afford to afford to live independently of their parents. For women, delayed marriage—which is related, in part, to labor market outcomes for men—may explain more of the increase in their living in the family home.",
+        "J) The Great Recession (and modest recovery) has also been associated with an increase in young adults living at home. Initially in the wake of the recession, college enrollments expanded, boosting the ranks of young adults living at home. And given the weak job opportunities facing young adults, living at home was part of the private safety net help young adults to weather the economic storm.",
+        "K) Beyond gender, young adult’s living arrangements differ considerable by education—which is tied to financial means. For young adults without a bachelor’s degree, as of 2008 living at home with their parents was more prevalent than living with a romantic partner. By 2014, 36% of 18-to 34-year-olds who had not completed a bachelor’s degree were living with their parent(s) while 27% were living with a spouse or partner. Among college graduates, in 2014 46% were married or living with a partner, and only 19% were living with their parent(s). Young adults with a college degree have fared much better in the labor market than their less-educated counterparts, which has in turn made it easier to establish their own households."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Unemployed young men are more likely to live with their parents than the employed.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【译文】无业年轻男性比有工作的年轻男性更可能与父母同住。 【答案】 [H] 【解析】[H段2句指出对于年轻男性,有工作的人仍与父母同住的可能性比无业者小 得多。试题是对该句大意的同义改写,比较结构复现,试题将原文的比较对象调换了顺序: A are... less likely to...than B.同义改写为B are more likely to...than A。"
+        },
+        {
+          "number": 37,
+          "stem": "In 2014, the percentage of men aged 18 to 34 living with their parents was greater than that of their female counterparts.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【译文】2014年,18至34岁的男性与父母同住的比例高于同龄女性。 【答案】[E] 【解析】[E]段3句介绍2014年年轻男性的选择\"28%与父母同住,35%与配偶或伴侣 同住”,4句介绍年轻女性的选择35%与配偶或伴侣同住,29%与父母同住\",试题从34句 中提取两性“与父母同住的情况”加以概括。其中,结合上下文可知menaged18to34对应 youngmen(3句youngmen与2句menaged18to34同指),men.·greaterthan...female counterparts正确概括34句所含大小关系youngmen...35%>Youngwomen.,.29%。"
+        },
+        {
+          "number": 38,
+          "stem": "The percentage of young people who are married or live with a partner has greatly decreased in the past three decades or so.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【译文】在过去三十年左右的时间里,结婚或与伴侣同居的年轻人比例极大地下降了。 【答案】 [G] 【解析】[G]段末句指出年轻人结婚或与伴侣同居的总体比例自1990年以来大幅下降。 试题是对这种变化趋势的同义转述,Thepercentageof...同义替换theoverallshareof...;in thepastthreedecades or so是基于since1990换算而来。"
+        },
+        {
+          "number": 39,
+          "stem": "Around the mid-20th century, only 20 percent of 18- to 34-year-old lived in their parents’ home.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【译文】20世纪中期前后,在18至34岁的人中仅有20%住在父母家里。 【答案】 [B] 【解析】[B]段3句描述1960年左右的现象“18到34岁的人中,与配偶或伴侣同住的 比例达历史最高(62%),仅有五分之一与父母同住”,试题是对该句部分信息的同义改写。"
+        },
+        {
+          "number": 40,
+          "stem": "Young adults with a college degree found it easier to live independently of their parents.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【译文】拥有大学学位的年轻人发现他们更容易脱离父母独立居住。 【答案】 [K] 【解析】[K]段末句指出拥有大学学位的年轻人就业表现更好,也就更容易组建自已的 小家庭。试题是对该句大意的同义改写,liveindependentlyoftheirparents与句中toestablish their own households 同义。"
+        },
+        {
+          "number": 41,
+          "stem": "Young men are less likely to end up as single parents than young women.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【译文】轻男性最终成为单亲家长的可能性低于年轻女性。 【答案】[F] 【解析】[F]段2句分析出现更多年轻女性独自成家这一现象的原因\"女性比男性更可能 成为带孩子的单亲家长\"。试题是对该句所含信息的反向改写(Youngmenarelesslikelyto..= women are more likely. . . to. . . )."
+        },
+        {
+          "number": 42,
+          "stem": "More young adult women live with their parents than before due to delayed marriage.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【答案】I。【解析】I段末句指出对（年轻）女性来说，晚婚更能解释为何她们住父母家的比例上升，也即更多女性由于晚婚而选择与父母同住。试题是对该句大意的改写。due to 对应 explain，说明因果关联，More young adult women live with their parents 与 the increase in their living in the family home 同义。"
+        },
+        {
+          "number": 43,
+          "stem": "The percentage of young men who live with their parents has grown due to their decreased pay in recent decades.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【译文】近几十年来,由于收入下降,年轻男性与父母同住的比例上升了。 【答案】 [H] 【解析】[H段末句指出由于工资下降,年轻男性与父母同住的比例上升。试题是对该 句大意的同义改写,Thepercentage...hasgrown同义替换theshare...hasrisen;dueto对应 As,均表因果:inrecentdecades在2句复现,也是该句\"工资下降趋势(wageshavefallen)\" 暗含的时间范围。"
+        },
+        {
+          "number": 44,
+          "stem": "The rise in the number of college students made more young adults live with their parents.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【译文】大学生数量的增加使得更多年轻人与父母同住。 【答案】[J] 【解析】[段2句介绍经济大衰退之后的情形,指出大学入学人数增加,壮大了住(父 母)家年轻人的队伍。试题是对该句主要内容的同义转述,made暗含因果,与boostingtheranks of...(壮大...队伍)同义。"
+        },
+        {
+          "number": 45,
+          "stem": "One reason for young adults to live with their parents is that get married late or stay single all their lives.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【译文】年轻人与父母同住的一大原因在于他们晚婚或终身不婚。 【答案】[G] 婚\"。试题是对该句的同义改写,Onereason(其中一个原因)对应Thefirst[factor](第一个 因素)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2019-06-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "According to the majority of Americans, women are every bit as capable of being good political leaders as men. The same can be said of their ability to dominate the corporate boardroom. And according to a new Pew Research Center survey on women and leadership, most Americans find women indistinguishable from men on key leadership traits such as intelligence and capacity for innovation, with many saying they’re stronger than men in terms of being passionate and organized leaders. So why, then, are women in short supply at the top of government and business in the United States? According to the public, at least, it’s not that they lack toughness, management talent or proper skill sets. It’s also not all about work-life balance. Although economic research and previous survey findings have shown that career interruptions related to motherhood may make it harder for women to advance in their careers and compete for top executive jobs, relatively few adults in the recent survey point to this as a key barrier for women seeking leadership roles. Only about one-in-five say women’s family responsibilities are a major reason why there aren’t more females in top leadership positions in business and politics. Instead, topping the list of reasons, about four-in-ten Americans point to a double standard for women seeking to climb to the highest levels of either politics or business, where they have to do more than their male counterparts to prove themselves. Similar shares say the electorate(选民)and corporate America are just not ready to put more women in top leadership positions. As a result, the public is divided about whether the imbalance in corporate America will change in the foreseeable future, even though women have made major advances in the workplace. While 53% believe men will continue to hold more top executive positions in business in the future, 44% say it’s only a matter of time before as many women are in top executive positions as men. Americans are less doubtful when it comes to politics: 73% expect to see a female president in their lifetime."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What do most Americans think of women leaders according to a new Pew Research Center survey?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They have to do more to distinguish themselves."
+            },
+            {
+              "key": "B",
+              "text": "They have to strive harder to win their positions."
+            },
+            {
+              "key": "C",
+              "text": "They are stronger than men in terms of willpower."
+            },
+            {
+              "key": "D",
+              "text": "They are just as intelligent and innovative as men."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【答案】D 【定位】本题考查美国大众对女性领导看法的最新调查结果,根据题干关键词定位至第 一段3句(a newPew Research Center survey on women and leadership)。 【解析】A、B皆利用第四段1句信息“因面临双重标准,女性必须做得更多才能证明 自已(也包括获得现有职位)\"干扰,但这是4成美国人的看法(aboutfour-in-tenAmericanspoint to...),与题干所问“大多数美国人的看法\"不符。C则将第一段3句许多人观点女性比男性 更有激情、更有条理\"审改为“意志力更强\"。D句指出,大多数美国人认为,女性与男性不 仅在才智、创新等领导力品质方面不相上下,甚至比男性更擅长担任激情而有条理的领导。 D与前半句信息契合。"
+        },
+        {
+          "number": 47,
+          "stem": "What do we learn from previous survey findings about women seeking leadership roles?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They have unconquerable difficulties on their way to success."
+            },
+            {
+              "key": "B",
+              "text": "They are lacking in confidence when competing with men."
+            },
+            {
+              "key": "C",
+              "text": "Their failures may have something to do with family duties."
+            },
+            {
+              "key": "D",
+              "text": "Relatively few are hindered in their career advancement."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【答案】C 【定位】本题考查过往调查关于“寻求领导地位女性\"的发现,定位至第三段2句 ( previous survey findings. . - women seeking leadership roles )。 【解析】A将定位句中\"生/养育致事业中断,可能更难发展晋升(maymakeit harder)” 庭不得不牺牲事业)”臆断出“女性在职场上因性别而自卑”,文中并未提及女性的心理。D 将2句主句中的数据信息“很少受访者认为家庭是职场女性的大碍\"偷换为直接结论“很少女 性在职场受阻\",且文中为\"最新调查”(recentsurvey),并非题干所问\"此前调查\"。C句指出, 经济学研究和此前的调查发现表明,生养孩子导致工作中断,这可能让女性难以在事业上更 进一步,因而无力竞争高级管理层职位。由此可知,女性无法获取高位跟家庭责任有一定的 关系,C正确。"
+        },
+        {
+          "number": 48,
+          "stem": "What is the primary factor keeping women from taking top leadership positions according to the recent survey?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Personality traits."
+            },
+            {
+              "key": "B",
+              "text": "Family responsibilities."
+            },
+            {
+              "key": "C",
+              "text": "Gender bias."
+            },
+            {
+              "key": "D",
+              "text": "Lack of vacancies."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【答案】C 【定位】本题考查阻碍女性晋升顶层职位的主要原因。由题干关键信息primaryfactor 定位至第四段1句(toppingthelistofreasons)。 【解析】A项与首段3句\"根据最新调查,女性和男性在关键性领导力品质方面不相上 下,甚至比男性更有激情、更条理\"相俘。B项对第三段3句familyresponsibilities areamajor reason断章取义,忽略onlyaboutone-in-five(仅2成人这么认为)所暗含的\"家庭责任并非 主要原因”。D项将第四段2句“选民及企业没有做好准备让女性担任高位\"断为“职业空 临双重标准,她们必须比男性付出更多以证明自已。可见,阻碍女性担任顶层职位的主要原 因是性别偏见,C项符合文意。"
+        },
+        {
+          "number": 49,
+          "stem": "What does the passage say about corporate America in the near future?",
+          "options": [
+            {
+              "key": "A",
+              "text": "More and more women will sit in the boardroom."
+            },
+            {
+              "key": "B",
+              "text": "Gender imbalance in leadership is likely to change."
+            },
+            {
+              "key": "C",
+              "text": "The public is undecided about whether women will make good leaders."
+            },
+            {
+              "key": "D",
+              "text": "People have opposing opinions as to whether it will have more women leaders."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【答案】D 【定位】本题考查美国企业界的未来情形。由题干关键信息corporateAmerica inthenear future定位至末段句(corporate America...in the foreseeablefuture)。 【解析】A、B项利用23句\"女性与男性高管数量齐平只是时间问题\"、“希望能有一位 女性总统\"干扰,但它们仅为(存在分歧的)公众当中一部分人的看法(44%、73%),并非 题干所问“作者/文中所说”。C项将公众的分歧点由“是否有更多女性领袖出现\"窜改为“女性 能否成为优秀领袖\",且第一段即已指出公众毫不怀疑女性的领袖品质。末段1句指出,公 众在“美国企业界领导层性别失衡是否会在可预见的未来发生改变\"这一问题上产生了分歧 (isdividedabout义同选项中haveopposingopinions),\"性别失衡的现状是否会改变\"意即\"是 否会有更多女性领导者”,故D正确。"
+        },
+        {
+          "number": 50,
+          "stem": "What do most Americans expect to see soon on America’s political stage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "A woman in the highest position of government."
+            },
+            {
+              "key": "B",
+              "text": "More and more women actively engaged in politics."
+            },
+            {
+              "key": "C",
+              "text": "A majority of women voting for a female president."
+            },
+            {
+              "key": "D",
+              "text": "As many women in top government positions as men."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【答案】A 【定位】本题考查美国人对美国政坛未来情形的预想。由题干关键信息America's politicalstage定位至末段3句(whenitcomestopolitics)。 【解析】B、C均利用定位句“预计能看到女总统上台\"干扰,但“预计会有更多女性参与 政治\"属过度推断,预计会有大部分女性投票支持\"属主观臆测。D项将末段2句44%美国人 对未来商界的判断(asmanywomenareintopexecutivepositionsasmen)\"偷换为\"大部分美 国人对未来政坛的判断(Asmanywomen intopgovernmentpositions asmen)”。末段3句 指出:美国人对未来政坛的预期分歧更小,73%的人认为在有生之年能看到女总统上台。可 见,大部分美国人认为女性很快会出任政府最高职位,故A项正确。 【原文译文】"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2019-06-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "People have grown taller over the last century, with South Korean women shooting up by more than 20cm on average, and Iranian men gaining. 16.5cm. A global study looked at the average height of 18-year-olds in 200 countries 1914 and 2014. The results reveal that while Swedes were the tallest people in the world in 1914, Dutch men have risen from 12th place to claim top spot with an average height of 182.5cm. Larvian women. Meanwhile, rose from 28th place in 1914 to become the tallest in the world a century later, with an average height of 169.8cm. James Bentham, a co-author of the research from Imperial College, London, says the global trend is likely to be due primarily to improvements in nutrition and healthcare. “An individual’s genetics has a big influence on their height, but once you average over whole populations, genetics plays a less key role,” he added. A little extra height brings a number of advantages, says Elio Riboli of Imperial College. “Being taller is associated with longer life expectancy,” he said. “This is largely due to a lower risk of dying of cardiovascular(心血管的)disease among taller people.” But while height has increased around the world, the trend in many countries of north and sub-Saharan Africa causes concern, says Riboli. While height increased in Uganda and Niger during the early 20th century, the trend has reversed in recent years, with height decreasing among 18-year-olds. “One reason for these decreases in height is the economic situation in the 1980s,” said Alexander Moradi of the Universith of Sussex. The nutritional and health crises that followed the policy of structural adjustment, he says, led to many children and teenagers failing to reach their full potential in terms of height. Bentham believe the global rtend of increasing height has important implications. “How tall we are now is strongly influenced by the environment we grew up in,” he said. “If we give children the best possible start in life now, they will be healthier and more productive for decades to come.”"
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the global study tell us about people’s height in the last hundred years?",
+          "options": [
+            {
+              "key": "A",
+              "text": "There is a remarkable difference across continents."
+            },
+            {
+              "key": "B",
+              "text": "There has been a marked increase in most countries."
+            },
+            {
+              "key": "C",
+              "text": "The increase in people’s height has been quickening."
+            },
+            {
+              "key": "D",
+              "text": "The increase in women’s height is bigger than in men’s."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【答案】B 【定位】本题就\"全球性研究的结果\"设题,根据题干关键词theglobalstudytellus,inthe last hundred years 定位至第一、二段(over the last century.,.The results [of the study] reveal that. . . ). 【解析】A项由首段SouthKorean、Iranian(属亚洲)增高、第二段Dutch、Latvian(属 欧洲)增高、第五段Africa(非洲)先增后降的具体叙述中望文生义出“各大洲存在显着差 异\",而研究针对的是“国家(countries)”而非“洲(continents)”。C项将全文关键词 脱维亚女性身高排名跃升位次多于荷兰男性捏造而来.但该研究只对男性、女性身高变化分 别进行纵向研究,并未横向比较男女性身高增幅。 第一段开篇指出:一百年来人们身高有所增长,其中韩国女性、伊朗男性身高增长幅度 分别高达20cm以上、16.5cm;随后引出这项针对1914-2014年间200个国家平均身高\"的 全球性研究;第二段直接介绍该研究的结果:荷兰男性和拉脱维亚女性身高大幅增长、分别 从1914年的第12位、第28位一跃瑞典荣登榜首;最后再结合第三段首句中特定指示名词 theglobaltrend的语用功能可推知,首两段所述身高大幅增长属于一种全球趋势,故B正确。 补充:结合第五六段信息“非洲北部及撤哈拉以南地区身高下降趋势\"可进一步敲定,这种全 球趋势发生在除非洲部分国家以外的其它大多数国家。"
+        },
+        {
+          "number": 52,
+          "stem": "What does James Bentham say about genetics in the increase of people’s height?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It counts less than generally thought."
+            },
+            {
+              "key": "B",
+              "text": "It outweighs nutrition and healthcare."
+            },
+            {
+              "key": "C",
+              "text": "It impacts more on an individual than on population."
+            },
+            {
+              "key": "D",
+              "text": "It plays a more significant role in females than in males."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【答案】C 【定位】本题考查詹姆斯·本瑟姆对“遗传基因之于身高增长的作用\"的看法,由题干关 键词JamesBenthamsay和genetics定位至第三段。 【解析】A项根据碎片信息\"没那么重要(playsalesskeyrole)\"断章取义,而忽视其前 述条件:当涉及人口整体的平均身高时。B项与首句Bentham观点\"营养和医疗保健的改善 很可能是人口身高增长的主要原因\"相俘。D项将“对个体影响大于对群体影响偷换为“对 女性影响大于对男性影响\".而Bentham并未谈及遗传基因对男女身高的影响。第三段2句指 出本瑟姆观点:遗传基因对个体身高影响很大,但计量平均身高时,遗传基因对身高的作用 就不那么重要了。故C正确。"
+        },
+        {
+          "number": 53,
+          "stem": "What does Elio Riboli say about taller people?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They tend to live longer."
+            },
+            {
+              "key": "B",
+              "text": "They enjoy an easier life."
+            },
+            {
+              "key": "C",
+              "text": "They generally risk fewer fatal diseases."
+            },
+            {
+              "key": "D",
+              "text": "They have greater expectations in life."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【答案】A 【定位】本题就埃利奥·里博利对\"高个人群\"的看法设题,由题干关键词ElioRiboli say 和tallerpeople定位至第四段。 【解析】B项由“高个子死于心血管疾病的风险较小,寿命较长\"过度推断出“高个子鲜 受疾病苦痛的纠缠、因而日子过得更轻松\"。C项错误同B项,将“患心血管疾病的风险较小” expectancy此处为固定用法,意为\"预期寿命”,并非\"生活期望\"。第四段1句中里博利指出: 较高的身高与较长的寿命有关,A中livelonger同义改写原文longerlifeexpectancy,"
+        },
+        {
+          "number": 54,
+          "stem": "What do we learn about 18-year-olds in Uganda and Niger?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They grow up slower than their peers in other countries."
+            },
+            {
+              "key": "B",
+              "text": "They are actually shorter than their earlier generations."
+            },
+            {
+              "key": "C",
+              "text": "They find it hard to bring their potential into full play."
+            },
+            {
+              "key": "D",
+              "text": "They have experienced many changes of government"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【答案】B 【定位】本题问及乌干达和尼日尔18岁群体\"的相关信息.根据题干关键词Ugandaand Niger定位至第五段末句。 【解析】A项将段中今昔对比\"20世纪初增长VS近年来逆转\"偷换为横向对比比其他 国家同龄人慢\"。C项利用第六段末句碎片信息failingtoreachtheirfull potential千扰,却忽 项利用当前非洲政治形势\"多国政权更迭频繁\"这一常识干扰。B项指出:近年来,乌干达和 尼日尔人身高变化趋势出现逆转,由20世纪初的增长转变为下降。由此可知,他们现在实 际上要比前几代人更矮,B正确。"
+        },
+        {
+          "number": 55,
+          "stem": "What does James Bentham suggest we do?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Watch closely the global trend in children’s development."
+            },
+            {
+              "key": "B",
+              "text": "Make sure that our children grow up to their full height."
+            },
+            {
+              "key": "C",
+              "text": "Try every means possible to improve our environment."
+            },
+            {
+              "key": "D",
+              "text": "Ensure our children grow up in an ideal environment."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【答案】D 【定位】本题就\"詹姆斯·本瑟姆的建议\"设题,根据题干关键词JamesBentham及本题 位置定位至末段。 【解析】A项利用末段碎片信息theglobaltrend\"children和grewup杂干扰,但文中 未有提及“儿童发展的全球趋势\"。B项由第六段末句“儿童和青少年无法充分发挥其身高潜 能\"主观推断Bentham建议确保孩子充分发挥身高潜能\",但Bentham的关注点在于孩子 的成长环境(饮食营养及医疗设施等)对身高的影响,进而对个人健康、发展成就的影响\"。 C项将文中theenvironmentwegrewupin“成长环境”过度泛化为ourenvironment“人类环 境”。末段引述本瑟姆之言指出,我们的身高很大程度上受到成长环境的影响.如果我们给孩 子一个最好的人生开端,即尽可能给他们提供一个理想的成长环境,那将对孩子今后的几十 年人生大有帮助,D正确。"
+        }
+      ]
+    }
+  ]
+}

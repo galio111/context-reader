@@ -1,0 +1,1729 @@
+{
+  "id": "cet6-2017-06-1",
+  "level": 6,
+  "year": 2017,
+  "month": 6,
+  "set": 1,
+  "title": "2017 年 6 月六级 · 第 1 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.06/%E7%9C%9F%E9%A2%98Word/2017%E5%B9%B406%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC1%E5%A5%97%EF%BC%89.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2017.06%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC1%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2017-06-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "After becoming president of Purdue University in 2013, Mitch Daniels asked the faculty to prove that their students have actually achieved one of higher education's most important goals: critical thinking skills. Two years before, a nationwide study of college graduates had shown that more than a third had made no [[26]] gains in such mental abilities during their school years. Mr. Daniels needed to [[27]] the high cost of attending Purdue to its students and their families. After all, the percentage of Americans who say a college degree is \"very important\" has fallen [[28]] in the last 5-6 years. Purdue now has a pilot test to assess students' critical thinking skills. Yet like many college teachers around the U.S., the faculty remain [[29]] that their work as educators can be measured by a \"learning [[30]]\" such as a graduate's ability to investigate and reason. However, the professors need not worry so much. The results of a recent experiment showed that professors can use [[31]] metrics to measure how well students do in three key areas: critical thinking, written communication, and quantitative literacy. Despite the success of the experiment, the actual results are worrisome, and mostly [[32]] earlier studies. The organizers of the experiment concluded that far fewer students were achieving at high levels on critical thinking than they were doing for written communication or quantitative literacy. And that conclusion is based only on students nearing graduation. American universities, despite their global [[33]] for excellence in teaching, have only begun to demonstrate what they can produce in real-world learning. Knowledge-based degrees are still important, but employers are [[34]] advanced thinking skills from college graduates. If the intellectual worth of a college degree can be [[35]] measured, more people will seek higher education—and come out better thinkers."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "accurately"
+        },
+        {
+          "key": "B",
+          "text": "confirm"
+        },
+        {
+          "key": "C",
+          "text": "demanding"
+        },
+        {
+          "key": "D",
+          "text": "doubtful"
+        },
+        {
+          "key": "E",
+          "text": "drastically"
+        },
+        {
+          "key": "F",
+          "text": "justify"
+        },
+        {
+          "key": "G",
+          "text": "monopolized"
+        },
+        {
+          "key": "H",
+          "text": "outcome"
+        },
+        {
+          "key": "I",
+          "text": "predominance"
+        },
+        {
+          "key": "J",
+          "text": "presuming"
+        },
+        {
+          "key": "K",
+          "text": "reputation"
+        },
+        {
+          "key": "L",
+          "text": "significant"
+        },
+        {
+          "key": "M",
+          "text": "signify"
+        },
+        {
+          "key": "N",
+          "text": "simultaneously"
+        },
+        {
+          "key": "O",
+          "text": "standardized"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accurately"
+            },
+            {
+              "key": "B",
+              "text": "confirm"
+            },
+            {
+              "key": "C",
+              "text": "demanding"
+            },
+            {
+              "key": "D",
+              "text": "doubtful"
+            },
+            {
+              "key": "E",
+              "text": "drastically"
+            },
+            {
+              "key": "F",
+              "text": "justify"
+            },
+            {
+              "key": "G",
+              "text": "monopolized"
+            },
+            {
+              "key": "H",
+              "text": "outcome"
+            },
+            {
+              "key": "I",
+              "text": "predominance"
+            },
+            {
+              "key": "J",
+              "text": "presuming"
+            },
+            {
+              "key": "K",
+              "text": "reputation"
+            },
+            {
+              "key": "L",
+              "text": "significant"
+            },
+            {
+              "key": "M",
+              "text": "signify"
+            },
+            {
+              "key": "N",
+              "text": "simultaneously"
+            },
+            {
+              "key": "O",
+              "text": "standardized"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【锁定答案】空格所在句指出“两年前研究显示,三分之一以上的学生在大学就读期间,并没有在心 智能力方面取得 进步”,空格词应能说明“进步(gains)”的性质、程度等。可选范围中只有 significant符合要求,madesignificantgains意为“收获/进步程度很大”。 【点拨技巧】12句以时间照应(in2013.,Twoyearsbefore...)、关键词回指(criticalthinking skills...such mental abilities)及动词呼应(ask...to prove....have actually achieved important goals与 had shown.... had made no gains)形成倒叙结构,传递因果逻辑:校长如今要求教师证明自已的 学生达到了目标,是因为两年前的调查表明很大一部分学生没有取得进展。很容易判断空格词 为“正向词(令人满意的,巨大的等)”。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accurately"
+            },
+            {
+              "key": "B",
+              "text": "confirm"
+            },
+            {
+              "key": "C",
+              "text": "demanding"
+            },
+            {
+              "key": "D",
+              "text": "doubtful"
+            },
+            {
+              "key": "E",
+              "text": "drastically"
+            },
+            {
+              "key": "F",
+              "text": "justify"
+            },
+            {
+              "key": "G",
+              "text": "monopolized"
+            },
+            {
+              "key": "H",
+              "text": "outcome"
+            },
+            {
+              "key": "I",
+              "text": "predominance"
+            },
+            {
+              "key": "J",
+              "text": "presuming"
+            },
+            {
+              "key": "K",
+              "text": "reputation"
+            },
+            {
+              "key": "L",
+              "text": "significant"
+            },
+            {
+              "key": "M",
+              "text": "signify"
+            },
+            {
+              "key": "N",
+              "text": "simultaneously"
+            },
+            {
+              "key": "O",
+              "text": "standardized"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【锁定答案】空格句指出,Daniels先生(普渡大学校长)需要向学生和家长 就读大学的高昂成 本。随后则以Afterall(毕竞,终究)引出背景:越来越多的美国人认为读大学不重要。可见,justify“证 明是合理的,为...辩护”符合语义要求:鉴于当前情形)Daniels有必要为大学教育、为普渡大学 的高昂学费“正名”。 confirm\"确认”单看语义可与thehigh cost搭配,但上下文没有提及学生和家长“不清楚学费问题”,因 而不存在校长向他们\"进行确认”的必要性,而且“与某人确认某事”用withsb而不是to sb。signify符合 signifysthto sb结构要求,但该词后接“某人的感觉、意见等(如signifyhisdissatisfactiontothem)”。 【点拔技巧】逻辑词(yet,however,despite等表示转折/反向关系;because,given,afterall等表示顺 接/同向关系)是推断空格语义的重要依据。如本题,由Afterall可知4句解释3句的背景原因,两句逻 辑关系为:(因为)公众不理解、信任度下降—所以校长需“正名”、证明其必要性,从而确定选justify。 28答案:E)drastically 【确定词性】空格所在句为完整的主谓结构(thepercentage..,hasfallen ),所以空格处应填 人副词,修饰不及物动词fallen,可选范围:A)accurately、E)drastically、N)simultaneously。 【锁定答案】空格词修饰“比例下降(the percentage.·.hasfallen)”,应能说明下降的“程度、幅度或速 度”,drastically“急剧地”符合此语义要求。 accurately\"精确地”不能与fallen搭配。simultaneously\"同步地、同时地”单看语义可以和fallen搭 配,用以说明“两个或多个下降趋势同时发生”,但上文中并未提及其他下降变化。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accurately"
+            },
+            {
+              "key": "B",
+              "text": "confirm"
+            },
+            {
+              "key": "C",
+              "text": "demanding"
+            },
+            {
+              "key": "D",
+              "text": "doubtful"
+            },
+            {
+              "key": "E",
+              "text": "drastically"
+            },
+            {
+              "key": "F",
+              "text": "justify"
+            },
+            {
+              "key": "G",
+              "text": "monopolized"
+            },
+            {
+              "key": "H",
+              "text": "outcome"
+            },
+            {
+              "key": "I",
+              "text": "predominance"
+            },
+            {
+              "key": "J",
+              "text": "presuming"
+            },
+            {
+              "key": "K",
+              "text": "reputation"
+            },
+            {
+              "key": "L",
+              "text": "significant"
+            },
+            {
+              "key": "M",
+              "text": "signify"
+            },
+            {
+              "key": "N",
+              "text": "simultaneously"
+            },
+            {
+              "key": "O",
+              "text": "standardized"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【锁定答案】空格词修饰“比例下降（the percentage…has fallen）”，应能说明下降的“程度、幅度或速度”，drastically“急剧地”符合此语义要求。accurately“精确地”不能与fallen搭配。simultaneously“同步地，同时地”单看词义可以和fallen搭配，但需说明“两个或多个下降趋势同时发生”，但上下文中并未提及其他下降变化。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accurately"
+            },
+            {
+              "key": "B",
+              "text": "confirm"
+            },
+            {
+              "key": "C",
+              "text": "demanding"
+            },
+            {
+              "key": "D",
+              "text": "doubtful"
+            },
+            {
+              "key": "E",
+              "text": "drastically"
+            },
+            {
+              "key": "F",
+              "text": "justify"
+            },
+            {
+              "key": "G",
+              "text": "monopolized"
+            },
+            {
+              "key": "H",
+              "text": "outcome"
+            },
+            {
+              "key": "I",
+              "text": "predominance"
+            },
+            {
+              "key": "J",
+              "text": "presuming"
+            },
+            {
+              "key": "K",
+              "text": "reputation"
+            },
+            {
+              "key": "L",
+              "text": "significant"
+            },
+            {
+              "key": "M",
+              "text": "signify"
+            },
+            {
+              "key": "N",
+              "text": "simultaneously"
+            },
+            {
+              "key": "O",
+              "text": "standardized"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【锁定答案】由thefacultyremain29that..,结构可知空格处应填人能表现教师们心理活动、 心理状态”的词语。该段1句指出“普渡大学正推行一项测试,评估学生的批判性思维能力”;2句(空 格所在句)以Yet引发转折,暗示教师们对此有不同看法;3句再次转折(However)指出“教师们不必如 此担心(neednotworry so much)”。据此可推断,2句中教师们的状态与“担心”相近,可选范围中 doubtful\"怀疑的”符合语义要求。 demanding用作形容词时意为“要求高的”,能用于修饰faculty,但和下文的“不必如此担心(need notworrysomuch)”无法衔接。monopolized\"被垒断的”、presuming\"推测的”、standardized\"标准化的” 与faculty不搭配。 【点拨技巧】so/such、this/that/these/those等的回指功能是解题的重要线索。如本题,由后文worry so much很容易反推空格词与“担忧”语义相近。 【补充语法】系动词十表示心理状态/精神作用的形容词(或d分词】在语法上相当于一个及物动 词,后面可跟that引导的宾语从句。如:Heappeared surprisedthatIrefusedhisinvitation.(他似乎很惊 我拒绝了他的邀请。)"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accurately"
+            },
+            {
+              "key": "B",
+              "text": "confirm"
+            },
+            {
+              "key": "C",
+              "text": "demanding"
+            },
+            {
+              "key": "D",
+              "text": "doubtful"
+            },
+            {
+              "key": "E",
+              "text": "drastically"
+            },
+            {
+              "key": "F",
+              "text": "justify"
+            },
+            {
+              "key": "G",
+              "text": "monopolized"
+            },
+            {
+              "key": "H",
+              "text": "outcome"
+            },
+            {
+              "key": "I",
+              "text": "predominance"
+            },
+            {
+              "key": "J",
+              "text": "presuming"
+            },
+            {
+              "key": "K",
+              "text": "reputation"
+            },
+            {
+              "key": "L",
+              "text": "significant"
+            },
+            {
+              "key": "M",
+              "text": "signify"
+            },
+            {
+              "key": "N",
+              "text": "simultaneously"
+            },
+            {
+              "key": "O",
+              "text": "standardized"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【锁定答案】由紧跟空格所在词组的suchas结构举出的例子agraduate'sabilitytoinvestigateand reason(毕业生的探究和推理能力)可判断空格词从语义上包含“能力”,outcome\"结果,成果”符合该语 义:“探究和推理能力”属于一项“学习成果”。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accurately"
+            },
+            {
+              "key": "B",
+              "text": "confirm"
+            },
+            {
+              "key": "C",
+              "text": "demanding"
+            },
+            {
+              "key": "D",
+              "text": "doubtful"
+            },
+            {
+              "key": "E",
+              "text": "drastically"
+            },
+            {
+              "key": "F",
+              "text": "justify"
+            },
+            {
+              "key": "G",
+              "text": "monopolized"
+            },
+            {
+              "key": "H",
+              "text": "outcome"
+            },
+            {
+              "key": "I",
+              "text": "predominance"
+            },
+            {
+              "key": "J",
+              "text": "presuming"
+            },
+            {
+              "key": "K",
+              "text": "reputation"
+            },
+            {
+              "key": "L",
+              "text": "significant"
+            },
+            {
+              "key": "M",
+              "text": "signify"
+            },
+            {
+              "key": "N",
+              "text": "simultaneously"
+            },
+            {
+              "key": "O",
+              "text": "standardized"
+            }
+          ],
+          "answer": "O",
+          "explanation": "【锁定答案】空格所在句及上下文均未描述metrics特征,故只能将可选范围的词代人空格,看是否 符合语义逻辑。standardized可和metrics搭配,且“标准化指标”强调衡量学生表现的标准统一、具有可 比性,可契合上文“老师们不必如此担心,教育者的工作可通过学生学习的成果来(有效)衡量。 demanding作形容词,意为“要求严格的”或“费时费力的”,一般用于修饰“人”或“工作”,不用于修饰 metrics. 【点拨技巧】选择名词的“修饰成分”时可有两种解题思路:1.如果上下文中有对中心词特征的描 述,则概括这些信息然后对比选项,最契合的即为答案;2.如果上下文中没有直接的描述性信息,则将 词性合适的备选项试着带入空格,从两个标准进行判断:1是否能够修饰中心词,2是否符合上下文语 境及暗含的逻辑关系(如本题)。 IlDespite the success of the experiment,the actual results are worrisome,and mostly32earlier studies. @ The organizers of the experiment concluded that far fewer students were achieving at high levels on critical thinking than they were doing for written communication or quantitative literacy. @ And that conclusion is based only on students nearing graduation. 尽管实验取得了成功,但实际结 果却令人担忧,且大部分证实了先前 的研究。实验的组织者得出结论:拥 有高水平批判思维能力的学生远远 少于拥有高水平书面交流和数理能 力的学生。这一结论仅基于即将毕 业的学生。 ·"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accurately"
+            },
+            {
+              "key": "B",
+              "text": "confirm"
+            },
+            {
+              "key": "C",
+              "text": "demanding"
+            },
+            {
+              "key": "D",
+              "text": "doubtful"
+            },
+            {
+              "key": "E",
+              "text": "drastically"
+            },
+            {
+              "key": "F",
+              "text": "justify"
+            },
+            {
+              "key": "G",
+              "text": "monopolized"
+            },
+            {
+              "key": "H",
+              "text": "outcome"
+            },
+            {
+              "key": "I",
+              "text": "predominance"
+            },
+            {
+              "key": "J",
+              "text": "presuming"
+            },
+            {
+              "key": "K",
+              "text": "reputation"
+            },
+            {
+              "key": "L",
+              "text": "significant"
+            },
+            {
+              "key": "M",
+              "text": "signify"
+            },
+            {
+              "key": "N",
+              "text": "simultaneously"
+            },
+            {
+              "key": "O",
+              "text": "standardized"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【锁定答案】可选范围中,语义上能和earlier studies搭配的只有confirm,即:当前实验结果证实了 先前的研究。signify\"表示,意味着”不能和studies搭配。 【点拨技巧】纵览文章可发现,theactualresults主要指本段23句实验结论:在即将毕业的学生中, “拥有高水平批判思维能力者”远少于“拥有高水平书面交流和数理能力者”。而earlierstudies应包括 首段2句所提及的两年前研究发现:很大一部分学生大学期间心智能力并未取得显著提升。比对可发 现:如今实验验证了先前的研究。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accurately"
+            },
+            {
+              "key": "B",
+              "text": "confirm"
+            },
+            {
+              "key": "C",
+              "text": "demanding"
+            },
+            {
+              "key": "D",
+              "text": "doubtful"
+            },
+            {
+              "key": "E",
+              "text": "drastically"
+            },
+            {
+              "key": "F",
+              "text": "justify"
+            },
+            {
+              "key": "G",
+              "text": "monopolized"
+            },
+            {
+              "key": "H",
+              "text": "outcome"
+            },
+            {
+              "key": "I",
+              "text": "predominance"
+            },
+            {
+              "key": "J",
+              "text": "presuming"
+            },
+            {
+              "key": "K",
+              "text": "reputation"
+            },
+            {
+              "key": "L",
+              "text": "significant"
+            },
+            {
+              "key": "M",
+              "text": "signify"
+            },
+            {
+              "key": "N",
+              "text": "simultaneously"
+            },
+            {
+              "key": "O",
+              "text": "standardized"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【锁定答案】首先看空格所在短语(despite...)大意:美国大学凭借优异的教学在全球 。随后 看整句主句(与空格所在短语为转折/反向关系):美国大学在展示就“真实世界的学习中”能教给学生 哪些本领方面刚刚起步。可见,reputation“声誉”符合该语义逻辑:尽管美国大学的优异教学享誉全 球,但真实世界教学刚刚起步。 predominance“优势;主导地位”在语义上能和global搭配,干扰性较强,但该词侧重表示“数量或影 响力的绝对优势”,与“excellence inteaching(教学质量优异)”不能构成合理的因果关系。 【补充语法】despite为介词,为“让步转折”标记,后接名词性成分,若要接that从句,需插入the fact 等名词成分。如:ShewenttoSpaindespitethefactthatherdoctorhadtoldhertorest.(尽管医生告诉 她要休息,她还是去了西班牙。)"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accurately"
+            },
+            {
+              "key": "B",
+              "text": "confirm"
+            },
+            {
+              "key": "C",
+              "text": "demanding"
+            },
+            {
+              "key": "D",
+              "text": "doubtful"
+            },
+            {
+              "key": "E",
+              "text": "drastically"
+            },
+            {
+              "key": "F",
+              "text": "justify"
+            },
+            {
+              "key": "G",
+              "text": "monopolized"
+            },
+            {
+              "key": "H",
+              "text": "outcome"
+            },
+            {
+              "key": "I",
+              "text": "predominance"
+            },
+            {
+              "key": "J",
+              "text": "presuming"
+            },
+            {
+              "key": "K",
+              "text": "reputation"
+            },
+            {
+              "key": "L",
+              "text": "significant"
+            },
+            {
+              "key": "M",
+              "text": "signify"
+            },
+            {
+              "key": "N",
+              "text": "simultaneously"
+            },
+            {
+              "key": "O",
+              "text": "standardized"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【锁定答案】句子前后以but形成转折,先让步指出“基于知识的学位依然重要”,再转折指出雇主对 “高级思维能力”的态度。可推断句子整体意在说明比起“学位”、雇主更看重“高级思维能力”,空格处应 填人带有“看重,强调,要求”含义的词,demanding符合语义,demandsthfromsb意为“要求某人具备某 物/某种能力”。 presuming\"推测,假定”一般用于“presumingsth十形容词/名词十forsb”结构(如presumeadvanced thinking skills important/an essential capacityfor colleges),不能用于本句的 sthfromsb结构。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accurately"
+            },
+            {
+              "key": "B",
+              "text": "confirm"
+            },
+            {
+              "key": "C",
+              "text": "demanding"
+            },
+            {
+              "key": "D",
+              "text": "doubtful"
+            },
+            {
+              "key": "E",
+              "text": "drastically"
+            },
+            {
+              "key": "F",
+              "text": "justify"
+            },
+            {
+              "key": "G",
+              "text": "monopolized"
+            },
+            {
+              "key": "H",
+              "text": "outcome"
+            },
+            {
+              "key": "I",
+              "text": "predominance"
+            },
+            {
+              "key": "J",
+              "text": "presuming"
+            },
+            {
+              "key": "K",
+              "text": "reputation"
+            },
+            {
+              "key": "L",
+              "text": "significant"
+            },
+            {
+              "key": "M",
+              "text": "signify"
+            },
+            {
+              "key": "N",
+              "text": "simultaneously"
+            },
+            {
+              "key": "O",
+              "text": "standardized"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【锁定答案】空格所在句和上下文均没有明确提示“测量”特征,因此只能将可选范围的词代人空 格,看是否能构成合理搭配,并符合语义逻辑。accurately“精确地”能与measure搭配,也能形成合理的 句内逻辑:“大学学位的价值能得以准确测量”可吸引“更多人选择高等教育”。 simultaneously“同步地”能与canbe measure搭配,但上下文提及的“测量的对象”只有“大 学学位的智力价值”,而非多个对象(advancedthinkingskills与intellectualworth实为同一事物),故“同 步测量”不成立。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2017-06-1-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Fossil fuel prices are likely to stay \"low for long\". Notwithstanding important recent progress in developing renewable fuel sources, low fossil fuel prices could discourage further innovation in, and adoption of, cleaner energy technologies. The result would be higher emissions of carbon dioxide and other greenhouse gases.",
+        "B) Policymakers should not allow low energy prices to derail the clean energy transition. Action to restore appropriate price incentives, notably through corrective carbon pricing, is urgently needed to lower the risk of irreversible and potentially devastating effects of climate change. That approach also offers fiscal benefits.",
+        "C) Oil prices have dropped by over 60% since June 2014. A commonly held view in the oil industry is that \"the best cure for low oil prices is low oil prices\". The reasoning behind this saying is that low oil prices discourage investment in new production capacity, eventually shifting the oil supply curve backward and bringing prices back up as existing oil fields—which can be tapped at relatively low marginal cost—are depleted. In fact, in line with past experience, capital expenditure in the oil sector has dropped sharply in many producing countries, including the United States. The dynamic adjustment to low oil prices may, however, be different this time around.",
+        "D) Oil prices are expected to remain lower for longer. The advent of new technologies has added about 4.2 million barrels per day to the crude oil market, contributing to a global over-supply. In addition, other factors are putting downward pressure on oil prices: change in the strategic behavior of the Organization of Petroleum Exporting Countries, the projected increase in Iranian exports, the scaling-down of global demand (especially from emerging markets), the long-term drop in petroleum consumption in the United States, and some displacement of oil by substitutes. These likely persistent forces, like the growth of shale (页岩) oil, point to a \"low for long\" scenario. Futures markets, which show only a modest recovery of prices to around $60 a barrel by 2019, support this view.",
+        "E) Natural gas and coal—also fossil fuels—have similarly seen price declines that look to be long-lived. Coal and natural gas are mainly used for electricity generation, whereas oil is used mostly to power transportation, yet the prices of all these energy sources are linked. The North American shale gas boom has resulted in record low prices there. The recent discovery of the giant Zohr gas field off the Egyptian coast will eventually have impact on pricing in the Mediterranean region and Europe, and there is significant development potential in many other places, notably Argentina. Coal prices also are low, owing to over-supply and the scaling-down of demand, especially from China, which bums half of the world's coal.",
+        "F) Technological innovations have unleashed the power of renewables such as wind, hydro, solar, and geothermal (地热). Even Africa and the Middle East, home to economies that are heavily dependent on fossil fuel exports, have enormous potential to develop renewables. For example, the United Arab Emirates has endorsed an ambitious target to draw 24% of its primary energy consumption from renewable sources by 2021.",
+        "G) Progress in the development of renewables could be fragile, however, if fossil fuel prices remain low for long. Renewables account for only a small share of global primary energy consumption, which is still dominated by fossil fuels—30% each for coal and oil, 25% for natural gas. But renewable energy will have to displace fossil fuels to a much greater extent in the future to avoid unacceptable climate risks.",
+        "H) Unfortunately, the current low prices for oil, gas, and coal may provide little incentive for research to find even cheaper substitutes for those fuels. There is strong evidence that both innovation and adoption of cleaner technology are strongly encouraged by higher fossil fuel prices. The same is true for new technologies for alleviating fossil fuel emissions.",
+        "I) The current low fossil fuel price environment will thus certainly delay the energy transition from fossil fuel to clean energy sources. Unless renewables become cheap enough that substantial carbon deposits are left underground for a very long time, if not forever, the planet will likely be exposed to potentially catastrophic climate risks.",
+        "J) Some climate impacts may already be discernible. For example, the United Nations Children's Fund estimates that some 11 million children in Africa face hunger, disease, and water shortages as a result of the strongest El Nino (厄尔尼诺) weather phenomenon in decades. Many scientists believe that El Nino events, caused by warming in the Pacific, are becoming more intense as a result of climate change.",
+        "K) Nations from around the world have gathered in Paris for the United Nations Climate Change Conference, COP 21, with the goal of a universal and potentially legally-binding agreement on reducing greenhouse gas emissions. We need very broad participation to fully address the global tragedy that results when countries fail to take into account the negative impact of their carbon emissions on the rest of the world. Moreover, non-participation by nations, if sufficiently widespread, can undermine the political will of participating countries to act.",
+        "L) The nations participating at COP 21 are focusing on quantitative emissions-reduction commitments. Economic reasoning shows that the least expensive way for each country is to put a price on carbon emissions. The reason is that when carbon is priced, those emissions reductions that are least costly to implement will happen first. The International Monetary Fund calculates that countries can generate substantial fiscal revenues by eliminating fossil fuel subsidies and levying carbon charges that capture the domestic damage caused by emissions. A tax on upstream carbon sources is one easy way to put a price on carbon emissions, although some countries may wish to use other methods, such as emissions trading schemes. In order to maximize global welfare, every country's carbon pricing should reflect not only the purely domestic damage from emissions, but also the damage to foreign countries.",
+        "M) Setting the right carbon price will therefore efficiently align the costs paid by carbon users with the true social opportunity cost of using carbon. By raising relative demand for clean energy sources, a carbon price would also help align the market return to clean-energy innovation with its social return, spurring the refinement of existing technologies and the development of new ones. And it would raise the demand for technologies such as carbon capture and storage, spurring their further development. If not corrected by the appropriate carbon price, low fossil fuel prices are not accurately signaling to markets the true social profitability of clean energy. While alternative estimates of the damage from carbon emissions differ, and it's especially hard to reckon the likely costs of possible catastrophic climate events, most estimates suggest substantial negative effects.",
+        "N) Direct subsidies to research and development have been adopted by some governments but are a poor substitute for a carbon price: they do only part of the job, leaving in place market incentives to over-use fossil fuels and thereby add to the stock of atmospheric greenhouse gases without regard to the collateral (附带的) costs.",
+        "O) The hope is that the success of COP 21 opens the door to future international agreement on carbon prices. Agreement on an international carbon-price floor would be a good starting point in that process. Failure to address comprehensively the problem of greenhouse gas emissions, however, exposes all generations, present and future, to incalculable risks."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "A number of factors are driving down the global oil prices not just for now but in the foreseeable future.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "D",
+          "explanation": "若干因素正在压低全球油价,不仅目前如此,在可预见的将来也是如此。 [答案][D]】[精析]根据[定位词定位]、核心义匹配]可知本题对应[D]段34句。两句指出多 种因素将持续压低油价,此轮油价下跌幅度更大,持续时间更久。本题是对两句的综合概括,其中A numberoffactors在3句中复现,drivingdown对应3句puttingdownwardpressureon,not justfornow butintheforseeablefuture则对应1句\"lowforlong”scenario。"
+        },
+        {
+          "number": 37,
+          "stem": "Pricing carbon proves the most economical way to reduce greenhouse gas emissions.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "L",
+          "explanation": "碳定价被证实是减少温室气体排放最经济的方式。 [答案][L][精析]根据[定位词定位]、[核心义匹配]可知本题对应[L]段2句。该句指出成本 最低的方法是对碳排放定价,且由1句可知该方法的目的是减排。试题是对该句的同义转述,其中to reducegreenhousegas emissions对应1句emissions-reduction。"
+        },
+        {
+          "number": 38,
+          "stem": "It is estimated that extreme weather conditions have endangered the lives of millions of African children.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "J",
+          "explanation": "据估计,极端天气已经危及数百万非洲儿童的生命。 [答案][J][精析]根据[定位词定位]、[核心义匹配]可知本题对应[J]段2句。[J段举例说明 气候灾害,2句指出约1100万非洲儿童因厄尔尼诺现象而面临饥饿、疾病、用水短缺等生存问题。试题 是对2句例证信息的综合概括,其中extremeweatherconditions对应以厄尔尼诺为代表的极端天气现 象,endangered准确概括了数量众多非洲儿童的境遇。"
+        },
+        {
+          "number": 39,
+          "stem": "The prices of coal are low as a result of over-supply and decreasing demand.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "E",
+          "explanation": "煤炭价格低迷是由于供应过剩和需求减少。 [答案][E][精析]根据定位词定位]、[核心义匹配]可知本题对应[E]段末句。该句指出因供 应过剩和需求缩减,煤炭价格也处于低位。题目是对该句的同义改写,asaresultof对应owingto。"
+        },
+        {
+          "number": 40,
+          "stem": "Higher fossil fuel prices prove to be conducive to innovation and application of cleaner technology.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "H",
+          "explanation": "提高化石燃料价格被证明有益于清洁技术的创新和应用。 [答案][H][精析]根据[定位词定位]、[核心义匹配]可知本题对应[H]段2句。该句肯定指 出,提高化石燃料价格可极大推动清洁技术的创新和运用。试题是对该句的同义改写,其中prove对应 evidence,be conducive to与are strongly encouraged近义。"
+        },
+        {
+          "number": 41,
+          "stem": "If fossil fuel prices remain low for a long time, it may lead to higher emissions of greenhouse gases.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "A",
+          "explanation": "如果化石燃料长期保持低价,可能会增加温室气体的排放。 [答案][A][精析]根据[定位词定位]、[核心义匹配]可知本题对应至[A]段13句。1句指出 当前趋势“化石燃料可能长期保持低价”,3句指出结果“增加温室气体排放”。试题是对两句的概括, 其中remainlowforalongtime对应首句stay“lowforlong”,mayleadto...对应末句Theresultwould be。"
+        },
+        {
+          "number": 42,
+          "stem": "Fossil fuels remain the major source of primary energy consumption in today's world.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "G",
+          "explanation": "当今世界,化石燃料仍是一次能源消耗的主要来源。 [答案][G][精析]根据[定位词定位]、[核心义匹配]可知本题对应[G]段2句。该句指出全球 一次能源消耗只有一小部分来自可再生能源,主要来源仍是化石燃料。试题是对该句的同义转述,其 中intodaysworld是对该句现在时态accountfor、isstill的改写。"
+        },
+        {
+          "number": 43,
+          "stem": "Even major fossil exporting countries have great potential to develop renewable energies.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "F",
+          "explanation": "即使是主要的化石燃料出口国也有开发可再生能源的巨大潜力。 [答案][F][精析]根据[定位词定位]、核心义匹配]可知本题对应[F]段2句。该句指出即使 是非洲和中东地区那些高度依赖化石燃料出口的经济体也具有开发可再生能源的巨大潜力。试题是 对该句的同义改写。"
+        },
+        {
+          "number": 44,
+          "stem": "Greenhouse gas emissions, if not properly dealt with, will pose endless risks for mankind.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "O",
+          "explanation": "温室气体排放如不能恰当处理,将对人类造成无尽的风险。 [答案][O][精析]根据[定位词定位]、[核心义匹配]可知本题对应[O]段末句。该句指出如果 不能全面解决温室气体排放问题,我们以及将来的世世代代都会面临不可估量的风险。试题是对该句 的同义转述,其中if notproperlydealtwith对应failure to address comprehensively...,mankind是对all generations,presentand future的概括。"
+        },
+        {
+          "number": 45,
+          "stem": "It is urgent for governments to increase the cost of using fossil fuels to an appropriate level to lessen the catastrophic effects of climate change.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "B",
+          "explanation": "政府急需将化石燃料使用成本提高至适当水平,以减少气候变化的灾难性影响。 [答案][B][精析]根据[定位词定位]、[核心义匹配]可知本题对应[B段2句。1句概述政策 制定者应采取措施,2句具体说明措施,指出为降低气候变化带来灾难性影响的风险,政策制定者迫切 需要采取适当的价格激励措施,特别是纠正性的碳税措施。试题是对2句的同义转述,其中 governments同义复现1句policymakers,是2句暗含的逻辑主语,to increasethe cost..,to an appropriate level同义改写2句to restore appropriate price incentives。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2017-06-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Open data sharers are still in the minority in many fields. Although many researchers broadly agree that public access to raw data would accelerate science, most are reluctant to post the results of their own labors online. Some communities have agreed to share online—geneticists, for example, post DNA sequences at the GenBank repository (库) , and astronomers are accustomed to accessing images of galaxies and stars from, say, the Sloan Digital Sky Survey, a telescope that has observed some 500 million objects—but these remain the exception, not the rule. Historically, scientists have objected to sharing for many reasons: it is a lot of work; until recently, good databases did not exist; grant funders were not pushing for sharing; it has been difficult to agree on standards for formatting data; and there is no agreed way to assign credit for data. But the barriers are disappearing, in part because journals and funding agencies worldwide are encouraging scientists to make their data public. Last year, the Royal Society in London said in its report that scientists need to \"shift away from a research culture where data is viewed as a private preserve\". Funding agencies note that data paid for with public money should be public information, and the scientific community is recognizing that data can now be shared digitally in ways that were not possible before. To match the growing demand, services are springing up to make it easier to publish research products online and enable other researchers to discover and cite them. Although calls to share data often concentrate on the moral advantages of sharing, the practice is not purely altruistic (利他的). Researchers who share get plenty of personal benefits, including more connections with colleagues, improved visibility and increased citations. The most successful sharers—those whose data are downloaded and cited the most often---get noticed, and their work gets used. For example, one of the most popular data sets on multidisciplinary repository Dryad is about wood density around the world; it has been downloaded 5,700 times. Co-author Amy Zanne thinks that users probably range from climate-change researchers wanting to estimate how much carbon is stored in biomass, to foresters looking for information on different grades of timber. \"I'd much prefer to have my data used by the maximum number of people to ask their own questions,\" she says. \"It's important to allow readers and reviewers to see exactly how you arrive at your results. Publishing data and code allows your science to be reproducible.\" Even people whose data are less popular can benefit. By making the effort to organize and label files so others can understand them, scientists become more organized and better disciplined themselves, thus avoiding confusion later on."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What do many researchers generally accept?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is imperative to protect scientists' patents."
+            },
+            {
+              "key": "B",
+              "text": "Repositories are essential to scientific research."
+            },
+            {
+              "key": "C",
+              "text": "Open data sharing is most important to medical science."
+            },
+            {
+              "key": "D",
+              "text": "Open data sharing is conducive to scientific advancement."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]D)。该从句指出诸多研究者大体接受的观点:对原始数据的公开访问(即开放的数据 共享)能增进科学,正确项D是对publicaccesstorawdatawouldacceleratescience的同义改写。 [排除干扰]A、C项scientists'patents、medicalscience均为文中未提及信息。B项虽复现第二段1 句repository,但该句只传递出少数科学团体支持使用数据库,并不能由此推出他们认为数据库是科研 必需;且题干所问为“多数研究者支持观点”,而本项指向“少数研究团体行为”。提醒:聪明学生从常识 即能排除B项:数据库是信息技术发展的产物,而科学研究自古有之,前者并非后者必需。 [提炼思路]本道事实细节题虽说考查细节,实质可采取“紧扣话题、缩窄范围、排除不匹配信息所 在项”的思路来解答:据由首段Opendatasharers、publicaccesstorawdata、posttheresultsof theirown laboursonline所组建的语义场“数据共享”可先锁定C、D项;而后排除medicalscience这一文中缺失信 息所在的C项。"
+        },
+        {
+          "number": 47,
+          "stem": "What is the attitude of most researchers towards making their own data public?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Opposed."
+            },
+            {
+              "key": "B",
+              "text": "Ambiguous."
+            },
+            {
+              "key": "C",
+              "text": "Liberal."
+            },
+            {
+              "key": "D",
+              "text": "Neutral."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]A)。首段2句即指出“大多数研究者不愿意将其原始数据共享”,第二段虽指出“少数 科学团体同意共享”,但随后否定这是一种常规做法,意即大多数群体并不同意共享。正确项A是对首 段2句reluctant、第二段2句objected的合理概括。 [排除干扰]B、D项将首段2句让步-转折关联“虽认可但并不愿这么做”偷换为并列关联“一面认 可、一面又不认可”,从而捏造出“模棱两可的、中立的”两种态度。C项“开明”实指“支持”,与文意相悖。 [提炼思路]命题人于“语义转折处”(首段2句Althoughmanyresearchersbroadlyagree.·,most are reluctant...;第二段1句 Some communities have agreed to share online...,but these...not the rule..·scientistshaveobjectedtosharing...)设置人物态度题,解题需:l.意识到转折后才是人物观点 的集中体现,关键词reluctant、nottherule、haveobjectedto表明多数研究者反对数据共享;2.借人物观 点与作者观点间关系(用以佐证、还是用以批驳)验证选项,由“数据共享者过少(still intheminorityin many fields)VS数据共享大有神益(not purely altruistic...get plenty of personal benefits...can benefit.·.)”可知作者旨在批驳“多数研究者不共享研究数据的行为”。"
+        },
+        {
+          "number": 48,
+          "stem": "According to the passage, what might hinder open data sharing?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The fear of massive copying."
+            },
+            {
+              "key": "B",
+              "text": "The lack of a research culture."
+            },
+            {
+              "key": "C",
+              "text": "The belief that research data is private intellectual property."
+            },
+            {
+              "key": "D",
+              "text": "The concern that certain agencies may make a profit out of it."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]C)。第二段2句罗列科学家反对数据共享的五项原因/数据共享的五重阻碍:工作量 大、数据库质量低、基金资助者不重视、科学家们就“数据如何编码、数据如何归功”难以达成一致,但无 一契合选项。第三段先指出数据共享阻碍消失部分源于期刊和资助机构的鼓励敦促,随后以实例力 证:伦敦皇家学会称,科学家们需要“改变“数据被视作私有品’的研究文化”,反向可推知““以数据为私 有品的研究文化'阻碍了数据共享”,正确项C是aresearchculturewheredata isviewedasaprivate preserve的同义改写。 [排除干扰]A项copying源自第四段末词reproducible,但该句意在讲述“共享数据的好处:有利于 共享者研究成果被引用、被复制”,即,“被复制”是“开放共享数据的益处”而非题干所问“共享数据的障 碍”。B项虽复现第三段2句aresearchculture,但却将文意“以数据为私有品的固有研究文化”篡改为 “研究文化的欠缺”。D项根据第三段3句碎片信息Fundingagencies、Publicmoney捏造而来,而该句实 际是对资助机构思想意识转变的赞赏,而非像选项所述对其贬低。 [提炼思路]本题考查文章细节,却涉及逆向推理,难点在于“答案的准确定位”:由题干hinder可定 位至第三段段首thebarrier,thebarrier显然回指第二段2句科学家反对数据共享的诸多原因,但发现 选项均无法匹配原文。此时,意识到第三段“共享阻碍消失的原因”中亦可能提及“阻碍数据共享的因 素”,2句佐证部分“伦敦皇家学会敦促改变“以数据为私有品的研究文化””逆推即可得正确项C。"
+        },
+        {
+          "number": 49,
+          "stem": "What helps lift some of the barriers to open data sharing?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The ever-growing demand for big data."
+            },
+            {
+              "key": "B",
+              "text": "The advancement of digital technology."
+            },
+            {
+              "key": "C",
+              "text": "The changing attitude of journals and funders."
+            },
+            {
+              "key": "D",
+              "text": "The trend of social and economic development."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]C)。第三段1句指出“数据共享阻碍正趋消失,这部分源于全球期刊和资助机构的鼓 励”,上溯至第二段2句明确“数据共享过去阻碍之一即基金资助方未敦促共享”,两相对比,可知“期刊 和资助方态度的转变”是数据共享推动因素之一,正确项C是grantfunderswerenotpushingfor.·:VS fundingagencies...areencouraging...昔今变化的正确阐述。 [排除干扰]A项虽复现第三段4句thegrowingdemand,但将其指代内容“对数据共享日益增长的 需求”改为“对大数据日益增长的需求”。B项源自第三段3句第二分句的宾语“共享方式实现数字化 变革(..,digitallyinwaysthatwerenotpossiblebefore)”,但这是客观局势,这一局势本身与数据共享障 碍消除之间并无因果关联,真正与数据共享障碍消除有因果关联的是整个句子“科学家对这一客观形 势的积极认知”。D项“社会经济发展趋势”文中并未提及。 [提炼思路]本题考查因果,关键在把握因果关联词,而第三段首句即由inpartbecause引出了 journalsandfundingagencies这两个主体,由此可以很快将正确答案锁定在C项。本题最大干扰在A 项,区辨关键在对段末句thegrowingdemand的正确理解,而由上下文可知该词应该指代“对数据共享 行为日益增长的需求”而非“对大数据日益增长的需求”,如果实在不愿费时费力进行区辨,亦可从全文 论述主题是“数据共享”而非“大数据”上加以排除。干扰项B、D实质性质类似,且D涵盖B甚至A、 C),若选择只能选择D,但考题多半由文章大意而出,正确项不可能大而泛之,将其无节制扩放到毫无 精准性的“社会经济发展趋势”。"
+        },
+        {
+          "number": 50,
+          "stem": "Dryad serves as an example to show how open data sharing ________.",
+          "options": [
+            {
+              "key": "A",
+              "text": "is becoming increasingly popular"
+            },
+            {
+              "key": "B",
+              "text": "benefits sharers and users alike"
+            },
+            {
+              "key": "C",
+              "text": "makes researchers successful"
+            },
+            {
+              "key": "D",
+              "text": "saves both money and labor"
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]B)。第四段先提出观点“数据共享不仅利他(使用者),也利已(分享者)”,随后列举共 享者可获得的诸多益处“人际交往增多、受关注度提升、文章被引次数增高”,最后以“Dyrad上最受欢迎 数据集之一所收获的高关注度”力证。正确项B是第四段1句notpurelyaltruistic的同义改写。 [排除干扰]A项源自4句themostpopular,但该词修饰对象是“数据集(datasets)”而非“开放数据 共享(opendatasharing)”,且属于事例本身而非事例目的。C项源自3句Themostsuccessfulsharers, 但由末段可知并非所有共享者都会成功/获得高关注度。D项savesmoney与“数据为公众开放/不收 取费用(public accesstodata)”相符,saveslabor与第三段1句servicesarespringinguptomakeiteasier topublish同义,选项所述虽为事实,但并非Dyrad一例所要论证的观点。 [提炼思路]解答“援引目的题”可:1.定位原文,理解援引实例,如第四段4至3句说明\"Dryad上最受欢 迎的数据集被多次下载、广泛使用”;2.于紧邻实例的上下文处寻找观点句,如第四段1至3句均体现作者观 点“数据共享不仅于人有利,更于已有利(the practiceisnotpurelyaltruistic...Researcherswhosharegetplenty of personal benefits. .. The most successful sharers, . . get noticed. . . their work gets used)\"。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2017-06-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Macy's reported its sales plunged 5.2% in November and December at stores open more than a year, a disappointing holiday season performance that capped a difficult year for a department store chain facing wide-ranging challenges. Its flagship stores in major U.S. cities depend heavily on international tourist spending, which shrank at many retailers due to a strong dollar. Meanwhile, Macy's has simply struggled to lure consumers who are more interested in spending on travel or dining out than on new clothes or accessories. The company blamed much of the poor performance in November and December on unseasonably warm weather. \"About 80% of our company's year-over-year declines in comparable sales can be attributed to shortfalls (短缺) in cold-weather goods,\" said chief executive Teny Lundgren in a press release. This prompted the company to cut its forecasts for the full fourth quarter. However, it's clear that Macy's believes its troubles run deeper than a temporary aberration (偏离) off the thermometer. The retail giant said the poor financial performance this year has pushed it to begin implementing $400 million in cost-cutting measures. The company pledged to cut 600 back-office positions, though some 150 workers in those roles would be reassigned to other jobs. It also plans to offer \"voluntary separation\" packages to 165 senior executives. It will slash staffing at its fleet of 770 stores, a move affecting some 3,000 employees. The retailer also announced the locations of 36 stores it will close in early 2016. The company had previously announced the planned closures, but had not said which locations would be affected. None of the chain's stores in the Washington metropolitan area are to be closed. Macy's has been moving aggressively to try to remake itself for a new era of shopping. It has plans to open more locations of Macy's Backstage, a newly-developed off-price concept which might help it better compete with ambitious T. J. Maxx. It's also pushing ahead in 2016 with an expansion of Bluemercury, the beauty chain it bought last year. At a time when young beauty shoppers are often turning to Sephora or Ulta instead of department store beauty counters, Macy's hopes Bluemercury will help strengthen its position in the category. One relative bright spot for Macy's during the holiday season was the online channel, where it rang up \"double-digit\" increases in sales and a 25% increase in the number of orders it filled. That relative strength would be consistent with what was seen in the wilder retail industry during the early part of the holiday season. While Thanksgiving, Black Friday and Cyber Monday all saw record spending online, in-store sales plunged over the holiday weekend."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the author say about the shrinking spending of international tourists in the U.S.?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is attributable to the rising value of the U.S. dollar."
+            },
+            {
+              "key": "B",
+              "text": "It is a direct result of the global economic recession."
+            },
+            {
+              "key": "C",
+              "text": "It reflects a shift of their interest in consumer goods."
+            },
+            {
+              "key": "D",
+              "text": "It poses a potential threat to the retail business in the U.S."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]A)。第一段2句指出,梅西百货在美国大城市的旗舰店极度依赖外国游客的消费,而 美元强势使得外国游客的旅游消费减少,从而使得各门店销量萎缩。由此可知,美元强势(即美元升 值)是国际游客在美消费缩减的原因,正确项A是对astrongdollar的同义改写。 [排除干扰]B项中“全球经济衰退”文中并未提及。C项利用3句consumerswhoaremore interested inspendingon...thanon...“消费者消费兴趣”设障,但句中只涉及消费者具体兴趣,而选项 首先将对象缩窄为国际游客(theirinterest指代题干的internationaltourists’interest),其次将内容偷换 为兴趣改变。D项将2句所述国际游客在美消费缩减的影响“梅西百货旗舰店销量减少(因其主要依赖 国际游客消费)”夸大为“整个零售业均受到潜在威胁”。 [提炼思路]本题形似考查作者态度(Whatdoestheauthorsay),实质考查“在美游客开销变少”的 前因后果(A项attributable提示原因、B项result提示结果、C项reflectsashift提示因果,D项posesa threat提示影响)。而文中提及“国际游客”的唯有首段2句,且该句呈现shrank..dueto因果关联,由 此将正确答案锁定在which从句中。注:若有一定货币知识,可知货币强势意味着货币升值;若不了解 相关知识仍可根据词汇字面意思(strong往往代表“正面的”或“向上的”,应该对应货币升值)或历史事 件(2008年金融危机,全球经济衰退,美元大幅贬值,与B项刚好相反)确定答案。 Il The company blamed much of the poor 该公司将11月和12月的惨 performance in November and December on unseasonably 淡业绩主要归答于反常的温暖天 warm weather.\"About 80% of our company's year-over- 气。“公司同店销售额同比下降, year declines in comparable sales can be attributed to? 约80%归因于防寒用品销售短 shortfalls(短缺)in cold-weather goods,”said chief 缺。\"首席执行官泰瑞·伦德格林 executive Terry Lundgren in a press release. @ This 在新闻发布会上表示。这促使公 prompted the company to cut its forecasts for the full 司下调了整个第四季度的业绩 fourth quarter. 预测。 ·"
+        },
+        {
+          "number": 52,
+          "stem": "What does Macy's believe about its problems?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They can be solved with better management."
+            },
+            {
+              "key": "B",
+              "text": "They cannot be attributed to weather only."
+            },
+            {
+              "key": "C",
+              "text": "They are not as serious in its online stores."
+            },
+            {
+              "key": "D",
+              "text": "They call for increased investments."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]B)。该句指出:梅西百货非常清楚地知道自身问题不单单是气温异常,意即,公司深知 还有其他因素存在。正确项是对itstroublesrundeeperthanatemporaryaberrationoffthethermometer 的同义改写。 [排除干扰]A项根据34句“约150个后勤职位被调整、约165位高管可选择自愿离职”臆断出 “更好的管理”,而该句实际意在说明梅西百货采取了“裁员措施”而非“更好的管理措施”。C项利用末 段“线上销售增长快\"设障,但文中并未提及“线上(存在)问题”,而只谈及“门店(即线下)(存在)问题”, 可比性无中生有。D项反向干扰,由2句“4亿元开支缩减计划”反向捏造而来(,对于实体店销售不佳 问题,梅西百货采取的是缩减开支措施、而非加大投资力度)。 [提炼思路]本题形似考查梅西百货对其自身问题的看法,实则考查对段落群中语义逻辑的掌握。 文章第二段首句谈及梅西百货将销售不佳主要归于不合时宜的暖冬,而第三段首句借However转而 指出该公司很清楚地知道其问题的原因不仅仅是气温这么简单。本题考查的就是这一转折的段落群 语义逻辑,因However而将语义重点落于第三段首句,而重点即考点,答案为B项。"
+        },
+        {
+          "number": 53,
+          "stem": "In order to cut costs, Macy's decided to ________.",
+          "options": [
+            {
+              "key": "A",
+              "text": "cut the salary of senior executives"
+            },
+            {
+              "key": "B",
+              "text": "relocate some of its chain stores"
+            },
+            {
+              "key": "C",
+              "text": "adjust its promotion strategies"
+            },
+            {
+              "key": "D",
+              "text": "reduce the size of its staff"
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]D)。第三段2句概述指出梅西已开始实施开支缩减计划,3至句详述具体措施:削 减后勤岗位、劝退高级管理人员、裁减门店员工。正确项D是对cut..,back-officePositions、offer “voluntary separation”packages to...senior executives、slash staffing at its stores的合理概括。 [排除干扰]A项将段中4句“让高级管理人员自愿离职”偷换为“削减高级管理人员薪水”。B项 将第四段“关闭门店(close)”偷换为“让门店迁址(relocate)”。C项中“推广策略”文中并未提及。 [提炼思路]本文考查梅西百货的做法,由于选项涉及多项具体措施,所以可从选项出发。具体解 题步骤有:一、提取选项关键词(senior executives、chain stores、promotionstrategies、the sizeof staff); 二、按关键词定位原文(A对应第三段4句,B对应第四段1句,C无直接对应,D对应第三段3句);三、 结合选项与原文确定答案。注:D项“减小员工规模”虽然可按照选项关键词定位原文“裁减门店员工”, 但事实上也概括了前两个措施(削减后勤岗位、劝退资深主管)。"
+        },
+        {
+          "number": 54,
+          "stem": "Why does Macy's plan to expand Bluemercury in 2016?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To experiment on its new business concept."
+            },
+            {
+              "key": "B",
+              "text": "To focus more on beauty products than clothing."
+            },
+            {
+              "key": "C",
+              "text": "To promote sales of its products by lowering prices."
+            },
+            {
+              "key": "D",
+              "text": "To be more competitive in sales of beauty products."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]D)。4句紧承3句\"梅西百货计划在2016年扩张Bluemercury\"说明原因:现在的年轻 顾客更喜欢去美妆连锁店,梅西百货希望以此巩固自已在美妆方面的地位。由此可知,其扩张意在增 强自身在美妆产品销售的竞争力。正确项D是对strengthenitspositioninthecategory的同义改写。 [排除干扰]A项虽复现2句anewly-developed...concept“折扣店这一新的经营模式”,但它与 Bluemercury无关、而与Macy’sBackstage有关,且文中也并未谈及“试验这一模式”。B项由句“年轻 顾客更乐意光顾美妆店而非百货商场的美妆柜台”捏造出“梅西百货意欲扩张Bluemercury美妆店是为 了聚焦美妆产品”,但句中指出这一计划的目的是“为了巩固自身在美妆销售的竞争地位”,而并未提及 “厚此(美妆产品)薄彼(服装产品)”。C项利用2句off-price捏造出sales.·.byloweringprices,而文中 所指为开设折扣店”而非“降价销售”,且折扣店所指为MacysBackstage而非Bluemercury。 [提炼思路]本题形似考查因果逻辑关系中的“因”,但由选项(动词不定式)可知实际考查举措目 的。解题关键:在定位句及其附近搜寻表示“目的”的表达(4句hopes.·.will help表示“希望出现的结 果”),并由此锁定正确答案所在(strengthen itspositioninthecategory,其中its回指“梅西百货”,the category回指“美妆产品”;“巩固地位”即“加强竞争力”)。提醒:段中两个对象(Macy\"sBackstage、 Bluemercury)、涉及两个行为(开设更多MacysBackstage、扩张Bluemercury),而题目仅对其中一个对 象/行为进行提问,故在解答时可直接刨除涉及非考查对象行为的信息(如A、C项),缩小选择范围(B、 D项)。"
+        },
+        {
+          "number": 55,
+          "stem": "What can we learn about Macy's during the holiday season?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Sales dropped sharply in its physical stores."
+            },
+            {
+              "key": "B",
+              "text": "Its retail sales exceeded those of T. J. Maxx."
+            },
+            {
+              "key": "C",
+              "text": "It helped Bluemercury establish its position worldwide."
+            },
+            {
+              "key": "D",
+              "text": "It filled its stores with abundant supply of merchandise."
+            }
+          ],
+          "answer": "A",
+          "explanation": "关于这个假日季的梅西百货,我们了解到了 什么? A)实体门店销售额大幅滑坡。 B)它的零售额超过了T.J.Maxx。 C)它帮助Bluemercury在全世界确立了地位。 D)它用充足的货品供应充实了商店。 [精准定位]本题考查梅西百货假期中发生的事。根据theholidayseason定位至首段首句(a disappointing holiday seasonperformance)及末段首末句(during the holiday season.·.over theholiday weekends)。 [确定答案]A)。文首段开篇即提到梅西百货在假日销售旺季中业绩不佳,末段首句退而指出这个 假日季的亮点“线上业绩不错”、末句进而做比较“相较上扬的线上销售数据、线下销售量骤降”。正确 项A是对文首句itssalesplunged5.2%..atstores、文末句in-storesalesplunged的同义改写。 [排除干扰]B项利用第五段2句bettercompetewithambitiousT.J.Maxx设障,而句中只谈及这 只是一种可能“might”,文中后续并未谈及事实性结果。C项倒置第五段4句“(梅西百货希望) Bluemercury巩固自身在美妆销售中的地位”,且文中后续并未提及Bluemercury的扩张进度。D项利 用第六段1句itfilled设障,但此处指订单的“完成”而非商品的“填充”,且订单完成量的增长指线上 (onlinechannel),与实体店(stores)无直接联系。 [提炼思路]解答本题甚至可以跨越文章细节,而只从文章主旨上去考虑。诸如B、C项所述T.J. Maxx、Bluemercury与题干所述假日季根本不存在任何关系,而D项“货品供应”实际上与文中多次重复 的“销售业绩不佳”无甚关联,可从“不贴合主旨”角度排除,故选择A项。"
+        }
+      ]
+    }
+  ]
+}

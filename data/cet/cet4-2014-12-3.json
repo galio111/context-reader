@@ -1,0 +1,1729 @@
+{
+  "id": "cet4-2014-12-3",
+  "level": 4,
+  "year": 2014,
+  "month": 12,
+  "set": 3,
+  "title": "2014 年 12 月四级 · 第 3 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.12/%E7%9C%9F%E9%A2%98Word/2014%E5%B9%B412%E6%9C%88%E5%B9%B4%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%EF%BC%88%E4%B8%89%EF%BC%89.doc",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2014%E5%B9%B412%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%B8%89%EF%BC%89.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2014-12-3-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "For decades, Americans have taken for granted the United States’ leadership position in the development of new technologies. The innovations (创 新)that resulted from research and development during World War II and afterwards were [[36]] to the prosperity of the nation in the second half of the 20th century. Those innovations, upon which virtually all aspects of [[37]] society now depend, were possible because the United States then [[38]] the world in mathematics and science education. Today, however, despite increasing demand for workers with strong skills in mathematics and science, the [[39]] of degrees awarded in science, math, and engineering are decreasing. The decline in degree production in what are called the STEM disciplines (science, technology, engineering, and math) seems to be [[40]] related to the comparatively weak performance by US schoolchildren on international assessments of math and science. Many students entering college have weak skills in mathematics. According to the 2005 report of the Business-Higher Education Forum, 22 percent of college freshmen must take remedial(补习的)math [[41]] , and less than half of the students who plan to major in science or engineering [[42]] complete a major in those fields. The result has been a decrease in the number of American college graduates who have the skills, [[43]] in mathematics, to power a workforce that can keep the country at the forefront(前沿)of innovation and maintain its standard of living. With the [[44]] performance of American students in math and science has come increased competition from students from other countries that have strongly supported education in these areas. Many more students earn [[45]] in the STEM disciplines in developing countries than in the United States."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "accelerating"
+        },
+        {
+          "key": "B",
+          "text": "actually"
+        },
+        {
+          "key": "C",
+          "text": "closely"
+        },
+        {
+          "key": "D",
+          "text": "contemporary"
+        },
+        {
+          "key": "E",
+          "text": "courses"
+        },
+        {
+          "key": "F",
+          "text": "critical"
+        },
+        {
+          "key": "G",
+          "text": "declining"
+        },
+        {
+          "key": "H",
+          "text": "degrees"
+        },
+        {
+          "key": "I",
+          "text": "especially"
+        },
+        {
+          "key": "J",
+          "text": "future"
+        },
+        {
+          "key": "K",
+          "text": "led"
+        },
+        {
+          "key": "L",
+          "text": "met"
+        },
+        {
+          "key": "M",
+          "text": "procedures"
+        },
+        {
+          "key": "N",
+          "text": "proportions"
+        },
+        {
+          "key": "O",
+          "text": "spheres"
+        }
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "第 36 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accelerating"
+            },
+            {
+              "key": "B",
+              "text": "actually"
+            },
+            {
+              "key": "C",
+              "text": "closely"
+            },
+            {
+              "key": "D",
+              "text": "contemporary"
+            },
+            {
+              "key": "E",
+              "text": "courses"
+            },
+            {
+              "key": "F",
+              "text": "critical"
+            },
+            {
+              "key": "G",
+              "text": "declining"
+            },
+            {
+              "key": "H",
+              "text": "degrees"
+            },
+            {
+              "key": "I",
+              "text": "especially"
+            },
+            {
+              "key": "J",
+              "text": "future"
+            },
+            {
+              "key": "K",
+              "text": "led"
+            },
+            {
+              "key": "L",
+              "text": "met"
+            },
+            {
+              "key": "M",
+              "text": "procedures"
+            },
+            {
+              "key": "N",
+              "text": "proportions"
+            },
+            {
+              "key": "O",
+              "text": "spheres"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F) critical。【详解】形容词辨析题。空格处前面是be 动词,后面是介词to,故该词应为形容词,且能 和to 构成某种搭配。根据上下文语境可知,美国在二战期间及战后时期的研究和发展所带来的创新对其 20 世纪后50 年中的繁荣发展应该是很重要的。形容词critical 意为“至关重要的”,与文意相符。备选的 形容词中,contemporary“当代的”和future“未来的”都不符合句意,且与to 不构成搭配,故均排除。"
+        },
+        {
+          "number": 37,
+          "stem": "第 37 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accelerating"
+            },
+            {
+              "key": "B",
+              "text": "actually"
+            },
+            {
+              "key": "C",
+              "text": "closely"
+            },
+            {
+              "key": "D",
+              "text": "contemporary"
+            },
+            {
+              "key": "E",
+              "text": "courses"
+            },
+            {
+              "key": "F",
+              "text": "critical"
+            },
+            {
+              "key": "G",
+              "text": "declining"
+            },
+            {
+              "key": "H",
+              "text": "degrees"
+            },
+            {
+              "key": "I",
+              "text": "especially"
+            },
+            {
+              "key": "J",
+              "text": "future"
+            },
+            {
+              "key": "K",
+              "text": "led"
+            },
+            {
+              "key": "L",
+              "text": "met"
+            },
+            {
+              "key": "M",
+              "text": "procedures"
+            },
+            {
+              "key": "N",
+              "text": "proportions"
+            },
+            {
+              "key": "O",
+              "text": "spheres"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D) contemporary。【详解】形容词辨析题。空格处前面是介词of,后面是名词society,故该词应该为形容 词作定语。根据上文中提到的美国历史上的科技创新,应该是当代社会发展所依赖的。contemporaiy 意为 “当代的”,修饰名词society,意为“当代社会”容备选的形容词中,critical 已经在上题中选过;future 也 可以修饰society,表示“未来社会”,但是根据常识,我们能断定的是当代社会的方方面面依赖于这些创新, 而不是未来社会,故future 也排除。"
+        },
+        {
+          "number": 38,
+          "stem": "第 38 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accelerating"
+            },
+            {
+              "key": "B",
+              "text": "actually"
+            },
+            {
+              "key": "C",
+              "text": "closely"
+            },
+            {
+              "key": "D",
+              "text": "contemporary"
+            },
+            {
+              "key": "E",
+              "text": "courses"
+            },
+            {
+              "key": "F",
+              "text": "critical"
+            },
+            {
+              "key": "G",
+              "text": "declining"
+            },
+            {
+              "key": "H",
+              "text": "degrees"
+            },
+            {
+              "key": "I",
+              "text": "especially"
+            },
+            {
+              "key": "J",
+              "text": "future"
+            },
+            {
+              "key": "K",
+              "text": "led"
+            },
+            {
+              "key": "L",
+              "text": "met"
+            },
+            {
+              "key": "M",
+              "text": "procedures"
+            },
+            {
+              "key": "N",
+              "text": "proportions"
+            },
+            {
+              "key": "O",
+              "text": "spheres"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K) led。【详解】动词辨析题。空格前为句子主语the United States,空格后为名词the world,故该词为句 子的谓语动词,且根据句子时态,此处应填入动词过去式。根据上文可知,美国在科研方面的创新一定会 让该国在数学和科学教育方面领先世界,故用动词led,表示“领先气备选项中还有一个动词过去式met,意 思是“相遇”,不符合句意,故排除。"
+        },
+        {
+          "number": 39,
+          "stem": "第 39 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accelerating"
+            },
+            {
+              "key": "B",
+              "text": "actually"
+            },
+            {
+              "key": "C",
+              "text": "closely"
+            },
+            {
+              "key": "D",
+              "text": "contemporary"
+            },
+            {
+              "key": "E",
+              "text": "courses"
+            },
+            {
+              "key": "F",
+              "text": "critical"
+            },
+            {
+              "key": "G",
+              "text": "declining"
+            },
+            {
+              "key": "H",
+              "text": "degrees"
+            },
+            {
+              "key": "I",
+              "text": "especially"
+            },
+            {
+              "key": "J",
+              "text": "future"
+            },
+            {
+              "key": "K",
+              "text": "led"
+            },
+            {
+              "key": "L",
+              "text": "met"
+            },
+            {
+              "key": "M",
+              "text": "procedures"
+            },
+            {
+              "key": "N",
+              "text": "proportions"
+            },
+            {
+              "key": "O",
+              "text": "spheres"
+            }
+          ],
+          "answer": "N",
+          "explanation": "N) proportions。【详解】名词辨析题。空格处前面是定冠词the,后面是of degrees 限定成分,故该词应 为名词。根据句意,只有proportions“比例”符合要求,the proportions of degrees 意为“学位的比例”。备 选的名词中,degrees 与后文重复,首先排除;courses 意为“课程”,procedures 意为“过程”,spheres 意 为“球体”,均不与degrees 搭配,故排除。"
+        },
+        {
+          "number": 40,
+          "stem": "第 40 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accelerating"
+            },
+            {
+              "key": "B",
+              "text": "actually"
+            },
+            {
+              "key": "C",
+              "text": "closely"
+            },
+            {
+              "key": "D",
+              "text": "contemporary"
+            },
+            {
+              "key": "E",
+              "text": "courses"
+            },
+            {
+              "key": "F",
+              "text": "critical"
+            },
+            {
+              "key": "G",
+              "text": "declining"
+            },
+            {
+              "key": "H",
+              "text": "degrees"
+            },
+            {
+              "key": "I",
+              "text": "especially"
+            },
+            {
+              "key": "J",
+              "text": "future"
+            },
+            {
+              "key": "K",
+              "text": "led"
+            },
+            {
+              "key": "L",
+              "text": "met"
+            },
+            {
+              "key": "M",
+              "text": "procedures"
+            },
+            {
+              "key": "N",
+              "text": "proportions"
+            },
+            {
+              "key": "O",
+              "text": "spheres"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C) closely。【详解】副词辨析题。空格处前面为be 动词,后面为形容词related,故空格处应该为副词。 根据句意,在科学、技术、主程、数学领域学位数量的减少与学龄儿童在数学和科学方面的国际评估中表 现相对不佳有关,而且关系应该比较密切。因此用副词closely。备选的副词中,actually 和especially 虽然 放在此处句意也通顺,但是在表达相关性时,closely 更为准确。"
+        },
+        {
+          "number": 41,
+          "stem": "第 41 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accelerating"
+            },
+            {
+              "key": "B",
+              "text": "actually"
+            },
+            {
+              "key": "C",
+              "text": "closely"
+            },
+            {
+              "key": "D",
+              "text": "contemporary"
+            },
+            {
+              "key": "E",
+              "text": "courses"
+            },
+            {
+              "key": "F",
+              "text": "critical"
+            },
+            {
+              "key": "G",
+              "text": "declining"
+            },
+            {
+              "key": "H",
+              "text": "degrees"
+            },
+            {
+              "key": "I",
+              "text": "especially"
+            },
+            {
+              "key": "J",
+              "text": "future"
+            },
+            {
+              "key": "K",
+              "text": "led"
+            },
+            {
+              "key": "L",
+              "text": "met"
+            },
+            {
+              "key": "M",
+              "text": "procedures"
+            },
+            {
+              "key": "N",
+              "text": "proportions"
+            },
+            {
+              "key": "O",
+              "text": "spheres"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E) courses。【详解】名词辨析题。该空格前面为形容词remedial 和名词math,因此该空应为名词,且应 和补习相关,只有“课程”符合常理,故选择courses。备选的名词中,degrees —词虽和学习有关,但与“补 习” 不搭配,故排除。"
+        },
+        {
+          "number": 42,
+          "stem": "第 42 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accelerating"
+            },
+            {
+              "key": "B",
+              "text": "actually"
+            },
+            {
+              "key": "C",
+              "text": "closely"
+            },
+            {
+              "key": "D",
+              "text": "contemporary"
+            },
+            {
+              "key": "E",
+              "text": "courses"
+            },
+            {
+              "key": "F",
+              "text": "critical"
+            },
+            {
+              "key": "G",
+              "text": "declining"
+            },
+            {
+              "key": "H",
+              "text": "degrees"
+            },
+            {
+              "key": "I",
+              "text": "especially"
+            },
+            {
+              "key": "J",
+              "text": "future"
+            },
+            {
+              "key": "K",
+              "text": "led"
+            },
+            {
+              "key": "L",
+              "text": "met"
+            },
+            {
+              "key": "M",
+              "text": "procedures"
+            },
+            {
+              "key": "N",
+              "text": "proportions"
+            },
+            {
+              "key": "O",
+              "text": "spheres"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B) actually。【详解】副词辨析题。该空格前面为句子主语部分,后面为谓语动词complete,故所填词 应该为副词。根据上文所述,美国大学新生数学不好,同时,计划学习科学或工程类专业的学生不到一半 能够完成专业学习。选择actually 起到强调作用,符合句意。备选的副词中,especially 强调特殊性,closely 表示紧密的关系,均不符合该句句意,且closely 在第40 题中已经选过,故排除。"
+        },
+        {
+          "number": 43,
+          "stem": "第 43 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accelerating"
+            },
+            {
+              "key": "B",
+              "text": "actually"
+            },
+            {
+              "key": "C",
+              "text": "closely"
+            },
+            {
+              "key": "D",
+              "text": "contemporary"
+            },
+            {
+              "key": "E",
+              "text": "courses"
+            },
+            {
+              "key": "F",
+              "text": "critical"
+            },
+            {
+              "key": "G",
+              "text": "declining"
+            },
+            {
+              "key": "H",
+              "text": "degrees"
+            },
+            {
+              "key": "I",
+              "text": "especially"
+            },
+            {
+              "key": "J",
+              "text": "future"
+            },
+            {
+              "key": "K",
+              "text": "led"
+            },
+            {
+              "key": "L",
+              "text": "met"
+            },
+            {
+              "key": "M",
+              "text": "procedures"
+            },
+            {
+              "key": "N",
+              "text": "proportions"
+            },
+            {
+              "key": "O",
+              "text": "spheres"
+            }
+          ],
+          "answer": "I",
+          "explanation": "I) especially。【详解】副词辨析题。该空格是在插入语中,位于介词短语前,故应该填人副词。句意为 “造成的结果是美国大学毕业生中拥有这些技能的人数在减少”,那么在数学方面就应该是一种更为突出 的情况,故用especially。备选项中,其他两个副词前面已选,且不符合句意,故排除。"
+        },
+        {
+          "number": 44,
+          "stem": "第 44 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accelerating"
+            },
+            {
+              "key": "B",
+              "text": "actually"
+            },
+            {
+              "key": "C",
+              "text": "closely"
+            },
+            {
+              "key": "D",
+              "text": "contemporary"
+            },
+            {
+              "key": "E",
+              "text": "courses"
+            },
+            {
+              "key": "F",
+              "text": "critical"
+            },
+            {
+              "key": "G",
+              "text": "declining"
+            },
+            {
+              "key": "H",
+              "text": "degrees"
+            },
+            {
+              "key": "I",
+              "text": "especially"
+            },
+            {
+              "key": "J",
+              "text": "future"
+            },
+            {
+              "key": "K",
+              "text": "led"
+            },
+            {
+              "key": "L",
+              "text": "met"
+            },
+            {
+              "key": "M",
+              "text": "procedures"
+            },
+            {
+              "key": "N",
+              "text": "proportions"
+            },
+            {
+              "key": "O",
+              "text": "spheres"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G) declining。【详解】动名词辨析题。该空格前为定冠词the,后面为名词performance,故应该填入名词 的修饰成分,可能是形容词或现在分词。根据上下文可知,美国学生在数学和科学方面的表现应该是逐渐 变差的,故现在分词declining 符合该句句意。备选项中,形容词里没有表示“变差”含义的词。现在分词 中accelerating 表示“加速”,与句意不符,故排除。"
+        },
+        {
+          "number": 45,
+          "stem": "第 45 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accelerating"
+            },
+            {
+              "key": "B",
+              "text": "actually"
+            },
+            {
+              "key": "C",
+              "text": "closely"
+            },
+            {
+              "key": "D",
+              "text": "contemporary"
+            },
+            {
+              "key": "E",
+              "text": "courses"
+            },
+            {
+              "key": "F",
+              "text": "critical"
+            },
+            {
+              "key": "G",
+              "text": "declining"
+            },
+            {
+              "key": "H",
+              "text": "degrees"
+            },
+            {
+              "key": "I",
+              "text": "especially"
+            },
+            {
+              "key": "J",
+              "text": "future"
+            },
+            {
+              "key": "K",
+              "text": "led"
+            },
+            {
+              "key": "L",
+              "text": "met"
+            },
+            {
+              "key": "M",
+              "text": "procedures"
+            },
+            {
+              "key": "N",
+              "text": "proportions"
+            },
+            {
+              "key": "O",
+              "text": "spheres"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H) degrees。【详解】名词辨析题。该词前面为动词earn,后面为介词短语,故应该填入名词。根据上 文可知,应该是发展中国家中越来越多的学生取得STEM 学科的学位,跟STEM 相关的词,只有degrees 比 较合适。备选的名词中,courses 表示“课程”的含义,虽然接近,但不准确,且在第41 题中已选;其他名词 则与学科没有关系,故均排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2014-12-3-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) On a train last Thursday, I sat opposite a man who was so fat he filled more than one seat. He was pale and disfigured and looked sick to death, which he probably was: obesity (肥胖症)leads to many nasty ways of dying. Looking around the carriage, I saw quite a few people like him, including a couple of fatty children with swollen cheeks pressing against their eyes. These people are part of what is without exaggeration an epidemic (流行病) of obesity.",
+        "B) But it is quite unnecessary: there is a simple idea—far from new—that could spare millions of such people a lifetime of chronic(长期的)ill health, and at the same time save the National Health Service(NHS) at leastG 14 billion a year in England and Wales. There would, you might think, be considerable public interest in it. This simple idea is that sugar is as good—or as bad—as poison and should be avoided. It is pure, white and deadly, as Professor John Yudkin described it 40 years ago in a revolutionary book of that name. The subtitle was How Sugar Is Killing Us.",
+        "C) In its countless hidden forms, in ready meals, junk food and sweet drinks, sugar leads to addiction (a),to hormonal upsets to the appetite, to metabolic (新陈代谢的)malfunctions and obesity and from there to type 2 diabetes (糖尿病) and its many horrible complications. If people really grasped that, they would try to kick the habit, particularly as Britain is the “fat man of Europe”. They might even feel driven to support government measures to prevent people from consuming this deadly stuff. Yet so far this idea has met little but resistance.",
+        "D) It is not difficult to imagine the vested interests (既得利益集团)lined up against any sugar control—all the food and drink manufacturers, processors, promoters and retailers who make such easy pickings out of the magic powers of sugar. Then there are the liberals, with whom I would normally side, who protest that government regulation would be yet another instance of interference in our lives.",
+        "E) That is true, but people should realise that you cannot have a welfare state without a nanny state (保姆国家),to some degree. If we are all to be responsible for one another’s health insurance, through socialised medicine, then we are all closely involved in one another^ health, including everyone’s eating and drinking. That has already been admitted, finally, with smoking. But it has yet to be admitted with overeating, even though one in four adults in this country is obese and that number is predicted to double by the year 2050. Quite apart from anything else, obesity will cripple the NHS.",
+        "F) Recently, though, there have been signs that the medical establishment is trying to sound the alarm. Last month the Academy of Medical Royal Colleges (AMRC) published a report saying that obesity is the greatest public health issue affecting the UK and urging government to do something.",
+        "G) The report offers 10 recommendations, of which the first is imposing a tax of 20 percent on sugary drinks for at least a year, on top of the existing 20 percent value-added tax. That at least would be an excellent start. The amounts of sugar in soft drinks are horrifying, and turn straight to fat. As Professor Terence Stephenson, head of the AMRC, has said, sugary soft drinks are \"the ultimate bad food. You are just consuming neat sugar. Your body didn’t evolve to handle this kind of thing.",
+        "H) Precisely. The risks of eating too much fat or salt (which are very different) pale into insignificance compared with the harm done by sugar. And it is everywhere.",
+        "I) It is difficult to buy anything in a supermarket, other than plain, unprepared meat, fish or vegetables, that doesn’t have a large amount of sugar in it. This has come about because the prevailing scientific views of the 1960s and 1970s ignored the evidence about sugar, and instead saw fat as the really serious risk, both to the heart and other organs, as well as the cause of obesity.",
+        "J) The fashion was to avoid fat. But finding that food with much of its fat removed is not very appetizing, food producers turned to sugar as a magic alternative flavour enhancer, often in the forms of syrups (糖浆)that had recently been developed from com, and put it generously into most prepared foods and soft drinks.",
+        "K) This stuff is not just fattening. It is addictive. It interferes with the body’s metabolism, possibly via the activity of an appetite-controlling hormone. There’s plenty of evidence for this, for those who will accept the truth.",
+        "L) Theoretically, people ought to make” healthy choices” and avoid overeating. But sugar additives are not easy to identify and are hard to avoid. So the snacking, overdrinking and overeating that makes people fat is not really their own faultG obesity is in large part something that is being done to them. It should be stopped, or rather the government should stop it.",
+        "M) Going round my local supermarket, I am constantly astonished that it is still legal to sell all the poisons stacked high on the shelves. The problem is that they are worse than useless. They are poisonous. They are known to be addictive. They are known to make people obese. And giving small children sweet drinks or bottles of fake juice all day long is nothing less than child abuse.",
+        "N) Clearly, the sale of such stuff ought to be illegal. I hate to think of yet more government regulation. But a bit of tax on sweet soda and a little more health education, a bit of cooking in schools and banning machines (自动售货机)here and there—as suggested by the AMRC report—is not going to achieve very much. Labelling is quite inadequate. What is needed is legislation banning high levels of sugary syrups used in foods and drinks.",
+        "O) In June 2012, the then minister for public health said the government was not scared of the food industry and had not ruled out legislation, because of the costs of obesity to the NHS. However, nothing has happened yet. Why not have another Jammie Dodger biscuit and forget about it."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "Avoiding over-consumption of sugar can improve peopled health as well as save medical expenses.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Avoiding over-consumption of sugar can improve people's health as well as save medical expenses. B)。【译文】避免糖类的过量食用既可以促进人们的身体健康,也可以节省医疗支出。 【精析】该段定位句中提到,这个简单的想法既可以让成千上万这样的人免受一生的慢性疾病,也可以给 国民保健制度省下巨大的费用,和题干中所提及的两点好处正好契合,故答案为B)。"
+        },
+        {
+          "number": 47,
+          "stem": "Laws should be passed to make it illegal to produce overly sweet foods or drinks.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "N",
+          "explanation": "Laws should be passed to make it illegal to produce overly sweet foods or drinks. N)。【译文】应该颁布法律规定产含糖量过高的食品和饮料是违法的。 【精析】该段首句提到了illegal—同,指出出售这些东西应该是违法的,也就是将禁止含糖食品赋予了法 律的强制性,中间几句又指出征税或是对校园食品进行控制这些方法力度不够,该段最后一句再次指出应 该在立法层面上禁止含糖量高的食品,故答案为N)。"
+        },
+        {
+          "number": 48,
+          "stem": "Giving small children sweet juices to drink all the time is equal to child abuse.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "M",
+          "explanation": "Giving small children sweet juices to drink all the time is equal to child abuse. M)。【译文】一直给小孩子喝甜果汁相当于虐待他们。 【精析】文章M)段中提到,作者发现超市里面的货架上仍然不乏含糖饮料,阐述了这些甜饮料的极大危害, 继而引发了联想,如果持续供给小孩子这些饮料,就等同于虐待儿童。题干中的is equal to 是对原文中is nothing less than 的同义转述,故答案为M)。"
+        },
+        {
+          "number": 49,
+          "stem": "Looking around, the author found obesity quite widespread.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Looking around, the author found obesity quite widespread. A)。【译文】环顾周围,作者发现肥胖非常普遍。 【精析】题干中提到了作者环顾四周,文章只有两处提到作者的视角,其一是文章开头提到的在火车上, 其二是文章后半部分提到的在超市里。根据句意,他发现肥胖无处不在,定位到A)段。作者提到,环顾 车厢,看到有很多人像他一样。由此可知,作者发现肥胖非常普遍。题干中的quite widespread 对应原文 中的quite a few people like him,故答案为A)。"
+        },
+        {
+          "number": 50,
+          "stem": "The number of obese people is expected to increase quickly in the next few decades.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "E",
+          "explanation": "The number of obese people is expected to increase quickly in the next few decades. E)。【译文】就业中的年龄歧视使年长员工的再培训没有意义。 【精析】该段定位句中提到,过度饮食与每个人相关,但尽管这个国家有四分之一的成年人是肥胖者,而 且预计这一数据还会在2050 年翻倍,这方面还没有得到公认。题干中的in the next few decades 对应原文中 的by the year 2050,故答案为E)。"
+        },
+        {
+          "number": 51,
+          "stem": "If people really understood the horrible consequences of sugary foods and drinks, they would support government measures against sugar consumption.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "C",
+          "explanation": "If people really understood the horrible consequences of sugary foods and drinks, they would support government measures against sugar consumption. C)。【译文】根据最近的报告和数据分析,二战后生育高峰期出生的人在经济疲软期遭受的伤害最大。 【精析】该段前半部分阐述了这些含糖食品的危害性,继而做出假设:如果人们知道这些危害的话,他们就 会试着改变自己的饮食习惯,同时也会有动力支持政府防止人们消费这些致命食物,题干中的against sugar consumption 和原文中的prevent people from consuming...意思接近,故答案为C)。"
+        },
+        {
+          "number": 52,
+          "stem": "It would be a very good beginning to impose an additional tax on sugary drinks.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "G",
+          "explanation": "It would be a very good beginning to impose an additional tax on sugary drinks. G) 。【译文】对含糖饮料征收额外的税将会是一个很好的开始。 【精析】该段介绍了报告中的十项建议之首,即关于增加税收的建议,且提到了这将会是一个很好的开始。 题干中的a very good beginning 是原文中an excellent start 的同义转述,故答案为G)。"
+        },
+        {
+          "number": 53,
+          "stem": "The government has not yet taken any action to regulate sugar consumption although it indicated its intention to do so some time ago.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "O",
+          "explanation": "The government has not yet taken any action to regulate sugar consumption although it indicated its intention to do so some time ago. O)。【译文】政府还没有采取任何措施去管制糖类消费,尽管一段时间之前他们曾表达了这种意图。 【精析】该段定位句提到,当时的公共卫生部长说还没有制定好法规,题干中的has not yet taken any action 对应原文中的nothing has happened yet,故答案为O)。"
+        },
+        {
+          "number": 54,
+          "stem": "Sugar is far more harmful to health than fat and salt.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "H",
+          "explanation": "Sugar is far more harmful to health than fat and salt. H)。【译文】糖类比脂肪和盐类对健康的危#更大。 【精析】该段定位句提到,摄人过多的脂肪和盐类带来的风险跟糖类的危害相比都没有那么严重了。题干 是该句的同义转换,故答案为H)。"
+        },
+        {
+          "number": 55,
+          "stem": "Consumers of sweet foods are not really to blame because they cannot tell what food is sugary.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "L",
+          "explanation": "Consumers of sweet foods are not really to blame because they cannot tell what food is sugary. L)。【译文】含糖食品的消费者不应该被责备,因为他们并不能辨别什么食品是含糖的。 【精析】该段中指出,人们应该做出“健康的选择”,避免过度饮食。但是糖类添加剂并不易辨别,因此, 有吃零食、过度饮酒、过度饮食这类使人发胖的行为的人,其实他们本身并没有错。题干是对画线部分的 同义转述,故答案为L)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2014-12-3-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "The rise of the Internet has been one of the most transformative developments in human history, comparable in impact to the invention of the printing press and the telegraph. Over two billion people worldwide now have access to vastly more information than ever before, and can communicate with each other instantly, often using Web-connected mobile devices they carry everywhere. But the Internets tremendous impact has only just begun. “Mass adoption of the Internet is driving one of the most exciting social, cultural, and political transformations in history, and unlike earlier periods of change, this time the effects are fully global, ” Schmidt and Cohen write in their new book, The New Digital Age. Perhaps the most profound changes will come when the five billion people worldwide who currently lack Internet access get online. The authors do an excellent job of examining the implications of the Internet revolution for individuals, governments, and institutions like the news media. But if the book has one major shortcoming, it’s that the authors don’t spend enough time applying a critical eye to the role of Internet businesses in these sweeping changes. In their book, the authors provide the most authoritative volume to date that describes—and more importantly predicts—how the Internet will shape our lives in the coming decades. They paint a picture of a world in which individuals, companies, institutions, and governments must deal with two realities, one physical, and one virtual. At the core of the book is the idea that “technology is neutral, but people aren’t.’’ By using this concept as a starting point, the authors aim to move beyond the now familiar optimist vs. pessimist dichotomy (对立观点) that has characterized many recent debates about whether the rise of the Internet will ultimately be good or bad for society. In an interview with TIME earlier this week, Cohen said although he and his co-author are optimistic about many aspects of the Internet, they’ve also realistic about the risks and dangers that lie ahead when the next five billion people come online, particularly with respect to personal privacy and state surveillance (监视)."
+      ],
+      "questions": [
+        {
+          "number": 56,
+          "stem": "In what way is the rise of the Internet similar to the invention of the printing press and the telegraph?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It transforms human history."
+            },
+            {
+              "key": "B",
+              "text": "It facilitates daily communication."
+            },
+            {
+              "key": "C",
+              "text": "It is adopted by all humanity."
+            },
+            {
+              "key": "D",
+              "text": "It revolutionizes people’s thinking."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位:由题干中的the printing press and the telegraph 定位到文章第一段第一句:The rise of the Internet has been one of the most transformative developments in human history, comparable in impact to the invention of the printing press and the telegraph。 详解:推理判断题。文章第一段第一句提到互联网的影响力可以和印刷机和电报的发明相提并论,原因在 第二句中进行阐述,即互联网可以让人们实现即时通讯,也就是指日常沟通,故答案为B) 点睛:A)“它改变了人类历史”,文中只是说在人类历史上产生了深远影响,并未提改变,可以排除; C)“它被所有人接受”,该意思过于绝对,也不太可能发生,可以排除;D) “它革新了人们的思想”,文 中并未提及人们的思想有什么改变,故排除。"
+        },
+        {
+          "number": 57,
+          "stem": "How do Schmidt and Cohen describe the effects of the Internet?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are immeasurable."
+            },
+            {
+              "key": "B",
+              "text": "They are worldwide."
+            },
+            {
+              "key": "C",
+              "text": "They are unpredictable."
+            },
+            {
+              "key": "D",
+              "text": "They are contaminating."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位:题干中的the effects of the Internet 定位到文二段:...and unlike earlier periods of change, this time the effects are fully global... 详解:推理判断题。文章第二段中间部分指出,不同于以往时期的改变,这次变革的影响是全球性的,文 中的global 和B)选项中的worldwide 为同义词,故答案为B)。 点睛: A)“它们是无法估量的”、C)“它们是不可预测的”和D)“它们是污染的”这三项在文中均未提 及,故可以排除。"
+        },
+        {
+          "number": 58,
+          "stem": "In what respect is the book The New Digital Age considered inadequate?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It fails to recognize the impact of the Internet technology."
+            },
+            {
+              "key": "B",
+              "text": "It fails to look into the social implications of the Internet."
+            },
+            {
+              "key": "C",
+              "text": "It lacks an objective evaluation of the role of Internet businesses."
+            },
+            {
+              "key": "D",
+              "text": "It does not address the technical aspects of Internet communication."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定位:由题干中的The book The New Digital Age 和inadequate 定位到文章第三段最后一句:But if the book has one mgjor shortcoming, it’s that the authors don’t spend enough time applying a critical eye to the role of Internet businesses in these sweeping changes. 详解:事实细节题。题干问的是这本书哪个方面存在不足,定位句中的shortcoming 意思是“缺点”,与 inadequate 意思相近,那么最后一句中所说的“没有花足够多的时间去用批判的眼光看待互联网业务在 这些巨大改变中所起的作用”便是答案,故答案为C)。 点睛:A) “它没能够认识到互联网科技产生的影响”和B) “它没能够观察到互联网的社会影响”均与 原文相悖,文中提到书中调查了互联网变革对社会各方面的意义,并描述了互联网对社会各方面所产生的 深远影响,故均排除;D) “它并没有提到互联网沟通的技术层面”,虽然文中没有正面阐述书中提及此事, 但是也没有说这是该书的不足之处,可以排除。"
+        },
+        {
+          "number": 59,
+          "stem": "What will the future be like when everybody gets online?",
+          "options": [
+            {
+              "key": "A",
+              "text": "People will be living in two different realities."
+            },
+            {
+              "key": "B",
+              "text": "People will have equal access to information."
+            },
+            {
+              "key": "C",
+              "text": "People don’t have to travel to see the world."
+            },
+            {
+              "key": "D",
+              "text": "People don^ have to communicate face to face."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。定位:由题干中的the future be like 定位到文章第四段最后一句:They paint a picture of a world in which individuals, companies, institutions, and governments must deal with two realities, one physical, and one virtual. 详解:事实细节题。文章第四段第一句提到,在他们的书中,两位作者描述了互联网在未来几十年中会如 何塑造我们的生活。接着第二句指出,他们描绘了一幅未来世界的景象,在这个世界中,个人、公司、机 构和政府都必须处理两种现实:一种是真实存在的,另一种是虚拟的沒由此可知,A) “人们将生活在两种 现实中”为答案。 点睛:B)“人们会有相同的获取信息的途径”,文中没有提及,可以排除;C)“人们不需要旅行去看世界”, 虽然互联网可以帮助人们足不出户看到世界各个角落,但这并不是未来要发生的事情,现在也可以实现;D) “人们不需要面对面地沟通”,同样也是现在就可以实现的事情,而不是未来要发生的事,而且C)、D) 两项在文中均未提及,故排除。"
+        },
+        {
+          "number": 60,
+          "stem": "What does the passage say about the authors of The New Digital Age?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They leave many questions unanswered concerning the Internet."
+            },
+            {
+              "key": "B",
+              "text": "They are optimistic about the future of the Internet revolution."
+            },
+            {
+              "key": "C",
+              "text": "They have explored the unknown territories of the virtual world."
+            },
+            {
+              "key": "D",
+              "text": "They don^ take sides in analyzing the effects of the Internet."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位:由题干中的the authors of The New Digital Age 定位到文章最后一段第二句:By using this concept as a starting point, the authors aim to move beyond the now familiar optimist vs. pessimist dichotomy that has characterized many recent debates about whether the rise of the Internet will ultimately be good or bad for society. 详解:推理判断题。根据定位句可知,两位作者的目的在于超越现如今为人所熟知的乐观主义者与悲观主 义者之间的对立观点——互联网的兴起最终是有益于社会还是会危害社会。由此可知,他们是要采取中立 的态度。D) “在分析互联网的影响上,他们不会站在任何一边”和原文意思相符,故为答案。 点睛:A) “他们对很多关于互联网的问题未给出答案”,文中并未提及,可以排除;B) “他们对互联网 革命的未来感到乐观”,文中提到,两位作者对互联网的很多方面都非常乐观,但也现实地认识到前方面 临的风险。由此可知,两位作者并非完全乐观,故排除;C) “他们已经探索了虚拟世界的未知领域”,文 中并未提及,可以排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2014-12-3-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "In 1950, a young man would have found it much easier than it is today to get and keep a job in the auto industry. And in that year the average autoworker could meet monthly mortgage(抵押贷款) payments on an average home with just 13. 4 percent of his take-home pay. Today a similar mortgage would claim more than twice that share of his monthly earnings. Other members of the autoworker’s family, however, might be less inclined to trade the present for the past. His retired parents would certainly have had less economic security back then. Throughout much of the 1960s, more than a quarter of men and women age 65 and older lived below the poverty level, compared to less than 10 percent in 2010. In most states, his wife could not have taken out a loan or a credit card in her own name. In 42 states, a homemaker had no legal claim on the earnings of her husband. And nowhere did a wife have legal protection against family violence. Most black workers would not want to return to a time when, on average, they earned 40 percent less than their white counterparts (职位相当的人),while racially restrictive agreements largely prevented them from buying into the suburban neighborhoods being built for white working-class families. Today, new problems have emerged in the process of resolving old ones, but the solution is not to go back to the past. Some people may long for an era when divorce was still hard to come by. The spread of no-fault divorce has reduced the bargaining power of whichever spouse is more interested in continuing the relationship. And the breakup of such marriages has caused pain for many families. The growing diversity of family life comes with new possibilities as well as new challenges. According to a recent poll, more than 80 percent of Americans believe that their current family is as close as the one in which they grew up, or closer. Finding ways to improve the lives of the remaining 20 percent seems more realistic than trying to restore an imaginary golden age."
+      ],
+      "questions": [
+        {
+          "number": 61,
+          "stem": "What do we learn about American autoworkers in 1950?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They had less job security than they do today."
+            },
+            {
+              "key": "B",
+              "text": "It was not too difficult for them to buy a house."
+            },
+            {
+              "key": "C",
+              "text": "Their earnings were worth twice as much as today."
+            },
+            {
+              "key": "D",
+              "text": "They were better off than workers in other industries."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位: 由题干中的American autoworkers 和in 1950 定位到文章第一段前两句:In 1950, a young man would have found it much easier than it is today to get and keep a job in the auto industry. And in that year the average autoworker could meet monthly mortgage (抵押贷款) payments on an average home with just 13.4 percent of his take-home pay. 详解:推理判断题。文章第一段第二句提到,在那一年,普通的汽车工人能够支付一般家庭承受的每月抵 押贷款,数额只占他每月工资的13.4% ,由此推断当时对他们而言买房子并不困难,故答案为B)。 点睛: A)“他们的工作保障比现如今更少”,文中第一段说在那时,他们在汽车行业更容易找到工作且维 持这份工作,选项与原文意思不符,可以排除;C) “他们的工资是现在的两倍”,文中只提及现在工人每 月还款额占工资比是之前的两倍多,并未说他们的工资相当于现在的两倍,可以排除;D) “他们比其他行 业的工人更富足”,文中并没有把汽车行业和其他行业作对比,可以排除。"
+        },
+        {
+          "number": 62,
+          "stem": "What does the author say about retired people today?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They invariably long to return to the golden past."
+            },
+            {
+              "key": "B",
+              "text": "They do not depend so much on social welfare."
+            },
+            {
+              "key": "C",
+              "text": "They feel more secure economically than in the past."
+            },
+            {
+              "key": "D",
+              "text": "They are usually unwilling to live with their children."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定位:由题干中的retired people today 定位到文章第二段第二句:His retired parents would certainly have had less economic security back then. 详解:推理判断题。定位句的意思是“他已退休的父母那时的经济保障一定更少”,由此推断出C) “他们 要比过去有着更多经济上的安全感”,故答案为C)。 点睛:A)“他们一直都渴望回到美好的过去”,这与原文意思不符,可以排除;B) “他们不那么依赖于社 会福利”,原文中并未提及社会福利,故排除;D) “他们通常不愿和他们的孩子一起生活”,原文中没有 提及,可以排除。"
+        },
+        {
+          "number": 63,
+          "stem": "Why couldn’t black workers buy a house in a white suburban neighborhood?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They lacked the means of transportation."
+            },
+            {
+              "key": "B",
+              "text": "They were subjected to racial inequality."
+            },
+            {
+              "key": "C",
+              "text": "They were afraid to break the law."
+            },
+            {
+              "key": "D",
+              "text": "They were too poor to afford it."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位:由题干中的black workers 和buy a house in a white suburban neighborhood 定位到文章第四 段:...while racially restrictive agreements largely prevented them from buying into the suburban neighborhoods being built for white working-class families. 详解:推理判断题。根据定位句可知,那个年代的黑人受到种族条款的限制,无法购买为白人工人阶级家庭 建造的房子,B) “他们受制于种族的不平等”与文中意思相符,故为答案。 点睛:A) “他们缺少交通工具”和C) “他们害怕违反法律”,文中均未提及,故均排除;D) “他们太 穷了,以至于买不起”,文中的确提到了他们的工资比同职位的白人要少,但并没直接说他们是否贫穷,可以 排除。"
+        },
+        {
+          "number": 64,
+          "stem": "What is the result of no-fault divorce?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Divorce is easier to obtain."
+            },
+            {
+              "key": "B",
+              "text": "Domestic violence is lessened."
+            },
+            {
+              "key": "C",
+              "text": "It causes little pain to either side."
+            },
+            {
+              "key": "D",
+              "text": "It contributes to social unrest."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。定位:由题干中的no-fault divorce 定位到文章第五段第三句:The spread of no-fault divorce has reduced the bargaining power of whichever spouse is more interested in continuing the relationship. 详解:推理判断题。定位句的意思是,不追究责任的离婚的增多降低了那些还想维持婚姻的一方讨价还价 的能力。由此可知,离婚是容易的,故答案为A)。 点睛:B) “家庭暴力减少了”,这不是不追究责任的离婚的结果,可以排除;C) “它对离婚双方造成的 痛苦很少”,原文中说这种婚姻的破裂导致了很多家庭的痛苦,该项和原文不符,可以排除;D) “这导致 了社会动荡”,该选项夸大了事情的结果,原文未提及,可以排除。"
+        },
+        {
+          "number": 65,
+          "stem": "What does the author suggest society do?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Get prepared to face any new challenges."
+            },
+            {
+              "key": "B",
+              "text": "Try to better the current social security net."
+            },
+            {
+              "key": "C",
+              "text": "Narrow the gap between blacks and whites."
+            },
+            {
+              "key": "D",
+              "text": "Improve the lives of families with problems."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位:由题干中的the author suggest society do 定位到文章最后一段最后一句:Finding ways to improve the lives of the remaining 20 percent seems more realistic than trying to restore an imaginary golden age. 详解:事实细节题。根据定位句可知,找到方法改善剩余的20%的人的生活要比试图回到那个想象中的黄 金时代要更现实一些。这和D) “改善存在问题的家庭的生活”所表达的含义是一致的,故答案为D。 点睛:A) “准备面对任何新的挑战”,文中提到会有新的挑战,但最主要的还是建议解决问题,故该选 项可以排除;B) “努力健全现有的社会保障体系”,文中并未提及,可以排除;C) “缩小黑人和白人之间 的差距”,作者并未建议社会缩小黑人和白人之间的差距,故排除。"
+        }
+      ]
+    }
+  ]
+}

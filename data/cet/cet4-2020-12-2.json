@@ -1,0 +1,1775 @@
+{
+  "id": "cet4-2020-12-2",
+  "level": 4,
+  "year": 2020,
+  "month": 12,
+  "set": 2,
+  "title": "2020 年 12 月四级 · 第 2 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.12/%E7%9C%9F%E9%A2%98PDF/cet4_2020_12_2.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2020_12_2_ans.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2020-12-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "When my son completes a task, I can't help but praise him. It's only natural to give praise where praise is due, right? But is there such a thing as too much praise? According to psychologist Katherine Phillip, children don't benefit from [[26]] praise as much as we'd like to think. \"Parents often praise, believing they are building their child's self-confidence. However, over-praising can have a [[27]] effect,\" says Phillip. \"When we use the same praise [[28]] , it may become empty and no longer valued by the child. It can also become an expectation that anything they do must be [[29]] with praise. This may lead to the child avoiding taking risks due to fear of [[30]] their parents.\" Does this mean we should do away with all the praise? Phillip says no. \"The key to healthy praise is to focus on the process rather than the [[31]] . It is the recognition of a child's attempt, or the process in which they achieved something, that is essential,\" she says. \"Parents should encourage their child to take the risks needed to learn and grow.\" So how do we break the [[32]] of praise we're all so accustomed to? Phillip says it's important to [[33]] between \"person praise\" and \"process praise\". \"Person praise is [[34]] saying how great someone is. It's a form of personal approval. Process praise is acknowledgement of the efforts the person",
+        "has just [[35]] . Children who receive person praise are more likely to feel shame after losing,\" says Phillip."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "choose"
+        },
+        {
+          "key": "B",
+          "text": "constant"
+        },
+        {
+          "key": "C",
+          "text": "disappointing"
+        },
+        {
+          "key": "D",
+          "text": "distinguish"
+        },
+        {
+          "key": "E",
+          "text": "exhausting"
+        },
+        {
+          "key": "F",
+          "text": "experienced"
+        },
+        {
+          "key": "G",
+          "text": "negative"
+        },
+        {
+          "key": "H",
+          "text": "outcome"
+        },
+        {
+          "key": "I",
+          "text": "pattern"
+        },
+        {
+          "key": "J",
+          "text": "plural"
+        },
+        {
+          "key": "K",
+          "text": "repeatedly"
+        },
+        {
+          "key": "L",
+          "text": "rewarded"
+        },
+        {
+          "key": "M",
+          "text": "separately"
+        },
+        {
+          "key": "N",
+          "text": "simply"
+        },
+        {
+          "key": "O",
+          "text": "undertaken"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "choose"
+            },
+            {
+              "key": "B",
+              "text": "constant"
+            },
+            {
+              "key": "C",
+              "text": "disappointing"
+            },
+            {
+              "key": "D",
+              "text": "distinguish"
+            },
+            {
+              "key": "E",
+              "text": "exhausting"
+            },
+            {
+              "key": "F",
+              "text": "experienced"
+            },
+            {
+              "key": "G",
+              "text": "negative"
+            },
+            {
+              "key": "H",
+              "text": "outcome"
+            },
+            {
+              "key": "I",
+              "text": "pattern"
+            },
+            {
+              "key": "J",
+              "text": "plural"
+            },
+            {
+              "key": "K",
+              "text": "repeatedly"
+            },
+            {
+              "key": "L",
+              "text": "rewarded"
+            },
+            {
+              "key": "M",
+              "text": "separately"
+            },
+            {
+              "key": "N",
+              "text": "simply"
+            },
+            {
+              "key": "O",
+              "text": "undertaken"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【答案】B。【解析】空格位于介词from之后、名词praise之前，因此需填入形容词。本句指出，孩子从……表扬中得到的好处并不像我们认为的那么多。文章引用心理学家凯瑟琳·菲利普的话说明的确存在过度表扬，因此应填入含有过多、大量意义的constant。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "choose"
+            },
+            {
+              "key": "B",
+              "text": "constant"
+            },
+            {
+              "key": "C",
+              "text": "disappointing"
+            },
+            {
+              "key": "D",
+              "text": "distinguish"
+            },
+            {
+              "key": "E",
+              "text": "exhausting"
+            },
+            {
+              "key": "F",
+              "text": "experienced"
+            },
+            {
+              "key": "G",
+              "text": "negative"
+            },
+            {
+              "key": "H",
+              "text": "outcome"
+            },
+            {
+              "key": "I",
+              "text": "pattern"
+            },
+            {
+              "key": "J",
+              "text": "plural"
+            },
+            {
+              "key": "K",
+              "text": "repeatedly"
+            },
+            {
+              "key": "L",
+              "text": "rewarded"
+            },
+            {
+              "key": "M",
+              "text": "separately"
+            },
+            {
+              "key": "N",
+              "text": "simply"
+            },
+            {
+              "key": "O",
+              "text": "undertaken"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【答案】G。【解析】空格位于不定冠词a之后、名词effect之前，应填入形容词。本句由However与前一句构成转折，指出过度表扬会产生……影响。前一句说父母认为表扬孩子可以培养自信心，是表扬的好处；本句因此要说明过度表扬的害处，应填入negative。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "choose"
+            },
+            {
+              "key": "B",
+              "text": "constant"
+            },
+            {
+              "key": "C",
+              "text": "disappointing"
+            },
+            {
+              "key": "D",
+              "text": "distinguish"
+            },
+            {
+              "key": "E",
+              "text": "exhausting"
+            },
+            {
+              "key": "F",
+              "text": "experienced"
+            },
+            {
+              "key": "G",
+              "text": "negative"
+            },
+            {
+              "key": "H",
+              "text": "outcome"
+            },
+            {
+              "key": "I",
+              "text": "pattern"
+            },
+            {
+              "key": "J",
+              "text": "plural"
+            },
+            {
+              "key": "K",
+              "text": "repeatedly"
+            },
+            {
+              "key": "L",
+              "text": "rewarded"
+            },
+            {
+              "key": "M",
+              "text": "separately"
+            },
+            {
+              "key": "N",
+              "text": "simply"
+            },
+            {
+              "key": "O",
+              "text": "undertaken"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【答案】K。【解析】从句基本成分完整，空格位于从句句尾，应填入副词。本句指出，当我们……使用同样的表扬时，它可能会变得空洞，不再被孩子重视。本句具体说明过度表扬的害处，空格应填入重复、过多意义的repeatedly。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "choose"
+            },
+            {
+              "key": "B",
+              "text": "constant"
+            },
+            {
+              "key": "C",
+              "text": "disappointing"
+            },
+            {
+              "key": "D",
+              "text": "distinguish"
+            },
+            {
+              "key": "E",
+              "text": "exhausting"
+            },
+            {
+              "key": "F",
+              "text": "experienced"
+            },
+            {
+              "key": "G",
+              "text": "negative"
+            },
+            {
+              "key": "H",
+              "text": "outcome"
+            },
+            {
+              "key": "I",
+              "text": "pattern"
+            },
+            {
+              "key": "J",
+              "text": "plural"
+            },
+            {
+              "key": "K",
+              "text": "repeatedly"
+            },
+            {
+              "key": "L",
+              "text": "rewarded"
+            },
+            {
+              "key": "M",
+              "text": "separately"
+            },
+            {
+              "key": "N",
+              "text": "simply"
+            },
+            {
+              "key": "O",
+              "text": "undertaken"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【答案】L。【解析】空格位于be之后、介词短语之前，应填入动词分词形式或形容词。表扬也可能会成为一种期望，即他们所做的每件事情都必须……表扬。不论孩子做了什么事，都期待得到表扬，因此填入有给予意义的rewarded；be rewarded with sth.表示获得某事物的奖励。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "choose"
+            },
+            {
+              "key": "B",
+              "text": "constant"
+            },
+            {
+              "key": "C",
+              "text": "disappointing"
+            },
+            {
+              "key": "D",
+              "text": "distinguish"
+            },
+            {
+              "key": "E",
+              "text": "exhausting"
+            },
+            {
+              "key": "F",
+              "text": "experienced"
+            },
+            {
+              "key": "G",
+              "text": "negative"
+            },
+            {
+              "key": "H",
+              "text": "outcome"
+            },
+            {
+              "key": "I",
+              "text": "pattern"
+            },
+            {
+              "key": "J",
+              "text": "plural"
+            },
+            {
+              "key": "K",
+              "text": "repeatedly"
+            },
+            {
+              "key": "L",
+              "text": "rewarded"
+            },
+            {
+              "key": "M",
+              "text": "separately"
+            },
+            {
+              "key": "N",
+              "text": "simply"
+            },
+            {
+              "key": "O",
+              "text": "undertaken"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【答案】C。【解析】空格位于介词of之后、名词词组their parents之前，应填入动词-ing形式。本句指出，这可能会导致孩子因为害怕……父母而避免冒险。孩子期待任何事情都得到表扬，如果失败了就可能会失望，可能得不到表扬，因此害怕让父母失望而避免冒险。填入disappointing。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "choose"
+            },
+            {
+              "key": "B",
+              "text": "constant"
+            },
+            {
+              "key": "C",
+              "text": "disappointing"
+            },
+            {
+              "key": "D",
+              "text": "distinguish"
+            },
+            {
+              "key": "E",
+              "text": "exhausting"
+            },
+            {
+              "key": "F",
+              "text": "experienced"
+            },
+            {
+              "key": "G",
+              "text": "negative"
+            },
+            {
+              "key": "H",
+              "text": "outcome"
+            },
+            {
+              "key": "I",
+              "text": "pattern"
+            },
+            {
+              "key": "J",
+              "text": "plural"
+            },
+            {
+              "key": "K",
+              "text": "repeatedly"
+            },
+            {
+              "key": "L",
+              "text": "rewarded"
+            },
+            {
+              "key": "M",
+              "text": "separately"
+            },
+            {
+              "key": "N",
+              "text": "simply"
+            },
+            {
+              "key": "O",
+              "text": "undertaken"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【答案】H。【解析】空格位于冠词the之后，应填入名词。合理表扬的关键在于关注过程而不是……，因此应填入与过程相对应的名词，即结果outcome。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "choose"
+            },
+            {
+              "key": "B",
+              "text": "constant"
+            },
+            {
+              "key": "C",
+              "text": "disappointing"
+            },
+            {
+              "key": "D",
+              "text": "distinguish"
+            },
+            {
+              "key": "E",
+              "text": "exhausting"
+            },
+            {
+              "key": "F",
+              "text": "experienced"
+            },
+            {
+              "key": "G",
+              "text": "negative"
+            },
+            {
+              "key": "H",
+              "text": "outcome"
+            },
+            {
+              "key": "I",
+              "text": "pattern"
+            },
+            {
+              "key": "J",
+              "text": "plural"
+            },
+            {
+              "key": "K",
+              "text": "repeatedly"
+            },
+            {
+              "key": "L",
+              "text": "rewarded"
+            },
+            {
+              "key": "M",
+              "text": "separately"
+            },
+            {
+              "key": "N",
+              "text": "simply"
+            },
+            {
+              "key": "O",
+              "text": "undertaken"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【答案】I。【解析】空格位于冠词the之后、介词of之前，应填入名词。本段列举两种表扬方式，说明对过程的表扬是合理的。本句使用反问语气引发读者思考，应该如何打破惯有的表扬方式，因此应填入方式、模式意义的pattern。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "choose"
+            },
+            {
+              "key": "B",
+              "text": "constant"
+            },
+            {
+              "key": "C",
+              "text": "disappointing"
+            },
+            {
+              "key": "D",
+              "text": "distinguish"
+            },
+            {
+              "key": "E",
+              "text": "exhausting"
+            },
+            {
+              "key": "F",
+              "text": "experienced"
+            },
+            {
+              "key": "G",
+              "text": "negative"
+            },
+            {
+              "key": "H",
+              "text": "outcome"
+            },
+            {
+              "key": "I",
+              "text": "pattern"
+            },
+            {
+              "key": "J",
+              "text": "plural"
+            },
+            {
+              "key": "K",
+              "text": "repeatedly"
+            },
+            {
+              "key": "L",
+              "text": "rewarded"
+            },
+            {
+              "key": "M",
+              "text": "separately"
+            },
+            {
+              "key": "N",
+              "text": "simply"
+            },
+            {
+              "key": "O",
+              "text": "undertaken"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【答案】D。【解析】空格位于不定式符号to之后、介词短语之前，应填入动词原形。本句指出，……对人的表扬和对过程的表扬很重要。本段着重说明两种表扬方式的不同，因此填入区分、辨别意义的distinguish。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "choose"
+            },
+            {
+              "key": "B",
+              "text": "constant"
+            },
+            {
+              "key": "C",
+              "text": "disappointing"
+            },
+            {
+              "key": "D",
+              "text": "distinguish"
+            },
+            {
+              "key": "E",
+              "text": "exhausting"
+            },
+            {
+              "key": "F",
+              "text": "experienced"
+            },
+            {
+              "key": "G",
+              "text": "negative"
+            },
+            {
+              "key": "H",
+              "text": "outcome"
+            },
+            {
+              "key": "I",
+              "text": "pattern"
+            },
+            {
+              "key": "J",
+              "text": "plural"
+            },
+            {
+              "key": "K",
+              "text": "repeatedly"
+            },
+            {
+              "key": "L",
+              "text": "rewarded"
+            },
+            {
+              "key": "M",
+              "text": "separately"
+            },
+            {
+              "key": "N",
+              "text": "simply"
+            },
+            {
+              "key": "O",
+              "text": "undertaken"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【答案】N。【解析】【语法判断】本句基本句子成分完整，空格位于 is 和 saying 之间，因此应填入副词。【语义判断】本句指出，对人的表扬是说一个人有多棒。后一句进一步解释，这是一个个人认可。这两句解释了何为“对人的表扬”：它仅是对个人的表扬。因此，本空应填入含有“仅仅，只是”意义的副词 simply。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "choose"
+            },
+            {
+              "key": "B",
+              "text": "constant"
+            },
+            {
+              "key": "C",
+              "text": "disappointing"
+            },
+            {
+              "key": "D",
+              "text": "distinguish"
+            },
+            {
+              "key": "E",
+              "text": "exhausting"
+            },
+            {
+              "key": "F",
+              "text": "experienced"
+            },
+            {
+              "key": "G",
+              "text": "negative"
+            },
+            {
+              "key": "H",
+              "text": "outcome"
+            },
+            {
+              "key": "I",
+              "text": "pattern"
+            },
+            {
+              "key": "J",
+              "text": "plural"
+            },
+            {
+              "key": "K",
+              "text": "repeatedly"
+            },
+            {
+              "key": "L",
+              "text": "rewarded"
+            },
+            {
+              "key": "M",
+              "text": "separately"
+            },
+            {
+              "key": "N",
+              "text": "simply"
+            },
+            {
+              "key": "O",
+              "text": "undertaken"
+            }
+          ],
+          "answer": "O",
+          "explanation": "【考点】动词辨析题。 O)【语法判断】空格位于助动词has之后,因此应填 入动词的-ed形式。 【语义判断】本句指出,对过程的表扬是对一个人 努力的肯定。努力是人所做出的,因此 本空应填人含有“做”意义的动词,故本题答案为 O) undertaken。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2020-12-2-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Too often still, we think we know what poverty looks like. It's the way we've been taught, the images we've been force-fed for decades. The chronically homeless. The undocumented immigrant. The urban poor, usually personified as a woman of color, the \"welfare queen\" politicians still too often reference.",
+        "B) But as income inequality rises to record levels in the United States, even in the midst of a record economic expansion, those familiar images are outdated, hurtful, and counterproductive to focusing attention on solutions and building ladders of opportunity.",
+        "C) Today's faces of income inequality and lack of opportunity look like all of us. It's Anna Landre, a disabled Georgetown University student fighting to keep health benefits that allow her the freedom to live her life. It's Tiffanie Standard, a counselor for young women of color in Philadelphia who want to be tech entrepreneurs—but who must work multiple jobs to stay afloat. It's Ken Outlaw, a welder in rural North Carolina whose dream of going back to school at a local community college was dashed by Hurricane Florence—just one of the extreme weather events that have tipped the balance for struggling Americans across the nation.",
+        "D) If these are the central characters of our story about poverty, what layers of perceptions, myths, and realities must we unearth to find meaningful solutions and support? In pursuit of revealing this complicated reality, Mothering Justice, led by women of color, went last year to the state capital in Lansing, Michigan, to lobby on issues that affect working mothers. One of the Mothering Justice organizers went to the office of a state representative to talk about the lack of affordable childcare—the vestiges (痕迹) of a system that expected mothers to stay home with their children while their husbands worked. A legislative staffer dismissed the activist's concerns, telling her \"my husband took care of that—I stayed home.\"",
+        "E) That comment, says Mothering Justice director Danielle Atkinson, \"was meant to shame\" and relied on the familiar notion that a woman of color concerned about income inequality and programs that promote mobility must by definition be a single mom, probably with multiple kids. In this case, the Mothering Justice activist happened to be married. And in most cases in the America of 2019, the images that come to mind when we hear the words poverty or income inequality fail miserably in reflecting a complicated reality: poverty touches virtually all of us. The face of income inequality, for all but a very few of us, is the one we each see in the mirror.",
+        "F) How many of us are poor in the U.S.? It depends on who you ask. According to the Census Bureau, 38 million people in the U.S. are living below the official poverty thresholds. Taking into account economic need beyond that absolute measure, the Institute for Policy Studies found that 140 million people are poor or low-income. That's almost half the U.S. population.",
+        "G) Whatever the measure, within that massive group, poverty is extremely diverse. We know that some people are more affected than others, like children, the elderly, people with disabilities, and people of color.",
+        "H) But the fact that 4 in 10 Americans can't come up with $400 in an emergency is a commonly cited statistic for good reason: economic instability stretches across race, gender, and geography. It even reaches into the middle classes, as real wages have stagnated (不增长) for all but the very wealthy and temporary spells of financial instability are not uncommon.",
+        "I) Negative images remain of who is living in poverty as well as what is needed to move out of it. The big American myth is that you can pull yourself up by your own efforts and change a bad situation into a good one. The reality is that finding opportunity without help from families, friends, schools, and community is virtually impossible. And the playing field is nothing close to level.",
+        "J) The FrameWorks Institute, a research group that focuses on public framing of issues, has studied what sustains stereotypes and narratives of poverty in the United Kingdom. \"People view economic success and wellbeing in life as a product of choice, willpower, and drive,\" says Nat Kendall-Taylor, CEO of FrameWorks. \"When we see people who are struggling,\" he says, those assumptions \"lead us to the perception that people in poverty are lazy, they don't care, and they haven't made the right decisions.\"",
+        "K) Does this sound familiar? Similar ideas surround poverty in the U.S. And these assumptions give a false picture of reality. \"When people enter into that pattern of thinking,\" says Kendall-Taylor, \"it's cognitively comfortable to make sense of issues of poverty in that way. It creates a kind of cognitive blindness—all of the factors external to a person's drive and choices that they've made become invisible and fade from view.\"",
+        "L) Those external factors include the difficulties accompanying low-wage work or structural discrimination based on race, gender, or ability. Assumptions get worse when people who are poor use government benefits to help them survive. There is a great tension between \"the poor\" and those who are receiving what has become a dirty word: \"welfare.\"",
+        "M) According to the General Social Survey, 71 percent of respondents believe the country is spending too little on \"assistance to the poor.\" On the other hand, 22 percent think we are spending too little on \"welfare\"; 37 percent believe we are spending too much.",
+        "N) \"Poverty has been interchangeable with people of color—specifically black women and black mothers,\" says Atkinson of Mothering Justice. It's true that black mothers are more affected by poverty than many other groups, yet they are disproportionately the face of poverty. For example, Americans routinely overestimate the share of black recipients of public assistance programs.",
+        "O) In reality, most people will experience some form of financial hardship at some point in their lives. Indeed, people tend to dip in and out of poverty, perhaps due to unexpected obstacles like losing a job, or when hours of a low-wage job fluctuate.",
+        "P) Something each of us can do is to treat each other with the dignity and sympathy that is deserved and to understand deeply that the issue of poverty touches all of us."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "One legislative staffer assumed that a woman of color who advocated affordable childcare must be a single mother.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【定位】由题干中的awomanofcolor、affordable childcare和asinglemother定位到文章E)段第 一句。 E)【精析】同义转述题。定位句提到,“母性正义”的 领导者丹尼尔·阿特金森认为,立法工作人员的 “丈夫负责儿童保育费用”这一言论“是可耻的”, 它依赖于大家熟知的概念,即关注收人不平等间 题和能够提高流动性计划的女性有色人种肯定是 单亲妈妈,她可能抚养很多孩子。由此可知,这位 立法工作人员认为,倡导价格合理的儿童保育服 务的女性有色人种肯定是单亲妈妈。题干中的a womanofcolor和asinglemother与原文的表述 一致,故答案为E)。"
+        },
+        {
+          "number": 37,
+          "stem": "People from different races, genders, and regions all suffer from a lack of financial security.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【定位】由题干中的races、genders和regions定位 到文章HD段第一句。 H)【精析】同义转述题。定位句指出,四成美国人在 紧急情况下无法拿出400美元,这成为一个经常 被引用的数据,这是有充分理由的:经济不稳定存 在于不同种族、性别和地域之间。题干中的 races,genders,andregions对应定位句中的 race,gender,andgeography,题干中的a lack of financial security对应定位句中的economic instability,故答案为H)。"
+        },
+        {
+          "number": 38,
+          "stem": "According to a survey, while the majority believe too little assistance is given to the poor, more than a third believe too much is spent on welfare.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "M",
+          "explanation": "【定位】由题干中的survey、assistance和athird 定位到文章M)段。 M)【精析】同义转述题。定位句指出,根据综合社会 调查,71%的受访者认为国家“给予贫困人民的帮 助”太少了。另一方面,22%的受访者认为我们花 在“福利”上的钱太少了,37%的受访者认为我们 花费的太多了。题干中的themajority对应定位 句中的71percentofrespondents,题干中的more thanathird对应定位句中的37percent,故答案 为M)。"
+        },
+        {
+          "number": 39,
+          "stem": "A research group has found that Americans who are struggling are thought to be lazy and to have made the wrong decisions.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【定位】由题干中的Aresearchgroup、lazy和the wrongdecisions定位到文章J)段最后一句。 J)【精析】同义转述题。定位句指出,框架研究所的 首席执行官指出,当我们看到了那些正在挣扎的 人们,那些假设让我们认为,处于贫困中的人是懒 情的,他们并不在乎,也没有做出正确的选择。题 干中的havemadethewrongdecisions对应定位 句中的haven'tmadetherightdecisions,故答案 为J)。"
+        },
+        {
+          "number": 40,
+          "stem": "Under the old system in America, a mother was supposed to stay home and take care of her children.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的theoldsystem、amother和 stayhomeandtakecareofherchildren定位到文 章D)段倒数第二句。 D)【精析】同义转述题。定位句指出,“母性正义”的 组织者之一来到州代表的办公室,谈论当地缺乏 可负担得起的儿童保育服务的问题,这是希望母 亲在家照顾孩子而父亲在外工作的体制的残留问 题。题干中的theoldsystem对应定位句中的the vestigesof a system,题干中的amotherwas supposed to stay home and take care of her children对应定位句中的motherstostayhome withtheirchildren,故答案为D)。"
+        },
+        {
+          "number": 41,
+          "stem": "It was found that nearly 50% of Americans are poor or receive low pay.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【定位】由题干中的nearly50%ofAmericans和 poororreceivelowpay定位到文章F)段最后 两句。 F)【精析】同义转述题。定位句指出,若将绝对标准 以上的经济需求考进去,政策研究机构发现 1.4亿美国人属于贫困或是低收人人群。这大概 占据美国的一半人口。题干中的nearly50%of Americans对应定位句中的halftheU.S. population,题干中的poororreceivelowpay对 应定位句中的poororlow-income,故答案为F)。"
+        },
+        {
+          "number": 42,
+          "stem": "Americans usually overestimate the number of blacks receiving welfare benefits.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【定位】由题干中的overestimate、blacks和 receivingwelfarebenefits定位到文章N)段最后 一句。 N)【精析】同义转述题。定位句指出,美国人常规性 地高估了公共救助计划中黑人接受者的比例。题 千中的the number of blacks receiving welfare benefits对应定位句中的theshareofblack recipientsofpublicassistanceprograms,故答案 为N)。"
+        },
+        {
+          "number": 43,
+          "stem": "It is impossible for Americans to lift themselves out of poverty entirely on their own.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的impossible、liftthemselvesout ofpoverty和ontheirown定位到文章I)段第二、 三句。 D【精析】细节归纳题。定位句指出,美国最大的谬 论是你能够凭借一已之力振作起来,将坏的形势 扭转为好的形势。事实是在没有家人、朋友、学校 和社区帮助的情况下,找到机会的可能性几乎为 零。题干中的liftthemselvesoutofpoverty对应 定位句中的pullyourselfup,题干中的ontheir own对应定位句中的byyourownefforts和 without help from families, friends, schools, andcommunity,故答案为D。"
+        },
+        {
+          "number": 44,
+          "stem": "Nowadays, it seems none of us can get away from income inequality.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的none.ofus和income inequality定位到文章C)段第一句。 C)【精析】同义转述题。定位句指出,如今收人不平 等和机会的缺失是我们都面临的问题。题干中的 noneofuscangetawayfrom对应定位句中的 looklikeallofus,题干中的incomeinequality与 定位句中的表述一致,故答案为C)。"
+        },
+        {
+          "number": 45,
+          "stem": "Assumptions about poor people become even more negative when they live on welfare.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【定位】·由题干中的Assumptions、morenegative 和liveonwelfare定位到文章L)段第二句。 L)【精析】同义转述题。定位句指出,当穷人利用政 府福利求生存时,这些假设变得更加糟糕。题干 中的morenegative对应定位句中的worse,题干 中的liveonwelfare对应定位句中的use governmentbenefits tohelpthem survive,故答案 为L)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2020-12-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Boredom has, paradoxically, become quite interesting to academics lately. In early May, London's Boring Conference celebrated seven years of delighting in dullness. At this event, people flocked to talks about weather, traffic jams, and vending-machine sounds, among other sleep-inducing topics. What, exactly, is everybody studying? One widely accepted psychological definition of boredom is \"the distasteful experience of wanting, but being unable, to engage in satisfying activity.\" But how can you quantify a person's boredom level and compare it with someone else's? In 1986, psychologists introduced the Boredom Proneness Scale, designed to measure an individual's overall tendency to feel bored. By contrast, the Multidimensional State Boredom Scale, developed in 2008, measures a person's feelings of boredom in a given situation. Boredom has been linked to behavior issues including inattentive driving, mindless snacking, excessive drinking, and addictive gambling. In fact, many of us would choose pain over boredom. One team of psychologists discovered that two-thirds of men and a quarter of women would rather self-administer electric shocks than sit alone with their thoughts for 15 minutes. Researching this phenomenon, another team asked volunteers to watch boring, sad, or neutral films, during which they could self-administer electric shocks. The bored volunteers shocked themselves more and harder than the sad or neutral ones did. But boredom isn't all bad. By encouraging self-reflection and daydreaming, it can spur creativity. An early study gave participants abundant time to complete problem-solving and word-association exercises. Once all the obvious answers were exhausted, participants gave more and more inventive answers to",
+        "combat boredom. A British study took these findings one step further, asking subjects to complete a creative challenge (coming up with a list of alternative uses for a household item). One group of subjects did a boring activity first, while the others went straight to the creative task. Those whose boredom pumps had been primed were more productive.",
+        "In our always-connected world, boredom may be a hard-to-define state, but it is a fertile one. Watch paint dry or water boil, or at least put away your smartphone for a while, and you might unlock your next big idea."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "When are people likely to experience boredom, according to an accepted psychological definition?",
+          "options": [
+            {
+              "key": "A",
+              "text": "When they don't have the chance to do what they want."
+            },
+            {
+              "key": "B",
+              "text": "When they don't enjoy the materials they are studying."
+            },
+            {
+              "key": "C",
+              "text": "When they experience something unpleasant."
+            },
+            {
+              "key": "D",
+              "text": "When they engage in some routine activities."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题干中的acceptedpsychological definition定位到第二段第二句。 A)【精析】细节辨认题。定位句指出,一个被广泛接 受的关于无聊的心理学定义是“因为想参加却不 能参加令人满意的活动而产生的令人不快的经 历”。选项A)中的don'thavethechancetodo whattheywant与定位句中的wanting,butbeing unable,toengage对应,故答案为A)。 【避错】B)“当他们不喜欢正在学习的材料”、C) “当他们经历了不愉快的事情”和D)“当他们参加 一些例行活动”均不符合心理学定义的内容,故 排除。"
+        },
+        {
+          "number": 47,
+          "stem": "What does the author say boredom can lead to?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Determination."
+            },
+            {
+              "key": "B",
+              "text": "Concentration."
+            },
+            {
+              "key": "C",
+              "text": "Mental deterioration."
+            },
+            {
+              "key": "D",
+              "text": "Harmful conduct."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的boredomcanleadto定位到 第三段第一句。 D)【精析】细节辨认题。定位句提到,无聊与一些行 为问题有关,包括心不在焉地开车、浸不经心地吃 零食、过度饮酒和赌博成瘾。这些行为都是不好 的行为习惯,与D)项中的Harmful表述相符,故 答案为D)。 【避错】文中未提及“决心”,故排除A)。B)选项 中的Concentration“注意力集中”与原文中的 inattentive不符,故排除。过度饮酒和赌博成瘾 是顽废落的表现,但mentaldeterioration“精神 废”并不能概括以上提到的所有行为,故排除 C)."
+        },
+        {
+          "number": 48,
+          "stem": "What is the finding of one team of psychologists in their experiment?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Volunteers prefer watching a boring movie to sitting alone deliberating."
+            },
+            {
+              "key": "B",
+              "text": "Many volunteers choose to hurt themselves rather than endure boredom."
+            },
+            {
+              "key": "C",
+              "text": "Male volunteers are more immune to the effects of boredom than females."
+            },
+            {
+              "key": "D",
+              "text": "Many volunteers are unable to resist boredom longer than fifteen minutes."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的findingofoneteamof psychologists定位到第三段第三句。 B)【精析】细节辨认题。定位句指出,一个心理学家 小组发现,三分之二的男性和四分之一的女性宁 愿自我电击,也不愿独坐15分钟。由此可见,有 不少志愿者宁愿自我伤害也不愿忍受无聊,故答案为B)。 【避错】A)选项提到的“观看无聊的电影”是另一 个研究小组的研究内容,故排除。该项研究发现, 三分之二的男性和四分之一的女性宁愿自我电 击,男性的比例较高,由此看出,男性更易受到无 聊的影响,故排除C)。该项研究只是发现很多人 在自我电击和独坐15分钟之间选择了自我伤害, 并未明确说明是否无法忍受超过15分钟的无聊, 故排除D)。"
+        },
+        {
+          "number": 49,
+          "stem": "Why does the author say boredom isn't all bad?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It stimulates memorization."
+            },
+            {
+              "key": "B",
+              "text": "It allows time for relaxation."
+            },
+            {
+              "key": "C",
+              "text": "It may promote creative thinking."
+            },
+            {
+              "key": "D",
+              "text": "It may facilitate independent learning."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的boredomisn'tallbad定位到 第四段第一句。 C)【精析】细节辨认题。定位句提到,无聊并不都是 坏事。随后第二句具体说明无聊的好处,即无聊 会促进自我反省和幻想,进而激发创造力。C)选 项与原文内容相符,故为答案。 【避错】文中并未提及无聊能提高记忆力、给人放 松的时间或促进自主学习,故排除A)、B)、D)。"
+        },
+        {
+          "number": 50,
+          "stem": "What does the author suggest one do when faced with a challenging problem?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Stop idling and think big."
+            },
+            {
+              "key": "B",
+              "text": "Unlock one's smartphone."
+            },
+            {
+              "key": "C",
+              "text": "Look around oneself for stimulation."
+            },
+            {
+              "key": "D",
+              "text": "Allow oneself some time to be bored."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的authorsuggest和题文同序原 则定位到最后一段第二句。 D)【精析】推理判断题。定位句指出,看着油漆变干 或者水沸腾,或者至少把智能手机暂时收起来一 会儿,可能会让人产生新的点子。做这些事情会 让人感到无聊。由以上信息可推断,作者建议大 家给自己一段无聊的时间,可能就会想出解决问 题的新点子,故答案为D)。 【避错】文中没有提及要告别无所事事,大胆想象, 故排除A)。作者建议暂时把智能手机收起来,B) “开启智能手机”与作者的建议相反,故排除。文 中未提及四处看看寻找灵感,故排除C)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2020-12-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Forests in countries like Brazil and the Congo get a lot of attention from environmentalists, and it is easy to see why. South America and sub-Saharan Africa are experiencing deforestation on an enormous scale; every year almost 5 million hectares are lost. But forests are also changing in rich Western countries. They are growing larger, both in the sense that they occupy more land and that the trees in them are bigger. What is going on? Forests are spreading in almost all Western countries, with the fastest growth in places that historically had rather few trees. In 1990 28% of Spain was forested; now the proportion is 37%. In both Greece and Italy, the growth was from 26% to 32% over the same period. Forests are gradually taking more land in America and Australia. Perhaps most astonishing is the trend in Ireland. Roughly 1% of that country was forested when it became independent in 1922. Now forests cover 11% of the land, and the government wants to push the proportion to 18% by the 2040s. Two things are fertilising this growth. The first is the abandonment of farmland, especially in high, dry places where nothing grows terribly well. When farmers give up trying to earn a living from farming or herding, trees simply move in. The second is government policy and subsidy. Throughout history, 四级 2020 年 12 月 30",
+        "governments have protected and promoted forests for diverse reasons, ranging from the need for wooden warships to a desire to promote suburban house-building. Nowadays forests are increasingly welcome because they suck in carbon pollution from the air. The justifications change; the desire for more trees remains constant.",
+        "The greening of the West does not delight everyone. Farmers complain that land is being taken out of use by generously subsidised tree plantations. Parts of Spain and Portugal suffer from terrible forest fires. Others simply dislike the appearance of forests planted in neat rows. They will have to get used to the trees, however. The growth of Western forests seems almost as unstoppable as deforestation elsewhere."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What is catching environmentalists' attention nowadays?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Rich countries are stripping poor ones of their resources."
+            },
+            {
+              "key": "B",
+              "text": "Forests are fast shrinking in many developing countries."
+            },
+            {
+              "key": "C",
+              "text": "Forests are eating away the fertile farmland worldwide."
+            },
+            {
+              "key": "D",
+              "text": "Rich countries are doing little to address deforestation."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的environmentalistsattention 定位到第一段第一句。 B)【精析】细节辨认题。定位句指出,巴西和刚果等 国的森林受到了环境保护主义者的广泛关注,原 因很容易理解。随后进一步指出原因是南美洲和 撤哈拉以南的非洲正经历着大规模的森林砍伐。 由此可知,这些发展中国家的森林面积在迅速减 少,故答案为B)。 【避错】文中未提及A)富裕国家正在抢夺贫穷国 家的资源”,故排除。第三段提到在西方国家,由 于某些地区放弃了种什么都长不好的农田,因此 才会有树木种进来。由此可知,并非森林侵蚀了 肥沃的农田,故排除C)。第三段提到森林面积增 加的第二个因素是政府出于各种原因保护和推广 森林,由此可知,西方富裕国家对于解决森林砍伐 问题并非无作为,故排除D)。"
+        },
+        {
+          "number": 52,
+          "stem": "Which countries have the fastest forest growth?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Those that have newly achieved independence."
+            },
+            {
+              "key": "B",
+              "text": "Those that have the greatest demand for timber."
+            },
+            {
+              "key": "C",
+              "text": "Those that used to have the lowest forest coverage."
+            },
+            {
+              "key": "D",
+              "text": "Those that provide enormous government subsidies."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的fastestforestgrowth定位到 第二段第一句。 C【精析】细节辨认题。定位句提到,在几乎所有的 西方国家,森林正在扩张,在历史上树木稀少的地 方增长得最快。C)项中的thelowestforest coverage与定位句中的historicallyhadrather fewtrees对应,故答案为C)。 【避错】第二段提到爱尔兰在1922年独立,并不是 newlyachievedindependence,故排除A)“刚取得 独立的国家”。文章未提及B)“对木材有最大需 求的国家”,故排除。D)是根据第三段中 governmentpolicyandsubsidy设置的干扰,此处 是指政府的政策和补贴促进了森林的扩张,但未 提及这个因素和森林增长快之间的关系,故排除 D)提供巨大政府补贴的国家”。"
+        },
+        {
+          "number": 53,
+          "stem": "What has encouraged forest growth historically?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The government's advocacy."
+            },
+            {
+              "key": "B",
+              "text": "The use of wood for fuel."
+            },
+            {
+              "key": "C",
+              "text": "The favourable climate."
+            },
+            {
+              "key": "D",
+              "text": "The green movement."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题中的encouragedforestgrowth定 位到第三段第一句。 A)【精析】细节辨认题。定位句指出,有两个因素在 促进这种增长。随后内容具体阐述了这两个因 索:放弃农田和政府的政策及补贴。接着第五句 指出,纵观历史,政府出于各种原因保护和推广森 林。由此可见,政府的倡导促进了历史上森林面 积的增加,故答案为A)。 【避错】B)“用木头作燃料”、C)“良好的气候”、 D)“绿色运动”均未在文中提及,故排除。"
+        },
+        {
+          "number": 54,
+          "stem": "What accounts for our increasing desire for forests?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Their unique scenic beauty."
+            },
+            {
+              "key": "B",
+              "text": "Their use as fruit plantations."
+            },
+            {
+              "key": "C",
+              "text": "Their capability of improving air quality."
+            },
+            {
+              "key": "D",
+              "text": "Their stable supply of building materials."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的ourincreasingdesirefor forests定位到第三段倒数第二句。 C【精析】细节辨认题。定位句提到,现在森林越来 越受欢迎,因为它们吸收空气中的碳污染。由此 可见,森林可以改善空气质量,故答案为C)。 【避错】A)“它们独特的美丽风景”、B)它们可用 于种植水果”、D)“它们可以稳定输出建筑材料”均 未在文中提及,故排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What does the author conclude about the prospects of forestation?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Deserts in sub-Saharan Africa will diminish gradually."
+            },
+            {
+              "key": "B",
+              "text": "It will play a more and more important role in people's lives."
+            },
+            {
+              "key": "C",
+              "text": "Forest destruction in the developing world will quickly slow down."
+            },
+            {
+              "key": "D",
+              "text": "Developed and developing countries are moving in opposite directions."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的conclude和prospectsof forestation定位到最后一段最后一句。 D)【精析】推理判断题。定位句指出,西方国家森林 的增长似乎和其他地方的森林砍伐一样几乎势不 可挡。此句作为文章结尾,呼应开头提到的西方 富裕国家森林增多,有些发展中国家森林减少。 由此推断,作者认为,发达国家和发展中国家正在 朝相反的方向发展,故答案为D)。 【避错】由文章最后一句可知,作者认为,西方国家 的森林会继续增长,而发展中国家的森林砍伐仍 将继续,故A)提到的撒哈拉以南的非洲地区的森 林将会继续减少,而不是沙漠减少,因此排除。文 中没有提及B)“它会在人们的生活中扮演越来越 重要的角色”,故排除。C)中提到的“发展中国家 的森林破坏”将会继续,而不是迅速减少,故排除。"
+        }
+      ]
+    }
+  ]
+}

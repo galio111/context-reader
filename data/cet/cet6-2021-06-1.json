@@ -1,0 +1,1565 @@
+{
+  "id": "cet6-2021-06-1",
+  "level": 6,
+  "year": 2021,
+  "month": 6,
+  "set": 1,
+  "title": "2021 年 6 月六级 · 第 1 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2021.06/%E7%9C%9F%E9%A2%98Word/2021.06%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2021.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2021.06%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%E7%AC%AC1%E5%A5%97.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2021-06-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        ". A new study has drawn a bleak picture of cultural inclusiveness reflected in the children's literature available in Australia. Dr . Helen Adam from Edith Cowan University's School of Education [[26]] the cultural diversity of children's books. She examined the books [[27]] in the kindergarten rooms of four day-'care centers in Western Australia. Just 18 percent of 2,413 books in the total collection contained any [[28]] of nonwhite people. Minority cultures were often featured in stereotypical or tokenistic ways, for example, by [[29]] Asian culture with chopsticks and traditional dress. Characters that did represent a minority culture usually had [[30]] roles in the books. The main characters were mostly Caucasian. This causes concern as it can lead to an impression that whiteness is of greater value. Dr . Adam said children formed impressions about 'difference' and identity from a very young age. Evidence has shown they develop own-race . [[31]] from as young as three months of age. The books we share with young children can be a valuable opportunity to develop children's understanding of themselves and others. Books can also allow children to see diversity. They discover both similarities and differences between themselves and others. This can help develop understanding, acceptance and [[32]]of diversity. Census data has shown Australians come from more than 200 countries. They speak over 300 languages at home. Additionally, Australians belong to more than 100 different religious groups. They also work in more than 1, OOO different occupations. \"Australia is a multicultural society. The current [[33]] promotion of white middle-class ideas and lifestyles risks [[34]] children from minority groups. This can give white middle-class children a sense of [[35]] or privilege,\" Dr. Adam said."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "alienating"
+        },
+        {
+          "key": "B",
+          "text": "appreciation"
+        },
+        {
+          "key": "C",
+          "text": "bias"
+        },
+        {
+          "key": "D",
+          "text": "fraud"
+        },
+        {
+          "key": "E",
+          "text": "housed"
+        },
+        {
+          "key": "F",
+          "text": "investigated"
+        },
+        {
+          "key": "G",
+          "text": "overwhelming"
+        },
+        {
+          "key": "H",
+          "text": "portraying"
+        },
+        {
+          "key": "I",
+          "text": "representation"
+        },
+        {
+          "key": "J",
+          "text": "safeguarded"
+        },
+        {
+          "key": "K",
+          "text": "secondary"
+        },
+        {
+          "key": "L",
+          "text": "superiority"
+        },
+        {
+          "key": "M",
+          "text": "temperament"
+        },
+        {
+          "key": "N",
+          "text": "tentative"
+        },
+        {
+          "key": "O",
+          "text": "threshold"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alienating"
+            },
+            {
+              "key": "B",
+              "text": "appreciation"
+            },
+            {
+              "key": "C",
+              "text": "bias"
+            },
+            {
+              "key": "D",
+              "text": "fraud"
+            },
+            {
+              "key": "E",
+              "text": "housed"
+            },
+            {
+              "key": "F",
+              "text": "investigated"
+            },
+            {
+              "key": "G",
+              "text": "overwhelming"
+            },
+            {
+              "key": "H",
+              "text": "portraying"
+            },
+            {
+              "key": "I",
+              "text": "representation"
+            },
+            {
+              "key": "J",
+              "text": "safeguarded"
+            },
+            {
+              "key": "K",
+              "text": "secondary"
+            },
+            {
+              "key": "L",
+              "text": "superiority"
+            },
+            {
+              "key": "M",
+              "text": "temperament"
+            },
+            {
+              "key": "N",
+              "text": "tentative"
+            },
+            {
+              "key": "O",
+              "text": "threshold"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【考点】动词辨析题。 F)【语法判断】空格位于两个名词结构之间,且整句 话缺少谓语,故空格处应填人动词作谓语,且由上 下文的时态可以判断,应为动词的-ed形式。 【语义判断】空格所在句的前一句提到一项新研究 表明的结果,后一句提到亚当博士具体研究的内 容,因此,空格处需要填人一个与“研究,调查”相 关的动词,由此确定F)investigated为答案。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alienating"
+            },
+            {
+              "key": "B",
+              "text": "appreciation"
+            },
+            {
+              "key": "C",
+              "text": "bias"
+            },
+            {
+              "key": "D",
+              "text": "fraud"
+            },
+            {
+              "key": "E",
+              "text": "housed"
+            },
+            {
+              "key": "F",
+              "text": "investigated"
+            },
+            {
+              "key": "G",
+              "text": "overwhelming"
+            },
+            {
+              "key": "H",
+              "text": "portraying"
+            },
+            {
+              "key": "I",
+              "text": "representation"
+            },
+            {
+              "key": "J",
+              "text": "safeguarded"
+            },
+            {
+              "key": "K",
+              "text": "secondary"
+            },
+            {
+              "key": "L",
+              "text": "superiority"
+            },
+            {
+              "key": "M",
+              "text": "temperament"
+            },
+            {
+              "key": "N",
+              "text": "tentative"
+            },
+            {
+              "key": "O",
+              "text": "threshold"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【考点】动词辨析题。 E)【语法判断】空格前面是一个完整的主谓宾句子结 构sheexaminedthebooks,空格后面是介词短语 inthekindergartenrooms...\",因此,空格处可 填人形容词、副词或非谓语动词作修饰语。 【语义判断】由上下文可知,空格所在句是指亚当 博士调查了西澳大利亚州四个日托所的学前班房 间里的书籍,结合选项意恩可知,E)housed“收 藏,存放”符合句意。此处housed为动词house的 过去分词,与其后的介词短语一起构成过去分词 短语,作名词books的后置定语。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alienating"
+            },
+            {
+              "key": "B",
+              "text": "appreciation"
+            },
+            {
+              "key": "C",
+              "text": "bias"
+            },
+            {
+              "key": "D",
+              "text": "fraud"
+            },
+            {
+              "key": "E",
+              "text": "housed"
+            },
+            {
+              "key": "F",
+              "text": "investigated"
+            },
+            {
+              "key": "G",
+              "text": "overwhelming"
+            },
+            {
+              "key": "H",
+              "text": "portraying"
+            },
+            {
+              "key": "I",
+              "text": "representation"
+            },
+            {
+              "key": "J",
+              "text": "safeguarded"
+            },
+            {
+              "key": "K",
+              "text": "secondary"
+            },
+            {
+              "key": "L",
+              "text": "superiority"
+            },
+            {
+              "key": "M",
+              "text": "temperament"
+            },
+            {
+              "key": "N",
+              "text": "tentative"
+            },
+            {
+              "key": "O",
+              "text": "threshold"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【考点】名词辨析题。 I【语法判断】空格前面为不定代词any,后面为介 词of,因此空格处应填人名词,和后面的of nori- whitepeople一起构成名词短语,作contained的 宾语。 【语义判断】根据空格所在句提到的just18 percentof 2,413books和该段倒数第二句“The main characters were mostly Caucasian.\"推测空 格所在句是指澳大利亚现有的童书对非白人的描 述很少。I)representation“描述,描绘”符合句 意,故为答案。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alienating"
+            },
+            {
+              "key": "B",
+              "text": "appreciation"
+            },
+            {
+              "key": "C",
+              "text": "bias"
+            },
+            {
+              "key": "D",
+              "text": "fraud"
+            },
+            {
+              "key": "E",
+              "text": "housed"
+            },
+            {
+              "key": "F",
+              "text": "investigated"
+            },
+            {
+              "key": "G",
+              "text": "overwhelming"
+            },
+            {
+              "key": "H",
+              "text": "portraying"
+            },
+            {
+              "key": "I",
+              "text": "representation"
+            },
+            {
+              "key": "J",
+              "text": "safeguarded"
+            },
+            {
+              "key": "K",
+              "text": "secondary"
+            },
+            {
+              "key": "L",
+              "text": "superiority"
+            },
+            {
+              "key": "M",
+              "text": "temperament"
+            },
+            {
+              "key": "N",
+              "text": "tentative"
+            },
+            {
+              "key": "O",
+              "text": "threshold"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【考点】动词辨析题。 H)【语法判断】空格前面为介词by,后面为名词短语 Asianculture,故空格处应填人动词的-ing形式。 【语义判断】空格所在句提到,对少数族裔文化的 描写往往带有刻板印象或者只做些表面文章,接 着用forexample引出例子,指出童书中描写亚洲 文化时,只会使用镁子或传统服饰这种带有刻板 印象的方式,由此确定H)portraying“指写,描绘” 为答案。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alienating"
+            },
+            {
+              "key": "B",
+              "text": "appreciation"
+            },
+            {
+              "key": "C",
+              "text": "bias"
+            },
+            {
+              "key": "D",
+              "text": "fraud"
+            },
+            {
+              "key": "E",
+              "text": "housed"
+            },
+            {
+              "key": "F",
+              "text": "investigated"
+            },
+            {
+              "key": "G",
+              "text": "overwhelming"
+            },
+            {
+              "key": "H",
+              "text": "portraying"
+            },
+            {
+              "key": "I",
+              "text": "representation"
+            },
+            {
+              "key": "J",
+              "text": "safeguarded"
+            },
+            {
+              "key": "K",
+              "text": "secondary"
+            },
+            {
+              "key": "L",
+              "text": "superiority"
+            },
+            {
+              "key": "M",
+              "text": "temperament"
+            },
+            {
+              "key": "N",
+              "text": "tentative"
+            },
+            {
+              "key": "O",
+              "text": "threshold"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【考点】形容词辨析题。 K)【语法判断】空格前为动调had,后面为名词roles, 故空格处应填人形容词作定语。 【语义判断】根据后一句提到的童书中的主角多为 白人,可推测空格所在句是说代表少数族裔文化 的人物通常为配角。K)secondary“次要的,从属 的”符合句意,故为答案。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alienating"
+            },
+            {
+              "key": "B",
+              "text": "appreciation"
+            },
+            {
+              "key": "C",
+              "text": "bias"
+            },
+            {
+              "key": "D",
+              "text": "fraud"
+            },
+            {
+              "key": "E",
+              "text": "housed"
+            },
+            {
+              "key": "F",
+              "text": "investigated"
+            },
+            {
+              "key": "G",
+              "text": "overwhelming"
+            },
+            {
+              "key": "H",
+              "text": "portraying"
+            },
+            {
+              "key": "I",
+              "text": "representation"
+            },
+            {
+              "key": "J",
+              "text": "safeguarded"
+            },
+            {
+              "key": "K",
+              "text": "secondary"
+            },
+            {
+              "key": "L",
+              "text": "superiority"
+            },
+            {
+              "key": "M",
+              "text": "temperament"
+            },
+            {
+              "key": "N",
+              "text": "tentative"
+            },
+            {
+              "key": "O",
+              "text": "threshold"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【考点】名词辨析题。 C)【语法判断】空格前为复合形容词own-race自己 种族的”,后面为介词短语,可推知空格处应填人 名词作develop的宾语。 【语义判断】空格所在句的上一句提到,孩子从很 小开始就会对“差异”和身份形成印象,推测空格 所在句是说孩子从三个月大时就会产生对自已种 族的一种偏祖或偏爱,故答案为C)bias“偏见, 偏祖”。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alienating"
+            },
+            {
+              "key": "B",
+              "text": "appreciation"
+            },
+            {
+              "key": "C",
+              "text": "bias"
+            },
+            {
+              "key": "D",
+              "text": "fraud"
+            },
+            {
+              "key": "E",
+              "text": "housed"
+            },
+            {
+              "key": "F",
+              "text": "investigated"
+            },
+            {
+              "key": "G",
+              "text": "overwhelming"
+            },
+            {
+              "key": "H",
+              "text": "portraying"
+            },
+            {
+              "key": "I",
+              "text": "representation"
+            },
+            {
+              "key": "J",
+              "text": "safeguarded"
+            },
+            {
+              "key": "K",
+              "text": "secondary"
+            },
+            {
+              "key": "L",
+              "text": "superiority"
+            },
+            {
+              "key": "M",
+              "text": "temperament"
+            },
+            {
+              "key": "N",
+              "text": "tentative"
+            },
+            {
+              "key": "O",
+              "text": "threshold"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【考点】名词辨析题。 B).【语法判断】空格前面的and为连词,用来连接并 列成分,故空格处填人的词应和understanding及 acceptance词性相同,词义接近,因此应填人一个 带有囊义色彩的名词。 【语义判断】空格所在句的前两句提到,书籍可以 让孩子们看到多样性,让他们发现自已和他人之 间的相似和差异。因此空格所在句应是指这有助 于培养孩子对多样性的理解、接受和欣赏。故答案为B)appreciation\"欣赏”。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alienating"
+            },
+            {
+              "key": "B",
+              "text": "appreciation"
+            },
+            {
+              "key": "C",
+              "text": "bias"
+            },
+            {
+              "key": "D",
+              "text": "fraud"
+            },
+            {
+              "key": "E",
+              "text": "housed"
+            },
+            {
+              "key": "F",
+              "text": "investigated"
+            },
+            {
+              "key": "G",
+              "text": "overwhelming"
+            },
+            {
+              "key": "H",
+              "text": "portraying"
+            },
+            {
+              "key": "I",
+              "text": "representation"
+            },
+            {
+              "key": "J",
+              "text": "safeguarded"
+            },
+            {
+              "key": "K",
+              "text": "secondary"
+            },
+            {
+              "key": "L",
+              "text": "superiority"
+            },
+            {
+              "key": "M",
+              "text": "temperament"
+            },
+            {
+              "key": "N",
+              "text": "tentative"
+            },
+            {
+              "key": "O",
+              "text": "threshold"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【考点】形容词辨析题。 G)【语法判断】空格前为形容词current,空格后为名 词promotion,因此空格处应填人形容词和 current一起作定语修饰promotion。 【语义判断】第一段提到,2413本童书中,只有 18%的书包含了对非白人的描述。在书中,代表 少数族裔文化的人物通常扮演次要角色,主角一 般是白人。由此可知,现有的童书对白人的观念 和生活方式进行了过多宣扬,G)overwhelming “巨大的;压倒性的\"符合语境,故为答案。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alienating"
+            },
+            {
+              "key": "B",
+              "text": "appreciation"
+            },
+            {
+              "key": "C",
+              "text": "bias"
+            },
+            {
+              "key": "D",
+              "text": "fraud"
+            },
+            {
+              "key": "E",
+              "text": "housed"
+            },
+            {
+              "key": "F",
+              "text": "investigated"
+            },
+            {
+              "key": "G",
+              "text": "overwhelming"
+            },
+            {
+              "key": "H",
+              "text": "portraying"
+            },
+            {
+              "key": "I",
+              "text": "representation"
+            },
+            {
+              "key": "J",
+              "text": "safeguarded"
+            },
+            {
+              "key": "K",
+              "text": "secondary"
+            },
+            {
+              "key": "L",
+              "text": "superiority"
+            },
+            {
+              "key": "M",
+              "text": "temperament"
+            },
+            {
+              "key": "N",
+              "text": "tentative"
+            },
+            {
+              "key": "O",
+              "text": "threshold"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【考点】动词辨析题。 A)【语法判断】空格前面的lifestyles和risks中间没 有任何连接词,可知risks在此处不是名词,而是 谓语动词,因此空格处应为宾语。risk作动词使 用时,后面需跟sth.或doing sth.表示“宫的 风险,使冒风险”,因空格后有名词children, 故空格处应填人动词的-ing形式。 【语义判断】本文第一段提到,现有的童书对少数 族裔的描写太少;第二段提到,孩子从很小开始就 会对差异”和身份形成印象,故推测空格所在句 是在描述对白人观念和生活方式的大肆宣扬所产 生的消极影响,A)alienating“排斥,疏远”符合语 境,故为答案。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alienating"
+            },
+            {
+              "key": "B",
+              "text": "appreciation"
+            },
+            {
+              "key": "C",
+              "text": "bias"
+            },
+            {
+              "key": "D",
+              "text": "fraud"
+            },
+            {
+              "key": "E",
+              "text": "housed"
+            },
+            {
+              "key": "F",
+              "text": "investigated"
+            },
+            {
+              "key": "G",
+              "text": "overwhelming"
+            },
+            {
+              "key": "H",
+              "text": "portraying"
+            },
+            {
+              "key": "I",
+              "text": "representation"
+            },
+            {
+              "key": "J",
+              "text": "safeguarded"
+            },
+            {
+              "key": "K",
+              "text": "secondary"
+            },
+            {
+              "key": "L",
+              "text": "superiority"
+            },
+            {
+              "key": "M",
+              "text": "temperament"
+            },
+            {
+              "key": "N",
+              "text": "tentative"
+            },
+            {
+              "key": "O",
+              "text": "threshold"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【考点】名词辨析题。 L)【语法判断】空格位于介词of之后,表并列的连接 词or之前,故应填人名词。连接词or连接平行结 构,因此空格处应填人和privilege“特权”意恩相 近的词。 【语义判断】结合句意及选项可知,L)superiority “优越感;优越性”符合句意。此处是指对白人观 念和生活方式的大肆宣扬会给白人孩子一种优越 感或特权感。 是等发"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2021-06-1-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) A hundred years before iconic figures like Bill Gates and Steve Jobs permeated our lives, an Irish Italian inventor laid the foundation of the communication explosion of the 21st century. Guglielmo Marconi was arguably the first truly global figure in modern communication. Not only was he the first to communicate globally, he was the first to think globally about communication. Marconi may not have been the greatest inventor of his time, but more than anyone else, he brought about a fundamental shift in the way we communicate.",
+        "B) Today's globally networked media and conimunication system has its origins in the 19th century, when, for the first time, messages were sent electronically across great distances. The telegraph, the -telephone, and radio were the obvious predecessors of the-Internet, -iPotls, and-mobile phones. What made the link from then to now was the development of wireless communication. Marconi was the first to develop and perfect this system, using the recently-discovered \"air waves\" that make up the electromagnetic spectrum.",
+        "C) Between 1896, when he applied for his first patent in England at the age of 22, and his death in Italy in 1937, Marconi was at the center of every major innovation in electronic communication. He was also a skilled and sophisticated organizer, an entrepreneurial innovator, who mastered the use of corporate strategy, media relations, government lobbying, international diplomacy, patents, and prosecution. Marconi was really interested in only one thing: the extension of mobile, personal, long distance communication to the ends of the earth (and beyond, if we can believe some reports) . Some like to refer to him as a genius, but if there was any genius to Marconi it was this vision.",
+        "D) In 1901 he succeeded in signaling across the Atlantic, from the west coast of England to Newfoundland in the USA, despite the claims of science that it could not be done. In 1924 he convinced the British government to encircle the world with a chain of wireless stations using the latest technology that he had devised, shortwave radio. There are some who say Marconi lost his edge when commercial broadcasting came along; he didn't see that radio could or should be used to frivolous (::JGJMJ(ID) ends. In one of his last public speeches, a radio broadcast to the United States in March 1937, he deplored that broadcasting had become a one-way means of communication and foresaw it moving in another direction, toward communication as a means of exchange. That was visionary genius.",
+        "E) Marconi's career was devoted to making wireless communication happen cheaply, efficiently, smoothly, and with an elegance that would appear to be intuitive and uncomplicated to the user-user friendly, if you will. There is a direct connection from Marconi to today's social media, search engines, and program streaming that can best be summed up by an admittedly provocative exclamation: the 20th century did not exist. In a sense, Marconi's vision jumped from his time to our own.",
+        "F) Marconi invented the idea of global communication-or, more straightforwardly, globally networked, mobile, wireless communication. Initially, this was wireless Morse code telegraphy ( 电报通讯) , the principal communication technology of his day. Marconi was the first to develop a practical method for wireless telegraphy using radio waves. He borrowed technical details from many sources, but what set him apart was a self-confident vision of the power of communication technology on the one hand, and, on the other, of the steps that needed to be taken to consolidate his own position as a player in that field. Tracing Marconi's lifeline leads us into the story of modern communication itself. There were other important figures, but Marconi towered over them all in reach, power, and influence, as well as in the grip he had on the popular imagination of his time. Marconi was quite simply the central figure in the emergence of a modern understanding of communication.",
+        "G) In his lifetime, Marconi foresaw the development of television and the fax machine, GPS, radar, and the portable hand-held telephone. Two months before he died, newspapers were reporting that he was working on a \"death ray,\" and that he had \"killed a rat with an intricate device at a distance of three feet.\" By then, anything Marconi said or did was newsworthy. Stock prices rose or sank according to his pronouncements. If Marconi said he thought it might rain, there was likely to be a run on umbrellas.",
+        "H) Marconi's biography is also a story about choices and the motivations behind them. At one level, Marconi could be fiercely autonomous and independent of the constraints of his own social class. On another scale, he was a perpetual outsider. Wherever he went, he was never \"of\" the group; he .was always the \"other,\" considered foreign in Britain, British in Italy, and \"not American\" in the United States. At the same time, he also suffered tremendously from a need for acceptance that drove, and sometimes stained, every one of his relationships.",
+        "I) Marconi placed a permanent stamp on the way we live. He was the first person to imagine a practical application for the wireless spectrum, and to develop it successfully into a global communication system-in both terms of the word; that is, worldwide and all-inclusive. He was able to do this because of a combination of factors-most important, timing and opportunity-but the single-mindedness and determination with which he carried out his self-imposed mission was fundamentally character-based; millions of Marconi's contemporaries had the same class, gender, race, and colonial privilege as he, but only a handful did anything with it. Marconi needed to achieve the goal that was set in his mind as an adolescent; by the time he reached adulthood, he understood, intuitively, that in order to have an impact he had to both develop an independent economic base and align himself with political power. Disciplined, uncritical loyalty to political power became his compass. for the choices he had to make.",
+        "J) At the same time, Marconi was uncompromisingly independent intellectually. Shortly after Marconi's death, the nuclear physicist Enrico Fermi-soon to be the developer of the Manhattan Project-wrote that Marconi proved that theory and experimentation were complementary features of progress. \"Experience can rarely, unless guided by a theoretical concept, arrive at results of any great significance...on the other hand, an excessive ·trust in theoretical conviction would have prevented Marconi from persisting in experiments which were destined t0 bring about a revolution in the technique of radio-communications.\" In other words, Marconi had the advantage of not being burdened by preconceived assumptions.",
+        "K) The most controversial aspect of Marconi's life-and the reason why there has been no satisfying biography of Marconi until now-was his uncritical embrace of Benito Mussolini . At first this was not problematic for him . But as the regressive ( fftliJH1g) nature of Mussolini's ·regime became clear, he began to suffer a crisis of conscience . However, after a lifetime of moving within the circles of power, he was unable to break with authority, and served Mussolini faithfully ( as president of Italy's national research council and royal academy, as well as a member of the Fascist Grand Council) until the day he died-conveniently-in 1937, shortly before he would have had to take a stand in the conflict that consumed a world that he had, in part, created ."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Marconi was central to our present-day understanding of communication .",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【定位】由题干中的central和understandingof communication定位到文章F)段最后一句。 F)【精析】同义转述题。F)段最后一句说到,马可尼 显然是现代通信概念出现过程中的核心人物。题 干是对该句的同义转述。题干中的centralto对 应原文中的thecentralfigurein,题干中的our present-day understanding of communication 对应 原文中的a modern understandingof communication, 故答案为F)。"
+        },
+        {
+          "number": 37,
+          "stem": "As an adult, Marconi had an intuition that he had to be loyal to politicians in order to be influential .",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【定位】由题干中的adult和intuition定位到I)段 倒数第二句。 I)【精析】同义转述题。I段倒数第二句分号后的部 分提到,到了成年,他凭直觉明白,要想产生影响, 他既要有独立的经济基础,又要与政权结盟。题 干中的asanadult对应原文中的bythetimehe reached adulthood,题干中的Marconi had an intuition that he had to be loyal to politicians in order to be influential是对原文中“he understood, intuitively, that in order to have an impact he had to.-,and align himself with political power\"的同义 转述,故答案为I)。"
+        },
+        {
+          "number": 38,
+          "stem": "Marconi disapproved of the use of wireless communication for commercial broadcasting .",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的commercialbroadcasting定位 到文章D)段第三句。 D)【精析】细节归纳题。D)段定位句提到,当商业广 播出现时,马可尼失去了优势;他认为收音机不可 以或不应该用来做无聊的事。随后一句也提到,他 曾责广播已成为一种单向的通信手段,可见他对 于无线通信用于商业广播持反对态度。题干中的 disapproved of the use of wireless communication for commercial broadcasting是对原文中he didn't see that radio could or should be used to frivolous ends 和 he deplored that broadcasting had become a one- waymeansof communication这两处信息的概括 性转述,故答案为D)。"
+        },
+        {
+          "number": 39,
+          "stem": "Marconi's example demonstrates that theoretical concepts and experiments complement each other in making progress in science and technology .",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【定位】由题干中的complement和progress定位 到J)段第二句。 【精析】同义转述题。J)段定位句后半部分指出, J) 马可尼证明了理论和实验在互补中发展进步。题 干中的Marconi's exampledemonstrates对应原文 中的Marconiproved;题干中的theoretical concepts and experiments complement each other in making progress in science and technology 是对 原文中theoryandexperimentationwere complementaryfeaturesofprogress的同义转述, 故答案为J)。"
+        },
+        {
+          "number": 40,
+          "stem": "Marconi's real interest lay in the development of worldwide wireless communication:",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的real interest定位到文章C)段 倒数第二句。 C)【精析】细节归纳题。C)段定位句提到,马可尼真 正感兴趣的只有一件事:将移动的、个人的、远程 的通信延伸到地球的尽头(甚至更远,如果我们相 信一些报道的话)。由此可知,马可尼真正感兴趣 的是如何发展全球无线通信。题干中的Marconi's real interest对应原文中的Marconiwasreally interested;题干中的thedevelopmentof worldwide wireless communication是对原文中the extension of mobile, personal, long-distance communication to the ends of the earth (and beyond,if we can believe some reports)的归纳概 括,故答案为C)。"
+        },
+        {
+          "number": 41,
+          "stem": "Marconi spent his whole life making wireless communication simple to use .",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【定位】由题干中的makingwireless communication 和simpletouse定位到E)段第一句。 【精析】细节归纳题。E)段定位句指出,马可尼在 E)[ 职业生涯中致力于使无线通信便宜、高效、顺畅, 给用户直观和简明的优雅感——或者说是做到用 户友好。题干中的Marconispenthiswholelife对 应原文中Marconi's careerwasdevotedto,题干中 的simpletouse是对原文中cheaply,efficiently, smoothly, and with an elegance that would appear to be intuitive and uncomplicated to the user- user-friendly的归纳概括,故答案为E)。"
+        },
+        {
+          "number": 42,
+          "stem": "Because of his long-time connection with people in power, Marconi was unable to cut himself off from the fascist regime in Italy.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【定位】由题干中的power和unable定位到文章 K)段第四句。 K)【精析】同义转述题。K)段定位句指出,他一生在 权力圈内活动,无法与政权决裂,始塞为墨索里尼 忠实服务。题干中的his long-time connection withpeople inpower是对原文中的a lifetime of movingwithin the circles of power的转述,题干中 的 unable to cut himself off from the fascist regime inItaly是对原文中unabletobreakwith authority,and served Mussolini faithfully的同义 转述,故答案为K)。"
+        },
+        {
+          "number": 43,
+          "stem": "In his later years, Marconi exerted a tremendous influence on all aspects of people's life .",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【定位】由题干中的inhis lateryears定位到文章 G)段第二句至结尾。 G)【精析】细节归纳题。G)段第二句提到了在他死 前两个月,报纸上报道的有关马可尼的惊人消息, 随后一句说,到那时,马可尼所说或所做的一切都 是有新闻价值的,之后举了两个生活实例:股票价 格随着他的声明涨涨跌跌,如果马可尼说他认为 可能会下雨,那大家就很可能都跑去买雨伞。由 此可以推知,晚年阶段的马可尼对人们生活的各 方面都影响巨大。题干中的in his later years对 应原文中的two monthsbeforehedied,题干中的 Marconi exerted a tremendous influence on all aspects of people's life是对原文中anything Marconi said or did was newsworthy及其后两个 生活中实例的归纳概括,故答案为G)。"
+        },
+        {
+          "number": 44,
+          "stem": "What connected the 19th century and our present time was the development of wireless communication .",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的the19thcentury和 developmentof wireless communication定位到文 章B)段第一句和第三句。 B)【精析】细节归纳题。B)段第一句前半部分提到, 今天的全球网络媒体和通信系统起源于19世纪, 随后第二句举出了一些实例,而第三句则指出,是 无线通信的发展成就了从那时到现在的联系。题 干中的 what connected the 19th century and our present time是对原文中 has its origins in the 19th century和 what made the link from then to now两 处信息的概括性转述,故答案为B)。"
+        },
+        {
+          "number": 45,
+          "stem": "Despite his autonomy, Marconi felt alienated and suffered from a lack of acceptance .",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【定位】由题干中的autonomy、suffered和 acceptance定位到文章H》段第二、三句和最后 一句。 H【精析】细节推断题。H)段第二、三句指出,在某 种程度上,马可尼可以完全自主,不受所属社会阶 层的限制。从另一种程度来讲,他永远是一个局 外人。最后一句则提到,同时,他也因需要被人接 受而遭受巨大的痛苦。由此可以推知,他感到被 疏离,因不被接受而感到痛苦。题干中的 autonomy对应原文中的fiercelyautonomous and independent,题干中的feltalienated是对原文中a perpetualoutsider的推断,题干中的suffered from alackofacceptance是对原文中suffered tremendously from a need for acceptance的同义 转述,故答案为H)。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2021-06-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Humans are fascinated by the source of their failings and virtues . This preoccupation inevitably leads to an old debate: whether nature or nurture moulds us more . A revolution in genetics has poised this as a modern political question about the character of our society: personalities are hard-wired into our genes' what can governments do to help us? It feels morally questionable, yet claims of genetic selection by intelligence are making headlines . This is down to\"hereditarian\" (遗传论的) science and a recent paper claimed \"differences in exam performance between pupils attending selective and non-selective schools mirror the genetic differences between them\" . With such an assertion, the work was predictably greeted by a lot of absurd claims about \"genetics determining academic success\" . What the research revealed was the rather less surprising result: the educational benefits of selective schools largely disappear once pupils' inborn ability and socio economic background were taken into account . It is a glimpse of the blindingly obvious-and there's nothing to back strongly either a hereditary or environmental argument. Yet the paper does say children are \"unintentionally genetically selected \" by the school system . Central to hereditarian science is a tall claim: that identifiable variations in genetic sequences can predict an individual's aptness to learn, reason and solve problems . This is problematic on many levels. A teacher could not seriously tell a parent their child has a low genetic tendency to study when external factors clearly exist . Unlike-minded academics say the inheritability of human traits is scientifically unsound . At best there is a weak statistical association and not a causal link between DNA and intelligence . Yet sophisticated statistics are used to create an intimidatory atmosphere of scientific certainty. While there's an undoubted genetic basis to individual difference, it is wrong to think that socially defined groups can be genetically accounted for . The fixation on genes as destiny is surely false too . Medical predictability can rarely be based on DNA alone; the environment matters too . Something as complex as intellect is likely to be affected by many factors beyond genes . If hereditarians want to advance their cause it will require more balanced interpretation and not just acts. of advocacy . Genetic selection is a way of exerting influence over others, \"the ultimate collective control of human destinies,\" as writer H . G . Wells put it. Knowledge becomes power and power requires a sense of responsibility . In understanding cognitive ability, we must not elevate discrimination to a science; allowing people to climb the ladder of life only as far as their cells might suggest . This will need a more sceptical eye on the science . As technology progresses, we all have a duty to make sure that we shape a future that we would want to find ourselves in."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What did a recent research paper claim?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The type of school students attend makes a difference to their future ."
+            },
+            {
+              "key": "B",
+              "text": "Genetic differences between students are far greater than supposed ."
+            },
+            {
+              "key": "C",
+              "text": "The advantages of selective schools are too obvious to ignore ."
+            },
+            {
+              "key": "D",
+              "text": "Students' academic performance is determined by their genes ."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的recentresearchpaper定位到 第二段第一句。 D)【精析】事实细节题。文章第二段第一句指出,近 期的一篇论文声称来自精英学校和普通学校的学 生在考试成绩上的差异反映了他们基因的不同。 第二句说这种论断引发了很多荒谣的主张,认为 “基因决定了学业的成功”。由此可知近期这项研 究支持“基因决定智力\"的观点。故答案为D)。 【避错】文章只提到精英学校和普通学校学生的考 试成绩有差异,并未指出不同学校对学生的未来 会产生影响,故排除A);文章主要说明遗传决定 论科学认为基因差异导致智力差异,并未提到学 生基因差异大小的问题,故排除B);第二段第三 句指出,当把学生的天资以及社会经济背景因素 考虑在内时,精英学校的教育优势在很大程度上 就消失了,这与C)正相反,故排除C)。"
+        },
+        {
+          "number": 47,
+          "stem": "What does the author think of the recent research?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Its result was questionable."
+            },
+            {
+              "key": "B",
+              "text": "Its implication was positive ."
+            },
+            {
+              "key": "C",
+              "text": "Its influence was rather negligible ."
+            },
+            {
+              "key": "D",
+              "text": "Its conclusions were enlightening ."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题干中的recentresearch及题文同序原 则定位到第二段末及第三段前半部分。 A)【精析】事实细节题。文章第二段最后一句话中, 作者指出现在还没有强有力的证据可以支持遗传 论或环境决定论。在第三段第二句中,作者介绍了 遗传决定论的主张,之后在第三句中指出这种说法 在很多层面上都存在问题。由此可知,作者对研究 的结果是抱有怀疑态度的。故答案为A)。 【避错】在第二段末尾以及第三段第三句,作者一 直在强调遗传决定论提出的主张是有问题的,所 以B)\"它的影响是积极的”和D)“它的结论是有启 发意义的”与作者观点相反,故排除;第一段最后 一句指出,这项研究成了头条新闻,第二段第二句 又提到,该工作引发了很多荒谬的主张,说明它是 有一定影响力的,故排除C)。"
+        },
+        {
+          "number": 48,
+          "stem": "What does the author say about the relationship between DNA and intelligence?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is one of scientific certainty ."
+            },
+            {
+              "key": "B",
+              "text": "It is not one of cause and effect ."
+            },
+            {
+              "key": "C",
+              "text": "It is subject to interpretation of statistics ."
+            },
+            {
+              "key": "D",
+              "text": "It is not fully examined by gene scientists."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的relationshipbetweenDNA andintelligence定位到第三段倒数第二句。 【精析】事实细节题。第三段倒数第二句指出, B)[ DNA和智力之间的关系充其量只是一种微弱的 统计数据上的关联,绝不是因果关系。由此可知, 答案为B)。 【避错】第三段最后一句话指出,复杂的统计数据 被用来创造一种科学确定性的氮围。这里作者客 观指出目前大环境的一种情况,而并不是认为这 项研究的结果是具有科学确定性的,故排除A); 第三段倒数第二句指出,两者间的关联最多也就 是有统计数据上的微弱关联,而C)说两者关系取 决于对统计数据的解释,与原文不符,故排除C); 一些基因科学家的观点就是DNA决定智力,D) 与文章意思不符,故排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What do hereditarians need to do to make their claims convincing?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Take all relevant factors into account in interpreting their data ."
+            },
+            {
+              "key": "B",
+              "text": "Conduct their research using more sophisticated technology ."
+            },
+            {
+              "key": "C",
+              "text": "Gather gene data from people of all social classes ."
+            },
+            {
+              "key": "D",
+              "text": "Cooperate with social scientists in their research ."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题千中的hereditarians和_claims定位 到第四段最后一句。 A)【精析】推理判断题。第四段最后一句提到,如果 遗传论者想推进他们的工作,就需要更多客观公 正的解释,而不仅仅是宜扬他们的论点。也就是 说,如果遗传论者想要更多人信服他们的观点,就 应该对他们研究的结果做更加周全与综合的解 释,即将更多相关因素考虑在内,故答案为A)。 【避错】本文并未提及遗传论者在做研究时所用的 技术精密与否,故排除B);C)是针对第四段中 sociallydefinedgroups设置的干扰,但原文的意 思是社会群体的界定不能只用基因来解释,外部 环境的影响同样重要,与C)提出的“收集社会各 阶层人群的基因数据”的论点不一致,故排除;D) 项在文章中并未提及,故排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What does the author warn against in the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Exaggerating the power of technology in shaping the world ."
+            },
+            {
+              "key": "B",
+              "text": "Losing sight of professional ethics in conducting research ."
+            },
+            {
+              "key": "C",
+              "text": "Misunderstanding the findings of human cognition research ."
+            },
+            {
+              "key": "D",
+              "text": "Promoting discrimination in the name of science ."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由选项中的technology、cognition及 discrimination等词定位到最后一段。 D)【精析】推理判断题。最后一段第三句指出,在理 解认知能力的过程中,我们不能将歧视抬高为科 学:这将导致人类只能在他们基因暗示的范围内 攀登人生的阶梯。结合该段第一句中作者引用作 家威尔斯对遗传选择的看法:是对人类命运集体 控制的终极形式,综合可知,作者认为不能以科学 的名义宣扬歧视,故答案为D)。 【避错】A)是针对最后一段最后一句话中的as technologyprogresses设置的干扰。原文的意思 是随着技术的进步,我们有责任守住底线,不去宜 扬歧视,与选项中夸大技术改变世界的力量的意息 完全不一致,故排除A);原文没有提及职业道德, 故排除B);原文中提到在理解认知能力的过程中, 我们要誉惕将歧视抬高为科学,这与C)“误解对人 类认知研究的发现\"意思不一致,故排除C)。 理保摄"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2021-06-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Nicola Sturgeon's speech last Tuesday setting out the Scottish government's legislative programme for the year ahead confirmed what was already pretty clear . Scottish councils are set to be the first in the UK with the power to levy charges on visitors, with Edinburgh likely to lead the way . Tourist taxes are not new . The Himayalan kingdom of Bhutan has a longstanding policy of charging visitors a daily fee . France's tax on overnight stays was introduced to assist thermal spa (温泉) towns to develop, and around half of French local authorities use it today . But such levies are on the rise . Moves by Barcelona and Venice to deal with the phenomenon of \"over-tourism\" through the use of charges have recently gained prominence . Japan and Greece are among the countries to have recently introduced tourist taxes . That the UK lags behind is due to our weak, by international standards, local government, as well as the opposition to taxes and regulation of our aggressively pro-market ruling party . Some UK cities have lobbied without success for the power to levy a charge on visitors. Such levies are no universal remedy as the amounts raised would be tiny compared with what has been taken away by central government since 2010. Still, it is to be hoped that the Scottish government's bold move will prompt others to act . There is 六级 2021 6 月 7 no reason why visitors to the UK, or domestic tourists on holiday in hotspots such as Cornwall, should be exempt from taxation-particularly when vital local services including waste collection, park maintenance and arts and culture spending are under unprecedented strain . On the contrary, compelling tourists to make a financial contribution to the places they visit beyond their personal consumption should be part of a wider cultural shift . Westerners with disposable incomes have often behaved as if they have a right to go wherever they choose with little regard for the consequences . Just as the environmental harm caused by aviation and other transport must come under far greater scrutiny, the social cost of tourism must also be confronted . This includes the impact of short-term lets on housing costs and quality of life for residents . Several European capitals, including Paris and Berlin, are leading a campaign for tougher regulation by the European Union . It also includes the impact of overcrowding, litter and the kinds of behaviour associated with noisy parties . There is no \"one size fits all\" solution to this problem . The existence of new revenue streams for some but not all councils is complicated, and businesses are often opposed, fearing higher costs will make them uncompetitive . But those places that want them must be given the chance to make tourist taxes work ."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What do we learn from Nicola Sturgeon's speech?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The UK is set to adjust its policy on taxation ."
+            },
+            {
+              "key": "B",
+              "text": "Tourists will have to pay a tax to visit Scotland ."
+            },
+            {
+              "key": "C",
+              "text": "The UK will take new measures to boost tourism ."
+            },
+            {
+              "key": "D",
+              "text": "Edinburgh contributes most to Scotland's tourism ."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的NicolaSturgeon'sspcech定位 至第一段第一、二句。 B)【精析】事实细节题。第一段第一句提到尼古拉· 斯特金在上周二的演讲,第二句接着指出,苏格兰 议会将成为英国第一个有权向游客收费的议会。 由此可知,游客到苏格兰旅游将需要缴纳旅游税, 故答案为B)。 【避错】由文章第一段第一句可知,是苏格兰政府 准备立法征收旅游税,且文章第四段第四句提到 “希望苏格兰政府的大胆举措能够促使其他地方 采取行动”,由此可判断并不是整个英国在调整税 收政策,故排除A):文章仅指出苏格兰的旅游税 立法,并未提到整个英国的新措施,也并未提到促 进旅游业繁荣一事,故排除C);根据文章第一段 第二句可知,爱丁堡将成为苏格兰实施旅游税政 策的开路先锋,并未指出爱丁堡对苏格兰旅游业 贡献最大,故排除D)。"
+        },
+        {
+          "number": 52,
+          "stem": "How come the UK has been slow in imposing the tourist tax?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Its government wants to attract more tourists ."
+            },
+            {
+              "key": "B",
+              "text": "The tax is unlikely to add much to its revenue ."
+            },
+            {
+              "key": "C",
+              "text": "Its ruling party is opposed to taxes and regulation."
+            },
+            {
+              "key": "D",
+              "text": "It takes time for local governments to reach consensus ."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的theUKhasbeenslowin imposingthetouristtax定位至第四段第一句。 C【精析】事实细节题。第四段第一句指出,英国在 旅游税征收方面落后于其他国家的原因是地方政 府软弱无能,同时执政党积极支持自由市场,反对 税收和监管,故答案为C)。 【避错】文章中提到,英国在旅游税征收方面落后 于其他国家的原因之一是地方政府软弱无能,并 未提到政府想要吸引更多游客,故排除A);第四 段第三句指出,这样的征税并不是万能的补措 施,因为与中央政府自2010年以来收回的资金相 比,这样征收到的资金微不足道,但这是在评价征 税措施,并不是英国旅游税征收进程缓慢的原因, 故排除B);第四段第二句提到,一些英国城市为 取得向游客收费的权力进行了游说,但并未成功, 这只是对现状的陈述,不能说明地方政府达成共 识需要时间是英国旅游税征收方面落后于其他国 家的原因,故排除D)。"
+        },
+        {
+          "number": 53,
+          "stem": "Both international and domestic visitors in the UK should pay tourist tax so as to ____",
+          "options": [
+            {
+              "key": "A",
+              "text": "elevate its tourism to international standards"
+            },
+            {
+              "key": "B",
+              "text": "improve the welfare of its maintenance workers"
+            },
+            {
+              "key": "C",
+              "text": "promote its cultural exchange with other nations"
+            },
+            {
+              "key": "D",
+              "text": "ease its financial burden of providing local services"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的bothinternationaland domesticvisitors定位至第四段第五句。 D)【精析】事实细节题。第四段第五句指出,前往英 国的游客或前往康沃尔等热点地区度假的国内游 客没有理由免于征税尤其是当垃圾回收、公 园维护和艺术文化支出等当地至关重要的服务面 临前所未有的压力时,所以征税的目的是缓解用 于提供当地服务的财政负担,故答案为D)。 【避错】文章中提到“国际标准”是在第四段第一 句,是为了闸释英国旅游税征收方面落后于其他 国家的原因,并未提到要提升旅游业的水平,故排 除A);第四段第五句提到公园维护等地方服务, 但没有提到养护工人的福利,故排除B);第五段 第一句提到了“文化转型”,但并未提到与其他国 家的文化交流,故排除C)。"
+        },
+        {
+          "number": 54,
+          "stem": "What does the author sa-y about Western tourists?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They don't seem to care about the social cost of tourism ."
+            },
+            {
+              "key": "B",
+              "text": "They don't seem to mind paying for additional services ."
+            },
+            {
+              "key": "C",
+              "text": "They deem travel an important part of their life ."
+            },
+            {
+              "key": "D",
+              "text": "They subject the effects of tourism to scrutiny ."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题干中的Westerntourists定位至第五 段第二句。 A)【精析】事实细节题。第五段第二句指出,西方人 经常表现得好像他们有权去任何他们选择的地 方,而不用考虑后果,结合本段第三句指出的旅游 也会产生社会成本可知,他们不考虑旅游的社会 成本,故答案为A)。 【避错】文章第五段第一句提到,游客在个人消费 之外应该为他们参观的地方做出经济贡献这一观 念应该是使文化转型更具多样性,但并未阐明西 方游客是否愿意为额外的服务买单,故排除B); 文章并未提及游客们对旅行和生活的关系的看 法,故排除C);文章第五段第三句指出,正如航空 和其他运输方式对环境造成的危害必须受到更严 格的审查一样,我们也必须面对旅游所造成的社 会成本,由此可知,应该是政府而非西方游客去仔 细审查旅游业的影响,故排除D)。"
+        },
+        {
+          "number": 55,
+          "stem": "What are UK people's opinions about the levy of tourist tax?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Supportive ."
+            },
+            {
+              "key": "B",
+              "text": "Skeptical ."
+            },
+            {
+              "key": "C",
+              "text": "Divided ."
+            },
+            {
+              "key": "D",
+              "text": "Unclear ."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的UKpeople'sopinions及题文 同序原则定位至最后一段。 C【精析】推理判断题。文章最后一段总结分析了英 国人对征收旅游税的看法。该段首先指出这个问 题没有“万全之策”,即对待这个问题不能采取“一 刀切”的做法。接着提到了反对征收旅游税的企业 以及支持征收旅游税的地方。由此可知,英国人对 征收旅游税的看法是有分歧的,故答案为C)。 【避错】文章中提到有些地方是支持征收旅游税 的,比如开头提到的苏格兰政府,而有些企业反对 征收旅游税,所以A)和B)是片面的,故排除;英国 人对旅游税有不同的看法,并不是对旅游税态度 不明,故排除D)。"
+        }
+      ]
+    }
+  ]
+}

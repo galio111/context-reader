@@ -1,0 +1,1648 @@
+{
+  "id": "cet4-2021-12-2",
+  "level": 4,
+  "year": 2021,
+  "month": 12,
+  "set": 2,
+  "title": "2021 年 12 月四级 · 第 2 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2021.12/%E7%9C%9F%E9%A2%98PDF/cet4_2021_12_2.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2021.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2021_12_2_ans.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2021-12-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "It is commonly believed that the great English dramatist and poet William Shakespeare was born in Stratford-on-Avon on April 23, 1564. But it is impossible to know the [[26]]day on which he was born. Church records show he's baptized (施洗礼) on April 26, and 3 days was a customary amount of time to wait before baptizing a newly born baby. Shakespeare's date of death is [[27]] known, however: it was April 23, 1616. He was 52 and had retired to Stratford three years before. Although few plays have been performed or analyzed as extensively as the 38 plays Shakespeare wrote, there are few surviving details about his life. This [[28]] of biographical information is due primarily to his social [[29]] : he was not a noble, but the son of a leather trader. Shakespeare [[30]] attended the grammar school in Stratford, where he would have studied Latin and read [[31]] literature. He did not go to university and at age 18 married Anne Hathaway, who was eight years his [[32]]. They had four children, including the twins, Hamnet and Judith. Nothing is known of the period between the birth of the twins and Shakespeare's [[33]] as a dramatist in London",
+        "in the early 1590s. In a million words written over 20 years, he [[34]] the full range of human emotions and conflicts with a [[35]] that remains sharp today. As his great contemporary the poet and dramatist Ben Jonson said, \"He was not of an age, but for all time."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "captured"
+        },
+        {
+          "key": "B",
+          "text": "classical"
+        },
+        {
+          "key": "C",
+          "text": "conclusively"
+        },
+        {
+          "key": "D",
+          "text": "emergence"
+        },
+        {
+          "key": "E",
+          "text": "exact"
+        },
+        {
+          "key": "F",
+          "text": "generated"
+        },
+        {
+          "key": "G",
+          "text": "particular"
+        },
+        {
+          "key": "H",
+          "text": "position"
+        },
+        {
+          "key": "I",
+          "text": "precision"
+        },
+        {
+          "key": "J",
+          "text": "probably"
+        },
+        {
+          "key": "K",
+          "text": "quality"
+        },
+        {
+          "key": "L",
+          "text": "scarcity"
+        },
+        {
+          "key": "M",
+          "text": "senior"
+        },
+        {
+          "key": "N",
+          "text": "separated"
+        },
+        {
+          "key": "O",
+          "text": "systematically"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "captured"
+            },
+            {
+              "key": "B",
+              "text": "classical"
+            },
+            {
+              "key": "C",
+              "text": "conclusively"
+            },
+            {
+              "key": "D",
+              "text": "emergence"
+            },
+            {
+              "key": "E",
+              "text": "exact"
+            },
+            {
+              "key": "F",
+              "text": "generated"
+            },
+            {
+              "key": "G",
+              "text": "particular"
+            },
+            {
+              "key": "H",
+              "text": "position"
+            },
+            {
+              "key": "I",
+              "text": "precision"
+            },
+            {
+              "key": "J",
+              "text": "probably"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "scarcity"
+            },
+            {
+              "key": "M",
+              "text": "senior"
+            },
+            {
+              "key": "N",
+              "text": "separated"
+            },
+            {
+              "key": "O",
+              "text": "systematically"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【考点】形容词辨析题。 E)【语法判断】空格前有定冠词the,空格后是名词 day,因此空格处应填人形容词。 【语义判断】本句意为:但是不可能知道他出生的 日期。根据下一句可知,教会记录显示, 莎士比亚于4月26日受洗,在为新生婴儿施洗之 前,通常需要等待三天。因此莎士比亚生于4月 23日是人们根据教会受洗记录的推测,而他的确 切出生日期无从得知,因此空格处应填入含有“确 切的,精确的”意义的形容词,由此确定答案为E) exact."
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "captured"
+            },
+            {
+              "key": "B",
+              "text": "classical"
+            },
+            {
+              "key": "C",
+              "text": "conclusively"
+            },
+            {
+              "key": "D",
+              "text": "emergence"
+            },
+            {
+              "key": "E",
+              "text": "exact"
+            },
+            {
+              "key": "F",
+              "text": "generated"
+            },
+            {
+              "key": "G",
+              "text": "particular"
+            },
+            {
+              "key": "H",
+              "text": "position"
+            },
+            {
+              "key": "I",
+              "text": "precision"
+            },
+            {
+              "key": "J",
+              "text": "probably"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "scarcity"
+            },
+            {
+              "key": "M",
+              "text": "senior"
+            },
+            {
+              "key": "N",
+              "text": "separated"
+            },
+            {
+              "key": "O",
+              "text": "systematically"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【考点】副词辨析题。 C)【语法判断】空格后是形容词known,因此空格处 应填入副词。 【语义判断】本句意为:然而,莎士比亚的死亡日期 是 知道的:1616年4月23日。however 表示转折关系,本句与前面提到的莎士比亚的具 体出生日期不明形成对比。也就是说,莎士比亚 的死亡日期是准确的,因此空格处应填人含有“确 信地,确凿地”意义的副词,由此确定答案为C) conclusively。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "captured"
+            },
+            {
+              "key": "B",
+              "text": "classical"
+            },
+            {
+              "key": "C",
+              "text": "conclusively"
+            },
+            {
+              "key": "D",
+              "text": "emergence"
+            },
+            {
+              "key": "E",
+              "text": "exact"
+            },
+            {
+              "key": "F",
+              "text": "generated"
+            },
+            {
+              "key": "G",
+              "text": "particular"
+            },
+            {
+              "key": "H",
+              "text": "position"
+            },
+            {
+              "key": "I",
+              "text": "precision"
+            },
+            {
+              "key": "J",
+              "text": "probably"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "scarcity"
+            },
+            {
+              "key": "M",
+              "text": "senior"
+            },
+            {
+              "key": "N",
+              "text": "separated"
+            },
+            {
+              "key": "O",
+              "text": "systematically"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【考点】名词辨析题。 L)【语法判断】空格前有This,后面是“of+名词”的 结构,因此空格处应填入名词。 主要 【语义判断】本句意为:传记信息的 是由于他的社会, 。由前一句可知,关于 莎士比亚生活的细节很少留存下来,因此空格处 应填人含有“缺少”意义的名词,由此确定答案为 L) scarcity。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "captured"
+            },
+            {
+              "key": "B",
+              "text": "classical"
+            },
+            {
+              "key": "C",
+              "text": "conclusively"
+            },
+            {
+              "key": "D",
+              "text": "emergence"
+            },
+            {
+              "key": "E",
+              "text": "exact"
+            },
+            {
+              "key": "F",
+              "text": "generated"
+            },
+            {
+              "key": "G",
+              "text": "particular"
+            },
+            {
+              "key": "H",
+              "text": "position"
+            },
+            {
+              "key": "I",
+              "text": "precision"
+            },
+            {
+              "key": "J",
+              "text": "probably"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "scarcity"
+            },
+            {
+              "key": "M",
+              "text": "senior"
+            },
+            {
+              "key": "N",
+              "text": "separated"
+            },
+            {
+              "key": "O",
+              "text": "systematically"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【考点】名词辨析题。 H)【语法判断】空格前有形容词social,因此空格处 应填人名词。 【语义判断】本句意为:传记信息的缺少主要是由 于他的社会 他不是贵族,而是一个皮革 商人的儿子。由分号后面的noble和thesonofa leathertrader可知,这是两种高低不同的社会地 位,因此空格处应填人含有“地位”意义的名词,由 此确定答案为H)position。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "captured"
+            },
+            {
+              "key": "B",
+              "text": "classical"
+            },
+            {
+              "key": "C",
+              "text": "conclusively"
+            },
+            {
+              "key": "D",
+              "text": "emergence"
+            },
+            {
+              "key": "E",
+              "text": "exact"
+            },
+            {
+              "key": "F",
+              "text": "generated"
+            },
+            {
+              "key": "G",
+              "text": "particular"
+            },
+            {
+              "key": "H",
+              "text": "position"
+            },
+            {
+              "key": "I",
+              "text": "precision"
+            },
+            {
+              "key": "J",
+              "text": "probably"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "scarcity"
+            },
+            {
+              "key": "M",
+              "text": "senior"
+            },
+            {
+              "key": "N",
+              "text": "separated"
+            },
+            {
+              "key": "O",
+              "text": "systematically"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【考点】副词辨析题。 J)【语法判断】空格后有动词attended,因此空格处 应填入副词。 【语义判断】本句意为:莎士比亚 二就读于 斯特拉特福的文法学校。由第二段可知,由于社 会地位低下,关于莎士比亚生活的细节很少留存 下来,因此莎士比亚曾就读于斯特拉特福的文法 学校也是人们的推测,并非确凿的信息,因此空格 处应填人含有“可能,大概”意义的副词,由此确定 答案为J)probably。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "captured"
+            },
+            {
+              "key": "B",
+              "text": "classical"
+            },
+            {
+              "key": "C",
+              "text": "conclusively"
+            },
+            {
+              "key": "D",
+              "text": "emergence"
+            },
+            {
+              "key": "E",
+              "text": "exact"
+            },
+            {
+              "key": "F",
+              "text": "generated"
+            },
+            {
+              "key": "G",
+              "text": "particular"
+            },
+            {
+              "key": "H",
+              "text": "position"
+            },
+            {
+              "key": "I",
+              "text": "precision"
+            },
+            {
+              "key": "J",
+              "text": "probably"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "scarcity"
+            },
+            {
+              "key": "M",
+              "text": "senior"
+            },
+            {
+              "key": "N",
+              "text": "separated"
+            },
+            {
+              "key": "O",
+              "text": "systematically"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【考点】形容词辨析题。 B)【语法判断】空格后有名词literature,因此空格处 应填入形容词。 【语义判断】本句意为:在那里他学习拉丁语并阅 读文学。备选项中能和文学搭配的只有 B)classical,意为\"古典文学”,由此确定答案为B) classical."
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "captured"
+            },
+            {
+              "key": "B",
+              "text": "classical"
+            },
+            {
+              "key": "C",
+              "text": "conclusively"
+            },
+            {
+              "key": "D",
+              "text": "emergence"
+            },
+            {
+              "key": "E",
+              "text": "exact"
+            },
+            {
+              "key": "F",
+              "text": "generated"
+            },
+            {
+              "key": "G",
+              "text": "particular"
+            },
+            {
+              "key": "H",
+              "text": "position"
+            },
+            {
+              "key": "I",
+              "text": "precision"
+            },
+            {
+              "key": "J",
+              "text": "probably"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "scarcity"
+            },
+            {
+              "key": "M",
+              "text": "senior"
+            },
+            {
+              "key": "N",
+              "text": "separated"
+            },
+            {
+              "key": "O",
+              "text": "systematically"
+            }
+          ],
+          "answer": "M",
+          "explanation": "【考点】名词辨析题。 M)【语法判断】空格前有形容词性物主代词his,因此 空格处应填入名词。 【语义判断】本句意为:他没有上大学,18岁时娶 了比他 八岁的安妮·海瑟薇。由句意可 知,此处表示安妮·海瑟薇比莎士比亚年长或年 轻八岁。而莎士比亚此时才18岁,所以安妮·海 瑟薇应该比莎士比亚年长八岁,由此确定答案为 M) senior。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "captured"
+            },
+            {
+              "key": "B",
+              "text": "classical"
+            },
+            {
+              "key": "C",
+              "text": "conclusively"
+            },
+            {
+              "key": "D",
+              "text": "emergence"
+            },
+            {
+              "key": "E",
+              "text": "exact"
+            },
+            {
+              "key": "F",
+              "text": "generated"
+            },
+            {
+              "key": "G",
+              "text": "particular"
+            },
+            {
+              "key": "H",
+              "text": "position"
+            },
+            {
+              "key": "I",
+              "text": "precision"
+            },
+            {
+              "key": "J",
+              "text": "probably"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "scarcity"
+            },
+            {
+              "key": "M",
+              "text": "senior"
+            },
+            {
+              "key": "N",
+              "text": "separated"
+            },
+            {
+              "key": "O",
+              "text": "systematically"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【考点】名词辨析题。 D)【语法判断】空格前有名词属格Shakespeare's,因 此空格处应填入名词。 【语义判断】本句意为:从双胞胎出生到16世纪 90年代初莎士比亚在伦敦作为戏剧家—_之 间的这个阶段人们一无所知。根据文章大意,人 们对莎士比亚在伦敦成名之后的生活细节了解得 比较多,而对在此之前的知之甚少,所以这一时 期指的是莎士比亚成名之前,因此空格处应填 入含有“出现”意义的名词,由此确定答案为D) emergence."
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "captured"
+            },
+            {
+              "key": "B",
+              "text": "classical"
+            },
+            {
+              "key": "C",
+              "text": "conclusively"
+            },
+            {
+              "key": "D",
+              "text": "emergence"
+            },
+            {
+              "key": "E",
+              "text": "exact"
+            },
+            {
+              "key": "F",
+              "text": "generated"
+            },
+            {
+              "key": "G",
+              "text": "particular"
+            },
+            {
+              "key": "H",
+              "text": "position"
+            },
+            {
+              "key": "I",
+              "text": "precision"
+            },
+            {
+              "key": "J",
+              "text": "probably"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "scarcity"
+            },
+            {
+              "key": "M",
+              "text": "senior"
+            },
+            {
+              "key": "N",
+              "text": "separated"
+            },
+            {
+              "key": "O",
+              "text": "systematically"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【考点】动词辨析题。 A)【语法判断】分析句子结构可知,空格所在的句子 缺少谓语动词,因此空格处应填入动词。 【语义判断】本句意为:在20多年的时间里,他 用一百万字的篇幅, 人类全部的情感 和冲突。也就是说,莎士比亚的文字记录或描 述了人类的情感和冲突,因此空格处应填人含 有“记录,描述”意义的动词,由此确定答案为 A) captured。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "captured"
+            },
+            {
+              "key": "B",
+              "text": "classical"
+            },
+            {
+              "key": "C",
+              "text": "conclusively"
+            },
+            {
+              "key": "D",
+              "text": "emergence"
+            },
+            {
+              "key": "E",
+              "text": "exact"
+            },
+            {
+              "key": "F",
+              "text": "generated"
+            },
+            {
+              "key": "G",
+              "text": "particular"
+            },
+            {
+              "key": "H",
+              "text": "position"
+            },
+            {
+              "key": "I",
+              "text": "precision"
+            },
+            {
+              "key": "J",
+              "text": "probably"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "scarcity"
+            },
+            {
+              "key": "M",
+              "text": "senior"
+            },
+            {
+              "key": "N",
+              "text": "separated"
+            },
+            {
+              "key": "O",
+              "text": "systematically"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【考点】名词辨析题。 I)【语法判断】空格前有不定冠词a,因此空格处应 填入名词。 【语义判断】本句意为:在20多年的时间里,他用 一百万字的篇幅,以今天仍然敏锐的, 描 述了人类全部的情感和冲突。本句是对莎士比 亚作品的评价。thatremainssharptoday是修 饰莎士比亚描述人类的各种情感与冲突的方 式,说明他的方式是十分准确的,因此空格处应 填人含有“准确”意义的名词,由此确定答案为 I)precision。备选的其他名词不能用sharp修 饰,因此排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2021-12-2-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Humans are creatures of habit. We love to establish a routine and stick with it. Then we often put ourselves on auto-pilot. Routines can be incredibly useful in helping you get things done. However, too much of a routine can also make you incredibly boring. Nevertheless, many people live lives that are boringly predictable, or live a life where everything is outlined or planned.",
+        "B) To tell the truth, interesting people are more popular among their friends. If you don't arouse someone's curiosity or brighten someone's day, you probably come across as being a little bit dull. But that doesn't mean your life has ended and you can't do anything to change it. If you find yourself searching for something to say beyond small talk, try these tactics to find more interesting approaches to conversation.",
+        "C) Recently, I was at a gathering of colleagues when someone turned to me and asked, \"So, what's new with you?\" Ordinarily, I think I'm a good conversationalist. After all, it's literally my job to talk to people and tell their stories or share their advice. And that's not exactly an unexpected question. Still, the only \"new-to-me\" topics that came to mind were my daughter's basketball tournament (锦标赛) and my feelings about that morning's political headlines—neither amusing nor appropriate topics at that moment.",
+        "D) Oh, no, I thought. Have I become boring? But sharing our experiences in an authentic way to connect with other people is what makes us interesting, says associate professor Michael Pirson. The hesitation I felt in not sharing the ordinary things that were happening in my life, and the wild mental search for something more interesting, may have backfired and made me seem less interesting.",
+        "E) \"If someone is making up some conversation that might be interesting, it's probably not going to land well,\" says Pirson, whose expertise includes trust and well-being, mindfulness, and humanistic management. \"It's going to feel like a made-up conversation that people don't necessarily want to tune in to.\"",
+        "F) The most interesting people aren't those who've gone on some Eat, Pray, Love journey to find themselves. Instead, Pirson says, they're those who examine the ordinary. \"Often, the 'boring things' may not be boring at all. Maybe they are actually little miracles,\" he says. Share your observations about the world around you—interesting stories you heard or things you noticed—and you may be surprised by the universal connection they inspire.",
+        "G) This is essentially how Jessica Hagy starts her day. The author of How to Be Interesting: An Instruction Manual, Hagy spends a lot of time thinking about what's interesting to her. People who are interesting are persistently curious, she says.",
+        "H) Think about the everyday things around you and ask questions about them. What is that roadside monument I see on my way to work every day? Who built that interesting building in my city? What nearby attractions haven't I visited? Why do people do things that way? Use what you find to ask more questions and learn more about the world around you. \"Having that sort of curiosity is almost like a protective gear from getting into boredom,\" she says. And when you find things that are truly interesting to you, share them.",
+        "I) Television veteran Audrey Morrissey, executive producer of NBC's The Voice, is always looking for what will make a person or story interesting to viewers: It's usually a matter of individuality. \"Having a strong point of view, signature style, or being a super-enthusiast in a particular field makes someone interesting,\" she says. That means embracing what is truly interesting or unique about yourself. \"Many people are 'not boring' in the way that they can carry a conversation or can be good at a social gathering, etc. To be interesting means that you have lived life, taken risks, traveled, sought out experience to learn for yourself and share with others,\" she says.",
+        "J) Of course, it's possible to be a fountain of knowledge and a boring person, says public relations consultant Andrea Pass. Paying attention to the listener is an important part of having a conversation that's interesting to both parties. Talking on and on about what's interesting to you isn't going to make you an interesting person, she says.",
+        "K) \"If the listener is not paying attention, it's your sign to shorten the story or change direction. Make sure to bring the audience into the conversation so that it is not one-sided,\" Pass says. Be a better listener yourself, and give others opportunities to participate in the conversation by inviting them with questions or requests to share their own experiences or thoughts. (e.g., \"Now, tell me about your favorite book,\" or \"Have you ever been to that attraction?\") Questions are a powerful tool, especially when they encourage others to disclose information about themselves. A 2012 study from the University of California, Santa Barbara, found that roughly 40% of the time we are talking, we're disclosing subjective information about our experience.知 d when we're doing so, our brains are more engaged. So one strategy to leave others with the impression that you're a sparkling conversation partner is to get others to talk about themselves.",
+        "L) Being relatable is also essential, Morrissey says. \"The best entertainment and storytelling comes from people who are relatable- those who don't shy away from opening up but freely share who they are and what they care about. These are the people viewers most relate to and find interesting. Being authentic, honest, and vulnerable is always interesting.\"",
+        "M) I have now come to realize that being boring, in actuality, is not only about who you are as a person, but also how you present yourself. No matter what, make sure you are having fun in life. Because when you are enjoying, people around you will begin to enjoy as well. Show some interest in them and they will definitely show some in you. If you are a very reserved person, this could be a little difficult at first. But with a little effort, you can definitely improve."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Pirson claims that some ordinary things may often prove to be miraculously interesting.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【定位】由题干中的Pirson、ordinarythings和 miraculouslyinteresting定位到F)段第三、四句。 F)【精析】同义转述题。定位句提到,皮尔逊认为无 聊的事情可能一点儿也不无聊,而是很小的奇迹。 题干中的ordinarythings对应原文中的boring things,题干中的miraculously对应原文中的 miracles,故答案为F)。"
+        },
+        {
+          "number": 37,
+          "stem": "To make a conversation interesting, it is important that you listen to the other party attentively.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【定位】由题干中的listentotheotherparty和 attentively定位到J)段第二句。 J)【精析】同义转述题。定位句提到,要想让谈话双 方都感兴趣,关注听者是很重要的一部分。题干 中的Tomakeaconversationinteresting对应原 文中的havinga conversation that's interesting to bothparties,题干中的listento theother party attentively对应原文中的Payingattentiontothe listener,故答案为J)。"
+        },
+        {
+          "number": 38,
+          "stem": "A person who is unable to stimulate others' curiosity or make their life enjoyable may appear somewhat boring.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题千中的stimulateothers’curiosity以 及maketheirlifeenjoyable定位到B)段第二句。 B)【精析】细节推断题。定位句提到,如果你无法引 起别人的好奇心或是点亮别人的生活,你也许会 给人留下有点沉闷的印象。题干中的stimulate others”curiosity对应原文中的arouse someone's curiosity,题干中的maketheirlifeenjoyable对应 原文中的brightensomeone'sday,故答案为B)。"
+        },
+        {
+          "number": 39,
+          "stem": "Interesting people usually possess certain unique qualities, according to a TV program producer.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【定位】由题干中的certainuniquequalities和a TVprogramproducer定位到I)段第二句。 I)【精析】细节归纳题。定位句提到,一位电视节目 制作人认为一个有趣的人会有一个强烈的观点、 标志性的风格,或对某一特定领域充满热情。题 干中的aTVprogramproducer对应原文中的 she,也就是前文中提到的Televisionveteran Audrey Morrissey, executive producer of NBC's TheVoice,题干中的certainuniquequalities对应 原文中的individuality以及下一句中的具体解释:; Having a strong point of view, signature style, or being a super-enthusiast in a particular field,故答案为I"
+        },
+        {
+          "number": 40,
+          "stem": "Be interested in others and they are sure to be interested in you.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "M",
+          "explanation": "【定位】由题干中的Beinterested·inothers以及 theyare sureto be interested inyou定位到M)段 第四句。 M)【精析】同义转述题。定位句提到,对他人表现出 一些兴趣,他们也一定会向你表现出一些兴趣。 题干中的Beinterestedinothers对应原文中的 Show some interest in them,题干中的theyare sure to be interested in you对应原文中的they willdefinitelyshowsome inyou,故答案为M)。"
+        },
+        {
+          "number": 41,
+          "stem": "The author considers himself usually good at conducting conversations.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的Theauthor、himself、usually 和good atconductingconversations定位到C)段 第二句。 C)【精析】细节推断题。定位句提到,作者认为自己 是一个很健谈的人。题干中的Theauthor和 himself对应原文中的I,题干中的usually对应原 文中的Ordinarily,题干中的good at conducting conversations对应原文中的agood conversationalist,故答案为C)。"
+        },
+        {
+          "number": 42,
+          "stem": "Interesting people are always full of curiosity.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【定位】由题干中的Interestingpeople、always和 fullof curiosity定位到G)段最后一句。 G)【精析】同义转述题。定位句提到,有趣的人总是 充满好奇心。题干中的Interestingpeople对应原 文中的Peoplewho are interesting,题干中的 always对应原文中的persistently,题干中的full ofcuriosity对应原文中的curious,故答案为G)。"
+        },
+        {
+          "number": 43,
+          "stem": "Falling into a routine can ttl a person into an utter bore.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题干中的Fallingintoaroutine和an utterbore定位到A)段第五句。 A)【精析】同义转述题。定位句提到,过于墨守成规 会让人变得异常无聊。题干中的Fallingintoa routine对应原文中的toomuchofaroutine,题干 中的anutterbore对应原文中的makeyou incrediblyboring,故答案为A)。"
+        },
+        {
+          "number": 44,
+          "stem": "One strategy to be a good conversationalist is to motivate your partner to tell their own stories.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【定位】由题干中的Onestrategy、agood conversationalist 和 motivate your partner to tell theirownstories定位到K)段最后一句。 K)【精析】同义转述题。定位句提到,要想给别人留 下一种印象,让别人觉得你是一个出色的谈话伙 伴,一个策略就是让别人谈论他们自己。题干中 的a good conversationalist对应原文中的you're asparklingconversationpartner,题干中的 motivate your partner to tell their own stories 对 应原文中的getotherstotalk about themselves, 故答案为K)。"
+        },
+        {
+          "number": 45,
+          "stem": "Interesting as it might appear, a made-up conversation will probably turn out to be dull.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【定位】由题干中的Interestingasitmight appear、amade-upconversation和dull定位到E) 段第一句。 E【精析】同义转述题。定位句提到,如果有人正在 编造一些也许比较有趣的对话,不一定会有很好 的结果。题干中的Interestingasitmightappear 对应原文中的mightbeinteresting,题干中的a made-upconversation对应原文中的makingup someconversation,题干中的dull对应原文中的 notgoingtolandwell,故答案为E)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2021-12-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "With obesity now affecting 29% of the population in England, and expected to rise to 35% by 2030, should we now recognise it as a disease? Obesity, in which excess body fat has accumulated to such an extent that health may be adversely affected, meets the dictionary definition of disease, argues Professor John Wilding. He points out that more than 200 genes influence weight. \"Thus body weight is strongly influenced by biology- it is not an individual's fault if they develop obesity.\" Yet the widespread view is that obesity is self-induced and that it is entirely the individual's responsibility to do something about it. Recognising obesity as a chronic disease with severe complications rather than a lifestyle choice \"should help reduce the stigma (耻辱) and discrimination experienced by many people with obesity,\" he adds. Professor Wilding disagrees that labelling a high proportion of the population as having a disease removes personal responsibility or may overwhelm health services, pointing out that other common diseases, such as high blood pressure and diabetes, require people to take action to manage their condition. He suggests that most people with obesity will eventually develop complications. \"But unless we accept that obesity is a disease, we are not going to be able to tackle it,\" he concludes. But Dr. Richard Pile, a physician with a special interest in diabetes, argues that adopting this approach \"could actually result in worse outcomes for individuals and society.\" He believes that the dictionary definition of disease \"is so vague that we can classify almost anything as a disease\" and says the question is not whether we can, but whether we should, and to what end. If labelling obesity as a disease was harmless then it wouldn't really matter, he writes. But labelling obesity as a disease \"risks reducing autonomy, disempowering and robbing people of the intrinsic (内在的) motivation that is such an important enabler of change.\" What's more, making obesity a disease \"may not benefit patients, but it will benefit healthcare providers and the pharmaceutical (制药的) industry when health insurance and clinical guidelines promote treatment with drugs and surgery,\" he warns."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What does Professor John Wilding argue about obesity?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Its impact on society is expected to rise."
+            },
+            {
+              "key": "B",
+              "text": "It is now too widespread to be neglected."
+            },
+            {
+              "key": "C",
+              "text": "It should be regarded as a genetic disease."
+            },
+            {
+              "key": "D",
+              "text": "Its dictionary definition should be updated."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中ProfessorJohnWilding定位至 第一段第二、三句。 C)【精析】细节辨认题。定位句提到,约翰·怀尔丁 教授认为肥胖符合字典对疾病的定义。他指出, 有200多个基因影响体重。由此可知,肥胖是一 种受基因影响的疾病,故答案为C)。 【避错】第一段第一句提到,预计到2030年,将有 35%的英国人口受肥胖影响,但是这并不是约 翰·怀尔丁教授的看法,故排除A);原文中并没 有提到肥胖是否已不容忽视,故排除B);原文第 一段第二句只是说肥胖符合疾病的字典定义,而 没有说应该更新肥胖的字典定义,故排除D)。"
+        },
+        {
+          "number": 47,
+          "stem": "What is the popular view of obesity?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is difficult to define."
+            },
+            {
+              "key": "B",
+              "text": "It is a modern disease."
+            },
+            {
+              "key": "C",
+              "text": "It has much to do with one's genes."
+            },
+            {
+              "key": "D",
+              "text": "It results from a lack of self-control."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中thepopularviewofobesity定 位至第一段第五句。 D)【精析】细节辨认题。定位句提到,普遍的观点是, 肥胖是自已造成的,对此做些什么完全是个人的 责任。由此可知,人们普遍认为肥胖是个人因素, 是由于缺乏自控力导致的,故答案为D)。 【避错】A)“很难定义”与B)“它是一种现代疾病” 在原文中均未提及,因此排除;第一段第四句提到 生物学对体重影响极大,但这是约翰·怀尔丁教 授的看法,而非人们的普遍观点,故排除C)。"
+        },
+        {
+          "number": 48,
+          "stem": "Why are some people opposed to labelling obesity as a disease?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Obese people would not feel responsible to take any action."
+            },
+            {
+              "key": "B",
+              "text": "Obese people would not be able to afford the medical costs."
+            },
+            {
+              "key": "C",
+              "text": "Obese people would be overwhelmed with anxiety."
+            },
+            {
+              "key": "D",
+              "text": "Obese people would be discriminated against."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题干中labellingobesityasadisease定 位至第二段第一句。 A)【精析】细节辨认题。定位句提到,将较高比例的 人口贴上患病的标签会使个人责任消失,或者可 能使医疗服务不堪重负,怀尔丁教授不同意这一 观点。反过来说,人们反对将肥胖列为疾病,就是 认为这样做的话会让肥胖者认为自已没有责任, 不需采取任何行动,故答案为A)。 【避错】B)“肥胖的人负担不起医疗费用”与C)“肥 胖的人会被焦虑压倒”在原文中均未提及,因此排 除;原文第一段最后一句提到,将肥胖列为疾病有 助于减少肥胖者遭受的歧视,虽然D)的意恩与原 文内容相符,但是与题干不符,故排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What does Dr. Richard Pile think of the dictionary definition of disease?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is of no use in understanding obesity."
+            },
+            {
+              "key": "B",
+              "text": "It is too inclusive and thus lacks clarity."
+            },
+            {
+              "key": "C",
+              "text": "It helps little to solve patients' problems."
+            },
+            {
+              "key": "D",
+              "text": "It matters little to the debate over obesity."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中Dr.RichardPile和the dictionarydefinitionof disease定位至第三段第 二句。 B)【精析】细节辨认题。定位句提到,理查德·派尔 医生认为,字典上对疾病的定义“如此模糊,以至 于我们几乎可以将任何事物归类为疾病”。也就 是说,疾病的定义范围太大,缺乏清晰度。因此本 题答案为B)。 【避错】A)“它对了解肥胖是没有用的”、C)“它对 解决病人的问题帮助不大”和D)“这与对肥胖的 争论无关”三项在原文中均未提及,因此排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What is Dr. Richard Pile's concern about classifying obesity as a disease?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It may affect obese people's quality of life."
+            },
+            {
+              "key": "B",
+              "text": "It may accelerate the spread of obesity."
+            },
+            {
+              "key": "C",
+              "text": "It may cause a shortage of doctors."
+            },
+            {
+              "key": "D",
+              "text": "It may do little good to patients."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中Dr.RichardPile'sconcern和 obesityasadisease定位至第四段第三句。 D)【精析】细节辨认题。定位句提到,理查德·派尔 医生警告说,将肥胖看作一种疾病可能不会给患 者带来好处,因此确定答案为D)。 【避错】A“它可能会影响肥胖人群的生活质量”、 B)“它可能加速肥胖的传播”和C)“这可能会导致 医生的短缺”三项在原文中均未提及,因此排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2021-12-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Nationwide, only about three percent of early childhood teachers are male in the U. S. Experts say this can have an impact on young children whose understanding of gender roles and identity are rapidly forming. Research has found that having access to diverse teachers is beneficial for children. For the youngest learners, it means they are more likely to get exposed to different varieties of play and communication. It also helps them develop healthy ideas around gender. “In our world and our society, we have very specific stereotypes (模式化形象) of gender roles,” said Mindi Reich-Shapiro, an assistant professor in the teacher education department of the Borough of Manhattan Community College, and one of the authors of a recent study. “It's important for children to see other possibilities and other paths they can take.” Despite mostly feeling supported by colleagues and family members, many of the male educators surveyed in the study reported facing social or cultural resistance in their careers as early education teachers. Some also reported that there were parents surprised or concerned that their child had a male teacher. And they had been advised by colleagues or other staff not to hug children. Reich-Shapiro and fellow researchers made several recommendations to increase male representation in the field. Low pay has long been acknowledged as a major issue in the early childhood field. Over 70% of male educators who said they intended to stay in the early education workforce noted an increased salary was a major motivating factor for them to commit to the career long-term. The report suggests paying all early childhood educators the way elementary school teachers are paid Cities and programs should establish support groups for male early childhood educators and provide mentoring and professional development advice for male educators and their program leaders. The authors also suggest that traditional recruitment approaches for early childhood educators “do not address the gender gap in the field.” They recommend providing young men opportunities to work with children through training and volunteer programs, targeting groups of men who are considering a career change, such as fathers."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What do we learn from the first paragraph about early childhood education in the U. S.?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It helps raise children's awareness of gender roles."
+            },
+            {
+              "key": "B",
+              "text": "It exposes children to different ways of interaction."
+            },
+            {
+              "key": "C",
+              "text": "It is negatively impacted by a lack of male teachers."
+            },
+            {
+              "key": "D",
+              "text": "It clearly aims to form children's identity through play."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中thefirstparagraph定位至第 一段。 C)【精析】推理判断题。定位段提到,在整个美国范 围内,只有大约3%的幼儿教师是男性。专家表 示,这可能会对儿童产生影响,他们对性别角色和 身份的理解正在迅速形成。研究发现,接触不同 类型的老师对孩子是有益的。由此可知,男性幼 儿教师的缺乏会对儿童产生不利的影响,因此确 定答案为C)。 【避错】A】、B)两项混淆了原文的概念。原文指的 “是如果儿童接触到不同类型的老师,他们可以接 ; 触到各种各样的游戏和交流,也有助于他们围绕 性别形成健康的观念。而现实是缺少男性幼儿教 师,因此排除A)和B);D)将原文中提到的play和 identity混淆在一起,误解了原文要表达的意思, 故排除。"
+        },
+        {
+          "number": 52,
+          "stem": "What does Mindi Reich-Shapiro emphasize in her comment on childhood education?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The importance of broadening children's horizons."
+            },
+            {
+              "key": "B",
+              "text": "The responsibilities of fathers for children's growth."
+            },
+            {
+              "key": "C",
+              "text": "The urgency of creating teacher education programs."
+            },
+            {
+              "key": "D",
+              "text": "The role of teachers in motivating children to learn."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题干中Mindi Reich-Shapiro定位至第 二段第二句。 A)【精析】细节辨认题。定位句提到,让孩子们看到 其他的可能性和他们可以选择的其他道路是很重 要的。也就是说,拓宽孩子的视野是十分重要的, 因此确定答案为A)。 【避错】B)、C)、D)三项都不是明迪·赖希-夏皮 罗所做的评论,因此排除。"
+        },
+        {
+          "number": 53,
+          "stem": "What do we learn about male teachers from their responses in the study?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Some of them find it awkward when hugging children."
+            },
+            {
+              "key": "B",
+              "text": "They feel pressured to keep up with female colleagues."
+            },
+            {
+              "key": "C",
+              "text": "They find it hard to meet the expectations of kids' parents."
+            },
+            {
+              "key": "D",
+              "text": "Many of them feel prejudiced against socially and culturally."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中maleteachersfromtheir responsesinthestudy定位至第三段第一句。 D)【精析】细节辨认题。定位句提到,尽管很大程度 上感觉得到了同事和家人的支持,许多接受该研 究调查的男性教育工作者表示,作为早教教师,他 们在职业生涯中面临着社会或文化阻力。也就是 说,男性幼儿教师经历着社会和文化的偏见,因此 本题答案为D)。 【避错】原文第三段最后一句说的是男性幼儿教师 被建议不要拥抱孩子,而不是男老师他们自己觉 得拥抱孩子很尴尬,因此排除A);B)在原文未提 及;原文第三段第二句提到,有些家长对自己孩子 的老师是男性感到惊诉或担心,并未涉及家长的 期望,因此排除C)。"
+        },
+        {
+          "number": 54,
+          "stem": "What is needed for men to commit to early childhood education?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Higher pay."
+            },
+            {
+              "key": "B",
+              "text": "Job security."
+            },
+            {
+              "key": "C",
+              "text": "Social recognition."
+            },
+            {
+              "key": "D",
+              "text": "Better working conditions."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题干中formentocommittoearly childhoodeducation定位至第四段第三句。 A)【精析】细节辨认题。定位句提到,在打算留在早 教工作者队伍中的男性教育工作者中,超过70% 的人表示,加薪是激励他们长期从事这一职业的 主要因素。由此可以确定anincreasedsalary是 关键词,因此本题答案为A)。 【避错】B)“工作稳定”、C)“社会认可”和D)“更好 的工作环境”三项在原文中并未提及,因此排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What do the authors of the study recommend to bridge the gender gap in early childhood education?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Recruiting young men who have a passion for education young children."
+            },
+            {
+              "key": "B",
+              "text": "Taking measures to attract prospective male teachers to work in the field."
+            },
+            {
+              "key": "C",
+              "text": "Persuading prospective fathers to consider a change in their career."
+            },
+            {
+              "key": "D",
+              "text": "Providing male teachers with more opportunities for advancement."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中recommendtobridgethe gendergap定位至第六段。 B)【精析】推理判断题。第六段首句指出,传统的幼 儿教育工作者招聘方法不能解决该领域的性别 差距。第二句提供了解决方法,即通过培训和 志愿者项目为年轻男性提供与孩子一起工作的 机会,目标人群是那些考虑跳槽的男性群体,比 如爸爸们。由此可知,该研究的作者建议吸引 潜在的男老师来从事幼教工作,因此本题答案 为 B)。 【避错】A)和D)在原文中并未提及,因此排除;第 六段第二句说的是这些培训和志愿者项目的目标 人群是考虑跳槽的男性群体,比如爸爸们,而不是 说服未来的爸爸们考虑改变他们的职业,因此排 除C)。"
+        }
+      ]
+    }
+  ]
+}

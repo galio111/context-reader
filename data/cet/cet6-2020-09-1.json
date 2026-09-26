@@ -1,0 +1,1770 @@
+{
+  "id": "cet6-2020-09-1",
+  "level": 6,
+  "year": 2020,
+  "month": 9,
+  "set": 1,
+  "title": "2020 年 9 月六级 · 第 1 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.09/%E7%9C%9F%E9%A2%98Word/2020%E5%B9%B409%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC1%E5%A5%97%EF%BC%89.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.09/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2020.09%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC1%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2020-09-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Overall, men are more likely than women to make excuses. Several studies suggest that men feel the need to appear competent in all [[26]], while women worry only about the skills in which they've invested [[27]]. Ask a man and a woman to go diving for the first time, and the woman is likely to jump in, while the man is likely to say he's not feeling too well. Ironically, it is often success that leads people to flirt with failure. Praise won for [[28]] a skill suddenly puts one in the position of having everything to lose. Rather than putting their reputation on the line again, many successful people develop a handicap—drinking, [[29]], depression—that allows them to keep their status no matter what the future brings. An advertising executive [[30]] for depression shortly after winning an award put it this way: “Without my depression, I’d be a failure now; with it, I’m a success ‘on hold.’” In fact, the people most likely to become chronic excuse makers are those [[31]] with success. Such people are so afraid of being [[32]] a failure at anything that they constantly develop one handicap or another in order to explain away failure. Though self-handicapping can be an effective way of coping with performance anxiety now and then, in the end, researchers say, it will lead to [[33]]. In the long run, excuse makers fail to live up to their true [[34]] and lose the status they care so much about. And despite their protests to the [[35]], they have only themselves to blame."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "contrary"
+        },
+        {
+          "key": "B",
+          "text": "fatigue"
+        },
+        {
+          "key": "C",
+          "text": "heavily"
+        },
+        {
+          "key": "D",
+          "text": "heaving"
+        },
+        {
+          "key": "E",
+          "text": "hospitalized"
+        },
+        {
+          "key": "F",
+          "text": "labeled"
+        },
+        {
+          "key": "G",
+          "text": "legacies"
+        },
+        {
+          "key": "H",
+          "text": "mastering"
+        },
+        {
+          "key": "I",
+          "text": "momentum"
+        },
+        {
+          "key": "J",
+          "text": "obsessed"
+        },
+        {
+          "key": "K",
+          "text": "potential"
+        },
+        {
+          "key": "L",
+          "text": "realms"
+        },
+        {
+          "key": "M",
+          "text": "reciprocal"
+        },
+        {
+          "key": "N",
+          "text": "ruin"
+        },
+        {
+          "key": "O",
+          "text": "viciously"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "contrary"
+            },
+            {
+              "key": "B",
+              "text": "fatigue"
+            },
+            {
+              "key": "C",
+              "text": "heavily"
+            },
+            {
+              "key": "D",
+              "text": "heaving"
+            },
+            {
+              "key": "E",
+              "text": "hospitalized"
+            },
+            {
+              "key": "F",
+              "text": "labeled"
+            },
+            {
+              "key": "G",
+              "text": "legacies"
+            },
+            {
+              "key": "H",
+              "text": "mastering"
+            },
+            {
+              "key": "I",
+              "text": "momentum"
+            },
+            {
+              "key": "J",
+              "text": "obsessed"
+            },
+            {
+              "key": "K",
+              "text": "potential"
+            },
+            {
+              "key": "L",
+              "text": "realms"
+            },
+            {
+              "key": "M",
+              "text": "reciprocal"
+            },
+            {
+              "key": "N",
+              "text": "ruin"
+            },
+            {
+              "key": "O",
+              "text": "viciously"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【答案】L) realms。【解析】空26位于(be) competent in sth.结构中，且受all修饰，应为名词。首句介绍现象：男性比女性更可能找借口。②句指出，男性感觉有必要表现出能胜任所有……，而女性只担心那些已对之投入精力、时间的技能；③句假设具体情形说明首句所述现象。男性认为自己要表现得能胜任所有领域，担心失败会招致他人对自己能力的质疑，于是尝试新事物前先找好借口。空26应表示任务、挑战、领域、方面，realms正确。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "contrary"
+            },
+            {
+              "key": "B",
+              "text": "fatigue"
+            },
+            {
+              "key": "C",
+              "text": "heavily"
+            },
+            {
+              "key": "D",
+              "text": "heaving"
+            },
+            {
+              "key": "E",
+              "text": "hospitalized"
+            },
+            {
+              "key": "F",
+              "text": "labeled"
+            },
+            {
+              "key": "G",
+              "text": "legacies"
+            },
+            {
+              "key": "H",
+              "text": "mastering"
+            },
+            {
+              "key": "I",
+              "text": "momentum"
+            },
+            {
+              "key": "J",
+              "text": "obsessed"
+            },
+            {
+              "key": "K",
+              "text": "potential"
+            },
+            {
+              "key": "L",
+              "text": "realms"
+            },
+            {
+              "key": "M",
+              "text": "reciprocal"
+            },
+            {
+              "key": "N",
+              "text": "ruin"
+            },
+            {
+              "key": "O",
+              "text": "viciously"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【锁定答案】首句介绍现象“男性比女性更可能找借口”;2句指出,男性愛得有必要表现出能胜任所有"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "contrary"
+            },
+            {
+              "key": "B",
+              "text": "fatigue"
+            },
+            {
+              "key": "C",
+              "text": "heavily"
+            },
+            {
+              "key": "D",
+              "text": "heaving"
+            },
+            {
+              "key": "E",
+              "text": "hospitalized"
+            },
+            {
+              "key": "F",
+              "text": "labeled"
+            },
+            {
+              "key": "G",
+              "text": "legacies"
+            },
+            {
+              "key": "H",
+              "text": "mastering"
+            },
+            {
+              "key": "I",
+              "text": "momentum"
+            },
+            {
+              "key": "J",
+              "text": "obsessed"
+            },
+            {
+              "key": "K",
+              "text": "potential"
+            },
+            {
+              "key": "L",
+              "text": "realms"
+            },
+            {
+              "key": "M",
+              "text": "reciprocal"
+            },
+            {
+              "key": "N",
+              "text": "ruin"
+            },
+            {
+              "key": "O",
+              "text": "viciously"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【锁定答案】空格句指出,“(因) 一门技能”而获得的称赞会突然让人患得患失。结合上句“往往是 成功让人有失败的念头”可推知,空格句结合实例进一步阐述上句含义,“让人处于惠得惠失的境地”对应“让 人有失败的念头”,则“ 一门技能”对应“成功”,空格词应表示“学会/掌握/精通/拥有/展现出”,H正确。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "contrary"
+            },
+            {
+              "key": "B",
+              "text": "fatigue"
+            },
+            {
+              "key": "C",
+              "text": "heavily"
+            },
+            {
+              "key": "D",
+              "text": "heaving"
+            },
+            {
+              "key": "E",
+              "text": "hospitalized"
+            },
+            {
+              "key": "F",
+              "text": "labeled"
+            },
+            {
+              "key": "G",
+              "text": "legacies"
+            },
+            {
+              "key": "H",
+              "text": "mastering"
+            },
+            {
+              "key": "I",
+              "text": "momentum"
+            },
+            {
+              "key": "J",
+              "text": "obsessed"
+            },
+            {
+              "key": "K",
+              "text": "potential"
+            },
+            {
+              "key": "L",
+              "text": "realms"
+            },
+            {
+              "key": "M",
+              "text": "reciprocal"
+            },
+            {
+              "key": "N",
+              "text": "ruin"
+            },
+            {
+              "key": "O",
+              "text": "viciously"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【锁定答案】空格句指出,许多成功人士不会将自已的名声再次置于危险境地,而是会产生一项障碍/不利 条件——饮酒、 、抑郁一 一以使自已不管未来如何都能保住地位。可见,空格词应与“饮酒\"“抑郁”共同 指向\"(阻碍成功的)不利条件\"之意,备选项中只有B符合文意。 【点拨技巧】当空格词位于构成并列关系(以逗号分隔,或以and/or连接】的多个信息中,解题关键有二: 、借助并列的已知信息推断出空格词的词性及词义。由drinking、depression可推知空29为名词或动名词, 且带消极语义。二、可在上下文寻找能囊括所列信息的上义词,作为推断空格词词义的有力依据。借助空28 所在句上句的success和空29破折号前的handicap可确认空28带积极语义,空29带消极语义。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "contrary"
+            },
+            {
+              "key": "B",
+              "text": "fatigue"
+            },
+            {
+              "key": "C",
+              "text": "heavily"
+            },
+            {
+              "key": "D",
+              "text": "heaving"
+            },
+            {
+              "key": "E",
+              "text": "hospitalized"
+            },
+            {
+              "key": "F",
+              "text": "labeled"
+            },
+            {
+              "key": "G",
+              "text": "legacies"
+            },
+            {
+              "key": "H",
+              "text": "mastering"
+            },
+            {
+              "key": "I",
+              "text": "momentum"
+            },
+            {
+              "key": "J",
+              "text": "obsessed"
+            },
+            {
+              "key": "K",
+              "text": "potential"
+            },
+            {
+              "key": "L",
+              "text": "realms"
+            },
+            {
+              "key": "M",
+              "text": "reciprocal"
+            },
+            {
+              "key": "N",
+              "text": "ruin"
+            },
+            {
+              "key": "O",
+              "text": "viciously"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【锁定答案】空格句举例“成功人士(winninganaward)络自己设障( fordepression)”证明上句观点, for depression应表示“声称患有抑症”以抑郁症为借口\"“因抑郁症就医/入院\"等意,E符合文意。F) labeled语义符合要求(自称\"惠有抑郁症\"),但作此义讲时,其后与as而非for搭配(也可省略as),故排除。 Il OIn fact, the people most likely to become chronic excuse makers are those31with success. @ Such people are so afraid of being32 a failure at anything that they constantly develop one handicap or another in order to explain away failure. 事实上最有可能一直找借口的是 那些痴迷于成功的人。这些人非常害 怕被贴上“一事无成的失败者”的标签, 以至于会不断设置某种不利条件来为 失败辨解。 ·"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "contrary"
+            },
+            {
+              "key": "B",
+              "text": "fatigue"
+            },
+            {
+              "key": "C",
+              "text": "heavily"
+            },
+            {
+              "key": "D",
+              "text": "heaving"
+            },
+            {
+              "key": "E",
+              "text": "hospitalized"
+            },
+            {
+              "key": "F",
+              "text": "labeled"
+            },
+            {
+              "key": "G",
+              "text": "legacies"
+            },
+            {
+              "key": "H",
+              "text": "mastering"
+            },
+            {
+              "key": "I",
+              "text": "momentum"
+            },
+            {
+              "key": "J",
+              "text": "obsessed"
+            },
+            {
+              "key": "K",
+              "text": "potential"
+            },
+            {
+              "key": "L",
+              "text": "realms"
+            },
+            {
+              "key": "M",
+              "text": "reciprocal"
+            },
+            {
+              "key": "N",
+              "text": "ruin"
+            },
+            {
+              "key": "O",
+              "text": "viciously"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【锁定答案】空格句指出,最有可能长期找借口的是有成功的那些 /那些 成功的人。结合上 文信息“成功让人们有失败的念头\"\"许多成功人士会给自己设置不利条件\"\"获奖的广告经理为了不被称作失 败者而龄自已戴上抑郁症”的帽子”可知,“找借口(不是不能成功,而是条件不利)的几率”与“对成功的重视 程度”呈正相关关系,所以“最爱找借口/自我设限的人”应该往往是那些极度追求/看重/渴望“成功人士”这一 头衔的人,J符合文意.beobsessedwith为固定搭配.表示“对..痴遂,一心想要...\"。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "contrary"
+            },
+            {
+              "key": "B",
+              "text": "fatigue"
+            },
+            {
+              "key": "C",
+              "text": "heavily"
+            },
+            {
+              "key": "D",
+              "text": "heaving"
+            },
+            {
+              "key": "E",
+              "text": "hospitalized"
+            },
+            {
+              "key": "F",
+              "text": "labeled"
+            },
+            {
+              "key": "G",
+              "text": "legacies"
+            },
+            {
+              "key": "H",
+              "text": "mastering"
+            },
+            {
+              "key": "I",
+              "text": "momentum"
+            },
+            {
+              "key": "J",
+              "text": "obsessed"
+            },
+            {
+              "key": "K",
+              "text": "potential"
+            },
+            {
+              "key": "L",
+              "text": "realms"
+            },
+            {
+              "key": "M",
+              "text": "reciprocal"
+            },
+            {
+              "key": "N",
+              "text": "ruin"
+            },
+            {
+              "key": "O",
+              "text": "viciously"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【锁定答案】空格句指出,这些人非常害怕被 一事无成的失败者/ 是一事无成的失败者,以至 于会不断设置某种不利条件来为失败辨解。结合全段核心信息“成功人士害怕失败/成为失败者”可推知,空 格词应为认定性动词,表示“被视为/被归类为/(以失败者的身份)为人所知”或起强调作用的“仅仅/只是”等 意,F符合文意,labelA(as)B表示\"给A贴上B的标签,将A视为B\"。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "contrary"
+            },
+            {
+              "key": "B",
+              "text": "fatigue"
+            },
+            {
+              "key": "C",
+              "text": "heavily"
+            },
+            {
+              "key": "D",
+              "text": "heaving"
+            },
+            {
+              "key": "E",
+              "text": "hospitalized"
+            },
+            {
+              "key": "F",
+              "text": "labeled"
+            },
+            {
+              "key": "G",
+              "text": "legacies"
+            },
+            {
+              "key": "H",
+              "text": "mastering"
+            },
+            {
+              "key": "I",
+              "text": "momentum"
+            },
+            {
+              "key": "J",
+              "text": "obsessed"
+            },
+            {
+              "key": "K",
+              "text": "potential"
+            },
+            {
+              "key": "L",
+              "text": "realms"
+            },
+            {
+              "key": "M",
+              "text": "reciprocal"
+            },
+            {
+              "key": "N",
+              "text": "ruin"
+            },
+            {
+              "key": "O",
+              "text": "viciously"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【锁定答案】空格句指出,尽管自我设限偶尔能有效应对表现焦虑,但研究人员表示,这终会导致 结合该句的“让步转折\"逻辑及下句“找借口自我设限的人不能...,会失去在意的地位”可知,研究人员对自 我设限持否定态度,空格词应表示某种消极结果,N)ruin符合要求,表示“一无所有,失去地位”。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "contrary"
+            },
+            {
+              "key": "B",
+              "text": "fatigue"
+            },
+            {
+              "key": "C",
+              "text": "heavily"
+            },
+            {
+              "key": "D",
+              "text": "heaving"
+            },
+            {
+              "key": "E",
+              "text": "hospitalized"
+            },
+            {
+              "key": "F",
+              "text": "labeled"
+            },
+            {
+              "key": "G",
+              "text": "legacies"
+            },
+            {
+              "key": "H",
+              "text": "mastering"
+            },
+            {
+              "key": "I",
+              "text": "momentum"
+            },
+            {
+              "key": "J",
+              "text": "obsessed"
+            },
+            {
+              "key": "K",
+              "text": "potential"
+            },
+            {
+              "key": "L",
+              "text": "realms"
+            },
+            {
+              "key": "M",
+              "text": "reciprocal"
+            },
+            {
+              "key": "N",
+              "text": "ruin"
+            },
+            {
+              "key": "O",
+              "text": "viciously"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【锁定答案】空格句指出,从长远来看,找借口的人不能达到自己的真实 ,并会失去他们非常在意的 地位。可见,空格部分应与并列的失去在意的地位\"共同指向\"自我设限\"的消极后果,fail to live up to their true 语义应接近“不能达到真实水平\"\"不能发挥出真实本领/潜力”,K正确。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "contrary"
+            },
+            {
+              "key": "B",
+              "text": "fatigue"
+            },
+            {
+              "key": "C",
+              "text": "heavily"
+            },
+            {
+              "key": "D",
+              "text": "heaving"
+            },
+            {
+              "key": "E",
+              "text": "hospitalized"
+            },
+            {
+              "key": "F",
+              "text": "labeled"
+            },
+            {
+              "key": "G",
+              "text": "legacies"
+            },
+            {
+              "key": "H",
+              "text": "mastering"
+            },
+            {
+              "key": "I",
+              "text": "momentum"
+            },
+            {
+              "key": "J",
+              "text": "obsessed"
+            },
+            {
+              "key": "K",
+              "text": "potential"
+            },
+            {
+              "key": "L",
+              "text": "realms"
+            },
+            {
+              "key": "M",
+              "text": "reciprocal"
+            },
+            {
+              "key": "N",
+              "text": "ruin"
+            },
+            {
+              "key": "O",
+              "text": "viciously"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【锁定答案】protest作常见义\"抗议,反对”讲时,搭配介词against而非to,故应取其解义“断言,坚决表示”。 由于空格句语义相对独立,无法借助上文信息推断,可采用选项代入法解题。备选项中只有A能构成合理的语 义搭配,despiteone'sproteststothe contrary为固定用法,表示\"尽管某人极力否认(句子主干所述事实)”。 【点拨技巧】选词填空题绝大多数都能借助上下文推断出正确选项,但不排除会有单纯考查固定搭配的情 况,这就要求考生在备考时注意积累总结常见的固定搭配表达。tothecontrary为固定搭配,常见于“观点,事 实、情况、证据”等调之后,表达“相反的..\",如protest/protestation(断言)、evidence(证据)、story(详情、实 情)、assertion(论断)、claim(声称)、indication(逆象、暗示)、prediction(预计)等,这类调其实恰恰概括了主干所 述具体信息,tothecontrary传达“相反的说法/情况/证据”之意。再如:Unlessthereisevidencetothe contrary,weoughttobelievethem,除非有相反的证据,否则我们就应该相信他们。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2020-09-1-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Brains, brains, brains. People are fascinated by brain research. And yet it can be hard to point to places where our education system is really making use of the latest neuroscience(神经科学) findings. But there is one happy link where research is meeting practice: bilingual(双语的) education. “In the last 20 years or so, there's been a virtual explosion of research on bilingualism,” says Judith Kroll, a professor at the University of California, Riverside.",
+        "B) Again and again, researchers have found, “bilingualism is an experience that shapes our brain for life,” in the words of Gigi Luk, an associate professor at Harvard's Graduate School of Education. At the same time, one of the hottest trends in public schooling is what’s often called dual-language or two-way immersion programs.",
+        "C) Traditional programs for English-language learners, or ELLs, focus on assimilating students into English as quickly as possible. Dual-language classrooms, by contrast, provide instruction across subjects to both English natives and English learners, in both English and a target language. The goal is functional bilingualism and biliteracy for all students by middle school. New York City, North Carolina, Delaware, Utah, Oregon and Washington state are among the places expanding dual-language classrooms.",
+        "D) The trend flies in the face of some of the culture wars of two decades ago, when advocates insisted on “English first” education. Most famously, California passed Proposition 227 in 1998. It was intended to sharply reduce the amount of tie that English-language learners spent in bilingual settings. Proposition 58, passed by California voters on November 8, largely reversed that decision, paving the way for a huge expansion of bilingual education in the state that has the largest population of English-language learners.",
+        "E) Some of the insistence on English-first was founded on research produced decades ago, in which bilingual students underperformed monolingual(单语的) English speakers and had lower IQ scores. Today’s scholars, like Ellen Bialystok at York University in Toronto, say that research was “deeply flawed.” “Earlier research looked at socially disadvantaged groups,” agrees Antonella Sorace at the University of Edinburgh in Scotland. “This has been completely contradicted by recent research” that compares groups more similar to each other.",
+        "F) So what does recent research say about the potential benefits of bilingual education? It turns out that, in many ways, the real trick to speaking two languages consists in managing not to speak one of those languages at a given moment—which is fundamentally a feat of paying attention. Saying “Goodbye” to mom and then “Guten tag” to your teacher, or managing to ask for a crayola roja instead of a red crayon(蜡笔), requires skills called “inhibition” and “task switching.” These skills are subsets of an ability called executive function.",
+        "G) People who speak two languages often outperform monolinguals on general measures of executive function. “Bilinguals can pay focused attention without being distracted and also improve in the ability to switch from one task to another,” says Sorace.",
+        "H) Do these same advantages benefit a child who begins learning a second language in kindergarten instead of as a baby? We don't yet know. Patterns of language learning and language use are complex. But Gigi Luk at Harvard cites at least one brain-imaging study on adolescents that shows similar changes in brain structure when compared with those who are bilingual from birth, even when they didn't begin practicing a second language in earnest before late childhood.",
+        "I) Young children being raised bilingual have to follow social cues to figure out which language to use with which person and in what setting. As a result, says Sorace, bilingual children as young as age 3 have demonstrated a head start on tests of perspective-taking and theory of mind—both of which are fundamental social and emotional skills.",
+        "J) About 10 percent of students in the Portland, Oregon public schools are assigned by lottery to dual-language classrooms that offer instruction in Spanish, Japanese or Mandarin, alongside English. Jennifer Steele at American University conducted a four-year, randomized trial and found that the dual-language students outperformed their peers in English-reading skills by a full school-year’s worth of learning by the end of middle school. Because the effects are found in reading, not in math or science where there were few differences, Steele suggests that learning two languages make students more aware of how language works in general.",
+        "K) The research of Gigi Luk at Harvard offers a slightly different explanation. She has recently done a small study looking at a group of 100 fourth-graders in Massachusetts who had similar reading scores on a standard test, but very different language experiences. Some were foreign-language dominant and others were English natives. Here's what’s interesting. The students who were dominant in a foreign language weren't yet comfortably bilingual; they were just starting to learn English. Therefore, by definition, they had a much weaker English vocabulary than the native speakers. Yet they were just as good at interpreting a text. “This is very surprising,” Luk says. ”You would expect the reading comprehension performance to mirror the vocabulary—it’s a cornerstone of comprehension.”",
+        "L) How did the foreign-language dominant speakers manage this feat? Well, Luk found, they also scored higher on tests of executive functioning. So, even though they didn't have huge mental dictionaries to draw on, they may have been great puzzle-solvers, taking into account higher-level concepts such as whether a single sentence made sense within an overall storyline. They got to the same results as the monolinguals, by a different path.",
+        "M) American public school classrooms as a whole are becoming more segregated by race and class. Dual-language programs can be an exception. Because they are composed of native English speakers deliberately placed together with recent immigrants, they tend to be more ethnically and economically balanced. And there is some evidence that this helps kids of all backgrounds gain comfort with diversity and different cultures.",
+        "N) Several of the researchers also pointed out that, in bilingual education, non-English-dominant students and their families tend to feel that their home language is heard and valued, compared with a classroom where the home language is left at the door in favor of English. This can improve students' sense of belonging and increase parents' involvement in their children's education, including behaviors like reading to children. “Many parents fear their language is an obstacle, a problem, and if they abandon it their child will integrate better,” says Antonella Sorace of the University of Edinburgh. “We tell them they’re not doing their child a favor by giving up their language.”",
+        "O) One theme that was striking in speaking to all these researchers was just how strongly they advocated for dual-language classrooms. Thomas and Collier have advised many school systems on how to expand their dual language programs, and Sorace runs “bilingualism Matters,” an international network of researchers who promote bilingual education projects. This type of advocacy among scientists is unusual; even more so because the “bilingual advantage hypothesis” is being challenged once again.",
+        "P) A review of studies published last year found that cognitive advantages failed to appear in 83 percent of published studies, though in a separate analysis, the sum of effects was still significantly positive. One potential explanation offered by the researchers is that advantages that are measurable in the very young and very old tend to fade when testing young adults at the peak of their cognitive powers. And, they countered that no negative effects of bilingual education have been found. So, even if the advantages are small, they are still worth it. Not to mention one obvious, outstanding fact: “Bilingual children can speak two languages!”"
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "A study found that there are similar changes in brain structure between those who are bilingual from birth and those who start learning a second language later.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "H",
+          "explanation": "一项研究发现,生来便具备双语能力的人和晚些时候才开始学习第二语言的人在大脑结构上发生的 变化是相似的。 [答案]H[精解]H段1句指出,脑成像研究表明,童年晚期才开始学习外语的青少年会发生与天生双 语使用者类似的大脑结构变化。试题是对该句信息的改写,其中startlearninga secondlanguagelater是对 didn't begin practicing a second language in earnest before late childhood 的同义替换。"
+        },
+        {
+          "number": 37,
+          "stem": "Unlike traditional monolingual programs, bilingual classrooms aim at developing students' ability to use two languages by middle school.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "C",
+          "explanation": "和传统单语项目不同,双语课堂旨在让学生到中学时开发出使用两门语言的能力。 [答案]C[精解]C段1至3句道过对比手段聚焦双语课堂特点及目的:传统英语学习项目注重于让学 生尽快融入英语环境;双语课堂则用两种语言开展教学,旨在让学生到中学时获得实用性双语能力。试题是 对双语课堂特点的概括,Unlike体现其与传统项目的不同abilitytouse two languages是对原文functional bilingualismandbiliteracy的同义改写。"
+        },
+        {
+          "number": 38,
+          "stem": "A study showed that dual-language students did significantly better than their peers in reading English texts.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "J",
+          "explanation": "一项研究表明,双语学生在阅读英语文章方面的表现要远远好于他们的同学。 [答案]」[精解]J段介绍双语教育提升阅读理解能力的作用,其中2句介绍研究结果:双语学生对其他 同学的英语阅读技能优势达到了相当于一整个学年的学习。试题是对该句研究结果的同义改写,其中 significantly better是对 a full school-year's worth of learning的准确概括。"
+        },
+        {
+          "number": 39,
+          "stem": "About twenty years ago, bilingual practice was strongly discouraged, especially in California.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "D",
+          "explanation": "大约二十年前,双语实践遭到强硬阻拦,以加利福尼亚州为甚。 [答案]D[精解]D段1至3句介绍双语教育过去如何遭到抵制:二十年前的文化战争中,人们高举“英 语优先”的大旗,加利福尼亚州更是专门发布法律,限制英语学习者置身于双语环境的时间。试题是对原文信 息的提炼,其中 strongly discouraged 归纳了\"English first”education与 sharply reduce the amount of time.. spent in bilingualsettings的共同指向\"双语教育受阻”。"
+        },
+        {
+          "number": 40,
+          "stem": "Ethnically and economically balanced bilingual classrooms are found to be helpful for kids to get used to social and cultural diversity.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "M",
+          "explanation": "族裔及经济状况分布均衡的课堂有助于让孩子习惯社会和文化的多样性。 [答案]M[精解]M段介绍双语教育帮助学生融入多族裔、多文化环境。31句具体说明双语课堂 (they回指上句中的Dual-languageprograms)如何起作用:把英语母语使用者和新移民有意地混在一起一→在 族裔和经济状况的分布上都更为均衡→有助于学生造应多族裔、多文化环境。试题是对原文信息的整合,get used to同义改写gain comfortwith。"
+        },
+        {
+          "number": 41,
+          "stem": "Researchers now claim that earlier research on bilingual education was seriously flawed.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "E",
+          "explanation": "研究者如今宣称早前的双语教育相关研究存在严重缺陷。 [答案]E[精解]E段2句介绍当代研究者对以往双语教育研究的看法:漏润百出(that research回指 1句中“数十年前发表的研究”)。试意是对本句信息的复现,earlierresearch onbilingual education明确了句 中 that research所指。"
+        },
+        {
+          "number": 42,
+          "stem": "According to a researcher, dual-language experiences exert a lifelong influence on one's brain.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "B",
+          "explanation": "据一名研究者所说,双语体验可对大脑产生终生影响。 [答案]B[精解]B1句引用一名研究者的原话确认双语能力的相关发现“对大脑带来终生影响”。 试题是对该句内容的概括,exert..influence是对shapes的同义改写。"
+        },
+        {
+          "number": 43,
+          "stem": "Advocates of bilingual education argued that it produces positive effects though they may be limited.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "P",
+          "explanation": "双语教育的倡导者主张,它带来的影响虽然可能有限,但仍然有益。 [答案]P[精解]P段3至句指出双语教育研究者/倡导者的看法:双语教育尚未发现有负面影响,而 且益处即便小也仍然值得;双语教育至少能让孩子学会两门语言。试题是对双语教育正面影响描述的提炼, positive... though they may be limited 是对 even if the advantages are small. .. still worth it 的同义改写。"
+        },
+        {
+          "number": 44,
+          "stem": "Bilingual speakers often do better than monolinguals in completing certain tasks because they can concentrate better on what they are doing.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "G",
+          "explanation": "双语使用者往往能比单语使用者更好地完成某些任务,因为他们更能专注于自已所做之事。 [答案]G[精解]G段两句指出,双语使用者比单语使用者在执行功能测评中的表现更好,更能高度集 中注意力。试题是对本段信息的提炼和总结,其中completingcertaintasks是对generalmeasuresof executive function的明确化,because是对原文两句逻辑关系的揭示(专注度更高,因而任务完成得更好)。"
+        },
+        {
+          "number": 45,
+          "stem": "When their native language is used, parents can become more involved in their children's education.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "N",
+          "explanation": "如果父母的母语得到了使用,那他们就能更为深入地参与到孩子的教育中去。 [答案]N精解]N段1句指出,双语教育让英语学习者的母语得到重视;2句进而指出,这能提高学 生的归属感和家长对孩子教育的参与度。试题是对原文信息的截取,nativelanguage is used同义替换home language is heard."
+        }
+      ]
+    },
+    {
+      "id": "cet6-2020-09-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "It is not controversial to say that an unhealthy diet causes bad health. Nor are the basic elements of healthy eating disputed. Obesity raises susceptibility to cancer, and Britain is the sixth most obese country on Earth. That is a public health emergency. But naming the problem is the easy part. No one disputes the costs in quality of life and depleted health budgets of an obese population, but the quest for solutions gets diverted by ideological arguments around responsibility and choice. And the water is muddied by lobbying from the industries that profit from consumption of obesity-inducing products. Historical precedent suggests that science and politics can overcome resistance from businesses that pollute and poison but it takes time, and success often starts small. So it is heartening to note that a programme in Leeds has achieved a reduction in childhood obesity, becoming the first UK city to reverse a fattening trend. The best results were among younger children and in more deprived areas. When 28% of English children aged two to 15 are obese, a national shift on the scale achieved by Leeds would lengthen hundreds of thousands of lives. A significant factor in the Leeds experience appears to be a scheme called HENRY, which helps parents reward behaviours that prevent obesity in children. Many members of parliament are uncomfortable even with their own government's anti-obesity strategy, since it involves a “sugar tax” and abandon the sale of energy drinks to under-16s. Bans and taxes can be blunt instruments, but their harshest critics can rarely suggest better methods. These critics just oppose regulation itself. The relationship between poor health and inequality is too pronounced for governments to be passive about large-scale intervention. People living in the most deprived areas are four times more prone to die from avoidable causes than counterparts in more affluent places. As the structural nature of public health problems becomes harder to ignore, the complaint about over protective government loses potency. In fact, the polarised debate over public health interventions should have been abandoned long ago. Government action works when individuals are motivated to respond. Individuals need governments that expand access to good choices. The HENRY programme was delivered in part through children's centres. Closing such centres and cutting council budgets doesn’t magically increase reserves of individual self-reliance. The function of a well-designed state intervention is not to deprive people of liberty but to build social capacity and infrastructure that helps people take responsibility for their wellbeing. The obesity crisis will not have a solution devised by left or right ideology—but experience indicates that the private sector needs the incentive of regulation before it starts taking public health emergencies seriously."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "Why is the obesity problem in Britain so difficult to solve?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Government health budgets are depleted."
+            },
+            {
+              "key": "B",
+              "text": "People disagree as to who should do what."
+            },
+            {
+              "key": "C",
+              "text": "Individuals are not ready to take their responsibilities."
+            },
+            {
+              "key": "D",
+              "text": "Industry lobbying makes it hard to get healthy foods."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]B。第一段3句指出,寻求肥胖问题解决方案的势力被围绕“责任和选择”的意识形态之争分 散了注意力,即:因为人们对于谁(政府、个人)该做什么(是承担解决问题的责任,还是要选择的自由)存有分 歧,所以无法全力解决问题,B正确,disagreeastowho should dowhat是对ideological arguments around responsibility and choice的明确解释。 [排除干扰]A对3向因果倒置:将肥胖问题导致的结果“耗尽医疗预算”愉换为问题难以解决的原因。C 对@1句辞片信息responsibilityand choice和consumption of obesity-inducingproducts过度引申,但文意指 向的是“人们就责任与选择权存在分歧”以及“从致胖食品消费中获利的行业”,并非选项体现的“个人不愿意 承担责任”。D将1句含义“行业游说使得人们不能充分认识致胖食品的危害”审改为“使得人们很难买到健 康食品”。 [提炼思路]题干Why提示考查因果,解题关键在于识别文中的因采关联,并找到“因”的同义表达。解题 步骤:首先根据题千确定解题范围为第一段1句;然后根据其中getsdivertedby...和thewater ismuddied by..·识别因采关系,并锁定后半向的两种固”;随后对比选项,发现B是对1句所述原固的明确化,基本确 定为正确项;最后再看其他选项:A颠倒因果逻辑C过度引中,D扭曲信息,最终确定B。"
+        },
+        {
+          "number": 47,
+          "stem": "What can we learn from the past experience in tackling public health emergencies?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Governments have a role to play."
+            },
+            {
+              "key": "B",
+              "text": "Public health is a scientific issue."
+            },
+            {
+              "key": "C",
+              "text": "Priority should be given to deprived regions."
+            },
+            {
+              "key": "D",
+              "text": "Businesses' responsibility should be stressed."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]A。第二段1句指出,历史先例表明,科学和政治在应对危害公共环境与卫生的企业能够起 到作用(canovercomeresistance...)。231句则聚焦利兹致府的反肥胖方案,指出其成效显著(has achieveda reduction in childhood obesity...)。概括可知,致府/政治在处理肥胖问题等公共卫生紧急事件中 起着重要作用,A正确。 [排除干扰]B源自1句scienceand politicscan overcome...,但文意指的是“科学和政治对于公共卫生 均具有重要作用”,选项将公共卫生定性为科学问题以偏概全。C由23句“利兹方案在贫困地区成效最为显著 (Thebestresultswere...inmoredeprivedareas)\"隐断出\"应优先考虑贫图地区”,且该成果仅为个例,不一定 适用于所有情况(题千中的publichealthemergencies为复数,询问总体情况)。D将第二段1句businesses thatpolluteand poison与首段responsibility杂株,并利用人们的惯常认识进行干扰,但文中并没有信息支撑。 [提炼思路]解答本题难点有二:第一,定位有干扰,publichealth emergencies貌似题干关键词,应定位到 第一段,但题目实际上关注的是解决问题的过往经验(pastexperience in tackling),应定位到第二段。第二,审 题要透彻,题干中publichealthemergencies为复教,选项应适合大多数公共卫生危机,需对第二段信息进行 概括推理,谨防对部分内容主观隐断或将个例当作普遮情形(本题中C具有强干犹性)。"
+        },
+        {
+          "number": 48,
+          "stem": "What does the author imply about some critics of bans and taxes concerning unhealthy drinks?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are not aware of the consequences of obesity."
+            },
+            {
+              "key": "B",
+              "text": "They have not come up with anything more constructive."
+            },
+            {
+              "key": "C",
+              "text": "They are uncomfortable with parliament anti-obesity debate."
+            },
+            {
+              "key": "D",
+              "text": "They have their own motives in opposing government regulation."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]B。第三段23句指出,禁今和税收可能效力不够(bebluntinstruments),但即便其最严的 批评者也很少能提出更好的办法(rarelysuggest bettermethods),B是对这一信息的准确概括。 [排除干扰]A由第三段3句justopposeregulation itself腾断“他们之所以明确反对实施监管,是因为没 有意识到肥胖的后果”,但实际上文中(尤其是第一段)说明他们知晓肥胖的后采,只是反对政府监管。C将第 三段1句“对反肥胖战略(anti-obesitystrategy)不安”审改为“对反肥胖措施的辨论(anti-obesitydebate)不 安”;而且这并非题目所问“作者对批评者的看法”而是“策略实施者自身的看法”。D半“真”半“假”:opposing governmentregulation对应文中信息opposeregulation itself,符合反对者的态度;但havetheirmotives为捏 造信息,文中并未提及其背后动机。 工提炼思路]“作者对文中人物的观点态度”题重在通过分析定位处的转折、强调、否定等,正确把握作者 的整体观点,排除张冠李载,捏造信息,断章取义的选项。如本题,根据23句中的can bebluntinstruments (委婉、让步).,,but(转折提出重点)their hardest critics(最高级表强调)can rarelysuggest bettermethods(否 定表达)..,justopposeregulation itself(以just明确强调)即可判断作者对批评者的看法,桃选出与之匹配的 B,排除断章取义的A、张冠李戴的C、捏造信息的D。"
+        },
+        {
+          "number": 49,
+          "stem": "Why does the author stress the relationship between poor health and inequality?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To demonstrate the dilemma of people living in deprived areas."
+            },
+            {
+              "key": "B",
+              "text": "To bring to light the root cause of widespread obesity in Britain."
+            },
+            {
+              "key": "C",
+              "text": "To highlight the area deserving the most attention from the public."
+            },
+            {
+              "key": "D",
+              "text": "To justify government intervention in solving the obesity problem."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]D。第四段1向指出“健康状况不佳与不平等之间的相关性极其显著,因此大范国的政府干 预刻不容缓”;2向列举数据说明贫富地区人口健康状况相差巨大。联系可知,作者强调二者关系意在说明政 府干预为当前必需,D正确。 [排除干扰]A将事实细节等同于论证对象:文中提及贫围地区的人们普避健康状况不佳,并非是单纯为 了说明“其困境”,而是为了论述“政府干预的必要性”。B大其词:文中指出这一关系不容忽视(政府理应干 预),而非借其分析肥胖原因;文中只能表明贫人口在一定程度上肥胖更严重,并未体现贫困是肥胖的根本 原因(rootcause)。C曲解2句内容,句中未提及\"公众关注”,也并未比较\"应该优先关注哪里”。 [提炼思路]题干形似问“原因”,实则问“目的”,关键在于整体理解段落、找到作者“核心论点”,谨防断章 取义,排除细枝末节:第四段第一句以Therelationship...istoo pronounced forgovernmentstobepassive about...intervention体现因果论证:这一关系太明显,所以政府应该干预。第二句则以数据展示这一关系。 第三句再次指出问题不容忽视(政府理应进行干预)。可见作者“核心论点”在于政府应该进行干预,D正确。"
+        },
+        {
+          "number": 50,
+          "stem": "When will government action be effective?",
+          "options": [
+            {
+              "key": "A",
+              "text": "When the polarised debate is abandoned."
+            },
+            {
+              "key": "B",
+              "text": "When ideological differences are resolved."
+            },
+            {
+              "key": "C",
+              "text": "When individuals have the incentive to act accordingly."
+            },
+            {
+              "key": "D",
+              "text": "When the private sector realises the severity of the crisis."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]C。第五段2句指出“当个体受到激励做出应时,政府的干预行为便能发挥效用”C与此 相符,have the incentive to act accordingly 同义改写 are motivated to respond。 [排除干扰」A、B均源自第五段1句thepolariseddebate...shouldhavebeenabandoned,但答非所问:意 识形态之争/两极分化争论关乎政府是否进行干预,而非其发挥作用的条件。D将末句对政府行动的呼吁“私 营部门需要政府监管的剂激,才能开始认真对待公共卫生紧急事件”审改为政府行动起效的关键“当私营部门 意识到危机严重性时”。 [提炼思路]本题考查事实细节,解题关键在于准确定位并将选项与原文仔阅比对,锁定同义改写的选 项,排除偷换关系的选项:根据governmentactionbeeffective定位到第五段2句governmentactionworks后 仔细比对,并锁定与从句条件同义的C;然后排除文中虽有明确对应信息,但并非题目所问(且对原文信息进 行歪曲)的其他选项。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2020-09-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Home to virgin reefs, rare sharks and vast numbers of exotic fish, the Coral Sea is a unique haven of biodiversity off the northeastern coast of Australia. If a proposal by the Australian government goes ahead, the region will also become the world's largest marine protected area, with restrictions or bans on fishing, mining and marine farming. The Coral Sea reserve would cover almost 990 000 square kilometres and stretch as far as 1 100 kilometres from the coast. Unveiled recently by environment minister Tony Burke, the proposal would be the last in a series of proposed marine reserves around Australia's coast. But the scheme is attracting criticism from scientists and conservation groups, who argue that the government hasn't gone far enough in protecting the Coral Sea, or in other marine reserves in the coastal network. Hugh Possingham, director of the Centre of Excellence for Environmental Decisions at the University of Queensland, points out that little more than half of the Coral Sea reserve is proposed as “no take” area, in which all fishing would be banned. The world's largest existing marine reserve, established last year by the British government in the Indian Ocean, spans 554 000 km2 and is a no-take zone throughout. An alliance of campaigning conversation groups argues that more of the Coral Sea should receive this level of protection. “I would like to have seen more protection for coral reefs,” says Terry Hughes, director of the Centre of Excellence for Coral Reef Studies at James Cook University in Queensland. “More than 20 of them would be outside the no-take area and vulnerable to catch-and-release fishing”. As Nature went to press, the Australian government had not responded to specific criticisms of the plan. But Robin Beaman, a marine geologist at James Cook University, says that the reserve does “broadly protect the range of habitats” in the sea. “I can testify to the huge effort that government agencies and other organisations have put into trying to understand the ecological values of this vast area,” he says. Reserves proposed earlier this year for Australia's southwestern and northwestern coastal regions have also been criticised for failing to give habitats adequate protection. In August, 173 marine scientists signed an open letter to the government saying they were “greatly concerned” that the proposals for the southwestern region had not been based on the “core science principles” of reserves—the protected regions were not, for instance, representative of all the habitats in the region, they said. Critics say that the southwestern reserve offers the greatest protection to the offshore areas where commercial opportunities are fewest and where there is little threat to the environment, a contention also levelled at the Coral Sea plan."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What do we learn from the passage about the Coral Sea?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is exceptionally rich in marine life."
+            },
+            {
+              "key": "B",
+              "text": "It is the biggest marine protected area."
+            },
+            {
+              "key": "C",
+              "text": "It remains largely undisturbed by humans."
+            },
+            {
+              "key": "D",
+              "text": "It is a unique haven of endangered species."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]A。首段1句明确指出珊瑚海是生物多样性的独特天堂(包含珊瑚礁、珍稀鲨鱼以及众多奇 异鱼类),2句信息“将成为全世界最大的海洋保护区”也暗示珊瑚海有丰富的生物资源,需将其保护好。综合 可知A符合文意。 [排除干扰]B将首段2句所述的一种可能情形“若捉案获得通过,珊瑚海将成为世界最大的海洋保护区” 曲解为事实情形。C由首段的virgin(原始的,天然的)捏造出原文未提及的信息“大部分海域是人类未涉足的 原始/天然海域”。D将1句信息“生物多样性的天堂”曲解为“濒危物种的天堂”。 [提炼思路]题干给定信息较为宽泛,大体镇定相关段落后需将各项与原文逻一比对核实。B、D有明显的 原词复现线索(biggestmarine protectedarea、auniquehavenof分别复现首段两处信息),因此很客易识别出 选项与原文存在很大出入:B将假设情形偷换为既定事实,D把生物多样性缩窄为濒危物种。而A、C没有明 显的原词复现线索,需借助语义推理与原文比对:A中exceptionally(格外/异常)和rich in...life近义对应首 段中描述珊瑚海的关键词unique(独特/不寻常)、biodiversity,可确定A符合原文;C中undisturbedby humans虽与首段virgin(原始的,天然的)近义,但后者描述的是珊瑚海中的原始珊瑚磁(珊瑚目的动物形成的 礁体结构),并不代表珊瑚海的整体状态。"
+        },
+        {
+          "number": 52,
+          "stem": "What does the Australian government plan to do according to Tony Burke?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Make a new proposal to protect the Coral Sea."
+            },
+            {
+              "key": "B",
+              "text": "Revise its conservation plan owing to criticisms."
+            },
+            {
+              "key": "C",
+              "text": "Upgrade the established reserves to protect marine life."
+            },
+            {
+              "key": "D",
+              "text": "Complete the series of marine reserves around its coast."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]D。第二段2句指出:澳大利亚环境部长TonyBurke公布了一项新提案,拟将珊瑚海提议为 海洋保护区,该保护区将是政府拟在澳大利亚沿海建立的一系列保护区中的最后一处(第三段末尾暗示这一 系列海洋保护区将串联成一个环澳海洋保护网),综合可知D符合此意。 [排除干扰]A将TonyBurke的新近举动“公布了一项保护珊瑚海的新提案”曲解为政府的未来计划。 B.C均不属于TonyBurke披露的内容,均将环保组织向致府提出的建议(下文几段暗含信息)偷换为政府拟 定的计划,而由第六段首句可知政府尚未对环保人士的批评意见做出回应。 [提炼思路]本题虽然很容易定位正确项来源,但干扰项却有很大的遂感性,A.B.C所述的举措在原文均 有直接或间接的对应信息,必须厘清这些举措的相关信息,看其是否符合题干限定的主体信息(政府意愿)和 时间信息(未来计划)。 Il But the scheme is attracting criticism from scientists and conservation groups, who argue that the government hasn't gone far enough in protecting the Coral Sea, or in other marine reserves in the coastal network."
+        },
+        {
+          "number": 53,
+          "stem": "What is scientists' argument about the Coral Sea proposal?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The government has not done enough for marine protection."
+            },
+            {
+              "key": "B",
+              "text": "It will not improve the marine reserves along Australia's coast."
+            },
+            {
+              "key": "C",
+              "text": "The government has not consulted them in drawing up the proposal."
+            },
+            {
+              "key": "D",
+              "text": "It is not based on sufficient investigations into the ecological system."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]A。第三段先指出珊瑚海提案(the scheme)遗到了科学家的批评,随后介绍其批评内容:政府 对珊瑚海等海洋保护区所做的保护工作远远不够,A符合文意。 [排除干扰]B将珊瑚海提案所受批评“对该处保护区的保护不足(禁渔区未覆益珊瑚海整个海域)\"俞换 为“未能保护沿海的各处保护区(未能改善各区生态)”。C由脱离原文的常识(政府决策时常征询专家意见) 隐断而来。D由第六段末句比受对政府提案的摔解(政府和相关组织为充分了解珊瑚海保护区的生态价值付 出巨大努力)反向隐断出批评方的意见。 [提炼思路]本题难在判断D的错误性,该项是根据第六段正方观点反推出反方观点,推理思路正确,但 错在未准确把握双方的争辨点:第四、五段详述反方(科学家和保护组织)的观点“提案仅把珊瑚海一半海城划 为禁取区/核心保护区”,随后第六段23句转而引出正方(罗宾·比曼)的辨护观点“珊瑚海保护区提案确实 可以全面保护这片海域\"(broadlyprotect前辅以强调词does凸显强烈摔护意味)并阐述其辨护理由“投入力 度很大”,可知正反方的争弊点是提案能否全面保护珊瑚海的所有海域。"
+        },
+        {
+          "number": 54,
+          "stem": "What does marine geologist Robin Beaman say about the Coral Sea plan?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It can compare with the British government's effort in the Indian Ocean."
+            },
+            {
+              "key": "B",
+              "text": "It will result in the establishment of the world's largest marine reserve."
+            },
+            {
+              "key": "C",
+              "text": "It will ensure the sustainability of the fishing industry around the coast."
+            },
+            {
+              "key": "D",
+              "text": "It is a tremendous joint effort to protect the range of marine habitats."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]D。第六段23句介绍比受对班瑚海保护区提案的辨护意见:提案可全面保护珊瑚海的各种 生境,政府和其他组织为了解珊瑚海的生态价值做出极大势力。综合可知D正确,其中tremendous joint effort正确概括了比对提案的描速\"涉及政府与其他组织的巨大投入”。 工排除干扰]A、B、C均非题干所问的比曼(正方)观点:A用第四段2句信息(反方观点)设置干扰,该句是 以英国政府在印度洋建立的海洋保护区的优点“全海城均为禁取区”反衬珊瑚海计划的缺陷“只将一半海城划 为禁取区”。B源自首段2句信息(珊瑚海计划拟定的保护区将是世界最大的海洋保护区),但这不属于比曼 的言论。C由第五段末句信息catch-and-releasefishing(钓后放流式渔业活动)瘾断而来,该信息属反方观点 (意在强调渔业活动对非禁取区的侵扰)。 [提炼思路]本题考查人物观点,基本解题思路为:首先锁定论述人物观点的语段/句群,然后确定各项 核心话题是否与人物相匹配(排除人物未谈及的话题),最后将剩余选项与人物观点信息进行仔细比对,确 定正确项。本题给定的人物RobinBeaman只出现于第六段,故很容易排除用其他段落信息干扰的A、B、C 三项。"
+        },
+        {
+          "number": 55,
+          "stem": "What do critics think of the Coral Sea plan?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It will do more harm than good to the environment."
+            },
+            {
+              "key": "B",
+              "text": "It will adversely affect Australia's fishing industry."
+            },
+            {
+              "key": "C",
+              "text": "It will protect regions that actually require little protection."
+            },
+            {
+              "key": "D",
+              "text": "It will win little support from environmental organisations."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]C。第七段论述科学家对先前类似提案(在西南浩海设立保护区)的批判:未遵循自然保护区 的核心科学原则,受保护的区域并不能代表该地区的所有生境。末段先总结上段的批判:西南沿海保护区为 商业机会最少、对环境没有成胁的区域(即几乎不需要保护的区域)提供了最大保护,随后指出上述批判也适 用于珊瑚海计划,综合可知C正确。 [排除干扰]A、B将批判人士的观点信息“提案意欲保护的那些区域实际上商业机会最少,(固而)受到的 环境威胁极小\"曲解为“提案会损害环境和渔业经济”。D将第三段信息“提案遭到(某些)环保组织(即第四段 末句的“由多个保护运动组织结成的联盟”)的批评\"李大为“提案几乎不会得到环境组织的支持”,且该信息不 属于批评人士的观点内容。 [提炼思路]本题借人物观点题考查末段长难句。该句从运号处一分为二,逐号前句子结构为“Critics say 十that从句”,介绍批评人士对西南浩海保护区提案的看法:为部些商业机会最少、几没有环境风险的区域 提供最大保护;逐号后为名词短语\"a contention十后置定语\",充当前面看法(that从句)的同位语,对其进行补 充说明:这一批评的矛头也对准了珊瑚海计划;综合两部分语义可知批评人士对珊瑚海保护区提案和西南沿 海保护区提案的看法相同:二者严格保护的那些区域实际环境风险极小(几乎不需要保护)。"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1688 @@
+{
+  "id": "cet6-2018-06-3",
+  "level": 6,
+  "year": 2018,
+  "month": 6,
+  "set": 3,
+  "title": "2018 年 6 月六级 · 第 3 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.06/%E7%9C%9F%E9%A2%98Word/2018.06%E7%9C%9F%E9%A2%98%E7%AC%AC3%E5%A5%97.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2018%E5%B9%B46%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%B8%89%EF%BC%89.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2018-06-3-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "When Elon Musk says that his new priority is using artificial intelligence to build domestic robots, we should look forward to the day in admiration. Mr. Musk is a guy who gets things done. The founder of two tech companies, Tesla Motors and SpaceX, is bringing electric vehicles to mass market and [[26]] humans to live on other planets. This sounds like so much hot air, but the near $13 billion fortune this entrepreneur has [[27]] comes from practical achievements rather than hypothetical ones. A lot of clever people are [[28]] about artificial intelligence, fearing that robots will one day become so [[29]] that they’ll murder all of us. These fears are mostly [[30]] : as with hysteria about genetic modification, we humans are generally wise enough to manage these problems with speed and care. And just think of how wonderful it would be if you had a live-in robot. It could, [[31]] , be like having a babysitter and a nurse rolled into one--or, if that required [[32]] intelligence beyond the power of Mr. Musk’s imagined machine, at least someone to chop the carrots, wash the car and mow the lawn. Once purchased and trained, this would allow the [[33]] user to save money and time, freeing up [[34]] space in our busy lives to read a good book. That is why we welcome Mr. Musk’s latest [[35]] , and wish him well. As long as robots add to the sum of human happiness, reduce suffering, and create time to read world-class journalism, we should be their fans. Especially since journalism is one job robots will never do."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "amassed"
+        },
+        {
+          "key": "B",
+          "text": "casual"
+        },
+        {
+          "key": "C",
+          "text": "emotional"
+        },
+        {
+          "key": "D",
+          "text": "enabling"
+        },
+        {
+          "key": "E",
+          "text": "eventually"
+        },
+        {
+          "key": "F",
+          "text": "exaggerated"
+        },
+        {
+          "key": "G",
+          "text": "extravagant"
+        },
+        {
+          "key": "H",
+          "text": "generously"
+        },
+        {
+          "key": "I",
+          "text": "misleading"
+        },
+        {
+          "key": "J",
+          "text": "precious"
+        },
+        {
+          "key": "K",
+          "text": "reward"
+        },
+        {
+          "key": "L",
+          "text": "smart"
+        },
+        {
+          "key": "M",
+          "text": "sphere"
+        },
+        {
+          "key": "N",
+          "text": "terrified"
+        },
+        {
+          "key": "O",
+          "text": "venture"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "amassed"
+            },
+            {
+              "key": "B",
+              "text": "casual"
+            },
+            {
+              "key": "C",
+              "text": "emotional"
+            },
+            {
+              "key": "D",
+              "text": "enabling"
+            },
+            {
+              "key": "E",
+              "text": "eventually"
+            },
+            {
+              "key": "F",
+              "text": "exaggerated"
+            },
+            {
+              "key": "G",
+              "text": "extravagant"
+            },
+            {
+              "key": "H",
+              "text": "generously"
+            },
+            {
+              "key": "I",
+              "text": "misleading"
+            },
+            {
+              "key": "J",
+              "text": "precious"
+            },
+            {
+              "key": "K",
+              "text": "reward"
+            },
+            {
+              "key": "L",
+              "text": "smart"
+            },
+            {
+              "key": "M",
+              "text": "sphere"
+            },
+            {
+              "key": "N",
+              "text": "terrified"
+            },
+            {
+              "key": "O",
+              "text": "venture"
+            }
+          ],
+          "answer": "D",
+          "explanation": "答案:D). enabling 使能够 详解:空格前的and 连接两个并列谓语动词,因此空格处所填入的词应在词形上与bringing 对应,此处应填入及 物动词的现在分词。备选项中有D). enabling 使能够和I). misleading 将......引入歧途,误导,两项符合,但结合此 处句意“......正在将电动汽车引入大众市场,并使人们能在其他行星上生活”,可判断enabling“使能够”一词符 合句意,因此选D). enabling 。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "amassed"
+            },
+            {
+              "key": "B",
+              "text": "casual"
+            },
+            {
+              "key": "C",
+              "text": "emotional"
+            },
+            {
+              "key": "D",
+              "text": "enabling"
+            },
+            {
+              "key": "E",
+              "text": "eventually"
+            },
+            {
+              "key": "F",
+              "text": "exaggerated"
+            },
+            {
+              "key": "G",
+              "text": "extravagant"
+            },
+            {
+              "key": "H",
+              "text": "generously"
+            },
+            {
+              "key": "I",
+              "text": "misleading"
+            },
+            {
+              "key": "J",
+              "text": "precious"
+            },
+            {
+              "key": "K",
+              "text": "reward"
+            },
+            {
+              "key": "L",
+              "text": "smart"
+            },
+            {
+              "key": "M",
+              "text": "sphere"
+            },
+            {
+              "key": "N",
+              "text": "terrified"
+            },
+            {
+              "key": "O",
+              "text": "venture"
+            }
+          ],
+          "answer": "A",
+          "explanation": "答案:A). amassed 积累,积聚(尤其财富) 详解:空格位于省略引导词that 的定语从句中,且在该从句中作谓语,又因为空格处于助动词has 之后,因此此 处应填入及物动词过去分词形式。备选项中符合要求的单词有amassed 积累,积聚(尤其财富)、exaggerated 夸 张,夸大和terrified 使恐惧,使害怕。再结合本句含义可知,该动词应该能与fortune“财富”构成固定搭配,表 达“积累财富”之意,即此处句意为“但这位企业家积累的将近130 亿美元的财富来自于他的实际成就而非假想”, 因此应该选A). amassed。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "amassed"
+            },
+            {
+              "key": "B",
+              "text": "casual"
+            },
+            {
+              "key": "C",
+              "text": "emotional"
+            },
+            {
+              "key": "D",
+              "text": "enabling"
+            },
+            {
+              "key": "E",
+              "text": "eventually"
+            },
+            {
+              "key": "F",
+              "text": "exaggerated"
+            },
+            {
+              "key": "G",
+              "text": "extravagant"
+            },
+            {
+              "key": "H",
+              "text": "generously"
+            },
+            {
+              "key": "I",
+              "text": "misleading"
+            },
+            {
+              "key": "J",
+              "text": "precious"
+            },
+            {
+              "key": "K",
+              "text": "reward"
+            },
+            {
+              "key": "L",
+              "text": "smart"
+            },
+            {
+              "key": "M",
+              "text": "sphere"
+            },
+            {
+              "key": "N",
+              "text": "terrified"
+            },
+            {
+              "key": "O",
+              "text": "venture"
+            }
+          ],
+          "answer": "N",
+          "explanation": "答案:N). terrified 极度惊恐的 详解:空格位于整个句子的谓语部分,处于“be+________+about”的结构之中,因此空格内填入形容词或者当 作形容词使用的动词过去分词。根据后面的fearing 可知,此处表达的是一些人对人工智能机器人的恐惧之情,所以 此处应填入N). terrified 极度惊恐的,be terrified about...表示“对......感到恐惧”。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "amassed"
+            },
+            {
+              "key": "B",
+              "text": "casual"
+            },
+            {
+              "key": "C",
+              "text": "emotional"
+            },
+            {
+              "key": "D",
+              "text": "enabling"
+            },
+            {
+              "key": "E",
+              "text": "eventually"
+            },
+            {
+              "key": "F",
+              "text": "exaggerated"
+            },
+            {
+              "key": "G",
+              "text": "extravagant"
+            },
+            {
+              "key": "H",
+              "text": "generously"
+            },
+            {
+              "key": "I",
+              "text": "misleading"
+            },
+            {
+              "key": "J",
+              "text": "precious"
+            },
+            {
+              "key": "K",
+              "text": "reward"
+            },
+            {
+              "key": "L",
+              "text": "smart"
+            },
+            {
+              "key": "M",
+              "text": "sphere"
+            },
+            {
+              "key": "N",
+              "text": "terrified"
+            },
+            {
+              "key": "O",
+              "text": "venture"
+            }
+          ],
+          "answer": "L",
+          "explanation": "答案:L). smart 聪明的 详解:空格位于so...that...结构之间,因此应填入形容词,又因为前半句提到“很多聪明人害怕人工智能”,所 以此处应该具体阐述人们的担心和恐惧,即机器人的某种特征会导致they’ll murder all of us,根据常识判断,备选 项中的形容词casual、emotional、extravagant、misleading、precious 和terrified 均无法与“消灭全人类”联系起来, 故答案为L). smart 聪明的。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "amassed"
+            },
+            {
+              "key": "B",
+              "text": "casual"
+            },
+            {
+              "key": "C",
+              "text": "emotional"
+            },
+            {
+              "key": "D",
+              "text": "enabling"
+            },
+            {
+              "key": "E",
+              "text": "eventually"
+            },
+            {
+              "key": "F",
+              "text": "exaggerated"
+            },
+            {
+              "key": "G",
+              "text": "extravagant"
+            },
+            {
+              "key": "H",
+              "text": "generously"
+            },
+            {
+              "key": "I",
+              "text": "misleading"
+            },
+            {
+              "key": "J",
+              "text": "precious"
+            },
+            {
+              "key": "K",
+              "text": "reward"
+            },
+            {
+              "key": "L",
+              "text": "smart"
+            },
+            {
+              "key": "M",
+              "text": "sphere"
+            },
+            {
+              "key": "N",
+              "text": "terrified"
+            },
+            {
+              "key": "O",
+              "text": "venture"
+            }
+          ],
+          "answer": "F",
+          "explanation": "答案:F). exaggerated 夸张,夸大 详解:空格位于全句的表语部分,且处于副词mostly 之后,可知应填入形容词作表语或填入动词的过去分词, 构成被动语态。由冒号后面具体解释部分的用词with hysteria about 可知,本句强调的是恐惧的非理性,并以转基因 为例说明人工智能的风险在人类的掌控之中,因此不难看出恐惧被“夸张”了,因此答案为F). exaggerated。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "amassed"
+            },
+            {
+              "key": "B",
+              "text": "casual"
+            },
+            {
+              "key": "C",
+              "text": "emotional"
+            },
+            {
+              "key": "D",
+              "text": "enabling"
+            },
+            {
+              "key": "E",
+              "text": "eventually"
+            },
+            {
+              "key": "F",
+              "text": "exaggerated"
+            },
+            {
+              "key": "G",
+              "text": "extravagant"
+            },
+            {
+              "key": "H",
+              "text": "generously"
+            },
+            {
+              "key": "I",
+              "text": "misleading"
+            },
+            {
+              "key": "J",
+              "text": "precious"
+            },
+            {
+              "key": "K",
+              "text": "reward"
+            },
+            {
+              "key": "L",
+              "text": "smart"
+            },
+            {
+              "key": "M",
+              "text": "sphere"
+            },
+            {
+              "key": "N",
+              "text": "terrified"
+            },
+            {
+              "key": "O",
+              "text": "venture"
+            }
+          ],
+          "answer": "E",
+          "explanation": "答案:E). eventually 最终地 详解:空格位于以为两个逗号之间,属于插入语成分,因此可填入一个副词。备选项有E). eventually 最终地和 H). generously 慷慨地,大方地。原句中be like having a babysitter and a nurse rolled into one 意为“就好像把保姆和护 士合二为一了”,这里强调的是一种最终结果,因此答案为E). eventually。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "amassed"
+            },
+            {
+              "key": "B",
+              "text": "casual"
+            },
+            {
+              "key": "C",
+              "text": "emotional"
+            },
+            {
+              "key": "D",
+              "text": "enabling"
+            },
+            {
+              "key": "E",
+              "text": "eventually"
+            },
+            {
+              "key": "F",
+              "text": "exaggerated"
+            },
+            {
+              "key": "G",
+              "text": "extravagant"
+            },
+            {
+              "key": "H",
+              "text": "generously"
+            },
+            {
+              "key": "I",
+              "text": "misleading"
+            },
+            {
+              "key": "J",
+              "text": "precious"
+            },
+            {
+              "key": "K",
+              "text": "reward"
+            },
+            {
+              "key": "L",
+              "text": "smart"
+            },
+            {
+              "key": "M",
+              "text": "sphere"
+            },
+            {
+              "key": "N",
+              "text": "terrified"
+            },
+            {
+              "key": "O",
+              "text": "venture"
+            }
+          ],
+          "answer": "C",
+          "explanation": "答案:C). emotional 情绪上的 详解:空格位于动词required 之后、名词intelligence 之前,因此可填入一个形容词作定语修饰该名句。根据语 言知识可知emotional intelligence 为固定搭配,意为“情绪智力,情商”,加之上文提到“保姆和护士合二为一”, 根据常识可知保姆和护士这两种工作都需要与人打交道,除了专业知识以外,情绪智力也是很重要的,因此答案为 C). emotional。此处意为“又或者如果所需的情绪智力超越了马斯克先生设想的机器人”。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "amassed"
+            },
+            {
+              "key": "B",
+              "text": "casual"
+            },
+            {
+              "key": "C",
+              "text": "emotional"
+            },
+            {
+              "key": "D",
+              "text": "enabling"
+            },
+            {
+              "key": "E",
+              "text": "eventually"
+            },
+            {
+              "key": "F",
+              "text": "exaggerated"
+            },
+            {
+              "key": "G",
+              "text": "extravagant"
+            },
+            {
+              "key": "H",
+              "text": "generously"
+            },
+            {
+              "key": "I",
+              "text": "misleading"
+            },
+            {
+              "key": "J",
+              "text": "precious"
+            },
+            {
+              "key": "K",
+              "text": "reward"
+            },
+            {
+              "key": "L",
+              "text": "smart"
+            },
+            {
+              "key": "M",
+              "text": "sphere"
+            },
+            {
+              "key": "N",
+              "text": "terrified"
+            },
+            {
+              "key": "O",
+              "text": "venture"
+            }
+          ],
+          "answer": "B",
+          "explanation": "答案:B). casual 临时的,偶然的 详解:空格位于定冠词the 之后、名词user 之前,因此可填入一个形容词作定语修饰名词。备选项中C)、L)和 N)已被选,可供选择的还有B). casual 临时的,偶然的、G). extravagant 奢移的,挥霍的、I). misleading 误解的, 误导的和J). precious 宝贵的。根据语言知识可知casual user 为常用搭配,表示“临时用户”,再分析原句可知此 处要表达的意思为“使用户节省金钱和时间”,用户是否是奢侈的、误导的或宝贵的,这些特点并不重要,因此答案为B). casual 。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "amassed"
+            },
+            {
+              "key": "B",
+              "text": "casual"
+            },
+            {
+              "key": "C",
+              "text": "emotional"
+            },
+            {
+              "key": "D",
+              "text": "enabling"
+            },
+            {
+              "key": "E",
+              "text": "eventually"
+            },
+            {
+              "key": "F",
+              "text": "exaggerated"
+            },
+            {
+              "key": "G",
+              "text": "extravagant"
+            },
+            {
+              "key": "H",
+              "text": "generously"
+            },
+            {
+              "key": "I",
+              "text": "misleading"
+            },
+            {
+              "key": "J",
+              "text": "precious"
+            },
+            {
+              "key": "K",
+              "text": "reward"
+            },
+            {
+              "key": "L",
+              "text": "smart"
+            },
+            {
+              "key": "M",
+              "text": "sphere"
+            },
+            {
+              "key": "N",
+              "text": "terrified"
+            },
+            {
+              "key": "O",
+              "text": "venture"
+            }
+          ],
+          "answer": "J",
+          "explanation": "答案:J). precious 宝贵的 详解:空格位于动词词组freeing up 之后、名词space“空间”之前,因此可填入一个形容词作定语修饰名词, 剩余备选项有G). extravagant 奢移的,挥霍的;、I). misleading 误解的,误导的和J). precious 宝贵的。结合句意 可知,这里应选J). precious 宝贵的,句子表达的意思为“从我们的繁忙生活中腾出宝贵的空间来读一本好书”。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "amassed"
+            },
+            {
+              "key": "B",
+              "text": "casual"
+            },
+            {
+              "key": "C",
+              "text": "emotional"
+            },
+            {
+              "key": "D",
+              "text": "enabling"
+            },
+            {
+              "key": "E",
+              "text": "eventually"
+            },
+            {
+              "key": "F",
+              "text": "exaggerated"
+            },
+            {
+              "key": "G",
+              "text": "extravagant"
+            },
+            {
+              "key": "H",
+              "text": "generously"
+            },
+            {
+              "key": "I",
+              "text": "misleading"
+            },
+            {
+              "key": "J",
+              "text": "precious"
+            },
+            {
+              "key": "K",
+              "text": "reward"
+            },
+            {
+              "key": "L",
+              "text": "smart"
+            },
+            {
+              "key": "M",
+              "text": "sphere"
+            },
+            {
+              "key": "N",
+              "text": "terrified"
+            },
+            {
+              "key": "O",
+              "text": "venture"
+            }
+          ],
+          "answer": "O",
+          "explanation": "答案:O). venture 冒风险 详解:空格位于句子的宾语部分,且处于形容词latest 之后,因此应填入一个名词,备选项中有K). reward 酬 谢,报答、M). sphere 范围,领域和O). venture 风险项目,冒险事业;又因为整篇文章都在讲马斯克先生的商业 新尝试,因此排除reward 和sphere ,答案为O). venture。全句含义为“这就是我们欢迎马斯克先生最新的冒险事 业,并祝他好运的原因所在”。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2018-06-3-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) As a high school junior, everything in my life revolved around getting into the right college. I diligently attended my SAT, ACT, and Advanced Placement test preparation courses. I juggled (尽力应付)cross- country and track schedules, newspaper staff, and my church’s youth group and drama team. I didn’t drink, party, or even do much dating. The right college, I thought, was one with prestige, one with a name. It didn’t have to be the Ivy League, but it needed to be “top school.”",
+        "B) Looking back now, nine years later, I can’t remember exactly what it was about these universities that made them seem so much better. Was it a curriculum that appeared more rigorous, perhaps? Or an alumni network that I hoped would open doors down the line? Maybe. “I do think there are advantages to schools with more recognition,” notes Marybeth Gasman, a professor of higher education at the University of Pennsylvania. “I don’t necessarily think that’s a reason to go to one.”",
+        "C) In reflection, my firm belief in the power of the brand was naive, not to mention a bit snobby. I quickly passed over state schools and southern schools, believing their curriculum to be automatically inferior to northeastern or western counterparts. Instead, I dreamed of living in New York City and my parents obliged me with a visit to New York University’s ( NYU ) campus. During the tour, tuition fees were discussed. ( NYU is consistently ranked one of the country’s most expensive schools, with room and board costs totaling upwards of $64,000 a year.) Up until then, I hadn’t truly realized just how expensive an education can be. Over the next few months, I realized not only could I not afford my dream school, I couldn’t even afford the ones where I’d been accepted. City University of New York (CUNY), Rutgers University, and Indiana University were out of reach as were Mississippi State and the University of Alabama, where I would have to pay out-of-state fees. Further complicating my college search was a flourishing stack career—I wanted to keep running but my times weren’t quite fast enough to secure a scholarship.",
+        "D) And so, at 11pm on the night of Georgia State University’s (GSU) midnight deadline, I applied online. Rated No.466 overall on Forbes’ Lists Top Colleges, No. 183 in Research Universities, and No. 108 in the South, I can’t say it was my top choice. Still, the track coach had offered me a walk-on spot, and I actually found the urban Atlanta campus a decent consolation prize after New York City.",
+        "E) While it may have been practical, it wasn’t prestigious, But here’s the thing: I loved my “lower-tier” (低层 次的) university. (I use the term “low-tier” cautiously, because GSU is a well-regarded research institution that attracts high quality professors and faculty from all over the country.) We are taught to believe that only by going to the best schools and getting the best grades can we escape the rat race and build a better future. But what if lower-tier colleges and universities were the ticket to escaping the rat race? After all, where else can you leave school with a decent degree—but without a lifetime of debt?",
+        "F) My school didn’t come pre-packaged like the more popular options, so we were left to take care of ourselves, figuring out city life and trying to complete degree programs that no one was championing for us to succeed in. What I’m saying is, Iloved my university because it taught us all to be resourceful and we could make what we wanted out of it.",
+        "G) I was lucky enough to have my tuition covered by a lottery-funded scholarship called HOPE (Helping Outstanding Pupils Educationally) When I started college, the HOPE scholarship was funded by the state of Georgia and offered to graduating high school seniors with a GPA of 3.0 or higher. Living costs and books I paid for with money earned during high school, supplemented by a small college fund my deceased grandfather left for me and a modest savings account my parents created when I was born.",
+        "H) So what about all that name recognition? Sure, many of my colleagues and competitors have more glamorous alma maters(母校)than I do. As a journalist, I have competed against NYU, Columbia, and Northeastern graduates for jobs. And yet, not a single interviewer has ever asked me about my educational background. In fact, almost every interview I’ve ever had was due to a connection—one that I’ve gained through pure determination, not a school brand.",
+        "I) According to The Boston Globe, students who earned their bachelor’s in 2012 have an average monthly loan payment of $312, which is one-third more than those who graduated in 2004. Ultimately, that’s the thing universities don’t want to admit. Private universities are money-making institutions. If you can afford to buy prestige, that’s your choice. For the rest of us, however, our hearty lower-tiered universities are just fine, thank you.",
+        "J) Wealthy universities talk up the benefits their name will give graduates; namely, strong alumni networks, star faculty, and a résumé boost. But you needn’t attend an Ivy League school to reap those rewards. Ludacris and the former CEO of Bank of America Ken Lewis are alumni of my college, as well as VICE’s first female editor-in-chief, Ellis Jones. Successful people tend to be successful no matter where they go to school. And lower-tier schools can have alumni networks just as strong as their big name counterparts. In fact, lower-tier school alumni networks are arguably stronger, because fellow alumni recognize that you didn’t necessarily have an easy path to follow. They might be more willing to offer career help, because your less famous school denotes that, like them., you are also full of energy and perseverance.",
+        "K) The Washington Post reported on a recent study by Princeton economists, in which college graduates, who applied to the most selective schools in the 12th grade were compared to those who applied to slightly less selective schools. They found that students with more potential earned more as adults, and the reverse held true as well, no matter where they went to school.",
+        "L) Likewise, star faculty is not always found where you’d expect. Big name schools are not necessarily the best places for professors; plus, many professors split teaching time between multiple colleges and/or universities. This means, for instance, a CUNY student could reasonably expect to receive the same quality of instruction from a prestigious professor as they would if they were enrolled in the same class at NYU.",
+        "M) It’s possible that some hiring managers may be drawn to candidates with a particular educational résumé, but it’s no guarantee. According to a 2012 survey described in The Atlantic, college reputation ranked lowest in relative importance of attributes in evaluating graduates for hire, beaten out by top factors like internships, employment during college, college major, volunteer experience, and extracurriculars.",
+        "N) Maybe students who choose less prestigious universities are bound to succeed because they are determined to. I tend to think so. In any case, if I could do it again, I’d still make the same choice. Today I’m debt-free, resourceful—and I understand that even the shiniest packaging can’t predict what you’ll find on the inside."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Modest institutions can also have successful graduates and strong alumni networks.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "J",
+          "explanation": "Modest institutions can also [J]. Wealthy universities talk up the benefits their name will give have successful graduates and graduates;namely, strong alumni networks, star faculty, and a résumé boost. But you needn’t attend an Ivy League school to reap those rewards. Ludacrisstrong alumni networks. and the former CEO of Bank of America Ken Lewis are alumni of my college,译文:普通院校也可以拥有成功 as well as VICE’s first female editor-in-chief, Ellis Jones. Successful people 的毕业生和强大的校友网。 tend to be successful no matter where they go to school. And lower-tier schools 定位:由题干关键词Modest can have alumni networks just as strong as their big name counterparts. In fact, institutions、successful 和strong lower-tier school alumni networks are arguably stronger, because fellow alumni alumninetworks 定位到J 段画线 recognize that you didn’t necessarily have an easy path to follow. They might be 处。 more willing to offer career help, because your less famous school denotes that, like them., you are also full of energy and perseverance. 详解:J 段提到,成功人士无论在哪里上学都会取得成功,而低层次大学也可以拥有和名校对手一样强大的校友网。 定位句前半句表明成功人士不管是读名校还是普通院校都会取得成功,由big name counterparts 可知,题干中的 Modest institutions 对应原文中的lower-tier schools,故答案为J。"
+        },
+        {
+          "number": 37,
+          "stem": "The money the author made in high school helped pay for her living expenses and books at college.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "G",
+          "explanation": "The money the author made in high school [G]. I was lucky enough to have my tuition covered by a lottery-funded helped pay for her living expenses and books scholarship called HOPE (Helping Outstanding Pupils Educationally)When I started college, the HOPE scholarship wasatcollege. funded by the state of Georgia and offered to graduating high译文:作者在高中时赚的钱帮她支付了大学 school seniors with a GPA of 3.0 or higher. Living costs and books 的生活费和书本费。 I paid for with money earned during high school, supplemented by 定位:由题干关键词money...made in high a small college fund my deceased grandfather left for me and a school 和living expenses and books 定位到G modest savings account my parents created when I wasborn. 段画线处。 详解:G 段最后一句提到作者用高中时赚到的钱支付生活费和书本费,已故祖父留给她的一小笔大学基金和她出生 时父母开设的一个普通存储账户作为补充。题干中的money...made in high school 对应原文中的money earned during high school;living expenses and books 对应原文中的Living costs and books,故答案为G。"
+        },
+        {
+          "number": 38,
+          "stem": "The author came to see how costly college education could be when she was trying to choose a university to attend.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "C",
+          "explanation": "The author came to [C]. In reflection, my firm belief in the power of the brand was naive, not to mention a bit see how costly college snobby. I quickly passed over state schools and southern schools, believing their education could be when curriculum to be automatically inferior to northeastern or western counterparts. Instead, she was trying to choose I dreamed of living in New York City and my parents obliged me with a visit to New a university to attend. York University’s (NYU )campus. During the tour, tuition fees were discussed. 译文:当作者试图选择 (NYU is consistently ranked one of the country’s most expensive schools, with room 一所大学就读时,她开 and board costs totaling upwards of $64,000 a year.)Up until then, I hadn’t truly 始明白大学教育有多 realized just how expensive an education can be. Over the next few months, I realized 贵。 not only could I not afford my dream school, I couldn’t even afford the ones where I’d 定位:由题干关键词 been accepted. City University of New York (CUNY ), Rutgers University, and came to see、costly 和 Indiana University were out of reach as were Mississippi State and the University of college education 定位到 Alabama, where I would have to pay out-of-state fees. Further complicating my college C 段画线处。 search was a flourishing stack career—I wanted to keep running but my times weren’t quite fast enough to secure a scholarship. 详解:C 段画线部分提到:直到那时,我才真正意识到教育是多么昂贵,根据上下文可知,定位句中的then 指代作 者高三择校时,题干中的came to see 对应原文中的realized;costly 对应原文中的expensive,故答案为C。"
+        },
+        {
+          "number": 39,
+          "stem": "A recent study found that a graduate’s salary is determined by their potential, not the university they attended.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "K",
+          "explanation": "A recent study found that a graduate’s [K]. The Washington Post reported on a recent study by Princeton salary is determined by their potential, not the economists, in which college graduates, who applied to the university they attended. 译文:最近一项研究发现,毕业生的薪水取 most selective schools in the 12th grade were compared to those 决于他们的潜力,而不是他们上的大学。 who applied to slightly less selective schools. They found that 定位:由题干关键词A recent study 、a students with more potential earned more as adults, and the graduate’s salary 和potential 定位到K 段画线 reverse held true as well, no matter where they went to school.处。 详解:K 段提到,《华盛顿邮报》报道了普林斯顿大学经济学家最近的一项研究,在该研究中,将那些在十二年级 申请高选择性院校的大学毕业生与那些申请选择性略低院校的大学毕业生进行了对比。他们发现,潜力更大的学生 在成年时赚的钱更多,反之亦然,无论他们去哪里上学。题干中的a graduate’s salary 对应原文中的earned more as adults;not the university they attended 对应原文中的no matter where they went to school,故答案为K。"
+        },
+        {
+          "number": 40,
+          "stem": "The author cannot recall for sure what made certain top universities appear a lot better.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "B",
+          "explanation": "The author cannot recall for sure [B]. Looking back now, nine years later, I can’t remember exactly what it was what made certain top universities about these universities that made them seem so much better. Was it a appear a lotbetter. curriculum that appeared more rigorous, perhaps ?Or an alumni 译文:作者记不清是什么让某些顶尖 大学显得好许多。 network that I hoped would open doors down the line?Maybe. “I do 定位:由题干关键词cannot recall for think there are advantages to schools with more recognition,” notes sure、top universities 以及appear a lot Marybeth Gasman, a professor of higher education at the University of better 定位到B 段画线处。 Pennsylvania. “I don’t necessarily think that’s a reason to go to one.” 详解:B 段第一句提到,如今回想起来,作者记不清这些大学在哪一点令它们看起来好许多。由上下文可知,定位 句中的these universities 指代上一段最后一句中的top school。题干中的cannot recall for sure 对应原文中的can’t remember exactly;appear a lot better 对应原文中的seem so much better,故答案为B。"
+        },
+        {
+          "number": 41,
+          "stem": "None of the author’s job interviewers cared which college she went to.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "H",
+          "explanation": "None of the author’s job interviewers [H]. So what about all that name recognition?Sure, many of my colleagues cared which college she wentto. and competitors have more glamorous alma maters(母校)than I do. As a 译文:没有一个职位面试官关心作者上 journalist, I have competed against NYU, Columbia, and Northeastern 过哪所大学。 graduates for jobs. And yet, not a single interviewer has ever asked me about 定位:由题干关键词None of ... job my educational background. In fact, almost every interview I’ve ever had was interviewers 和which college she went to due to a connection—one that I’ve gained through pure determination, not a 定位到H 段画线处。 school brand. 详解:H 段提到,没有一位面试官曾问过作者的教育背景。题干中的None of ...job interviewers 对应原文中的not a single interviewer; cared 对应原文中的asked; which college she went to 对应原文中的my educational background, 故答案为H。"
+        },
+        {
+          "number": 42,
+          "stem": "The author thinks she did the right thing in choosing a less prestigious university.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "N",
+          "explanation": "The author thinks she did the right thing [N]. Maybe students who choose less prestigious universities are bound in choosing a less prestigiousuniversity. to succeed because they are determined to. I tend to think so. In 译文:作者认为她选择了一所不那么有名 大学是正确的。 any case, if I could do it again, I’d still make the same choice. 定位:由题干关键词did the right thing 和 Today I’m debt-free, resourceful—and I understand that even the choosing a less prestigiousuniversity 定位到 shiniest packaging can’t predict what you’ll find on the inside. N 段画线处。 详解:N 段提到,无论如何,如果能再来一次,作者还是会做同样的选择。由上下文可知,定位句中的make the same choice 指代段首的choose less prestigious universities。“做出同样的选择”表明作者认为自己的做出的选择是正确 的,故答案为N。"
+        },
+        {
+          "number": 43,
+          "stem": "In order to be admitted to a prestigious university, the author took part in various extracurricular activities and attended test preparation courses.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "A",
+          "explanation": "In order to be admitted to a prestigious university, the [A]. As a high school junior, everything in my life revolved around getting into the right college. Iauthor took part in various extracurricular activities and diligently attended test preparation courses. attended my SAT, ACT, and Advanced Placement test 译文:为了考上名牌大学,作者参加了各种课外活动, preparation courses. I juggled (尽力应付)cross- 还去上了备考课程。 country and track schedules, newspaper staff, and my church’s youth group and drama team. I didn’t drink,定位:由题干关键词be admitted to a prestigious party, or even do much dating. The right college, Iuniversity, the author took part in various extracurricular thought, was one with prestige, one with a name. It activities and attended test preparation courses 定位到A 段 didn’t have to be the Ivy League, but it needed to be 画线处。 “top school.” 详解:A 段前三句提到,作为一名高三的学生,作者生活的每一件事都围绕着进入合适的大学而展开。她努力参加 学术水平测验考试、美国大学入学考试和美国大学预修课程考试的备考课程。并尽量兼顾越野赛和田径赛日程表、 报社打工以及她的教堂少年班和戏剧队。由此可知,作者为了考上合适的大学,参加了备考课程和各种课外活动。 该段第五句则指出作者认为合适的大学是一所有声望的大学,一所有名的大学。题干中的be admitted to a prestigious university 对应原文中的getting into the right college; various extracurricular activities 对应原文中的cross-country and track schedules, newspaper staff, and my church’s youth group and drama team,故答案为A。"
+        },
+        {
+          "number": 44,
+          "stem": "The author liked her university which was not prestigious but less expensive.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "E",
+          "explanation": "The author liked her university [E]. While it may have been practical, it wasn’t prestigious, But here’s the thing:I which was not prestigious but less loved my “lower-tier” (低层次的)university. (I use the term “low-tier” expensive. cautiously, because GSU is a well-regarded research institution that attracts high 译文:作者喜欢她的大学,虽然不 quality professors and faculty from all over the country.)We are taught to believe 是很有声望,但学费不贵。 that only by going to the best schools and getting the best grades can we escape the 定位:由题干关键词liked her rat race and build a better future. But what if lower-tier colleges and universities university 、not prestigious 和less were the ticket to escaping the rat race ? After all, where else can you leave expensive 定位到E 段画线处。 school with a decent degree—but without a lifetime of debt? 详解:E 段前句提到,虽然这所大学可能非常务实,但它并不具有声望。但事实上,作者很爱她的“低层次的”大 学。题干中的liked 对应原文中的loved;less expensive 对应原文中的practical,故答案为E。"
+        },
+        {
+          "number": 45,
+          "stem": "Colleges are reluctant to admit that graduates today are in heavier debt.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "I",
+          "explanation": "Colleges are reluctant to admit that [I]. According to The Boston Globe, students who earned their bachelor’s in graduates today are in heavierdebt. 2012 have an average monthly loan payment of $312, which is one-third 译文:大学不愿意承认现在的毕业生负债 more than those who graduated in 2004. Ultimately, that’s the thing 更多。 universities don’t want to admit. Private universities are money-making 定位:由题干关键词reluctant to admit 和 institutions. If you can afford to buy prestige, that’s your choice. For the rest in heavierdebt 定位到I 段画线处。 of us, however, our hearty lower-tiered universities are just fine, thank you. 详解:I 段前两句提到,据《波士顿环球报》报道,2012 年获得学士学位的学生每月平均贷款为312 美元,比2004 年的毕业生高出三分之一。基本上,这是大学不想承认的一点。由第一句可知,2012 年的大学毕业生比2004 年的 大学毕业生负债更多。题干中的reluctant to admit 对应原文中的don’t want to admit,故答案为I。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2018-06-3-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Economically speaking, are we better off than we were ten years ago? Twenty years ago? In their thirst for evidence on this issue, commentators seized on the recent report by the Census Bureau, which found that average household income rose by 5.2% in 2015. Unfortunately, that conclusion puts too much weight on a useful, but flawed and incomplete, statistic. Among the more significant problems with the Census’s measure are that: 1) it excludes taxes, transfers, and compensation like employer-provided health insurance; and 2) it is based on surveys rather than data. Even if precisely measured, income data exclude important determinants of economic well-being, such as the hours of work needed to earn that income. While thinking about the question, we came across a recently published article by Charles Jones and Peter Klenow,which proposes an interesting new measure of economic welfare. While by no means perfect, it is considerably more comprehensive than average income, taking into account not only growth in consumption per person but also changes in working time, life expectancy, and inequality. Moreover, it can be used to assess economic performance both across countries and over time. The Jones-Klenow method can be illustrated by a cross-country example. Suppose we want to compare the economic welfare of citizens of the U.S. and France in 2005. In 2005, as the authors observe, real consumption per person in France was only 60% as high as the U.S., makiIn 2005, as the authors observe, real consumption per person in France was only 60% as high as the U.S., making it appear that Americans were economically much better off than the French on average. However, that comparison omits other relevant factors: leisure time, life expectancy, and economic inequality. The French take longer vacations and retire earlier, so typically work fewer hours; they enjoy a higher life expectancy, presumably reflecting advantages with respect to health care, diet, lifestyle, and the like; and income and consumption are somewhat more equally distributed there than in the U.S. Because of these differences, comparing France’s consumption with the U.S.’s overstates the gap in economic welfare. Similar calculations can be used to compare the U.S. and other countries. For example, this calculation puts economic welfare in the United Kingdom at 97% of U.S. levels, but estimates Mexican well-being at 22%. The Jones-Klenow measure can also assess an economy’s performance over time. According to this measure, as of the early-to-mid-2000s, the U.S. had the highest economic welfare of any large country. Since 2007, economic welfare in the U.S. has continued to improve. However, the pace of improvement has slowed markedly. Methodologically, the lesson from the Jones-Klenow research is that economic welfare is multi-dimensional. Their approach is flexible enough that in principle other important quality-of- life changes could be incorporated—for example, decreases in total emissions of pollutants and declines in crime rates."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What does the author think of the 2015 report by the Census Bureau?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is based on questionable statistics."
+            },
+            {
+              "key": "B",
+              "text": "It reflects the economic changes."
+            },
+            {
+              "key": "C",
+              "text": "It evidences the improved welfare."
+            },
+            {
+              "key": "D",
+              "text": "It provides much food for thought."
+            }
+          ],
+          "answer": "A",
+          "explanation": "答案:A 定位:由题干中的2015 report by the Census Bureau 定位到原文第二段前两句:...the Census Bureau,which found that average household income rose by 5.2% in 2015. Unfortunately,that conclusion puts too much weight on a useful, but flawed and incomplete,statistic. 详解:观点态度题。本题考查作者对美国人口普查局2015 年报告的看法。原文第二段首句先介绍了美国人口普 查局的报告内容,接着用转折词Unfortunately 引出作者的看法,即“这一结论过分强调的统计数据虽然有用,但并 不完整且存在错误。”A)选项中的based on 和questionable 分别对应定位句中的puts too much weight on 和flawed and incomplete,故A 为答案。 点睛:B)“该报告反映了经济变化”是强干扰选项,虽然定位句提到“美国家庭平均收入在2015 年提高了5.2%” 这一变化,但这是报告的内容,而非作者对报告的观点态度,故排除该项;C)“该报告证明了经济福利的提高”, 从第二段后半部分以及接下来文章的内容来看,作者认为这份报告的衡量依据存在很多严重的问题,C)和原文内容 相反,故排除;D)“该报告提供了很多令人深思的地方”,根据原文后面的内容,真正给人带来深思的是琼斯-克 列诺计算法,D)和原文不符,故排除。"
+        },
+        {
+          "number": 47,
+          "stem": "What does the author say about the Jones-Klenow method?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is widely used to compare the economic growth across countries."
+            },
+            {
+              "key": "B",
+              "text": "It revolutionizes the way of measuring ordinary people’s livelihood."
+            },
+            {
+              "key": "C",
+              "text": "It focuses on people’s consumption rather that their average income."
+            },
+            {
+              "key": "D",
+              "text": "It is a more comprehensive measure of people’s economic well-being."
+            }
+          ],
+          "answer": "D",
+          "explanation": "答案:D 定位:由题干中的Jones-Klenow method 定位到原文第三段前两句:...a recently published article by Charles Jones and Peter Klenow,which proposes an interesting new measure of economic welfare. While by no means perfect,it is considerably more comprehensive than average income... 详解:观点态度题。由第三段第二句可知,虽然琼斯-克列诺计算法不能称之为完美,但它比只考虑平均收入的 方法要全面很多,D)“它是一种衡量人民经济幸福感的更加全面的方法”与此意思一致,因此应选D。该选项中的 a more comprehensive measure 对应定位句中的considerably more comprehensive than average income。 点睛:A)“它广泛地应用于比较不同国家的经济增长”是强干扰项,原文第三段最后一句提到琼斯-克列诺计 算法可以用来评估不同国家的经济表现,A 中的is widely used“现在被广泛用于”和原文中的can be used“可以用 于”存在语义上的差别,而且A 中的economic growth“经济增长”和原文中的economic performance“经济表现” 也不能完全对等,故排除A;B)“它对衡量普通民众生活水平的方式进行了彻底改革”夸大了琼斯-克列诺计算法与 人口普查局所用方法的不同,故排除;C)“它关注人民的消费水平而不是他们的平均收入”是对原文的曲解,原文 中说这种方法“比只考虑平均收入的方法要全面很多”,且该方法“不仅考虑了人均消费水平的增长情况,还纳入 了工作时间的变化、预期寿命和经济不平等方面的相关数据”,C 与原文不符,故排除。"
+        },
+        {
+          "number": 48,
+          "stem": "What do Jones and Klenow think of the comparison between France and the U.S. in terms of real consumption per person?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It reflected the existing big gap between the two economies."
+            },
+            {
+              "key": "B",
+              "text": "It neglected many important indicators of people’s welfare."
+            },
+            {
+              "key": "C",
+              "text": "It covered up the differences between individual citizens."
+            },
+            {
+              "key": "D",
+              "text": "It failed to count in their difference in natural resources."
+            }
+          ],
+          "answer": "B",
+          "explanation": "答案:B 定位:由题干中的comparison between France and the U.S. in terms of real consumption per person 定位 到原文第五段前两句:In 2005,as the authors observe,real consumption per person in France was only 60% as high as the U.S.,makiIn 2005,as the authors observe,real consumption per person in France was only 60% as high as the U.S.,making it appear that Americans were economically much better off than the French on average. However,that comparison omits other relevant factors:leisure time,life expectancy,and economic inequality. 详解:观点态度题。定位句提到,只比较两国人均消费水平这种对比方法“忽略了其他相关因素:休闲时间、 预期寿命和经济不平等”,B)选项中的neglected many important indicators 对应定位句中的omits other relevant factors, 故B 为答案。 点睛:原文第五段最后一句提到,“由于这些差异,只对比美法之间的消费水平得出的经济差异就有些言过其 实了”,A)“它反映了两国经济之间目前存在着巨大差距”和原文意思相反,可排除;C)“它掩盖了公民个体之间 的差异”和D)“它没有算入自然资源之间的差异”原文未提及,故均排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What is an advantage of the Jones-Klenow method?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It can accurately pinpoint a country’s current economic problems."
+            },
+            {
+              "key": "B",
+              "text": "It can help to raise people’s awareness of their economic well-being."
+            },
+            {
+              "key": "C",
+              "text": "It can diagnose the causes of a country’s slowing pace of economic improvement."
+            },
+            {
+              "key": "D",
+              "text": "It can compare a country’s economic conditions between different periods of time."
+            }
+          ],
+          "answer": "D",
+          "explanation": "答案:D 定位:由题干中的advantage 和Jones-Klenow method 定位到原文第三段最后一句:Moreover,it can be used to assess economic performance both across countries and over time.以及第七段第一句:The Jones-Klenow measure can also assess an economy’s performance over time. 详解:事实细节题。本题考查琼斯-克列诺计算法有什么优点。由原文可知,用这种方法不仅可以评估不同国家 的经济表现,还能对比同一个国家不同时期的经济表现,第三段最后一句和第七段第一句都提到了这一点。D 中的 compare a country’s economic conditions 对应两个定位句中的assess economic performance 和assess an economy’s performance,而between different periods of time 对应定位句中的over time,故D 为答案。 点睛:A)“它能准确地找出一个国家的现阶段的经济问题”和C)“它能诊断出一个国家经济提升速度缓慢的原 因”都是对倒数第二段最后两句的曲解,原文只是提到“2007 年之后,美国的经济福利依然在增长,但提升速度明 显放缓”,但并未提及原因为何,也未对此进行解释,故排除这两项;B)“它有助于提升了人们对自身经济幸福感 的认识”,原文未提及,故排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What can we infer from the passage about American people’s economic well-being?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is much better than that of their European counterparts."
+            },
+            {
+              "key": "B",
+              "text": "It has been on the decline ever since the turn of the century."
+            },
+            {
+              "key": "C",
+              "text": "It has not improved as much as reported by the Census Bureau."
+            },
+            {
+              "key": "D",
+              "text": "It has not been accurately assessed and reported since mid-2000s."
+            }
+          ],
+          "answer": "C",
+          "explanation": "答案:C 定位:由题干中的American people’s economic well-being 和四个选项内容定位到原文倒数第二段最后三句: According to this measure,as of the early-to-mid-2000s,the U.S. had the highest economic welfare of any large country. Since 2007,economic welfare in the U.S. has continued to improve. However,the pace of improvement has slowed markedly. 详解:推理判断题。定位句提到:“从2000 年初到2005 年,美国一直是大国中经济福利最好的。2007 年之后, 美国的经济福利依然在增长,但提升速度明显放缓。”C)“它的提升不像人口普查局报告的那么高”符合此意,故 C 为答案。 点睛:A)“它比其他欧洲强国要好得多”,由定位句可知,这是截止到2005 年的情况,现在并不是这样,故 排除;B)“它从本世纪初就一直在下滑”,定位句提到,美国的经济福利还在增长,只是增长速度放慢了而已,B 曲解了原文意思,故排除;D)“它从2005 年开始就未被准确评估和报告过”与原文意思不一样,故排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2018-06-3-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "If you've ever started a sentence with,\"If I were you...\"or found yourself scratching your head at a colleague's agony over a decision when the answer is crystal-clear, there's a scientific reason behind it. Our own decision-making abilities can become depleted over the course of the day causing indecision or poor choices, but choosing on behalf of someone else is an enjoyable task that doesn't suffer the same pitfalls. The problem is\"decision fatigue,\"a psychological phenomenon that takes a toll on the quality of your choices after a long day of decision making, says Evan Polman, a leading psychologist. Physicians who have been on the job for several hours, for example, are more likely to prescribe antibiotics to patients when it's unwise to do so.\"Presumably it's because it's simple and easy to write a prescription and consider a patient case closed rather than investigate further,\"Polman says. But decision fatigue goes away when you are making the decision for someone else. When people imagine themselves as advisers and imagine their own choices as belonging to someone else, they feel less tired and rely less on decision shortcuts to make those choices.\"By taking upon the role of adviser rather than decision maker,one does not suffer the consequences of decision fatigue,\"he says.\"It is as if there is something fun and liberating about making someone else's choice.\" Getting input from others not only offers a fresh perspective and thought process, it often also includes riskier choices. While this sounds undesirable, it can be quite good, says Polman.\"when people experience decision fatigue-when they are tired of making choices-they have a tendency to choose to go with status quo (现状),\"he says.\"But the status quo can be problematic. since a change in the course of action can sometimes be important and lead to a positive outcome.\" In order to achieve a successful outcome or reward, some level of risk is almost always essential.\"people who are susceptible to decision fatigue will likely choose to do nothing over something,\"he says.\"That's not to say that risk is always good, but it is related to taking action, whereas decision fatigue assuredly leads to inaction and the possible chagrin (懊恼) of a decision maker who might otherwise prefer a new course but is unfortunately hindered.\" Just because you can make good choices for others doesn't mean you'll do the same for yourself, polman cautions.\"Research has found that women negotiate higher salaries for others than they do for themselves,\" he says, adding that people slip in and out of decision roles."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the author say about people making decisions?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They may become exhausted by making too many decisions for themselves."
+            },
+            {
+              "key": "B",
+              "text": "They are more cautious in making decisions for others than for themselves."
+            },
+            {
+              "key": "C",
+              "text": "They tend to make decisions the way they think advantageous to them."
+            },
+            {
+              "key": "D",
+              "text": "They show considerable differences in their decision-making abilities."
+            }
+          ],
+          "answer": "A",
+          "explanation": "答案:A 定位:由题干中的making decisions 定位到原文第一段第二句:Our own decision-making abilities can become depleted over the course of the day causing indecision or poor choices...和第二段:The problem is\"decision fatigue,\"a psychological phenomenon that takes a toll on ... 详解:观点态度题。由定位句可知,我们为自己做决定的能力可能会随着一天中时间的流逝而大大下降,第二 段解释说这是“决策疲劳”,是“在经历了不停的决策的漫长一天后会出现的一种心理学现象”,A 中的become exhausted 和making too many decisions 对应定位句中的depleted over the course of the day 和第二段中的fatigue 及after a long day of decision making,故A 为答案。 点睛:B)“他们在帮别人做决定时会比为自己做决定是更谨慎”,原文只是说帮别人做决定是件令人愉悦的事, 并未提及是否会更谨慎,故排除该项;C)“他们会以他们认为对自己有利的方式来做决定”,原文未提及,故排除; D)“他们做决定的能力有巨大的差异”是强干扰项,原文提到当别人做决定时,决策疲劳这种现象会消失,人不会 觉得那么累,对比的是在替自己做决定和替别人做决定时决策疲劳的程度,而不是做决定的能力,故排除D。"
+        },
+        {
+          "number": 52,
+          "stem": "What does the example about the physicians illustrate?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Patients seldom receive due care towards the end of the day."
+            },
+            {
+              "key": "B",
+              "text": "Prescription of antibiotics can be harmful to patients' health."
+            },
+            {
+              "key": "C",
+              "text": "Decision fatigue may prevent people making wise decisions."
+            },
+            {
+              "key": "D",
+              "text": "Medical doctors are especially susceptible to decision fatigue."
+            }
+          ],
+          "answer": "C",
+          "explanation": "答案:C 定位:由题干中的physicians 定位到原文第三段第一句:Physicians who have been on the job for several hours, for example, are more likely to prescribe antibiotics to patients when it's unwise to do so. 详解:主旨大意题。由定位句可知,已经工作了数小时的医生更有可能在昏头的情况下给病人开抗生素。例子 都是为了支撑观点,医生的例子是为了支撑第二段中伯尔曼关于“决策疲劳”的观点,即决策疲劳这种心理学现象 会影响人的决策质量,C 中的prevent people making wise decisions 对应定位句中的when it’s unwise to do so 和第二段 中的takes a toll on the quality of your choices 故为C 答案。 点睛:A)“病人很少能在一天要结束的时候得到应有的护理”和B)“抗生素处方对病人的健康有害”是对定位 句的过度推断,定位句只是说医生在决策疲劳状态下更可能做出并不明智的决定,A 和B 把这句话的意思引申过度, 故排除;D)“医生尤其容易受决策疲劳影响”是对原文的过度推测,原文只是说连续工作几小时的医生更可能会做 出不明智的决定,而不是所有的医生都更容易受决策疲劳影响,故排除D。"
+        },
+        {
+          "number": 53,
+          "stem": "When do people feel less decision fatigue?",
+          "options": [
+            {
+              "key": "A",
+              "text": "When they take decision shortcuts."
+            },
+            {
+              "key": "B",
+              "text": "When they help others to make decisions."
+            },
+            {
+              "key": "C",
+              "text": "When they have major decisions to make."
+            },
+            {
+              "key": "D",
+              "text": "When they have advisers to tum to."
+            }
+          ],
+          "answer": "B",
+          "explanation": "答案:B 定位:由题干中的when 和feel less decision fatigue 定位到原文第四段前两句:But decision fatigue goes away when you are making the decision for someone else. When people imagine themselves as advisers and imagine their own choices as belonging to someone else, they feel less tired and relyless on decision shortcuts to make those choices. 详解:事实细节题。由定位句可知,当你替别人做决定时,决策疲劳就会消失无踪。当人们将自己想象成提建 议者并将他们自己的决定想象成别人面临的抉择时,他们的疲劳程度会减轻。题干中的feel less decision fatigue 对 应原文中的decision fatigue goes away 和feel less tired,B 项中的help others to make decisions 对应定位句中的making the decision for someone else,故B 为答案。 点睛:A)“当他们做决策走捷径时”是对定位句第二句的曲解,原文是说将自己想象成提建议者做决定时会更 少地依赖走捷径,故排除;C)“当他们需要做出重大决定时”原文未提及,故排除;D)“当他们可以求助于别人给 出建议时”是对定位句第二句的曲解,原文是把自己想象成提建议者,而不是去寻求别人的建议,故排除。"
+        },
+        {
+          "number": 54,
+          "stem": "What are people likely to do when decision fatigue sets in?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They tum to physicians for advice."
+            },
+            {
+              "key": "B",
+              "text": "They tend to make risky decisions."
+            },
+            {
+              "key": "C",
+              "text": "They adopt a totally new perspective."
+            },
+            {
+              "key": "D",
+              "text": "They refrain from trying anything new."
+            }
+          ],
+          "answer": "D",
+          "explanation": "答案:D 定位:由题干和四个选项定位到第五段第三句:\"when people experience decision fatigue-when they are tired of making choices-they have a tendency to choose to go with status quo (现状),\"he says.和第六段第二句:\"people who are susceptible to decision fatigue will likely choose to do nothing over something,\"he says. 详解:事实细节题。本题考查当人们遭遇决策疲劳时可能会有什么举动,题干中的people likely to do 对应定位 句中的have a tendency to choose to 和likely choose to。由定位句可知,人们在经历决策疲劳时,倾向于维持现状, 往往可能选择不作为,而非有所作为。D)“他们避免尝试任何新的东西”符合原文意思,故为答案。 点睛:A)“他们会向医生寻求建议”原文未提及,故排除;B)“他们往往会做出冒险的决策”是对原文第五段 第一句的曲解,原文是说从别人那里寻求建议可能会带来更为冒险的决定,而不是自己遭遇决策疲劳时会做出冒险 的决定,故排除该项;C)“他们会采取一个全新的思路”,原文倒数第二段最后一句提到,决策疲劳会阻碍那些本 来希望尝试新思路的人做出行动,C)和原文意思完全相反,故排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What does the passage say about taking some risk in decision making?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is vital for one to reach the goal desired."
+            },
+            {
+              "key": "B",
+              "text": "It is likely to entail serious consequences."
+            },
+            {
+              "key": "C",
+              "text": "It will enable people to be more creative."
+            },
+            {
+              "key": "D",
+              "text": "It will more often than not end in regret."
+            }
+          ],
+          "answer": "A",
+          "explanation": "答案:A 定位:由题干中的taking some risk 和四个选项定位到原文倒数第二段第一句:In order to achieve a successful outcome or reward, some level of risk is almost always essential. 详解:事实细节题。由定位句可知,伯尔曼认为为了获得成功或回报,某种程度的冒险总是必不可少的。A 中 的vital 和reach the goal desired 分别对应定位句中的essential 和achieve a successful outcome or reward,故A 为答案。 点睛:B)“这可能导致严重的后果”和原文意思相反,原文第五段一直在说冒险的好处和不采取任何行动的坏 处,故排除该项;C)“它是人们更为创新”属于张冠李戴,原文倒数第三段首句提到从别人那里寻求建议能够提供 新的视角和思维过程,这是寻求别人的建议的好处,而不是做决策时冒险的好处,故排除C;D)“这往往以懊恼告 终”是强干扰选项,考查对倒数第二段最后一句话的理解,该句话后半句的主语是decision fatigue,谓语是leads to, 宾语是inaction and the possible chagrin,句子大意为“决策疲劳一定会导致不作为和懊恼”,而D)选项的主语it 代 指的是题干中的taking some risk in decision making“在做决策时冒一些风险”,属于张冠李戴,故排除D。"
+        }
+      ]
+    }
+  ]
+}

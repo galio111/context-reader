@@ -1,0 +1,1565 @@
+{
+  "id": "cet4-2018-12-1",
+  "level": 4,
+  "year": 2018,
+  "month": 12,
+  "set": 1,
+  "title": "2018 年 12 月四级 · 第 1 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.12/%E7%9C%9F%E9%A2%98Word/2018%E5%B9%B412%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC%E4%B8%80%E5%A5%97.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2018.12%E5%9B%9B%E7%BA%A7%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%E7%AC%AC%E4%B8%80%E5%A5%97.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2018-12-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Millions die early from air pollution each year. Air pollution costs the global economy more than $5 trillion annually in welfare costs, with the most serious [[26]] occurring in the developing world. The figures include a number of costs [[27]] with air pollution. Lost income alone amounts to $225 billion a year. The report includes both indoor and outdoor air pollution. Indoor pollution, which includes [[28]] like home heating and cooking, has remained [[29]] over the past several decades despite advances in the area. Levels of outdoor pollution have grown rapidly along with rapid growth in industry and transportation. Director of Institute for Health Metrics and Evaluation Chris Murray [[30]] it as an “urgent call to action.”“One of the risk factors for premature deaths is the air we breathe, over which individuals have little [[31]] ,”he said. The effects of air pollution are worst in the developing world, where in some places lost-labor income [[32]] nearly 1% of GDP. Around 9 in 10 people in low-and middle-income countries live in places where they [[33]] experience dangerous levels of outdoor air pollution. But the problem is not limited [[34]] to the developing world. Thousands die prematurely in the U.S. as a result of related illnesses. In many European countries, where diesel(柴油) [[35]] have become more common in recent years, that number reaches tens of thousands."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "ability"
+        },
+        {
+          "key": "B",
+          "text": "associated"
+        },
+        {
+          "key": "C",
+          "text": "consciously"
+        },
+        {
+          "key": "D",
+          "text": "constant"
+        },
+        {
+          "key": "E",
+          "text": "control"
+        },
+        {
+          "key": "F",
+          "text": "damage"
+        },
+        {
+          "key": "G",
+          "text": "described"
+        },
+        {
+          "key": "H",
+          "text": "equals"
+        },
+        {
+          "key": "I",
+          "text": "exclusively"
+        },
+        {
+          "key": "J",
+          "text": "innovated"
+        },
+        {
+          "key": "K",
+          "text": "regularly"
+        },
+        {
+          "key": "L",
+          "text": "relates"
+        },
+        {
+          "key": "M",
+          "text": "sources"
+        },
+        {
+          "key": "N",
+          "text": "undermine"
+        },
+        {
+          "key": "O",
+          "text": "vehicles"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "ability"
+            },
+            {
+              "key": "B",
+              "text": "associated"
+            },
+            {
+              "key": "C",
+              "text": "consciously"
+            },
+            {
+              "key": "D",
+              "text": "constant"
+            },
+            {
+              "key": "E",
+              "text": "control"
+            },
+            {
+              "key": "F",
+              "text": "damage"
+            },
+            {
+              "key": "G",
+              "text": "described"
+            },
+            {
+              "key": "H",
+              "text": "equals"
+            },
+            {
+              "key": "I",
+              "text": "exclusively"
+            },
+            {
+              "key": "J",
+              "text": "innovated"
+            },
+            {
+              "key": "K",
+              "text": "regularly"
+            },
+            {
+              "key": "L",
+              "text": "relates"
+            },
+            {
+              "key": "M",
+              "text": "sources"
+            },
+            {
+              "key": "N",
+              "text": "undermine"
+            },
+            {
+              "key": "O",
+              "text": "vehicles"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F)damage。详解)名词辨析题。空格前面是形容词最高级themost serious,后面为现在分词短语 occurring inthedevelopingworld作后置定语,因此空格处需要填人名词形式。空格前一句提到,在福利支 出方面,空气污染每年给全球经济带来的损失高于5万亿美元,那么对发展中国家而言,必然造成最为严重 的影响。因此,空格处需要填人一个表示“不良影响\"或“损失”的名词。由此确定名词F)damage\"损害,损 失”为本题答案。备选的其他名词中,均与此处要表达的“不良影响”或“损失”意思不符,均可排除。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "ability"
+            },
+            {
+              "key": "B",
+              "text": "associated"
+            },
+            {
+              "key": "C",
+              "text": "consciously"
+            },
+            {
+              "key": "D",
+              "text": "constant"
+            },
+            {
+              "key": "E",
+              "text": "control"
+            },
+            {
+              "key": "F",
+              "text": "damage"
+            },
+            {
+              "key": "G",
+              "text": "described"
+            },
+            {
+              "key": "H",
+              "text": "equals"
+            },
+            {
+              "key": "I",
+              "text": "exclusively"
+            },
+            {
+              "key": "J",
+              "text": "innovated"
+            },
+            {
+              "key": "K",
+              "text": "regularly"
+            },
+            {
+              "key": "L",
+              "text": "relates"
+            },
+            {
+              "key": "M",
+              "text": "sources"
+            },
+            {
+              "key": "N",
+              "text": "undermine"
+            },
+            {
+              "key": "O",
+              "text": "vehicles"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)associated。详解)动词辨析题。空格所在句的主语是thefigures,谓语是include,宾语是anumber ofcosts,句子成分完整。空格前面为名词costs,后面为介宾结构withairpollution,由此推断空格处需要填 人动词分词形式或形容词,与介词with搭配构成后置定语,修饰a number of costs。文章首段提到,空气污 染每年给全球经济带来的损失高于5万亿美元,本句承接首段指出,该数据包含了大量的成本损失。因此, 空格处所填词应与后面的withair pollution 搭配表达“与空气污染相关的”的意思。备选词中符合以上要求 的只有associated,beassociatedwith...意思为”与..相关”,由此确定答案为B)。空格处需要填人动词 分词形式或形容词,且与介词with搭配,因此可以排除constant、described和innovated。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "ability"
+            },
+            {
+              "key": "B",
+              "text": "associated"
+            },
+            {
+              "key": "C",
+              "text": "consciously"
+            },
+            {
+              "key": "D",
+              "text": "constant"
+            },
+            {
+              "key": "E",
+              "text": "control"
+            },
+            {
+              "key": "F",
+              "text": "damage"
+            },
+            {
+              "key": "G",
+              "text": "described"
+            },
+            {
+              "key": "H",
+              "text": "equals"
+            },
+            {
+              "key": "I",
+              "text": "exclusively"
+            },
+            {
+              "key": "J",
+              "text": "innovated"
+            },
+            {
+              "key": "K",
+              "text": "regularly"
+            },
+            {
+              "key": "L",
+              "text": "relates"
+            },
+            {
+              "key": "M",
+              "text": "sources"
+            },
+            {
+              "key": "N",
+              "text": "undermine"
+            },
+            {
+              "key": "O",
+              "text": "vehicles"
+            }
+          ],
+          "answer": "M",
+          "explanation": "M)sources。详解)名词辨析题。空格处前面有动词includes,后面有介词like表示列举,因此需要填 人名词作宾语。文章围绕airpollution展开,本句中提到indoorpollution,并列举了“家庭供暖和烹饪”这两 种室内污染,因此此处应填入名词,且意思上与“家庭供暖和烹饪”有关。根据日常生活分析,“家庭供暖和 烹饪”均是室内污染的来源,由此确定M)sources“来源,根源\"为本题答案。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "ability"
+            },
+            {
+              "key": "B",
+              "text": "associated"
+            },
+            {
+              "key": "C",
+              "text": "consciously"
+            },
+            {
+              "key": "D",
+              "text": "constant"
+            },
+            {
+              "key": "E",
+              "text": "control"
+            },
+            {
+              "key": "F",
+              "text": "damage"
+            },
+            {
+              "key": "G",
+              "text": "described"
+            },
+            {
+              "key": "H",
+              "text": "equals"
+            },
+            {
+              "key": "I",
+              "text": "exclusively"
+            },
+            {
+              "key": "J",
+              "text": "innovated"
+            },
+            {
+              "key": "K",
+              "text": "regularly"
+            },
+            {
+              "key": "L",
+              "text": "relates"
+            },
+            {
+              "key": "M",
+              "text": "sources"
+            },
+            {
+              "key": "N",
+              "text": "undermine"
+            },
+            {
+              "key": "O",
+              "text": "vehicles"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)constant。详解)形容词辨析题。空格前为系动词remained,因此空格处应填人形容词或动词分词 形式,作其表语。在空格所在句中,介词despite引导了一个介宾结构,表示转折让步,提到“尽管在这方面已 经有所改进”,因此空格所在处在意思上应与后面的介宾结构相反,所以空格处需要填人一个表示“没有改 善”或\"依旧存在\"的形容词。由此确定D)constant\"持续不断的,经常发生的\"为本题答案。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "ability"
+            },
+            {
+              "key": "B",
+              "text": "associated"
+            },
+            {
+              "key": "C",
+              "text": "consciously"
+            },
+            {
+              "key": "D",
+              "text": "constant"
+            },
+            {
+              "key": "E",
+              "text": "control"
+            },
+            {
+              "key": "F",
+              "text": "damage"
+            },
+            {
+              "key": "G",
+              "text": "described"
+            },
+            {
+              "key": "H",
+              "text": "equals"
+            },
+            {
+              "key": "I",
+              "text": "exclusively"
+            },
+            {
+              "key": "J",
+              "text": "innovated"
+            },
+            {
+              "key": "K",
+              "text": "regularly"
+            },
+            {
+              "key": "L",
+              "text": "relates"
+            },
+            {
+              "key": "M",
+              "text": "sources"
+            },
+            {
+              "key": "N",
+              "text": "undermine"
+            },
+            {
+              "key": "O",
+              "text": "vehicles"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G)described。(详解)动词辨析题。空格前面是主语,空格后面为代词it,且后面一句使用过去时态,因 此推断空格处应填入动词过去式作谓语。该动词应该能够与宾语it后面的as搭配。动词G)described指 绘,描述\"符合以上要求,故为答案。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "ability"
+            },
+            {
+              "key": "B",
+              "text": "associated"
+            },
+            {
+              "key": "C",
+              "text": "consciously"
+            },
+            {
+              "key": "D",
+              "text": "constant"
+            },
+            {
+              "key": "E",
+              "text": "control"
+            },
+            {
+              "key": "F",
+              "text": "damage"
+            },
+            {
+              "key": "G",
+              "text": "described"
+            },
+            {
+              "key": "H",
+              "text": "equals"
+            },
+            {
+              "key": "I",
+              "text": "exclusively"
+            },
+            {
+              "key": "J",
+              "text": "innovated"
+            },
+            {
+              "key": "K",
+              "text": "regularly"
+            },
+            {
+              "key": "L",
+              "text": "relates"
+            },
+            {
+              "key": "M",
+              "text": "sources"
+            },
+            {
+              "key": "N",
+              "text": "undermine"
+            },
+            {
+              "key": "O",
+              "text": "vehicles"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E)control。详解)名词辨析题。空格位于从句中,从句的主语是individuals,谓语是have,空格前还有 形容词little修饰,所以需要填入不可数名词,且能与前面的over搭配。空格前面提到,导致人们过早死亡 的一个风险因素就是我们吸人的空气,而呼吸空气是人类生存的必需条件,个人无法改变或控制。因此空格 处应填人一个表示无法“改变\"或“操控\"的名词。E)control\"控制,掌控\"符合要求,故为答案。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "ability"
+            },
+            {
+              "key": "B",
+              "text": "associated"
+            },
+            {
+              "key": "C",
+              "text": "consciously"
+            },
+            {
+              "key": "D",
+              "text": "constant"
+            },
+            {
+              "key": "E",
+              "text": "control"
+            },
+            {
+              "key": "F",
+              "text": "damage"
+            },
+            {
+              "key": "G",
+              "text": "described"
+            },
+            {
+              "key": "H",
+              "text": "equals"
+            },
+            {
+              "key": "I",
+              "text": "exclusively"
+            },
+            {
+              "key": "J",
+              "text": "innovated"
+            },
+            {
+              "key": "K",
+              "text": "regularly"
+            },
+            {
+              "key": "L",
+              "text": "relates"
+            },
+            {
+              "key": "M",
+              "text": "sources"
+            },
+            {
+              "key": "N",
+              "text": "undermine"
+            },
+            {
+              "key": "O",
+              "text": "vehicles"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H)equals。详解动词辨析题。通过分析句子结构可知,空格位于where引导的定语从句中,空格前的 lost-laborincome为主语,空格后的nearly1%of GDP是宾语,所以该从句缺少谓语动词;且前半句时态为 一般现在时,所以空格处应填入动词第三人称单数形式。空格前的主句指出,发展中国家受空气污染影响最 为严重,空格所在句进一步说明严重的程度。H)equals“等同,相当于\"符合句意,此处意为“在一些地区, 劳动力收人损失几乎相当于国内生产总值的1%”。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "ability"
+            },
+            {
+              "key": "B",
+              "text": "associated"
+            },
+            {
+              "key": "C",
+              "text": "consciously"
+            },
+            {
+              "key": "D",
+              "text": "constant"
+            },
+            {
+              "key": "E",
+              "text": "control"
+            },
+            {
+              "key": "F",
+              "text": "damage"
+            },
+            {
+              "key": "G",
+              "text": "described"
+            },
+            {
+              "key": "H",
+              "text": "equals"
+            },
+            {
+              "key": "I",
+              "text": "exclusively"
+            },
+            {
+              "key": "J",
+              "text": "innovated"
+            },
+            {
+              "key": "K",
+              "text": "regularly"
+            },
+            {
+              "key": "L",
+              "text": "relates"
+            },
+            {
+              "key": "M",
+              "text": "sources"
+            },
+            {
+              "key": "N",
+              "text": "undermine"
+            },
+            {
+              "key": "O",
+              "text": "vehicles"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K)regularly。(详解)副词辨析题。空格前面是代词they,后面为动词experience及名词短语 dangerouslevelsofoutdoorairpollution,因此空格处需要填人副词。前一句中提到,在一些地区,劳动力收 入损失几乎相当于国内生产总值的1%。空格所在句进一步解释造成劳动力收人损失的原因。因此,空格 处需要填人一个表示“长期以来”或“一直这样\"的副词,用来修饰'experience。由此确定副词regularly为本 题答案,意思为“经常”。备选的副词中,consciously\"有意识地,自觉地”和exclusively\"独有地,仅仅”均与 此处意思不符,故排除。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "ability"
+            },
+            {
+              "key": "B",
+              "text": "associated"
+            },
+            {
+              "key": "C",
+              "text": "consciously"
+            },
+            {
+              "key": "D",
+              "text": "constant"
+            },
+            {
+              "key": "E",
+              "text": "control"
+            },
+            {
+              "key": "F",
+              "text": "damage"
+            },
+            {
+              "key": "G",
+              "text": "described"
+            },
+            {
+              "key": "H",
+              "text": "equals"
+            },
+            {
+              "key": "I",
+              "text": "exclusively"
+            },
+            {
+              "key": "J",
+              "text": "innovated"
+            },
+            {
+              "key": "K",
+              "text": "regularly"
+            },
+            {
+              "key": "L",
+              "text": "relates"
+            },
+            {
+              "key": "M",
+              "text": "sources"
+            },
+            {
+              "key": "N",
+              "text": "undermine"
+            },
+            {
+              "key": "O",
+              "text": "vehicles"
+            }
+          ],
+          "answer": "I",
+          "explanation": "I)exclusively。详解副词辨析题。通过分析句子结构可知,该句句子成分完整,因此空格处很可能需 要填入副词,以修饰其前的limited。前文提到了空气污染给发展中国家带来的影响。空格所在段则阐述了 空气污染对发达国家的影响。因此,空格处需要填人一个表示“独有地,仅仅”的副词,修饰limited,表明这 一情况并非发展中国家所独有。由此确定副词exclusively为本题答案。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "ability"
+            },
+            {
+              "key": "B",
+              "text": "associated"
+            },
+            {
+              "key": "C",
+              "text": "consciously"
+            },
+            {
+              "key": "D",
+              "text": "constant"
+            },
+            {
+              "key": "E",
+              "text": "control"
+            },
+            {
+              "key": "F",
+              "text": "damage"
+            },
+            {
+              "key": "G",
+              "text": "described"
+            },
+            {
+              "key": "H",
+              "text": "equals"
+            },
+            {
+              "key": "I",
+              "text": "exclusively"
+            },
+            {
+              "key": "J",
+              "text": "innovated"
+            },
+            {
+              "key": "K",
+              "text": "regularly"
+            },
+            {
+              "key": "L",
+              "text": "relates"
+            },
+            {
+              "key": "M",
+              "text": "sources"
+            },
+            {
+              "key": "N",
+              "text": "undermine"
+            },
+            {
+              "key": "O",
+              "text": "vehicles"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O)vehicles。详解)名词辨析题。空格前有名词diesel,后有谓语havebecome,所以需要填入名词复数 形式与名词diesel搭配构成句子的主语。通过上下文可知,本段讲的是空气污染对发达国家也产生了很大 影响,因为近年来,欧洲柴油车日益普遍,使得欧洲这些发达国家也面临着同样严重的问题。因此,本题答案 为O)vehicles\"交通工具,车辆”。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2018-12-1-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Several times a month, you can find a doctor in the aisles of Ralph’s market in Huntington Beach, California, wearing a white coat and helping people learn about food. On one recent day, this doctor was Daniel Nadeau, wandering the cereal aisle with Allison Scott, giving her some idea on how to feed kids who persistently avoid anything that is healthy. “Have you thought about trying fresh juices in the morning?” he asks her. “The frozen oranges and apples are a little cheaper, and fruits are really good for the brain. Juices are quick and easy to prepare, you can take the frozen fruit out the night before and have it ready the next morning.”",
+        "B) Scott is delighted to get food advice from a physician who is program director of the nearby Mary and Dick Allen Diabetes Center, part of the St. Joseph Hoag Health alliance. The center’s ‘Shop with Your Doc’ program sends doctors to the grocery store to meet with any patients who sign up for the service, plus any other shoppers who happen to be around with questions.",
+        "C) Nadeau notices the pre-made macaroni (通心粉)-and-cheese boxes in Scott’s shopping cart and suggests she switch to whole grain macaroni and real cheese. “So I’d have to make it?”she asks, her enthusiasm fading at the thought of how long that might take, just to have her kids reject it. “I’m not sure they’d eat it. They just won’t eat it.”",
+        "D) Nadeau says sugar and processed foods are big contributors to the rising diabetes rates among children. “In America, over 50 percent of our food is processed food,” Nadeau tells her. “And only 5 percent of our food is plant-based food. I think we should try to reverse that.” Scott agrees to try more fruit juices for the kids and to make real macaroni and cheese. Score one point for the doctor, zero for diabetes.",
+        "E) Nadeau is part of a small revolution developing across California. The food-as-medicine movement has been around for decades, but it’s making progress as physicians and medical institutions make food a formal part of treatment, rather than relying solely on medications (药物). By prescribing nutritional changes or launching programs such as ‘Shop with your Doc’, they are trying to prevent, limit or even reverse disease by changing what patients eat. “There’s no question people can take things a long way toward reversing diabetes, reversing high blood pressure, even preventing cancer by food choices,” Nadeau says.",
+        "F) In the big picture, says Dr. Richard Afable, CEO and president of ST. Joseph Hoag Health, medical institutions across the state are starting to make a philosophical switch to becoming a health organization, not just a health care organization. That feeling echoes the beliefs of the Therapeutic Food Pantry program at Zuckerberg San Francisco General Hospital, which completed its pilot phase and is about to expand on an ongoing basis to five clinic sites throughout the city. The program will offer patients several bags of food prescribed for their condition, along with intensive training in how to cook it. “We really want to link food and medicine, and not just give away food,” says Dr. Rita Nguyen, the hospital’s medical director of Healthy Food Initiatives. “We want people to understand what they’re eating, how to prepare it, the role food plays in their lives.”",
+        "G) In Southern California, Loma Linda University School of Medicine is offering specialized training for its resident physicians in Lifestyle Medicine — that is a formal specialty in using food to treat disease. Research findings increasingly show the power of food to treat or reverse diseases, but that does not mean that diet alone is always the solution, or that every illness can benefit substantially from dietary changes. Nonetheless, physicians say that they look at the collective data and a clear picture emerges: that the salt, sugar, fat and processed foods in the American diet contribute to the nation’s high rates of obesity, diabetes and heart disease. According to the World Health Organization, 80 percent of deaths from heart disease and stroke are caused by high blood pressure, tobacco use, elevated cholesterol and low consumption of fruits and vegetables.",
+        "H) “It’s a different paradigm(范式) of how to treat disease,” says Dr. Brenda Rea, who helps run the family and preventive medicine residency program at Loma Linda University School of Medicine. The lifestyle medicine specialty is designed to train doctors in how to prevent and treat disease, in part, by changing patients’ nutritional habits. The medical center and school at Loma Linda also has a food cupboard and kitchen for patients. This way, patients not only learn about which foods to buy, but also how to prepare them at home.",
+        "I) Many people don’t know how to cook, Rea says, and they only know how to heat things up. That means depending on packaged food with high salt and sugar content. So teaching people about which foods are healthy and how to prepare them, she says, can actually transform a patient’s life. And beyond that, it might transform the health and lives of that patient’s family. “What people eat can be medicine or poison,” Rea says. “As a physician, nutrition is one of the most powerful things you can change to reverse the effects of long-term disease.”",
+        "J) Studies have explored evidence that dietary changes can slow inflammation(炎症), for example, or make the body inhospitable to cancer cells. In general, many lifestyle medicine physicians recommend a plant-based diet — particularly for people with diabetes or other inflammatory conditions.",
+        "K) “As what happened with tobacco, this will require a cultural shift, but that can happen,” says Nguyen. “In the same way physicians used to smoke, and then stopped smoking and were able to talk to patients about it, I think physicians can have a bigger voice in it.”"
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "More than half of the food Americans eat is factory-produced.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "D",
+          "explanation": "More than half of the food Americans eat is factory-produced. D) Nadeau says sugar and processed foods are big contributors to the rising diabetes rates among children. 译文 美国人吃的食物中有一半以上是工厂生产的。 定位 由题干中的 more than half、Americans 和 factory-produced 定位到文章D段画线处。 D)段定位句提到,在美国,超过50%的食品都是加工食品。题干中的 more than half of the food 对应原文中的 over 50 percent of our food,题干中的 factory-produced 是对原文中 processed food的同义转述,故答案为 D)。"
+        },
+        {
+          "number": 37,
+          "stem": "There is a special program that assigns doctors to give advice to shoppers in food stores.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【答案】B。【解析】文章B段首句提到，斯科特很高兴从一位医生那里获得食物方面的建议。接着一句提到，玛丽和迪克·艾伦糖尿病中心的“和你的医生一起购物”项目把医生派到杂货店，与任何报名参加这项服务的患者以及碰巧在周围遇到问题的其他购物者会面。题干中的 doctors to give advice to 是原文中 get food advice from a physician 的同义转换，assigns doctors…in food stores 是对 sends doctors to the grocery store 的同义转述。"
+        },
+        {
+          "number": 38,
+          "stem": "There is growing evidence from research that food helps patients recover from various illnesses.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "G",
+          "explanation": "Thereis growing evidence G) In Southem Califomia, Loma Linda University School'of Medicine from research that food helps is offering specialized training for its resident physicians in patients recover from various Lifestyle Medicinethat is a formal specialty in using food to treat illnesses. disease.Research findings increasingly show the power offood 译文)越来越多的研究证据 to treat or reverse diseases, but that does not mean that diet 表明,食物可以帮助患者从各 alone is always the solution,or that every illness can benefit 种疾病中恢复过来。 substantially from dietary changes.Nonetheless, physicians say 定位由题干中的growing that they look at the collective data and a clear picture emerges: [evidence from research和 that the salt, sugar,fat and processed foods in the American diet recoverfrom.variousillnesses contribute to the nation's high rates of obesity, diabetes and heart 定位到文章G)段画线处。 disease. According to the World Health Organization, 80 percent of deaths from heart disease and stroke are caused by high blood pressure, tobacco use, elevated cholesterol and low consumption of fruits and vegetables. 详解) G)段定位句提到,研究结果越来越多地显示出食物治疗或逆转疾病的力量。 题干中的 there is growing evidence from research是对原文中researchndingsincreasingly show 的同义转述,题干中的food helatientsrveomansses是对原文中howerfoodotreareversedseases 括归纳,故答案为G)。"
+        },
+        {
+          "number": 39,
+          "stem": "A healthy breakfast can be prepared quickly and easily.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Ahealthy breakfast can beA) Severaltimes amonth,you canfindadoctorintheaisles of Raph's prepared quickly and easily. market in Huntington Beach, Califomia, wearing a white coat and 译可以既快速又轻松 helpingpeople leam about foodnone recent day, this doctor was 地准备健康的早餐。 Daniel Nadeau, wandering the cereal aisle with Allison Scott, giving 定位由题干中的be hersomeidea on how tofeed kids who persistenty avoid anything that is healthy.\"Have you thought about tying fresh juices in the prepared quickly and easily “定位到文章A)段画线处。 moming?\"he asks her.\"Thefrozen oranges and apples area lile cheaper, and fruts are really good for the brain. Juices are quick and easy to prepare; you can take the frozen fruit out the night before and have it ready the next moming.\" 详解)A)段定位包提到,准备果汁挺快、挺简单的;你可以在前一天晚上把冷冻的水果拿出来,为第二天早 干中是对原中a的 故答案为A)。"
+        },
+        {
+          "number": 40,
+          "stem": "Training a patient to prepare healthy food can change their life.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "I",
+          "explanation": "Training apatient toprepare I)Manypeopledon'tknow how to cook,Rea says, and they only n healthy food can change their kmow how to heat things up.That means depending on life. fpackaged food with high salt and sugar content. So teaching 译文训练患者准备健康的食 people about which foods are healthy and how to prepare 物可以改变他们的生活。 them, she says, can actually transform a patient's life.And 定位由题干中的traininga beyond that,it might transform the health and lives of that patient to prepare healthy food 和 patient's family.\"What people eat can be medicine or poison,\" changetheir life定位到文章I)段 Rea says. \"As a physician, nutrition is one of the most powerful 画线处。 things you can change to reverse the effects of long-term disease.\" 详解)I)段定位句提到,教给人们哪些食物是健康的以及该如何准备它们实际上可以改变患者的生活。题 千中的trainingapatienttopreparehealthyfood是对原文中teachingpeopleaboutwhichfoods arehealthy andhowtopreparethem的概括归纳,题干中的changetheirlife是对原文中transfomapatient'slife的同义 转述,故答案为I)。"
+        },
+        {
+          "number": 41,
+          "stem": "One food-as-medicine program not only prescribes food for treatment but teaches patients how to cook it.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "F",
+          "explanation": "One food-as-medicineprogram F) In the big picture, says Dr. Richard Afable, CEO and president not only prescribesfood for of St.Joseph Hoag Health, medical institutions across the state treatment but teaches patients are'starting to make a philosophical switch to becoming a health how to cook it. organization,not just a health care organization.That feeling 译文一个食物即药物计划不 echoes the beliefs of the Therapeutic Food Pantry program at 仅开出治疗的食品的处方,还教给 Zuckerberg San Francisco General Hospital, which completed 患者如何烹饪。 its pilot phase and is about to expand on an ongoing basis to five 定位由题干中的program、 clinic sites throughout the city.The program will offer patients several bags of food prescribed for their condition, along prescribes food for treatment和 howtocookit定位到F)段画 with intensive training in how to cook it.“We really want to 线处。 link food and medicine, and not just give away food,\" says Dr. Rita Nguyen, the hospital's medical director of Healthy Food Initiatives.\"We want people to understand what they're eating, how to prepare it, the role food plays in their lives. \" 详解F)段定位句提到,该计划将为患者提供几袋针对其病情的处方食物以及如何烹任的强化培训。题 干中的prescribes food for treatment是对原文中food prescribed for their condition的同义转述,题干中的 teaches patients how to cook it是对原文中intensive training in how to cook it 的同义转述,故答案为F)。"
+        },
+        {
+          "number": 42,
+          "stem": "Scott is not keen on cooking food herself, thinking it would simply be a waste of time.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Scott is not keen on cooking food herself, thinking it would simply be a waste of time. 译文斯科特并不热衰于自已做饭,认 为这只是浪费时间。 定位由题干中的Scottisnotkeenon 和awasteoftime定位到文章C)段画 线处。 C)Nadeau noticesthepre-made macaroni(通心粉)- and-cheese boxes in Scott's shopping cart and suggests she switch to whole grain macaroni and real cheese. \"So I'd have to make it?\" she asks, her enthusiasm fading at the thought of how long that might take, just to have her kids reject it.“I'm not sure they'd eat it. They just won't eat it. \" 详解)C)段定位句提到,斯科特问是不是要自己动手做饭,一想到这可能需要多长时间,而只是为了让孩 子们拒绝,她的热情就消失了。由此可知,斯科特并不热衷于自己做饭,认为做饭既耗费时间,同时孩子们也 会拒绝吃。题干中的 is not keen on 是对原文中 her enthusiasm fading 的同义转述,题干中的 simply be a waste of time 是对原文中 at the thought of how long that might take, just to have her kids reject it 的概括归 纳,故答案为 C)。"
+        },
+        {
+          "number": 43,
+          "stem": "Diabetes patients are advised to eat more plant-based food.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "J",
+          "explanation": "Diabetes patients are advised to eat more plant-J)Studies have explored evidence thati dietary based food. 译文糖尿病患者被建议多吃以植物为基础的 食物。 定位由题干中的diabetespatients、advised和 plant-based food定位到文章J)段画线处。 changescan slow inflammation(炎症),for example, or make the body inhospitable to cancer cells.In'general,manylifestyle medicine physicians recommend a plant- based diet-particularly for people with diabetes or other inflammatory conditions. 详解)J)段定位句提到,一般说来,许多生活方式医学专业的医生建议以植物为基础的饮食一 特别是糖 尿病或其他炎症性疾病患者。题干中的are advised to eat moreplant-basedfood是对原文中recommend a plant-baseddiet一particularlyforpeoplewithdiabetes的同义转述,故答案为J)。"
+        },
+        {
+          "number": 44,
+          "stem": "Using food as medicine is no novel idea, but the movement is making headway these days.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "E",
+          "explanation": "Using food as medicine is no E) Nadeau is part of a small revolution developing across novel idea, but the movement is making headway these days. 译文用食物作为药物并非新 奇的想法,但近来这一运动正在取 得进展。 定位由题干中的usingfood as medicine 和making headway 定位到文章E)段画线处。 Califomia. The food-as-medicine movement has been around for decades, but it's making progress as physicians and medical institutions makefood a formal part of treatment, ratherthanrelying solelyonmedicatioms(药物).By prescribing nutritional changes or launching programs such as \"Shop with Your Doc\", they are trying to prevent, limit or even reverse disease by changing what patients eat. There's no question people can take things a long way toward reversing diabetes, reversing high blood-pressure, even preventing cancer by food choices,\" Nadeau says. 详解E)段定位句提到,食物即药物运动已经存在了几十年,但随着医生和医疗机构不再仅仅依靠药物, 而是将食物作为治疗的正式部分,这项运动正在取得进展。题干中的using foodasmedicineis no novel idea 是对原文中thefood-as-medicinemovementhasbeen around fordecades的同义转述,题千中的making headway是对原文中makingprogress的同义转述,故答案为E)。"
+        },
+        {
+          "number": 45,
+          "stem": "Americans’ high rates of various illnesses result from the way they eat.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "G",
+          "explanation": "Americanshighrates of G) In Southern.California, Loma Linda University School of Medicine is variousillnessesresult offering specialized training for its resident physicians in Lifestyle from the way they eat. Medicinethat is a formal specialty in using food to treat disease. 译文)美国人各种疾病 Research findings increasingly show the power of food to treat or 的高发病率是由他们的饮 reverse diseases, but that does not mean that diet alone is always the 食方式造成的。 solution, or that every illness can benefit substantially from dietary 定位由题干中的high changes. Nonetheless, physicians say that they look at the collective data and a clear picture emerges: that the salt, sugar, fat and rates of various illnesses processed foods in the American diet contribute to the nation's 和thewaytheyeat定位 high rates of obesity,diabetes and heart disease. According to 到文章G)段画线处。 the World Health Organization, 80 percent of deaths from heart disease and stroke are caused by high blood pressure, tobacco use, elevated cholesterol and low consumption of fruits and vegetables. 详解G)段定位句提到,美国人饮食中的盐、糖、脂肪和加工食品导致了本国肥胖、糖尿病和心脏病的高发 病率。 题干中的 varous illesses 是对原文中 obesity, diabetes and heart disease 的概括归纳,题干中的 result from the way they eat 是对原文中 the salt, sugar, fat and processed foods in the American diet contribute to 的概括归纳,故答案为 G)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2018-12-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "California has been facing a drought for many years now, with certain areas even having to pump freshwater hundreds of miles to their distribution system. The problem is growing as the population of the state continues to expand. New research has found deep water reserves under the state which could help solve their drought crisis. Previous drilling of wells could only reach depths of 1,000 feet, but due to new pumping practices, water deeper than this can now be extracted (抽取). The team at Stanford investigated the aquifers(地下蓄水层)below this depth and found that reserves may be triple what was previously thought. It is profitable to drill to depths more than 1,000 feet for oil and gas extraction, but only recently in California has it become profitable to pump water from this depth. The aquifers range from 1,000 to 3,000 feet below the ground, which means that pumping will be expensive and there are other concerns. The biggest concern of pumping out water from this deep in the gradual settling down of the land surface. As the water is pumped out, the vacant space left is compacted by the weight of the earth above. Even though pumping from these depths is expensive, it is still cheaper than desalinating(脱盐)the ocean water in the largely coastal state. Some desalination plants exist where feasible, but they are costly to run and can need constant repairs. Wells are much more reliable sources of freshwater, and California is hoping that these deep wells may be the answer to their severe water shortage. One problem with these sources is that the deep water also has a higher level of salt than shallower aquifers. This means that some wells may even need to undergo desalination after extraction, thus increasing the cost. Research from the exhaustive study of groundwater from over 950 drilling logs has just been published. New estimates of the water reserves now go up to 2,700 billion cubic meters of freshwater."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "How could California’s drought crisis be solved according to some researchers?",
+          "options": [
+            {
+              "key": "A",
+              "text": "By building more reserves of groundwater."
+            },
+            {
+              "key": "B",
+              "text": "By drawing water from the depths of the earth."
+            },
+            {
+              "key": "C",
+              "text": "By developing more advanced drilling devices."
+            },
+            {
+              "key": "D",
+              "text": "By upgrading its water distribution system."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位)由题千中的Califormia's droughtcrisis和someresearchers定位到首段第三句:New research has found deep water reserves under the state which could help solve their drought crisis. 详解)事实细节题。文章首段第三句指出,新的研究已经发现了该州的深层地下水储备,这可以帮 助他们解决干旱危机的问题。由此可见,从地下深处取水是解决加利福尼亚州干旱危机的一个办法, 故答案为B)。 点睛)A)“通过建立更多的地下水储备”,首段第三句提到,新的研究已经发现了该州的深层地下水 储备,是通过开采更多的地下水,而非增加地下水储备,故排除;C)“通过开发更先进的钻井设备”,首段 第四句提到,以前的钻井深度仅仅能到达地下一千英尺,但是由于新的抽水方法,比这更深的地下水也可 以被抽取上来,可见钻井技术是有所提高,但并不是解决该州干旱危机的最终办法,故排除;D)“通过升 级它的水分配系统”,首段第一句提到,加利福尼亚州多年来一直面临着干早问题,一些地方甚至需要从 数百英里以外的地方抽取淡水到分配系统。但分配系统并不能从根本上缓解淡水短缺的问题,故排除。"
+        },
+        {
+          "number": 47,
+          "stem": "What can be inferred about extracting water from deep aquifers?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It was deemed vital to solving the water problem."
+            },
+            {
+              "key": "B",
+              "text": "It was not considered worth the expense."
+            },
+            {
+              "key": "C",
+              "text": "It may not provide quality freshwater."
+            },
+            {
+              "key": "D",
+              "text": "It is bound to gain support from the local people."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位)由题干中的 extracting waterfrom deep aquifers 定位到第二段第一、二句:It is proftable to drll to depths more than 1,oo feet for oil and gas extraction, but only recently in Califomia has it become profitable to pump waterfrom this depth. The aquifers range from000to3000 eetbelow theground, which means that pumping will be expensive and there are other concems. 详解)推理判断题。文章第二段第一句提到,直到最近,,在加利福尼亚州从这个深度以下抽取地下 水才变得有利可图。第二句又提到,从地下一千英尺到三千英尺的蓄水层抽水的成本是高昂的,而且 还有其他一些担优。由此可知,从深层地下蓄水层抽水在之前不被认为是物超所值的,故答案为B)。 点睛)A)“它之前被认为对解决水的问题至关重要”,文章第三段最后一句提到,加利福尼亚州正 期望这些深层地下并可以解决他们严重的淡水短缺间题,由此可见,加州现在才有这种期望,且二切均 在实晟过程中,尚无定论,A)选项的表述错误,故排除;C)”它可能不能提供高质量的淡水*:文中并没 有提到,故排除;D)“它青定会得到当地人的支持”,第二段第二句提到,除了成本高昂,人们还有其他 一些担优,由此可见,该方法不一定会得到当地人的支持,故排除。"
+        },
+        {
+          "number": 48,
+          "stem": "What is mentioned as a consequence of extracting water from deep underground?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The sinking of land surface."
+            },
+            {
+              "key": "B",
+              "text": "The harm to the ecosystem."
+            },
+            {
+              "key": "C",
+              "text": "The damage to aquifers."
+            },
+            {
+              "key": "D",
+              "text": "The change of the climate."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。 定位由题干中的a consequence ofextacingwater from deepunderground定位到第二段第三、 hstonwsng hwau,as 详翻事实细节题。文章第二段第三、四句指出,从这一深度抽水的最大担优就是地表的连渐下层。 earthabove. 随着地下水被抽走,地下所剩的空间会被上层土壤的重量所挤压。 由此可见,地下水被抽走而引发的 后果就是地表下沉,故答案为A)。 点)B)“对生态系统的破坏”、C)“对地下蓄水层的损害”和 D)“气候变化\"在文中均未提及,故 排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What does the author say about deep wells?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They run without any need for repairs."
+            },
+            {
+              "key": "B",
+              "text": "They are entirely free from pollutants."
+            },
+            {
+              "key": "C",
+              "text": "They are the ultimate solution to droughts."
+            },
+            {
+              "key": "D",
+              "text": "They provide a steady supply of freshwater."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位)由题干中的 deep wells 定位到第三段最后一旬: ells are much more reliable soure of freshwater, and Califomia is hoping that these deep wells may be the answer to their severe water shortage. 详解)推理判断题。第三段最后一句提到,地下并是淡水更为可靠的来源,而加利福尼亚州正期望 这些深层地下井可以解决他们严重的淡水短缺问题。由此可见,深层地下井可以提供稳定的淡水资 源,故答案为D)。 点睛)A)“它们不需要任何维修”,文章第三段第二句提到,有一些脱盐的工厂,它们的运营成本很 高,而且需要不断的维修,由此可见,文中并没有涉及深层地下并的维修,故排除;B)“它们完全没有污 染”,文章并未提及,故排除;C)“它们是解决干早的最终方法”,文章第三段最后一句提到,加利福尼亚州 正期望这些深层地下并可以解决他们严重的淡水短缺问题,而并非干旱问题,该项不符合文意,故排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What may happen when deep aquifers are used as water sources?",
+          "options": [
+            {
+              "key": "A",
+              "text": "People’s health may improve with cleaner water."
+            },
+            {
+              "key": "B",
+              "text": "People’s water bills may be lowered considerably."
+            },
+            {
+              "key": "C",
+              "text": "The cost may go up due to desalination."
+            },
+            {
+              "key": "D",
+              "text": "They may be exhausted sooner or later."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定位由题干中的whendeepaquifers areusedaswatersources定位到最后一段第一、二句:One problem with these sources is that the deep water also has a higher level of salt than shallower aquifers. This means that some wells may even need to undergo desalination after extraction, thus increasing the cost. 详解推理判断题。最后一段前两句指出,这些来源存在的一个问题就是深层地下水也比浅一些的 地下蓄水层的水含盐浓度要高。这就意味着从一些井里抽取上来的水甚至需要经过脱盐,从而会增加 成本。由此可见,一且这些地下水作为淡水资源,可能会出现高盐度的情况,那么就要进行脱盐,势必 会增加成本,故答案为C)。 点睛A)“有了更干净的水,人们的健康可能得到改善”,文中没有提及,故排除;B)“人们的用水账 单可能会大幅减少”,这与第四段第二句的观点矛盾,故排除;D)“它们可能迟早会枯竭”,最后一段最 后一句提到,对于地下淡水储存量的最新估计现在上升到了2.7万亿立方米,说明地下水含量极其丰 富,故排除。 1"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2018-12-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "The AlphaGo program’s victory is an example of how smart computers have become. But can artificial intelligence (AI) machines act ethically, meaning can they be honest and fair? One example of AI is driverless cars. They are already on California roads, so it is not too soon to ask whether we can program a machine to act ethically. As driverless cars improve, they will save lives. They will make fewer mistakes than human drivers do. Sometimes, however, they will face a choice between lives. Should the cars be programmed to avoid hitting a child running across the road, even if that will put their passengers at risk? What about making a sudden turn to avoid a dog? What if the only risk is damage to the car itself, not to the passengers? Perhaps there will be lessons to learn from driverless cars, but they are not super-intelligent beings. Teaching ethics to a machine even more intelligent than we are will be the bigger challenge. About the same time as AlphaGo’s triumph, Microsoft’s ‘chatbot’ took a bad turn. The software, named Taylor, was designed to answer messages from people aged 18-24. Taylor was supposed to be able to learn from the messages she received. She was designed to slowly improve her ability to handle conversations, but some people were teaching Taylor racist ideas. When she started saying nice things about Hitler, Microsoft turned her off and deleted her ugliest messages. AlphaGo’s victory and Taylor’s defeat happened at about the same time. This should be a warning to us. It is one thing to use AI within a game with clear rules and clear goals. It is something very different to use AI in the real world. The unpredictability of the real world may bring to the surface a troubling software problem. Eric Schmidt is one of the bosses of Google, which own AlphoGo. He thinks AI will be positive for humans. He said people will be the winner, whatever the outcome. Advances in AI will make human beings smarter, more able and “just better human beings.”"
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the author want to show with the example of AlphaGo’s victory?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Computers will prevail over human beings."
+            },
+            {
+              "key": "B",
+              "text": "Computers have unmatched potential."
+            },
+            {
+              "key": "C",
+              "text": "Computers are man’s potential rivals."
+            },
+            {
+              "key": "D",
+              "text": "Computers can become highly intelligent."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位)由题干中的 the author want to show with the example of AlphaGo's victory 定位到第一段: The AlphaGo program's victory is an example of how smart computers have become. 详解推理判断题。第一段指出,阿尔法狗国棋程序的成功是证明电脑已经变得多聪明的一个例 子。换句话说,阿尔法狗围棋程序曾战胜人类诸多优秀的围棋手,所以它的成功说明电脑已经高度智 能化,故答案为D)。 点睛)A)“电脑将会战胜人类”,虽然文章一开始就提到阿尔法狗围棋程序战胜了人类诸多优秀的围 棋手,但只是在围棋方面暂时战胜人类,该项范围过于宽泛,故排除;B)“电脑具有无与伦比的潜力”,文 章最后一段中埃里克·施密特指出,人类才是最终的胜利者,故排除;C)“电脑是人类潜在的竞争对手”, 文章最后一段指出,人工智能对人类是有利的,在人工智能方面的进步将使人类更聪明、更有能力,并“成 为更好的自已”。由此可见,电脑并非人类的竞争对手,而是可以为人类服务的工具,故排除。"
+        },
+        {
+          "number": 52,
+          "stem": "What does the author mean by AI machines acting ethically?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are capable of predicting possible risks."
+            },
+            {
+              "key": "B",
+              "text": "They weigh the gains and losses before reaching a decision."
+            },
+            {
+              "key": "C",
+              "text": "They make sensible decisions when facing moral dilemmas."
+            },
+            {
+              "key": "D",
+              "text": "They sacrifice everything to save human lives."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定位)由题千中的theauthormeanbyAImachinesactingethically定位到第三段第五至八句: Sometimes, however,they will face a choice between lives. Should the cars be programmed to avoid hitting a child running across the road, even if that will put their passengers at risk? What about making a sudden turn to avoid a dog? What if the only risk is damage to the car itself, not to the passengers? 详解)推理判断题。文章第三段第二句提到,我们现在询问人类能否给机器编人程序以使它们恪守 伦理道德并不算太早,接着第五至八句指出,它们有时还将面临生命的执择。这些汽车是不是应该被 编人程序以避免撞到跑着过马路的儿童,即使那样会使车上的乘客陷人危险中?如果是为了躲避一只 小狗而急转弯呢?如果这样做仅仅会造成车辆损伤而不会伤害乘客呢?换句话说,让人工智能机器恪 守伦理道德就是指,当它们面临道德上进退两难的窘境时,它们能够做出明智的选择,故答案为C)。 点睛A)“它们能够预测可能出现的危险”,文章第三段第六至八句用提问的形式指出了无人驾驶 汽车需要做出选择的一些事情,主要是指其是否能按正确的伦理道德做出合适的选择,而不是指其是 否能预测未知的事情,故排除;B)“它们在做出决定前会权衡得失”,第三段提到它们在面临生命扶择 时,该如何做出符合伦理道德的选择,而不是对得失进行权衡,故排除;D)“它们牺牲一切来拯救人类 的生命”,文章第三段第三句指出它们可以拯救生命,但是没有说牺牲一切来拯救人类的生命,故排除。"
+        },
+        {
+          "number": 53,
+          "stem": "What is said to be the bigger challenge facing humans in the AI age?",
+          "options": [
+            {
+              "key": "A",
+              "text": "How to make super-intelligent AI machines share human feelings."
+            },
+            {
+              "key": "B",
+              "text": "How to ensure that super-intelligent AI machines act ethically."
+            },
+            {
+              "key": "C",
+              "text": "How to prevent AI machines doing harm to humans."
+            },
+            {
+              "key": "D",
+              "text": "How to avoid being over-dependent on AI machines."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位)由题干中的 the bigger chalenge facing humans in the AI age 定位到第四段第二句: Teaching ethics toamachine evenmore inteigent than we are wll be the biggerchallenge. 详解事实细节题。第四段第二句提到,教那些比我们还聪明的机器伦理道德将是更大的挑战。也 就是说,如何确保那些超级聪明的人工智能机器恪守伦理道德对我们人类而言是一个更大的挑战,故 答案为B)。 点睛)A)“如何让超级聪明的人工智能机器分享人类的情感\"、C)“如何阻止人工智能机器伤害人 类”和D)“如何避免过度依赖人工智能机器”文中均未提及,故排除。"
+        },
+        {
+          "number": 54,
+          "stem": "What do we learn about Microsoft’s “chatbot” Taylor?",
+          "options": [
+            {
+              "key": "A",
+              "text": "She could not distinguish good from bad."
+            },
+            {
+              "key": "B",
+              "text": "She could turn herself off when necessary."
+            },
+            {
+              "key": "C",
+              "text": "She was not made to handle novel situations."
+            },
+            {
+              "key": "D",
+              "text": "She was good at performing routine tasks."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。定位)由题干中的Mierosot's chatbot' Taylor 定位到第五段第四、五句;She was desgned to slowlyve herabliyhadecosatiosbut smple wetching yorst dswnshe stared sayingicethinsabutHier, Microtud herffand deleedht C详解)推理判断题。 第五段第四、五旬指出,秦勘被设计为可以慢慢挺升其处理对话的能力,但是有 ugliest messages. 些人却教她种族主义的观点。 当她开始为希特勤说好话时;微软公司将她关闭,并制除了最丑恶的留 善。由此可觉,泰勤这一聊关程序只会按照自己的程序设置学习信息中的一切内容,却没者辨测是罪 点脑》B)*当有必要时,她可以关闭自己\"”,第五股第五旬指出,当她开始为希特赖说好话时,微软 的能力,故答案为A)。 良紧事声公司将她关闭。由此可见,当有必要时,她是无法关闭自己的,故排除;C)“她并不能用来应对新奇的 情况”,第五段第三、四句提到,泰勒可以学习她所接收的留言。她被设计为可以慢慢提升其处理对话 的能力,所以她是可以慢慢学会应对一些新奇的情况的,故排除;D)“她善于执行常规任务”,文章中并 没有提到这一点,故排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What does Eric Schmidt think of artificial intelligence?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It will be far superior to human beings."
+            },
+            {
+              "key": "B",
+              "text": "It will keep improving as time goes by."
+            },
+            {
+              "key": "C",
+              "text": "It will prove to be an asset to human beings."
+            },
+            {
+              "key": "D",
+              "text": "It will be here to stay whatever the outcome."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定位)由题干中的 Eric Schimidt think of artificial inteligence 定位到文章最后一段第二至四句: He thinks AI will be positive for humans. He said people will be the winner, whatever the outcome. Advances in AI will make human beings smarter, more able and “just better human beings. \" 详解观点态度题。最后一段第二句提到,埃里克·施密特认为人工智能对人类是有利的。第四句 中具体指出在人工智能方面的进步将使人类更聪明、更有能力,并“成为更好的自己”。由此可见,埃里 克·施密特认为人工智能对于人类并不是坏事,而是可以为人类所用,服务于人类,故答案为C)。 点睛)A)“它将远远优越于人类”,文章最后一段第三句指出,埃里克·施密特认为不管结果如何, 人类都是最终的胜利者,由此可见,无论人工智能如何发展,人类都将是最优秀的,故排除;B)“随着时 间流逝,它将不断改善”,文中并未提及,故排除;D)“不管结果如何,它都将被普遍应用”,最后一段第 三、四句提到,埃里克·施密特认为不管结果如何,人类都是最终的胜利者。在人工智能方面的进步将 使人类更聪明、更有能力,并“成为更好的自已”,但并没有说明人工智能将被普遍应用,只是表明它服 务于人类,故排除。 1"
+        }
+      ]
+    }
+  ]
+}

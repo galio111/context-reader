@@ -1,0 +1,1729 @@
+{
+  "id": "cet4-2014-12-2",
+  "level": 4,
+  "year": 2014,
+  "month": 12,
+  "set": 2,
+  "title": "2014 年 12 月四级 · 第 2 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.12/%E7%9C%9F%E9%A2%98Word/2014%E5%B9%B412%E6%9C%88%E5%B9%B4%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%EF%BC%88%E4%BA%8C%EF%BC%89.doc",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2014%E5%B9%B412%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%BA%8C%EF%BC%89.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2014-12-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "As an Alaskan fisherman, Timothy June, 54, used to think that he was safe from industrial pollutants(污染物)at his home in Haines—a town with a population of 2,400 people and 4,000 eagles, with 8 million acres of protected wild land nearby. But in early 2007, June agreed to take part in a [[36]] of 35 Americans from seven states. It was a biomonitoring project, in which people’s blood and urine (尿) were tested for [[37]] of chemicals—in this case, three potentially dangerous classes of compounds found in common household [[38]] like face cream, tin cans, and shower curtains. The results— [[39]] in November in a report called “Is It in Us?” by an environmental group—were rather worrying. Every one of the participants, [[40]] from an Illinois state senator to a Massachusetts minister, tested positive for all three classes of pollutants. And while the [[41]] presence of these chemicals does not [[42]] indicate a health risk, the fact that typical Americans carry these chemicals at all [[43]] June and his fellow participants. Clearly, there are chemicals in our bodies that don’t [[44]] there. A large, ongoing study conducted by the Centers for Disease Control and Prevention has found 148 chemicals in Americans of all ages. And in 2005, the Environmental Working Group found an [[45]] of 200 chemicals in the blood of 10 new-borns. “Our babies are being born pre-polluted,” says Sharyle Patton of Commonweal, which cosponsored “Is It in Us?” “This is going to be the next big environmental issue after climate change. ”"
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "analyses"
+        },
+        {
+          "key": "B",
+          "text": "average"
+        },
+        {
+          "key": "C",
+          "text": "belong"
+        },
+        {
+          "key": "D",
+          "text": "demonstrated"
+        },
+        {
+          "key": "E",
+          "text": "excess"
+        },
+        {
+          "key": "F",
+          "text": "extending"
+        },
+        {
+          "key": "G",
+          "text": "habitually"
+        },
+        {
+          "key": "H",
+          "text": "necessarily"
+        },
+        {
+          "key": "I",
+          "text": "products"
+        },
+        {
+          "key": "J",
+          "text": "ranging"
+        },
+        {
+          "key": "K",
+          "text": "released"
+        },
+        {
+          "key": "L",
+          "text": "shocked"
+        },
+        {
+          "key": "M",
+          "text": "simple"
+        },
+        {
+          "key": "N",
+          "text": "survey"
+        },
+        {
+          "key": "O",
+          "text": "traces"
+        }
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "第 36 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "analyses"
+            },
+            {
+              "key": "B",
+              "text": "average"
+            },
+            {
+              "key": "C",
+              "text": "belong"
+            },
+            {
+              "key": "D",
+              "text": "demonstrated"
+            },
+            {
+              "key": "E",
+              "text": "excess"
+            },
+            {
+              "key": "F",
+              "text": "extending"
+            },
+            {
+              "key": "G",
+              "text": "habitually"
+            },
+            {
+              "key": "H",
+              "text": "necessarily"
+            },
+            {
+              "key": "I",
+              "text": "products"
+            },
+            {
+              "key": "J",
+              "text": "ranging"
+            },
+            {
+              "key": "K",
+              "text": "released"
+            },
+            {
+              "key": "L",
+              "text": "shocked"
+            },
+            {
+              "key": "M",
+              "text": "simple"
+            },
+            {
+              "key": "N",
+              "text": "survey"
+            },
+            {
+              "key": "O",
+              "text": "traces"
+            }
+          ],
+          "answer": "N",
+          "explanation": "N) survey。【详解】名词辨析题。空格前面是不定冠词a,后面是介词of,因此本空应填入名词。根据 上下文可知,本段第三句it was a biomonitoring project 中的it 应指代该空格处的内容,因此空格处应填入和 project “项目”意思相近的词,所以本题答案为survey “调查”。备选项中有多个名词,但只有survey 与project 意思相近,其他均不符合文意,可以排除。"
+        },
+        {
+          "number": 37,
+          "stem": "第 37 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "analyses"
+            },
+            {
+              "key": "B",
+              "text": "average"
+            },
+            {
+              "key": "C",
+              "text": "belong"
+            },
+            {
+              "key": "D",
+              "text": "demonstrated"
+            },
+            {
+              "key": "E",
+              "text": "excess"
+            },
+            {
+              "key": "F",
+              "text": "extending"
+            },
+            {
+              "key": "G",
+              "text": "habitually"
+            },
+            {
+              "key": "H",
+              "text": "necessarily"
+            },
+            {
+              "key": "I",
+              "text": "products"
+            },
+            {
+              "key": "J",
+              "text": "ranging"
+            },
+            {
+              "key": "K",
+              "text": "released"
+            },
+            {
+              "key": "L",
+              "text": "shocked"
+            },
+            {
+              "key": "M",
+              "text": "simple"
+            },
+            {
+              "key": "N",
+              "text": "survey"
+            },
+            {
+              "key": "O",
+              "text": "traces"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O) traces。【详解】名词辨析题。空格前面是介词for,后面是介词of,因此本空应填入名词,与of chemicals 作介词for 的宾语。根据句意可知,该项目的目的是检测人们的血液和尿液中是否存在化学物质,故空格 处应填入含有“迹象、痕迹”意思的词,因此答案为traces“痕迹”。在备选的名词中,survey 在第36 题已使 用,可排除;analyses of chemicals 与该句中的tested 重复;average,excess 和products 均不符合文意,可排除。"
+        },
+        {
+          "number": 38,
+          "stem": "第 38 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "analyses"
+            },
+            {
+              "key": "B",
+              "text": "average"
+            },
+            {
+              "key": "C",
+              "text": "belong"
+            },
+            {
+              "key": "D",
+              "text": "demonstrated"
+            },
+            {
+              "key": "E",
+              "text": "excess"
+            },
+            {
+              "key": "F",
+              "text": "extending"
+            },
+            {
+              "key": "G",
+              "text": "habitually"
+            },
+            {
+              "key": "H",
+              "text": "necessarily"
+            },
+            {
+              "key": "I",
+              "text": "products"
+            },
+            {
+              "key": "J",
+              "text": "ranging"
+            },
+            {
+              "key": "K",
+              "text": "released"
+            },
+            {
+              "key": "L",
+              "text": "shocked"
+            },
+            {
+              "key": "M",
+              "text": "simple"
+            },
+            {
+              "key": "N",
+              "text": "survey"
+            },
+            {
+              "key": "O",
+              "text": "traces"
+            }
+          ],
+          "answer": "I",
+          "explanation": "I) products。【详解】名词辨析题。空格前面是形容词household ,说明本空应填入名词。由空格后面列 举的face cream,tin cans 和shower curtains 可推断本空应填入含“用品”意思的词;同时,因为空格后面列举 了三种不同事物,所以本空应填入复数名词,因此答案为products“产品”。在备选的复数名词中,traces 在 第37 题已使用,可排除;analyses 与句意不符,可排除。"
+        },
+        {
+          "number": 39,
+          "stem": "第 39 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "analyses"
+            },
+            {
+              "key": "B",
+              "text": "average"
+            },
+            {
+              "key": "C",
+              "text": "belong"
+            },
+            {
+              "key": "D",
+              "text": "demonstrated"
+            },
+            {
+              "key": "E",
+              "text": "excess"
+            },
+            {
+              "key": "F",
+              "text": "extending"
+            },
+            {
+              "key": "G",
+              "text": "habitually"
+            },
+            {
+              "key": "H",
+              "text": "necessarily"
+            },
+            {
+              "key": "I",
+              "text": "products"
+            },
+            {
+              "key": "J",
+              "text": "ranging"
+            },
+            {
+              "key": "K",
+              "text": "released"
+            },
+            {
+              "key": "L",
+              "text": "shocked"
+            },
+            {
+              "key": "M",
+              "text": "simple"
+            },
+            {
+              "key": "N",
+              "text": "survey"
+            },
+            {
+              "key": "O",
+              "text": "traces"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K) released。【详解】动词辨析题。空格所在部分与前后文用破折号分隔,说明该部分是插入语,对主 语the results 进行解释说明。结合句意可知,该检测结果应该是发布在一份名为“它在我们体内吗?”的报告 中,因此本空填入released 最恰当,意为“发布”。"
+        },
+        {
+          "number": 40,
+          "stem": "第 40 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "analyses"
+            },
+            {
+              "key": "B",
+              "text": "average"
+            },
+            {
+              "key": "C",
+              "text": "belong"
+            },
+            {
+              "key": "D",
+              "text": "demonstrated"
+            },
+            {
+              "key": "E",
+              "text": "excess"
+            },
+            {
+              "key": "F",
+              "text": "extending"
+            },
+            {
+              "key": "G",
+              "text": "habitually"
+            },
+            {
+              "key": "H",
+              "text": "necessarily"
+            },
+            {
+              "key": "I",
+              "text": "products"
+            },
+            {
+              "key": "J",
+              "text": "ranging"
+            },
+            {
+              "key": "K",
+              "text": "released"
+            },
+            {
+              "key": "L",
+              "text": "shocked"
+            },
+            {
+              "key": "M",
+              "text": "simple"
+            },
+            {
+              "key": "N",
+              "text": "survey"
+            },
+            {
+              "key": "O",
+              "text": "traces"
+            }
+          ],
+          "answer": "J",
+          "explanation": "J) ranging。【详解】动词辨析题。空格所在部分前后分别是主语和谓语,说明该部分是对主语every one of the participants 的补充说明。同时空格后面出现了from...to...,表示一种范围,所给动词中表示包括某一 范围的词只有ranging,故为答案。"
+        },
+        {
+          "number": 41,
+          "stem": "第 41 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "analyses"
+            },
+            {
+              "key": "B",
+              "text": "average"
+            },
+            {
+              "key": "C",
+              "text": "belong"
+            },
+            {
+              "key": "D",
+              "text": "demonstrated"
+            },
+            {
+              "key": "E",
+              "text": "excess"
+            },
+            {
+              "key": "F",
+              "text": "extending"
+            },
+            {
+              "key": "G",
+              "text": "habitually"
+            },
+            {
+              "key": "H",
+              "text": "necessarily"
+            },
+            {
+              "key": "I",
+              "text": "products"
+            },
+            {
+              "key": "J",
+              "text": "ranging"
+            },
+            {
+              "key": "K",
+              "text": "released"
+            },
+            {
+              "key": "L",
+              "text": "shocked"
+            },
+            {
+              "key": "M",
+              "text": "simple"
+            },
+            {
+              "key": "N",
+              "text": "survey"
+            },
+            {
+              "key": "O",
+              "text": "traces"
+            }
+          ],
+          "answer": "M",
+          "explanation": "M) simple。【详解】形容词辨析题。空格前面是冠词the,后面是名词presence,说明本空应填入形容词。 根据句意,人体内有这些化学物质不一定就有健康风险,由此可知,本空应填入表示强调作用的词,而选 项中的形容词只有simple 有此用法,故为答案。"
+        },
+        {
+          "number": 42,
+          "stem": "第 42 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "analyses"
+            },
+            {
+              "key": "B",
+              "text": "average"
+            },
+            {
+              "key": "C",
+              "text": "belong"
+            },
+            {
+              "key": "D",
+              "text": "demonstrated"
+            },
+            {
+              "key": "E",
+              "text": "excess"
+            },
+            {
+              "key": "F",
+              "text": "extending"
+            },
+            {
+              "key": "G",
+              "text": "habitually"
+            },
+            {
+              "key": "H",
+              "text": "necessarily"
+            },
+            {
+              "key": "I",
+              "text": "products"
+            },
+            {
+              "key": "J",
+              "text": "ranging"
+            },
+            {
+              "key": "K",
+              "text": "released"
+            },
+            {
+              "key": "L",
+              "text": "shocked"
+            },
+            {
+              "key": "M",
+              "text": "simple"
+            },
+            {
+              "key": "N",
+              "text": "survey"
+            },
+            {
+              "key": "O",
+              "text": "traces"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H) necessarily。【详解】副词辨析题。空格前面是does not,后面是动词indicate,故应填入副词修饰动词。 根据句意,人体内有这些化学物质不一定就有健康风险,而not 已表示否定含义,因此应填入表示“一定” 意思的副词,由此推断答案是necessarily。not necessarily 意为“不一定”。在备选的副词中,habitually 意为 “习惯性地”,与句意不符,故排除。"
+        },
+        {
+          "number": 43,
+          "stem": "第 43 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "analyses"
+            },
+            {
+              "key": "B",
+              "text": "average"
+            },
+            {
+              "key": "C",
+              "text": "belong"
+            },
+            {
+              "key": "D",
+              "text": "demonstrated"
+            },
+            {
+              "key": "E",
+              "text": "excess"
+            },
+            {
+              "key": "F",
+              "text": "extending"
+            },
+            {
+              "key": "G",
+              "text": "habitually"
+            },
+            {
+              "key": "H",
+              "text": "necessarily"
+            },
+            {
+              "key": "I",
+              "text": "products"
+            },
+            {
+              "key": "J",
+              "text": "ranging"
+            },
+            {
+              "key": "K",
+              "text": "released"
+            },
+            {
+              "key": "L",
+              "text": "shocked"
+            },
+            {
+              "key": "M",
+              "text": "simple"
+            },
+            {
+              "key": "N",
+              "text": "survey"
+            },
+            {
+              "key": "O",
+              "text": "traces"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L) shocked。【详解】动词辨析题。分析句子结构可知,本句主语是the fact,that 引导的同位语从句至 at all 结束,June and his fellow participants 是宾语,本句缺谓语,因此应填入动词。本句与while 引导的前 半句是转折关系,本句大意为,虽然未必有健康风险,但是体内居然含有这些化学物质这一事实也足够令 人 。根据句意可知,应填入含“惊讶”意思的词,因此答案为shocked。因为本句表述的是过去发生的事 情,因此应填入动词过去式,released 在第39 题已使用,只剩下demonstrated 和shocked 两个单词为过去式 形式,而demonstrated 不符合句意,因此可排除。"
+        },
+        {
+          "number": 44,
+          "stem": "第 44 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "analyses"
+            },
+            {
+              "key": "B",
+              "text": "average"
+            },
+            {
+              "key": "C",
+              "text": "belong"
+            },
+            {
+              "key": "D",
+              "text": "demonstrated"
+            },
+            {
+              "key": "E",
+              "text": "excess"
+            },
+            {
+              "key": "F",
+              "text": "extending"
+            },
+            {
+              "key": "G",
+              "text": "habitually"
+            },
+            {
+              "key": "H",
+              "text": "necessarily"
+            },
+            {
+              "key": "I",
+              "text": "products"
+            },
+            {
+              "key": "J",
+              "text": "ranging"
+            },
+            {
+              "key": "K",
+              "text": "released"
+            },
+            {
+              "key": "L",
+              "text": "shocked"
+            },
+            {
+              "key": "M",
+              "text": "simple"
+            },
+            {
+              "key": "N",
+              "text": "survey"
+            },
+            {
+              "key": "O",
+              "text": "traces"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C) belongs。【详解】动词辨析题。空格前面是don’t,说明本空应填入动词原形。本句作为过渡句, 起到承上启下的作用。根据第一段可知,人体内有外来化学物质,那么本句应表达与之一致的意思,这些化 学物质本不该存在于人体内,所以填入belong 表达“存在”的意思。且在备选的动词中只有belong —个动词 原形,故为答案。"
+        },
+        {
+          "number": 45,
+          "stem": "第 45 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "analyses"
+            },
+            {
+              "key": "B",
+              "text": "average"
+            },
+            {
+              "key": "C",
+              "text": "belong"
+            },
+            {
+              "key": "D",
+              "text": "demonstrated"
+            },
+            {
+              "key": "E",
+              "text": "excess"
+            },
+            {
+              "key": "F",
+              "text": "extending"
+            },
+            {
+              "key": "G",
+              "text": "habitually"
+            },
+            {
+              "key": "H",
+              "text": "necessarily"
+            },
+            {
+              "key": "I",
+              "text": "products"
+            },
+            {
+              "key": "J",
+              "text": "ranging"
+            },
+            {
+              "key": "K",
+              "text": "released"
+            },
+            {
+              "key": "L",
+              "text": "shocked"
+            },
+            {
+              "key": "M",
+              "text": "simple"
+            },
+            {
+              "key": "N",
+              "text": "survey"
+            },
+            {
+              "key": "O",
+              "text": "traces"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B) average。【详解】名词辨析题。空格前面是不定冠词an,后面是介词of,说明本空应填入单数名词。 本句大意为,该组织在10 个新生儿血液中发现了200 种化学物质,应填入表达“平均”意思的词,因此填入 average。空格前面是不定冠词an,说明本空应填入以元音音素开头的单数名词,只有average 和excess 符合, 而excess 不符合句意,故排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2014-12-2-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Young graduates are in debt, out of work and on their parents’ couches. People in their 30s and 40s can’t afford to buy homes or have children. Retirees are earning near-zero interest on their savings.",
+        "B) In the current listless (缺乏活力的)economy, every generation has a claim to having been most injured. But the Labor Departments latest jobs reports and other recent data present a strong case for crowning baby boomers (二战后生育高峰期出生的人)as the greatest victims of the recession and its dreadful consequences.",
+        "C) These Americans in their 50s and early 60s—those near retirement age who do not yet have access to Medicare and Social Security—have lost the most earnings power of any age group, with their household incomes 10 percent below what they made when the recovery began three years ago, according to Sentier Research, a data analysis company. Their retirement savings and home values fell sharply at the worst possible time: just before they needed to cash out. They are supporting both aged parents and unemployed young-adult children, earning them the unlucky nickname “ Generation Squeeze. ’’",
+        "D) New research suggests that they may die sooner, because their health, income security and mental well-being were (重创) by recession at a crucial time in their lives. A recent study by economists at Wellesley College found that people who lost their jobs in the few years before becoming qualified for Social Security lost up to three years from their life expectancy (预期寿命),largely because they no longer had access to affordable health care.",
+        "E) Unemployment rates for Americans nearing retirement are far lower than those for young people, who are recently out of school, with fewer skills and a shorter work history. But once out of a job, older workers have a much harder time finding another one. Over the last year, the average duration of unemployment for older people was 53 weeks, compared with 19 weeks for teenagers, according to the Labor Department’s jobs report released on Friday.",
+        "F) The lengthy process is partly because older workers are more likely to have been laid off from industries that are downsizing, like manufacturing. Compared with the rest of the population, older people are also more likely to own their own homes and be less mobile than renters, who can move to new job markets.",
+        "G) Older workers are more likely to have a disability of some sort, perhaps limiting the range of jobs that offer realistic choices. They may also be less inclined, at least initially, to take jobs that pay far less than their old positions.",
+        "H) Displaced boomers also believe they are victims of age discrimination, because employers can easily find a young, energetic worker who will accept lower pay and who can potentially stick around for decades rather than a few years.",
+        "I) In a survey of older workers who were laid off during the recession, just one in six had found another job, and half of that group had accepted pay cuts. 14% of the re-employed said the pay in their new job was less than half what they earned in their previous job. “I just say to myself:‘ Why me? What have I done to deserve this?’ ’’ said John Agati, 56,whose last full-time job, as a product developer, ended four years ago when his employer went out of business. That position paid $90,000, and his resume lists jobs at companies like American Express, Disney and USA Networks. Since being laid off, though, he has worked a series of part-time, low-wage, temporary positions, including selling shoes at Lord & Taylor and making sales calls for a car company.",
+        "J) The last few years have taken a toll not only on his family’s finances, but also on his feelings of self- worth. “You just get sad,” Mr. Agati said. “I see people getting up in the morning, going out to their careers and going home. I just wish I was doing that. Some people don’t like their jobs, or they have problems with their jobs, but at least they’re working. I just wish I was in their shoes.” He said he cannot afford to go back to school, as many younger people without jobs have done. Even if he could afford it, economists say it is unclear whether older workers like him benefit much from more education.",
+        "K) “It just doesn’t make sense to offer retraining for people 55 and older,” said Daniel Hamermesh, an economics professor. “Discrimination by age, long-term unemployment, and the fact that they’ve now at the end of the hiring queue just don’t make it sensible to invest in them.”",
+        "L) Many displaced older workers are taking this message to heart and leaving the labor force entirely. The share of older people applying for Social Security early rose quickly during the recession as people sought whatever income they could find. The penalty they will pay is permanent, as retirees who take benefits at age 62 will receive as much as 30% less in each months check for the rest of their lives than they would if they had waited until full retirement age (66 for those born after 1942).",
+        "M) Those not yet qualified for Social Security are increasingly applying for another, comparable kind of income support that often goes to people who expect never to work againG disability benefits. More than one in eight people in their late 50 s is now on some form of federal disability insurance program, according to Professor Mark Duggan at the University of Pennsylvania’s Wharton School.",
+        "N) The very oldest Americans, of course, were battered by some of the same ill winds that tormented (折磨)those now nearing retirement, but at least the most senior were cushioned by a more readily available social safety net. More important, in a statistical twist, they may have actually benefited from the financial crisis in the most fundamental way: longer lives.",
+        "O) Death rates for people over 65 have historically fallen during recessions, according to a November 2011 study by economists at the University of California, Davis. Why? The researchers argue that weak job markets push more workers into accepting relatively undesirable work at nursing homes, leading to better care for residents."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "Greater mobility puts younger people at an advantage in seeking new jobs.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "F",
+          "explanation": "Greater mobility puts younger people at an advantage in seeking new jobs. F)。【译文】更强的流动性使得年轻人在寻求新工作时处于优势地位。 【精析】该段第二句指出,与其他年龄段的就业者相比,年长者往往有自己的家,所以比能够转战新的就 业市场的租房者的流动性要差。由此推断,年轻人往往没有自己的房子,所以流动性更强,可以转战新的 就业市场,这使得他们更容易找到新工作,这是他们的优势。题干中的mobility 对应原文中的mobile,题 干中的puts...at an advantage in seeking new jobs 与原文中的can move to new job markets 意思一致,故答案 为F)。"
+        },
+        {
+          "number": 47,
+          "stem": "Many of the older workers laid off during the recession had to accept lower pay in their new jobs.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "I",
+          "explanation": "Many of the older workers laid off during the recession had to accept lower pay in their new jobs. I)。【译文】很多在经济萧条期下岗的年长员工不得不接受工资较低的新工作。 【精析】该段第一句提到,一项对在经济萧条期下岗的年长员工们的调查表明,他们中仅有六分之一的人 找到了新的工作,而有一半的人接受了比以前工资低的工作。题干中的lower pay 和new jobs 分别对应原文 中的pay cuts 和another job,故答案为I)。"
+        },
+        {
+          "number": 48,
+          "stem": "Those who lose their jobs shortly before retirement age live a shorter-than-average life.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "D",
+          "explanation": "Those who lose their jobs shortly before retirement age live a shorter- than-average life. D)。【译文】那些在即将退休之际失去工作的人往往比正常寿命短。 【精析】该段第二句指出,那些在即将得到社会保险金之前失业的人的寿命比他们的预期寿命要短三年。 题干中的shortly before retirement age 和shorter-than-average life 分别是原文中in the few years before 和lost up to three years from their life expectancy 的同义转述,故答案为D)。"
+        },
+        {
+          "number": 49,
+          "stem": "Seniors at nursing homes could benefit from the weak job market.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "O",
+          "explanation": "Seniors at nursing homes could benefit from the weak job market. O)。【译文】养老院的老人因就业市场的不景气而受益。 【精析】该段第一句提到,在经济萧条期,65 岁以上人口的死亡率历史性地降低了。接着指出原因,就业 市场的不景气迫使更多从业人员不得不接受相对不喜欢的养老院的工作,从而提高了老年人的护理水平。 由此可知,从这方面而言,老年人有所受益,故答案为O)。"
+        },
+        {
+          "number": 50,
+          "stem": "Age discrimination in employment makes it pointless retraining older workers.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "K",
+          "explanation": "Age discrimination in employment makes it pointless retraining older workers. K)。【译文】就业中的年龄歧视使年长员工的再培训没有意义。 【精析】该段第一句引用经济学教授丹尼尔•哈默米斯的话指出,对55 岁及以上的人群进行再培训没有太 大意义。接着第二句进一步指出,年龄歧视、长期的失业状态以及他们现在已经不被用人单位看好的事实 都使得人们认为对他们进行投资是不明智的。题干中的age discrimination 和retraining 在原文中出现;题干 中的makes it pointless 是原文中doesn’t make sense 和don’t make it sensible 的同义转述,故答案为K)。"
+        },
+        {
+          "number": 51,
+          "stem": "According to recent reports and data analyses, boomers suffer most from the weak economy.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "B",
+          "explanation": "According to recent reports and data analyses boomers suffer most from the weak economy. B)。【译文】根据最近的报告和数据分析,二战后生育高峰期出生的人在经济疲软期遭受的伤害最大。 【精析】解该段第二句引用劳工部的最新就业报告以及其他近期数据指出,二战后生育高峰期出生的人成 为经济萧条及其后续可怕影响的最大受害者。题干中的boomers 对应原文中的baby boomers;题干中的suffer most from the weak economy 与原文中的the greatest victims of the recession and its dreadful consequences 属 于同义转述,故答案为B)。"
+        },
+        {
+          "number": 52,
+          "stem": "Unemployed boomers are at a disadvantage in job-hunting because employers tend to hire younger workers.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "H",
+          "explanation": "Unemployed boomers are at a disadvantage in job-hunting because employers tend to hire younger workers. H) 。【译文】失业的二战后生育高峰期出生的人在就业时处于劣势,因为雇主倾向于雇用更年轻的员工。 【精析】该段指出,失业的二战后生育高峰期出生的人还认为,他们是年龄歧视的受害者,因为雇主能够很 容易找到年轻的、精力充沛的员工,他们会接受较低的工资,而且可能可以为公司出力几十年而不是几年。 由此可以推断,失业的二战后生育高峰期出生的人在就业时处于劣势。题干中的unemployed boomers 和are at a disadvantage 分别是原文中displaced boomers 和are victims of 的同义转述,故答案为H)。"
+        },
+        {
+          "number": 53,
+          "stem": "People in their fifties and early sixties bear the heaviest family burdens.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "C",
+          "explanation": "People in their fifties and early sixties bear the heaviest family burdens. C)。【译文】年龄为50 多岁和60 岁出头的人们承受着最沉重的家庭负担。 【精析】该段第一句和最后一句提到,这些50 多岁或60 岁出头的美国人,他们上有年迈的父母,下有失 业的年轻子女,因此获得了一个不走运的昵称——“被压榨的一代”。题干中的their fifties and early sixties 对应原文中的their 50s and early 60s;题干中的the heaviest family burdens 是对该段最后一句的概括,故答案 为C)。"
+        },
+        {
+          "number": 54,
+          "stem": "People who take benefits from Social Security before official retirement age will get much less for the rest of their lives.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "L",
+          "explanation": "People who take benefits from Social Seciuity before official retirement age will get much less for the rest of their lives.. L)。【译文】那些在官方规定的退休年龄前领取社会保险金的人余生获得的退休金要少很多。 【精析】该段第三句提到,退休人员如果在62 岁时就开始领取养老金要比等到完全退休年龄时再领吃亏, 有生之年,他每个月要少30%的金额,也就意味着少很多。题干中的official retirement age 是原文中full retirement age (66 for those bom after 1942)的同义转述;题干中的get much less 是对原文receive as much as 30% less 的概括,故答案为L)。"
+        },
+        {
+          "number": 55,
+          "stem": "Older workers5 choice of jobs can be limited because of disability.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "G",
+          "explanation": "Older workers’ choice of jobs can be limited because of disability. G。【译文】年长员工的就业选择因身体残疾而受到限制。 【精析】该段首句提到,年长员工更可能有某些不利条件,或许这就限制了他们现实的就业选择。因此可 知,年长员工的就业选择因其自身的不利条件而受到限制。题干中的choice of jobs can be limited 是原文中 limiting the range of jobs that offer realistic choices 的同义转述,故答案为G)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2014-12-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "New Yorkers are gradually getting used to more pedaling (骑车的) passengers on those shining blue Citi Bikes. But what about local bike shops? Is Citi Bike rolling up riders at their expense? At Gotham Bikes in Tribeca, manager W. Ben said the shop has seen an increase in its overall sales due to the bike-share program. “ It’s getting more people on the road,’’ he said. James Ryan, an employee at Danny’s Cycles in Gramercy also said Citi Bike is a good option for people to ease into biking in a city famed for its traffic jams and aggressive drivers. “They can try out a bike without committing to buying one,” he said. Rentals are not a big part of the business at either Gotham Bikes or Danny’s Cycles. But for Frank’s Bike Shop, a small business on Grand St. , the bike-share program has been bad news. Owner Frank Arroyo said his rental business has decreased by 90% since Citi Bike was rolled out last month. Arroyo’s main rental customers are European tourists, who have since been drawn away by Citi Bikes. However, Ben said the bike-share is good for bike sales at his shop. People have used the bike- share and realized how great it is to bike in the city, then decide that they want something nicer for themselves,’’ he noted. Christian Farrell of Waterfront Bicycle Shop, on West St. just north of Christopher St. , said initially he was concerned about bike-share, though, he admitted, “ I was happy to see people on bikes.” Farrell’s early concerns were echoed by Andrew Crooks, owner of NYC Velo, at 64 Second Ave. “It seemed like a great idea, but one that would be difficult to implement,” Crooks said of Citi Bike. He said he worried about inexperienced riders’ lack of awareness of biking rules and strong negative reaction from non-cyclists. However, he said, ifs still too early to tell if his business has been impacted. While it’s possible bike-share will cause a drop in business, Crooks allowed that the idea is a positive step forward for New York City."
+      ],
+      "questions": [
+        {
+          "number": 56,
+          "stem": "What is the author’s chief concern about the increasing use of Citi Bikes in New York?",
+          "options": [
+            {
+              "key": "A",
+              "text": "How non-cyclists will respond to it."
+            },
+            {
+              "key": "B",
+              "text": "Whether local bike shops will suffer."
+            },
+            {
+              "key": "C",
+              "text": "Whether local bike businesses will oppose it."
+            },
+            {
+              "key": "D",
+              "text": "How the safety of bike riders can be ensured."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位:由题干中的the increasing use of Citi Bikes in New York 定位到文章第一段第一句:New Yorkers are gradually getting used to more pedaling(骑车的)passengers on those shining blue Giti Bikes. 详解:推理判断题。原文第一段第一句即提到越来越多的人使用花旗单车,接着第二、三句提到这种增加 是否是以纽约当地的自行车行受损为代价,可见作者最关心的还是当地自行车行是否会遭受损失,故答案 为B)。 点睛:A) “不骑自行车的人对此将有何反应”在倒数第二段倒数第二句提到,但表达的是安德鲁•克兽克 斯的观点,不是作者的观点,所以排除;C)“当地自行车行业是否会反对该项目”和D) “如何保障骑自行 车人的安全”在原文中均未提及,因此排除。"
+        },
+        {
+          "number": 57,
+          "stem": "What happened to Gotham Bikes as a result of the bike-share program?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It found its bike sales unaffected."
+            },
+            {
+              "key": "B",
+              "text": "It shifted its business to rentals."
+            },
+            {
+              "key": "C",
+              "text": "It saw its bike sales on the rise."
+            },
+            {
+              "key": "D",
+              "text": "It rented more bikes to tourists."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定位:由题干中的Gotham Bikes 定位到文章第二段第一句:At Gotham Bikes in Tribeca,manager W. Ben said the shop has seen an increase in its overall sales due to the bike-share program. 详解:事实细节题。由原文第二段第一句可知,哥谭单车行的销量因为该自行车共享项目有所增加。题干 中的as a result of 是原文中的due to 的同义转述,故答案为C)。 点睛: A)“它发现自行车销售不受影响”、B)“它将业务转向租车”和D)“它把更多的车租给游客” 均 不符合原文表述,因此排除。"
+        },
+        {
+          "number": 58,
+          "stem": "Why is the bike-share program bad news for Franks Bike Shop?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It cannot meet the demand of the bike-share program."
+            },
+            {
+              "key": "B",
+              "text": "Its customers have been drawn away by Citi Bikes."
+            },
+            {
+              "key": "C",
+              "text": "Its bike prices have to be lowered again and again."
+            },
+            {
+              "key": "D",
+              "text": "It has to compete with the city’s bike rental shops."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位:由题干中的bad news for Frank’s Bike Shop 定位到文章第三段第二句:But for Frank’s Bike Shop, a small business on Grand St. , the bike-share program has been bad news. 详解:事实细节题。原文第三段第二句提到,自行车共享项目对雪弗兰克单车行是坏消息,第三句用具体 数字说明租车业务急剧下滑,第四句解释原因,该店的主要租车顾客是欧洲游客,都被花旗单车吸引走了, 故答案为B)。 点睛:A) “它无法满足自行车共享项目的需求”、C) “它的自行车价格不得不一再降低”和D) “它不 得不与该城市的自行车租赁行竞争”在原文中均未提及,因此排除。"
+        },
+        {
+          "number": 59,
+          "stem": "Why did Andrew Crooks think that the bike-share program would be difficult to execute?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Inexperienced riders might break biking rules."
+            },
+            {
+              "key": "B",
+              "text": "Conflicts might arise among bike rental shops."
+            },
+            {
+              "key": "C",
+              "text": "Traffic conditions might worsen in the downtown area."
+            },
+            {
+              "key": "D",
+              "text": "There are not enough lanes to accommodate the bikes."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。定位:由题干中的Andrew Crooks 和the bike-share program would be difficult .to execute 定位到 文章第六段第二句:“It seemed like a great idea,but one that would be difficult to implement,” Crooks said of Citi Bike. 详解:事实细节题。题干中的execute 与原文第六段第二句中的implement 是同义词,接着第三句解释克鲁 克斯这么认为的原因,主要有两点,一是经验不足的骑车人不懂骑自行车的规则,二是不骑车的人会强烈 反对。A)“经验不足的骑行人可能违反骑车规则”符合原文表述,故为答案。 点睛:B)“自行车租赁行之间可能会产生冲突”、C)“市区交通状况可能会恶化”和D)“没有足够车道 容纳自行车”在原文中均未提及,因此排除。"
+        },
+        {
+          "number": 60,
+          "stem": "What is the general attitude of local bike shops towards Citi Bike?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Wait-and-see."
+            },
+            {
+              "key": "B",
+              "text": "Negative."
+            },
+            {
+              "key": "C",
+              "text": "Indifferent."
+            },
+            {
+              "key": "D",
+              "text": "Approving."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位由题干中的general attitude 可知,本题考查对全文的理解 详解:观点态度题。本题考查当地自行车行对花旗单车的总体态度。从文章介绍的几位车行负责人的观点 来看,大部分人是认可该项目的。例如,詹姆斯•莱恩认为这是a good option;本认为该项目good for bike sales;虽然克里斯蒂安•法雷尔和安德鲁•克鲁克斯对该项目有所担忧,但是他们都承认这仍是一个不错的项 目,故答案为D)“认可的”。 点睛:A)“等待并观望”、B)“消极否定的”和C) “漠不关心的”都不符合原文所表达的态度,因此排 除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2014-12-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Various studies have shown that increased spending on education has not led to measurable improvements in learning. Between 1980 and 2008, staff and teachers at US public schools grew roughly twice as fast as students. Yet students showed no additional learning in achievement tests. Universities show similar trends of increased administration personnel and costs without greater learning, as documented in Richard Arum and Josipa Roksa’s recent book Academically AdriftG Limited Learning on College Campuses. A survey shows that 63% of employers say that recent college graduates don’t have the skills they need to succeed and 25% of employers say that entry-level writing skills are lacking. Some simplistically attribute the decline in our public education system to the drain of skilled students by private schools, but far more significant events were at work. Public schools worked well until about the 1970s. In fact, until that time, public schools provided far better education than private ones. It was the underperforming students who were thrown out of public schools and went to private ones. A prominent reason public schools did well was that many highly qualified women had few options for working outside the house other than being teachers or nurses. They accepted relatively low pay, difficult working conditions, and gave their very best. Having such a large supply of talented women teachers meant that society could pay less for their services. Womens liberation opened up new professional opportunities for women, and, over time, some of the best left teaching as a career option, bringing about a gradual decline in the quality of schooling. Also around that time, regulations, government, and unions came to dictate pay, prevent adjustments, and introduce bureaucratic (官僚的)standard for advancement. Large education bureaucracies and unions came to dominate the landscape, confusing activity with achievement. Bureaucrats regularly rewrite curriculums, talk nonsense about theories of education, and require ever more administrators. The end result has been that, after all the spending, students have worse math and reading skills than both their foreign peers and earlier generations spending far less on education— as all the accumulating evidence now documents."
+      ],
+      "questions": [
+        {
+          "number": 61,
+          "stem": "What do we learn from various studies on America’s public education?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Achievement tests have failed to truly reflect the quality of teaching."
+            },
+            {
+              "key": "B",
+              "text": "Public schools lack the resources to compete with private schools."
+            },
+            {
+              "key": "C",
+              "text": "Little improvement in education has resulted from increased spending."
+            },
+            {
+              "key": "D",
+              "text": "The number of students has increased much faster than that of teachers."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定位: 由题干中的various studies on America’s public education 定位到原文第一段第一句:Various studies have shown that increased spending on education has not led to measurable improvements in learning. 详解:细节理解题。原文第一段第一句指出,教育投人的增加并没有带来学习效果的显著提高,所以C) “增 加投入几乎没有带来教育改善”符合文意,故为答案。 点睛: A)“成绩测试未能真实反映教学质量”和B)“公立学校缺乏与私立学校竞争的资源”在原文中均未 提及,因此排除;D) “学生数量的增长速度比老师快得多”,原文第一段第二句提到,1980 年到2008 年 之间,美国公立学校教职员工数量的增长速度大约是学生的两倍,该项表述与原文相反,因此排除。"
+        },
+        {
+          "number": 62,
+          "stem": "How do some people explain the decline in public education?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Government investment does not meet schools’ needs."
+            },
+            {
+              "key": "B",
+              "text": "Skilled students are moving to private schools."
+            },
+            {
+              "key": "C",
+              "text": "Qualified teachers are far from adequately paid."
+            },
+            {
+              "key": "D",
+              "text": "Training of students, basic skills is neglected."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位:由题干中的some people explain the .decline in public education 定位到原文第四段:Some simplistically attribute the decline in our public education system to the drain of skilled students by private schools... 详解: 细节理解题。原文第四段指出,一些人单纯地把公立教育体系的衰落归因于私立学校挖走了有一技 之长的学生。所以B)“有二技之长的学生流向私立学校”符合文意,故为答案。 点睛:A)“政府投资满足不了每校的需求”在原文中并未提及;C)“合格的老师的工资远远不够”是原文 第六、七段对女性教师待遇的描述,与题干不符;D) “对学生基本技能的培训被忽视了”是对原文第三段 提到的现象的原因的推断,不符合题干意思。"
+        },
+        {
+          "number": 63,
+          "stem": "What was a significant contributor to the past glory of public schools?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Well-behaved students."
+            },
+            {
+              "key": "B",
+              "text": "Efficient administration."
+            },
+            {
+              "key": "C",
+              "text": "Talented women teachers."
+            },
+            {
+              "key": "D",
+              "text": "Generous pay for teachers."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定位:由题干中的a significant contributor to the past glory of public schools 定位到原文第六段第一 句:A prominent reason public schools did well was that many highly qualified women had few options for working outside the house other than being teachers or nurses. 详解:细节理解题。原文第六段第一句指出,公立学校运行良好的一个重要原因是,许多高素质的女性在外 工作除了当老师或护士之外别无他选。因此C) “才华横溢的女性教师”符合文意,故为答案。 点睛:A)“举止得体的学生”、B)“有效的行政管理”和D)“教师的高额薪水”在原文中均未提及,因 此排除。"
+        },
+        {
+          "number": 64,
+          "stem": "Why did some of the best women teachers leave teaching?",
+          "options": [
+            {
+              "key": "A",
+              "text": "New career opportunities were made available to them by women’s liberation."
+            },
+            {
+              "key": "B",
+              "text": "Higher academic requirements made it difficult for them to stay in their jobs."
+            },
+            {
+              "key": "C",
+              "text": "They were unhappy with the bureaucratic administration in their schools."
+            },
+            {
+              "key": "D",
+              "text": "The heavy teaching loads left them little time and energy for family life."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。定位:由题干中的some of the best women teachers leave teaching 定位到原文第七段第二句:Womens liberation opened up new professional opportunities for women, and, over time, some of the best left teaching as a career option, bringing about a gradual decline in the quality of schooling. 详解:细节理解题。原文第七段第二句指出,妇女解放运动为女性打开了新的职业机会的大门,因此一些 优秀的女性不再把教书作为一种职业选择,所以A) “妇女解放运动使女性接触到新的职业机会”符合文 意,故为答案。 点睛:B) “更高的学历要求使她们难以保住自己的工作”和D) “繁重的教学任务使她们几乎没有时间 和精力照顾家庭”在原文中均未提及,因此排除;C) “她们对学校的官僚式管理不满意”,原文第八段虽 然提到bureaucratic standard,但这是公立学校教育质量下滑的另一个原因,而不是女性离开教师行业的原 因,因此排除。"
+        },
+        {
+          "number": 65,
+          "stem": "What does the author think is one of the results of government involvement in education?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Increasing emphasis on theories of education."
+            },
+            {
+              "key": "B",
+              "text": "Highly standardized teaching methods."
+            },
+            {
+              "key": "C",
+              "text": "Students’ improved academic performance."
+            },
+            {
+              "key": "D",
+              "text": "An ever-growing number of administrators."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位:由题干中的government involvement in education 定位到原文第八段第一句:Also around that time, regulations, government, and unions came to dictate pay, prevent adjustments, and introduce bureaucratic (官僚的)standard for advancement. 详解:细节理解题。原文第八段介绍了官僚主义对公立学校的影响。前三句举例说明带来的负面影响,包 括规定工资、阻止改善和引入晋升的官僚式标准,将活动和成就混为一谈,定期改写课程、对教育理论胡 说八道以及不断要求增加行政人员等;最后一句说明导致的最终结果,即学生们的数学和阅读技巧既比不上 国外的同龄人,也比不上先前在教育上投入少得多时的那几代人。对照选项,只有D) “不断增加的行政 人员数量”符合原文表述,故为答案。 点睛:A)“愈加重视教育理论”与原文对教育理论胡说八道不符;B) “高度标准化的教学方法”,原文并 未提及;C) “学生的学习成绩提高”与原文第八段最后一句“学生们的数学和阅读技巧既比不上国外的同 龄人,也比不上先前在教育上投入少得多时的那几代人”不符。"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1565 @@
+{
+  "id": "cet4-2017-12-1",
+  "level": 4,
+  "year": 2017,
+  "month": 12,
+  "set": 1,
+  "title": "2017 年 12 月四级 · 第 1 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.12/%E7%9C%9F%E9%A2%98Word/2017%E5%B9%B412%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E5%8D%B7%E4%B8%80%EF%BC%89.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2017%E5%B9%B412%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E7%AC%AC%E4%B8%80%E5%A5%97%EF%BC%89.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2017-12-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "A rat or pigeon might not be the obvious choice to tend to someone who is sick, but these creatures have some [[26]] skills that could help the treatment of human diseases. Pigeons are often seen as dirty birds and an urban [[27]] , but they are just the latest in a long line of animals that have been found to have abilities to help humans. Despite having a brain no bigger than the [[28]] of your index finger, pigeons have a very impressive [[29]] memory. Recently it was shown that they could be trained to be as accurate as humans at detecting breast cancer in images. Rats are often [[30]] with spreading disease rather than [[31]] it, but this long-tailed animal is highly [[32]] . Inside a rat's nose are up to 1,000 different types of olfactory receptors (嗅觉感受器), whereas humans only have 100 to 200 types. This gives rats the ability to detect [[33]] smells. As a result, some rats are being put to work to detect TB(肺结核). When the rats detect the smell, they stop and rub their legs to [[34]] a sample is infected. Traditionally, a hundred samples would take lab technicians more than two days to [[35]] , but for a rat it takes less than 20 minutes. This rat detection method doesn't rely on specialist equipment. It is also more accurate — the rats are able to find more TB infections and, therefore, save more lives."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "associated"
+        },
+        {
+          "key": "B",
+          "text": "examine"
+        },
+        {
+          "key": "C",
+          "text": "indicate"
+        },
+        {
+          "key": "D",
+          "text": "nuisance"
+        },
+        {
+          "key": "E",
+          "text": "peak"
+        },
+        {
+          "key": "F",
+          "text": "preventing"
+        },
+        {
+          "key": "G",
+          "text": "prohibiting"
+        },
+        {
+          "key": "H",
+          "text": "sensitive"
+        },
+        {
+          "key": "I",
+          "text": "slight"
+        },
+        {
+          "key": "J",
+          "text": "specify"
+        },
+        {
+          "key": "K",
+          "text": "superior"
+        },
+        {
+          "key": "L",
+          "text": "suspicious"
+        },
+        {
+          "key": "M",
+          "text": "tip"
+        },
+        {
+          "key": "N",
+          "text": "treated"
+        },
+        {
+          "key": "O",
+          "text": "visual"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "associated"
+            },
+            {
+              "key": "B",
+              "text": "examine"
+            },
+            {
+              "key": "C",
+              "text": "indicate"
+            },
+            {
+              "key": "D",
+              "text": "nuisance"
+            },
+            {
+              "key": "E",
+              "text": "peak"
+            },
+            {
+              "key": "F",
+              "text": "preventing"
+            },
+            {
+              "key": "G",
+              "text": "prohibiting"
+            },
+            {
+              "key": "H",
+              "text": "sensitive"
+            },
+            {
+              "key": "I",
+              "text": "slight"
+            },
+            {
+              "key": "J",
+              "text": "specify"
+            },
+            {
+              "key": "K",
+              "text": "superior"
+            },
+            {
+              "key": "L",
+              "text": "suspicious"
+            },
+            {
+              "key": "M",
+              "text": "tip"
+            },
+            {
+              "key": "N",
+              "text": "treated"
+            },
+            {
+              "key": "O",
+              "text": "visual"
+            }
+          ],
+          "answer": "K",
+          "explanation": "答案:K)superior 详解:形容词辨析题。空格前为some,空格后为名词skills,故应填入形容词。由于上文提到,老鼠和鸽子也许并不 是照看病人的最好的选择,是对这两种动物的一种否定,但从转折词but 可以看出,空格所在句应该是对这两种动 物的肯定,因此应填入有积极含义的形容词。K) superior 意为“较好的”,符合句意,故为答案。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "associated"
+            },
+            {
+              "key": "B",
+              "text": "examine"
+            },
+            {
+              "key": "C",
+              "text": "indicate"
+            },
+            {
+              "key": "D",
+              "text": "nuisance"
+            },
+            {
+              "key": "E",
+              "text": "peak"
+            },
+            {
+              "key": "F",
+              "text": "preventing"
+            },
+            {
+              "key": "G",
+              "text": "prohibiting"
+            },
+            {
+              "key": "H",
+              "text": "sensitive"
+            },
+            {
+              "key": "I",
+              "text": "slight"
+            },
+            {
+              "key": "J",
+              "text": "specify"
+            },
+            {
+              "key": "K",
+              "text": "superior"
+            },
+            {
+              "key": "L",
+              "text": "suspicious"
+            },
+            {
+              "key": "M",
+              "text": "tip"
+            },
+            {
+              "key": "N",
+              "text": "treated"
+            },
+            {
+              "key": "O",
+              "text": "visual"
+            }
+          ],
+          "answer": "D",
+          "explanation": "答案:D)nuisance 详解:名词辨析题。空格前是形容词urban,故应填入名词。该句中and 前面的含义是“鸽子经常被视为很脏的 鸟类”,根据并列连词and 可以推断urban 后的名词也应该是贬义类词汇。D)nuisance 意为“讨厌的人或事”,符 合句意,故为答案。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "associated"
+            },
+            {
+              "key": "B",
+              "text": "examine"
+            },
+            {
+              "key": "C",
+              "text": "indicate"
+            },
+            {
+              "key": "D",
+              "text": "nuisance"
+            },
+            {
+              "key": "E",
+              "text": "peak"
+            },
+            {
+              "key": "F",
+              "text": "preventing"
+            },
+            {
+              "key": "G",
+              "text": "prohibiting"
+            },
+            {
+              "key": "H",
+              "text": "sensitive"
+            },
+            {
+              "key": "I",
+              "text": "slight"
+            },
+            {
+              "key": "J",
+              "text": "specify"
+            },
+            {
+              "key": "K",
+              "text": "superior"
+            },
+            {
+              "key": "L",
+              "text": "suspicious"
+            },
+            {
+              "key": "M",
+              "text": "tip"
+            },
+            {
+              "key": "N",
+              "text": "treated"
+            },
+            {
+              "key": "O",
+              "text": "visual"
+            }
+          ],
+          "answer": "M",
+          "explanation": "答案:M)tip 详解:名词辨析题。空格前为冠词the,后面是介词of,可以推测此处应填入名词,且该词与of 后面的index finger 有关。该句是在描述鸽子脑子的大小,指出其不大于人类食指的某部分,选项中只有M)tip“尖端,末梢”符合此 处的含义,故为答案。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "associated"
+            },
+            {
+              "key": "B",
+              "text": "examine"
+            },
+            {
+              "key": "C",
+              "text": "indicate"
+            },
+            {
+              "key": "D",
+              "text": "nuisance"
+            },
+            {
+              "key": "E",
+              "text": "peak"
+            },
+            {
+              "key": "F",
+              "text": "preventing"
+            },
+            {
+              "key": "G",
+              "text": "prohibiting"
+            },
+            {
+              "key": "H",
+              "text": "sensitive"
+            },
+            {
+              "key": "I",
+              "text": "slight"
+            },
+            {
+              "key": "J",
+              "text": "specify"
+            },
+            {
+              "key": "K",
+              "text": "superior"
+            },
+            {
+              "key": "L",
+              "text": "suspicious"
+            },
+            {
+              "key": "M",
+              "text": "tip"
+            },
+            {
+              "key": "N",
+              "text": "treated"
+            },
+            {
+              "key": "O",
+              "text": "visual"
+            }
+          ],
+          "answer": "O",
+          "explanation": "答案:O)visual 详解:形容词辨析题。空格前为形容词impressive,空格后为名词memory,因此此处应填入形容词修饰memory, 指某类记忆。结合下文句意,鸽子能够训练地和人类一样能精确地通过图像检测乳腺癌,可见鸽子的视觉优势比较 明显,故O)visual“视觉的”为答案。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "associated"
+            },
+            {
+              "key": "B",
+              "text": "examine"
+            },
+            {
+              "key": "C",
+              "text": "indicate"
+            },
+            {
+              "key": "D",
+              "text": "nuisance"
+            },
+            {
+              "key": "E",
+              "text": "peak"
+            },
+            {
+              "key": "F",
+              "text": "preventing"
+            },
+            {
+              "key": "G",
+              "text": "prohibiting"
+            },
+            {
+              "key": "H",
+              "text": "sensitive"
+            },
+            {
+              "key": "I",
+              "text": "slight"
+            },
+            {
+              "key": "J",
+              "text": "specify"
+            },
+            {
+              "key": "K",
+              "text": "superior"
+            },
+            {
+              "key": "L",
+              "text": "suspicious"
+            },
+            {
+              "key": "M",
+              "text": "tip"
+            },
+            {
+              "key": "N",
+              "text": "treated"
+            },
+            {
+              "key": "O",
+              "text": "visual"
+            }
+          ],
+          "answer": "A",
+          "explanation": "答案:A)associated 详解:动词辨析题。空格前为be 动词are,空格后为介词with,故推测此处应填入动词的过去分词构成被动语态。 With 后的部分spreading disease 意为“传播疾病”,根据常识可知,老鼠通常都被认为是传播疾病的元凶,associated 意为“联系”,符合句意,be associated with 为固定搭配,意为“与......有关”,故答案为A。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "associated"
+            },
+            {
+              "key": "B",
+              "text": "examine"
+            },
+            {
+              "key": "C",
+              "text": "indicate"
+            },
+            {
+              "key": "D",
+              "text": "nuisance"
+            },
+            {
+              "key": "E",
+              "text": "peak"
+            },
+            {
+              "key": "F",
+              "text": "preventing"
+            },
+            {
+              "key": "G",
+              "text": "prohibiting"
+            },
+            {
+              "key": "H",
+              "text": "sensitive"
+            },
+            {
+              "key": "I",
+              "text": "slight"
+            },
+            {
+              "key": "J",
+              "text": "specify"
+            },
+            {
+              "key": "K",
+              "text": "superior"
+            },
+            {
+              "key": "L",
+              "text": "suspicious"
+            },
+            {
+              "key": "M",
+              "text": "tip"
+            },
+            {
+              "key": "N",
+              "text": "treated"
+            },
+            {
+              "key": "O",
+              "text": "visual"
+            }
+          ],
+          "answer": "F",
+          "explanation": "答案:F)preventing 详解:动词辨析题。空格所在句中的rather than 起到了连词的作用,故前后的词性是一致的,其前面是动名词结 构,故空格处也应该填入动名词,且根据rather than“而不是”可知,空格处的动名词与spreading disease 的含义相 反,备选项中preventing 意为“预防”,既符合词性要求,也符合句意,故F)为答案。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "associated"
+            },
+            {
+              "key": "B",
+              "text": "examine"
+            },
+            {
+              "key": "C",
+              "text": "indicate"
+            },
+            {
+              "key": "D",
+              "text": "nuisance"
+            },
+            {
+              "key": "E",
+              "text": "peak"
+            },
+            {
+              "key": "F",
+              "text": "preventing"
+            },
+            {
+              "key": "G",
+              "text": "prohibiting"
+            },
+            {
+              "key": "H",
+              "text": "sensitive"
+            },
+            {
+              "key": "I",
+              "text": "slight"
+            },
+            {
+              "key": "J",
+              "text": "specify"
+            },
+            {
+              "key": "K",
+              "text": "superior"
+            },
+            {
+              "key": "L",
+              "text": "suspicious"
+            },
+            {
+              "key": "M",
+              "text": "tip"
+            },
+            {
+              "key": "N",
+              "text": "treated"
+            },
+            {
+              "key": "O",
+              "text": "visual"
+            }
+          ],
+          "answer": "H",
+          "explanation": "答案:H)sensitive 详解:形容词辨析题。空格前为副词highly,故此处应填入形容词。结合句意,but 前指出老鼠通常是传播疾病的, 为贬义,故but 后的句意应为褒义,同时结合后文,老鼠的鼻子中有多达1,000 种不同的嗅觉感受器,因此此处应 该表达老鼠“灵敏度高”的意思,H)sensitive 意为“敏感的”,符合句意,故为答案。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "associated"
+            },
+            {
+              "key": "B",
+              "text": "examine"
+            },
+            {
+              "key": "C",
+              "text": "indicate"
+            },
+            {
+              "key": "D",
+              "text": "nuisance"
+            },
+            {
+              "key": "E",
+              "text": "peak"
+            },
+            {
+              "key": "F",
+              "text": "preventing"
+            },
+            {
+              "key": "G",
+              "text": "prohibiting"
+            },
+            {
+              "key": "H",
+              "text": "sensitive"
+            },
+            {
+              "key": "I",
+              "text": "slight"
+            },
+            {
+              "key": "J",
+              "text": "specify"
+            },
+            {
+              "key": "K",
+              "text": "superior"
+            },
+            {
+              "key": "L",
+              "text": "suspicious"
+            },
+            {
+              "key": "M",
+              "text": "tip"
+            },
+            {
+              "key": "N",
+              "text": "treated"
+            },
+            {
+              "key": "O",
+              "text": "visual"
+            }
+          ],
+          "answer": "I",
+          "explanation": "答案:I)slight 详解:形容词辨析题。空格前为动词detect,空格后为名词smells,由此推测空格处应填入形容词。上文指出, 老鼠的鼻子中有多达1,000 种不同的嗅觉感受器,可以推断老鼠的嗅觉很强,非常轻微的气味也能探测到,故答案 为I)slight“轻微的”。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "associated"
+            },
+            {
+              "key": "B",
+              "text": "examine"
+            },
+            {
+              "key": "C",
+              "text": "indicate"
+            },
+            {
+              "key": "D",
+              "text": "nuisance"
+            },
+            {
+              "key": "E",
+              "text": "peak"
+            },
+            {
+              "key": "F",
+              "text": "preventing"
+            },
+            {
+              "key": "G",
+              "text": "prohibiting"
+            },
+            {
+              "key": "H",
+              "text": "sensitive"
+            },
+            {
+              "key": "I",
+              "text": "slight"
+            },
+            {
+              "key": "J",
+              "text": "specify"
+            },
+            {
+              "key": "K",
+              "text": "superior"
+            },
+            {
+              "key": "L",
+              "text": "suspicious"
+            },
+            {
+              "key": "M",
+              "text": "tip"
+            },
+            {
+              "key": "N",
+              "text": "treated"
+            },
+            {
+              "key": "O",
+              "text": "visual"
+            }
+          ],
+          "answer": "C",
+          "explanation": "答案:C)indicate 详解:动词辨析题。空格位于不定式符号to 之后,且空格后为从句,故推测此处应填入动词原形。该句意为,当 老鼠察觉到某种气味时,它们会停下来摩擦自己的腿,以_______样本被感染了。C)indicate“表明,显示”符号句 意,故为答案。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "associated"
+            },
+            {
+              "key": "B",
+              "text": "examine"
+            },
+            {
+              "key": "C",
+              "text": "indicate"
+            },
+            {
+              "key": "D",
+              "text": "nuisance"
+            },
+            {
+              "key": "E",
+              "text": "peak"
+            },
+            {
+              "key": "F",
+              "text": "preventing"
+            },
+            {
+              "key": "G",
+              "text": "prohibiting"
+            },
+            {
+              "key": "H",
+              "text": "sensitive"
+            },
+            {
+              "key": "I",
+              "text": "slight"
+            },
+            {
+              "key": "J",
+              "text": "specify"
+            },
+            {
+              "key": "K",
+              "text": "superior"
+            },
+            {
+              "key": "L",
+              "text": "suspicious"
+            },
+            {
+              "key": "M",
+              "text": "tip"
+            },
+            {
+              "key": "N",
+              "text": "treated"
+            },
+            {
+              "key": "O",
+              "text": "visual"
+            }
+          ],
+          "answer": "B",
+          "explanation": "答案:B)examine 详解:动词辨析题。空格前为to,根据句子结构推测此处为不定式结构,空格处应填入动词原形。结合句意,实 验室技术员工作应该是检测样本。Examine 意思是“检测”,符合句意,故B 为答案。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2017-12-1-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) I have always been a poor test-taker. So it may seem rather strange that I have returned to college to finish the degree I left undone some four decades ago. I am making my way through Columbia University, surrounded by students who quickly supply the verbal answer while I am still processing the question.",
+        "B) Since there is no way for me to avoid exams, I am currently questioning what kind are the most taxing and ultimately beneficial. I have already sweated through numerous in-class midterms and finals, and now I have a professor who issues take-home ones. I was excited when I learned this, figuring I had a full week to do the research, read the texts, and write it all up. In fact, I was still rewriting my midterm the morning it was due. To say I had lost the thread is putting it mildly.",
+        "C) As I was suffering through my week of anxiety, overthinking the material and guessing my grasp of it, I did some of my own polling among students and professors. David Eisenbach, who teaches a popular class on U.S. presidents at Columbia, prefers the in-class variety. He believes students ultimately learn more and encourages them to form study groups. “That way they socialize over history outside the class, which wouldn’t happen without the pressure of an in-class exam,” he explained, “Furthermore, in-class exams force students to learn how to perform under pressure, and essential work skill.”",
+        "D) He also says there is less chance of cheating with the in-class variety. In 2012, 125 students at Harvard were caught up in a scandal when it was discovered they had cheated on a take-home exam for a class entitled “Introduction To Congress.” Some colleges have what they call an “honor code,” though if you are smart enough to get into these schools, you are either smart enough to get around any codes or hopefully, too ethical to consider doing so. As I sat blocked and clueless for two solid days, I momentarily wondered if I couldn’t just call an expert on the subject matter which I was tackling, or someone who took the class previously, to get me going.",
+        "E) Following the Harvard scandal, Mary Miller, the former dean of students at Yale, made an impassioned appeal to her school’s professors to refrain from take-hone exams. “Students risk health and well being, as well as performance in other end-of-term work, when faculty offers take-home exams without clear, time-limited boundaries,” she told me. “Research now shows that regular quizzes, short essays, and other assignments over the course of a term better enhance learning and retention.”",
+        "F) Most college professors agree the kind of exam they choose largely depends on the subject. A quantitative-based one, for example, is unlikely to be sent home, where one could ask their older brothers and sisters to help. Vocational-type classes, such as computer science or journalism, on the other hand, are often more research-oriented and lend themselves to take-home testing. Chris Koch, who teaches “History of Broadcast Journalism” at Montgomery Community College in Rockville, Maryland, points out that reporting is about investigation rather than the memorization of minute details. “In my field, it’s not what you know—it’s what you know how to find out,” says Koch. “There is way too much information, and more coming all the time, for anyone to remember. I want my students to search out the answers to questions by using all the resources available to them.",
+        "G) Students’ test-form preferences vary, too, often depending on the subject and course difficulty. “I prefer take-home essays because it is then really about the writing, so you have time to edit and do more research,” says Elizabeth Dresser, a junior at Barnard. Then there is the stress factor. Francesca Haass, a senior at Middlebury, says, “I find the in-class ones are more stressful in the short term, but there is immediate relief as you swallow information like mad, and then you get to forget it all. Take-homes require thoughtful engagement which can lead to longer term stress as there is never a moment when the time is up.” Meanwhile, Olivia Rubin, a sophomore at Emory, says she hardly even considers take-homes true exams. “If you understand the material and have the ability to articulate (说出) your thoughts, they should be a breeze.”",
+        "H) How students ultimately handle stress may depend on their personal test-taking abilities. There are people who always wait until the last minute, and make it much harder than it needs to be. And then there those who, not knowing what questions are coming at them, and having no resources to refer to, can freeze. And then there are we rare folks who fit both those descriptions.",
+        "I) Yes, my advanced age must factor into the equation (等式), in part because of my inability to access the information as quickly. As another returning student at Columbia, Kate Marber, told me, “We are learning not only all this information, but essentially how to learn again. Our fellow students have just come out of high school. A lot has changed since we were last in school.”",
+        "J) If nothing else, the situation has given my college son and me something to share, When I asked his opinion on this matter, he responded, “I like in-class exams because the time is already reserved, as opposed to using my free time at home to work on a test,” he responded. It seems to me that a compromise would be receiving the exam questions a day or two in advance, and then doing the actual test in class the ticking clock overhead.",
+        "K) Better yet, how about what one Hunter College professor reportedly did recently for her final exam: She encouraged the class not to stress or even study, promising that, “It is going to be apiece of cake.” When the students came in, sharpened pencils in hand, there was not a bluebook in sight. Rather, they saw a large chocolate cake and they each were given a slice."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Elderly students find it hard to keep up with the rapid changes in education.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "I",
+          "explanation": "Elderly students find it hard to keep up with [I] Yes, my advanced age must factor into the equation (等式), in the rapid changes in education. part because of my inability to access the information as quickly. As 译文:年长的学生发现很难跟上教育的快速变化。 another returning student at Columbia, Kate Marber, told me, “We 定位:由题干中的关键词Elderly students 和 are learning not only all this information, but essentially how to learn changes in education 定位到原文画线处。 again. Our fellow students have just come out of high school. A lot has changed since we were last in school.” 详解:第一句作者提到,自己的高龄对学习产生了一定的影响,部分是由于无法快速地获取信息。该段最后一句 也指出,现在的教育和作者当时上学时大不一样了。这两句话一方面说明了教育的变化,另一方面也指出偏大的年 龄让适应这种变化变得困难。题干是对这两句话的概括总结,故答案为I。"
+        },
+        {
+          "number": 37,
+          "stem": "Some believe take-home exams may affect students' performance in other courses.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "E",
+          "explanation": "Some believe take-home exams [E] Following the Harvard scandal, Mary Miller, the former dean of students at may affect students' performance in other Yale, made an impassioned appeal to her school’s professors to refrain from courses. take-hone exams. “Students risk health and well being, as well as performance 译文:一些人认为课后考试也许会影响 in other end-of-term work, when faculty offers take-home exams without clear, 学生在其他课程上的表现。 time-limited boundaries,” she told me. “Research now shows that regular 定位:由题干中的关键词performance in quizzes, short essays, and other assignments over the course of a term better other courses 定位到原文画线处。 enhance learning and retention.” 详解:E 段提到,耶鲁大学的前教导主任玛丽·米勒说,在老师们给出没有明确时间限制的课后考试时,学生们 牺牲了健康和幸福,以及其他的期末功课。题干中的Some 对应原文中的Mary Miller;performance in other courses 对应原文中的performance in other end-of-term work,故答案为E。"
+        },
+        {
+          "number": 38,
+          "stem": "Certain professors believe in-class exams are ultimately more helpful to students.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Certain professors believe [C] As I was suffering through my week of anxiety, overthinking the material and in-class exams are ultimately guessing my grasp of it, I did some of my own polling among students and professors. more helpful to students. David Eisenbach, who teaches a popular class on U.S. presidents at Columbia, prefers 译文:一些教授认为课上考试最 the in-class variety. He believes students ultimately learn more and encourages them to 终会对学生更有帮助。 form study groups. “That way they socialize over history outside the class, which 定位:由题干中的关键词 wouldn’t happen without the pressure of an in-class exam,” he explained, in-class exams 和ultimately 定位 “Furthermore, in-class exams force students to learn how to perform under pressure, 到原文画线处。 and essential work skill.” 详解:定位句指出,哥伦比亚大学的教授大卫·艾森巴赫更偏爱课上考试,他相信学生最终会学到更多,并且鼓 励他们组成学习小组。题干中的are ultimately more helpful to students 对应原文中的students ultimately learn more, 故答案为C。"
+        },
+        {
+          "number": 39,
+          "stem": "In-class exams are believed to discourage cheating in exams.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "D",
+          "explanation": "In-class exams are [D] He also says there is less chance of cheating with the in-class variety. In 2012, 125 believed to discourage students at Harvard were caught up in a scandal when it was discovered they had cheated on cheating in exams. a take-home exam for a class entitled “Introduction To Congress.” Some colleges have what 译文:课上考试被认为能阻 they call an “honor code,” though if you are smart enough to get into these schools, you are 止考试作弊行为。 either smart enough to get around any codes or hopefully, too ethical to consider doing so. 定位:由题干中的关键词 As I sat blocked and clueless for two solid days, I momentarily wondered if I couldn’t just In-class exams 和cheating call an expert on the subject matter which I was tackling, or someone who took the class 定位到原文画线处。 previously, to get me going. 详解:D 段第一句指出,课上考试的作弊几率更低。题干中的discourage cheating 对应定位句中的less chance of cheating,故答案为D。"
+        },
+        {
+          "number": 40,
+          "stem": "The author was happy to learn she could do some exams at home.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "B",
+          "explanation": "The author was happy to learn [B] Since there is no way for me to avoid exams, I am currently questioning what she could do some exams at home. kind are the most taxing and ultimately beneficial. I have already sweated through 译文:作者知道她能回家考试时非 numerous in-class midterms and finals, and now I have a professor who issues 常开心。 take-home ones. I was excited when I learned this, figuring I had a full week to do 定位:由题干中的关键词happy 和 the research, read the texts, and write it all up. In fact, I was still rewriting my do some exams at home.定位到原文 midterm the morning it was due. To say I had lost the thread is putting it mildly. 画线处。 详解:句中提到,当作者得知一位教授布置课后考试任务时,她感到很兴奋。题干中的happy 对应原文中的excited, 故答案为B。"
+        },
+        {
+          "number": 41,
+          "stem": "Students who put off their work until the last moment often find the exams more difficult than they actually are.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "H",
+          "explanation": "Students who put off their work until the [H] How students ultimately handle stress may depend on their personal last moment often find the exams more difficult test-taking abilities. There are people who always wait until the last than they actually are. minute, and make it much harder than it needs to be. And then there 译文:那些把功课留到最后一刻才做的学生往 those who, not knowing what questions are coming at them, and having 往会感觉考试比实际更难。 no resources to refer to, can freeze. And then there are we rare folks 定位:由题干中的关键词until the last moment who fit both those descriptions. 和more difficult 定位到原文画线处。 详解:H 段提到,学生们最终会如何应对考试可能取决于他们个人的应试能力。有些人总是等到最后一分钟,让 事情变得比实际更困难。题干中的the last moment 是定位句中the last minute 的同义转述;题干中的find the exams more difficult 对应原文中的make it much harder,故答案为H。"
+        },
+        {
+          "number": 42,
+          "stem": "Different students may prefer different types of exams.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "G",
+          "explanation": "Different students [G] Students’ test-form preferences vary, too, often depending on the subject and course may prefer different types difficulty. “I prefer take-home essays because it is then really about the writing, so you have of exams. time to edit and do more research,” says Elizabeth Dresser, a junior at Barnard. Then there is 译文:不同的学生可能偏 the stress factor. Francesca Haass, a senior at Middlebury, says, “I find the in-class ones are 好不同的考试类型。 more stressful in the short term, but there is immediate relief as you swallow information like 定位:由题干中的关键词 mad, and then you get to forget it all. Take-homes require thoughtful engagement which can prefer 和types of exams 定 lead to longer term stress as there is never a moment when the time is up.” Meanwhile, Olivia 位到原文画线处。 Rubin, a sophomore at Emory, says she hardly even considers take-homes true exams. “If you understand the material and have the ability to articulate (说出) your thoughts, they should be a breeze.” 详解:G 段第一句指出,学生们对考试类型的偏好也不尽相同,通常取决于科目和课程的难度。题干中的different 对应原文中的wary;prefer 对应原文中的preferences,故答案为G。"
+        },
+        {
+          "number": 43,
+          "stem": "Most professors agree whether to give an in-class or a take-home exam depends on type of course being taught.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "F",
+          "explanation": "Most professors agree [F] Most college professors agree the kind of exam they choose largely depends on the whether to give an in-class or subject. A quantitative-based one, for example, is unlikely to be sent home, where one a take-home exam depends on could ask their older brothers and sisters to help. Vocational-type classes, such as computer type of course being taught. science or journalism, on the other hand, are often more research-oriented and lend 译文:大多数教授都认同是 themselves to take-home testing. Chris Koch, who teaches “History of Broadcast 课上考试还是课后考试取决 Journalism” at Montgomery Community College in Rockville, Maryland, points out that 于所教授的课程的类型。 reporting is about investigation rather than the memorization of minute details. “In my 定位:由题干中的关键词 field, it’s not what you know—it’s what you know how to find out,” says Koch. “There is Most professors agree 和 way too much information, and more coming all the time, for anyone to remember. I want depends on 定位到原文画线 my students to search out the answers to questions by using all the resources available to 处。 them. 详解:F 段首句指出,大多数大学教授都认同他们选择的考试类型很大程度上取决与课程。题干中提到的课上考 试和课后考试就是这里指的考试类型,题干中的the type of course being taught 对应原文中的the subject,故答案为F。"
+        },
+        {
+          "number": 44,
+          "stem": "The author dropped out of college some forty years ago.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "A",
+          "explanation": "The author dropped out of college some forty [A] I have always been a poor test-taker. So it may seem rather years ago. strange that I have returned to college to finish the degree I left 译文:作者大约四十年前从大学辍学了。 undone some four decades ago. I am making my way through 定位:由题干中的关键词college 和some forty years Columbia University, surrounded by students who quickly supply ago 定位到原文画线处。 the verbal answer while I am still processing the question. 详解:A 段提到,作者重返大学去完成四十年前中断的学位,说明其四十年前从大学辍学了。题干是对定位句的 同义转述,故答案为A。"
+        },
+        {
+          "number": 45,
+          "stem": "Some students think take-home exams will eat up their free time.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "J",
+          "explanation": "Some students think take-home exams [J] If nothing else, the situation has given my college son and me will eat up their free time. something to share, When I asked his opinion on this matter, he responded, 译文:一些学生认为课后考试会占用自己 “I like in-class exams because the time is already reserved, as opposed to 的业余时间。 using my free time at home to work on a test,” he responded. It seems to 定位:由题干中的关键词take-home exams me that a compromise would be receiving the exam questions a day or two 和free time 定位到原文画线处。 in advance, and then doing the actual test in class the ticking clock overhead. 详解:J 段提到,当作者问儿子关于考试类型这一话题时,儿子表示他喜欢课上考试,因为时间已经被留出来了, 不需要在家里用课余时间去完成考试。题干中的eat up 是对定位句中using 的同义转述,故答案为J。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2017-12-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "That people often experience trouble sleeping in a different bed in unfamiliar surroundings is a phenomenon known as the “first-night” effect. If a person stays in the same room the following night they tend to sleep more soundly. Yuka Sasaki and her colleagues at Brown University set out to investigate the origins of this effect. Dr. Sasaki knew the first-night effect probably has something to do with how humans evolved. The puzzle was what benefit would be gained from it when performance might be affected the following day. She also knew from previous work conducted on birds and dolphins that these animals put half of their brains to sleep at a time so that they can rest while remaining alert enough to avoid predators (捕食者). This led her to wonder if people might be doing the same thing. To take a closer look, her team studied 35 healthy people as they slept in the unfamiliar environment of the university’s Department of Psychological Sciences. The participants each slept in the department for two nights and were carefully monitored with techniques that looked at the activity of their brains. Dr. Sasaki found, as expected, the participants slept less well on their first night than they did on their second, taking more than twice as long to fall asleep and sleeping less overall. During deep sleep, the participants’ brains behaved in a similar manner seen in birds and dolphins. On the first night only, the left hemispheres (半球) of their brains did not sleep nearly as deeply as their right hemispheres did. Curious if the left hemispheres were indeed remaining awake to process information detected in the surrounding environment, Dr. Sasaki re-ran the experiment while presenting the sleeping participants with a mix of regularly timed beeps (蜂鸣声) of the same tone and irregular beeps of a different tone during the night. She worked out that, if the left hemisphere was staying alert to keep guard in a strange environment, then it would react to the irregular beeps by stirring people from sleep and would ignore the regularly timed ones. This is precisely what she found."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What did researchers find puzzling about the first-night effect?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To what extent it can trouble people."
+            },
+            {
+              "key": "B",
+              "text": "What role it has played in evolution."
+            },
+            {
+              "key": "C",
+              "text": "What circumstances may trigger it."
+            },
+            {
+              "key": "D",
+              "text": "In what way it can be beneficial."
+            }
+          ],
+          "answer": "D",
+          "explanation": "答案:D 定位:由题干中的puzzling 和first-night effect 定位到第二段第二句:The puzzle was what benefit would be gained from it when performance might be affected the following day. 详解:实施细节题。文章第二段开头指出,佐木博士认为初夜效应很有可能和人类的进化方式有关。但令她感 到困惑的是,初夜效应可能会导致第二天表现不佳,那它又能带来什么好处呢?也就是初夜效应能产生怎样的好处, 故答案为D。"
+        },
+        {
+          "number": 47,
+          "stem": "What do we learn about Dr. Yuka Sasaki doing her research?",
+          "options": [
+            {
+              "key": "A",
+              "text": "She found birds and dolphins remain alert while asleep."
+            },
+            {
+              "key": "B",
+              "text": "She found birds and dolphins sleep in much the same way."
+            },
+            {
+              "key": "C",
+              "text": "She got some idea from previous studies on birds and dolphins"
+            },
+            {
+              "key": "D",
+              "text": "She conducted studies on birds’ and dolphins’ sleeping patterns."
+            }
+          ],
+          "answer": "C",
+          "explanation": "答案:C 定位:由题干中的Dr. Yuka Sasaki 和her research 定位到第二段第三、四句:She also knew from previous work conducted on birds and dolphins that these animals put half of their brains to sleep at a time so that they can rest while remaining alert enough to avoid predators (捕食者). This led her to wonder if people might be doing the same thing. 详解:实施细节题。定位句指出,佐木博士从之前对鸟类和海豚的研究工作中对初夜效应得到了一些相关的结 论,并猜想人类是否也是这样,故答案为C。"
+        },
+        {
+          "number": 48,
+          "stem": "What did Dr. Sasaki do when she first did her experiment?",
+          "options": [
+            {
+              "key": "A",
+              "text": "She monitored the brain activity of participants sleeping in a new environment."
+            },
+            {
+              "key": "B",
+              "text": "She recruited 35 participants from her Department of Psychological Sciences."
+            },
+            {
+              "key": "C",
+              "text": "She studied the differences between the two sides of participants’ brains."
+            },
+            {
+              "key": "D",
+              "text": "She tested her findings about birds and dolphins on human subjects."
+            }
+          ],
+          "answer": "A",
+          "explanation": "答案:A 定位:由题干中的Dr. Sasaki 和first...experiment 定位到第二段第六句:The participants each slept in the department for two nights and were carefully monitored with techniques that looked at the activity of their brains. 详解:实施细节题。定位句指出,佐木博士让参与者分别在系里睡两夜,并通过技术手段仔细地监控观察他们 大脑的活动情况,故答案为A。"
+        },
+        {
+          "number": 49,
+          "stem": "What did Dr. Sasaki do when re-running her experiment?",
+          "options": [
+            {
+              "key": "A",
+              "text": "She analyzed the negative effect of irregular tones on brains."
+            },
+            {
+              "key": "B",
+              "text": "She recorded participants’ adaptation to changed environment."
+            },
+            {
+              "key": "C",
+              "text": "She exposed her participants to two different stimuli."
+            },
+            {
+              "key": "D",
+              "text": "She compared the responses of different participants."
+            }
+          ],
+          "answer": "C",
+          "explanation": "答案:C 定位:由题干中的Dr. Sasaki 和re-running her experiment 定位到第三段第一句:...Dr. Sasaki re-ran the experiment while presenting the sleeping participants with a mix of regularly timed beeps (蜂鸣声) of the same tone and irregular beeps of a different tone during the night. 详解:推理判断题。文中第三段第一句指出,佐木博士在新的试验中将定时响起且音调不变的蜂鸣声和随时响 起且音调各异的蜂鸣声混杂在一起,播放给睡眠中的参与者听。由此可知,参与者接受了两种不同的声音刺激。故 答案为C。"
+        },
+        {
+          "number": 50,
+          "stem": "What did Dr. Sasaki find about the participants in her experiment?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They tended to enjoy certain tones more than others."
+            },
+            {
+              "key": "B",
+              "text": "They tended to perceive irregular beeps as a threat."
+            },
+            {
+              "key": "C",
+              "text": "They felt sleepy when exposed to regular beeps."
+            },
+            {
+              "key": "D",
+              "text": "They differed in their tolerance of irregular tones."
+            }
+          ],
+          "answer": "B",
+          "explanation": "答案:B 定位:由题干中的Dr. Sasaki find about the participants 定位到第三段第二句:She worked out that, if the left hemisphere was staying alert to keep guard in a strange environment, then it would react to the irregular beeps by stirring people from sleep and would ignore the regularly timed ones. 详解:推理判断题。定位句指出,如果大脑左半球在陌生的环境中为了防卫而保持警觉,那么它会对这种不规 律的蜂鸣声有所反应,从而把睡眠中的人弄醒。也就是说,这些实验参与者把这种不规律的蜂鸣声当作某种威胁从 而影响睡眠,故答案为B。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2017-12-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "It’s time to reevaluate how women handle conflict at work. Being overworked or over-committed at home and on the job will not get you where you want to be in life. It will only slow you down and hinder your career goals. Did you know women are more likely than men to feel exhausted? Nearly twice as many women than men ages 18-44 reported feeling “very tired” or “exhausted”, according to a recent study. This may not be surprising given that this is the age range when women have children. It's also the age range when many women are trying to balance careers and home. One reason women may feel exhausted is that they have a hard time saying \"no.\" Women want to be able to do it all volunteer for school parties or cook delicious meals-and so their answer to any request is often “Yes, I can.” Women struggle to say “no” in the workplace for similar reasons, including the desire to be liked by their colleagues. Unfortunately, this inability to say \"no\" may be hurting women's heath as well as their career. At the workplace, men use conflict as a way to position themselves, while women often avoid conflict or strive to be the peacemaker, because they don't want to be viewed as aggressive or disruptive at work. For example, there’s a problem that needs to be addressed immediately, resulting in a dispute over should be the one to fix it. Men are more likely to face that dispute from the perspective of what benefits them most, whereas women may approach the same dispute from the perspective of what's the easiest and quickest way to resolve the problem-even if that means doing the boring work themselves. This difference in handling conflict could be the deciding factor on who gets promoted to a leadership position and who does not. Leaders have to be able to delegate and manage resources wisely – including staff expertise. Shouldering more of the workload may not earn you that promotion. Instead, it may highlight your inability to delegate effectively."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the author say is the problem with women?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are often unclear about the career goals to reach."
+            },
+            {
+              "key": "B",
+              "text": "They are usually more committed at home than on the job."
+            },
+            {
+              "key": "C",
+              "text": "They tend to be over-optimistic about how far they could go."
+            },
+            {
+              "key": "D",
+              "text": "They tend to push themselves beyond the limits of their ability."
+            }
+          ],
+          "answer": "D",
+          "explanation": "答案:D 定位:由题干中的the problem with women 定位到第一段第二、三句:Being overworked or over-committed at home and on the job will not get you where you want to be in life. It will only slow you down and hinder your career goals. 详解:推理判断题。文中第一段第二、三句指出,在家庭和工作中过度劳累或承担过多只会让女性减速,并且 妨碍其职业目标。这两种“过度”可以推断为女性承担超出自己能力范围的任务,故答案为D。"
+        },
+        {
+          "number": 52,
+          "stem": "Why do working women of child-bearing age tend to feel drained of energy?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They struggle to satisfy the demands of both work and home."
+            },
+            {
+              "key": "B",
+              "text": "They are too devoted to work and unable to relax as a result."
+            },
+            {
+              "key": "C",
+              "text": "They do their best to cooperate with their workmates."
+            },
+            {
+              "key": "D",
+              "text": "They are obliged to take up too many responsibilities."
+            }
+          ],
+          "answer": "A",
+          "explanation": "答案:A 定位:由题干中的child-bearing age 和feel drained of energy 定位到第三段第一、二句:This may not be surprising given that this is the age range when women have children. It's also the age range when many women are trying to balance careers and home. 详解:推理判断题。文中第三段第一、二句提到,18 岁至44 岁是女性生养孩子的年龄段,同时也是女性努力平 衡事业和家庭的阶段。结合上段内容可知,这一年龄段的女性尤其容易感到疲惫。因此,该年龄段的女性容易感到 疲惫的原因是要生养孩子,并且需要兼顾工作和家庭,故答案为A。"
+        },
+        {
+          "number": 53,
+          "stem": "What may hinder the future prospects of career women?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Their unwillingness to say “no”."
+            },
+            {
+              "key": "B",
+              "text": "Their desire to be considered powerful."
+            },
+            {
+              "key": "C",
+              "text": "An underestimate of their own ability."
+            },
+            {
+              "key": "D",
+              "text": "A lack of courage to face challenges."
+            }
+          ],
+          "answer": "A",
+          "explanation": "答案:A 定位:由题干中的hinder 和career women 定位到第四段第二句:Unfortunately, this inability to say \"no\" may be hurting women's heath as well as their career. 详解:实施细节题。第四段第二句提到,这种无法说“不”的行为会伤害女性的健康和事业,即会妨碍女性的 事业,故答案为A。"
+        },
+        {
+          "number": 54,
+          "stem": "Men and woman differ in their approach to resolving workplace conflicts in that______.",
+          "options": [
+            {
+              "key": "A",
+              "text": "women tend to be easily satisfied"
+            },
+            {
+              "key": "B",
+              "text": "men are generally more persuasive"
+            },
+            {
+              "key": "C",
+              "text": "men tend to put their personal interests first"
+            },
+            {
+              "key": "D",
+              "text": "women are much more ready to compromise"
+            }
+          ],
+          "answer": "C",
+          "explanation": "答案:C 定位:由题干中的differ 和resolving workplace conflicts 定位到第五段最后一句:Men are more likely to face that dispute from the perspective of what benefits them most, whereas women may approach the same dispute from the perspective of what's the easiest and quickest way to resolve the problem... 详解:实施细节题。文章第五段最后一句提到,男性往往会站在最为利己的角度去面对冲突,即将自身利益放 在第一位,故答案为C。"
+        },
+        {
+          "number": 55,
+          "stem": "What is important to a good leader?",
+          "options": [
+            {
+              "key": "A",
+              "text": "A dominant personality."
+            },
+            {
+              "key": "B",
+              "text": "The ability to delegate."
+            },
+            {
+              "key": "C",
+              "text": "The courage to admit failure"
+            },
+            {
+              "key": "D",
+              "text": "A strong sense of responsibility."
+            }
+          ],
+          "answer": "B",
+          "explanation": "答案:B 定位:由题干中的important 和a good leader 定位到第六段第二句:Leaders have to be able to delegate and manage resources wisely – including staff expertise. 详解:推理判断题。第六段第二句提到,领导们需要有能力明智地委派或管理资源,也就是要有委派职责的能 力,故答案为B。"
+        }
+      ]
+    }
+  ]
+}

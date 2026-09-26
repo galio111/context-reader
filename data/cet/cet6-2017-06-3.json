@@ -1,0 +1,1811 @@
+{
+  "id": "cet6-2017-06-3",
+  "level": 6,
+  "year": 2017,
+  "month": 6,
+  "set": 3,
+  "title": "2017 年 6 月六级 · 第 3 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.06/%E7%9C%9F%E9%A2%98Word/2017%E5%B9%B406%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC3%E5%A5%97%EF%BC%89.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2017.06%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC3%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2017-06-3-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Let's all stop judging people who talk to themselves. New research says that those who can't seem to keep their inner monologues (独白) in are actually more likely to stay on task, remain [[26]] better and show improved perception capabilities. Not bad, really, for some extra muttering. According to a series of experiments published in the Quarterly Journal of Experimental Psychology by professors Gary Lupyan and Daniel Swignley, the act of using verbal clues to [[27]] mental pictures helps people function quicker. In one experiment, they showed pictures of various objects to twenty [[28]] and asked them to find just one of those, a banana. Half were [[29]] to repeat out loud what they were looking for and the other half kept their lips [[30]]. Those who talked to themselves found the banana slightly faster than those who didn't, the researchers say. In other experiments, Lupyan and Swignley found that [[31]] the name of a common product when on the hunt for it helped quicken someone's pace, but talking about uncommon items showed no advantage and slowed you down. Common research has long held that talking themselves through a task helps children learn, although doing so when you've [[32]] matured is not a great sign of [[33]]. The two professors hope to refute that idea, [[34]] that just as when kids walk themselves through a process, adults can benefit from using language not just to communicate, but also to help \"augment thinking\". Of course, you are still encouraged to keep the talking at library tones and, whatever you do, keep the information you share simple, like a grocery list. At any [[35]], there's still such a thing as too much information."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "apparently"
+        },
+        {
+          "key": "B",
+          "text": "arrogance"
+        },
+        {
+          "key": "C",
+          "text": "brilliance"
+        },
+        {
+          "key": "D",
+          "text": "claiming"
+        },
+        {
+          "key": "E",
+          "text": "dedicated"
+        },
+        {
+          "key": "F",
+          "text": "focused"
+        },
+        {
+          "key": "G",
+          "text": "incur"
+        },
+        {
+          "key": "H",
+          "text": "instructed"
+        },
+        {
+          "key": "I",
+          "text": "obscurely"
+        },
+        {
+          "key": "J",
+          "text": "sealed"
+        },
+        {
+          "key": "K",
+          "text": "spectators"
+        },
+        {
+          "key": "L",
+          "text": "trigger"
+        },
+        {
+          "key": "M",
+          "text": "uttering"
+        },
+        {
+          "key": "N",
+          "text": "volume"
+        },
+        {
+          "key": "O",
+          "text": "volunteers"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "apparently"
+            },
+            {
+              "key": "B",
+              "text": "arrogance"
+            },
+            {
+              "key": "C",
+              "text": "brilliance"
+            },
+            {
+              "key": "D",
+              "text": "claiming"
+            },
+            {
+              "key": "E",
+              "text": "dedicated"
+            },
+            {
+              "key": "F",
+              "text": "focused"
+            },
+            {
+              "key": "G",
+              "text": "incur"
+            },
+            {
+              "key": "H",
+              "text": "instructed"
+            },
+            {
+              "key": "I",
+              "text": "obscurely"
+            },
+            {
+              "key": "J",
+              "text": "sealed"
+            },
+            {
+              "key": "K",
+              "text": "spectators"
+            },
+            {
+              "key": "L",
+              "text": "trigger"
+            },
+            {
+              "key": "M",
+              "text": "uttering"
+            },
+            {
+              "key": "N",
+              "text": "volume"
+            },
+            {
+              "key": "O",
+              "text": "volunteers"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【锁定答案】可选范围中在语义上能与those(people)whoremain.··better搭配的只有dedicated “满腔热忧的、有献身精神的”和focused“专注的,集中注意力的”。由常识可判断,相比于“献身精神、热 忧热情”,“爱自言自语”与“专注度”的关联性更强,故选择focused。 【点拨技巧】本题dedicated干扰性较强,空格所在句甚至第一段均没有能将其完全排除的可靠依 据,此时可先将其标记存疑,从后文寻找更多线索。阅读全文后会发现,文中没有出现任何与“(对事 业、任务等等)具有献身精神的、满腔热忧的”相关信息,却存在大量直接或间接与“专注度、学习、思维” 相关的内容(如第二段helpspeoplefunctionquicker、第四段helpaugmentthinking等),这时可返回来确 认本题选focused正确无误。 【补充语法】remain、stay、continue、keep、hold等系动词可接形容词、ed分词、或ing分词,表示状态的 持续。如本题的remainfocused。又如:Thebrainneedstobeactivetostayyoung.(大脑需要活跃起来 以保持年轻。) Il According to a series of experiments published in the Quarterly Journal of Erperimental Psychology by professors Gary Lupyan and Daniel Swignley, the act of using verbal clues to _27 mental pictures helps people function quicker. 加里·卢比昂和丹尼尔·思威根 雷教授在《实验心理学季刊》上发表的 一系列实验报告显示,“利用口头提示 来激发记忆图像”这一行为有助于人 脑更快运转。 ·"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "apparently"
+            },
+            {
+              "key": "B",
+              "text": "arrogance"
+            },
+            {
+              "key": "C",
+              "text": "brilliance"
+            },
+            {
+              "key": "D",
+              "text": "claiming"
+            },
+            {
+              "key": "E",
+              "text": "dedicated"
+            },
+            {
+              "key": "F",
+              "text": "focused"
+            },
+            {
+              "key": "G",
+              "text": "incur"
+            },
+            {
+              "key": "H",
+              "text": "instructed"
+            },
+            {
+              "key": "I",
+              "text": "obscurely"
+            },
+            {
+              "key": "J",
+              "text": "sealed"
+            },
+            {
+              "key": "K",
+              "text": "spectators"
+            },
+            {
+              "key": "L",
+              "text": "trigger"
+            },
+            {
+              "key": "M",
+              "text": "uttering"
+            },
+            {
+              "key": "N",
+              "text": "volume"
+            },
+            {
+              "key": "O",
+              "text": "volunteers"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【锁定答案】空格所在句大意为,“利用口头提示 记忆图像”这一行为有助于人脑更快地运转, 可见trigger\"引发,触发”符合此处语义。 incur\"招致,蒙受[成本、债务、罚款等]”所接宾语通常带有消极含义,而 mental pictures 是 有益行为(helpspeoplefunctionquicker),因此不合语义要求。 【点拔技巧】选词填空不仅要关注词的词性、搭配、基本含义,有时还需辨别词的褒贬色彩、甚至褒 贬程度。如本题,正确项必须顺应上下文,体现“积极、褒义色彩”。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "apparently"
+            },
+            {
+              "key": "B",
+              "text": "arrogance"
+            },
+            {
+              "key": "C",
+              "text": "brilliance"
+            },
+            {
+              "key": "D",
+              "text": "claiming"
+            },
+            {
+              "key": "E",
+              "text": "dedicated"
+            },
+            {
+              "key": "F",
+              "text": "focused"
+            },
+            {
+              "key": "G",
+              "text": "incur"
+            },
+            {
+              "key": "H",
+              "text": "instructed"
+            },
+            {
+              "key": "I",
+              "text": "obscurely"
+            },
+            {
+              "key": "J",
+              "text": "sealed"
+            },
+            {
+              "key": "K",
+              "text": "spectators"
+            },
+            {
+              "key": "L",
+              "text": "trigger"
+            },
+            {
+              "key": "M",
+              "text": "uttering"
+            },
+            {
+              "key": "N",
+              "text": "volume"
+            },
+            {
+              "key": "O",
+              "text": "volunteers"
+            }
+          ],
+          "answer": "O",
+          "explanation": "【锁定答案】空格所在句描述的是一项实验(Inoneexperiment)中,研究者(they)对twenty (them)所作指示。可以推知,空格处为“实验的参与者”,volunteers\"志愿者、主动参与者”为正确项。文中 丝毫未提及“表演、观众”等信息,排除spectators\"观众”。 补充:表示\"研究中的受试对象、参与者”的词汇有:volunteers(自愿参加者),participants(参加者), subjects(受试对象),respondents(被调查者)等。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "apparently"
+            },
+            {
+              "key": "B",
+              "text": "arrogance"
+            },
+            {
+              "key": "C",
+              "text": "brilliance"
+            },
+            {
+              "key": "D",
+              "text": "claiming"
+            },
+            {
+              "key": "E",
+              "text": "dedicated"
+            },
+            {
+              "key": "F",
+              "text": "focused"
+            },
+            {
+              "key": "G",
+              "text": "incur"
+            },
+            {
+              "key": "H",
+              "text": "instructed"
+            },
+            {
+              "key": "I",
+              "text": "obscurely"
+            },
+            {
+              "key": "J",
+              "text": "sealed"
+            },
+            {
+              "key": "K",
+              "text": "spectators"
+            },
+            {
+              "key": "L",
+              "text": "trigger"
+            },
+            {
+              "key": "M",
+              "text": "uttering"
+            },
+            {
+              "key": "N",
+              "text": "volume"
+            },
+            {
+              "key": "O",
+              "text": "volunteers"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【锁定答案】空格所在句意为半数(实验参与者) 大声重复自已要找的物品”,填人后符合语义 的只有instructed,该词与系动词were构成被动语态,表示“被指示,被吩吋”。 claiming\"宣称,主张”、dedicated“有献身精神的;被献身”、Sealed“封闭的;被密封”与repeat不搭。 uttering\"说出,发出(声音)”与repeat存在一定的语义重复。 【点拔技巧】\"语义场(多个紧密联系的词语聚合成的一个语义系统】”对于解答选词填空题可以起到 重要作用。如,本段12句中showed、asked、were torepeat很明显形成了一个“实验者向受试对象 发指令”的语义场,从而很容易可以选定instructed."
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "apparently"
+            },
+            {
+              "key": "B",
+              "text": "arrogance"
+            },
+            {
+              "key": "C",
+              "text": "brilliance"
+            },
+            {
+              "key": "D",
+              "text": "claiming"
+            },
+            {
+              "key": "E",
+              "text": "dedicated"
+            },
+            {
+              "key": "F",
+              "text": "focused"
+            },
+            {
+              "key": "G",
+              "text": "incur"
+            },
+            {
+              "key": "H",
+              "text": "instructed"
+            },
+            {
+              "key": "I",
+              "text": "obscurely"
+            },
+            {
+              "key": "J",
+              "text": "sealed"
+            },
+            {
+              "key": "K",
+              "text": "spectators"
+            },
+            {
+              "key": "L",
+              "text": "trigger"
+            },
+            {
+              "key": "M",
+              "text": "uttering"
+            },
+            {
+              "key": "N",
+              "text": "volume"
+            },
+            {
+              "key": "O",
+              "text": "volunteers"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【锁定答案】联系23句可知,3句Thosewhotalkedtothemselves和thosewhodidn't分别对应2句 (空格所在句)的Half were instructed torepeatout loud和theotherhalfkepttheirlips ,所以空格应填入 表示“关闭,闭上”的词(即,受试对象一半“大声重复”,一半“不重复/闭口不言”),sealed符合此处语义。 claiming\"宣称,主张”、dedicated“有献身精神的;被献身”、uttering“说出,发出(声音)”均与lips 不搭。 【补充语法】感官/意愿动词(see,observe,notice,watch,hear,smell,listento,lookat,feel,find, want,wish等)和使役/致使动词(catch,set,have,make,get,keep等)可接过去分词作宾语补足语。如 本文中kept(使役动词)theirlips(宾语)sealed(宾补)。又如:Soldiers shouldreporttothe leadership whentheynoticethesituationchanged,(士兵若注意到情况有变,应向上级报告。)"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "apparently"
+            },
+            {
+              "key": "B",
+              "text": "arrogance"
+            },
+            {
+              "key": "C",
+              "text": "brilliance"
+            },
+            {
+              "key": "D",
+              "text": "claiming"
+            },
+            {
+              "key": "E",
+              "text": "dedicated"
+            },
+            {
+              "key": "F",
+              "text": "focused"
+            },
+            {
+              "key": "G",
+              "text": "incur"
+            },
+            {
+              "key": "H",
+              "text": "instructed"
+            },
+            {
+              "key": "I",
+              "text": "obscurely"
+            },
+            {
+              "key": "J",
+              "text": "sealed"
+            },
+            {
+              "key": "K",
+              "text": "spectators"
+            },
+            {
+              "key": "L",
+              "text": "trigger"
+            },
+            {
+              "key": "M",
+              "text": "uttering"
+            },
+            {
+              "key": "N",
+              "text": "volume"
+            },
+            {
+              "key": "O",
+              "text": "volunteers"
+            }
+          ],
+          "answer": "M",
+          "explanation": "【锁定答案】空格所在句大意为“寻找某种常见物品时 其名称有助于加快寻找速度”,可见 uttering“讲出,说出,发出(声音)”符合此处语义。此外,由该句后半部分(but)talkingaboutuncommon items...可反向推知,空格处应填人与talking语义相近、形式相同的词,进一步确认答案为uttering。 claiming意为“宣称,索要,夺去”,所接宾语往往为“权利,责任,钱/福利,生命(responsibility/ benefit/300lives)”,不能衔接空格前后。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "apparently"
+            },
+            {
+              "key": "B",
+              "text": "arrogance"
+            },
+            {
+              "key": "C",
+              "text": "brilliance"
+            },
+            {
+              "key": "D",
+              "text": "claiming"
+            },
+            {
+              "key": "E",
+              "text": "dedicated"
+            },
+            {
+              "key": "F",
+              "text": "focused"
+            },
+            {
+              "key": "G",
+              "text": "incur"
+            },
+            {
+              "key": "H",
+              "text": "instructed"
+            },
+            {
+              "key": "I",
+              "text": "obscurely"
+            },
+            {
+              "key": "J",
+              "text": "sealed"
+            },
+            {
+              "key": "K",
+              "text": "spectators"
+            },
+            {
+              "key": "L",
+              "text": "trigger"
+            },
+            {
+              "key": "M",
+              "text": "uttering"
+            },
+            {
+              "key": "N",
+              "text": "volume"
+            },
+            {
+              "key": "O",
+              "text": "volunteers"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【锁定答案】haveapparentlymatured语义搭配合理,意为“明显成熟/成年”,和前一分句中children 相对。obscurely\"晦涩地,隐晦地”则无法与matured搭配。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "apparently"
+            },
+            {
+              "key": "B",
+              "text": "arrogance"
+            },
+            {
+              "key": "C",
+              "text": "brilliance"
+            },
+            {
+              "key": "D",
+              "text": "claiming"
+            },
+            {
+              "key": "E",
+              "text": "dedicated"
+            },
+            {
+              "key": "F",
+              "text": "focused"
+            },
+            {
+              "key": "G",
+              "text": "incur"
+            },
+            {
+              "key": "H",
+              "text": "instructed"
+            },
+            {
+              "key": "I",
+              "text": "obscurely"
+            },
+            {
+              "key": "J",
+              "text": "sealed"
+            },
+            {
+              "key": "K",
+              "text": "spectators"
+            },
+            {
+              "key": "L",
+              "text": "trigger"
+            },
+            {
+              "key": "M",
+              "text": "uttering"
+            },
+            {
+              "key": "N",
+              "text": "volume"
+            },
+            {
+              "key": "O",
+              "text": "volunteers"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【锁定答案】空格所在句先指出,一般研究对儿童自已将任务内容解释给自已听持肯定态度(help childrenlearning),然后转折(although)表达对成年人这样做的否定态度(notagreatsignof )。 据此推测空格应填入带有衰义的词,可选范围中只有brilliance“才华,才智”符合语义。 arrogance\"傲慢”在语义上可以和a sign搭配,但该词为贬义,与空格所在句的转折逻辑不合。 claiming“宣称,主张”、spectators“观众”、volume\"量;体积”均与sign不搭。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "apparently"
+            },
+            {
+              "key": "B",
+              "text": "arrogance"
+            },
+            {
+              "key": "C",
+              "text": "brilliance"
+            },
+            {
+              "key": "D",
+              "text": "claiming"
+            },
+            {
+              "key": "E",
+              "text": "dedicated"
+            },
+            {
+              "key": "F",
+              "text": "focused"
+            },
+            {
+              "key": "G",
+              "text": "incur"
+            },
+            {
+              "key": "H",
+              "text": "instructed"
+            },
+            {
+              "key": "I",
+              "text": "obscurely"
+            },
+            {
+              "key": "J",
+              "text": "sealed"
+            },
+            {
+              "key": "K",
+              "text": "spectators"
+            },
+            {
+              "key": "L",
+              "text": "trigger"
+            },
+            {
+              "key": "M",
+              "text": "uttering"
+            },
+            {
+              "key": "N",
+              "text": "volume"
+            },
+            {
+              "key": "O",
+              "text": "volunteers"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【锁定答案】本句主干承上指出,两位教授希望能够反驳先前惯有的观点(that idea=that talking..·notagreatsignofbrilliance),claiming(宣称,主张)后接宾语从句详细介绍两位教授观点,符 合要求。 【补充语法】ing分词作状语,表示具体方式(ing分词与逻辑主语之间存在主动关系】。如本句: claimingthat....说明两位教授反驳惯有观点的具体内容、方式。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "apparently"
+            },
+            {
+              "key": "B",
+              "text": "arrogance"
+            },
+            {
+              "key": "C",
+              "text": "brilliance"
+            },
+            {
+              "key": "D",
+              "text": "claiming"
+            },
+            {
+              "key": "E",
+              "text": "dedicated"
+            },
+            {
+              "key": "F",
+              "text": "focused"
+            },
+            {
+              "key": "G",
+              "text": "incur"
+            },
+            {
+              "key": "H",
+              "text": "instructed"
+            },
+            {
+              "key": "I",
+              "text": "obscurely"
+            },
+            {
+              "key": "J",
+              "text": "sealed"
+            },
+            {
+              "key": "K",
+              "text": "spectators"
+            },
+            {
+              "key": "L",
+              "text": "trigger"
+            },
+            {
+              "key": "M",
+              "text": "uttering"
+            },
+            {
+              "key": "N",
+              "text": "volume"
+            },
+            {
+              "key": "O",
+              "text": "volunteers"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【锁定答案】该段1句指出,自言自语时要压低音量、信息简洁(keepthetalkingatlibrarytones. keeptheinformationsimple)。2句(空格所在句)末尾toomuchinformation(穴余信息)与1句keepthe informationsimple相呼应,可见该句围绕“信息的简单度/信息量”展开,可选范围中符合这一主题的只 有volume,表示“(自言自语的信息)量”。arrogance\"傲慢”、spectators“观众”无论是与空格前的at还是 空格后的information都无法搭配。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2017-06-3-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) The lives of children from rich and poor American families look more different than ever before.",
+        "B) Well-off families are ruled by calendars, with children enrolled in ballet, soccer and after-school programs, according to a new Pew Research Center survey. There are usually two parents, who spend a lot of time reading to children and worrying about their anxiety levels and hectic schedules.",
+        "C) In poor families, meanwhile, children tend to spend their time at home or with extended family. They are more likely to grow up in neighborhoods that their parents say aren't great for raising children, and their parents worry about them getting shot, beaten up or in trouble with the law.",
+        "D) The class differences in child rearing are growing—a symptom of widening inequality with far-reaching consequences. Different upbringings set children on different paths and can deepen socioeconomic divisions, especially because education is strongly linked to earnings. Children grow up learning the skills to succeed in their socioeconomic stratum (阶层), but not necessarily others.",
+        "E) \"Early childhood experiences can be very consequential for children's long-term social, emotional and cognitive development,\" said Sean Reardon, professor of poverty and inequality in education at Stanford University. \"And because those influence educational success and later earnings, early childhood experiences cast a lifelong shadow.\" The cycle continues: Poorer parents have less time and fewer resources to invest in their children, which can leave children less prepared for school and work, which leads to lower earnings.",
+        "F) American parents want similar things for their children, the Pew report and past research have found: for them to be healthy and happy, honest and ethical, caring and compassionate. There is no best parenting style or philosophy, researchers say, and across income groups, 92% of parents say they are doing a good job at raising their children. Yet they are doing it quite differently. Middle-class and higher-income parents see their children as projects in need of careful cultivation, says Annette Lareau, whose groundbreaking research on the topic was published in her book Unequal Childhoods: Class, Race and Family Life. They try to develop their skills through close supervision and organized activities, and teach children to question authority figures and navigate elite institutions.",
+        "G) Working-class parents, meanwhile, believe their children will naturally thrive, and give them far greater independence and time for free play. They are taught to be compliant and respectful to adults. There are benefits to both approaches. Working-class children are happier, more independent, complain less and are closer with family members, Ms. Lareau found. Higher-income children are more likely to declare boredom and expect their parents to solve their problems. Yet later on, the more affluent children end up in college and on the way to the middle class, while working-class children tend to struggle. Children from higher-income families are likely to have the skills to navigate bureaucracies and succeed in schools and workplaces, Ms. Lareau said.",
+        "H) \"Do all parents want the most success for their children? Absolutely,\" she said. \"Do some strategies give children more advantages than others in institutions? Probably they do. Will parents be damaging children if they have one fewer organized activity? No, I really doubt it.\"",
+        "I) Social scientists say the differences arise in part because low-income parents have less money to spend on music class or preschool, and less flexible schedules to take children to museums or attend school events. Extracurricular activities reflect the differences in child rearing in the Pew survey, which was of a nationally representative sample of 1,807 parents. Of families earning more than $75,000 a year, 84% say their children have participated in organized sports over the past year, 64% have done volunteer work and 62% have taken lessons in music, dance or art. Of families earning less than $30,000, 59% of children have done sports, 37% have volunteered and 41% have taken arts classes.",
+        "J) Especially in affluent families, children start young. Nearly half of high-earning, college-graduate parents enrolled their children in arts classes before they were 5, compared with one-fifth of low-income, less- educated parents. Nonetheless, 20% of well-off parents say their children's schedules are too hectic, compared with 8% of poorer parents.",
+        "K) Another example is reading aloud, which studies have shown gives children bigger vocabularies and better reading comprehension in school. 71% of parents with a college degree say they do it every day, compared with 33% of those with a high school diploma or less. White parents are more likely than others to read to their children daily, as are married parents. Most affluent parents enroll their children in preschool or day care, while low-income parents are more likely to depend on family members. Discipline techniques vary by education level: 8% of those with a postgraduate degree say they often beat their children, compared with 22% of those with a high school degree or less.",
+        "L) The survey also probed attitudes and anxieties. Interestingly, parents' attitudes toward education do not seem to reflect their own educational background as much as a belief in the importance of education for upward mobility. Most American parents say they are not concerned about their children's grades as long as they work hard. But 50% of poor parents say it is extremely important to them that their children earn a college degree, compared with 39% of wealthier parents.",
+        "M) Less-educated parents, and poorer and black and Latino parents are more likely to believe that there is no such thing as too much involvement in a child's education. Parents who are white, wealthy or college- educated say too much involvement can be bad. Parental anxieties reflect their circumstances. High- earning parents are much more likely to say they live in a good neighborhood for raising children. While bullying is parents' greatest concern over all, nearly half of low-income parents worry their child will get shot, compared with one-fifth of high-income parents. They are more worried about their children being depressed or anxious.",
+        "N) In the Pew survey, middle-class families earning between $30,000 and $75,000 a year fell right between working-class and high-earning parents on issues like the quality of their neighborhood for raising children, participation in extracurricular activities and involvement in their children' s education.",
+        "O) Children were not always raised so differently. The achievement gap between children from high- and low-income families is 30-40% larger among children born in 2001 than those born 25 years earlier, according to Mr. Reardon's research. People used to live near people of different income levels; neighborhoods are now more segregated by income. More than a quarter of children live in single-parent households—a historic high, according to Pew—and these children are three times as likely to live in poverty as those who live with married parents. Meanwhile, growing income inequality has coincided with the increasing importance of a college degree for earning a middle-class wage.",
+        "P) Yet there are recent signs that the gap could be starting to shrink. In the past decade, even as income inequality has grown, some of the socioeconomic differences in parenting, like reading to children and going to libraries, have narrowed.",
+        "Q) Public policies aimed at young children have helped, including public preschool programs and reading initiatives. Addressing differences in the earliest years, it seems, could reduce inequality in the next generation."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Working-class parents teach their children to be obedient and show respect to adults.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "G",
+          "explanation": "工薪阶层的父母教育子女要听话,尊重大人。 [答案G][精析]根据[定位词定位]、[核心义匹配]可知本题对应[G]段12句。两句介绍了工 薪阶层父母如何教育孩子:给予孩子更多的独立和自由,教育孩子顺从并尊重大人。本题是对两句的同 义转述,其中Working-classparents复现,obedient与compliant同义,showrespect对应be...respectful。"
+        },
+        {
+          "number": 37,
+          "stem": "American parents, whether rich or poor, have similar expectations of their children despite different ways of parenting.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "F",
+          "explanation": "尽管养育方式不尽相同,美国父母,无论贫富,都对子女抱有相似的期待。 [答案工F][精析]根据[定位词定位]、[核心义匹配]可知本题对应[F段。该段指出美国父母对 于孩子抱有相同的期望,教育方式却迥然不同。本题是对段中前三句的总结归纳,其中whetherrichor poor呼应2句acrossincomegroups,despite传达的让步转折意味与3句Yet相符,differentwaysof parenting对应?句内容。"
+        },
+        {
+          "number": 38,
+          "stem": "While rich parents are more concerned with their children's psychological well-being, poor parents are more worried about their children's safety.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "M",
+          "explanation": "富裕的父母更关心子女的心理健康,而贫穷的父母更担心子女的安全。 L答案工M」L精析」根据定位词定位」、L核心义匹配」可知本题对应LM段@句。两句指出富 裕家庭更担心抑郁、焦虑等心理问题,贫困家庭则更担心枪击等人身安全问题。本题是对段中两句的 同义转述,其中rich、poor同义替换high-income、low-income。"
+        },
+        {
+          "number": 39,
+          "stem": "The increasing differences in child rearing between rich and poor families reflect growing social inequality.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "D",
+          "explanation": "富裕家庭和贫穷家庭在育儿方面的差异越来越大,这反映了愈益严重的社会不平等问题。 [答案工D][精析]根据[定位词定位]、核心义匹配]可知本题对应[D]段首句。该句指出育儿 方面的阶层差异在扩大,这是不平等加剧的一个表现。本题是对该句的同义改写,其中betweenrich andpoorfamilies对应class(社会阶层划分主要以财富为依据),reflectgrowingsocialinequality同义改 写 a symptom of widening inequality。"
+        },
+        {
+          "number": 40,
+          "stem": "Parenting approaches of working-class and affluent families both have advantages.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "G",
+          "explanation": "工薪家庭和富裕家庭的养育方式各有优势。 [答案G][精析]根据定位词定位]、[核心义匹配]可知本题对应[G]段3句。该句指出两种 育儿方式各有优点,句中bothapproaches分别指代[F段末所述“中产阶级和富裕阶层的育儿方式”及 [G段首所述“工人阶层的育儿方式”。本题是对该句所指代细节信息的直接呈现,其中advantages与 benefits同义。 41如今,高收入家庭和工薪家庭往往居住在不同的社区。 [答案O][精析]根据[定位词定位]、[核心义匹配]可知本题对应[O]段3句。该句指出现在 的社区被收人分隔开来,意即同一收人水平的家庭聚居在同一社区,而不同收入水平的家庭生活在不 同社区。本题是对该句的同义转述,其中Higher-incomefamiliesandworking-classfamilies对应people of different income levels."
+        },
+        {
+          "number": 41,
+          "stem": "Higher-income families and working-class families now tend to live in different neighborhoods.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "O",
+          "explanation": "[答案][O] [精析]根据[定位词定位]、[核心义匹配]可知本题对应[O]段③句。该句指出现在的社区被收入分隔开来，意即同一收入水平的家庭聚居在同一社区，而不同收入水平的家庭生活在不同社区。本题是对该句的同义转述，其中 Higher-income families and working-class families 对应 people of different income levels。"
+        },
+        {
+          "number": 42,
+          "stem": "Physical punishment is used much less by well-educated parents.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "K",
+          "explanation": "受过良好教育的父母更少体罚。 [答案工K]][精析]根据[定位词定位]、[核心义匹配]可知本题对应[K]段末句。该句指出惩罚 手段随教育水平而变,获得研究生学位的父母中有8%会体罚孩子,高中及以下学历的父母则有22%选 择体罚。可见,本题是对该句的合理概括。"
+        },
+        {
+          "number": 43,
+          "stem": "Ms. Lareau doesn't believe participating in fewer after-class activities will negatively affect children's development.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "H",
+          "explanation": "拉鲁女士不认为参加较少的课外活动会对孩子的发展产生负面影响。 [答案H][精析]根据[定位词定位]、[核心义匹配]可知本题对应[H段33句。两句一问一 答明确拉鲁女士的观点:少参加一项课外活动不会对孩子产生负面影响。本题是对拉鲁女士观点的 概括,doesn'tbelieve对应末句reallydoubt it,negativelyaffect对应damaging。"
+        },
+        {
+          "number": 44,
+          "stem": "Wealthy parents are concerned about their children's mental health and busy schedules.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "B",
+          "explanation": "富裕父母担忧子女的心理健康和繁忙的日程安排。 L答案儿B」[精析根据定位词定位」、L核心义匹配可知本题对应B」段末句。该句指出富裕家 庭的父母担心子女的焦虑水平和紧张的日程安排。本题是对该句的同义改写。"
+        },
+        {
+          "number": 45,
+          "stem": "Some socioeconomic differences in child rearing have shrunk in the past ten years.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "P",
+          "explanation": "过去十年间,育儿方面的一些社会经济差距已经缩小了。 L答案儿P」L精析」根据L定位词定位」、L核心义匹配可知本题对应P」段2句。该句指出过去十 年间,亲子阅读、利用图书馆等育儿方法上的社会经济差距已经缩小。本题是对该段2句的同义改写, 其中childrearing、shrunk分别同义替换parenting、narrowed。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2017-06-3-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Tennessee's technical and community colleges will not outsource (外包) management of their facilities to a private company, a decision one leader said was bolstered by an analysis of spending at each campus. In an email sent Monday to college presidents in the Tennessee Board of Regents system, outgoing Chancellor John Morgan said an internal analysis showed that each campus' spending on facilities management fell well below the industry standards identified by the state. Morgan said those findings—which included data from the system's 13 community colleges, 27 technical colleges and six universities—were part of the decision not to move forward with Governor Bill Haslam's proposal to privatize management of state buildings in an effort to save money. \"While these numbers are still being validated by the state, we feel any adjustments they might suggest will be immaterial,\" Morgan wrote to the presidents. \"System institutions are operating very efficiently based on this analysis, raising the question of the value of pursuing a broad scale outsourcing initiative.\" Worker's advocates have criticized Haslam's plan, saying it would mean some campus workers would lose their jobs or benefits. Haslam has said colleges would be free to opt in or out of the out souring plan, which has not been finalized. Morgan notified the Haslam administration of his decision to opt out in a letter sent last week. That letter, which includes several concerns Morgan has with the plan, was originally obtained by The Commercial Appeal in Memphis. In an email statement from the state's Office of Customer Focused Government, which is examining the possibility of outsourcing, spokeswoman Michelle R. Martin said officials were still working to analyze the data from the Board of Regents. Data on management expenses at the college system and in other state departments will be part of a \"business justification\" the state will use as officials deliberate the specifics of an outsourcing plan. \"The state's facilities management project team is still in the process of developing its business justification and expects to have that completed and available to the public at the end of February,\" Martin said. \"At this time there is nothing to take action on since the analysis has yet to be completed.\" Morgan's comments on outsourcing mark the second time this month that he has come out against one of Haslam's plans for higher education in Tennessee. Morgan said last week that he would retire at the end of January because of the governor's proposal to split off six universities of the Board of Regents system and create separate governing boards for each of them. In his resignation letter, Morgan called the reorganization \"unworkable\"."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What do we learn about the decision of technical and community colleges in Tennessee?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is backed by a campus spending analysis."
+            },
+            {
+              "key": "B",
+              "text": "It has been flatly rejected by the governor."
+            },
+            {
+              "key": "C",
+              "text": "It has neglected their faculty's demands."
+            },
+            {
+              "key": "D",
+              "text": "It will improve their financial situation."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]A)。首段指出:田纳西州的技术学院和社区学院不会.,这一决定得到了高校支出 分析(数据)的支撑(bolsteredbyananalysisofspending...);第二段2句表明“此调查结果是...决定 的部分因素(thosefindings..,werepartof thedecision)”,两部分内容均指向A项。 [排除干扰]B项从第二段2句“技术学院和社区学院决定不推行州长提案”主观推出州长对此态 度强硬,但与第四段2句“州长给予学院自主选择权”矛盾。C项源于第四段1句“(职工利益维护者认 为)执行外包计划有损职工利益”,但题干实为“校委会主席的决定(即不执行外包计划)”。D项由第二段 1句“高校设施管理支出远低于行业标准(故无需外包降成本)”反向推出“不外包就会改善财务状况”。 [提炼思路]本题为事实细节题,实际考查首段长难句,解题需:一、认识到逗号后adecision为同位 语,指代前面整句话,bolstered与选项backed同义,故锁定A项;二、第二段2句再次出现thedecision, 而其后nottomoveforward..proposal toprivatize显然与首段decision内涵一致(willnot.·.toa private company),再由those findings(of theinternal analysis)were part of the decision确定A项正确。"
+        },
+        {
+          "number": 47,
+          "stem": "What does the campus spending analysis reveal?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Private companies play a big role in campus management."
+            },
+            {
+              "key": "B",
+              "text": "Facilities management by colleges is more cost-effective."
+            },
+            {
+              "key": "C",
+              "text": "Facilities management has greatly improved in recent years."
+            },
+            {
+              "key": "D",
+              "text": "Colleges exercise foil control over their own financial affairs."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]B)。第二段首句指出Morgan对各校长的致信内容:内部分析结果显示,各高校在设施 管理上的支出已下降,当前远低于行业标准(fellwellbelow...);第三段引述Morgan原话阐明结论:各 学院运营很高效、实行大规模外包计划无意义(veryefficiently、immaterial、raisethequestionof the value...)”,换句话说,维持现状,学院自主管理更划算。 [排除干扰]A项源于前两段重点信息“把高校管理外包给私企、使公共建筑私有化(的计划)”,但忽 视决定性内容“将不会执行外包计划(will not、nottomoveforward..)”。C项将第二段首句“各高校设 施管理支出下降一一成本效益提升”偷换为“设施管理实现了大幅改善一设施效能提升”。D项从“内 部分析显示各院校支出都低于行业标准(第二段1句)”与“学院可自主决定外包设施管理与否(第四段 2句)”中主观推出“学院完全控制其财务事宜”,但“学院(除设施管理外的)其它财务状况”并未提及。 [提炼思路」本题为事实细节题,各项中关键词Privatecompanies、Facilitiesmanagement、Colleges、 financialaffairs(近义spending)均在定位意群中多次复现,造成解题难度。可以先忽略选项,聚焦题干, 大致思考关联。本题题干为“各高校设施管理开销的分析数据揭示的内容”,而上题已知“该分析是高 校不准备外包的依据”,暗示分析结果的核心是“自主管理事实上要好过外包”,选项中B项和C项似乎 都符合这一推断,但后者无视“开销(问题)”这一大前提。A、D项均与“自主管理(比外包)更好”无关。"
+        },
+        {
+          "number": 48,
+          "stem": "Workers' supporters argue that Bill Haslam's proposal would _________.",
+          "options": [
+            {
+              "key": "A",
+              "text": "deprive colleges of the right to manage their facilities"
+            },
+            {
+              "key": "B",
+              "text": "make workers less motivated in performing duties"
+            },
+            {
+              "key": "C",
+              "text": "render a number of campus workers jobless"
+            },
+            {
+              "key": "D",
+              "text": "lead to the privatization of campus facilities"
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]C)。该句指出:高校职工的支持者批评这一提案,称其意味着一些职工会失去他们的工 作或福利(some campus workers would lose their jobs or benefits),C)render sb jobless意即make sb jobless。 [排除干扰]A项是提案执行的直接结果一一设施管理外包给私企”,而非“职工支持者观点”。B 项由第四段首句“会使一些职工失去工作或福利”臆断出“会降低(所有)职工的工作积极性”。D项将提 案“高校设施管理私有化”偷换为“高校设施私有化”,且不是职工拥护者观点。 [提炼思路]命题人就“人物观点”设题,题干虽易于定位,但错误项干扰较大,解题需注意:一、锁定 考查的对象,如A、D项均涉及“提案内容/观点”,而非题目所问的“职工拥护者(提案批评者之一)观 点”;二、切忌从细节信息进行过度推断,如B项“挫败职工工作积极性”看似有理,但一方面文中未提, 另一方面作为提案批评者的主要论据,该内容的力度显然不够。"
+        },
+        {
+          "number": 49,
+          "stem": "What do we learn from the state spokeswoman's response to John Morgan's decision?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The outsourcing plan is not yet finalized."
+            },
+            {
+              "key": "B",
+              "text": "The outsourcing plan will be implemented."
+            },
+            {
+              "key": "C",
+              "text": "The state officials are confident about the outsourcing plan."
+            },
+            {
+              "key": "D",
+              "text": "The college spending analysis justifies the outsourcing plan."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]A)。第六段指出“发言人称,政府官员仍在分析校务委员会数据。这些数据会作为 “(外包计划)商业依据’的一部分(were still workingto analyze thedata...;will be partof a“business justification\")”;第七段继而指出“商业依据还未完成,预计2月底公布,当前不会采取任何行动(inthe processofdevelopingitsbusiness justification、nothingtotakeactionon)”,综合判断可知,外包计划仍处 审议流程,尚未敲定。 [排除干扰]B、C项均与第六段1句“官员正在审查外包计划能否实现(isexaminingthepossibility of outsourcing)”所暗含的内容相矛盾。D项与文中“高校支出分析支持不施行外包计划”完全相反。 [提炼思路]本题重在考查考生的信息概括能力,可由关键词(尤其是副词)、所用时态理解定位意 群,第六段进行时态isexaminingthepossibility..·、were stillworkingto.··,将来时态will bepartof 、the statewill use...,及第七段关键词is still intheprocess..·、hasyettobe completed均体现\"外 包计划还在审议/尚未敲定”。"
+        },
+        {
+          "number": 50,
+          "stem": "Why did John Morgan decide to resign?",
+          "options": [
+            {
+              "key": "A",
+              "text": "He had lost confidence in the Tennessee state government."
+            },
+            {
+              "key": "B",
+              "text": "He disagreed with the governor on higher education policies."
+            },
+            {
+              "key": "C",
+              "text": "He thought the state's outsourcing proposal was simply unworkable."
+            },
+            {
+              "key": "D",
+              "text": "He opposed the governor's plan to reconstruct the college board system."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]D)。第八段2句引出Morgan上周说辞:他之所以将于一月底退休,是因为州长的一 项提案-将六所综合性大学从校委会系统剥离,并创立各自独立的理事会(wouldretire..·because of thegovernorsproposaltosplitoff...and create......);3句继而明确其观点:改组计划行不通 (called the reorganization\"unworkable\")。 [排除干扰]A项由第八段1句\"Morgan一个月内两次公开反对州长提案”过度推断出“他对田纳 西州政府失去了信心”。B项将第八段1句“反对两项高等教育计划”夸大为“反对所有的高等教育政 策”。C项“反对外包提案”虽为首五段所述事实,但由markthe secondtime.·、saidlastweek可知, Morgan提出辞职是一周前,而“反对外包”是新近事件,为其第二次反对州长教育计划。 [提炼思路]本题考查“文中人物某行为的原因”,解题可:一、抓取因果关系词,第八段2句because of后即为“辞职原因一一学院理事会系统重组(splitoff...andcreate.·.)”,二,再联系上下文,明确人物 观点态度,1句和3句均体现摩根对“学院理事会系统重组计划”的反对态度(come out against、 unworkable),由此确定答案为D)。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2017-06-3-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Beginning in the late sixteenth century, it became fashionable for young aristocrats to visit Paris, Venice, Florence, and above all, Rome, as the culmination (终极) of their classical education. Thus was born the idea of the Grand Tour, a practice which introduced Englishmen, Germans, Scandinavians, and also Americans to the art and culture of France and Italy for the next 300 years. Travel was arduous and costly throughout the period, possible only for a privileged class—the same that produced gentlemen scientists, authors, antique experts, and patrons of the arts. The Grand Tourist was typically a young man with a thorough grounding in Greek and Latin literature as well as some leisure time, some means, and some interest in art. The German traveler Johann Winckelmann pioneered the field of art history with his comprehensive study of Greek and Roman sculpture; he was portrayed by his friend Anton Raphael Mengs at the beginning of his long residence in Rome. Most Grand Tourists, however, stayed for briefer periods and set out with less scholarly intentions, accompanied by a teacher or guardian, and expected to return home with souvenirs of their travels as well as an understanding of art and architecture formed by exposure to great masterpieces. London was a frequent starting point for Grand Tourists, and Paris a compulsory destination; many traveled to the Netherlands, some to Switzerland and Germany, and a very few adventurers to Spain, Greece, or Turkey. The essential place to visit, however, was Italy. The British traveler Charles Thompson spoke for many Grand Tourists when in 1744 he described himself as \"being impatiently desirous of viewing a country so famous in history, a country which once gave laws to the world, and which is at present the greatest school of music and painting, contains the noblest productions of sculpture and architecture, and is filled with cabinets of rarities, and collections of all kinds of historical relics\". Within Italy, the great focus was Rome, whose ancient ruins and more recent achievements were shown to every Grand Tourist. Panini's Ancient Rome and Modem Rome represent the sights most prized, including celebrated Greco-Roman statues and views of famous ruins, fountains, and churches. Since there were few museums anywhere in Europe before the close of the eighteenth century, Grand Tourists often saw paintings and sculptures by gaining admission to private collections, and many were eager to acquire examples of Greco-Roman and Italian art for their own collections. In England, where architecture was increasingly seen as an aristocratic pursuit, noblemen often applied what they learned from the villas of Palladio in the Veneto and the evocative (唤起回忆的) ruins of Rome to their own country houses and gardens."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What is said about the Grand Tour?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It was fashionable among young people of the time."
+            },
+            {
+              "key": "B",
+              "text": "It was unaffordable for ordinary people."
+            },
+            {
+              "key": "C",
+              "text": "It produced some famous European artists."
+            },
+            {
+              "key": "D",
+              "text": "It made a compulsory part of college education."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]B)。3句中形容词短语possibleonlyforaprivilegedclass(只有特权阶级才可能实现、 做得到)实际修饰主语Travel(即GrandTour),言外之意即:(旅途劳顿与开销)非普通百姓所能承受。 [排除干扰]A项扩大了群体范畴:把1句“年轻贵族(youngaristocrats)”偷换为“年轻人(young people)”。C项利用3句末patronsof the arts干扰,但首先“艺术赞助人”“艺术家”,其次科学家、作 家等产自特权阶层,而非直接产自GrandTour。D项复现1句关键词education,但“成为时尚 (fashionable)”≠“是必需的环节(compulsory)”,再者“古典教育(classical)”未必限于“大学教育 (college)\" [提炼思路」GrandTour相关信息散布于全段,可先从选项入手,提炼各项核心点(性质、作用、概念 等):A)fashionable;B)unaffordable;C)producedartists;D)compulsory。随后逐一比对原文,发现A项和 C项是用原词或形近词设陷,但在“状语”和“宾语”上做手脚,D项没有直接的对应词,提炼度也高,很有 正确项特点,但却在核心处偷换了概念。B项unaffordable虽与文中possible相反,但所涉对象也恰与 文中相对,实现了原文的“同义复述”。"
+        },
+        {
+          "number": 52,
+          "stem": "What did Grand Tourists have in common?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They had much geographic knowledge."
+            },
+            {
+              "key": "B",
+              "text": "They were courageous and venturesome."
+            },
+            {
+              "key": "C",
+              "text": "They were versed in literature and interested in art."
+            },
+            {
+              "key": "D",
+              "text": "They had enough travel and outdoor-life experience."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]C)。第二段1句指出,壮游客通常是“有着扎实的希腊和拉丁文学基础,有空闲时间、 有些钱,对艺术也有兴趣的年轻人”。可见他们的共同点在于:文学底子好、时间与金钱宽裕、喜爱艺 术。C项是对其中两点athoroughgroundingin...literature、someinterest inart的同义复述,beversed in表示“精通于”。 [排除干扰]A项由第二、三段中的多处地名以及壮游客四处游历的情形编造出“他们深谱地理知 识”。B项源于第三段1句“极少数冒险者..(averyfewadventurers)”,但好冒险的仅为少数人,并非 共性。D项与第二段3句中“多数人由老师或看护人陪同(accompanied by...orguardian)”所暗含的 “他们涉世不深,欠缺远游经历”矛盾。 [提炼思路]与上题类似,题干所涉范围很大,先提炼选项关键信息:A)是地理达人;B)勇敢、爱冒 险;C)文学功底好、爱艺术;D)旅行、户外生活的达人。不难发现A、B、D三项均立足于单纯的“长途旅 行”,而开篇已知“壮游”背后的意旨在于丰富“古典教育”,第二、三段也围绕“壮游客们在文化艺术方面 (雕塑、绘画、建筑等等)的所见所得”展开,初步判断C项可能正确,再通过仔细比对原文锁定答案。 注:本题选项均是大力赞赏性内容,因此可直接锁定第二段1句,而略过2句(个例)和3句(虽聚焦多 数人,但体现一定的局限性,总体为中性内容)。"
+        },
+        {
+          "number": 53,
+          "stem": "How did Grand Tourists benefit from their travel?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They found inspiration in the world's greatest masterpieces."
+            },
+            {
+              "key": "B",
+              "text": "They got a better understanding of early human civilization."
+            },
+            {
+              "key": "C",
+              "text": "They developed an interest in the origin of modem art forms."
+            },
+            {
+              "key": "D",
+              "text": "They gained some knowledge of classical art and architecture."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案D)。第二段3句指出,大多数壮游客并没有太大的学术抱负,旅途只作短暂停留,预计 会带着旅行中对艺术及建筑的了解返程。即:他们将从旅行中收获一些有关古典艺术及建筑的知识。 D项是对原文anunderstandingofartandarchitecture的同义改写。 [排除干扰]A项干扰源于第二段3句中greatmasterpieces以及文章末尾的具体例子“英格兰贵族 从国外伟大作品或遗迹中吸取经验,用于自身建筑”,但“世间最伟大的作品”漏洞有二:一、范围过大: 原文为“他们主要从艺术、建筑作品中获益”;二、选项为“最高级形式(greatest)”,过于绝对。另外,“(文 末)为我所用”子“获得灵感”。B项复现3句中的understanding,但将理解的对象“艺术、建筑”偷换成 “人类早期文明”。C项干扰源自第二段2句arthistory,但该句聚焦“在希腊罗马雕塑艺术上的收获”, 不涉及“现代艺术形式的源头”相关内容。 [提炼思路本题表面上考查“壮游客获益的方式(HoW)”,而由选项可知,本题实质考查“他们具体 收获的内容”,因此解题关键是寻找与benefit相关的同义/近义表达。第二段3句returned home with.·.(把带回家)直接与“旅行获益”相关,且适用于多数人,初步推测D项正确。另外,2句 pioneered...withhis.·.(凭着..成为先驱)虽聚焦个例,也能一定程度体现“旅行收获”,而“希腊罗 马雕塑艺术”明显属于“古典艺术”,故确定D项正确。"
+        },
+        {
+          "number": 54,
+          "stem": "Why did many Grand Tourists visit the private collections?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They could buy unique souvenirs there to take back home."
+            },
+            {
+              "key": "B",
+              "text": "Europe hardly had any museums before the 19th century."
+            },
+            {
+              "key": "C",
+              "text": "They found the antiques there more valuable."
+            },
+            {
+              "key": "D",
+              "text": "Private collections were of greater variety."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]B)。3句指出,由于欧洲在十八世纪末之前几乎没有博物馆,壮游客要想观赏画作和 雕塑,往往要获得“参观私人收藏”的人场券。B)是对原文therewerefewmuseumsanywhereinEurope before the close of the eighteenth century的同义改写。 [排除干扰]A项把第二段末“多数人会带着旅行纪念品返乡(withsouvenirsof theirtravels)”与第 三段3句“渴望获得收藏品(eagertoacquireexamplesof...)”森杂编造出“能从私人收藏中买到独一无 二的纪念品”。C项从壮游客对藏品的渴望主观臆断出私人藏品“价值更高”,但原文并未提及。D项利 用3句collectionsofallkindsof historicalrelics干扰,但这是对意大利的描述,而非对私人收藏的描述。 [提炼思路]由题干关键词Why确认本题考查因果逻辑中的“因”,解题时可:一、回文寻找题干已 知的“果”(第三段句.··gainingadmissiontoprivatecollections);二、在定位处搜寻表示因果逻辑的关 系词以明确“因”(Sincetherewerefewmuseums.·.);三、对比选项以确定答案(beforethecloseofthe eighteenthcentury与beforethe19thcentury同指)。"
+        },
+        {
+          "number": 55,
+          "stem": "How did the Grand Tour influence the architecture in England?",
+          "options": [
+            {
+              "key": "A",
+              "text": "There appeared more and more Roman-style buildings."
+            },
+            {
+              "key": "B",
+              "text": "Many aristocrats began to move into Roman-style villas."
+            },
+            {
+              "key": "C",
+              "text": "Aristocrats' country houses all had Roman-style gardens."
+            },
+            {
+              "key": "D",
+              "text": "Italian architects were hired to design houses and gardens."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]A)。2句提到,英格兰贵族经常将他们从帕拉第奥别墅和罗马遗迹中学到的东西运用 到自已的乡间宅第和花园上;而定语从句where.··asanaristocraticpursuit暗示“建筑领域”日益成为 “贵族专属”,可见壮游使得全国日益涌现罗马风格的建筑,A)符合文意。 [排除干扰]B项将贵族“建造”罗马风格的建筑偷换为贵族“搬进(move into)”罗马风格的庄园。C 项将原文“意大利威尼托、罗马的建筑风格被引人英国贵族的乡间宅第和花园”偷换为“其宅第中的花 园都带有罗马风格”,但一方面乡间宅第未必都带花园,另一方面对带花园的宅第而言,整个宅第(不仅 仅是花园)都具有罗马风格;且原文高频副词often被换为无一例外的all。D项主观臆断出“英国人雇 佣意大利建筑师”。 [提炼思路]细节推理题解题步骤为:一、根据题干定位原文(观察上下文可知答案只能源自第三段 1句)并把握定位句句内逻辑(贵族将意大利/罗马风格运用于建筑);二、遵循“信息不应引入新主体、 更改主体行为或过于绝对”等原则排除干扰项(D)意大利建筑师、B)搬进、C)都带有)。"
+        }
+      ]
+    }
+  ]
+}

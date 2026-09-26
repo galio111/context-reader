@@ -1,0 +1,1814 @@
+{
+  "id": "cet6-2016-06-3",
+  "level": 6,
+  "year": 2016,
+  "month": 6,
+  "set": 3,
+  "title": "2016 年 6 月六级 · 第 3 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.06/%E7%9C%9F%E9%A2%98Word/2016%E5%B9%B406%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC3%E5%A5%97%EF%BC%89.doc",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2016.06%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC3%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2016-06-3-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "The robotics revolution is set to bring humans face to face with an old fear-man-made creations as smart and capable as we are but without a moral compass.As robots take on ever more complex roles.The question naturally [[26]] Who will be responsible when they do something wrong?Manufacturers?Users?Software writers?The answer depends on the robot.",
+        "Robots already save us time, money and energy.In the future, they will improve our health care, social welfare and standard of living.The [[27]] of computational power and engineering advances will [[28]] enable lower-cost in-home care for the disabled, [[29]] use of driverless cars that may reduce drunk-and distracted-driving accidents and countless home and service—industry uses for robots, from street cleaning to food preparation. But there are [[30]] to be problems.Robot cars will crash.A drone(遥控飞行器)operator will [[31]] someone's privacy.A robotic lawn mower will run over a neighbor's cat.Juries sympathetic to the [[32]] of machines will punish entrepreneurs with company—crushing [[33]] and damages.What should governments do to protect people while [[34]] space for innovation?",
+        "Big, complicated systems on which much public safety depends, like driverless cars, should be built, [[35]] and sold by manufacturers who take responsibility for ensuring safety and are liable for accidents.Governments should set safety requirements and then let insurers price the risk of the robots based on the manufacturer's driving record.not the passenger's."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "arises"
+        },
+        {
+          "key": "B",
+          "text": "ascends"
+        },
+        {
+          "key": "C",
+          "text": "bound"
+        },
+        {
+          "key": "D",
+          "text": "combination"
+        },
+        {
+          "key": "E",
+          "text": "definite"
+        },
+        {
+          "key": "F",
+          "text": "eventually"
+        },
+        {
+          "key": "G",
+          "text": "interfere"
+        },
+        {
+          "key": "H",
+          "text": "invade"
+        },
+        {
+          "key": "I",
+          "text": "manifesting"
+        },
+        {
+          "key": "J",
+          "text": "penalties"
+        },
+        {
+          "key": "K",
+          "text": "preserving"
+        },
+        {
+          "key": "L",
+          "text": "programmed"
+        },
+        {
+          "key": "M",
+          "text": "proximately"
+        },
+        {
+          "key": "N",
+          "text": "victims"
+        },
+        {
+          "key": "O",
+          "text": "widespread"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "arises"
+            },
+            {
+              "key": "B",
+              "text": "ascends"
+            },
+            {
+              "key": "C",
+              "text": "bound"
+            },
+            {
+              "key": "D",
+              "text": "combination"
+            },
+            {
+              "key": "E",
+              "text": "definite"
+            },
+            {
+              "key": "F",
+              "text": "eventually"
+            },
+            {
+              "key": "G",
+              "text": "interfere"
+            },
+            {
+              "key": "H",
+              "text": "invade"
+            },
+            {
+              "key": "I",
+              "text": "manifesting"
+            },
+            {
+              "key": "J",
+              "text": "penalties"
+            },
+            {
+              "key": "K",
+              "text": "preserving"
+            },
+            {
+              "key": "L",
+              "text": "programmed"
+            },
+            {
+              "key": "M",
+              "text": "proximately"
+            },
+            {
+              "key": "N",
+              "text": "victims"
+            },
+            {
+              "key": "O",
+              "text": "widespread"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A) arises 语法判断:空格所在句为as引导的主从复合句,thequestionnaturally 一为主句,由此可知,空格处 应填入被副词naturally所修饰的谓语动词,且根据主语thequestion及从句的时态(一般现在时)判断此 处应填入动词的第三人称单数形式。符合语法条件的备选项有arises(浮现,涌现)和ascends(上升, 升高)。 语义判断:文章首句提到了人们由来已久的感惧:人造物和我们人类一样聪明能干,但却不具备道德 约来力。由此可判断,本句是说,当机器人承担起更加复杂的任务时,问题自然就浮现”出来了,将备 选项arises和ascends代入原文可知,arises符合上下文语境,故本题应选A。 ·2016年6月六级真题(第三套)·"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "arises"
+            },
+            {
+              "key": "B",
+              "text": "ascends"
+            },
+            {
+              "key": "C",
+              "text": "bound"
+            },
+            {
+              "key": "D",
+              "text": "combination"
+            },
+            {
+              "key": "E",
+              "text": "definite"
+            },
+            {
+              "key": "F",
+              "text": "eventually"
+            },
+            {
+              "key": "G",
+              "text": "interfere"
+            },
+            {
+              "key": "H",
+              "text": "invade"
+            },
+            {
+              "key": "I",
+              "text": "manifesting"
+            },
+            {
+              "key": "J",
+              "text": "penalties"
+            },
+            {
+              "key": "K",
+              "text": "preserving"
+            },
+            {
+              "key": "L",
+              "text": "programmed"
+            },
+            {
+              "key": "M",
+              "text": "proximately"
+            },
+            {
+              "key": "N",
+              "text": "victims"
+            },
+            {
+              "key": "O",
+              "text": "widespread"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D) combination 语法判断:空格前是定冠词the,空格后是介调短语ofcomputationalpowerandengineeringadvances,由 此可知,空格处应填入一个名词。符合语法条件的备选项有:combination(混合,结合)、penalties(处 罚,惩罚)和victims受害者,牺牲品)。 语义判断:本段前两句提到,机器人已经帮助我们节省了时间、全钱和精力,未来,它们将改善我们的 医疗保健、社会福利和生活水平,由此可知,空格所在句承接上文语义,继续解释机器人技术给人类带 来的积极影响。将combination、penalties和victims三者代入原文可知,combination符合语境,即“计算 能力和工程技术提升的合力\",故本题应选D。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "arises"
+            },
+            {
+              "key": "B",
+              "text": "ascends"
+            },
+            {
+              "key": "C",
+              "text": "bound"
+            },
+            {
+              "key": "D",
+              "text": "combination"
+            },
+            {
+              "key": "E",
+              "text": "definite"
+            },
+            {
+              "key": "F",
+              "text": "eventually"
+            },
+            {
+              "key": "G",
+              "text": "interfere"
+            },
+            {
+              "key": "H",
+              "text": "invade"
+            },
+            {
+              "key": "I",
+              "text": "manifesting"
+            },
+            {
+              "key": "J",
+              "text": "penalties"
+            },
+            {
+              "key": "K",
+              "text": "preserving"
+            },
+            {
+              "key": "L",
+              "text": "programmed"
+            },
+            {
+              "key": "M",
+              "text": "proximately"
+            },
+            {
+              "key": "N",
+              "text": "victims"
+            },
+            {
+              "key": "O",
+              "text": "widespread"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F) eventually 语法判断:空格前是助动调will,空格后是谓语动调enable,由此可知,空格处应填入一个副词,修饰 谓语动词enable。符合语法条件的备选项有eventually(最终,终于)和proximately(近仪地)。 语义判断:根据此处语境“计算能力和工程技术提升的合力一 将促使我们为残疾人提供费用更低 的家庭护理\",可知备选项eventually和proximately中前者符合上下文文意,即“最终将促使我们...\", 故本题选F。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "arises"
+            },
+            {
+              "key": "B",
+              "text": "ascends"
+            },
+            {
+              "key": "C",
+              "text": "bound"
+            },
+            {
+              "key": "D",
+              "text": "combination"
+            },
+            {
+              "key": "E",
+              "text": "definite"
+            },
+            {
+              "key": "F",
+              "text": "eventually"
+            },
+            {
+              "key": "G",
+              "text": "interfere"
+            },
+            {
+              "key": "H",
+              "text": "invade"
+            },
+            {
+              "key": "I",
+              "text": "manifesting"
+            },
+            {
+              "key": "J",
+              "text": "penalties"
+            },
+            {
+              "key": "K",
+              "text": "preserving"
+            },
+            {
+              "key": "L",
+              "text": "programmed"
+            },
+            {
+              "key": "M",
+              "text": "proximately"
+            },
+            {
+              "key": "N",
+              "text": "victims"
+            },
+            {
+              "key": "O",
+              "text": "widespread"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O) widespread 语法判断:空格前是逻号,空格后是useofdriverlesscars,由此可知,空格处应填入一个形容词或可作 形容调的分调,充当定语,修饰use。符合语法条件的形容调和分调选项有bound(必定的;有义务的; 受约束的)、definite(一定的,确切的)、manifesting(显现的)和widespread(广泛的,普及的)。 语义判断:根据前半句语境“计算能力和工程技术提升的合力最终将促使我们为残疾人提供费用更低 的家庭护理”,可知lower-costin-homecare、 use of driverless cars 和 countless home and service- industryuses三者是并列关系,共同充当enable的宾语,将符合语法条件的备选项代入原文,可知 widespread符合语境,widespreaduse即“广泛应用\"之意。故本题应选O。注意,此处的译文出于上下文 文意的需要将widespread转译成了动词词义“普及\"。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "arises"
+            },
+            {
+              "key": "B",
+              "text": "ascends"
+            },
+            {
+              "key": "C",
+              "text": "bound"
+            },
+            {
+              "key": "D",
+              "text": "combination"
+            },
+            {
+              "key": "E",
+              "text": "definite"
+            },
+            {
+              "key": "F",
+              "text": "eventually"
+            },
+            {
+              "key": "G",
+              "text": "interfere"
+            },
+            {
+              "key": "H",
+              "text": "invade"
+            },
+            {
+              "key": "I",
+              "text": "manifesting"
+            },
+            {
+              "key": "J",
+              "text": "penalties"
+            },
+            {
+              "key": "K",
+              "text": "preserving"
+            },
+            {
+              "key": "L",
+              "text": "programmed"
+            },
+            {
+              "key": "M",
+              "text": "proximately"
+            },
+            {
+              "key": "N",
+              "text": "victims"
+            },
+            {
+              "key": "O",
+              "text": "widespread"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C) bound 语法判断:空格前是be动词are,空格后是不定式tobeproblems,再根据前面的there可判断出本句是 therebe句型,固此空格处应填入形容调。本句结构应为thereareadj.tobe.符合语法条件的备选项有 bound 和 definite 。 语义判断:上一段提到了机器人革命给人类带来的积极作用,本段开头的but表明,下文要阐述机器 人革命的消极影响。由下文列举的几种消极影咖robotcarswill crash、adroneoperatorwill someone'sprivacy以及arobotic lawnmowerwillrunoveraneighbor'scat可知,本段开头句是说“但是青 定会有问题相伴而生\",将bound和definite代入原文,beboundto构成固定搭配,意为“一定,必定”, 符合语境,数本题应选C。不存在bedefiniteto这一搭配。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "arises"
+            },
+            {
+              "key": "B",
+              "text": "ascends"
+            },
+            {
+              "key": "C",
+              "text": "bound"
+            },
+            {
+              "key": "D",
+              "text": "combination"
+            },
+            {
+              "key": "E",
+              "text": "definite"
+            },
+            {
+              "key": "F",
+              "text": "eventually"
+            },
+            {
+              "key": "G",
+              "text": "interfere"
+            },
+            {
+              "key": "H",
+              "text": "invade"
+            },
+            {
+              "key": "I",
+              "text": "manifesting"
+            },
+            {
+              "key": "J",
+              "text": "penalties"
+            },
+            {
+              "key": "K",
+              "text": "preserving"
+            },
+            {
+              "key": "L",
+              "text": "programmed"
+            },
+            {
+              "key": "M",
+              "text": "proximately"
+            },
+            {
+              "key": "N",
+              "text": "victims"
+            },
+            {
+              "key": "O",
+              "text": "widespread"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H) invade 语法判断:空格前为will,空格后为someone'sprivacy,由此可知,空格处应填入动词原形,充当句子 的谓语。符合语法的备选项有bound(跳跃)、interfere(干涉)和invade(侵犯,侵略)。 语义判断:此处仍然列举机器人革命的消极影响,空格所在句提到,遂控飞行器操控者会。 他人 的隐私,将备选项代入原文可知,invade符合语境,invadesomeone's privacy即“侵犯某人的隐私\"之 意。故本题应选H。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "arises"
+            },
+            {
+              "key": "B",
+              "text": "ascends"
+            },
+            {
+              "key": "C",
+              "text": "bound"
+            },
+            {
+              "key": "D",
+              "text": "combination"
+            },
+            {
+              "key": "E",
+              "text": "definite"
+            },
+            {
+              "key": "F",
+              "text": "eventually"
+            },
+            {
+              "key": "G",
+              "text": "interfere"
+            },
+            {
+              "key": "H",
+              "text": "invade"
+            },
+            {
+              "key": "I",
+              "text": "manifesting"
+            },
+            {
+              "key": "J",
+              "text": "penalties"
+            },
+            {
+              "key": "K",
+              "text": "preserving"
+            },
+            {
+              "key": "L",
+              "text": "programmed"
+            },
+            {
+              "key": "M",
+              "text": "proximately"
+            },
+            {
+              "key": "N",
+              "text": "victims"
+            },
+            {
+              "key": "O",
+              "text": "widespread"
+            }
+          ],
+          "answer": "N",
+          "explanation": "N) victims 语法判断:空格前是定冠调the,空格后是介词短语ofmachines,由此可知,空格处应填入名调。符合 语法条件的名词选项还有penalties和victims。 语义判断:此处是与上文并列的一种消极影响,即同情机器 —的陪审团会使企业家承受招致公司 破产的和损害赔偿,将备选名调代入原文可知,后者符合语境,故本题应选N。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "arises"
+            },
+            {
+              "key": "B",
+              "text": "ascends"
+            },
+            {
+              "key": "C",
+              "text": "bound"
+            },
+            {
+              "key": "D",
+              "text": "combination"
+            },
+            {
+              "key": "E",
+              "text": "definite"
+            },
+            {
+              "key": "F",
+              "text": "eventually"
+            },
+            {
+              "key": "G",
+              "text": "interfere"
+            },
+            {
+              "key": "H",
+              "text": "invade"
+            },
+            {
+              "key": "I",
+              "text": "manifesting"
+            },
+            {
+              "key": "J",
+              "text": "penalties"
+            },
+            {
+              "key": "K",
+              "text": "preserving"
+            },
+            {
+              "key": "L",
+              "text": "programmed"
+            },
+            {
+              "key": "M",
+              "text": "proximately"
+            },
+            {
+              "key": "N",
+              "text": "victims"
+            },
+            {
+              "key": "O",
+              "text": "widespread"
+            }
+          ],
+          "answer": "J",
+          "explanation": "J)penalties 语法判断:空格前是合成形容调company-crushing,空格后是anddamages,可知空格处应填入一个与 damages并列的名调,符合语法条件的备选名调只制下penalties。 语义判断:此处是上题所提及的消极影响的后半部分,文章提到,同情机器受害者的陪审团会使企业 家承受招致公司破产的——和损害赔偿,将penalties(罚款,惩罚)代入原文,符合文中语境,故本 题应选J。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "arises"
+            },
+            {
+              "key": "B",
+              "text": "ascends"
+            },
+            {
+              "key": "C",
+              "text": "bound"
+            },
+            {
+              "key": "D",
+              "text": "combination"
+            },
+            {
+              "key": "E",
+              "text": "definite"
+            },
+            {
+              "key": "F",
+              "text": "eventually"
+            },
+            {
+              "key": "G",
+              "text": "interfere"
+            },
+            {
+              "key": "H",
+              "text": "invade"
+            },
+            {
+              "key": "I",
+              "text": "manifesting"
+            },
+            {
+              "key": "J",
+              "text": "penalties"
+            },
+            {
+              "key": "K",
+              "text": "preserving"
+            },
+            {
+              "key": "L",
+              "text": "programmed"
+            },
+            {
+              "key": "M",
+              "text": "proximately"
+            },
+            {
+              "key": "N",
+              "text": "victims"
+            },
+            {
+              "key": "O",
+              "text": "widespread"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K) preserving 语法判断:空格前是连调while,空格后是spaceforinnovation,可知,空格处应填入v-ing形式,与 ·2016年6月六级真题(第三套)· space构成动宾结构。符合语法条件的备选项有manifesting(显示,证明)和preserving(保护;保留)。 语义判断:本句以问句的形式提出政府应如何应对上述消极影响,由前面的内容可知,政府需要处理 的难题是:如何在\"保留\"创新空间的同时保护好人类,显然preserving符合此处语境,因此本题 应选K。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "arises"
+            },
+            {
+              "key": "B",
+              "text": "ascends"
+            },
+            {
+              "key": "C",
+              "text": "bound"
+            },
+            {
+              "key": "D",
+              "text": "combination"
+            },
+            {
+              "key": "E",
+              "text": "definite"
+            },
+            {
+              "key": "F",
+              "text": "eventually"
+            },
+            {
+              "key": "G",
+              "text": "interfere"
+            },
+            {
+              "key": "H",
+              "text": "invade"
+            },
+            {
+              "key": "I",
+              "text": "manifesting"
+            },
+            {
+              "key": "J",
+              "text": "penalties"
+            },
+            {
+              "key": "K",
+              "text": "preserving"
+            },
+            {
+              "key": "L",
+              "text": "programmed"
+            },
+            {
+              "key": "M",
+              "text": "proximately"
+            },
+            {
+              "key": "N",
+              "text": "victims"
+            },
+            {
+              "key": "O",
+              "text": "widespread"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L) programmed 语法判断:空格前是Big,complicated systems..shouldbebuilt,空格后是and soldbymanufacturers,可见 句子主体结构完整,因此空格处应填入一个过去分词,与built和sold构成并列关系。符合语法条件的 过去分词选项只剩下programmed。 语义判断:空格位于末段首句,针对上段末句提出的问题:政府应当怎样做才能在保留创新空间的同 时保护好人类呢?本段给出了答象,即公共安全多有依赖的大型而复杂的系统,比如无人驾驶汽车,应 当由既能够确保安全,又能为交通事故负责任的生产商制造、——以及销售,由此可知, programmed(设定程序)符合此处语境,故本题应选L。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2016-06-3-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Americans are deeply concerned about the relentless rise in health care costs and health insurance premiums.They need to know if reform will help solve the problem.The answer is that no one has an easy fix for rising medical costs.The fundamental fix—reshaping how care is delivered and how doctors are paid in a wasteful.abnormal system—is likely to be achieved only through trial and error and incremental(渐进的) gains.",
+        "B) The good news is that a bill just approved by the House and a bill approved by the Senate Finance Committee would implement or test many reforms that should help slow the rise in medical costs over the long term.As a report in The Nel4,England Journal of Medicine concluded.\"Pretty much every proposed innovation found in the health policy literature these days is contained in these measures.\"",
+        "C) Medical spending, which typically rises faster than wages and the overall economy,is propelled by two things:the high prices charged for medical services in this country and the volume of unnecessary care delivered by doctors and hospitals,which often perform a lot more tests and treatments than a patient really needs.",
+        "D) Here are some of the important proposals in the House and Senate bills to try to address those problems, and why it is hard to know how well they will work.",
+        "E) Both bills would reduce the rate of growth in annual Medicare payments to hospitals, nursing homes and other providers by amounts comparable to the productivity savings routinely made in other industries with the help of new technologies and new ways to organize work.This proposal could save Medicare more than$100 billion over the next decade.If private plans demanded similar productivity savings from providers, and refused t01et providers shift additional costs to them.the savings could be much larger.Critics say Congress will give in to lobbyists and let inefficient providers off the hook(放过). That is far less likely to happen if Congress also adopts strong\"pay—go\"rules requiring that any increase in payments to providers be offset by new taxes or budget cuts.",
+        "F) The Senate Finance bill would impose an excise tax(消费税)on health insurance plans that cost more than$8, 000 for an individual or$21.000 for a family.It would most likely cause insurers to redesign plans to fall beneath the threshold.Enrollees would have to pay more money for many services out of their own pockets, and that would encourage them to think twice about whether an expensive or redundant test was worth it.Economists project that most employers would shift money from expensive health benefits into wages.The House bill has no similar tax.The final legislation should.",
+        "G) Any doctor who has wrestled with multiple form.s from different insurers, or patients who have tried to understand their own parade of statements, know that simplification ought to save money.When the health insurance industry was still cooperating in reforin efforts.its trade group offered to provide standardized forms for automated processing.It estimated that step would save hundreds of billions of dollars over the next decade.The bills would lock that pledge into law.",
+        "H) The stimulus package provided money to convert the inefficient, paper—driven medical system to electronic records that can be easily viewed and transmitted.This requires open investments to help doctors convert.In time it should help restrain costs by eliminating redundant tests.preventing drug interactions, and helping doctors find the best treatments.",
+        "I) Virtually all experts agree that the fee.for—service system—doctors are rewarded for the quantity of care rather than its quality or effectiveness—is a primary reason that the cost of care is so high.Most agree that the solution is to push doctors to accept fixed payments to care for a particular illness or for a patient's needs over a year.No one knows how to make that happen quickly.The bills in both houses would start pilot projects within Medicare.They include such measures as accountable care organizations to take charge of a patient's needs with an eye on both cost and quality,and chronic disease management to make sure the seriously ill.who are responsible for the bulk of all health care costs.are treated properly.For the most part.these experiments rely on incentive payments to get doctors to try them.",
+        "J) Testing innovations do no good unless the good experiments are identified and expanded and the bad ones are dropped.The Senate bill would create an independent commission to monitor the pilot programs and recommend changes in Medicare's Payment policies to urge providers to adopt reforms that work.The changes would have to be approved or rejected as a whole by Congress, making it hard for narrow—interest lobbies to bend lawmakers to their will.",
+        "K) The bills in both chambers would create health insurance exchanges on which small businesses and individuals could choose from an array of private plans and possibly a public option.All the plans would have to provide standard benefit packages that would be easy to compare, To get access to millions of new customers.insurers would have a strong incentive to sell on the exchange.And the head—to—head competition might give them a strong incentive to lower their prices.perhaps by accepting slimmer profit margins or demanding better deals from providers.",
+        "L) The final legislation might throw a public plan into the competition, but thanks to the fierce opposition of the insurance industry and Republican critics.it might not save much money The one in the House bill would have to negotiate rates with providers.rather than using Medicare rates.as many reformers wanted.",
+        "M) The president's stimulus package is pumping money into research to compare how well various treatments work.Is surgery,radiation or careful monitoring best for prostate(前列腺)cancer?Is the latest and most expensive cholester01.10wering drug any better than its common competitors?The pending bills would spend additional money to accelerate this effort.",
+        "N) Critics have charged that this sensible idea would lead to rationing of care.(That would be true only if you believed that patients should have an unrestrained right to treatments proven to be inferior.)As a result, the bills do not require, as they should, that the results of these studies be used to set payment rates in Medicare.",
+        "O) Congress needs to find the courage to allow Medicare to Pay preferentially for treatments proven to be superior.Sometimes the best treatment might be spending would come down through elimination of treatments,the most expensive.But overall, we suspect that a lot of unnecessary or even dangerous tests and",
+        "P) The House bill would authorize the secretary of health and human services to negotiate drug prices in Medicare and Medicaid.Some authoritative analysts doubt that the secretary would get better deals than private insurers already get.We believe negotiation could work.It does in other countries.",
+        "Q) Missing from these bills is any serious attempt to rein in malpractice costs, Malpractice awards do drive up insurance premiums for doctors in high.risk specialties, and there is some evidence that doctors engage in\"defensive medicine\"by performing tests and treatments primarily to prove they are not negligent should they get sued."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "With a tax imposed on expensive health insurance plans, most employers will likely transfer money from health expenses into wages.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F 解析:根据题干中的ataximposed,mostemployers和wages可定位到F段。F段开头提到对于医保计划 中个人花费和家庭花费超过一定标准的,参议院财政法案提出将会征收消费税,后半部分提到大部分 用人单位将会把昂责的医保支出转为工资发放。题干中的ataximposed是F段第一句话中的impose an excise tax的同义转述;transfermoneyfromhealth expenses intowages是F段倒数第三句中的shift money from expensive health benefits into wages 的同义转速。"
+        },
+        {
+          "number": 37,
+          "stem": "Changes in policy would be approved or rejected as a whole so that lobbyists would find it hard to influence lawmakers.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "J",
+          "explanation": "J 解析:根据题干中的approvedorrejectedas awhole和lawmakers可定位到J段。J段讲述的是政策改变 的问题,最后一句说,这些改变必须要被国会通盘同意或否决,使得那些狭隧的利益游说者很难让立 法者屈从于他们的意愿。而题干正是对J段最后一句的概括,其中findithard是对原文makingithard 的同义转速述,influencelawmakers是对bend lawmakerstotheirwill的同义转述。"
+        },
+        {
+          "number": 38,
+          "stem": "It is not easy to curb the rising medical costs in America.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A 解析:本句话在原文中没有明确的关键调定位,需要逐段进行分析和匹配。本文主要讲述了控制美国 日益增长的医疗费用问题,先看A段。A段第一句话就提到美国人为医疗费用和医疗保险费用的不断 上涨而深感忧虑。第三句话说对于医疗费用的上涨没有人能给出简单的解决办法。综合分析,题干正是 对这两向话的概括,因此正确答案为A。"
+        },
+        {
+          "number": 39,
+          "stem": "Standardization of forms for automatic processing will save a lot of medical expenses.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G 解析:根据题干中的Standardization和automaticprocessing可定位到G段。G段提到当医疗保险产业 仍在配合改革时,它的贸易集团主动为自动化处理提供标准形式。这一举措将在下一个十年节省数千 亿美元。题干正是对这两句话的概括。automaticprocessing在原文中有复现,Standardization对应原文中 的 standardized。 ·2016年6月六级真题(第三套)"
+        },
+        {
+          "number": 40,
+          "stem": "Republicans and the insurance industry are strongly opposed to the creation of a public insurance plan.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L 解析:根据题干中的Republicans,insurance industry和apublic insuranceplan可定位到L段。L段第一 句就说最终的立法可能会包含一个公共保险计刘,但是由于保险业和共和党评论家们的强烈反对,可 能不会节省太多钱。题干中的thecreationofapublic insuranceplan是原文中throwapublicplan的同义 转述,stronglyopposedto是原文中thefierceoppositionof的同义转速。"
+        },
+        {
+          "number": 41,
+          "stem": "Conversion of paper to electronic medical records will help eliminate redundant tests and prevent drug interactions.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H 解析:根据题千中的 electronic medical records 和 eliminate redundant tests and prevent drug interactions 可 定位到H段。题干中的Conversion对应原文中的动调形式convert,eliminateredundanttests and prevent drug interactions是对原文中的eliminating redundant tests,preventingdrug interactions的同义转述。"
+        },
+        {
+          "number": 42,
+          "stem": "The high cost of medical services and unnecessary tests and treatments have driven up medical expenses.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C 解析:根据题千中的medical services和unnecessarytests and treatments可定位到C段。C段讲述了医疗 费用如此高的原因,一是医疗服务的高额收费,二是大量不必要的检查和治疗,而题干正是对这两层 意思的概括。其中high cost of medical services对应原文中的high prices charged for medical services, drivenup是对原文中propelled的同义转述。"
+        },
+        {
+          "number": 43,
+          "stem": "One main factor that has driven up medical expenses is that doctors are compensated for the amount of care rather than its effect.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "I",
+          "explanation": "I 解析:根据题干中的amountofcare ratherthanitseffect可定位到I段。I段说医生因其医疗服务的次数 而不是质量或效率而取得报酬——是医疗成本如此之高的一个主要原固。theamountofcareratherthan its effect对应原文中的quantity of care rather than its quality or effectiveness,compensated是对原文中 rewarded的同义转述。"
+        },
+        {
+          "number": 44,
+          "stem": "Contrary to analysts' doubts, the author believes drug prices may be lowered through negotiation.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "P",
+          "explanation": "P 解析:根据题干中的analysts'doubt、drugprices和negotiation可定位到P段。P段谈到一些权威的分析 专家对于部长谈成的价格将比私人保险公司谈成的价格更加优惠这一点表示怀疑,又说我们相信谈判 应该会奏效,这个说法与题干不谋而合,因此答案选P。"
+        },
+        {
+          "number": 45,
+          "stem": "Fair competition might create a strong incentive for insurers to charge less.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K 解析:根据题干中的astrongincentive可定位到K段。K段谈到了保险公司为了吸引更多新客户而采取 的措施,保险公司会有强有力的动机来降低价格。题干中的Faircompetition对应原文中的health insurance exchange, charge less对应原文中的lower their prices。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2016-06-3-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Facing water shortages and escalating fertilizer costs, farmers in developing countries are using raw sewage(下水道污水)to irrigate and fertilize nearly 49 million acres of cropland, according to a new report—and it may not be a bad thing. While the practice carries serious health risks for many,those dangers are outweighed by the social and economic gains for poor urban farmers and consumers who need affordable food. \"There is a large potential for waste water agriculture to both help and hurt great numbers of urban consumers.\"said Liqa Raschid.Sally,who led the study. The report focused on poor urban areas。where farms in or near cities supply relatively inexpensive food.Most of these operations draw irrigation water from local rivers or lakes.Unlike developed cities.however,these areas lack advanced water-treatment facilities, and rivers effectively become sewers(下水道). When this water is used for agricultural irrigation, farmers risk absorbing disease-causing bacteria, as do consumers who eat the produce raw and unwashed.Nearly 2.2 million people die each year because of diarrhea—related(与腹泻相关的)diseases, according to WHO statistics.More than 80%of those cases can be attributed to contact with contaminated water and a lack of proper sanitation.But Pay Drechsel, an environmental scientist.argues that the social and economic benefits of using untreated human waste to grow food outweigh the health risks. Those dangers can be addressed with farmer and consumer education, he said, while the free water and nutrients from human waste can help urban farmers in developing countries to escape poverty. Agriculture is a water-intensive business, accounting for nearly 70%of global flesh water consumption. In poor, dry regions, untreated waste water is the only viable irrigation source to keep farmers in business.In some cases, water is so scarce that farmers break open sewage pipes transporting waste to local rivers. Irrigation is the primary agricultural use of human waste in the developing world.But frequently untreated human waste harvested from lavatories is delivered to farms and spread as fertilizer. In most cases, the human waste is used on grain crops, which are eventually cooked, minimizing the risk of transmitting water-borne diseases.With fertilizer prices jumping nearly 50%per metric ton over the last year in some places, human waste is an attractive, and often necessary,alternative.",
+        "In cases where sewage mud is used, expensive chemical fertilizer use can be avoided.The mud contains the same critical nutrients. \"Overly strict standards often fail, \"James Bartram, a WHO water—health expert.said.\"We need to accept that fact across much of the planet, so waste with little or no treatment will be used in agriculture for good reason.\""
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What does the author say about the use of raw sewage for farming?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Its risks cannot be overestimated."
+            },
+            {
+              "key": "B",
+              "text": "It should be forbidden altogether."
+            },
+            {
+              "key": "C",
+              "text": "Its benefits outweigh the hazards involved."
+            },
+            {
+              "key": "D",
+              "text": "It is polluting millions of acres of cropland."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C 定位:根据题干的信息词theuseofrawsewageforfamming,可以把答题线索定位到第一、二段。 解析:第一段指出:“发展中国家的农民正在使用未经处理的下水道污水为近4900万英亩的农田灌溉 和施肥,而这或许并不是坏事。\"接着第二段进一步指出:“尽管这种做法给许多人带来严重的健康风 险,但是它给贪穷的减市农民和需要平价食品的消费者带来的社会和经济效益超过了这些风险。\"由此 可知,作者认为使用未经处理的下水道污水是利大于弊的,故选项C正确。A项和B项的内容明显与 文意不符,应排除。文中提到未经处理的下水道污水用来为近4900万英亩的农田灌溉和施肥,并不是 说它正污染着数百万英亩的农田,D项电应排除。"
+        },
+        {
+          "number": 47,
+          "stem": "What is the main problem caused by the use of waste water for irrigation?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Rivers and lakes nearby will gradually become contaminated."
+            },
+            {
+              "key": "B",
+              "text": "It will drive producers of chemical fertilizers out of business."
+            },
+            {
+              "key": "C",
+              "text": "Farmers and consumers may be affected by harmful bacteria."
+            },
+            {
+              "key": "D",
+              "text": "It will make the farm produce less competitive on the market."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C 定位:根据题干的信息词mainproblem和theuseofwastewaterforiigation,可以把答题线索定位到第 五段第一句。 解析:该句指出:“当这些水用于农业灌溉的时候,农民和那些生食未经清洗的农产品的消费者一样, 都面临摄入引发疾病的细菌的风险。\"C项符合文意,故为正确答案。文中提及贫围的市地区的大部 分农业作业是从当地河流或湖治中引水灌溉,并不是附近的河流和湖泊将会逐渐受到污染,A项应排 除。文中并未提及化学肥料生产商例闭以及这种做法将使农产品在市场上的竞争力降低的内容,B、D 两项都应排除。"
+        },
+        {
+          "number": 48,
+          "stem": "What is environmental scientist Pay Drechsel's attitude towards the use of untreated human waste in agriculture?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Favorable."
+            },
+            {
+              "key": "B",
+              "text": "Skeptical."
+            },
+            {
+              "key": "C",
+              "text": "Indifferent."
+            },
+            {
+              "key": "D",
+              "text": "Responsible."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A 定位:根据题千的信息词environmental scientistPayDrechsel和the useofuntreatedhuman waste,可以 把答题线索定位到第五段最后一句。 解析:该句指出:“但是环境科学家装伊·德雷克塞尔认为,使用未经处理的人类排泄物种植粮食所产 持的,故A项是正确答案。B项属于负面态度,是错误的,应排除。根据文意,装伊·德雷克塞尔是支持 这种做法的,并不是不关心的,C项也是错误的。“认真负责的\"态度在文中并未体现,也应排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What does Pay Drechsel think of the risks involved in using untreated human waste for farming?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They have been somewhat exaggerated."
+            },
+            {
+              "key": "B",
+              "text": "They can be dealt with through education."
+            },
+            {
+              "key": "C",
+              "text": "They will be minimized with new technology."
+            },
+            {
+              "key": "D",
+              "text": "They can be addressed by improved sanitation."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B 定位:根据题干的信息词PayDrechsel和therisks involvedinusinguntreated humanwaste,可以把答题 线索定位到第六段。 解析:该段首句指出:“这些风险可以通过对农民和消费者的教育得以解决\",他指的这些风险即在 农业生产中使用未经处理的人类排泄物所带来的风险,由此可知B项符合文意,故为正确答案。装 伊·德雷克塞尔并未提及风险被大或可以通过新技术使这些风险最小化,所以A、C两项应排除。 文中提及卫生设施的内容时,涉及的是一项世界卫生组织的统计,与装伊·德雷克塞尔无关,故D项 也应排除。 ·2016年6月六级真题(第三套)·"
+        },
+        {
+          "number": 50,
+          "stem": "What do we learn about James Bartram's position on the use of human waste for farming?",
+          "options": [
+            {
+              "key": "A",
+              "text": "He echoes Pay Drechsel's opinion on the issue."
+            },
+            {
+              "key": "B",
+              "text": "He challenges Liqa Raschid—Sally's conclusion."
+            },
+            {
+              "key": "C",
+              "text": "He thinks it the only way out of the current food crisis."
+            },
+            {
+              "key": "D",
+              "text": "He deems it indispensable for combating global poverty."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A 定位:根据题干的信息调JamesBartram'sposition和theuseofhumanwasteforfarming,可以把答题线 索定位到最后一段。 解析:该段中提到世界卫生组织的一位水健康专家詹姆斯·巴特拉姆指出:“过分严等的标准往往不见 效,在这个星球的大部分地区我们都需要接受这一事实,所以使用微处理或未处理的人类排泄物进行 农业生产是有充分理由的。”可知他赞同和支持这种做法,与前文中提及的聚伊·德雷克塞尔的态度和 立场相同,故A项是正确的。利卡·拉希德-萨莉得出的结论是“污水农业给城市的大量消费者带来帮助 和伤害的可能性都很大”,该结论在一定程度上也肯定了这种做法,所以詹姆斯·巴特拉姆并未质疑利 卡·拉希德-萨莉的结论,故B项应排除。詹姆斯·巴特拉姆并未提到这种做法是解决当前食物危机的唯 一出路,C项应排除。值得注意的是,only这个调意义过于绝对,其所在选项一般不是正确答案。詹姆 斯·巴特拉姆认为有充分的理由使用微处理或未处理的人类排泄物进行农业生产,但D项中提到的“全 球贫图\"的范围明显扩大化了,也应排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2016-06-3-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "These days, nobody needs to cook.Families graze on high—cholesterol take—aways and microwaved ready-meals.Cooking is an occasional hobby and a vehicle for celebrity chefs.Which makes it odd that the kitchen has become the heart of the modem house:what the great hall was to the medieval castle.the kitchen is to the 21st—century home. The money spent on kitchens has risen with their status.In America the kitchen market is now worth $170 billion, five times the country's film industry.In the year to August 2007,IKEA.a Swedish furniture chain, sold over one million kitchens worldwide.The average budget for a\"major\"kitchen over haul in 2006,calculates Remodeling magazine, was a staggering$54, 000;even a\"minor\"improvement cost on average$18.000. Exclusivity,more familiar in the world of high fashion, has reached the kitchen:Robinson&Cornish,a British manufacturer of custom—made kitchens, offers a Georgian—style one which would cost£145.000-155, 000—excluding building, plumbing and electrical work.Its big selling point is that nobody else will have it:\"You won't see this kitchen anywhere else in the world.\" The elevation of the room that once belonged only to the servants to that of design showcase for the modem family tells the story of a century of social change.Right into the early 20th century,kitchens were smoky,noisy places.generally located underground, or to the back of the house, and as far from living space as possible.That was as it should be:kitchens were for servants, and the aspiring middle classes wanted nothing to do with them. But as the working classes prospered and the servant shortage set in, housekeeping became a matter of interest to the educated classes.One of the pioneers of a radical new way of thinking about the kitchen was Catharine Esther Beecher.sister of Harriet Beecher Stowe.In American Woman's Home, published in 1869, the Beecher sisters recommended a scientific approach to household management, designed to enhance the efficiency of a woman's work and promote order. Many contemporary ideas about kitchen design can be traced back to another American, Christine Frederick.who set about enhancing the efficiency of the housewife.Her l919 work, Household Engineering Scientific Management in the Home.was based on detailed observation of a housewife's daily routine.She borrowed the principle of efficiency on the factory floor and applied it to domestic tasks on the kitchen floor. Frederick's central idea.that\"stove.sink and kitchen table must be placed in such a relation that useless steps are avoided entirely\".inspired the first fully fitted kitchen, designed in the 1920s by Margarete Schutter-Lihotsky.It was a modernist triumph.and many elements remain central features of today's kitchen."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the author say about the kitchen of today?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is where housewives display their cooking skills."
+            },
+            {
+              "key": "B",
+              "text": "It is where the family entertains important guests."
+            },
+            {
+              "key": "C",
+              "text": "It has become something odd in a modem house."
+            },
+            {
+              "key": "D",
+              "text": "It is regarded as the center of a modem home."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D 定位:根据题干关键词thekitchenoftoday,可以把答题线索定位到第一段的最后一句话。 解析:文中第一段最后一句提到:“让人感到奇怪的是厨房已经成了现代家居的核心:厨房在21世纪 家庭中的地位相当于中世纪城堡中的大堂。\"题干中的thekitchen oftoday以及选项D和原文中的the ·2016年6月六级真题(第三套)· kitchen hasbecometheheart ofthemodemhouse相对应,故选D。选项A论述错误,根据文章中的a vehicleforcelebritychefs,厨房应当是名厨们展示厨艺的地方。选项B文中并未提及。选项C为理解错 误,奇怪的不是厨房,而是人们很少使用厨房,厨房却在现代家庭中居于核心地位这一现象。"
+        },
+        {
+          "number": 52,
+          "stem": "Why does the Georgian—style kitchen sell at a very high price?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is believed to have tremendous artistic value."
+            },
+            {
+              "key": "B",
+              "text": "No duplicate is to be found in any other place."
+            },
+            {
+              "key": "C",
+              "text": "It is manufactured by a famous British company."
+            },
+            {
+              "key": "D",
+              "text": "No other manufacturer can produce anything like it."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B 定位:根据题干关键词Georgian-stylekitchen以及sellataveryhighprice,可以把答题线索定位到文中 第三段。 解析:文中第三段最后一句提到:“它最大的卖点是独一无二:‘在世界其他地方,你看不到这样的厨 房。”这句话解释了Georgian-style厨房价格高的原因,选项B中inanyotherplace与文中anywhere elseintheworld属于同义转换。选项A、C、D在文中没有信息支择,故均排除。"
+        },
+        {
+          "number": 53,
+          "stem": "What does the change in the status of the kitchen reflect?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Improved living conditions."
+            },
+            {
+              "key": "B",
+              "text": "Women's elevated status."
+            },
+            {
+              "key": "C",
+              "text": "Technological progress."
+            },
+            {
+              "key": "D",
+              "text": "Social change."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D 定位:根据题干关键调changeinthestatus ofthekitchenreflect,可以把答题线索定位到第四段第一句。 解析:第四段第一句中提到:“曾经只属于仆人的厨房成了现代家庭的设计展示间,这体现了一个世纪 的社会变迁。”由once到modem,体现了题干中的change,题干中的reflect对应原文中的tells,所以 选D。"
+        },
+        {
+          "number": 54,
+          "stem": "What was the Beecher sisters'idea of a kitchen?",
+          "options": [
+            {
+              "key": "A",
+              "text": "A place where women could work more efficiently."
+            },
+            {
+              "key": "B",
+              "text": "A place where high technology could be applied."
+            },
+            {
+              "key": "C",
+              "text": "A place of interest to the educated people."
+            },
+            {
+              "key": "D",
+              "text": "A place to experiment with new ideas."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A 定位:根据题干关键词Beechersisters,可以把答题线索定位到第五段最后一句话。 解析:第五段最后一句提到:“比彻姐妹推荐了一种科学的方法以应用于家务管理,旨在提高女性家务 工作的效率,让家务工作有序进行。”可以看出比彻妞妹对厨房的看法和women,efficiency有关,故选 项A正确。比彻姐妹推荐的是一种科学的方法而不是高科技,故排除B。选项C是强干扰项,文章第五 段第一句“家务成了文化阶层的乐事\"(housekeepingbecameamaterof interest totheeducatedclasses)是 对时代背景的介绍而非比彻姐妹的观点。选项D文中未提及。"
+        },
+        {
+          "number": 55,
+          "stem": "What do we learn about today's kitchen?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It represents the rapid technological advance in people's daily life."
+            },
+            {
+              "key": "B",
+              "text": "Many of its central features are no different from those of the l 920s."
+            },
+            {
+              "key": "C",
+              "text": "It has been transformed beyond recognition."
+            },
+            {
+              "key": "D",
+              "text": "Many of its functions have changed greatly."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B 定位:根据出题顺序和文章顺序基本一致原则,本题的答案应该会在最后一段。根据关键调today\"s kitchen定位在文章最后一句。 解析:文章最后一句提到“这次设计是现代主义者的胜利,并且其很多要素仍然是现代厨房的核心特 征。”换言之,现代厨房的核心特征和20世纪20年代的厨房的要素相同。因此答案选B。"
+        }
+      ]
+    }
+  ]
+}

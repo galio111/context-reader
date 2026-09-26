@@ -1,0 +1,1565 @@
+{
+  "id": "cet6-2020-12-2",
+  "level": 6,
+  "year": 2020,
+  "month": 12,
+  "set": 2,
+  "title": "2020 年 12 月六级 · 第 2 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.12/%E7%9C%9F%E9%A2%98Word/2020%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC2%E5%A5%97%EF%BC%89.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2020.12%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC2%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2020-12-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Virtually every activity that entails or facilitates in-person human interaction seems to be in the midst of a total meltdown as the coronavirus (冠状病毒)outbreak erases Americans’ desire to travel. Amtrak says bookings are down 50 percent and cancelations are up 300 percent. Hotels in San Francisco are experiencing [[26]] rates between 70 and 80 percent. Broadway goes dark on Thursday night. Universities, now emptying their campuses, have never tried online learning on this [[27]] _. White-collar companies like Amazon, Apple, and the New York Times are asking employees to work from home for the [[28]] future. But what happens after the coronavirus? In some ways, the answer is: All the old normal stuff. The pandemic(大流行病)will take lives, [[29]] economies and destroy routines, but it will pass. Americans will never stop going to basketball games. They won’t stop going on vacation. They’ll meet to do business. No decentralizing technology so far — not telephones, not television, and not the internet — has dented that human desire to shake hands, despite technologists’ [[30]] to the contrary. Yet there are real reasons to think that things will not return to the way they were last week. Small [[31]] create small societal shifts; big ones change things for good. The New York transit strike of 1980 is [[32]] with prompting several long-term changes in the city, including bus and bike lanes, and women wearing sports shoes to work. The Spanish flu pandemic of 1918 prompted the development of national health care in Europe. Here and now, this might not even be a question of [[33]] . It’s not clear that the cruise industry will [[34]] . Or that public transit won’t go broke without [[35]] assistance. The infrastructure might not even be in place to do what we were doing in 2019."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "credentials"
+        },
+        {
+          "key": "B",
+          "text": "credited"
+        },
+        {
+          "key": "C",
+          "text": "cumulative"
+        },
+        {
+          "key": "D",
+          "text": "disruptions"
+        },
+        {
+          "key": "E",
+          "text": "federal"
+        },
+        {
+          "key": "F",
+          "text": "foreseeable"
+        },
+        {
+          "key": "G",
+          "text": "predictions"
+        },
+        {
+          "key": "H",
+          "text": "preference"
+        },
+        {
+          "key": "I",
+          "text": "scale"
+        },
+        {
+          "key": "J",
+          "text": "strangle"
+        },
+        {
+          "key": "K",
+          "text": "subtle"
+        },
+        {
+          "key": "L",
+          "text": "summoned"
+        },
+        {
+          "key": "M",
+          "text": "survive"
+        },
+        {
+          "key": "N",
+          "text": "vacancy"
+        },
+        {
+          "key": "O",
+          "text": "wedge"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "credentials"
+            },
+            {
+              "key": "B",
+              "text": "credited"
+            },
+            {
+              "key": "C",
+              "text": "cumulative"
+            },
+            {
+              "key": "D",
+              "text": "disruptions"
+            },
+            {
+              "key": "E",
+              "text": "federal"
+            },
+            {
+              "key": "F",
+              "text": "foreseeable"
+            },
+            {
+              "key": "G",
+              "text": "predictions"
+            },
+            {
+              "key": "H",
+              "text": "preference"
+            },
+            {
+              "key": "I",
+              "text": "scale"
+            },
+            {
+              "key": "J",
+              "text": "strangle"
+            },
+            {
+              "key": "K",
+              "text": "subtle"
+            },
+            {
+              "key": "L",
+              "text": "summoned"
+            },
+            {
+              "key": "M",
+              "text": "survive"
+            },
+            {
+              "key": "N",
+              "text": "vacancy"
+            },
+            {
+              "key": "O",
+              "text": "wedge"
+            }
+          ],
+          "answer": "N",
+          "explanation": "[锁定答案]空格句指出,旧金山酒店现在正在经历70%~ 80% 的 率。结合上文“疫情暴发浇灭了美国人的旅行愿望”“美铁订票量下降/退票量上升”可知,空格 句应意在说明“旅游业萧条导致酒店经营惨淡”,再结合70and80percent这一较高占比可知空格词应传 递“空房/退订/下滑/亏损”等负面语义,故N 正确。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "credentials"
+            },
+            {
+              "key": "B",
+              "text": "credited"
+            },
+            {
+              "key": "C",
+              "text": "cumulative"
+            },
+            {
+              "key": "D",
+              "text": "disruptions"
+            },
+            {
+              "key": "E",
+              "text": "federal"
+            },
+            {
+              "key": "F",
+              "text": "foreseeable"
+            },
+            {
+              "key": "G",
+              "text": "predictions"
+            },
+            {
+              "key": "H",
+              "text": "preference"
+            },
+            {
+              "key": "I",
+              "text": "scale"
+            },
+            {
+              "key": "J",
+              "text": "strangle"
+            },
+            {
+              "key": "K",
+              "text": "subtle"
+            },
+            {
+              "key": "L",
+              "text": "summoned"
+            },
+            {
+              "key": "M",
+              "text": "survive"
+            },
+            {
+              "key": "N",
+              "text": "vacancy"
+            },
+            {
+              "key": "O",
+              "text": "wedge"
+            }
+          ],
+          "answer": "I",
+          "explanation": "[锁定答案]空格句指出,大学正在清 校,开始尝试此前从未尝试过的 在线学习。由上下文“人际互动活动彻底崩溃”“员工居家办公”可 知,空格句意在说明疫情使得大学被迫清空校园,全面开启在线学习,“onthis ”应凸显线上学习 “规模之大/范围之广/参与人数之多”等,故空格词应表示“范围/规模/程度”等意,I正确。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "credentials"
+            },
+            {
+              "key": "B",
+              "text": "credited"
+            },
+            {
+              "key": "C",
+              "text": "cumulative"
+            },
+            {
+              "key": "D",
+              "text": "disruptions"
+            },
+            {
+              "key": "E",
+              "text": "federal"
+            },
+            {
+              "key": "F",
+              "text": "foreseeable"
+            },
+            {
+              "key": "G",
+              "text": "predictions"
+            },
+            {
+              "key": "H",
+              "text": "preference"
+            },
+            {
+              "key": "I",
+              "text": "scale"
+            },
+            {
+              "key": "J",
+              "text": "strangle"
+            },
+            {
+              "key": "K",
+              "text": "subtle"
+            },
+            {
+              "key": "L",
+              "text": "summoned"
+            },
+            {
+              "key": "M",
+              "text": "survive"
+            },
+            {
+              "key": "N",
+              "text": "vacancy"
+            },
+            {
+              "key": "O",
+              "text": "wedge"
+            }
+          ],
+          "answer": "F",
+          "explanation": "[锁定答案]空格句指出,白领公司要求员工在 未来居家办公。可 见,“ forthe future”限定居家办公的持续时间,结合上文可知,在疫情影响下,“居家办公”这一新型工作 模式会在未来一段时间内一直持续,空格词应传递出这种可预见性、可预估性。fortheforeseeablefuture为固 定搭配,表示“(在)可预见的将来”,结合语境即“在受疫情影响的未来一段时间内”,故F正确。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "credentials"
+            },
+            {
+              "key": "B",
+              "text": "credited"
+            },
+            {
+              "key": "C",
+              "text": "cumulative"
+            },
+            {
+              "key": "D",
+              "text": "disruptions"
+            },
+            {
+              "key": "E",
+              "text": "federal"
+            },
+            {
+              "key": "F",
+              "text": "foreseeable"
+            },
+            {
+              "key": "G",
+              "text": "predictions"
+            },
+            {
+              "key": "H",
+              "text": "preference"
+            },
+            {
+              "key": "I",
+              "text": "scale"
+            },
+            {
+              "key": "J",
+              "text": "strangle"
+            },
+            {
+              "key": "K",
+              "text": "subtle"
+            },
+            {
+              "key": "L",
+              "text": "summoned"
+            },
+            {
+              "key": "M",
+              "text": "survive"
+            },
+            {
+              "key": "N",
+              "text": "vacancy"
+            },
+            {
+              "key": "O",
+              "text": "wedge"
+            }
+          ],
+          "answer": "J",
+          "explanation": "[锁定答案]空格句指出,这场大流行病会夺去生命、 经济、破坏日常 生活,但它终将过去。可见,“ 经济”应与“夺去生命”“破坏生活”为并列关系,空格词应指向对经济 的“抑制/破坏/阻碍”等作用,J正确。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "credentials"
+            },
+            {
+              "key": "B",
+              "text": "credited"
+            },
+            {
+              "key": "C",
+              "text": "cumulative"
+            },
+            {
+              "key": "D",
+              "text": "disruptions"
+            },
+            {
+              "key": "E",
+              "text": "federal"
+            },
+            {
+              "key": "F",
+              "text": "foreseeable"
+            },
+            {
+              "key": "G",
+              "text": "predictions"
+            },
+            {
+              "key": "H",
+              "text": "preference"
+            },
+            {
+              "key": "I",
+              "text": "scale"
+            },
+            {
+              "key": "J",
+              "text": "strangle"
+            },
+            {
+              "key": "K",
+              "text": "subtle"
+            },
+            {
+              "key": "L",
+              "text": "summoned"
+            },
+            {
+              "key": "M",
+              "text": "survive"
+            },
+            {
+              "key": "N",
+              "text": "vacancy"
+            },
+            {
+              "key": "O",
+              "text": "wedge"
+            }
+          ],
+          "answer": "G",
+          "explanation": "[锁定答案]空格句指出,迄今为止,没有哪项分散性的技术削弱了人们握手的欲望,尽管技术专家们的 与之相反。“de-(否定词缀)+centralizing(集中的)”暗示这些技术的设计初衷/理念应该是使人们分 散化(降低人们面对面交流/握手的欲望),故让步状语despitetechnologists􀆳 tothecontrary应指 向技术专家与前述事实“分散性技术未能让人们停止握手”相反的“看法/观点/预测”等,G 正确。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "credentials"
+            },
+            {
+              "key": "B",
+              "text": "credited"
+            },
+            {
+              "key": "C",
+              "text": "cumulative"
+            },
+            {
+              "key": "D",
+              "text": "disruptions"
+            },
+            {
+              "key": "E",
+              "text": "federal"
+            },
+            {
+              "key": "F",
+              "text": "foreseeable"
+            },
+            {
+              "key": "G",
+              "text": "predictions"
+            },
+            {
+              "key": "H",
+              "text": "preference"
+            },
+            {
+              "key": "I",
+              "text": "scale"
+            },
+            {
+              "key": "J",
+              "text": "strangle"
+            },
+            {
+              "key": "K",
+              "text": "subtle"
+            },
+            {
+              "key": "L",
+              "text": "summoned"
+            },
+            {
+              "key": "M",
+              "text": "survive"
+            },
+            {
+              "key": "N",
+              "text": "vacancy"
+            },
+            {
+              "key": "O",
+              "text": "wedge"
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]第四段2句指出,小的 31 带来小的社会转变;大的 31 (ones 回指空31)则导致永久性改变。3句指出,纽约交通系统大罢工 32 促进长远变革。4句则具体介绍 了1918年西班牙大流感对欧洲各国医疗保健系统发展的巨大促进作用。可见,34句意在举例说明2 句后半句“大的 31 则导致永久性改变”这一观点,空31应传递“社会重大危机/问题/破坏”等含义,D 正确。而is 32 with应体现“交通大罢工”与“促进长远变革”之间的关系,结合上文观点“破坏导致社 会变革”可知, is with应体现因果逻辑,B符合文意,AbecreditedwithB表示“把B归功于A”。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "credentials"
+            },
+            {
+              "key": "B",
+              "text": "credited"
+            },
+            {
+              "key": "C",
+              "text": "cumulative"
+            },
+            {
+              "key": "D",
+              "text": "disruptions"
+            },
+            {
+              "key": "E",
+              "text": "federal"
+            },
+            {
+              "key": "F",
+              "text": "foreseeable"
+            },
+            {
+              "key": "G",
+              "text": "predictions"
+            },
+            {
+              "key": "H",
+              "text": "preference"
+            },
+            {
+              "key": "I",
+              "text": "scale"
+            },
+            {
+              "key": "J",
+              "text": "strangle"
+            },
+            {
+              "key": "K",
+              "text": "subtle"
+            },
+            {
+              "key": "L",
+              "text": "summoned"
+            },
+            {
+              "key": "M",
+              "text": "survive"
+            },
+            {
+              "key": "N",
+              "text": "vacancy"
+            },
+            {
+              "key": "O",
+              "text": "wedge"
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]第四段2句指出,小的 31 带来小的社会转变;大的 31 (ones 回指空31)则导致永久性改变。3句指出,纽约交通系统大罢工 32 促进长远变革。4句则具体介绍 了1918年西班牙大流感对欧洲各国医疗保健系统发展的巨大促进作用。可见,34句意在举例说明2 句后半句“大的 31 则导致永久性改变”这一观点,空31应传递“社会重大危机/问题/破坏”等含义,D 正确。而is 32 with应体现“交通大罢工”与“促进长远变革”之间的关系,结合上文观点“破坏导致社 会变革”可知, is with应体现因果逻辑,B符合文意,AbecreditedwithB表示“把B归功于A”。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "credentials"
+            },
+            {
+              "key": "B",
+              "text": "credited"
+            },
+            {
+              "key": "C",
+              "text": "cumulative"
+            },
+            {
+              "key": "D",
+              "text": "disruptions"
+            },
+            {
+              "key": "E",
+              "text": "federal"
+            },
+            {
+              "key": "F",
+              "text": "foreseeable"
+            },
+            {
+              "key": "G",
+              "text": "predictions"
+            },
+            {
+              "key": "H",
+              "text": "preference"
+            },
+            {
+              "key": "I",
+              "text": "scale"
+            },
+            {
+              "key": "J",
+              "text": "strangle"
+            },
+            {
+              "key": "K",
+              "text": "subtle"
+            },
+            {
+              "key": "L",
+              "text": "summoned"
+            },
+            {
+              "key": "M",
+              "text": "survive"
+            },
+            {
+              "key": "N",
+              "text": "vacancy"
+            },
+            {
+              "key": "O",
+              "text": "wedge"
+            }
+          ],
+          "answer": "H",
+          "explanation": "[锁定答案]第五段首句指出,“疫情过后 会发生什么,疫情过后还能不能恢复到过去那样(this所指代内容)”甚至可能不是一个 33 问题。23 句则并列指出,不确定邮轮业会(不会) 34 ,也不确定公共交通(会)不会破产。并列连词Or提示23 句应传递相似语义,故空34应传递“衰败/消失/存活”等意,M 正确。23句对“邮轮业是否幸存,公共交 通是否破产”的探讨实际意在说明1句“疫情后的变化(还能不能回到过去)”不是由人们的主观意愿决 定,而是客观实际所向,这不是一道选择题,空33应传递“取舍/偏好/意愿”等意,H 正确。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "credentials"
+            },
+            {
+              "key": "B",
+              "text": "credited"
+            },
+            {
+              "key": "C",
+              "text": "cumulative"
+            },
+            {
+              "key": "D",
+              "text": "disruptions"
+            },
+            {
+              "key": "E",
+              "text": "federal"
+            },
+            {
+              "key": "F",
+              "text": "foreseeable"
+            },
+            {
+              "key": "G",
+              "text": "predictions"
+            },
+            {
+              "key": "H",
+              "text": "preference"
+            },
+            {
+              "key": "I",
+              "text": "scale"
+            },
+            {
+              "key": "J",
+              "text": "strangle"
+            },
+            {
+              "key": "K",
+              "text": "subtle"
+            },
+            {
+              "key": "L",
+              "text": "summoned"
+            },
+            {
+              "key": "M",
+              "text": "survive"
+            },
+            {
+              "key": "N",
+              "text": "vacancy"
+            },
+            {
+              "key": "O",
+              "text": "wedge"
+            }
+          ],
+          "answer": "M",
+          "explanation": "[锁定答案]第五段首句指出,“疫情过后 会发生什么,疫情过后还能不能恢复到过去那样(this所指代内容)”甚至可能不是一个 33 问题。23 句则并列指出,不确定邮轮业会(不会) 34 ,也不确定公共交通(会)不会破产。并列连词Or提示23 句应传递相似语义,故空34应传递“衰败/消失/存活”等意,M 正确。23句对“邮轮业是否幸存,公共交 通是否破产”的探讨实际意在说明1句“疫情后的变化(还能不能回到过去)”不是由人们的主观意愿决 定,而是客观实际所向,这不是一道选择题,空33应传递“取舍/偏好/意愿”等意,H 正确。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "credentials"
+            },
+            {
+              "key": "B",
+              "text": "credited"
+            },
+            {
+              "key": "C",
+              "text": "cumulative"
+            },
+            {
+              "key": "D",
+              "text": "disruptions"
+            },
+            {
+              "key": "E",
+              "text": "federal"
+            },
+            {
+              "key": "F",
+              "text": "foreseeable"
+            },
+            {
+              "key": "G",
+              "text": "predictions"
+            },
+            {
+              "key": "H",
+              "text": "preference"
+            },
+            {
+              "key": "I",
+              "text": "scale"
+            },
+            {
+              "key": "J",
+              "text": "strangle"
+            },
+            {
+              "key": "K",
+              "text": "subtle"
+            },
+            {
+              "key": "L",
+              "text": "summoned"
+            },
+            {
+              "key": "M",
+              "text": "survive"
+            },
+            {
+              "key": "N",
+              "text": "vacancy"
+            },
+            {
+              "key": "O",
+              "text": "wedge"
+            }
+          ],
+          "answer": "E",
+          "explanation": "[锁定答案]空格句指出,(目前尚不清楚)没有 援助, 公共交通会不会破产。空格下句指出,基础设施无法就位来做2019年能做的事。结合常识“公共交通、基 础设施主要仰仗政府财政补贴”推测空格词应表“国家/政府/联邦”等意,E正确。 􀪋􀪋􀪋􀪋􀪋􀪋􀪋 􀪋 􀪋􀪋􀪋􀪋􀪋􀪋􀪋 􀪋 ·"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2020-12-2-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Our world is full of—mostly untold—stories of slow hope, driven by the idea that change is possible. They are ‘slow’ in their unfolding, and they are slow because they come with setbacks.",
+        "B) At the beginning of time—so goes the myth—humans suffered, shivering in the cold and dark until the titan (巨人)Prometheus stole fire from the gods. Just as in the myth, technology—first fire and stone tools, and later farming, the steam engine and industry, fossil fuels, chemicals and nuclear power—has allowed us to alter and control the natural world. The myth also reminds us that these advances have come at a price: as a punishment for Prometheus’ crime, the gods created Pandora, and they gave her a box filled with evils and curses. When Pandora’s box was opened, it unleashed swarms of diseases and disasters upon humankind.",
+        "C) Today we can no longer ignore the ecological curses that we have released in our search for warmth and comfort. In engineering and exploiting and transforming our habitat, we have opened tens of thousands of Pandora’s boxes. In recent decades, environmental threats have expanded beyond regional boundaries to have global reach and, most hauntingly, are multiplying at a dizzying rate. On a regular basis, we are reminded that we are running out of time. Year after year, faster and faster, consumption outpaces the biological capacity of our planet. Stories of accelerated catastrophe multiply. We fear the breakdown of the electric grid, the end of non-renewable resources, the expansion of deserts, the loss of islands, and the pollution of our air and water.",
+        "D) Acceleration is the signature of our time. Populations and economic activity grew slowly for much of human history. For thousands of years and well into early modern times, world economies saw no growth at all, but from around the mid-19th century and again, in particular, since the mid-20th, the real GDP has increased at an enormous speed, and so has human consumption. In the Middle Ages, households in Central Europe might have owned fewer than 30 objects on average; in 1900, this number had increased to 400, and in 2020 to 15,000. The acceleration of human production, consumption and travel has changed the animate and inanimate spheres. It has echoed through natural processes on which humans depend. Species extinction, deforestation, damming of rivers, occurrence of floods, the depletion of ozone, the degradation of ocean systems and many other areas are all experiencing acceleration. If represented graphically, the curve for all these changes looks rather like that well-known hockey stick: with little change over millennia (数千年) and a dramatic upswing over the past decades.",
+        "E) Some of today’s narratives about the future seem to suggest that we too, like Prometheus, will be saved by a new Hercules, a divine engineer, someone who will mastermind, manoeuvre and manipulate our planet. They suggest that geoengineering, cold fusion or faster-than-light spaceships might transcend once and for all the terrestrial constraints of rising temperatures, lack of energy, scarcity of food, lack of space, mountains of waste, polluted water—you name it.",
+        "F) Yet, if we envisage our salvation to come from a deus ex machina (解围之神),from a divine engineer or a tech solutionist who will miraculously conjure up a new source of energy or another cure-all with revolutionary potency, we might be looking in the wrong place. The fact that we now imagine our planet as a whole does not mean that the ‘rescue’ of our planet will come with one big global stroke of genius and technology. It will more likely come by many small acts. Global heating and environmental degradation are not technological problems. They are highly political issues that are informed by powerful interests. Moreover, if history is a guide, then we can assume that any major transformations will once again be followed by a huge set of unintended consequences. So what do we do?",
+        "G) This much is clear: we need to find ways that help us flatten the hockey-stick curves that reflect our ever-faster pace of ecological destruction and social acceleration. If we acknowledge that human manipulation of the Earth has been a destructive force, we can also imagine that human endeavours can help us build a less destructive world in the centuries to come. We might keep making mistakes. But we will also keep learning from our mistakes.",
+        "H) To counter the fears of disaster, we need to identify stories, visions and actions that work quietly towards a more hopeful future. Instead of one big narrative, a story of unexpected rescue by a larger-than-life hero, we need multiple stories: we need stories, not only of what Rob Nixon of Princeton University has called the ‘slow violence’ of environmental degradation (that is, the damage that is often invisible at first and develops slowly and gradually), but also stories of what I call ‘slow hope’.",
+        "I) We need an acknowledgement of our present ecological plight but also a language of positive change, visions of a better future. In The Principle of Hope (1954-1959), Ernst Bloch, one of the leading philosophers of the future, wrote that ‘the most tragic form of loss...is the loss of the capacity to imagine that things could be different’. We need to identify visions and paths that will help us imagine a different, more just and more ecological world. Hope, for Bloch, has its starting point in fear, in uncertainty, and in crisis: it is a creative force that goes hand in hand with utopian (乌托邦的)‘wishful images’. It can be found in cultural products of the past — in fairy tales, in fiction, in architecture, in music, in the movie — in products of the human mind that contain ‘the outlines of a better world’. What makes us ‘authentic’ as humans are visions of our ‘potential’. In other words: living in hope makes us human.",
+        "J) The power of small, grassroots movements to make changes that spread beyond their place of origin can be seen with the Slow Food movement, which began in Italy in the 1980s. The rise of fast-food restaurants after the Second World War produced a society full of cheap, industrially made foodstuffs. Under the leadership of Carlo Petrini, the Slow Food movement began in Piedmont, a region of Italy with a long history of poverty, violence and resistance to oppression. The movement transformed it into a region hospitable to traditional food cultures — based on native plants and breeds of animals. Today, Slow Food operates in more than 160 countries, poor and rich. It has given rise to thousands of projects around the globe, representing democratic politics, food sovereignty, biodiversity and sustainable agriculture.",
+        "K) The unscrupulous (无所顾忌的)commodification of food and the destruction of foodstuffs will continue to devastate soils, livelihoods and ecologies. Slow Food cannot undo the irresistible developments of the global food economy, but it can upset its theorists, it can‘speak differently’, and it can allow people and their local food traditions and environments to flourish. Even in the United States—the fast-food nation—small farms and urban gardens are on the rise. The US Department of Agriculture provides an Urban Agriculture Toolkit and, according to a recent report, American millennials (千禧一代)are changing their diets. In 2017, 6 per cent of US consumers claimed to be strictly vegetarian, up from 1 per cent in 2014. As more people realise that ‘eating is an agricultural act’, as the US poet and environmental activist Wendell Berry put it in 1989, slow hope advances."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "It seems some people today dream that a cutting-edge new technology might save them from the present ecological disaster.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "E",
+          "explanation": "Itseemssomepeopletodaydream thatacutting-edgenew technology might save them from the present ecological disaster. 如今,有些人似乎幻想着能有一项尖端 新技术将他们从当前的生态灾难中拯救 出来。 􀪋􀪋􀪋􀪋􀪋 [答案]E [精解]由定位词定位至E 段(acutting-edgenewtechnology可看作geoengineering,coldfusion orfaster-than-lightspaceships的上义词),该段介绍当下某些人的技术拯救论“地球工程、超光速飞船等技术 能拯救人类,助其摆脱全球变暖等种种问题”。试题是对该段内容的同义概括。"
+        },
+        {
+          "number": 37,
+          "stem": "According to one great thinker, it is most unfortunate if we lose the ability to think differently.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "I",
+          "explanation": "Accordingtoonegreatthinker,itismostunfortunate ifwelosetheabilitytothinkdifferently. 根据一位伟大的思想家的观点,如果我们丧失 了设想不同可能性的能力,那是极为不幸的。 􀪋􀪋􀪋 [答案]I [精解]由定位词定位至I段2句,该句指出,未来哲学的领军人物之一布洛赫写道“最可悲的一种 损失......莫过于想象未来存在不同可能性的能力的丧失”。试题是对此内容的同义转述。"
+        },
+        {
+          "number": 38,
+          "stem": "Urgent attention should be paid to the ecological problems we have created in our pursuit of a comfortable life.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Urgentattentionshouldbepaidtotheecologicalproblemswe havecreatedinourpursuitofacomfortablelife. 应当迫切关注我们在追求舒适生活的过 程中造成的生态问题。 􀪋􀪋􀪋 [答案]C [精解]由定位词定位至C段1句,该句指出“不能再忽视我们在追求温暖和舒适过程中引发的生 态问题”。试题是对该句的同义转述,其中theecologicalproblemswehavecreated是对theecologicalcurses wehavereleased这一比喻性表达的具象化解释(由B段可知curses即技术这个潘多拉之盒里装着的灾难)。"
+        },
+        {
+          "number": 39,
+          "stem": "Even in the fast-food nation America, the number of vegetarians is on the rise.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "K",
+          "explanation": "Even in the fast-food nation America,the number of vegetariansisontherise. 即使在美国这个快餐国家,素食主义者 的人数也在上涨。 􀪋􀪋􀪋 [答案]K [精解]由定位词定位至K 段3至5句,3句以同位语的形式明确“美国”即是“快餐国家”,5句指 出,2017年6%的美国消费者自称是严格的素食者,而2014年这一比例仅为1%。可知,试题是对上述两项信 息的合理概括,其中thenumber... isontherise是对5句6percent...upfrom1percent的概述性表达。"
+        },
+        {
+          "number": 40,
+          "stem": "The deterioration of the ecological system is accelerating because of the dramatic increase of human production and consumption.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "D",
+          "explanation": "Thedeteriorationoftheecologicalsystemisacceleratingbecause ofthedramaticincreaseofhumanproductionandconsumption. 由于人类生产和消耗急剧增加,生 态系统正在加速恶化。 􀪋􀪋􀪋 [答案]D [精解]由定位词定位至D段5句,该段5至8句指出人类生产和消耗急剧加速的后果“改变了生 物界和非生物界,在整个自然界引发反响,使得各种灾难沿着同样的曲线加速暴发”。试题是对此句群大意的 合理概括,其中becauseof正确解读changed、echoed蕴含的因果关联。"
+        },
+        {
+          "number": 41,
+          "stem": "It is obvious that solutions must be found to curb the fast worsening environment and social acceleration.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "G",
+          "explanation": "Itisobviousthatsolutionsmustbefoundtocurbthefast worseningenvironmentandsocialacceleration. 显然,(我们)必须要找到办法来遏制环 境的迅速恶化以及社会的加速。 􀪋􀪋􀪋 [答案]G [精解]由定位词定位至G 段1句,该句针对上段末句设问“我们该如何是好”作出回答:很明确的 一点是,我们要去找到帮助我们拉平那些反映着我们日益加快的生态破坏与社会加速步伐的曲棍球曲线的方 法。试题是对该句内容的同义转述,其中curbthefastworseningenvironmentandsocialacceleration明确了 句中flattenthehockey-stickcurves这一比喻性表达的具体所指。"
+        },
+        {
+          "number": 42,
+          "stem": "Many people believe changing the world is possible, though it may take time and involve setbacks.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Manypeoplebelievechangingtheworldispossible,thoughit maytaketimeandinvolvesetbacks. 许多人相信改变世界是有可能的,尽管 这或许要花费一些时间,遇到一些挫折。 􀪋􀪋􀪋 [答案]A [精解]由定位词定位至A 段,该段先介绍当下十分普遍的一种观念“慢希望”,随后说明其特点 “受‘改变是有可能的’这一信念的驱使,进展缓慢,充满挫折”。试题是对“慢希望”观念的同义转述,其中 Manypeoplebelieve契合1句Ourworldisfullof(暗示该观点相当普遍)。"
+        },
+        {
+          "number": 43,
+          "stem": "It might be wrong to expect that our world would be saved at one stroke with some miraculous technology.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "F",
+          "explanation": "Itmightbewrongtoexpectthatourworldwouldbesavedat onestrokewithsomemiraculoustechnology. 指望用某项神奇的技术就能一举拯救我 们的世界,这样想可能是错误的。 􀪋􀪋􀪋 [答案]F [精解]由定位词定位至F段12句,这两句指出技术拯救论不切实际“不能指望科学家去创造技 术奇迹来拯救我们,单凭天才和技术设计出的一个宏大计划难以拯救我们的星球”。试题是对上述观点的合 理概括,其中Itmightbewrongtoexpect对应ifweenvisage...wemightbelookinginthewrongplace。"
+        },
+        {
+          "number": 44,
+          "stem": "It is human nature to cherish hopes for a better world.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "I",
+          "explanation": "Itishumannaturetocherishhopesforabetterworld. 怀有对一个更美好的世界的向往是人之本性。 􀪋 [答案]I [精解]由定位词定位至I段5至7句,5句先指出“人类心灵产物中蕴藏着一个更美好的世界的轮 廓”,67句随后指出“憧憬自身潜力、生活在希望中,这些使得我们人之为人”,可见,三句意在说明“怀揣对美 好世界的向往是人之本性”,试题是对此三句的合理归纳概括。"
+        },
+        {
+          "number": 45,
+          "stem": "Technology has given us humans the power to change the natural world, but we have paid a price for the change.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Technologyhasgivenushumansthepowertochangethe naturalworld,butwehavepaidapriceforthechange. 技术赋予人类改造自然界的力量,但我 们为这种改造付出了代价。 􀪋􀪋􀪋 [答案]B [精解]由定位词定位至B段23句,2句指出技术的正面作用“让人类得以改造和控制自然界”, 3句转而暗示其负面效果“使人类为此付出代价”。试题是对两句内容的归纳概括,其中thechange契合3句 中theseadvances的真实所指“技术带来的对自然界的改造和控制”。 􀪋􀪋􀪋􀪋􀪋􀪋􀪋 􀪋 􀪋􀪋􀪋􀪋􀪋􀪋􀪋 􀪋 ·"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2020-12-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Vegetarians would prefer not to be compelled to eat meat. Yet the reverse compulsion (强迫)is hidden in the proposals for a new plant-based “planetary diet.” Nowhere is this more visible than in India. Earlier this year, the EAT-Lancet Commission released its global report on nutrition and called for a global shift to a more plant-based diet and for “substantially reducing consumption of animal source foods.” In countries like India, that call could become a tool to aggravate an already tense political situation and stress already undernourished populations. The EAT report presumes that “traditional diets” in countries like India include little red meat, which might be consumed only on special occasions or as minor ingredients in mixed dishes. In India, however, there is a vast difference between what people would wish to consume and what they have to consume because of innumerable barriers around class, religion, culture, cost, geography, etc. Policymakers in India have traditionally pushed for a cereal-heavy “vegetarian diet” on a meat-eating population as a way of providing the cheapest sources of food. Currently, under an aggressive Hindu nationalist government, Muslims, Christians, disadvantaged classes and indigenous communities are being compelled to give up their traditional foods. None of these concerns seem to have been appreciated by the EAT-Lancet Commission’s representative, Brent Loken, who said “India has got such a great example” in sourcing protein from plants. But how much of a model for the world is India’s vegetarianism? In the Global Hunger Index 2019, the country ranks 102nd out of 117. Data from the National Family Health Survey indicate that only 10 percent of infants of 6 to 23 months are adequately fed. Which is why calls for a plant-based diet modeled on India risk offering another whip with which to beat already vulnerable communities in developing countries. A diet directed at the affluent West fails to recognize that in low-income countries undernourished children are known to benefit from the consumption of milk and other animal source foods, improving cognitive functions, while reducing the prevalence of nutritional deficiencies as well as mortality. EAT-Lancet claimed its intention was to “spark conversations” among all Indian stakeholders. Yet vocal critics of the food processing industry and food fortification strategies have been left out of the debate. But the most conspicuous omission may well be the absence of India’s farmers. The government, however, seems to have given the report a thumbs-up. Rather than addressing chronic hunger and malnutrition through an improved access to wholesome and nutrient-dense foods, the government is opening the door for company-dependent solutions, ignoring the environmental and economic cost, which will destroy local food systems. It’s a model full of danger for future generations."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What is more visible in India than anywhere else according to the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "People’s positive views on the proposals for a “planetary diet”."
+            },
+            {
+              "key": "B",
+              "text": "People’s reluctance to be compelled to eat plant-based food."
+            },
+            {
+              "key": "C",
+              "text": "People’s preferences for the kind of food they consume."
+            },
+            {
+              "key": "D",
+              "text": "People’s unwillingness to give up their eating habits."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]首段末句指出,这一点(this)在印度最为明显。this回指前一句中thereversecompulsion,即与首 句“强迫素食者吃肉”相反的“强迫肉食者吃素”,可见B正确。 [排除干扰]文中未明确提及人们对“行星饮食”倡议的看法,只谈及作者的看法“有强迫人们吃素之意”,A 错 误。C利用首句中prefer一词设置干扰,但它的对象为“被他人强迫吃肉的行为”,并非“自己所摄入的食物种 类”。D利用首句中prefernottobecompelledtoeat设置干扰,但它实指“不愿被迫改变自己的饮食习惯”,并 不等于“主动放弃自己的饮食习惯”。此外,C、D两项均非题干所问“印度的突出之处”。"
+        },
+        {
+          "number": 47,
+          "stem": "What would the EAT-Lancet Commission’s report do to many people in countries like India?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Radically change their dietary habits."
+            },
+            {
+              "key": "B",
+              "text": "Keep them further away from politics."
+            },
+            {
+              "key": "C",
+              "text": "Make them even more undernourished."
+            },
+            {
+              "key": "D",
+              "text": "Substantially reduce their food choices."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]第二段1句介绍EAT-Lancet委员会的报告所呼吁的内容,2句指出该呼吁对印度等国的影响:使 本已紧张的政治局势恶化、给本就营养不良的人群加压。C与后一项影响相符,正确。 [排除干扰]A 源自1句aglobalshifttoa...diet,但却忽略其前的calledfor(呼吁)所传递出的“意见,建议” 之意,“饮食建议”未必能达成“彻底改变饮食习惯”的效果,故A 错误。B将2句报告的影响“加剧本已紧张的 政治局势”窜改为“让人们进一步远离政治”。D 利用1句substantiallyreducing...设置干扰,但该句实际在 介绍报告内容“呼吁大幅减少动物源食品的摄取”,而非报告影响“将会大幅减少人们的饮食选择”。"
+        },
+        {
+          "number": 48,
+          "stem": "What do we learn from the passage about food consumption in India?",
+          "options": [
+            {
+              "key": "A",
+              "text": "People’s diet will not change due to the EAT-Lancet report."
+            },
+            {
+              "key": "B",
+              "text": "Many people simply do not have access to foods they prefer."
+            },
+            {
+              "key": "C",
+              "text": "There is a growing popularity of a cereal-heavy vegetarian diet."
+            },
+            {
+              "key": "D",
+              "text": "Policymakers help remove the barriers to people’s choice of food."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]第四段1句指出,由于受阶层、宗教、文化等差异的影响,人们想要食用的食物与不得不食用的食 物存在巨大差别。可见,印度人根本没有办法按照自己意愿选择自己所喜欢的食物,故B正确。 [排除干扰]A 与第五段“在印度教民族主义政府(支持EAT-Lancet报告)的领导下,其他教徒、弱势阶层及本地社 群正被迫放弃传统食物”不符。C由第四段2句“政策制定者一直向食肉人群推行以谷类为主的素食”臆断而来,但 谷类素食是政策制定者迫使(pushed)人们食用,与选项“受人喜爱”相悖。D由第四段barriers、Policymakers杂糅 捏造,但文中“政策制定者迫使肉食者吃素”实在“阶层、宗教、文化等隔阂”之外增加了政策障碍。"
+        },
+        {
+          "number": 49,
+          "stem": "What does the passage say about a plant-based diet modeled on India?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It may benefit populations whose traditional diet is meat-based."
+            },
+            {
+              "key": "B",
+              "text": "It may be another blow to the economy in developing countries."
+            },
+            {
+              "key": "C",
+              "text": "It may help narrow the gap between the rich and poor countries."
+            },
+            {
+              "key": "D",
+              "text": "It may worsen the nourishment problem in low-income countries."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]第七段首句设问印度素食主义的典范作用有多大? ,23句说明印度的饥饿问题严峻。第八段 继而明确效仿印度植物性饮食会进一步打击发展中国家本已脆弱的社会群体。综合可知,D正确。 [排除干扰]A 杂糅traditionaldiets(第三段)、meat-eatingpopulation(第四段)、benefit(第九段)捏造干扰,但 文中未提及“植物性饮食对传统饮食以肉类为主的人群的影响”。B将第八段中“效仿印度的植物性饮食可能 会进一步打击”的对象由“本已脆弱的社会群体”偷换为“国家经济”。C 将第九段文意“针对富裕国家的植物 性饮食不适合贫穷国家,贫穷国家可从牛奶和动物源食品中获益”曲解为“植物性饮食缩减贫穷国家和富裕国 家的差距”。"
+        },
+        {
+          "number": 50,
+          "stem": "How does the Indian government respond to the EAT-Lancet Commission’s proposals?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It accepts them at the expense of the long-term interests of its people."
+            },
+            {
+              "key": "B",
+              "text": "It intends them to spark conversations among all Indian stakeholders."
+            },
+            {
+              "key": "C",
+              "text": "It gives them approval regardless of opposition from nutrition experts."
+            },
+            {
+              "key": "D",
+              "text": "It welcomes them as a tool to address chronic hunger and malnutrition."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]末段先指出“印度政府似乎对EAT-Lancet委员会的提议赞赏有加”,后介绍这一态度的影响:政 府对“依靠公司”的处理方案敞开了大门,忽视经济和环境成本,破坏当地食品系统,最终危害后代。可见,印 度政府不顾提议对人民的深远危害而将其接受,A 正确。 [排除干扰]B将第十段中“借提议促成利益相关者的对话”的观点持有者由委员会本身偷换为印度政府。C 中印度政府的态度“givesthemapproval”虽契合末段的“giventhereportathumbs-up”,但增补了文中未提及 的信息“不顾营养专家的反对”。D源自第二段末句atool,却将可能性语气couldbecome偷换为肯定性语气 welcomes,同时将toaggravate...andstress...的贬义语义偷换为toaddress...的褒义语义,且由末段2句可 知“印度政府并未致力于解决严重的饥饿与营养不良问题”。 􀪋􀪋􀪋􀪋􀪋􀪋􀪋 􀪋 􀪋􀪋􀪋􀪋􀪋􀪋􀪋 􀪋 ·"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2020-12-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Back in 1964, in his book Games People Play, psychiatrist Eric Berne described a pattern of conversation he called “ Why Don’t You——Yes But”,which remains one of the most irritating aspects of everyday social life. The person adopting the strategy is usually a chronic complainer. Something is terrible about their relationship, job, or other situation, and they moan about it ceaselessly, but find some excuse to dismiss any solution that’s proposed. The reason, of course, is that on some level they don’t want a solution; they want to be validated in their position that the world is out to get them. If they can “win” the game—dismissing every suggestion until their interlocutor(对话者)gives up in annoyance—they get to feel pleasurably righteous (正当的)in their resentments and excused from any obligation to change. Part of the trouble here is the so-called responsibility/fault fallacy (谬误). When you’re feeling hard done by—taken for granted by your partner, say, or obliged to work for a half-witted boss—it’s easy to become attached to the position that it’s not your job to address the matter, and that doing so would be an admission of fault. But there’s a confusion here. For example, if I were to discover a newborn at my front door, it wouldn’t be my fault, but it most certainly would be my responsibility. There would be choices to make, and no possibility of avoiding them, since trying to ignore the matter would be a choice. The point is that what goes for the baby on the doorstep is true in all cases: even if the other person is 100% in the wrong, there’s nothing to be gained, long-term, from using this as a justification to evade responsibility. Should you find yourself on the receiving end of this kind of complaining, there’s an ingenious way to shut it down—which is to agree with it, ardently. Psychotherapist Lori Gottlieb describes this as “ over-validation ”. For one thing, you’ll be spared further moaning, since the other person’s motivation was to confirm her beliefs, and now you’re confirming them. But for another, as Gottlieb notes, people confronted with over-validation often hear their complaints afresh and start arguing back. The notion that they’re utterly powerless suddenly seems unrealistic—not to mention rather annoying—so they’re prompted instead to generate ideas about how they might change things. “And then, sometimes, something magical might happen,” Gottlieb writes. The other person “might realise she’s not as trapped as you are saying she is, or as she feels.” Which illustrates the irony of the responsibility/fault fallacy: evading responsibility feels comfortable, but turns out to be a prison; whereas assuming responsibility feels unpleasant, but ends up being freeing."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What is characteristic of a chronic complainer, according to psychiatrist Eric Berne?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They only feel angry about their ill treatment and resent whoever tries to help."
+            },
+            {
+              "key": "B",
+              "text": "They are chronically unhappy and ceaselessly find fault with people around them."
+            },
+            {
+              "key": "C",
+              "text": "They constantly dismiss others,proposals while taking no responsibility for tackling the problem."
+            },
+            {
+              "key": "D",
+              "text": "They lack the knowledge and basic skills required for successful conversations with their interlocutors."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]第一段23句指出惯性抱怨者会一边喋喋不休地抱怨,一边却又找借口拒绝别人提出来的任何 解决方案。5句进一步指出他们认为自己的怨艾理所应当,没有任何责任/义务做出改变,故C正确。 [排除干扰]A 后半部分将文意“抱怨者无视对话者针对其愤懑(resentments)提出来的建议”曲解为“怨恨 (resent)对话者(试图帮助他们的人)”。B后半部分将3句“找借口拒绝他人的建议”偷换为“挑他人的错误”。D 过度引申5句“他们拒绝每一个建议,直到对话者愤然放弃”,文中并未提及惯性抱怨者缺乏沟通知识和技能。"
+        },
+        {
+          "number": 52,
+          "stem": "What does the author try to illustrate with the example of the newborn on one’s doorstep?",
+          "options": [
+            {
+              "key": "A",
+              "text": "People tend to think that one should not be held responsible for others’ mistakes."
+            },
+            {
+              "key": "B",
+              "text": "It is easy to become attached to the position of overlooking one’s own fault."
+            },
+            {
+              "key": "C",
+              "text": "People are often at a loss when confronted with a number of choices."
+            },
+            {
+              "key": "D",
+              "text": "A distinction should be drawn between responsibility and fault."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]第二段先引出新概念“责任/过错谬误”,即,将“责任”与“过错”混为一谈,再以“家门口的新生儿” 为例指出“责任”与“过错”并不对等,可见事例旨在说明二者应当有所区分,D正确。 [排除干扰]A 将“惯性抱怨者面对不当对待时的惯常心态(这不是我的错,我没有义务去解决问题)”偷换为 作者的观点,而作者意在批驳这一观念。B将2句及4句曲解为“人们很容易忽视自己的过错”,但文章实际 指“人们容易曲解过错(将过错等同于责任)”。C将5句“人一定得做出选择”曲解为“人不知如何做出选择”。"
+        },
+        {
+          "number": 53,
+          "stem": "What does the author advise people to do to chronic complainers?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Stop them from going further by agreeing with them."
+            },
+            {
+              "key": "B",
+              "text": "Listen to their complaints ardently and sympathetically."
+            },
+            {
+              "key": "C",
+              "text": "Ask them to validate their beliefs with further evidence."
+            },
+            {
+              "key": "D",
+              "text": "Persuade them to clarify the confusion they have caused."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]第三段12句指出,针对惯性抱怨者,使其停止抱怨的方法是对其抱怨表示赞同,可见A 正确。 [排除干扰]B将1句“很热情地、强烈地赞同抱怨者的抱怨”偷换为“热情地倾听其抱怨”。C 将文意“听抱怨 的人对抱怨者的看法表示认可、证实”曲解为“抱怨者自己证实自己怨言的正确性”。D利用4句arguingback (反驳)、5句prompted(激发)以及上段3句confusion杂糅捏造而来,但文意实为“抱怨者自身存在‘混淆概 念’的错误,而且对这种混淆他们并不自知,但是通过对话者对他们抱怨的高度认可,他们便能加以扭转”。"
+        },
+        {
+          "number": 54,
+          "stem": "What happens when chronic complainers receive over-validation?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are motivated to find ingenious ways to persuade their interlocutor."
+            },
+            {
+              "key": "B",
+              "text": "They are prompted to come up with ideas for making possible changes."
+            },
+            {
+              "key": "C",
+              "text": "They are stimulated to make more complaints."
+            },
+            {
+              "key": "D",
+              "text": "They are encouraged to start arguing back."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]第三段3句指出惯性抱怨者受到过度认可后会重新审视并反驳其抱怨,并想办法改变现状,B正确。 [排除干扰]A 将原文曲解为抱怨者欲反驳并说服与自己观点不同的对话者,但arguingback实际指抱怨者推翻 自己的旧有观点, ingeniousway指“过度认可”这一阻止抱怨者抱怨的巧妙办法。C与3句“你(对话者)将免于 听到更多的抱怨/抱怨者不再抱怨”相悖。D中areencouragedto曲解句中hear...afreshand所暗藏的语义“被刺 激后(开始反驳)”,两者并不完全等同,而且该反应并不指向惯性抱怨者受到高度认可之后的最终反应。"
+        },
+        {
+          "number": 55,
+          "stem": "How can one stop being a chronic complainer according to the author?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Analysing the so-called responsibility/fault fallacy."
+            },
+            {
+              "key": "B",
+              "text": "Avoiding hazardous traps in everyday social life."
+            },
+            {
+              "key": "C",
+              "text": "Assuming responsibility to free oneself."
+            },
+            {
+              "key": "D",
+              "text": "Awaiting something magical to happen."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]末段首两句先说明惯性抱怨者的认知改变:他们并非深陷困境、除了抱怨外无计可施,而是具备主 动权、有能力改变现状。末句随后揭示这一转变的启示:只有承担责任才能获得自由、解脱自我。可见C正确。 [排除干扰]A 利用概念responsibility/faultfallacy干扰,但分析这一谬误的作用在于解释“惯性抱怨”的认知错 误,而非摆脱它的方式。B利用2句not... trapped干扰,但原文指“抱怨者并非像他们所感觉的那样深陷困境”, 强调的是避免错误认知/感觉,而非生活中的危险困境。D对1句somethingmagicalmighthappen断章取义,但 它指向的是对话者对惯性抱怨者表达过度认可后引发的正向积极反应,而非针对惯性抱怨者的建议。 􀪋􀪋􀪋􀪋􀪋􀪋􀪋 􀪋 􀪋􀪋􀪋􀪋􀪋􀪋􀪋 􀪋 ·"
+        }
+      ]
+    }
+  ]
+}

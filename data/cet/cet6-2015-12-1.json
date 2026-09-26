@@ -1,0 +1,1618 @@
+{
+  "id": "cet6-2015-12-1",
+  "level": 6,
+  "year": 2015,
+  "month": 12,
+  "set": 1,
+  "title": "2015 年 12 月六级 · 第 1 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.12/%E7%9C%9F%E9%A2%98PDF/2015%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC1%E5%A5%97%EF%BC%89.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2015.12%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC1%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2015-12-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "According to a report from the Harvard School of Public Health, many everyday products, including some bug sprays and cleaning fluids, could lead to an increased risk of brain and behavioral disorders in children. The developing brain, the report says, is particularly [[26]] to the toxic effects of certain chemicals these products may contain, and the damage they cause can be [[27]].",
+        "The official policy, however, is still evolving. Health and environmental [[28]] have long urged U.S. government agencies to [[29]] the use of some of the 11 chemicals the report cites and called for more studies on their long-term effects. In 2001, for example, the Environmental Protection Agency [[30]] the type and amount of lead that could be present in paint and soil in homes and child-care [[31]] , after concerns were raised about lead poisoning. The agency is now [[32]] the toxic effects of some of the chemicals in the latest report.",
+        "But the threshold for regulation is high. Because children's brain and behavioral disorders, like hyperactivity and lower grades, can also be linked to social and genetic factors, it's tough to pin them on exposure to specific chemicals with solid [[33]] evidence, which is what the EPA requires. Even the Harvard study did not prove a direct [[34]] but noted strong associations between exposure and risk of behavioral issues.",
+        "Nonetheless, it's smart to [[35]] caution. While it may be impossible to prevent kids from drinking tap water that may contain trace amounts of chemicals, keeping kids away from lawns recently sprayed with chemicals and freshly dry-cleaned clothes can't hurt."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "advocates"
+        },
+        {
+          "key": "B",
+          "text": "compact"
+        },
+        {
+          "key": "C",
+          "text": "correlation"
+        },
+        {
+          "key": "D",
+          "text": "exercise"
+        },
+        {
+          "key": "E",
+          "text": "facilities"
+        },
+        {
+          "key": "F",
+          "text": "interaction"
+        },
+        {
+          "key": "G",
+          "text": "investigating"
+        },
+        {
+          "key": "H",
+          "text": "overwhelmed"
+        },
+        {
+          "key": "I",
+          "text": "particles"
+        },
+        {
+          "key": "J",
+          "text": "permanent"
+        },
+        {
+          "key": "K",
+          "text": "restricted"
+        },
+        {
+          "key": "L",
+          "text": "simulating"
+        },
+        {
+          "key": "M",
+          "text": "statistical"
+        },
+        {
+          "key": "N",
+          "text": "tighten"
+        },
+        {
+          "key": "O",
+          "text": "vulnerable"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "advocates"
+            },
+            {
+              "key": "B",
+              "text": "compact"
+            },
+            {
+              "key": "C",
+              "text": "correlation"
+            },
+            {
+              "key": "D",
+              "text": "exercise"
+            },
+            {
+              "key": "E",
+              "text": "facilities"
+            },
+            {
+              "key": "F",
+              "text": "interaction"
+            },
+            {
+              "key": "G",
+              "text": "investigating"
+            },
+            {
+              "key": "H",
+              "text": "overwhelmed"
+            },
+            {
+              "key": "I",
+              "text": "particles"
+            },
+            {
+              "key": "J",
+              "text": "permanent"
+            },
+            {
+              "key": "K",
+              "text": "restricted"
+            },
+            {
+              "key": "L",
+              "text": "simulating"
+            },
+            {
+              "key": "M",
+              "text": "statistical"
+            },
+            {
+              "key": "N",
+              "text": "tighten"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O) vulnerable 语法判断:空格前为isparticularly,空格处单词被副调particularly所修饰,空格后为tothetoxiceffects, 分析句子结构可知,thedevelopingbrain为主语,thereportsays为插入语,谓语部分为be+adj.+tosth.结 构,空格处应填入一个形容调。符合语法条件的备选形容调有compact(紧漆的)、overwhelmed(不知所 替的)、permanent(永久性的)、restricted(受限制的)、Statistical(统计的,统计学的)和vulnerable(易受伤 害的)。 语义判断:文章首句提到,根据哈佛大学公共卫生学院的一份报告,许多日常用品,包括有些喷雾杀虫 剂和清洗液等会使儿董产生大脑及行为障碍的风险增加,可知空格所在句是对该句的进一步说明,由 此可推断thedevelopingbrain(发育中的大脑),即儿童的大脑,“尤其容易受到(有毒化学物质的)伤 害”,故本题应选O。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "advocates"
+            },
+            {
+              "key": "B",
+              "text": "compact"
+            },
+            {
+              "key": "C",
+              "text": "correlation"
+            },
+            {
+              "key": "D",
+              "text": "exercise"
+            },
+            {
+              "key": "E",
+              "text": "facilities"
+            },
+            {
+              "key": "F",
+              "text": "interaction"
+            },
+            {
+              "key": "G",
+              "text": "investigating"
+            },
+            {
+              "key": "H",
+              "text": "overwhelmed"
+            },
+            {
+              "key": "I",
+              "text": "particles"
+            },
+            {
+              "key": "J",
+              "text": "permanent"
+            },
+            {
+              "key": "K",
+              "text": "restricted"
+            },
+            {
+              "key": "L",
+              "text": "simulating"
+            },
+            {
+              "key": "M",
+              "text": "statistical"
+            },
+            {
+              "key": "N",
+              "text": "tighten"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "J",
+          "explanation": "J) permanent 语法判断:空格前是canbe,空格后是句点,可见空格处应填入一个形容词,构成系表结构,或者填入 过去分词,构成被动语态。符合语法条件的务选项还有compact、overwhelmed、permanent、restricted和 statistical。 语义判断:第一段主要介绍了哈佛大学公共卫生学院的那份关于喷雾杀虫剂等日常物品对儿童有害的 报告,孩子们尤其易受到这些物品中所含有毒化学物质的伤害,而下一段提到了这些化学物质的长期 影响(long-termeffects),permanent与long-term相呼应,空格所在部分应该指\"永久性的\"伤害,故正确 选项为J。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "advocates"
+            },
+            {
+              "key": "B",
+              "text": "compact"
+            },
+            {
+              "key": "C",
+              "text": "correlation"
+            },
+            {
+              "key": "D",
+              "text": "exercise"
+            },
+            {
+              "key": "E",
+              "text": "facilities"
+            },
+            {
+              "key": "F",
+              "text": "interaction"
+            },
+            {
+              "key": "G",
+              "text": "investigating"
+            },
+            {
+              "key": "H",
+              "text": "overwhelmed"
+            },
+            {
+              "key": "I",
+              "text": "particles"
+            },
+            {
+              "key": "J",
+              "text": "permanent"
+            },
+            {
+              "key": "K",
+              "text": "restricted"
+            },
+            {
+              "key": "L",
+              "text": "simulating"
+            },
+            {
+              "key": "M",
+              "text": "statistical"
+            },
+            {
+              "key": "N",
+              "text": "tighten"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)advocates 语法判断:空格前是形容词environmental,空格后是havelongurgedU.S.govemmentagenciesto..(即 urgesb.todosth.结构,意为“敦促某人做某事,强烈建议某人做某事\")),分析句子结构可知,空格处缺 少句子主语,因为被形容词修饰,故应填入名词,而且由空格后的have可知,应为复数名调。符合语法 条件的备选名调有advocates(偶导者,拥护者)、facilities(设施;设备)和particles(颗粒,微粒)。 advocates符合上下文语境,即“健康与环保的拥护者长久以来一直力荐美国政府机构.\"。故本题选A。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "advocates"
+            },
+            {
+              "key": "B",
+              "text": "compact"
+            },
+            {
+              "key": "C",
+              "text": "correlation"
+            },
+            {
+              "key": "D",
+              "text": "exercise"
+            },
+            {
+              "key": "E",
+              "text": "facilities"
+            },
+            {
+              "key": "F",
+              "text": "interaction"
+            },
+            {
+              "key": "G",
+              "text": "investigating"
+            },
+            {
+              "key": "H",
+              "text": "overwhelmed"
+            },
+            {
+              "key": "I",
+              "text": "particles"
+            },
+            {
+              "key": "J",
+              "text": "permanent"
+            },
+            {
+              "key": "K",
+              "text": "restricted"
+            },
+            {
+              "key": "L",
+              "text": "simulating"
+            },
+            {
+              "key": "M",
+              "text": "statistical"
+            },
+            {
+              "key": "N",
+              "text": "tighten"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "N",
+          "explanation": "N) tighten 语法判断:空格前是havelongurgedU.S.govemmentagenciesto,空格后是theuseof.,可知此处采用 ·2015年12月六级真题(第一套)· 了urgesb.todosth.这一结构,故空格处应填入一个动词原形,符合语法条件的备选项有compact(压 紧;订立契约)、exercise(采用,施用,运用)和tighten(使变紧;严格控制)。 语义判断:根据前文提到的哈佛大学关于有毒化学物质可能危害儿童大脑的研究报告可知,此处是 说,健康与环保的拥护者长久以来一直力荐美国政府机构“严格控制\"报告中所提到的11种化学物质 中某些物质的使用。.tightentheuse of即\"严格控制..的使用\",为常见说法,其余两项不符合此处语 境,故排除,本题应选N。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "advocates"
+            },
+            {
+              "key": "B",
+              "text": "compact"
+            },
+            {
+              "key": "C",
+              "text": "correlation"
+            },
+            {
+              "key": "D",
+              "text": "exercise"
+            },
+            {
+              "key": "E",
+              "text": "facilities"
+            },
+            {
+              "key": "F",
+              "text": "interaction"
+            },
+            {
+              "key": "G",
+              "text": "investigating"
+            },
+            {
+              "key": "H",
+              "text": "overwhelmed"
+            },
+            {
+              "key": "I",
+              "text": "particles"
+            },
+            {
+              "key": "J",
+              "text": "permanent"
+            },
+            {
+              "key": "K",
+              "text": "restricted"
+            },
+            {
+              "key": "L",
+              "text": "simulating"
+            },
+            {
+              "key": "M",
+              "text": "statistical"
+            },
+            {
+              "key": "N",
+              "text": "tighten"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K) restricted 语法判断:空格前是机构名称theEnvironmentalProtectionAgency(美国环境保护局),空格后是the typeandamountoflead,其后是that引导的定语从句,修饰先行词lead。由此可知,空格处应填入谓语 动词,又由前面的时间状语in2001可知,应填入的谓语动调需为过去式。符合语法条件的备选项有 overwhelmed(彻底制服,击败)和restricted(限制,限定)。 语义判断:由句中的forexample可知,此处举例说明上一句的内容,上句提到,健康与环保的拥护者 长期致力于敦促美国政府机构严格控制有害化学物质的使用,由此可知,本句举出美国环境保护局 “限定\"铅的类型及含量的例子说明政府机构所做的工作。restricted符合此处语境,故本题选K。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "advocates"
+            },
+            {
+              "key": "B",
+              "text": "compact"
+            },
+            {
+              "key": "C",
+              "text": "correlation"
+            },
+            {
+              "key": "D",
+              "text": "exercise"
+            },
+            {
+              "key": "E",
+              "text": "facilities"
+            },
+            {
+              "key": "F",
+              "text": "interaction"
+            },
+            {
+              "key": "G",
+              "text": "investigating"
+            },
+            {
+              "key": "H",
+              "text": "overwhelmed"
+            },
+            {
+              "key": "I",
+              "text": "particles"
+            },
+            {
+              "key": "J",
+              "text": "permanent"
+            },
+            {
+              "key": "K",
+              "text": "restricted"
+            },
+            {
+              "key": "L",
+              "text": "simulating"
+            },
+            {
+              "key": "M",
+              "text": "statistical"
+            },
+            {
+              "key": "N",
+              "text": "tighten"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E) facilities 语法判断:空格前为inhomesandchild-care,空格后为返号,可见空格处应填入与homes并列的名调, 被child-care这一复合形容调所修饰,且同样为复数。复合语法条件的备选名调还有facilities和 particlese 语义判断:此处为示例,指出在2001年铅中毒引起人们的担优之后,美国环境保护局限定了可能存在 于人们家里和儿童看护 二的油漆、土壤中铅的类型及含量,备选名调中只有facilities(设施) 与homes构成语义并列关系,故本题应选E。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "advocates"
+            },
+            {
+              "key": "B",
+              "text": "compact"
+            },
+            {
+              "key": "C",
+              "text": "correlation"
+            },
+            {
+              "key": "D",
+              "text": "exercise"
+            },
+            {
+              "key": "E",
+              "text": "facilities"
+            },
+            {
+              "key": "F",
+              "text": "interaction"
+            },
+            {
+              "key": "G",
+              "text": "investigating"
+            },
+            {
+              "key": "H",
+              "text": "overwhelmed"
+            },
+            {
+              "key": "I",
+              "text": "particles"
+            },
+            {
+              "key": "J",
+              "text": "permanent"
+            },
+            {
+              "key": "K",
+              "text": "restricted"
+            },
+            {
+              "key": "L",
+              "text": "simulating"
+            },
+            {
+              "key": "M",
+              "text": "statistical"
+            },
+            {
+              "key": "N",
+              "text": "tighten"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G)investigating 语法判断:空格前是Theagencyisnow,空格后是thetoxiceffectsof..由此可知,本句为现在进行时, 空格处应填入一个现在分词。符合语法条件的选项有investigating(调查,研究)和simulating(模拟; 假装)。 语义判断:前文说,美国环境保护局在2001年限定了可能存在于人们家里和儿童看护设施的油漆、土 壤中铅的类型及含量,由此可知,空格所在句说明该机构目前所做的工作,结合本文的主旨可知,此处 应该是说,该机构目前正在\"调查\"这份最新的报告中提到的一些化学物质的毒副作用,故选G。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "advocates"
+            },
+            {
+              "key": "B",
+              "text": "compact"
+            },
+            {
+              "key": "C",
+              "text": "correlation"
+            },
+            {
+              "key": "D",
+              "text": "exercise"
+            },
+            {
+              "key": "E",
+              "text": "facilities"
+            },
+            {
+              "key": "F",
+              "text": "interaction"
+            },
+            {
+              "key": "G",
+              "text": "investigating"
+            },
+            {
+              "key": "H",
+              "text": "overwhelmed"
+            },
+            {
+              "key": "I",
+              "text": "particles"
+            },
+            {
+              "key": "J",
+              "text": "permanent"
+            },
+            {
+              "key": "K",
+              "text": "restricted"
+            },
+            {
+              "key": "L",
+              "text": "simulating"
+            },
+            {
+              "key": "M",
+              "text": "statistical"
+            },
+            {
+              "key": "N",
+              "text": "tighten"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "M",
+          "explanation": "M) statistical 语法判断:空格前是withsolid,空格后是名词evidence,可知空格处应填入一个形容调或分词,与形容 词solid一起修饰evidence。符合语法条件的形容词或分调还有compact、overwhelmed、simulating(模拟 的)和 statistical。 语义判断:前文讲述了儿董大脑及行为障碍还受制于社会与遗传因素,由此可知,此处是说将儿童大 脑及行为障碍归罪于接触了特殊化学物质尚无可靠的“统计数据\"作为证据支持,Statistical符合上下文 语境,故本题选M。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "advocates"
+            },
+            {
+              "key": "B",
+              "text": "compact"
+            },
+            {
+              "key": "C",
+              "text": "correlation"
+            },
+            {
+              "key": "D",
+              "text": "exercise"
+            },
+            {
+              "key": "E",
+              "text": "facilities"
+            },
+            {
+              "key": "F",
+              "text": "interaction"
+            },
+            {
+              "key": "G",
+              "text": "investigating"
+            },
+            {
+              "key": "H",
+              "text": "overwhelmed"
+            },
+            {
+              "key": "I",
+              "text": "particles"
+            },
+            {
+              "key": "J",
+              "text": "permanent"
+            },
+            {
+              "key": "K",
+              "text": "restricted"
+            },
+            {
+              "key": "L",
+              "text": "simulating"
+            },
+            {
+              "key": "M",
+              "text": "statistical"
+            },
+            {
+              "key": "N",
+              "text": "tighten"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C) correlation 语法判断:空格前是didnotproveadirect,空格后是butnoted strongassociations.由此可知,空格处 应填入被不定冠词a及形容词direct修饰的单数名词,充当prove的宾语。符合语法条件的备选名调还 有 compact、correlation、exercise 和 interaction。 语义判断:由本句开头的even可知,本句内容是上文的递进,上文提到将儿童大脑及行为障码归靠于 接触了特殊化学物质尚无可靠的“统计数据\"支持,结合空格后面的but可知,此处运用了not..but...结 构,意为“不是...而是..\",由此判断,此处是说,甚至哈佛大学的那项研究也并未证明两者之间存 在直接的“相互联系”,而只是提到了接触化学物质与行为问题风险之间存在重大联系。故本题应选C。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "advocates"
+            },
+            {
+              "key": "B",
+              "text": "compact"
+            },
+            {
+              "key": "C",
+              "text": "correlation"
+            },
+            {
+              "key": "D",
+              "text": "exercise"
+            },
+            {
+              "key": "E",
+              "text": "facilities"
+            },
+            {
+              "key": "F",
+              "text": "interaction"
+            },
+            {
+              "key": "G",
+              "text": "investigating"
+            },
+            {
+              "key": "H",
+              "text": "overwhelmed"
+            },
+            {
+              "key": "I",
+              "text": "particles"
+            },
+            {
+              "key": "J",
+              "text": "permanent"
+            },
+            {
+              "key": "K",
+              "text": "restricted"
+            },
+            {
+              "key": "L",
+              "text": "simulating"
+            },
+            {
+              "key": "M",
+              "text": "statistical"
+            },
+            {
+              "key": "N",
+              "text": "tighten"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D) exercise 语法判断:空格前是it'ssmartto,空格后是名词caution,可判断此处it为形式主语,代替真正的主语 不定式,由此可知,空格处应填入一个动调原形。符合语法条件的备选动词原形还有compact和 exerciseo 语义判断:由句首的nonetheless(尽管如此)可知,此处表示转折,强调谨慎一点是明智之举,“谨慎一 点\"应使用exercise caution这一常见表达方式,下文提到\"虽然不可能阻止孩子饮用或许含有少量化学 物质的自来水,但是让孩子们远离则刚喷过化学药品的草坪以及刷刚干洗过的衣服却并没有什么坏 处”,进一步论证了采取谨慎做法的必要性。 ·2015年12月六级真题(第一套)·"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2015-12-1-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Politicians are fond of promising rapid energy transitions. Whether it is a transition from imported to domestic oil or from coal-powered electricity production to natural-gas power plants, politicians love to talk big. Unfortunately for them (and often the taxpayers), our energy systems are a bit like an aircraft carrier: they are unbelievably expensive, they're built to last for a very long time, they have a huge amount of inertia (meaning it takes a lot of energy to set them moving), and they have a lot of momentum once they are set in motion. No matter how hard you try, you can't turn something that large on a dime (10美分硬币), or even a few thousand dimes.",
+        "B) In physics, moving objects have two characteristics relevant to understanding the dynamics of energy systems: inertia and momentum. Inertia is the resistance of objects to efforts to change their state of motion. If you try to push a boulder (大圆石), it pushes you back. Once you have started the boulder rolling, it develops momentum, which is defined by its mass and velocity. Momentum is said to be \"conserved,\" that is, once you build it up, it has to go somewhere. So a heavy object, like a football player moving at a high speed, has a lot of momentum—that is, once he is moving, it is hard to change his state of motion. If you want to change his course, you have only a few choices: you can stop him, transferring (possibly painfully) some of his kinetic energy (动能) to your own body, or you can approach alongside and slowly apply pressure to gradually alter his course.",
+        "C) But there are other kinds of momentum as well. After all, we don't speak only of objects or people as having momentum; we speak of entire systems having momentum. Whether it's a sports team or a presidential campaign, everybody relishes having the big momentum, because it makes them harder to stop or change direction.",
+        "D) One kind of momentum is technological momentum. When a technology is deployed, its impacts reach far beyond itself. Consider the incandescent (白炽灯的) bulb, an object currently hated by many environmentalists and energy-efficiency advocates. The incandescent light bulb, invented by Thomas Edison, which came to be the symbol of inspiration, has been developed into hundreds, if not thousands, of forms. Today, a visit to a lighting store reveals a stunning array of choices. There are standard-shaped bulbs, flame-shaped bulbs, colored globe-shaped bulbs, and more. It is quite easy, with all that choice, to change a light bulb.",
+        "E) But the momentum of incandescent lighting does not stop there. All of those specialized bulbs led to the building of specialized light fixtures, from the desk lamp you study by, to the ugly but beloved hand-painted Chinese lamp you inherited from your grandmother, to the ceiling fixture in your closet, to the light in your oven or refrigerator, and to the light that the dentist points at you. It is easy to change a light bulb, sure, but it is harder to change the bulb and its fixture.",
+        "F) And there is more to the story, because not only are the devices that house incandescent bulbs shaped to their underlying characteristics, but rooms and entire buildings have been designed in accordance with how incandescent lighting reflects off walls and windows.",
+        "G) As lighting expert Howard Brandston points out, \"Generally, there are no bad light sources, only bad applications.\" There are some very commendable characteristics of the CFL [compact fluorescent(荧光的)light bulb], yet the selection of any light source remains inseparable from the luminaire(照明装置)that houses it, along with the space in which both are installed, and lighting requirements that need to be satisfied. The lamp, the fixture, and the room, all three must work in concert and for the true benefits of end-users. If the CFL should be used for lighting a particular space, or an object within that space, the fixture must be designed to work with that lamp, and that fixture with the room. It is a symbiotic(共生的)relationship. A CFL cannot be simply installed in an incandescent fixture and then expected to produce a visual appearance that is more than washed out, foggy, and dim. The whole fixture must be replaced—light source and luminaire—and this is never an inexpensive proposition.",
+        "H) And Brandston knows a thing or two about lighting, being the man who illuminated the Statue of Liberty.",
+        "I) Another type of momentum we have to think about when planning for changes in our energy systems is labor-pool momentum. It is one thing to say that we are going to shift 30 percent of our electricity supply from, say, coal to nuclear power in 20 years. But it is another thing to have a supply of trained talent that could let you carry out this promise. That is because the engineers, designers, regulators, operators, and all of the other skilled people needed for the new energy industry are specialists who have to be trained first (or retrained, if they are the ones being laid off in some related industry), and education, like any other complicated endeavor, takes time. And not only do our prospective new energy workers have to be trained, they have to be trained in the right sequence. One needs the designers, and perhaps the regulators, before the builders and operators, and each group of workers in training has to know there is work waiting beyond graduation. In some cases, colleges and universities might have to change their training programs, adding another layer of difficulty.",
+        "J) By far the biggest type of momentum that comes into play when it comes to changing our energy systems is economic momentum. The major components of our energy systems, such as fuel production, refining, electrical generation and distribution, are costly installations that have lengthy life spans. They have to operate for long periods of time before the costs of development have been recovered. When investors put up money to build, say, a nuclear power plant, they expect to earn that money back over the planned life of the plant, which is typically between 40 and 60 years. Some coal power plants in the United States have operated for more than 70 years! The oldest continuously operated commercial hydro-electric plant in the United States is on New York's Hudson River, and it went into commercial service in 1898.",
+        "K) As Vaclav Smil points out, \"All the forecasts, plans, and anticipations cited above have failed so miserably because their authors and promoters thought the transitions they hoped to implement would proceed unlike all previous energy transitions, and that their progress could be accelerated in an unprecedented manner.\"",
+        "L) When you hear people speaking of making a rapid transition toward any type of energy, whether it is a switch from coal to nuclear power, or a switch from gasoline-powered cars to electric cars, or even a switch from an incandescent to a fluorescent light, understanding energy system inertia and momentum can help you decide whether their plans are feasible."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Not only moving objects and people but all systems have momentum.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C 解析:注意抓住题干中的关键调movingobjects andpeople、all systems和momentum。文章段落中提到 物体、人以及所有系统都具有动量的内容只出现在C段。该段第二句提到,我们不只提及物体或人具 有动量,也说到整个系统具有动量(wedon'tspeak onlyofobjects orpeopleashavingmomentum;we speakofentire systemshavingmomentum)。因此,题干是对原文的同义转速。故答案选C。"
+        },
+        {
+          "number": 37,
+          "stem": "Changing the current energy system requires the systematic training of professionals and skilled labor.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "I",
+          "explanation": "I 解析:注意抓住题干中的关键词changingthecurrentenergysystem和systematic training ofprofessionals andskilled labor。原文中提到改变能源系统以及对专家和技术人员进行培训的内容出现在I段。该段前 半部分提到,在规划我们能源体系的变化时,另外一种必须考虑的动量是劳动力储备动量。因为新能 源行业需要的工程师、设计师、校准者、操作员和所有其他的技术人员都必须是专家,他们首先要接 受培训,而且必须按照正确的顺序对他们进行培训。由此推断,要改变当前的能源系统,就需要对专家 和技术人员进行系统的培训。因此,题干是对原文的同义概括,故选I。"
+        },
+        {
+          "number": 38,
+          "stem": "Changing a light bulb is easier than changing the fixture housing it.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E 解析:注意拆住题干中的关键词changingalightbulb和changingthefixture。文章段落中对这二者进行 难易比较的内容只出现在E段。该段末尾句指出,当然,换灯泡轻而易举,但是要换灯泡和它的组件就 难上加难了(It is easy to change a light bulb, sure, but it is harder to change the bulb and its fixture)。因 此,题干是对原文的同义转述,故选E。"
+        },
+        {
+          "number": 39,
+          "stem": "Efforts to accelerate the current energy transitions didn't succeed as expected.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K 解析:注意抓住题干中的关键词efforts to accelerate thecurrent energy transitions和didn't succeed。文章 段落中提到加快当前能源转型的尝试失败的内容出现在K段。该段引用瓦茨拉夫·斯米尔的话指出“以 上所述的所有预测、计划和期盼都悲惨地失败了,因为它们的创始人和发起人认为,他们希望实施的 转型将不同于以往任何的能量转换方式,而且它们的进程将能以一种前所未有的方式得以加速。”故 题干是对原文的同义转述。其中,题干中的didn'tsucceed对应原文中的havefailedsomiserably,题干 中的as expected对应原文中的hopedto。故选K。"
+        },
+        {
+          "number": 40,
+          "stem": "To change the light source is costly because you have to change the whole fixture.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G 解析:注意抓住题干中的关键调lightsource、costly和thewholefixture。文章段落中提到改变光源很 昂责的内容出现在G段。该段末尾句提到,整套装置一 光源和照明装置—都必须被替换择,这 从来都不是一个便宜的提议(The whole fixture must be replaced—light source and luminaire-一and this is neveran inexpensiveproposition)。因此,题干是对原文的同义转述。题干中的costly对应原文中的 never inexpensive,题干中的 change the whole fixture 对应原文中的The whole fixture must be replaced。 故选G。"
+        },
+        {
+          "number": 41,
+          "stem": "Energy systems, like an aircraft carrier set in motion, have huge momentum.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A 解析:注意抓住题干中的关键调likeanaircraftcarrier。文章段落中拿能源系统和航空母舰进行类比的 内容出现在A段。该段第三句提到,我们的能源系统有点像一般航空母舰:它们责得令人难以置信,建 造它们是作为长期之用,而它们有着巨大的惯性(即要让它们运行起来需要很多的能源),一旦被启动, 它们会产生很大的动量。因此,题干是对原文的同义概括,故选A。"
+        },
+        {
+          "number": 42,
+          "stem": "The problem with lighting, if it arises, often doesn't lie in light sources but in their applications.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G 解析:注意抓住题干中的关键词theproblemwithlighting和theirapplications。文章段落中提到照明存在 问题的内容出现在G段。该段第一句引用照明专家霍华德·布兰德斯顿的话:“一般来说,没有不好的 光源,只有对其不当的应用(Generally,therearenobadlightsources,onlybad applications)。\"故题干是对 原文的同义转述。题干中的light sources和applications都属于原词复现,故选G。"
+        },
+        {
+          "number": 43,
+          "stem": "The biggest obstacle to energy transition is that the present energy system is too expensive to replace.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "J",
+          "explanation": "J 解析:注意抓住题干中的关键词thebiggestobstacletoenergytransition和tooexpensivetoreplace。文章 段落中提到当今能源转型最大阻碍的内容出现在J段。该段首句指出,说到要改变我们的能源系统,选 今为止最大的动量类型就是经济动量。接下来的几句都是在解释能源转型所要面对的巨大经济成本, 由此推断,能源转型最大的阻碍就是当前的能源系统太过昂责,而无法更换。故题干是对原文的同义 概据。故选J。"
+        },
+        {
+          "number": 44,
+          "stem": "The application of a technology can impact areas beyond itself.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D 解析:注意抓住题干中的关键词theapplicationofatechnology和impact。文章段落中提到技术的应用会 产生影响的内容出现在D段。该段第二句提到,当一项技术得以推广,它的影响则远超过它自身 ·2015年12月六级真题(第一套)· (When atechnology isdeployed,its impacts reachfarbeyond itself)。因此,题干是对原文的同义转述。题 干中的impact areas beyond itself 对应原文中的 its impacts reach far beyond itself。故选D。"
+        },
+        {
+          "number": 45,
+          "stem": "Physical characteristics of moving objects help explain the dynamics of energy systems.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B 解析:注意邦住题干中的关键词physical characteristics of moving objects和the dynamics of energy systems。文章段落中提到运动物体的物理特性和能源系统的运转之间关系的内容出现在B段。该段第 一句指出,在物理学中,运动的物体有两个与理解能源系统的运转有关的特性:惯性和动量(In physics, moving objects have two characteristics relevant to understanding the dynamics of energy systems: inertia andmomentum)。因此,题干是对原文的同义转述。题干中的helpexplain对应原文中的relevant to understanding。选 B。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2015-12-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "One hundred years ago, \"Colored\" was the typical way of referring to Americans of African descent. Twenty years later, it was purposefully dropped to make way for \"Negro.\" By the late 1960s, that term was overtaken by \"Black.\" And then, at a press conference in Chicago in 1988, Jesse Jackson declared that \"African American\" was the term to embrace. This one was chosen because it echoed the labels of groups, such as \"Italian Americans\" and \"Irish Americans,\" that had already been freed of widespread discrimination.",
+        "A century's worth of calculated name changes point to the fact that naming any group is a politically freighted exercise. A 2001 study cataloged all the ways in which the term \"Black\" carried connotations (涵义) that were more negative than those of \"African American.\"",
+        "But if it was known that \"Black\" people were viewed differently from \"African Americans,\" researchers, until now, hadn't identified what that gap in perception was derived from. A recent study, conducted by Emory University's Erika Hall, found that \"Black\" people are viewed more negatively than \"African Americans\" because of a perceived difference in socioeconomic status. As a result, \"Black\" people are thought of as less competent and as having colder personalities.",
+        "The study's most striking findings shed light on the racial biases permeating the professional world. Even seemingly harmless details on a resume, it appears, can tap into recruiters' biases. A job application might mention affiliations with groups such as the \"Wisconsin Association of African-American Lawyers\" or the \"National Black Employees Association,\" the names of which apparently have consequences, and are also beyond their members' control.",
+        "In one of the study's experiments, subjects were given a brief description of a man from Chicago with the last name Williams. To one group, he was identified as \"African-American,\" and another was told he was \"Black.\" With little else to go on, they were asked to estimate Mr. Williams's salary, professional standing, and educational background.",
+        "The \"African-American\" group estimated that he earned about $37,000 a year and had a two-year college degree. The \"Black\" group, on the other hand, put his salary at about $29,000, and guessed that he had only \"some\" college experience. Nearly three-quarters of the first group guessed that Mr. Williams worked at a managerial level, while only 38.5 percent of the second group thought so.",
+        "Hall's findings suggest there's an argument to be made for electing to use \"African American,\" though one can't help but get the sense that it's a decision that papers over the urgency of continued progress. Perhaps a new phrase is needed, one that can bring everyone one big step closer to realizing Du Bois's original, idealistic hope: \"It's not the name—it's the Thing that counts.\""
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "Why did Jesse Jackson embrace the term \"African American\" for people of African descent?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is free from racial biases."
+            },
+            {
+              "key": "B",
+              "text": "It represents social progress."
+            },
+            {
+              "key": "C",
+              "text": "It is in the interest of common Americans."
+            },
+            {
+              "key": "D",
+              "text": "It follows the standard naming practice."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A 定位:根据题干的信息词JesseJackson、embrace和AfricanAmerican,可以把答题线索定位到第一段第 四、五旬。 解析:第一段第四句指出“后来,在1988年芝加哥的一次新阐发布会上,杰西·杰克逊倡议人们接受 “非裔美国人(AfricanAmerican)\"这个称呼\",接着第五句说明了原因,即\"选择这个称呼是因为它效仿 ·2015年12月六级真题(第一套)· 了其他群体的称呼,比如意大利裔美国人'和'爱尔兰裔美国人',而这些群体已经摆脱了普遍歧视”, 由此可知该称呼不再带有歧视色彩,A项符合文意,故为答案。虽然摆脱了歧视是进步的一种表现,但 B选项的说法过于宽泛,应排除。C项和D项原文中并未提及,也应排除。"
+        },
+        {
+          "number": 47,
+          "stem": "What does the author say about the naming of an ethnic group?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It advances with the times."
+            },
+            {
+              "key": "B",
+              "text": "It is based on racial roots."
+            },
+            {
+              "key": "C",
+              "text": "It merits intensive study."
+            },
+            {
+              "key": "D",
+              "text": "It is politically sensitive."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D 定位:根据题干的信息词thenamingofanethnicgroup,可以把答题线索定位到第二段的第一句。 解析:该句指出“对一个世纪以来的称呼演变的梳理指向这样一个事实:为任何群体命名都是一种具 有政治意义的行为\",由此可推断,给一个种族命名也不例外,即对一个种族的称呼也具有政治敏感 性。D项符合文意,故为答案。这只是针对\"美国黑人\"的称呼的演变而言,选项A表述过于宽泛,应排 除。文中并未提及“它基于种族根源\"和\"它值得进行大量的研究”,B、C两项电可排除。"
+        },
+        {
+          "number": 48,
+          "stem": "What do Erika Hall's findings indicate?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Racial biases are widespread in the professional world."
+            },
+            {
+              "key": "B",
+              "text": "Many applicants don't attend to details on their resumes."
+            },
+            {
+              "key": "C",
+              "text": "Job seekers should all be careful about their affiliations."
+            },
+            {
+              "key": "D",
+              "text": "Most recruiters are unable to control their racial biases."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A 定位:根据题干的信息调ErikaHall'sfindings可以把答题线索定位到第三段和第四段。 解析:第三段第二句首次提及了ErikaHall,指出最近由艾莫利大学的埃丽卡·霍尔开展的一项研究发 现,“黑人\"这个称呼比\"非裔美国人\"被认为更负面的原因在于人们党得两者在社会经济地位方面存在 差异。接着第四段首句进一步指出“该研究最为惊人的发现是种族偏见已渗入职场”,由此可知,埃丽 卡·霍尔通过研究发现,职场上普遍存在着歧视黑人的现象,A项符合文意,故为答案。文中提及简历 的细节时是说“简历上看似无害的细节似乎都能引起招聘者的歧视”,并非“求职者不注重简历上的细 节”,B项可排除。文中举了求职者可能与一些社团有关联的例子,是要说明招聘者对“黑人”存在歧 视,C项不符合文意,应排除。D项中的“大多数招聘者\"在原文中找不到依据,应排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What does Erika Hall find in her experiment about a man with the last name Williams?",
+          "options": [
+            {
+              "key": "A",
+              "text": "African Americans fare better than many other ethnic groups."
+            },
+            {
+              "key": "B",
+              "text": "Black people's socioeconomic status in America remains low."
+            },
+            {
+              "key": "C",
+              "text": "People's conception of a person has much to do with the way he or she is labeled."
+            },
+            {
+              "key": "D",
+              "text": "One's professional standing and income are related to their educational background."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C 定位:根据题干的信息调ErikaHall和thelastnameWilliams,可以把答题线索定位到第五段第一句。 解析:第五段第一句首次提到了Williams,第五段和第六段都在介绍与一位姓威廉姆斯的男子有关的 试验。通过赋予这位男子不同的身份称呼,试验结果出现了很大的差异,即人们会通过身份称呼来评 判一个人,对比四个选项,只有C项符合文意,故为答案。这个试验并未对各个种族进行对比,A项应 排除。该试验中介绍了两组存在较大差异的结果,无法据此推断出黑人的“社会经济地位仍然很低”,B项 犯了以偏概全的错误,可排除。该试验中要求受试者猜测该男子的薪水、职业身份和教育背景,并不能"
+        },
+        {
+          "number": 50,
+          "stem": "What is Dr. Du Bois's ideal?",
+          "options": [
+            {
+              "key": "A",
+              "text": "All Americans enjoy equal rights."
+            },
+            {
+              "key": "B",
+              "text": "A person is judged by their worth."
+            },
+            {
+              "key": "C",
+              "text": "A new term is created to address African Americans."
+            },
+            {
+              "key": "D",
+              "text": "All ethnic groups share the nation's continued progress."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B 定位:根据题干的信息调Dr.DuBois,可以把答题线案定位到最后一段最后一句。 解析:该句提到了DuBois,指出“或许需要一个新的用语,这个用语能够使人们向实现杜·博伊斯最初 理想化的期望迈出一大步:“重要的是成就,而不是名称。\"\"即杜·博伊斯认为不能通过名字来评价一 个人,而应根据他的成就和价值。注意thing这里是指“成就,成绩”,即实现自我价值,由此可知B项 与文意相符,故为答案。A、D两项都不是社·博伊斯博士的理想,无法从文中推出,而C项则是作者的 观点,不是杜·博伊斯的理想,所以A、C、D三项都应该排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2015-12-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Across the board, American colleges and universities are not doing a very good job of preparing their students for the workplace or their post-graduation lives. This was made clear by the work of two sociologists, Richard Arum and Josipa Roksa. In 2011 they released a landmark study titled \"Academically Adrift,\" which documented the lack of intellectual growth experienced by many people enrolled in college. In particular, Arum and Roksa found, college students were not developing the critical thinking, analytic reasoning and other higher-level skills that are necessary to thrive in today's knowledge-based economy and to lead our nation in a time of complex challenges and dynamic change.",
+        "Arum and Roksa placed the blame for students' lack of learning on a watered-down college curriculum and lowered undergraduate work standards. Although going to college is supposed to be a full-time job, students spent, on average, only 12 to 14 hours a week studying and many were skating through their semesters without doing a significant amount of reading and writing. Students who take more challenging classes and spend more time studying do learn more. But the priorities of many undergraduates are with extracurricular activities, playing sports, and partying and socializing.",
+        "Laura Hamilton, the author of a study on parents who pay for college, will argue in a forthcoming book that college administrations are overly concerned with the social and athletic activities of their students. In Paying for the Party, Hamilton describes what she calls the \"party pathway,\" which eases many students through college, helped along by various clubs that send students into the party scene and a host of easier majors. By sanctioning this water-down version of college, universities are \"catering to the social and educational needs of wealthy students at the expense of others\" who won't enjoy the financial backing or social connections of richer students once they graduate.",
+        "These students need to build skills and knowledge during college if they are to use their degrees as a stepping-stone to middle-class mobility. But more privileged students must not waste this opportunity either. As recent graduates can testify, the job market isn't kind to candidate who can't demonstrate genuine competence, along with a well-cultivated willingness to work hard. Nor is the global economy forgiving of an American workforce with increasingly weak literacy, math and science abilities. College graduates will still fare better than those with only a high school education, of course. But a university degree unaccompanied by a gain in knowledge or skills is an empty achievement indeed. For students who have been coasting through college, and for American universities that have been demanding less work, offering more attractions and charging higher tuition, the party may soon be over."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What is Arum and Roksa's finding about higher education in America?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It aims at stimulating the intellectual curiosity of college students."
+            },
+            {
+              "key": "B",
+              "text": "It fails to prepare students to face the challenges of modern times."
+            },
+            {
+              "key": "C",
+              "text": "It has experienced dramatic changes in recent years."
+            },
+            {
+              "key": "D",
+              "text": "It has tried hard to satisfy students' various needs."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B 定位:根据题干中的信息调Arumand Roksa'sfinding可以将答案线索定位到文章第一段最后一句。 解析:文章第一段围绕着阿鲁姆和洛科萨的研究展开论述,结尾处提到“阿鲁姆和洛科萨发现大学生 的批判性思维能力、分析推理能力和其他更高层次的技能都没有得到提高..\"选项B所速内容是 对原文内容的概括,其中,选项中的facethechallengesofthemoderm times是对原文中的thrivein today's knowledge-based economy and to lead our nation in a time of complex challenges and dynamic change的同义转述。选项D是根据原文第三段末句中的cateringto the social and educational needs of wealthystudents设置的干扰项,这是汉密尔顿的研究发现,而非阿鲁姆和洛科萨的研究发现,故排除。 其他两个选项在文章中均未提及,故电排除。"
+        },
+        {
+          "number": 52,
+          "stem": "What is responsible for the students' lack of higher-level skills?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The diluted college curriculum."
+            },
+            {
+              "key": "B",
+              "text": "The boring classroom activities."
+            },
+            {
+              "key": "C",
+              "text": "The absence of rigorous discipline."
+            },
+            {
+              "key": "D",
+              "text": "The outdated educational approach."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A 定位:根据题干中的信息词responsible和students'lack ofhigher-level sklls可以将答案线索定位到文 章第二段第一向。 解析:根据原调复现(higher-levelskills),考生很容易定位到第一段最后一句,但是该句只是阐述了“学 生缺乏更高层次的技能\"这一现象,并没有给出原固,接下来文章第二段第一句提到\"阿鲁姆和洛科萨 将学生学业不精归于大学课程的缩水和本科作业标准的降低。\"由此可知,缩水的大学课程应该为学 生缺乏更高层次的技能负责。选项A所述内容符合原文,故为答案,其中diluted和原文中的watered- down是近义词,都表示\"缩水的,大打折扣的\"。其他三个选项文章中均没有提及,故都排除。"
+        },
+        {
+          "number": 53,
+          "stem": "What does Laura Hamilton say about college administrations?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They fail to give adequate help to the needy students."
+            },
+            {
+              "key": "B",
+              "text": "They tend to offer too many less challenging courses."
+            },
+            {
+              "key": "C",
+              "text": "They seem to be out of touch with society."
+            },
+            {
+              "key": "D",
+              "text": "They prioritize non-academic activities."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D 定位:根据题干中的信息词LauraHamilton和collegeadministrations可以将答案线索定位到文章第三 段第一句。 解析:文章第三段第一句提到汉密尔领将在一本即特出版的书中论证,“大学管理层过度地看重学生 位,但解题关键在于理解短语areoverlyconcermedwith(过度关注)的意思,其与选项D中的prioritize (优先考虑)是同义替换。选项D所述内容与文章内容一致,故为答案。选项A和C文中没有提及,很 容易排除。选项B是强干扰项,很多考生可能会因为第三段提到学校提供ahostofeasiermajors而误选 B,但原文是说“许多读起来更容易的专业”,不等同于选项中的“太多挑战性不强的课程”,故排除。"
+        },
+        {
+          "number": 54,
+          "stem": "What can be learned about the socially and financially privileged students?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They tend to have a sense of superiority over their peers."
+            },
+            {
+              "key": "B",
+              "text": "They can afford to choose easier majors in order to enjoy themselves."
+            },
+            {
+              "key": "C",
+              "text": "They spend a lot of time building strong connections with businesses."
+            },
+            {
+              "key": "D",
+              "text": "They can climb the social ladder even without a degree."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B 定位:根据题千中的信息词sociallyandfinanciallyprivilegedstudents可以将答案线案定位到文章第三段。 解析:文章第三段第二句提到美国大学为了迎合有钱学生的社交和教育需求,提供了各种俱乐部和许 多更容易的专业,也就是说,这些有特权的学生可以选择更容易的专业,privileged students和wealthy students在这里指同一类学生。选项B是对这部分内容的概括,故为答案。选项A是指一种心理方面的 感受,而不属于经济和社交方面,故排除。文章第三段提到无特权的学生不会受益于有钱学生的经济支 持或社会关系,而没有提到有特权的学生花费很多时间与企业建立紧密的联系,故排除选项C。文章第 四段提到就业市场越来越看重学生的真才实学,学历不能代表一切,但是我们不能主观推导出有特权 的学生即使没有学历也可以向社会阶梯上方攀叠,故排除选项D。"
+        },
+        {
+          "number": 55,
+          "stem": "What does the author suggest in the last paragraph?",
+          "options": [
+            {
+              "key": "A",
+              "text": "American higher education has lost its global competitiveness."
+            },
+            {
+              "key": "B",
+              "text": "People should not expect too much from American higher education."
+            },
+            {
+              "key": "C",
+              "text": "The current situation in American higher education may not last long."
+            },
+            {
+              "key": "D",
+              "text": "It will take a long time to change the current trend in higher education."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C 定位:根据题干中的信息调theauthorsuggest和thelastparagraph可以将答案线索定位到文章最后一段。 解析:文章最后一段末句提到“对于那些在读大学期间混日予的学生,以及学术要求较少、吸引学生的 花样更多且收费更高的美国大学来说,“派对'也许很快就会结来。”这里作者运用了比哈手法,表明美 国高等教育的现状可能不会再持续很久了。故选项C正确。选项A是根据第四投中\"Noristheglobal economy...scienceabilities\"设置的干扰项,原文是说“全球经济对读写、数学和科学能力不断下降的美 国劳动力也不再宽容\",而没有指出美国高等教育已经失去了全球竞争力,故排除。选项B文中没有提 及,故也排除。选项D与正确答案意思相反,故也排除。 ·2015年12月六级真题(第一套)·"
+        }
+      ]
+    }
+  ]
+}

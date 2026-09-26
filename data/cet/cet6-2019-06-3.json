@@ -1,0 +1,1647 @@
+{
+  "id": "cet6-2019-06-3",
+  "level": 6,
+  "year": 2019,
+  "month": 6,
+  "set": 3,
+  "title": "2019 年 6 月六级 · 第 3 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.06/%E7%9C%9F%E9%A2%98Word/2019%E5%B9%B406%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC3%E5%A5%97%EF%BC%89.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2019%E5%B9%B406%E6%9C%88%E7%9C%9F%E9%A2%98%E8%A7%A3%E6%9E%90%E7%AC%AC3%E5%A5%97.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2019-06-3-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Steel is valued for its reliability, but not when it gets cold. Most forms of steel [[26]] become brittle (脆的) at temperatures below about -25°C unless they are mixed with other metals. Now, though, a novel type of steel has been developed that resists [[27]] at much lower temperatures, while retaining its strength and toughness—without the need for expensive [[28]]. Steel’s fragility at low temperatures first became a major concern during the Second World War. After German U-boats torpedoed (用鱼雷攻击) numerous British ships, a 2700-strong fleet of cheap-and-cheerful “Liberty ships” was introduced to replace the lost vessels, providing a lifeline for the [[29]] British. But the steel shells of hundreds of the ships [[30]] in the icy north Atlantic, and 12 broke in half and sank. Brittleness remains a problem when building steel structures in cold conditions, such as oil rigs in the Arctic. So scientists have [[31]] to find a solution by mixing it with expensive metals such as nickel. Yuuji Kimura and colleagues in Japan tried a more physical [[32]]. Rather than adding other metals, they developed a complex mechanical process involving repeated heating and very severe mechanical deformation, known as temp forming. The resulting steel appears to achieve a combination of strength and toughness that is [[33]] to that of modem steels that are very rich in alloy content and, therefore, very expensive. Kimura’s team intends to use its tempformed steel to make ultra-high strength parts, such as bolts. They hope to reduce both the number of [[34]] needed in a construction job and their weight—by replacing solid supports with [[35]] tubes, for example. This could reduce the amount of steel needed to make everything from automobiles to buildings and bridges."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "abruptly"
+        },
+        {
+          "key": "B",
+          "text": "additives"
+        },
+        {
+          "key": "C",
+          "text": "approach"
+        },
+        {
+          "key": "D",
+          "text": "ardently"
+        },
+        {
+          "key": "E",
+          "text": "besieged"
+        },
+        {
+          "key": "F",
+          "text": "channel"
+        },
+        {
+          "key": "G",
+          "text": "comparable"
+        },
+        {
+          "key": "H",
+          "text": "components"
+        },
+        {
+          "key": "I",
+          "text": "cracked"
+        },
+        {
+          "key": "J",
+          "text": "fractures"
+        },
+        {
+          "key": "K",
+          "text": "hollow"
+        },
+        {
+          "key": "L",
+          "text": "relevant"
+        },
+        {
+          "key": "M",
+          "text": "reshuffled"
+        },
+        {
+          "key": "N",
+          "text": "strived"
+        },
+        {
+          "key": "O",
+          "text": "violent"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abruptly"
+            },
+            {
+              "key": "B",
+              "text": "additives"
+            },
+            {
+              "key": "C",
+              "text": "approach"
+            },
+            {
+              "key": "D",
+              "text": "ardently"
+            },
+            {
+              "key": "E",
+              "text": "besieged"
+            },
+            {
+              "key": "F",
+              "text": "channel"
+            },
+            {
+              "key": "G",
+              "text": "comparable"
+            },
+            {
+              "key": "H",
+              "text": "components"
+            },
+            {
+              "key": "I",
+              "text": "cracked"
+            },
+            {
+              "key": "J",
+              "text": "fractures"
+            },
+            {
+              "key": "K",
+              "text": "hollow"
+            },
+            {
+              "key": "L",
+              "text": "relevant"
+            },
+            {
+              "key": "M",
+              "text": "reshuffled"
+            },
+            {
+              "key": "N",
+              "text": "strived"
+            },
+            {
+              "key": "O",
+              "text": "violent"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【锁定答案】由前文论速主体Steel及?句论速主体anoveltypeofsteel可推知,空格句主语应为Most forms of steel 而非 Most forms of steel ,因而空格调只能为制调。1句指出钢具有良好的可靠性,但在 低温下例外。2句belowabout-25C明确when itgets cold具体数值,becomebrittle呼应but not(valued for itsreliability),可见-25°C为钢可靠性能的临界点(高于-25°C可靠性高;低于-25°C可靠性低),空格词应体现钢 的可靠性能在这一临界点的突变,A)正确。 D)ardently\"热双地\"符合词性要求,但一般只用于描述人的主观情感态度,而不用于描述事物属性的客 观变化。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abruptly"
+            },
+            {
+              "key": "B",
+              "text": "additives"
+            },
+            {
+              "key": "C",
+              "text": "approach"
+            },
+            {
+              "key": "D",
+              "text": "ardently"
+            },
+            {
+              "key": "E",
+              "text": "besieged"
+            },
+            {
+              "key": "F",
+              "text": "channel"
+            },
+            {
+              "key": "G",
+              "text": "comparable"
+            },
+            {
+              "key": "H",
+              "text": "components"
+            },
+            {
+              "key": "I",
+              "text": "cracked"
+            },
+            {
+              "key": "J",
+              "text": "fractures"
+            },
+            {
+              "key": "K",
+              "text": "hollow"
+            },
+            {
+              "key": "L",
+              "text": "relevant"
+            },
+            {
+              "key": "M",
+              "text": "reshuffled"
+            },
+            {
+              "key": "N",
+              "text": "strived"
+            },
+            {
+              "key": "O",
+              "text": "violent"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【锁定答案】2句介绍当下钢的缺陷:低温条件下可靠性低,需与其他金属结合才可保持强度和韧性。3 句指出新型钢的特色:在保持强度、韧性的同时,还能在更低温条件下抵抗 ,且无需昂贵的 由两句间though所形成的语义对照功能不难推断,新型钢能有效解决当下钢“低温下易变脆、易断裂”、“需其 。借 他金属添加材料才可改善低温脆性(但价格因此上升)\"的缺陷,空27应照应becomebrittle,表“脆性/破损/断 裂等\",J)正确;空28应照应mixedwithothermetals,表“金属等混合/添加物质”,B)正确。 H)components亦有\"成分\"之意,对空28有一定干扰。但component指某一物体中本身舍有的成分、组 件,与空格词要表达的\"(来自外部的)添加成分\"不符,可排除。 【点拨技巧】新事物/研究/现象的提出往往是为了给现有问题提供解决方案/思路,可利用“问题一解决方 案”的对应关系辅助解题。如本段becomebrittle..unlesstheyaremixedwithothermetals为当下现有钢的 问题/缺陷,则解决方案anoveltypeofsteel应具备“抵抗断裂”、“无需添加材料\"等优点。 I o Steel's fragility at low temperatures first 钢的低温脆性问题于二战期间首次 became a major concern during the Second World War. ? 成为重大关注。继德国U型潜艇用鱼雷 After GermanU-boatstorpedoed(用鱼雷攻击)numerous 击沉众多英国船只后,一支由2700般物 British ships, a 2700-strong fleet of cheap-and-cheerful° 美价廉“自由轮”组成的舰队被用来代替 \"Liberty ships\" was introduced to replace the lost vessels, 遗难的船只,为被围困的英国人提供了 providing a lifeline for the_29_British. But the steel 一个摆脱图境的办法。然而,数百般自 shells of hundreds of the ships 30_ in the icy north 由轮的钢壳在冰冷的北大西洋海城破 Atlantic, and 12 broke in half and sank. 裂,其中12般裂成两半并沉入海底。 Il O Brittleness remains a problem when building 在寒冷条件下搭建钢结构,如在北 steel structures in cold conditions, such as oil rigs in the 极搭建石油钻井,脆性仍是个问题。于 Arctic. So scientists have31_to find a solution by 是,科学家将钢与镍等贵金属泥合,努力 mixing it with expensive metals such as nickel. 寻求一种解决方案。 ·"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abruptly"
+            },
+            {
+              "key": "B",
+              "text": "additives"
+            },
+            {
+              "key": "C",
+              "text": "approach"
+            },
+            {
+              "key": "D",
+              "text": "ardently"
+            },
+            {
+              "key": "E",
+              "text": "besieged"
+            },
+            {
+              "key": "F",
+              "text": "channel"
+            },
+            {
+              "key": "G",
+              "text": "comparable"
+            },
+            {
+              "key": "H",
+              "text": "components"
+            },
+            {
+              "key": "I",
+              "text": "cracked"
+            },
+            {
+              "key": "J",
+              "text": "fractures"
+            },
+            {
+              "key": "K",
+              "text": "hollow"
+            },
+            {
+              "key": "L",
+              "text": "relevant"
+            },
+            {
+              "key": "M",
+              "text": "reshuffled"
+            },
+            {
+              "key": "N",
+              "text": "strived"
+            },
+            {
+              "key": "O",
+              "text": "violent"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【锁定答案】2句介绍当下钢的缺陷:低温条件下可靠性低,需与其他金属结合才可保持强度和韧性。3 句指出新型钢的特色:在保持强度、韧性的同时,还能在更低温条件下抵抗 ,且无需昂贵的 由两句间though所形成的语义对照功能不难推断,新型钢能有效解决当下钢“低温下易变脆、易断裂”、“需其 。借 他金属添加材料才可改善低温脆性(但价格因此上升)\"的缺陷,空27应照应becomebrittle,表“脆性/破损/断 裂等\",J)正确;空28应照应mixedwithothermetals,表“金属等混合/添加物质”,B)正确。 H)components亦有\"成分\"之意,对空28有一定干扰。但component指某一物体中本身舍有的成分、组 件,与空格词要表达的\"(来自外部的)添加成分\"不符,可排除。 【点拨技巧】新事物/研究/现象的提出往往是为了给现有问题提供解决方案/思路,可利用“问题一解决方 案”的对应关系辅助解题。如本段becomebrittle..unlesstheyaremixedwithothermetals为当下现有钢的 问题/缺陷,则解决方案anoveltypeofsteel应具备“抵抗断裂”、“无需添加材料\"等优点。 I o Steel's fragility at low temperatures first 钢的低温脆性问题于二战期间首次 became a major concern during the Second World War. ? 成为重大关注。继德国U型潜艇用鱼雷 After GermanU-boatstorpedoed(用鱼雷攻击)numerous 击沉众多英国船只后,一支由2700般物 British ships, a 2700-strong fleet of cheap-and-cheerful° 美价廉“自由轮”组成的舰队被用来代替 \"Liberty ships\" was introduced to replace the lost vessels, 遗难的船只,为被围困的英国人提供了 providing a lifeline for the_29_British. But the steel 一个摆脱图境的办法。然而,数百般自 shells of hundreds of the ships 30_ in the icy north 由轮的钢壳在冰冷的北大西洋海城破 Atlantic, and 12 broke in half and sank. 裂,其中12般裂成两半并沉入海底。 Il O Brittleness remains a problem when building 在寒冷条件下搭建钢结构,如在北 steel structures in cold conditions, such as oil rigs in the 极搭建石油钻井,脆性仍是个问题。于 Arctic. So scientists have31_to find a solution by 是,科学家将钢与镍等贵金属泥合,努力 mixing it with expensive metals such as nickel. 寻求一种解决方案。 ·"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abruptly"
+            },
+            {
+              "key": "B",
+              "text": "additives"
+            },
+            {
+              "key": "C",
+              "text": "approach"
+            },
+            {
+              "key": "D",
+              "text": "ardently"
+            },
+            {
+              "key": "E",
+              "text": "besieged"
+            },
+            {
+              "key": "F",
+              "text": "channel"
+            },
+            {
+              "key": "G",
+              "text": "comparable"
+            },
+            {
+              "key": "H",
+              "text": "components"
+            },
+            {
+              "key": "I",
+              "text": "cracked"
+            },
+            {
+              "key": "J",
+              "text": "fractures"
+            },
+            {
+              "key": "K",
+              "text": "hollow"
+            },
+            {
+              "key": "L",
+              "text": "relevant"
+            },
+            {
+              "key": "M",
+              "text": "reshuffled"
+            },
+            {
+              "key": "N",
+              "text": "strived"
+            },
+            {
+              "key": "O",
+              "text": "violent"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【锁定答案】第二段1句追潮历史“钢的低温脆性在二战期间首次成为重大关切”。2句详述历史事件;德 国U型潜艇用鱼类击段英国无数船只→英国建造“自由轮\"舰队以挽教 英国人的生命。由此可知,空 格调应契合\"二战期间英德海战,英国舰队被德国鱼雷击沉,英军死伤无数”的语境,表示“(在战斗中)受困/受 袭/受伤等”之意,备选项中只有E)符合文意。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abruptly"
+            },
+            {
+              "key": "B",
+              "text": "additives"
+            },
+            {
+              "key": "C",
+              "text": "approach"
+            },
+            {
+              "key": "D",
+              "text": "ardently"
+            },
+            {
+              "key": "E",
+              "text": "besieged"
+            },
+            {
+              "key": "F",
+              "text": "channel"
+            },
+            {
+              "key": "G",
+              "text": "comparable"
+            },
+            {
+              "key": "H",
+              "text": "components"
+            },
+            {
+              "key": "I",
+              "text": "cracked"
+            },
+            {
+              "key": "J",
+              "text": "fractures"
+            },
+            {
+              "key": "K",
+              "text": "hollow"
+            },
+            {
+              "key": "L",
+              "text": "relevant"
+            },
+            {
+              "key": "M",
+              "text": "reshuffled"
+            },
+            {
+              "key": "N",
+              "text": "strived"
+            },
+            {
+              "key": "O",
+              "text": "violent"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【锁定答案】首先,由句首But可知空格句与前文“2700般自由轮组成的舰队解教了被围困的英国海军\"形 成转折,可能涉及“舰队敦援工作出现变故/意外\"等,结合空格前thesteelshellsof hundredsof theships可推 测意外情况为“船体破损”;其次,由空格后两个and的连接递进作用,可推知船体“ →断成两截→况入 海底”的变化过程,空格词应表示船体破坏的起始阶段,程度轻于brokeinhalf、sank,I)符合文意。 【点拨技巧】一、根据连接词把握句间句内逻辑关系。连接词起到逻辑衔接作用,往往能体现事件、事物间 隐含的联系,如本题句首But、句内and...and为解题关键,由三个连接词可明确空格词既与前文“舰队教接” 形成转折,又与后文“船断成两截、况入海底\"语义同向,从而明确空格词表“破损”。二、根据文章主旨把握词 义方向。由上下文可知,第二段以二战期间的具体事件说明钢低温脆性的严重危害,固此事件应体现“钢(制"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abruptly"
+            },
+            {
+              "key": "B",
+              "text": "additives"
+            },
+            {
+              "key": "C",
+              "text": "approach"
+            },
+            {
+              "key": "D",
+              "text": "ardently"
+            },
+            {
+              "key": "E",
+              "text": "besieged"
+            },
+            {
+              "key": "F",
+              "text": "channel"
+            },
+            {
+              "key": "G",
+              "text": "comparable"
+            },
+            {
+              "key": "H",
+              "text": "components"
+            },
+            {
+              "key": "I",
+              "text": "cracked"
+            },
+            {
+              "key": "J",
+              "text": "fractures"
+            },
+            {
+              "key": "K",
+              "text": "hollow"
+            },
+            {
+              "key": "L",
+              "text": "relevant"
+            },
+            {
+              "key": "M",
+              "text": "reshuffled"
+            },
+            {
+              "key": "N",
+              "text": "strived"
+            },
+            {
+              "key": "O",
+              "text": "violent"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【锁定答案】第三段1句指出当前问题:寒冷条件下建造钢结构仍有困难;2句指出当前研究状况:将钢与 镍等贵金属混合 寻求解决方案;借由两句间So可知两者为“固(提出问题)一 一果(寻求解决办法)\"语 于/投身于/努力做\"等的心理状态(动词调),固定表达striveto\"努力傲某事\",符合文意。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abruptly"
+            },
+            {
+              "key": "B",
+              "text": "additives"
+            },
+            {
+              "key": "C",
+              "text": "approach"
+            },
+            {
+              "key": "D",
+              "text": "ardently"
+            },
+            {
+              "key": "E",
+              "text": "besieged"
+            },
+            {
+              "key": "F",
+              "text": "channel"
+            },
+            {
+              "key": "G",
+              "text": "comparable"
+            },
+            {
+              "key": "H",
+              "text": "components"
+            },
+            {
+              "key": "I",
+              "text": "cracked"
+            },
+            {
+              "key": "J",
+              "text": "fractures"
+            },
+            {
+              "key": "K",
+              "text": "hollow"
+            },
+            {
+              "key": "L",
+              "text": "relevant"
+            },
+            {
+              "key": "M",
+              "text": "reshuffled"
+            },
+            {
+              "key": "N",
+              "text": "strived"
+            },
+            {
+              "key": "O",
+              "text": "violent"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【锁定答案】空格句指出,YuujiKimura及同事试了一种更具物理性的 ;空格句下文指出:他们未 添加其他金属,而是研发出一套复杂的物理力学过程。由比较结构morephysical及取舍结构Ratherthan... 可知,此处对比的是\"化学处理法(向钢中添加其他全属)\"VS\"物理处理法”,空格词应与前文的“化学处理方 法(solution)\"并列,并且是对处理流程、原理等内容的综合概括,应表\"方法/工艺/模式\"等,C)正确。 【点拨技巧】被比较的事物往往内在属性一致、外在表征不同,因此借由比较结构可明确事物属性、特点, 有助于解题。如本题,more、Ratherthan均为典型比较标记,morephysical、Ratherthanaddingothermetals 均指向比较对象之一“向钢中添加其他金属的化学方法”,由此可明确另一比较对象同为钢的处理方法、但处 理方式更偏向物理性,由此确定空32选C)。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abruptly"
+            },
+            {
+              "key": "B",
+              "text": "additives"
+            },
+            {
+              "key": "C",
+              "text": "approach"
+            },
+            {
+              "key": "D",
+              "text": "ardently"
+            },
+            {
+              "key": "E",
+              "text": "besieged"
+            },
+            {
+              "key": "F",
+              "text": "channel"
+            },
+            {
+              "key": "G",
+              "text": "comparable"
+            },
+            {
+              "key": "H",
+              "text": "components"
+            },
+            {
+              "key": "I",
+              "text": "cracked"
+            },
+            {
+              "key": "J",
+              "text": "fractures"
+            },
+            {
+              "key": "K",
+              "text": "hollow"
+            },
+            {
+              "key": "L",
+              "text": "relevant"
+            },
+            {
+              "key": "M",
+              "text": "reshuffled"
+            },
+            {
+              "key": "N",
+              "text": "strived"
+            },
+            {
+              "key": "O",
+              "text": "violent"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【锁定答案】根据空格句中所涉两种钢的特性(Theresulting steel...“通过变形回火制成的强度及韧性兼 他全属而保持了强度和韧性,但价格提升VS新型钢无需添加其他全属也能保持强度和韧性\";在强度和韧性 上相当,在成本上则更低廉。空格调应体现\"(两种合金在性能上的)一致性/同等性\",图定表达becomparable to\"比得上,与.相当”符合文意。 L)relevant亦可形成berelevantto结构,对本空有一定干扰,但其语义“与....相关\"用于描述事物间的 联系,即一事物受另一事物影响并随其发生改变,显然不符合本空所述两事物之间的对比情形,可排除。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abruptly"
+            },
+            {
+              "key": "B",
+              "text": "additives"
+            },
+            {
+              "key": "C",
+              "text": "approach"
+            },
+            {
+              "key": "D",
+              "text": "ardently"
+            },
+            {
+              "key": "E",
+              "text": "besieged"
+            },
+            {
+              "key": "F",
+              "text": "channel"
+            },
+            {
+              "key": "G",
+              "text": "comparable"
+            },
+            {
+              "key": "H",
+              "text": "components"
+            },
+            {
+              "key": "I",
+              "text": "cracked"
+            },
+            {
+              "key": "J",
+              "text": "fractures"
+            },
+            {
+              "key": "K",
+              "text": "hollow"
+            },
+            {
+              "key": "L",
+              "text": "relevant"
+            },
+            {
+              "key": "M",
+              "text": "reshuffled"
+            },
+            {
+              "key": "N",
+              "text": "strived"
+            },
+            {
+              "key": "O",
+              "text": "violent"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【答案】H。【解析】空34位于both A and B结构中，the number of…为名词结构，作后置定语的needed in a construction job与their weight为并列成分，中心词空34应为名词。研究团队希望通过新工艺提高钢的强度和韧性，进而减少建筑工程中所需的数量和重量，最终减少所需钢材或钢材用量。空34应表示零件、组件、施工材料等，对应parts、bolts、solid supports、tubes等，components正确。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abruptly"
+            },
+            {
+              "key": "B",
+              "text": "additives"
+            },
+            {
+              "key": "C",
+              "text": "approach"
+            },
+            {
+              "key": "D",
+              "text": "ardently"
+            },
+            {
+              "key": "E",
+              "text": "besieged"
+            },
+            {
+              "key": "F",
+              "text": "channel"
+            },
+            {
+              "key": "G",
+              "text": "comparable"
+            },
+            {
+              "key": "H",
+              "text": "components"
+            },
+            {
+              "key": "I",
+              "text": "cracked"
+            },
+            {
+              "key": "J",
+              "text": "fractures"
+            },
+            {
+              "key": "K",
+              "text": "hollow"
+            },
+            {
+              "key": "L",
+              "text": "relevant"
+            },
+            {
+              "key": "M",
+              "text": "reshuffled"
+            },
+            {
+              "key": "N",
+              "text": "strived"
+            },
+            {
+              "key": "O",
+              "text": "violent"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【答案】K) hollow。【解析】空35位于 replace A with B 结构中，且空格后已有名词tubes，空格词应为其修饰成分。前文介绍了制得钢的新方式，结合上下文整理得出：新工艺提高钢的强度及韧性，可以用于制造高强度钢部件，进而减少建筑工程中所需的数量和重量，最终减少所需钢材或钢材用量。由此可知，35空 tubes 应与 solid supports 相对，传达出数量更少、重量更轻的语义。hollow与solid相对，符合重量更轻要求。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2019-06-3-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Satellites used to be the exclusive playthings of rich governments and wealthy corporations. But increasingly, as space becomes more democratized, they are coming within reach of ordinary people. Just like drones (无人机) before them, miniature satellites are beginning to fundamentally transform our conceptions of who gets to do what up above our heads.",
+        "B) As a recent report from the National Academy of Sciences highlights, these satellites hold tremendous potential for making satellite-based science more accessible than ever before. However, as the cost of getting your own satellite in orbit drops sharply, the risks of irresponsible use grow. The question here is no longer “Can we?” but “Should we?” What are the potential downsides of having a slice of space densely populated by equipment built by people not traditionally labeled as “professionals”? And what would the responsible and beneficial development and use of this technology actually look like? Some of the answers may come from a nonprofit organization that has been building and launching amateur satellites for nearly 50 years.",
+        "C) Having your personal satellite launched into orbit might sound like an idea straight out of science fiction. But over the past few decades a unique class of satellites has been created that fits the bill: CubeSats. The “Cube” here simply refers to the satellite’s shape. The most common CubeSat is a 10cm cube, so small that a single CubeSat could easily be mistaken for a paperweight on your desk. These mini-satellites can fit in a launch vehicle’s formerly “wasted space.” Multiples can be deployed in combination for more complex missions than could be achieved by one CubeSat alone.",
+        "D) Within their compact bodies these minute satellites are able to house sensors and communications receivers/transmitters that enable operators to study Earth from space, as well as space around Earth. They're primarily designed for Low Earth Orbit (LEO) - an easily accessible region of space from around 200 to 800 miles above Earth, where human-tended missions like the Hubble Space Telescope and the International Space Station (ISS) hang out. But they can attain more distant orbits; NASA plans for most of its future Earth-escaping payloads (to the moon and Mars especially) to carry CubeSats.",
+        "E) Because they’re so small and light, it costs much less to get a CubeSat into Earth’s orbit than a traditional communications or GPS satellite. For instance, a research group here at Arizona State University recently claimed their developmental small CubeSats could cost as little as $3,000 to put in orbit. This decrease in cost a11ows researchers, hobbyists and even elementary school groups to put simple instruments into LEO or even having them deployed from the ISS.",
+        "F) The first CubeSat was created in the early 2000s, as a way of enabling Stanford graduate students to design, build, test and operate a spacecraft with similar capabilities to the USSR’s Sputnik (前苏联的人造卫星). Since then, NASA, the National Reconnaissance Office and even Boeing have all launched and operated CubeSats. There are more than 130 currently in operation. The NASA Educational Launch of Nano Satellite program, which offers free launches for educational groups and science missions, is now open to U.S. nonprofit corporations as well. Clearly, satellites are not just for rocket scientists anymore.",
+        "G) The National Academy of Sciences report emphasizes CubeSats’ importance in scientific discovery and the training of future space scientists and engineers. Yet it also acknowledges that widespread deployment of LEO CubeSats isn’t risk-flee. The greatest concern the authors raise is space debris - pieces of “junk” that orbit the earth, with the potential to cause serious damage if they collide with operational units, including the ISS.",
+        "H) Currently, there aren’t many CubeSats and they’re tracked closely. Yet as LEO opens up to more amateur satellites, they may pose an increasing threat. As the report authors point out, even near-misses might lead to the “creation of a burdensome regulatory framework and affect the future disposition of science CubeSats.”",
+        "I) CubeSat researchers suggest that now’s the time to ponder unexpected and unintended possible consequences of more people than ever having access to their own small slice of space. In an era when you can simply buy a CubeSat kit off the shelf, how can we trust the satellites over our heads were developed with good intentions by people who knew what they were doing? Some “expert amateurs” in the satellite game could provide some inspiration for how to proceed responsibly.",
+        "J) In 1969, the Radio Amateur Satellite Corporation (AMSAT) was created in order to foster ham radio enthusiasts’ (业余无线电爱好者) participation in space research and communication. It continued the efforts, begun in 1961, by Project OSCAR- a U.S.-based group that built and launched the very first nongovernmental satellite just four years after Sputnik. As an organization of volunteers, AMSAT was putting “amateur” satellites in orbit decades before the current CubeSat craze. And over time, its members have learned a thing or two about responsibility. Here, open. source development has been a central principle, Within the organization, AMSAT has a philosophy of open sourcing everything making technical data on all aspects of their satellites fully available to everyone in the organization, and when possible, the public. According to a member of the team responsible for FOX 1-A, AMSAT’s first CubeSat, this means that there’s no way to sneak something like explosives or an energy emitter into an amateur satellite when everyone has access to the designs and implementation.",
+        "K) However, they’re more cautious about sharing information with nonmembers, as the organization guards against others developing the ability to hijack and take control of their satellites. This form of “self-governance” is possible within long-standing amateur organizations that, over time, are able to build a sense of responsibility to community members, as well as society in general. But what happens when new players emerge, who don’t have deep roots within the existing culture?",
+        "L) Hobbyists and students are gaining access to technologies without being part of a long-standing amateur establishment. They’re still constrained by funders, launch providers and a series of regulations - all of which rein in what CubeSat developers can and cannot do. But there’s a danger they’re ill-equipped to think through potential unintended consequences. What these unintended consequences might be is admittedly far from clear. Yet we know innovators can be remarkably creative with taking technologies in unexpected directions. Think of something as seemingly benign as the cellphone - we have microfinance and text-based social networking at one end of the spectrum, and improvised (临时制作的) explosive devices at the other.",
+        "M) This is where a culture of social responsibility around CubeSats becomes important – not simply to ensure that physical risks are minimized, but to engage with a much larger community in anticipating and managing less obvious consequences of the technology. This is not an easy task. Yet the evidence from AMSAT and other areas of technology development suggests that responsible amateur communities can and do emerge around novel technologies. The challenge here, of course, is ensuring that what an amateur communities considers to be responsible, actually is. Here’s where there needs to be a much wider public conversation that extends beyond government agencies and scientific communities to include students, hobbyists, and anyone who may potentially stand to be affected by the use of CubeSat technology."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Given the easier accessibility to space, it is time to think about how to prevent misuse of satellites.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "I",
+          "explanation": "鉴于向太空发射人造卫星变得更加客易,是时候思考如何避免卫星溢用的问题了。 [答案]][】[精解][门段1句发出提醒:如今立方星非常容易获取,很难保证卫星不被坏人利用,是时 候思考立方星的后果了,也即需要思考如何防止卫星被坏人利用。本题是对该两句的概括,其中hoWto prevent misuse of satellites同义转速2句how can we trust...。"
+        },
+        {
+          "number": 37,
+          "stem": "A group of mini-satellites can work together to accomplish more complex tasks.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "C",
+          "explanation": "一组迷你卫星协同合作能够完成更加复杂的任务。 [答案][C][精解][C]段引出立方星这种遂你卫星(mini-satellites),句指出多个速你卫星可协同作 业完成复杂任务。本题是对3句大意的同义改写。"
+        },
+        {
+          "number": 38,
+          "stem": "The greater accessibility of mini-satellites increases the risks of their irresponsible use.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "B",
+          "explanation": "迷你卫星更加容易获取增加了不负责任使用卫星的风险。 [答案】[B][精解][B]段2句指出,如今发射个人专属卫星的成本大幅降低,意味着卫星越来越容易 获取,这增加了不负责任地溢用卫星的风险”。本题是对该两句的概括,其中greater对应表示变化的动词 drops,均表明卫星日益普及的趋势。"
+        },
+        {
+          "number": 39,
+          "stem": "Even school pupils can have their CubeSats put in orbit owing to the lowered launching cost.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "E",
+          "explanation": "由于发射成本降低,甚至小学生都能将他们的立方星送入轨道。 [答案][E][精解][E]投12句介绍立方星发射成本大幅降低,3句进而指出发射成本低使得包括小 学生在内的更多人都能发射专属卫星。本题是对3句内容的同义改写。 [答案][] [精解][K]投1句指出AMSAT不轻易对外人分享资源,以防卫星被劫持。本题是对该句 的同义改写,其中iscareful about同义替换are...cautious about;toprevent.同义替换guards against...。"
+        },
+        {
+          "number": 40,
+          "stem": "AMSAT is careful about sharing information with outsiders to prevent hijacking of their satellites.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【答案】K。【解析】K段①句指出AMSAT不轻易对外分享资源，以防卫星被劫持。本题是对该句的同义改写，其中is careful about可又替换为are cautious about；to prevent对应guards against。"
+        },
+        {
+          "number": 41,
+          "stem": "NASA offers to launch CubeSats free of charge for educational and research purposes.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "F",
+          "explanation": "NASA为教育和研究目的免费提供发射立方星的服务。 [答案][F] [精解][F]段4句指出NASA为教育和科研团队免费提供卫星发射服务。本题是对该句 的同义改写。"
+        },
+        {
+          "number": 42,
+          "stem": "Even with constraints, it is possible for some creative developers to take the CubeSat technology in directions that result in harmful outcomes.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "L",
+          "explanation": "即便有限制,一些创新的研发者仍然有可能将立方星用于导致不良结果的方向上。 [答案][L][精解][L]段2句指出新加入的业余卫星爱好者的确受到一些限制,句转而继续指出一 些人在利用技术方面创意无穷,很可能会将卫星用于不良目的。本题是对两句内客的总结概括。"
+        },
+        {
+          "number": 43,
+          "stem": "While making significant contributions to space science, CubeSats may pose hazards to other space vehicles.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "G",
+          "explanation": "立方星尽管为太空科学做出巨大贡献,但也可能给其他太空装置带来危害。 [答案][G][精解】[G]段1句肯定立方星对科学研究至关重要,23句指出其并非没有风险\"太空残 巅增多,如果撞上太空中运行的设备将造成严重后果”。本题是对该段大意的概括总结。"
+        },
+        {
+          "number": 44,
+          "stem": "Mini-satellites enable operators to study Earth from LEO and space around it.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "D",
+          "explanation": "迷你卫星使操作者能够从近地轨道研究地球及其周围空间。 [答案][D】[精解][D]段1句介绍立方星(你卫星的用途研究地球及其周图空间”,2句介绍其运 行轨道\"要在近地轨道(LEO)运行\"。本题是对1句的同义概括,LEO是对句中space的具化。"
+        },
+        {
+          "number": 45,
+          "stem": "AMSAT operates on the principle of having all its technical data accessible to its members, preventing the abuse of amateur satellites.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "J",
+          "explanation": "AMSAT的运营原则是,使所有成员都能获取所有技术数据,以避免业余卫星的溢用。 [答案][J] [[精解]投3向介绍AMSAT的原则/理念(aphilosophy)\"所有技术数据全部内部开源 共享,人人都能获取卫星设计和操控数据”,1句指出其好处“避免卫星为不法分子所利用”。本题是对两句内 容的概括总结。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2019-06-3-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "When I re-entered the full-time workforce a few years ago after a decade of solitary self-employment, there was one thing I was looking forward to the most: the opportunity to have work friends once again. It wasn’t until I entered the corporate world that I realized, for me at least, being friends with colleagues didn’t emerge as a priority at all. This is surprising when you consider the prevailing emphasis by scholars and trainers and managers on the importance of cultivating close interpersonal relationships at work. So much research has explored the way in which collegial ( 同 事 的 ) ties can help overcome a range of workplace issues affecting productivity and the quality of work output such as team-based conflict, jealousy, undermining, anger, and more. Perhaps my expectations of lunches, water-cooler gossip and caring, deep-and-meaningful conversations were a legacy of the last time I was in that kind of office environment. Whereas now, as I near the end of my fourth decade, I realize work can be fully functional and entirely fulfilling without needing to be best mates with the people sitting next to you. In an academic analysis just published in the profoundly-respected Journal of Management, researchers have looked at the concept of “indifferent relationships”. It’s a simple term that encapsulates (概括) the fact that relationships at work can reasonably be non-intimate, inconsequential, unimportant and even, dare I say it, disposable or substitutable. Indifferent relationships are neither positive nor negative. The limited research conducted thus far indicates they’re especially dominant among those who value independence over cooperation, and harmony over confrontation. Indifference is also the preferred option among those who are socially lazy. Maintaining relationships over the long term takes effort. For some of us, too much effort. As noted above, indifferent relationships may not always be the most helpful approach in resolving some of the issues that pop up at work. But there are nonetheless several empirically proven benefits. One of those is efficiency. Less time chatting and socializing means more time working and churning (产出). The other is self-esteem. As human beings, we’re primed to compare ourselves to each other in what is an anxiety-inducing phenomenon. Apparently, we look down on acquaintances more so than friends. Since the former is most common among those inclined towards indifferent relationships, their predominance can bolster individuals’ sense of self-worth. Ego aside, a third advantage is that the emotional neutrality of indifferent relationships has been found to enhance critical evaluation, to strengthen one’s focus on task resolution, and to gain greater access to valuable information. None of that might be as fun as after-work socializing but, hey, I’ll take it anyway."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What did the author realize when he re-entered the corporate world?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Making new friends with his workmates was not as easy as he had anticipated."
+            },
+            {
+              "key": "B",
+              "text": "Cultivating positive interpersonal relationships helped him expel solitary feelings."
+            },
+            {
+              "key": "C",
+              "text": "Working in the corporate world requires more interpersonal skills than self-employment."
+            },
+            {
+              "key": "D",
+              "text": "Building close relationships with his colleagues was not as important as he had expected."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]D)。文首两句对比作者重回职场前后的心理感受:最期待与同事为友VS与同事为友根本算 不上头等大事。可见,作者重回职场前以为与同事为友是头等大事,而重回职场后发现这根本算不上头等大 事,故D)正确。 [排除干扰]A)将原文作者感悟:与同事交朋友并非那么重要(not...apriorityatall)审改为并非那么容 易(not...easy)。B)利用首句\"10年自由职业孤单,重回职场之际最期待又能与同事为友\"捏造出\"积极人 际关系能消除孤独感”,但文中并未提及积极人际关系对张独感的作用。C)由31句“职场中亲密人际关系 的重要性”捏造出“职场工作比自由职业更需要人际交往能力”,但文中并未提及这两种工作对人际交往能 力的要求。 [提炼思路此题针对开篇对比处(比较对象“重职场前后的感受”、比较内客“与同事为友的重要性, 即,亲密同事关系的重要性”、比较结果“前:认为很重要VS后:感爱一点都不重要\")设题,实际考查对象为作 者重回职场后对亲密同事关系重要性的感受。可根据题干中realize找到定位句句realized...;然后于定位 部分中找到有关感受的相关表达didn't emerge as a priorityatall,并根据priority\"优先处理的事,当务之急” 所指向的\"重要性选D)舍A)。"
+        },
+        {
+          "number": 47,
+          "stem": "What do we learn from many studies about collegial relationships?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Inharmonious relationships have an adverse effect on productivity."
+            },
+            {
+              "key": "B",
+              "text": "Harmonious relationships are what many companies aim to cultivate."
+            },
+            {
+              "key": "C",
+              "text": "Close collegial relationships contribute very little to product quality."
+            },
+            {
+              "key": "D",
+              "text": "Conflicting relationships in the workplace exist almost everywhere."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]A)。该句指出,许多研究探案了\"(亲密)同事关系如何帮助克服职场中一系列影响工作效率 和工作质量的问题的方式”,由此可见,密切/和谱的同事关系会对工作效率和质量有积极影响,而疏远/不和 谱的同事关系会对工作效率和质量有消极影响。故A)正确,同时排除C)。 [排除干扰]B)由首段3句“培训师、管理者都强调亲密的同事关系的重要性\"推导而来,但这是管理现 状,并非研究所涉内客,D)根据段末句尾suchasteam-based conflict,jealousy,undermining,anger,and more所展现出的“职场中问题多多\"捏造出“职场中冲突无处不在”,但文中无据可依。 [提炼思路]本题表面考查“事实细节”,实质考查对长难句的理解。首先提取句子主干,明确主客体之间 运样关系:collegial ties帮助克服workplace issues,workplace issues影响productivity and the qualityof work output,二者结合即:collegial ties影响productivity and thequality of work output,即积极的同事关系对效率 和产出质量产生积极影响,消极的同事关系产生消极影响,锁定A)。 Il O Perhaps my expectations of lunches, water-cooler 我对午餐、办公室八卦以及充满 gossip° and caring, deep-and-meaningful conversations were a 关怀,深入而又有意义的交谈的期待 legacy° of the last time I was in that kind of office environment. 也许是上份工作办公环境的后遗症。 Whereas now, as I near the end of my fourth decade, I realize 然而现在,随着年岁渐近40,我突然 work can be fully functional and entirely fulfillingwithout 意识到,无需与旁座同事为友,工作 needing to be best mates with the people sitting next to you. 也能全面开展、成就满满。 ·"
+        },
+        {
+          "number": 48,
+          "stem": "What can be inferred about relationships at work from an academic analysis?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They should be cultivated."
+            },
+            {
+              "key": "B",
+              "text": "They are virtually irrelevant."
+            },
+            {
+              "key": "C",
+              "text": "They are vital to corporate culture."
+            },
+            {
+              "key": "D",
+              "text": "They should be reasonably intimate."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]B)。段中首先引出学术分析中探讨的概念:淡漠关系;随后对它进行具体介绍;这一术语筒 单,却袁括达样一个事实一一职场关系可以不亲密、微不足道、不重要、甚至可以用完即切或可任意取代。由 此可推知,职场关系几乎无关紧要,故B)正确。 [排除干扰]A)、C)均流露出“职场关系重要\"之意,与学术分析所示信息相悼;D)将canreasonablybe non-intimate\"可以合理地不亲密(不亲密也合理)”审改为shouldbereasonablyintimate“应该适当亲密\"(附 注;文中reasonably用以说明canbe...,选项中reasonably用以说明intimate,有语义差别)。 [提炼思路]本题易于定位,关键在于把握作者用词的情感态度,首先由定位句提炼原文对relationships atwork的关键描速:(reasonably)non-intimate、inconsequential,unimportant,disposable、substitutable,根据前 三个词的否定前缓non-、in-、un-即可宽探出该学术分析对职场关系的否定态度,即职场关系应该是不亲密、不 重要的(因此不需要培养),排除A)、C)、D)。其次也可通过作者经历(和同事交期友并不重要)、文章主旨(淡 漠的同事关系带来益处)锁定答案B)。"
+        },
+        {
+          "number": 49,
+          "stem": "What does the author say about people who are socially lazy?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They feel Uncomfortable when engaging in social interactions."
+            },
+            {
+              "key": "B",
+              "text": "They often find themselves in confrontation with their colleagues."
+            },
+            {
+              "key": "C",
+              "text": "They are Unwilling to make efforts to maintain Workplace relationships."
+            },
+            {
+              "key": "D",
+              "text": "They lack basic communication skills in dealing with interpersonal issues."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]C)。第四段3句指出,淡漠(关系是社交懒人首选;随后13句补充说明原因:长期维持关 系需要付出(太多)努力。可见,对于社交懒人而言,他们不愿意势力维持职场关系,他们选择淡漠职场关系, 认为职场关系并不重要(不影响工作效率及质量),故C)正确。 [排除干扰]A)、B)均根据2句(value)harmonyoverconfrontation重和谐甚于冲突\"分别捏造出\"人际交 往不适(因为害怕冲突所以重视和谱)”、“常与人发生冲突(为了避免冲突而选择和谱)”,D)则根据2句value independence overcooperation\"重独立甚于合作”捏造出\"缺乏基本沟通技巧(因为不会沟通而选择独立)\",但 丈中这两个valueAoverB结构均非说明社交懒人,而是与之并行的另一群体;重独立甚于合作、重和谱甚于 冲突的人群。 [提炼思路]作者观点态度题重在把握定位处中作者观点态度表达,如本题,如若抓住Indifference is the preferred option,maintaining relationships...take effort...toomuch effort即可判断作者对社交懒人的说法; 领向于选择淡漠,(固为)维持关系费力、费很大力。捷径:实际可结合全文话题“职场关系”及作者站位“职场 淡漠关系无碍工作效率及质量、职场关系无关崇要\"即可快准狼地推断出作者对社交懒人的评价“社交懒情分 子燃于社交,燃于维持工作中同事间关系,从而选择淡漠职场关系\",从而挑选出与之文意匹配的C(unwilling to make efforts to. .. )。"
+        },
+        {
+          "number": 50,
+          "stem": "What is one of the benefits of indifferent relationships?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They provide fun at Work."
+            },
+            {
+              "key": "B",
+              "text": "They help control emotions."
+            },
+            {
+              "key": "C",
+              "text": "They help resolve differences."
+            },
+            {
+              "key": "D",
+              "text": "They improve Work efficiency."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]D)。第五段末两句指出好处之一;效率——花在闲聊、社交上的时间更少意味着有更好的时 间来工作及产出,意即,淡漠关系能够提升工作效率,故D)正确。 [排除干扰]A)中fun来自文末句,但这里指“淡漠关系(带来的益处)不如下班后杜交有趣”,而非“淡漠 关系为工作提供乐趣\"。B)由indifferent的常规联想(冷静克制)和末段emotionalneutrality(情感中立)杂操 捏造出“控制情绪\",原文并无根据。C)将第五段首句“解决工作问题(resolving...issues...atwork)\"基改为 \"解决分歧(resolve differences)\"。 [提炼思路]本题考查事实细节,解题难点在于定位范围过广,难以精准定位。解题步骤;一、提炼各项核心 调:A项fun、B项control emotions、C项resolvedifferences、D项efficiency,二、提炼各定位段的核心信息:第五段 efficiency、第六段self-esteem、第七段critical evaluation、focus、informationaccess交叉对比即可确定D项正确。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2019-06-3-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "In a few decades, artificial intelligence (AI) will surpass many of the abilities that we believe make us special. This is a grand challenge for our age and it may require an “irrational” response. One of the most significant pieces of news from the US in early 2017 was the efforts of Google to make autonomous driving a reality. According to a report, Google’s self-driving cars clocked 1,023,330 km, and required human intervention 124 times. That is one intervention about every 8,047 km of autonomous driving. But even more impressive is the progress in just a single year: human interventions fell from 0.8 times per thousand miles to 0.2, a 400% improvement. With such progress, Google’s cars will easily surpass my own driving ability later this year. Driving once seemed to be a very human skill. But we said that about chess, too. Then a computer beat the human world champion, repeatedly. The board game Go (围棋) took over from chess as a new test for human thinking in 2016, when a computer beat one of the world’s leading professional Go players. With computers conquering what used to be deeply human tasks, what will it mean in the future to be human? I worry about my six-year-old son. What will his place be in a world where machines beat us in one area after another? He’ll never calculate faster, never drive better, or even fly more safely. Actually, it all comes down to a fairly simple question: What’s so special about us? It can’t be skills like arithmetic, which machines already excel in. So far, machines have a pretty hard time emulating creativity, arbitrary enough not to be predicted by a computer, and yet more than simple randomness. Perhaps, if we continue to improve information-processing machines, we’ll soon have helpful rational assistants. So we must aim to complement the rationality of the machine, rather than to compete with it. If I'm right, we should foster a creative spirit because a dose of illogical creativity will complement the rationality of the machine. Unfortunately, however, our education system has not caught up to the approaching reality. Indeed, our schools and universities are structured to mould pupils to be mostly obedient servants of rationality, and to develop outdated skills in interacting with outdated machines. We need to help our children learn how to best work with smart computers to improve human decision-making. But most of all we need to keep the long-term perspective in mind: that even if computers will outsmart us, we can still be the most creative. Because if we aren’t, we won’t be providing much value in future ecosystems, and that may put in question the foundation for our existence."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What is the author’s greatest concern about the use of AI?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Computers are performing lots of creative tasks."
+            },
+            {
+              "key": "B",
+              "text": "Many abilities will cease to be unique to human beings."
+            },
+            {
+              "key": "C",
+              "text": "Computers may become more rational than humans."
+            },
+            {
+              "key": "D",
+              "text": "Many human skills are fast becoming outdated."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]B]。第一段1句介绍趋势;人工智能将在许多我们自以为独特的能力方面超越我们。2句 评论:这是我们当今时代的一大挑战。由此可知,作者担优AI的应用将导致很多能力不再为人类所独有,B 正确。 [排除干扰]A、D均从定位信息过度推断而来,前者与第三段段末信息“AI尚不能仿效人奥的创造力\"相 停,后者Many...outdated过于绝对,文中并无信息支撑,C看似符合第四段首句对AI的预测\"继续改进信 息处理机器将为我们带来具备理性(rational)的好帮手”,但首先“好帮手”≠“更理性”,其次该内容立足“正 面”,并非作者担忧之事。 [提炼思路]解答本题的关键在于理解定位处surpass一词含义:第一段首先指出AI对人类构成巨大挑 战,第二段以谷歌无人驾驶汽车为例进行说明(末句复现surpass\"谷歌无人汽车‘超越'作者的驾驶技能\"),第 三段首句繁接着指出“驾驶曾经是一项人类专属技能”,可知AI之所以对人类构成挑战,是固为它做到了很多 原本只有人类才能做的事。故确定答案为B。注:D所关注的“技能有用性”并不涉及对人类整体的威胁,非 文章关注点所在。 Il o One of the most significant pieces of news from 2017年初美国一则重大新闻是有关 the US in early 2017 was the efforts of Google to make 谷歌为实现自动驾驶所作的种种努力。 autonomous driving a reality. According to a report, 根据一项报告,谷歌的无人驾驶汽车已 Google's self-driving cars clocked° 1, 023, 330 km, and 跑了1023330公里,期间所需的人为千 required human intervention 124 times. That is one 预操作为124次,也就是每自动驾驶 intervention about every 8,047 km of autonomous driving. 8047公里才有一次人为千预。但更令人 oBut even more impressive is the progress in just a 叹服的是它在仅仅一年时间里所取得的 single year: human interventions fell from 0, 8 times per 进步:人为干预从每千英里0.8次下降 thousand miles to 0, 2, a 400% improvement. ?With 至0.2次,改进了400%。照这样的发展 such progress, Google's cars will easily surpass my own 速度,谷歌汽车(的驾驶能力)到年底就 driving ability later this year. 轻松超越我的驾驶能力了。 ·"
+        },
+        {
+          "number": 52,
+          "stem": "What impresses the author most in the field of AI?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Google’s experimental driverless cars require little human intervention."
+            },
+            {
+              "key": "B",
+              "text": "Google’s cars have surpassed his driving ability in just a single year."
+            },
+            {
+              "key": "C",
+              "text": "Google has made huge progress in autonomous driving in a short time."
+            },
+            {
+              "key": "D",
+              "text": "Google has become a world leader in the field of autonomous driving."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]C)。本段介绍了AI领域重大应用之一“谷歌自动驾驶汽车”。1句首先指出谷歌在自动驾 驶方面的势力引发关注。23句具体介绍其成就;自动驾驶汽车仅需要极少的人为千预操作。1句进而引出 更今人叹服的内容;仅一年内自动化程度就提高400%。综上可知,最今作者印象深刺的当属谷歌自动驾驶技 术“在短时间内取得的巨大进步”,C正确。 [排除干扰]A源于第二投中23句信息,但“AI程度高”并非题干所问的\"impressesthe authorthe most”,其次littleintervention有些绝对:少≠几乎无需。B将3句“未来预测(will easilysurpass)\"至曲为“当 前事实”。D由1句谷歌驾驶技术“引发高度关注”过度推断出“领先全世界”。 [提炼思路]本题实际考查对\"(针对首段论点的)论据”的理解,因此除惯常解题法“细节定位”之外,还可 结合论点综合考虑。首先整理定位投信息(1句引出谷歌自动驾驶技术,23句介绍引关注之事\"谷歌汽车极 少需要人为干预”,4句转而引出更惊人之事“极短时间内极大降低了人为干预\"), 结合首段论点“人类很快会被机器超越是最大挑战”可以更加明确23句和4句间的递进内涵;“技术相 当成熟\"不算什么(至少还需要人类干预),更夸张的是“这种成熟还在快速精进(不日将超越人类)”。此时再 看选项,A侧重\"技术之高(而非技术进展之快)\"、D从“国别角度(而非人机角度)\"进行比较,首先排除;B方 向正确,但夸大了“进展速度之快”,只有C方向和内容皆正确。"
+        },
+        {
+          "number": 53,
+          "stem": "What do we learn from the passage about creativity?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is rational."
+            },
+            {
+              "key": "B",
+              "text": "It is predictable."
+            },
+            {
+              "key": "C",
+              "text": "It is human specific."
+            },
+            {
+              "key": "D",
+              "text": "It is yet to be emulated by AI."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]D)。该句指出,目前为止,机器(即AI)想模仿创造力还相当困难,因为创造力不是单纯的随 机,它具有很强的任意性,不是计算机所能够推知的。故D正确,同时排除B。 [排除干扰]A与句中creativity的修饰语arbitraryenoughnottobepredicted byacomputer(主观任意性 很强,机器没法习得规律)所含之意“创造力非理性、不合逻辑”相悸。C将文中比较对象“人机对比一机器 [提炼思路]本题实际换了个角度对第三段语义重心\"人类VS机器相比的独特优势所在—创造力\"进 行考查。题目未采取正向考查方式,对\"独特优势是什么\"发问,而是反向考查:将\"答案\"creativity提取,考查 “问题”,即该词在段中的内涵(是人类相比机器的独特优势;是任意而非理性的;是理性/逻辑的机器难以模仿 的)。选项中A和B很明显是机器的特点,背离全段语义重心,C干扰很强,但偷换了比对对象,事实上许多动 物也具备创新能力。"
+        },
+        {
+          "number": 54,
+          "stem": "What should schools help children do in the era of AI?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Cultivate original thinking."
+            },
+            {
+              "key": "B",
+              "text": "Learn to work independently."
+            },
+            {
+              "key": "C",
+              "text": "Compete with smart machines."
+            },
+            {
+              "key": "D",
+              "text": "Understand how AI works."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]A)。该句指出,我们需要帮助孩子,让他们学会如何与智能计算机合作,改善人类决策。而 回顾23句可知,人类需要借助创造力与机器的理性形成互补,我们需要鼓励创新精神。综上可知,学校应该 鼓励并帮助学童培养创新思维,A正确。 [排除干扰]B从句obedientservants臆断出“学生不成熬、不独立”,但“顺从\"在文中对应“打破常规、 创新”。C与2句“我们不应与机器(的理性)争斗\"相学。D将段中所述“与机器通力合作\"误读为\"必掌 握AI相关技能(以驾驭、协同)\",但“通力合作\"是作者在据正人类态度“不应竞争/数对,而应加以利用”,而 非对学校的期许,事实上文中对当前教育的不满并非“忽视AI相关教育”,而是“对理性内容灌输过多,息略 创新能力”。 [提炼思路]为解答本题而定位至第四段1句,发现其并不直接提示答案后,可先根据情感词 Unfortunately及逻辑词however在定位段中划分出1-4句和1-向两个句群(1句But提示其与定位句不 属同一句群,故不考虑)。对两个句群内部进行分析后可知,它们都遵措\"描述情况(1句、42句)一—提出建 议(23句、3句)\"的逻辑,在内容上则由“针对全人类\"细化为“针对学校教育”。因此考生需意识到,作者在 后一句群中对学校的建议(helpourchildrenlearn howto bestworkwith smart computers)实际上呼应作者对 人类整体的提议(fostera creative spirit),亦即学校应该帮助学童培养创新(即不拘泥于惯例/现有逻辑)的精 神,确定答案为A。"
+        },
+        {
+          "number": 55,
+          "stem": "How can we humans justify our future existence?",
+          "options": [
+            {
+              "key": "A",
+              "text": "By constantly outsmarting computers."
+            },
+            {
+              "key": "B",
+              "text": "By adopting a long-term perspective."
+            },
+            {
+              "key": "C",
+              "text": "By rationally compromising with AI."
+            },
+            {
+              "key": "D",
+              "text": "By providing value with our creativity."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]D)。本句指出,如果我们做不到这点(wearen't),那么我们就不能在未来创造多少价值,从 而动按自身存在的根基。回溯1句可知,“这点\"的具体内容即指“具有创造力(bethemostcreative)”。综上 可知,未来人类需要利用创造力创造价值,这样才能择卫自身存在,D正确。 [排除干扰]A、B千扰均源于1句:A利用让步状语“计算机可能会变得比我们聪明”过度推断出“我们需 要在智力/理性上胜过计算机”,但这与2句“我们应该与计算机的理性形成互补,而非与之竞争\"相学;B虽然 复现“长远眼光”,但此处意在提振我们人类的士气:长期来看人类仍然可以做到比机器更具创造力;\"眼光长 远”并不能解决“人类在AI时代存续”的问题。C源于投中“合作、互补”等信息,但文中并来提及“人类必须要 协”,其次“理性地\"恰恰是作者望人类暂且放下的东西,创造力对应的实为“非理性非逻辑”。 [提炼思路]本题一方面考查对文末信息的理解(故可凭语法知识回潮至1句求解),另一方面其实也是 作者对\"人类应如何应对人工智能发展以择卫自身价值\"提出的建议,属全文主旨题,故亦可从语篇角度考虑: 第一、二段介绍人工智能的迅速发展;第三段表达了对人类何去何从的担优,并指出区分人类与人工智能的关 键在于创造力(creativity);第四段进而呼吁人类利用创造力与人工智能形成互补,并借此对教育提出“培养、 激发学生创新能力\"的建议。综上可知,作者认为在人工智能快速发展的背景下,人类最需要做的就是发挥 (体现自身存在本质特点的)创造力,确定D正确。"
+        }
+      ]
+    }
+  ]
+}

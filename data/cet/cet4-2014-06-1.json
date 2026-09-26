@@ -1,0 +1,1442 @@
+{
+  "id": "cet4-2014-06-1",
+  "level": 4,
+  "year": 2014,
+  "month": 6,
+  "set": 1,
+  "title": "2014 年 6 月四级 · 第 1 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.06/%E7%9C%9F%E9%A2%98Word/2014%E5%B9%B46%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2014%E5%B9%B46%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%B8%80%EF%BC%89.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2014-06-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Many Brazilians cannot read. In 2000, a quarter of those aged 15 and older were functionally illiterate (文盲). Many [[36]] do not want to. Only one literate adult in three reads book. The [[37]] Brazilian reads 1.8 non-academic books a year, less than half the figure in Europe and the United States. In a recent survey of reading habits, Brazilians came 27th out of 30 countries. Argentines, their neighbours, [[38]] 18th. The government and businesses are all struggling in different ways to change this. On March 13 the government [[39]] a National Plan for Books and Reading. This seeks to boost reading, by founding libraries and financing publishers among other things. One discouragement to reading is that books are [[40]] . Most books have small print-runs, pushing up their price. But Brazilians’ indifference to books has deeper roots. Centuries of slavery meant the country’s leaders long [[41]] education. Primary schooling became universal only in the 1990s. All this means Brazil’s book market has the biggest growth [[42]] in the western world. But reading is a difficult habit to form. Brazilians bought fewer books in 2004, 89 million, including textbooks [[43]] by the government, than they did in 1991. Last year the director of Brazil’s national library [[44]] . He complained that he had haft the librarians he needed and termites (白蚁) had eaten much of the [[45]] . That ought to be a cause for national shame."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "average"
+        },
+        {
+          "key": "B",
+          "text": "collection"
+        },
+        {
+          "key": "C",
+          "text": "distributed"
+        },
+        {
+          "key": "D",
+          "text": "exhibition"
+        },
+        {
+          "key": "E",
+          "text": "expensive"
+        },
+        {
+          "key": "F",
+          "text": "launched"
+        },
+        {
+          "key": "G",
+          "text": "named"
+        },
+        {
+          "key": "H",
+          "text": "neglected"
+        },
+        {
+          "key": "I",
+          "text": "normal"
+        },
+        {
+          "key": "J",
+          "text": "particularly"
+        },
+        {
+          "key": "K",
+          "text": "potential"
+        },
+        {
+          "key": "L",
+          "text": "quit"
+        },
+        {
+          "key": "M",
+          "text": "ranked"
+        },
+        {
+          "key": "N",
+          "text": "simply"
+        },
+        {
+          "key": "O",
+          "text": "treasured"
+        }
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "第 36 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "average"
+            },
+            {
+              "key": "B",
+              "text": "collection"
+            },
+            {
+              "key": "C",
+              "text": "distributed"
+            },
+            {
+              "key": "D",
+              "text": "exhibition"
+            },
+            {
+              "key": "E",
+              "text": "expensive"
+            },
+            {
+              "key": "F",
+              "text": "launched"
+            },
+            {
+              "key": "G",
+              "text": "named"
+            },
+            {
+              "key": "H",
+              "text": "neglected"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "particularly"
+            },
+            {
+              "key": "K",
+              "text": "potential"
+            },
+            {
+              "key": "L",
+              "text": "quit"
+            },
+            {
+              "key": "M",
+              "text": "ranked"
+            },
+            {
+              "key": "N",
+              "text": "simply"
+            },
+            {
+              "key": "O",
+              "text": "treasured"
+            }
+          ],
+          "answer": "N",
+          "explanation": "N) simply。【详解】空格前面是many,承接上文,即many Brazilians; want to 后面省略了动词read,因此 空格处需要填入副词形式。备选项中只有两个副词,分别是simply 和particularly, simply 符合句意“许多人 只是不愿意读书”。由此确定副词simply 为本题答案。particularly 意为“独特地,显著地”,与句意不符, 故排除。"
+        },
+        {
+          "number": 37,
+          "stem": "第 37 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "average"
+            },
+            {
+              "key": "B",
+              "text": "collection"
+            },
+            {
+              "key": "C",
+              "text": "distributed"
+            },
+            {
+              "key": "D",
+              "text": "exhibition"
+            },
+            {
+              "key": "E",
+              "text": "expensive"
+            },
+            {
+              "key": "F",
+              "text": "launched"
+            },
+            {
+              "key": "G",
+              "text": "named"
+            },
+            {
+              "key": "H",
+              "text": "neglected"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "particularly"
+            },
+            {
+              "key": "K",
+              "text": "potential"
+            },
+            {
+              "key": "L",
+              "text": "quit"
+            },
+            {
+              "key": "M",
+              "text": "ranked"
+            },
+            {
+              "key": "N",
+              "text": "simply"
+            },
+            {
+              "key": "O",
+              "text": "treasured"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A) average。【详解】通过分析句子结构可知,空格处应填入形容词修饰名词Brazilian。通过下文的 1.8 non-academic books a year 可知,空格处形容词不可能表达总量,而应该是平均数,即“平均每个巴西 人”之意,由此确定average 为答案。备选形容词中,expensive 不能修饰人,named, normal 和potential 不 符合句意,可以排除。"
+        },
+        {
+          "number": 38,
+          "stem": "第 38 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "average"
+            },
+            {
+              "key": "B",
+              "text": "collection"
+            },
+            {
+              "key": "C",
+              "text": "distributed"
+            },
+            {
+              "key": "D",
+              "text": "exhibition"
+            },
+            {
+              "key": "E",
+              "text": "expensive"
+            },
+            {
+              "key": "F",
+              "text": "launched"
+            },
+            {
+              "key": "G",
+              "text": "named"
+            },
+            {
+              "key": "H",
+              "text": "neglected"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "particularly"
+            },
+            {
+              "key": "K",
+              "text": "potential"
+            },
+            {
+              "key": "L",
+              "text": "quit"
+            },
+            {
+              "key": "M",
+              "text": "ranked"
+            },
+            {
+              "key": "N",
+              "text": "simply"
+            },
+            {
+              "key": "O",
+              "text": "treasured"
+            }
+          ],
+          "answer": "M",
+          "explanation": "M) ranked。【详解】根据句子结构可知,空格处应填入动词过去式作谓语。巴西在被调查的30 个国家 中排名第27 位,而邻国阿根廷排名第18 位,故空格处填入的动词具有“排名”之意,故ranked 为答案。 备选项中的其他动词均无“排名”之意,故可排除。"
+        },
+        {
+          "number": 39,
+          "stem": "第 39 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "average"
+            },
+            {
+              "key": "B",
+              "text": "collection"
+            },
+            {
+              "key": "C",
+              "text": "distributed"
+            },
+            {
+              "key": "D",
+              "text": "exhibition"
+            },
+            {
+              "key": "E",
+              "text": "expensive"
+            },
+            {
+              "key": "F",
+              "text": "launched"
+            },
+            {
+              "key": "G",
+              "text": "named"
+            },
+            {
+              "key": "H",
+              "text": "neglected"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "particularly"
+            },
+            {
+              "key": "K",
+              "text": "potential"
+            },
+            {
+              "key": "L",
+              "text": "quit"
+            },
+            {
+              "key": "M",
+              "text": "ranked"
+            },
+            {
+              "key": "N",
+              "text": "simply"
+            },
+            {
+              "key": "O",
+              "text": "treasured"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F) launched。【详解】根据句子结构可知,空格处应填入动词过去式作谓语,且该动词可以与plan 搭配 构成动宾关系。下文中提到政府通过修建图书馆等措施推进民众读书,故launched 符合句意,即“发起计 划”。备选动词中,distributed 意为“分发”,后面接具体事物作宾语,neglected 意为“忽视”,quit 意为 “辞职,放弃”,quit a plan 意为“放弃计划”,ranked 常用来表达排名,且在上题已使用,treasured 意 为“珍爱”,常用情感或事物作宾语,故均可排除。"
+        },
+        {
+          "number": 40,
+          "stem": "第 40 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "average"
+            },
+            {
+              "key": "B",
+              "text": "collection"
+            },
+            {
+              "key": "C",
+              "text": "distributed"
+            },
+            {
+              "key": "D",
+              "text": "exhibition"
+            },
+            {
+              "key": "E",
+              "text": "expensive"
+            },
+            {
+              "key": "F",
+              "text": "launched"
+            },
+            {
+              "key": "G",
+              "text": "named"
+            },
+            {
+              "key": "H",
+              "text": "neglected"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "particularly"
+            },
+            {
+              "key": "K",
+              "text": "potential"
+            },
+            {
+              "key": "L",
+              "text": "quit"
+            },
+            {
+              "key": "M",
+              "text": "ranked"
+            },
+            {
+              "key": "N",
+              "text": "simply"
+            },
+            {
+              "key": "O",
+              "text": "treasured"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E) expensive。【详解】根据句子结构可知,空格处应填入形容词,构成系表结构。根据句中的 discouragement—词可知,此处说明影响巴西人不爱读书的因素。根据下文中的pushing up their price 可知, 这里描述的应该是书的价格,故expensive 符合句意。"
+        },
+        {
+          "number": 41,
+          "stem": "第 41 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "average"
+            },
+            {
+              "key": "B",
+              "text": "collection"
+            },
+            {
+              "key": "C",
+              "text": "distributed"
+            },
+            {
+              "key": "D",
+              "text": "exhibition"
+            },
+            {
+              "key": "E",
+              "text": "expensive"
+            },
+            {
+              "key": "F",
+              "text": "launched"
+            },
+            {
+              "key": "G",
+              "text": "named"
+            },
+            {
+              "key": "H",
+              "text": "neglected"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "particularly"
+            },
+            {
+              "key": "K",
+              "text": "potential"
+            },
+            {
+              "key": "L",
+              "text": "quit"
+            },
+            {
+              "key": "M",
+              "text": "ranked"
+            },
+            {
+              "key": "N",
+              "text": "simply"
+            },
+            {
+              "key": "O",
+              "text": "treasured"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H) neglected。【详解】空格处应填入动词作从句的谓语,本段分析了巴西人不爱读书的深层原因,即长 达几个世纪的奴隶制造成该国领导人长期忽视教育,结合下文提到“巴西基础教育在20 世纪90 年代才得 第9 页共14 页 到普及”可知,巴西教育的滞后深受奴隶制的影响,因此本空应选择neglected,即巴西“长期忽视教育”。"
+        },
+        {
+          "number": 42,
+          "stem": "第 42 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "average"
+            },
+            {
+              "key": "B",
+              "text": "collection"
+            },
+            {
+              "key": "C",
+              "text": "distributed"
+            },
+            {
+              "key": "D",
+              "text": "exhibition"
+            },
+            {
+              "key": "E",
+              "text": "expensive"
+            },
+            {
+              "key": "F",
+              "text": "launched"
+            },
+            {
+              "key": "G",
+              "text": "named"
+            },
+            {
+              "key": "H",
+              "text": "neglected"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "particularly"
+            },
+            {
+              "key": "K",
+              "text": "potential"
+            },
+            {
+              "key": "L",
+              "text": "quit"
+            },
+            {
+              "key": "M",
+              "text": "ranked"
+            },
+            {
+              "key": "N",
+              "text": "simply"
+            },
+            {
+              "key": "O",
+              "text": "treasured"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K) potential。【详解】通过分析句子结构可知,空格处应填入名词。因为巴西读书人数少,这在客观上 存在增长潜力,故potential 符合句意。growth potential 是常用搭配,意为“增长潜力”。"
+        },
+        {
+          "number": 43,
+          "stem": "第 43 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "average"
+            },
+            {
+              "key": "B",
+              "text": "collection"
+            },
+            {
+              "key": "C",
+              "text": "distributed"
+            },
+            {
+              "key": "D",
+              "text": "exhibition"
+            },
+            {
+              "key": "E",
+              "text": "expensive"
+            },
+            {
+              "key": "F",
+              "text": "launched"
+            },
+            {
+              "key": "G",
+              "text": "named"
+            },
+            {
+              "key": "H",
+              "text": "neglected"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "particularly"
+            },
+            {
+              "key": "K",
+              "text": "potential"
+            },
+            {
+              "key": "L",
+              "text": "quit"
+            },
+            {
+              "key": "M",
+              "text": "ranked"
+            },
+            {
+              "key": "N",
+              "text": "simply"
+            },
+            {
+              "key": "O",
+              "text": "treasured"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C) distributed。【详解】空格处应填入动词过去分词,作textbooks 的后置定语,distribute textbooks 意为 “分发教科书”,故答案为C)。"
+        },
+        {
+          "number": 44,
+          "stem": "第 44 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "average"
+            },
+            {
+              "key": "B",
+              "text": "collection"
+            },
+            {
+              "key": "C",
+              "text": "distributed"
+            },
+            {
+              "key": "D",
+              "text": "exhibition"
+            },
+            {
+              "key": "E",
+              "text": "expensive"
+            },
+            {
+              "key": "F",
+              "text": "launched"
+            },
+            {
+              "key": "G",
+              "text": "named"
+            },
+            {
+              "key": "H",
+              "text": "neglected"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "particularly"
+            },
+            {
+              "key": "K",
+              "text": "potential"
+            },
+            {
+              "key": "L",
+              "text": "quit"
+            },
+            {
+              "key": "M",
+              "text": "ranked"
+            },
+            {
+              "key": "N",
+              "text": "simply"
+            },
+            {
+              "key": "O",
+              "text": "treasured"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L) quit。【详解】空格处应填入动词构成主谓结构,结合下文的complained, shame 等词可知,巴西国 家图书馆馆长因对目前的状况不满而辞职,故quit 符合句意。"
+        },
+        {
+          "number": 45,
+          "stem": "第 45 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "average"
+            },
+            {
+              "key": "B",
+              "text": "collection"
+            },
+            {
+              "key": "C",
+              "text": "distributed"
+            },
+            {
+              "key": "D",
+              "text": "exhibition"
+            },
+            {
+              "key": "E",
+              "text": "expensive"
+            },
+            {
+              "key": "F",
+              "text": "launched"
+            },
+            {
+              "key": "G",
+              "text": "named"
+            },
+            {
+              "key": "H",
+              "text": "neglected"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "particularly"
+            },
+            {
+              "key": "K",
+              "text": "potential"
+            },
+            {
+              "key": "L",
+              "text": "quit"
+            },
+            {
+              "key": "M",
+              "text": "ranked"
+            },
+            {
+              "key": "N",
+              "text": "simply"
+            },
+            {
+              "key": "O",
+              "text": "treasured"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B) collection。【详解】空格前面有冠词the,故应填入名词。本句与图书馆有关collection 此处可理解为 “藏书”,符合句意。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2014-06-1-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) On a chilly day last spring, a few dozen developers of children’s apps (应用程序) for phones and tablets (平板电脑) gathered at an old beach resort in Monterey, California, to show off their games. The gathering was organized by Warren Buckleitner, a longtime reviewer of interactive children’s media. Buckleitner spent the breaks testing whether his own remote-control helicopter could reach the hall’s .second story, while various children who had come with their parents looked up in awe (敬畏) and delight. But mostly they looked down, at the iPads and other tablets displayed around the hall like so many open boxes of candy. I walked around and talked with developers, and several quoted a famous saying of Maria Montessori’s, “The hands are the instruments of man’s intelligence.”",
+        "B) What, really, would Maria Montessori have made of this scene? The 30 or so children here were not down at the shore poking (戳) their fingers in the sand or running them along stones or picking seashells. Instead they were all inside, alone or in groups of two or three, their faces a few inches from a screen, their hands doing things Montessori surely did not imagine.",
+        "C) In 2011, the American Academy of Pediatrics updated .its policy on very young children and media. In 1999, the group had discouraged television viewing for children younger than 2, citing research on brain development that showed this age group’s critical need for “direct interactions with parents and other significant care givers.” The updated report began by acknowledging that things had changed significantly since then. In 2006, 90% of parents said that their children younger than 2 consumed some form of electronic media. Nevertheless, the group took largely the same approach it did in1999, uniformly discouraging passive media use, on any type of screen, for these kids. (For older children, the academy noted, “high-quality programs” could have “educational benefits” .) The 2011 report mentioned “smart cell phone” and “new screen” technologies, but did not address interactive apps. Nor did it bring up the possibility that has likely occurred to those 90% of American parents that some good might come from those little swiping (在电子产品上刷) fingers.",
+        "D) I had come to the developers’ conference partly because I hoped that this particular set of parents, enthusiastic as they were about interactive media, might help me out of this problem, that they might offer some guiding principle for American parents who are clearly never going to meet the academy’s ideals, and at some level do not want to. Perhaps this group would be able to express clearly some benefits of the new technology that the more cautious doctors weren’t ready to address.",
+        "E) I fell into conversation with a woman who had helped develop Montessori Letter Sounds, an app that teaches preschoolers the Montessori methods of spelling. She was a former Montessori teacher and a mother of four. I myself have three children who are all fans of the touch screen. What games did her kids like to play, I asked, hoping for suggestions I could take home. “They don’t play all that much.” Really? Why not? “Because I don’t allow it. We have a rule of no screen time during the week, unless it’s clearly educational.” No screen time? None at all? That seems at the outer edge of restrictive, even by the standards of overcontrolling parents. “On the weekends, they can play. I give them a limit of half an hour and then stop. Enough.”",
+        "F) Her answer so surprised me that I decided to ask some of the other developers who were also parents what their domestic ground rules for screen time were. One said only on airplanes and long car rides. Another said Wednesdays and weekends, for half an hour. The most permissive said half an hour a day, which was about my rule at home. At one point I sat with one of the biggest developers of e-book apps for kids, and his family. The small kid was starting to fuss in her highchair, so the morn stuck an iPad in front of her and played a short movie so everyone else could enjoy their lunch. When she saw me watching, she gave me the universal tense look of mothers who feel they are being judged. “At home,” she assured me, “I only let her watch movies in Spanish.”",
+        "G) By their reactions, these parents made me understand the problem of our age: as technology becomes almost everywhere in our lives, American parents are becoming more, not less, distrustful of what it might be doing to their children. Technological ability has not, for parents, translated into comfort and ease. On the one hand, parents want their children to swim expertly in the digital stream that they will have to navigate (航行) all their lives; on the other hand, they fear that too much digital media, too early, will sink them. Parents end up treating tablets as precision surgical (外科的)instruments, devices that might perform miracles for their child’s IQ and help him win some great robotics competition—but only if they are used just so. Otherwise, their child could end up one of those sad, pale creatures who can’t make eye contact and has a girlfriend who lives only in the virtual world.",
+        "H) Norman Rockwell, a 20th-century artist, never painted Boy Swiping Finger on Screen, and our own vision of a perfect childhood has never been adjusted to accommodate that now-common scene. Add to that our modern fear that every parenting decision may have lasting consequences—that every minute of enrichment lost or mindless entertainment indulged ( 放 纵 的 ) will add up to some permanent handicap ( 障 碍 ) in the future and you have deep guilt and confusion. To date, no body of research has proved that the iPad will make your preschooler smarter or teach her to speak Chinese, or alternatively that it will rust her nervous system—the device has been out for only three years, not much more than the time it takes some academics to find funding and gather research subjects. So what m a parent to do?"
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "The author attended the conference, hoping to find some guiding principles for parenting in the electronic age.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            }
+          ],
+          "answer": "D",
+          "explanation": "The author attended the conference, hoping to find some guiding principles for parenting in the electronic age. D)。【译文】作者参加了会议,希望能找到一些在电子时代为人父母的指导原则。 【精析】文章开头提到几十家手机及平板电脑儿童应用程序开发商聚集在加州蒙特利的度假地,展示他们 为儿童设计的游戏程序,作者也参加了这次大会,他希望这些已为人父母的开发商们可以帮助他解决自己的 难题并提供一些指导建议。题干中的attended the conference 和find some guiding principles 分别对应原文中 的come to the developers’ conference 和offer some guiding principle,故答案为D)。"
+        },
+        {
+          "number": 47,
+          "stem": "American parents are becoming more doubtful about the benefits technology is said to bring to their children.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【答案】G。American parents are becoming more doubtful about the benefits technology is said to bring to their children. G)。【译文】美国家长对于科技据说能给他们的孩子带来的益处变得更加怀疑。 【精析】F)段提到很多家长尽管反对孩子过多地使用电子媒体,但是作者自己的经历表明:当家长意识到 自己是孩子使用电子媒体的元凶时,会感到局促不安。G)段承接上文,指出家长也更加怀疑科技给孩子带 来的影响。题干中的more doubtful 对应原文中的more distrustful,故答案为G)。"
+        },
+        {
+          "number": 48,
+          "stem": "Some experts believe that human intelligence develops by the use of hands.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Some experts believe that human intelligence develops by the use of hands. A)。【译文】有些专家认为,人的智力是通过使用双手发展而来的。 【精析】在产品展会知间隙,巴克莱纳测试了他的遥控直升飞机的性能,这虽然引起了一些孩子的兴趣, 但大多数孩子显然不为所动,而是被参展的iPad 或其他平板电脑深深吸引着。在和开发者们的交谈中,有 人用“双手是人类智力发展的工具”这一观点解释了其中的原因。题干中的human intelligence 是原文中 man’s intelligence 的同义转述,故答案为A)。"
+        },
+        {
+          "number": 49,
+          "stem": "The author found a former Montessori teacher exercising strict control over her kids’ screen time.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            }
+          ],
+          "answer": "E",
+          "explanation": "The author found a former Montessori teacher exercising strict control over her kids5 screen time. E)。【译文】作者发现一位曾担任蒙台梭利法教师的女士严格控制孩子接触屏幕的时间。 【精析】作者想听听家长对孩子接触屏幕的看法,于是和一位曾协助开发“蒙台梭利字母语音”程序的 女士聊起来。她曾经是蒙台梭利法的教师,她说自己的孩子玩游戏不多,因为她和孩子们约定好了接触 屏幕的时间。即使按过度控制的家长的标准,这好像也有点过于严厉了。题千中的a former Montessori teacher 与原文相同,题干中的strict control 是原文中restrictive 和overcontrolling 的同义转述,故答案为 E)。"
+        },
+        {
+          "number": 50,
+          "stem": "Research shows interaction with people is key to babies’ brain development.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Research shows interaction with people is key to babies’ brain development. C)。【译文】研究表明,与人交流是孩子大脑发育的关键。 【精析】1999 年,美国儿科学会就不鼓励两岁以下的儿童看电视,因为大脑开发研究显示,“与父母和其 他主要看护人的直接交流”对这个年龄段的孩子而言至关重要。由此可知,孩子在大脑发育的关键时期应 该与人交流。题干中的interaction with people 对应原文中的direct interactions with parents and other significant eare givers,故答案为C)。"
+        },
+        {
+          "number": 51,
+          "stem": "So far there has been no scientific proof of the educational benefits of iPads.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【答案】H。So far there has been no scientific proof of the educational benefits of iPads. H)。【译文】到目前为止,还没有科学证据证明iPad 的教育益处。 第10 页共14 页 【精析】G)段提到家长的两难境地:他们一方面想让孩子接触新科技,另一方面又担心科技带来的负面影 响。因此,父母在做出决定时,都要认真考虑这一决定可能带来的后果。H)段表明,目前尚未证实使用iPad 是否有好处。题干中的educational benefits 是原文中make your preschooler smarter or teach her to speak Chinese 的同义转述,故答案为H)。"
+        },
+        {
+          "number": 52,
+          "stem": "American parents worry that overuse of tablets will create problems with their kids’ interpersonal relationships.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            }
+          ],
+          "answer": "G",
+          "explanation": "American parents worry that overuse of tablets will create problems with their kids’ interpersonal relationships. G) 。【译文】美国的父母们担心过度使用平板电脑会给孩子的交际带来问题。 【精析】该段论述了美国家长对新科技的态度。他们一方面希望孩子接触新科技,另一方面又担心过度使 用电子媒体会带来负面影响。他们认为,谨慎使用新科技会给孩子带来帮助,若使用不慎,则会给孩子带 来交流障碍,使他们不会目光交流,甚至只能在虚拟世界里找到女朋友。题干中的overuse of tablets 对应原 文中的too much digital media,题干中的problems with their kids’ interpersonal relationships 是对原文can’t make eye contact and has a girlfriend who lives only in the virtual world 的概述,故答案为G)。"
+        },
+        {
+          "number": 53,
+          "stem": "The author expected developers of children’s apps to specify the benefits of the new technology.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            }
+          ],
+          "answer": "D",
+          "explanation": "The author expected developers of children’s apps to specify the benefits of the new technology. D)。【译文】作者希望为孩子设计应用程序的开发商们能够明确说明新科技给孩子们带来的好处。 【精析】作者在D)段提到,他参加了应用程序开发商大会,希望能在这些热衷于互动媒体,同时又为人父 母的特殊人群中寻找答案,因为他们或许会更清楚地表达新科技给孩子们带来的好处。题干中的specify the benefits of the new technology 与原文中的express clearly some benelits of the new technology 意思相同,故 答案为D)。"
+        },
+        {
+          "number": 54,
+          "stem": "The kids at the gathering were more fascinated by the iPads than by the helicopter.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            }
+          ],
+          "answer": "A",
+          "explanation": "The kids at the gathering were more fascinated by the iPads than by the helicopter. A)。【译文】展会上的孩子们更着迷于iPad,而不是直升飞机。 【精析】文章提到,在大会间隙,巴克莱纳测试了他的遥控直升飞机能否飞到大厅二层,有些孩子仰头观看 着他的测试,但大多数孩子则低头看着大厅里展出的iPad 或其他平板电脑,就像看着一盒盒打开的糖果。 由此可知,孩子们更着迷于iPad,故答案为A)。"
+        },
+        {
+          "number": 55,
+          "stem": "The author permits her children to use the screen for at most half an hour a day.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            }
+          ],
+          "answer": "F",
+          "explanation": "The author permits her children to use the screen for at most half an hour a day. F)。【译文】作者每天最多允许她的孩子使用电子媒体半小时。 【精析】作者对一位女士严格控制孩子接触电子媒体的时间感到吃惊,于是便询问其他父母的看法。其中 一位说只有在乘飞机或坐长途车时才能玩;另一位说周三和周末可以玩,每次半个小时;最宽容的回答跟作 者的规定一样:每天可以玩半个小时。由此可知,作者允许孩子接触电子媒体的时间每天不超过半小时,故 答案为F)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2014-06-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "When young women were found to make only 82 percent of what their male peers do just one year out of college, many were at a loss to explain it. All the traditional reasons put forward to interpret the pay gap—that women fall behind when they leave the workforce to raise kids, for example, or that they don’t seek as many management roles failed to justify this one. These young women didn’t have kids yet. And because they were just one year removed from their undergraduate degrees, few of these women yet had the chance to go after (much less decline) leadership roles. But there are other reasons why the pay gap remains so persistent. The first is that no matter how many women may be getting college degrees, the university experience is still an unequal one. The second is that our higher education system is not designed to focus on the economic consequences of our students’ years on campus. Now that women are the majority of college students and surpass men in both the number of undergraduate and advanced degrees awarded, one might think the college campus m a pretty equal place. It is not. Studies show that while girls do better than boys in high school, they start to trail off during their college years. They enroll in different kinds of classes, tend to major in less rigorous ( 非 常 严 格 的) subjects, and generally head off with less ambitious plans. As a result, it’s not surprising that even the best educated young women enter the workplace with a slight disadvantage. Their college experience leaves them somewhat confused, still stumbling ( 栽倒) over the dilemmas their grandmothers’ generation sought to destroy. Are they supposed to be pretty or smart? Strong or sexy (性感的)? All their lives, today’s young women have been pushed to embrace both perfection and passion to pursue science and sports, math and theater—and do it all as well as they possibly can No wonder they are not negotiating for higher salaries as soon as they get out of school. They are too exhausted, and too scared of failing."
+      ],
+      "questions": [
+        {
+          "number": 56,
+          "stem": "Traditionally, it is believed that women earn less than men because ______.",
+          "options": [
+            {
+              "key": "A",
+              "text": "they have failed to take as many rigorous courses"
+            },
+            {
+              "key": "B",
+              "text": "they do not feel as fit for management roles"
+            },
+            {
+              "key": "C",
+              "text": "they feel .obliged to take care of their kids at home"
+            },
+            {
+              "key": "D",
+              "text": "they do not exhibit the needed leadership qualifies"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定位:由题干中的traditionally 定位到文章第二段第一句:A11 the traditional reasons... women fall behind when they leave the workforce to raise kids...。 详解:事实细节题。文章第一段提出了大学毕业一年后,女性收人比同龄男性收人低的现象,接着第二段 指出了解释这种收人差距的传统原因:女性因为离职照顾孩子而落后,或者她们没有像男性一样努力寻求管 理岗位,因此C) “她们被迫在家照顾孩子”符合文章表述,故答案为C)。 点睛:A) “她们没能选择那么多严格的课程”,这个表述出现在文章第四段,叙述本身没有错误,作者 用这一表述解释年轻女性收人低的原因,但不是传统上的观点,可以排除;B) “她们认为自己不那么适合 管理岗位”,文章第二段提到传统原因之一是女性没有像男性一样努力寻求管理岗位,但是没有说她们认 为自己不适合,与原文不符,可以排除;D) “她们没有展现出所需的领导素质”,文章没有提及,可以排 除。"
+        },
+        {
+          "number": 57,
+          "stem": "What does the author say about America’s higher education system?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It does not offer specific career counseling to women."
+            },
+            {
+              "key": "B",
+              "text": "It does not consider its economic impact on graduates."
+            },
+            {
+              "key": "C",
+              "text": "It does not take care of women students’ special needs."
+            },
+            {
+              "key": "D",
+              "text": "It does not encourage women to take rigorous subjects."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位:由题干中的America’s higher education system 定位到文章第与段最后一句:...higher education system is not designed to focus on the economic consequences of our students’ years on campus. 详解:事实细节题。文章第三段提出了造成当前现象的原因,其中第二点是我们的高等教育体系设置的重 心不在学生毕业后能获得的经济回报上。B)中的does not consider 和economic impact 分别是对原文中的is 第11 页共14 页 not designed to focus on 和economic consequences 的同义转述,故答案为B) 点睛A)“它没能为女性提供特别的职业咨询”、C)“它没有照顾到女性学生的特殊需求”和D)“它没有 鼓励女性选择严格的科目”均未在文章中提及,可以排除。"
+        },
+        {
+          "number": 58,
+          "stem": "What does the author say about, today’s college experience?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is different for male and female students."
+            },
+            {
+              "key": "B",
+              "text": "It is not the same as that of earlier generations."
+            },
+            {
+              "key": "C",
+              "text": "It is more exhausting than most women expect."
+            },
+            {
+              "key": "D",
+              "text": "It is not so satisfying to many American students."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。定位:由题干中的college experience 定位到文章第三段第二句:...the university experience is still an unequal one.再由题干中的today 定位到文章第四段前两句:Now...one might think the college campus is a pretty equal place. It is not. 详解:推理判断题。题目是“关于当今的大学经历,作者作何表述? ”作者第一次提到“大学经历”是在 文章第三段,指出大学经历不平等是解释男女收人差距的原因之一。作者在第四段对这一原因进行了详细 论述,说明了大学男女学生的不同经历,故答案为A)。 点睛:B) “它和前代相比是不同的”,文章没有提及,可排除;C) “它比大部分女性预期的更加筋疲力 尽”,文章最后提到女性大学毕业后过于筋疲力尽,和选项C)表述不能等同,可排除;D) “很多美国学生 不那么满意大学经历”,文章没有提及,可以排除。"
+        },
+        {
+          "number": 59,
+          "stem": "What does the author say about women students in college?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They have no idea how to bring out their best."
+            },
+            {
+              "key": "B",
+              "text": "They drop a course when they find it too rigorous."
+            },
+            {
+              "key": "C",
+              "text": "They are not as practical as men in choosing courses."
+            },
+            {
+              "key": "D",
+              "text": "They don’t perform as well as they did in high school."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位:由题干中的women students in college 定位到文章第四段:Now that women are them majority of college students and surpass men...and generally head off with less ambitious plans. 详解:推理判断题。文章第四段详细论述了大学男女学生的不同经历。其中,该段第三句中的词组trail off 有“渐渐减弱”的意思,在句中是指女生到了大学后走下坡路,表现不如在高中时期。由于这个词组较难, 也可以通过句中的while 判断出下一句为转折关系,从而推测女生在大学的表现变差,故答案为D)。 点睛:A) “她们不知道如何充分发挥自己的能力”,在文中没有提及,可排除;B) “当发觉课程过于严 格时她们会放弃”,文章中提到女生倾向于选择相对不严格的课程,并不是发现课程严格再放弃,可以排 除;C)“她们在选课上不如男生实际”,文章提到女生选择不同种类的课程,倾向于选择相对不严格的课 程,没有涉及到实用性的问题,可以排除。"
+        },
+        {
+          "number": 60,
+          "stem": "How does the author explain the pay gap between men and women fresh from college?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Women are too worn out to be ambitious."
+            },
+            {
+              "key": "B",
+              "text": "Women are not ready to take management roles."
+            },
+            {
+              "key": "C",
+              "text": "Women are caught between career and family."
+            },
+            {
+              "key": "D",
+              "text": "Women are not good at negotiating salaries."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。定位:由题干中的fresh from college 定位到文章最后一段最后两句:No wonder they’re not negoti- ating for higher salaries as soon as they get out of school. They are too exhausted, and too scared of failing. 详解:详解事实细节题。题干问作者对于刚离开校园的男女收人差距作何解释。短语fresh from 意为“刚 从...毕业”,与最后一段倒数第二句中的as soon as they get out of school 表达的意思一样,此句用no wonder 来引导,意思是“女性刚从学校毕业时并没有就更高薪资进行谈判”,和文章最后一句是因果关系,原因 是“她们过于筋疲力尽,而且对失败充满恐惧”,故答案为A)。 点睛:B) “女性没有准备好承担管理岗位的角色”,文中第二段提到刚毕业的女性工作资历浅,很少有 机会去追求管理岗位,而不是没有做好准备,可以排除;C) “女性被夹在职业和家庭之间”,根据文章第 二段的表述可知,因为需要照顾孩子和家庭而离职,这个原因不适用于刚毕业的女性,可以排除;D) “女 性不擅长谈薪酬”,根据文章表述,女性是因为感到筋疲力尽并且害怕失败才不去要求高薪,而不是因为她 们不擅长谈薪酬,可以排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2014-06-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Reading leadership literature, you’d sometimes think that everyone has the potential to be an effective leader. I don’t believe that to be true. In fact, I see way fewer truly effective leaders than I see people stuck in positions of leadership who are sadly incompetent and seriously misguided about their own abilities. Part of the reason this happens is a lack of honest self-assessment by those who aspire to (追求) leadership in the first place. We’ve all met the type of Individual who simply must take charge. Whether it’s a decision-making session, a basketball game, or a family outing, they can’t help grabbing the lead dog position and clinging on to it for dear life. They believe they’re natural born leaders. Truth is, they’re nothing of the sort. True leaders don’t assume that it’s their divine ( 神 圣 的) right to take charge every time two or more people get together. Quite the opposite. A great leader will assess each situation on its merits, and will only take charge when their position, the situation, and/or the needs of the moment demand it. Many business executives confuse leadership with action. They believe that constant motion somehow generates leadership as a byproduct. Faced with any situation that can’t be solved by the sheer force of activity, they generate a dust cloud of impatience. Their one leadership tool is volume: if they think you aren’t working as hard as they think you should, their demands become increasingly louder and harsher. True leaders understand the value of action, of course, but it isn’t their only tool. In fact, it isn’t even their primary tool. Great leaders see more than everyone else: answers, solutions, patterns, problems, opportunities. They know it’s vitally important to do, but they also know that thinking, understanding, reflection and interpretation are equally important. If you’re too concerned with outcomes to the extent that you manipulate and intimidate others to achieve those outcomes, then you aren’t leading at all, you’re dictating. A true leader is someone who develops his or her team so that they can and do hit their targets and achieve their goals."
+      ],
+      "questions": [
+        {
+          "number": 61,
+          "stem": "What does the author think of the leaders he knows?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Many of them are used to taking charge."
+            },
+            {
+              "key": "B",
+              "text": "Few of them are equal to their positions."
+            },
+            {
+              "key": "C",
+              "text": "Many of them fail to fully develop their potential."
+            },
+            {
+              "key": "D",
+              "text": "Few of them are familiar with leadership literature."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位: 由题干中的the leaders he knows 定位到文章第二段第二句:In fact, I see way fewer truly effective leaders than I see people stuck in positions of leadership who are sadly incompetent and seriously misguided about their own abilities. 详解:推理判断题。题干问“作者是如何看待他所认识的领导者的?”定位句较为复杂,不易理解。定位 句中的way 是一个程度副词,意为“相当地”。该句表述的意思为“真正卓有成效的领导者很少,我见到 更多的是处在领导者的位置却很没有能力,且总是被自己的无能给蒙蔽的人”,即作者见到很多无能的人, 不能胜任自己的职位,但是却身居要职。对比四个选项,B) “他们中很少有人与自己的职位相匹配”为 这句话的同义表述,故答案为B)。 点睛: A) “他们中的很多人习惯于掌控”在文章第四段列举反面典型时有提到,但不符合题干中的the leaders he knows 和定位句的内容,可以排除;C) “他们中的很多人没能完全开发自己的潜力”和D) “他 们中很少有人熟悉关于领导力的作品”均未在文章中提及,可以排除。"
+        },
+        {
+          "number": 62,
+          "stem": "Why are some people eager to grab leadership positions?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They believe they have the natural gift to lead."
+            },
+            {
+              "key": "B",
+              "text": "They believe in what leadership literature says."
+            },
+            {
+              "key": "C",
+              "text": "They have proved competent in many situations."
+            },
+            {
+              "key": "D",
+              "text": "They derive great satisfaction from being leaders."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。定位:由题干中的grab leadership positions 定位到文章第四段第二句:Whether it’s a decisionmaking 第12 页共14 页 session, a basketball game, or a family outing, they can’t help grabbing the lead dog position and clinging on to it for dear life. They believe they’ve natural bom leaders. 详解: 事实细节题。题干问“为什么一些人总是热衷于领导职位? ”定位句指出,很多人领导欲很强,不 管在什么场合都想掌控局势。该段最后一句分析了他们这样做的原因,即“他们认为自己是天生的领导者。” A) “他们认为自己天生有领导才能”为本句的同义表述,故答案为A)。 点睛:B) “他们相信关于领导力的作品所说的东西”和D) “他们能从领导工作中获得极大的满足”均未 在文中提及,可以排除;C) “他们在很多情况下都被证明是能胜任的”,根据文章表述,这一类领导欲强 烈的人往往是没有能力、不能胜任工作的,与选项C)的表述相反,故排除。"
+        },
+        {
+          "number": 63,
+          "stem": "What characterizes a great leader according to the author?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Being able to take prompt action when chances present themselves."
+            },
+            {
+              "key": "B",
+              "text": "Having a whole-hearted dedication to their divine responsibilities."
+            },
+            {
+              "key": "C",
+              "text": "Having a full understanding of their own merits and weaknesses."
+            },
+            {
+              "key": "D",
+              "text": "Being able to assess the situation carefully, before taking charge."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位:由题干中的a great leader 定位到文章第五段第四句:A great leader will assess each situa tion on its merits, and will only take charge when their position, the situation, and/or the needs of the moment demand it. 详解:事实细节题。题目问“根据作者观点,一个伟大的领导者具备什么特征? ”文章第五段第四句指出, 伟大的领导者会审时度势,仅仅在他们的职位、处境和/或当时的情况需要时才会担起领导人的职责。这句 话是作者对于成功领导者的描述,和选项D) “能够在掌控前先仔细评估形势”的表述一致,故答案为D)。 点睛:A) “当机会出现时能做出及时的反应”、B) “全身心地奉献给他们的神圣责任”和C) “对自己 的优点和缺点有足够的理解”,这三个选项的表述正确,根据常识判断,应该都是伟大的领导者应具备的 品质,但文章中没有提及,可以排除。"
+        },
+        {
+          "number": 64,
+          "stem": "How will many business executives respond when their command fails to generate action?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They reassess the situation at hand."
+            },
+            {
+              "key": "B",
+              "text": "They become impatient and rude."
+            },
+            {
+              "key": "C",
+              "text": "They resort to any tool available."
+            },
+            {
+              "key": "D",
+              "text": "They blame their team members."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位:由题干中的many business executives 定位到文章第六段:Many business executives confuse leadership with action...if they think you aren’t working as hard as they think you should, their demands become increasingly louder and harsher. 详解:事实细节题。题目考查的是“当命令没有落实到行动时,许多企业管理人员是如何反应的?”文章 第六段第一句中提到了business executives,但是没有给出问题的答案。第三句指出,当遇到没法全凭行动 来解决的问题时,他们就会变得极度不耐烦。这句话基本对应了选项B)中的impatient—词。第四句指出, 音量是他们的领导工具之一,如果他们认为你没有像他们期望的那样努力工作,他们的命令就会变得越来越 大声、越来越刺耳。这一句话对应的是选项B)中的rude—词,故答案为B)。 点睛:题干中的business executives 是反面教材,作者通过将他们的不恰当做法与真正的领导者的做法进行 对比,来说明真正的领导者的品质。A)“他们重新评估当下的形势”和C)“他们求助于任何可用的工具”, 都是正面积极的做法,可以排除;D) “他们会指责自己的团队成员”,文章只描写了这类人对下属的态度 是不耐烦和粗鲁的,但是没有提到是否对下属进行“指责”,可以排除。"
+        },
+        {
+          "number": 65,
+          "stem": "What is the author’s advice to leaders?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Concentrate on one specific task at a time."
+            },
+            {
+              "key": "B",
+              "text": "Use different tools to achieve different goals."
+            },
+            {
+              "key": "C",
+              "text": "Build up a strong mare to achieve their goals."
+            },
+            {
+              "key": "D",
+              "text": "Show determination when faced with tough tasks."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定位:根据“题文同序”原则和题干中的advice 定位到文章最后一段最后一句:A true leader is someone who develops his or her team so that they ccm and do hit their targets and achieve their goals. 详解:推理判断题。题目问“作者对领导者的建议是什么?”建议往往会在文末提出。本文最后一段指出, 真正的领导者能够发展自己的团队,这样他们就能而且的确会击中目标,达成目标。选项C)是这句话的同 义转述,故答案为C)。 点睛:A) “一次只专注于一个特定的任务”、B)“用不同的工具来实现不同的目标”和D)“面对艰巨的 任务时展现出决心”均未在文章中提及,可以排除。"
+        }
+      ]
+    }
+  ]
+}

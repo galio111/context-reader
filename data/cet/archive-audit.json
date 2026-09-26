@@ -1,0 +1,1157 @@
+{
+  "revision": "b81fbcc710dcb737988e9dea2b087bb461f58069",
+  "existingPaperSha256": {
+    "cet4-2022-06-1.json": "b7ec59a32ed9eaccdeb587c7202d5db98242adb6e78b6f15e8aab14cb04b8463",
+    "cet4-2022-06-2.json": "d37d5137f3875a755854ee1e4a5c87dcbed98f8de17ec34210b46489a769ddc8",
+    "cet4-2022-09-1.json": "87a101112980fd54658f0d11ac77d44a3a6f3205119bfe0a4613648b14876399",
+    "cet4-2022-12-1.json": "fe58f690c34bf159cc0d01096ad784d89367cd97ff69ef4f5f964c12b475690b",
+    "cet4-2022-12-2.json": "ff6718fe46626d4d4f775215f7d8652a614a4ff01e5d7cfb5dd17e930268b267",
+    "cet4-2022-12-3.json": "1097af74a96c0822d9649dea208f665485ebcbb0df7abf1d7dbdf81ad8923263",
+    "cet4-2023-03-1.json": "f1f0ab22449a192f3da13f8e68136a0135eda0e5b25b40512db2bd2a4b68d998",
+    "cet4-2023-06-1.json": "6c92e39a50d9e8ecfdacb2f6936cc29b0fd6c321d9f1f15e6800ecd18c33740e",
+    "cet4-2023-06-2.json": "67817e6bdb8a8f8944b5dcb74b90a7b4e459408336f2ab2bea8a133fab6b3e09",
+    "cet4-2023-06-3.json": "d6c6ff0f54308b4c864d1e5f0486e095877903ce37bf2a81d3b0350e744b7392",
+    "cet4-2023-12-1.json": "5e8497670b71a48cc72cc387c52ca4cd1e72ba716d12396fb7fe88cb03002113",
+    "cet4-2023-12-2.json": "c8d5ad591db4a26be27a4783180737cb6139c4cbcb6185583c3f5645cf78ee71",
+    "cet4-2023-12-3.json": "bee084f737f7000d1909b930773530723e88374529b521fd6d0ac6853edaae54",
+    "cet4-2024-06-1.json": "53c1a0818c606333d43b39172927eac6f0ba1c3239dfa1cb92dd25529663aa6a",
+    "cet4-2024-06-2.json": "8c5c4b93dd4313f2f67d58578cc6640ab95d3782d780a6aa041e8a9e18143679",
+    "cet4-2024-06-3.json": "10fb1a9c782d3261535e637bc19d31d539589366f106f562b580ee1b3b0bc34f",
+    "cet4-2024-12-1.json": "47facaf8e359084fbba269f5bf66e5403a5c2793ae7ef7a63eeb001afa7cb118",
+    "cet4-2024-12-2.json": "ce32aa3ccd5e6f536cf2a5fd8c7d4ea338bc5f47479f59738d41cf98f4c515b7",
+    "cet4-2024-12-3.json": "3b9e52286e992e8799dd563bd025d8073d35861d443904930f685f53b736be2a",
+    "cet4-2025-06-1.json": "5b952570b01a0823f99df120df8cc00bdf8e085746a116efd6893f4b275898e1",
+    "cet4-2025-06-2.json": "b64f6ef8a6baf7014dfbb3b05de7ff8bae76439632a735787c3c2967b6359905",
+    "cet4-2025-06-3.json": "2a11f39569868f3212fe9f467b4063c48cb4e15eb9fe66067aa09cfc830851cd",
+    "cet4-2025-12-1.json": "435942418b74dee8c620759b2c324271c7c95014d12888d3ccd14a72df2e14ef",
+    "cet4-2025-12-2.json": "85d6f2fe823a97612420aa8b3abc48c9ad1f1a1bbe58cdf1330fbdd6dda06f64",
+    "cet4-2025-12-3.json": "a40e7f1a2dd85b06950b68efcd52f69f3c957f2e75038ab5861a6bce2345e9e9",
+    "cet6-2022-06-1.json": "35a39685e30c351e98b8c5d4772684c08cdb87b8ea5cf9b65da675be8d599f0e",
+    "cet6-2022-06-2.json": "c1c9e0757170a50dd9a9f67a13ea16720c86e256e1667c8c0a3d133a822d8038",
+    "cet6-2022-09-1.json": "936e9792c5856348b513271448ce526598cf265550595c5c10de178467fff5c7",
+    "cet6-2022-09-2.json": "98b9cf5cabcae6277cb5df4515d40e5a6dbdce7e3fbdeb66d1122257b82c9c23",
+    "cet6-2022-09-3.json": "227215a38422aa8f5d6d90bc6fc84f8be21b4e0347a00d7a7632eb4c43334dac",
+    "cet6-2022-12-1.json": "61d59d14bcaa2dabb2a5b36230f639893243c0a776b4a473cd4f9b92c3850c0e",
+    "cet6-2022-12-2.json": "7009cad29d1dd18eff8ba0ca119576372e5a3614fcd765872bb794c3060a142a",
+    "cet6-2022-12-3.json": "151cd399830098b9be82c7d0a0e5e4c99755a82751f48e002ced9b2bfe6100dc",
+    "cet6-2023-06-1.json": "8b20e710f7027d55697685d171859d62bfd38b241c41a856a6d13f4dce02fcaf",
+    "cet6-2023-06-2.json": "72a5aff84c5a0068b0cc940358221a4a2a3b5a0912f3ccd5158399b837ff29ca",
+    "cet6-2023-06-3.json": "a2b1550d35565854be23cc2488bad2a305a62e9d0c859cff9b4b8cbd3ae946fc",
+    "cet6-2023-12-1.json": "33957b98e20234b0b997dfdc57e39ab223b7ac6befa643ccad9483c3cf56f4ba",
+    "cet6-2023-12-2.json": "b9f722ee257de8579434d7f34bc3731db08aa8e7f796045028bbe57902df0705",
+    "cet6-2024-06-1.json": "318da45d3b26bbd8b4bf2fc20fe6fd1d659564dcac4da02bd59b56142c2fed25",
+    "cet6-2024-06-2.json": "ccce75dfa08335ad4c3cbdfcafadc58e3e84d975220b5d09a0d7e0bc3305554e",
+    "cet6-2024-06-3.json": "70baae953a9aac69a76f3771965f75f9144fb85105e406f1c0f2e7037ca431b6",
+    "cet6-2024-12-1.json": "049500dcd01149a07dafe4ba289e478ee4e5cd112d6a86bafd365489c6aeaa8e",
+    "cet6-2024-12-2.json": "b4e76ba425067b620ea3d9628447440e093b0416fcd4a3c8a8133e6f99f715aa",
+    "cet6-2024-12-3.json": "224be0adb0e62ddbfdd1120e991c64bb76441ff97799ad73dc4210959acc7a64",
+    "cet6-2025-06-1.json": "1fd78991ee6bea163b1bc4f183484af3632541c07afc98d27c99d25cc2c458fb",
+    "cet6-2025-06-2.json": "f079f5f6baffcf6ed3c504bed96295933d60e2fcc0522edcaf54ec9c10c902db",
+    "cet6-2025-06-3.json": "5c9282461e8563f1a45fa4680fa60fedef60c96b49546ee4ba1f4140941bd310",
+    "cet6-2025-12-1.json": "0427c761084a999a704b91091aa164c317c5007869fec2b2cb0a703bb1f34601",
+    "cet6-2025-12-2.json": "87ed5b0afa2ae8797e7b63926146c49dbcf299f17da5cbe07305f497cde5d826",
+    "cet6-2025-12-3.json": "6cb282e1df728e3af1a4a42555e155db873540d7c79cef45af1b84234f8239a7",
+    "cet6-2026-06-1.json": "6186854448dacea47268ce667d30fa8121e6a7c09adf8209ecc0904a77edf04b",
+    "cet6-2026-06-2.json": "7febff586eb9511cf5971b17f1dc42c6024b66dc1d662423878144174de2a854",
+    "cet6-2026-06-3.json": "b2bec990659e1a62a9b4681778d87448fc0108e18de8b597e5966ef8821e8123"
+  },
+  "addedPapers": [
+    {
+      "id": "cet4-2014-06-1",
+      "sha256": "feffc2d6f04f63a11f2b3045969b3c92dd5b480b7499ad626924695f5e930178",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.06/%E7%9C%9F%E9%A2%98Word/2014%E5%B9%B46%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2014%E5%B9%B46%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%B8%80%EF%BC%89.pdf",
+      "numberRange": [
+        36,
+        65
+      ],
+      "reviewedCorrections": 2
+    },
+    {
+      "id": "cet4-2014-06-2",
+      "sha256": "90b7c75882e32bf73571602442ef5f8a73c4b80c705fbc1753a2d78ab6df2a31",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.06/%E7%9C%9F%E9%A2%98Word/2014%E5%B9%B46%E6%9C%88%E5%B9%B4%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%EF%BC%88%E4%BA%8C%EF%BC%89.doc",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2014%E5%B9%B46%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%BA%8C%EF%BC%89.pdf",
+      "numberRange": [
+        36,
+        65
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet4-2014-06-3",
+      "sha256": "f7ab18f700d9374e4661016fa89bd71d41fcbe6f04cd22ee8a1d2e7ef13d0b0f",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.06/%E7%9C%9F%E9%A2%98Word/2014%E5%B9%B46%E6%9C%88%E5%B9%B4%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%EF%BC%88%E4%B8%89%EF%BC%89.doc",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2014%E5%B9%B46%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%B8%89%EF%BC%89.pdf",
+      "numberRange": [
+        36,
+        65
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet4-2014-12-1",
+      "sha256": "0987bd090c5180b79473f99379b5b958e95042784c235554ea46687ccea0e0dc",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.12/%E7%9C%9F%E9%A2%98Word/2014%E5%B9%B412%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%E8%AF%95%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89.doc",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2014%E5%B9%B412%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%B8%80%EF%BC%89.pdf",
+      "numberRange": [
+        36,
+        65
+      ],
+      "reviewedCorrections": 1
+    },
+    {
+      "id": "cet4-2014-12-2",
+      "sha256": "f9ccdeb45b80f18f98fb955e0e8a76ccc9638700c137a547663c60a5398a204b",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.12/%E7%9C%9F%E9%A2%98Word/2014%E5%B9%B412%E6%9C%88%E5%B9%B4%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%EF%BC%88%E4%BA%8C%EF%BC%89.doc",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2014%E5%B9%B412%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%BA%8C%EF%BC%89.pdf",
+      "numberRange": [
+        36,
+        65
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet4-2014-12-3",
+      "sha256": "94cd3c02465e5b37690e7910b2ecd4c8b0c320f55464668f48fc29405d410132",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.12/%E7%9C%9F%E9%A2%98Word/2014%E5%B9%B412%E6%9C%88%E5%B9%B4%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%EF%BC%88%E4%B8%89%EF%BC%89.doc",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2014%E5%B9%B412%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%B8%89%EF%BC%89.pdf",
+      "numberRange": [
+        36,
+        65
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet4-2015-06-1",
+      "sha256": "8c7af7e4bc6d9d6b54240acd2381579594dadf83d27b5ac20223623791b035f7",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.06/%E7%9C%9F%E9%A2%98Word/2015%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89.doc",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2015%E5%B9%B46%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%B8%80%EF%BC%89.pdf",
+      "numberRange": [
+        36,
+        65
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet4-2015-06-2",
+      "sha256": "2e011955f371a66e49f703058419b69cfd7f182765c190b91436cbbea50232ea",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.06/%E7%9C%9F%E9%A2%98PDF/2015%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E4%BA%8C%EF%BC%89.pdf",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2015%E5%B9%B46%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%BA%8C%EF%BC%89.pdf",
+      "numberRange": [
+        36,
+        65
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet4-2015-06-3",
+      "sha256": "9c830b8f563d256251357f3dd82c82d425a48906b3856569a4440bc411546239",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.06/%E7%9C%9F%E9%A2%98Word/2015%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E4%B8%89%EF%BC%89.doc",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2015%E5%B9%B46%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%B8%89%EF%BC%89.pdf",
+      "numberRange": [
+        36,
+        65
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet4-2015-12-1",
+      "sha256": "d2aa4ad2ffc01a25d2c17e10aaf38899e839fbe3dd0eadfd0af62999d86bba7c",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.12/%E7%9C%9F%E9%A2%98Word/2015%E5%B9%B412%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC1%E5%A5%97%EF%BC%89.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2015%E5%B9%B412%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%B8%80%EF%BC%89.pdf",
+      "numberRange": [
+        36,
+        65
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet4-2015-12-2",
+      "sha256": "f88994a5e22b1377d99417039b6937af04b8aa4481b76c6fa2925bd542cf5357",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.12/%E7%9C%9F%E9%A2%98Word/2015%E5%B9%B412%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC2%E5%A5%97%EF%BC%89.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2015%E5%B9%B412%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%BA%8C%EF%BC%89.pdf",
+      "numberRange": [
+        36,
+        65
+      ],
+      "reviewedCorrections": 1
+    },
+    {
+      "id": "cet4-2015-12-3",
+      "sha256": "a7149e96b82820883d49066d175e109a49cf5ceaf724191921392bc59a45bc47",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.12/%E7%9C%9F%E9%A2%98Word/2015%E5%B9%B412%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC3%E5%A5%97%EF%BC%89.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2015%E5%B9%B412%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%B8%89%EF%BC%89.pdf",
+      "numberRange": [
+        36,
+        65
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet4-2016-06-1",
+      "sha256": "1679eb9bbc176120e35e0dbc59ec5c60e7aa5f3384f02156159fa325ed0093a6",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.06/%E7%9C%9F%E9%A2%98PDF/2016%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%AC%AC1%E5%A5%97%E7%9C%9F%E9%A2%98.pdf",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2016%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%AC%AC1%E5%A5%97%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet4-2016-06-2",
+      "sha256": "6124a35bcdd783a8a020ebd57a93097f9622581798a25249b854d7f0a440441b",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.06/%E7%9C%9F%E9%A2%98Word/2016%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%AC%AC2%E5%A5%97%E7%9C%9F%E9%A2%98%20.doc",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2016%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%AC%AC2%E5%A5%97%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet4-2016-06-3",
+      "sha256": "db59ff2e5d7a99fb81f65a0d5132c35023788753fa015e9d78c3cf15ea344a72",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.06/%E7%9C%9F%E9%A2%98Word/2016%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%AC%AC3%E5%A5%97%E7%9C%9F%E9%A2%98.doc",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2016%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%AC%AC3%E5%A5%97%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet4-2016-12-1",
+      "sha256": "409f376539ea2eaf569805c3bff5a1322db8b0535ef51d290625d5b1aea05436",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.12/%E7%9C%9F%E9%A2%98Word/2016%E5%B9%B412%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC%E4%B8%80%E5%A5%97%EF%BC%89.doc",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2016%E5%B9%B412%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E7%AC%AC%E4%B8%80%E5%A5%97%EF%BC%89.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet4-2016-12-2",
+      "sha256": "b6bd39a6599a0eefe997aa98671eee3a293f4522f193d3d7f448c11acd9f2311",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.12/%E7%9C%9F%E9%A2%98Word/2016%E5%B9%B412%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A5%97%EF%BC%89.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2016%E5%B9%B412%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A5%97%EF%BC%89.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet4-2016-12-3",
+      "sha256": "09b4ff73ff8832351361f2ac57db06d4ae7bd21989b2e4904786424411ed077e",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.12/%E7%9C%9F%E9%A2%98Word/2016%E5%B9%B412%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC%E4%B8%89%E5%A5%97%29.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2016%E5%B9%B412%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E7%AC%AC%E4%B8%89%E5%A5%97%EF%BC%89.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet4-2017-06-1",
+      "sha256": "901b95c4ca4871e9e9a883e83a60b08562fbe5f33fe0b580d32115fd797061de",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.06/%E7%9C%9F%E9%A2%98Word/2017%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%981.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2017%E5%B9%B46%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E5%8D%B7%E4%B8%80%EF%BC%89%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet4-2017-06-2",
+      "sha256": "b39673a16786f763411b2b61c57e2d2497e682eb18d74959ee8d6b1a0d1e7ee6",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.06/%E7%9C%9F%E9%A2%98Word/2017%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%982.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2017%E5%B9%B46%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E5%8D%B7%E4%BA%8C%EF%BC%89%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet4-2017-06-3",
+      "sha256": "bad6aa496f45d427a41be7259c7281ffde43b246b841d46270f95a8a052884e7",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.06/%E7%9C%9F%E9%A2%98Word/2017%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%983.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2017%E5%B9%B46%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E5%8D%B7%E4%B8%89%EF%BC%89%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet4-2017-12-1",
+      "sha256": "7f9d7baadaa49f9a171cdebd8211e20503d5aef10440690226a8b06c0f0920e6",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.12/%E7%9C%9F%E9%A2%98Word/2017%E5%B9%B412%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E5%8D%B7%E4%B8%80%EF%BC%89.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2017%E5%B9%B412%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E7%AC%AC%E4%B8%80%E5%A5%97%EF%BC%89.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet4-2017-12-2",
+      "sha256": "6e733bd7378aa33a66f9248271d4257d878e640262729a43da88d9fffc16bf11",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.12/%E7%9C%9F%E9%A2%98Word/2017%E5%B9%B412%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E5%8D%B7%E4%BA%8C%EF%BC%89.doc",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2017%E5%B9%B412%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A5%97%EF%BC%89.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet4-2017-12-3",
+      "sha256": "9c6bfc2303ca132daf91293088e58805dd8d45a6b6e75c2a67deaf447c856eda",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.12/%E7%9C%9F%E9%A2%98Word/2017%E5%B9%B412%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E5%8D%B7%E4%B8%89%EF%BC%89.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2017%E5%B9%B412%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E7%AC%AC%E4%B8%89%E5%A5%97%EF%BC%89.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet4-2018-06-1",
+      "sha256": "f2ec5aeaa4bb041c48b7e7d5543086dd9ff56abf4940622aae9cd6dd183f00d1",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.06/%E7%9C%9F%E9%A2%98PDF/2018.06%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97.pdf",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2018%E5%B9%B46%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%B8%80%EF%BC%89.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet4-2018-06-2",
+      "sha256": "19411766177580d9dba5e84cac100371e99eb10e8aa3a1faada4f8f2b06c7e69",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.06/%E7%9C%9F%E9%A2%98PDF/2018.06%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC2%E5%A5%97.pdf",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2018%E5%B9%B46%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%BA%8C%EF%BC%89.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet4-2018-06-3",
+      "sha256": "227e826db8ac7187227fec1c71250de855160a6eb73f0bdffeae30d07fe6d510",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.06/%E7%9C%9F%E9%A2%98PDF/2018.06%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC3%E5%A5%97.pdf",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2018%E5%B9%B46%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%B8%89%EF%BC%89.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet4-2018-12-1",
+      "sha256": "edcd03d97e5ecf4c02291930d020f6456f1ff6cd807b817c7387049b049ffde5",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.12/%E7%9C%9F%E9%A2%98Word/2018%E5%B9%B412%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC%E4%B8%80%E5%A5%97.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2018.12%E5%9B%9B%E7%BA%A7%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%E7%AC%AC%E4%B8%80%E5%A5%97.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 1
+    },
+    {
+      "id": "cet4-2018-12-2",
+      "sha256": "f4f178307d6d9946019e561a255b4793b37c8b3476d2ee6dab7901071d570c45",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.12/%E7%9C%9F%E9%A2%98Word/2018%E5%B9%B412%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC%E4%BA%8C%E5%A5%97.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2018.12%E5%9B%9B%E7%BA%A7%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%E7%AC%AC%E4%BA%8C%E5%A5%97.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet4-2018-12-3",
+      "sha256": "db1b363d54ad0dd7317ce9b92353ed4585f8da1909e162671e95e58b02671f9a",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.12/%E7%9C%9F%E9%A2%98Word/2018%E5%B9%B412%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC%E4%B8%89%E5%A5%97.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2018.12%E5%9B%9B%E7%BA%A7%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%E7%AC%AC%E4%B8%89%E5%A5%97.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 3
+    },
+    {
+      "id": "cet4-2019-06-1",
+      "sha256": "97712d2f548e335d4ffff0c6db684ad52c4e9c495f51a0786c3eed49e24d0247",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.06/%E7%9C%9F%E9%A2%98Word/2019%E5%B9%B46%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC%E4%B8%80%E5%A5%97.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2019%E5%B9%B46%E6%9C%88%E4%BB%BD%E5%9B%9B%E7%BA%A7%EF%BC%88%E7%AC%AC%E4%B8%80%E5%A5%97%EF%BC%89%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 1
+    },
+    {
+      "id": "cet4-2019-06-2",
+      "sha256": "fd1a64e8e79879d516f18d117a95529ce6c8deed81d4603e59dedbe700658cd9",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.06/%E7%9C%9F%E9%A2%98Word/2019%E5%B9%B46%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC%E4%BA%8C%E5%A5%97.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2019%E5%B9%B46%E6%9C%88%E4%BB%BD%E5%9B%9B%E7%BA%A7%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A5%97%EF%BC%89%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 1
+    },
+    {
+      "id": "cet4-2019-06-3",
+      "sha256": "6ad996dea098a29f3236be1a77dafd6bbfc90ceb6eb00e57e267bf7fb4789a0b",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.06/%E7%9C%9F%E9%A2%98Word/2019%E5%B9%B46%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC%E4%B8%89%E5%A5%97.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2019%E5%B9%B46%E6%9C%88%E4%BB%BD%E5%9B%9B%E7%BA%A7%EF%BC%88%E7%AC%AC%E4%B8%89%E5%A5%97%EF%BC%89%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 1
+    },
+    {
+      "id": "cet4-2019-12-1",
+      "sha256": "408dffa53196dd9805804014e588b6a34233ac47260b4d45aa506728552a54b9",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.12/%E7%9C%9F%E9%A2%98Word/2019%E5%B9%B412%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2019.12%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E8%A7%A3%E6%9E%90%E7%AC%AC1%E5%A5%97.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 1
+    },
+    {
+      "id": "cet4-2019-12-2",
+      "sha256": "45243bd454fc47e4ae5c3c6414fd5c8d3a36f0f8a0a7d5810830cab642e57d77",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.12/%E7%9C%9F%E9%A2%98PDF/2019.12%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC2%E5%A5%97%E3%80%90%E5%8F%AF%E5%A4%8D%E5%88%B6%E5%8F%AF%E5%88%92%E7%BA%BF%E6%9F%A5%E8%AF%8D%E3%80%91.pdf",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2019.12%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E8%A7%A3%E6%9E%90%E7%AC%AC2%E5%A5%97.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet4-2019-12-3",
+      "sha256": "445b8306e333b15e462dcd14461664db06c9c29947cb36338351c0baa67256a9",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.12/%E7%9C%9F%E9%A2%98Word/2019%E5%B9%B412%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC3%E5%A5%97.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2019.12%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E8%A7%A3%E6%9E%90%E7%AC%AC3%E5%A5%97.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet4-2020-07-1",
+      "sha256": "a025bcdf4d248875b354348c6cbe58db5c8ff5cb58c67836b2fd51f303b2a586",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.07/%E7%9C%9F%E9%A2%98PDF/cet4_2020_07_1.pdf",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.07/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2020_07_1_ans.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet4-2020-09-1",
+      "sha256": "be5fa32993d8795ad8ac884f6dbe985ddf32134a5c225f9a1c9515f6d7c44d63",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.09/%E7%9C%9F%E9%A2%98PDF/cet4_2020_09_1.pdf",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.09/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2020_09_1_ans.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet4-2020-09-2",
+      "sha256": "c8457e54cb6b94d388d2415e0dfab4e579a4598d0f47f65309b3822d4d07bcb5",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.09/%E7%9C%9F%E9%A2%98PDF/cet4_2020_09_2.pdf",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.09/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2020_09_2_ans.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet4-2020-12-1",
+      "sha256": "805bddd9e46976e296b1ead7bac98f1db66c084c9c203c91e5eae4d0a7479566",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.12/%E7%9C%9F%E9%A2%98PDF/cet4_2020_12_1.pdf",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2020_12_1_ans.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 2
+    },
+    {
+      "id": "cet4-2020-12-2",
+      "sha256": "f2bffffd3c282c8a9c3e51bc66ab9cf75c9d613e9a8186e1c8c80cea03f94e00",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.12/%E7%9C%9F%E9%A2%98PDF/cet4_2020_12_2.pdf",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2020_12_2_ans.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 9
+    },
+    {
+      "id": "cet4-2020-12-3",
+      "sha256": "3b57d041e227b6254cde3c3b5057ad5538eff6edfb75c90b1439c75c2f6eedeb",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.12/%E7%9C%9F%E9%A2%98PDF/cet4_2020_12_3.pdf",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2020_12_3_ans.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 1
+    },
+    {
+      "id": "cet4-2021-06-1",
+      "sha256": "7ca99faa002118ed7eae36592176177652e34c527bf289cb4bdafb7a5a29f443",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2021.06/%E7%9C%9F%E9%A2%98PDF/cet4_2021_06_1.pdf",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2021.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2021_06_1_ans.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 1
+    },
+    {
+      "id": "cet4-2021-06-2",
+      "sha256": "e4dd5cb0b9f38ac9ba7cbba0cbaf6a47c6b1d34370ab50329dc409428ff32f12",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2021.06/%E7%9C%9F%E9%A2%98PDF/cet4_2021_06_2.pdf",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2021.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2021_06_2_ans.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 9
+    },
+    {
+      "id": "cet4-2021-06-3",
+      "sha256": "03f38cab6c400983bbbe11474b54168a2b6e825c7852cf29a4264e986c567dd4",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2021.06/%E7%9C%9F%E9%A2%98PDF/cet4_2021_06_3.pdf",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2021.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2021_06_3_ans.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 1
+    },
+    {
+      "id": "cet4-2021-12-1",
+      "sha256": "65e618746a1cd06ea7b8b1780af7237d4f00ad609b870c9ede0494863791fd06",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2021.12/%E7%9C%9F%E9%A2%98PDF/cet4_2021_12_1.pdf",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2021.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2021_12_1_ans.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 2
+    },
+    {
+      "id": "cet4-2021-12-2",
+      "sha256": "39544111a57118ed1c246c3383a3f4b59932a657320fb0ffc794f5249d12e5ba",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2021.12/%E7%9C%9F%E9%A2%98PDF/cet4_2021_12_2.pdf",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2021.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2021_12_2_ans.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet4-2021-12-3",
+      "sha256": "f2d84f228e9b617bfddc3432e4b3ac29a135ac4824d387de65f147c1b783d614",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2021.12/%E7%9C%9F%E9%A2%98PDF/cet4_2021_12_3.pdf",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2021.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2021_12_3_ans.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet6-2013-06-1",
+      "sha256": "e7e9dd69748735d201aad6c501556d3c16ecce96cabf2c4eaa362b92a2d9e08b",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2013.06/%E7%9C%9F%E9%A2%98Word/2013%E5%B9%B46%E6%9C%88%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89.doc",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2013.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2013%E5%B9%B46%E6%9C%88%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%EF%BC%88%E7%AC%AC%E4%B8%80%E5%A5%97%EF%BC%89.pdf",
+      "numberRange": [
+        36,
+        65
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet6-2013-06-2",
+      "sha256": "aec11ebbb7b8ced09e1e9950c8ad325e99ecdc822b1420ba06a25d8c8e347291",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2013.06/%E7%9C%9F%E9%A2%98Word/2013%E5%B9%B46%E6%9C%88%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%EF%BC%88%E4%BA%8C%EF%BC%89.doc",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2013.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2013%E5%B9%B46%E6%9C%88%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A5%97%EF%BC%89.pdf",
+      "numberRange": [
+        36,
+        65
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet6-2013-06-3",
+      "sha256": "214d5dc89e87cfc5984601096aa06b825140595ec7506fb382b0cc903b9784b7",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2013.06/%E7%9C%9F%E9%A2%98Word/2013%E5%B9%B46%E6%9C%88%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%EF%BC%88%E4%B8%89%EF%BC%89.doc",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2013.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2013%E5%B9%B46%E6%9C%88%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%EF%BC%88%E7%AC%AC%E4%B8%89%E5%A5%97%EF%BC%89.pdf",
+      "numberRange": [
+        36,
+        65
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet6-2013-12-1",
+      "sha256": "62a2e0b87089c906176b399591dc55646f48cfdfa5eb9e0f46d36086ad19f6c2",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2013.12/%E7%9C%9F%E9%A2%98PDF/2013%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89.pdf",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2013.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2013%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%EF%BC%88%E7%AC%AC%E4%B8%80%E5%A5%97%EF%BC%89.pdf",
+      "numberRange": [
+        36,
+        65
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet6-2013-12-2",
+      "sha256": "567093db52f63ef91b19287006d9fccc233dbd248263e84b81e1e9f5ab82e5dc",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2013.12/%E7%9C%9F%E9%A2%98Word/2013%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%EF%BC%88%E4%BA%8C%EF%BC%89.doc",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2013.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2013%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A5%97%EF%BC%89.pdf",
+      "numberRange": [
+        36,
+        65
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet6-2013-12-3",
+      "sha256": "96790d1c87b03f225f07f8a22a05a1d69aa7b482421b8ddfd52e2e264284789b",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2013.12/%E7%9C%9F%E9%A2%98Word/2013%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%EF%BC%88%E4%B8%89%EF%BC%89.doc",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2013.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2013%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%EF%BC%88%E7%AC%AC%E4%B8%89%E5%A5%97%EF%BC%89.pdf",
+      "numberRange": [
+        36,
+        65
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet6-2014-06-1",
+      "sha256": "13472adf0903898d4fb9a31a2f3a70f25dd6b76b95189a9c17c8000aa3038571",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.06/%E7%9C%9F%E9%A2%98Word/2014%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2014%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%EF%BC%88%E4%B8%80%EF%BC%89.pdf",
+      "numberRange": [
+        36,
+        65
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet6-2014-06-2",
+      "sha256": "34ab1bda70b115d801e28d46bdc8ee87d50857f8ab623e209f0d8c0bc56f6e24",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.06/%E7%9C%9F%E9%A2%98Word/2014%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%EF%BC%88%E4%BA%8C%EF%BC%89.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2014%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%EF%BC%88%E4%BA%8C%EF%BC%89.pdf",
+      "numberRange": [
+        36,
+        65
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet6-2014-06-3",
+      "sha256": "113145107b3de6084ac809a5cb43f24cfe820a743297d09c2f01c2dfecf6b7b3",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.06/%E7%9C%9F%E9%A2%98Word/2014%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%EF%BC%88%E4%B8%89%EF%BC%89.doc",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2014%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%EF%BC%88%E4%B8%89%EF%BC%89.pdf",
+      "numberRange": [
+        36,
+        65
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet6-2015-06-1",
+      "sha256": "fe6e7d61be436e3a3118c9753bd62848403ba9f7614cd63c30e02507c16b2b6c",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.06/%E7%9C%9F%E9%A2%98PDF/2015%E5%B9%B406%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC1%E5%A5%97%EF%BC%89.pdf",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2015.06%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC1%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet6-2015-06-2",
+      "sha256": "092cb851842de92795413f3cfa984feb736eb91ea2f0894d57c039975a01faca",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.06/%E7%9C%9F%E9%A2%98PDF/2015%E5%B9%B406%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC2%E5%A5%97%EF%BC%89.pdf",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2015.06%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC2%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet6-2015-06-3",
+      "sha256": "9831def366134e20704dc1b70189da45a86b118c37878847a93d42b3e18dbcfe",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.06/%E7%9C%9F%E9%A2%98Word/2015%E5%B9%B406%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC3%E5%A5%97%EF%BC%89.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2015.06%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC3%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet6-2015-12-1",
+      "sha256": "e160e26ffccaa59dd98009fd433ee2521daec374f6074b826addc4c2d6c99bf5",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.12/%E7%9C%9F%E9%A2%98PDF/2015%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC1%E5%A5%97%EF%BC%89.pdf",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2015.12%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC1%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet6-2015-12-2",
+      "sha256": "b15c9c4be2273d4fa01b63e219ff6a9cfea601e444da893983979967156ed37b",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.12/%E7%9C%9F%E9%A2%98PDF/2015%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC2%E5%A5%97%EF%BC%89.pdf",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2015.12%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC2%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet6-2015-12-3",
+      "sha256": "979dbe3da4e68da8bae89b7aae9737f5772c3c6245fcd80d76cc82ce35c63b6d",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.12/%E7%9C%9F%E9%A2%98Word/2015%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC3%E5%A5%97%EF%BC%89.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2015.12%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC3%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 1
+    },
+    {
+      "id": "cet6-2016-06-1",
+      "sha256": "ede3e0bb780d70e463fb36ea67a02b4ddb31dd87bfc32d373b060ae6187ba268",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.06/%E7%9C%9F%E9%A2%98Word/2016%E5%B9%B406%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC1%E5%A5%97%EF%BC%89.doc",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2016.06%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC1%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet6-2016-06-2",
+      "sha256": "defcf06cac2835b7d293a009ec8e6a67412d15c3206e91671648e079c43dcf9a",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.06/%E7%9C%9F%E9%A2%98Word/2016%E5%B9%B406%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC2%E5%A5%97%EF%BC%89.doc",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2016.06%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC2%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet6-2016-06-3",
+      "sha256": "24164007492ea7abf80fe0dd79259954ab49dc3acf5b99d514e0aef39db5f8cf",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.06/%E7%9C%9F%E9%A2%98Word/2016%E5%B9%B406%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC3%E5%A5%97%EF%BC%89.doc",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2016.06%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC3%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet6-2016-12-1",
+      "sha256": "8f25a80497c8b2383445f74e6a97718c421eb3f3210a35a82a5971a80f279b69",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.12/%E7%9C%9F%E9%A2%98Word/2016%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC1%E5%A5%97%EF%BC%89.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2016%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%EF%BC%88%E7%AC%AC1%E5%A5%97%EF%BC%89%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 2
+    },
+    {
+      "id": "cet6-2016-12-2",
+      "sha256": "ea7e8614ae6c5ac88a6f22de060ba699de88d53aa40cda2c8f7b8c093fe198b7",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.12/%E7%9C%9F%E9%A2%98Word/2016%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC2%E5%A5%97%EF%BC%89.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2016%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%EF%BC%88%E7%AC%AC2%E5%A5%97%EF%BC%89%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 1
+    },
+    {
+      "id": "cet6-2016-12-3",
+      "sha256": "d331e850bf9f3bd1da700f93fa3a11f9e512495ae68f65fe7bbf9fac5059f341",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.12/%E7%9C%9F%E9%A2%98Word/2016%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC3%E5%A5%97%EF%BC%89.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2016%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%EF%BC%88%E7%AC%AC3%E5%A5%97%EF%BC%89%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%20.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 1
+    },
+    {
+      "id": "cet6-2017-06-1",
+      "sha256": "d321f57d9cf8b61f659547952dc0cc63975f5f841d663af84ebb674684f71099",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.06/%E7%9C%9F%E9%A2%98Word/2017%E5%B9%B406%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC1%E5%A5%97%EF%BC%89.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2017.06%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC1%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 1
+    },
+    {
+      "id": "cet6-2017-06-2",
+      "sha256": "4c5d9cbb514c2904914211c22b804962ebc9f44d3ebc523c527b876b4209716b",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.06/%E7%9C%9F%E9%A2%98Word/2017%E5%B9%B406%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC2%E5%A5%97%EF%BC%89.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2017.06%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC2%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 2
+    },
+    {
+      "id": "cet6-2017-06-3",
+      "sha256": "a7500e4b8f836eee328a5725c487f2a290168e9805fe144ecbc174cce472dbf0",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.06/%E7%9C%9F%E9%A2%98Word/2017%E5%B9%B406%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC3%E5%A5%97%EF%BC%89.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2017.06%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC3%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 1
+    },
+    {
+      "id": "cet6-2017-12-1",
+      "sha256": "3cf0396e2b4e2ab0a88c3bf02613905e61707cd2754869631d4ceb3a3c85d93a",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.12/%E7%9C%9F%E9%A2%98Word/2017%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC1%E5%A5%97%EF%BC%89.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2017.12%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC1%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 2
+    },
+    {
+      "id": "cet6-2017-12-2",
+      "sha256": "6140760d96916b44ae7fa0f48f7e6019fa7b846e19beba6657fa3fd4c8862c2b",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.12/%E7%9C%9F%E9%A2%98Word/2017%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC2%E5%A5%97%EF%BC%89.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2017.12%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC2%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 1
+    },
+    {
+      "id": "cet6-2017-12-3",
+      "sha256": "2cb8e3b115b2cf61de0c360733f1a6a2d471eed349df705db76d1c6896b4847f",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.12/%E7%9C%9F%E9%A2%98Word/2017%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC3%E5%A5%97%EF%BC%89.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2017.12%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC3%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 3
+    },
+    {
+      "id": "cet6-2018-06-1",
+      "sha256": "ff850ca095582827077903aaee46684360d5e469413d95004b404c3066f62ad7",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.06/%E7%9C%9F%E9%A2%98Word/2018.06%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97.doc",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2018%E5%B9%B46%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%B8%80%EF%BC%89.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet6-2018-06-2",
+      "sha256": "cdbe87bade120eb4d4e478e131650f4e13fa13522edbddaf6f01240e8dfa3027",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.06/%E7%9C%9F%E9%A2%98PDF/2018.06%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC2%E5%A5%97.pdf",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2018%E5%B9%B46%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%BA%8C%EF%BC%89.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet6-2018-06-3",
+      "sha256": "c2d2fea236303b6b874243e2fbcd824a9303c8fb58a5b9ba5f5b0c526a5db982",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.06/%E7%9C%9F%E9%A2%98Word/2018.06%E7%9C%9F%E9%A2%98%E7%AC%AC3%E5%A5%97.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2018%E5%B9%B46%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%B8%89%EF%BC%89.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet6-2018-12-1",
+      "sha256": "bc764667d003ac27a3bdf96c34382e86b3fa6615d1d9fd03c25c462a537d907e",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.12/%E7%9C%9F%E9%A2%98Word/2018%E5%B9%B412%E6%9C%886%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC%E4%B8%80%E5%A5%97.doc",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2018%E5%B9%B412%E6%9C%886%E7%BA%A7%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%E7%AC%AC%E4%B8%80%E5%A5%97.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 1
+    },
+    {
+      "id": "cet6-2018-12-2",
+      "sha256": "d6c25222b4c1e1db0730158123ba43c8e8dc8f464efedd7777e5062ed2bd1b0a",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.12/%E7%9C%9F%E9%A2%98Word/2018%E5%B9%B412%E6%9C%886%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC%E4%BA%8C%E5%A5%97.doc",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2018%E5%B9%B412%E6%9C%886%E7%BA%A7%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%E7%AC%AC%E4%BA%8C%E5%A5%97.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 6
+    },
+    {
+      "id": "cet6-2018-12-3",
+      "sha256": "99885f92228291bccf3fc4a46c616ab8ea8a5a45dff129caa0aa85ba08fdb214",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.12/%E7%9C%9F%E9%A2%98Word/2018%E5%B9%B412%E6%9C%886%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC%E4%B8%89%E5%A5%97.doc",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2018%E5%B9%B412%E6%9C%886%E7%BA%A7%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%E7%AC%AC%E4%B8%89%E5%A5%97.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 3
+    },
+    {
+      "id": "cet6-2019-06-1",
+      "sha256": "2f9387fece2f5074a6126bbc07ba329a883a40c635d2b700031cec310b4cbc88",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.06/%E7%9C%9F%E9%A2%98Word/2019%E5%B9%B406%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC1%E5%A5%97%EF%BC%89.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2019%E5%B9%B406%E6%9C%88%E7%9C%9F%E9%A2%98%E8%A7%A3%E6%9E%90%E7%AC%AC1%E5%A5%97.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 1
+    },
+    {
+      "id": "cet6-2019-06-2",
+      "sha256": "91357e954a85928af99f51c67d14cefad06801d109d609eeac58651d6ccf26e7",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.06/%E7%9C%9F%E9%A2%98Word/2019%E5%B9%B406%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC2%E5%A5%97%EF%BC%89.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2019%E5%B9%B406%E6%9C%88%E7%9C%9F%E9%A2%98%E8%A7%A3%E6%9E%90%E7%AC%AC2%E5%A5%97.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 1
+    },
+    {
+      "id": "cet6-2019-06-3",
+      "sha256": "af3e4bd376e0098b564c06ffa4c68ca465f7f80022e45a3424f3212537e1c331",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.06/%E7%9C%9F%E9%A2%98Word/2019%E5%B9%B406%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC3%E5%A5%97%EF%BC%89.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2019%E5%B9%B406%E6%9C%88%E7%9C%9F%E9%A2%98%E8%A7%A3%E6%9E%90%E7%AC%AC3%E5%A5%97.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 3
+    },
+    {
+      "id": "cet6-2019-12-1",
+      "sha256": "3277a6c9a2bea08952076147bfa02c1e079334ec83f71922768a3657aa3b51f5",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.12/%E7%9C%9F%E9%A2%98Word/2019%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC1%E5%A5%97%EF%BC%89.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2019.12%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E8%A7%A3%E6%9E%90%E7%AC%AC1%E5%A5%97.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 2
+    },
+    {
+      "id": "cet6-2019-12-2",
+      "sha256": "cec559b1ad14199123e2b7c77c6a18e43d8fb2bc8d32c1b6554992a10fb36db0",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.12/%E7%9C%9F%E9%A2%98Word/2019%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC2%E5%A5%97%EF%BC%89.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2019.12%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E8%A7%A3%E6%9E%90%E7%AC%AC2%E5%A5%97.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet6-2019-12-3",
+      "sha256": "ea78e6f7345f3d53b01f4a64f43d71788889dfd6636c8e02186723c3b412da88",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.12/%E7%9C%9F%E9%A2%98Word/2019%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC3%E5%A5%97%EF%BC%89.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2019.12%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E8%A7%A3%E6%9E%90%E7%AC%AC3%E5%A5%97.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 1
+    },
+    {
+      "id": "cet6-2020-07-1",
+      "sha256": "8ea439e156ca23c88988571450fd29cb320234df10247322904926e91283f43b",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.07/%E7%9C%9F%E9%A2%98PDF/2020.07%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E5%85%A81%E5%A5%97%E3%80%90%E5%8F%AF%E5%A4%8D%E5%88%B6%E5%8F%AF%E6%90%9C%E7%B4%A2%EF%BC%8C%E6%89%93%E5%8D%B0%E9%A6%96%E9%80%89%E3%80%91.pdf",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.07/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2020.07%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E5%85%A81%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet6-2020-09-1",
+      "sha256": "d5153f7fedfa6c75859312142e30410e420bc7035f3ee585c0c387e7f612d73d",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.09/%E7%9C%9F%E9%A2%98Word/2020%E5%B9%B409%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC1%E5%A5%97%EF%BC%89.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.09/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2020.09%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC1%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 1
+    },
+    {
+      "id": "cet6-2020-09-2",
+      "sha256": "15adba0e8b833e1c759d0b4e17ff986aa89aff029e08bb37bdd6567b57a15a2f",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.09/%E7%9C%9F%E9%A2%98Word/2020%E5%B9%B409%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC2%E5%A5%97%EF%BC%89.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.09/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2020.09%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC2%E3%80%813%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 2
+    },
+    {
+      "id": "cet6-2020-12-1",
+      "sha256": "b49225ace2fc50a08443ca2b4e046f61c184bf3ebe453ed43a46ab3b74772a59",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.12/%E7%9C%9F%E9%A2%98PDF/2020.12%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97%E3%80%90%E5%8F%AF%E5%A4%8D%E5%88%B6%E5%8F%AF%E6%90%9C%E7%B4%A2%EF%BC%8C%E6%89%93%E5%8D%B0%E9%A6%96%E9%80%89%E3%80%91.pdf",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2020.12%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC1%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet6-2020-12-2",
+      "sha256": "ecb20656adf4c5c1a164d4ddf3f8a2959e706916912bee2bdde0e5ad28fd322f",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.12/%E7%9C%9F%E9%A2%98Word/2020%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC2%E5%A5%97%EF%BC%89.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2020.12%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC2%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet6-2020-12-3",
+      "sha256": "427e687aff203918915f4e447d6657acd895e3421ca9e82de94256588c247480",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.12/%E7%9C%9F%E9%A2%98Word/2020%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC3%E5%A5%97%EF%BC%89.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2020.12%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC3%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet6-2021-06-1",
+      "sha256": "f54152f149efe52894974adf403398e897243a00bad81c7ed981ad9c6d73a5ab",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2021.06/%E7%9C%9F%E9%A2%98Word/2021.06%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2021.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2021.06%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%E7%AC%AC1%E5%A5%97.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    },
+    {
+      "id": "cet6-2021-06-2",
+      "sha256": "a3006ebdb558d86c637421f36ef781405c9b315396d071ef2d928fe3c3f82514",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2021.06/%E7%9C%9F%E9%A2%98Word/2021.06%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC2%E5%A5%97.docx",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2021.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2021.06%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%E7%AC%AC2%E5%A5%97.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 1
+    },
+    {
+      "id": "cet6-2021-06-3",
+      "sha256": "80e18f7f766456c40ee3802e7a6ff95f6556eb6e9e29864b0cf5435d18050abf",
+      "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2021.06/%E7%9C%9F%E9%A2%98PDF/2021.06%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC3%E5%A5%97.pdf",
+      "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2021.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2021.06%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%E7%AC%AC3%E5%A5%97.pdf",
+      "numberRange": [
+        26,
+        55
+      ],
+      "reviewedCorrections": 0
+    }
+  ],
+  "missingAnswers": [
+    "cet4-2026-06-1",
+    "cet4-2026-06-2",
+    "cet4-2026-06-3",
+    "cet6-2023-12-3"
+  ],
+  "sharedReading": {
+    "cet4-2022-09-2": "cet4-2022-09-1",
+    "cet4-2022-09-3": "cet4-2022-09-1",
+    "cet6-2022-06-3": "cet6-2022-06-2",
+    "cet4-2020-09-3": "cet4-2020-09-2",
+    "cet6-2020-09-3": "cet6-2020-09-2"
+  },
+  "sourceErrata": [
+    {
+      "paperId": "cet4-2014-12-1",
+      "question": 46,
+      "printedHeader": "K",
+      "analysisConclusion": "F",
+      "accepted": "F",
+      "basis": "Original passage F and source explanation agree; printed answer heading is inconsistent."
+    }
+  ],
+  "sourceAnswerDisagreements": [
+    {
+      "papers": [
+        "cet4-2015-12-2",
+        "cet4-2020-07-1"
+      ],
+      "section": "c1",
+      "questions": [
+        60,
+        50
+      ],
+      "sourceAnswers": [
+        "D",
+        "C"
+      ],
+      "handling": "Retain and explicitly disclose each year source answer in its explanation."
+    }
+  ]
+}

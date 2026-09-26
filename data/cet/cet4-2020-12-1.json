@@ -1,0 +1,1574 @@
+{
+  "id": "cet4-2020-12-1",
+  "level": 4,
+  "year": 2020,
+  "month": 12,
+  "set": 1,
+  "title": "2020 年 12 月四级 · 第 1 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.12/%E7%9C%9F%E9%A2%98PDF/cet4_2020_12_1.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2020_12_1_ans.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2020-12-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Trust is fundamental to life. If you can't trust anything, life becomes intolerable. You can't have relationships without trust, let alone good ones. In the workplace, too, trust is [[26]] . An organization without trust will be full of fear and [[27]] . If you work for a boss who doesn't trust their employees to do things right, you'll have a [[28]] time. They'll be checking up on you all the time, correcting \"mistakes\" and [[29]] reminding you to do this or that. Colleagues who don't trust one another will need to spend more time [[30]] their backs than doing any useful work. Organizations are always trying to cut costs. Think of all the additional tasks caused by lack of trust. Audit (审计) departments only exist because of it. Companies keep large volumes of [[31]] because they don't trust their suppliers, their contractors or their customers. Probably more than half of all",
+        "administrative work is only there because of an ever-existing sense that \"you can't trust anyone these days.\" If even a small part of such valueless work could be [[32]] , the savings would run into millions of dollars.",
+        "All this is extra work we [[33]] onto ourselves because we don't trust people—the checking, following through, doing things ourselves because we don't believe others will do them [[34]] —or at all. If we took all that away, how much extra time would we suddenly find in our life? How much of our work [[35]] would disappear?"
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "constantly"
+        },
+        {
+          "key": "B",
+          "text": "credible"
+        },
+        {
+          "key": "C",
+          "text": "essential"
+        },
+        {
+          "key": "D",
+          "text": "exploring"
+        },
+        {
+          "key": "E",
+          "text": "gather"
+        },
+        {
+          "key": "F",
+          "text": "load"
+        },
+        {
+          "key": "G",
+          "text": "miserable"
+        },
+        {
+          "key": "H",
+          "text": "pressure"
+        },
+        {
+          "key": "I",
+          "text": "properly"
+        },
+        {
+          "key": "J",
+          "text": "records"
+        },
+        {
+          "key": "K",
+          "text": "removed"
+        },
+        {
+          "key": "L",
+          "text": "stacks"
+        },
+        {
+          "key": "M",
+          "text": "suspicion"
+        },
+        {
+          "key": "N",
+          "text": "tracked"
+        },
+        {
+          "key": "O",
+          "text": "watching"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "constantly"
+            },
+            {
+              "key": "B",
+              "text": "credible"
+            },
+            {
+              "key": "C",
+              "text": "essential"
+            },
+            {
+              "key": "D",
+              "text": "exploring"
+            },
+            {
+              "key": "E",
+              "text": "gather"
+            },
+            {
+              "key": "F",
+              "text": "load"
+            },
+            {
+              "key": "G",
+              "text": "miserable"
+            },
+            {
+              "key": "H",
+              "text": "pressure"
+            },
+            {
+              "key": "I",
+              "text": "properly"
+            },
+            {
+              "key": "J",
+              "text": "records"
+            },
+            {
+              "key": "K",
+              "text": "removed"
+            },
+            {
+              "key": "L",
+              "text": "stacks"
+            },
+            {
+              "key": "M",
+              "text": "suspicion"
+            },
+            {
+              "key": "N",
+              "text": "tracked"
+            },
+            {
+              "key": "O",
+              "text": "watching"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【考点】语义推断题。 C)【语法判断】空格所在句是一个主系表结构,空格 处可以填入名词或形容词作表语。 【语义判断】第一段提到信任是生活的基础,没有 信任就无法建立关系。本句中的too说明本句承 接第一段,因此本空应填入含有“重要的”意义的 词,故本题答案为C)essential。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "constantly"
+            },
+            {
+              "key": "B",
+              "text": "credible"
+            },
+            {
+              "key": "C",
+              "text": "essential"
+            },
+            {
+              "key": "D",
+              "text": "exploring"
+            },
+            {
+              "key": "E",
+              "text": "gather"
+            },
+            {
+              "key": "F",
+              "text": "load"
+            },
+            {
+              "key": "G",
+              "text": "miserable"
+            },
+            {
+              "key": "H",
+              "text": "pressure"
+            },
+            {
+              "key": "I",
+              "text": "properly"
+            },
+            {
+              "key": "J",
+              "text": "records"
+            },
+            {
+              "key": "K",
+              "text": "removed"
+            },
+            {
+              "key": "L",
+              "text": "stacks"
+            },
+            {
+              "key": "M",
+              "text": "suspicion"
+            },
+            {
+              "key": "N",
+              "text": "tracked"
+            },
+            {
+              "key": "O",
+              "text": "watching"
+            }
+          ],
+          "answer": "M",
+          "explanation": "【考点】名词辨析题。 M【语法判断】本空位于and之后,与fear共同作be fullof的宾语,因此应填人名词。 【语义判断】本句意为:一个没有信任的组织将充 满恐惧和 一。由句意可知,本空应填入与 fear意义并列或相近、与“信任”意义相反的名词, 故本题答案为M)suspicion。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "constantly"
+            },
+            {
+              "key": "B",
+              "text": "credible"
+            },
+            {
+              "key": "C",
+              "text": "essential"
+            },
+            {
+              "key": "D",
+              "text": "exploring"
+            },
+            {
+              "key": "E",
+              "text": "gather"
+            },
+            {
+              "key": "F",
+              "text": "load"
+            },
+            {
+              "key": "G",
+              "text": "miserable"
+            },
+            {
+              "key": "H",
+              "text": "pressure"
+            },
+            {
+              "key": "I",
+              "text": "properly"
+            },
+            {
+              "key": "J",
+              "text": "records"
+            },
+            {
+              "key": "K",
+              "text": "removed"
+            },
+            {
+              "key": "L",
+              "text": "stacks"
+            },
+            {
+              "key": "M",
+              "text": "suspicion"
+            },
+            {
+              "key": "N",
+              "text": "tracked"
+            },
+            {
+              "key": "O",
+              "text": "watching"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【考点】形容词辨析题。 G【语法判断】本空位于定冠词a之后,名词time之 前,因此应填人形容词修饰time。 【语义判断】本句意为:如果你的老板不信任员工 能把事情做好,那么你将过得—。由下一 句可知,不信任员工的老板会一直监督你,纠正 “错误”。根据常识可以判断,这样肯定过得不轻 松,因此本空应填入含有“不舒服,难受”意义的形 容词。备选形容词中只有G)miserable符合句 意,故本题答案为G)。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "constantly"
+            },
+            {
+              "key": "B",
+              "text": "credible"
+            },
+            {
+              "key": "C",
+              "text": "essential"
+            },
+            {
+              "key": "D",
+              "text": "exploring"
+            },
+            {
+              "key": "E",
+              "text": "gather"
+            },
+            {
+              "key": "F",
+              "text": "load"
+            },
+            {
+              "key": "G",
+              "text": "miserable"
+            },
+            {
+              "key": "H",
+              "text": "pressure"
+            },
+            {
+              "key": "I",
+              "text": "properly"
+            },
+            {
+              "key": "J",
+              "text": "records"
+            },
+            {
+              "key": "K",
+              "text": "removed"
+            },
+            {
+              "key": "L",
+              "text": "stacks"
+            },
+            {
+              "key": "M",
+              "text": "suspicion"
+            },
+            {
+              "key": "N",
+              "text": "tracked"
+            },
+            {
+              "key": "O",
+              "text": "watching"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【考点】副词辨析题。 A)【语法判断】本句句子结构完整,因此应填入副词。 【语义判断】本句主要描述不信任员工的老板的表 现:他们会一直监督你,纠正“错误”,并 提醒你做这个或那个。由语境可判断,本空所填 副词应与前面的allthetime意义相近,故本题答案为A)constantly。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "constantly"
+            },
+            {
+              "key": "B",
+              "text": "credible"
+            },
+            {
+              "key": "C",
+              "text": "essential"
+            },
+            {
+              "key": "D",
+              "text": "exploring"
+            },
+            {
+              "key": "E",
+              "text": "gather"
+            },
+            {
+              "key": "F",
+              "text": "load"
+            },
+            {
+              "key": "G",
+              "text": "miserable"
+            },
+            {
+              "key": "H",
+              "text": "pressure"
+            },
+            {
+              "key": "I",
+              "text": "properly"
+            },
+            {
+              "key": "J",
+              "text": "records"
+            },
+            {
+              "key": "K",
+              "text": "removed"
+            },
+            {
+              "key": "L",
+              "text": "stacks"
+            },
+            {
+              "key": "M",
+              "text": "suspicion"
+            },
+            {
+              "key": "N",
+              "text": "tracked"
+            },
+            {
+              "key": "O",
+              "text": "watching"
+            }
+          ],
+          "answer": "O",
+          "explanation": "【考点】固定搭配题。 O)【语法判断】本空位于spendmoretime之后,符合 spendtimedoingsth.结构,因此应填人v.-ing形式。 【语义判断】根据句意并结合常识可知,如果同事 之间缺少信任,那么他们就要防范别人在背后暗 算,而watchone'sback是个固定搭配,意为“小心 背后因可能有人暗算)”,符合句意,故本题答案 为O)watching。而另一个备选的v.-ing形式 exploring与theirbacks搭配讲不通,因此排除。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "constantly"
+            },
+            {
+              "key": "B",
+              "text": "credible"
+            },
+            {
+              "key": "C",
+              "text": "essential"
+            },
+            {
+              "key": "D",
+              "text": "exploring"
+            },
+            {
+              "key": "E",
+              "text": "gather"
+            },
+            {
+              "key": "F",
+              "text": "load"
+            },
+            {
+              "key": "G",
+              "text": "miserable"
+            },
+            {
+              "key": "H",
+              "text": "pressure"
+            },
+            {
+              "key": "I",
+              "text": "properly"
+            },
+            {
+              "key": "J",
+              "text": "records"
+            },
+            {
+              "key": "K",
+              "text": "removed"
+            },
+            {
+              "key": "L",
+              "text": "stacks"
+            },
+            {
+              "key": "M",
+              "text": "suspicion"
+            },
+            {
+              "key": "N",
+              "text": "tracked"
+            },
+            {
+              "key": "O",
+              "text": "watching"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【考点】名词辨析题。 J)【语法判断】本空位于词组volumesof之后,因此 应填入名词。 是 【语义判断】本句意为:公司保留大量 因为他们不信任他们的供应商、承包商或客户。 由常识可知,公司不信任供应商、承包商或客户等 人,通常会把相关的交易记录等保存下来。因此, 本空应填入含有“记录”意义的名词,故本题答案 为J)records。volumesof后面应该跟名词的复 数形式,而另外一个名词复数形式L)stacks“一 操,一堆”不符合句意,因此排除。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "constantly"
+            },
+            {
+              "key": "B",
+              "text": "credible"
+            },
+            {
+              "key": "C",
+              "text": "essential"
+            },
+            {
+              "key": "D",
+              "text": "exploring"
+            },
+            {
+              "key": "E",
+              "text": "gather"
+            },
+            {
+              "key": "F",
+              "text": "load"
+            },
+            {
+              "key": "G",
+              "text": "miserable"
+            },
+            {
+              "key": "H",
+              "text": "pressure"
+            },
+            {
+              "key": "I",
+              "text": "properly"
+            },
+            {
+              "key": "J",
+              "text": "records"
+            },
+            {
+              "key": "K",
+              "text": "removed"
+            },
+            {
+              "key": "L",
+              "text": "stacks"
+            },
+            {
+              "key": "M",
+              "text": "suspicion"
+            },
+            {
+              "key": "N",
+              "text": "tracked"
+            },
+            {
+              "key": "O",
+              "text": "watching"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【考点】语义推断题。 K)【语法判断】本空位于couldbe之后,可能填人动 词的过去分词构成被动语态,也可能填入形容词 作表语。 【语义判断】本段着重描述了缺乏信任给组织机构 带来的额外任务。本句中的suchvaluelesswork 指的就是额外工作,结合常识可知,只有额外工作 减少了,才会为组织节省钱。因此,本空应填入含 有“减少”意义的动词过去分词或形容词,故本题 答案为K)removed。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "constantly"
+            },
+            {
+              "key": "B",
+              "text": "credible"
+            },
+            {
+              "key": "C",
+              "text": "essential"
+            },
+            {
+              "key": "D",
+              "text": "exploring"
+            },
+            {
+              "key": "E",
+              "text": "gather"
+            },
+            {
+              "key": "F",
+              "text": "load"
+            },
+            {
+              "key": "G",
+              "text": "miserable"
+            },
+            {
+              "key": "H",
+              "text": "pressure"
+            },
+            {
+              "key": "I",
+              "text": "properly"
+            },
+            {
+              "key": "J",
+              "text": "records"
+            },
+            {
+              "key": "K",
+              "text": "removed"
+            },
+            {
+              "key": "L",
+              "text": "stacks"
+            },
+            {
+              "key": "M",
+              "text": "suspicion"
+            },
+            {
+              "key": "N",
+              "text": "tracked"
+            },
+            {
+              "key": "O",
+              "text": "watching"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【考点】动词辨析题。 F【语法判断】本空所在部分是一个定语从句,该定 语从句的主语是we,缺少谓语动词,因此本空应 填入动词。 【语义判断】由句意可知,因为我们不信任别人,才 会需要做一些额外的工作。也就是说,这些额外 的工作是自己加给自己的。结合备选词,可知 load有“(把大量.)装上”的意思,符合句意,故 本题答案为F)load。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "constantly"
+            },
+            {
+              "key": "B",
+              "text": "credible"
+            },
+            {
+              "key": "C",
+              "text": "essential"
+            },
+            {
+              "key": "D",
+              "text": "exploring"
+            },
+            {
+              "key": "E",
+              "text": "gather"
+            },
+            {
+              "key": "F",
+              "text": "load"
+            },
+            {
+              "key": "G",
+              "text": "miserable"
+            },
+            {
+              "key": "H",
+              "text": "pressure"
+            },
+            {
+              "key": "I",
+              "text": "properly"
+            },
+            {
+              "key": "J",
+              "text": "records"
+            },
+            {
+              "key": "K",
+              "text": "removed"
+            },
+            {
+              "key": "L",
+              "text": "stacks"
+            },
+            {
+              "key": "M",
+              "text": "suspicion"
+            },
+            {
+              "key": "N",
+              "text": "tracked"
+            },
+            {
+              "key": "O",
+              "text": "watching"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【答案】I。【考点】副词辨析题。 I)【语法判断】本空位于believe后的宾语从句中,该 从句结构完整,因此应填入副词修饰动词do。 【语义判断】结合文章主题“信任”可知,此处是说 我们自己动手做事是因为不相信别人。也就是 说,不相信别人能做好,因此本空应填入含有“准 确,好”意义的副词,故本题答案为Iproperly。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "constantly"
+            },
+            {
+              "key": "B",
+              "text": "credible"
+            },
+            {
+              "key": "C",
+              "text": "essential"
+            },
+            {
+              "key": "D",
+              "text": "exploring"
+            },
+            {
+              "key": "E",
+              "text": "gather"
+            },
+            {
+              "key": "F",
+              "text": "load"
+            },
+            {
+              "key": "G",
+              "text": "miserable"
+            },
+            {
+              "key": "H",
+              "text": "pressure"
+            },
+            {
+              "key": "I",
+              "text": "properly"
+            },
+            {
+              "key": "J",
+              "text": "records"
+            },
+            {
+              "key": "K",
+              "text": "removed"
+            },
+            {
+              "key": "L",
+              "text": "stacks"
+            },
+            {
+              "key": "M",
+              "text": "suspicion"
+            },
+            {
+              "key": "N",
+              "text": "tracked"
+            },
+            {
+              "key": "O",
+              "text": "watching"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【考点】名词辨析题。 H)【语法判断】空格所在句是一个疑间句,空格处所 填词和ourwork一起作主语,应填人名词。 【语义判断】本句意为:我们有多少工作 会消失?由上一句可知,如果我们减少这些因缺 乏信任产生的额外工作,我们会多出很多空余时 间。由常识可知,这样我们可以集中精力做真正 有价值的工作,从而减少工作压力,故本题答案为 H)pressure。本空填F)load也符合句意,但是第 33题只能填load,其他动词均不符合。因此,本题 只能填H)pressure。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2020-12-1-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) This is the land of opportunity. If that weren't already implied by the landscape—rolling green hills, palm trees, sun-kissed flowers—then it's evident in the many stories of people who grew up poor in these sleepy neighborhoods and rose to enormous success. People like Tri Tran, who fled Vietnam on a boat in 1986, showed up in San Jose with nothing, made it to MIT, and then founded the food-delivery start-up Munchery, which is valued at $ 300 million.",
+        "B) Indeed, data suggests that this is one of the best places to grow up poor in America. A child born in the early 1980s into a low-income family in San Jose had a 12.9 percent chance of becoming a high earner as an adult, according to a landmark study released in 2014 by the economist Raj Chetty and his colleagues from Harvard and Berkeley. That number—12.9 percent—may not seem remarkable, but it was: Kids in San Jose whose families fell in the bottom quintile (五分位数) of income nationally had the best shot in the country at reaching the top quintile.",
+        "C) By contrast, just 4.4 percent of poor kids in Charlotte moved up to the top; in Detroit the figure was 5.5 percent. San Jose had social mobility comparable to Denmark's and Canada's and higher than other progressive cities such as Boston and Minneapolis.",
+        "D) The reasons kids in San Jose performed so well might seem obvious. Some of the world's most innovative companies are located here, providing opportunities such as the one seized by a 12-year-old Mountain View resident named Steve Jobs when he called William Hewlett to ask for spare parts and subsequently received a summer job. This is a city of immigrants—38 percent of the city's population today is foreign-born—and immigrants and their children have historically experienced significant upward mobility in America. The city has long had a large foreign-born population (26.5 percent in 1990), leading to broader diversity, which, the Harvard and Berkeley economists say, is a good predictor of mobility.",
+        "E) Indeed, the streets of San Jose seem, in some ways, to embody the best of America. It's possible to drive in a matter of minutes from sleek (光秃的) office towers near the airport where people pitch ideas to investors, to single-family homes with orange trees in their yards, or to a Vietnamese mall. The libraries here offer programs in 17 languages, and there are areas filled with small businesses owned by Vietnamese immigrants, Mexican immigrants, Korean immigrants, and Filipino immigrants, to name a few.",
+        "F) But researchers aren't sure exactly why poor kids in San Jose did so well. The city has a low prevalence of children growing up in single-parent families, and a low level of concentrated poverty, both factors that usually mean a city allows for good intergenerational mobility. But San Jose also performs poorly on some of the measures correlated with good mobility. It is one of the most unequal places out of the 741 that the researchers measured, and it has high degrees of racial and economic segregation (隔离). Its schools underperform based on how much money there is in the area, said Ben Scuderi, a predoctoral fellow at the Equality of Opportunity Project at Harvard, which uses big data to study how to improve economic opportunities for low-income children. \"There's a lot going on here which we don't totally understand,\" he said. \"It's interesting, because it kind of defies our expectations.\"",
+        "G) The Chetty data shows that neighborhoods and places mattered for children born in the San Jose area of the 1980s. Whether the city still allows for upward mobility of poor kids today, though, is up for debate. Some of the indicators such as income inequality, measured by the Equality of Opportunity Project for the year 2000, have only worsened in the past 16 years.",
+        "H) Some San Jose residents say that as inequality has grown in recent years, upward mobility has become much more difficult to achieve. As Silicon Valley has become home to more successful companies, the flood of people to the area has caused housing prices to skyrocket. By most measures, San Jose is no longer a place where low-income, or even middle-income families, can afford to live. Rents in San Jose grew 42. 6 percent between 2006 and 2014, which was the largest increase in the country during that time period. The city has a growing homelessness problem, which it tried to address by shutting down \"The Jungle,\" one of the largest homeless encampments (临时住地) in the nation, in 2014. Inequality is extreme. The Human Development Index—a measure of life expectancy, education and per capita (人均的) income—gives East San Jose a score of 4. 85 out of 10, while nearby Cupertino, where Apple's headquarters sits, receives a 9. 26. San Jose used to have a happy mix of factors—cheap housing, closeness to a rapidly developing industry, tightly-knit immigrant communities—that together opened up the possibility of prosperity for even its poorest residents. But in recent years, housing prices have skyrocketed, the region's rich and poor have segregated, and middle-class jobs have disappeared. Given this, the future for the region's poor doesn't look nearly as bright as it once did.",
+        "I) Leaders in San Jose are determined to make sure that the city regains its status as a place where even poor kids can access the resources to succeed. With Silicon Valley in its backyard, it certainly has the chance to do so. \"I think there is a broad consciousness in the Valley that we can do better than to leave thousands of our neighbors behind through a period of extraordinary success,\" San Jose Mayor Sam Liccardo said.",
+        "J) But in today's America—a land of rising inequality, increasing segregation, and stagnating (不增长的) middle-class wages—can the San Jose region really once again become a place of opportunity?",
+        "K) The idea that those at the bottom can rise to the top is central to America's ideas about itself. That such mobility has become more difficult in San Jose raises questions about the endurance of that foundational belief. After all, if the one-time land of opportunity can't be fixed, what does that say for the rest of America?"
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "According to some people living in San Jose, it has become much harder for the poor to get ahead due to the increased inequality.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【定位】由题干中的muchharder和increased inequality定位到文章HD段第一句。 H)【精析】同义转述题。定位句提到,一些圣何塞居 民说,随着近年来不平等的加剧,向上流动变得更 加困难。题干中的somepeoplelivinginSanJose 对应定位句中的SomeSanJoseresidents,题干中 的hasbecomemuchharder对应定位句中的has becomemuchmoredifficulttoachieve,题干中的 theincreasedinequality对应定位句中的 inequalityhasgrown,故答案为H。"
+        },
+        {
+          "number": 37,
+          "stem": "In American history, immigrants used to have a good chance to move upward in society.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的Americanhistory、immigrants 和moveupward定位到文章D)段倒数第二句。 D)【精析】同义转述题。定位句指出,圣何塞是一个 移民城市,在美国历史上,移民及其子女经历了社 会中显著的向上流动。题干中的usedtohavea goodchancetomoveupwardin society是对定位 句中have historicallyexperienced significant upwardmobility的同义转述,故答案为D)。"
+        },
+        {
+          "number": 38,
+          "stem": "If the problems of San Jose can't be solved, one of America's fundamental beliefs about itself can be shaken.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【定位】由题干中的theproblemsofSanJose和 America'sfundamentalbeliefs定位到K)段。 K)【精析】细节归纳题。定位段提到,美国自我观念 的核心是认为底层的人可以上升到上层。而这种 流动性在圣何塞变得越来越困难,这引起了人们 对该基本信念的持久性质疑。如果无法修复这片 曾经的机会之地,那对美国其他地区来说又意味 着什么呢?题干中的theproblemsofSanJose can'tbesolved是对定位段中theone-timeland ofopportunitycan'tbefixed的归纳概括,题干中 的America'sfundamentalbeliefs对应定位句中 的thatfoundationalbelief,故答案为K)。"
+        },
+        {
+          "number": 39,
+          "stem": "San Jose was among the best cities in America for poor kids to move up the social ladder.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的thebestcities、poorkids、 moveup和socialladder定位到B)段。 B【精析】细节归纳题。定位段第一句提到,数据显 示圣何塞是美国最适合穷人成长的地方之一。按 着第二、三句用具体数据来证明:圣何塞低收人家 庭的孩子成年后成为高收人者的概率为12.9%, 圣何塞那些收人在全国最低的五分之一的家庭的 孩子,最有可能成为全国收人最高的五分之一。 换言之,在美国,圣何塞是最适合贫困儿童在社会 阶梯上升迁的城市之一,故答案为B)。"
+        },
+        {
+          "number": 40,
+          "stem": "Whether poor kids in San Jose today still have the chance to move upward is questionable.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【定位】由题干中的poorkidsinSanJose、move upward和questionable定位到G)段第二句。 G)【精析】同义转述题。定位句提到,如今这座城市 是否还允许贫困儿童向上流动,还有待商植。题 干中的moveupward和questionable分别对应定 位句中的upwardmobility和upfordebate。题 干是对定位句的同义转述,故答案为G)。"
+        },
+        {
+          "number": 41,
+          "stem": "San Jose's officials are resolved to give poor kids access to the resources necessary for success in life.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【答案】I。【定位】由题干中的SanJose'sofficials、accessto theresources和success定位到I段第一句。 I【精析】同义转述题。定位句提到,圣何塞的领导 人决心确保该市重新获得它的地位,再次成为一 个即使是贫穷的孩子也可以获取成功资源的地 方。题干中的SanJose'sofficials对应定位句中 “的Leaders in San Jose,题干中的givepoorkids accesstotheresources对应定位句中的poorkids canaccesstheresources,题干中的success是对定 位句中succeed的同义转述,故答案为I)。"
+        },
+        {
+          "number": 42,
+          "stem": "San Jose appears to manifest some of the best features of America.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【定位】由题干中的manifest和thebestfeatures ofAmerica定位到E)段第一句。 E)【精析】同义转述题。定位句提到,在某些方面,圣 何塞的街道似乎体现了美国最好的一面。题干中 的manifest对应定位句中的embody,题干中的 thebestfeaturesofAmerica对应定位句中的the bestofAmerica,故答案为E)。"
+        },
+        {
+          "number": 43,
+          "stem": "As far as social mobility is concerned, San Jose beat many other progressive cities in America.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的socialmobility和other progressivecities定位到C)段最后一句。 C)【精析】同义转述题。定位句提到,圣何塞的社会 流动性可与丹麦和加拿大相提并论,高于波士顿 和明尼阿波利斯等其他进步城市。题干中的beat many other progressivecities inAmerica是对定 位句中higherthanotherprogressivecities的同 义转述,故答案为C)。"
+        },
+        {
+          "number": 44,
+          "stem": "Due to some changes like increases in housing prices in San Jose, the prospects for its poor people have dimmed.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【定位】由题干中housingprices和prospects定位 到H)段最后两句。 H)【精析】细节归纳题。定位句提到,近年来房价飞 涨,该地区贫富分化,中产阶级工作岗位消失。鉴 于此,该地区穷人的未来看起来不像以前那么光 明了。题干中的somechangeslikeincreasesin housingpricesinSanJose是对定位段倒数第二句 中 housing prices have skyrocketed, the region's rich and poor have segregated, and middle-class jobshavedisappeared的概括归纳,题干中的the prospects for its poor people have dimmed是对 定位段最后一句中thefuturefortheregion's poor doesn't look nearly as bright as it once did 的同义转述,故答案为H)。"
+        },
+        {
+          "number": 45,
+          "stem": "Researchers do not have a clear idea why poor children in San Jose achieved such great success several decades ago.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【定位】由题干中的Researchers、poorchildrenin SanJose和achieved suchgreatsuccess定位到F) 段第一句。 F)【精析】同义转述题。定位句提到,研究人员并不 能完全确定为什么圣何塞的穷孩子做得这么好。 题干中的Researchers donot havea clear idea why对应定位句中的researchersaren't sure exactlywhy,题干中的poorchildren inSanJose achievedsuchgreatsuccess对应定位句中的poor kids in San Josedid so well,故答案为F)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2020-12-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Three children in every classroom have a diagnosable mental health condition. Half of these are behavioural disorders, while one third are emotional disorders such as stress, anxiety and depression, which often become outwardly apparent through self-harm. There was an astonishing 52 per cent jump in hospital admissions for children and young people who had harmed themselves between 2009 and 2015. Schools and teachers have consistently reported the scale of the problem since 2009. Last year, over half of teachers reported that more of their pupils experience mental health problems than in the past. But teachers also consistently report how ill-equipped they feel to meet pupils' mental health needs, and often cite a lack of training, expertise and support from the National Health Service (英国国家医疗服务体系). Part of the reason for the increased pressure on schools is that there are now fewer 'early intervention (干预)' and low-level mental health services based in the community. Cuts to local authority budgets since 2010 have resulted in a significant decline of these services, despite strong evidence of their effectiveness in preventing crises further down the line. The only way to break the pressures on both mental health services and schools is to reinvest in early intervention services inside schools. There are strong arguments for why schools are best placed to provide mental health services. Schools see young people more than any other service, which gives them a unique ability to get to hard-to-reach children and young people and build meaningful relationships with them over time. Recent studies have",
+        "shown that children and young people largely prefer to see a counsellor in school rather than in an outside environment. Young people have reported that for low-level conditions such as stress and anxiety, a clinical setting can sometimes be daunting (令人却步的).",
+        "There are already examples of innovative schools which combine mental health and wellbeing provision with a strong academic curriculum. This will, though, require a huge cultural shift. Politicians, policymakers, commissioners and school leaders must be brave enough to make the leap towards reimagining schools as providers of health as well as education services."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What are teachers complaining about?",
+          "options": [
+            {
+              "key": "A",
+              "text": "There are too many students requiring special attention."
+            },
+            {
+              "key": "B",
+              "text": "They are under too much stress counselling needy students."
+            },
+            {
+              "key": "C",
+              "text": "Schools are inadequately equipped to implement any intervention."
+            },
+            {
+              "key": "D",
+              "text": "They lack the necessary resources to address pupils' mental problems."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的teachers和complaining定位 到第二段最后一句。 D)【精析】细节辨认题。定位句指出,老师们也经常 报告他们感觉自己在满足学生的心理健康需求方 面能力欠缺,并且经常提到缺乏英国国家医疗服 务体系的培训、专业知识和支持。由此可见,老师 们抱的是他们缺乏解决学生心理问题的必要资 源,故答案为D)“他们缺乏解决学生心理问题的 必要资源”。 【避错】第二段第二句提到,去年,超过半数的老师 报告说,有心理健康问题的学生比过去更多。并 不是需要特别关注的学生数量多,故排除A)“有 太多需要特别关注的学生”。第二段第三句提到, 老师们在满足学生的心理健康需求方面能力欠 缺,在解决学生心理问题方面缺少必要资源,但并 未提到老师在辅导需要关爱的学生方面压力太 大,故排除B)“他们在辅导需要关爱的学生方面 承受了太大的压力”。第三、四段提到,学校在帮 助学生应对心理健康问题方面压力增大,应加强 学校内部的早期干预服务。换言之,学校可以通 过实施干预措施来帮助学生,并非没有能力采取 任何措施,故排除C)“学校没有足够的能力来实 施任何干预措施”。"
+        },
+        {
+          "number": 47,
+          "stem": "What do we learn from the passage about community health services in Britain?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They have deteriorated due to budget cuts."
+            },
+            {
+              "key": "B",
+              "text": "They facilitate local residents' everyday lives."
+            },
+            {
+              "key": "C",
+              "text": "They prove ineffective in helping mental patients."
+            },
+            {
+              "key": "D",
+              "text": "They cover preventative care for the local residents."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题干中的communityhealthservices定 位到第三段。 A)【精析】推理判断题。定位段第一句提到,现在社 区的“早期干预”和初级心理健康服务越来越少, 接下来在第二句分析了原因,自2010年以来,地 方政府预算的削减导致了这些服务的大幅下降, 故答案为A)“由于预算前减,它们情况恶化了”。 【避错】定位段提到这些服务在帮助学校应对学生 心理健康问题方面的重要作用,但并未提及社区 卫生服务对当地居民的影响,故排除B)“它们方 :便了当地居民的日常生活”。定位段第二句提到, 有强有力的证据表明这些服务在帮助应对学生心 理健康间题上有效,故排除C)“事实证明,它们在 帮助有心理问题的病人方面是无效的”。文中没 有提到社区卫生服务对当地居民的预防性护理, 故排除D)。"
+        },
+        {
+          "number": 48,
+          "stem": "Where does the author suggest mental health services be placed?",
+          "options": [
+            {
+              "key": "A",
+              "text": "At home."
+            },
+            {
+              "key": "B",
+              "text": "At school."
+            },
+            {
+              "key": "C",
+              "text": "In hospitals."
+            },
+            {
+              "key": "D",
+              "text": "In communities."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题千中的mentalhealthservices和be placed定位到第五段倒数第二句。 B)【精析】细节辨认题。定位句指出,最近的研究表 明,儿童和年轻人在很大程度上更喜欢在学校里 找辅导员,而不是在校外,故答案为B)。 【避错】文章第五段最后两句指出,比起在校外,孩 子和年轻人在很大程度上更喜欢在学校里看到辅 导员。年轻人报告说,对于压力和焦虑等初级状 况,临床环境有时会令人望而生畏。由此可知,青 少年更喜欢在学校接受心理辅导,故可以排除 A)、C)和D)三项。"
+        },
+        {
+          "number": 49,
+          "stem": "What do we learn from the recent studies?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Students prefer to rely on peers to relieve stress and anxiety."
+            },
+            {
+              "key": "B",
+              "text": "Young people are keen on building meaningful relationships."
+            },
+            {
+              "key": "C",
+              "text": "Students are more comfortable seeking counselling in school."
+            },
+            {
+              "key": "D",
+              "text": "Young people benefit from various kinds of outdoor activities."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的recentstudies定位到第五段 最后两句。 C)【精析】推理判断题。定位句提到,最近的研究表 明,儿童和年轻人在很大程度上更喜欢在学校里 找辅导员,而不是在校外。年轻人报告说,对于压 力和焦虑等初级状况,临床环境有时会令人望而 生畏。由此可知,青少年在学校环境下接受心理 辅导会感到更自在,故答案为C)。 【避错】定位句提到,学生更喜欢在学校接受心 理辅导,并未提及他们是否更喜欢依靠同龄人 来缓解压力和焦虑,故排除A)“学生更喜欢依 ... :: 靠同龄人来缓解压力和焦虑”。第五段第二句 提到,学校比其他任何公共服务系统都更关注 年轻人,这使它们拥有一种独特的能力去接触 难以接触的儿童和年轻人,并逐渐与他们建立 有意义的关系。此处指学校与年轻人建立有意 义的关系,而非年轻人热衰于建立有意义的关 系,故排除B)“年轻人热衰于建立有意义的关 系”。文中并未提及D)“年轻人从各种户外活 动中受益”,故排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What does the author mean by a cultural shift (Line 2, Para. 6)?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Simplification of schools' academic curriculums."
+            },
+            {
+              "key": "B",
+              "text": "Parents' involvement in schools' policy-making."
+            },
+            {
+              "key": "C",
+              "text": "A change in teachers' attitudes to mental health."
+            },
+            {
+              "key": "D",
+              "text": "A change in the conception of what schools are."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的aculturalshift和Para.6定 位到最后一段。 D)【精析】语义理解题。定位段第二句指出,这将需 要巨大的文化转变。第三句接着对“文化转变”作 出了阐释:政治家、政策制定者、部长和学校领导 必须足够勇敢,向着将学校重新塑造为健康和教 育服务提供者的方向飞跃。由此可知,这种文化 转变是将学校重新塑造为健康和教育服务提供 者,故答案为D)“对学校观念的转变”。 【避错】定位段第一句指出,已经有一些创新学校 将心理健康和福利保障与强大的学术课程相结 合,并不是简化课程,故排除A)“简化学校的学 术课程”。文中并未提及家长该如何做,故排除 B)“家长参与学校决策”。定位段第三句指出,政 治家、政策制定者、部长和学校领导必须足够勇 敢,向着将学校重新塑造为健康和教育服务提供 者的方向飞跃。由此可知,这种文化转变是将学 校重新塑造为健康和教育服务提供者,而不是老 师对心理健康态度的转变,故排除C)“老师对心 理健康态度的转变”。 、,"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2020-12-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Picture this: You're at a movie theater food stand loading up on snacks. You have a choice of a small, medium or large soda. The small is $3.50 and the large is $5.50. It's a tough decision: The small size may not last you through the whole movie, but $5.50 for some sugary drink seems ridiculous. But there's a third option, a medium soda for $5.25. Medium may be the perfect amount of soda for you, but the large is only a quarter more. If you're like most people, you end up buying the large (and taking a bathroom break midshow).",
+        "If you're wondering who would buy the medium soda, the answer is almost no one. In fact, there's a good chance the marketing department purposely priced the medium soda as a decoy (诱饵), making you more likely to buy the large soda rather than the small.",
+        "I have written about this peculiarity in human nature before with my friend Dan Ariely, who studied this phenomenon extensively after noticing pricing for subscriptions (订阅) to The Economist. The digital",
+        "subscription was $ 59, the print subscription was $125, and the print plus digital subscription was also $125. No one in their right mind would buy the print subscription when you could get digital as well for the same price, so why was it even an option? Ariely ran an experiment and found that when only the two \"real\" choices were offered, more people chose the less-expensive digital subscription. But the addition of the bad option made people much more likely to choose the more expensive print plus digital option.",
+        "Brain scientists call this effect \"asymmetric dominance\" and it means that people gravitate toward the choice nearest a clearly inferior option. Marketing professors call it the decoy effect, which is certainly easier to remember. Lucky for consumers, almost no one in the business community understands it.",
+        "The decoy effect works because of the way our brains assign value when making choices. Value is almost never absolute; rather, we decide an object's value relative to our other choices. If more options are introduced, the value equation changes."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "Why does the author ask us to imagine buying food in the movie theater?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To illustrate people's peculiar shopping behavior."
+            },
+            {
+              "key": "B",
+              "text": "To illustrate the increasing variety of snacks there."
+            },
+            {
+              "key": "C",
+              "text": "To show how hard it can be to choose a drink there."
+            },
+            {
+              "key": "D",
+              "text": "To show how popular snacks are among movie fans."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题干中的buyingfoodinthemovie theater定位到第一段第一句。 A)【精析】推理判断题。定位段描写了一个场景:人 们在电影院购买汽水时,一般都会选择比中杯稍 贵的大杯;第二段接着分析中杯的汽水很可能是 营销人员的诱饵,引诱你买大杯汽水;第三段提到 作者和朋友对人性的这种独特性行为进行过研 究。由此可知,作者让我们想象在电影院买食物 是为了引出人们一种独特的购物行为,故答案为 A)“以说明人们独特的购物行为”。 【避错】定位句让读者想象在电影院的食品台前买 零食的场景,并不是为了说明电影院小吃种类越 来越多,故排除B)“说明那里的小吃种类越来越 多”。第一段提到,在面对大杯、中杯和小杯汽水 时,大部分人都会买大杯,并没有难以做出选择, 故排除C)“显示在那里选择一种饮料有多困难”。 第一段描写了人们在电影院购买不同型号汽水的 场景,借以引出人们一种独特的购物行为,并不是 为了表明小吃有多受欢迎,故排除D)“展示小吃 在影迷中有多受欢迎”。"
+        },
+        {
+          "number": 52,
+          "stem": "Why is the medium soda priced the way it is?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To attract more customers to buy it."
+            },
+            {
+              "key": "B",
+              "text": "To show the price matches the amount."
+            },
+            {
+              "key": "C",
+              "text": "To ensure customers drink the right amount of soda."
+            },
+            {
+              "key": "D",
+              "text": "To make customers believe they are getting a bargain."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的themediumsoda和priced定 位到第二段最后一句。 D)【精析】推理判断题。定位句提到,市场营销部很 有可能故意以中杯汽水作为诱饵,让你更有可能 购买大杯汽水而不是小杯。第一段倒数第二句提 到,大杯汽水只比中杯的贵0.25美分。由此可 知,之所以这样给中杯定价,是为了让消费者认为 买大杯更合算,故答案为D)“为了让顾客相信他 们买得很合算”。 【避错】定位句提到,市场营销部很有可能故意以 中杯汽水作为诱饵,让你更有可能购买大杯汽水 而不买小杯或中杯汽水,故排除A)“为了吸引更 多的顾客购买中杯汽水”。第一段倒数第二句提 到,大杯汽水只比中杯的贵了0.25美分,由此可 知,中杯定价并不符合常理,故B)为了显示价格 配得上容量”说法错误,可排除。第一段末句提 到,喝了大杯汽水后,会在电影中间上厕所,由此 可知,顾客喝了过量的汽水,故排除C)“为了确保 顾客饮用适量的汽水”。"
+        },
+        {
+          "number": 53,
+          "stem": "What do we learn from Dan Ariely's experiment?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Lower-priced goods attract more customers."
+            },
+            {
+              "key": "B",
+              "text": "The Economist's promotional strategy works."
+            },
+            {
+              "key": "C",
+              "text": "The Economist's print edition turns out to sell the best."
+            },
+            {
+              "key": "D",
+              "text": "More readers choose the digital over the print edition."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的DanAriely'sexperiment定位 到第三段最后两句。 B)【精析】推理判断题。定位句指出,艾瑞里做了一 个实验,发现当只提供两个“真实的”选项时,更多 的人选择了价格较低的数字版订阅。但是不良选 项的增加使人们更有可能选择更昂贵的印剧版加 数字版这一选项。由此可知,在面对《经济学人》 提供的三个选项时,人们更倾向于选择订阅印刷 版加数字版,即《经济学人》的宣传策略奏效了,故 答案为B)。 【避错】第三段第二、三句指出,《经济学人》数字版 订阅费是59美元,印刷版订阅费是125美元,印 刷版加数字版订阅费也是125美元。在可以用 同样的价格买到印刷版加数字版的情况下,没有 一个头脑正常的人会购买印刷版,由此可知,价 格最低的数字版并没有吸引到更多顾客,故可以 排除A)“低价商品吸引更多顾客”。定位句指 出,不良选项(印刷版订阅费125美元)的增加使 人们更有可能选择印刷版加数字版这一选项,由 此可知,读者更倾向于选择印剧版加数字版,故 可以排除C)和D)。"
+        },
+        {
+          "number": 54,
+          "stem": "For what purpose is \"the bad option\" (Line 7, Para. 3) added?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To cater to the peculiar needs of some customers."
+            },
+            {
+              "key": "B",
+              "text": "To help customers to make more rational choices."
+            },
+            {
+              "key": "C",
+              "text": "To trap customers into buying the more pricey item."
+            },
+            {
+              "key": "D",
+              "text": "To provide customers with a greater variety of goods."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的thebadoption和Para.3定 位到第三段最后一句。 C)【精析】推理判断题。定位句指出,不良选项(印 刷版订阅费125美元)的增加使人们更有可能选 择更昂贵的印剧版加数字版这一选项。由此可 知,添加“不良选项”是为了诱使顾客购买价格较 高的商品,故答案为C)“诱使顾客购买价格较高 的商品”。 【避错】文中没有提到顾客的特殊要求,故排除 A)。由定位句可知,添加不良选项是为了诱使顾 客购买价格较高的商品,不是为了让顾客做出更 理性的选择,也不是为了给顾客提供更多种类的 商品,故排除B)“帮助客户做出更理性的选择”和 D)“为顾客提供更多种类的商品”。"
+        },
+        {
+          "number": 55,
+          "stem": "How do we assess the value of a commodity, according to the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "By considering its usefulness."
+            },
+            {
+              "key": "B",
+              "text": "By comparing it with other choices."
+            },
+            {
+              "key": "C",
+              "text": "By taking its quality into account."
+            },
+            {
+              "key": "D",
+              "text": "By examining its value equation."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的thevalueofacommodity定 位到最后一段最后两句。 B)【精析】细节辨认题。定位句指出,价值几乎从来 不是绝对的;相反,我们是相对于其他选择来确定 某一物品的价值。如果引入更多选项,则价值等 式将发生变化。由此可知,我们是通过比较不同 的选择来评估某一商品的价值,故答案为B)“通 过与其他选择进行比较”。 【避错】由定位句可知,我们是相较于其他选择来 确定某一物品的价值。如果引人更多选项,价值 等式则将发生变化,而不是单独考虑其实用性、质 量,故排除A)和C)。D)是根据最后一段最后一 句中的valueequation捏造的干扰项,但价值等式 是相较于其他商品而言的,故排除。 E..32("
+        }
+      ]
+    }
+  ]
+}

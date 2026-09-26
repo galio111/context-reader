@@ -1,0 +1,1647 @@
+{
+  "id": "cet6-2014-06-1",
+  "level": 6,
+  "year": 2014,
+  "month": 6,
+  "set": 1,
+  "title": "2014 年 6 月六级 · 第 1 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.06/%E7%9C%9F%E9%A2%98Word/2014%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2014%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%EF%BC%88%E4%B8%80%EF%BC%89.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2014-06-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "For investors who desire low risk and guaranteed income, US government bonds are a secure investment because these bonds have the financial backing and full faith and credit of the federal government. Municipal bonds, also secure, are offered by local governments and often have [[36]] such as tax-free interest. Some may even be [[37]] Corporate bonds are a bit more risky. Two questions often [[38]] first-time corporate bond investors. The first is “If I purchase a corporate bond, do I have to hold it until the maturity date?,” The answer is no. Bonds are bought and sold daily on [[39]] securities exchanges. However, if you decide to sell your bond before its maturity date, you’re not guaranteed to get the face value of the bond. For example, if your bond does not have [[40]] that make it attractive to other investors, you may be forced to sell your bond at a [[41]] ,i.e., a price less than the bond’s face value. But if your bond is highly valued by other investors, you may be able to sell it at a premium, i.e., a price above its face value. Bond prices generally [[42]] inversely(相反地) with current market interest rates. As interest rates go up, bond prices fall, and versa(反之亦然). Thus, like all investments, bonds have a degree of risk. The second question is “ How can I [[43]] the investment risk of a particular bond issue? ”Standard & Poor’s and Moody’s Investors Service rate the level of risk of many corporate and government bonds. And [[44]] , the higher the market risk of a bond, the higher the interest rate. Investors will invest in a bond considered risky only if the [[45]] return is high enough."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "advantages"
+        },
+        {
+          "key": "B",
+          "text": "assess"
+        },
+        {
+          "key": "C",
+          "text": "bother"
+        },
+        {
+          "key": "D",
+          "text": "conserved"
+        },
+        {
+          "key": "E",
+          "text": "deduction"
+        },
+        {
+          "key": "F",
+          "text": "discount"
+        },
+        {
+          "key": "G",
+          "text": "embarrass"
+        },
+        {
+          "key": "H",
+          "text": "features"
+        },
+        {
+          "key": "I",
+          "text": "fluctuate"
+        },
+        {
+          "key": "J",
+          "text": "indefinite"
+        },
+        {
+          "key": "K",
+          "text": "insured"
+        },
+        {
+          "key": "L",
+          "text": "major"
+        },
+        {
+          "key": "M",
+          "text": "naturally"
+        },
+        {
+          "key": "N",
+          "text": "potential"
+        },
+        {
+          "key": "O",
+          "text": "simultaneously"
+        }
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "第 36 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "advantages"
+            },
+            {
+              "key": "B",
+              "text": "assess"
+            },
+            {
+              "key": "C",
+              "text": "bother"
+            },
+            {
+              "key": "D",
+              "text": "conserved"
+            },
+            {
+              "key": "E",
+              "text": "deduction"
+            },
+            {
+              "key": "F",
+              "text": "discount"
+            },
+            {
+              "key": "G",
+              "text": "embarrass"
+            },
+            {
+              "key": "H",
+              "text": "features"
+            },
+            {
+              "key": "I",
+              "text": "fluctuate"
+            },
+            {
+              "key": "J",
+              "text": "indefinite"
+            },
+            {
+              "key": "K",
+              "text": "insured"
+            },
+            {
+              "key": "L",
+              "text": "major"
+            },
+            {
+              "key": "M",
+              "text": "naturally"
+            },
+            {
+              "key": "N",
+              "text": "potential"
+            },
+            {
+              "key": "O",
+              "text": "simultaneously"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。名词辨析题。由空格前的often have 和空格后的such as tax-free interest 可知,此处应填入名词。 根据本句前半句可知,此处是对“市政债券也很安全”这一观点的进一步阐述,且空格后提出了 tax-free interest “免税利息”,故答案为advantages “优点,好处”。"
+        },
+        {
+          "number": 37,
+          "stem": "第 37 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "advantages"
+            },
+            {
+              "key": "B",
+              "text": "assess"
+            },
+            {
+              "key": "C",
+              "text": "bother"
+            },
+            {
+              "key": "D",
+              "text": "conserved"
+            },
+            {
+              "key": "E",
+              "text": "deduction"
+            },
+            {
+              "key": "F",
+              "text": "discount"
+            },
+            {
+              "key": "G",
+              "text": "embarrass"
+            },
+            {
+              "key": "H",
+              "text": "features"
+            },
+            {
+              "key": "I",
+              "text": "fluctuate"
+            },
+            {
+              "key": "J",
+              "text": "indefinite"
+            },
+            {
+              "key": "K",
+              "text": "insured"
+            },
+            {
+              "key": "L",
+              "text": "major"
+            },
+            {
+              "key": "M",
+              "text": "naturally"
+            },
+            {
+              "key": "N",
+              "text": "potential"
+            },
+            {
+              "key": "O",
+              "text": "simultaneously"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K)。动词辨析题格位于be 之后,据此推断此处可能填形容词或动词的分词形式。本句承接上一句, 也是阐述市政债券的优点,即比较安全,故答案为insured “投保”。"
+        },
+        {
+          "number": 38,
+          "stem": "第 38 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "advantages"
+            },
+            {
+              "key": "B",
+              "text": "assess"
+            },
+            {
+              "key": "C",
+              "text": "bother"
+            },
+            {
+              "key": "D",
+              "text": "conserved"
+            },
+            {
+              "key": "E",
+              "text": "deduction"
+            },
+            {
+              "key": "F",
+              "text": "discount"
+            },
+            {
+              "key": "G",
+              "text": "embarrass"
+            },
+            {
+              "key": "H",
+              "text": "features"
+            },
+            {
+              "key": "I",
+              "text": "fluctuate"
+            },
+            {
+              "key": "J",
+              "text": "indefinite"
+            },
+            {
+              "key": "K",
+              "text": "insured"
+            },
+            {
+              "key": "L",
+              "text": "major"
+            },
+            {
+              "key": "M",
+              "text": "naturally"
+            },
+            {
+              "key": "N",
+              "text": "potential"
+            },
+            {
+              "key": "O",
+              "text": "simultaneously"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。动词辨析题。分析句子成分可知,该句缺少谓语,故此处应填人动词。根据空格前的questions 和 first-time corporate bond investors 之间的逻辑关系,可推知答案为bother “ 烦扰” 。"
+        },
+        {
+          "number": 39,
+          "stem": "第 39 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "advantages"
+            },
+            {
+              "key": "B",
+              "text": "assess"
+            },
+            {
+              "key": "C",
+              "text": "bother"
+            },
+            {
+              "key": "D",
+              "text": "conserved"
+            },
+            {
+              "key": "E",
+              "text": "deduction"
+            },
+            {
+              "key": "F",
+              "text": "discount"
+            },
+            {
+              "key": "G",
+              "text": "embarrass"
+            },
+            {
+              "key": "H",
+              "text": "features"
+            },
+            {
+              "key": "I",
+              "text": "fluctuate"
+            },
+            {
+              "key": "J",
+              "text": "indefinite"
+            },
+            {
+              "key": "K",
+              "text": "insured"
+            },
+            {
+              "key": "L",
+              "text": "major"
+            },
+            {
+              "key": "M",
+              "text": "naturally"
+            },
+            {
+              "key": "N",
+              "text": "potential"
+            },
+            {
+              "key": "O",
+              "text": "simultaneously"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L)。形容词辨析题。....空格位于介词on 和名词词组securities exchanges 之间,由此推断此处应填人 形容词。根据常识,债券应是在主要的证券交易所买进和卖出,故答案为major“主要的”。."
+        },
+        {
+          "number": 40,
+          "stem": "第 40 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "advantages"
+            },
+            {
+              "key": "B",
+              "text": "assess"
+            },
+            {
+              "key": "C",
+              "text": "bother"
+            },
+            {
+              "key": "D",
+              "text": "conserved"
+            },
+            {
+              "key": "E",
+              "text": "deduction"
+            },
+            {
+              "key": "F",
+              "text": "discount"
+            },
+            {
+              "key": "G",
+              "text": "embarrass"
+            },
+            {
+              "key": "H",
+              "text": "features"
+            },
+            {
+              "key": "I",
+              "text": "fluctuate"
+            },
+            {
+              "key": "J",
+              "text": "indefinite"
+            },
+            {
+              "key": "K",
+              "text": "insured"
+            },
+            {
+              "key": "L",
+              "text": "major"
+            },
+            {
+              "key": "M",
+              "text": "naturally"
+            },
+            {
+              "key": "N",
+              "text": "potential"
+            },
+            {
+              "key": "O",
+              "text": "simultaneously"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H)。名词辨析题。分析句子结构可知,空格处应填一个名词作have 的宾语,且作后面定语从句的先行 词,再由定语从句中的谓语make 可知,空格处应填人可数名词复数。根据句意可知,该定语从句主要讲的 是吸引其他投 资者的属性,结合备选项可知,答案为features “特点,特色”。"
+        },
+        {
+          "number": 41,
+          "stem": "第 41 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "advantages"
+            },
+            {
+              "key": "B",
+              "text": "assess"
+            },
+            {
+              "key": "C",
+              "text": "bother"
+            },
+            {
+              "key": "D",
+              "text": "conserved"
+            },
+            {
+              "key": "E",
+              "text": "deduction"
+            },
+            {
+              "key": "F",
+              "text": "discount"
+            },
+            {
+              "key": "G",
+              "text": "embarrass"
+            },
+            {
+              "key": "H",
+              "text": "features"
+            },
+            {
+              "key": "I",
+              "text": "fluctuate"
+            },
+            {
+              "key": "J",
+              "text": "indefinite"
+            },
+            {
+              "key": "K",
+              "text": "insured"
+            },
+            {
+              "key": "L",
+              "text": "major"
+            },
+            {
+              "key": "M",
+              "text": "naturally"
+            },
+            {
+              "key": "N",
+              "text": "potential"
+            },
+            {
+              "key": "O",
+              "text": "simultaneously"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F)。名词辨析题。空格位于介词at 和不定冠词a 之后,由此推断此处应填人可数名词单数。空格后还 对该词进行了解释:即低于债券面值的价格。此外,再由与at a 相对应的下一句中的at a premium“超出 平常价,溢价”,可推知答案为discount “折扣”。"
+        },
+        {
+          "number": 42,
+          "stem": "第 42 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "advantages"
+            },
+            {
+              "key": "B",
+              "text": "assess"
+            },
+            {
+              "key": "C",
+              "text": "bother"
+            },
+            {
+              "key": "D",
+              "text": "conserved"
+            },
+            {
+              "key": "E",
+              "text": "deduction"
+            },
+            {
+              "key": "F",
+              "text": "discount"
+            },
+            {
+              "key": "G",
+              "text": "embarrass"
+            },
+            {
+              "key": "H",
+              "text": "features"
+            },
+            {
+              "key": "I",
+              "text": "fluctuate"
+            },
+            {
+              "key": "J",
+              "text": "indefinite"
+            },
+            {
+              "key": "K",
+              "text": "insured"
+            },
+            {
+              "key": "L",
+              "text": "major"
+            },
+            {
+              "key": "M",
+              "text": "naturally"
+            },
+            {
+              "key": "N",
+              "text": "potential"
+            },
+            {
+              "key": "O",
+              "text": "simultaneously"
+            }
+          ],
+          "answer": "I",
+          "explanation": "I)。动词辨析题。分析句子成分可知,空格所在句缺少谓语动词,故空格处应填人动词,结合下一句 中的go up 和fall 可知,fluctuate “波动,起伏”符合句意,故为答案。"
+        },
+        {
+          "number": 43,
+          "stem": "第 43 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "advantages"
+            },
+            {
+              "key": "B",
+              "text": "assess"
+            },
+            {
+              "key": "C",
+              "text": "bother"
+            },
+            {
+              "key": "D",
+              "text": "conserved"
+            },
+            {
+              "key": "E",
+              "text": "deduction"
+            },
+            {
+              "key": "F",
+              "text": "discount"
+            },
+            {
+              "key": "G",
+              "text": "embarrass"
+            },
+            {
+              "key": "H",
+              "text": "features"
+            },
+            {
+              "key": "I",
+              "text": "fluctuate"
+            },
+            {
+              "key": "J",
+              "text": "indefinite"
+            },
+            {
+              "key": "K",
+              "text": "insured"
+            },
+            {
+              "key": "L",
+              "text": "major"
+            },
+            {
+              "key": "M",
+              "text": "naturally"
+            },
+            {
+              "key": "N",
+              "text": "potential"
+            },
+            {
+              "key": "O",
+              "text": "simultaneously"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。动词辨析题。由空格前的can—词可知空格处应填入动词原形。根据句意,第二个问题是:“我 怎样 某支债券的投资风险呢?”,再根据下一句中的rate“评价”可知,答案应为assess “ 评定,评价”。"
+        },
+        {
+          "number": 44,
+          "stem": "第 44 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "advantages"
+            },
+            {
+              "key": "B",
+              "text": "assess"
+            },
+            {
+              "key": "C",
+              "text": "bother"
+            },
+            {
+              "key": "D",
+              "text": "conserved"
+            },
+            {
+              "key": "E",
+              "text": "deduction"
+            },
+            {
+              "key": "F",
+              "text": "discount"
+            },
+            {
+              "key": "G",
+              "text": "embarrass"
+            },
+            {
+              "key": "H",
+              "text": "features"
+            },
+            {
+              "key": "I",
+              "text": "fluctuate"
+            },
+            {
+              "key": "J",
+              "text": "indefinite"
+            },
+            {
+              "key": "K",
+              "text": "insured"
+            },
+            {
+              "key": "L",
+              "text": "major"
+            },
+            {
+              "key": "M",
+              "text": "naturally"
+            },
+            {
+              "key": "N",
+              "text": "potential"
+            },
+            {
+              "key": "O",
+              "text": "simultaneously"
+            }
+          ],
+          "answer": "M",
+          "explanation": "M)。副词辨析题。空格所在句子结构完整,空格又在句子的开头,由此推断空格处应填人副词起连接 作用。根据句意,此处是对上一句的延伸与承接,故答案为naturally “当然,自然”。"
+        },
+        {
+          "number": 45,
+          "stem": "第 45 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "advantages"
+            },
+            {
+              "key": "B",
+              "text": "assess"
+            },
+            {
+              "key": "C",
+              "text": "bother"
+            },
+            {
+              "key": "D",
+              "text": "conserved"
+            },
+            {
+              "key": "E",
+              "text": "deduction"
+            },
+            {
+              "key": "F",
+              "text": "discount"
+            },
+            {
+              "key": "G",
+              "text": "embarrass"
+            },
+            {
+              "key": "H",
+              "text": "features"
+            },
+            {
+              "key": "I",
+              "text": "fluctuate"
+            },
+            {
+              "key": "J",
+              "text": "indefinite"
+            },
+            {
+              "key": "K",
+              "text": "insured"
+            },
+            {
+              "key": "L",
+              "text": "major"
+            },
+            {
+              "key": "M",
+              "text": "naturally"
+            },
+            {
+              "key": "N",
+              "text": "potential"
+            },
+            {
+              "key": "O",
+              "text": "simultaneously"
+            }
+          ],
+          "answer": "N",
+          "explanation": "N)。形容词辨析题。空格位于定冠词the 和名词return 之间,由此推断空格处应填人形容词。根据句意, 对于被认为有风险的债券,只有当它的 回报足够高时,投资者们才会对其进行投资,故答案为potential “潜在的'。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2014-06-1-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) On the surface, Sweden appears to be a feminist paradise. Look at any global survey of gender equality and Sweden will be near the top. Family-friendly policies are its norm—with 16 months of paid parental leave, special protections for part-time workers, and state-subsidized preschools where, according to a government website, “gender-awareness education is increasingly common.” Due to an unofficial quota system, women hold 45 percent of positions in the Swedish parliament. They have enjoyed the protection of government agencies with titles like the Ministry of Integration and Gender Equality and the Secretariat of Gender Research. So why are American women so far ahead of their Swedish counterparts in breaking through the glass ceiling?",
+        "B) In a 2012 report, the World Economic Forum found that when it comes to closing the gender gap in “economic participation and opportunity,” the United States is ahead of not only Sweden but also Finland, Denmark, the Netherlands, Iceland, Germany, and the United Kingdom. Sweden’s rank in the report can largely be explained by its political quota system. Though the United States has fewer women in the workforce (68 percent compared to Sweden’s 77 percent), American women who choose to be employed are far more likely to work full-time and to hold high-level jobs as managers or professionals. They also own more businesses, launch more start-ups(新创办的企业), and more often work in traditionally male fields. As for breaking through the glass ceiling in business, American women are well in the lead.",
+        "C) What explains the American advantage? How can it be that societies like Sweden, where gender equality is vigorously pursued and enforced, have fewer female managers, executives, professionals, and business owners than the laissez-faire (自由放任的)United States? A new study by Cornell economists Francine Blau and Lawrence Kahn gives an explanation.",
+        "D) Generous parental leave policies and readily available part-time options have unintended consequences: instead of strengthening women’s attachment to the workplace, they appear to weaken it. In addition to a 16-month leave, a Swedish parent has the right to work six hours a day (for a reduced salary) until his or her child is eight years old. Mothers are far more likely than fathers to take advantage of this law. But extended leaves and part-time employment are known to be harmful to careers——for both genders. And with women a second factor comes into play: most seem to enjoy the flexible-time arrangement (once known as the “mommy track”) and never find their way back to full-time or high-level employment. In sum; generous family-friendly policies do keep more women in the labor market, but they also tend to diminish their careers.",
+        "E) According to Blau and Kahn, Swedish-style paternal (父亲的)leave policies and flexible-time arrangements pose a second threat to women’s progress: they make employers cautious about hiring women for full-time positions at all. Offering a job to a man is the safer bet. He is far less likely to take a year of parental leave and then return on a reduced work schedule for the next eight years.",
+        "F) I became aware of the trials of career-focused European women a few years ago when I met a postdoctoral student from Germany who was then a visiting fellow at Johns Hopkins. She was astonished by the professional possibilities afforded to young American women. Her best hope in Germany was a government job—prospects for women in the private sector were dim. “In Germany,” she told me, “we have all the benefits, but employers don’t want to hire us.",
+        "G) Swedish economists Magnus Henrekson and Mikael Stenkula addressed the following question in their 2009 study: why are there so few female top executives in the European egalitarian(平等主义的)welfare states? Their answer : “Broad-based welfare-state policies hinder women’s representation in elite competitive positions.”",
+        "H) It is tempting to declare the Swedish policies regressive (退步的)and hail the American system as superior. But that would be shortsighted. The Swedes can certainly take a lesson from the United States and look for ways to clear a path for their ambitious female careerists. But most women are not committed careerists. When the Pew Research Center recently asked American parents to identify their “ideal” life arrangement, 47 percent of mothers said they would prefer to work part-time and 20 percent said they would prefer not to work at all. Fathers answered differently: 75 percent preferred full-time work. Some version of the Swedish system might work well for a majority of American parents, but the United States is unlikely to fully embrace the Swedish model. Still, we can learn from their experience.",
+        "I) Despite its failure to shatter the glass ceiling, Sweden has one of the most powerful and innovative economies in the world. In its 2011-2012 survey, the World Economic Forum ranked Sweden as the world’s third most competitive economy; the United States came in fifth. Sweden, dubbed the “rockstar of the recovery ” in the Washington Post. also leads the world in life satisfaction and happiness. It is a society well worth studying, and its efforts to conquer the gender gap impart a vital lesson—though not the lesson the Swedes had in mind.",
+        "J) Sweden has gone farther than any other nation on earth to integrate the sexes and to offer women the same opportunities and freedoms as men. For decades, these descendants of the Vikings have been trying to show the world that the right mix of enlightened policy, consciousness raising, and non-sexist child rearing would close the gender divide once and for all. Yet the divide persists.",
+        "K) A 2012 press release from Statistics Sweden bears the title “Gender Equality in Sweden Treading (踩) Water” and notes: The total income from employment for all ages is lower for women than for men. One in three employed women and one in ten employed men work part-time. Women’s working time is influenced by the number and age of their children, but men’s working time is not affected by these factors. Of all employees, only 13 percent of the women and 12 percent of the men have occupations with an even distribution of the sexes.",
+        "L) Confronted with such facts, some Swedish activists and legislators are demanding more extreme and far- reaching measures, such as replacing male and female pronouns with a neutral alternative and monitoring children more closely to correct them when they gravitate (被吸引) toward gendered play. When it came to light last year that mothers, far more than fathers, chose to stay home from work to care for their sick kids, Ulf Kristersson, minister of social security, quickly commissioned a study to determine the causes of and possible cures for this disturbing state of affairs.",
+        "M) Swedish family policies, by accommodating women’s preferences effectively, are reducing the number of women in elite competitive positions. The Swedes will find this paradoxical and try to find solutions. Let us hope these do not include banning gender pronouns, policing children’s play, implementing more gender quotas, or treating women5s special attachment to home and family as a social injustice. Most mothers do not aspire to (向往)elite, competitive full-time positions: the Swedish policies have given them the freedom and opportunity to live the lives they prefer. Americans should look past the gender rhetoric and consider what these Scandinavians have achieved. On their way to creating a feminist paradise, the Swedes have unintentionally created a haven (避风港)for normal mortals."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "Sweden has done more than other nations to close the gender gap, but it continues to exist.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "J",
+          "explanation": "Sweden has done more than other nations to close the gender gap, but it continues to exist. J)。【译文】瑞典在消除性别差距方面已经做得远比其他国家好了,但是性别差距仍然存在。 【精析】细节推断题。由题干中的close the gender gap 和 continues to exist 定位到 J)段。 J)段首句提到, 在性别融合和为男女提供同等机会和自由方面,瑞典已经走得比世界上其他任何一个国家都远了;J)段末 句指出这种差异仍然存在。题干是对定位段首句和末句的概括,故答案为J)。"
+        },
+        {
+          "number": 47,
+          "stem": "Sweden is one of the most competitive economies in the world and its people enjoy the greatest life satisfaction.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "I",
+          "explanation": "Sweden is one of the most competitive economies in the world and its people enjoy the greatest life satisfaction. I)。【译文】瑞典是世界上最具竞争力的经济体之一,其人民拥有最高的生活满意度。 【精析】细节辨认题。由题干中的one of the most competitive economies 和 life satisfaction 定位到I)段第 二、三句。由定位句可知,世界经济论坛将瑞典列为世界第三大最具竞争力的经济体,而且,瑞典在生活 满意度和幸福感排名上 也领先于世界其他国家。题干中的one of the most competitive economies 对应定位 句中的 the world’s third most competitive economy, the greatest life satisfaction 对应定位句中的 leads the world in life satisfaction,故答案为 I)。"
+        },
+        {
+          "number": 48,
+          "stem": "More American women hold elite job positions in business than Swedish women.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "B",
+          "explanation": "More American women hold elite job positions in business than Swedish women. B)。【译文】与瑞典女性相比,更多的美国女性在商界 担任精英职位。 【精析】细节推断题。由题干中的More American women 和 hold elite job positions in business 定位 到B) 段。定位段倒数后三句提到,尽管美国职业女性的比例较低(68%,而瑞典达到了 77%),但是 选择工作的美 国女性更有可能从事全职工作和担任高级别的工作职位,如经理或专业人士。她们还拥有更多的企业,创 办更多的新企业,也更有可能在传统的男性领域工作。在突然商业领域的玻璃天花板方面,美国女性遥遥 领先。题干中的 hold elite job positions in business 对应定位句中的 hold high-level jobs as managers or professionals, 故答案为B)。"
+        },
+        {
+          "number": 49,
+          "stem": "Swedish family-friendly policies tend to exert a negative influence on women’s careers.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "D",
+          "explanation": "Swedish family-friendly policies tend to exert a negative influence on women’s careers. D)。【译文】瑞典的家庭友好政策往往会对女性的事 业产生消极的影响。 【精析】细节推断题。由题干中的family- friendly policies, tend to 和 women’s careers 定 位到D)段末句。 定位句提到,慷慨的家庭友好政策确实让更多的女性留在了劳动力市场,但是也往往不利于她们职业生涯 的发展。题干与定位句意思一致,故答案为D)。"
+        },
+        {
+          "number": 50,
+          "stem": "The quota system in Sweden ensures women’s better representation in government.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "A",
+          "explanation": "The quota system in Sweden ensures women5s better representation in government. A)。【译文】瑞典的配额制度确保了女性在政府中拥有更好的代表性。 【精析】细节推断题。由题干中的quota system 和 representation in government 定位到 A)段第 四句。定 位句提到,由于非官方的配额制度,女 性在瑞典议会中占据了 45%的席位。题干中的 women’s better representation 对应定位句中的 women hold 45 percent of positions,题干中的 The quota system 和 in government 分别对应定位句中的 an unofficial quota system 和 in the Swedish parliament,故答案为 A)。"
+        },
+        {
+          "number": 51,
+          "stem": "Though the Swedish model appears workable for most American parents, it may not be accepted by them in its entirety.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "H",
+          "explanation": "Though the Swedish model appears workable for most American parents, it may not be accepted by them in its entirety. H)。【译文】尽管瑞典模式似乎适用于大多数的美国父母,但是也不太可能被他们全部接受。 【精析】同义转述题。由题干中的the Swedish model 和 most American parents 定位到 H)段倒数第二句。 定位句提到,瑞典的某些体制可能适合大多数的美国父母,但美国不太可能完全接受瑞典模式。题干中的 the Swedish model 对应定位句中的 Some version of the Swedish system,may not be accepted by them in its entirety 对应定位句中的 is unlikely to fully embrace the Swedish model,故答案为H)。"
+        },
+        {
+          "number": 52,
+          "stem": "Swedish women are allowed the freedom and opportunity to choose their own way of life.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "M",
+          "explanation": "Swedish women are allowed the freedom and opportunity to choose their own way of life. M)。【译文】瑞典女性有选择自己的生活方式的自由和机会。 【精析】同义转述题。由题干中的the freedom and opportunity 定位到M)段第四句。定位句提到,大多数母 亲并不向往有竞争力的精英全职岗位:瑞典的政策已经给了她们自由和机会去过自己喜欢的生活。题干中的 the freedom and opportunity 与定位句中的表述一致,choose their own way of life 是对定位句中的 live the lives they prefer 的同义转述,故答案为M)。"
+        },
+        {
+          "number": 53,
+          "stem": "Swedish employers are hesitant about hiring women for full-time positions because of the family-friendly policies.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "E",
+          "explanation": "Swedish employers are hesitant about hiring women for full-time positions because of the family-friendly policies. E)。【译文】由于家庭友好政策,瑞典的雇主往往在聘用女性担任全职职位时犹豫不决。 【精析】细节归纳题。由题干中的hiring women for full-time positions 定位到 E)段第一句。定位句提到, Blau 和Kahn 称,瑞典式产假政策和弹性时间安排对女性进步形成了第二个威胁:它们让雇主在聘用女性担 任全职职位时小心翼翼。 题干中的hesitant 对应定位句中的cautious,hiring women for full-time positions 与 定位句中的表述一致,the family-friendly policies 是对定位句中的 Swedish-style paternal leave policies and Hexible-time arrangements 的归纳,故答案为E)。"
+        },
+        {
+          "number": 54,
+          "stem": "Gender-awareness education is becoming more and more popular in state-subsidized preschools in Sweden.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Gender-awareness education is becoming more and more popular in state-subsidized preschools in Sweden. A)。【译文】在有瑞典政府补贴的学前教育中,性别意识教育变得越来越流行。 【精析】细节辨认题。由题干中的Gender- awareness education 和 state-subsidized preschools 定位到A)段第 三句。定位句提到,某政府网站显示,在有瑞典政府补贴的学前教育中,性别意识教育越越普遍。题干中 的Gender-awareness education 和 state-subsidized preschools 均与定位句中的表述一致,故答案为A)。"
+        },
+        {
+          "number": 55,
+          "stem": "Some lawmakers in Sweden propose that genderless pronouns be used in the Swedish language.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "L",
+          "explanation": "Some lawmakers in Sweden propose that genderless pronouns be used in the Swedish language. L)。【译文】瑞典的一些立法者提议在瑞典语言中使用无性别差异的代词。 【精析】细节推断题。由题干中的lawmakers 和 genderless pronouns 定位到L)段第一句。定位句提到,一 些瑞典激进主义者和立法者正要求采取更极端和更深远的措施,比如用一个中性词替代男女性别代词。题 干中的lawmakers 和 genderless pronouns 分别对应定位句中的 legislators 和 a neutral alternative,故答案 为 L)。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2014-06-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Texting has long been bemoaned (哀叹)as the downfall of the written word, “penmanship for illiterates,” as one critic called it. To which the proper response is LOL. Texting properly isn’t writing at all. It’s a “spoken” language that is getting richer and more complex by the year. First, some historical perspective. Writing was only invented 5 500 years ago, whereas language probably traces back at least 80 000 years. Thus talking came first; writing is just a craft that came along later. As such, the first writing was based on the way people talk, with short sentences. However, while talking is largely subconscious and rapid, writing is deliberate and slow. Over time, writers took advantage of this and started crafting long-winded sentences such as this one: “The whole engagement lasted above 12 hours, till the gradual retreat of the Persians was changed into a disorderly flight, of which the shameful example was given by the principal leaders and...” No one talks like that casually—or should. But it is natural to desire to do so for special occasions. In the old days, we didn’t much write like talking because there was no mechanism to reproduce the speed of conversation. But texting and instant messaging do—and a revolution has begun. It involves the crude mechanics of writing, but in its economy, spontaneity and even vulgarity, texting is actually a new kind of talking, with its own kind of grammar and conventions. Take LOL. It doesn’t actually mean “laughing out loud” in a literal sense anymore. LOL has evolved into something much subtler and sophisticated and is used even when nothing is remotely amusing. Jocelyn texts “Where have you been?” and Annabelle texts back “LOL at the library studying for two hours. ” LOL signals basic empathy(同感)between texters, easing tension and creating a sense of equality. Instead of having a literal meaning, it does something —conveying an attitude—just like the ending conveys past tense rather than “meaning” anything. LOL, of all things, is grammar. Of course no one thinks about that consciously. But then most of communication operates without being noticed. Over time, the meaning of a word or an expression drifts —meat used to mean any kind of food, silly used to mean, believe it or not, blessed. Civilization, then, is fine—people banging away on their smartphones are fluently using a code separate from the one they use in actual writing, and there is no evidence that texting is ruining composition skills. Worldwide people speak differently from the way they write, and texting—quick, casual and only intended to be read once—is actually a way of talking with your fingers."
+      ],
+      "questions": [
+        {
+          "number": 56,
+          "stem": "What do critics say about texting?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is mainly confined to youngsters."
+            },
+            {
+              "key": "B",
+              "text": "It competes with traditional writing."
+            },
+            {
+              "key": "C",
+              "text": "It will ruin the written language."
+            },
+            {
+              "key": "D",
+              "text": "It is often hard to understand."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。推理判断题【考频:★★★】。由题干中的critics 定位到首段第一句。定位句指出,长期以来短信 都被哀叹为造成书面语衰退的原因,一位评论家称其为“文盲的书面语言”。故答案为C)。"
+        },
+        {
+          "number": 57,
+          "stem": "In what way does the author say writing is different from talking?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is crafted with specific skills."
+            },
+            {
+              "key": "B",
+              "text": "It expresses ideas more accurately."
+            },
+            {
+              "key": "C",
+              "text": "It does not have as long a history."
+            },
+            {
+              "key": "D",
+              "text": "It is not as easy to comprehend."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。推理判断题【考频:★★★】。根据题文同序原则定位到第二段。定位段第三句指出,写作是一 种表达技巧;第五、六句指出,写作是深思熟虑的,所以作家们便开始利用这点造出冗长的句子,由此可见 写作是需要特殊的 技巧的,故答案为A)。"
+        },
+        {
+          "number": 58,
+          "stem": "Why is LOL much used in texting?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It brings texters' closer to each other."
+            },
+            {
+              "key": "B",
+              "text": "It shows the texter’s sophistication."
+            },
+            {
+              "key": "C",
+              "text": "It is a trendy way to communicate."
+            },
+            {
+              "key": "D",
+              "text": "It adds to the humor of the text."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。事实细节题【考频: ★★★】。根据题干中的LOL 和much used 定位到文章第四段。定位段第五 句指出,LOL 表示短信收发者之间有同样感受,它有利于缓解紧张并营造一种平等的感觉,也就是说它拉 近了短信收发者 之间的关系,故答案为A)。"
+        },
+        {
+          "number": 59,
+          "stem": "Examples like meat and silly are cited to show .",
+          "options": [
+            {
+              "key": "A",
+              "text": "the difference between writing and talking"
+            },
+            {
+              "key": "B",
+              "text": "how differently words are used in texting"
+            },
+            {
+              "key": "C",
+              "text": "why people use the words the way they do"
+            },
+            {
+              "key": "D",
+              "text": "the gradual change of word meaning"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。推理判断题【考频:★★★】。由题干中的meat 和silly 定位到第五段最后一句。定位句指出,随 着时间的推移,单词或词组的意思也会发生改变——“meat”曾经指任意一种食物,而“silly\"在过去的意思 为“神圣的”。故答案为D)。"
+        },
+        {
+          "number": 60,
+          "stem": "What does the author think of texting?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It facilitates exchange of ideas among people."
+            },
+            {
+              "key": "B",
+              "text": "It is a new form of verbal communication."
+            },
+            {
+              "key": "C",
+              "text": "It deteriorates people’s composition skills."
+            },
+            {
+              "key": "D",
+              "text": "It hastens the decline of the written word."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。观点态度题【考频: ★☆☆】。由题干中的think of 和texting 定位到第三段最后一句和文章最后 一句。第三段最后一句指出,短信实际上是一种新的说话方式,有着自己的语法和惯例;文章最后一句指出, 短信因其快速、 随意和只会被阅读一次的特点,实际上已经成为一种用手指说话的方式。故答案为B)。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2014-06-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "It’s possible to admire Oprah Winfrey and still wish Harvard hadn’t awarded her an honorary doctor of law degree and the commencement(毕业典礼)speaker spot at yesterday’s graduation. There’s no question Oprah’s achievements place her in the temple of American success stories. Talent, charm, and an exceptional work ethic have rarely hurled anyone as far as they have this former abused teenage mother from rural Mississippi who became one of the worlds most successful entertainment icons and the first African-American female billionaire. Honorary degrees are often conferred on non-academic leaders in the arts, business, and politics. Harvard’s list in recent years has included Kofi Annan, Bill Gates, Meryl Streep, and David Souter. But Oprah’s particular brand of celebrity is not a good fit for the values of a university whose motto (座右铭), Veritas, means truth. Oprah’s passionate advocacy extends, unfortunately, to a hearty embrace of fake science. Most notoriously, Oprah’s validation of Jenny McCarthy’s claim that vaccines cause autism (自闭症) has no doubt contributed to much harm through the foolish avoidance of vaccines. Famous people are entitled to a few failings, like the rest of us, and the choice of commencement speakers often reflects a balance of institutional priorities and aspirations. Judging from our conversations with many students, Oprah was a widely popular choice. But this vote of confidence in Oprah sends a troubling message at precisely the time when American universities need to do more to advance the cause of reason. As former Dean of Harvard College, Harry Lewis,noted in a blog post about his objections, “It seems very odd for Harvard to honor such a high profile popularizer of the irrational... at a time when political and religious nonsense so jeopardize the rule of reason in this allegedly enlightened democracy and around the world. As America’s oldest and most visible university, Harvard has a special opportunity to convey its respect for science not only through its research and teaching programs but also in its public affirmation of evidence-based inquiry. Unfortunately, many American universities seem awfully busy protecting their brand name and not nearly busy enough protecting the pursuit of knowledge. A recent article in The Harvard Crimson noted the shocking growth of Harvard’s public relations arm in the last five years and it questioned whether a focus on risk management and avoiding controversy was really the best outward-looking face of this great institution. As American research universities begin to resemble profit centers and entertainment complexes, it’s easy to lose sight of their primary mission: to produce and spread knowledge. This mission depends on traditions of rational discourse and vigorous defense of the scientific method. Oprah Winfrey’s honorary doctorate was a step in the wrong direction."
+      ],
+      "questions": [
+        {
+          "number": 61,
+          "stem": "What do we learn about Oprah Winfrey from the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "She was a distinguished graduate of Harvard School of Law."
+            },
+            {
+              "key": "B",
+              "text": "She worked her way to success in the entertainment industry."
+            },
+            {
+              "key": "C",
+              "text": "She used to abuse her children when she was a young mother."
+            },
+            {
+              "key": "D",
+              "text": "She achieved her fame through persistent advocacy of fake science."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。事实细节题【考频:★★★】。由题干中的Oprah Winfrey 并结合选项定位到首段。定位段最后一 句指出,Oprah Winfrey 从遭人虐待的未成年母亲成长为世界上最成功的娱乐界偶像之一,也就是说她在娱 乐界取得了成功,故答案为B)。"
+        },
+        {
+          "number": 62,
+          "stem": "Why does the author deem it inappropriate for Harvard to confer an honorary degree on Oprah Winfrey?",
+          "options": [
+            {
+              "key": "A",
+              "text": "She did not specialize in the study of law."
+            },
+            {
+              "key": "B",
+              "text": "She was known as s supporter of fake science."
+            },
+            {
+              "key": "C",
+              "text": "She was an icon of the entertainment industry."
+            },
+            {
+              "key": "D",
+              "text": "She had not distinguished herself academically."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。推理判断题【考频:★★★】。由题干中的inappropriate 和honorary degree 定位到第二段。定位 段第三句指出,Oprah 特殊的名人类型并不适合一个以真理为座右铭的大学的价值观。第四句给出了“不 适合”的例证:不幸的是,Oprah 充满激情的支持扩大到了对伪科学的强烈拥护。综上可知,作者认为哈 佛不应授予Oprah 荣誉学位是因为她拥护伪科学,故答案为B)。"
+        },
+        {
+          "number": 63,
+          "stem": "How did Harry Lewis react to Harvard’s decision in his blog post?",
+          "options": [
+            {
+              "key": "A",
+              "text": "He was strongly against it."
+            },
+            {
+              "key": "B",
+              "text": "He considered it unpopular."
+            },
+            {
+              "key": "C",
+              "text": "He thought it would help enhance Harvard’s reputation."
+            },
+            {
+              "key": "D",
+              "text": "He thought it represented the will of the Harvard community."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。事实细节题【考频: ★★★】。由题干中的Harry Lewis 定位到第四段第二句。定位句指出,哈佛 学院前任院长Harry Lewis 在一篇博客帖子中提出了他的反对意见,故答案为A)。"
+        },
+        {
+          "number": 64,
+          "stem": "What is the author’s regret about many American universities?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They show inadequate respect for evidence-based inquiry."
+            },
+            {
+              "key": "B",
+              "text": "They fall short of expectations in teaching and research."
+            },
+            {
+              "key": "C",
+              "text": "They attach too much importance to public relations."
+            },
+            {
+              "key": "D",
+              "text": "They are tolerant of political and religious nonsense."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。事实细节题【考频:★★★】。由题干中的American universities 定位到倒数第二段。定位段第一 句指出,许多美国大学似乎都忙于保护他们的品牌,而疏于对知识追求的保护。第二句指出,哈佛大学的 公共关系部门在过去五年的发展令人震惊。结合第一句中的Unfortunately 可知,作者对美国的许多大学过 于重视公共关系而感到遗憾,故答案为C)。"
+        },
+        {
+          "number": 65,
+          "stem": "What does the author think a prestigious university like Harvard should focus on?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Cultivation of student creativity."
+            },
+            {
+              "key": "B",
+              "text": "Defense of the scientific method."
+            },
+            {
+              "key": "C",
+              "text": "Liberation of the human mind."
+            },
+            {
+              "key": "D",
+              "text": "Pursuit of knowledge and truth."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。观点态度题【考频考频: ★☆☆】由题干中的prestigiousuniversity 和focuson 定位到最后两段。 倒数第二段第一句提到,不幸的是,美国的许多大学疏于对知识追求的保护。最后一段第一句指出,当美 国的研究型大学变得像利润中心和娱乐中心时,它们很容易忽略自己最初的使命:创造和传播知识。也就是 说,作者认为像哈佛这样有威望的大学应该专注于追求知识与真理,故答案为D)。"
+        }
+      ]
+    }
+  ]
+}

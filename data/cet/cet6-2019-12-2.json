@@ -1,0 +1,1688 @@
+{
+  "id": "cet6-2019-12-2",
+  "level": 6,
+  "year": 2019,
+  "month": 12,
+  "set": 2,
+  "title": "2019 年 12 月六级 · 第 2 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.12/%E7%9C%9F%E9%A2%98Word/2019%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC2%E5%A5%97%EF%BC%89.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2019.12%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E8%A7%A3%E6%9E%90%E7%AC%AC2%E5%A5%97.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2019-12-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "The persistent haze over many of our cities is a reminder of the polluted air that we breathe. Over 80% of the worlds urban population is breathing air that fails to meet World Health Organisation sidelines, and an estimated 4.5 million people died [[26]] from outdoor air pollution in 2015. Globally, urban populations are expected to double in the next 40 years, and an extra 2 billion people will need new places to live, as well as services and ways to move around their cities. What is more important, the decisions that we make now about the design of our cities will [[27]] the everyday lives and health of the coming generations. So what would a smog-free, or at least low-pollution, city be like? Traffic has become [[28]] with air pollution, and many countries intend to ban the sale of petrol and diesel cars in the next two decades. But simply [[29]] to electric cars will not mean pollution-free cities. The level of emissions they cause will depend on how the electricity to run them is [[30]], while brakes, tyres and roads all create tiny airborne [[31]] as they wear out. Across the developed world, car use is in decline as more people move to city centres, while young people especially are [[32]] for other means of travel. Researchers are already asking if motor vehicle use has reached its [[33]] and will decline, but transport planners have yet to catch up with this [[34]], instead of laying new roads to tackle traffic jams. As users of London's orbital M25 motorway will know, new roads rapidly fill with more traffic. In the US, studies have shown that doubling the size a road can [[35]] double the traffic, taking us back to the starting point."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "alternate"
+        },
+        {
+          "key": "B",
+          "text": "crown"
+        },
+        {
+          "key": "C",
+          "text": "determine"
+        },
+        {
+          "key": "D",
+          "text": "generated"
+        },
+        {
+          "key": "E",
+          "text": "locating"
+        },
+        {
+          "key": "F",
+          "text": "merged"
+        },
+        {
+          "key": "G",
+          "text": "miniatures"
+        },
+        {
+          "key": "H",
+          "text": "opting"
+        },
+        {
+          "key": "I",
+          "text": "particles"
+        },
+        {
+          "key": "J",
+          "text": "peak"
+        },
+        {
+          "key": "K",
+          "text": "prematurely"
+        },
+        {
+          "key": "L",
+          "text": "simply"
+        },
+        {
+          "key": "M",
+          "text": "switching"
+        },
+        {
+          "key": "N",
+          "text": "synonymous"
+        },
+        {
+          "key": "O",
+          "text": "trend"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alternate"
+            },
+            {
+              "key": "B",
+              "text": "crown"
+            },
+            {
+              "key": "C",
+              "text": "determine"
+            },
+            {
+              "key": "D",
+              "text": "generated"
+            },
+            {
+              "key": "E",
+              "text": "locating"
+            },
+            {
+              "key": "F",
+              "text": "merged"
+            },
+            {
+              "key": "G",
+              "text": "miniatures"
+            },
+            {
+              "key": "H",
+              "text": "opting"
+            },
+            {
+              "key": "I",
+              "text": "particles"
+            },
+            {
+              "key": "J",
+              "text": "peak"
+            },
+            {
+              "key": "K",
+              "text": "prematurely"
+            },
+            {
+              "key": "L",
+              "text": "simply"
+            },
+            {
+              "key": "M",
+              "text": "switching"
+            },
+            {
+              "key": "N",
+              "text": "synonymous"
+            },
+            {
+              "key": "O",
+              "text": "trend"
+            }
+          ],
+          "answer": "K",
+          "explanation": "[锁定答案]2句两 分句间以and相连,表明两者语义同向。前一分向指出全球绝大多数城市空气质量不符合WHO标准, 后一分句指出2015年约有450万人死于空气污染。借由前一分句“实际空气质量不符合WTO空气质量 标准”可知“空气质量影响人的健康状况”,因此可推断空格词应在第二分句列举相关死亡人数的基础上 体现出这种死亡的非健康、非常规、非正常,即“提前/过早/非正常(死亡)\"等意,故K)正确。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alternate"
+            },
+            {
+              "key": "B",
+              "text": "crown"
+            },
+            {
+              "key": "C",
+              "text": "determine"
+            },
+            {
+              "key": "D",
+              "text": "generated"
+            },
+            {
+              "key": "E",
+              "text": "locating"
+            },
+            {
+              "key": "F",
+              "text": "merged"
+            },
+            {
+              "key": "G",
+              "text": "miniatures"
+            },
+            {
+              "key": "H",
+              "text": "opting"
+            },
+            {
+              "key": "I",
+              "text": "particles"
+            },
+            {
+              "key": "J",
+              "text": "peak"
+            },
+            {
+              "key": "K",
+              "text": "prematurely"
+            },
+            {
+              "key": "L",
+              "text": "simply"
+            },
+            {
+              "key": "M",
+              "text": "switching"
+            },
+            {
+              "key": "N",
+              "text": "synonymous"
+            },
+            {
+              "key": "O",
+              "text": "trend"
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]空格前句指出“未来新增20亿城市人口需要新的住所及城市交 通服务”,“目前所做城市规划决策未来子孙后代的日常生活及健康”,而借由空格向句首插入语 What is more important可知两向间为语义递进关联,共同指向“当前所做城市规划决策的重要性”,且空 格句是在1向“解决住房及交通”基础上指向更高层次作用,空格词应传递“决定/影响”等意,故C)正确。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alternate"
+            },
+            {
+              "key": "B",
+              "text": "crown"
+            },
+            {
+              "key": "C",
+              "text": "determine"
+            },
+            {
+              "key": "D",
+              "text": "generated"
+            },
+            {
+              "key": "E",
+              "text": "locating"
+            },
+            {
+              "key": "F",
+              "text": "merged"
+            },
+            {
+              "key": "G",
+              "text": "miniatures"
+            },
+            {
+              "key": "H",
+              "text": "opting"
+            },
+            {
+              "key": "I",
+              "text": "particles"
+            },
+            {
+              "key": "J",
+              "text": "peak"
+            },
+            {
+              "key": "K",
+              "text": "prematurely"
+            },
+            {
+              "key": "L",
+              "text": "simply"
+            },
+            {
+              "key": "M",
+              "text": "switching"
+            },
+            {
+              "key": "N",
+              "text": "synonymous"
+            },
+            {
+              "key": "O",
+              "text": "trend"
+            }
+          ],
+          "answer": "N",
+          "explanation": "[锁定答案]空格所在分向指出“来往车辆已经变得/成 为空气污染”,后一分句指出许多国家的计划“禁止销售新的汽油和柴油汽车”。借由两分句间and 所传递的并列语义关联可知,汽油和柴油汽车指向来往车,禁止销售此类车辆指向减少空气污染,因此 空格词应传递出来往车辆与空气污染之间的这种密切关联/因果关联/等同一致等,N)正确。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alternate"
+            },
+            {
+              "key": "B",
+              "text": "crown"
+            },
+            {
+              "key": "C",
+              "text": "determine"
+            },
+            {
+              "key": "D",
+              "text": "generated"
+            },
+            {
+              "key": "E",
+              "text": "locating"
+            },
+            {
+              "key": "F",
+              "text": "merged"
+            },
+            {
+              "key": "G",
+              "text": "miniatures"
+            },
+            {
+              "key": "H",
+              "text": "opting"
+            },
+            {
+              "key": "I",
+              "text": "particles"
+            },
+            {
+              "key": "J",
+              "text": "peak"
+            },
+            {
+              "key": "K",
+              "text": "prematurely"
+            },
+            {
+              "key": "L",
+              "text": "simply"
+            },
+            {
+              "key": "M",
+              "text": "switching"
+            },
+            {
+              "key": "N",
+              "text": "synonymous"
+            },
+            {
+              "key": "O",
+              "text": "trend"
+            }
+          ],
+          "answer": "M",
+          "explanation": "[锁定答案]空格句前文 指出“多国计划禁售汽油、柴油汽车以减少空气污染”,空格句转而指出“仅仗电动汽车并不一定能 实现无污染城市”,可见,“ 电动汽车”应体现空格前句禁止销售汽油、燃油汽车(非清洁能源汽 车)”隐含之意“转而销售电动汽车(清洁能源汽车)\",故空格调应传递“转向/转变/改变\"等意,M)正确。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alternate"
+            },
+            {
+              "key": "B",
+              "text": "crown"
+            },
+            {
+              "key": "C",
+              "text": "determine"
+            },
+            {
+              "key": "D",
+              "text": "generated"
+            },
+            {
+              "key": "E",
+              "text": "locating"
+            },
+            {
+              "key": "F",
+              "text": "merged"
+            },
+            {
+              "key": "G",
+              "text": "miniatures"
+            },
+            {
+              "key": "H",
+              "text": "opting"
+            },
+            {
+              "key": "I",
+              "text": "particles"
+            },
+            {
+              "key": "J",
+              "text": "peak"
+            },
+            {
+              "key": "K",
+              "text": "prematurely"
+            },
+            {
+              "key": "L",
+              "text": "simply"
+            },
+            {
+              "key": "M",
+              "text": "switching"
+            },
+            {
+              "key": "N",
+              "text": "synonymous"
+            },
+            {
+              "key": "O",
+              "text": "trend"
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案」空格句指出,电动汽车(they回指electriccars)产生的污染排放水平取决于驱动它们 的电力如何30,刹车、轮胎、道路磨损时也会产生微小的大气31。可见,空格句意在解释上句“转 向电动汽车子无污染城市”的原因:电动汽车污染水平受电的影响,制车、轮胎、道路磨损也会产生大气污 染。再结合常识“发电方式不同,大气污染程度不同;制车、轮胎等磨损时会产生污浊空气、粉尘等\"可知, 空30应表“生产、制造”等语义,空31应传递“污染/尘埃/需霾”等语义,故两空分别选D)、I)。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alternate"
+            },
+            {
+              "key": "B",
+              "text": "crown"
+            },
+            {
+              "key": "C",
+              "text": "determine"
+            },
+            {
+              "key": "D",
+              "text": "generated"
+            },
+            {
+              "key": "E",
+              "text": "locating"
+            },
+            {
+              "key": "F",
+              "text": "merged"
+            },
+            {
+              "key": "G",
+              "text": "miniatures"
+            },
+            {
+              "key": "H",
+              "text": "opting"
+            },
+            {
+              "key": "I",
+              "text": "particles"
+            },
+            {
+              "key": "J",
+              "text": "peak"
+            },
+            {
+              "key": "K",
+              "text": "prematurely"
+            },
+            {
+              "key": "L",
+              "text": "simply"
+            },
+            {
+              "key": "M",
+              "text": "switching"
+            },
+            {
+              "key": "N",
+              "text": "synonymous"
+            },
+            {
+              "key": "O",
+              "text": "trend"
+            }
+          ],
+          "answer": "I",
+          "explanation": "[锁定答案」空格句指出,电动汽车(they回指electriccars)产生的污染排放水平取决于驱动它们 的电力如何30,刹车、轮胎、道路磨损时也会产生微小的大气31。可见,空格句意在解释上句“转 向电动汽车子无污染城市”的原因:电动汽车污染水平受电的影响,制车、轮胎、道路磨损也会产生大气污 染。再结合常识“发电方式不同,大气污染程度不同;制车、轮胎等磨损时会产生污浊空气、粉尘等\"可知, 空30应表“生产、制造”等语义,空31应传递“污染/尘埃/需霾”等语义,故两空分别选D)、I)。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alternate"
+            },
+            {
+              "key": "B",
+              "text": "crown"
+            },
+            {
+              "key": "C",
+              "text": "determine"
+            },
+            {
+              "key": "D",
+              "text": "generated"
+            },
+            {
+              "key": "E",
+              "text": "locating"
+            },
+            {
+              "key": "F",
+              "text": "merged"
+            },
+            {
+              "key": "G",
+              "text": "miniatures"
+            },
+            {
+              "key": "H",
+              "text": "opting"
+            },
+            {
+              "key": "I",
+              "text": "particles"
+            },
+            {
+              "key": "J",
+              "text": "peak"
+            },
+            {
+              "key": "K",
+              "text": "prematurely"
+            },
+            {
+              "key": "L",
+              "text": "simply"
+            },
+            {
+              "key": "M",
+              "text": "switching"
+            },
+            {
+              "key": "N",
+              "text": "synonymous"
+            },
+            {
+              "key": "O",
+              "text": "trend"
+            }
+          ],
+          "answer": "H",
+          "explanation": "[锁定答案]空格句先描述现象“发达国家的汽车使用量正在减少”,随后以两个状语从句as...while... especially递进呈现原因:更多的人毅到市中心→尤其是年轻人其他出行方式。前一项原因指向 “开车通勤的客观需求减少”,后一项原因应指向“选择开车的主观意愿下降”,空格词应表示“选择/倾向/ 偏爱(除开车以外的其他出行方式)\",H)正确。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alternate"
+            },
+            {
+              "key": "B",
+              "text": "crown"
+            },
+            {
+              "key": "C",
+              "text": "determine"
+            },
+            {
+              "key": "D",
+              "text": "generated"
+            },
+            {
+              "key": "E",
+              "text": "locating"
+            },
+            {
+              "key": "F",
+              "text": "merged"
+            },
+            {
+              "key": "G",
+              "text": "miniatures"
+            },
+            {
+              "key": "H",
+              "text": "opting"
+            },
+            {
+              "key": "I",
+              "text": "particles"
+            },
+            {
+              "key": "J",
+              "text": "peak"
+            },
+            {
+              "key": "K",
+              "text": "prematurely"
+            },
+            {
+              "key": "L",
+              "text": "simply"
+            },
+            {
+              "key": "M",
+              "text": "switching"
+            },
+            {
+              "key": "N",
+              "text": "synonymous"
+            },
+            {
+              "key": "O",
+              "text": "trend"
+            }
+          ],
+          "answer": "J",
+          "explanation": "[锁定答案」空格 向以but、insteadof传递句内双重转折“研究人员早已开始猜测机动车使用量是否已达到33并即将下 降,但是交通规划者尚未跟上这一34,反而还铺设新道路以期解决拥堵”。由铺设新路与汽车用量 减少之间的矛盾对立”可推知交通规划者未认清现实状况/趋势/现象等,0)符合空34语境;反推可知,研 究人员早已意识到汽车用量达到极限/瓶颈/峰值等,B)crown通常指“(某物的)顶部,顶端”,而J)peak 则通常指向一个点/数值的“峰值”,故J)符合空33语境。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alternate"
+            },
+            {
+              "key": "B",
+              "text": "crown"
+            },
+            {
+              "key": "C",
+              "text": "determine"
+            },
+            {
+              "key": "D",
+              "text": "generated"
+            },
+            {
+              "key": "E",
+              "text": "locating"
+            },
+            {
+              "key": "F",
+              "text": "merged"
+            },
+            {
+              "key": "G",
+              "text": "miniatures"
+            },
+            {
+              "key": "H",
+              "text": "opting"
+            },
+            {
+              "key": "I",
+              "text": "particles"
+            },
+            {
+              "key": "J",
+              "text": "peak"
+            },
+            {
+              "key": "K",
+              "text": "prematurely"
+            },
+            {
+              "key": "L",
+              "text": "simply"
+            },
+            {
+              "key": "M",
+              "text": "switching"
+            },
+            {
+              "key": "N",
+              "text": "synonymous"
+            },
+            {
+              "key": "O",
+              "text": "trend"
+            }
+          ],
+          "answer": "O",
+          "explanation": "[锁定答案」空格 向以but、insteadof传递句内双重转折“研究人员早已开始猜测机动车使用量是否已达到33并即将下 降,但是交通规划者尚未跟上这一34,反而还铺设新道路以期解决拥堵”。由铺设新路与汽车用量 减少之间的矛盾对立”可推知交通规划者未认清现实状况/趋势/现象等,0)符合空34语境;反推可知,研 究人员早已意识到汽车用量达到极限/瓶颈/峰值等,B)crown通常指“(某物的)顶部,顶端”,而J)peak 则通常指向一个点/数值的“峰值”,故J)符合空33语境。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alternate"
+            },
+            {
+              "key": "B",
+              "text": "crown"
+            },
+            {
+              "key": "C",
+              "text": "determine"
+            },
+            {
+              "key": "D",
+              "text": "generated"
+            },
+            {
+              "key": "E",
+              "text": "locating"
+            },
+            {
+              "key": "F",
+              "text": "merged"
+            },
+            {
+              "key": "G",
+              "text": "miniatures"
+            },
+            {
+              "key": "H",
+              "text": "opting"
+            },
+            {
+              "key": "I",
+              "text": "particles"
+            },
+            {
+              "key": "J",
+              "text": "peak"
+            },
+            {
+              "key": "K",
+              "text": "prematurely"
+            },
+            {
+              "key": "L",
+              "text": "simply"
+            },
+            {
+              "key": "M",
+              "text": "switching"
+            },
+            {
+              "key": "N",
+              "text": "synonymous"
+            },
+            {
+              "key": "O",
+              "text": "trend"
+            }
+          ],
+          "answer": "L",
+          "explanation": "[锁定答案]末段34句分别说明英、美两国道路使用情况:伦教新建M25 环形高速公路很快挤满更多车龋:美国每拓宽一倍道路会交通量增加一倍。可见,两向意在以发 达国家现实经验说明2句隐藏文意“铺设新道路解决交通堵塞这种思路是错误的:不仅无力解决,还增加 交通流量”,空格词应表“只会/反而”以强调“新建道路于解决拥堵毫无用处/适得其反”之意,故L)正确。 ·"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2019-12-2-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) The marketing is enticing: Get stronger muscles and healthier bodies with minimal effort by adding protein powder to your morning shake or juice drink. Or grab a protein bar at lunch or for a quick snack. Today, you can find protein supplements everywhere-online, at the pharmacy grocery store, or health food store. They come in powders, pills, and bars. With more than $12 billion in sales this year, the industry is booming and, according to the market research company, Grand View Research, is on track to sell billions more by 2025. But do we really need all this supplemental protein? It depends. There are pros, cons and some ho-hums to consider.",
+        "B) For starters, protein is critical for every cell in our body. It helps build nails, hair, bones, and muscles. It can also help you feel fuller longer than eating foods without protein. And, unlike nutrients that are found only in a few foods, protein is pretty much ubiquitous. “The typical American diet is a lot higher in protein than a lot of us think,” says registered dietitian Angela Pipitone with Johns Hopkins McKusick-Nathans Institute of Genetic Medicine. She says it's in foods many of us expect, such as beef, chicken, and other types of meat and dairy. But it's also in foods that may not come immediately to mind like vegetables, fruit, beans and grains.",
+        "C) The U.S. government’s recommended daily allowance (RDA) for the average adult is 50 to 60 grams of protein a day. This may sound like a lot, but Pipitone says: “We get bits of protein here and there and that really adds up throughout the day.” Take, for example, breakfast. If you ate two eggs topped with a little bit of cheese and an orange on the side, you already have 22 grams of protein. Each egg gives you 7 grams; the cheese gives you around 6 grams and the orange - about 2 grams. Add a lunch of chicken, rice, and broccoli, and you are already over the recommended 50 grams. “You can get enough protein and meet the RDA before you even get to dinner,” says Pipitone.",
+        "D) So if it’s so easy to get your protein in food, why add more in the form of powders, snack bars or a boost at your local juice bar? No need to, says Pipitone because, in fact, most of us already get enough protein in our diet. “Whole foods are always the best option rather than adding supplements,” she says, noting the FDA does not regulate supplements as stringently as foods or drugs, so there could be less protein, more sugar, and some additives you wouldn’t expect, such as caffeine and even steroids.",
+        "E) If you are considering a supplement, read the list of ingredients, she says although this is not always foolproof. “I’ve seen very expensive protein supplements that claim to be high quality but they might not really be beneficial for the average healthy adult,” she says. “It could just be a waste of money.”",
+        "F) But there are certain situations that do warrant extra protein. “Anytime you’re in an anabolic state or building muscle,” Pipitone says, such as if you’re an extreme endurance athlete, training for a marathon, or you’re a body builder. If you’re moderately exercising for 150 minutes a week, as the Centers for Disease Control and Prevention recommends, or less than that, you’re probably not an extreme athlete. Extreme athletes expend lots of energy breaking down and repairing and building muscles. Protein can give them the edge they need to speed along that process.",
+        "G) Vegans can benefit from protein supplements since they do not eat animal-based protein sources like meat, dairy, or eggs. And, for someone always on-the-go who may not have time for a meal, a protein snack bar can be a good option for occasional meal replacement. Also, individuals recovering from surgery or an injury can also benefit from extra protein. So, too, can older people. At around age 60, “muscles really start to break down,” says Kathryn Starr, an aging researcher at Duke University School of Medicine, “and because of that, in addition to the fact that as we get older our body's ability to break down protein is reduced, the protein needs of an older adult actually increases.”",
+        "H) In fact, along with her colleague Connie Bales, Starr recently conducted a small study that found that adding extra protein foods to the diet of obese older individuals who were trying to lose weight strengthened their muscles. Participants in the study were separated into two groups—one group was asked to eat 30 grams of protein per meal in the form of whole foods. That meant they were eating 90 grams of protein a day. The other group—the control group—was put on a typical low-calorie diet with about 50 to 60 grams of protein a day.",
+        "I) After six months, researchers found the high protein group had significantly improved their muscle function —almost twice as much as the control group. “They were able to walk faster, had improved balance, and were also able to get up out of a chair faster than the control group,” Starr says. All 67 participants were over 60 years of age, and both groups lost about the same amount of weight. Starr is now looking into whether high-protein diets also improve the quality of the muscle itself in seniors. She's using CT scans to measure muscle size and fat, and comparing seniors on a high-protein diet to those on regular diets. She says her findings should be available in a couple of months.",
+        "J) In the meantime, 70-year-old Corliss Keith, who was in the high protein group in Starr’s latest study, says she feels a big difference. “I feel excellent,” she says, “I feel like I have a different body, I have more energy, I'm stronger.” She says she is able to take Zumba exercise classes three times a week, work out on the treadmill and take long, brisk walks. Keith also lost more than 15 pounds. “I'm a fashionable person, so now I'm back in my three-inch heels,” she says.",
+        "K) As people age, researcher Starr says muscle strength is key to helping them stay strong and continue living on their own in their own home. “I feel very much alive now,” says Keith, “I feel like I could stay by myself until I'm 100.”",
+        "L) But can people overdo protein? Pipitone says you do have to be careful. Too much protein can cause nausea, cramps, headaches, fatigue, and bloating. Dehydration is also a risk when you eat too much protein. Pipitone says if you increase protein, you also have to increase your fluid intake. “I always tell people to make sure they're drinking enough fluids,” which for the average person is 60 to 70 ounces a day, which translates into eight 8-ounce glasses of water or liquid per day.",
+        "M) There have been some indications that extra protein makes the kidneys work harder which could be problematic for individuals with a history of kidney disease and for them, the supplements may increase the risk of kidney stones, she says.",
+        "N) Bottom Line: if you think you need more protein in your diet, consider these questions: Are you are an extreme athlete; are you recovering from injury or surgery; or are you are 60 years or older? If so, adding high protein foods like eggs and meat products to your diet can be beneficial. And, if you're not sure, it is always a good idea to check with your primary care provide."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "It is quite easy for one to take in the recommended amount of protein.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "C",
+          "explanation": "It isquiteeasyfor oneto takein therecommended amount人们很容易就能达到推荐的蛋白质摄入量。 of protein. [答案][c][精解]由定位词定位至[C]段(recommended dailyallowance.,·grams of proteinaday】。该段先讯 明推荐日摄入量\"50至60克”,随后接引专家观点指出“这听上去很多,但每餐摄入的蛋白质积少成多,可能晚餐 前就已达到标准”,试题是对整段内容的概括改写quiteeasy为beforeyouevengettodinner的合理推断。"
+        },
+        {
+          "number": 37,
+          "stem": "Pipitone claims that healthy adults need not spend money on protein supplements.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "E",
+          "explanation": "Pipitoneclaims thathealthyadultsneednotspendmoneyon皮皮托内宣称,健康成人不必在蛋白质补给 protein supplements. 品上花钱。 [答案][E]】[精解]由定位调定位至[E]段23句(theaveragehealthyadult;It could justbeawasteof money)。两向引述皮皮托内观点“纵然是那些价格不菲的、号称高品质的蛋白质补给品对一般健康人也无实 质作用,只是在浪费钱”,试题是两句内容的同义转述。"
+        },
+        {
+          "number": 38,
+          "stem": "The protein supplement business is found to be thriving.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Theprotein supplementbusiness isfound tobethriving.蛋白质补给品行业被发现正在蓬勃发展。 [答案][A】[精解]由定位词定位至[A]段1句(theindustry;booming)。该句接引现年销售额数据($12 billion)及2025年预期销售额增长值(billionsmore)展现\"蛋白质补给品行业蓬勃发展现状”,试题是该句的改写。"
+        },
+        {
+          "number": 39,
+          "stem": "Protein can speed the repairing of damaged muscles.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "F",
+          "explanation": "Protein can speed the repairing of damaged muscles. 蛋白质可加快受损肌肉的修复。 [答案][F][精解]由定位词调定位至[F]段13句(句speedthatprocess,其中thatprocess回指1句 breakingdownandrepairingandbuildingmuscles)。两句指出“极限运动员要消耗大量能量来分解、修复,重 建肌肉,蛋白质帮助他们加快这一进程”,试题体现两句所述“蛋白质功用之一:加快肌肉损伤修复”。"
+        },
+        {
+          "number": 40,
+          "stem": "Protein supplements may overburden some internal organ, thus leading to its malfunctioning.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "M",
+          "explanation": "Proteinsupplementsmayoverburdensomeinternalorgan,蛋白质补给品可能使某个内脏器官负担过 thus leading to its malfunctioning. 重,从而导致其机能失常。 [答案][M】[精解]由定位词定位至[M]段(overburden..,internalorgan契合makesthekidneyswork harder...Problematic隐含义,malfunctioning对应kidneystones)。该段聚焦“有肾病史的人”,指出“额外补 充的蛋白质会加重肾脏负担、让有肾病史者难以应付,更有可能引发肾结石”,试题是该段内容的概括改写。"
+        },
+        {
+          "number": 41,
+          "stem": "Older adults need to take in more protein to keep their muscles strong.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "G",
+          "explanation": "Olderadultsneed to take inmoreproteintokeeptheir老年人需要摄入更多蛋白质以保持肌肉 muscles strong. 强健。 [答案][G][精解]由定位词定位至[G]段1向(olderpeople/anolderadult;theproteinneeds...increase】。 4句指出“老年人也会受益于额外补充的蛋自质”,3句阐释原固“60岁左右肌肉开始分解→蛋白质需求增 加”,结合[F]段末句“蛋白质可促进肌肉的分解、修复及重建(proteincan...speedthatProcess)”,可推知“老 年人需摄入更多蛋白质以修复、重建(流失的)肌肉,保持肌肉强健”,试题是两句内容的合理推断。"
+        },
+        {
+          "number": 42,
+          "stem": "Protein is found in more foods than people might realize.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Protein isfound inmorefoodsthanpeoplemightrealize.含有蛋白质的食物比人们知道的更多。 [答案][B][精解]由定位词定位至[B]段1至句(inall foods...infoodsmany ofus expect...also infoods thatmaynotcomeimmediatelytomind)。1句介绍蛋白质特点“所有食物里都有”,至1向句接引专家观点力 证“典型美式饮食的蛋白质含量比我们以为的要高得多,蛋白质既存在于我们所料想的食物中,也存在于我们 可能不会马上想到的食物中(即,含蛋白质的食物比人们知道的更多)”,试题是四句内容的概括改写。"
+        },
+        {
+          "number": 43,
+          "stem": "Additional protein was found to help strengthen the muscles of overweight seniors seeking weight loss.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "H",
+          "explanation": "Additional proteinwasfound tohelpstrengthenthemusclesof研究发现,额外补充的蛋白质可帮助正力 overweight seniors seeking weight loss. 求减重的超重老年人强健肉。 [答案][H][精解]由定位词定位至[H]段(strengthen theirmuscles;obese older individuals.,.trying to lose weight)。该段11向指出研究发现“正尝试减重的肥胖老年人增加蛋白质摄入后,肌肉变得强健”,试题是该 内容的同义改写。"
+        },
+        {
+          "number": 44,
+          "stem": "Pipitone believes that whole foods provide the best source of protein.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "D",
+          "explanation": "Pipitonebelievesthatwholefoodsprovidethebestsourceof皮皮托内认为,全天然食物提供了最佳的蛋 protein. 白质来源。 [答案][D][精解]由定位词定位至[D]段3句(Wholefoods;thebestoption】。该句引述皮皮托内之言\"最好 的选择始终是全天然食物,不是添加补给品”,试题是该向的同义改写。"
+        },
+        {
+          "number": 45,
+          "stem": "People are advised to drink more liquid when they take in more protein.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "L",
+          "explanation": "Peopleareadvised todrinkmore liquidwhen theytake in人们被建议在摄入蛋白质增多时,饮用更多 more protein. 的液体。 [答案][L][精解]由定位词定位至[L]较句(if youinerease protein..,increase yourfluid intake)。该句介 绍皮皮托内建议“若增加蛋白质摄入量,也要增加液体摄入量”,试题是该句的同义改写。 ·"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2019-12-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Last year, a child was born at a hospital in the UK with her heart outside her body. Few babies survive this rare condition, and those who do must endure numerous operations and are likely to have complex needs. When her mother was interviewed, three weeks after her daughter’s birth, she was asked if she was prepared for what might be a daunting(令人生畏的) task caring for her. She answered without hesitation that, as far as she was concerned, this would be a “privilege”. Rarely has there been a better example of the power of attitude, one of our most powerful psychological tools. Our attitudes allow us to turn mistakes into opportunities, and loss into the chance for new beginnings. An attitude is a settled way of thinking, feeling and/ or behaving towards particular objects, people, events or ideologies. We use our attitudes to filter, interpret and react to the world around us. You weren’t born with attitudes; rather they are all learned, and this happens in a number of ways. The most powerful influences occur during early childhood and include both what happened to you directly, and what those around you did and said in your presence. As you acquire a distinctive identity your attitudes are further refined by the behavior of those with whom you identify—your family, those of your gender and culture, and the people you admire, even though you may not know them personally. Friendships and other important relationships become increasingly important, particularly during adolescence. About that same time and throughout adulthood, the information you receive, especially when ideas are repeated in association with goals and achievements you find attractive, also refines your attitudes. Many people assume that our attitudes are internally consistent, that is, the way you think and feel about someone or something predicts your behavior towards them. However, many studies have found that feelings and thoughts don't necessarily predict behavior. In general, your attitudes will be internally consistent only when the behavior is easy, and when those around you hold similar beliefs. That’s why, for example, many say they believe in the benefits of recycling or exercise, but don't behave in line with their views, because it takes awareness, effort and courage to go beyond merely stating that you believe something is a good idea. One of the most effective ways to change an attitude is to start behaving as if you already feel and think the way you’d prefer to. Take some time to reflect on your attitudes, to think about what you believe and why. Is there anything you consider a burden rather than a privilege? If so, start behaving-right now-as if the latter is the case."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What do we learn from the passage about attitude?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It shapes our beliefs and ideologies."
+            },
+            {
+              "key": "B",
+              "text": "It improves our psychological wellbeing."
+            },
+            {
+              "key": "C",
+              "text": "It determines how we respond to our immediate environment."
+            },
+            {
+              "key": "D",
+              "text": "It changes the way we think, feel and interact with one another."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]第二段1句指出,我们用态度过滤、解释和回应周国的世界。由此推知,态度直接影响我们对周 图世界的理解和回应,故C项正确。 [排除干扰]A曲解文中概念:首先,第二段3句ideologies实为态度所针对的客观对象,态度可以影响我们对 客观对象的感受和回应,但不一定直接影响客观对象本身;其次,第四段的beliefs实际属于attitudes范畴,故 “attitudes塑造beliefs\"不合逻辑。B由第二段1句信息“态度是强大的心理工具”(2句解释:能让我们把过失 变为机遇,失败后重新出发)而来,但wellbeing重点在于\"健康、快乐、幸福”,不包含“励志、成功”层面,窄化了 态度的作用范畴。D曲解第二段?句:系表句式Anattitudeisa settledwayof thinking,feelingand/orbehaving 表明态度本身就是一种习惯性的思考、感受、行为方式,选项显然曲解了态度的内涵。"
+        },
+        {
+          "number": 47,
+          "stem": "What can contribute to the refinement of one’s attitude, according to the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Their idols’ behaviors."
+            },
+            {
+              "key": "B",
+              "text": "Their educational level."
+            },
+            {
+              "key": "C",
+              "text": "Their contact with the opposite gender."
+            },
+            {
+              "key": "D",
+              "text": "Their interaction with different cultures."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案」第三段介绍人们一生中态度形成和完善的过程,23句指出促使态度完善的一大因素:认同对象 的行为一一认同对象包括家人,同性别、同文化的人,钦佩的对象,以及朋友等等。A与此相符。 [排除干扰]B将1句theinformationyoureceive含义“青少年、成年时期人们反复接收与其心仪目标、渴求的 成就相关的信息”曲解为“其所受教育/教育水平”。C、D分别利用2句gender、culture设置干扰,却错将“同 性(those ofyourgender)\"窜改为“异性”,“同一文化(those of your...culture)”塞改为“不同文化”。"
+        },
+        {
+          "number": 48,
+          "stem": "What do many studies find about people’s feelings and thoughts?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They may not suggest how a person is going to behave."
+            },
+            {
+              "key": "B",
+              "text": "They are in a way consistent with a person’s mentality."
+            },
+            {
+              "key": "C",
+              "text": "They may not find expression in interpersonal relations."
+            },
+            {
+              "key": "D",
+              "text": "They are in line with a person’s behavior no matter what."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案」第四段2句介绍研究发现:感受和想法不一定能预测行为,故A正确,maynot对应don'tnecessarily。 [排除干扰]B、C由第四段1句前一分句ourattitudesareinternallyconsistent(internally可指“内部地,内心 地”)臆断出态度(包括感受、想法)“与内在心态相一致”“深藏内心不通过人际言行外露出来”,但由下文可知此 句的“一致\"指\"(感受、想法)和行为的一致”。D源自该段1向后一分句(由thatis引出)的内容“想法和感受可 以预测行为”,三项均由该段1句的大众看法腾断而来,而由该段下句可知研究发现实际与大众看法相反。"
+        },
+        {
+          "number": 49,
+          "stem": "How come many people don’t do what they believe is good?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They can’t afford the time."
+            },
+            {
+              "key": "B",
+              "text": "They have no idea how to."
+            },
+            {
+              "key": "C",
+              "text": "They are hypocritical."
+            },
+            {
+              "key": "D",
+              "text": "They lack willpower."
+            }
+          ],
+          "answer": "D",
+          "explanation": "为什么许多人不去做自已认为对的事? B)他们不知怎样去做。C)他们为人虚伪。 A)他们抽不出时间。 D)他们缺乏意志力。 工锁定答案」第四段23句指出:态度只有在特定前提下(行动不难且身边的人态度相似时)才具有内在一致 性(即行动与想法感受相一致)。4句以环保和健身为例指出态度的这一特性可以解释许多人为何不去践行 自己口头认同的益事:行动与想法感受常常不一致,把所想付诸实际行动需要悟性、努力及勇气。D正确。 [排除干扰]A由第五段2句Takesome time得来;首先,此处就如何转变态度给出建议“抽时间反省自己的 态度”,与“是否有时间付出行动”并无直接关联;其次A、B的“缺少时间、不懂方法\"均为客观/理性因素,与第四 段“意识、努力、勇气\"等主观/感性因素背道而驰。C由4向“许多人说自己认可某事,却不去做”这一事实断 出这些人“口是心非(hypocritical)\",但文章论述的是行动和想法感受的一致性,而非表面和内心的一致性。"
+        },
+        {
+          "number": 50,
+          "stem": "What is proposed as a strategy to change attitude?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Changing things that require one’s immediate attention."
+            },
+            {
+              "key": "B",
+              "text": "Starting to act in a way that embodies one’s aspirations."
+            },
+            {
+              "key": "C",
+              "text": "Adjusting one’s behavior gradually over a period of time."
+            },
+            {
+              "key": "D",
+              "text": "Considering ways of reducing one’s psychological burdens."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案】第五段1句指出改变态度的最有效方法“带着自己偏好的/期望拥有的感受想法去行事”。2至 1句说明具体步露“先反思自己的消极想法,再做出与此相反的行动”。B项同义改写1句startbehaving... thewayyou'dpreferto,其中preferto与aspiration均强调人对于自身感受想法的主观期待。 [排除干扰]A由1句you'dpreferto联想到改变优先事项”,但作者提倡改变的是行事方式(theway),而不 是事情本身。C将2句付出行动之前的步骤“花些时间反思自己的想法”曲解为“行动时要循序渐进”。D根据 31向大意“如采将一件事视为负担,那就假装它是一件荣幸去做\"得来,但此处作者意在举例说明如何转变态 度“先反思自已是否具有种消极想法,再假装带着更好的想法去行事”,而非告诉读者“要减少心理负担”。 ·"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2019-12-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Industrial fishing for krill(磷虾) in the unspoilt waters around Antarctica is threatening the future of one of the world’s last great wildernesses, according to a new report. The study by Greenpeace analysed the movements of krill fishing vessels in the region and found they were increasingly operating & quot; in the immediate vicinity of penguin colonies and whale-feeding grounds & quot; It also highlights incidents of fishing boats being involved in groundings, oil spills and accidents, which posed a serious threat to the Antarctic ecosystem. The report, published on Tuesday, comes amid growing concern about the impact of fishing and climate change on the Antarctic. A global campaign has been launched to create a network of ocean sanctuaries to protect the seas in the region and Greenpeace is calling for an immediate halt to fishing in areas being considered for sanctuary status. Frida Bengtsson from Greenpeace’s Protect the Antarctic campaign said: “If the krill industry wants to show it’s a responsible player, then it should be voluntarily getting out of any area which is being proposed as an ocean sanctuary, and should instead be backing the protection of these huge tracts of the Antarctic.” A global campaign has been launched to turn a huge tract of Antarctic seas into ocean sanctuaries protecting wildlife and banning not just krill fishing, but all fishing. One was created in the Ross Sea in 2016, another reserve is being proposed in a vast area of the Weddell Sea, and a third sanctuary is under consideration in the area west of the Antarctic Peninsula--a key krill fishing area. The Commission for the Conservation of Antarctic Marine Living Resources (CCAMLR) manages the seas around Antarctica. It will decide on the Weddell Sea sanctuary proposal at a conference in Australia in October, although a decision on the peninsula sanctuary is not expected until later. Keith Reid, a science manager at CCAMLR, said that the organisation sought “a balance between protection, conservation and sustainable fishing in the Southern Ocean.” He said although more fishing was taking place nearer penguin colonies it was often happening later in the season when these colonies were empty. “The creation of a system of marine protected areas is a key part of ongoing scientific and policy discussions in CCAMLR,” he added. “Our long-term operation in the region depends on a healthy and thriving Antarctic marine ecosystem, which is why we have always had an open dialogue with the environmental non-governmental organisations. We strongly intend to continue this dialogue, including talks with Greenpeace, to discuss improvements based on the latest scientific data. We are not the ones to decide on the establishment of marine protected areas, but we hope to contribute positively with our knowledge and experience.”"
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does Greenpeace’s study find about krill fishing?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It caused a great many penguins and whales to migrate."
+            },
+            {
+              "key": "B",
+              "text": "It was depriving penguins and whales of their habitats."
+            },
+            {
+              "key": "C",
+              "text": "It was carried out too close to the habitats of penguins and whales."
+            },
+            {
+              "key": "D",
+              "text": "It posed an unprecedented threat to the wildlife around Antarctica."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]第二段1句指出绿色和平组织的发现:磷虾捕捞日益在紧邻企鹅聚居地和鲸鱼竟食地的区域进 行。可见C正确。 [排除干扰]A对第二段1句过度推断:该句仅指出研究发现“磷虾捕捞靠近企鹅和鲸鱼的栖息地”,并未说明 这造成了“大量企鹅和鲸迁徒”。B将1向“磷虾捕捞船在紧邻企鹅和鲸鱼栖息地的区域作业”夸大为“占 据/掠夺其栖息地”。D将第一段“磷虾捕捞威胁着南极这片大荒野”曲解为“咸胁着南极的野生生命”,且 unprecedented无从说起。"
+        },
+        {
+          "number": 52,
+          "stem": "For what purpose has a global campaign been launched?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To reduce the impact of climate change on Antarctica."
+            },
+            {
+              "key": "B",
+              "text": "To establish conservation areas in the Antarctic region."
+            },
+            {
+              "key": "C",
+              "text": "To regulate krill fishing operations in the Antarctic seas."
+            },
+            {
+              "key": "D",
+              "text": "To publicise the concern about the impact of krill fishing."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]第三段2句指出“一场全球运动已经发起,旨在建立一个海洋保护区网络来保护这个地区的海 城。”再联系上句可知,“这个地区”指南极地区,B正确。 [排除干扰]A干扰来自第三段1句climatechangeontheAntarctic,D干扰犹源自该句growingconcern aboutthe impactof fishing,但这属于运动发起的大背景,而非其目的。C将第三段2句后半向绿色和平组织呼吁“禁止在 被认定为保护区的海域内捕捞\"宰改为“规范南极洲海域的捕捞活动(\"规范的”言外之意:允许某些捕捞活动)”。"
+        },
+        {
+          "number": 53,
+          "stem": "What is Greenpeace’s recommendation to the krill industry?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Opting to operate away from the suggested conservation areas."
+            },
+            {
+              "key": "B",
+              "text": "Volunteering to protect the endangered species in the Antarctic."
+            },
+            {
+              "key": "C",
+              "text": "Refraining from krill fishing throughout the breeding season."
+            },
+            {
+              "key": "D",
+              "text": "Showing its sense of responsibility by leading the global campaign."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案】第四段借来自绿色和平组织“保护南极”运动的FridaBengtsson之口说明运动目的:“如果磷虾业 想证明自己是负责任的参与者,它就应该主动撤出被提议为海洋保护区的海域”,可推知A正确。 [排除干扰]B将“磷虾业应支持对这些大片南极区域的保护”偷换为对“南极濒危物种的保护”。C违背“磷虾 业应主动撤出所有被提议为海洋保护区的海城(也即应停止在这些区城的一切捕榜活动,无论是否在繁殖季 节)。D对aglobalcampaign和toshowit'saresponsibleplayer强加关联,文中并未提及磷虾业应领导全球运动。"
+        },
+        {
+          "number": 54,
+          "stem": "What did CCAMLR aim to do according to its science manager?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Raise public awareness of the vulnerability of Antarctic species."
+            },
+            {
+              "key": "B",
+              "text": "Ban all commercial fishing operations in the Southern Ocean."
+            },
+            {
+              "key": "C",
+              "text": "Keep the penguin colonies from all fishing interference."
+            },
+            {
+              "key": "D",
+              "text": "Sustain fishing without damaging the Antarctic ecosystem."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]该句指出,CCAMLR致力于“寻求南大洋保护、养护与可持续渔业间的平衡”。可知D\"在不损害 南极生态的前提下维持渔业”与之最接近。 [排除干扰]A对第七段2句过度推导,认为“捕捞活动在企鹅离开后才开始”是“CCAMLR努力提高公众对 南极物种脆弱性认识\"的结果。但该句中KeithReid实在阐述事实,并非说明CCAMLR努力成果。B、C均明 显违背2句含义“捕捞大都是在企鹅离开之后”言外之意为“猜捞对企鹅的影响较小,不必完全禁止”。"
+        },
+        {
+          "number": 55,
+          "stem": "How does CCAMLR define its role in the conservation of the Antarctic environment?",
+          "options": [
+            {
+              "key": "A",
+              "text": "A coordinator in policy discussions."
+            },
+            {
+              "key": "B",
+              "text": "An authority on big data analysis."
+            },
+            {
+              "key": "C",
+              "text": "A provider of the needed expertise."
+            },
+            {
+              "key": "D",
+              "text": "An initiator of marine sanctuaries."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]第八末句指出CCAMLR认为“我们不是建立海洋保护区的决策者,但希望用自身的知识和经验 做出积极贡献”。可见C正确。 [排除干扰]A源自第八段1句...keypartof..·policydiscussions,但该句实在指出“CCAMLR内部展开政 策讨论”而非\"CCAMLR是多个群体间政策讨论的协调者”,B源自3句thelatestscientificdata,但该句仅指 出CCAMLR希望与非政府组织的讨论“以最新的科学数据为基础”,并非自谢“数据分析的权威”。D源自1 句Thecreationofasystemofmarineprotectedareas...,但该句仅指出“CCAMLR就建立保护区进行讨论”, 这与“海洋保护区的发起者”大不相同。 ·"
+        }
+      ]
+    }
+  ]
+}

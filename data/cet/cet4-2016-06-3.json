@@ -1,0 +1,1647 @@
+{
+  "id": "cet4-2016-06-3",
+  "level": 4,
+  "year": 2016,
+  "month": 6,
+  "set": 3,
+  "title": "2016 年 6 月四级 · 第 3 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.06/%E7%9C%9F%E9%A2%98Word/2016%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%AC%AC3%E5%A5%97%E7%9C%9F%E9%A2%98.doc",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2016%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%AC%AC3%E5%A5%97%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2016-06-3-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Signs barring cell-phone use are a familiar sight to anyone who has ever sat in a hospital waiting room. But the [[26]] popularity of electronic medical records has forced hospital-based doctors to become [[27]] on computers throughout the day, and desktops—which keep doctors from bedsides—are [[28]] giving way to wireless devices. As clerical loads increased, “something had to [[29]] , and that was always face time with patients,” says Dr.Bhakti Patel, a former chief resident in the University of Chicago’s internal-medicine program. In fall 2010, she helped [[30]] a pilot project in Chicago to see if the iPad could improve working conditions and patient care. The experiment was so [[31]] that all internal-medicine program adopted the same [[32]] in 2011. Medical schools at Yale and Stanford now have paperless, iPad-based curriculums. “You’ll want an iPad just so you can wear this” is the slogan for one of the new lab coats [[33]] with large pockets to accommodate tablet computers. A study of the University of Chicago iPad project found that patients got tests and [[34]] faster if they were cared for by iPad-equipped residents. Many patients also [[35]] a better understanding of the illnesses that landed them in the hospital in the first place."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "dependent"
+        },
+        {
+          "key": "B",
+          "text": "designed"
+        },
+        {
+          "key": "C",
+          "text": "fast"
+        },
+        {
+          "key": "D",
+          "text": "flying"
+        },
+        {
+          "key": "E",
+          "text": "gained"
+        },
+        {
+          "key": "F",
+          "text": "give"
+        },
+        {
+          "key": "G",
+          "text": "growing"
+        },
+        {
+          "key": "H",
+          "text": "launch"
+        },
+        {
+          "key": "I",
+          "text": "policy"
+        },
+        {
+          "key": "J",
+          "text": "prospect"
+        },
+        {
+          "key": "K",
+          "text": "rather"
+        },
+        {
+          "key": "L",
+          "text": "reliable"
+        },
+        {
+          "key": "M",
+          "text": "signal"
+        },
+        {
+          "key": "N",
+          "text": "successful"
+        },
+        {
+          "key": "O",
+          "text": "treatments"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "dependent"
+            },
+            {
+              "key": "B",
+              "text": "designed"
+            },
+            {
+              "key": "C",
+              "text": "fast"
+            },
+            {
+              "key": "D",
+              "text": "flying"
+            },
+            {
+              "key": "E",
+              "text": "gained"
+            },
+            {
+              "key": "F",
+              "text": "give"
+            },
+            {
+              "key": "G",
+              "text": "growing"
+            },
+            {
+              "key": "H",
+              "text": "launch"
+            },
+            {
+              "key": "I",
+              "text": "policy"
+            },
+            {
+              "key": "J",
+              "text": "prospect"
+            },
+            {
+              "key": "K",
+              "text": "rather"
+            },
+            {
+              "key": "L",
+              "text": "reliable"
+            },
+            {
+              "key": "M",
+              "text": "signal"
+            },
+            {
+              "key": "N",
+              "text": "successful"
+            },
+            {
+              "key": "O",
+              "text": "treatments"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G) growing。此空为名词 popularity 的限定词,应是一个带有形容词性质的词汇,备选项 A,G,L, N 中只有 G 项 growing 符合题意。本句意为: 电子医疗记录普及率越来越高。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "dependent"
+            },
+            {
+              "key": "B",
+              "text": "designed"
+            },
+            {
+              "key": "C",
+              "text": "fast"
+            },
+            {
+              "key": "D",
+              "text": "flying"
+            },
+            {
+              "key": "E",
+              "text": "gained"
+            },
+            {
+              "key": "F",
+              "text": "give"
+            },
+            {
+              "key": "G",
+              "text": "growing"
+            },
+            {
+              "key": "H",
+              "text": "launch"
+            },
+            {
+              "key": "I",
+              "text": "policy"
+            },
+            {
+              "key": "J",
+              "text": "prospect"
+            },
+            {
+              "key": "K",
+              "text": "rather"
+            },
+            {
+              "key": "L",
+              "text": "reliable"
+            },
+            {
+              "key": "M",
+              "text": "signal"
+            },
+            {
+              "key": "N",
+              "text": "successful"
+            },
+            {
+              "key": "O",
+              "text": "treatments"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A) dependent。此空为 hospital-based doctors 的表语,且后面与介词 on 搭配,在备选项 A,L,N 中 只有 A 项 dependent 符合题意。短语 be dependent on sth. 意为:依赖。此处意思是医院里的医生一天到 晚 依赖电脑。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "dependent"
+            },
+            {
+              "key": "B",
+              "text": "designed"
+            },
+            {
+              "key": "C",
+              "text": "fast"
+            },
+            {
+              "key": "D",
+              "text": "flying"
+            },
+            {
+              "key": "E",
+              "text": "gained"
+            },
+            {
+              "key": "F",
+              "text": "give"
+            },
+            {
+              "key": "G",
+              "text": "growing"
+            },
+            {
+              "key": "H",
+              "text": "launch"
+            },
+            {
+              "key": "I",
+              "text": "policy"
+            },
+            {
+              "key": "J",
+              "text": "prospect"
+            },
+            {
+              "key": "K",
+              "text": "rather"
+            },
+            {
+              "key": "L",
+              "text": "reliable"
+            },
+            {
+              "key": "M",
+              "text": "signal"
+            },
+            {
+              "key": "N",
+              "text": "successful"
+            },
+            {
+              "key": "O",
+              "text": "treatments"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C) fast。此句有一个插入语 which keep doctors from besides,其主语为 desktops,谓语为 give away, 用了现在进行时。故此空是修饰谓语的,应为副词。备选项 C 和 K 中,C 项 fast 符合题意。此句意思 是让医生离开病床的台式机在很快让位于无线设备。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "dependent"
+            },
+            {
+              "key": "B",
+              "text": "designed"
+            },
+            {
+              "key": "C",
+              "text": "fast"
+            },
+            {
+              "key": "D",
+              "text": "flying"
+            },
+            {
+              "key": "E",
+              "text": "gained"
+            },
+            {
+              "key": "F",
+              "text": "give"
+            },
+            {
+              "key": "G",
+              "text": "growing"
+            },
+            {
+              "key": "H",
+              "text": "launch"
+            },
+            {
+              "key": "I",
+              "text": "policy"
+            },
+            {
+              "key": "J",
+              "text": "prospect"
+            },
+            {
+              "key": "K",
+              "text": "rather"
+            },
+            {
+              "key": "L",
+              "text": "reliable"
+            },
+            {
+              "key": "M",
+              "text": "signal"
+            },
+            {
+              "key": "N",
+              "text": "successful"
+            },
+            {
+              "key": "O",
+              "text": "treatments"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F) give。此空为动词原形和 had to 搭配。备选项 F 项 give 符合题意。此句意思是随着日常事务的增 加,有些事还必须得办。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "dependent"
+            },
+            {
+              "key": "B",
+              "text": "designed"
+            },
+            {
+              "key": "C",
+              "text": "fast"
+            },
+            {
+              "key": "D",
+              "text": "flying"
+            },
+            {
+              "key": "E",
+              "text": "gained"
+            },
+            {
+              "key": "F",
+              "text": "give"
+            },
+            {
+              "key": "G",
+              "text": "growing"
+            },
+            {
+              "key": "H",
+              "text": "launch"
+            },
+            {
+              "key": "I",
+              "text": "policy"
+            },
+            {
+              "key": "J",
+              "text": "prospect"
+            },
+            {
+              "key": "K",
+              "text": "rather"
+            },
+            {
+              "key": "L",
+              "text": "reliable"
+            },
+            {
+              "key": "M",
+              "text": "signal"
+            },
+            {
+              "key": "N",
+              "text": "successful"
+            },
+            {
+              "key": "O",
+              "text": "treatments"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H) launch。此空为 a pilot project 的谓语,且前面和 helped 动词搭配,应为动词原形。只有备选项 H 项launch 符合题意。launch a pilot project 意为: 开展实验项目。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "dependent"
+            },
+            {
+              "key": "B",
+              "text": "designed"
+            },
+            {
+              "key": "C",
+              "text": "fast"
+            },
+            {
+              "key": "D",
+              "text": "flying"
+            },
+            {
+              "key": "E",
+              "text": "gained"
+            },
+            {
+              "key": "F",
+              "text": "give"
+            },
+            {
+              "key": "G",
+              "text": "growing"
+            },
+            {
+              "key": "H",
+              "text": "launch"
+            },
+            {
+              "key": "I",
+              "text": "policy"
+            },
+            {
+              "key": "J",
+              "text": "prospect"
+            },
+            {
+              "key": "K",
+              "text": "rather"
+            },
+            {
+              "key": "L",
+              "text": "reliable"
+            },
+            {
+              "key": "M",
+              "text": "signal"
+            },
+            {
+              "key": "N",
+              "text": "successful"
+            },
+            {
+              "key": "O",
+              "text": "treatments"
+            }
+          ],
+          "answer": "N",
+          "explanation": "N) successful。此空为 The experiment 的表语,且为 so...that... 句型的一部分,B,D,E,L,N 中 只有N 项 successful 符合题意,意思是实验如此成功,以至于......。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "dependent"
+            },
+            {
+              "key": "B",
+              "text": "designed"
+            },
+            {
+              "key": "C",
+              "text": "fast"
+            },
+            {
+              "key": "D",
+              "text": "flying"
+            },
+            {
+              "key": "E",
+              "text": "gained"
+            },
+            {
+              "key": "F",
+              "text": "give"
+            },
+            {
+              "key": "G",
+              "text": "growing"
+            },
+            {
+              "key": "H",
+              "text": "launch"
+            },
+            {
+              "key": "I",
+              "text": "policy"
+            },
+            {
+              "key": "J",
+              "text": "prospect"
+            },
+            {
+              "key": "K",
+              "text": "rather"
+            },
+            {
+              "key": "L",
+              "text": "reliable"
+            },
+            {
+              "key": "M",
+              "text": "signal"
+            },
+            {
+              "key": "N",
+              "text": "successful"
+            },
+            {
+              "key": "O",
+              "text": "treatments"
+            }
+          ],
+          "answer": "I",
+          "explanation": "I) policy。此空为名词,作 adopted 的宾语。在备选项 I,J,M,O 当中,和 adopted 搭配且符合题意 的为选项 I 项 policy,意为: 采取相同的策略 / 做法。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "dependent"
+            },
+            {
+              "key": "B",
+              "text": "designed"
+            },
+            {
+              "key": "C",
+              "text": "fast"
+            },
+            {
+              "key": "D",
+              "text": "flying"
+            },
+            {
+              "key": "E",
+              "text": "gained"
+            },
+            {
+              "key": "F",
+              "text": "give"
+            },
+            {
+              "key": "G",
+              "text": "growing"
+            },
+            {
+              "key": "H",
+              "text": "launch"
+            },
+            {
+              "key": "I",
+              "text": "policy"
+            },
+            {
+              "key": "J",
+              "text": "prospect"
+            },
+            {
+              "key": "K",
+              "text": "rather"
+            },
+            {
+              "key": "L",
+              "text": "reliable"
+            },
+            {
+              "key": "M",
+              "text": "signal"
+            },
+            {
+              "key": "N",
+              "text": "successful"
+            },
+            {
+              "key": "O",
+              "text": "treatments"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B) designed。 此空为 lab coats 的后置定语, 其后为 pockets。 因此, lab coats designed with pockets 符合题意,此句中 designed 为过去分词表示被动。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "dependent"
+            },
+            {
+              "key": "B",
+              "text": "designed"
+            },
+            {
+              "key": "C",
+              "text": "fast"
+            },
+            {
+              "key": "D",
+              "text": "flying"
+            },
+            {
+              "key": "E",
+              "text": "gained"
+            },
+            {
+              "key": "F",
+              "text": "give"
+            },
+            {
+              "key": "G",
+              "text": "growing"
+            },
+            {
+              "key": "H",
+              "text": "launch"
+            },
+            {
+              "key": "I",
+              "text": "policy"
+            },
+            {
+              "key": "J",
+              "text": "prospect"
+            },
+            {
+              "key": "K",
+              "text": "rather"
+            },
+            {
+              "key": "L",
+              "text": "reliable"
+            },
+            {
+              "key": "M",
+              "text": "signal"
+            },
+            {
+              "key": "N",
+              "text": "successful"
+            },
+            {
+              "key": "O",
+              "text": "treatments"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O) treatments。此空需要一个和 tests 并列的名词,作 got 的宾语。只有备选项 O 项 treatments 符合题 意。tests and treatments 意为: 检查和治疗。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "dependent"
+            },
+            {
+              "key": "B",
+              "text": "designed"
+            },
+            {
+              "key": "C",
+              "text": "fast"
+            },
+            {
+              "key": "D",
+              "text": "flying"
+            },
+            {
+              "key": "E",
+              "text": "gained"
+            },
+            {
+              "key": "F",
+              "text": "give"
+            },
+            {
+              "key": "G",
+              "text": "growing"
+            },
+            {
+              "key": "H",
+              "text": "launch"
+            },
+            {
+              "key": "I",
+              "text": "policy"
+            },
+            {
+              "key": "J",
+              "text": "prospect"
+            },
+            {
+              "key": "K",
+              "text": "rather"
+            },
+            {
+              "key": "L",
+              "text": "reliable"
+            },
+            {
+              "key": "M",
+              "text": "signal"
+            },
+            {
+              "key": "N",
+              "text": "successful"
+            },
+            {
+              "key": "O",
+              "text": "treatments"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E) gained。此空为 patients 的谓语,后面和 a better understanding 搭配,且时态应为过去时。因此备 选项 E 项 gained 在语法和意义上与其搭配,意为: 有更好的理解。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2016-06-3-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Is it possible to enjoy a peaceful life in a world that is increasingly challenged by threats and uncertainties from wars, terrorism, economic crises and a widespread outbreak of infectious diseases? The answer is yes, according to a new book The 10 Golden Rules: Ancient Wisdom from the Greek Philosophers on Living a Good Life. The book is co-authored by Long Island University’s philosophy professor Michael Soupios and economics professor Panos Mourdoukoutas.",
+        "B) The wisdom of the ancient Greek philosophers is timeless, says Soupios. The philosophy professor says it is as relevant today as when it was first written many centuries ago. “There is no expiration ( 失效) date on wisdom,” he says, “There is no shelf life on intelligence. I think that things have become very gloomy these day, lots of misunderstanding, misleading cues, a lot of what the ancients would have called sophistry ( 诡辩 ). The nice thing about ancient philosophy as offered by the Greeks is that they tended to see life clear and whole, in a way that we tend not to see life today.” Examine your life",
+        "C) Soupios, along with his co-author Panos Mourdoukoutas, developed their 10 golden rules by turning to the men behind that philosophy—Aristotle, Socrates, Epictetus and Pythagoras, among others. The first rule—examine your life—is the common thread that runs through the entire book. Soupios says that it is based on Plato’s observation that the unexamined life is not worth living. “The Greeks are always concerned about boxing themselves in, in terms of convictions ( 信念 ),” he says. “So take a step back, switch off the automatic pilot and actually stop and reflect about things like our priorities, our values, and our relationships.” Stop worrying about what you can not control",
+        "D) As we begin to examine our life, Soupios says, we come to Rule No.2: Worry only about things that you can control. “The individual who promoted this idea was a Stoic philosopher. His name is Epictetus,” he says. “And what the Stoics say in general is simply this: There is a larger plan in life. You are not really going to be able to understand all of the dimensions of this plan. You are not going to be able to control the dimensions of this plan.”",
+        "E) So, Soupios explains, it is not worth it to waste our physical, intellectual and spiritual energy worrying about things that are beyond our control. “I can not control whether or not I wind up getting the disease swine flu, for example.” He says. “I mean, there are some cautious steps I can take, but ultimately I can not guarantee myself that. So what Epictetus would say is sitting at home worrying about that would be wrong and wasteful and irrational. You should live your life attempting to identify and control those things which you can genuinely control.” Seek true pleasure",
+        "F) To have a meaningful, happy life we need friends. But according to Aristotle—a student of Plato and teacher of Alexander the Great—most relationships don’t qualify as true friendships. “Just because I have a business relationship with an individual and I can profit from that relationship, it does not necessarily mean that this person is my friend,” Soupios says. “Real friendship is when two individuals share the same soul. It is a beautiful and uncharacteristically poetic image that Aristotle offers.”",
+        "G) In our pursuit of the good life, he says, it is important to seek out true pleasures—advice which was originally offered by Epicurus. But unlike the modern definition of Epicureanism as a life of indulgence ( 放纵 ) and luxury, for the ancient Greeks, it meant finding a state of calm, peace and mental ease.",
+        "H) “This was the highest and most desirable form of pleasure and happiness for the ancient Epicureans,” Soupios says. “This is something that is very much well worth considering here in the modern era. I do not think that we spend nearly enough time trying to concentrate on achieving a sort of calmness, a sort of contentment in mental and spiritual way, which was identified by these people as the highest form of happiness and pleasure.” Do good to others",
+        "I) Other golden rules counsel us to master ourselves, to avoid excess and not to be a prosperous ( 发迹的 ) fool. There are also rules dealing with interpersonal relationships: Be a responsible human being and do not do evil things to others.",
+        "J) “This is Hesiod, of course, a younger contemporary poet, we believe, with Homer,” Soupios says. “Hesiod offers an idea—which you very often find in some of the world’s great religions, in the Judeo-Christian tradition and in Islam and others—that in some sense, when you hurt another human being, you hurt yourself. That damaging other people in your community and in your life, trashing relationships, results in a kind of self-inflicted ( 自己招致的 ) spiritual wound.”",
+        "K) Instead, Soupios says, ancient wisdom urges us to do good. Golden Rule No.10 for a good life is that kindness toward others tends to be rewarded.",
+        "L) “This is Aesop, the fabulist ( 寓言家 ), the man of these charming little tales, often told in terms of animals and animal relationships,” he says. “I think what Aesop was suggesting is that when you offer a good turn to another human being, one can hope that that good deed will come back and sort of pay a profit to you, the doer of the good deed. Even if there is no concrete benefit paid in response to your good deed, at the very least, the doer of the good deed has the opportunity to enjoy a kind of spiritually enlightened moment.”",
+        "M) Soupios says following the 10 Golden Rules based on ancient wisdom can guide us to the path of the good life where we stop living as onlookers and become engaged and happier human beings. And that, he notes, is a life worth living."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "According to an ancient Greek philosopher, it is impossible for us to understand every aspect of our life.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "D",
+          "explanation": "According to an ancient Greek philosopher, it is impossible for us to understand every aspect of our life. 【正确答案】D 【答案解析】题干大意为:根据古希腊哲学家,我们不可能理解生活的每一面。原文 D 段提到: There is a larger plan in life. You are not really going to be able to understand all of the dimensions of this plan(生活 有个更大的规划, 你不可能真正了解这个规划的所有方面) ,题干是对该句的同义转换,故本题匹配 D 段。"
+        },
+        {
+          "number": 37,
+          "stem": "Ancient Philosophers saw life in a different light from people of today.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Ancient Philosophers saw life in a different light from people of today. 【正确答案】B 【答案解析】题干大意为:古代哲学家看待生活跟现代人不同。根据原文 B 段最后一句: The nice thing about ancient philosophy as offered by the Greeks is that they tended to see life clear and whole, in a way that we tend not to see life today(好事是,希腊人的古代哲学总是以清晰、完整的思路看待生活,而我们 当代人并不这么看生活) 。题干与本句意思相符,故本题对应 B 段。"
+        },
+        {
+          "number": 38,
+          "stem": "Not all your business partners are your soul mates.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "F",
+          "explanation": "Not all your business partners are your soul mates. 【正确答案】F 【答案解析】题干大意为:并非所有的生意伙伴都是你的精神伴侣。根据原文 F 段的描述: Just because I have a business relationship with an individual and I can profit from that relationship, it does not necessarily mean that this person is my friend(仅仅因为我跟某人有生意上的关系,并能从这段关系中受 益,并不一 定意味着这个人就是我的朋友) ,即并非所有的生意伙伴都能发展为真正的友谊,所以本 题选 F 段。"
+        },
+        {
+          "number": 39,
+          "stem": "We can live a peaceful life despite the various challenges of the modern world.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "A",
+          "explanation": "We can live a peaceful life despite the various challenges of the modern world. 【正确答案】A 【答案解析】题干大意为:尽管现代社会充斥着各种挑战,我们仍然可以过上和平的生活。原文开篇 A 段就对此提出问题: Is it possible to enjoy a peaceful life in a world that is increasingly challenged by threats and uncertainties from wars, terrorism, economic crises and a widespread outbreak of infectious diseases(有 可能在这样一个世界过上和平的生活吗?这个世界日益受到各种威胁和不确定性的挑战:战争、恐怖 主义、 经济危机和传染病的蔓延性的爆发) 。作者的回答是肯定的: The answer is yes。所以本题选 A 段。"
+        },
+        {
+          "number": 40,
+          "stem": "The doer of a good deed can feel spiritually rewarded even when they gain no concrete benefits.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "L",
+          "explanation": "The doer of a good deed can feel spiritually rewarded even when they gain no concrete benefits. 【正确答案】L 【答案解析】根据题干中的关键信息: The doer of a good deed 和 concrete benefits 可将答案定位至原文 L 段: Even if there is no concrete benefit paid in response to your good deed, at the very least, the doer of the good deed has the opportunity to enjoy a kind of spiritually enlightened moment(尽管对你的善行没有具体 的回报,但至少,行善之人有机会享受到一种精神受到启发的时刻) ,所以 L 段符合本题。"
+        },
+        {
+          "number": 41,
+          "stem": "How to achieve mental calmness and contentment is well worth our consideration today.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "H",
+          "explanation": "How to achieve mental calmness and contentment is well worth our consideration today. 【正确答案】H 【答案解析】根据题干中的关键信息: mental,calmness,contentment 和 consider 可将答案定位至原文 H 段: This is something that is very much well worth considering here in the modern era(这是很值得现代 人 考虑的事情) 。接着作者认为我们没有花足够的时间去专注获得一种安宁,一种心灵和精神的满足 感。 所以本题与 H 段相匹配。"
+        },
+        {
+          "number": 42,
+          "stem": "Michael Soupios suggests that we should stop and think carefully about our priorities in life.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Michael Soupios suggests that we should stop and think carefully about our priorities in life. 【正确答案】C 【答案解析】根据题干中的关键信息: Michael Soupios,stop,think 和 priorities 等词,可将答案定位到 原 文 C 段最后一句: stop and reflect about things like our priorities, our values, and our relationships(停下 来并 反思下我们的当务之急、价值观和关系等此类事情) ,题干的 think carefully 对应原文的 reflect, 故本题 选 C 段。"
+        },
+        {
+          "number": 43,
+          "stem": "Ancient philosophers strongly advise that we do good.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "K",
+          "explanation": "Ancient philosophers strongly advise that we do good. 【正确答案】K 【答案解析】根据题干关键词 do good 可将答案定位到副标题为 Do good to others 的段落。本题题干 大 意是:古代哲学家强烈建议我们行善事。在此部分的 K 段第一句提到: ancient wisdom urges us to do good(古老智慧竭力主张我们行善事) ,很显然,本题与 K 段相匹配。"
+        },
+        {
+          "number": 44,
+          "stem": "The wise teachings of ancient Greek thinkers are timeless, and are applicable to contemporary life.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "B",
+          "explanation": "The wise teachings of ancient Greek thinkers are timeless, and are applicable to contemporary life. 【正确答案】B 【答案解析】本题题干大意为:古希腊哲学家的智慧教义是无限的,并同样适用于当代的生活。由题 干关键词 timeless 可将答案定位到原文 B 段的第一句: The wisdom of the ancient Greek philosophers is timeless(古希腊哲学家的智慧是无限的) ,第二句: it is as relevant today as when it was first written many centuries ago(它在今天和在数世纪以前第一次写出时一样的中肯) ,所以本题匹配 B 段。"
+        },
+        {
+          "number": 45,
+          "stem": "Do harm to others and you do harm to yourself.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "J",
+          "explanation": "Do harm to others and you do harm to yourself. 【正确答案】J 【答案解析】本题题干大意为:伤人伤己。根据原文 L 段: when you hurt another human being, you hurt yourself(当你伤害他人时,你也伤害了自己) 。题干的 do harm to 与原文的 hurt 同义,所以本题与 J 段 匹配。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2016-06-3-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Attitudes toward new technologies often fall along generational lines. That is, generally, younger people tend to outnumber older people on the front end of a technological shift. It is not always the case, though. When you look at attitudes toward driverless cars, there doesn’t seem to be a clear generational divide. The public overall is split on whether they’d like to use a driverless car. In a study last year, of all people surveyed, 48 percent said they wanted to ride in one, while 50 percent did not. The fact that attitudes toward self-driving cars appear to be so steady across generations suggests how transformative the shift to driverless cars could be. Not everyone wants a driverless car now—and no one can get one yet—but among those who are open to them, every age group is similarly engaged. Actually, this isn’t surprising. Whereas older generations are sometimes reluctant to adopt new technologies, driverless cars promise real value to these age groups in particular. Older adults, especially those with limited mobility or difficulty driving on their own, are one of the classic use cases for driverless cars. This is especially interesting when you consider that younger people are generally more interested in travel-related technologies than older ones. When it comes to driverless cars, differences in attitude are more pronounced based on factors not related to age. College graduates, for example, are particularly interested in driverless cars compared with those who have less education: 59 percent of college graduates said they would like to use a driverless car compared with 38 percent of those with a high-school diploma or less. Where a person lives matters, too. More people who lives in cities and suburbs said they wanted to try driverless cars than those who lived in rural areas. While there’s reason to believe that interest in self-driving cars is going up across the board, a person’s age will have little to do with how self-driving cars can become mainstream. Once driverless cares are actually available for sale, the early adopters will be the people who can afford to buy them."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What happens when a new technology emerges?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It further widens the gap between the old and the young."
+            },
+            {
+              "key": "B",
+              "text": "It often leads to innovations in other related fields."
+            },
+            {
+              "key": "C",
+              "text": "It contributes greatly to the advance of society as a whole."
+            },
+            {
+              "key": "D",
+              "text": "It usually draws different reactions from different age groups."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【正确答案】 D 【考核技能】缘由结果 【答案解析】根据原文第一段首句: Attitudes toward new technologies often fall along generational lines (对 待新科技的态度往往沿着年龄线而分) , 即不同的年龄群体对待新科技的反应不同, 所以本题 D 项正确。"
+        },
+        {
+          "number": 47,
+          "stem": "What does the author say about the driverless car?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It does not seem to create a generational divide."
+            },
+            {
+              "key": "B",
+              "text": "It will not necessarily reduce road accidents."
+            },
+            {
+              "key": "C",
+              "text": "It may start a revolution in the car industry."
+            },
+            {
+              "key": "D",
+              "text": "It has given rise to unrealistic expectations."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【正确答案】 A 【考核技能】态度信息 【答案解析】原文第二段提到: When you look at attitudes toward driverless cars, there doesn’t seem to be a clear generational divide(对待无人驾驶汽车的态度,似乎并没有很明显的年龄划分) ,这与 A 项表达 完 全相符,所以本题选 A。"
+        },
+        {
+          "number": 48,
+          "stem": "Why does the driverless car appeal to some old people?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It saves their energy."
+            },
+            {
+              "key": "B",
+              "text": "It helps with their mobility."
+            },
+            {
+              "key": "C",
+              "text": "It adds to the safety of their travel."
+            },
+            {
+              "key": "D",
+              "text": "It stirs up their interest in life."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【正确答案】 B 【考核技能】缘由结果 【答案解析】本题问为什么无人驾驶汽车受到老年人的欢迎,原文第四段对此给出了解释: Older adults, especially those with limited mobility or difficulty driving on their own, are one of the classic use cases for driverless cars(尤其对那些行动受限或者自己开车困难的老年人而言,他们会是无人驾驶汽车的经 典 用户) ,B 项符合原文的解释,故选 B。"
+        },
+        {
+          "number": 49,
+          "stem": "What is likely to affect one’s attitude toward the driverless car?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The location of their residence."
+            },
+            {
+              "key": "B",
+              "text": "The field of their special interest"
+            },
+            {
+              "key": "C",
+              "text": "The amount of training they received."
+            },
+            {
+              "key": "D",
+              "text": "The length of their driving experience."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【正确答案】 A 【考核技能】缘由结果 【答案解析】本题问什么原因最可能影响对待无人驾驶汽车的态度;原文第六段和第七段概述了影响无 人驾驶汽车的态度:第六段提到了教育程度;而第七段提到的是: Where a person lives matters, too(一 个人住哪里也会有影响) 。选项中 A 项符合其中一个因素,所以本题选 A。"
+        },
+        {
+          "number": 50,
+          "stem": "Who are likely to be the first to buy the driverless car?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The senior."
+            },
+            {
+              "key": "B",
+              "text": "The educated."
+            },
+            {
+              "key": "C",
+              "text": "The wealthy."
+            },
+            {
+              "key": "D",
+              "text": "The tech fans."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【正确答案】 C 【考核技能】主要人物 【答案解析】根据答案顺序原则,可将答案优先定位至尾段,根据最后一句: Once driverless cars are actually available for sale, the early adopters will be the people who can afford to buy them(一旦无人驾驶汽 车真的上市,那么早期的购买者会是那些有支付能力的人) ,故本题 C 选项 The wealthy(富人)正确。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2016-06-3-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "In agrarian ( 农业的 ), pre-industrial Europe, “you’d want to wake up early, start working with the sunrise, have a break to have the largest meal, and then you’d go back to work,” says Ken Albala, a professor of history at the University of the Pacific, “Later, at 5 or 6, you’d have a smaller supper.” This comfortable cycle, in which the rhythms of the day helped shape the rhythms of the meals, gave rise to the custom of the large midday meal, eaten with the extended family. “Meals are the foundation of the family,” says Carole Counihan, a professor at Millersville University in Pensylvania, “so there was a very important interconnection between eating together” and strengthening family ties. Since industrialization, maintaining such a slow cultural metabolism has been much harder, with the long midday meal shrinking to whatever could be stuffed into a lunch bucket or bought at a food stand. Certainly, there were benefits. Modern techniques for producing and shipping food led to greater variety and quantity, including a tremendous increase in the amount of animal protein and dairy products available, making us more vigorous than our ancestors. Yet plenty has been lost too, even in cultures that still live to eat. Take Italy. It’s no secret that the Mediterranean diet is healthy, but it was also a joy to prepare and eat. Italians, says Counihan, traditionally began the day with a small meal. The big meal came at around 1 p.m. In between the midday meal and a late, smaller dinner came a small snack. Today, when time zones have less and less meaning, there is little tolerance for offices’ closing for lunch, and worsening traffic in cities means workers can’t make it home and back fast enough anyway. So the formerly small supper after sundown becomes the big meal of the day, the only one at which the family has a chance to get together. “The evening meal carries the full burden that used to be spread over two meals,” says Counihan."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What do we learn from the passage about people in pre-industrial Europe?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They had to work from early morning till late at night."
+            },
+            {
+              "key": "B",
+              "text": "They were so busy working that they only ate simple meals."
+            },
+            {
+              "key": "C",
+              "text": "Their daily routine followed the rhythm of the natural cycle."
+            },
+            {
+              "key": "D",
+              "text": "Their life was much more comfortable than that of today."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【正确答案】C 【考核技能】主旨大意 【答案解析】由题干中的关键词 pre-industrial Europe 可将答案定位至第一段。根据 Ken Albala 对这一 段时期生活的描述(you’d want to wake up early, start working with the sunrise, have a break to have the largest meal, and then you’d go back to work. Later, at 5 or 6, you’d have a smaller supper)可推知,人们根 据自然规律调整饮食作息,故选 C。"
+        },
+        {
+          "number": 52,
+          "stem": "What does Professor Carole Counihan say about pre-industrial European families eating meals together?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It was helpful to maintaining a nation’s tradition."
+            },
+            {
+              "key": "B",
+              "text": "It brought family members closer to each other."
+            },
+            {
+              "key": "C",
+              "text": "It was characteristic of the agrarian culture."
+            },
+            {
+              "key": "D",
+              "text": "It enabled families to save a lot of money."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【正确答案】B 【考核技能】观点意见 【答案解析】由题干的关键词 Professor Carole Counihan, 以及所描述的时期 pre-industrial Europe。由 此 可将答案定位在文章第二段。Carole Counihan 说: Meals are the foundation of the family(饭是家庭的 基 石) 。B 项是对原文的转述。"
+        },
+        {
+          "number": 53,
+          "stem": "What does “cultural metabolism” (Line 1, Para. 3) refer to?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Evolutionary adaptation."
+            },
+            {
+              "key": "B",
+              "text": "Changes in lifestyle."
+            },
+            {
+              "key": "C",
+              "text": "Social progress."
+            },
+            {
+              "key": "D",
+              "text": "Pace of life."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【正确答案】D 【考核技能】语义理解 【答案解析】第三段提到: Since industrialization, maintaining such a slow cultural metabolism has been much harder(自从工业化以来,保持这样一种慢的“文化代谢”非常困难) ,下面进一步补充: with the long midday meal shrinking to whatever could be stuffed into a lunch bucket or bought at a food stand(午餐的 用餐 习惯变成了吃盒饭或到食品摊上买着吃) ,由此可知 cultural metabolism 指的是生活节奏,故选 D。"
+        },
+        {
+          "number": 54,
+          "stem": "What does the author think of the food people eat today?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Its quality is usually guaranteed."
+            },
+            {
+              "key": "B",
+              "text": "It is varied, abundant and nutritious."
+            },
+            {
+              "key": "C",
+              "text": "It is more costly than what our ancestors ate."
+            },
+            {
+              "key": "D",
+              "text": "Its production depends too much on technology."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【正确答案】B 【考核技能】观点意见 【答案解析】第三段提到: Modern techniques for producing and shipping food led to greater variety and quantity, including a tremendous increase in the amount of animal protein and dairy products available, making us more vigorous than our ancestors(由现代技术生产和运输的食物,品种多样,数量增加,动物蛋白和 乳制品丰 富,使得我们与祖先相比,更有活力) ,由此可知现代科技提供了品种多样、数量充足、有 营养的食物, 人们的饮食发生了变化,B 项是对原文的概括。"
+        },
+        {
+          "number": 55,
+          "stem": "What does the author say about Italians of the old days?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They enjoyed cooking as well as eating."
+            },
+            {
+              "key": "B",
+              "text": "They ate a big dinner late in the evening."
+            },
+            {
+              "key": "C",
+              "text": "They ate three meals regularly every day."
+            },
+            {
+              "key": "D",
+              "text": "They were expert at cooking meals."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【正确答案】A 【考核技能】观点意见 【答案解析】根据题干的关键词 Italians of the old day 可将答案锁定在最后一段,文中提到: but it was also a joy to prepare and eat,由此可知人们喜欢做饭的过程也喜欢吃饭,故推知答案为 A。"
+        }
+      ]
+    }
+  ]
+}

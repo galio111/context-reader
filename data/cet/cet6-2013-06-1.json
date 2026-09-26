@@ -1,0 +1,1729 @@
+{
+  "id": "cet6-2013-06-1",
+  "level": 6,
+  "year": 2013,
+  "month": 6,
+  "set": 1,
+  "title": "2013 年 6 月六级 · 第 1 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2013.06/%E7%9C%9F%E9%A2%98Word/2013%E5%B9%B46%E6%9C%88%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89.doc",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2013.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2013%E5%B9%B46%E6%9C%88%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%EF%BC%88%E7%AC%AC%E4%B8%80%E5%A5%97%EF%BC%89.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2013-06-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Most experts in sleep behaviour agree that there is virtually an epidemic of sleepiness in the nation. “I can’t think of a [[36]] study that hasn’t found Americans getting less sleep than they ought to,” says Dr David. The beginning of our sleep-deficit crisis can be [[37]] to the invention of the light bulb a century ago. From diary entries and other personal accounts from the 18th and 19th centuries, sleep scientists have reached the [[38]] that the average person used to sleep about 9.5 hours a night. By the 1950s and 1960s, that sleep schedule had been reduced [[39]] to between 7.5 and 8 hours, and most people had to wake to an alarm clock. “People cheat on their sleep, and they don’t realise they’re doing it,” says Dr David. “They think they’re okay because they can get by on 6.5 hours, when they really need 7.5, 8 or even more to feel [[40]] vigorous.” Perhaps the most merciless robber of sleep, researchers say, is the [[41]] of the day. Whenever pressures from work, family, friends and community mount, many people consider sleep the least expensive item on the agenda. “In our society, you’re considered [[42]] if you say you only need 5.5 hours’ sleep. If you say you’ve got to get 8.5 hours, people think you lack drive and ambition.” To assess the [[43]] of sleep deficit, researchers have put subjects through a set of psychological and performance tests requiring them, for instance, to add columns of numbers or [[44]] a passage read to them only minutes earlier. “We’ve found that if you’re sleep-deprived, performance suffers,” says Dr David. “Short-term memory is [[45]] , so are abilities to make decisions and to concentrate.”"
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "ideally"
+        },
+        {
+          "key": "B",
+          "text": "dynamic"
+        },
+        {
+          "key": "C",
+          "text": "currently"
+        },
+        {
+          "key": "D",
+          "text": "single"
+        },
+        {
+          "key": "E",
+          "text": "startlingly"
+        },
+        {
+          "key": "F",
+          "text": "complexity"
+        },
+        {
+          "key": "G",
+          "text": "traced"
+        },
+        {
+          "key": "H",
+          "text": "recall"
+        },
+        {
+          "key": "I",
+          "text": "conclusion"
+        },
+        {
+          "key": "J",
+          "text": "drastic"
+        },
+        {
+          "key": "K",
+          "text": "expectations"
+        },
+        {
+          "key": "L",
+          "text": "dramatically"
+        },
+        {
+          "key": "M",
+          "text": "recur"
+        },
+        {
+          "key": "N",
+          "text": "consequences"
+        },
+        {
+          "key": "O",
+          "text": "impaired"
+        }
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "第 36 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "ideally"
+            },
+            {
+              "key": "B",
+              "text": "dynamic"
+            },
+            {
+              "key": "C",
+              "text": "currently"
+            },
+            {
+              "key": "D",
+              "text": "single"
+            },
+            {
+              "key": "E",
+              "text": "startlingly"
+            },
+            {
+              "key": "F",
+              "text": "complexity"
+            },
+            {
+              "key": "G",
+              "text": "traced"
+            },
+            {
+              "key": "H",
+              "text": "recall"
+            },
+            {
+              "key": "I",
+              "text": "conclusion"
+            },
+            {
+              "key": "J",
+              "text": "drastic"
+            },
+            {
+              "key": "K",
+              "text": "expectations"
+            },
+            {
+              "key": "L",
+              "text": "dramatically"
+            },
+            {
+              "key": "M",
+              "text": "recur"
+            },
+            {
+              "key": "N",
+              "text": "consequences"
+            },
+            {
+              "key": "O",
+              "text": "impaired"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。空前的a 和空后的study 表明,本空应填以辅音开头的形容词,B) dynamic, D) single, J) drastic 入 选。本句用双重否定来强调研究证明美国人的睡眠时间少于他们的实际所需,故空处说的是一个研究,D) single (—个的)符合此处语义,故为答案。"
+        },
+        {
+          "number": 37,
+          "stem": "第 37 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "ideally"
+            },
+            {
+              "key": "B",
+              "text": "dynamic"
+            },
+            {
+              "key": "C",
+              "text": "currently"
+            },
+            {
+              "key": "D",
+              "text": "single"
+            },
+            {
+              "key": "E",
+              "text": "startlingly"
+            },
+            {
+              "key": "F",
+              "text": "complexity"
+            },
+            {
+              "key": "G",
+              "text": "traced"
+            },
+            {
+              "key": "H",
+              "text": "recall"
+            },
+            {
+              "key": "I",
+              "text": "conclusion"
+            },
+            {
+              "key": "J",
+              "text": "drastic"
+            },
+            {
+              "key": "K",
+              "text": "expectations"
+            },
+            {
+              "key": "L",
+              "text": "dramatically"
+            },
+            {
+              "key": "M",
+              "text": "recur"
+            },
+            {
+              "key": "N",
+              "text": "consequences"
+            },
+            {
+              "key": "O",
+              "text": "impaired"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G)。空前的can be 和空后的to 表明,本空应填过去分词形式的动词,G) traced, 0) impaired 入选。我 们缺乏睡眠的危机的起始可以追溯到一个世纪以前电灯的发明,traced sth (back) to 为固定短语,意为“找 出某事的根源,某事可追溯到......”,故答案为G)traced (追溯)。"
+        },
+        {
+          "number": 38,
+          "stem": "第 38 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "ideally"
+            },
+            {
+              "key": "B",
+              "text": "dynamic"
+            },
+            {
+              "key": "C",
+              "text": "currently"
+            },
+            {
+              "key": "D",
+              "text": "single"
+            },
+            {
+              "key": "E",
+              "text": "startlingly"
+            },
+            {
+              "key": "F",
+              "text": "complexity"
+            },
+            {
+              "key": "G",
+              "text": "traced"
+            },
+            {
+              "key": "H",
+              "text": "recall"
+            },
+            {
+              "key": "I",
+              "text": "conclusion"
+            },
+            {
+              "key": "J",
+              "text": "drastic"
+            },
+            {
+              "key": "K",
+              "text": "expectations"
+            },
+            {
+              "key": "L",
+              "text": "dramatically"
+            },
+            {
+              "key": "M",
+              "text": "recur"
+            },
+            {
+              "key": "N",
+              "text": "consequences"
+            },
+            {
+              "key": "O",
+              "text": "impaired"
+            }
+          ],
+          "answer": "I",
+          "explanation": "I)。空前的the 和空后的that 表明,本空应填名词,F) complexity, I) conclusion, K) expectations, N) consequences 入选。that 之后的内容应该是科学家得出的结论,故答案为I) conclusion (结论),reach a conclusion 意为“得出一个结论”。"
+        },
+        {
+          "number": 39,
+          "stem": "第 39 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "ideally"
+            },
+            {
+              "key": "B",
+              "text": "dynamic"
+            },
+            {
+              "key": "C",
+              "text": "currently"
+            },
+            {
+              "key": "D",
+              "text": "single"
+            },
+            {
+              "key": "E",
+              "text": "startlingly"
+            },
+            {
+              "key": "F",
+              "text": "complexity"
+            },
+            {
+              "key": "G",
+              "text": "traced"
+            },
+            {
+              "key": "H",
+              "text": "recall"
+            },
+            {
+              "key": "I",
+              "text": "conclusion"
+            },
+            {
+              "key": "J",
+              "text": "drastic"
+            },
+            {
+              "key": "K",
+              "text": "expectations"
+            },
+            {
+              "key": "L",
+              "text": "dramatically"
+            },
+            {
+              "key": "M",
+              "text": "recur"
+            },
+            {
+              "key": "N",
+              "text": "consequences"
+            },
+            {
+              "key": "O",
+              "text": "impaired"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L)。空前的reduced 和空后的to 表明,本空应填副词,A) ideally, C) currently,E) startlingly,L) dramatically 入选。上一句提到,18 世纪到19 世纪时普通人晚上要睡9.5 个小时。本句说,到二十世纪五六十年代那种 睡眠时间被减少到7.5 至8 个小时,从数字上可以看出,睡眠时间被极大地减少了,故答案为L) dramatically (极大地)。"
+        },
+        {
+          "number": 40,
+          "stem": "第 40 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "ideally"
+            },
+            {
+              "key": "B",
+              "text": "dynamic"
+            },
+            {
+              "key": "C",
+              "text": "currently"
+            },
+            {
+              "key": "D",
+              "text": "single"
+            },
+            {
+              "key": "E",
+              "text": "startlingly"
+            },
+            {
+              "key": "F",
+              "text": "complexity"
+            },
+            {
+              "key": "G",
+              "text": "traced"
+            },
+            {
+              "key": "H",
+              "text": "recall"
+            },
+            {
+              "key": "I",
+              "text": "conclusion"
+            },
+            {
+              "key": "J",
+              "text": "drastic"
+            },
+            {
+              "key": "K",
+              "text": "expectations"
+            },
+            {
+              "key": "L",
+              "text": "dramatically"
+            },
+            {
+              "key": "M",
+              "text": "recur"
+            },
+            {
+              "key": "N",
+              "text": "consequences"
+            },
+            {
+              "key": "O",
+              "text": "impaired"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。空前的feel 和空后的vigorous 表明,本空应填副词,A) ideally,C) currently,E) startlingly 入选。 本句的前半句说他们只睡6.5 个小时也能过活,后面说他们实际需要7.5 个小时、8 个小时甚或更长时间, 当然更长的睡眠时间会让人感到更有活力,A) ideally (完美地)符合此处语义,故为答案。"
+        },
+        {
+          "number": 41,
+          "stem": "第 41 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "ideally"
+            },
+            {
+              "key": "B",
+              "text": "dynamic"
+            },
+            {
+              "key": "C",
+              "text": "currently"
+            },
+            {
+              "key": "D",
+              "text": "single"
+            },
+            {
+              "key": "E",
+              "text": "startlingly"
+            },
+            {
+              "key": "F",
+              "text": "complexity"
+            },
+            {
+              "key": "G",
+              "text": "traced"
+            },
+            {
+              "key": "H",
+              "text": "recall"
+            },
+            {
+              "key": "I",
+              "text": "conclusion"
+            },
+            {
+              "key": "J",
+              "text": "drastic"
+            },
+            {
+              "key": "K",
+              "text": "expectations"
+            },
+            {
+              "key": "L",
+              "text": "dramatically"
+            },
+            {
+              "key": "M",
+              "text": "recur"
+            },
+            {
+              "key": "N",
+              "text": "consequences"
+            },
+            {
+              "key": "O",
+              "text": "impaired"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F)。空前的the 和空后的of 表明,本空应填名词,F) complexity,K) expectations,N) consequences 入 选。本句用whenever 表示来自各方面的压力,由此可知,白天里有错综复杂的事物,故答案为F) complexity (复杂性,复杂的情况)。"
+        },
+        {
+          "number": 42,
+          "stem": "第 42 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "ideally"
+            },
+            {
+              "key": "B",
+              "text": "dynamic"
+            },
+            {
+              "key": "C",
+              "text": "currently"
+            },
+            {
+              "key": "D",
+              "text": "single"
+            },
+            {
+              "key": "E",
+              "text": "startlingly"
+            },
+            {
+              "key": "F",
+              "text": "complexity"
+            },
+            {
+              "key": "G",
+              "text": "traced"
+            },
+            {
+              "key": "H",
+              "text": "recall"
+            },
+            {
+              "key": "I",
+              "text": "conclusion"
+            },
+            {
+              "key": "J",
+              "text": "drastic"
+            },
+            {
+              "key": "K",
+              "text": "expectations"
+            },
+            {
+              "key": "L",
+              "text": "dramatically"
+            },
+            {
+              "key": "M",
+              "text": "recur"
+            },
+            {
+              "key": "N",
+              "text": "consequences"
+            },
+            {
+              "key": "O",
+              "text": "impaired"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。空前的considered 表明,本空应填形容词作补语,B) dynamic, J) drastic 入选。后一句提到,如果 你睡上8.5 个小时,人们就认为你缺乏动力和野心。本句与之形成对比,如果你说你只需要睡5.5 个小时, 你就会被视为缺乏动力的对立面,应该是很有活力,故答案为B)dynamic “(有活力的)。"
+        },
+        {
+          "number": 43,
+          "stem": "第 43 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "ideally"
+            },
+            {
+              "key": "B",
+              "text": "dynamic"
+            },
+            {
+              "key": "C",
+              "text": "currently"
+            },
+            {
+              "key": "D",
+              "text": "single"
+            },
+            {
+              "key": "E",
+              "text": "startlingly"
+            },
+            {
+              "key": "F",
+              "text": "complexity"
+            },
+            {
+              "key": "G",
+              "text": "traced"
+            },
+            {
+              "key": "H",
+              "text": "recall"
+            },
+            {
+              "key": "I",
+              "text": "conclusion"
+            },
+            {
+              "key": "J",
+              "text": "drastic"
+            },
+            {
+              "key": "K",
+              "text": "expectations"
+            },
+            {
+              "key": "L",
+              "text": "dramatically"
+            },
+            {
+              "key": "M",
+              "text": "recur"
+            },
+            {
+              "key": "N",
+              "text": "consequences"
+            },
+            {
+              "key": "O",
+              "text": "impaired"
+            }
+          ],
+          "answer": "N",
+          "explanation": "N)。空前的the 和空后的of 表明,本空应填名词,K) expectations, N) consequences 入选。后一句提到, 我们发现,如果你睡眠不足,你的表现就会受影响。由此可知,该研究是为了评估睡眠不足的结果,故答案为N)consequences (结果,后果)。"
+        },
+        {
+          "number": 44,
+          "stem": "第 44 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "ideally"
+            },
+            {
+              "key": "B",
+              "text": "dynamic"
+            },
+            {
+              "key": "C",
+              "text": "currently"
+            },
+            {
+              "key": "D",
+              "text": "single"
+            },
+            {
+              "key": "E",
+              "text": "startlingly"
+            },
+            {
+              "key": "F",
+              "text": "complexity"
+            },
+            {
+              "key": "G",
+              "text": "traced"
+            },
+            {
+              "key": "H",
+              "text": "recall"
+            },
+            {
+              "key": "I",
+              "text": "conclusion"
+            },
+            {
+              "key": "J",
+              "text": "drastic"
+            },
+            {
+              "key": "K",
+              "text": "expectations"
+            },
+            {
+              "key": "L",
+              "text": "dramatically"
+            },
+            {
+              "key": "M",
+              "text": "recur"
+            },
+            {
+              "key": "N",
+              "text": "consequences"
+            },
+            {
+              "key": "O",
+              "text": "impaired"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H)。空前的or 表明,其后与to add 并列,故本空应填动词原形,H) recall, M) recur 入选。空后的宾语 是a passage,与之相关的动词只能是recall (回忆),故答案为H) recall。"
+        },
+        {
+          "number": 45,
+          "stem": "第 45 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "ideally"
+            },
+            {
+              "key": "B",
+              "text": "dynamic"
+            },
+            {
+              "key": "C",
+              "text": "currently"
+            },
+            {
+              "key": "D",
+              "text": "single"
+            },
+            {
+              "key": "E",
+              "text": "startlingly"
+            },
+            {
+              "key": "F",
+              "text": "complexity"
+            },
+            {
+              "key": "G",
+              "text": "traced"
+            },
+            {
+              "key": "H",
+              "text": "recall"
+            },
+            {
+              "key": "I",
+              "text": "conclusion"
+            },
+            {
+              "key": "J",
+              "text": "drastic"
+            },
+            {
+              "key": "K",
+              "text": "expectations"
+            },
+            {
+              "key": "L",
+              "text": "dramatically"
+            },
+            {
+              "key": "M",
+              "text": "recur"
+            },
+            {
+              "key": "N",
+              "text": "consequences"
+            },
+            {
+              "key": "O",
+              "text": "impaired"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O)。空前的is 表明,本空应填动词的过去分词形式或形容词,J) drastic,0) impaired 入选。上一句提到, 如果你睡眠不足,你的表现就会受影响。因此本句讲述的是受损的方面,短时记忆就会受损,决策和保持 专注的能力同样也会受损。O) impaired (损害)符合此处语义,故为答案。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2013-06-1-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Taking a step that many professors may view as a bit counterproductive, some colleges and universities are doling out Apple iPhones and Internet-capable iPods to their students. The always-on Internet devices raise some novel possibilities, like tracking where students gather together. With far less controversy, colleges could send messages about cancelled classes, delayed buses, campus crises or just the cafeteria menu.",
+        "B) While schools emphasise its usefulness — online research in class and instant polling of students, for example 一 a big part of the attraction is, undoubtedly, that the iPhone is cool and a hit with students. Being equipped with one of the most recent cutting-edge IT products could just help a college or university foster a cutting-edge reputation.",
+        "C) Apple stands to win as well, hooking more young consumers with decades of technology purchases ahead of them. The lone losers, some fear, could be professors. Students already have laptops and cell phones, of course, but the newest devices can take class distractions to a new level. They practically beg a user to ignore the long-suffering professor struggling to pass on accumulated wisdom from the front of the room 一 a prospect that teachers find most irritating and students view as, well, inevitable.",
+        "D) “When it gets a little boring, I might pull it out,” acknowledged Naomi Pugh, a first-year student at Freed-Hardeman University in Henderson, Tenn., referring to her new iPod Touch, which can connect to the Internet over a campus wireless network. She speculated that professors might try even harder to make classes interesting if they were to compete with the devices.",
+        "E) Experts see a movement toward the use of mobile technology in education, though they say it is in its infancy as professors try to come up with useful applications. Providing powerful hand-held devices is sure to fuel debates over the role of technology in higher education. “We think this is the way the future is going to work” said Kyle Dickson, co-director of research and the mobile learning initiative at Abilene Christian University in Texas, which has bought more than 600 iPhones and 300 iPods for students entering this fall.",
+        "F) Although plenty of students take their laptops to class, they don’t take them everywhere and would prefer something lighter. Abilene Christian settled on the devices after surveying students and finding that they did not like hauling around their laptops, but that most of them always carried a cell phone, Dr Dickson said.",
+        "G) It is not clear how many colleges and universities plan to give out iPhones and iPods this fall; officials at Apple were unwilling to talk about the subject and said that they would not leak any institution’s plans. “We can’t announce other people’s news,” said Greg Joswiak, vice president of iPod and iPhone marketing at Apple. He also said that he could not discuss discounts to universities for bulk purchases.",
+        "H) At least four institutions — the University of Maryland, Oklahoma Christian University, Abilene Christian and Freed-Hardeman 一 have announced that they will give the devices to some or all of their students this fall. Other universities are exploring their options. Stanford University has hired a student-run company to design applications like a campus map and directory for the iPhone. It is considering whether to issue iPhones but not sure it’s necessary, noting that more than 700 iPhones were registered on the university’s network last year. At the Massachusetts Institute of Technology, iPhones might already have been everywhere, if AT&T, the wireless carrier offering the iPhone in the United States, had a more reliable network, said Andrew Yu, mobile devices platform project manager at MIT. “We would have probably gone ahead with this, maybe just getting a thousand iPhones and giving them out,” Mr. Yu said.",
+        "I) The University of Maryland at College Park is proceeding cautiously, giving the iPhone or iPod Touch to 150 students, said Jeffrey Huskamp, vice president and chief information officer at the university. “We don’t think that we have all the answers,” Mr. Huskamp said. By observing how students use the gadgets, he said, “We’re trying to get answers from the students.”",
+        "J) At each college, the students who choose to get an iPhone must pay for mobile phone service. Those service contracts include unlimited data use. Both the iPhones and the iPod Touch devices can connect to the Internet through campus wireless networks. With the iPhone, those networks may provide faster connections and longer battery life than AT&T’s data network. Many cell phones allow users, to surf the Web, but only some newer ones are capable of wireless connection to the local area computer network.",
+        "K) University officials say that they have no plans to track their students (and Apple said it would not be possible unless students give their permission). They say that they are drawn to the prospect of learning applications outside the classroom, though such lesson plans have yet to surface.",
+        "L) “My colleagues and I are studying something called augmented reality (a field of computer research dealing with the combination of real-world and virtual reality)” said Christopher Dede, professor in learning technologies at Harvard University. “Alien Contact,” for example, is an exercise developed for middle-school students who use hand-held devices that can determine their location. As they walk around a playground or other area, text, video or audio pops up at various points to help them try to figure out why aliens were in the schoolyard.",
+        "M) “You can imagine similar kinds of interactive activities along historical lines,” like following the Freedom Trail in Boston, Professor Dede said. “It’s important that we do research so that we know how well something like this works.”",
+        "N) The rush to distribute the devices worries some professors, who say that students are less likely to participate in class if they are multi-tasking. “I’m not someone who’s anti-technology, but I’m always worried that technology becomes an end in and of itself, and it replaces teaching or it replaces analysis,” said Ellen Millender, associate professor of classics at Reed College in Portland, Ore. (She added that she hoped to buy an iPhone for herself once prices fall.) Robert Summers, who has taught at Cornell Law School for about 40 years, announced this week — in a detailed, footnoted memorandum — that he would ban laptop computers from his class on contract law. “I would ban that too if I knew the students were using it in class,” Professor Summers said of the iPhone, after the device and its capabilities were explained to him. “What we want to encourage in these students is an active intellectual experience, in which they develop the wide range of complex reasoning abilities required of good lawyers.”",
+        "O) The experience at Duke University may ease some concerns. A few years ago, Duke began giving iPods to students with the idea that they might use them to record lectures (these older models could not access the Internet). “We had assumed that the biggest focus of these devices would be consuming the content,” said Tracy Futhey, vice president for information technology and chief information officer at Duke. But that is not all that the students did. They began using the iPods to create their own “content”, making audio recordings of themselves and presenting them. The students turned what could have been a passive interaction into an active one, Ms Futhey said."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "University officials claim that they dole out iPhones and iPods so as to facilitate students’ learning outside of class.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【定位】根据题目中的university officials 及learning outside of class 可以将本题出处定位于[K]段。 【精析】[K]。[K]段第2 句提到,他们(即首句中提到的University officials)说他们对在课外通过应用软件 学习的景象充满了兴趣,尽管这些教学计划还未出现,由此可以推测,大学高管们是想表明,他们给同学 分发iPhone 和iPod 的目的是想让学生在课外学习,故本题正是对[K]段第2 句的合理推断。"
+        },
+        {
+          "number": 47,
+          "stem": "In the author’s view, being equipped with IT products may help colleges and universities build an innovative image.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】根据题目中的being equipped with IT products 及help colleges and universities 可以将本题出处定 位于[B]段末句。 【精析】[B]。[B]段末句说,给学生配备高科技产品能够让高校获得尖端的名声,题中的build an innovative image 是对文中的foster a cutting-edge reputation 的同义转述。"
+        },
+        {
+          "number": 48,
+          "stem": "Professor Robert Summers at Cornell Law School banned laptop computers from his class because he thinks qualified lawyers need to possess a broad array of complex reasoning abilities.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【定位】根据题目中的Robert Summers at Cornell Law School, banned laptop computers from his class 及 complex reasoning abilities 可以将本题出处定位于[N]段第4-6 句。 【精析】[N]。[N]段第4 句提到,罗伯特•萨默斯这周宣布他将禁止在他的课堂上使用笔记本电脑,接着在 第6 句他又说,我们想鼓励这些学生积极主动地思考,在这个过程中他们就培养了作为一名好的律师应该 具备的各种各样的综合推理能力,题中的a broad array of 与原文中的the wide range of 对应;qualified lawyers 对应good lawyers。"
+        },
+        {
+          "number": 49,
+          "stem": "Naomi Pugh at Freed-Hardeman University speculated that professors would have to work harder to enliven their classes.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】根据题目中的Naomi Pugh, at Freed-Hardeman University, speculated that professors 及harder 可 以将本题出处定位于[D]段。 【精析】[D]。[D]段末句中的she 指的是本段首句提到的内奥米•皮尤,句中提到,她估计教授如果想与这 类设备竟争的话,就需要更努力地增加课堂的趣味性,题中的work harder to enliven their classes 是对文中try even harder to make classes interesting 的同义转述。"
+        },
+        {
+          "number": 50,
+          "stem": "The University of Maryland at College Park is proceeding with caution concerning the use of iPhones and iPods.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【定位】根据题目中的The University of Maryland at College Park is proceeding 及iPhones and iPods 可以 将本题出处定位于[I]段首句。 【精析】[I]。[I]段首句提到,马里兰大学帕克分校正在谨慎地推行计划——给150 个学生分发iPhone 或 触控式iPod,题中的with caution 与原文中的cautiously 同义。"
+        },
+        {
+          "number": 51,
+          "stem": "Many professors think that giving out Apple iPhones or Internet-capable iPods to students may not benefit education as intended.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】根据题目中的many professors 及Apple iPhones or Internet-capable iPods to students 可以将本题 出处定位于[A]段首句。 【精析】[A] 。[A]段首句提到,有些高校给学生分发了苹果iPhone 手机以及能够上网的iPod,这种做法在 许多教授看来有些适得其反(counterproductive ),本句的言下之意是学校给学生分发iPhone 手机以及能够 上网的iPod,其初衷是为了提高教学水平,而这种做法在许多教授看来可能并不能达到预期的效果,故本题 正是对该句的同义转述。题中的giving out 对应原文中的doling out。"
+        },
+        {
+          "number": 52,
+          "stem": "The experience at Duke University may ease some concerns because the students have used iPods for active interaction.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "O",
+          "explanation": "【定位】根据题目中的the experience at Duke University may ease some concerns 及active 可以将本题出 处定位于[O]段。 【精析】[O]。[O]段首句提到,杜克大学的试验也许能够减轻一些担忧,接着下文解释了其原因:学校给 学生发iPod 本来只是为了让学生录讲座,但是结果这些学生并不仅仅用iPod 来录讲座,他们还创造了自 己的“内容”、制作了自己的录音并展示出来,段末福赛女士指出,这说明学生把原本被动的互动变成了一 个积极主动的互动过程,原文中的active one 指的就是active interaction。故本题正是对[O]段首句和末句的 概括。"
+        },
+        {
+          "number": 53,
+          "stem": "Ellen Millender at Reed College in Portland is concerned that technology will take the place of teaching or analysis.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【定位】根据题目中的Ellen Millender,at Reed College in Portland 及teaching or analysis 可以将本题出 处定位于[N]段第2 句。 【精析】[N]。[N]段第2 句中埃伦•米兰德说她一直担心技术成了最终目的,它会取代教学或取代分析,题 中的take the place of 与原文中的replaces 对应。"
+        },
+        {
+          "number": 54,
+          "stem": "The distribution of iPhones among students has raised concerns that they will further distract students from class participation.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】根据题目中的distract 及class 可以将本题出处定位于[C]段第3 句。 【精析】[C]。[C]段第3 句提到,虽然学生们已经有了笔记本电脑和手机,但是这些最新的设备能让课堂 干扰(distractions )达到一个新的水平,句中的the newest devices 也就是题中所说的iPhones,由此可见,给 学生分发iPhone 会让学生在上课时更加分心(distract),题中的distract 是原文中distractions 的同根词。"
+        },
+        {
+          "number": 55,
+          "stem": "Experts like Dr Kyle Dickson at Abilene Christian University think that mobile technology will be more widely used in education.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【定位】根据题目中的experts, Kyle Dickson,at Abilene Christian University,mobile technology 及in education 可以将本题出处定位于[E]段。 【精析】[E]。[E]段首句说,专家们看到了移动技术在教育中投入使用的趋势,接着末句中凯尔•迪克森说, 这(移动技术在教育中的广泛使用)是未来的工作方式,综合这两句可以看出,像凯尔•迪克森这样的专家 都认为,移动技术在教育中的广泛使用将成为一种必然趋势。故本题正是对这两句的概括。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2013-06-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "In 2011, many shoppers chose to avoid the frantic crowds and do their holiday shopping from the comfort of their computer. Sales at online retailers gained by more than 15%, making it the biggest season ever. But people are also returning those purchases at record rates, up 8% from last year. What went wrong? Is the lingering shadow of the global financial crisis making it harder to accept extravagant indulgences? Or that people shop more impulsively — and therefore make bad decisions — when online? Both arguments are plausible. However, there is a third factor: a question of touch. We can love the look but, in an online environment, we cannot feel the quality of a texture, the shape of the fit, the fall of a fold or, for that matter, the weight of an earring. And physically interacting with an object makes you more committed to your purchase. When my most recent book Brandwashed was released, I teamed up with a local bookstore to conduct an experiment about the differences between the online and offline shopping experience. I carefully instructed a group of volunteers to promote my book in two different ways. The first was a fairly hands-off approach. Whenever a customer would inquire about my book, the volunteer would take him over to the shelf and point to it. Out of 20 such requests, six customers proceeded with the purchase. The second option also involved going over to the shelf but, this time, removing the book and then subtly holding onto it for just an extra moment before placing it in the customer’s hands. Of the 20 people who were handed the book, 13 ended up buying it. Just physically passing the book showed a big difference in sales. Why? We feel something similar to a sense of ownership when we hold things in our hand. That’s why we establish or reestablish connection by greeting strangers and friends with a handshake. In this case, having to then let go of the book after holding it might generate a subtle sense of loss, and motivate us to make the purchase even more. A recent study also revealed the power of touch, in this case when it came to conventional mail. A deeper and longer-lasting impression of a message was formed when delivered in a letter, as opposed to receiving the same message online. Brain imaging showed that, on touching the paper, the emotional centre of the brain was activated, thus forming a stronger bond. The study also indicated that once touch becomes part of the process, it could translate into a sense of possession. This sense of ownership is simply not part of the equation in the online shopping experience."
+      ],
+      "questions": [
+        {
+          "number": 56,
+          "stem": "Why do people prefer shopping online according to the author?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is more comfortable and convenient."
+            },
+            {
+              "key": "B",
+              "text": "It saves them a lot of money and time."
+            },
+            {
+              "key": "C",
+              "text": "It offers them a lot more options and bargains."
+            },
+            {
+              "key": "D",
+              "text": "It gives them more time to think about their purchase."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】题干中的prefer shopping online 与文章首句中的chose to... do their holiday shopping from...their computer 同义,故将本题出处定位于首段首句。 【精析】A)。首段首句提到,许多购物者选择了避开疯狂的人群,舒舒服服地在他们的电脑前购买节日用 品,A 项中的comfortable 与文中的comfort 对应,convenient 与avoid the frantic crowds 对应,故本题答案 为A 项。其他三项都属于无中生有,故可排除。"
+        },
+        {
+          "number": 57,
+          "stem": "Why do more customers return their purchases bought online?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They regretted indulging in costly items in the recession."
+            },
+            {
+              "key": "B",
+              "text": "They changed their mind by the time the goods were delivered."
+            },
+            {
+              "key": "C",
+              "text": "They had no chance to touch them when shopping online."
+            },
+            {
+              "key": "D",
+              "text": "They later found the quality of goods below their expectations."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】根据题干中的return their purchases 可以将本题出处定位于文章第2 段。 【精析】C)。首段末句说,人们在网上购物的退货率达到有史以来的最高值,接着第2 段用问句What went wrong?引出退货率高的原因;作者先说了有些人所认为的原因,接着说明了自己的看法,即触觉的问题: 在网上购物时,你看得见却摸不着,故C 项符合文意。文中第2 段第2 句说,金融危机导致人们难以接受 奢侈消费可能是网络购物退货率越来越高的原因,但这并非作者认为的真正原因,而且文中也没有说人们 对奢侈消费感到后悔,故可排除A 项。B 项和D 项都无从得知。"
+        },
+        {
+          "number": 58,
+          "stem": "What is the purpose of the author’s experiment?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To test his hypothesis about online shopping."
+            },
+            {
+              "key": "B",
+              "text": "To find out people’s reaction to his recent book."
+            },
+            {
+              "key": "C",
+              "text": "To find ways to increase the sale of his new book."
+            },
+            {
+              "key": "D",
+              "text": "To try different approaches to sales promotion."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】根据题干中的experiment 可以将本题出处定位于第3 段首句。 【精析】A)。文章第3 段首句提到作者的试验,作者做这个试验的目的可以从前文进行推断。第2 段提到, 作者认为人们无法触摸到所购买的商品是网络购物退货率高的主要原因,接着第3 段就讲了作者的试验, 可见,其试验的目的就是证明他的观点,故A 项正确。作者所做的试验应该与文章所要证明的观点有关, 而本文主要说的是缺乏触摸导致网络购物的高退货率,B 项、C 项和D 项都与这一观点无关,故可排除。"
+        },
+        {
+          "number": 59,
+          "stem": "How might people feel after letting go of something they held?",
+          "options": [
+            {
+              "key": "A",
+              "text": "A sense of disappointment."
+            },
+            {
+              "key": "B",
+              "text": "More motivated to own it."
+            },
+            {
+              "key": "C",
+              "text": "A subtle loss of interest."
+            },
+            {
+              "key": "D",
+              "text": "Less sensitive to its texture."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】根据题干中的letting go of 可以将本题出处定位于第4 段末句。 【精析】B)。第4 段末句说,手中的书失去后可能会产生一种微妙的失落感,这也就是促使我们更想购买 的动因,B 项是对文中motivate us to make the purchase even more 的同义转述,故为答案。A 项中的 disappointment 和D 项less sensitive to its texture 都无从得知。C 项是利用第4 段末句中的a subtle sense of loss 设置的干扰项。"
+        },
+        {
+          "number": 60,
+          "stem": "What does brain imaging in a recent study reveal?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Conventional letters contain subtle messages."
+            },
+            {
+              "key": "B",
+              "text": "A lack of touch is the chief obstacle to e-commerce."
+            },
+            {
+              "key": "C",
+              "text": "Email lacks the potential to activate the brain."
+            },
+            {
+              "key": "D",
+              "text": "Physical touch helps form a sense of possession."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】根据题干中的a recent study 和brain imaging 可以将本题出处定位于第5 段。 【精析】D)。第5 段提到最近的一项研究也说明了触摸的力量;其中第4 句指出,研究中大脑成像显示,触 摸会转变成一种占有感,故D 项符合文意。文中第5 段第2 句说,传统的书信中包含了一种更深、持续时 间更长的印象,并没有说其中包含了一种微妙的信息,故可排除A 项。第5 段中提到的研究并不是针对电 子商务进行的,而是针对传统的书信进行的,故可排除B 项。文中第5 段第3 句说,在摸到书信时大脑会 被激活,但文中并没有说电子邮件不能激活大脑,故C 项的说法毫无依据,可排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2013-06-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Apparently everyone knows that global warming only makes climate more extreme. A hot, dry summer has triggered another flood of such claims. And, while many interests are at work, one of the players that benefits the most from this story are the media: the notion of “extreme” climate simply makes for more compelling news. Consider Paul Krugman, writing breathlessly in The New York Times about the “rising incidence of extreme events”. He claims that global warming caused the current drought in America’s Midwest, and that supposedly record-high corn prices could cause a global food crisis. But the United Nations climate panel’s latest assessment tells us precisely the opposite: For “North America, there is medium confidence that there has been an overall slight tendency towards less dryness”. Moreover, there is no way that Krugman could have identified this drought as being caused by global warming without a time machine: Climate models estimate that such detection will be possible by 2048, at the earliest. And, fortunately, this year’s drought appears unlikely to cause a food crisis, as global rice and wheat supplies remain plentiful. Moreover, Krugman overlooks inflation: Prices have increased, six-fold since 1969, so, while corn futures(期货)did set a record of about $8 per bushel(蒲式耳)in late July, the inflation-adjusted price of corn was higher throughout most of the 1970s, reaching $16 in 1974. Finally, Krugman conveniently forgets that concerns about global warming are the main reason that com prices have skyrocketed since 2005. Nowadays 40 percent of com grown in the United States is used to produce ethanol (乙醇), which does absolutely nothing for the climate, but certainly distorts the price of com — at the expense of many of the worlds poorest people. Bill McKibben similarly worries in The Guardian about the Midwest drought and com prices. He confidently tells us that raging wildfires from New Mexico and Colorado to Siberia are “exactly” what the early stages of global warming look like. In fact, the latest overview of global wildfire incidence suggests that fire intensity has declined over the past 70 years and is now close to its preindustrial level. When well-meaning campaigners want us to pay attention to global warming, they often end up pitching beyond the facts. And, while this may seem justified by a noble goal, such “policy by panic” tactics rarely work, and often backfire. Remember how, in the wake of Hurricane Katrina in 2005, A1 Gore claimed that we were in store for ever more destructive hurricanes? Since then, hurricane incidence has dropped off the charts. Exaggerated claims merely fuel public distrust and disengagement. That is unfortunate, because global warming is a real problem, and we do need to address it."
+      ],
+      "questions": [
+        {
+          "number": 61,
+          "stem": "In what way do the media benefit from extreme weather?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They can attract people’s attention to their reports."
+            },
+            {
+              "key": "B",
+              "text": "They can choose from a greater variety of topics."
+            },
+            {
+              "key": "C",
+              "text": "They can make themselves better known."
+            },
+            {
+              "key": "D",
+              "text": "They can give voice to different views."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】根据题干中的the media benefit 和extreme weather 可以将本题出处定位于首段第2 句。 【精析】A)。首段第2 句说,从中(根据下文可知,是从极端气候中)获益最大的是媒体,因为极端气候的 说法可以制造出更多吸引人的新闻,A 项是对本句冒号后的内容的同义转述,故A 项为本题答案其他三项 原文中均未提及,故可排除。"
+        },
+        {
+          "number": 62,
+          "stem": "What is the author’s comment on Krugman’s claim about the current drought in America’s Midwest?",
+          "options": [
+            {
+              "key": "A",
+              "text": "A time machine is needed to testify to its truth."
+            },
+            {
+              "key": "B",
+              "text": "It is based on an erroneous climate model."
+            },
+            {
+              "key": "C",
+              "text": "It will eventually get proof in 2048."
+            },
+            {
+              "key": "D",
+              "text": "There is no way to prove its validity."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】根据题干中的Krugman, claim 和the current drought in America’s Midwest 可以将本题出处定位 于第2、3 段。 【精析】D)。第2 段提到保罗•克鲁格曼关于极端天气的言论,第3 段对其言论进行了分析,指出联合国气 候委员会的评估认为情况与克鲁格曼所说的可能正好相反,接着第3 段第3 句指出,在没有时间机器的情 况下(原本就不可能有时间机器),克鲁格曼根本不可能确定这种干旱是由全球变暖引起的,由此可见,作 者认为克鲁格曼的言论根本不可能被证实,故D 项符合文意。文中第3 段第3 句说,没有时间机器克鲁格 曼根本不可能确定这种干旱是由全球变暖引起的,作者其实是想说因为根本不可能有时间机器,所以克鲁 格曼也无从得知干旱是由全球变暖引起的,A 项显然曲解了原文。B 项是由文中的Climate models 设置的 干扰项。文中说,这种结论最早也要到2048 年才能被证实,表示一种假设状态,而不是说2048 年就能被 证实,故C 项不符合文意,予以排除。"
+        },
+        {
+          "number": 63,
+          "stem": "What is the chief reason for the rise in com prices according to the author?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Demand for food has been rising in the developing countries."
+            },
+            {
+              "key": "B",
+              "text": "A considerable portion of com is used to produce green fuel."
+            },
+            {
+              "key": "C",
+              "text": "Climate change has caused com yields to drop markedly."
+            },
+            {
+              "key": "D",
+              "text": "Inflation rates have been skyrocketing since the 1970s."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】根据题干中的the chief reason 和com prices 可以将本题出处定位于第5 段。 【精析】B)。第5 段说,对全球气候变暖的担心是自2005 年以来谷物价格飞涨的主要原因,因为正是由于 这种担心才促使人们将40%的玉米用来生产乙醇,从而扭曲了玉米的价格,B 项是对文中40 percent of com grown... is used to produce ethanol 的同义转述,故B 项为本题答案。文中并没有提到发展中国家的粮食需求 增加,故A 项的说法没有依据,文中第4 段首句提到,全球大米和小麦依旧供应充足,由此可见粮食产量 并没有下降,故C 项的说法与原文不符,予以排除。D 项是将文中的inflation, skyrocketed 等信息进行拼凑 设置的干扰项。"
+        },
+        {
+          "number": 64,
+          "stem": "What does the author say about global wildfire incidence over the past 70 years?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It has got worse with the rise in extreme weathers."
+            },
+            {
+              "key": "B",
+              "text": "It signals the early stages of global warming."
+            },
+            {
+              "key": "C",
+              "text": "It has dropped greatly."
+            },
+            {
+              "key": "D",
+              "text": "It is related to drought."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】根据题干中的global wildfire incidence 和over the past 70 years 可以将本题出处定位于第7 段。 【精析】C)。第7 段说,有关全球森林大火发生率的最新综述显示,在过去的70 年里,火灾强度下降了, 而且目前已接近工业化之前的水平;C 项中的has dropped 对应文中的has declined,另外,has dropped greatly 是对is now close to its preindustrial level 的概括,故C 项符合文意。文中第7 段说,在过去的70 年里火灾 强度下降了,由此可见,A 项的说法与原文正好相反,予以排除。B 项属于张冠李戴,将比尔•麦吉本的看 法说成是作者的看法。D 项是将保罗•克鲁格曼所认为与气候变暖有关的干旱错误地与森林火灾联系起来, 属于理解混乱,故排除。"
+        },
+        {
+          "number": 65,
+          "stem": "What does the author think of the exaggerated claims in the media about global warming?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are strategies to raise public awareness."
+            },
+            {
+              "key": "B",
+              "text": "They do a disservice to addressing the problem."
+            },
+            {
+              "key": "C",
+              "text": "They aggravate public distrust about science."
+            },
+            {
+              "key": "D",
+              "text": "They create confusion about climate change."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】根据题干中的exaggerated claims 和global warming 可以将本题出处定位于第9 段末句和第10 段。 【精析】B)。第9 段末句指出,夸大其词(exaggerated claims)只会加重公众的不信任感和疏离感;接着第 10 段承接上段指出,那是不幸的(that is unfortunate),因为全球变暖是一个真实存在的问题,需要解决。that 即指上段末提到的Exaggerated claims带来的负面影响,由此可知夸大其词对于全球变暖问题来说是不幸的, 即不利于解决全球变暖问题,故答案为B 项。文中第8 段末句说,这种“恐慌政策”的策略几乎不会起到什 么作用,可见,“恐慌政策”并不能提高公众意识,故排除A 项。文中第9 段末句说,夸大其词会积聚公 众的不信任感,但并没有说是对科学的不信任,C 项属于过度理解,故排除。D 项的说法毫无依据,也应 排除。"
+        }
+      ]
+    }
+  ]
+}

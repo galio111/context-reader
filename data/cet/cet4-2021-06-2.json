@@ -1,0 +1,1570 @@
+{
+  "id": "cet4-2021-06-2",
+  "level": 4,
+  "year": 2021,
+  "month": 6,
+  "set": 2,
+  "title": "2021 年 6 月四级 · 第 2 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2021.06/%E7%9C%9F%E9%A2%98PDF/cet4_2021_06_2.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2021.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2021_06_2_ans.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2021-06-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Social isolation poses more health risks than obesity or smoking 15 cigarettes a day, according to research published by Brigham Young University. The [[26]] is that loneliness is a huge, if silent, risk factor. Loneliness affects physical health in two ways. First, it produces stress hormones that can lead to many health problems. Second, people who live alone are less likely to go to the doctor [[27]] , to",
+        "exercise or to eat a healthy diet. Public health experts in many countries are [[28]] how to address widespread loneliness in our society. Last year Britain even appointed a minister for loneliness. \"Loneliness [[29]] almost every one of us at some point,\" its minister for loneliness Baroness Barran said. \"It can lead to very serious health [[30]]for individuals who become isolated and disconnected.\" Barran started a \"Let's Talk Loneliness\" campaign that [[31]] difficult conversations across Britain. He is now supporting \" [[32]] benches,\" which are public seating areas where people are encouraged to go and chat with one another. The minister is also [[33]] to stop public transportation from being cut in ways that leave people isolated. More than one - fifth of adults in both the United States and Britain said in a 2018 [[34]] that they often or always feel lonely. More than half of American adults are unmarried, and researchers have found that even among those who are married, 30% of relationships are [[35]] strained. A quarter of Americans now live alone, and as the song says, one is the loneliest number."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "abruptly"
+        },
+        {
+          "key": "B",
+          "text": "appointments"
+        },
+        {
+          "key": "C",
+          "text": "consequences"
+        },
+        {
+          "key": "D",
+          "text": "debating"
+        },
+        {
+          "key": "E",
+          "text": "dimensions"
+        },
+        {
+          "key": "F",
+          "text": "friendly"
+        },
+        {
+          "key": "G",
+          "text": "hindered"
+        },
+        {
+          "key": "H",
+          "text": "idiom"
+        },
+        {
+          "key": "I",
+          "text": "implication"
+        },
+        {
+          "key": "J",
+          "text": "pushing"
+        },
+        {
+          "key": "K",
+          "text": "severely"
+        },
+        {
+          "key": "L",
+          "text": "sparked"
+        },
+        {
+          "key": "M",
+          "text": "splitting"
+        },
+        {
+          "key": "N",
+          "text": "survey"
+        },
+        {
+          "key": "O",
+          "text": "touches"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abruptly"
+            },
+            {
+              "key": "B",
+              "text": "appointments"
+            },
+            {
+              "key": "C",
+              "text": "consequences"
+            },
+            {
+              "key": "D",
+              "text": "debating"
+            },
+            {
+              "key": "E",
+              "text": "dimensions"
+            },
+            {
+              "key": "F",
+              "text": "friendly"
+            },
+            {
+              "key": "G",
+              "text": "hindered"
+            },
+            {
+              "key": "H",
+              "text": "idiom"
+            },
+            {
+              "key": "I",
+              "text": "implication"
+            },
+            {
+              "key": "J",
+              "text": "pushing"
+            },
+            {
+              "key": "K",
+              "text": "severely"
+            },
+            {
+              "key": "L",
+              "text": "sparked"
+            },
+            {
+              "key": "M",
+              "text": "splitting"
+            },
+            {
+              "key": "N",
+              "text": "survey"
+            },
+            {
+              "key": "O",
+              "text": "touches"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【答案】I。【解析】名词辨析题。空格位于定冠词The之后，因此需填入名词。因为空格后的系动词is是单数，因此本空应填入不可数名词或可数名词单数形式。本句意为孤独是一个巨大的风险因素，尽管它是无声的。由上一句可知，与社会隔绝带来的健康风险比肥胖或每天吸15支烟更大，这说明孤独是一个巨大的风险因素，因此空格处应填入含有“说明，表明”意义的名词 implication。idiom和survey不符合语义。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abruptly"
+            },
+            {
+              "key": "B",
+              "text": "appointments"
+            },
+            {
+              "key": "C",
+              "text": "consequences"
+            },
+            {
+              "key": "D",
+              "text": "debating"
+            },
+            {
+              "key": "E",
+              "text": "dimensions"
+            },
+            {
+              "key": "F",
+              "text": "friendly"
+            },
+            {
+              "key": "G",
+              "text": "hindered"
+            },
+            {
+              "key": "H",
+              "text": "idiom"
+            },
+            {
+              "key": "I",
+              "text": "implication"
+            },
+            {
+              "key": "J",
+              "text": "pushing"
+            },
+            {
+              "key": "K",
+              "text": "severely"
+            },
+            {
+              "key": "L",
+              "text": "sparked"
+            },
+            {
+              "key": "M",
+              "text": "splitting"
+            },
+            {
+              "key": "N",
+              "text": "survey"
+            },
+            {
+              "key": "O",
+              "text": "touches"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【答案】B。【解析】名词辨析题。空格位于the doctor之后，推测空格所填词应为名词，且与the doctor构成名词词组。本句意为：独居的人不太可能去医生……。由句意可知，独居的人不太可能去看医生。the doctor appointments意为就诊预约，go to the doctor appointments是固定表达，意为去看医生。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abruptly"
+            },
+            {
+              "key": "B",
+              "text": "appointments"
+            },
+            {
+              "key": "C",
+              "text": "consequences"
+            },
+            {
+              "key": "D",
+              "text": "debating"
+            },
+            {
+              "key": "E",
+              "text": "dimensions"
+            },
+            {
+              "key": "F",
+              "text": "friendly"
+            },
+            {
+              "key": "G",
+              "text": "hindered"
+            },
+            {
+              "key": "H",
+              "text": "idiom"
+            },
+            {
+              "key": "I",
+              "text": "implication"
+            },
+            {
+              "key": "J",
+              "text": "pushing"
+            },
+            {
+              "key": "K",
+              "text": "severely"
+            },
+            {
+              "key": "L",
+              "text": "sparked"
+            },
+            {
+              "key": "M",
+              "text": "splitting"
+            },
+            {
+              "key": "N",
+              "text": "survey"
+            },
+            {
+              "key": "O",
+              "text": "touches"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【答案】D。【解析】动词辨析题。分析句子结构可知，空格位于are之后，空格后面为how+不定式结构，相当于名词性从句，因此需填入动词的分词形式，与are共同构成句子的谓语。本句意为许多国家的公共卫生专家正在……如何解决社会中普遍存在的孤独问题。前两段可知，孤独带来很多危害，那么专家们需要研究如何解决，因此应填入含有或接近研究意义的动词。debating意为讨论，最近主题。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abruptly"
+            },
+            {
+              "key": "B",
+              "text": "appointments"
+            },
+            {
+              "key": "C",
+              "text": "consequences"
+            },
+            {
+              "key": "D",
+              "text": "debating"
+            },
+            {
+              "key": "E",
+              "text": "dimensions"
+            },
+            {
+              "key": "F",
+              "text": "friendly"
+            },
+            {
+              "key": "G",
+              "text": "hindered"
+            },
+            {
+              "key": "H",
+              "text": "idiom"
+            },
+            {
+              "key": "I",
+              "text": "implication"
+            },
+            {
+              "key": "J",
+              "text": "pushing"
+            },
+            {
+              "key": "K",
+              "text": "severely"
+            },
+            {
+              "key": "L",
+              "text": "sparked"
+            },
+            {
+              "key": "M",
+              "text": "splitting"
+            },
+            {
+              "key": "N",
+              "text": "survey"
+            },
+            {
+              "key": "O",
+              "text": "touches"
+            }
+          ],
+          "answer": "O",
+          "explanation": "【答案】O。【解析】动词辨析题。空格位于名词Loneliness之后，而具体的谓语动词之前，因此空格处需填入动词的第三人称单数形式。备选词中只有touches符合语法要求。将它代入句中，则句意为几乎每个人在某个时刻都会感到孤独，符合文义。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abruptly"
+            },
+            {
+              "key": "B",
+              "text": "appointments"
+            },
+            {
+              "key": "C",
+              "text": "consequences"
+            },
+            {
+              "key": "D",
+              "text": "debating"
+            },
+            {
+              "key": "E",
+              "text": "dimensions"
+            },
+            {
+              "key": "F",
+              "text": "friendly"
+            },
+            {
+              "key": "G",
+              "text": "hindered"
+            },
+            {
+              "key": "H",
+              "text": "idiom"
+            },
+            {
+              "key": "I",
+              "text": "implication"
+            },
+            {
+              "key": "J",
+              "text": "pushing"
+            },
+            {
+              "key": "K",
+              "text": "severely"
+            },
+            {
+              "key": "L",
+              "text": "sparked"
+            },
+            {
+              "key": "M",
+              "text": "splitting"
+            },
+            {
+              "key": "N",
+              "text": "survey"
+            },
+            {
+              "key": "O",
+              "text": "touches"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【答案】C。【解析】名词辨析题。句子主谓宾结构完整，health与空格所填词构成宾语词组，作句子宾语。health是名词作定语，空格所填词作为宾语中心词也应该是名词。本句意为对于变得孤立和与世隔绝的人来说，它会导致非常严重的健康……。孤独带来很大的健康威胁，自然会引起严重的健康后果，因此应填入有结果、后果意义的名词consequences。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abruptly"
+            },
+            {
+              "key": "B",
+              "text": "appointments"
+            },
+            {
+              "key": "C",
+              "text": "consequences"
+            },
+            {
+              "key": "D",
+              "text": "debating"
+            },
+            {
+              "key": "E",
+              "text": "dimensions"
+            },
+            {
+              "key": "F",
+              "text": "friendly"
+            },
+            {
+              "key": "G",
+              "text": "hindered"
+            },
+            {
+              "key": "H",
+              "text": "idiom"
+            },
+            {
+              "key": "I",
+              "text": "implication"
+            },
+            {
+              "key": "J",
+              "text": "pushing"
+            },
+            {
+              "key": "K",
+              "text": "severely"
+            },
+            {
+              "key": "L",
+              "text": "sparked"
+            },
+            {
+              "key": "M",
+              "text": "splitting"
+            },
+            {
+              "key": "N",
+              "text": "survey"
+            },
+            {
+              "key": "O",
+              "text": "touches"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【答案】L。【解析】动词辨析题。空格所在的从句缺少谓语，因此需填入动词。主句是一般过去时，从句也应该为过去时。本句说巴伦发起了一个名为“让我们谈谈孤独”的活动，在全英国……艰难的对话。该活动让人们开始谈论孤独，也就是所谓艰难的对话，因此应填入引起、激起意义的词 sparked。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abruptly"
+            },
+            {
+              "key": "B",
+              "text": "appointments"
+            },
+            {
+              "key": "C",
+              "text": "consequences"
+            },
+            {
+              "key": "D",
+              "text": "debating"
+            },
+            {
+              "key": "E",
+              "text": "dimensions"
+            },
+            {
+              "key": "F",
+              "text": "friendly"
+            },
+            {
+              "key": "G",
+              "text": "hindered"
+            },
+            {
+              "key": "H",
+              "text": "idiom"
+            },
+            {
+              "key": "I",
+              "text": "implication"
+            },
+            {
+              "key": "J",
+              "text": "pushing"
+            },
+            {
+              "key": "K",
+              "text": "severely"
+            },
+            {
+              "key": "L",
+              "text": "sparked"
+            },
+            {
+              "key": "M",
+              "text": "splitting"
+            },
+            {
+              "key": "N",
+              "text": "survey"
+            },
+            {
+              "key": "O",
+              "text": "touches"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【答案】F。【解析】形容词辨析题。本句成分完整，空格位于名词benches之前，因此需填入形容词。所谓的……benches是人们可以互相聊天的公共座位区域，应填入含有积极意义的形容词，以体现出benches的积极作用。备选项中只有friendly一个形容词。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abruptly"
+            },
+            {
+              "key": "B",
+              "text": "appointments"
+            },
+            {
+              "key": "C",
+              "text": "consequences"
+            },
+            {
+              "key": "D",
+              "text": "debating"
+            },
+            {
+              "key": "E",
+              "text": "dimensions"
+            },
+            {
+              "key": "F",
+              "text": "friendly"
+            },
+            {
+              "key": "G",
+              "text": "hindered"
+            },
+            {
+              "key": "H",
+              "text": "idiom"
+            },
+            {
+              "key": "I",
+              "text": "implication"
+            },
+            {
+              "key": "J",
+              "text": "pushing"
+            },
+            {
+              "key": "K",
+              "text": "severely"
+            },
+            {
+              "key": "L",
+              "text": "sparked"
+            },
+            {
+              "key": "M",
+              "text": "splitting"
+            },
+            {
+              "key": "N",
+              "text": "survey"
+            },
+            {
+              "key": "O",
+              "text": "touches"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【答案】J。【解析】语义理解题。空格位于介词by之后，因此应填入形容词或动词的分词形式。本句意为这位部长还……阻止公共交通中断，以免人们被孤立。The minister指的是英国负责孤独问题的部长，这是他为了减少孤独采取的另外一项措施。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abruptly"
+            },
+            {
+              "key": "B",
+              "text": "appointments"
+            },
+            {
+              "key": "C",
+              "text": "consequences"
+            },
+            {
+              "key": "D",
+              "text": "debating"
+            },
+            {
+              "key": "E",
+              "text": "dimensions"
+            },
+            {
+              "key": "F",
+              "text": "friendly"
+            },
+            {
+              "key": "G",
+              "text": "hindered"
+            },
+            {
+              "key": "H",
+              "text": "idiom"
+            },
+            {
+              "key": "I",
+              "text": "implication"
+            },
+            {
+              "key": "J",
+              "text": "pushing"
+            },
+            {
+              "key": "K",
+              "text": "severely"
+            },
+            {
+              "key": "L",
+              "text": "sparked"
+            },
+            {
+              "key": "M",
+              "text": "splitting"
+            },
+            {
+              "key": "N",
+              "text": "survey"
+            },
+            {
+              "key": "O",
+              "text": "touches"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【考点】名词辨析题。 N)【语法判断】空格位于a2018之后,因此空格处需 要填入可数名词的单数形式。 【语义判断】本句意为:在2018年的一项 中,美国和英国超过五分之一的成年人表示,他们 经常或总是感到孤独。由句意可知,空格处应填 人含有“研究,调查”意义的名词,故本题答案为 N) survey."
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abruptly"
+            },
+            {
+              "key": "B",
+              "text": "appointments"
+            },
+            {
+              "key": "C",
+              "text": "consequences"
+            },
+            {
+              "key": "D",
+              "text": "debating"
+            },
+            {
+              "key": "E",
+              "text": "dimensions"
+            },
+            {
+              "key": "F",
+              "text": "friendly"
+            },
+            {
+              "key": "G",
+              "text": "hindered"
+            },
+            {
+              "key": "H",
+              "text": "idiom"
+            },
+            {
+              "key": "I",
+              "text": "implication"
+            },
+            {
+              "key": "J",
+              "text": "pushing"
+            },
+            {
+              "key": "K",
+              "text": "severely"
+            },
+            {
+              "key": "L",
+              "text": "sparked"
+            },
+            {
+              "key": "M",
+              "text": "splitting"
+            },
+            {
+              "key": "N",
+              "text": "survey"
+            },
+            {
+              "key": "O",
+              "text": "touches"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【考点】副词辨析题。 K)【语法判断】空格位于系动词are和形容词 strained之间,且句子成分完整,因此需要填人 副词。 【语义判断】本句意为:即使是那些已婚人士,也有 紧张。由句意可知,空格 30%的人关系 处应填人表示程度的副词,故本题答案为 K)severely。另外一个备选副词A)abruptly不 能表示程度,因此排除。 考译文 杨百翰大学公布的一项研究显示,与社会隔绝带来的健康风险比肥胖或每天吸15支烟更大。这意味 着孤独是一个巨大的风险因素,尽管它是无声的。 孤独从两个方面影响身体健康。第一,它会产生能导致许多健康问题的压力荷尔蒙。第二,独居的人 不太可能去看医生,不太可能去锻炼,也不太可能有健康的饮食。 许多国家的公共卫生专家正在讨论如何解决社会中普遍存在的孤独间题。去年,英国甚至任命了一 位部长负责孤独间题。“几乎每个人在某个时刻都会感到孤独。”英国负责孤独问题的部长 巴隆尼斯·巴伦说,“对于变得孤立和与世隔绝的人来说,它会导致非常严重的健康后果。” 巴伦发起了一个名为“让我们谈谈孤独”的活动,在全英国引发了艰难的对话。他现在支持“友好长 椅”,这是一种公共座位区,鼓励人们去那里互相聊天。这位部长还在努力阻止公共交通中断,以免人们被 孤立。 在2018年的一项调查中,美国和英国超过五分之一的成年人表示,他们经常或总是感到孤独。超过 一半的美国成年人是未婚的,研究人员发现,即使是那些已婚人士,也有30%的人关系非常紧张。现在有 四分之一的美国人是独居的,正如那首歌里唱的那样,一是最孤独的数字。 口 星火英语ApP"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2021-06-2-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Numbers do not exist in all cultures. There are numberless hunter - gatherers in Amazonia, living along branches of the world's largest river tree. Instead of using words for precise quantities, these people rely exclusively on terms similar to \"a few\" or \"some.\" In contrast, our own lives are governed by numbers. As you read this, you are likely aware of what time it is, how old you are, your checking account balance, your weight and so on. The exact numbers we think with impact everything in our lives.",
+        "B) But, in a historical sense, number - conscious people like us are the unusual ones. For the bulk of our species' approximately 200,000 - year lifespan, we had no means of precisely representing quantities. What's more, the 7,000 or so languages that exist today vary dramatically in how they utilize numbers.",
+        "C) Speakers of anumeric, or numberless, languages offer a window into how the invention of numbers reshaped the human experience. Cultures without numbers, or with only one or two precise numbers, include the Munduruku and Pirahã in Amazonia. Researchers have also studied some adults in Nicaragua who were never taught number words. Without numbers, healthy human adults struggle to precisely distinguish and recall quantities as low as four. In an experiment, a researcher will place nuts into a can one at a time and then remove them one by one. The person watching is asked to signal when all the nuts have been removed. Responses suggest that anumeric people have some trouble keeping track of how many nuts remain in the can, even if there are only four or five in total.",
+        "D) This and many other experiments have led to a simple conclusion: When people do not have number words, they struggle to make quantitative distinctions that probably seem natural to someone like you or me. While only a small portion of the world's languages are anumeric or nearly anumeric, they demonstrate that number words are not a human universal.",
+        "E) It is worth stressing that these anumeric people are cognitively (在认知方面) normal, well-adapted to the surroundings they have dominated for centuries. As a child, I spent some time living with anumeric people, the Pirahã who live along the banks of the black Maici River. Like other outsiders, I was continually impressed by their superior understanding of the ecology we shared. Yet numberless people struggle with tasks that require precise discrimination between quantities. Perhaps this should be unsurprising. After all, without counting, how can someone tell whether there are, say, seven or eight coconuts (椰子) in a tree? Such seemingly straightforward distinctions become blurry through numberless eyes.",
+        "F) This conclusion is echoed by work with anumeric children in industrialized societies. Prior to being spoon-fed number words, children can only approximately discriminate quantities beyond three. We must be handed the cognitive tools of numbers before we can consistently and easily recognize higher quantities. In fact, acquiring the exact meaning of number words is a painstaking process that takes children years. Initially, kids learn numbers much like they learn letters. They recognize that numbers are organized sequentially, but have little awareness of what each individual number means. With time, they start to understand that a given number represents a quantity greater by one than the number coming before it. This \"successor principle\" is part of the foundation of our numerical (数字的) cognition, but requires extensive practice to understand.",
+        "G) None of us, then, is really a \"numbers person.\" We are not born to handle quantitative distinctions skillfully. In the absence of the cultural traditions that fill our lives with numbers from infancy, we would all struggle with even basic quantitative distinctions. Number words and their written forms transform our quantitative reasoning as they are introduced into our cognitive experience by our parents, peers and school teachers. The process seems so normal that we sometimes think of it as a natural part of growing up, but it is not. Human brains come equipped with certain quantitative instincts that are refined with age, but these instincts are very limited.",
+        "H) Compared with other mammals, our numerical instincts are not as remarkable as many assume. We even share some basic instinctual quantitative reasoning with distant non-mammalian relatives like birds. Indeed, work with some other species suggests they too can refine their quantitative thought if they are introduced to the cognitive power tools we call numbers.",
+        "I) So, how did we ever invent \"unnatural\" numbers in the first place? The answer is, literally, at your fingertips. The bulk of the world's languages use base-10, base-20 or base-5 number systems. That is, these smaller numbers are the basis of larger numbers. English is a base-10 or decimal (十进制的) language, as evidenced by words like 14 (\"four\" + \"10\") and 31 (\"three\" × \"10\" + \"one\"). We speak a decimal language because an ancestral tongue, proto-Indo-European, was decimally based. Proto-Indo-European was decimally oriented because, as in so many cultures, our ancestors' hands served as the gateway to the realization that \"five fingers on one hand is the same as five fingers on the other.\" Such momentary thoughts were represented in words and passed down across generations. This is why the word \"five\" in many languages is derived from the word for \"hand.\" Most number systems, then, are the by-product of two key factors: the human capacity for language and our inclination for focusing on our hands and fingers. This manual fixation—an indirect by-product of walking upright on two legs—has helped yield numbers in most cultures, but not all.",
+        "J) Cultures without numbers also offer insight into the cognitive influence of particular numeric traditions. Consider what time it is. Your day is ruled by minutes and seconds, but these concepts are not real in any physical sense and are nonexistent to numberless people. Minutes and seconds are the verbal and written representations of an uncommon base-60 number system used in ancient Mesopotamia. They reside in our minds, numerical artifacts (人工制品) that not all humans inherit conceptually.",
+        "K) Research on the language of numbers shows, more and more, that one of our species' key characteristics is tremendous linguistic (语言的) and cognitive diversity. If we are to truly understand how much our cognitive lives differ cross-culturally, we must continually explore the depths of our species' linguistic diversity."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "It is difficult for anumeric people to keep track of the change in numbers even when the total is very small.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的anumericpeople和keep trackof定位到文章C)段最后一句。 C】【精析】同义转述题。定位句提到,他们的反应表 明,没有数字概念的人很难记住罐子中还有多少 坚果,尽管总数只有四个或五个。题干中的 anumericpeople和keeptrackof和原文表达方 式完全一致,且题干中的changeinnumbers对应 原文中的howmanynutsremaininthecan,故答案为C)。"
+        },
+        {
+          "number": 37,
+          "stem": "Human numerical instincts are not so superior to those of other mammals as is generally believed.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【定位】由题干中的Humannumericalinstincts和 othermammals定位到文章HD段第一句。 H【精析】同义转述题。定位句指出,和其他哺乳动 物相比,我们的数字本能并不像很多人想象的那 样非凡。题干中的Humannumericalinstincts和 othermammals和文中所述一致,且题干中的 superiorto对应原文中的remarkable,题干中的 asisgenerallybelieved对应原文中的asmany assume,故答案为H)。"
+        },
+        {
+          "number": 38,
+          "stem": "The author emphasizes being anumeric does not affect one's cognitive ability.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【定位】由题千中的anumeric和cognitiveability 定位到文章E)段第一句。 E)【精析】细节辨认题。定位句提到,值得强调的是, 这些不懂数字的人在认知方面是正常的,很好地 适应了他们统治了几个世纪的环境。题干中的 notaffectone'scognitiveability对应原文中的 cognitivelynormal,故答案为E)。"
+        },
+        {
+          "number": 39,
+          "stem": "In the long history of mankind, humans who use numbers are a very small minority.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的Inthelonghistoryof mankind定位到文章B)段第一句。 B)【精析】同义转述题。定位句提到,从历史意义来 看,像我们这样对数字有意识的人类是不寻常的。 题干中的Inthelonghistoryofmankind对应原 文中的in a historical sense,题干中的avery smallminority对应原文中的theunusualones。 故答案为B)。"
+        },
+        {
+          "number": 40,
+          "stem": "An in-depth study of differences between human languages contributes to a true understanding of cognitive differences between cultures.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【定位】由题干中的differencesbetweenhuman languages 和 cognitive differences between cultures定位到文章K)段最后一句。 K】【精析】同义转述题。定位句提到,如果我们想真 正理解我们的认知生活在不同文化中有多么不 同,我们就必须持续地探索人类语言多样性的深 度。题干中的differencesbetweenhuman languages对应原文中的our species”linguistic diversity,题于中的cognitive differences between cultures对应原文中的howmuch ourcognitive livesdiffercross-culturally,故答案为K)。"
+        },
+        {
+          "number": 41,
+          "stem": "A conclusion has been drawn from many experiments that anumeric people have a hard time distinguishing quantities.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的manyexperiments和ahard timedistinguishingquantities定位到文章D)段第 一旬。 D)【精析】同义转述题。定位句提到,这个实验和许 多其他的实验得出了一个简单的结论:当人们没 有数字词汇时,他们很难进行数量上的区分,尽管 这些对于你我这样的人而言是非常自然的事情。 题干中的experiments和conclusion均和原文一 致。题干中的anumericpeople对应原文中的 people donothavenumberwords,题干中的have a hard time distinguishing quantities对应原文中 的struggletomakequantitativedistinctions,故答案为D)。"
+        },
+        {
+          "number": 42,
+          "stem": "Making quantitative distinctions is not an inborn skill.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【定位】由题干中的Makingquantitative distinctions和notaninborn skill定位到文章 G)段第二句。 G)【精析】同义转述题。定位句提到,我们不是天生 就能够熟练地进行定量区分。题干中的Making quantitativedistinctions对应原文中的handle quantitativedistinctions,题干中的notaninborn skill对应原文中的arenotbornto,故答案为G)。"
+        },
+        {
+          "number": 43,
+          "stem": "Every aspect of our lives is affected by numbers.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题干中的Everyaspectofourlives和 numbers定位到文章A)段最后三句。 A)【精析】同义转述题。定位句提到,我们的生活是 被数字支配的。就在你读这篇文章的时候,你很 可能知道现在是几点了,你多大了,你的支票账户 余额,你的体重等等。我们思考所用的确切的数 字影响着我们生活中的一切。题干中的every aspectof our lives对应原文中的everythingin ourlives,故答案为A)。"
+        },
+        {
+          "number": 44,
+          "stem": "Larger numbers are said to be built upon smaller numbers.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【答案】I。【定位】由题干中的Largernumbers和smaller numbers定位到文章I段第四句。 I【精析】同义转述题。定位句提到,这些小一些的 数字是大一些的数字的基础。题干中的Larger numbers和smallernumbers均和原文一致,题干 中的tobebuiltupon对应原文中的arethebasis of,故答案为I。"
+        },
+        {
+          "number": 45,
+          "stem": "It takes great efforts for children to grasp the concept of number words.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【定位】由题干中的takesgreateffortsfor children和grasp the concept of number words定 位到文章F)段最后一句。 F)【精析】细节辨认题。定位句提到,这种“顺序原 理”是我们数字认知的基础之一,但是需要大量的 练习去理解。题干中的takesgreatefforts对应原 文中的requiresextensivepractice,题干中的the conceptof numberwords对应原文中的the foundation of ournumerical cognition,故答案 为F)。 国"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2021-06-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Sugar shocked. That describes the reaction of many Americans this week following revelations that, 50 years ago, the sugar industry paid Harvard scientists for research that shifted the focus away from sugar's role in heart disease—and put the spotlight (注意的中心) squarely on dietary fat. What might surprise consumers is just how many present-day nutrition studies are still funded by the food industry. Nutrition scholar Marion Nestle of New York University spent a year informally tracking industry-funded studies on food. \"Roughly 90% of nearly 170 studies favored the sponsor's interest,\" Nestle tells us. Other systematic reviews support her conclusions. For instance, studies funded by Welch Foods—the brand behind Welch's 100% Grape Juice—found that drinking Concord grape juice daily may boost brain function. Another, funded by Quaker Oats, concluded, as a Daily Mail story put it, that \"hot oatmeal (燕麦粥) breakfast keeps you full for longer.\" Last year, The New York Times revealed how Coca-Cola was funding well-known scientists and organizations promoting a message that, in the battle against weight gain, people should pay more attention to exercise and less to what they eat and drink. Coca-Cola also released data detailing its funding of several medical institutions and associations between 2010 and 2015. \"It's certainly a problem that so much research in nutrition and health is funded by industry,\" says Bonnie Liebman, director of nutrition at the Center for Science in the Public Interest. \"When the food industry pays for research, it often gets what it pays for.\" And what it pays for is often a pro-industry finding. Given this environment, consumers should be skeptical (怀疑的) when reading the latest finding in nutrition science and ignore the latest study that pops up on your news feed. \"Rely on health experts who've reviewed all the evidence,\" Liebman says, pointing to the official government Dietary Guidelines,",
+        "which are based on reviews of hundreds of studies. “And that expert advice remains pretty simple,” says Nestle. “We know what healthy diets are—lots of vegetables, not too much junk food, balanced calories. Everything else is really difficult to do experimentally.”"
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What did Harvard scientists do 50 years ago?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They raised public awareness of the possible causes of heart disease."
+            },
+            {
+              "key": "B",
+              "text": "They turned public attention away from the health risks of sugar to fat."
+            },
+            {
+              "key": "C",
+              "text": "They placed the sugar industry in the spotlight with their new findings."
+            },
+            {
+              "key": "D",
+              "text": "They conducted large-scale research on the role of sugar in people's health."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的Harvard scientists 和50years ago定位到首段第二句。 B)【精析】细节辨认题。定位句指出,50年前,制糖 业资助哈佛大学科学家将研究重心从糖在心脏病 中的影响,转移到了膳食脂肪。由此可见,他们把 公众的注意力从糖的健康风险转移到脂肪上,故 答案为B)。 【避错】文中并未提到50年前,科学家的研究提高 了公众对心脏病可能病因的认识,故排除A)。根 ,据定位句可知,他们的发现使人们关注了膳食脂 肪,而非制糖业,故排除C)。文中未提到哈佛大 学科学家对糖在心脏病中的影响的研究程度和规 模,故排除D)。"
+        },
+        {
+          "number": 47,
+          "stem": "What does Marion Nestle say about present-day nutrition studies?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They took her a full year to track and analyze."
+            },
+            {
+              "key": "B",
+              "text": "Most of them are based on systematic reviews."
+            },
+            {
+              "key": "C",
+              "text": "They depend on funding from the food industries."
+            },
+            {
+              "key": "D",
+              "text": "Nearly all of them serve the purpose of the funders."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题千中的MarionNestle和present-day nutritionstudies定位到第二段。 D)【精析】推理判断题。定位段第二、三句提到,纽约 大学的营养学家玛丽恩·内斯特尔花了一年的时 间非正式地跟踪了各种工业资助的食品研究。她 指出,在将近170项研究中,大约有90%的研究都 会偏祖赞助商的利益。其他系统的研究综述也支 持她的结论。由此可知,几乎所有的营养研究都 是为资助者服务的,D)中的Nearlyallofthem对 应原文中的Roughly90%ofnearly170studies, 故答案为D)。 【避错】文章第二段第二句提到,玛丽恩·内斯特 尔花了一年的时间跟踪了各种工业资助的食品研 究。但是并没有提到是否进行了分析,故排除 A)。第二段第三句指出,其他系统的研究综述也 支持内斯特尔的结论。而非当今的营养研究是基 于系统综述,故排除B)。第二段第一句提到,令 消费者惊诉的是,现在有很多营养研究仍是由食 品工业资助的。而非当今的营养研究必须依赖食 品工业资助,C)项为过度推断,故排除。"
+        },
+        {
+          "number": 48,
+          "stem": "What did Coca-Cola-funded studies claim?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Exercise is more important to good health than diet."
+            },
+            {
+              "key": "B",
+              "text": "Choosing what to eat and drink is key to weight control."
+            },
+            {
+              "key": "C",
+              "text": "Drinking Coca-Cola does not contribute to weight gain."
+            },
+            {
+              "key": "D",
+              "text": "The food industry plays a major role in fighting obesity."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题干中的Coca-Cola-fundedstudies定 位到第四段第一句。 A)【精析】细节辨认题。定位句指出,去年,《纽约时 、’报》披露了可口可乐公司资助知名科学家以及组 织来宣传一个信息,在对抗增重的斗争中,人们应 该更加注意锻炼,少关注饮食。由此可见,由可口 可乐公司资助的研究声称锻炼对于身体健康比饮 食更重要,故答案为A)。 【避错】定位句指出,研究声称锻炼比饮食更重要。 B)表述与定位句相矛盾,故排除。文章并未提及 喝可口可乐不会增加体重,故排除C)。文章未提 及食品工业在对抗肥胖方面起着重要作用,故 排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What does Liebman say about industry-funded research?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It simply focuses on nutrition and health."
+            },
+            {
+              "key": "B",
+              "text": "It causes confusion among consumers."
+            },
+            {
+              "key": "C",
+              "text": "It rarely results in objective findings."
+            },
+            {
+              "key": "D",
+              "text": "It runs counter to the public interest."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的Liebman和industry-funded research定位到第五段。 C)【精析】推理判断题。第五段第二、三句提到,利伯 曼认为“食品工业为研究提供资金时,通常会得到 相应的回报。”他们所支付的往往是一个利于推动 该行业的发展的发现。由此可见,由食品工业资 助的研究,其结果并不客观,故答案为C)。 【避错】文中并没有提及这些研究只关注营养和健 康,A)为无中生有,故排除。定位段指出,这些研 究的结果大多有利于推动该行业的发展,而非这 些结果会对大众造成混乱,B)为过度推断,故排 除。文章并未提及利伯曼认为这些研究结果会损 害公众利益,故排除D)。"
+        },
+        {
+          "number": 50,
+          "stem": "What is the author's advice to consumers?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Follow their intuition in deciding what to eat."
+            },
+            {
+              "key": "B",
+              "text": "Be doubtful of diet experts' recommendations."
+            },
+            {
+              "key": "C",
+              "text": "Ignore irrelevant information on their news feed."
+            },
+            {
+              "key": "D",
+              "text": "Think twice about new nutrition research findings."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的author'sadvicetoconsumers 定位到第六段第一句。 D【精析】推理判断题。定位句指出,鉴于这种环境, 消费者在阅读营养科学的最新发现时应持怀疑态 度,并且忽略新闻推送上弹出的最新研究。由此 可见,作者的建议是对新的营养研究成果三思而 后行,D)中的Thinktwice对应原文中的 skeptical,故答案为D)。 【避错】文章末段最后两句提到,我们知道什么是 健康饮食——多吃蔬菜,少吃垃圾食品,平衡热 量。其他一切都很难通过实验来完成。这句话的 意思是其他应该怎么做其实很难通过实验的方式 验证,而非建议读者要靠直觉,A)为过度推断,故 排除。定位句指出,要对新的研究结果持怀疑的 态度,而非对饮食专家的建议持怀疑态度,故排除"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2021-06-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Success was once defined as being able to stay at a company for a long time and move up the corporate ladder. The goal was to reach the top, accumulate wealth and retire to a life of ease. My father is a successful senior executive. In 35 years, he worked for only three companies. When I started my career, things were already different. If you weren't changing companies every three or four years, you simply weren't getting ahead in your career. But back then, if you were a consultant or freelancer(自由职业者), people would wonder what was wrong with you. They would assume you had problems getting a job. Today, consulting or freelancing for five businesses at the same time is a badge of honor. It shows how valuable an individual is. Many companies now look to these “ultimate professionals” to solve problems their full-time teams can't. Or they save money by hiring “top-tier(顶尖的)experts” only for particular projects. Working at home or in cafes, starting businesses of their own, and even launching business ventures that eventually may fail, all indicate “initiative,” “creativity,” and “adaptability,” which are desirable qualities in today's workplace. Most important, there is a growing recognition that people who balance",
+        "work and play, and who work at what they are passionate about, are more focused and productive, delivering greater value to their clients.",
+        "Who are these people? They are artists, writers, programmers, providers of office services and career advice. What's needed now is a marketplace platform specifically designed to bring freelancers and clients together. Such platforms then become a place to feature the most experienced, professional, and creative talent. This is where they conduct business, where a sense of community reinforces the culture and values of the gig economy (零工经济), and where success is rewarded with good reviews that encourage more business.",
+        "Slowly but surely, these platforms create a bridge between traditional enterprises and this emerging economy. Perhaps more important, as the global economy continues to be disrupted by technology and other massive change, the gig economy will itself become an engine of economic and social transformation."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the author use the example of his father to illustrate?",
+          "options": [
+            {
+              "key": "A",
+              "text": "How long people took to reach the top of their career."
+            },
+            {
+              "key": "B",
+              "text": "How people accumulated wealth in his father's time."
+            },
+            {
+              "key": "C",
+              "text": "How people viewed success in his father's time."
+            },
+            {
+              "key": "D",
+              "text": "How long people usually stayed in a company."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的theexampleofhisfather定 位到第一段。 C)【精析】推理判断题。定位段指出,成功曾经被定 义为能在一家公司任职很长时间并获得晋升。目 的是到达高位,积累财富,退休后安度晚年。第 三、四句提到了作者父亲的亲身经历,用以说明该 段前两句的内容,即在其父辈的年代,人们对于成 功的定义是怎样的,故答案为C)。 【避错】文章首段虽然提及了在作者父辈的年代, 人们会在一家公司中努力晋升并积累财富,但并 未提及晋升的年限间题以及积累财富的方式,故 排除A)和B)。该段虽然提到了作者父亲任职的 时间,但是并不能代表所有人的情况,故排除D)。"
+        },
+        {
+          "number": 52,
+          "stem": "Why did people often change jobs when the author started his career?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It was considered a fashion at that time."
+            },
+            {
+              "key": "B",
+              "text": "It was a way to advance in their career."
+            },
+            {
+              "key": "C",
+              "text": "It was a response to the changing job market."
+            },
+            {
+              "key": "D",
+              "text": "It was difficult to keep a job for long."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的often change jobs和theauthor startedhiscareer定位到第二段第一、二句。 B)【精析】细节辨认题。定位句提到,当作者开始他 的职业生涯时,事情已经不同了。如果你不是每 三四年就换一家公司,那么就说明你并未在职业 生涯中前进。由此可知,人们频繁换工作是为了 促进职业发展,故答案为B)。 【避错】A)项提及的时尚问题,在定位段中并无体 现,故排除。C)项提及不断变化的就业市场,同样 在第二段中没有涉及,故排除。D)项指出长久地 坚持一份工作很难,文中无此类表述,故排除。"
+        },
+        {
+          "number": 53,
+          "stem": "What does the author say about people now working for several businesses at the same time?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are often regarded as most treasured talents."
+            },
+            {
+              "key": "B",
+              "text": "They are able to bring their potential into fuller play."
+            },
+            {
+              "key": "C",
+              "text": "They have control over their life and work schedules."
+            },
+            {
+              "key": "D",
+              "text": "They feel proud of being outstanding problem solver."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题干中的workingforseveralbusinesses atthesametime定位到第三段第一句。 A)【精析】细节辨认题。定位句指出,现如今,能够同 时为五家企业工作是荣耀的象征。接下来的一句 指出这能说明一个人的价值所在。也就是说,能 同时为多家企业工作的人通常是有价值的人才, 故客案为A)。 【避错】第三段并未提及能同时为多家企业工作的 人是否充分发挥了他们的潜力,故排除B)。第四 段虽然提到了能够平衡工作和娱乐的人,但我们 无法得知这些人是不是同时为多家企业工作的 人,故排除C)。文中并未提及人们是否为自已能 出色地解决问题而自豪,故排除D)。"
+        },
+        {
+          "number": 54,
+          "stem": "What have businesses come to recognize now?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Who is capable of solving problems with ease."
+            },
+            {
+              "key": "B",
+              "text": "How people can be more focused and productive."
+            },
+            {
+              "key": "C",
+              "text": "What kind of people can contribute more to them."
+            },
+            {
+              "key": "D",
+              "text": "Why some people are more passionate about work."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的businesses和recognize定位 到第四段第二句。 C】【精析】细节辨认题。定位句提到,越来越多的人 意识到那些能够平衡工作和娱乐的人,以及做自 已喜爱的工作的人,会更加专注和高效,从而为他 们的客户提供更大的价值,故答案为C)。 【避错】文中未提及A)谁能够轻松解决间题,故排 除。定位句虽然提到了能够平衡工作和娱乐的人 会更加专注和高效,但强调的是这类人能够为企 业带来价值,而不是人们如何更加专注和高效,故 排除B)。文中并未提及为什么有些人对工作更 热情,故排除D)。"
+        },
+        {
+          "number": 55,
+          "stem": "What does the author say about the gig economy?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It may force companies to reform their business practice."
+            },
+            {
+              "key": "B",
+              "text": "It may soon replace the traditional economic model."
+            },
+            {
+              "key": "C",
+              "text": "It will drive technological progress on a global scale."
+            },
+            {
+              "key": "D",
+              "text": "It will bring about radical economic and social changes."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】根据选项内容和题文同序原则定位到最后 一段末句。 D)【精析】细节辨认题。定位句指出,或许更重要的 是,随着全球经济持续受到科技和其他重大改变 的干扰,零工经济本身将会成为经济和社会转型 的引肇,故答案为D)。 【避错】文中没有提及它可能迫使公司改变运营方 式,故排除A)。结合文章大意,零工经济仍在发 展阶段,并不会很快替代传统经济,故排除B)。 文中只提及了零工经济对经济和社会的影响,未 提及其对技术的影响,故排除C)。"
+        }
+      ]
+    }
+  ]
+}

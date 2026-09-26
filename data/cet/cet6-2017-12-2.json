@@ -1,0 +1,1770 @@
+{
+  "id": "cet6-2017-12-2",
+  "level": 6,
+  "year": 2017,
+  "month": 12,
+  "set": 2,
+  "title": "2017 年 12 月六级 · 第 2 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.12/%E7%9C%9F%E9%A2%98Word/2017%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC2%E5%A5%97%EF%BC%89.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2017.12%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC2%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2017-12-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "The Pacific island nation of Palau has become home to the sixth largest marine sanctuary in the world. The new marine reserve, now the largest in the Pacific, will [[26]] no fishing or mining. Palau also established the world's first shark sanctuary in 2009. The tiny island nation has set aside 500,000 square kilometres—80 percent—of its maritime [[27]] , for full protection. That's the highest percentage of an [[28]] economic zone devoted to marine conservation by any country in the world. The remaining 20 percent of the Palau seas will be reserved for local fishing by individuals and small-scale [[29]] fishing businesses with limited exports. \"Island [[30]] have been among the hardest hit by the threats facing the ocean,\" said President Tommy Remengesau Jr. in a statement. \"Creating this sanctuary is a bold move that the people of Palau recognise as [[31]] to our survival. We want to lead the way in restoring the health of the ocean for future generations.\" Palau has only been an [[32]] nation for twenty years and has a strong history of environmental protection. It is home to one of the world's finest marine ecosystems, with more than 1,300 species of fish and 700 species of coral. Senator Hokkons Baules, lead [[33]] of the Palau National Marine Sanctuary Act, said the sanctuary will \"help build a [[34]] future for the Palauan people by honoring the conservation traditions of our past\". These include the centuries-old custom of \"bul\", where leaders would call a temporary stop to fishing for key species in order to give fish [[35]] an opportunity to replenish (补充)."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "allocate"
+        },
+        {
+          "key": "B",
+          "text": "celebrities"
+        },
+        {
+          "key": "C",
+          "text": "commercial"
+        },
+        {
+          "key": "D",
+          "text": "communities"
+        },
+        {
+          "key": "E",
+          "text": "essential"
+        },
+        {
+          "key": "F",
+          "text": "exclusive"
+        },
+        {
+          "key": "G",
+          "text": "independent"
+        },
+        {
+          "key": "H",
+          "text": "indulge"
+        },
+        {
+          "key": "I",
+          "text": "permit"
+        },
+        {
+          "key": "J",
+          "text": "secure"
+        },
+        {
+          "key": "K",
+          "text": "solitary"
+        },
+        {
+          "key": "L",
+          "text": "spectacle"
+        },
+        {
+          "key": "M",
+          "text": "sponsor"
+        },
+        {
+          "key": "N",
+          "text": "stocks"
+        },
+        {
+          "key": "O",
+          "text": "territory"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "allocate"
+            },
+            {
+              "key": "B",
+              "text": "celebrities"
+            },
+            {
+              "key": "C",
+              "text": "commercial"
+            },
+            {
+              "key": "D",
+              "text": "communities"
+            },
+            {
+              "key": "E",
+              "text": "essential"
+            },
+            {
+              "key": "F",
+              "text": "exclusive"
+            },
+            {
+              "key": "G",
+              "text": "independent"
+            },
+            {
+              "key": "H",
+              "text": "indulge"
+            },
+            {
+              "key": "I",
+              "text": "permit"
+            },
+            {
+              "key": "J",
+              "text": "secure"
+            },
+            {
+              "key": "K",
+              "text": "solitary"
+            },
+            {
+              "key": "L",
+              "text": "spectacle"
+            },
+            {
+              "key": "M",
+              "text": "sponsor"
+            },
+            {
+              "key": "N",
+              "text": "stocks"
+            },
+            {
+              "key": "O",
+              "text": "territory"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【锁定答案】空格所在句主语为“海洋保护区(marinereserve)”,宾语为“不得捕鱼或采矿(no fishing ormining)”,可推断二者之间逻辑为“海洋保护区不允许/禁止捕鱼或采矿”,故空格词应需表示允许、 容忍”之意,I)permit为答案。 indulge意为“使(自已)沉溺于;纵容”,语义上有一定干扰,但其宾语通常为“人(如indulge oneself)”或“习惯、爱好(如indulge histaste)”,且“不放纵”隐含“一定程度上允许”,否定程度较弱。 【点拨技巧】sanctuary、reserve对解题非常关键,且词汇较难(前者本身难,后者“保护区”之意生 僻),但这两个词又都是大纲词汇。故特别提醒考生:大纲词汇一定要深人掌握。倘若确实不知其义, 可采用迁回策略:l.关联段中hometothesixthlargestmarinesanctuary、nofishingormining、establish theworlds’firstshark sanctuary等,并结合背景知识“为保护生态平衡,各海域纷纷限制捕捞及采矿”推 知此段主题是关于“保护区的建立”。2.借助下段内容(用词相对简单)...fullprotection... conservation...进一步确认推断正确。 【补充语法】no直接放在“动词(谓语)”和“名词(宾语)”之间,表示完全否定。如本段willpermitno fishing or mining = fishing and mining will be forbidden。 又如:He gave no explanation.= He didn't giveanyexplanation.(他没有给任何解释。) I 0 The tiny island nation has set aside 500, 000 这个小岛国已经划出了50万 square kilometres-80 percent- of its maritime27_, 平方公里—其海域的80% for full protection. @That's the highest percentage of an 实行全方位保护。这是世界上所 28economic zone devoted tomarine conservationby 有国家中将专属经济区划拨用于 any country in the world.The remaining2o percent of 海洋保护的最高比例。其余20% the Palau seas will be reserved for local fishing by 的帕劳海域将留给本国的捕鱼个 individuals and small-scale29fishing businesses with 人以及出口有限的小规模商业化 limited exports. 捕鱼企业。 ·"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "allocate"
+            },
+            {
+              "key": "B",
+              "text": "celebrities"
+            },
+            {
+              "key": "C",
+              "text": "commercial"
+            },
+            {
+              "key": "D",
+              "text": "communities"
+            },
+            {
+              "key": "E",
+              "text": "essential"
+            },
+            {
+              "key": "F",
+              "text": "exclusive"
+            },
+            {
+              "key": "G",
+              "text": "independent"
+            },
+            {
+              "key": "H",
+              "text": "indulge"
+            },
+            {
+              "key": "I",
+              "text": "permit"
+            },
+            {
+              "key": "J",
+              "text": "secure"
+            },
+            {
+              "key": "K",
+              "text": "solitary"
+            },
+            {
+              "key": "L",
+              "text": "spectacle"
+            },
+            {
+              "key": "M",
+              "text": "sponsor"
+            },
+            {
+              "key": "N",
+              "text": "stocks"
+            },
+            {
+              "key": "O",
+              "text": "territory"
+            }
+          ],
+          "answer": "O",
+          "explanation": "【锁定答案】空格所在短语为80percent一of itsmaritime (其 的80%),前接500,000 squarekilometres(5o万平方公里),再结合破折号的“解释说明”功能,可知二者同指,可见空格词应表 示地域、区域、面积”之意,territory为答案。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "allocate"
+            },
+            {
+              "key": "B",
+              "text": "celebrities"
+            },
+            {
+              "key": "C",
+              "text": "commercial"
+            },
+            {
+              "key": "D",
+              "text": "communities"
+            },
+            {
+              "key": "E",
+              "text": "essential"
+            },
+            {
+              "key": "F",
+              "text": "exclusive"
+            },
+            {
+              "key": "G",
+              "text": "independent"
+            },
+            {
+              "key": "H",
+              "text": "indulge"
+            },
+            {
+              "key": "I",
+              "text": "permit"
+            },
+            {
+              "key": "J",
+              "text": "secure"
+            },
+            {
+              "key": "K",
+              "text": "solitary"
+            },
+            {
+              "key": "L",
+              "text": "spectacle"
+            },
+            {
+              "key": "M",
+              "text": "sponsor"
+            },
+            {
+              "key": "N",
+              "text": "stocks"
+            },
+            {
+              "key": "O",
+              "text": "territory"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【锁定答案】空格词修饰名词短语经济区(economic zone)”,应填入能准确说明其特征的词语。对 应12句可发现,an economic zone回指itsmarineterritory,而setaside(划拨出)、for full protection(全方位保护)、devoted to(专用于)则体现帕劳对其拥有“专属权,管辖权”。另外,3句也进一 步指出,帕劳规定了其余20%海域的使用方式(..willbereservedfor...)。可见exclusive“专用的、独有 的”体现了这一区域的主要特征。注:exclusive economic zone(EEC)为专有名词,意为“专属经济区”。 essential\"重要的”、independent独立的”均可形容“经济区”,但本段中作者并未强调这些特征,所以相 较之下exclusive最佳。另:若不能完全排除这两个选项,可暂时搁置,随后看是否有更合适的位置。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "allocate"
+            },
+            {
+              "key": "B",
+              "text": "celebrities"
+            },
+            {
+              "key": "C",
+              "text": "commercial"
+            },
+            {
+              "key": "D",
+              "text": "communities"
+            },
+            {
+              "key": "E",
+              "text": "essential"
+            },
+            {
+              "key": "F",
+              "text": "exclusive"
+            },
+            {
+              "key": "G",
+              "text": "independent"
+            },
+            {
+              "key": "H",
+              "text": "indulge"
+            },
+            {
+              "key": "I",
+              "text": "permit"
+            },
+            {
+              "key": "J",
+              "text": "secure"
+            },
+            {
+              "key": "K",
+              "text": "solitary"
+            },
+            {
+              "key": "L",
+              "text": "spectacle"
+            },
+            {
+              "key": "M",
+              "text": "sponsor"
+            },
+            {
+              "key": "N",
+              "text": "stocks"
+            },
+            {
+              "key": "O",
+              "text": "territory"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【锁定答案】空格词应能体现出“捕鱼企业(fishingbusiness)”的特征,需从前后文中寻找相关信息: 由本句的withlimited exports以及上句的economiczone可推测此处侧重捕鱼企业的“营利性、商业 性”,commercial符合该语义。 上下文中并未强调捕鱼企业的“重要性、独立性、安全性”,可排除essential、independent、secure。此 外,从语法来看,这三个选项为“评价性形容词”,应放在表示“客观描述的形容词”small-scale之前。 【补充语法】当多个词语共同修饰同一名词时,总体规律为,在意义上同名词关系最近的词最靠近 该名词。大致顺序为:评价词(如important、beautiful)十客观描述词(如old、big、wooden)十名词。再 细分为:限定词(如this/that/these/those)十数词(如five)+特性(如pretty、important)十规格(如big、 long)十新旧(如new/old)十形状(如round)十颜色(如red)十出处、属性(如western、Chinese)十材料 (如wooden)十用途(如medical)。故本文中为:small-scale(大小、规格)commercial(属性)fishing(用 途)businesses(中心词)。 \"Island30havebeen amongthehardest hit by the threats facing the ocean,\" said President Tommy Remengesau Jr. in a statement'. @\"Creating this sanctuary is a boldmovethat the people of Palau recogniseas31to oursurvival.Wewanttolead the way inrestoring the health of the ocean for future generations.\" “岛上社区成了(上述)海洋所面 临威胁最严重的打击对象。”(帕劳) 总统小汤米·雷门格绍在一次讲话 中说道,“创立这一禁捕区是一项大 胆的举措,帕劳人民认为这项举措对 于我们的生存至关重要。我们想就 “恢复海洋健康”为后代做出示范。” ·"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "allocate"
+            },
+            {
+              "key": "B",
+              "text": "celebrities"
+            },
+            {
+              "key": "C",
+              "text": "commercial"
+            },
+            {
+              "key": "D",
+              "text": "communities"
+            },
+            {
+              "key": "E",
+              "text": "essential"
+            },
+            {
+              "key": "F",
+              "text": "exclusive"
+            },
+            {
+              "key": "G",
+              "text": "independent"
+            },
+            {
+              "key": "H",
+              "text": "indulge"
+            },
+            {
+              "key": "I",
+              "text": "permit"
+            },
+            {
+              "key": "J",
+              "text": "secure"
+            },
+            {
+              "key": "K",
+              "text": "solitary"
+            },
+            {
+              "key": "L",
+              "text": "spectacle"
+            },
+            {
+              "key": "M",
+              "text": "sponsor"
+            },
+            {
+              "key": "N",
+              "text": "stocks"
+            },
+            {
+              "key": "O",
+              "text": "territory"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【锁定答案】空格词应表示“海洋所受威胁影响到的对象(thehardesthit)”,communities意为“(同住 一地的所有人构成的)社区”,Islandcommunities指“岛上社区,岛上居民”,完全符合语义。另外,这也 契合2句关注对象“帕劳人民(thepeopleofPalau)”。 stocks可表示“(鱼类)总量、总储备量”,因貌似符合语境(海洋威胁影响鱼类储量)而有较大干扰; celebrities(名人、名流)因与PresidentTommyRemengesauJr.身份相符而有一定干扰。但两者均无法 与下文“帕劳人民的生存”实现语义衔接。 【点拔技巧】一、若数个备选项填入空格都既符合语法要求,又形成顺畅语义,则需要进一步看上下 文,能和上下文形成顺滑语义关联的才是正确项。二、对于“人物在文中的定位”万不能断章取义,而是 要借助“人物言行”与“段落整体语义进行判断。如本段,若只看到PresidentTommyRemengesauJr.、 leadtheway,则很可能会认为作者是在谈论“有影响力的名人”、TommyRemengesauJr.是其中典型代 表,空格30应填人celebrities。但阅读内容可发现作者是在援引帕劳总统谈话,说明“建立禁猎区事关 帕劳人民的存亡”、空格3o应填人communities。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "allocate"
+            },
+            {
+              "key": "B",
+              "text": "celebrities"
+            },
+            {
+              "key": "C",
+              "text": "commercial"
+            },
+            {
+              "key": "D",
+              "text": "communities"
+            },
+            {
+              "key": "E",
+              "text": "essential"
+            },
+            {
+              "key": "F",
+              "text": "exclusive"
+            },
+            {
+              "key": "G",
+              "text": "independent"
+            },
+            {
+              "key": "H",
+              "text": "indulge"
+            },
+            {
+              "key": "I",
+              "text": "permit"
+            },
+            {
+              "key": "J",
+              "text": "secure"
+            },
+            {
+              "key": "K",
+              "text": "solitary"
+            },
+            {
+              "key": "L",
+              "text": "spectacle"
+            },
+            {
+              "key": "M",
+              "text": "sponsor"
+            },
+            {
+              "key": "N",
+              "text": "stocks"
+            },
+            {
+              "key": "O",
+              "text": "territory"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【锁定答案】空格所在句指出“帕劳人民认为这项举措(建立禁捕区)对于我们的生存 essential\"极其重要的”符合此处语义。这也契合随后3句“我们想要就恢复海洋健康为后代做出示范” 暗含信息:这一举措事关海洋健康,涉及子孙后代。 independent\"独立的”、secure“安全的;可靠的”、solitary“单一的;独处的”均不能与“to our survival (对我们的生存)”建立合理的语义逻辑。 【补充语法】“表示心理活动的及物动词(recognise,view,consider,fancy等)十宾语十as/to be十 宾补”结构表示将..看作/想象为...\"之意。如本段中Thepeopleof Palaurecognise that(=a bold move =creating this sanctuary) as essential to our survival. 再如:He fancies himself as the boss of a largeenterprise.(他将自已幻想为一家大型企业的老板。)"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "allocate"
+            },
+            {
+              "key": "B",
+              "text": "celebrities"
+            },
+            {
+              "key": "C",
+              "text": "commercial"
+            },
+            {
+              "key": "D",
+              "text": "communities"
+            },
+            {
+              "key": "E",
+              "text": "essential"
+            },
+            {
+              "key": "F",
+              "text": "exclusive"
+            },
+            {
+              "key": "G",
+              "text": "independent"
+            },
+            {
+              "key": "H",
+              "text": "indulge"
+            },
+            {
+              "key": "I",
+              "text": "permit"
+            },
+            {
+              "key": "J",
+              "text": "secure"
+            },
+            {
+              "key": "K",
+              "text": "solitary"
+            },
+            {
+              "key": "L",
+              "text": "spectacle"
+            },
+            {
+              "key": "M",
+              "text": "sponsor"
+            },
+            {
+              "key": "N",
+              "text": "stocks"
+            },
+            {
+              "key": "O",
+              "text": "territory"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【锁定答案】independent从语义上能和nation进行搭配,表示“独立国家”,且能和其前的hasonly been及随后的fortwentyyears构成完整语义:成为一个独立的国家仅有2o年。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "allocate"
+            },
+            {
+              "key": "B",
+              "text": "celebrities"
+            },
+            {
+              "key": "C",
+              "text": "commercial"
+            },
+            {
+              "key": "D",
+              "text": "communities"
+            },
+            {
+              "key": "E",
+              "text": "essential"
+            },
+            {
+              "key": "F",
+              "text": "exclusive"
+            },
+            {
+              "key": "G",
+              "text": "independent"
+            },
+            {
+              "key": "H",
+              "text": "indulge"
+            },
+            {
+              "key": "I",
+              "text": "permit"
+            },
+            {
+              "key": "J",
+              "text": "secure"
+            },
+            {
+              "key": "K",
+              "text": "solitary"
+            },
+            {
+              "key": "L",
+              "text": "spectacle"
+            },
+            {
+              "key": "M",
+              "text": "sponsor"
+            },
+            {
+              "key": "N",
+              "text": "stocks"
+            },
+            {
+              "key": "O",
+              "text": "territory"
+            }
+          ],
+          "answer": "M",
+          "explanation": "【锁定答案】“人物”的同位语往往是说明其“身份,职位等”,sponsor“发起人、倡导者”恰合此意: HokkonsBaules为法案(Act)的主要发起人(lead sponsor)。solitary作名词时意为“隐士、独居者”,不能 与“主要(lead)”及“法案(Act)”形成合理的语义逻辑。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "allocate"
+            },
+            {
+              "key": "B",
+              "text": "celebrities"
+            },
+            {
+              "key": "C",
+              "text": "commercial"
+            },
+            {
+              "key": "D",
+              "text": "communities"
+            },
+            {
+              "key": "E",
+              "text": "essential"
+            },
+            {
+              "key": "F",
+              "text": "exclusive"
+            },
+            {
+              "key": "G",
+              "text": "independent"
+            },
+            {
+              "key": "H",
+              "text": "indulge"
+            },
+            {
+              "key": "I",
+              "text": "permit"
+            },
+            {
+              "key": "J",
+              "text": "secure"
+            },
+            {
+              "key": "K",
+              "text": "solitary"
+            },
+            {
+              "key": "L",
+              "text": "spectacle"
+            },
+            {
+              "key": "M",
+              "text": "sponsor"
+            },
+            {
+              "key": "N",
+              "text": "stocks"
+            },
+            {
+              "key": "O",
+              "text": "territory"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【锁定答案】空格所在句为HokkonsBaules对设立禁捕区的评价,由其身份“禁捕区法案的发起者”及 话语内容“禁猎区将帮助帕劳人民建立 的未来”可知,空格词应体现褒义色彩,secure符合语境。 spectacle“壮观、辉煌”为褒义,有一定干扰,但修饰future应用其形容词形式spectacular,且“建立狩 猎区”意在应对“物种灭绝威胁”,“壮观的、辉煌的未来”褒义色彩过强。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "allocate"
+            },
+            {
+              "key": "B",
+              "text": "celebrities"
+            },
+            {
+              "key": "C",
+              "text": "commercial"
+            },
+            {
+              "key": "D",
+              "text": "communities"
+            },
+            {
+              "key": "E",
+              "text": "essential"
+            },
+            {
+              "key": "F",
+              "text": "exclusive"
+            },
+            {
+              "key": "G",
+              "text": "independent"
+            },
+            {
+              "key": "H",
+              "text": "indulge"
+            },
+            {
+              "key": "I",
+              "text": "permit"
+            },
+            {
+              "key": "J",
+              "text": "secure"
+            },
+            {
+              "key": "K",
+              "text": "solitary"
+            },
+            {
+              "key": "L",
+              "text": "spectacle"
+            },
+            {
+              "key": "M",
+              "text": "sponsor"
+            },
+            {
+              "key": "N",
+              "text": "stocks"
+            },
+            {
+              "key": "O",
+              "text": "territory"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【锁定答案】空格所在句大意为“为了使鱼 得以补充,会要求暂停捕捞关键品种”,stocks意为 “总储备量、总量”(fishstocks指“总鱼量”),恰合语义。celebrities“名人”、solitary“隐士”、spectacle“壮 观的场面;不同寻常的事”均无法与fish搭配。 【补充语法】\"动词十人(间接宾语)十物(直接宾语)\"双宾语结构:l.某些(offer,show,give,grant 等)可变形为“动词+物+to十人”,如本文中:give fish stocks an opportunity to replenish=give an opportunitytoreplenishtofishstocks。2.某些(cook,find,book,order,buy等)可变形为“动词+物+ for十人”。如:Iorderedhimsomefood,=Iordered somefoodforhim.(我给他点了些吃的。)"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2017-12-2-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) It is a movement building steady momentum: a call to make research data, software code and experimental methods publicly available and transparent. A spirit of openness is gaining acceptance in the science community, and is the only way, say advocates, to address a 'crisis' in science whereby too few findings are successfully reproduced. Furthermore, they say, it is the best way for researchers to gather the range of observations that are necessary to speed up discoveries or to identify large-scale trends.",
+        "B) The open-data shift poses a confusing problem for junior researchers. On the one hand, the drive to share is gathering official steam. Since 2013, global scientific bodies have begun to back politics that support increased public access to research. On the other hand, scientists disagree about how much and when they should share date, and they debate whether sharing it is more likely to accelerate science and make it more robust, or to introduce vulnerabilities and problems. As more journals and make it more robust, or to introduce vulnerabilities and problems. As more journal and funders adopt data-sharing requirements, and as a growing number of enthusiasts call for more openness, junior researchers must find their place between adopters and those who continue to hold out, even as they strive to launch their own careers.",
+        "C) One key challenge facing young scientists is how to be open without becoming scientifically vulnerable. They must determine the risk of jeopardizing a job offer or a collaboration proposal from those who are wary of—or unfamiliar with—open science. And they must learn how to capitalize on the movement's benefits, such as opportunities for more citations and a way to build a reputation without the need for conventional metrics, such as publication in high-impact journals.",
+        "D) Some fields have embraced open data more than others. Researchers in psychology, a field rocked by findings of irreproducibility in the past few years, have been especially vocal supporters of the drive for more-open science. A few psychology journals have created incentives to increase interest in reproducible science—for example, by affixing an 'open-data' badge to articles that clearly state where data are available. According to social psychologist Brian Nosek, executive director of the Center for Open Science, the average data-sharing rate for the journal Psychological Science, which uses the badges, increased tenfold to 38% from 2013 to 2015.",
+        "E) Funders, too, are increasingly adopting an open-data policy. Several strongly encourage, and some require, a date-management plan that makes data available. The US National Science Foundation is among these, some philanthropic (慈善的) funders, including the Bill&amp;Melinda Gates Foundation in Seattle, Washington, and the Wellcome Trust in London, also mandate open data from their grant recipients.",
+        "F) But many young researchers, especially those who have not been mentored in open science, are uncertain about whether to share or to stay private. Graduate students and postdocs, who often are working on their lab head's grant, may have no choice if their supervisor or another senior colleague opposes sharing.",
+        "G) Some fear that the potential impact of sharing is too high, especially at the early stages of a career. \"Everybody has a scary story about someone getting scooped (被抢先),\" says New York University astronomer David Hogg. Those fears may be a factor in a lingering hesitation to share data even when publishing in journals that mandate it.",
+        "H) Researchers at small labs or at institutions focused on teaching arguably have the most to lose when sharing hard-won data. \"With my institution and teaching load, I don't have postdocs and grad students,\" says Terry McGlynn, a tropical biologist at California State University, Dominguez Hills. \"The stakes are higher to share data because it's a bigger fraction of what's happening in my lab.\"",
+        "I) Researchers also point to the time sink that is involved in preparing data for others to view. Once the data and associated materials appear in a repository (存储库 ), answering questions and handling complaints can take many hours.",
+        "J) The time investment can present other problems. In some cases, says data scientist Karthik Ram, it may be difficult for junior researchers to embrace openness when senior colleagues—many of whom head selection and promotion committees—might ridicule what they may view as misplaced energies. \"I've heard this recently—that embracing the idea of open data and code makes traditional academics uncomfortable,\" says Ram. \"The concern seems to be that open advocates don't spend their time being as productive as possible.\"",
+        "K) An open-science stance can also add complexity to a collaboration. Kate Ratliff, who studies social attitudes at the University of Florida, Gainesville, says that it can seem as if there are two camps in a field—those who care about open science and those who don't. \"There's a new area to navigate—'Are you cool with the fact that I'll want to make the data open?'—when talking with somebody about an interesting research idea,\" she says.",
+        "L) Despite complications and concerns, the upsides of sharing can be significant. For example, when information is uploaded to a repository, a digital object identifier (DOI) is assigned. Scientists can use a DOI to publish each step of the research life cycle, not just the final paper. In so doing, they can potentially get three citations—one each for the data and software, in addition to the paper itself. And although some say that citations for software or data have little currency in academia, they can have other benefits.",
+        "M) Many advocates think that transparent data procedures with a date and time stamp will protect scientists from being scooped. \"This is the sweet spot between sharing and getting credit for it, while discouraging plagiarism (剽窃),\" says Ivo Grigorov, a project coordinator at the National Institute of Aquatic Resources Research Secretariat in Charlottenlund, Denmark. Hogg says that scooping is less of a problem than many think. \"The two cases I'm familiar with didn't involve open data or code,\" he says.",
+        "N) Open science also offers junior researchers the chance to level the playing field by gaining better access to crucial date. Ross Mounce, a postdoc studying evolutionary biology at the University of Cambridge, UK, is a vocal champion of open science, partly because his fossil-based research depends on access to others' data. He says that more openness in science could help to discourage what some perceive as a common practice of shutting out early-career scientists' requests for data.",
+        "O) Communication also helps for those who worry about jeopardizing a collaboration, he says. Concerns about open science should be discussed at the outset of a study. \"Whenever you start a project with someone, you have to establish a clear understanding of expectations for who owns the data, at what point they go public and who can do what with them,\" he says.",
+        "P) In the end, sharing data, software and materials with colleagues can help an early-career researcher to gain recognition—a crucial component of success. \"The thing you are searching for is reputation,\" says Titus Brown, a genomics (基因组学) researcher at the University of California, Davis. \"To get grants and jobs, you have to be relevant and achieve some level of public recognition. Anything you do that advances your presence—especially in a larger sphere, outside the communities you know—is a net win.\""
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Astronomer David Hogg doesn't think scooping is as serious a problem as generally thought.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "M",
+          "explanation": "天文学家大卫·霍格认为抢先发表的问题并不像普遍认为的那么严重。 [答案][M][精析]根据[定位词定位]、[核心义匹配]可知本题对应[M]段3句。该句指出 Hogg表示被抢先发表并不像人们普遍认为的那么严重。题目是对该句的同义改写,(not)...as serious...as...与lessof...为同义结构。"
+        },
+        {
+          "number": 37,
+          "stem": "Some researchers are hesitant to make their data public for fear that others might publish something similar before them.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "G",
+          "explanation": "有些研究者对公开数据犹豫不决,因为担心其他人可能抢先发表相似的内容。 [答案][G][精析]根据[定位词定位]、[核心义匹配]可知本题对应[G]段23句。两句指出有 些研究者出于对共享数据潜在风险的担忧而犹豫不决,本题是对两句大意的概括。Someresearchers复 现1句Some,也是23句内容围绕的对象,Publishsomethingsimilarbeforethem同义改写2句getting scooped。"
+        },
+        {
+          "number": 38,
+          "stem": "Some psychology journals have offered incentives to encourage authors to share their data.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "D",
+          "explanation": "有些心理学期刊已经提供激励措施以鼓励作者共享他们的数据。 [答案][D][精析]根据定位词定位]、[核心义匹配]可知本题对应[D]段3句,该句指出有些心 理学期刊提出激励措施,以增加人们对于可复制科学的兴趣和关注,本题是对该句的同义改写。题中 to sharetheirdata与reproducible science(回指2句more-openscience)内涵相同,encourage对应 increaseinterest,故[D]为正确项。"
+        },
+        {
+          "number": 39,
+          "stem": "There is a growing demand in the science community that research data be open to the public.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "A",
+          "explanation": "科学界对于公开研究数据的需求正在增大。 [答案][A][精析]根据[定位词定位]、[核心义匹配]可知本题对应[A]段12句。两句指出一 种呼吁开放数据、代码、研究方法的趋势正稳步增长,开放精神日益得到科学界认可。本题是对两句大 意概括,be open to thepublic对应make..·publiclyavailable and transparent。"
+        },
+        {
+          "number": 40,
+          "stem": "Sharing data offers early-career researchers the chance to build a certain level of reputation.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "P",
+          "explanation": "共享数据为职业初期研究者提供了树立一定程度声誉的机会。 [答案][P]][精析]根据[定位词定位]、[核心义匹配]可知本题对应[C]、[P]段。相较两段会发 现,C段着重强调年轻科学家要好好利用数据开放的好处,而[P段着重强调数据共享给职业初期研 究者带来的好处,[P]段角度与试题角度更为契合,故舍[C]取[P]。 41数据共享使科学家得以发表研究工作的每一个步骤,从而增加被引用的次数。 [答案][[L」[精析]根据[定位词定位」、[核心义匹配]可知本题对应[L段34句。3句指出科 学家可以公布研究周期的每一个步骤,4句指出这样一来,数据和软件都可能成为引用对象,被引次数 可能增加。本题是对两句大意的概括,题中thusleadingto.·.准确概括了Insodoing体现的3句之 间的“条件一结果”关系,morecitations是对4句一篇文章被引次数由一次增加至三次的概括。"
+        },
+        {
+          "number": 41,
+          "stem": "Data sharing enables scientists to publish each step of their research work, thus leading to more citations.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "L",
+          "explanation": "[答案][L] [精析]根据[定位词定位]、[核心义匹配]可知本题对应[L]段③④句。③句指出科学家可以公布研究周期的每一步骤，④句指出这样一来，数据和软件都可能成为引用对象，被引次数可能增加。本题是对两句大意的概括，题中 thus leading to…准确概括了 In so doing 体现的③④句之间的“条件—结果”关系，more citations 是对④句一篇文章被引次数由一次增加至三次的概括。"
+        },
+        {
+          "number": 42,
+          "stem": "Scientists hold different opinions about the extent and timing of data sharing.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "B",
+          "explanation": "科学家对于数据共享的程度和时机各执一词。 [答案][B][精析]根据[定位词定位]、核心义匹配]可知本题对应[B]段4句,该句指出科学家 在何时共享多少数据方面意见不一,题目是对该句的同义改写。"
+        },
+        {
+          "number": 43,
+          "stem": "Potential problems related to data sharing should be made known to and discussed by all participants at the beginning of a joint research project.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "O",
+          "explanation": "在开始一个合作研究项目的时候,所有参与者都应知悉并讨论数据共享相关的潜在问题。 [答案][][精析]根据[定位词定位]、[核心义匹配]可知本题对应[O]段23句。两句指出研 究者应在研究之初讨论开放科学的相关担忧,清楚了解项目合作各方对于数据开放的预期。题目是对 两句内容的同义改写,其中byallparticipants对应3句you...withsomeone(合作项目的各方)。"
+        },
+        {
+          "number": 44,
+          "stem": "Sharing data and handling data-related issues can be time-consuming.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "I",
+          "explanation": "共享数据、处理数据相关问题可能花费大量时间。 [答案][][精析]根据[定位词定位]、[核心义匹配]可知本题对应[}段。本题是对该段大意的 概括,sharingdata andhandling data-related issues是对[I」段1句preparing data、2句answering questionsandhandlingcomplaints的概括。"
+        },
+        {
+          "number": 45,
+          "stem": "Junior researchers may have no say when it comes to sharing data.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "F",
+          "explanation": "年轻的研究者在数据共享方面可能没有发言权。 「答案][F[精析]根据定位词定位」、核心义匹配可知本题对应[F段末句。该句指出,如果 导师或资历较深的同事反对共享数据,研究生和博士后们可能也没有选择。题目是对该句的同义改 写,juniorresearchers对应graduatestudentsandpostdocs(年轻研究者中更加弱势的群体)。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2017-12-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "In the beginning of the movie I, Robot, a robot has to decide whom to save after two cars plunge into the water—Del Spooner or a child. Even though Spooner screams \"Save her! Save her!\" the robot rescues him because it calculates that he has a 45 percent chance of survival compared to Sarah's 11 percent. The robot's decision and its calculated approach raise an important question: would humans make the same choice? And which choice would we want our robotic counterparts to make? Isaac Asimov evaded the whole notion of morality in devising his three laws of robotics, which hold that 1. Robots cannot harm humans or allow humans to come to harm; 2. Robots must obey humans, except where the order would conflict with law 1; and 3. Robots must act in self-preservation, unless doing so conflicts with laws 1 or 2. These laws are programmed into Asimov's robots—they don't have to think, judge, or value. They don't have to like humans or believe that hurting them is wrong or bad. They simply don't do it. The robot who rescues Spooner's life in I, Robot follows Asimov's zeroth law: robots cannot harm humanity (as opposed to individual humans) or allow humanity to come to harm—an expansion of the first law that allows robots to determine what's in the greater good. Under the first law, a robot could not harm a dangerous gunman, but under the zeroth law, a robot could kill the gunman to save others. Whether it's possible to program a robot with safeguards such as Asimov's laws is debatable. A word such as \"harm\" is vague (what about emotional harm? Is replacing a human employee harm?), and abstract concepts present coding problems. The robots in Asimov's fiction expose complications and loopholes in the three laws, and even when the laws work, robots still have to assess situations. Assessing situations can be complicated. A robot has to identify the players, conditions, and possible outcomes for various scenarios. It's doubtful that a computer program can do that—at least, not without some undesirable results. A roboticist at the Bristol Robotics Laboratory programmed a robot to save human proxies (替身) called \"H-bots\" from danger. When one H-bot headed for danger, the robot successfully pushed it out of the way. But when two H-bots became imperiled, the robot chocked 42 percent of the time, unable to decide which to save and letting them both \"die.\" The experiment highlights the importance of morality: without it, how can a robot decide whom to save or what's best for humanity, especially if it can't calculate survival odds?"
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What question does the example in the movie raise?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Whether robots can reach better decisions."
+            },
+            {
+              "key": "B",
+              "text": "Whether robots follow Asimov's zeroth law."
+            },
+            {
+              "key": "C",
+              "text": "How robots may make bad judgments."
+            },
+            {
+              "key": "D",
+              "text": "How robots should be programmed."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]D)。首段34句介绍影片镜头“生死关头,机器人不顾斯普纳嘶吼,根据生还几率放弃 了对小女孩的施救”所引出的问题:人类是否会做出相同选择?人类到底希望机器人做何选择?延伸 即为:如果机器人所做扶择与人类不同,那人类该如何设定程序以让机器人做出符合人类期望的选择? 正确项D是对第二问题中want所展示的“人对机器人的操控性”的合理解读。且由后文program复现 及其所呈现的机器人编程问题不难确认D的正确性。 [排除干扰]A、C项均由3句thesame分别臆断出better、bad,而文中并未指出两种执择哪种更好。 B项将第三段1句follows确切肯定之意曲解为Whether...follow疑问之意。 [提炼思路]本题借事实细节考查文章主题,解题时需精准定位、剔除貌合神离项(A、C项由“机器 人选择与斯普纳选择相悖”分别捏造出“斯普纳选择更好”、“机器人选择错误”之意,但文中没有谈及两 种选择敦优熟劣、而只谈及两块择是否能够一致;B项则直接将肯定之意follows曲解为疑问之意 whether..follow),还需借助下文内容对正确项加以佐证(D项与后文反复出现的program所展示的 “编码程序问题”吻合)。"
+        },
+        {
+          "number": 47,
+          "stem": "What does the author think of Asimov's three laws of robotics?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are apparently divorced from reality."
+            },
+            {
+              "key": "B",
+              "text": "They did not follow the coding system of robotics."
+            },
+            {
+              "key": "C",
+              "text": "They laid a solid foundation for robotics."
+            },
+            {
+              "key": "D",
+              "text": "They did not take moral issues into consideration."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]D)。第二段1句点评指出阿西莫夫在构想机器人学三定律时规避了全部道德概念,2 34句随后以“三定律规范下阿西莫夫机器人的行为特点:只机械遵循规律、而不必具备思想/判断意 识、不必喜爱人类或认为“伤害人类是错误的、恶劣的””强调这些定律“没有考虑道德问题”,正确项D 是第二段1句evadedthewholenotionofmorality的同义改写、是对231句theydon'thaveto.·.They don'thaveto..Theysimplydon'tdoit的合理概括。 [排除干扰]A项apparentlydivorcedfromreality“明显脱离现实”是对第四段首句Whetherit's possible.·.isdebatable\"能否编人程序/编入程序是否合理存有争议”的片面化、绝对化。B项源自第四 段2句abstractconceptspresentcodingproblems,却将present所呈递的“阿西莫夫定律中因自身抽象 概念而弓发编码问题”曲解出didnotfollow所呈递出的“定律未能遵循缩码体系”,而事实上“定律即为 编码原则”。C项a solid foundation很明显与第四段末句“三定律暴露出复杂问题及漏洞”相悖。 提炼思路」本题考查“作者对阿西莫夫机器人学三定律的看法”,话说第二段作者即对该三定律做 了非常直观的点评,但由于第四段中作者亦对阿西莫夫定律(既包含三定律、也包含第零定律)做了点 评,故而在设置选项的时候,既可以第二段信息为选项源、亦可以第四段信息为选项源。通常而言,完 全对应提问信息的定位处才是正确答案所在,非完全对应提问信息的定位处常为干扰项所在,故可将 正确项锁定第二段定位处。"
+        },
+        {
+          "number": 48,
+          "stem": "What does the author say about Asimov's robots?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They know what is good or bad for human beings."
+            },
+            {
+              "key": "B",
+              "text": "They are programmed not to hurt human beings."
+            },
+            {
+              "key": "C",
+              "text": "They perform duties in their owners' best interest."
+            },
+            {
+              "key": "D",
+              "text": "They stop working when a moral issue is involved."
+            }
+          ],
+          "answer": "B",
+          "explanation": "作者对阿西莫夫机器人怎么看? A)它们知道对人类而言什么是好的,什么是 不好的。 B)它们被编入程序不去伤害人类。 C)它们为其主人的最大利益履行职责。 D)它们一牵涉道德问题就停止工作。 [精准定位]据由Asimov'srobots既可定位至第二段231句(Asimov'srobots一theydon'thave to...They don't have to...They simply don't do it),也可定位至第三段(The robot...robots cannot harm...a robot could not harm...arobot couldkill...)及第四段末句(The robotsinAsimov's fiction...robotsstillhaveto...);而据由其题目分配位置可将其定位至第二、三段。 L锁定答案」B。第二段2句以阿西莫夫编程原则“三定律:不得伤害人类或坐视人类受伤害等”以 及三定律规范下阿西莫夫机器人的行为特点“无须具备思想、判断意识”强调它们“只按照定律行事”; 第三段又借第零定律进一步指出阿西莫夫机器人行事规则“不得伤害人类整体或坐视人类整体受伤 害”。由此可知,B项正确,它是第二段及第三段文意主旨的体现。 [排除干扰]A项由第二段3句“阿西莫夫机器人不必思考、判断、评价”曲解出“它们知道好坏,只是 不做而已”,但却与4句“它们根本就不会那么做”相悖。C项与第三段首句第零定律“机器人必须保护 人类整体利益而非个体利益”相悖。D项将第二段首句“机器人学三定律规避道德概念/阿西莫夫机器 人无道德观念”篡改为“阿西莫夫机器人一牵涉道德问题就停止工作”。 [提炼思路]本题定位多处,选项源自各个定位处,解题时虽可将选项与定位处一一匹配以确定正 确答案,但亦可抓取定位处相同/相似信息锁定正确答案。警如,根据第二段234句核心信息“机器 人无道德观念、但不伤害人类利益”、第三段核心信息“机器人不伤害人类整体利益”、第四段末句信 息“机器人暴露出了三定律的漏洞及问题”可知重合信息为“不伤害人类”,故而选定B项。 IlThe robot who rescues Spooner's life in I, Robot follows Asimov's zeroth law: robots cannot harm humanity(as opposed to individual humans) or allow humanity to come to harman expansionof the first law that allows robots to determine what's in the greater good. @ Under the first law, a robot could not harm a dangerous gunman, but under the zeroth law, a robot could kill the gunman to save others. 《我,机器人》中挽救斯普纳生命的 机器人遵循了阿西莫夫的第零定律:机 器人不得伤害人类整体(与人类个体相 对)或坐视人类整体受到伤害——第一 定律的扩展,使机器人能够决定何为更 大利益。依照第一定律,机器人不得伤 害一个危险持枪者,而依照第零定律, 机器人可以杀死持枪者以拯教他人。 ·"
+        },
+        {
+          "number": 49,
+          "stem": "What does the author want to say by mentioning the word \"harm\" in Asimov's laws?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Abstract concepts are hard to program."
+            },
+            {
+              "key": "B",
+              "text": "It is hard for robots to make decisions."
+            },
+            {
+              "key": "C",
+              "text": "Robots may do harm in certain situations."
+            },
+            {
+              "key": "D",
+              "text": "Asimov's laws use too many vague terms."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]A)。第四段先概述“以阿西莫夫定律编写机器人程序的可行性存在争议”,随后详述 ““伤害等字眼含糊不清、会引发编程问题”,可见,作者提及“伤害”一词是为证明“抽象概念难以编程、 阿西莫夫定律可能无法编入机器人程序”。正确项A是第四段2句abstractconceptspresent coding problems的同义改写。 [排除干扰]B、C项虽似复现第五段3句It'sdoubtful...candothat、someundesirableresults所述否定 含义、负面文意,但该句意在说明“阿西莫夫定律无法帮助机器人有效评定形势,即便能,也会产生不良后 果”,与题干考查要点“作者提及阿西莫夫定律中“harm'一词的目的”无关。D项toomany虽似复现第四 段2句aword suchas、concepts所示复数概念,但文中未提及“阿西莫夫定律使用了过多含糊术语”。 [提炼思路本题考查作者写作意图,解题可:一、根据“论据旨在为论点服务原则”锁定正确项(第 四段1句为论点:阿西莫夫定律编人程序的可行性受到质疑;2句给出论据:定律中例如“伤害”这样的 字眼含混不清、很难编入程序,故A项正确);二、根据论述重心转换,排除非论述重心而来的选项(由第 四段末句evenwhenthelawswork,robotsstillhaveto.·.可知,第五段关注点已经由第四段阿西莫夫 定律可行性问题转至其他问题,故可排除与第五段相联系的B、C项);三、根据文章事实信息排除未涉 及选项(D项toomany言过其实、无信息支持)。"
+        },
+        {
+          "number": 50,
+          "stem": "What has the roboticist at the Bristol Robotics Laboratory found in his experiment?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Robots can be made as intelligent as human beings some day."
+            },
+            {
+              "key": "B",
+              "text": "Robots can have moral issues encoded into their programs."
+            },
+            {
+              "key": "C",
+              "text": "Robots can have trouble making decisions in complex scenarios."
+            },
+            {
+              "key": "D",
+              "text": "Robots can be programmed to perceive potential perils."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]C)。第五段首先提出观点“计算机算法(即机器人)很难成功评定形势,即便能,也会伴 随不利后果”,随后以布里斯托机器人实验室的机器人学家的实验发现力证:一个“人机者”陷人危险 时,机器人能及时援救,而两个“人机者”陷人危险时,机器人不能做出决定。可见,机器人只能遵从指 令、无法判定复杂形势、做出合理决策。正确项C是第五段3句实验结果whentwoH-botsbecame imperiled,the robot choked...unable to decide...的合理归纳,是3句It'sdoubtful that a computer programcandothat的改写。 [排除干扰]A项由3句“机器人可以成功拯救“人机者脱离危险”推断而来,但随后3句即指出“两 个“人机者,陷人危险时,机器人无法做出执择”,可知,机器人不能像人类一样评定复杂形势/不如人类 聪明,且文中并未提及日后机器人是否能够和人类一样聪明。B项由末句“没有道德,机器人无法做出 合理决策”过度推断出“人类会将道德编入机器人程序”,但文章并未提及。D项将4句机器人学家的实 验目的“使机器人能够拯救人类脱离危险”篡改为“使机器人感知自身潜在危险”。 [提炼思路本题为事实细节题,以“实验结果”考查段落主旨,解题可:一、划分实验目的/对象/结 果,对号人座,初步锁定答案(第五段4句介绍实验,3句说明实验结果:机器人不能进行两难块择/ 不能在复杂情况下做出合理决策,初步锁定C项);二、划分意群主旨,由意群关联文意确定答案(第五 段1至3句指出算法/机器人未必能评定形势、至少会引发不良后果,第五段3句指出机器人无道德概 念、不能做出于人类有利的决策,确定C项正确)。 PassageTwo智能城市将引发生活巨变 一、总体分析 来源:HuffingtonPost《赫芬顿邮报》2017.12.06文章WhySmartCities,BusinessesandHomes WillTransformYourLife(为什么智能城市、智能企业和智能居家将给你的生活带来巨变)。主题:物联 网技术发展所带来的机遇和挑战,它在智能城市、智能企业、智能家居等方面的运用将给我们的生活带 来巨大改变。脉络:由科技发展引出物联网技术发展(首两段)展望物联网技术发展(第三至五 段)—陈述物联网技术发展带来的机遇及挑战(第六、七段)———总结收篇,强调物联网技术即将给我 们生活带来巨变,呼吁人们做好心理预设(第八、九段)。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2017-12-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Our world now moves so fast that we seldom stop to see just how far we have come in just a few years. The latest iPhone 6s, for example, has a dual-core processor and fits nicely into your pocket. By comparison, you would expect to find a technological specification like this on your standard laptop in an office anywhere in the world. It's no wonder that new applications for the Internet of Things are moving ahead fast when almost every new device we buy has a plug on the end of it or a wireless connection to the internet. Soon, our current smartphone lifestyle will expand to create our own smart home lifestyle too. All researches agree that close to 25 billion devices, things and sensors will be connected by 2020 which incidentally is also the moment that Millennials (千禧一代) are expected to make up 75 percent of our overall workforce, and the fully connected home will become a reality for large numbers of people worldwide. However, this is just the tip of the proverbial iceberg as smart buildings and even cities increasingly become the norm as leaders and business owners begin to wake up to the massive savings that technology can deliver through connected sensors and new forms of automation coupled with intelligent energy and facilities management. Online security cameras, intelligent lighting and a wealth of sensors that control both temperature and air quality are offering an unprecedented level of control, efficiency, and improvements to what were once classed necessary costs when running a business or managing a large building. We can expect that the ever-growing list of devices, systems and environments remain connected, always online and talking to each other. The big benefit will not only be in the housing of this enormous and rapidly growing amount of data, but will also be in the ability to run real time data analytics to extract actionable and ongoing knowledge. The biggest and most exciting challenge of this technology is how to creatively leverage this ever-growing amount of data to deliver cost savings, improvements and tangible benefits to both businesses and citizens of these smart cities. The good news is that most of this technology is already invented. Let's face it, it wasn't too long ago that the idea of working from anywhere and at anytime was some form of a distant Utopian (乌托邦式的) dream, and yet now we can perform almost any office-based task from any location in the world as long as we have access to the internet. It's time to wake up to the fact that making smart buildings, cities and homes will dramatically improve our quality of life in the years ahead."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the example of iPhone 6s serve to show?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The huge capacity of the smartphones people now use."
+            },
+            {
+              "key": "B",
+              "text": "The widespread use of smartphones all over the world."
+            },
+            {
+              "key": "C",
+              "text": "The huge impact of new technology on people's everyday life."
+            },
+            {
+              "key": "D",
+              "text": "The rapid technological progress in a very short period of time."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]D)。首段1句提出观点:世界进步之快令人无暇驻足观看到底进步有多大;23句随 即例证:手机都已经搭载上了笔记本电脑的处理器。由此可知,苹果6s的例子意在说明科技在短时间 之内的进步巨大。正确项D是对1句Ourworldnowmovessofast...的同义改写。 [排除干扰]A项将adual-coreprocessor错误归纳为capacity(手机处理器决定运行速度而非容 量)并将例子中的信息本身当作例子写作目的。(注:capacity作“能力”解时,指“领悟、理解、办事的能 力”,与此处语境不符。)B项仍着眼于“智能手机”本身,并结合常识“智能手机应用广泛”加以干扰。C 项从“智能手机性能强”顺势推出“新科技对生活影响大”,但没有注意到23句之间的对比及其对1 句的例证。 [提炼思路]本题为写作目的题。此类题型考查写某事例的用意,考生需意识到事例的本质是“论 据”,是为“论点”所服务的,因此应避免着眼于事例本身的选项(如本题中A、B只关注事例本身),并将 重点落在对意群逻辑关系的理解上(如本题中forexample提示本句例证上句,Bycomparison提示两句 之间的对比),锁定事例所服务的对象(23句之间的对比是为了证明“现今世界进步很快\")。"
+        },
+        {
+          "number": 52,
+          "stem": "What can we expect to see by the year 2020?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Apps for the Internet of Things."
+            },
+            {
+              "key": "B",
+              "text": "The popularization of smart homes."
+            },
+            {
+              "key": "C",
+              "text": "The emergence of Millennials."
+            },
+            {
+              "key": "D",
+              "text": "Total globalization of the world."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]B)。第三段指出,到2020年预计共有三件事发生:250亿设备联网、千禧一代构成劳 动力总量四分之三、全球很多人都能住上智能家居,正确项B是对thefullyconnectedhomewillbecome areality的同义改写。 [排除干扰]A项错误定位至第二段,利用该段首句newapplicationsfortheInternetofThings进行 干扰,但该句指出物联网应用软件“正在迅猛发展”,故答非所问。C项将定位信息“千禧一代将成为劳 动力主力军”篡改为“出现”。D项利用段尾词worldwide捏造而来,但原文并未提及全球化。 [提炼思路]本题题眼句为长难句,就其设题,既可考查对长难句理解,亦能考查对段落主旨的把 握。常规解题方法即为肢解句子结构,逐一对应选项并得出答案(如肢解为三个小分句,分别为that close to. .. will be connected, that Millennials are expected to. . . , and the fully connected home will. . . 他们分别指出了2020年前可以发生的三大事件),其中可能涉及某些抽象表达,可借助段际关系及段内 细节加以推断(如根据第三段与第二段后半部分的解释说明关系以及第三段内部细节devices,things andsensorswillbeconnected推断出thefullyconnectedhome即指smarthome)。此题还可以采取非常 规解题方法,即“常识结合主旨排除法”:A、C、D项很明显与常识“物联网应用程序已出现、千禧一代早 已有之、全球化早已形成”及主旨“技术进步给人们带来的生活影响(由smartphonelifestyle、smarthome lifestyle、smartbuildings中反复出现的smart传递出来)”不契合。 N However, this is just the tip of the proverbial iceberg as smart buildings and even cities increasingly become the normas leaders and business owners begin to wake up tothe massive savings that technology can deliver through connected sensors and new forms of automation coupled with intelligent energy and facilities management. 然而,这只是谚语所说的“冰山一 角”,因为随着领导人和企业主开始意 识到技术通过互联传感器以及与能源 设备智能管理相结合的新式自动化可 以节省巨额开销,智能建筑甚至智能城 市将日益成为一种常态。 ·"
+        },
+        {
+          "number": 53,
+          "stem": "What will business owners do when they become aware of the benefits of the Internet of Things?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Employ fewer workers in their operations."
+            },
+            {
+              "key": "B",
+              "text": "Gain automatic control of their businesses."
+            },
+            {
+              "key": "C",
+              "text": "Invest in more smart buildings and cities."
+            },
+            {
+              "key": "D",
+              "text": "Embrace whatever new technology there is."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]C)。第四段指出,物联网技术能节约巨额开销,领导人和企业主意识到这点后,智能建 筑和城市将变得更为普遍。完整的逻辑链条应为:企业主意识到物联网技术节约成本一(企业主加大投 人)一智能建筑和城市变得普遍。正确项C是leadersandbusinessownersbegintowakeuptothemassive savings与smartbuildingsand even cities increasinglybecomethe norm所隐藏因果逻辑的合理推断。 [排除干扰A、B项均复现automation,但该词意指“对能源、设备进行智能化管理的自动化控制新 形式(即智能自动化)”而非“企业实施自动化(以减少人工成本)、自动控制企业”。D项由第四段“企业 主意识到物联网技术能大力节省成本→欣然接受物联网技术”过度推断出“他们将接受所有新技术”。 [提炼思路]本题设题思路同上题。但解题时除了要肢解句子结构之外,还必须明确各结构之间语 义逻辑,并根据这一内部语义逻辑进行合理推断:即,首先根据语法知识可将句子肢解为四个部分,主 句部分、两个as从句部分及一个that定语从句部分;然后结合题干考查点“企业主思维意识转变带来何 种行动”可将其准确定位至两个as从句部分;再仔细研究两部分发现第二个as连接着企业主思维意识 转变及其影响,但并未提及任何行为;于是需要根据这一隐性因果逻辑(具体而言,这一影响/结果)合 理推断出企业主应有的行为:“智能建筑、智能城市越来越多,并成为常态”这一结果唯有与C项“加大 对智能城市、建筑的投入”这一行为才能形成顺滑衔接。本题同上题,亦可采取“结合主旨排除法”,四 个选项中唯有C项中smart契合全文关键词smart,且契合题干中theInternetofThings所隐藏“智能” 之意;A、B项过于细节琐碎,且与主旨无关;D项则过于绝对(whatever),且不能与题干形成很好的因果 逻辑“知道物联网的好处,不一定就得接受所有新科技”。"
+        },
+        {
+          "number": 54,
+          "stem": "What is the most exciting challenge when we possess more and more data?",
+          "options": [
+            {
+              "key": "A",
+              "text": "How to turn it to profitable use."
+            },
+            {
+              "key": "B",
+              "text": "How to do real time data analysis."
+            },
+            {
+              "key": "C",
+              "text": "How to link the actionable systems."
+            },
+            {
+              "key": "D",
+              "text": "How to devise new ways to store it."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]A)。第七段指出,物联网技术最激动人心的挑战在于如何创造性地利用数据,从而为 企业和居民谋福社;换言之,挑战即在于如何利用数据获得好处、取得收益。正确项A是对todeliver cost savings,improvements and tangible benefits的高度概括。 [排除干扰]B项对第六段信息runreal timedataanalytics张冠李戴,“进行实时数据分析”是物联 网技术的“好处”而非“挑战”。C项利用第六段碎片信息actionable进行干扰,但原文指的是“可操作的/ 有实用价值的知识”而非“可操作的系统”,更无“连接系统”一说。D项干扰方式与B项相似,将第六段 中物联网的好处“存储大量数据”错误地归为物联网的挑战。 [提炼思路」文章第六、七段谈及物联网技术带来的机遇(即好处)及挑战,题干针对挑战设题,解题 时需对号入座,不可张冠李戴、将机遇视为挑战而做出错选。答题时需要区辨机遇及挑战,第六段中所 谈机遇分为两个概念,一是数据存储体量大、增速快(housingof...data),二是数据实时分析以提取有 用知识的能力(runrealtimedataanalytics、extractactionable..,knowledge),第七段谈及挑战,只有一个 概念,即数据为民所用问题(howtoleveragedata..,todelivercostsavings,improvementsandtangible benefitsto...);换言之,与这两个机遇相关的所有选项(如B、C、D项中的realtimedata analysis、 actionable、storeit)都可以做出排除,而与挑战相贴合的即为正确项。 Vll The good news is that most of this technology is 好消息是,这种技术大部分都 already invented, 国 @ Let's face it, it wasn't too long 已问世。让我们面对现实吧:不太久 ago that the idea of working from anywhere and at 之前,随时随地都能办公的想法还 anytimewassomeformofadistantutopian(乌托邦式的 只是个遥不可及的乌托邦式幻想; ) dream, and yet now we can performalmost any office 而现在,只要能联网,我们就可以在 based task from any location in the world as long as we 世界上任意一个角落完成几乎所有 have access to the internet. 的办公室任务。 ·"
+        },
+        {
+          "number": 55,
+          "stem": "What does the author think about working from anywhere and at anytime?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is feasible with a connection to the internet."
+            },
+            {
+              "key": "B",
+              "text": "It will thrive in smart buildings, cities and homes."
+            },
+            {
+              "key": "C",
+              "text": "It is still a distant Utopian dream for ordinary workers."
+            },
+            {
+              "key": "D",
+              "text": "It will deliver tangible benefits to both boss and worker."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]A)。第八段2句指出,随时随地办公的想法在不久之前还遥不可及,但现在只要能连 上网,就可以随时随地办公。正确项A是对..·aslongaswehaveaccesstotheinternet的同义改写。 [排除干扰]B、C项分别复现末段的smartbuildings,citiesandhomes和第八段的adistantutopian dream,但文意为“现在,任何人在任何地方都可以做到随时随地办公”而非局限于某些人、某些区域。 D项虽复现第七段tangible benefits,但其意为“如何利用物联网大数据以谋取利益”,与随时随地工 作无关。 [提炼思路]本题形似考查作者态度观点,实则考查事实细节,除按照常规套路“回文精准定位”解 题外,还得学会正确读题、结合选项进行解题。如本题,纵观四个选项可知真正要考查的要点实为“随 时随地办公的可实现条件、可实现范围、可实现对象或利益惠及方”,所以解题关键在了解文意切中点 到底在哪儿,而这仅仅需要借助语义逻辑词即可加以判断:由itwasn'ttoolongago...andyetnow...as longas...即可知文章借助今昔对比结构将文意重点落于“今”处,而“今”处又涉及条件词aslongas,故 很快可以将之与A项中条件相比对,并发现该项完全契合文意。"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1655 @@
+{
+  "id": "cet4-2014-12-1",
+  "level": 4,
+  "year": 2014,
+  "month": 12,
+  "set": 1,
+  "title": "2014 年 12 月四级 · 第 1 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.12/%E7%9C%9F%E9%A2%98Word/2014%E5%B9%B412%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%E8%AF%95%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89.doc",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2014%E5%B9%B412%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%B8%80%EF%BC%89.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2014-12-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "One principle of taxation, called the benefit principle, states that people should pay taxes based on the benefits they receive from government services. This principle tries to make public goods similar to [[36]] goods. It seems reasonable that a person who often goes to the movies pays more in [[37]] for movie tickets than a person who rarely goes.And [[38]] a person who gets great benefit from a public good should pay more for it than a person who gets little benefit.",
+        "The gasoline tax, for instance, is sometimes [[39]] using the benefits principle. In some states, [[40]] from the gasoline tax are used to build and maintain roads. Because those who buy gasoline are the same people who use the roads, the gasoline tax might be viewed as a [[41]] way to pay this government service.",
+        "The benefits principle can also be used to argue that wealthy citizens should pay higher taxes than poorer ones, [[42]] because the wealthy benefit more from public services. Consider, for example, the benefits of police protection from [[43]].Citizens with much to protect get greater benefit from police than those with less to protect.Therefore, according to the benefits principle, the wealthy should [[44]] more than the poor to the cost of [[45]] the police force. The same argument can be used for many other public services, such as fire protection, national defense, and the court system."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "adapt"
+        },
+        {
+          "key": "B",
+          "text": "contribute"
+        },
+        {
+          "key": "C",
+          "text": "exerting"
+        },
+        {
+          "key": "D",
+          "text": "expenses"
+        },
+        {
+          "key": "E",
+          "text": "fair"
+        },
+        {
+          "key": "F",
+          "text": "justified"
+        },
+        {
+          "key": "G",
+          "text": "maintaining"
+        },
+        {
+          "key": "H",
+          "text": "private"
+        },
+        {
+          "key": "I",
+          "text": "provided"
+        },
+        {
+          "key": "J",
+          "text": "revenues"
+        },
+        {
+          "key": "K",
+          "text": "similarly"
+        },
+        {
+          "key": "L",
+          "text": "simply"
+        },
+        {
+          "key": "M",
+          "text": "theft"
+        },
+        {
+          "key": "N",
+          "text": "total"
+        },
+        {
+          "key": "O",
+          "text": "wealth"
+        }
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "第 36 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adapt"
+            },
+            {
+              "key": "B",
+              "text": "contribute"
+            },
+            {
+              "key": "C",
+              "text": "exerting"
+            },
+            {
+              "key": "D",
+              "text": "expenses"
+            },
+            {
+              "key": "E",
+              "text": "fair"
+            },
+            {
+              "key": "F",
+              "text": "justified"
+            },
+            {
+              "key": "G",
+              "text": "maintaining"
+            },
+            {
+              "key": "H",
+              "text": "private"
+            },
+            {
+              "key": "I",
+              "text": "provided"
+            },
+            {
+              "key": "J",
+              "text": "revenues"
+            },
+            {
+              "key": "K",
+              "text": "similarly"
+            },
+            {
+              "key": "L",
+              "text": "simply"
+            },
+            {
+              "key": "M",
+              "text": "theft"
+            },
+            {
+              "key": "N",
+              "text": "total"
+            },
+            {
+              "key": "O",
+              "text": "wealth"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H) private。【详解】形容词辨析题。空格后面goods 为名同,闪此空格处应填入形容词,用以修饰goods “物品”。文章首句介绍了受益原则的具体内容,即纳税人根据受益大小交纳税收。空格下一句以个人购 买电影票的花费为例,详细阐述了受益原则的内容。结合上文的public goods,可以确定形容词private 为本 题答案,意思是“私人的,个人的”。备选形容词中,fair 意思是“公平的”,与文意不符,可以排除。"
+        },
+        {
+          "number": 37,
+          "stem": "第 37 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adapt"
+            },
+            {
+              "key": "B",
+              "text": "contribute"
+            },
+            {
+              "key": "C",
+              "text": "exerting"
+            },
+            {
+              "key": "D",
+              "text": "expenses"
+            },
+            {
+              "key": "E",
+              "text": "fair"
+            },
+            {
+              "key": "F",
+              "text": "justified"
+            },
+            {
+              "key": "G",
+              "text": "maintaining"
+            },
+            {
+              "key": "H",
+              "text": "private"
+            },
+            {
+              "key": "I",
+              "text": "provided"
+            },
+            {
+              "key": "J",
+              "text": "revenues"
+            },
+            {
+              "key": "K",
+              "text": "similarly"
+            },
+            {
+              "key": "L",
+              "text": "simply"
+            },
+            {
+              "key": "M",
+              "text": "theft"
+            },
+            {
+              "key": "N",
+              "text": "total"
+            },
+            {
+              "key": "O",
+              "text": "wealth"
+            }
+          ],
+          "answer": "N",
+          "explanation": "N) total。【详解】固定搭配题。本句意在通过私人物品来阐述受益原则的内容:一个经常去看电影的 人购票费用总额多于很少去看电影的人。in total 是固定搭配,意思是“总数。"
+        },
+        {
+          "number": 38,
+          "stem": "第 38 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adapt"
+            },
+            {
+              "key": "B",
+              "text": "contribute"
+            },
+            {
+              "key": "C",
+              "text": "exerting"
+            },
+            {
+              "key": "D",
+              "text": "expenses"
+            },
+            {
+              "key": "E",
+              "text": "fair"
+            },
+            {
+              "key": "F",
+              "text": "justified"
+            },
+            {
+              "key": "G",
+              "text": "maintaining"
+            },
+            {
+              "key": "H",
+              "text": "private"
+            },
+            {
+              "key": "I",
+              "text": "provided"
+            },
+            {
+              "key": "J",
+              "text": "revenues"
+            },
+            {
+              "key": "K",
+              "text": "similarly"
+            },
+            {
+              "key": "L",
+              "text": "simply"
+            },
+            {
+              "key": "M",
+              "text": "theft"
+            },
+            {
+              "key": "N",
+              "text": "total"
+            },
+            {
+              "key": "O",
+              "text": "wealth"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K) similarly。【详解】副词辨析题。空格所在句为一个完整句子,并不缺少句子成分。由此可知,空 格处可填入副词修饰整句话。上文通过个人消费实例阐述了受益原则的内容,本句意在进一步阐述,两者 构成并列关系,故similarly 为答案。备选项中只有两个副词:similarly 和simply。simply 意思是“仅仅,只 是”,无法与前文构成并列关系,可以排除。"
+        },
+        {
+          "number": 39,
+          "stem": "第 39 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adapt"
+            },
+            {
+              "key": "B",
+              "text": "contribute"
+            },
+            {
+              "key": "C",
+              "text": "exerting"
+            },
+            {
+              "key": "D",
+              "text": "expenses"
+            },
+            {
+              "key": "E",
+              "text": "fair"
+            },
+            {
+              "key": "F",
+              "text": "justified"
+            },
+            {
+              "key": "G",
+              "text": "maintaining"
+            },
+            {
+              "key": "H",
+              "text": "private"
+            },
+            {
+              "key": "I",
+              "text": "provided"
+            },
+            {
+              "key": "J",
+              "text": "revenues"
+            },
+            {
+              "key": "K",
+              "text": "similarly"
+            },
+            {
+              "key": "L",
+              "text": "simply"
+            },
+            {
+              "key": "M",
+              "text": "theft"
+            },
+            {
+              "key": "N",
+              "text": "total"
+            },
+            {
+              "key": "O",
+              "text": "wealth"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F) justified。【详解】动词辨析题。根据空格前后的is 和using 可以判断格处应填入副词修饰动词,或 填入动词过去分词构成被动语态。similarly 和simply 两个副词均与文意不符,故考虑使用justified 或 provided 构成被动语态。provided 后面不能使用现在分词形式,故可排除。因此Justified 为答案,意思是“证 明......合理”,承接第一段内容,本句意为“燃油税的征收遵循受益原则就是合理的justify doing sth. 是常 用结构,意为“证明做......合理。"
+        },
+        {
+          "number": 40,
+          "stem": "第 40 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adapt"
+            },
+            {
+              "key": "B",
+              "text": "contribute"
+            },
+            {
+              "key": "C",
+              "text": "exerting"
+            },
+            {
+              "key": "D",
+              "text": "expenses"
+            },
+            {
+              "key": "E",
+              "text": "fair"
+            },
+            {
+              "key": "F",
+              "text": "justified"
+            },
+            {
+              "key": "G",
+              "text": "maintaining"
+            },
+            {
+              "key": "H",
+              "text": "private"
+            },
+            {
+              "key": "I",
+              "text": "provided"
+            },
+            {
+              "key": "J",
+              "text": "revenues"
+            },
+            {
+              "key": "K",
+              "text": "similarly"
+            },
+            {
+              "key": "L",
+              "text": "simply"
+            },
+            {
+              "key": "M",
+              "text": "theft"
+            },
+            {
+              "key": "N",
+              "text": "total"
+            },
+            {
+              "key": "O",
+              "text": "wealth"
+            }
+          ],
+          "answer": "J",
+          "explanation": "J) revenues。【详解】名词辨析题。分析句子结构可知,are used to 为被动结构,空格处应填入名词作主 语,且应为复数形式。备选名词中只有两个复数名词:expenses 和revenues。expenses 意思是“费用”, revenues 意思是“税收”,结合上文提到的税收问题,可知revenues 为本题答案。备选名词revenues 与文 中tax 是同一概念。"
+        },
+        {
+          "number": 41,
+          "stem": "第 41 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adapt"
+            },
+            {
+              "key": "B",
+              "text": "contribute"
+            },
+            {
+              "key": "C",
+              "text": "exerting"
+            },
+            {
+              "key": "D",
+              "text": "expenses"
+            },
+            {
+              "key": "E",
+              "text": "fair"
+            },
+            {
+              "key": "F",
+              "text": "justified"
+            },
+            {
+              "key": "G",
+              "text": "maintaining"
+            },
+            {
+              "key": "H",
+              "text": "private"
+            },
+            {
+              "key": "I",
+              "text": "provided"
+            },
+            {
+              "key": "J",
+              "text": "revenues"
+            },
+            {
+              "key": "K",
+              "text": "similarly"
+            },
+            {
+              "key": "L",
+              "text": "simply"
+            },
+            {
+              "key": "M",
+              "text": "theft"
+            },
+            {
+              "key": "N",
+              "text": "total"
+            },
+            {
+              "key": "O",
+              "text": "wealth"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E)fair。【详解】形容词辨析题。结合空格前的冠词a 和空格后的way 可知,空格处应填入 形容词作定语。根据受益原则,受益越多的纳税人交纳的税额也应该更多,这自然是非常合理的做法,故 fair“公平的”为本题答案。备选形容词中private 在第36 题已使用,可以直接排除。"
+        },
+        {
+          "number": 42,
+          "stem": "第 42 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adapt"
+            },
+            {
+              "key": "B",
+              "text": "contribute"
+            },
+            {
+              "key": "C",
+              "text": "exerting"
+            },
+            {
+              "key": "D",
+              "text": "expenses"
+            },
+            {
+              "key": "E",
+              "text": "fair"
+            },
+            {
+              "key": "F",
+              "text": "justified"
+            },
+            {
+              "key": "G",
+              "text": "maintaining"
+            },
+            {
+              "key": "H",
+              "text": "private"
+            },
+            {
+              "key": "I",
+              "text": "provided"
+            },
+            {
+              "key": "J",
+              "text": "revenues"
+            },
+            {
+              "key": "K",
+              "text": "similarly"
+            },
+            {
+              "key": "L",
+              "text": "simply"
+            },
+            {
+              "key": "M",
+              "text": "theft"
+            },
+            {
+              "key": "N",
+              "text": "total"
+            },
+            {
+              "key": "O",
+              "text": "wealth"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L) simply。【详解】副词辨析题。本段意在通过富人纳税更多的实例来阐释受益原则。simply 意为“仅 仅,只是”,符合文意,为本题答案。备选副词中,similarly 在第38 题已使用,可以直接排除。"
+        },
+        {
+          "number": 43,
+          "stem": "第 43 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adapt"
+            },
+            {
+              "key": "B",
+              "text": "contribute"
+            },
+            {
+              "key": "C",
+              "text": "exerting"
+            },
+            {
+              "key": "D",
+              "text": "expenses"
+            },
+            {
+              "key": "E",
+              "text": "fair"
+            },
+            {
+              "key": "F",
+              "text": "justified"
+            },
+            {
+              "key": "G",
+              "text": "maintaining"
+            },
+            {
+              "key": "H",
+              "text": "private"
+            },
+            {
+              "key": "I",
+              "text": "provided"
+            },
+            {
+              "key": "J",
+              "text": "revenues"
+            },
+            {
+              "key": "K",
+              "text": "similarly"
+            },
+            {
+              "key": "L",
+              "text": "simply"
+            },
+            {
+              "key": "M",
+              "text": "theft"
+            },
+            {
+              "key": "N",
+              "text": "total"
+            },
+            {
+              "key": "O",
+              "text": "wealth"
+            }
+          ],
+          "answer": "M",
+          "explanation": "M) theft。【详解】名词辨析题。此处通过富人在警察保护个人财产方面受益更多的例子,进一步阐述 受益原则。根据文意可知,警察保护私人财产安全的服务就应该遵循受益原则。结合句 中的police protection,可知theft 符合文意,即“警察保护财产不被盗窃”。"
+        },
+        {
+          "number": 44,
+          "stem": "第 44 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adapt"
+            },
+            {
+              "key": "B",
+              "text": "contribute"
+            },
+            {
+              "key": "C",
+              "text": "exerting"
+            },
+            {
+              "key": "D",
+              "text": "expenses"
+            },
+            {
+              "key": "E",
+              "text": "fair"
+            },
+            {
+              "key": "F",
+              "text": "justified"
+            },
+            {
+              "key": "G",
+              "text": "maintaining"
+            },
+            {
+              "key": "H",
+              "text": "private"
+            },
+            {
+              "key": "I",
+              "text": "provided"
+            },
+            {
+              "key": "J",
+              "text": "revenues"
+            },
+            {
+              "key": "K",
+              "text": "similarly"
+            },
+            {
+              "key": "L",
+              "text": "simply"
+            },
+            {
+              "key": "M",
+              "text": "theft"
+            },
+            {
+              "key": "N",
+              "text": "total"
+            },
+            {
+              "key": "O",
+              "text": "wealth"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B) contribute。【详解】动词辨析题。空格处位于情态动should 之后,故应填入动词原形,备 选项中只有两个,即adapt 和contribute,两词均可与to 搭配。adapt to 意思是“适应”,不符合文意“富人 应交纳更多的税额”,故contribute 为本题答案。contribute to 是常用搭配,意为“贡献,捐献”。"
+        },
+        {
+          "number": 45,
+          "stem": "第 45 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adapt"
+            },
+            {
+              "key": "B",
+              "text": "contribute"
+            },
+            {
+              "key": "C",
+              "text": "exerting"
+            },
+            {
+              "key": "D",
+              "text": "expenses"
+            },
+            {
+              "key": "E",
+              "text": "fair"
+            },
+            {
+              "key": "F",
+              "text": "justified"
+            },
+            {
+              "key": "G",
+              "text": "maintaining"
+            },
+            {
+              "key": "H",
+              "text": "private"
+            },
+            {
+              "key": "I",
+              "text": "provided"
+            },
+            {
+              "key": "J",
+              "text": "revenues"
+            },
+            {
+              "key": "K",
+              "text": "similarly"
+            },
+            {
+              "key": "L",
+              "text": "simply"
+            },
+            {
+              "key": "M",
+              "text": "theft"
+            },
+            {
+              "key": "N",
+              "text": "total"
+            },
+            {
+              "key": "O",
+              "text": "wealth"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G) maintaining。【详解】动词辨析题。个现在分词,exerting 意为“运用,行使”,其宾语常为工具 或权力,不符合文意,故maintaining 为本题答案。maintain 意为“供养,维持”,此处maintaining the police force 意为“维持警力”。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2014-12-1-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) You wouldn't know Piedmont anymore—my Piedmont, I mean—the town in West Virginia where I learned to be a colored boy.",
+        "B) The 1950s in Piedmont was a time to remember, or at least to me. People were always proud to be from Piedmont—lying at the foot of a mountain, on the banks of the mighty Potomac. We knew God gave America no more beautiful location. In ever knew colored people anywhere who were crazier about mountains and water,flowers and trees, fishing and hunting. For as long as anyone could remember, we could out hunt, out shoot, and out swim the white boys in the valley.",
+        "C) The social structure of Piedmont was something we knew like the back of our hands.It was an immigrant town; white Piedmont was Italian and Irish, with a handful of wealthy WASPs (盎格鲁撒克逊裔的白人新教徒) on East Hampshire Street, and\"ethnic\" neighborhoods of working-class people everywhere else, colored and white.",
+        "D) For as long as anyone can remember, Piedmont's character has been completely bound up with the West vaco paper mill: its prosperous past and doubtful future. At first glance, the town is a typical dying mill center. Many once beautiful buildings stand empty, evidencing a bygone time of spirit and pride. The big houses on East Hampshire Street are no longer proud, as they were when I was a kid.",
+        "E) Like the Italians and the Irish, most of the colored people migrated to Piedmont at the turn of the 20th century to work at the paper mill, which opened in 1888. All the colored men at the paper mill worked on \"the platform\"—loading paper into trucks until the craft unions were finally integrated in 1968. Loading is what Daddy did every working day of his life. That's what almost every colored grown-up I knew did.",
+        "F) Colored people lived in three neighborhoods that were clearly separated. Welcome to the Colored Zone, a large stretched banner could have said. And it felt good in there, like walking around your house in bare feet and underwear, or snoring right out loud on the couch in front of the TV—enveloped by the comforts of home, the warmth of those you love.",
+        "G) Of course, the colored world was not so much a neighborhood as a condition of existence. And though our own world was seemingly self-contained, it impacted on the white world of Piedmont in almost every direction. Certainly, the borders of our world seemed to be impacted on when some white man or woman showed up where he or she did not belong, such as at the black Legion Hall. Our space was violated when one of them showed up at a dance or a party. The rhythms would be off. The music would sound not quite right: attempts to pat the beat off just so.Everybody would leave early.",
+        "H) Before 1955, most white people were just shadowy presences in our world, vague figures of power like remote bosses at the mill or tellers at the bank. There were exceptions, of course, the white people who would come into our world in ritualized,everyday ways we all understood. Mr. Mail Man, Mr. Insurance Man, Mr.White-and-Chocolate Milk Man, Mr. Landlord Man, Mr. Police Man: we called white people by their trade, like characters in a mystery play. Mr. Insurance Man would come by every other week to collect premiums on college or death policies,sometimes 50 cents or less.",
+        "I) \"It's no disgrace to be colored,\" the black entertainer Bert Williams famously observed early in the century, \"but it is awfully inconvenient.\" For most of my childhood, we couldn't cat in restaurants or sleep in hotels, we couldn't use certain bathrooms or try on clothes in stores. Mama insisted that we dress up when we went to shop. She was carefully dressed when she went to clothing stores, and wore white pads called shields under her arms so her dress or blouse would show no sweat.\"We'd like to try this on,\" she'd say carefully, uttering her words precisely and properly. \"We don't buy clothes we can't try on,\" she'd say when they declined, and we'd walk out in Mama's dignified (有尊严的) manner. She preferred to shop where we had an account and where everyone knew who she was.",
+        "J) At the Cut-Rate Drug Store, no one colored was allowed to sit down at the counter or tables, with one exception: my father. I don't know for certain why CarlDadisman, the owner, wouldn't stop Daddy from sitting down. But I believe it was in part because Daddy was so light-colored, and in part because, during his shift at the phone company, he picked up orders for food and coffee for the operators.Colored people were supposed to stand at the counter, get their food to go, and leave. Even when Young Doc Bess would set up the basketball team with free Cokes after one of many victories, the colored players had to stand around and drink out of paper cups while the white players and cheerleaders sat down in comfortable chairs and drank out of glasses.",
+        "K) I couldn't have been much older than five or six as I sat with my father at the Cut-Rate one afternoon, enjoying two scoops of caramel ice cream. Mr. Wilson, astony-faced, brooding Irishman, walked by.\"Hello, Mr. Wilson,\" my father said.\"Hello, George.\"",
+        "L) I was genuinely puzzled. Mr. Wilson must have confused my father with somebody else, but who? There weren't any Georges among the colored people in Piedmont.\"Why don't you tell him your name, Daddy?\" I asked loudly. \"Your name isn't George.\"\"He knows my name, boy,\" my father said after a long pause. \"He calls all colored people George.\"",
+        "M) I knew we wouldn't talk about it again; even at that age, 1 was given to understand that there were some subjects it didn't do to worry to death about. Now that I have children, I realize that what distressed my father wasn't so much the Mr. Wilsons of the world as the painful obligation to explain the racial facts of life to someone who hadn't quite learned them yet. Maybe Mr. Wilson couldn't hurt my father by calling him George; but I hurt him by asking to know why."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "The author felt as a boy that his life in a separated neighborhood was casual and cozy.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【答案】F。【来源勘误】原解析题首误标K，但解析结论及原文F段均对应本题，按F判分。The author felt as a boy that his life in a separated neighborhood was casual and cozy 【译文】作者觉得孩童时期在一个独立的黑人社区的生活随意而舒适。 【精析】B)段第一句提及,20 世纪50 年代的皮德蒙特是值得回忆的,接着开始回忆那个时候也就是作者孩 童时期的皮德蒙特。F)段首先陈述了一个事实:黑人居住在三个独立的社区。然后描述了人们在这里生活的 感受:生活在这里感觉不错,就像你可以赤着脚、穿着内衣在屋子里走动,或者躺在电视机前的沙发上打鼾 睡觉——处处充满着家的舒适和你所爱的人的温暖。由此可见,作者小时候认为黑人社区的生活的确比较 随意、舒适。题干是对F)段画线部分的总结,故答案为F)。"
+        },
+        {
+          "number": 47,
+          "stem": "There is every sign of decline at the paper mill now.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "D",
+          "explanation": "There is every sign of decline at the paper mill now. D)。【译文】如今造纸厂处处充斥着没落的迹象。 【精析】本段首先陈述皮德蒙特的命运完全与维实伟科造纸厂联系在一起:它的过去非常辉煌,未来却难以 捉摸。然后说明其没落的状况:许多过去代表着辉煌和自豪的宏伟建筑已是人去楼空,东汉普郡大街的大型 建筑已经不像我小时候那样辉煌。题干是对D)段画线部分的总结,故答案为D)。"
+        },
+        {
+          "number": 48,
+          "stem": "One reason the author's father could sit and eat at the drug store was that he didn't look that dark.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "J",
+          "explanation": "One reason the authors father could sit and eat at the drug store was that he didn’t look that dark J)。【译文】汉堡王将开始出售西雅图最好咖啡来提高销售额。 【精析】文章描述了黑人受到的歧视:折扣药店不允许黑人坐在柜台或者桌子旁。但作者的父亲却是个例外, 作者相信一部分原因是他的肤色并不太黑。题干中的one reason 对应原文中的in part because;题干中的 didn’t look that dark 是原文中light-colored 的同义转述,故答案为J)。"
+        },
+        {
+          "number": 49,
+          "stem": "Piedmont was a town of immigrants from different parts of the world.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Piedmont was a town of immigrants from different parts of the world. C)。【译文】皮德蒙特是由来自世界各地的人们组成的一个移民小镇。 【精析】定本段介绍了皮德蒙特的社会结构,画线处提到皮德蒙特是一个移民小镇,并说明这些移段来 何处:由人是意大利人和爱尔兰人,东汉普郡大街住着一牲富有的盎格鲁撒克逊裔的由人新教徒,少数 族裔的工薪阶层(包括白人和黑人)分布在其他地方。题干中的a town of immigrants 是原文中an immigrant town 的同义转述,而题干中different parts of the world 是画线处提到的具体地点的概括,故答案为C)。"
+        },
+        {
+          "number": 50,
+          "stem": "In spite of the awful inconveniences caused by racial prejudice, the author's family managed to live a life of dignity.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "I",
+          "explanation": "In spite of the awful inconveniences caused by racial prejudice, the authors family managed to live a life of dignity. I)。【译文】尽管种族歧视带来了诸多不便,但作者一家设法过着有尊严的生活。 【精析】本段第一句道出了该段主旨:黑人在生活中会遭遇诸多不便。作者随后列举了不能在餐馆就餐,不 能去旅馆住宿,不能使用某些卫生间,不能在服装店里试穿衣服等种种不便。作者一家去买衣服时不卑不 亢,如果店员拒绝他们试穿,他们会说,“我们不买不能试穿的衣服。”接着很有尊严地走出服装店。题 干中的inconveniences 是原文中inconvenient 的同义转述;live a life of dignity 是原文中in Mama’s dignified manner 的同义转述,故答案为I)。"
+        },
+        {
+          "number": 51,
+          "stem": "The author later realized he had caused great distress to his father by asking why he was wrongly addressed.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "M",
+          "explanation": "The author later realized he had caused great distress to his father by asking why he was wrongly addressed. M)。【译文】作者后来意识到对于父亲被叫错名字的提问使父亲很受伤。 【精析】文章K)段提到父亲与威尔逊先生打招呼时,威尔逊叫父亲乔治这件事,L)段说明了作者对这件事 的困惑并询问父亲,M)段则给出了作者的领悟:让父亲伤心的并不是世界上像威尔逊先生那样的人,而是 必须痛苦地向一个不懂事的孩子解释种族歧视这个事实。或许威尔逊先生叫父亲乔治并没有伤害到他,但是 “我”的问题着实让他受伤。题干是对该段画线部分的总结,故答案为M)。"
+        },
+        {
+          "number": 52,
+          "stem": "The author took pride in being from Piedmont because of its natural beauty.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "B",
+          "explanation": "The author took pride in being from Piedmont because of its natural beauty. B) 。【译文】作者因皮德蒙特的自然美景而为来自此地感到自豪。 【精析】本段描述了作者对20 世纪50 年代的皮德蒙特的美好回忆:人们总是以来自皮德蒙特为荣——你可 以躺在山脚下或者躺在浩瀚的波拖马可河岸边尽情享受。我们知道这是上帝赐予美国最美的地方。题干中 的took pride in being from Piedmont 是原文were always proud to be from Piedmont 的同义转述;natural beauty 可由原文God gave America no more beautiful location 得知,故答案为B)。"
+        },
+        {
+          "number": 53,
+          "stem": "Colored people called white people by the business they did.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "H",
+          "explanation": "Colored people called white people by the business they did. H)。【译文】黑人按白的职业称呼他们。 【精析】本段重点描述了白人对黑人生活的影响。画线部分指出,比如邮递员、保险推销员、送奶工、房 东和警察:我们通常按他们的职业称呼那些白人,就像神秘剧里的角色一样。题干中的called white people by the business they did 是原文中called white people by their trade 的同义转述,故答案为H)。"
+        },
+        {
+          "number": 54,
+          "stem": "Colored people who lived in Piedmont did heavy manual jobs at the paper mill.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "E",
+          "explanation": "Colored people who lived in Piedmont did heavy manual jobs at the paper mill. E)。【译文】生活在皮德蒙特的黑人在造纸厂从事繁重的体力劳动。 【精析】本段重点描述了皮德蒙特黑人的工作状况:他们在20 世纪初来到1888 年开办的皮德蒙特造纸厂工 作,1968 年之前,造纸厂的所有黑人都在“平台”上工作——把纸装上卡车。题干中的heavy manual jobs at the paper mill 对应原文中的loading paper into trucks,故答案为E)。"
+        },
+        {
+          "number": 55,
+          "stem": "The colored people felt uneasy at the presence of the whites in their neighborhood.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "G",
+          "explanation": "The colored people felt uneasy at the presence of the whites in their neighborhoods.. G。【译文】黑人对白人出现在他们社区感到不安量。 【精析】本段主要讲述了黑人和白人之间的相互影响,并举例说明。当白人出现在不属于他们的社区时, 比如黑人退伍军人协会大厅,黑人的世界似乎就受到影响了。当白人来到黑人举办的舞会或者晚会时,他 们侵犯了黑人的空间。舞会节奏就会被打破。播放的音乐听起来也会变得异常。人们很早就会离开。这些 例子表明,当白人出现在黑人社区的时候,黑人会感到不安,题干是G)段画线部分的总结,故答案为G)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2014-12-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Children are a delight. They are our future. But sadly, hiring someone to take care of them while you go to work is getting more expensive by the year. Earlier this month, it was reported that the cost of enrolling an infant or small kid at a childcare center rose 3% in 2012, faster than the overall cost of living. There are now large strips of the country where daycare for an infant costs more than a tenth of the average married couple's income.",
+        "This is not necessarily a new trend, but it is a somewhat puzzling one. The price of professional childcare has been rising since the 1980s. Yet during that time, pay for professional childcare workers has stood still. Actually caregivers make less today, in real terms, than they did in 1990. Considering that labor costs are responsible for up to80% of a daycare center's expenses, one would expect flat wages to have meant flat prices. So who's to blame for higher childcare costs?",
+        "Childcare is a carefully regulated industry. States lay down rules about how many children each employee is allowed to watch over, the space care centers need per child,and other minute details. And the stricter the regulations, the higher the costs. If it has to hire a caregiver for every two children, it can't really achieve any economies of scale on labor to save money when other expenses go up. In Massachusetts, where childcare centers must hire one teacher for every three infants, the price of care averaged more than $16,000 per year. In Mississippi, where centers must hire one teacher for every five infants, the price of care averaged less than $5,000.",
+        "Unfortunately, I don't have all the daycare-center regulations handy. But I wouldn't be surprised if as the rules have become more elaborate, prices have risen. The trade off (交换) might be worth it in some cases; after all, the health and safety of children should probably come before cheap service. But certainly, it doesn't seem to be an accident that some of the cheapest daycare available is in the least regulated South."
+      ],
+      "questions": [
+        {
+          "number": 56,
+          "stem": "What problem do parents of small kids have to face?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The ever-rising childcare prices."
+            },
+            {
+              "key": "B",
+              "text": "The budgeting of family expenses."
+            },
+            {
+              "key": "C",
+              "text": "The balance between work and family."
+            },
+            {
+              "key": "D",
+              "text": "The selection of a good daycare center."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。定位:由题干定位到文章第一段第三句:But sadly, hiring someone to take care of them while you go to work is getting more expensive by the year. 详解:推理判断题。文章开头指出,有孩子是件乐事,接着用but 进行转折,总述当前形势:雇人照看孩子 的费用却逐年升高。第二段承接第一段,用数据进行详细说明:2012 年婴幼儿在托儿所的报名费上涨了3% , 上涨速度比生活总成本的上涨速度还快。由此可知,幼儿父母必须面临的问题是不断上涨的保育价格,故 答案为A)。 点睛:B) “家庭支出预算”、C)“工作和家庭之间的平衡”和D)“挑选好的日托中心”在文中均没有提 及,可以排除。"
+        },
+        {
+          "number": 57,
+          "stem": "What does the author feel puzzled about?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Why the prices of childcare vary greatly from state to state."
+            },
+            {
+              "key": "B",
+              "text": "Why increased childcare prices have not led to better service."
+            },
+            {
+              "key": "C",
+              "text": "Why childcare workers' pay has not increased with the rising childcare costs."
+            },
+            {
+              "key": "D",
+              "text": "Why there is a severe shortage of childcare professional in a number of states."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定位:由题干中feel puzzled 定位到文章第三段:This is not necessarily a new trend, but it is a somewhat puzzling one... 详解:推理判断题。文章第三段首句提到,这种情况却有些令人不解,接下来具体说明这种情况:虽然保育 费用逐年上涨,但是保育员的工资并没有相应提高,故答案为C)。 点睛: A) “为什么各州之间的保育价格差别巨大”,第五段指出,保育价格受法律影响,法规越严格,费 用越高,而各州保育法规不尽相同,导致了保育价格差别巨大,但作者并未对此感到疑惑,可以排除;B) “为什么増长的保育价格没能带来更好的服务”,文章重点讨论了保育价格的增长及其原因,未涉及服务 质量问题,可以排除;D)“为什么在许多州保育专业人员严重短缺”,文章未提及,可以排除。"
+        },
+        {
+          "number": 58,
+          "stem": "What prevent childcare centers from saving money?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Steady increase in labor costs."
+            },
+            {
+              "key": "B",
+              "text": "Strict government regulations."
+            },
+            {
+              "key": "C",
+              "text": "Lack of support from the state."
+            },
+            {
+              "key": "D",
+              "text": "High administrative expenses."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位:由题干中的childcare centers 和saving money 定位到文章第五段第四句:If it has to hire a caregiver for every two children, it can^ really achieve any economies of scale on labor to save money when other expenses go up. 详解:推理判断题。题干“是什么妨碍保育中心省钱?”正是第四段“谁该为上涨的儿童保育价格负责呢? ” 的同义转述,第四段提出设问,第五段进行回答。第五段指出,儿童保育属于受严格管控的行业,政府制 定的相关法规越严格,保育费用越高。因此严格的政府法规是儿童保育价格上涨的原因,在严格的法规下, 保育中心必须严格按照法律规定的教师与学生的比例来雇请保育员,想通过压缩劳动力成本来省钱是不可 能的,故答案为B)。 点睛:A)“劳动力成本的平稳增长”,文章明确指出,保育中心不可能通过压缩劳动力成本来省钱,上 文也提到保育员的工资并没有随保育费用的增加而相应提高,可以排除;C) “缺乏州政府的支持”和“高 额的行政开支”在文章中都没有提及,可以排除。"
+        },
+        {
+          "number": 59,
+          "stem": "Why is the average cost of childcare in Mississippi much lower than in Massachusetts?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The overall quality of service is not as good."
+            },
+            {
+              "key": "B",
+              "text": "Payments for caregivers there are not as high."
+            },
+            {
+              "key": "C",
+              "text": "Living expenses there are comparatively low."
+            },
+            {
+              "key": "D",
+              "text": "Each teacher is allowed to care for more kids."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位:由题干中的average cost, Mississippi 和Massachusetts 定位到文章第五段最后两句:In Massachusetts, where childcare centers must hire one teacher for every three infants...In Mississippi, where centers must hire one teacher for every five infants.. 详解:推理判断题。第五段阐释了保育价格上涨的原因,指出保育法规越严格,保育价格越高。最后两句 以两个州为例,马萨诸塞州规定一名老师只能照看兰个孩子,这样每年的平均保育费用超过16000 美元。 密西西比州允许一名老师照看五个孩子,平均保育费用则低于5000 美元。两个州的保育费用差别巨大,原 因就在于法律规定的教师与学生的比例不同,密西西比州允许一名老师照看的孩子数量多,所以保育费用 低,故答案为D)。 点睛:A) “总体服务质量不如马萨诸塞州好”、B) “保育员的應资没有马萨诸塞州高”和C) “该州生 活费用相对较低”文章都没有提及,可以排除。"
+        },
+        {
+          "number": 60,
+          "stem": "What is the author's view on daycare service?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Caregivers should receive regular professional training."
+            },
+            {
+              "key": "B",
+              "text": "Less elaborate rules about childcare might lower costs."
+            },
+            {
+              "key": "C",
+              "text": "It is crucial to strike a balance between quality and costs."
+            },
+            {
+              "key": "D",
+              "text": "It is better for different states to learn from each other."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位:由题干中的view 和daycare service 定位到文章最后一段第每句:But I wouldn’t be surprised if as the rules have become more elaborate, prices have risen. 详解:点态度题。题干是作者对日托服务持什么样的观点。通读全文可知,作者重点分析了日托中心费用 高昂的原因。最后一段总结:法规条例越详尽,价格也随之上涨,相应地孩子的健康和安全也更有保障;反 之,法规越宽松,费用越便宜,故答案为B)。 点睛:A) “保育员应当接受定期的专业培训”,文章没有提及,可以排除;C)“取得质量和花费之间的平 衡至关重要”,文章最后作者认为收费越高,孩子的健康和安全越有保障,这种交换是值得的,而选项中 的strike a balance between quality and costs 是期望花费少,服务好,根据文章,这在保育行业很难实现,可 以排除;D) “不同州之间最好相互学习”,文章只是客观陈述了各州由于法律规定不同,保育价格也不同, 并没有表达各州需要相互学习的观点,可以排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2014-12-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Alex Pang's amusing new book The Distraction Addiction addresses those of us who feel panic without a cellphone or computer. And that, he claims, is pretty much all of us.When we're not online, where we spend four months annually, we're engaged in the stressful work of trying to get online.",
+        "The Distraction Addiction is not framed as a self-help book. It's a thoughtful examination of the danger of our computing overdose and a historical overview of how technological advances change consciousness. A \"professional futurist\", Pang urges an approach which he calls \"contemplative (沉思的) computing.\" He asks that you pay full attention to \"how your mind and body interact with computers and how your attention and creativity are influenced by technology.\"",
+        "Pang's first job is to free you from common misconception that doing two things at once allows you to get more done. What is commonly called multitasking is, in fact,switch-tasking, and its harmful effects on productivity are well documented. Pang doesn't advocate returning to a preinternet world. Instead, he asks you to \"take a more ecological (生态的) view of your relationships with technologies and look for ways devices or media may be making specific tasks easier or faster but at the same time making your work and life harder.\"",
+        "The Distraction Addiction is particularly fascinating on how technologies have changed certain field of labor—often for the worse. For architects, computer-aided design has become essential but in some ways has cheapened the design process. As one architect puts it, \"Architecture is first and foremost about thinking... and drawing is a more productive way of thinking\" than computer-aided design. Somewhat less amusing are Pang's solutions for kicking the Internet habit. He recommends the usual behavior-modification approaches, familiar to anyone who has completed a quit-smoking program. Keep logs to study your online profile and decide what you can knock out, download a program like Freedom that locks you out of your browser, or take a \"digital Sabbath (安息日)\" ; \"Unless you're a reporter or emergency-department doctor,you'll discover that your world doesn't fall apart when you go offline.\""
+      ],
+      "questions": [
+        {
+          "number": 61,
+          "stem": "Alex Pang's new book is aimed for readers who ________.",
+          "options": [
+            {
+              "key": "A",
+              "text": "find their work online too stressful"
+            },
+            {
+              "key": "B",
+              "text": "go online mainly for entertainment"
+            },
+            {
+              "key": "C",
+              "text": "are fearful about using the cellphone or computer"
+            },
+            {
+              "key": "D",
+              "text": "can hardly tear themselves away from the Internet"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位: 由题干中的Alex Pang’s new book 和aimed for 定位到文章第一段第一句:Alex Pang’s amusing new book The Distraction Addiction addresses those of us who feel panic without a cellphone or computer. 详解:事实细节题。第一段第一句指出,亚历克斯•彭的新书《分心成瘾》很有趣,书中讲的是那些离开手 机或电脑就感到恐慌的人,也就是指离不开手机或电脑的人。D) “很难让自己远离互联网”对应原文中 的feel panic without a cellphone or computer,故为答案。 点睛: A)“发现自己在线工作压力过大”,这个选项具有迷惑性,第一段最后一句出现了stressful work 这个短语,但是其后有个介词短语作后置定语,表达的意思是“努力丈网”,也就是说造成这个压力的原因 是不能上网,而不是“在线工作靡力大”,故排除;B) “上网的主要目的是娱乐”,文章没有提及,故排 除;C) “害怕使用手机或电脑”和原文中“离开手机或电脑就感到恐慌”表述正好相反,故排除。"
+        },
+        {
+          "number": 62,
+          "stem": "What does Alex Pang try to do in his new book?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Offer advice on how to use the Internet effectively."
+            },
+            {
+              "key": "B",
+              "text": "Warn people of the possible dangers of Internet use."
+            },
+            {
+              "key": "C",
+              "text": "Predict the trend of future technological development."
+            },
+            {
+              "key": "D",
+              "text": "Examine the influence of technology on the human mind."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位:由题干中的try to do 和new book 定位到文章第二段第一、二句:The Distraction Addiction is not framed as a self-help book. It’s a thoughtful examination of the dangers of our computing overdose and a historical overview of how technological advances change consciousness. 详解: 事实细节题孩文章第二段概括了《分心成瘾》这本书的性质和主要内容:并非励志类图书的它是对 我们过度使用电脑的危害的深人审视,也是对科技进步如何改变意识的历史性概述,D) “审视科技对人类 意识的影响”是对原文的同义转述,故为答案。 点睛:A) “对如何有效利用互联网提出建议”,综观全文可知,新书中并未涉及如何有效利用互联网的问 题,故排除;B) “提醒人们使用互联网的潜在危险”,这个选项迷惑性较大,第二段指出,彭的新书是对 我们过度使用电脑的危害的深入审视,这是指人们过度使用电脑会对其产生依赖,有上瘾的危险,而不是正 常使用互联网带来的潜在危险,故排除;C) “预测未来科技发展的趋势”,文中只提到了科技对人的影响, 没有预测其发展趋势,故排除。"
+        },
+        {
+          "number": 63,
+          "stem": "What is the common view on multitasking?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It enables people to work more efficiently."
+            },
+            {
+              "key": "B",
+              "text": "It is in a way quite similar to switch-tasking."
+            },
+            {
+              "key": "C",
+              "text": "It makes people's work and life even harder."
+            },
+            {
+              "key": "D",
+              "text": "It distracts people's attention from useful work."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。定位:由题干中的common view 和multitasking 定位到文章第三段第一句:Pang’s first job is to free you from the common misconception that doing two things at once allows you to get more done. 详解:事实细节题。根据该段第一句可知,常见的错误认识是“同时做两件事效率更高题干中的multitasking 指的是原文中的doing two things at once 。而A)中的work more efficiently 与原文中的get more done 意 思相近,几大家普遍认为多任务处理会使工作更有效,故答案为A)。 点睛:B) “它在某种程度上与任务切换非常相似”,第三段第二句指出,通常所说的多任务处理方式实 际上是任务切换,quite similar to“非常相似”与原文表述不一致,故排除;C) “它使人们的工作和生活更 困难”,第三段最后一句中出现了相似的表达,是彭对使用设备或媒介的认识,与common view“普遍观 点”的说法不符,故排除;D) “它使人们的注意力离开有用的工作”,该选项在文中未提及,故排除。"
+        },
+        {
+          "number": 64,
+          "stem": "What does the author think of computer-aided design?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It considerably cuts down the cost of building design."
+            },
+            {
+              "key": "B",
+              "text": "It somewhat restrains architects' productive thinking."
+            },
+            {
+              "key": "C",
+              "text": "It is indispensable in architects' work process."
+            },
+            {
+              "key": "D",
+              "text": "It can free architects from laborious drawing."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位:由题干中的computer-aided design 定位到文章第四段第二、三句:For architects, computer- aided design has become essential...Architecture...drawing is a more productive way of thinking than computer-aided design. 详解:推理判断题。第四段首先指出,新书在科技如何改变劳动力的特定领域方面格外吸引人,接着举例说 明这一观点。彭认为电脑辅助设计对建筑师来说是非常重要的,但在某种程度上使用电脑辅助贬低了设计 过程。作者引用一位建筑师的话对此做出解释:“建筑学首要的是思考,与电脑辅助设计相比,绘图是更有 成效的思维方式”,也就是说建筑师在绘图的过程中更能发挥想象力去思考,而电脑辅助设计则限制了创 造性思维,故答案为B)。 点睛:A“它极大地降低了建筑设计成本”,第四段第二句中出现了cheapened —词,意为“贬低”,贬 低的是设计过程,没有提及设计成本的问题,故排除;C) “它是建筑师工作过程中不可缺少的部分”,原 文中使用的是essential —词,意为“重要的”,而该选项用了indispensable —词,意为“不可缺少的”, 两者有明显差别,故排除;D)“它能使建筑师从费力的绘图中解放出来”,文中没有提及,故排除。"
+        },
+        {
+          "number": 65,
+          "stem": "What is Ales Pang's recommendation for Internet users?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They use the Internet as little as possible."
+            },
+            {
+              "key": "B",
+              "text": "They keep a record of their computer use time."
+            },
+            {
+              "key": "C",
+              "text": "They exercise self-control over their time online."
+            },
+            {
+              "key": "D",
+              "text": "They entertain themselves online on off-days only."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定位:由题干中的recommendation 和Internet users 定位到文章第四段倒数第三句:He recommends the usual behavior-modification approaches, familiar to anyone who has completed a quit-smoking program. 详解:理判断题。第四段中彭为戒除上网习惯提出了解决方法。他建议使用常见的行为矫正法—一种为完 成戒烟项目的人所熟知的方法,并提供了具体的做法:记录下你的土网日志以研究你的上网概况并确定你所 能剔除的内容,下载一个类似“自由”的程序来锁住浏览器,或选择一个“数字安息日”。网民通过这些 方法或者某些程序的帮助减少上网时间,即对上网时间进行自我控制,故答案为C)。 点睛:A) “他们应该尽可能少地使用互联网”,文章中推荐的做法,比如做记录、下载软件锁住浏览器 等只能是对上网时间进行控制,不可能所有网民都能做到尽可能少地使用互联网,文章最后也提出像一些特 殊职业,如记者或急诊室医生是不能离开互联网的,故排除;B) “他们记录下使用电脑的时间”,文中 提到记录下你的上网日志以研究你的上网概况并确定你所能剔除的内容,而不是记录下使用电脑的时间, 故排除;D) “他们只在休息日上网娱乐”,文中并未提及,故排除。"
+        }
+      ]
+    }
+  ]
+}

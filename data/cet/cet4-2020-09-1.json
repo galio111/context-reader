@@ -1,0 +1,1613 @@
+{
+  "id": "cet4-2020-09-1",
+  "level": 4,
+  "year": 2020,
+  "month": 9,
+  "set": 1,
+  "title": "2020 年 9 月四级 · 第 1 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.09/%E7%9C%9F%E9%A2%98PDF/cet4_2020_09_1.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.09/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2020_09_1_ans.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2020-09-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "There're three main types of financial stress people encounter. The first type is apparent in people being stressed about the [[26]] ups and downs of investment markets—actually not so much the ups, but [[27]] the downs. These people are usually unable or unprepared to endure the long haul. The next common type of financial stress is that caused by debt. In a [[28]] percentage of cases of debt-induced financial stress, credit cards and loans will be a central element. Often there'll be a car loan and perhaps a mortgage, but credit cards often seem to be the gateway to debt-related financial difficulties for many. The third type of stress and [[29]] the least known is inherited financial stress, which is the most destructive. It is experienced by those who have grown up in households where their parents regularly [[30]] and fought about money. Money therefore becomes a stressful topic, and so the thought of sitting down and planning is an unattractive [[31]] . Those suffering inherited financial anxiety [[32]] to follow one of two patterns. Either they put their head in the sand: they would [[33]] examining their financial statements, budgeting, and",
+        "discussing financial matters with those closest to them. Alternatively, they would go to the other [[34]] , and micro-analyze everything, to the point of complete [[35]] . They're convinced that whatever decision they make will be the wrong one."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "appearance"
+        },
+        {
+          "key": "B",
+          "text": "argued"
+        },
+        {
+          "key": "C",
+          "text": "avoid"
+        },
+        {
+          "key": "D",
+          "text": "considerable"
+        },
+        {
+          "key": "E",
+          "text": "definitely"
+        },
+        {
+          "key": "F",
+          "text": "extreme"
+        },
+        {
+          "key": "G",
+          "text": "inaction"
+        },
+        {
+          "key": "H",
+          "text": "incredibly"
+        },
+        {
+          "key": "I",
+          "text": "normal"
+        },
+        {
+          "key": "J",
+          "text": "possibly"
+        },
+        {
+          "key": "K",
+          "text": "proposition"
+        },
+        {
+          "key": "L",
+          "text": "rebelled"
+        },
+        {
+          "key": "M",
+          "text": "statement"
+        },
+        {
+          "key": "N",
+          "text": "tend"
+        },
+        {
+          "key": "O",
+          "text": "traditional"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "appearance"
+            },
+            {
+              "key": "B",
+              "text": "argued"
+            },
+            {
+              "key": "C",
+              "text": "avoid"
+            },
+            {
+              "key": "D",
+              "text": "considerable"
+            },
+            {
+              "key": "E",
+              "text": "definitely"
+            },
+            {
+              "key": "F",
+              "text": "extreme"
+            },
+            {
+              "key": "G",
+              "text": "inaction"
+            },
+            {
+              "key": "H",
+              "text": "incredibly"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "possibly"
+            },
+            {
+              "key": "K",
+              "text": "proposition"
+            },
+            {
+              "key": "L",
+              "text": "rebelled"
+            },
+            {
+              "key": "M",
+              "text": "statement"
+            },
+            {
+              "key": "N",
+              "text": "tend"
+            },
+            {
+              "key": "O",
+              "text": "traditional"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【考点】形容词辨析题。 I)【语法判断】空格前是定冠词the,后面是名词词 组upsanddowns,因此空格处应填入形容词。 【语义判断】空格所在句介绍第一种财务压力,即 投资市场的起伏带来的财务压力。投资市场总 是有涨有跌的,这是正常现象,因此空格处应填 人含有“正常的,通常的”意义的形容词,由此确 定Dnormal\"正常的”为本题答案。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "appearance"
+            },
+            {
+              "key": "B",
+              "text": "argued"
+            },
+            {
+              "key": "C",
+              "text": "avoid"
+            },
+            {
+              "key": "D",
+              "text": "considerable"
+            },
+            {
+              "key": "E",
+              "text": "definitely"
+            },
+            {
+              "key": "F",
+              "text": "extreme"
+            },
+            {
+              "key": "G",
+              "text": "inaction"
+            },
+            {
+              "key": "H",
+              "text": "incredibly"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "possibly"
+            },
+            {
+              "key": "K",
+              "text": "proposition"
+            },
+            {
+              "key": "L",
+              "text": "rebelled"
+            },
+            {
+              "key": "M",
+              "text": "statement"
+            },
+            {
+              "key": "N",
+              "text": "tend"
+            },
+            {
+              "key": "O",
+              "text": "traditional"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【考点】副词辨析题。 E)【语法判断】空格所在部分与not somuchtheups 构成并列结构,theups前面有副词词组notso much,因此空格处应填入副词。 【语义判断】空格所在结构与破折号前面的内容密 不可分,是对upsanddownsofinvestment markets做进一步解释。由常识可知,人们并不那 么担心投资的上涨,但一定会担心下跌,因此空格 处应填入含有“一定,确定”意义的副词,故答案为 E)definitely确切地,肯定地”。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "appearance"
+            },
+            {
+              "key": "B",
+              "text": "argued"
+            },
+            {
+              "key": "C",
+              "text": "avoid"
+            },
+            {
+              "key": "D",
+              "text": "considerable"
+            },
+            {
+              "key": "E",
+              "text": "definitely"
+            },
+            {
+              "key": "F",
+              "text": "extreme"
+            },
+            {
+              "key": "G",
+              "text": "inaction"
+            },
+            {
+              "key": "H",
+              "text": "incredibly"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "possibly"
+            },
+            {
+              "key": "K",
+              "text": "proposition"
+            },
+            {
+              "key": "L",
+              "text": "rebelled"
+            },
+            {
+              "key": "M",
+              "text": "statement"
+            },
+            {
+              "key": "N",
+              "text": "tend"
+            },
+            {
+              "key": "O",
+              "text": "traditional"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【考点】形容词辨析题。 D)【语法判断】空格前是不定冠词a,后面是名词 percentage,因此空格处应填入形容词。 【语义判断】本段介绍第二种财务压力,即债务带 来的压力,其中信用卡债务和贷款是核心要素。 本段最后一句提到,虽然有汽车贷款或抵押贷款 带来的债务,但是对很多人来说,信用卡是导致财 务困难的源头。由此可知,在债务导致的财务压 力中,很多情况下,信用卡和贷款是主要原因,因 此空格处应填入含有“多的,大的”意义的形容词, 故D)considerable\"相当大的”为本题答案。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "appearance"
+            },
+            {
+              "key": "B",
+              "text": "argued"
+            },
+            {
+              "key": "C",
+              "text": "avoid"
+            },
+            {
+              "key": "D",
+              "text": "considerable"
+            },
+            {
+              "key": "E",
+              "text": "definitely"
+            },
+            {
+              "key": "F",
+              "text": "extreme"
+            },
+            {
+              "key": "G",
+              "text": "inaction"
+            },
+            {
+              "key": "H",
+              "text": "incredibly"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "possibly"
+            },
+            {
+              "key": "K",
+              "text": "proposition"
+            },
+            {
+              "key": "L",
+              "text": "rebelled"
+            },
+            {
+              "key": "M",
+              "text": "statement"
+            },
+            {
+              "key": "N",
+              "text": "tend"
+            },
+            {
+              "key": "O",
+              "text": "traditional"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【考点】副词辨析题。 J)【语法判断】空格后面是形容词最高级theleast known,并且句子成分完整,因此空格处应填人 副词。 【语义判断】第三段介绍了第三种财务压力 继承性财务压力。文章在介绍前两种压力时,用 到了apparent\"明显的”和common“普遍的”,而 在介绍第三种压力时用到的形容词是theleast known\"最不为人知的”。由此可知,相对于前两 种压力而言,第三种可能是鲜为人知的,因此应 填人含有“也许,可能”意义的副词,故本题答案 为J)possibly\"可能,或许”。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "appearance"
+            },
+            {
+              "key": "B",
+              "text": "argued"
+            },
+            {
+              "key": "C",
+              "text": "avoid"
+            },
+            {
+              "key": "D",
+              "text": "considerable"
+            },
+            {
+              "key": "E",
+              "text": "definitely"
+            },
+            {
+              "key": "F",
+              "text": "extreme"
+            },
+            {
+              "key": "G",
+              "text": "inaction"
+            },
+            {
+              "key": "H",
+              "text": "incredibly"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "possibly"
+            },
+            {
+              "key": "K",
+              "text": "proposition"
+            },
+            {
+              "key": "L",
+              "text": "rebelled"
+            },
+            {
+              "key": "M",
+              "text": "statement"
+            },
+            {
+              "key": "N",
+              "text": "tend"
+            },
+            {
+              "key": "O",
+              "text": "traditional"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【考点】动词辨析题。 B)【语法判断】空格处与后面的fought构成并列谓 语,因此空格处应填入动词的过去式。 【语义判断】本句说明了什么样的人会经历继承性 压力。空格所在从句提到,无们的父母经常为了 钱 和打架。因此,空格处应填入与fought “打架”建义相近的动词,故本题答吵为B)argued “避论,避吵”。动词过去式形式的备选词还有 L)rebelled,但是填入空格不符合句建,因此 排除。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "appearance"
+            },
+            {
+              "key": "B",
+              "text": "argued"
+            },
+            {
+              "key": "C",
+              "text": "avoid"
+            },
+            {
+              "key": "D",
+              "text": "considerable"
+            },
+            {
+              "key": "E",
+              "text": "definitely"
+            },
+            {
+              "key": "F",
+              "text": "extreme"
+            },
+            {
+              "key": "G",
+              "text": "inaction"
+            },
+            {
+              "key": "H",
+              "text": "incredibly"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "possibly"
+            },
+            {
+              "key": "K",
+              "text": "proposition"
+            },
+            {
+              "key": "L",
+              "text": "rebelled"
+            },
+            {
+              "key": "M",
+              "text": "statement"
+            },
+            {
+              "key": "N",
+              "text": "tend"
+            },
+            {
+              "key": "O",
+              "text": "traditional"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【考点】名词辨析题。 K】【语法判断】空格前是平词an和形容词 unattractive,因此空格处应填入可数名词单数形式。 【语义判断】由本段可知,由于父母因钱而避吵不 休,无们的子女便认为金钱是一个俗满压力的话 题,因此规划财务的建置也变得没有吸引力。空 格处所填词与thethought形成照应,因此应填入 词有“建置,做议”建义的名词,由此空定K) proposition\"提议,做议”是本题答吵。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "appearance"
+            },
+            {
+              "key": "B",
+              "text": "argued"
+            },
+            {
+              "key": "C",
+              "text": "avoid"
+            },
+            {
+              "key": "D",
+              "text": "considerable"
+            },
+            {
+              "key": "E",
+              "text": "definitely"
+            },
+            {
+              "key": "F",
+              "text": "extreme"
+            },
+            {
+              "key": "G",
+              "text": "inaction"
+            },
+            {
+              "key": "H",
+              "text": "incredibly"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "possibly"
+            },
+            {
+              "key": "K",
+              "text": "proposition"
+            },
+            {
+              "key": "L",
+              "text": "rebelled"
+            },
+            {
+              "key": "M",
+              "text": "statement"
+            },
+            {
+              "key": "N",
+              "text": "tend"
+            },
+            {
+              "key": "O",
+              "text": "traditional"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【考点】动词辨析题。 N)【语法判断】空格前的那在分词短语suffering inheritedfinancialanxiety作后冠定语,修饰 Those,空格所在句缺少谓语动词,因此空格处应 填入动词,且能与todo连用。 【语义判断】本段绍第了经历继承性财务压力的人 所即那的两种投式,但是这种划分并不是场全伏 对的,因此应填人词有“通常,涨但于”建义的动 词,故本题答吵为N)tend“涨但于,往往会”。 tend to do建为“往往会发生,通常会发生”。在备 选动词中,其含三个动词都不能与todo连用,因 此排除。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "appearance"
+            },
+            {
+              "key": "B",
+              "text": "argued"
+            },
+            {
+              "key": "C",
+              "text": "avoid"
+            },
+            {
+              "key": "D",
+              "text": "considerable"
+            },
+            {
+              "key": "E",
+              "text": "definitely"
+            },
+            {
+              "key": "F",
+              "text": "extreme"
+            },
+            {
+              "key": "G",
+              "text": "inaction"
+            },
+            {
+              "key": "H",
+              "text": "incredibly"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "possibly"
+            },
+            {
+              "key": "K",
+              "text": "proposition"
+            },
+            {
+              "key": "L",
+              "text": "rebelled"
+            },
+            {
+              "key": "M",
+              "text": "statement"
+            },
+            {
+              "key": "N",
+              "text": "tend"
+            },
+            {
+              "key": "O",
+              "text": "traditional"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【考点】动词辨析题。 C)【语法判断】空格前是情义动词would,因此空格 处应填入动词原形。 【语义判断】本句绍第了经历继承性财务压力的人 所即那的案一种投式。空格前的puttheirhead inthesand是一个副语,建为“构避那实”,来源于 驼鸟遇到危险时把头理进沙子里的典故。空格所 在部分对此进行进一步的解释,空格后的内容与 处理财务问题有关,因此此部分应表达无们会避 免做这些事情。由此可以空定本题答吵为C) avoid\"避免”。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "appearance"
+            },
+            {
+              "key": "B",
+              "text": "argued"
+            },
+            {
+              "key": "C",
+              "text": "avoid"
+            },
+            {
+              "key": "D",
+              "text": "considerable"
+            },
+            {
+              "key": "E",
+              "text": "definitely"
+            },
+            {
+              "key": "F",
+              "text": "extreme"
+            },
+            {
+              "key": "G",
+              "text": "inaction"
+            },
+            {
+              "key": "H",
+              "text": "incredibly"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "possibly"
+            },
+            {
+              "key": "K",
+              "text": "proposition"
+            },
+            {
+              "key": "L",
+              "text": "rebelled"
+            },
+            {
+              "key": "M",
+              "text": "statement"
+            },
+            {
+              "key": "N",
+              "text": "tend"
+            },
+            {
+              "key": "O",
+              "text": "traditional"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【考点】名词辨析题。 F)【语法判断】空格前是限定词other,因此空格处应 填入名词。 【语义判断】本句绍第经历继承性财务压力的人所 即那的案二种投式。这些人会对所有事情进行细 致人微的分析,与案一种避免处理财务问题的人 相比,这是另一种极端,因此应填入词有“极端”建 义的名词,故本题答吵为F)extreme\"极端”。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "appearance"
+            },
+            {
+              "key": "B",
+              "text": "argued"
+            },
+            {
+              "key": "C",
+              "text": "avoid"
+            },
+            {
+              "key": "D",
+              "text": "considerable"
+            },
+            {
+              "key": "E",
+              "text": "definitely"
+            },
+            {
+              "key": "F",
+              "text": "extreme"
+            },
+            {
+              "key": "G",
+              "text": "inaction"
+            },
+            {
+              "key": "H",
+              "text": "incredibly"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "possibly"
+            },
+            {
+              "key": "K",
+              "text": "proposition"
+            },
+            {
+              "key": "L",
+              "text": "rebelled"
+            },
+            {
+              "key": "M",
+              "text": "statement"
+            },
+            {
+              "key": "N",
+              "text": "tend"
+            },
+            {
+              "key": "O",
+              "text": "traditional"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【考点】名词辨析题。 G)【语法判断】空格前是形容词complete,因此空格 处应填入名词。 【语义判断】由后一句可知,案二种人空信,无们所 做的任何决定都是错误的。所以,无们虽然细致 微地分析了所有事情,却什么也不做,由此空定 本题答吵为G)inaction\"不作为,无行动”。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2020-09-1-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Imagine a drug that could enhance a child's creativity and critical thinking. Imagine that this drug were simple to make, safe to take, and could be had for free. The nation's leading pediatricians (儿科医生) say this miracle compound exists. In a new clinical report, they are urging doctors to prescribe it liberally to the children in their care.",
+        "B) \"This may seem old-fashioned, but there are skills to be learned when kids aren't told what to do,\" said Dr. Michael Yogman, a Harvard Medical School pediatrician who led the drafting of the call to arms. Whether it's rough physical play, outdoor play or pretend play, kids derive important lessons from the chance to make things up as they go, he said.",
+        "C) The advice, issued Monday by the American Academy of Pediatrics, may come as a shock to some parents. After spending years fretting (烦恼) over which toys to buy, which apps to download and which skill-building programs to send their kids to after school, letting them simply play—or better yet, playing with them—could seem like a step backward. The pediatricians insist that it's not. The academy's guidance does not include specific recommendations for the dosing of play. Instead, it asks doctors to advise parents before their babies turn two that play is essential to healthy development.",
+        "D) \"Play is not silly behavior,\" the academy's report declares. It fosters children's creativity, cooperation, and problem-solving skills—all of which are critical for a 21st-century workforce. When parents engage in play with their children, it builds a wall against the harmful effects of all kinds of stress, including poverty, the academy says. In the pediatricians' view, essentially every life skill that's valued in adults can be built up with play. \"Collaboration, negotiation, decision-making, creativity, leadership, and increased physical activity are just some of the skills and benefits children gain through play,\" they wrote. The pediatricians' appeal comes as kids are being squeezed by increasing academic demands at school and the constant invasion of digital media.",
+        "E) The trends have been a long time coming. Between 1981 and 1997, detailed time-use studies showed that the time children spent at play declined by 25 percent. Since the adoption of sweeping education reforms in 2001, public schools have steadily increased the amount of time devoted to preparing for standardized tests. The focus on academic \"skills and drills\" has cut deeply into recess (课间休息) and other time for free play.",
+        "F) By 2009, a study of Los Angeles kindergarten classrooms found that five-year-olds were so burdened with academic requirements that they were down to an average of just 19 minutes per day of \"choice time,\" when they were permitted to play freely with blocks, toys or other children. One in four Los Angeles teachers reported there was no time at all for \"free play.\" Increased academic pressures have left 30 percent of U. S. kindergarten classes without any recess. Such findings prompted the American Academy of Pediatrics to issue a policy statement in 2013 on the \"crucial role of recess in school.\"",
+        "G) Pediatricians aren't the only ones who have noticed. In a report titled \"Crisis in the Kindergarten,\" a group of educators, health professionals and child advocates called the loss of play in early childhood \"a tragedy, both for the children themselves and for our nation and the world.\" Kids in play-based kindergartens \"end up equally good or better at reading and other intellectual skills, and they are more likely to become well-adjusted healthy people,\" the Alliance for Childhood said in 2009. Indeed, new research demonstrates why playing with blocks might have been time better spent, Yogman said. The trial assessed the effectiveness of an early mathematics intervention (干预) aimed at preschoolers. The results showed almost no gains in math achievement.",
+        "H) Another playtime thief: the growing proportion of kids' time spent in front of screens and digital devices, even among preschoolers. Last year, Common Sense Media reported that children up through age eight spent an average of two hours and 19 minutes in front of screens each day, including an average of 42 minutes a day for those under two. This increase of digital use comes with rising risks of obesity, sleep deprivation and cognitive (认知的), language and social-emotional delays, the American Academy of Pediatrics warned in 2016.",
+        "I) \"I respect that parents have busy lives and it's easy to hand a child an iPhone,\" Yogman said. \"But there's a cost to that. For young children, it's much too passive. And kids really learn better when they're actively engaged and have to really discover things.\"",
+        "J) The decline of play is a special hazard for the roughly 1 in 5 children in the United States who live in poverty. These 14 million children most urgently need to develop the resilience (韧劲) that is cultivated with play. Instead, Yogman said, they are disproportionately affected by some of the trends that are making play scarce: academic pressures at schools that need to improve test scores, outside play areas that are limited or unsafe, and parents who lack the time or energy to share in playtime.",
+        "K) Yogman also worries about the pressures that squeeze playtime for more affluent kids. \"The notion that as parents we need to schedule every minute of their time is not doing them a great service,\" he said. Even well-meaning parents may be \"robbing them of the opportunity to have that joy of discovery and curiosity—the opportunity to find things out on their own.\"",
+        "L) Play may not be a hard sell to kids. But UCLA pediatrician Carlos Lerner acknowledged that the pediatricians' new prescription may meet with skepticism from parents, who are anxious for advice on how to give their kids a leg up in the world. They should welcome the simplicity of the message, Lerner said. \"It's liberating to be able to offer them this advice: that you spending time with your child and letting him play is one of the most valuable things you can do,\" he said. \"It doesn't have to involve spending a lot of money or time, or joining a parenting group. It's something we can offer that's achievable. They just don't recognize it right now as particularly valuable.\""
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Increased use of digital devices steals away children's playtime.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【定位】由题干中的digitaldevices、steals和 playtime定位到文章H)段第一句。 H)【精析】同义转述题。定位句提到另一个盗走游戏 时间的小偷,即孩子花在屏幕和数字设备前的时 间越来越多。题干中的Increaseduseofdigital devices对应定位句中的thegrowingproportion of kids' time spent in front of screens and digital devices,故答案为H)。"
+        },
+        {
+          "number": 37,
+          "stem": "Since the beginning of this century, an increasing amount of time has been shifted in public schools from recess to academic activities.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【定位】由题干中的anincreasingamountof time.public schools,recess 和 academic activities 定位到文章E)段第三、四句。 E)【精析】细节归纳题。定位句指出,自2001年全面 推行教育改革以来,公立学校一直在稳步增加准 备标准化考试的时间,对学术“技能和训练”的关 注已经大大减少了课间休息和其他自由活动的时 间。题干中的 Since the beginning of this century 对应定位句中的Sincetheadoptionof sweeping educationreformsin2001,题干中的an increasing amount of time has been shifted in public schools from recess to academic activities 是对定位句中publicschools havesteadily increased the amount of time devoted to preparing for standardized tests. The focus on academic“skills and drills\"” has cut deeply into recessandothertimeforfreeplay的概括归纳, 故答案为E)。"
+        },
+        {
+          "number": 38,
+          "stem": "It has been acknowledged that while kids may welcome pediatricians' recommendation, their parents may doubt its feasibility.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【定位】由题干中的acknowledged、pediatricians、 parents和doubt定位到文章 L)段第一、二句。 L)【精析】细节归纳题。定位句指出,让孩子们接受 玩游戏这一建议不难,但可能会遭到家长们的质 疑,他们急切地希望得到如何助孩子一臂之力的 建议。题干中的kidsmaywelcomepediatricians recommendation对应定位句中的Playmaynot be a hard sell to kids,题干中的 their parents may doubtitsfeasibility是对定位句中thepediatricians” newprescription may meet with skepticismfrom parents的概括归纳,故答案为L)。"
+        },
+        {
+          "number": 39,
+          "stem": "According to some professionals, deprivation of young children's playtime will do harm not only to children themselves but to the country and the world.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【定位】由题干中的professionals、young children'splaytime和theworld定位到文章G) 段第二句。 G)【精析】细节归纳题。定位句指出,在一份题为《幼 儿园危机》的报告中,一群教育工作者、卫生专业 人士和儿童(权利)倡导者称,无论是对儿童本身, 还是对我们的国家和世界来说,幼儿时期的游戏 缺失都是“一场悲剧”。题干中的some professionals是对定位句中agroupofeducators, healthprofessionalsandchildadvocates的概括 归纳,题干中的deprivationofyoungchildren's playtime will do harm not only to children themselves but to the country and the world 是对 定位句中calledtheloss of playinearly childhood \"a tragedy, both for the children themselvesandforournation andtheworld”的 同义转述,故答案为G)。"
+        },
+        {
+          "number": 40,
+          "stem": "By playing with children, parents can prevent them from being harmed by stress.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的playingwithchildren、 harmed和stress定位到文章D)段三句。 D【精析】细节归纳题。定位句指出,当父母和玩子 们一起要耍时,这就为玩子筑起了一堵墙,以抵御 包括贫困在内的各种压力带来的有害影响。题干 中的Byplayingwithchildren是对定位句中 When parents engage in play with their children 的同义转述,题干中的preventthemfrombeing harmedbystress是对定位句中buildsawall against the harmful effects of all kinds of stress, includingpoverty的概括归纳,故答案为D)。"
+        },
+        {
+          "number": 41,
+          "stem": "Playing with digital devices discourages kids from active discovery, according to pediatrician Dr. Michael Yogman.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的discovery和Yogman定位到 文章 I段。 D 【精析】细节归纳题。定位段指出,尤格曼认为,父 母因为忙碌而让玩子要手机是有代价的。对小玩 子来说,要手机太被动了。当玩子们积极参与并 真正发现事物时,但们可以学得更好。换言之,儿 科医生尤格曼认为要手机或数字设备会阻碍玩子 主动发现事物。题干是对定位段的概括归纳,故 答案为I。"
+        },
+        {
+          "number": 42,
+          "stem": "The suggestion of letting children simply play may sound like going backwards to parents who want to help build their children's skills.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的lettingchildren simplyplay、 backwards和skills定位到文章C)段嘱二句。 C)【精析】细节归纳题。定位句指出,多年来,家长们 一直在为买即份要具、下载哪些应用程无、让玩子 放学后去参加哪些技能培养项目而烦恼,仅仅是 让但们要要一或者说,与但们一起更好地要 要似乎像是后退了一步。题干中的The suggestion of letting children simply play 和 soundlikegoingbackwards分别是对定位句中 lettingthem simplyplayor betteryet,playing withthem和could seemlikea stepbackward的 同义转述,题干中的parentswhowanttohelp buildtheirchildren'sskills是对定位句中 spending years fretting over which toys to buy, which apps to download and which skill-building programs to send their kids to after school 的概 括归纳,故答案为C)。"
+        },
+        {
+          "number": 43,
+          "stem": "Dr. Michael Yogman believes the idea that parents should carefully schedule children's time may not be helpful to their growth.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【定位】由题干中的theidea、schedulechildren's time和maynotbehelpful定位到文章K)段嘱 二句。 K)【精析】同义转述题。定位句指出,尤格曼认为,父 母需要为玩子安排但们每一分钟的时间这样一种 观念其实并不是在帮玩子。题干中的the idea that parents should carefully schedule children's time和maynotbehelpful分别是对定位句中 The notion that as parents we need to schedule every minuteof their time和 could seem likea stepbackward的同义转述,题干中的maynotbe helpful是对定位句中notdoingthemagreat service的同义转述,故答案为K)。"
+        },
+        {
+          "number": 44,
+          "stem": "One quarter of teachers in an American city said that children in kindergartens had no time for playing freely.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【定位】由题干中的Onequarterofteachers、no time和playingfreely定位到文章F)段嘱二句。 F)【精析】同义转述题。定位句指出,洛杉矶四分之 一的教师表示根本没有时间“自由地要要”。题干 中的 One quarter of teachers in an American city 和hadnotimeforplayingfreely分别是对定位 句中One infourLos Angeles teachers 和there wasnotimeatallfor“freeplay.”的同义转述,故 答案为F)。"
+        },
+        {
+          "number": 45,
+          "stem": "According to a pediatrician, no matter what kind of play children engage in, they are learning how to create things.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的apediatrician、learning和 createthings定位到文章B)段嘱二句。 B)【精析】细节归纳题。定位句指出,尤格曼认为,无 论是剧烈的身体运动、户外游戏,还是扮演游戏, 玩子们都能在边要要边创作东西的过程中学到重 要的一课。题干中的nomatterwhatkindofplay 是对定位句中Whetherit'sroughphysical play, outdoorplayorpretendplay的概括,题干中的 learninghowtocreatethings是对定位句中 deriveimportant lessons fromthechanceto makethingsupastheygo的归纳,故答案为B)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2020-09-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Americans spend billions of dollars each year trying to change their weight with diets, gym memberships and plastic surgery. Trying to live up to the images of \"perfect\" models and movie heroes has a dark side: anxiety, depression, as well as unhealthy strategies for weight loss or muscle gain. It also has a financial cost. Having an eating disorder boosts annual health care costs by nearly US $ 2,000 per person. Why is there both external and internal pressure to look \"perfect\"? One reason is that society rewards people who are thin and healthy-looking. Researchers have shown that body mass index is related to wages and income. Especially for women, there is a clear penalty at work for being overweight or obese. Some studies have also found an impact for men, though a less noticeable one. While the research literature is clear that labor market success is partly based on how employers and customers perceive your body image, no one had explored the other side of the question. Does a person's own perception of body image matter to earnings and other indicators of success in the workplace? Our recently published study answered this question by tracking a large national random sample of Americans over a critical time period when bodies change from teenage shape into adult form and when people build their identities. As in other research, women in our sample tend to over-perceive their weight—they think they're heavier than they are—while men tend to under-perceive theirs. We found no relationship between the average person's self-perception of weight and labor market outcomes, although self-perceived weight can influence self-esteem (自尊心), mental health and health behaviors.",
+        "While the continued gender penalty in the labor market is frustrating, our finding that misperceived weight does not harm workers is more heartening.",
+        "Since employers' perception of weight is what matters in the labor market, changing discrimination laws to include body type as a category would help. Michigan is the only state that prohibits discrimination on the basis of weight and height. We believe expanding such protections would make the labor market more fair and efficient."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What does the author say may have an adverse impact on people?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Undergoing plastic surgeries in pursuit of beauty."
+            },
+            {
+              "key": "B",
+              "text": "Imitating the lifestyles of heroes and role models."
+            },
+            {
+              "key": "C",
+              "text": "Striving to achieve perfection regardless of financial cost."
+            },
+            {
+              "key": "D",
+              "text": "Attempting to meet society's expectation of appearance."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的adverseimpact定位到第二段 D)【精析】推理判断题。定位句指出,试图达到“完 第一句。 美”模特和电影英雄的形象有不良影响,这会导致 一系列问题。由此可见,试图满足社会对外表的 期望会但生负面影响,故答案为D)“试图满足社 会对外表的期望”。 【避错】A提到的整形手术只是尊求完美体型的 一种方式,不够全面,故排除。第二段第一句只是 提到力求“完美”危特和电影英雄他样的形象,并 未提及危仿之们的生活方式,故排除B)。定位句 提到尊求完美形象的问题,且全文都围绕体型进 行探玩,C)中的achieveperfection相要太宽泛, 与文章产容不符,故排除。"
+        },
+        {
+          "number": 47,
+          "stem": "What have researchers found out about people's earnings?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are closely related to people's social status."
+            },
+            {
+              "key": "B",
+              "text": "They have to do with people's body weight and shape."
+            },
+            {
+              "key": "C",
+              "text": "They seem to matter much less to men than to women."
+            },
+            {
+              "key": "D",
+              "text": "They may not be equal to people's contributions."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的people'searnings定位到第三 段第三句。 B【精析】细节辨认题。定位句提到,研究人员发现, 体重指数与工资和收人有关,由此可知人们的收 入和体重、体型有关,故答案为B)。 【避错】文中没有提到社会地位和收入的关系,故 排除A)。第三段第四、五句指出体重对女性收人 的影响较男性法比更明显一些,并不是说收人对 男性不重要,故排除。文中没有提到D)中提及的 贡献问题,故排除。"
+        },
+        {
+          "number": 48,
+          "stem": "What does the author's recent study focus on?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Previous literature on indicators of competitiveness in the workplace."
+            },
+            {
+              "key": "B",
+              "text": "Traits that matter most in one's pursuit of success in the labor market."
+            },
+            {
+              "key": "C",
+              "text": "Whether self-perception of body image impacts one's workplace success."
+            },
+            {
+              "key": "D",
+              "text": "How bosses' perception of body image impacts employees' advancement."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的recentstudy和focuson定位 到第五段。 C)【精析】推理判断题。定位段指出,作者的团队近 期公布的研究回答了这个问题,因此可处上一段 趋出这个问题是即让。第四段最后一句就是作者 的研究重点,即一个人对自已身体形象的看法是 否会影响之的收入和其之职场中成功的指标,故 答案为C)。 【避错】第四段第一句指出,虽然研究文献资料清 室地表明,域动力市场的成功在一定程度上取决 于雇主和顾客对你身体形象的看法,但没有人探 究过这个问题的花一面,而这才是作者研究的重 点,故排除A)。文中未提及B)“在域动力市场上 尊求成功时最重要的做质”,故排除。由第四段第 一句可以看出D)“老挤对身体形象的认知如何影 响员工的进步是前人已经研究过的产容,而非作 者的研究重点,故排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What is the finding of the author's recent research?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Being overweight actually does not do much harm to the overall well-being of employees."
+            },
+            {
+              "key": "B",
+              "text": "People are not adversely affected in the workplace by false self-perception of body weight."
+            },
+            {
+              "key": "C",
+              "text": "Self-esteem helps to combat gender inequality in the workplace."
+            },
+            {
+              "key": "D",
+              "text": "Gender inequality continues to frustrate a lot of female employees."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的finding、recentresearch以及 题文同序原占定位到第八段。 B)【精析】细节辨认题。定位段提到,尽管职场上 仍然存在性别歧视,但作者的研究发现,对体重 的错误认知并不会对域动者造成伤害,故答案 为 B)。 【避错】文中未提及超重对员工总体福利的影响, 故排除A)。第七段提到,对于体重的自我认知会 影响自尊心,并未提及是否有看于消除性别不平 等,故排除C)。D)项所述是现实情况,并非作者 研究的发现,故排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What does the author think would help improve the situation in the labor market?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Banning discrimination on the basis of employees' body image."
+            },
+            {
+              "key": "B",
+              "text": "Expanding protection of women against gender discrimination."
+            },
+            {
+              "key": "C",
+              "text": "Helping employees change their own perception of beauty."
+            },
+            {
+              "key": "D",
+              "text": "Excluding body shape as a category in the labor contract."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题干中的helpimprovethesituation定 位到最后一段第一句。 A)【精析】细节辨认题。定位句指出,由于雇主对体 重的看法是影响域动力市场的重要因素,因此修 改反歧视法规,将体型加入其中作为一个类别,将 会有所帮看。由此可见,禁正对员工身体形象的 歧视将有看于改善现状,故答案为A)。 【避错】最后一段指出,要扩大保护,禁止对体重体 型的歧视,没有提及性别歧视,故排除B)。文中 未提及C)“帮看员工改变自己已对美的看法”,故排 除。D)项涉及域动合同的产容,文中没有提到,故 排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2020-09-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "The work-life balance is dead. By this, I'm not advocating that you should give up your pursuit of having a fulfilling career and a thriving personal life, and I'm definitely not saying that you have to give up one to have the other. I also acknowledge that we have a work-life problem, but I'm arguing that the concept of balance has never been helpful, because it's too limiting. You see, our language makes a difference, and how we refer to things matters because it affects our thinking and therefore our actions.",
+        "At the minimum, most of us work because we want to be able to support ourselves, our families, and the people around us. In the ideal world, we're all doing work that we're proud of and that provides meaning and purpose to us. But even if your job doesn't give you shivers of joy each new day, working is a",
+        "part of what each of us does and the contribution we make to society. When you separate work and life, it's a little bit harder to make that connection. But when you think of work as part of a full life and a complete experience, it becomes easier to see that success in one aspect often supports another.",
+        "Losing your balance and falling isn't pleasant. A goal to balance suggests that things could quickly get off balance, and that causes terrible outcomes. It's more constructive to think of solutions that continue to evolve over shifts in life and work. Rather than falling or failing, you may have good days or better days or not-so-good days. These variations are normal, and it's more useful to think of life as something that is ever evolving and changing, rather than a high-risk enterprise where things could go wrong with one misstep.",
+        "How we talk to ourselves matters, and how we talk about issues makes a difference. Let's bury \"work-life balance\" and think bigger and better about work-life fulfillment to do a little less balancing and a lot more living."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the author suggest by saying \"The work-life balance is dead\"?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The hope of achieving a thriving life is impossible to realize."
+            },
+            {
+              "key": "B",
+              "text": "The pursuit of a fulfilling career involves personal sacrifice."
+            },
+            {
+              "key": "C",
+              "text": "The imbalance between work and life simply doesn't exist anymore."
+            },
+            {
+              "key": "D",
+              "text": "The concept of work-life balance contributes little to a fulfilling life."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的work-lifebalanceisdead定 位到第一段。 D)【精析】细节辨认题。定位段第一句指出,工作与 生活的平衡已经消失了。第三句提到,平衡的概 念从来没有什么帮助,因为它太局限了。D中的 contributeslittle和原文中hasneverbeenhelpful 相对应,故答案为D)。 【避错】文章未提及A】“实现蒸蒸日上的生活的希 望是不可能实现的”,故排除。第一段第二句提 到,作者并不是说你必须放弃一个才能拥有另一 个,由此可见,作者并不认为事业有成需要自我牺 性,故排除B)。C)“工作和生活之间的不平衡已 经不存在了”和题干内容矛盾,故排除。"
+        },
+        {
+          "number": 52,
+          "stem": "What does the author say about our use of language?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It impacts how we think and behave."
+            },
+            {
+              "key": "B",
+              "text": "It changes with the passage of time."
+            },
+            {
+              "key": "C",
+              "text": "It reflects how we communicate."
+            },
+            {
+              "key": "D",
+              "text": "It differs from person to person."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题干中的language定位到第一段末句。 A)【精析】细节辨认题。定位句提到,我们的语言会产 生作用,我们如何指代事物很重要,因为它会影响我 们的思维,从而影响我们的行动,故答案为A)。 【避错】文中楚提及B)“它随着时间的推移而改 变”C)“它反映了我们交流的看法”、D)“它会因 人而异”,故排除。"
+        },
+        {
+          "number": 53,
+          "stem": "What does the author say we do in an ideal world?",
+          "options": [
+            {
+              "key": "A",
+              "text": "We do work that betters the lives of our families and friends."
+            },
+            {
+              "key": "B",
+              "text": "We do work that gives us bursts of joy each new day."
+            },
+            {
+              "key": "C",
+              "text": "We do meaningful work that contributes to society."
+            },
+            {
+              "key": "D",
+              "text": "We do demanding work that brings our capacity into full play."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的inanidealworld定位到处二 段处二句。 C)【精析】细节辨认题。定位句指出,在理想的世界 中,我们都在他我们引以为蒙的工作,这为我们提 供了收义和目标。接着由But引出对收义的进一 步解释,构工作也是我们每个人所他的事情以及 我们对社会所他责布的一部分。因此,答案为C)。 【避错】文章处二段处一句提到了家人和朋友的生 活,但此倾是对现实生活的描述,而非理想状况, 因此排除A)。处二段处三句前半句提到,构使你 的工作并没有给你带来新的一天的正悦,这说明 我们的工作并不能让我们每天都快乐,故排除 B)。文章楚提及D)“我们他充分发挥我们能力的 高要求的工作”,故排除。"
+        },
+        {
+          "number": 54,
+          "stem": "What does the author say about life?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is cyclical."
+            },
+            {
+              "key": "B",
+              "text": "It is dynamic."
+            },
+            {
+              "key": "C",
+              "text": "It is fulfilling."
+            },
+            {
+              "key": "D",
+              "text": "It is risky."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的life和题文同向原尊定位到文 章处三段末句。 B)【精析】细节辨认题。定位句中的thinkoflifeas 对应题千中的sayaboutlife,evolving和changing 收为“进化”和“改变”,与选项B)中的dynamic\"动 态的”对应,敌答案为B)。 【避错】文章中楚提及A】“生活是循环的”,故排 除。C)项的fulfilling在文中处一段出现,收为 “有成就感的”,形容事业有成,和生活无关,也并 非作心的主观观点,故排除。D)项中的risky与定 位句中的high-risk收思相近,容易误选,但出现在 ratherthan之后,说明这是作心不认同的观点,故 排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What does the author advise us to do?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Make life as simple as possible."
+            },
+            {
+              "key": "B",
+              "text": "Talk about balance in simpler terms."
+            },
+            {
+              "key": "C",
+              "text": "Balance life and work in a new way."
+            },
+            {
+              "key": "D",
+              "text": "Strive for a more fulfilling life."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的advise和题文同向原尊定位 到最后一段处二句。 D)【精析】细节辨认题。定位句指出,让我们把“工作 与生活反衡”的想者抛之脑后,思维更开阔一些,重 新思考如何让工作和生活充实起来,少他一点反 衡,让两心更加充满活力。选项D)中的fulfilling 对应定位句中的fulfillment,敌故答案为D)。 【避错】文中楚提及A】“让生活尽可能地简单化” B)“用更简单的术语来谈论反衡”,故排除。C)与 定位句中提到的把“工作与生活反衡”的想者抛之 脑后相矛盾,故排除。"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1576 @@
+{
+  "id": "cet6-2013-12-1",
+  "level": 6,
+  "year": 2013,
+  "month": 12,
+  "set": 1,
+  "title": "2013 年 12 月六级 · 第 1 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2013.12/%E7%9C%9F%E9%A2%98PDF/2013%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2013.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2013%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%EF%BC%88%E7%AC%AC%E4%B8%80%E5%A5%97%EF%BC%89.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2013-12-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Quite often, educators tell families of children who are learning English as a second language to speak only English, and not their native language, at home. Although these educators may have good [[36]] ,their advice to families is misguided, and it [[37]] from misunderstandings about the process of language acquisition. Educators may fear that children hearing two languages will become [[38]] confused and thus their language development will be [[39]] ; this concern is not documented in the literature. Children are capable of learning more than one language, whether [[40]] or sequentially(依次地)In fact, most children outside of the United States are expected to becoming bilingual or even, in many cases, multilingual. Globally, knowing more than one language is viewed as an [[41]] and even a necessity in many areas.",
+        "It is also of concern that the misguided advice that students should speak only English is given primarily to poor families with limited educational opportunities, not to wealthier families who have many educational advantages. Since children from poor families often are [[42]] as at-risk for academic failure, teachers believe that advising families to speak English only is appropriate. Teachers consider learning two languages to be too [[43]] for children from poor families, believing that the children are already burdened by their home situations.",
+        "If families do not know English or have limited English skills themselves, how can they communicate in English? Advising non-English-speaking families to speak only English is [[44]] to telling them not to communicate with or interact with their children. Moreover, the [[45]] message is that the family’s native language is not important or valued."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "asset"
+        },
+        {
+          "key": "B",
+          "text": "delayed"
+        },
+        {
+          "key": "C",
+          "text": "deviates"
+        },
+        {
+          "key": "D",
+          "text": "equivalent"
+        },
+        {
+          "key": "E",
+          "text": "identified"
+        },
+        {
+          "key": "F",
+          "text": "intentions"
+        },
+        {
+          "key": "G",
+          "text": "object"
+        },
+        {
+          "key": "H",
+          "text": "overwhelming"
+        },
+        {
+          "key": "I",
+          "text": "permanently"
+        },
+        {
+          "key": "J",
+          "text": "prevalent"
+        },
+        {
+          "key": "K",
+          "text": "simultaneously"
+        },
+        {
+          "key": "L",
+          "text": "stems"
+        },
+        {
+          "key": "M",
+          "text": "successively"
+        },
+        {
+          "key": "N",
+          "text": "underlying"
+        },
+        {
+          "key": "O",
+          "text": "visualizing"
+        }
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "第 36 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "asset"
+            },
+            {
+              "key": "B",
+              "text": "delayed"
+            },
+            {
+              "key": "C",
+              "text": "deviates"
+            },
+            {
+              "key": "D",
+              "text": "equivalent"
+            },
+            {
+              "key": "E",
+              "text": "identified"
+            },
+            {
+              "key": "F",
+              "text": "intentions"
+            },
+            {
+              "key": "G",
+              "text": "object"
+            },
+            {
+              "key": "H",
+              "text": "overwhelming"
+            },
+            {
+              "key": "I",
+              "text": "permanently"
+            },
+            {
+              "key": "J",
+              "text": "prevalent"
+            },
+            {
+              "key": "K",
+              "text": "simultaneously"
+            },
+            {
+              "key": "L",
+              "text": "stems"
+            },
+            {
+              "key": "M",
+              "text": "successively"
+            },
+            {
+              "key": "N",
+              "text": "underlying"
+            },
+            {
+              "key": "O",
+              "text": "visualizing"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F)。空格前的have good 提示所填词应该是复数名词或不可数名词,A) asset,F) intentions,G) object, L) stems 入选。上一句给出教育专家对英语为第二语言的孩子的家人的建议,虽然本句指出这些建议有误 导性,但不可否认教育专家提这些建议的初衷是好的,也就是说他们的本意是要帮助学习者,所以选F) intentions (目的,意图)。A) asset (有价值的人或物;资产),不符合文意;G) object 虽然也有 “目的”之 意,但若用夺此处,应该为复数形式;L)stems 作名词讲时意为“茎,干”,不符合文意。"
+        },
+        {
+          "number": 37,
+          "stem": "第 37 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "asset"
+            },
+            {
+              "key": "B",
+              "text": "delayed"
+            },
+            {
+              "key": "C",
+              "text": "deviates"
+            },
+            {
+              "key": "D",
+              "text": "equivalent"
+            },
+            {
+              "key": "E",
+              "text": "identified"
+            },
+            {
+              "key": "F",
+              "text": "intentions"
+            },
+            {
+              "key": "G",
+              "text": "object"
+            },
+            {
+              "key": "H",
+              "text": "overwhelming"
+            },
+            {
+              "key": "I",
+              "text": "permanently"
+            },
+            {
+              "key": "J",
+              "text": "prevalent"
+            },
+            {
+              "key": "K",
+              "text": "simultaneously"
+            },
+            {
+              "key": "L",
+              "text": "stems"
+            },
+            {
+              "key": "M",
+              "text": "successively"
+            },
+            {
+              "key": "N",
+              "text": "underlying"
+            },
+            {
+              "key": "O",
+              "text": "visualizing"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L)。空格所在部分and it 37 from..是their advice to families is misguided 的并列句,空前主语 it 以及and 前并列分句的时态提示所填词为单数第三人称形式的动词,C) deviates 与L) stems 入选。空格前的it 指代 的是their advice,即教育专家的建议,本句解释此建议是因对语言习得过程的误解而得的,也就是此建议 源于对语言匀得过程“误解,所以选L) stems, stems from 指‘源于,来自”。排除C) deviates,deviate from (脱离,背离,违背),违背对语言习得过程的误解,与文意相反。"
+        },
+        {
+          "number": 38,
+          "stem": "第 38 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "asset"
+            },
+            {
+              "key": "B",
+              "text": "delayed"
+            },
+            {
+              "key": "C",
+              "text": "deviates"
+            },
+            {
+              "key": "D",
+              "text": "equivalent"
+            },
+            {
+              "key": "E",
+              "text": "identified"
+            },
+            {
+              "key": "F",
+              "text": "intentions"
+            },
+            {
+              "key": "G",
+              "text": "object"
+            },
+            {
+              "key": "H",
+              "text": "overwhelming"
+            },
+            {
+              "key": "I",
+              "text": "permanently"
+            },
+            {
+              "key": "J",
+              "text": "prevalent"
+            },
+            {
+              "key": "K",
+              "text": "simultaneously"
+            },
+            {
+              "key": "L",
+              "text": "stems"
+            },
+            {
+              "key": "M",
+              "text": "successively"
+            },
+            {
+              "key": "N",
+              "text": "underlying"
+            },
+            {
+              "key": "O",
+              "text": "visualizing"
+            }
+          ],
+          "answer": "I",
+          "explanation": "I)。本句句子结构完整,对以空格处应该填入副词,I) permanently,K) simultaneously,M) successively 入选。本句仍在解释教育专家们要求孩子的家人不说母语、只说英语的原因:他们担心孩子们同时听英语 与母语会被搞糊涂,所填词修饰confUsed 的程度,符合的选项只有I) permanently (永久地,长期地),become permanently confused (长期地困惑)。排除K) simultaneously (同时地)M) successively (相继地,接连着地)。"
+        },
+        {
+          "number": 39,
+          "stem": "第 39 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "asset"
+            },
+            {
+              "key": "B",
+              "text": "delayed"
+            },
+            {
+              "key": "C",
+              "text": "deviates"
+            },
+            {
+              "key": "D",
+              "text": "equivalent"
+            },
+            {
+              "key": "E",
+              "text": "identified"
+            },
+            {
+              "key": "F",
+              "text": "intentions"
+            },
+            {
+              "key": "G",
+              "text": "object"
+            },
+            {
+              "key": "H",
+              "text": "overwhelming"
+            },
+            {
+              "key": "I",
+              "text": "permanently"
+            },
+            {
+              "key": "J",
+              "text": "prevalent"
+            },
+            {
+              "key": "K",
+              "text": "simultaneously"
+            },
+            {
+              "key": "L",
+              "text": "stems"
+            },
+            {
+              "key": "M",
+              "text": "successively"
+            },
+            {
+              "key": "N",
+              "text": "underlying"
+            },
+            {
+              "key": "O",
+              "text": "visualizing"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。仅根据空格前的will be,空格处可能是动词的现在分词表达将来进行时,或动词的过去分词表达将 来时被动语态 ,也可能是形容词作表语。从语法上讲,入选的选项有B) delayed (耽搁 ,延误),D) equivalent (相等的),E) identified (识别,辨认),H) overwhelming (难以禁受的; 压倒性的),J) prevalent (流行的, 普遍的),N) underlying (潜表的),O) visualizing (使形象化,设想)。接着上一题的分析,孩子们长期困惑 导致的结果可能是他们的语言发展(their language development)受阻,即被延误,命以答案为B) delayed (耽 搁,延误)。"
+        },
+        {
+          "number": 40,
+          "stem": "第 40 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "asset"
+            },
+            {
+              "key": "B",
+              "text": "delayed"
+            },
+            {
+              "key": "C",
+              "text": "deviates"
+            },
+            {
+              "key": "D",
+              "text": "equivalent"
+            },
+            {
+              "key": "E",
+              "text": "identified"
+            },
+            {
+              "key": "F",
+              "text": "intentions"
+            },
+            {
+              "key": "G",
+              "text": "object"
+            },
+            {
+              "key": "H",
+              "text": "overwhelming"
+            },
+            {
+              "key": "I",
+              "text": "permanently"
+            },
+            {
+              "key": "J",
+              "text": "prevalent"
+            },
+            {
+              "key": "K",
+              "text": "simultaneously"
+            },
+            {
+              "key": "L",
+              "text": "stems"
+            },
+            {
+              "key": "M",
+              "text": "successively"
+            },
+            {
+              "key": "N",
+              "text": "underlying"
+            },
+            {
+              "key": "O",
+              "text": "visualizing"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K)。所填词位于whether...or...结构中,与sequentially (依次地)平行并列且语义相反,显然是副词, 又剩余的副词选项K) simultaneously 与M) successively 中选定答案为K) simultaneously (同时地)。本句表 述学习多种语言的两个不同的过程,一种是依次学习,即学完一种再学一种,另一种是同时学习多种。M) successively (相继地,接连着地)与sequentially 意思想近,所以排除。"
+        },
+        {
+          "number": 41,
+          "stem": "第 41 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "asset"
+            },
+            {
+              "key": "B",
+              "text": "delayed"
+            },
+            {
+              "key": "C",
+              "text": "deviates"
+            },
+            {
+              "key": "D",
+              "text": "equivalent"
+            },
+            {
+              "key": "E",
+              "text": "identified"
+            },
+            {
+              "key": "F",
+              "text": "intentions"
+            },
+            {
+              "key": "G",
+              "text": "object"
+            },
+            {
+              "key": "H",
+              "text": "overwhelming"
+            },
+            {
+              "key": "I",
+              "text": "permanently"
+            },
+            {
+              "key": "J",
+              "text": "prevalent"
+            },
+            {
+              "key": "K",
+              "text": "simultaneously"
+            },
+            {
+              "key": "L",
+              "text": "stems"
+            },
+            {
+              "key": "M",
+              "text": "successively"
+            },
+            {
+              "key": "N",
+              "text": "underlying"
+            },
+            {
+              "key": "O",
+              "text": "visualizing"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。空格前an 提示所填词为以元音音素打头的单数形式名词,A) asset,D) equivalent,G) object 入选。 结合上一句所述的实际情况,美国之外其他国家的多数孩子都被期望通两种语言甚至多种语言,本句表达 学习不止一种语言的重要性,能表达出这一重要性的只有A) asset (资产),意思是掌握不止一种语言被视为 是一种资产而且是很多地区要求必须做到的。D) equivalent 作名词时意为(等价物),G)object (目标),这 两项均与文意不符,所以答案是A)。"
+        },
+        {
+          "number": 42,
+          "stem": "第 42 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "asset"
+            },
+            {
+              "key": "B",
+              "text": "delayed"
+            },
+            {
+              "key": "C",
+              "text": "deviates"
+            },
+            {
+              "key": "D",
+              "text": "equivalent"
+            },
+            {
+              "key": "E",
+              "text": "identified"
+            },
+            {
+              "key": "F",
+              "text": "intentions"
+            },
+            {
+              "key": "G",
+              "text": "object"
+            },
+            {
+              "key": "H",
+              "text": "overwhelming"
+            },
+            {
+              "key": "I",
+              "text": "permanently"
+            },
+            {
+              "key": "J",
+              "text": "prevalent"
+            },
+            {
+              "key": "K",
+              "text": "simultaneously"
+            },
+            {
+              "key": "L",
+              "text": "stems"
+            },
+            {
+              "key": "M",
+              "text": "successively"
+            },
+            {
+              "key": "N",
+              "text": "underlying"
+            },
+            {
+              "key": "O",
+              "text": "visualizing"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E)。空格所在部分为since 引导的原因状语从句,所填词用于be...as...结构作句子的谓语部分,剩余选 项中符合这一条件的只有E) identified, be identified as 意为“被认为...”,本句中指贫困家庭的孩子经常被 认为学术失败的危险系数大。"
+        },
+        {
+          "number": 43,
+          "stem": "第 43 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "asset"
+            },
+            {
+              "key": "B",
+              "text": "delayed"
+            },
+            {
+              "key": "C",
+              "text": "deviates"
+            },
+            {
+              "key": "D",
+              "text": "equivalent"
+            },
+            {
+              "key": "E",
+              "text": "identified"
+            },
+            {
+              "key": "F",
+              "text": "intentions"
+            },
+            {
+              "key": "G",
+              "text": "object"
+            },
+            {
+              "key": "H",
+              "text": "overwhelming"
+            },
+            {
+              "key": "I",
+              "text": "permanently"
+            },
+            {
+              "key": "J",
+              "text": "prevalent"
+            },
+            {
+              "key": "K",
+              "text": "simultaneously"
+            },
+            {
+              "key": "L",
+              "text": "stems"
+            },
+            {
+              "key": "M",
+              "text": "successively"
+            },
+            {
+              "key": "N",
+              "text": "underlying"
+            },
+            {
+              "key": "O",
+              "text": "visualizing"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H)。空格前be too 提示所填词为形容词,剩余选项中D) equivalent,H) overwhelming, J) prevalent, underlying, O) visualizing 入选。老师们认为学习两种语言对于贫困家庭的孩子而言压力很大,他们已经受 到家庭状况的影响(家庭状况不好给他们,来压力),所填词与burdened 表义相近,故H) overwhelming (压 倒性的)为答案。overwhelming 在此意每为“难以应对的”。"
+        },
+        {
+          "number": 44,
+          "stem": "第 44 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "asset"
+            },
+            {
+              "key": "B",
+              "text": "delayed"
+            },
+            {
+              "key": "C",
+              "text": "deviates"
+            },
+            {
+              "key": "D",
+              "text": "equivalent"
+            },
+            {
+              "key": "E",
+              "text": "identified"
+            },
+            {
+              "key": "F",
+              "text": "intentions"
+            },
+            {
+              "key": "G",
+              "text": "object"
+            },
+            {
+              "key": "H",
+              "text": "overwhelming"
+            },
+            {
+              "key": "I",
+              "text": "permanently"
+            },
+            {
+              "key": "J",
+              "text": "prevalent"
+            },
+            {
+              "key": "K",
+              "text": "simultaneously"
+            },
+            {
+              "key": "L",
+              "text": "stems"
+            },
+            {
+              "key": "M",
+              "text": "successively"
+            },
+            {
+              "key": "N",
+              "text": "underlying"
+            },
+            {
+              "key": "O",
+              "text": "visualizing"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。所填词位于be...to...结构,to 后的动名词telling 排除了空格处为被动语态的可能,所以只能是形容, D) equivalent,J) prevalent,N) underlying 入选。观察句子前的 Advising 与 to 后telling 的对等关系,可以 确定答案为D) equivalent,be equivalent to 意为“相当于,等同于”,此句意为建议不会英语的家人只说英 语等同于告诉他们不要与孩子进行交流与互动。"
+        },
+        {
+          "number": 45,
+          "stem": "第 45 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "asset"
+            },
+            {
+              "key": "B",
+              "text": "delayed"
+            },
+            {
+              "key": "C",
+              "text": "deviates"
+            },
+            {
+              "key": "D",
+              "text": "equivalent"
+            },
+            {
+              "key": "E",
+              "text": "identified"
+            },
+            {
+              "key": "F",
+              "text": "intentions"
+            },
+            {
+              "key": "G",
+              "text": "object"
+            },
+            {
+              "key": "H",
+              "text": "overwhelming"
+            },
+            {
+              "key": "I",
+              "text": "permanently"
+            },
+            {
+              "key": "J",
+              "text": "prevalent"
+            },
+            {
+              "key": "K",
+              "text": "simultaneously"
+            },
+            {
+              "key": "L",
+              "text": "stems"
+            },
+            {
+              "key": "M",
+              "text": "successively"
+            },
+            {
+              "key": "N",
+              "text": "underlying"
+            },
+            {
+              "key": "O",
+              "text": "visualizing"
+            }
+          ],
+          "answer": "N",
+          "explanation": "N) 。空格前的the 以及空格后的message 提示所填词为形容词 ,剩余选项中只有J) prevalent,N) underlying, O) visualizing 入选。Moreover 的递进作用提示此句进一步解释不会英语的家长只说英语所等同 的情况:在告诉孩子他们家族的母语是不重要的、不受重视的。而“他们家族的母语是不重要的、不受重 视的”这一信息由家人都不讲母语体现出来的,是潜在的,所以答案是N) underlying (潜在的)。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2013-12-1-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Jack White, the former frontman of the White Stripes and an influential figure among fellow musicians, likes to make things difficult for himself. He uses cheap guitars that won’t stay in shape or in tune. When performing, he positions his instruments in a way that is deliberately inconvenient, so that switching from guitar to organ mid-song involves a mad dash across the stage. Why? Because he’s on the run from what he describes as a disease that preys on every artist: “ease of use”. When making music gets too easy, says White, it becomes harder to make it sing.",
+        "B) It’s an odd thought. Why would anyone make their work more difficult than it already is? Yet we know that difficulty can pay unexpected dividends. In 1966, soon after the Beatles had finished work on “Rubber Soul”, Paul McCartney looked into the possibility of going to America to record their next album. The equipment in American studios was more advanced than anything in Britain, which had led the Beatles’ great rivals, the Rolling Stones, to make their latest album. “Aftermath”, in Los Angeles. McCartney found that EMI’s( 百代唱片)contractual clauses made it prohibitively expensive to follow suit, and the Beatles had to make do with the primitive technology of Abbey Road.",
+        "C) Lucky for us. Over the next two years they made their most groundbreaking work, turning the recording studio into a magical instrument of its own. Precisely because they were working with old-fashioned machines, George Martin and his team of engineers were forced to apply every ounce of their creativity to solve the problems posed to them by Lennon and McCartney. Songs like “Tomorrow Never Knows”. “Strawberry Fields Forever”, and “A Day in the Life” featured revolutionary sound effects that dazzled and mystified Martini American counterparts.",
+        "D) Sometimes it’s only when a difficulty is removed that we realise that it was doing for us. For more than two decades, starting in the 1960s, the poet Ted Hughes sat on the judging panel of an annual poetry competition for British schoolchildren. During the 1980s he noticed an increasing number of long poems among the submissions, with some running to 70 or 80 pages. These poems were verbally inventive and fluent, but also “strangely boring”. After making inquiries Hughes discovered that they were being composed on computers, then just finding their way into British homes.",
+        "E) You might have thought any tool which enables a writer to get words on to the page would be an advantage. But there may be a cost to such facility. In an interview with the Paris Review Hughes speculated that when a person puts pen to paper, “you meet the terrible resistance of what happened your first year at it, when you couldn’t write at all”. As the brain attempts to force the unsteady hand to do its bidding, the tension between the two results in a more compressed, psychologically denser expression. Remove that resistance and you are more likely to produce a 70-page ramble (不着 边际的长篇大论).",
+        "F) Our brains respond better to difficulty than we imagine. In schools, teachers and pupils alike often assume that if a concept has been easy to learn, then the lesson has been successful. But numerous studies have now found that when classroom material is made harder to absorb, pupils retain more of it over the long term, and understand it on a deeper level.",
+        "G) As a poet, Ted Hughes had an acute sensitivity to the way in which constraints on self-expression, like the disciplines of metre and rhyme(韵律), spur creative thought. What applies to poets and musicians also applies to our daily lives. We tend to equate(等同)happiness with freedom, but, as the psychotherapist and writer Adam Phillips has observed, without obstacles to our desires it’s harder to know what we want, or where we’re heading. He tells the story of a patient, a first-time mother who complained that her young son was always clinging to her, wrapping himself around her legs wherever she went. She never had a moment to herself, she said, because her son was “always in the way”. When Phillips asked her where she would go if he wasn’t in the way, she replied cheerfully, “Oh, I wouldn’t know where I was!”",
+        "H) Take another common obstacle: lack of money. People often assume that more money will make them happier. But economists who study the relationship between money and happiness have consistently found that, above a certain income, the two do not reliably correlate. Despite the ease with which the rich can acquire almost anything they desire, they are just as likely to be unhappy as the middle classes. In this regard at least, F. Scott Fitzgerald was wrong.",
+        "I) Indeed, ease of acquisition is the problem. The novelist Edward St Aubyn has a narrator remark of the very rich that, “not having to consider affordability, their desires rambled on like unstoppable bores, relentless (持续不断的)and whimsical (反复无常的)at the same time.” When Boston College, a private research university, wanted a better feel for its potential donors, it asked the psychologist Robert Kenny to investigate the mindset of the super-rich. He surveyed 165 households, most of which had a net worth of $25m or more. He found that many of his subjects were confused by the infinite options their money presented them with. They found it hard to know what to want, creating a kind of existential bafflement. One of them put it like this: “You know, Bob, you can just buy so much stuff, and when you get to the point where you can just buy so much stuff, now what are you going to do?”",
+        "J) The internet makes information billionaires out of all of us, and the architects of our online experiences are catching on to the need to make things creatively difficult. Twitter’s huge success is rooted in the simple but profound insight that in a medium with infinite space for self-expression, the most interesting thing we can do is restrict ourselves to 140 characters. The music service This Is My Jam helps people navigate the tens of millions of tracks now available instantly via Spotify and iTunes. Users pick their favourite song of the week to share with others. They only get to choose one. The service was only launched this year, but by the end of September 650,000 jams had been chosen. Its co-founder Matt Ogle explains its raisondetre (存在的理由)like this: “In an age of endless choice, we were missing a way to say: ‘This. This is the one you should listen to.”",
+        "K) Today’s world offers more opportunity than ever to follow the advice of the Walker Brothers and make it easy on ourselves. Compared with a hundred years ago, our lives are less tightly bound by social norms and physical constraints. Technology has cut out much of life’s donkey work, and we have more freedoms than ever: we can wear what we like and communicate with hundreds of friends at once at the click of a mouse. Obstacles are everywhere disappearing. Few of us wish to turn the clock back, but perhaps we need to remind ourselves how useful the right obstacles can be. Sometimes, the best route to fulfillment is the path of more resistance."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "The rigorous requirements placed on the writing of poetry stimulate the poet’s creativity.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【定位】根据题目中的requirements, stimulate,poet 和creativity 将本题出处定位于[G]段首句。 【精析】[G]。[G]段首句说自我表达的约束(如格和韵律的规则)可以激发创造性的思维,作为一名诗人, 泰德•休斯对此种方式有着独到的见解。即,对诗歌写作的要求可以激发诗人的创造力。题目中的The rigorous requkements placed on the writing of poetry 对应原文中的 constraints on self-expression, like the disciplines of metre and rhyme,stimulate 与对应原文的 spur, the poet’s creativity 对应原文中的 creative thought。"
+        },
+        {
+          "number": 47,
+          "stem": "With creativity, even old-fashioned instruments may produce spectacular sound effects.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】根据题目中的old-fashioned 和sound effects 将本题出处定位于[C]段最后两句。 【精析】[C]。[C]段最后两句提到乔治•马丁他们用老式机器工作,被迫发挥创造力来解决问题,最后创造 出了一些有着突破性音效的歌曲,让美国同行们惊叹不已。题目是对这两句意思的概括。"
+        },
+        {
+          "number": 48,
+          "stem": "More money does not necessarily bring greater happiness.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【定位】根据题目中的money 和happiness 将本题出处定位于[H]段。 【精析】[H]。[H]段提到人们常以为钱更多会让他们更快乐,但是经济学家们发现,超过一定收入,这两 者之间就没有可靠的关联了。富人和中产阶级一样也可能会不高兴,也就是说,更多的钱并不一定能带来 更多的快乐题目是对该段内容的概括。"
+        },
+        {
+          "number": 49,
+          "stem": "It is a false assumption that lessons should be made easier to learn.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【定位】根据题目中的lessons 和easier to learn 将本题出处定位于[F]段第2 句。 【精析】[F】。[F]段第2 句提到,在学校,教师和学生都经常假设,如果一个概念简单易学,那么这堂课就 会成功。接下来第3 句转折说,但无数的研究已经发现,课堂材料如果更难吸收,从长远来讲,学生们能 记住更多,对其理解也更深。题目是对这两句内容的概括。"
+        },
+        {
+          "number": 50,
+          "stem": "Obstacles deliberately placed in the creation of music contribute to its success.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】根据题目中的music, deliberately 将本题出处定位于[A]段。 【精析】[A]。[A]段第3 句指出杰克•怀特表演时,故意将自己的乐器放在不方便的位置说明怀特在蓄意为 自己制造障碍。而本段首句提到,杰克•怀特是白色条纹乐队前主唱,在音乐界也是很有影响力的人物。本 段末句提到,他认为音乐制作如果太容易,音乐就很难出彩。因此,可以说,正是这种蓄意为自己制造障 碍的行为造就了杰克•怀特的成功。题目是对本段内容的概括。"
+        },
+        {
+          "number": 51,
+          "stem": "Those who enjoy total freedom may not find themselves happy.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【定位】根据题目中的freedom 和happy 将本题出处定位于[G]段第3 句。 【精析】[G]。[G]段第3 句说我们易于将自由等同于幸福,但是,心理治疗师和作家亚当•菲利普斯说,如 果我们的愿望没有束缚,我们很难知道我们想要什么,或者我们的目标是什么。接下来又举了一个病人的 例子说明该观点——并不是完全自由了就会快乐。题目与原文内容的推断。"
+        },
+        {
+          "number": 52,
+          "stem": "Ted Hughes discovered many long poems submitted for poetry competition were composed on computers.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】根据题目中的Hughes 和composed on computers 将本题出处定位于[D]段末句。 【精析】[D]。[D]段末句中的they 即指上文提到的long poems among the submissions,该句提到,经过多方 打听,休斯发现,这些诗都是学生们回家路上用电脑写的。题目与该句同义。"
+        },
+        {
+          "number": 53,
+          "stem": "Maybe we need to bear in mind that the right obstacles help lead us to greater achievements.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【定位】根据题目中的bear in mind 和the right obstacles 将本题出处定位于[K]段倒数第2 句。 【精析】[K]。K]段倒数第2 句提到我们也许需要提醒自己合适的障碍对我们会多么有用。该段末句指出有 时候,获得圆满的最佳路线就是选择阻力更大的那条路径。题目是对这两句的概括。"
+        },
+        {
+          "number": 54,
+          "stem": "An investigation found that many of the super-rich were baffled by the infinite choices their money made available.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【定位】根据题目中的the super-ricli 将本题出处定位于[I]段第3 句。 【精析】[I]。[I]段第3 句指出心理学家调查超级富豪的心态。接下来的几句讲述调查的结果,即他的许多 研究对象都会因为钱给他们提供的无限选择而感到迷茫。题目是第5 句的同义转述,其中的baffled 与原文 中的conflised 同义。"
+        },
+        {
+          "number": 55,
+          "stem": "One free social networking website turned out to be successful because it limited each posting to one hundred and forty characters.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【定位】根据题目中的one hundred and forty characters 将本题出处定位于[J]段第2 句。 【精析】[J]。[J]段第2 句指出推特网站的巨大成功根植于简单却深刻的见解,在一个有无限空间可以表达 自己的媒介中,最有趣的事是我们只能把自己限制在140 个字内。题目中的one free social networking website 指的正是文中的Twitter。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2013-12-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "There was a time not long ago when new science Ph.D.s in the United Stated were expected to pursue a career path in academia(学术界).But today, most graduates end up working outside academia, not only in industry but also in careers such as science policy, communications, and patent law. Partly this is a result of how bleak the academic job market is, but there’s also a rising awareness of career options that Ph.D. scientists haven’t trained for directly — but for which they have useful knowledge, skills, and experience. Still, there’s a huge disconnect between the way we currently train scientists and the actual employment opportunities available for them, and an urgent need for dramatic improvements in training programs to help close the gap. One critical step that could help to drive change would be to require Ph.D. students and postdoctoral scientists to follow an individual development plan (IDP).",
+        "In 2002, the U.S. Federation of American Societies for Experimental Biology recommended that every postdoctoral researcher put together an IDP in consultation with an adviser. Since then, several academic institutions have begun to require IDPs for postdocs. And in June, the U.S. National Institutes of Health (NIH) Biomedical Research Workforce Working Group recommended that the NIH require IDPs for the approximately 32,000 postdoctoral researchers they support. Other funding agencies, public and private, are moving in a similar direction.",
+        "IDPs have long been used by government agencies and the private sector to achieve specific goals for the employee and the organization. The aim is to ensure that employees have an explicit tool to help them understand their own abilities and aspirations, determine career possibilities, and set (usually short-term) goals. In science, graduate students and new Ph.D. scientists can use an IDP to identify and navigate an effective career path.",
+        "A new Web application for this purpose, called my IDP, has become available this week. It’s designed to guide early-career scientists through a confidential, rigorous process of introspection (内省)to create a customized career plan. Guided by expert knowledge from a panel of science- focused career advisers, each trainee’s self-assessment is used to rank a set of career trajectories (轨迹). After the user has identified a long-term career goal, my IDP walks her or him through the process of setting short-term goals directed toward accumulating new skills and experiences important for that career choice.",
+        "Although surveys reveal the IDP process to be useful, trainees report a need for additional resources to help them identify a long-term career path and complete an IDP. Thus, my IDP will be most effective when ifs embedded in larger career-development efforts. For example, universities could incorporate IDPs into their graduate curricula to help students discuss, plan, prepare for, and achieve their long-term goals."
+      ],
+      "questions": [
+        {
+          "number": 56,
+          "stem": "What do we learn about new science Ph.D.s in the United States today?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They lack the skills and expertise needed for their jobs."
+            },
+            {
+              "key": "B",
+              "text": "They can choose from a wider range of well-paying jobs."
+            },
+            {
+              "key": "C",
+              "text": "They often have to seek jobs outside the academic circle."
+            },
+            {
+              "key": "D",
+              "text": "They are regarded as the nation’s driving force of change."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】根据题干中的new science Ph.D.s in the United States today 将本题出处定位于第1 段前两句。 【精析】C)。第1 段前两句提到,过去在美国,刚毕业的科学博士还有望在学术界寻求职业道路。 然而如 今,大多数毕业生最终都在学术界之外工作。C)是对第2 句中的most graduates end up working outside academia 的同义转述,故答案为C)。A)是针对文中第1 段第3 句中的but for which they have useflil knowledge, skills,and experience 设置的干扰项。B)是对第 1 段第2 句中的not only in industry but also in careers such as science policy, comniunications, and patent law 的过度推断。D)是针对文中第 1 段最后一句 中的 One critical step that could help to drive change...设置的干扰项。"
+        },
+        {
+          "number": 57,
+          "stem": "What does the author say about America’s Ph.D. training?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It should be improved to better suit the job market."
+            },
+            {
+              "key": "B",
+              "text": "It is closely linked to future career requirements."
+            },
+            {
+              "key": "C",
+              "text": "It should be re-oriented to careers outside academia."
+            },
+            {
+              "key": "D",
+              "text": "It includes a great variety of practical courses."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】题干中的American’s Ph.D. training 是对文中第1 段倒数第2 句中的the way we currently train scientists 和training programs 的同义转述,故将本题出处定位于此。 【精析】A) 。第1 段倒数第2 句提到,我们当前培养科学家的方法与现实的就业机会之间仍然存在巨大的 鸿沟,因此迫切需要对培养方案做出极大的改进以帮助缩小这一鸿沟。A)是对该句的同义转述,故为答案。 A)中的improved 与文中的improvements 为同根词。B)与原文意思相反,予以排除。C)彻底否定了当前培养 科学家的方法,说法过于绝对。D)中的practical courses 文中并未提及。"
+        },
+        {
+          "number": 58,
+          "stem": "What was recommended for Ph.D.s and postdoctoral researchers?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They meet the urgent needs of the corporate world."
+            },
+            {
+              "key": "B",
+              "text": "A long-term career goal be set as early as possible."
+            },
+            {
+              "key": "C",
+              "text": "An IDP be made in consultation with an adviser."
+            },
+            {
+              "key": "D",
+              "text": "They acquire an explicit tool to help obtain jobs."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】根据题干中的recommended 和postdoctoral researchers 将本题出处定位于第2 段首句。 【精析】C)。第2 段首句提到,美国实验生物学学会联合会建议,每个博士后研究生应该与指导教授商量 制定一个个人发展计划。C)是对该句中的put together an IDP in consultation with an adviser 的同义转述,其 中made 对应文中的put together,故答案为C)。A)是针对文中第1 段倒数第2 句中的an urgent need for...设 置的干扰项。B)是针对第4 段第4 句中的After the user has identified a long-term career goal...设置的干扰项。 D)是针对第3 段第2 句中的The aim is to ensure that employees have an explicit tool to help them... 设置的干扰 项。"
+        },
+        {
+          "number": 59,
+          "stem": "Government agencies and the private sector often use IDPs to____________________ .",
+          "options": [
+            {
+              "key": "A",
+              "text": "bring into fall play the skills and expertise of their postdoctoral researchers"
+            },
+            {
+              "key": "B",
+              "text": "help employees make the best use of their abilities to achieve their career goals"
+            },
+            {
+              "key": "C",
+              "text": "place employees in the most appropriate positions"
+            },
+            {
+              "key": "D",
+              "text": "hire the most suitable candidates to work for them"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】根据题干中的Government agencies and the private sector 和use IDPs to 将本题出处定位于第3 段首句。 【精析】B)。第3 段首句提到,个人发展计划很早就被政府机构和私营部门用于为员工和组织实现特定的 目标。接着第2 句具体说明他们使用个人发展计划的目的:为了保证员工有明确的方法以帮助他们了解自 己的能力和抱负、确定职业的发展前景以及设定(通常是短期内的)目标。B)是对这两句的概括,故为答案。A)是针对第 1 段第3 句中的but for which they have useM knowledge,skills,and experience 设置的干 扰项。C)和D)都属于无中生有。"
+        },
+        {
+          "number": 60,
+          "stem": "What do we know about my IDP?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is an effective tool of self-assessment and introspection for better career plans."
+            },
+            {
+              "key": "B",
+              "text": "It enables people to look into various possibilities and choose the career they love."
+            },
+            {
+              "key": "C",
+              "text": "It promises a long-term career path."
+            },
+            {
+              "key": "D",
+              "text": "It is part of the graduate curricula."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】根据题干中的my IDP 将本题出处定位于第4 段。 【精析】A)。第4 段第2、3 句提到,“我的个人发展计划”通过一个自省过程对处于职业生涯早期的科学 家们进行指导,从而制定一个针对个人的职业规划。......每个受训者的自我评估都被用于对一套职业轨迹 进行划分。概括起来就是,“我的个人发展计划”是通过自我评估和自我反省的方法为科学家们选择一个 更好的职业规划,故A)符合文意。B)是针对文中第3 段倒数第2 句中的...determine career possibilities...设 置的干扰项 ,不属于myIDP 的特征。C)是针对第5 段第1 句中的...help them identify a long-term career path. 设置的干扰项,达到这一目的除myIDP 外还需要额外的资源。D)是针对第5 段最后一句中的universities could incorporate IDPs into their graduate curricula 设置的干扰项,这里只是建议把 IDP 并入大学的研究生课 程,并不是指myIDP 已经成为研究生课程的一部分。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2013-12-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Just over a decade into the 21st century, women’s progress can be celebrated across a range of fields. They hold the highest political offices from Thailand to Brazil, Costa Rica to Australia. A woman holds the top spot at the International Monetary Fund; another won the Noble Prize in economics. Self-made billionaires in Beijing, tech innovators in Silicon Valley, pioneering justices in Ghana — in these and countless other areas, women are leaving their mark.",
+        "But hold the applause. In Saudi Arabia, women aren’t allowed to drive. In Pakistan, 1,000 women die in honor killings every year. In the developed world, women lag behind men in pay and political power. The poverty rate among women in the U.S. rose to 14.5% last year.",
+        "To measure the state of women’s progress, Newsweek ranked 165 countries, looking at five areas that affect women’s lives: treatment under the law, workforce participation, political power, and access to education and health care. Analyzing data from the United Nations and the World Economic Forum, among others, and consulting with experts and academics, we measured 28 factors to come up with our rankings.",
+        "Countries with the highest scores tend to be clustered in the West, where gender discrimination is against the law, and equal rights are constitutionally enshrined(神圣化)But there were some surprises. Some otherwise high-ranking countries had relatively low scores for political representation. Canada ranked third overall but 26th in power, behind countries such as Cuba and Burundi. Does this suggest that a woman in a nation’s top office translates to better lives for women in general? Not exactly. “Trying to quantify or measure the impact of women in politics is hard because in very few counties have there been enough women in politics to make a difference,” says Anne-Marie Goetz, peace and security adviser for U.N. Women.",
+        "Of course, no index can account for everything. Declaring that one country is better than another in the way that it treats more than half its citizens means relying on broad strokes and generalities. Some things simply can’t be measured. And cross-cultural comparisons can’t account for differences of opinion.",
+        "Certain conclusions are nonetheless clear. For one thing, our index backs up a simple but profound statement made by Hillary Clinton at the recent Asia-Pacific Economic Cooperation summit. “When we liberate the economic potential of women, we elevate the economic performance of communities, nations, and the world,” she said. “There’s a stimulative effect that kicks in when women have greater access to jobs and the economic lives of our countries: Greater political stability. Fewer military conflicts. More food. More educational opportunity for children. By harnessing the economic potential of all women, we boost opportunity for all people.”"
+      ],
+      "questions": [
+        {
+          "number": 61,
+          "stem": "What does the author think about women’s progress so far?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It still leaves much to be desired."
+            },
+            {
+              "key": "B",
+              "text": "It is too remarkable to be measured."
+            },
+            {
+              "key": "C",
+              "text": "It has greatly changed women’s fate."
+            },
+            {
+              "key": "D",
+              "text": "It is achieved through hard struggle."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】文章第1 段和第2 段是关于女性进步的介绍,因而将本题出处定位至这两段。 【精析】A)。第1 段指出女性在21 世纪的前十年已经取得了显著的成绩,并列举了大量的成功女性的例子 来加以说明形势一片大好。但是第2 段首句就直接指出,不要高兴得太早,并在该段接下来的内容中举例 指出为什么这么说:因为在很多国家和地区,女性的地位依然堪忧。.综合这两段看来,作者认为,女性进 步的道路依然漫长,选项A)符合这两段的文意,故为答案。选项B)是对原文的片面理解,第1 段端实列举 了大量杰出女性取得辉煌成就的例子,但是第2 段中作者随即指出,在其他一些地方,女性的生存和生活 状态堪忧。因此排除B)。选项C)和D)的内容在文章中并未涉及,属于无理据、想当然的过度推断,故排 除。"
+        },
+        {
+          "number": 62,
+          "stem": "In what countries have women made the greatest progress?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Where women hold key posts in government."
+            },
+            {
+              "key": "B",
+              "text": "Where women’s rights are protected by law."
+            },
+            {
+              "key": "C",
+              "text": "Where women’s participation in management is high."
+            },
+            {
+              "key": "D",
+              "text": "Where women enjoy better education and health care."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】根据题干中的women 和progress 将本题出处定位于第3、4 段。 【精析】B)。第3、4 段详细介绍了《新闻周刊》在全球范围内对女性的进步情况所做的调查,其中第3 句 介绍的是这次调查的目的以及具体细节,第4 段介绍了这次调查的结果。第4 段首句中指出,得分最高的 国家集中在西方,那里的法律禁止性别歧视,而且男女平等的权利是神圣化的,句子中where 引导的定语 从句实际上解释了原因。选项B)是对定语从句部分的同义转述印故为答案,三个干扰项均是依据第3 段第 1 句中所列的影响女性生活的五个方面而设置的,并不是使得女性取得最大进步的因素,故排除。"
+        },
+        {
+          "number": 63,
+          "stem": "What do Newsweek rankings reveal about women in Canada?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They care little about political participation."
+            },
+            {
+              "key": "B",
+              "text": "They are generally treated as equals by men."
+            },
+            {
+              "key": "C",
+              "text": "They have a surprisingly low social status."
+            },
+            {
+              "key": "D",
+              "text": "They are underrepresented in politics."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】根据题干中的Canada 将本题出处定位于第4 段。 【精析】D)。第4 段的第2—4 句转折指出,但是情况并非总是如此,有一些其他排名很靠前的国家在政治 代表方面的得分就很低,并以加拿大为例进行了说明。由此可见,加拿大的女性在参政方面的代表名额很 有限。选项D)是对这三句的综合概述,故为答案。第4 段中提到加拿大的例子主要是为了说明这个国家的 女性在政治方面参与度较低,但这并不表明她们不关心政治参与(选项A)),也并不代表她们被男人们作 为平等者对待(选项B)),或者她们的社会地位低到令人吃惊的地步(选项C)),故排除这三项。"
+        },
+        {
+          "number": 64,
+          "stem": "What does Anne-Marie Goetz think of a woman being in a nation’s top office?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It does not necessarily raise women’s political awareness."
+            },
+            {
+              "key": "B",
+              "text": "It does not guarantee a better life for the nation’s women."
+            },
+            {
+              "key": "C",
+              "text": "It enhances women’s status."
+            },
+            {
+              "key": "D",
+              "text": "It boosts women’s confidence."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】根据题干中的Anne-Marie Goetz 及in a nation’s top office 将本题出处定位于第4 段最后三句。 【精析】B)。第4 段倒数第3 句和第2 句以设问的方式指出,就算有一个女性得以执掌一个国家,这也不 代表这个国家的普通女性都生活得更好一些。倒数第1 句话引用了安妮•玛丽•戈茨的话补充道,很难量化 或者评估女性在政治上的影响力,因为只有极少数国家的政坛里,女性数量足以对本国产生影响。可见, 安妮的态度与前两句所表述的观点一致。选项B)是对这三句的综合概述,故为答案。选项A)的内容与原文 毫无关系,文章没有提到女性的政治意识,所以排除A)。文章中只是提及到女性参政的人数较少,而且这 些参政的女性并不能代表这个国家的所有女性,安妮•玛丽•戈茨的发言中并未直接涉及女性地位或者女性 自信相关的内容,故排除C)和D)。"
+        },
+        {
+          "number": 65,
+          "stem": "What does Hillary Clinton suggest we do to make the world a better place?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Give women more political power."
+            },
+            {
+              "key": "B",
+              "text": "Stimulate women’s creativity."
+            },
+            {
+              "key": "C",
+              "text": "Allow women access to education."
+            },
+            {
+              "key": "D",
+              "text": "Tap women’s economic potential."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】根据题干中的Hillary Clinton 将本题出处定位于第6 段。 【精析】D)。第6 段主要介绍了希拉里•克林顿的相关言论。第3 句中她亮出了自己的观点:如果女性在经 济方面的潜能得以放开的话,将会对社区、国家乃至世界都产生积极影响。接下来她就这个观点进行了详 细阐述,指出这种做法将带来的种种好处,题干中的make the world a better place 即对应本部分的内容。在 最后一句中,她总结陈词,再次指出,通过利用所有女性无尽的经济潜能将会为所有人提供机会。 由此可 见,希拉里认为,如果能充分发掘女性在经济方面的潜力,世界将会交骨更美好。选项D)符合文意,故为 答案。选项A)故意用political power 混淆原文中提及的economic potential,不符合原文,故排除。选项B)在 文中并未涉及,故排除。选项C)也是对原文中More educational opportunity for children 的胡乱嫁接,不符合 原文,故排除。"
+        }
+      ]
+    }
+  ]
+}

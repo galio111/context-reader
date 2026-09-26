@@ -1,0 +1,1729 @@
+{
+  "id": "cet6-2013-06-3",
+  "level": 6,
+  "year": 2013,
+  "month": 6,
+  "set": 3,
+  "title": "2013 年 6 月六级 · 第 3 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2013.06/%E7%9C%9F%E9%A2%98Word/2013%E5%B9%B46%E6%9C%88%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%EF%BC%88%E4%B8%89%EF%BC%89.doc",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2013.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2013%E5%B9%B46%E6%9C%88%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%EF%BC%88%E7%AC%AC%E4%B8%89%E5%A5%97%EF%BC%89.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2013-06-3-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Children are losing the ability to play properly because they are being given too many toys, according to a new research. The studies show that children — especially those under five — are often [[36]] and actually play less than those with fewer toys. “Our studies show that giving children too many toys or toys of the [[37]] type can actually be doing them harm. They get spoiled and cannot [[38]] on any one thing long enough to learn from it”, said Lerner, a childhood development researcher. Her conclusions have been backed up by British research looking at children with [[39]] few toys, whose parents spend more time reading, singing or playing with them. It showed such children [[40]] youngsters from richer backgrounds — even those who had access to computers. Kathy Sylva, professor of educational psychology at Oxford University, reached her [[41]] from a study of 3,000 children from the ages of three to five. In her opinion, there is a complex relationship between children’s progress, the type of toys they are given and the time parents spend on them. When the children have a large number of toys there seems to be a distraction element, and when children are [[42]] they do not learn or play well. Some parents notice the [[43]] early. Orhan Ismail, a researcher from Colchester, Essex, saw a change for the worse in Cameron, his 10-month-old son, after he was given [[44]] toys last Christmas. He observed that if there are too many toys in front of Cameron, he will just keep moving round them and then end up going away and finding something like a slipper to play with. Experts [[45]] to put a figure on the number of toys children should have, but many believe two dozen is enough for children of pre-school age."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "impact"
+        },
+        {
+          "key": "B",
+          "text": "concentrate"
+        },
+        {
+          "key": "C",
+          "text": "overwhelmed"
+        },
+        {
+          "key": "D",
+          "text": "reasonably"
+        },
+        {
+          "key": "E",
+          "text": "conclusions"
+        },
+        {
+          "key": "F",
+          "text": "exquisite"
+        },
+        {
+          "key": "G",
+          "text": "embarrassed"
+        },
+        {
+          "key": "H",
+          "text": "hesitate"
+        },
+        {
+          "key": "I",
+          "text": "surpass"
+        },
+        {
+          "key": "J",
+          "text": "innumerable"
+        },
+        {
+          "key": "K",
+          "text": "decisions"
+        },
+        {
+          "key": "L",
+          "text": "inaccurate"
+        },
+        {
+          "key": "M",
+          "text": "relatively"
+        },
+        {
+          "key": "N",
+          "text": "distracted"
+        },
+        {
+          "key": "O",
+          "text": "lag"
+        }
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "第 36 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "impact"
+            },
+            {
+              "key": "B",
+              "text": "concentrate"
+            },
+            {
+              "key": "C",
+              "text": "overwhelmed"
+            },
+            {
+              "key": "D",
+              "text": "reasonably"
+            },
+            {
+              "key": "E",
+              "text": "conclusions"
+            },
+            {
+              "key": "F",
+              "text": "exquisite"
+            },
+            {
+              "key": "G",
+              "text": "embarrassed"
+            },
+            {
+              "key": "H",
+              "text": "hesitate"
+            },
+            {
+              "key": "I",
+              "text": "surpass"
+            },
+            {
+              "key": "J",
+              "text": "innumerable"
+            },
+            {
+              "key": "K",
+              "text": "decisions"
+            },
+            {
+              "key": "L",
+              "text": "inaccurate"
+            },
+            {
+              "key": "M",
+              "text": "relatively"
+            },
+            {
+              "key": "N",
+              "text": "distracted"
+            },
+            {
+              "key": "O",
+              "text": "lag"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。空前的are often 表明,本空应填动词的过去分词形式,B) spoiled, C) overwhelmed, G) embarrassed, N) distracted 入选。结合上一句提到的,孩子们被给太多的玩具(are being given too many toys)可得出答案 为C) overwhelmed, overwhelm 在此处意为“过分给予”。"
+        },
+        {
+          "number": 37,
+          "stem": "第 37 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "impact"
+            },
+            {
+              "key": "B",
+              "text": "concentrate"
+            },
+            {
+              "key": "C",
+              "text": "overwhelmed"
+            },
+            {
+              "key": "D",
+              "text": "reasonably"
+            },
+            {
+              "key": "E",
+              "text": "conclusions"
+            },
+            {
+              "key": "F",
+              "text": "exquisite"
+            },
+            {
+              "key": "G",
+              "text": "embarrassed"
+            },
+            {
+              "key": "H",
+              "text": "hesitate"
+            },
+            {
+              "key": "I",
+              "text": "surpass"
+            },
+            {
+              "key": "J",
+              "text": "innumerable"
+            },
+            {
+              "key": "K",
+              "text": "decisions"
+            },
+            {
+              "key": "L",
+              "text": "inaccurate"
+            },
+            {
+              "key": "M",
+              "text": "relatively"
+            },
+            {
+              "key": "N",
+              "text": "distracted"
+            },
+            {
+              "key": "O",
+              "text": "lag"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L)。空前的the 和空后的type 表明,本空应填形容词,F) exquisite,J)innumerable,L) inaccurate 入选。 本句的后半部分说这一类的玩具会对孩子造成伤害,因此空处应该是一个消极色彩的形容词,故答案为L) inaccurate (不合适的,错误的)。"
+        },
+        {
+          "number": 38,
+          "stem": "第 38 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "impact"
+            },
+            {
+              "key": "B",
+              "text": "concentrate"
+            },
+            {
+              "key": "C",
+              "text": "overwhelmed"
+            },
+            {
+              "key": "D",
+              "text": "reasonably"
+            },
+            {
+              "key": "E",
+              "text": "conclusions"
+            },
+            {
+              "key": "F",
+              "text": "exquisite"
+            },
+            {
+              "key": "G",
+              "text": "embarrassed"
+            },
+            {
+              "key": "H",
+              "text": "hesitate"
+            },
+            {
+              "key": "I",
+              "text": "surpass"
+            },
+            {
+              "key": "J",
+              "text": "innumerable"
+            },
+            {
+              "key": "K",
+              "text": "decisions"
+            },
+            {
+              "key": "L",
+              "text": "inaccurate"
+            },
+            {
+              "key": "M",
+              "text": "relatively"
+            },
+            {
+              "key": "N",
+              "text": "distracted"
+            },
+            {
+              "key": "O",
+              "text": "lag"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。空前的cannot 表明,本空应填一动词原形,且与空后介词构成搭配,故A) impact 和B) concentrate 入选。根据cannot...on any one thing long enough to learn from it (在任何事情上都无法从中学到东西)可知, 只有concentrate (全神贯注,精神集中,专心致志(于某事))符合语义,故答案为B) concentrate。impact on 意为“对某事物有影响”,不符合此处语义。"
+        },
+        {
+          "number": 39,
+          "stem": "第 39 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "impact"
+            },
+            {
+              "key": "B",
+              "text": "concentrate"
+            },
+            {
+              "key": "C",
+              "text": "overwhelmed"
+            },
+            {
+              "key": "D",
+              "text": "reasonably"
+            },
+            {
+              "key": "E",
+              "text": "conclusions"
+            },
+            {
+              "key": "F",
+              "text": "exquisite"
+            },
+            {
+              "key": "G",
+              "text": "embarrassed"
+            },
+            {
+              "key": "H",
+              "text": "hesitate"
+            },
+            {
+              "key": "I",
+              "text": "surpass"
+            },
+            {
+              "key": "J",
+              "text": "innumerable"
+            },
+            {
+              "key": "K",
+              "text": "decisions"
+            },
+            {
+              "key": "L",
+              "text": "inaccurate"
+            },
+            {
+              "key": "M",
+              "text": "relatively"
+            },
+            {
+              "key": "N",
+              "text": "distracted"
+            },
+            {
+              "key": "O",
+              "text": "lag"
+            }
+          ],
+          "answer": "M",
+          "explanation": "M)。空后的few toys 表明,本空应填副词,D) reasonably, M) relatively 入选。本句的后半句用whose 引导的非限制性定语从句表明,那些孩子的家长花费大量的时间跟他们一起读书、唱歌、玩耍,因此,他 们的玩具应该是相对少些,故答案为M)relatively (相对地)。"
+        },
+        {
+          "number": 40,
+          "stem": "第 40 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "impact"
+            },
+            {
+              "key": "B",
+              "text": "concentrate"
+            },
+            {
+              "key": "C",
+              "text": "overwhelmed"
+            },
+            {
+              "key": "D",
+              "text": "reasonably"
+            },
+            {
+              "key": "E",
+              "text": "conclusions"
+            },
+            {
+              "key": "F",
+              "text": "exquisite"
+            },
+            {
+              "key": "G",
+              "text": "embarrassed"
+            },
+            {
+              "key": "H",
+              "text": "hesitate"
+            },
+            {
+              "key": "I",
+              "text": "surpass"
+            },
+            {
+              "key": "J",
+              "text": "innumerable"
+            },
+            {
+              "key": "K",
+              "text": "decisions"
+            },
+            {
+              "key": "L",
+              "text": "inaccurate"
+            },
+            {
+              "key": "M",
+              "text": "relatively"
+            },
+            {
+              "key": "N",
+              "text": "distracted"
+            },
+            {
+              "key": "O",
+              "text": "lag"
+            }
+          ],
+          "answer": "I",
+          "explanation": "I)。空前的children 表明,本空应填动词,又因为本句陈述的是该项研究的结果,因此空处应该用动詞 原形,A) impact,H) hesitate, I) surpass,O) lag 入选。such children 指的是前一句提到的“父母花更多时间 陪着阅读、歌唱和玩耍的孩子”,youngsters from richer backgrounds 指的是“有更多钱买玩具,即拥有更 多玩具的孩子”。本句讲述的是英国的研究结果,既然该研究结果支持勒纳的结论,那么它也应该是在否 定过多玩具的陪伴,肯定父母的陪伴,such children 应该强于youngsters from richer backgrounds, I) surpass “超越,优于”符合此处语义,故为答案。O)lag 意为“落后”,与此处语义相反。"
+        },
+        {
+          "number": 41,
+          "stem": "第 41 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "impact"
+            },
+            {
+              "key": "B",
+              "text": "concentrate"
+            },
+            {
+              "key": "C",
+              "text": "overwhelmed"
+            },
+            {
+              "key": "D",
+              "text": "reasonably"
+            },
+            {
+              "key": "E",
+              "text": "conclusions"
+            },
+            {
+              "key": "F",
+              "text": "exquisite"
+            },
+            {
+              "key": "G",
+              "text": "embarrassed"
+            },
+            {
+              "key": "H",
+              "text": "hesitate"
+            },
+            {
+              "key": "I",
+              "text": "surpass"
+            },
+            {
+              "key": "J",
+              "text": "innumerable"
+            },
+            {
+              "key": "K",
+              "text": "decisions"
+            },
+            {
+              "key": "L",
+              "text": "inaccurate"
+            },
+            {
+              "key": "M",
+              "text": "relatively"
+            },
+            {
+              "key": "N",
+              "text": "distracted"
+            },
+            {
+              "key": "O",
+              "text": "lag"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E)。空前的her 表明,本空应填名词,A) impact, E) conclusions,K) decisions 入选。该词作reached 的 宾语,结合后面的from a study (从一项研究中),只有conclusions 符合此处要求,reach conclusions 意为“得 出结论”,故答案为E) conclusions。"
+        },
+        {
+          "number": 42,
+          "stem": "第 42 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "impact"
+            },
+            {
+              "key": "B",
+              "text": "concentrate"
+            },
+            {
+              "key": "C",
+              "text": "overwhelmed"
+            },
+            {
+              "key": "D",
+              "text": "reasonably"
+            },
+            {
+              "key": "E",
+              "text": "conclusions"
+            },
+            {
+              "key": "F",
+              "text": "exquisite"
+            },
+            {
+              "key": "G",
+              "text": "embarrassed"
+            },
+            {
+              "key": "H",
+              "text": "hesitate"
+            },
+            {
+              "key": "I",
+              "text": "surpass"
+            },
+            {
+              "key": "J",
+              "text": "innumerable"
+            },
+            {
+              "key": "K",
+              "text": "decisions"
+            },
+            {
+              "key": "L",
+              "text": "inaccurate"
+            },
+            {
+              "key": "M",
+              "text": "relatively"
+            },
+            {
+              "key": "N",
+              "text": "distracted"
+            },
+            {
+              "key": "O",
+              "text": "lag"
+            }
+          ],
+          "answer": "N",
+          "explanation": "N)。空前的are 表明,本空应填动词的过去分词形式或形容词,G) embarrassed, N) distracted, F) exquisite, J) innumerable 入选。本句的前半句中的distraction element (分散注意力的因素)给出了提示,因此后半句 是说,当他们的注意力被分散的时候他们就不能学好、玩好,故答案为N) distracted(分心,使不能集中注 意力)。"
+        },
+        {
+          "number": 43,
+          "stem": "第 43 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "impact"
+            },
+            {
+              "key": "B",
+              "text": "concentrate"
+            },
+            {
+              "key": "C",
+              "text": "overwhelmed"
+            },
+            {
+              "key": "D",
+              "text": "reasonably"
+            },
+            {
+              "key": "E",
+              "text": "conclusions"
+            },
+            {
+              "key": "F",
+              "text": "exquisite"
+            },
+            {
+              "key": "G",
+              "text": "embarrassed"
+            },
+            {
+              "key": "H",
+              "text": "hesitate"
+            },
+            {
+              "key": "I",
+              "text": "surpass"
+            },
+            {
+              "key": "J",
+              "text": "innumerable"
+            },
+            {
+              "key": "K",
+              "text": "decisions"
+            },
+            {
+              "key": "L",
+              "text": "inaccurate"
+            },
+            {
+              "key": "M",
+              "text": "relatively"
+            },
+            {
+              "key": "N",
+              "text": "distracted"
+            },
+            {
+              "key": "O",
+              "text": "lag"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。空前的the 表明,本空应填名词,A) impact, K) decisions 入选。上一段讲太多的玩具会让孩子分 散注意力,也就是说给孩子带来不好的影响。那么本句说的就是,一些家长早就注意到了这个影响,故答案为A) impact (影响)。"
+        },
+        {
+          "number": 44,
+          "stem": "第 44 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "impact"
+            },
+            {
+              "key": "B",
+              "text": "concentrate"
+            },
+            {
+              "key": "C",
+              "text": "overwhelmed"
+            },
+            {
+              "key": "D",
+              "text": "reasonably"
+            },
+            {
+              "key": "E",
+              "text": "conclusions"
+            },
+            {
+              "key": "F",
+              "text": "exquisite"
+            },
+            {
+              "key": "G",
+              "text": "embarrassed"
+            },
+            {
+              "key": "H",
+              "text": "hesitate"
+            },
+            {
+              "key": "I",
+              "text": "surpass"
+            },
+            {
+              "key": "J",
+              "text": "innumerable"
+            },
+            {
+              "key": "K",
+              "text": "decisions"
+            },
+            {
+              "key": "L",
+              "text": "inaccurate"
+            },
+            {
+              "key": "M",
+              "text": "relatively"
+            },
+            {
+              "key": "N",
+              "text": "distracted"
+            },
+            {
+              "key": "O",
+              "text": "lag"
+            }
+          ],
+          "answer": "J",
+          "explanation": "J)。空后的toys 表明,本空应填形容词,F) exquisite, J) innumerable 入选。后一句中的too many toys 提示,他被给了很多很多的玩具,故J) innumerable (数不清的)符合此处语义。"
+        },
+        {
+          "number": 45,
+          "stem": "第 45 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "impact"
+            },
+            {
+              "key": "B",
+              "text": "concentrate"
+            },
+            {
+              "key": "C",
+              "text": "overwhelmed"
+            },
+            {
+              "key": "D",
+              "text": "reasonably"
+            },
+            {
+              "key": "E",
+              "text": "conclusions"
+            },
+            {
+              "key": "F",
+              "text": "exquisite"
+            },
+            {
+              "key": "G",
+              "text": "embarrassed"
+            },
+            {
+              "key": "H",
+              "text": "hesitate"
+            },
+            {
+              "key": "I",
+              "text": "surpass"
+            },
+            {
+              "key": "J",
+              "text": "innumerable"
+            },
+            {
+              "key": "K",
+              "text": "decisions"
+            },
+            {
+              "key": "L",
+              "text": "inaccurate"
+            },
+            {
+              "key": "M",
+              "text": "relatively"
+            },
+            {
+              "key": "N",
+              "text": "distracted"
+            },
+            {
+              "key": "O",
+              "text": "lag"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H)。空前的experts 和空后的to 表明,本空应填动词原形,H) hesitate, O) lag (入选)。本句的后半句用 but 转折提到,很多人认为二十几个玩具对于学龄前的儿童来说就已经足够了,那么前半部分说的应该是专 家还不确定孩子该拥有多少玩具合适,故答案为H) hesitate (犹豫)。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2013-06-3-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Few people have quietly changed the world for the better more than this rural lad from the midwestem state of Iowa in the United States. The man in focus is Norman Borlaug, the “Father of the Green Revolution”, who died on 12 September 2009 at age 95. Norman Borlaug spent most of his 60 working years in the farmlands of Mexico, South Asia and later in Africa, fighting world hunger, and saving by some estimates up to a billion lives in the process. An achievement, fit for a Nobel Peace Prize. Early Years",
+        "B) “I’m a product of the great depression” is how Borlaug described himself. A great-grandson of Norwegian immigrants to the United States, Borlaug was born in 1914 and grew up on a small farm in the northeastern comer of Iowa in a town called Cresco. His family had a 40-hectrare (公顷)farm on which they grew wheat, maize (玉米)and hay and raised pigs and cattle. Norman spent most of his time from age 7-17 on the farm, even as he attended a one-room, one-teacher school at New Oregon in Howard County.",
+        "C) Borlaug didn’t have money to go to college. But through a Great Depression era programme, known as the National Youth Administration, Borlaug was able to enroll in University of Minnesota at Minneapolis to study forestry. He excelled in studies and received his PhD in plant pathology (病理学)and genetics in 1942.",
+        "D) From 1942 to 1944, Borlaug was employed as a microbiologist at DuPont in Wilmington. However, following the December 1941 attack on Pearl Harbor, Borlaug tried to join the military, but was rejected under wartime labour regulations. In Mexico",
+        "E) In 1944, many experts warned of mass starvation in developing nations where populations were expanding faster than crop production. Borlaug began work at a Rockefeller Foundation- funded project in Mexico to increase wheat production by developing higher-yielding varieties of the crop. It involved research in genetics, plant breeding, plant pathology, entomology(昆虫学),agronomy(农艺学),soil science, and cereal technology. The goal of the project was to boost wheat production in Mexico, which at the time was importing a large portion of its grain.",
+        "F) Borlaug said that his first couple of years in Mexico were difficult. He lacked trained scientists and equipment. Native farmers were hostile towards the wheat programme because of serious crop losses from 1939 to 1941 due to stem rust.",
+        "G) Wheat varieties that Borlaug worked with had tall, thin stalks. While taller wheat competed better for sunlight, they had a tendency to collapse under the weight of extra grain — a trait called lodging. To overcome this, Borlaug worked on breeding wheat with shorter and stronger stalks, which could hold on larger seed heads. Borlaug’s new semi-dwarf, disease-resistant varieties, called Pitic 62 and Penjamo 62, changed the potential yield of Mexican wheat dramatically. By 1963 wheat production in Mexico stood six times more than that of 1944. Green Revolution in India",
+        "H) During the 1960s, South Asia experienced severe drought condition and India had been importing wheat on a large scale from the United States. Borlaug came to India in 1963 along with Dr Robert Anderson to duplicate his Mexican success in the sub-continent. The experiments began with planting a few of the high-yielding variety strains in the fields of the Indian Agricultural Research Institute at Pusa in New Delhi, under the supervision of Dr M. S. Swaminathan. These strains were subsequently planted in test plots at Ludhiana, Pantnagar, Kanpur, Pune and Indore. The results were promising, but large-scale success, however, was not instant. Cultural opposition to new agricultural techniques initially prevented Borlaug from going ahead with planting of new wheat strains in India. By 1965, when the drought situation turned alarming, the Government took the lead and allowed wheat revolution to move forward. By employing agricultural techniques he developed in Mexico, Borlaug was able to nearly double South Asian wheat harvests between 1965 and 1970.",
+        "I) India subsequently made a huge commitment to Mexican wheat, importing some 18,000 tonnes of seed. By 1968, it was clear that the Indian wheat harvest was nothing short of revolutionary. It was so productive that there was a shortage of labour to harvest it, of bull carts to haul it to the threshing floor(打谷场)of jute(黄麻)bags to store it. Local governments in some areas were forced to shut down schools temporarily to use them as store houses.",
+        "J) United Nation’s Food and Agriculture Organisation (FAO) observed that in 40 years between 1961 and 2001,“India more than doubled its population, from 452 million to more than 1 billion. At the same time, it nearly tripled its grain production from 87 million tonnes to 231 million tonnes. It accomplished this feat while increasing cultivated grain acreage (土地面积)a mere 8 percent.” It was in India that Norman Borlaug’s work was described as the “Green Revolution.” In Africa",
+        "K) Africa suffered widespread hunger and starvation through the 70s and 80s. Food and aid poured in from most developed countries into the continent, but thanks to the absence of efficient distribution system, the hungry remained empty-stomach. The then Chairman of the Nippon Foundation, Ryoichi Sasakawa wondered why the methods used in Mexico and India were not extended to Africa. He called up Norman Borlaug, now leading a semi-retired life, for help. He managed to convince Borlaug to help with his new effort and subsequently founded the Sasakawa Africa Association. Borlaug later recalled, “but after I saw the terrible circumstances there, I said, ‘Let’s just start growing’”.",
+        "L) The success in Africa was not as spectacular as it was in India or Mexico. Those elements that allowed Borlaug’s projects to succeed, such as well-organised economies and transportation and irrigation systems, were severely lacking throughout Africa. Because of this, Borlaug’s initial projects were restricted to developed regions of the continent. Nevertheless, yields of maize, sorghum (高粱) and wheat doubled between 1983 and 1985. Nobel Prize",
+        "M) For his contributions to the world food supply, Borlaug was awarded the Nobel Peace Prize in 1970. Norwegian officials notified his wife in Mexico City at 4:00 am, but Borlaug had already left for the test fields in the Toluca valley, about 65km west of Mexico City. A chauffeur (q机^took her to the fields to inform her husband. In his acceptance speech, Borlaug said, “the first essential component of social justice is adequate food for all mankind. Food is the moral right of all who are born into this world. Yet, 50 percent of the world population goes hungry.” Green Revolution vs Environmentalists",
+        "N) Borlaug’s advocacy of intensive high-yield agriculture came under severe criticism from environmentalists in recent years. His work faced environmental and socio-economic criticisms, including charges that his methods have created dependence on monoculture crops, unsustainable fanning practices, heavy indebtedness among subsistence farmers, and high levels of cancer among those who work with agriculture chemicals. There are also concerns about the long-term sustainability of fanning practices encouraged by the Green Revolution in both the developed and the developing world.",
+        "O) In India, the Green Revolution is blamed for the destruction of India crop diversity, drought vulnerability, dependence on agro-chemicals that poison soils but reap large-scale benefits mostly to the American multi-national corporations. What these critics overwhelmingly advocate is a global movement towards “organic” or “sustainable” farming practices that avoid using chemicals and high technology in favour of natural fertilisers, cultivation and pest-control porgrammes."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "Farmers’ rejection of his planting techniques initially prevented Borlaug from achieving large- scale success in India.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【定位】根据题目中的techniques initially prevented Borlaug from, large-scale success 及in India 可以 将本题出处定位于[H]段第5、6 句。 【精析】[H]。[H]段第5 句提到博洛格(在印度种植新品种后)并没有立即取得大规模的成功(large- scale success)。第6 句说明原因:印度人最初反对新的农业技术。由此可知,博洛格最初在印度没有取得大规模 成功的原因是印度人反对新的农业技术。故本题正是对这两句的概括。"
+        },
+        {
+          "number": 47,
+          "stem": "In both developed and developing countries there are concerns whether in the long run Borlaug’s farming practice will be sustainable.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【定位】根据题目中的in both developed and developing countries, there are concerns, farming practice 及 sustainable 可以将本题出处定位于[N]段末句。 【精析】[N]。[N]段末句提到,人们还担心在发达国家和发展中国家的“绿色革命”是不是长期的可持续 的耕作方式。由此可知,人们担心的是,从长远来看,博洛格的耕作方式是不是可持续的。故本题正是对 该句的同义转述。"
+        },
+        {
+          "number": 48,
+          "stem": "Borlaug’s Pitic 62 and Penjamo 62 has short and strong stems and can resist to diseases.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【定位】根据题目中的Borlaug’s Pitic 62 and Penjamo 62 及resist to diseases 可以将本题出处定位于[G] 段倒数第2 句。 【精析】[G]。[G]段倒数第2 句提到,博洛格培育出来两个叫做Pitic 62 和Penjamo 62 的半矮秆、抗病性强 的新小麦品种。由此可知,Pitic 62 和Penjamo 62 的特点是秆矮、抗病性强。故本题正是对该信息的转述。"
+        },
+        {
+          "number": 49,
+          "stem": "Borlaug’s success in Africa was not as spectacular as in India or Mexico because Africa lacked the necessary supporting facilities.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【定位】根据题目中的Borlaug’s success in Africa was not as spectacular as in India or Mexico 及lacked 可 以将本题出处定位于[L]段前两句。 【精析】【L】。[L]段第1 句提到,博洛格在非洲没有像在印度或墨西哥那样成功。第2 句给出原因:非 洲严重缺乏項目所需的如有序的经济、交通和灌激系统等这些设施。题中的supporting facilities 是对第2 句 中的well-organised economies and transportation and irrigation systems 的概括。"
+        },
+        {
+          "number": 50,
+          "stem": "In India, critics attribute the destruction of Indian crop diversity to the Green Revolution.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "O",
+          "explanation": "【定位】根据题目中的in India, the destruction of Indian crop diversity 及the Green Revolution 可以将 本题出处定位于[O]段首句。 【精析】[O]。[O]段首句提到,印度人指责“绿色革命”破坏了印度作物的多样性。故本题正是对该句的 同义转述。"
+        },
+        {
+          "number": 51,
+          "stem": "Borlaug emphasised that adequate food for all mankind is essential in ensuring social justice in his Nobel Prize acceptance speech.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "M",
+          "explanation": "【定位】根据题目中的Borlaug,adequate food for all mankind, essential,social justice 及in his acceptance speech 可以将本题出处定位于[M]段倒数第3 句。 【精析】[M]。[M]段倒数第3 句说,在发表获奖感言时,博洛格说:“给全人类提供足够的食物(adequate food for all mankind)是社会正义的第一个必要因素(the first essential component of social justice)。”故本题 正是对该句的同义转述。"
+        },
+        {
+          "number": 52,
+          "stem": "In recent years Borlaug’s Green Revolution has been attacked by environmentalists.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【定位】根据题目中的in recent years,Borlaug’s 及environmentalists 可以将本题出处定位于[N]段首句。 【精析】[N】。[N]段首句提到,博洛格倡导的密集型高产农业(intensive high-yield agriculture)近年来受到 了环保主义者的严历批评,其中的intensive high-yield agriculture 即指Green Revolution。由此可知,近几年, 博洛格的绿色革命遭到了环保人士的批评,故本题正是对该句的同义转述。题中的has been attacked by 对 应文中的came under severe criticism from。"
+        },
+        {
+          "number": 53,
+          "stem": "Borlaug’s wheat programme had been stuck in trouble during his first couple of years in Mexico.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【定位】根据题目中的Borlaug 及his first couple of years in Mexico 可以将本题出处定位于[F]段首句。 【精析】[F]。[F]段首句提到,博洛格说他在墨西哥工作的前几年是很艰难的。题中的had been stuck in trouble 对应文中的were difficult。"
+        },
+        {
+          "number": 54,
+          "stem": "According to United Nation’s Food and Agriculture Organisation, in 40 years between 1961 and 2001 India’s grain production increased nearly three times.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【定位】根据题目中的UnitedNation’s Food and Agriculture Organisation,in 40 years between 1961 and 2001 及India’s grain production 可以将本题出处定位于[J]段前两句。 【精析】[J]。[J]段第1 句提到,联合国粮食和农业组织(FAO)指出,在1961 至2001 年的40 年间里,印 度的人口翻了一番多。第2 句指出,同时,印度的粮食几乎是以前的三倍(nearly tripled)。题中的increased nearly three times 对应第2 句中的tripled。"
+        },
+        {
+          "number": 55,
+          "stem": "Norman Borlaug won a Nobel Prize for his 60 years work on combating world hunger.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】根据题目中的Norman Borlaug, a Nobel Prize, his 60 years work 及world hunger 可以将本题出处 定位于[A]段最后两句。 【精析】[A]。[A]段末句指出诺曼•博洛格的成就(achievement)使其荣获诺贝尔和平奖,其中的achievement 即指上句提到的Norman Borlaug spent most of his 60 working years... fighting world hunger。由此可知,诺曼• 博洛格被授予诺贝尔和平奖是因为他一生中有60 年的时间都在为解决世界饥饿问题而努力。题中的 combating world hunger 对应文中的fighting world hunger。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2013-06-3-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "“Depression” is more than a serious economic downturn. What distinguishes a depression from a harsh recession is paralysing fear — fear of the unknown so great that it causes consumers, businesses, and investors to retreat and panic. They save up cash and desperately cut spending. They sell stocks and other assets. A shattering loss of confidence inspires behaviour that overwhelms the normal self-correcting mechanisms that usually prevent a recession from becoming deep and prolonged: a depression. Comparing 1929 with 2007-09, Christina Romer, the head of President Obama’s Council of Economic Advisers, finds the initial blow to confidence far greater now than then. True, stock prices fell a third from September to December 1929, but fewer Americans then owned stocks. Moreover, home prices barely dropped. From December 1928 to December 1929, total household wealth declined only 3%. By contrast, the loss in household wealth between December 2007 and December 2008 was 17%. Both stocks and homes, more widely held, dropped more. Thus traumatised (受到创伤),the economy might have gone into a free fall ending in depression. Indeed, it did go into free fall. Shoppers refrained from buying cars, appliances, and other big- ticket items. Spending on such “durables” dropped at a 12% annual rate in 2008’s third quarter, a 20% rate in the fourth. And businesses shelved investment projects. That these huge declines didn’t lead to depression mainly reflects, as Romer argues, counter-measures taken by the government. Private markets for goods, services, labor, and securities do mostly self-correct, but panic feeds on itself and disarms these stabilising tendencies. In this situation, only the government can protect the economy as a whole, because most individuals and companies are involved in the self-defeating behaviour of self-protection. Government’s failure to perform this role in the early 1930s transformed recession into depression. Scholars will debate which interventions this time — the Federal Reserve’s support of a failing credit system, guarantees of bank debt, Obama’s “stimulus” plan and bank “stress test” @ counted most in preventing a recurrence. Regardless, all these complex measures had the same psychological purpose: to reassure people that the free fall would stop and, thereby, curb die fear that would perpetuate( 使持久)a free fall. All this improved confidence. But the consumer sentiment index remains weak, and all the rebound has occurred in Americans’ evaluation of future economic conditions, not the present. Unemployment (9.8%) is abysmal(糟透的), the recovery’s strength unclear. Here, too, there is an echo from the 1930s. Despite bottoming out in 1933, the Depression didn’t end until World War II. Some government policies aided recovery; some hindered it. The good news today is that the bad news is not worse."
+      ],
+      "questions": [
+        {
+          "number": 56,
+          "stem": "Why do consumers, businesses and investors retreat and panic in times of depression?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They suffer great losses in stocks, property and other assets."
+            },
+            {
+              "key": "B",
+              "text": "They find the self-correcting mechanisms dysfunctioning."
+            },
+            {
+              "key": "C",
+              "text": "They are afraid the normal social order will be paralysed."
+            },
+            {
+              "key": "D",
+              "text": "They don’t know what is going to happen in the future."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】根据题干中的consumers, businesses and investors retreat and panic 和depression 可以将本题出 处定位于首段第2 句。 【精析】D)。首段第2 句提到经济萧条和经济衰退的区别在于:在经济萧条时期,对未知的极大恐惧(fear of the unknown)导致消费者、公司和投资者退缩和恐慌。由此可知,人们退缩和恐慌是因为对未知的恐惧, 故答案为D 项,其中的don’t know what is going to happen in the future 是对文中的the unknown 的解释。经 济衰退的确导致很多人的股票、财产和其他资产遭受了严重损失,但这不是他们恐慌的直接原因,故排除 A 项。第1 段末句提到自信心的逐步瓦解导致人们的行为失去了正常的自我调节能力,而shattering loss of confidence 正是他们retreat and panic 的表现,所以可以说B 项是人们退缩和恐慌导致的结果,而不是引起 退缩和恐慌的原因。C 项是根据原文中paralysing—词设置的干扰,“人们害怕正常的社会秩序会瘫痪”缺 乏推断依据,所以排除C 项。"
+        },
+        {
+          "number": 57,
+          "stem": "What does Christina Romer say about the current economic recession?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Its severity is no match for the Great Depression of 1929."
+            },
+            {
+              "key": "B",
+              "text": "Its initial blow to confidence far exceeded that of 1929."
+            },
+            {
+              "key": "C",
+              "text": "It has affected house owners more than stock holders."
+            },
+            {
+              "key": "D",
+              "text": "It has resulted in a free fall of the prices of commodities."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】根据题干中的Christina Romer 可以将本题出处定位于第2 段首句。 【精析】B)。第2 段首句提到克里斯蒂娜•罗默将1929 年和2007-2009 年这两个时期进行了比较,发现现 在人们的信心受的打击比以前更严重(far greater now than then,then 指1929 年),也就是说当前的经济衰 退在打击人们信心方面超过了1929 年的大萧条,故答案为B 项。当前的经济衰退没有演变成经济萧条, 可以推测其严重程度不能和1929 年的大萧条相比,但这只是客观推测,并不是克里斯蒂娜•罗默的观点, 故排除A 项。第2 段第5 句表到相比之下,此次经济衰退造成股票、房价下跌更多,因此此次经济衰退对 房主与股票持有者的影响是一样大的,故排除C 项。文中并未提及经济衰退导致物价下跌,故排除D 项。"
+        },
+        {
+          "number": 58,
+          "stem": "Why didn’t the current recession turn into a depression according to Christina Romer?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The government intervened effectively."
+            },
+            {
+              "key": "B",
+              "text": "Private markets corrected themselves."
+            },
+            {
+              "key": "C",
+              "text": "People refrained from buying durables and big-ticket items."
+            },
+            {
+              "key": "D",
+              "text": "Individuals and companies adopted self-protection measures."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】根据题干中的depression 和Romer 可以将本题出处定位于第3 段首句。 【精析】A)。第3 段首句提到,罗默认为如此巨大的跌幅没有导致经济萧条,说明政府采取了对策 (countermeasures),即政府进行了有效干预,故答案为A 项。第4 段第2 句提到虽然私人市场在大多数情况 下是可以自我调节的,但是经济衰退造成的恐慌瓦解了这些稳定的趋势,即私人市场的自我调节并不能防 止经济衰退演变成经济萧条,故排除B 项。消费者克制自己不买耐用品和大件儿正是经济触底的表现,可 排除C 项。第3 段末句说大多数的个人和公司的自我保护行动往往适得其反即个人和公司的自我保护达不 到预期的效果,可排除D 项。"
+        },
+        {
+          "number": 59,
+          "stem": "What is the chief purpose of all the counter measures taken?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To create job opportunities."
+            },
+            {
+              "key": "B",
+              "text": "To curb the fear of a lasting free fall."
+            },
+            {
+              "key": "C",
+              "text": "To stimulate domestic consumption."
+            },
+            {
+              "key": "D",
+              "text": "To rebuild the credit system."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】根据题干中的purpose, counter measures 和all 可以将本题出处定位于第4 段末句。 【精析】B)。第4 段末句提到,政府采取的这些复杂的措施都有一个共同的目的:让人们相信经济触底会 停止......,即遏制人们对经济触底的恐惧,故答案为B 项。文中只在第5 段提到了失业率很低,并未提及 政府的对策是为了创造就业机会,排除A 项。刺激国内消费,是使经济回暖的一种有效方法,但文中并未 提及政府采取的一系列措施是为了刺激国内消费,排除C 项。文中并未提及要重建信用体系,排除D 项。"
+        },
+        {
+          "number": 60,
+          "stem": "What does the author think of today’s economic situation?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It may worsen without further stimulation."
+            },
+            {
+              "key": "B",
+              "text": "It will see a rebound sooner or later."
+            },
+            {
+              "key": "C",
+              "text": "It has not gone from bad to worse."
+            },
+            {
+              "key": "D",
+              "text": "It does not give people reason for pessimism."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】根据题干today’s economic situation 可以将本题出处定位于最后一段末句。 【精析】C)。文章末句作者指出现在的好消息就是当前的经济形势没有进一步恶化(The good news today is that the bad news is not worse ),其中的the bad news 即指当前糟糕的经济形势,故答案为C 项。作者只提到 当前的经济没有进一步恶化,并未说没有进一步的刺激,经济形式可能就会恶化,排除A 项。文中并未明 确说明作者对经济复苏的观点,排除B 项。文章末句作者称当前的经济形势是bad news,因此人们持悲观 态度是正常的,排除D 项。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2013-06-3-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "“Usually when we walk through-the rain forest we hear a soft sound from all the moist leaves and organic debris on the forest floor,” says ecologist Daniel Nepstad. “ Now we increasingly get rustle and crunch. That’s the sound of a dying forest.” Predictions of the collapse of the tropical rain forests have been around for years. Yet until recently the worst forecasts were almost exclusively linked to direct human activity, such as dear- cutting and burning for pastures or farms. Left alone, it was assumed, the world’s rain forests would not only flourish but might even rescue us from disaster by absorbing the excess carbon dioxide and other planet-warming greenhouse gases. Now it turns out that may be wishful thinking. Some scientists believe that the rise in carbon levels means that the Amazon and other rain forests in Asia and Africa may go from being assets in the battle against rising temperatures to liabilities. Amazon plants, for instance, hold more than 100 billion metric tons of carbon, equal to 15 years of tailpipe and chimney emissions. If the collapse of the rain forests speeds up dramatically, it could eventually release 3.5-5 billion metric tons of carbon into the atmosphere each year @ making forests the leading source of greenhouse gases. Uncommonly severe droughts brought on by global climate change have led to forest-eating wildfires from Australia to Indonesia, but nowhere more acutely than in the Amazon. Some experts say that the rain forest is already at the brink of collapse. Extreme weather and reckless development are plotting against the rain forest in ways that scientists have never seen. Trees need more water as temperatures rise, but the prolonged droughts have robbed them of moisture, making whole forests easily cleared of trees and turned into farmland. The picture worsens with each round of El Nino, the unusually warm currents in the Pacific Ocean that drive up temperatures and invariably presage(预示)droughts and fires in the rain forest. Runaway fires pour even more carbon into the air, which increases temperatures, starting the whole vicious cycle all over again. More than paradise lost, a perishing rain forest could trigger a domino effect—sending winds and rains kilometres off course and loading the skies with even greater levels of greenhouse gases— that will be felt far beyond the Amazon basin. In a sense, we are already getting a glimpse of what’s to come. Each burning season in the Amazon, fires deliberately set by frontier settlers and developers hurl up almost half a billion metric tons of carbon a year, placing Brazil among the top five contributors to greenhouse gases in the world."
+      ],
+      "questions": [
+        {
+          "number": 61,
+          "stem": "We learn from the first paragraph that .",
+          "options": [
+            {
+              "key": "A",
+              "text": "dead leaves and tree debris make the same sound"
+            },
+            {
+              "key": "B",
+              "text": "trees that are dying usually give out a soft moan"
+            },
+            {
+              "key": "C",
+              "text": "organic debris echoes the sounds in a rain forest"
+            },
+            {
+              "key": "D",
+              "text": "the sound of a forest signifies its health condition"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】根据题干可以将本题的出处直接定位到第1 段。 【精析】D)。第1 段提到通常我们走过雨林时会听到轻柔的声音,现在我们听到的越来越多的是沙沙声和 嘎吱声。那说明雨林正在垂死挣扎。由此可知,雨林发出的声音变了是因为雨林不再健康,面临着毁灭, 故答案为D 项。第1 段引用生态学家丹尼尔•麦普斯泰德的话实际对比了organic debris (对应选项中的tree debris)发出的声音以及dying forest (对应选项中的dead leaves)发出的声音,前者是soft sound,而后者是rustle and crunch,可见二者发出的声音并不同,故排除A 项又第1 段提到现在总是听到rustle and crunch,并指出 那是a dying forest 发出的声音,由此可知trees that are dying 发出的声音应该是rustle and crunch,而不是a soft moan,故排除B 项。第1 段只提到organic debris 发出a soft sound,并未提到其echoes the sounds,故可排除 C 项。"
+        },
+        {
+          "number": 62,
+          "stem": "In the second paragraph, the author challenges the view that .",
+          "options": [
+            {
+              "key": "A",
+              "text": "the collapse of rain forests is caused by direct human interference"
+            },
+            {
+              "key": "B",
+              "text": "carbon emissions are the leading cause of current global warming"
+            },
+            {
+              "key": "C",
+              "text": "the condition of rain forests has been rapidly deteriorating"
+            },
+            {
+              "key": "D",
+              "text": "rain forests should not be converted into pastures or farms"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】根据题干可以将本题的出处直接定位到第2 段。 【精析】A)。第2 段第1-3 句指出最近关于热带雨林毁灭的预测都与人类的直接行为相关,并指出据说,如 果没有人类的干预,雨林不仅能够繁盛而且甚至能够解救人类于灾难中第4 句转折指出,上述观点只是一 厢情愿(wishful thinking)。第5 句对第4 句进行了解释,指出碳浓度的升高意味着雨林可能从用以对抗温 度升高的财富变成债务,就此否定了“热带雨林的毁灭与人类的直接行为相关的观点,故答案为A 项。 第2 段并未提到“破排放是当前全球变暖的主要原因”这种观点,更谈不上质疑该观点,故排除B 项。第 2 段末句提到,if the collapses of the rain forests speeds up dramatically...,只是假设了雨林毁灭的速度加快的 结果,并没有明确指出雨林情况一直在迅速恶化,也谈不上质疑,排除C 项。第2 段提到有人认为是人类 对雨林的直接行为,比如clear-cutting 和burning for pastures or farms 导致雨林面临毁灭,作者认为雨林的 毁灭不一定是人类的行为造成的,但并不意味着作者的观点是应该将雨林转变为牧场或耕地,故排除D 项。"
+        },
+        {
+          "number": 63,
+          "stem": "The author argues that the rising carbon levels in rain forests may .",
+          "options": [
+            {
+              "key": "A",
+              "text": "turn them into a major source of greenhouse gases"
+            },
+            {
+              "key": "B",
+              "text": "change the weather patterns throughout the world"
+            },
+            {
+              "key": "C",
+              "text": "pose a threat to wildlife"
+            },
+            {
+              "key": "D",
+              "text": "accelerate their collapse"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】根据题干中的the rising carbon levels 和rain forests 可以将本题出处定位到第2 段第5 句。 【精析】A)。第2 段第5 句指出破浓度上升意味着雨林可能会从用以对抗温度升高的财富变成债务。第7 句指出如果雨林被破坏的情况极速恶化,其碳排放将会将其变成温室气体的主要来源(leading source),故答案为A 项。原文意思是碳浓度上升会导致气温升高,但并未说碳浓度上升会改变世界雨林的气候模式,故 排除B 项押第2 段在探讨碳浓度升高的问题时并未提及其对野生动物的影响,故排除C 项。第2 段末句提 到,如果雨林加速恶化,其每年的碳排放量将使其成为温室气体的主要来源,并未说碳浓度的升高会加速 雨林的毁灭,故排除D 项。"
+        },
+        {
+          "number": 64,
+          "stem": "What has made it easier to turn some rain forests into farmland?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Rapid rise in carbon levels."
+            },
+            {
+              "key": "B",
+              "text": "Reckless land development."
+            },
+            {
+              "key": "C",
+              "text": "Lack of rainfall resulting from global warming."
+            },
+            {
+              "key": "D",
+              "text": "The unusual warm currents in the Pacific Ocean."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】根据题干中的easier, rain forests 和turn... into farmland 可以将本题出处定位到第4 段第2 句。 【精析】C)。第4 段第2 句指出气温升高,树木需要更多的水分,但是持久的干旱让树木失去了水分,使 得整个雨林很容易就没有了树并变成了耕地。由此可知,全球变暖导致的雨水缺乏使得雨林很容易变成耕 地,故答案为C 项,其中的lack of rainfall 对应原文中的the prolonged droughts。第2 段末句提到碳浓度的 升高会使得雨林成为温室气体的主要来源,而不是说会使其容易变成耕地,故排除A 项。第3 段首句提到 极端天气和毫无节制的开发正在毁灭雨林,并未说会使雨林容易变成耕地,故排除B 项。第3 段第3 句提 到太平洋上的不寻常的暖流能够升高温度使雨林随后会发生干旱和火灾,不是变为耕地,故排除D 项。"
+        },
+        {
+          "number": 65,
+          "stem": "What makes Brazil one of the world’s top five contributors to greenhouse gases?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The domino effect triggered by the perishing rain forests."
+            },
+            {
+              "key": "B",
+              "text": "Its practice of burning forests for settlement and development."
+            },
+            {
+              "key": "C",
+              "text": "The changed patterns of winds and rains in the Amazon area."
+            },
+            {
+              "key": "D",
+              "text": "Its inability to curb the carbon emissions from industries."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】根据题干中的Brazil, world 和top five contributors to greenhouse gases 可以将本题出处定位到 文章末句。 【精析】B)。文章末句提到亚马孙雨林每年的燃烧季,拓荒者和开发者蓄意放火,会制造出五亿公吨碳, 使得巴西成为世界上温室气体排放最多的五个国家之一。也就是说,巴西为了拓荒和开发而火烧雨林的行 为使其成为世界上温室气体排放最多的五个国家之一,故答案为B 项。文章末段首句提到domino effect 造成了两个结果:sending winds and rains kilometres off course 和loading the skies with even greater levels of greenhouse gases,可见它并未使巴西成为世界上温室气体排放最多的五个国家之一,故排除A 项士文章末段 首句提到domino effect 会引发changed patterns of winds and rains,但并未提及changed patterns of winds and rains 会导致碳排放量升高,可排除C 项。文章没有提及巴西对其工业碳排放的控制,排除D 项。"
+        }
+      ]
+    }
+  ]
+}

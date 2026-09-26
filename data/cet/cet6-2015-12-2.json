@@ -1,0 +1,1736 @@
+{
+  "id": "cet6-2015-12-2",
+  "level": 6,
+  "year": 2015,
+  "month": 12,
+  "set": 2,
+  "title": "2015 年 12 月六级 · 第 2 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.12/%E7%9C%9F%E9%A2%98PDF/2015%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC2%E5%A5%97%EF%BC%89.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2015.12%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC2%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2015-12-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "It seems to be a law in the technology industry that leading companies eventually lose their positions, often quickly and brutally. Mobile phone champion Nokia, one of Europe's biggest technology success stories, was no [[26]] , losing its market share in just a few years. In 2007, Nokia accounted for more than 40% of mobile phone sales [[27]] . But consumers' preferences were already [[28]] toward touch-screen smartphones. With the introduction of Apple's iPhone in the middle of that year, Nokia's market share [[29]] rapidly and revenue plunged. By the end of 2013, Nokia had sold its phone business to Microsoft. What sealed Nokia's fate was a series of decisions made by Stephen Elop in his position as CEO, which he [[30]] in October 2010. Each day that Elop spent in charge of Nokia, the company's market value declined by $ 23 million, making him, by the numbers, one of the worst CEOs in history. But Elop was not the only person at [[31]] . Nokia's board resisted change, making it impossible for the company to adapt to rapid shifts in the industry. Most [[32]] , Jorma Ollila, who had led Nokia's transition from an industrial company to a technology giant, was too fascinated by the company's [[33]] success to recognize the change that was needed to sustain its competitiveness. The company also embarked on a [[34]] cost-cutting program, which included the elimination of thousands of jobs. This contributed to the [[35]] of the company's once-spirited culture, which had motivated employees to take risks and make miracles. Good leaders left the company, taking Nokia's sense of vision and direction with them. Not surprisingly, much of Nokia's most valuable design and programming talent left as well."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "assumed"
+        },
+        {
+          "key": "B",
+          "text": "bias"
+        },
+        {
+          "key": "C",
+          "text": "desperate"
+        },
+        {
+          "key": "D",
+          "text": "deterioration"
+        },
+        {
+          "key": "E",
+          "text": "exception"
+        },
+        {
+          "key": "F",
+          "text": "fault"
+        },
+        {
+          "key": "G",
+          "text": "incidentally"
+        },
+        {
+          "key": "H",
+          "text": "notably"
+        },
+        {
+          "key": "I",
+          "text": "previous"
+        },
+        {
+          "key": "J",
+          "text": "relayed"
+        },
+        {
+          "key": "K",
+          "text": "shifting"
+        },
+        {
+          "key": "L",
+          "text": "shrank"
+        },
+        {
+          "key": "M",
+          "text": "subtle"
+        },
+        {
+          "key": "N",
+          "text": "transmitting"
+        },
+        {
+          "key": "O",
+          "text": "worldwide"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assumed"
+            },
+            {
+              "key": "B",
+              "text": "bias"
+            },
+            {
+              "key": "C",
+              "text": "desperate"
+            },
+            {
+              "key": "D",
+              "text": "deterioration"
+            },
+            {
+              "key": "E",
+              "text": "exception"
+            },
+            {
+              "key": "F",
+              "text": "fault"
+            },
+            {
+              "key": "G",
+              "text": "incidentally"
+            },
+            {
+              "key": "H",
+              "text": "notably"
+            },
+            {
+              "key": "I",
+              "text": "previous"
+            },
+            {
+              "key": "J",
+              "text": "relayed"
+            },
+            {
+              "key": "K",
+              "text": "shifting"
+            },
+            {
+              "key": "L",
+              "text": "shrank"
+            },
+            {
+              "key": "M",
+              "text": "subtle"
+            },
+            {
+              "key": "N",
+              "text": "transmitting"
+            },
+            {
+              "key": "O",
+              "text": "worldwide"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E) exception 语法判断:空格前是nO,空格后为返号,由此可知,空格处应填入一个名调或动名词,符合语法条件 的选项有bias(偏见)、deterioration(悉化,退化)、exception(例外)、fault(过错,毛病)、shifting(转变, 改变)和transmitting(过渡;转变)。 语义判断:文章开头提到,在技术行业似乎有一个定律,即领头公司最终都会坐失头把交椅,接下来 举了诺基亚的例子,由空格后的现在分调状语losingitsmarket sharein justafewyears(仅仅几年时间里 迅速失去市场份额)可知,此处是指诺基亚也不例外,即noexception,故本题应选E。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assumed"
+            },
+            {
+              "key": "B",
+              "text": "bias"
+            },
+            {
+              "key": "C",
+              "text": "desperate"
+            },
+            {
+              "key": "D",
+              "text": "deterioration"
+            },
+            {
+              "key": "E",
+              "text": "exception"
+            },
+            {
+              "key": "F",
+              "text": "fault"
+            },
+            {
+              "key": "G",
+              "text": "incidentally"
+            },
+            {
+              "key": "H",
+              "text": "notably"
+            },
+            {
+              "key": "I",
+              "text": "previous"
+            },
+            {
+              "key": "J",
+              "text": "relayed"
+            },
+            {
+              "key": "K",
+              "text": "shifting"
+            },
+            {
+              "key": "L",
+              "text": "shrank"
+            },
+            {
+              "key": "M",
+              "text": "subtle"
+            },
+            {
+              "key": "N",
+              "text": "transmitting"
+            },
+            {
+              "key": "O",
+              "text": "worldwide"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O) worldwide 语法判断:空格所在句是主干结构较为宪整的句子,由此可知,空格处应填入定语、状语或补语等非 主干性成分,进一步分析可知,句中accountedfor没有与补语连用的用法,因此空格处最有可能填状 语或后置定语。 语义判断:本段开始阐述诺基亚由盛转衰的事例,此处提到,2007年,诺基亚手机的市场占有率超过 了40%,由此可推知,此处应是指某一范围,结合选项不难出此处是指全球市场占有率,选项中 worldwide(全球范围内)符合语境,故为答案。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assumed"
+            },
+            {
+              "key": "B",
+              "text": "bias"
+            },
+            {
+              "key": "C",
+              "text": "desperate"
+            },
+            {
+              "key": "D",
+              "text": "deterioration"
+            },
+            {
+              "key": "E",
+              "text": "exception"
+            },
+            {
+              "key": "F",
+              "text": "fault"
+            },
+            {
+              "key": "G",
+              "text": "incidentally"
+            },
+            {
+              "key": "H",
+              "text": "notably"
+            },
+            {
+              "key": "I",
+              "text": "previous"
+            },
+            {
+              "key": "J",
+              "text": "relayed"
+            },
+            {
+              "key": "K",
+              "text": "shifting"
+            },
+            {
+              "key": "L",
+              "text": "shrank"
+            },
+            {
+              "key": "M",
+              "text": "subtle"
+            },
+            {
+              "key": "N",
+              "text": "transmitting"
+            },
+            {
+              "key": "O",
+              "text": "worldwide"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K) shifting 语法判断:空格前是werealready,空格后是towardtouch-screensmartphones,可判断句中缺少谓语动 词,与were一起构成主动的bedoing或被动的bedone的结构。 语义判断:结合本句开头的but和下一句中的进一步解释“随着同年中期革果公司生产的iPhone手机 ·2015年12月六级真题(第二套)· 的上市...\"可判断,本句是说消费者的喜好已经转向(shifting)了触屏智能手机,shifttoward...表示“转 向.\"。故本题选K。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assumed"
+            },
+            {
+              "key": "B",
+              "text": "bias"
+            },
+            {
+              "key": "C",
+              "text": "desperate"
+            },
+            {
+              "key": "D",
+              "text": "deterioration"
+            },
+            {
+              "key": "E",
+              "text": "exception"
+            },
+            {
+              "key": "F",
+              "text": "fault"
+            },
+            {
+              "key": "G",
+              "text": "incidentally"
+            },
+            {
+              "key": "H",
+              "text": "notably"
+            },
+            {
+              "key": "I",
+              "text": "previous"
+            },
+            {
+              "key": "J",
+              "text": "relayed"
+            },
+            {
+              "key": "K",
+              "text": "shifting"
+            },
+            {
+              "key": "L",
+              "text": "shrank"
+            },
+            {
+              "key": "M",
+              "text": "subtle"
+            },
+            {
+              "key": "N",
+              "text": "transmitting"
+            },
+            {
+              "key": "O",
+              "text": "worldwide"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L) shrank 语法判断:空格前是名调短语Nokia'smarketshare,空格后是副调rapidly,由此可知,空格处应填入动 调,充当句子的谓语。由后面的并列句andrevenueplunged的过去时态可知,此处应填入动调过去式, 符合语法条件的选项有assumed(承担;假设)、relayed(转播;接替)、shrank(缩减,萎缩)。 语义判断:由后面的并列分句andrevenueplunged(营收大幅下跌)可知,此处是说,随着邸一年中期革 果公司生产的iPhone手机的上市,诺基亚的市场份额速“缩水”,故应填入shrank,即L为答案。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assumed"
+            },
+            {
+              "key": "B",
+              "text": "bias"
+            },
+            {
+              "key": "C",
+              "text": "desperate"
+            },
+            {
+              "key": "D",
+              "text": "deterioration"
+            },
+            {
+              "key": "E",
+              "text": "exception"
+            },
+            {
+              "key": "F",
+              "text": "fault"
+            },
+            {
+              "key": "G",
+              "text": "incidentally"
+            },
+            {
+              "key": "H",
+              "text": "notably"
+            },
+            {
+              "key": "I",
+              "text": "previous"
+            },
+            {
+              "key": "J",
+              "text": "relayed"
+            },
+            {
+              "key": "K",
+              "text": "shifting"
+            },
+            {
+              "key": "L",
+              "text": "shrank"
+            },
+            {
+              "key": "M",
+              "text": "subtle"
+            },
+            {
+              "key": "N",
+              "text": "transmitting"
+            },
+            {
+              "key": "O",
+              "text": "worldwide"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)assumed 语法判断:空格所在句是由which引导的非限制性定语从句,其中缺少谓语动词,时间状语是inOctober 2010,为过去的时间,故应填入动词过去式。符合语法条件的过去式选项还有assumed和relayed。 语义判断:此处提到,决定诺基亚厄运的是斯蒂芬·埃洛普担任首席执行官时做出的一系列决策,由此 可知,充当定语从句的句子应补充说明斯蒂芬·埃洛普“就职\"的具体时间,故应填入动调assumed,其 含义之一就是\"担任,就任\",故本题选A。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assumed"
+            },
+            {
+              "key": "B",
+              "text": "bias"
+            },
+            {
+              "key": "C",
+              "text": "desperate"
+            },
+            {
+              "key": "D",
+              "text": "deterioration"
+            },
+            {
+              "key": "E",
+              "text": "exception"
+            },
+            {
+              "key": "F",
+              "text": "fault"
+            },
+            {
+              "key": "G",
+              "text": "incidentally"
+            },
+            {
+              "key": "H",
+              "text": "notably"
+            },
+            {
+              "key": "I",
+              "text": "previous"
+            },
+            {
+              "key": "J",
+              "text": "relayed"
+            },
+            {
+              "key": "K",
+              "text": "shifting"
+            },
+            {
+              "key": "L",
+              "text": "shrank"
+            },
+            {
+              "key": "M",
+              "text": "subtle"
+            },
+            {
+              "key": "N",
+              "text": "transmitting"
+            },
+            {
+              "key": "O",
+              "text": "worldwide"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F) fault 语法判断:空格前是介调at,空格后是句点,可判断空格处应填入一个名词,与at一起构成介宾短语。 符合语法条件的名调选项还有bias、deterioration和fault。 语义判断:由句首的but可知,此处表示转折,再结合下文Nokia'sboardresistedchange(诺基亚的董事 会拒绝改变),可知此处要表示“过错并非出在埃落普一个人身上\",atfault为固定短语,意为“有过错, 有责任”,符合文意,故本题应选F。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assumed"
+            },
+            {
+              "key": "B",
+              "text": "bias"
+            },
+            {
+              "key": "C",
+              "text": "desperate"
+            },
+            {
+              "key": "D",
+              "text": "deterioration"
+            },
+            {
+              "key": "E",
+              "text": "exception"
+            },
+            {
+              "key": "F",
+              "text": "fault"
+            },
+            {
+              "key": "G",
+              "text": "incidentally"
+            },
+            {
+              "key": "H",
+              "text": "notably"
+            },
+            {
+              "key": "I",
+              "text": "previous"
+            },
+            {
+              "key": "J",
+              "text": "relayed"
+            },
+            {
+              "key": "K",
+              "text": "shifting"
+            },
+            {
+              "key": "L",
+              "text": "shrank"
+            },
+            {
+              "key": "M",
+              "text": "subtle"
+            },
+            {
+              "key": "N",
+              "text": "transmitting"
+            },
+            {
+              "key": "O",
+              "text": "worldwide"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H) notably 语法判断:空格前是most,空格后是追号,可知此处最可能缺少状语,修饰后面整个句子,故应填入副 词,符合语法条件的副词还有incidentally(偶然地)和notably(显然)。 语义判断:上文提到,诺基亚的董事会拒绝改变,这使得该公司不可能适应行业的迅速转变,此句承接 上文,notably(显然)恰好能起到承上启下的作用,引出下文约玛·奥利拉的失误之处,故答案为H。 mostnotably意为“很显然,尤为明显的是”。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assumed"
+            },
+            {
+              "key": "B",
+              "text": "bias"
+            },
+            {
+              "key": "C",
+              "text": "desperate"
+            },
+            {
+              "key": "D",
+              "text": "deterioration"
+            },
+            {
+              "key": "E",
+              "text": "exception"
+            },
+            {
+              "key": "F",
+              "text": "fault"
+            },
+            {
+              "key": "G",
+              "text": "incidentally"
+            },
+            {
+              "key": "H",
+              "text": "notably"
+            },
+            {
+              "key": "I",
+              "text": "previous"
+            },
+            {
+              "key": "J",
+              "text": "relayed"
+            },
+            {
+              "key": "K",
+              "text": "shifting"
+            },
+            {
+              "key": "L",
+              "text": "shrank"
+            },
+            {
+              "key": "M",
+              "text": "subtle"
+            },
+            {
+              "key": "N",
+              "text": "transmitting"
+            },
+            {
+              "key": "O",
+              "text": "worldwide"
+            }
+          ],
+          "answer": "I",
+          "explanation": "I) previous 语法判断:空格前是名调所有格company's,空格后是名词success,可知空格处应填入二个形容词或 分词作定语,修饰后面的名词success。符合语法条件的形容词和分词选项还有desperate(孤注一挪的; 绝望的)、previous(以前的,昔日的)、relayed(转据;接替)、subtle微妙的)、transmiting(过渡;转变)。 语义判断:由前面修饰JormaOllila的非限制性定语从句whohadledNokia'stransitionfromanindustrial companytoatechnologygiant(率领诺基亚从一家工业公司转变为科技巨头的人)可知,此处是说, Jorma Ollila(约玛·奥利拉)太况溺于公司“普日的\"成功,填入previous符合题意,故I为答案。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assumed"
+            },
+            {
+              "key": "B",
+              "text": "bias"
+            },
+            {
+              "key": "C",
+              "text": "desperate"
+            },
+            {
+              "key": "D",
+              "text": "deterioration"
+            },
+            {
+              "key": "E",
+              "text": "exception"
+            },
+            {
+              "key": "F",
+              "text": "fault"
+            },
+            {
+              "key": "G",
+              "text": "incidentally"
+            },
+            {
+              "key": "H",
+              "text": "notably"
+            },
+            {
+              "key": "I",
+              "text": "previous"
+            },
+            {
+              "key": "J",
+              "text": "relayed"
+            },
+            {
+              "key": "K",
+              "text": "shifting"
+            },
+            {
+              "key": "L",
+              "text": "shrank"
+            },
+            {
+              "key": "M",
+              "text": "subtle"
+            },
+            {
+              "key": "N",
+              "text": "transmitting"
+            },
+            {
+              "key": "O",
+              "text": "worldwide"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C) desperate 语法判断:空格前是不定冠调a,空格后是名调性短语cost-cuttingprogram,由此可知,空格处应填入 一个形客调或分调充当定语。符合语法条件的选项还有desperate、relayed、subtle和transmitting。 语义判断:本段继续分析诺基亚衰落的原因,由下文“包括砍拌数以千计工作岗位”可知,此处是说,诺 基亚还着手了一项“孤注一挪的\"成本削减计划,desperate符合此处文意,故答案为C。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "assumed"
+            },
+            {
+              "key": "B",
+              "text": "bias"
+            },
+            {
+              "key": "C",
+              "text": "desperate"
+            },
+            {
+              "key": "D",
+              "text": "deterioration"
+            },
+            {
+              "key": "E",
+              "text": "exception"
+            },
+            {
+              "key": "F",
+              "text": "fault"
+            },
+            {
+              "key": "G",
+              "text": "incidentally"
+            },
+            {
+              "key": "H",
+              "text": "notably"
+            },
+            {
+              "key": "I",
+              "text": "previous"
+            },
+            {
+              "key": "J",
+              "text": "relayed"
+            },
+            {
+              "key": "K",
+              "text": "shifting"
+            },
+            {
+              "key": "L",
+              "text": "shrank"
+            },
+            {
+              "key": "M",
+              "text": "subtle"
+            },
+            {
+              "key": "N",
+              "text": "transmitting"
+            },
+            {
+              "key": "O",
+              "text": "worldwide"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D) deterioration 语法判断:空格前是定冠词the,空格后是介调短语ofthecompany'sonce-spiritedculture,由此可知,空 格处应填入一个名调。符合语法条件的名调选项还有bias和deterioration。 语义判断:由下文叙述的内客“优秀的领导者高开了诺基亚,同时也将诺基亚的远见卓识和方向意识 一并带走了。不足为奇的是,大多数最有价值的设计及编程人才也纷纷离开了诺基亚可知,此处是说 诺基亚的成本制减计划加剧了该公司曾经充满激情的企业精神的“化”,deterioration符合此处语境, 故答案为D。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2015-12-2-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) When Nijay Williams entered college last fall as a first-generation student and Jamaican immigrant, he was academically unprepared for the rigors of higher education. Like many first-generation students, he enrolled in a medium-sized state university many of his high school peers were also attending, received a Pell Grant, and took out some small federal loans to cover other costs. Given the high price of room and board and the closeness of the school to his family, he chose to live at home and worked between 30 and 40 hours a week while taking a full class schedule.",
+        "B) What Nijay didn't realize about his school—Tennessee State University—was its frighteningly low graduation rate a mere 29 percent for its first-generation students. At the end of his first year, Nijay lost his Pell Grant of over $ 5,000 after narrowly missing the 2.0 GPA cut-off, making it impossible for him to continue paying for school.",
+        "C) Nijay represents a large and growing group of Americans: first-generation college students who enter school unprepared or behind. To make matters worse, these schools are ill-equipped to graduate these students—young adults who face specific challenges and obstacles. They typically carry financial burdens that outweigh those of their peers, are more likely to work while attending school, and often require significant academic remediation (补习).",
+        "D) Matt Rubinoff directs I'm First, a nonprofit organization launched last October to reach out to this specific population of students. He hopes to distribute this information and help prospective college- goers find the best post-secondary fit. And while Rubinoff believes there are a good number of four-year schools that truly care about these students and set aside significant resources and programs for them, he says that number isn't high enough.",
+        "E) \"It's not only the selective and elite institutions that provide those opportunities for a small subset of this population,\" Rubinoff said, adding that a majority of first-generation undergraduates tend toward options such as online programs, two-year colleges, and commuter state schools. \"Unfortunately, there tends to be a lack of information and support to help students think bigger and broader.\"",
+        "F) Despite this problem, many students are still drawn to these institutions—and two-year schools in particular. As a former high school teacher, I saw students choose familiar, cheaper options year after year. Instead of skipping out on higher education altogether, they chose community colleges or state schools with low bars for admittance.",
+        "G) \"They underestimate themselves when selecting a university,\" said Dave Jarrat, a marketing executive for Inside Track, a for-profit organization that specializes in coaching low-income students and supporting colleges in order to help students thrive. \"The reality of it is that a lot of low-income kids could be going to elite universities on a full ride scholarship and don't even realize it.\"",
+        "H) \"Many students are coming from a situation where no one around them has the experience of successfully completing higher education, so they are coming in questioning themselves and their college worthiness,\" Jarrat continued. That helps explain why, as I'm First's Rubinoff indicated, the schools to which these students end up resorting can end up being some of the poorest matches for them. The University of Tennessee in Knoxville offers one example of this dilemma. A flagship university in the South, the school graduates just 16 percent of its first-generation students, despite its overall graduation rate of 71 percent. Located only a few hours apart, The University of Tennessee and Tennessee State are worth comparing. Tennessee State's overall graduation rate is a tiny 39 percent, but at least it has a smaller gap between the outcomes for first-generation students and those of their peers.",
+        "I) Still, the University of Tennessee deserves credit for being transparent. Many large institutions keep this kind of data secret—or at least make it incredibly difficult to find. The University of North Carolina at Chapel Hill, for instance, admits only that the graduation rate for its first-generation pupils is \"much lower\" than the percentage of all students who graduate within four years (81 percent).",
+        "J) It is actually quite difficult to find reliable statistics on the issue for many schools. Higher education institutions are, under federal law, required to report graduation rates, but these reports typically only include Pell recipient numbers—not necessarily rates specific to first-generation students. Other initiatives fail to break down the data, too. Imagine how intimidating it can be for prospective students unfamiliar with the complexities of higher education to navigate this kind of information and then identify which schools are the best fit.",
+        "K) It was this lack of information that prompted the launch of I'm First in 2013, originally as an arm of its umbrella organization, the Center For Student Opportunity. \"If we can help to direct students to more of these types of campuses and help students to understand them to be realistic and accessible places, have them apply to these schools at greater frequency and ultimately get in and enroll, we are going to raise the success rate,\" Rubinoff said, citing a variety of colleges ranging from large state institutions to smaller private schools.",
+        "L) Chelsea Jones, who now directs student programming at I'm First, was a first-generation college student at Howard. Like other students new to the intimidating higher-education world, she often struggled on her path to college, \"There wasn't really a college-bound culture at my high school,\" she said. \"I wanted to go to college but I didn't really know the process.\" Jones became involved with a college-access program through Princeton University in high school. Now, she attributes much of her understanding of college to that: \"But once I got to campus, it was a completely different ball game that no one really prepared me for.\"",
+        "M) She was fortunate, though. Howard, a well-regarded historically black college, had an array of resources for its first-generation students, including matching kids with counselors, connecting first-generation students to one another, and TRIO, a national program that supported 200 students on Howard's campus. Still, Jones represents a small percentage of first-generation students who are able to gain entry into more elite universities, which are often known for robust financial aid packages and remarkably high graduation rates for first-generation students. (Harvard, for example, boasts a six-year graduation rate for underrepresented minority groups of 98 percent.",
+        "N) Christian Vazquez, a first-generation Yale graduate, is another exception, his success story setting him far apart from students such as Nijay. \"There is a lot of support at Yale, to an extent, after a while, there is too much support,\" he said, half - joking about the countless resources available at the school. Students are placed in small groups with counselors (trained seniors on campus); they have access to cultural and ethnic affinity (联系) groups, tutoring centers and also have a summer orientation specifically for first - generation students (the latter being one of the most common programs for students).",
+        "O) \"Our support structure was more like: 'You are going to get through Yale; you are going to do well,'\" he said, hinting at mentors (导师), staff, and professors who all provided significant support for students who lacked confidence about \"belonging\" at such a top institution."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Many first - generation college - goers have doubts about their abilities to get a college degree.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H 解析:注意抓住题干中的关键信息havedoubts abouttheirabilitiestogetacollegedegree。文章段落中提 到家庭中第一代上大学的人怀疑自己是否有能力获得大学学位的内容出现在H段。该段第一句提到, 很多学生的情形是,他们周围没有人有成功完成高等教育的经历。所以,他们也开始怀疑自己以及上 大学的价值。由此可知题干是对原文的同义转速。题干中的havedoubts aboutheirabilities togeta college degree 对应原文中的 are coming inquestioning themselves and their college worthinesS。"
+        },
+        {
+          "number": 37,
+          "stem": "First - generation college students tend to have much heavier financial burdens than their peers.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C 解析:注意抓住题干中的关键信息havemuchheavierfinancialburdensthantheirpeers。文章段落中提到 第一代大学生经济负担重的内容出现在C段。该段最后一句指出,他们通常背负着比同龄人更重的经 济负担,更有可能边上学边工作,而且在学业上常常需要做大量的补习。由此可知,题干是对原文的同 义转述。题干中的havemuch heavier financial burdens than their peers对应原文中的 carry financial burdens that outweigh those of their peers; financial burdens 是原词重现。"
+        },
+        {
+          "number": 38,
+          "stem": "The graduation rate of first - generation students at Nijay's university was incredibly low.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B 解析:注意抓住题干中的关键调thegraduationrate offirst-generation students和Nijay'suniversity。文章 段落中提到尼杰所在大学的毕业率的内容出现在B段。该段第一句指出,关于他的学校一—田纳西州 立大学,尼杰没有意识到的是其低得惊人的毕业率:第一代大学生中只有29%毕业。因此,题干是对原 文的同义转述。题干中的incredibly对应原文中的frighteningly。"
+        },
+        {
+          "number": 39,
+          "stem": "Some top institutions like Yale seem to provide first - generation students with more support than they actually need.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "N",
+          "explanation": "N 解析:注意抓住题干中的关键词Yale和providefirst-generation studentswithmoresupport。文章段落中 提到耶鲁大学对第一代大学生提供支持的内容出现在N段。该段引用一位毕业于耶鲁大学的第一代大 学生充里斯蒂安·巴斯克斯的话,指出:“耶鲁大学提供很多的支持;从某种程度上说,之后给的支持太 多了。”因此,题干是对原文的同义概括。题干中的moresupportthantheyactuallyneed对应原文中的 too much supporte"
+        },
+        {
+          "number": 40,
+          "stem": "On entering college, Nijay Williams had no idea how challenging college education was.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A 解析:注意抓住题干中的关键词调onenteringcollege,hadno idea和challenging。文章段落中提到尼杰进 入大学时的状态的内容出现在A段。该段第一句指出,去年秋天,当尼杰·成康斯作为家里第一代大学 生并以牙买加移民身份入学时,他在学业上还没有为产的高等教育做好准备。由此可知,题干是对 原文的同义转述。题干中的had no idea howchallenging collegeeducationwas对应原文中的was academically unprepared for the rigors of higher educatione"
+        },
+        {
+          "number": 41,
+          "stem": "Many universities simply refuse to release their exact graduation rates for first - generation students.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "I",
+          "explanation": "I 解析:注意抓住题干中的关键调refuse to release和exactgraduation rates forfirst-generation students。文 章段落中提到许多大学拒绝公布其第一代大学生毕业率的内容出现在I段。该段第二句指出,很多大 型高校对此类数据保密,或者至少让人很难我到这些数据。“这些数据\"指的就是前文提到的第一代大 学生的毕业率。因此,题干是对原文的同义转述。题干中的refusetoreleasetheirexactgraduationrates对 应原文中的keep this kind of data secret。"
+        },
+        {
+          "number": 42,
+          "stem": "According to a marketing executive, many students from low - income families don't know they could have a chance of going to an elite university.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G 解析:注意抓住题干中的关健调students fromlow-income families和havea chanceof going to an elite university。文章段落中有关低收入家庭的学生是否有机会上精英大学的内容出现在G段。该段首句提 到,“内图”一位营销主管说:“他们在选择大学时低估了自己,”接着第二句指出,“现实的情况是,很多 低收入家庭的孩子在拿到全额奖学金的情况下是能够进入精英大学的,但他们甚至意识不到这一点。” 因此,题干是对原文的同义转述。题干中的students fromlow-incomefamilies对应原文中的low-income kids;题干中的don'tknow对应原文中的don'tevenrealize;题干中的eliteuniversity是原词重现。"
+        },
+        {
+          "number": 43,
+          "stem": "Some elite universities attach great importance to building up the first - generation students' self - confidence.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O 解析:注意抓住题干中的关键调some elite universities,building up the first-generation students”self- confidence。文章段落中提到一些精英大学注重塑造第一代大学生自信心的内容出现在O段。该段首句 提到,克里斯蒂安·巴斯克斯说:“我们的支持架构更像是:‘你会从耶鲁大学毕业;你将表现得很好。\"\" 接着暗示说这些学生对在这样一所顶尖学府获得归属感缺乏自信,而导师、教贾和教投都为他们提供 了巨大的支持。由此可知题干是对原文内容的同义概括。题干中的eliteuniversities对应原文中的Yale。"
+        },
+        {
+          "number": 44,
+          "stem": "I'm First distributes information to help first - generation college - goers find schools that are most suitable for them.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D 解析:注意抓住题干中的关键调I'mFirst和help first-generation college-goers find schools that are most suitableforthem。文章段落中提及I'mFirst组织帮劝第一代大学生找适合他们的学校的内容出现在D 段。该段第二句提到,ImFirst的管理者马特·鲁比诺夫希望把这一信息传播出去,帮助可能上大学的 人找到适合的最佳后中学教育。因此,题干是对原文的同义转述。题干中的distributesinformation是原 ·2015年12月六级真题(第二套)· 词重现; help first-generation college-goers find schools that are most suitable for them对应原文中的help prospective college-goers find the best post-secondary fit。"
+        },
+        {
+          "number": 45,
+          "stem": "Elite universities tend to graduate first - generation students at a higher rate.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "M",
+          "explanation": "M 解析:注意抓住题千中的关键词eliteuniversities和graduatefirst-generation students at a higherrate。文章 段落中提到精英大学第一代大学生毕业率的内容出现在M段。该段最后一句提到,这些精英大学通常 以雄厚的助学金和第一代大学生显著的高毕业率而阴名。(比如,哈佛大学就以未被充分代表的少数学 生群体的毕业率有六年时间高达98%而自豪。)由此可知,题干是对原文的同义转述。题干中的 graduate first-generation students at a higher rate 对应原文中的 remarkably high graduation rates for first- generation students。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2015-12-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Saying we can no longer ignore the rising price of health care, some of the most influential medical groups in the nation are recommending that doctors weigh the costs, not just the effectiveness of treatments, as they make decisions about patient care. The shift, little noticed outside the medical establishment but already controversial inside it, suggests that doctors are starting to redefine their roles, from being concerned exclusively about individual patients to exerting influence on how healthcare dollars are spent. In practical terms, the new guidelines being developed could result in doctors choosing one drug over another for cost reasons or even deciding that a particular",
+        "treatment—at the end of life, for example—is too expensive. In the extreme, some critics have said that making treatment decisions based on cost is a form of rationing.",
+        "Traditionally, guidelines have heavily influenced the practice of medicine, and the latest ones are expected to make doctors more conscious of the economic consequences of their decisions, even though there's no obligation to follow them. Medical society guidelines are also used by insurance companies to help determine reimbursement (报销) policies.",
+        "Some doctors see a potential conflict in trying to be both providers of patient care and financial overseers. \"There should be forces in society who should be concerned about the budget, but they shouldn't be functioning simultaneously as doctors,\" said Dr. Martin Samuels at a Boston hospital. He said doctors risked losing the trust of patients if they told patients, \"I'm not going to do what I think is best for you because I think it's bad for the healthcare budget in Massachusetts.\"",
+        "Doctors can face some grim trade-offs. Studies have shown, for example, that two drugs are about equally effective in treating macular degeneration, an eye disease. But one costs $50 a dose and the other close to $2,000. Medicare could save hundreds of millions of dollars a year if everyone used the cheaper drug, Avastin, instead of the costlier one, Lucentis.",
+        "But the Food and Drug Administration has not approved Avastin for use in the eye, and using it rather than the alternative, Lucentis, might carry an additional, although slight, safety risk. Should doctors consider Medicare's budget in deciding what to use?",
+        "\"I think ethically (在道德层面上) we are just worried about the patient in front of us and not trying to save money for the insurance industry or society as a whole,\" said Dr. Donald Jensen.",
+        "Still, some analysts say that there's a role for doctors to play in cost analysis because not many others are doing so. \"In some ways,\" said Dr. Daniel Sulmasy, \"it represents a failure of wider society to take up the issue.\""
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What do some influential medical groups recommend doctors do?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Reflect on the responsibilities they are supposed to take."
+            },
+            {
+              "key": "B",
+              "text": "Pay more attention to the effectiveness of their treatments."
+            },
+            {
+              "key": "C",
+              "text": "Take costs into account when making treatment decisions."
+            },
+            {
+              "key": "D",
+              "text": "Readjust their practice in view of the cuts in health care."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C 定位:根据题干的信息词mostinfluentialmedicalgroups,可以把答题线案定位到第一段。 解析:第一段只有一句话,本句指出\"美国一些最有影响力的医疗团体声称,不能再对不断上涨的医疗 保健费用视而不见了,这些团体建议在做病惠的护理决策时,医生不应只考虑治疗效果,还应权衡医 疗费用”,由此可知C项符合文意,故为答案。A项中的“应承担的责任”概念过于模糊,不如C项准 确,即并不贴合文意,应排除。这些医疗团体要求兼顾治疗效果和医疗费用,B项不合文意,应排除。原 文虽提及医生委权衡医疗费用,但并未明确提到要制减医保,D项也不贴合文意,应排除。 ·2015年12月六级真题(第二套)·"
+        },
+        {
+          "number": 47,
+          "stem": "What were doctors mainly concerned about in the past?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Specific medicines to be used."
+            },
+            {
+              "key": "B",
+              "text": "Effects of medical treatment."
+            },
+            {
+              "key": "C",
+              "text": "Professional advancement."
+            },
+            {
+              "key": "D",
+              "text": "Patients' trust."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B 定位:根据题干的信息词doctorsmainlyconcermedabout和inthepast,可以把答题线案定位到第二段。 解析:本段后面部分指出“这种转变表明,医生开始重新定义自己的角色,从只关心个体病人变为对医 疗开销的花费方式也施加影响”,不难看出,过去医生主要关注个体病人,这里的“关注个体病人\"是指 使惠者康复,即注重治疗效果,由此可知B项符合文意,故为答案。A项“具体使用哪些药物”,根据常 识,使患者康复不仅仅是药物的作用,还包括护理等因素,所以A项过于片面,并不准确,应该排除。 文中并未提及有关“职业发展\"的内容,C项可排除。D项\"病人的信任”,尽管后文中提到了病人的信 任,但这并不是医生主要关注的,况且病人的信任也基于治疗效果,所以D项并不准确,也应排除。"
+        },
+        {
+          "number": 48,
+          "stem": "What may the new guidelines being developed lead to?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The redefining of doctors' roles."
+            },
+            {
+              "key": "B",
+              "text": "Overuse of less effective medicines."
+            },
+            {
+              "key": "C",
+              "text": "Conflicts between doctors and patients."
+            },
+            {
+              "key": "D",
+              "text": "The prolonging of patients' suffering."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A 定位:根据题干的信息词thenewguidelines和leadto可以把答题线索定位到第三段第一句。 解析:该句指出“在实际工作中,正在制定中的新指导方针可能会导致医生由于费用原因选用一种药 物而弃用另一种,或者甚至在病人的弥留之际判定某种特殊的疗法太过昂贵\",这与上一段中提到的 医生开始“重新定义自己的角色\"相呼应,即医生不仅要考虑治疗效果,还要把费用因素考虑在内,说 明角色有了转变,A项符合文意,故为答案。B项“过度使用疗效较差的药物\"的说法没有根据,属于过 度推断,应排除。后文中虽然提及不合适的疗法可能会使医生胃失去病人信任的风险,但“医之间产 生矛盾\"的说法属于过度推断,应排除。文中并未提到新指导方针会延长病人的病苦,D项也应排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What risk do doctors see in their dual role as patient care providers and financial overseers?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They may be involved in a conflict of interest."
+            },
+            {
+              "key": "B",
+              "text": "They may be forced to divide their attention."
+            },
+            {
+              "key": "C",
+              "text": "They may have to use less effective drugs."
+            },
+            {
+              "key": "D",
+              "text": "They may lose the respect of patients."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D 定位:根据题干的信息词risk和theirdual roleaspatientcareproviders andfinancial overseers,可以把答 题线索定位到第五段。 解析:第五段提到“医生在努力为病患提供医疗护理的同时还要监管费用的话,会存在潜在矛盾”; 接着第六段通过例证进一步阐述并指出医生会冒失去病人信任的风险,由此可知D项符合文意,D项 中的respect对应原文中的trust,故选D。文中提到医生会面临一些艰难的权衡取舍,A项\"他们可能会 春入利益冲突\"与原文并不符合,且“利益冲突\"说法过于笼统,应排除。虽然身兼两种角色会使医生面 临艰难的权衡取舍,但并未提及这会分数注意力,B项应排除。后文中提及了两种价位不同但疗效相当 的药物,C项中的“疗效较差\"并无根据,且这并不是医生所冒的风险,C项也应排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What do some experts say about doctors' involvement in medical cost analysis?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It may add to doctors' already heavy workloads."
+            },
+            {
+              "key": "B",
+              "text": "It will help to save money for society as a whole."
+            },
+            {
+              "key": "C",
+              "text": "It results from society's failure to tackle the problem."
+            },
+            {
+              "key": "D",
+              "text": "It raises doctors' awareness of their social responsibilities."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C 定位:根据题干的信息词someexperts和doctors'involvement inmedical costanalysis,可以把答题线索 定位到最后一段。 解析:最后一段提到“一些分析人士认为医生应该在费用分析方面起到作用,因为在做这项工作的其 他群体并不多”,接着具体引用一位分析人士的话指出,“这体现了一种失败:更广泛的社会群体未能 处理好这一问题”,结合选项可知C项符合文意,故为答案。专家并未对医生的工作负担发表观点,也 未提及医生参与医疗费用分析有助于为整个社会节约资金,故A、B两项均不合文意,应排除。文中确 实提到了医生应该在费用分析方面发挥作用,但据此便得出“提高了医生的社会责任意识\"的结论过于 率强,专家观点的重心在于后面部分,即更广泛的其他社会群体应该设法解决这个问题,所以D项并 不准确,也应排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2015-12-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Economic inequality is the \"defining challenge of our time,\" President Barack Obama declared in a speech last month to the Center for American Progress. Inequality is dangerous, he argued, not merely because it doesn't look good to have a large gap between the rich and the poor, but because inequality itself destroys upward mobility, making it harder for the poor to escape from poverty. \"Increased inequality and decreasing mobility pose a fundamental threat to the American Dream,\" he said. Obama is only the most prominent public figure to declare inequality Public Enemy No.1 and the greatest threat to reducing poverty in America. A number of prominent economists have also argued that it's harder for the poor to climb the economic ladder today because the rungs (横档) in that ladder have grown farther apart. For all the new attention devoted to the 1 percent, a new dataset from the Equality of Opportunity Project at Harvard and Berkeley suggests that, if we care about upward mobility overall, we're vastly exaggerating the dangers of the rich-poor gap. Inequality itself is not a particularly strong predictor of economic mobility, as sociologist Scott Winship noted in a recent article based on his analysis of this data. So what factors, at the community level, do predict if poor children will move up the economic ladder as adults? What explains, for instance, why the Salt Lake City metro area is one of the 100 largest metropolitan areas most likely to lift the fortunes of the poor and the Atlanta metro area is one of the least likely? Harvard economist Raj Chetty has pointed to economic and racial segregation, community density, the size of a community's middle class, the quality of schools, community religiosity, and family structure, which he calls the \"single strongest correlate of upward mobility.\" Chetty finds that communities like Salt Lake City, with high levels of two-parent families and religiosity, are much more likely to see poor children get ahead than communities like Atlanta, with high levels of racial and economic segregation. Chetty has not yet issued a comprehensive analysis of the relative predictive power of each of these factors. Based on my analyses of the data, of the factors that Chetty has highlighted, the following three seem to be most predictive of upward mobility in a given community: 1. Per-capita (人均) income growth 2. Prevalence of single mothers (where correlation is strong, but negative 3. Per-capita local government spending In other words, communities with high levels of per-capita income growth, high percentages of two-parent families, and high local government spending—which may stand for good schools—are the most likely to help poor children relive the Horatio Alger's rags-to-riches story."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "How does Obama view economic inequality?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is the biggest obstacle to social mobility."
+            },
+            {
+              "key": "B",
+              "text": "It is the greatest threat to social stability."
+            },
+            {
+              "key": "C",
+              "text": "It is the No. 1 enemy of income growth."
+            },
+            {
+              "key": "D",
+              "text": "It is the most malicious social evil of our time."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A 定位:根据题干中的信息词Obama和economicinequality可以将答案线索迅速定位到文章第一段。 解析:第一段共三句话,主要论述了美国总统奥巴马关于经济不平等的观点。第一句话指出“经济不平 等是我们这一时代最具决定性的挑战”;第二句指出“经济不平等会破坏向更高社会阶层的流动”;第三 句话指出“经济不平等会给美国梦造成致命的威胁”。综合上述三句可知,经济不平等会给美国的社会 流动性带来最大的障碍。选项A是对原文内容的概括,故为答案。其他三个项都是根据原文中的个别 词组,如PublicEnemyNo.1、thegreatesthreat、ourtime设置的干扰项,不符合题干要求,均可排除。 其中选项C是强干扰项,原文提到经济不平等是减少贫图的头号敌人,减少贯图不等于效入增长,固 为收入增长也包括富人的收入增长,范图扩大化了,故排除。"
+        },
+        {
+          "number": 52,
+          "stem": "What do we learn about the inequality gap from Scott Winship's data analysis?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is fast widening across most parts of America."
+            },
+            {
+              "key": "B",
+              "text": "It is not a reliable indicator of economic mobility."
+            },
+            {
+              "key": "C",
+              "text": "It is not correctly interpreted."
+            },
+            {
+              "key": "D",
+              "text": "It is overwhelmingly ignored."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B 定位:根据题干中的信息词inequalitygap和ScottWinship'sdata analysis可以将答案线索定位到文章 第三段最后一句。 解析:第三段最后一句提到\"正如社会学家斯格特·温希普在最近发表的一篇根据这一数据进行分析的 文章中所提到的,不平等本身不是经济流动的强预测指标”。选项B是对原文内容的同义转述,故为正 确答案。其他三个选项在文章中均没有提及,故都排除。"
+        },
+        {
+          "number": 53,
+          "stem": "Compared with Atlanta, metropolitan Salt Lake City is said to ___.",
+          "options": [
+            {
+              "key": "A",
+              "text": "have placed religious beliefs above party politics"
+            },
+            {
+              "key": "B",
+              "text": "have bridged the gap between the rich and the poor"
+            },
+            {
+              "key": "C",
+              "text": "offer poor children more chances to climb the social ladder"
+            },
+            {
+              "key": "D",
+              "text": "suffer from higher levels of racial and economic segregation"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C 定位:根据题干中的信息词Atlanta和SaltLakeCity可以将答案线索定位到文章第四投第二句和第五 段最后一句。 解析:第四段第二句指出\"在100个最大都市区中,盐湖市城区最有可能改变穷人命运,而亚特兰大市 城区最不可能改变穷人命运\";而第五段最后一句则提到“盐湖城这类社区的双亲家庭比重大而且宗教 信仰程度高,而亚特兰大这类社区有着强烈的种族和经济隔离,因此前者比后者更有可能看到贫围儿 童获得上升机会\"。由此可知,与亚特兰大市城区相比,盐湖市城区更有可能改变儿童的命运,也就是 说为贫困的儿重提供了更多攀爬社会阶梯的机会。选项C与文意一致,故为答案。文中提到盐湖市城区 的宗教信仰度诚度高,但没有说已经将其置于党浪政治之上,A项应排除。文中电没提到盐湖市城区缩 小了贫富差距,B项电应排除。D项是亚特兰大市城区的特点,不合题意。"
+        },
+        {
+          "number": 54,
+          "stem": "What is strongly correlated with social mobility according to economist Raj Chetty?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Family structure."
+            },
+            {
+              "key": "B",
+              "text": "Racial equality."
+            },
+            {
+              "key": "C",
+              "text": "School education."
+            },
+            {
+              "key": "D",
+              "text": "Community density."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A 定位:根据题干中的信息调socialmobility和RajChetty可以将答案线索定位到文章第五段第一句。 解析:第五段第一句中提到“哈佛大学经济学家拉效切蒂将原因归结于经济和种族隔离、社区密度、 社区中层阶级的规模、教学质量、社区宗教信仰和家庭结构,其中他将家庭结构称为'向更高社会阶层 流动的唯一最强关联因素\"\"。四个选项都是经济学家拉效·切等解释盐湖市城区和亚特兰大市城区关 于改变穷人命运之间差异时提到的因素,但只有选项A“家庭结构\"是作者明确提到和社会流动最为密 切相关的因素,故选项A正确。其他三项应排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What does the author seem to suggest?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is important to increase the size of the middle class."
+            },
+            {
+              "key": "B",
+              "text": "It is highly important to expand the metropolitan areas."
+            },
+            {
+              "key": "C",
+              "text": "It is most imperative to focus our efforts on the elimination of income inequality."
+            },
+            {
+              "key": "D",
+              "text": "It is better to start from the community to help poor children move up the social ladder."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D 定位:本题题干中没有明显的关键调。考生可以使用排除法,根据选项关键调定位该选项在原文中的 位置,并逐一排除错误选项,从而确定正确答案。 解析:选项A的关键词是thesizeofthemiddleclass,原文第五段第一句提到中产阶级的规模是拉兹 切蒂解释盐湖城和亚特兰大城之间差异的一个影响因素,没有提到增加中产阶级人数很重要,故排除 选项A。选项B的关健词是expandthemetropolitanareas,原文第四段最后一句提到大都市区域,但只 ·2015年12月六级真题(第二套)· 是说盐湖市城区和亚特兰大市城区都属于前100名内的大都市区域,没有指出扩大大都市区域的重要 性,故排除选项B。选项C中的关键调是theeliminationofincomeinequality,原文没有提到消除收入不 平等的信息,故直接排除。这样只剩下选项D,选项D的关键词是fromthecommunitytohelppoor children,原文最后一段提到\"如果二个社区的人均收入增长快,双亲家庭比例高,而且当地政府支出多 (可能意味着好学校),那么这个杜区最有可能帮助贯圈的孩子续写窄雷肖·阿尔杰白手起家的故事。\" 显然,作者认为从社区的层面来帮助贯围儿量是更好的做法,故D项为正确答案。"
+        }
+      ]
+    }
+  ]
+}

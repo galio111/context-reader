@@ -1,0 +1,1526 @@
+{
+  "id": "cet4-2021-06-1",
+  "level": 4,
+  "year": 2021,
+  "month": 6,
+  "set": 1,
+  "title": "2021 年 6 月四级 · 第 1 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2021.06/%E7%9C%9F%E9%A2%98PDF/cet4_2021_06_1.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2021.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/cet4_2021_06_1_ans.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2021-06-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Most animals seek shade when temperatures in the Sahara Desert soar to 120 degrees Fahrenheit. But for the Saharan silver ant, [[26]] from their underground nests into the sun's brutal rays to [[27]] for food, this is the perfect time to seek lunch. In 2015 these ants were joined in the desert by scientists from two Belgian universities, who spent a month in the [[28]] heat tracking the ants and digging out their nests. The goal was simple, to discover how the [[29]] adapted to the kind of heat that can [[30]] melt the bottom of shoes. Back in Belgium, the scientists looked at the ants under an electronic microscope and found that their [[31]] , triangular hair reflects light like a prism (棱镜), giving them a metallic reflection and protecting them from the sun's awful heat. When Ph. D. student Quentin Willot [[32]] the hair from an ant with a [[33]] knife and put it under a heat lamp, its temperature jumped. The ants' method of staying cool is [[34]] among animals. Could this reflective type of hair protect people? Willot says companies are interested in [[35]] these ants' method of heat protection for human use, including everything from helping to protect the lives of firefighters to keeping homes cool in summer."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "adapting"
+        },
+        {
+          "key": "B",
+          "text": "consciously"
+        },
+        {
+          "key": "C",
+          "text": "crawling"
+        },
+        {
+          "key": "D",
+          "text": "crowded"
+        },
+        {
+          "key": "E",
+          "text": "extreme"
+        },
+        {
+          "key": "F",
+          "text": "hunt"
+        },
+        {
+          "key": "G",
+          "text": "literally"
+        },
+        {
+          "key": "H",
+          "text": "moderate"
+        },
+        {
+          "key": "I",
+          "text": "remote"
+        },
+        {
+          "key": "J",
+          "text": "removed"
+        },
+        {
+          "key": "K",
+          "text": "species"
+        },
+        {
+          "key": "L",
+          "text": "specimens"
+        },
+        {
+          "key": "M",
+          "text": "thick"
+        },
+        {
+          "key": "N",
+          "text": "tiny"
+        },
+        {
+          "key": "O",
+          "text": "unique"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adapting"
+            },
+            {
+              "key": "B",
+              "text": "consciously"
+            },
+            {
+              "key": "C",
+              "text": "crawling"
+            },
+            {
+              "key": "D",
+              "text": "crowded"
+            },
+            {
+              "key": "E",
+              "text": "extreme"
+            },
+            {
+              "key": "F",
+              "text": "hunt"
+            },
+            {
+              "key": "G",
+              "text": "literally"
+            },
+            {
+              "key": "H",
+              "text": "moderate"
+            },
+            {
+              "key": "I",
+              "text": "remote"
+            },
+            {
+              "key": "J",
+              "text": "removed"
+            },
+            {
+              "key": "K",
+              "text": "species"
+            },
+            {
+              "key": "L",
+              "text": "specimens"
+            },
+            {
+              "key": "M",
+              "text": "thick"
+            },
+            {
+              "key": "N",
+              "text": "tiny"
+            },
+            {
+              "key": "O",
+              "text": "unique"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【考点】动词辨析题。 C)【语法判断】空格位于介词词组from...into之 前,而且本句的主干是thisistheperfecttimeto seeklunch,因此空格处需要填人动词的-ing形式 或-ed形式。 【语义判断】空格所在部分意思是:从它们的地下 巢穴 到醋热的阳光下。根据常识可知, 蚂蚁是爬行动物,因此空格处应填人含有“爬行” 意义的动词,故本题答案为C)crawling。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adapting"
+            },
+            {
+              "key": "B",
+              "text": "consciously"
+            },
+            {
+              "key": "C",
+              "text": "crawling"
+            },
+            {
+              "key": "D",
+              "text": "crowded"
+            },
+            {
+              "key": "E",
+              "text": "extreme"
+            },
+            {
+              "key": "F",
+              "text": "hunt"
+            },
+            {
+              "key": "G",
+              "text": "literally"
+            },
+            {
+              "key": "H",
+              "text": "moderate"
+            },
+            {
+              "key": "I",
+              "text": "remote"
+            },
+            {
+              "key": "J",
+              "text": "removed"
+            },
+            {
+              "key": "K",
+              "text": "species"
+            },
+            {
+              "key": "L",
+              "text": "specimens"
+            },
+            {
+              "key": "M",
+              "text": "thick"
+            },
+            {
+              "key": "N",
+              "text": "tiny"
+            },
+            {
+              "key": "O",
+              "text": "unique"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【考点】动词辨析题。 F)【语法判断】空格位于动词不定式符号to之后,介 词短语forfood之前,因此空格处需要填人动词 原形。 【语义判断】空格所在部分意思是:但对于撒哈拉 银蚁来说,从它们的地下巢穴爬到酷热的阳光下 食物,这是寻找午餐的完美时机。由后 面的seek可知,空格处应填入含有“寻找,搜寻”意 义的动词,故本题答案为F)hunt。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adapting"
+            },
+            {
+              "key": "B",
+              "text": "consciously"
+            },
+            {
+              "key": "C",
+              "text": "crawling"
+            },
+            {
+              "key": "D",
+              "text": "crowded"
+            },
+            {
+              "key": "E",
+              "text": "extreme"
+            },
+            {
+              "key": "F",
+              "text": "hunt"
+            },
+            {
+              "key": "G",
+              "text": "literally"
+            },
+            {
+              "key": "H",
+              "text": "moderate"
+            },
+            {
+              "key": "I",
+              "text": "remote"
+            },
+            {
+              "key": "J",
+              "text": "removed"
+            },
+            {
+              "key": "K",
+              "text": "species"
+            },
+            {
+              "key": "L",
+              "text": "specimens"
+            },
+            {
+              "key": "M",
+              "text": "thick"
+            },
+            {
+              "key": "N",
+              "text": "tiny"
+            },
+            {
+              "key": "O",
+              "text": "unique"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【考点】形容词辨析题。 E)【语法判断】空格后是名词heat,因此空格处需要 填人形容词。 【语义判断】由句意可知,来自比利时的科学家在 撒哈拉沙漠中研究撒哈拉银蚁,inthe heat是说明撒哈拉沙漠的环境。众所周知,撒哈 拉沙漠是极度炎热的,因此空格处应填入含有“非 常的,极度的”意义的形容词,故本题答案 为E)extreme。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adapting"
+            },
+            {
+              "key": "B",
+              "text": "consciously"
+            },
+            {
+              "key": "C",
+              "text": "crawling"
+            },
+            {
+              "key": "D",
+              "text": "crowded"
+            },
+            {
+              "key": "E",
+              "text": "extreme"
+            },
+            {
+              "key": "F",
+              "text": "hunt"
+            },
+            {
+              "key": "G",
+              "text": "literally"
+            },
+            {
+              "key": "H",
+              "text": "moderate"
+            },
+            {
+              "key": "I",
+              "text": "remote"
+            },
+            {
+              "key": "J",
+              "text": "removed"
+            },
+            {
+              "key": "K",
+              "text": "species"
+            },
+            {
+              "key": "L",
+              "text": "specimens"
+            },
+            {
+              "key": "M",
+              "text": "thick"
+            },
+            {
+              "key": "N",
+              "text": "tiny"
+            },
+            {
+              "key": "O",
+              "text": "unique"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【考点】名词辨析题。 K)【语法判断】分析句子结构可知,how引导的宾语 从句缺少主语。空格位于定冠词the之后,因此 空格处需要填人名词。 【语义判断】空格所在部分意思是:目的很简单,就 是发现这种 是如何适应高温的。由上文 可知,此处the 指的是撒哈拉银蚁,因此 空格处应填人含有“动物,物种”意义的名词,故本 题答案为K)species。在备选名词中,L) specimens容易与species混滑,specimens指的是 用于测试或检验的样品,不符合语境,因此排除。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adapting"
+            },
+            {
+              "key": "B",
+              "text": "consciously"
+            },
+            {
+              "key": "C",
+              "text": "crawling"
+            },
+            {
+              "key": "D",
+              "text": "crowded"
+            },
+            {
+              "key": "E",
+              "text": "extreme"
+            },
+            {
+              "key": "F",
+              "text": "hunt"
+            },
+            {
+              "key": "G",
+              "text": "literally"
+            },
+            {
+              "key": "H",
+              "text": "moderate"
+            },
+            {
+              "key": "I",
+              "text": "remote"
+            },
+            {
+              "key": "J",
+              "text": "removed"
+            },
+            {
+              "key": "K",
+              "text": "species"
+            },
+            {
+              "key": "L",
+              "text": "specimens"
+            },
+            {
+              "key": "M",
+              "text": "thick"
+            },
+            {
+              "key": "N",
+              "text": "tiny"
+            },
+            {
+              "key": "O",
+              "text": "unique"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【考点】副词辨析题。 G)【语法判断】空格位于can和动词melt之间,因此 空格处需要填入副词。 【语义判断】空格所在句是一个定语从句,修饰前 面的heat,句意为“能够 熔化鞋底的高 温”。由上文可知,这里的heat指的是撒哈拉沙漠 的高温,它的确能将鞋底熔化,因此空格处应填人 含有“的确,确实”等强调意义的副词,故本题答案 为G)literally。另一个备选副词B)consciously 不符合语义,因此排除。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adapting"
+            },
+            {
+              "key": "B",
+              "text": "consciously"
+            },
+            {
+              "key": "C",
+              "text": "crawling"
+            },
+            {
+              "key": "D",
+              "text": "crowded"
+            },
+            {
+              "key": "E",
+              "text": "extreme"
+            },
+            {
+              "key": "F",
+              "text": "hunt"
+            },
+            {
+              "key": "G",
+              "text": "literally"
+            },
+            {
+              "key": "H",
+              "text": "moderate"
+            },
+            {
+              "key": "I",
+              "text": "remote"
+            },
+            {
+              "key": "J",
+              "text": "removed"
+            },
+            {
+              "key": "K",
+              "text": "species"
+            },
+            {
+              "key": "L",
+              "text": "specimens"
+            },
+            {
+              "key": "M",
+              "text": "thick"
+            },
+            {
+              "key": "N",
+              "text": "tiny"
+            },
+            {
+              "key": "O",
+              "text": "unique"
+            }
+          ],
+          "answer": "M",
+          "explanation": "【考点】形容词辨析题。 M)【语法判断】空格位于名词hair之前,因此空格处 需要填人形容词,与triangular共同修饰hair。 【语义判断】空格所在部分的句意为:它们的 、三角形毛发像三棱镜一样反射光线,产 生金属般的反射效果,保护它们免受太阳可怕的 热量的伤害。由句意可知,这种蚂蚁的毛发可以 反射光线,而毛发越多,反射效果越好,才能达到 “金属般的反射效果”,因此空格处应填入含有“多 的,浓密的”意义的形容词,故本题答案为M) thick。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adapting"
+            },
+            {
+              "key": "B",
+              "text": "consciously"
+            },
+            {
+              "key": "C",
+              "text": "crawling"
+            },
+            {
+              "key": "D",
+              "text": "crowded"
+            },
+            {
+              "key": "E",
+              "text": "extreme"
+            },
+            {
+              "key": "F",
+              "text": "hunt"
+            },
+            {
+              "key": "G",
+              "text": "literally"
+            },
+            {
+              "key": "H",
+              "text": "moderate"
+            },
+            {
+              "key": "I",
+              "text": "remote"
+            },
+            {
+              "key": "J",
+              "text": "removed"
+            },
+            {
+              "key": "K",
+              "text": "species"
+            },
+            {
+              "key": "L",
+              "text": "specimens"
+            },
+            {
+              "key": "M",
+              "text": "thick"
+            },
+            {
+              "key": "N",
+              "text": "tiny"
+            },
+            {
+              "key": "O",
+              "text": "unique"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【考点】动词辨析题。 J)【语法判断】空格位于主语QuentinWillot之后, 宾语thehair之前,因此空格处需要填人动词作 谓语。 【语义判断】空格所在部分的句意为:当博士生昆 汀·维洛特用一把刀从一只蚂蚁身上毛 发。由句意可知,昆汀·维洛特把毛发从蚂蚁身 上取下,然后把蚂蚁放到加热灯下,以验证毛发的 隔热效果。因此空格处应填入含有“取下,移除” 意义的动词,故本题答案为J)removed。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adapting"
+            },
+            {
+              "key": "B",
+              "text": "consciously"
+            },
+            {
+              "key": "C",
+              "text": "crawling"
+            },
+            {
+              "key": "D",
+              "text": "crowded"
+            },
+            {
+              "key": "E",
+              "text": "extreme"
+            },
+            {
+              "key": "F",
+              "text": "hunt"
+            },
+            {
+              "key": "G",
+              "text": "literally"
+            },
+            {
+              "key": "H",
+              "text": "moderate"
+            },
+            {
+              "key": "I",
+              "text": "remote"
+            },
+            {
+              "key": "J",
+              "text": "removed"
+            },
+            {
+              "key": "K",
+              "text": "species"
+            },
+            {
+              "key": "L",
+              "text": "specimens"
+            },
+            {
+              "key": "M",
+              "text": "thick"
+            },
+            {
+              "key": "N",
+              "text": "tiny"
+            },
+            {
+              "key": "O",
+              "text": "unique"
+            }
+          ],
+          "answer": "N",
+          "explanation": "【考点】形容词辨析题。 N)【语法判断】空格位于不定冠词a之后,名词knife 之前,因此空格处需要填人形容词。 【语义判断】空格所在部分的句意为:当博士生昆 汀·维洛特用一把 刀从一只蚂蚁身上清 除毛发。因为蚂蚁身体很小,所以用的刀子应该 也是很小的,因此空格处应填入含有“小的”意义 的形容词,故本题答案为N)tiny。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adapting"
+            },
+            {
+              "key": "B",
+              "text": "consciously"
+            },
+            {
+              "key": "C",
+              "text": "crawling"
+            },
+            {
+              "key": "D",
+              "text": "crowded"
+            },
+            {
+              "key": "E",
+              "text": "extreme"
+            },
+            {
+              "key": "F",
+              "text": "hunt"
+            },
+            {
+              "key": "G",
+              "text": "literally"
+            },
+            {
+              "key": "H",
+              "text": "moderate"
+            },
+            {
+              "key": "I",
+              "text": "remote"
+            },
+            {
+              "key": "J",
+              "text": "removed"
+            },
+            {
+              "key": "K",
+              "text": "species"
+            },
+            {
+              "key": "L",
+              "text": "specimens"
+            },
+            {
+              "key": "M",
+              "text": "thick"
+            },
+            {
+              "key": "N",
+              "text": "tiny"
+            },
+            {
+              "key": "O",
+              "text": "unique"
+            }
+          ],
+          "answer": "O",
+          "explanation": "【考点】语义推断题。 O)【语法判断】空格位于系动词is之后,因此空格处 需要填入形容词或动词的分词形式。 【语义判断】空格所在部分的句意为:蚂蚁保持凉 爽的这种方法在动物中是 。本句说明了 这种方法的特点,在备选项中,只有O)unique是 形容性质特点的,故为本题答案。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adapting"
+            },
+            {
+              "key": "B",
+              "text": "consciously"
+            },
+            {
+              "key": "C",
+              "text": "crawling"
+            },
+            {
+              "key": "D",
+              "text": "crowded"
+            },
+            {
+              "key": "E",
+              "text": "extreme"
+            },
+            {
+              "key": "F",
+              "text": "hunt"
+            },
+            {
+              "key": "G",
+              "text": "literally"
+            },
+            {
+              "key": "H",
+              "text": "moderate"
+            },
+            {
+              "key": "I",
+              "text": "remote"
+            },
+            {
+              "key": "J",
+              "text": "removed"
+            },
+            {
+              "key": "K",
+              "text": "species"
+            },
+            {
+              "key": "L",
+              "text": "specimens"
+            },
+            {
+              "key": "M",
+              "text": "thick"
+            },
+            {
+              "key": "N",
+              "text": "tiny"
+            },
+            {
+              "key": "O",
+              "text": "unique"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【考点】动词辨析题。 A】【语法判断】空格位于固定搭配areinterestedin 之后及名词短语theseants'method之前,因此空 格处需要填入动词的-ing形式。 【语义判断】空格所在部分的句意为:一些公司有 兴趣将这些蚂蚁的防热方法 人类。前一 句提到,这种反光型的毛发能保护人们吗?所以 本句是在说,将这种方法应用到人类身上,因此空 格处应填人含有“应用于,使用于”意义的动词,故 本题答案为A)adapting。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2021-06-1-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) This month, more than 4 million students across the nation will begin high school. Many will do well. But many will not. Consider that nearly two-thirds of students will experience the \"ninth-grade shock,\" which refers to a dramatic drop in a student's academic performance. Some students cope with this shock by avoiding challenges. For instance, they may drop difficult coursework. Others may experience a hopelessness that results in failing their core classes, such as English, science and math.",
+        "B) This should matter a great deal to parents, teachers and policymakers. Ultimately it should matter to the students themselves and society at large, because students' experience of transitioning (过渡) to the ninth grade can have long-term consequences not only for the students themselves but for their home communities. We make these observations as research psychologists who have studied how schools and families can help young people thrive.",
+        "C) In the new global economy, students who fail to finish the ninth grade with passing grades in college preparatory coursework are very unlikely to graduate on time and go on to get jobs. One study has calculated that the lifetime benefit to the local economy for a single additional student who completes high school is half a million dollars or more. This is based on higher earnings and avoided costs in health care, crime, welfare dependence and other things.",
+        "D) The consequences of doing poorly in the ninth grade can impact more than students' ability to find a good job. It can also impact the extent to which they enjoy life. Students lose many of the friends they turned to for support when they move from the eighth to the ninth grade. One study of ninth-grade students found that 50 percent of friendships among ninth graders changed from one month to the next, signaling striking instability in friendships.",
+        "E) In addition, studies find the first year of high school typically shows one of the greatest increases in depression of any year over the lifespan. Researchers think that one explanation is that ties to friends are broken while academic demands are rising. Furthermore, most adult cases of clinical depression first emerge in adolescence (青春期). The World Health Organization reports that depression has the greatest burden of disease worldwide, in terms of the total cost of treatment and the loss of productivity.",
+        "F) Given all that's riding on having a successful ninth grade experience, it pays to explore what can be done to meet the academic, social and emotional challenges of the transition to high school. So far, our studies have yielded one main insight: Students' beliefs about change—their beliefs about whether people are stuck one way forever, or whether people can change their personalities and abilities—are related to their ability to cope, succeed academically and maintain good mental health. Past research has called these beliefs \"mindsets (思维模式),\" with a \"fixed mindset\" referring to the belief that people cannot change and a \"growth mindset\" referring to the belief that people can change.",
+        "G) In one recent study, we examined 360 adolescents' beliefs about the nature of \"smartness\"—that is, their fixed mindsets about intelligence. We then assessed biological stress responses for students whose grades were dropping by examining their stress hormones (荷尔蒙). Students who believed that intelligence is fixed—that you are stuck being \"not smart\" if you struggle in school—showed higher levels of stress hormones when their grades were declining at the beginning of the ninth grade. If students believed that intelligence could improve—that is to say, when they held more of a growth mindset of intelligence—they showed lower levels of stress hormones when their grades were declining. This was an exciting result because it showed that the body's stress responses are not determined solely by one's grades. Instead, declining grades only predicted worse stress hormones among students who believed that worsening grades were a permanent and hopeless state of affairs.",
+        "H) We also investigated the social side of the high school transition. In this study, instead of teaching students that their smartness can change, we taught them that their social standing—that is, whether they are bullied or excluded or left out—can change over time. We then looked at high school students' stress responses to daily social difficulties. That is, we taught them a growth mindset about their social lives. In this study, students came into the laboratory and were asked to give a public speech in front of upper-year students. The topic of the speech was what makes one popular in high school. Following this, students had to complete a difficult mental math task in front of the same upper-year students.",
+        "I) Experiment results showed that students who were not taught that people can change showed poor stress responses. When these students gave the speech, their blood vessels contracted and their hearts pumped less blood through the body—both responses that the body shows when it is preparing for damage or defeat after a physical threat. Then they gave worse speeches and made more mistakes in math. But when students were taught that people can change, they had better responses to stress, in part because they felt like they had the resources to deal with the demanding situation. Students who got the growth mindset intervention (干预) showed less contracted blood vessels and their hearts pumped more blood—both of which contributed to more oxygen getting to the brain, and, ultimately, better performance on the speech and mental math tasks.",
+        "J) These findings lead to several possibilities that we are investigating further. First, we are working to replicate (复制) these findings in more diverse school communities. We want to know in which types of schools and for which kinds of students these growth mindset ideas help young people adapt to the challenges of high school. We also hope to learn how teachers, parents or school counselors can help students keep their ongoing academic or social difficulties in perspective. We wonder what would happen if schools helped to make beliefs about the potential for change and improvement a larger feature of the overall school culture, especially for students starting the ninth grade."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "The number of people experiencing depression shows a sharp increase in the first year of high school.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【定位】由题干中的depression、increase和the firstyearof high school定位到文章E)段第一句。 E)【精析】同义转述题。定位句提到,研究发现,高中 一年级通常是人一生中抑郁症增加最多的年份之 。题干中的Thenumberofpeople experiencing depression shows a sharp increase 对应原文中的oneof thegreatestincreasesin depressionofanyyearoverthelifespan,故答案 为E)。"
+        },
+        {
+          "number": 37,
+          "stem": "According to one study, students' academic performance is not the only decisive factor of their stress responses.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【定位】由题干中的theonlydecisivefactor和 stressresponses定位到文章G)段倒数第二句。 G)【精析】细节辨认题。定位句指出,这是一个令人 激动的结果,因为它表明身体的应激反应并非仅 仅取决于一个人的成绩。题干中的notthe only decisivefactor对应定位句中的notdetermined solely,题干中的students'academicperformance 指的就是定位句中的one'sgrades,故答案为G)。"
+        },
+        {
+          "number": 38,
+          "stem": "Researchers would like to explore further how parents and schools can help ninth graders by changing their mindset.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【定位】由题干中的parentsandschools和help定 位到文章J)段倒数第二句。 J【精析】细节归纳题。定位句指出,我们还希望了 解老师、家长或学校辅导员如何帮助学生正确看 待持续存在的学业或社交困难。题干中的 Researchers和parentsandschools分别对应定位 句中的We和teachers,parents or school counselors,题干中的canhelp ninthgraders by changingtheirmindset是对定位句中canhelp students keep their ongoing academic or social difficulties inperspective的概括归纳,故答案为J)。"
+        },
+        {
+          "number": 39,
+          "stem": "According to one study, each high school graduate contributes at least 500,000 dollars to the local economy.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的one study、high school graduate,500,000dollars和thelocal economy定 位到文章C)段倒数第二句。 C)【精析】同义转述题。定位句指出,一项研究估测, 每多一名完成高中学业的学生,其对当地经济产 生的终生收益为50万美元或更多。题干中的 According to one study 和 each high school graduate分别对应定位句中的One studyhas calculated that和 a single additional student who completes high school,题干中的contributes at least500,000dollarstothelocal economy是对定 位句中thelifetimebenefittothelocal economy...is half a million dollars or more的同 义转述,故答案为C)。"
+        },
+        {
+          "number": 40,
+          "stem": "In one study, students were told their social position in school is not unchangeable.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【定位】由题干中的onestudy、students、their socialposition和notunchangeable定位到文章 HD段第二句。 H)【精析】细节归纳题。定位句指出,在这项研究中, 研究人员没有教学生他们的聪明才智可以改变, 而是告诉他们,他们的社会地位可以随着时间的 推移而改变。题干中的studentsweretold和 their social position分别对应定位句中的we taughtthem和theirsocial standing,题干中的is notunchangeable是对定位句中canchangeover time的同义转述,故答案为H)。"
+        },
+        {
+          "number": 41,
+          "stem": "It is reported that depression results in enormous economic losses worldwide.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【定位】由题干中的depression、losses和 worldwide定位到文章E)段最后一句。 E)【精析】细节归纳题。定位句指出,世界卫生组织 报告称,从治疗总成本和生产力损失来看,抑郁症 是全世界负担最重的疾病。题干中的Itis reportedthat对应定位句中的TheWorldHealth Organizationreportsthat,题干中的depression results in enormous economic losses worldwide是 对定位句中depressionhasthegreatestburdenof disease worldwide, in terms of the total cost of treatmentandthelossofproductivity的概括归 纳,故答案为E)。"
+        },
+        {
+          "number": 42,
+          "stem": "One study showed that friendships among ninth graders were far from stable.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的One study、friendships among ninthgraders和farfromstable定位到文章D)段 最后一句。 D)【精析】细节归纳题。定位句指出,一项针对九年 级学生的研究发现,九年级学生中有50%的友谊 从一个月到下个月就发生了变化,这表明友谊存 在显著的不稳定性。题干中的friendshipsamong ninthgraders对应定位句中的friendshipsamong ninthgraders,题干中的farfromstable是对定位 句中strikinginstability的同义转述,故答案为D)。"
+        },
+        {
+          "number": 43,
+          "stem": "More than half of students will find their academic performance declining sharply when they enter the ninth grade.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题干中的academicperformance declining sharply和the ninthgrade定位到文章 A)段第四句。 A)【精析】同义转述题。定位句指出,近三分之二的 学生会经历“九年级冲击”,这是指学生的学业成 绩急剧下降。题干中的Morethanhalfof students对应定位句中的nearlytwo-thirdsof students,题干的theiracademicperformance decliningsharply是对定位句中adramaticdrop inastudent'sacademicperformance的同义转 述,故答案为A。"
+        },
+        {
+          "number": 44,
+          "stem": "Researchers found through experiments that students could be taught to respond to stress in a more positive way.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【答案】I。【定位】由题干中的experiments、respondtostress 和positive定位到文章I段最后两句。 I【精析】细节归纳题。定位句指出,当学生们被教 导人是可以改变的,他们就能更好地应对压力,部 分原因是他们觉得自已有能力来应对苛刻的状 况。接受成长思维模式干预的学生血管收缩更 少,他们的心脏输送的血液更多一—这两者都有 助于更多的氧气进入大脑,最终,在语言和心算任 务上表现更好。题干中的respondtostressina morepositiveway是对定位句中whenstudents were taught that people can change, they had betterresponsestostress的概括归纳,故答案为I。"
+        },
+        {
+          "number": 45,
+          "stem": "It is beneficial to explore ways to cope with the challenges facing students entering high school.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【定位】由题干中的beneficial、explore、the challenges和highschool定位到文章F)段第 . 一句。 F)【精析】同义转述题。定位句指出,考虑到所有这 些都依赖于一个成功的九年级经历,探索能够做 些什么来迎接过渡到高中所面临的学业、社交和 情感的挑战是值得的。题干中的Itisbeneficial 和explorewaystocopewiththe challenges对应 定位句中的itpays和explorewhatcanbedone to meet the academic, social and emotional challenges。题于是对定位句的同义转述,故答案 为F)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2021-06-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Educators and business leaders have more in common than it may seem. Teachers want to prepare students for a successful future. Technology companies have an interest in developing a workforce with the STEM (science, technology, engineering and math) skills needed to grow the company and advance the industry. How can they work together to achieve these goals? Play may be the answer. Focusing on STEM skills is important, but the reality is that STEM skills are enhanced and more relevant when combined with traditional, hands-on creative activities. This combination is proving to be the best way to prepare today's children to be the makers and builders of tomorrow. That is why technology companies are partnering with educators to bring back good, old-fashioned play. In fact many experts argue that the most important 21st-century skills aren't related to specific technologies or subject matter, but to creativity; skills like imagination, problem-finding and problem-solving, teamwork, optimism, patience and the ability to experiment and take risks. These are skills acquired when kids tinker (鼓捣小玩意). High-tech industries such as NASA's Jet Propulsion Laboratory have found that their best overall problem solvers were master tinkerers in their youth. There are cognitive (认知的) benefits of doing things the way we did as children—building something, tearing it down, then building it up again. Research shows that given 15 minutes of free play, four- and five-year-olds will spend a third of this time engaged in spatial, mathematical, and architectural activities. This type of play—especially with building blocks—helps children discover and develop key principles in math and geometry. If play and building are critical to 21st-century skill development, that's really good news for two reasons: Children are born builders, makers, and creators, so fostering (培养) 21st-century skills may be as simple as giving kids room to play, tinker and try things out, even as they grow older. Secondly, it doesn't take 21st-century technology to foster 21st-century skills. This is especially important for under-resourced schools and communities. Taking whatever materials are handy and tinkering with them is a simple way to engage those important \"maker\" skills. And anyone, anywhere, can do it."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What does the author say about educators?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They seek advice from technology companies to achieve teaching goals."
+            },
+            {
+              "key": "B",
+              "text": "They have been successful in preparing the workforce for companies."
+            },
+            {
+              "key": "C",
+              "text": "They help students acquire the skills needed for their future success."
+            },
+            {
+              "key": "D",
+              "text": "They partner with technology companies to enhance teaching efficiency."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的educators定位到首段前两句。 C)【精析】细节辨认题。定位句指出,教育工作者和 商界领袖的共同点比看起来要多。教师希望为学 生成功的未来做好准备。Teachers“教师”指的就 是educators“教育工作者”,由此可见,教育工作者 帮助学生为成功的未来做好准备,即帮助学生获 得未来成功所需的技能,故答案为C)。 【避错】文章并没有提及教育工作者向科技公司征 求意见,故排除A)。首段第三句提到,科技公司 有兴趣培养一支具有推动企业发展和行业发展所 需的STEM技能的员工队伍,并非教育工作者为 企业成功储备了人才,故排除B)。第二段最后一 句提到,教育工作者和科技公司合作,重新引人优秀 的老式游戏,但不是为了提高教学效率,故排除D)。"
+        },
+        {
+          "number": 47,
+          "stem": "How can educators better develop students' STEM skills, according to the author?",
+          "options": [
+            {
+              "key": "A",
+              "text": "By blending them with traditional, stimulating activities."
+            },
+            {
+              "key": "B",
+              "text": "By inviting business leaders to help design curriculums."
+            },
+            {
+              "key": "C",
+              "text": "By enhancing students' ability to think in a critical way."
+            },
+            {
+              "key": "D",
+              "text": "By showing students the best way to learn is through play."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题干中的betterdevelopstudents” STEMskills定位到第二段第一、二句。 A)【精析】推理判断题。定位句提到,专注于STEM 技能很重要,但当STEM技能与传统的动手创造 性活动相结合时,这些技能会增强。事实证明,这 种结合是让今天的孩子成为明天的创造者和建设 者的最佳方式。换言之,通过将培养STEM技能 与传统的、趣味益然的活动相结合,能够更好地培 养学生的STEM技能,故答案为A)。 【避错】文章第二段最后一句提到,科技公司与教 育工作者合作,重新引入优秀的老式游戏,而非由 商界领袖设计课程,故排除B)。文中并没有提及 培养学生的批判性思考能力,故排除C)。第二段 第一句提到,要提高STEM技能,应让学生参与有 创意的活动,并非简单地向学生展示游戏的重要 性,故排除D)。"
+        },
+        {
+          "number": 48,
+          "stem": "How do children acquire the skills needed for the 21st century?",
+          "options": [
+            {
+              "key": "A",
+              "text": "By engaging in activities involving specific technologies."
+            },
+            {
+              "key": "B",
+              "text": "By playing with things to solve problems on their own."
+            },
+            {
+              "key": "C",
+              "text": "By familiarizing themselves with high-tech gadgets."
+            },
+            {
+              "key": "D",
+              "text": "By mastering basic principles through teamwork."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的children acquirethe skills neededforthe21stcentury定位到第三段第一、 二句。 B)【精析】推理判断题。定位句指出,许多专家认为 21世纪最重要的技能与特定的技术或主题无关, 而是与创造力有关;如想象力、发现问题和解决间 题的能力、团队合作、乐观、耐心以及做实验和 险的能力。这些都是孩子们鼓捣小玩意时获得的 技能。由此可见,孩子们可以通过摆弄东西来自 已解决问题,从而获得21世纪所需的技能,故答案为B)。 【避错】文章第三段第一句指出,许多专家认为21 世纪最重要的技能与特定的技术或主题无关,故 排除A)。文中并未提及熟悉高科技产品和掌握 基本原则,故排除C)和D)。"
+        },
+        {
+          "number": 49,
+          "stem": "What can we do to help children learn the basics of math and geometry?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Stimulate their interest as early as possible."
+            },
+            {
+              "key": "B",
+              "text": "Spend more time playing games with them."
+            },
+            {
+              "key": "C",
+              "text": "Encourage them to make things with hands."
+            },
+            {
+              "key": "D",
+              "text": "Allow them to tinker freely with calculators."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的basicsofmathandgeometry 定位到第四段最后一句。 C)【精析】推理判断题。定位句提到,这种类型的游 戏——特别是搭积木——帮助孩子们发现和掌握 数学和几何学的关键原理。由此可见,鼓励孩子 们动手做东西可以帮助孩子们学习数学和几何的 基础知识,故答案为C)。 【避错】文章并未提及尽早激发他们的兴趣,故排 除A)。文章第四段第二句提到,给孩子自由玩耍 的时间,并非花时间和他们做游戏,故排除B)。 文中并未提到摆弄计算器,故排除D)。"
+        },
+        {
+          "number": 50,
+          "stem": "What does the author advise disadvantaged schools and communities to do?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Train students to be makers to meet future market demands."
+            },
+            {
+              "key": "B",
+              "text": "Develop students' creative skills with the resources available."
+            },
+            {
+              "key": "C",
+              "text": "Engage students with challenging tasks to foster their creativity."
+            },
+            {
+              "key": "D",
+              "text": "Work together with companies to improve their teaching facilities."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的disadvantaged schoolsand communities定位到文章最后一段最后三句。 B)【精析】推理判断题。定位句指出,这一点对于资 源不足的学校和社区尤其重要。利用手边的任何 材料,让孩子们去鼓捣小玩意,这是运用那些重要 的“制造者”技能的一个简单方法。任何人在任何 地方都能做到。换言之,资源不足的学校和社区 应尽可能地利用现有资源,故答案为B)。 【避错】文章最后一段第一句后半部分指出,孩子 天生就是建设者、制造者和创造者,故排除A)。 文中并未提及让学生参与有挑战性的任务和与公 司合作改善教学设施,故排除C)和D)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2021-06-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Being an information technology, or IT, worker is not a job I envy. They are the ones who, right in the middle of a critical meeting, are expected to instantly fix the projector that's no longer working. They have to tolerate the bad tempers of colleagues frustrated at the number of times they've had to call the help desk for the same issue. They are also the ones who know there are systems that are more powerful, reliable and faster, but their employer simply will not put up the funds to buy them. According to a recent survey, employees who have a job reliant on IT support consider IT a major source of job dissatisfaction. Through no fault of their own, they can suddenly find their productivity deteriorating or quality control non-existent. And there's little they can do about it. The experience of using IT penetrates almost the entire work field. It has become a crucial part of employees' overall work experience. When IT is operating as it should, employee self-confidence swells. Their job satisfaction, too, can surge when well-functioning machines relieve them of dull tasks or repetitive processes. But if there's one thing that triggers widespread employee frustration, it's an IT transformation project gone wrong, where swollen expectations have been popped and a long list of promised efficiencies have been reversed. This occurs when business leaders implement IT initiatives with little consideration of how those changes will impact the end user. Which is why managers should appreciate just how influential the IT user experience is to their employees, and exert substantial effort in ensuring their IT team eliminates programming errors and application crashes. Adequate and timely IT support should also be available to enable users to cope with",
+        "technological issues at work. More importantly, IT practitioners need to understand what employees experience mentally when they use IT.",
+        "Therefore, businesses need to set up their IT infrastructure so that it is designed to fit in with their employees' work, rather than adjust their work to fit in with the company's IT limitations."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the author say about working in IT?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is envied by many."
+            },
+            {
+              "key": "B",
+              "text": "It does not appeal to him."
+            },
+            {
+              "key": "C",
+              "text": "It is financially rewarding."
+            },
+            {
+              "key": "D",
+              "text": "It does not match his abilities."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的workingin,IT定位到第一段 第一句。 B【精析】推理判断题。定位句提到,“我”并不美幕 信息技术工作者,或者说IT工作者的工作。由此 可知,作者对这样的工作不感兴趣,故答案为B)。 【避错】文章第一段第一句提到,“我”并不美慕信 息技术工作者的工作,第二、三句接着举例说明了 信息技术工作者的艰难处境,由此可知,这样的工 作并不让人美幕,故排除A);文中并未提及信息 技术行业的收入,以及是否与作者的能力匹配,故 排除C)和D)。"
+        },
+        {
+          "number": 52,
+          "stem": "What is the finding of a recent survey on employees who have a job reliant on IT support?",
+          "options": [
+            {
+              "key": "A",
+              "text": "IT helps boost productivity."
+            },
+            {
+              "key": "B",
+              "text": "IT helps improve quality control."
+            },
+            {
+              "key": "C",
+              "text": "Many employees are deeply frustrated by IT."
+            },
+            {
+              "key": "D",
+              "text": "Most employees rely heavily on IT in their work."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的ajobreliantonITsupport定 位到第二段。 C)【精析】细节辨认题。定位段提到,根据最近的一 项调查,那些自身工作依赖信息技术支持的员工 认为,信息技术是他们工作不满意的主要原因。 他们自己毫无过错,却突然发现生产效率在下降, 或质量控制不起作用。他们对此几乎无能为力。 由此可知,答案为C)。 【避错】A)和B)与定位段意思相俘,故排除;第二 段第一句提到,针对自身工作依赖信息技术支持 的员工做了调查,但未提及这类员工数量的多少 以及他们对信息技术的依赖程度,故排除D)。"
+        },
+        {
+          "number": 53,
+          "stem": "What is said to happen when IT is functioning properly?",
+          "options": [
+            {
+              "key": "A",
+              "text": "There is a big boost in employees' work efficiency."
+            },
+            {
+              "key": "B",
+              "text": "Employees become more dependent on machines."
+            },
+            {
+              "key": "C",
+              "text": "There are no longer any boring or repetitive tasks."
+            },
+            {
+              "key": "D",
+              "text": "Employees become more confident in their work."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的ITis functioningproperly定 位到第三段第三、四句。 D)【精析】推理判断题。定位句指出,当信息技术正 常运作时,员工的自信心就会增加。当运转良好 的机器将他们从枯燥的任务或重复性的流程中解 放出来时,他们的工作满意度也会激增。换言之, 当信息技术正常运行时,员工对自已的工作更有 信心,故答案为D)。 【避错】第三段并未提及信息技术正常运行是否能 够大幅提高员工的工作效率,也未提及员工是否 更加依赖机器,故排除A)和B)。第三段第四句虽 然提到,运转良好的机器可以把员工从枯燥的任 务或重复性的流程中解放出来,但C)的说法太过 绝对,故排除。"
+        },
+        {
+          "number": 54,
+          "stem": "What should business leaders do before implementing new IT initiatives?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Consider the various expectations of their customers."
+            },
+            {
+              "key": "B",
+              "text": "Draw up a list of the efficiencies to be promised."
+            },
+            {
+              "key": "C",
+              "text": "Assess the swollen cost of training the employees."
+            },
+            {
+              "key": "D",
+              "text": "Think about the possible effects on their employees."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的implementingnewIT initiatives定位到第三段最后一句。 D)【精析】推理判断题。定位句指出,当业务领导在 实施信息技术计划时很少考虑这些更改将如何影 响终端用户时,就会发生这种情况。结合本段倒! 数第二句可知,这种情况指的是一且信息技术改 造项目出问题,会导致满满的期望破灭,一长串承 诺提高效率的方法被推翻。因此,业务领导在实 施信息技术计划时,应考虑对员工可能产生的影 响,故答案为D)。 【避错】文章第三段主要讲了信息技术对员工造成 的影响,并非针对公司客户,故排除A)。文章第 三段倒数第二句提到,一且信息技术改造项目出 问题,就会导致满满的期望破灭,一长串承诺提高 效率的办法被推翻,并非需要拟定要承诺的提高 效率的办法清单,故排除B)。文章未提及需要评 估培训员工的膨胀成本,故排除C)。"
+        },
+        {
+          "number": 55,
+          "stem": "How can a business help improve its employees' experience in using IT?",
+          "options": [
+            {
+              "key": "A",
+              "text": "By designing systems that suit their needs."
+            },
+            {
+              "key": "B",
+              "text": "By ensuring that their mental health is sound."
+            },
+            {
+              "key": "C",
+              "text": "By adjusting their work to suit the IT system."
+            },
+            {
+              "key": "D",
+              "text": "By offering them regular in-service training."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题干中的business、improveitsemployees” experienceinusingIT定位到文章最后一段。 A)【精析】细节辨认题。文章最后一段指出,企业需 要建立自己的信息技术基础设施,使其设计能够 适应员工的工作,而不是让员工调整自已的工作 以适应公司的信息技术系统。即企业应设计适合 员工工作需求的系统,故答案为A)。 【避错】由文章第四段倒数第一句可知,信息技术 工作者需要了解员工在使用信息技术时的心理体 验,并非心理健康,由此可排除B)。文中提到企 业需要建立自已的信息技术基础设施,使其设计 能够适应员工的工作,而不是让员工调整自已的工 作以适应公司的信息技术系统,故排除C)。文中 并未提及为员工提供定期的在职培训,故排除D)。"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1647 @@
+{
+  "id": "cet4-2016-06-2",
+  "level": 4,
+  "year": 2016,
+  "month": 6,
+  "set": 2,
+  "title": "2016 年 6 月四级 · 第 2 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.06/%E7%9C%9F%E9%A2%98Word/2016%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%AC%AC2%E5%A5%97%E7%9C%9F%E9%A2%98%20.doc",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2016%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%AC%AC2%E5%A5%97%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2016-06-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Contrary to popular belief, older people generally do not want to live with their children. Moreover, most adult children [[26]] every bit as much care and support to their aging parents as was the case in the “good old days”, and most older people do not feel [[27]] . About 80% of people 65years and older have living children, and about 90% of them have [[28]] contact with their children. About 75% of elderly parents who don’t go to nursing homes live within 30 minutes of at least one of their children. However, [[29]] having contact with children does not guarantee happiness in old age. In fact, some research has found that people who are most involved with their families have the lowest spirits. This research may be [[30]], however, as ill health often makes older people more [[31]] and thereby increases contact with family members. So it is more likely that poor health, not just family involvement, [[32]] spirits. Increasingly, researchers have begun to look at the quality of relationships, rather than at the frequency of contact, between the elderly and their children. If parents and children share interests and values and agree on childrearing practices and religious [[33]] , they are likely to enjoy each other’s company. Disagreements on such matters can [[34]] cause problems. If parents are agreed by their daughter’s divorce, dislike her new husband, and disapprove of how she is raising their grandchildren, [[35]] are that they are not going to enjoy her visits."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "abandoned"
+        },
+        {
+          "key": "B",
+          "text": "advanced"
+        },
+        {
+          "key": "C",
+          "text": "biased"
+        },
+        {
+          "key": "D",
+          "text": "chances"
+        },
+        {
+          "key": "E",
+          "text": "commitment"
+        },
+        {
+          "key": "F",
+          "text": "dampens"
+        },
+        {
+          "key": "G",
+          "text": "dependent"
+        },
+        {
+          "key": "H",
+          "text": "distant"
+        },
+        {
+          "key": "I",
+          "text": "frequent"
+        },
+        {
+          "key": "J",
+          "text": "fulfillment"
+        },
+        {
+          "key": "K",
+          "text": "grant"
+        },
+        {
+          "key": "L",
+          "text": "merely"
+        },
+        {
+          "key": "M",
+          "text": "provide"
+        },
+        {
+          "key": "N",
+          "text": "understandably"
+        },
+        {
+          "key": "O",
+          "text": "unrealistically"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abandoned"
+            },
+            {
+              "key": "B",
+              "text": "advanced"
+            },
+            {
+              "key": "C",
+              "text": "biased"
+            },
+            {
+              "key": "D",
+              "text": "chances"
+            },
+            {
+              "key": "E",
+              "text": "commitment"
+            },
+            {
+              "key": "F",
+              "text": "dampens"
+            },
+            {
+              "key": "G",
+              "text": "dependent"
+            },
+            {
+              "key": "H",
+              "text": "distant"
+            },
+            {
+              "key": "I",
+              "text": "frequent"
+            },
+            {
+              "key": "J",
+              "text": "fulfillment"
+            },
+            {
+              "key": "K",
+              "text": "grant"
+            },
+            {
+              "key": "L",
+              "text": "merely"
+            },
+            {
+              "key": "M",
+              "text": "provide"
+            },
+            {
+              "key": "N",
+              "text": "understandably"
+            },
+            {
+              "key": "O",
+              "text": "unrealistically"
+            }
+          ],
+          "answer": "M",
+          "explanation": "M) provide。根据上下文判断,本空在句中作谓语动词,并与后半句的 and most older people do not feel_____ 构成并列关系,故前后时态应一致,均为一般现在时。选项中的动词有 : A) abandoned(抛 弃) ; B) advanced(前进) ; F) dampens(抑制,减弱) ; K) grant(授予,满足) ; M) provide(提供) 。 其中,M)provide 符合语法和大意。本句意为 : 成年的孩子们会尽可能地为年迈的父母提供每一点关心 和支持。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abandoned"
+            },
+            {
+              "key": "B",
+              "text": "advanced"
+            },
+            {
+              "key": "C",
+              "text": "biased"
+            },
+            {
+              "key": "D",
+              "text": "chances"
+            },
+            {
+              "key": "E",
+              "text": "commitment"
+            },
+            {
+              "key": "F",
+              "text": "dampens"
+            },
+            {
+              "key": "G",
+              "text": "dependent"
+            },
+            {
+              "key": "H",
+              "text": "distant"
+            },
+            {
+              "key": "I",
+              "text": "frequent"
+            },
+            {
+              "key": "J",
+              "text": "fulfillment"
+            },
+            {
+              "key": "K",
+              "text": "grant"
+            },
+            {
+              "key": "L",
+              "text": "merely"
+            },
+            {
+              "key": "M",
+              "text": "provide"
+            },
+            {
+              "key": "N",
+              "text": "understandably"
+            },
+            {
+              "key": "O",
+              "text": "unrealistically"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A) abandoned。本空位于感官动词 feel 之后,故应选择形容词,选项中的形容词有 : A) abandoned (被抛弃的) ; B) advanced(先进的) ; I) frequent(频繁的,时常的) ; C) biased(有偏见的) ; G) dependent(依赖的) ; H) distant(疏远的) 。上文说道 : 孩子们尽可能地提供关心和支持,故父 母没有被抛弃的感觉。所以本题选 A 符合题意。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abandoned"
+            },
+            {
+              "key": "B",
+              "text": "advanced"
+            },
+            {
+              "key": "C",
+              "text": "biased"
+            },
+            {
+              "key": "D",
+              "text": "chances"
+            },
+            {
+              "key": "E",
+              "text": "commitment"
+            },
+            {
+              "key": "F",
+              "text": "dampens"
+            },
+            {
+              "key": "G",
+              "text": "dependent"
+            },
+            {
+              "key": "H",
+              "text": "distant"
+            },
+            {
+              "key": "I",
+              "text": "frequent"
+            },
+            {
+              "key": "J",
+              "text": "fulfillment"
+            },
+            {
+              "key": "K",
+              "text": "grant"
+            },
+            {
+              "key": "L",
+              "text": "merely"
+            },
+            {
+              "key": "M",
+              "text": "provide"
+            },
+            {
+              "key": "N",
+              "text": "understandably"
+            },
+            {
+              "key": "O",
+              "text": "unrealistically"
+            }
+          ],
+          "answer": "I",
+          "explanation": "I) frequent。本空所在句中的 contact 是名词, have ____ contact with their children (与孩子保持...... 联系) ,由此可知此答案是修饰 contact,选项中 frequent (频繁的)符合上下文大意,所以选 I。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abandoned"
+            },
+            {
+              "key": "B",
+              "text": "advanced"
+            },
+            {
+              "key": "C",
+              "text": "biased"
+            },
+            {
+              "key": "D",
+              "text": "chances"
+            },
+            {
+              "key": "E",
+              "text": "commitment"
+            },
+            {
+              "key": "F",
+              "text": "dampens"
+            },
+            {
+              "key": "G",
+              "text": "dependent"
+            },
+            {
+              "key": "H",
+              "text": "distant"
+            },
+            {
+              "key": "I",
+              "text": "frequent"
+            },
+            {
+              "key": "J",
+              "text": "fulfillment"
+            },
+            {
+              "key": "K",
+              "text": "grant"
+            },
+            {
+              "key": "L",
+              "text": "merely"
+            },
+            {
+              "key": "M",
+              "text": "provide"
+            },
+            {
+              "key": "N",
+              "text": "understandably"
+            },
+            {
+              "key": "O",
+              "text": "unrealistically"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L) merely。本空所在句的语法结构完整,空格处在本句修饰 having contact with,故应是副词,选项 中副词有 : L) merely(只是,仅仅) ; N) understandably(可理解地) ; O) unrealistically(不现实 地) 。结合上下文的转折关系,merely 更符合语境,本句意为 : 仅仅与孩子们保持联系并不能保证有 个幸福的晚年。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abandoned"
+            },
+            {
+              "key": "B",
+              "text": "advanced"
+            },
+            {
+              "key": "C",
+              "text": "biased"
+            },
+            {
+              "key": "D",
+              "text": "chances"
+            },
+            {
+              "key": "E",
+              "text": "commitment"
+            },
+            {
+              "key": "F",
+              "text": "dampens"
+            },
+            {
+              "key": "G",
+              "text": "dependent"
+            },
+            {
+              "key": "H",
+              "text": "distant"
+            },
+            {
+              "key": "I",
+              "text": "frequent"
+            },
+            {
+              "key": "J",
+              "text": "fulfillment"
+            },
+            {
+              "key": "K",
+              "text": "grant"
+            },
+            {
+              "key": "L",
+              "text": "merely"
+            },
+            {
+              "key": "M",
+              "text": "provide"
+            },
+            {
+              "key": "N",
+              "text": "understandably"
+            },
+            {
+              "key": "O",
+              "text": "unrealistically"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C) biased。此空位于 may be 之后,在句中作表语,因此需要名词或形容词。上文提到研究发现与家 人来往最多的老人可能最没活力,随后出现 however 转折,由此可判断,The research may be biased(研 究可能有偏见) ,所以本题选 C。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abandoned"
+            },
+            {
+              "key": "B",
+              "text": "advanced"
+            },
+            {
+              "key": "C",
+              "text": "biased"
+            },
+            {
+              "key": "D",
+              "text": "chances"
+            },
+            {
+              "key": "E",
+              "text": "commitment"
+            },
+            {
+              "key": "F",
+              "text": "dampens"
+            },
+            {
+              "key": "G",
+              "text": "dependent"
+            },
+            {
+              "key": "H",
+              "text": "distant"
+            },
+            {
+              "key": "I",
+              "text": "frequent"
+            },
+            {
+              "key": "J",
+              "text": "fulfillment"
+            },
+            {
+              "key": "K",
+              "text": "grant"
+            },
+            {
+              "key": "L",
+              "text": "merely"
+            },
+            {
+              "key": "M",
+              "text": "provide"
+            },
+            {
+              "key": "N",
+              "text": "understandably"
+            },
+            {
+              "key": "O",
+              "text": "unrealistically"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G) dependent。根据本句大意 : as ill health often makes older people more _____(因为身体不好往往 会使老人更 _____) ,选项中符合句意是 G 项 dependent(依赖的) ,本句意为 : 因为身体不好往往 会使老人更具依赖性,所以他们才会增进与家人的联系。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abandoned"
+            },
+            {
+              "key": "B",
+              "text": "advanced"
+            },
+            {
+              "key": "C",
+              "text": "biased"
+            },
+            {
+              "key": "D",
+              "text": "chances"
+            },
+            {
+              "key": "E",
+              "text": "commitment"
+            },
+            {
+              "key": "F",
+              "text": "dampens"
+            },
+            {
+              "key": "G",
+              "text": "dependent"
+            },
+            {
+              "key": "H",
+              "text": "distant"
+            },
+            {
+              "key": "I",
+              "text": "frequent"
+            },
+            {
+              "key": "J",
+              "text": "fulfillment"
+            },
+            {
+              "key": "K",
+              "text": "grant"
+            },
+            {
+              "key": "L",
+              "text": "merely"
+            },
+            {
+              "key": "M",
+              "text": "provide"
+            },
+            {
+              "key": "N",
+              "text": "understandably"
+            },
+            {
+              "key": "O",
+              "text": "unrealistically"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F) dampens。空格所在句使用了 it is 强调句型,强调句的主语为 poor health, not just family involvement。本空在强调句中作谓语动词,且应为第三人称单数形式,由此可判断选项中符合条件只有 F 项dampens(抑制,减轻) ,dampens spirits 和上一句的 have the lowest spirits 构成衔接,本句意为 : 所以更可能是因为健康不佳,使得老人情绪低落,而不仅是家庭来往。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abandoned"
+            },
+            {
+              "key": "B",
+              "text": "advanced"
+            },
+            {
+              "key": "C",
+              "text": "biased"
+            },
+            {
+              "key": "D",
+              "text": "chances"
+            },
+            {
+              "key": "E",
+              "text": "commitment"
+            },
+            {
+              "key": "F",
+              "text": "dampens"
+            },
+            {
+              "key": "G",
+              "text": "dependent"
+            },
+            {
+              "key": "H",
+              "text": "distant"
+            },
+            {
+              "key": "I",
+              "text": "frequent"
+            },
+            {
+              "key": "J",
+              "text": "fulfillment"
+            },
+            {
+              "key": "K",
+              "text": "grant"
+            },
+            {
+              "key": "L",
+              "text": "merely"
+            },
+            {
+              "key": "M",
+              "text": "provide"
+            },
+            {
+              "key": "N",
+              "text": "understandably"
+            },
+            {
+              "key": "O",
+              "text": "unrealistically"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E) commitment。本空所在句的 childrearing practices(抚养孩子的方法)和 religious _____ 构成并列 关系,故此空为名词,选项中的名词有 : D) chances(机遇,可能性) ; E) commitment(承诺,奉 献) ; J)fulfillment(履行, 完成) 。其中, religious commitment(宗教信奉)表达最佳, 且符合大 意, 故本题选 E。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abandoned"
+            },
+            {
+              "key": "B",
+              "text": "advanced"
+            },
+            {
+              "key": "C",
+              "text": "biased"
+            },
+            {
+              "key": "D",
+              "text": "chances"
+            },
+            {
+              "key": "E",
+              "text": "commitment"
+            },
+            {
+              "key": "F",
+              "text": "dampens"
+            },
+            {
+              "key": "G",
+              "text": "dependent"
+            },
+            {
+              "key": "H",
+              "text": "distant"
+            },
+            {
+              "key": "I",
+              "text": "frequent"
+            },
+            {
+              "key": "J",
+              "text": "fulfillment"
+            },
+            {
+              "key": "K",
+              "text": "grant"
+            },
+            {
+              "key": "L",
+              "text": "merely"
+            },
+            {
+              "key": "M",
+              "text": "provide"
+            },
+            {
+              "key": "N",
+              "text": "understandably"
+            },
+            {
+              "key": "O",
+              "text": "unrealistically"
+            }
+          ],
+          "answer": "N",
+          "explanation": "N) understandably。空格所在句的语法结构完整, 本空位于情态动词 can 和动词 cause 之间, 故应为 副词。可选的副词有 : N) understandably 和 O) unrealistically,结合上下文大意 N 项表达正确。本句意 为 : 在此类事上的分歧产生了问题,是不难理解的。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abandoned"
+            },
+            {
+              "key": "B",
+              "text": "advanced"
+            },
+            {
+              "key": "C",
+              "text": "biased"
+            },
+            {
+              "key": "D",
+              "text": "chances"
+            },
+            {
+              "key": "E",
+              "text": "commitment"
+            },
+            {
+              "key": "F",
+              "text": "dampens"
+            },
+            {
+              "key": "G",
+              "text": "dependent"
+            },
+            {
+              "key": "H",
+              "text": "distant"
+            },
+            {
+              "key": "I",
+              "text": "frequent"
+            },
+            {
+              "key": "J",
+              "text": "fulfillment"
+            },
+            {
+              "key": "K",
+              "text": "grant"
+            },
+            {
+              "key": "L",
+              "text": "merely"
+            },
+            {
+              "key": "M",
+              "text": "provide"
+            },
+            {
+              "key": "N",
+              "text": "understandably"
+            },
+            {
+              "key": "O",
+              "text": "unrealistically"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D) chances。由 _____ are 即可判断,此空为名词复数,所以选 D 项 chances(机遇,可能性) 。空 格所在句意为 : 如果父母对女儿的离婚感到愤怒,不喜欢她的新婚丈夫,并且不同意女儿抚养孙子孙 女的方法,那么很可能父母不会欢迎女儿的拜访。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2016-06-2-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) For many years I have studied global agricultural, population, environmental and economic trends and their interactions. The combined effects of those trends and the political tensions they generate point to the breakdown of governments and societies. Yet I, too, have resisted the idea that food shortages could bring down not only individual governments but also our global civilization.",
+        "B) I can no longer ignore that risk. Our continuing failure to deal with the environmental declines that are undermining the world food economy forces me to conclude that such a collapse is possible.",
+        "C) As demand for food rises faster than supplies are growing, the resulting food-price inflation puts severe stress on the governments of many countries. Unable to buy grain or grow their own, hungry people take to the streets. Indeed, even before the steep climb in grain prices in 2008, the number of failing states was expanding. If the food situation continues to worsen, entire nations will break down at an ever increasing rate. In the 20th century the main threat to international security was superpower conflict; today it is failing states.",
+        "D) States fail when national governments can no longer provide personal security, food security and basic social services such as education and health care. When governments lose their control on power, law and order begin to disintegrate. After a point, countries can become so dangerous that food relief workers are no longer safe and their programs are halted. Failing states are of international concern because they are a source of terrorists, drugs, weapons and refugees(难民), threatening political stability everywhere.",
+        "E) The surge in world grain prices in 2007 and 2008—and the threat they pose to food security——has a different, more troubling quality than the increases of the past. During the second half of the 20th century, grain prices rose dramatically several times. In 1972, for instance, the Soviets, recognizing their poor harvest early, quietly cornered the world wheat market. As a result, wheat prices elsewhere more than doubled, pulling rice and corn prices up with them. But this and other price shocks were event-driven——drought in the Soviet Union, crop-shrinking heat in the U.S. Corn Belt. And the rises were short-lived: prices typically returned to normal with the next harvest.",
+        "F) In contrast, the recent surge in world grain prices is trend-driven, making it unlikely to reverse without a reversal in the trends themselves. On the demand side, those trends include the ongoing addition of more than 70 million people a year, a growing number of people wanting to move up the food chain to consume highly grain-intensive meat products, and the massive diversion(转向) of U.S. grain to the production of bio-fuel.",
+        "G) As incomes rise among low-income consumers, the potential for further grain consumption is huge. But that potential pales beside the never-ending demand for crop-based fuels. A fourth of this year’s U.S. grain harvest will go to fuel cars.",
+        "H) What about supply? The three environmental trends——the shortage of fresh water, the loss of topsoil and the rising temperatures——are making it increasingly hard to expand the world’s grain supply fast enough to keep up with demand. Of all those trends, however, the spread of water shortages poses the most immediate threat. The biggest challenge here is irrigation, which consumes 70% the world’s fresh water. Millions of irrigation wells in many countries are now pumping water out of underground sources faster than rainfall can refill them. The result is falling water tables(地下水位) in countries with half the world’s people, including the three big grain producers——China, India and the U.S.",
+        "I) As water tables have fallen and irrigation wells have gone dry, China’s wheat crop, the world’s largest, has declined by 8% since it peaked at 123 million tons in 1997. But water shortages are even more worrying in India. Millions of irrigation wells have significantly lowered water tables in almost every state.",
+        "J) As the world’s food security falls to pieces, individual countries acting in their own self-interest are actually worsening the troubles of many. The trend began in 2007, when leading wheat-exporting countries such as Russia and Argentina limited or banned their exports, in hopes of increasing local food supplies and thereby bringing down domestic food prices. Vietnam banned its exports for several months for the same reason. Such moves may eliminate the fears of those living in the exporting countries, but they are creating panic in importing countries that must rely on what is then left for export.",
+        "K) In response to those restrictions, grain-importing countries are trying to nail down long-term trade agreements that would lock up future grain supplies. Food-import anxiety is even leading to new efforts by food-importing countries to buy or lease farmland in other countries. In spite of such temporary measures, soaring food prices and spreading hunger in many other countries are beginning to break down the social order.",
+        "L) Since the current world food shortage is trend-driven, the environmental trends that cause it must be reversed. We must cut carbon emissions by 80% from their 2006 levels by 2020, stabilize the world’s population at eight billion by 2040, completely remove poverty, and restore forests and soils. There is nothing new about the four objectives. Indeed, we have made substantial progress in some parts of the world on at least one of these——the distribution of family-planning services and the associated shift to smaller families.",
+        "M) For many in the development community, the four objectives were seen as positive, promoting development as long as they did not cost too much. Others saw them as politically correct and morally appropriate. Now a third and far more significant motivation presents itself: meeting these goals may be necessary to prevent the collapse of our civilization. Yet the cost we project for saving civilization would amount to less than $200 billion a year, 1/6 of current global military spending. In effect, our plan is the new security budget."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "The more recent steep climb in grain prices partly results from the fact that more and more people want to consume meat products.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "F",
+          "explanation": "The more recent steep climb in grain prices partly results from the fact that more and more people want to consume meat products. 【正确答案】F 【答案解析】由本题的关键信息 want to consume meat products 可将答案定位至 F 段最后一句 : wanting to move up the food chain to consume highly grain-intensive meat products。本段大意为 : 粮食价格上涨是 大趋势(the recent surge in world grain prices is trend-driven) ,在需求上,会有越来越多的人进入食物 链来大量食用以谷物为主饲养的肉制品,且美国政府大量使用谷物制造生物燃料。surge 被替换成 steep climb, 故选 F 段。"
+        },
+        {
+          "number": 37,
+          "stem": "Social order is breaking down in many countries because of food shortages.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "K",
+          "explanation": "Social order is breaking down in many countries because of food shortages. 【正确答案】K 【答案解析】本题的关键信息是 Social order 和 breaking down,由此可直接将答案定位至 K 段 In spite of such temporary measures, soaring food prices and spreading hunger in many other countries are beginning to break down the social order(尽管出台了临时的政策,但是飙升的食品价格和一些国家饥饿的蔓延,已 经开始打破社会秩序了),故本句对应 K 段。"
+        },
+        {
+          "number": 38,
+          "stem": "Rather than superpower conflict, countries unable to cope with food shortages now constitute the main threat to world security.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Rather than superpower conflict, countries unable to cope with food shortages now constitute the main threat to world security. 【正确答案】C 【答案解析】根据题干中的 superpower conflict 和 world security 将答案定位至 C 段最后一句的 superpower conflict 和 international conflict。该段最后两句说道 : 如果粮食状况持续恶化,整个国家会 以前所未有的速度进入瘫痪状态。20 世纪最大的威胁是超级大国冲突,而如今却是政府的垮台。故本 题匹配 C 段。"
+        },
+        {
+          "number": 39,
+          "stem": "Some parts of the world have seen successful implementation of family planning.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "L",
+          "explanation": "Some parts of the world have seen successful implementation of family planning. 【正确答案】L 【答案解析】本题的关键词是 implementation of family planning(计划生育的贯彻) ,由此可将答案定 位至 L 段的最后一句 : Indeed, we have made substantial progress in some parts of the world on at least one of these—the distribution of family-planning services(事实上,至少我们在其中的一项,即计划生育服务 分配上已经在一些地区取得了实质性的进展) 。本题是对该句的同义转述,所以选 L 段。"
+        },
+        {
+          "number": 40,
+          "stem": "The author has come to agree that food shortages could ultimately lead to the collapse of world civilization.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "B",
+          "explanation": "The author has come to agree that food shortages could ultimately lead to the collapse of world civilization. 【正确答案】B 【答案解析】本题关键信息 come to agree, collapse,由此可将答案定位到 A 段的最后一句和 B 段。A 段提到,作者以前也抵制全球文明解体的说法 ; 但在 B 段作者又总结到,如果我们无法解决环境问题 对世界粮食经济造成的损害,那么全球文明垮台的结论也是有可能的。故本题符合 B 段大意。"
+        },
+        {
+          "number": 41,
+          "stem": "Increasing water shortages prove to be the biggest obstacle to boosting the world’s grain production.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "H",
+          "explanation": "Increasing water shortages prove to be the biggest obstacle to boosting the world’s grain production. 【正确答案】H 【答案解析】本题意为 : 水资源日益短缺成为世界粮食产量提高的最大障碍。其中 H 段说道 : Of all those trends, however, the spread of water shortages poses the most immediate threat(在众多趋势中,水资源 短缺的蔓延成为了最直接的威胁) ,由此可知本题是对该句的同义转述,所以选 H 段。"
+        },
+        {
+          "number": 42,
+          "stem": "The cost for saving our civilization would be considerably less than the world’s current military spending.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "M",
+          "explanation": "The cost for saving our civilization would be considerably less than the world’s current military spending. 【正确答案】M 【答案解析】根据关键信息 : The cost,less than 和 military spending 可将答案定位到原文 M 段的倒数 第二句 : Yet the cost we project for saving civilization would amount to less than $200 billion a year, 1/6 of current global military spending(而我们计划用于挽救文明的花销每年不足 2000 亿美元,相当于目前全 球军事花费的 1/6) ,故本题与 M 段匹配。"
+        },
+        {
+          "number": 43,
+          "stem": "To lower domestic food prices, some countries limited or stopped their grain exports.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "J",
+          "explanation": "To lower domestic food prices, some countries limited or stopped their grain exports. 【正确答案】J 【答案解析】根据 lower domestic food prices 和 limited grain exports 可将答案定位至 J 段,本段中间提 到 : Russia and Argentina limited or banned their exports, in hopes of... and thereby bringing down domestic food prices(俄罗斯和阿根廷通过限制和禁止出口, 希望能提高当地粮食供给, 从而降低国内粮食价 格) , 所以本题选 J 段。"
+        },
+        {
+          "number": 44,
+          "stem": "Environmental problems must be solved to ease the current global food shortage.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "L",
+          "explanation": "Environmental problems must be solved to ease the current global food shortage. 【正确答案】L 【答案解析】本题意为 : 必须解决环境问题来缓解当下全球粮食短缺的状况。原文 L 段的前几句说道 : 既然粮食短缺是大趋势,那么必须扭转导致这一状况的环境变化的趋势(Since the current world food shortage is trend-driven, the environmental trends that cause it must be reversed) 。接着又提到如何扭转 : 至2020 年,将二氧化碳排放量减少到 2006 年的 80% ; 2040 年将世界人口稳定至 80 亿 ; 彻底消除贫 困 ;改善森林和土壤等。所以本题符合 L 段的概述。"
+        },
+        {
+          "number": 45,
+          "stem": "A quarter of this year’s American grain harvest will be used to produce bio-fuel for cars.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "G",
+          "explanation": "A quarter of this year’s American grain harvest will be used to produce bio-fuel for cars. 【正确答案】G 【答案解析】根据本题关键词 A quarter of 和 bio-fuel for cars,可将答案定位至 G 段的最后一句 A fourth of this year’s U.S. grain harvest will go to fuel cars(美国四分之一的粮食收入都将用作汽车燃料) ,因 此本题对应 G 段。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2016-06-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Declining mental function is often seen as a problem of old age, but certain aspects of brain function actually begin their decline in young adulthood, a new study suggests. The study, which followed more than 2,000 healthy adults between the ages of 18 and 60, found that certain mental functions—including measures of abstract reasoning, mental speed and puzzle-solving—started to dull as early as age 27. Dips in memory, meanwhile, generally became apparent around age 37. On the other hand, indicators of a person’s accumulated knowledge—like performance on tests of vocabulary and general knowledge—kept improving with age, according to findings published in the journal Neurobiology of Aging. The results do not mean that young adults need to start worrying about their memories. Most people’s minds function at a high level even in their later years, according to researcher Timothy Salthouse. “These patterns suggest that some types of mental flexibility decrease relatively early in adulthood, but that the amount of knowledge one has, and the effectiveness of integrating it with one’s abilities, may increase throughout all of adulthood if there are no diseases,” Salthouse said in a news release. The study included healthy, educated adults who took standard tests of memory, reasoning and perception at the outset and at some point over the next seven years. The tests are designed to detect subtle (细微的) changes in mental function, and involve solving puzzles, recalling words and details from stories, and identifying patterns in collections of letters and symbols. In general, Salthouse and his colleagues found, certain aspects of cognition (认知能力) generally started to decline in the late 20s to 30s. The findings shed light on normal age-related changes in mental function, which could aid in understanding the process of dementia (痴呆), according to the researchers. “By following individuals over time,” Salthouse said, “we gain insight in cognition changes, and may possibly discover ways to slow the rate of decline.” The researchers are currently analyzing the study participants’ health and lifestyle to see which factors might influence age-related cognitive changes."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What is the common view of mental function?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It varies from person to person."
+            },
+            {
+              "key": "B",
+              "text": "It weakens in one’s later years."
+            },
+            {
+              "key": "C",
+              "text": "It gradually expands with age."
+            },
+            {
+              "key": "D",
+              "text": "It indicates one’s health condition."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【正确答案】B 【考核技能】态度信息 【答案解析】本题题干关键词是 common view(普遍观点) ,根据原文第一句话 Declining mental function is often seen as a problem of old age(心智功能下降经常被认为是年老的问题) ,这与 B 项的 It weakens in one’s later year 意思相同,故本题选 B。"
+        },
+        {
+          "number": 47,
+          "stem": "What does the new study find about mental functions?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Some diseases inevitably lead to their decline."
+            },
+            {
+              "key": "B",
+              "text": "They reach a peak at the age of 20 for most people."
+            },
+            {
+              "key": "C",
+              "text": "They are closely related to physical and mental exercise."
+            },
+            {
+              "key": "D",
+              "text": "Some of them begin to decline when people are still young."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【正确答案】D 【考核技能】缘由结果 【答案解析】根据题干中的 new study found 以及顺序原则,可以将答案定位到原文第二段 The study... found that certain mental functions... started to dull as early as age 27(研究发现某些心智功能在 27 岁就开 始变迟钝) ,这与选项 D 表达一致,故本题选 D。"
+        },
+        {
+          "number": 48,
+          "stem": "What does Timothy Salthouse say about people’s minds in most cases?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They tend to decline in people’s later years."
+            },
+            {
+              "key": "B",
+              "text": "Their flexibility determines one’s abilities."
+            },
+            {
+              "key": "C",
+              "text": "They function quite well even in old age."
+            },
+            {
+              "key": "D",
+              "text": "Their functioning is still a puzzle to be solved."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【正确答案】 C 【考核技能】观点意见 【答案解析】题干问大多数情况下 Timothy Salthouse 是如何看待人类的思维的? Salthouse 首次表达观 点是在第五段 Most people’s mind function at a high level even in their later years(大部分人的思维在晚年 的时候依然能高水平运作) ,所以本题选 C) They function quite well even in old age。"
+        },
+        {
+          "number": 49,
+          "stem": "Although people’s minds may function less flexibly as they age, they _____.",
+          "options": [
+            {
+              "key": "A",
+              "text": "may be better at solving puzzles"
+            },
+            {
+              "key": "B",
+              "text": "can memorize things with more ease"
+            },
+            {
+              "key": "C",
+              "text": "may have greater facility in abstract reasoning"
+            },
+            {
+              "key": "D",
+              "text": "can put what they have learnt into more effective use"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【正确答案】D 【考核技能】缘由结果 【答案解析】 根据题干中的 flexibly (灵活的) 可将答案定位至原文第六段的 flexibility 的所在句, 大 意为:有些心智灵活度会在成人的早期阶段下降,但是如果不出现疾病的话,人的知识储量和学以致用 的能力会在整个成年期增长。言外之意: 尽管人的思维灵活度下降, 但却更能学以致用, 这与 D 项表 达一致,故选 D。"
+        },
+        {
+          "number": 50,
+          "stem": "According to Salthouse, their study may help us_____.",
+          "options": [
+            {
+              "key": "A",
+              "text": "find ways to slow down our mental decline"
+            },
+            {
+              "key": "B",
+              "text": "find ways to boost our memories"
+            },
+            {
+              "key": "C",
+              "text": "understand the complex process of mental functioning"
+            },
+            {
+              "key": "D",
+              "text": "understand the relation between physical and mental health"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【正确答案】A 【考核技能】观点意见 【答案解析】根据答题的顺序原则和题干 their study may help us ___ 可将答案定位至最后几段。倒数第 三段提到 The findings shed light on... which could aid in understanding the process of dementia(研究可以帮 助理解老年痴呆的过程) ,但并不是帮助理解心智活动的复杂过程,所以 C 项不正确 ; 倒数第二段 Salthouse 提到 may possibly discover ways to slow the rate of decline(有可能发现减缓衰老的方法) ,A 项表达与原文相符。故本题选 A。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2016-06-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "The most important thing in the news last week was the rising discussion in Nashville about the educational needs of children. The shorthand(简写)educators use for this is “pre-K”—meaning instruction before kindergarten—and the big idea is to prepare 4-year-olds and even younger kids to be ready to succeed on their K-12 journey. But it gets complicated. The concept has multiple forms, and scholars and policymakers argue about the shape, scope and cost of the ideal program. The federal Head Start program, launched 50 years ago, has served more than 30 million children. It was based on concepts developed at Vanderbilt University’s Peabody College by Susan Gray, the legendary pioneer in early childhood education research. A new Peabody study of the Tennessee Voluntary Pre-K program reports that pre-K works, but the gains are not sustained through the third grade. It seems to me this highlights quality issues in elementary schools more than pre-K, and indicates longer-term success must connect pre-K with all the other issues related to educating a child. Pre-K is controversial. Some critics say it is a luxury and shouldn’t be free to families able to pay. Pre-K advocates insist it is proven and will succeed if integrated with the rest of the child’s schooling. I lean toward the latter view. This is, in any case, the right conversation to be having now as Mayor Megan Barry takes office. She was the first candidate to speak out for strong pre-K programming. The important thing is for all of us to keep in mind the real goal and the longer, bigger picture. The weight of the evidence is on the side of pre-K that early intervention (干预)works. What government has not yet found is the political will to put that understanding into full practice with a sequence of smart schooling that provides the early foundation. For this purpose, our schools need both the talent and the organization to educate each child who arrives at the schoolhouse door. Some show up ready, but many do not at this critical time when young brains are developing rapidly."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the author say about pre-kindergarten education?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It should cater to the needs of individual children."
+            },
+            {
+              "key": "B",
+              "text": "It is essential to a person’s future academic success."
+            },
+            {
+              "key": "C",
+              "text": "Scholars and policymakers have different opinions about it."
+            },
+            {
+              "key": "D",
+              "text": "Parents regard it as the first phase of children’s development."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【正确答案】C 【考核技能】态度信息 【答案解析】本题问作者对学前教育的看法,原文第一段介绍了 pre-K 概念的提出,而第二段的 But 转 折后为重要信息 : The concept has multiple forms, and scholars and policymaker argue about the shape,scope and cost of the ideal program(该概念出现多种形式,学者和决策者们对于该项目的构架、范围和成本产 生分歧) 。这与 C 项的 different opinions 表达一致,所以选 C。"
+        },
+        {
+          "number": 52,
+          "stem": "What does the new Peabody study find?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Pre-K achievements usually do not last long."
+            },
+            {
+              "key": "B",
+              "text": "The third grade marks a new phase of learning."
+            },
+            {
+              "key": "C",
+              "text": "The third grade is critical to children’s development."
+            },
+            {
+              "key": "D",
+              "text": "Quality has not been the top concern of pre-K programs."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【正确答案】A 【考核技能】得出结论 【答案解析】根据题干中的 the new Peabody study 可将答案定位至原文第四段 A new Peabody study of... reports that pre-K works, but the gains are not sustained through the third grade(新的研究报道 pre-K 是有效 的,但是其效果持续不到三年级) ,紧接着又提到 longer-term success must connect pre-K with all the other issues(而更长久的成功必须将 pre-K 与其他议题相连) 。概括起来: pre-K 的效果持续的时间不 长。故本题选 A。"
+        },
+        {
+          "number": 53,
+          "stem": "When does the author think pre-K works the best?",
+          "options": [
+            {
+              "key": "A",
+              "text": "When it is accessible to kids of all families."
+            },
+            {
+              "key": "B",
+              "text": "When it is made part of kids’ education."
+            },
+            {
+              "key": "C",
+              "text": "When it is no longer considered a luxury."
+            },
+            {
+              "key": "D",
+              "text": "When it is made fun and enjoyable to kids."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【正确答案】B 【考核技能】态度信息 【答案解析】本题问作者认为 pre-K 怎么能起到最好的效果。根据第五段最后一句 I lean toward the latter view(我更倾向于后者) ,由此答案在本句的上文 Pre-K... insist it is proven and will succeed if integrated with the rest of the child’s schooling(Pre-K 的支持者坚信如果能将其跟孩子剩余的学习融合 一体,pre-K 就会成功) ,即将 pre-K 作为孩子教育的一部分,所以本题 B 正确。"
+        },
+        {
+          "number": 54,
+          "stem": "What do we learn about Mayor Megan Barry?",
+          "options": [
+            {
+              "key": "A",
+              "text": "She knows the real goal of education."
+            },
+            {
+              "key": "B",
+              "text": "She is a mayor of insight and vision."
+            },
+            {
+              "key": "C",
+              "text": "She has once run a pre-K program."
+            },
+            {
+              "key": "D",
+              "text": "She is a firm supporter of pre-K."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【正确答案】D 【考核技能】观点支持 【答案解析】根据题干关键词 Mayor Megan Barry 可将答案定位至原文第六段 She was the first candidate to speak out for strong pre-K programming (她是坚决支持 pre-K 项目的第一人) ,所以本题选 D。"
+        },
+        {
+          "number": 55,
+          "stem": "What does the author think is critical to kids’ education?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Teaching method."
+            },
+            {
+              "key": "B",
+              "text": "Kids’ interest."
+            },
+            {
+              "key": "C",
+              "text": "Early intervention."
+            },
+            {
+              "key": "D",
+              "text": "Parents’ involvement. 标准时间|30 minutes||自测用时| minutes"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【正确答案】C 【考核技能】得出结论 【答案解析】根据答案的顺序原则,可定位至原文的最后一段,最后一段大意是 : 为了实现 pre-K,我 们的学校需要人才和组织去教授每位来到校园的孩子,有些学校准备好了,而很多学校在孩子大脑快速 发育的关键时期,却没有做好准备 ; 也就是说关键期做好的准备是 talent and the organization to educate each child,可概括成 early intervention(早期介入) 。所以本题 C 正确。"
+        }
+      ]
+    }
+  ]
+}

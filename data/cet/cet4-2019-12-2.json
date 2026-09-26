@@ -1,0 +1,1568 @@
+{
+  "id": "cet4-2019-12-2",
+  "level": 4,
+  "year": 2019,
+  "month": 12,
+  "set": 2,
+  "title": "2019 年 12 月四级 · 第 2 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.12/%E7%9C%9F%E9%A2%98PDF/2019.12%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC2%E5%A5%97%E3%80%90%E5%8F%AF%E5%A4%8D%E5%88%B6%E5%8F%AF%E5%88%92%E7%BA%BF%E6%9F%A5%E8%AF%8D%E3%80%91.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2019.12%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E8%A7%A3%E6%9E%90%E7%AC%AC2%E5%A5%97.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2019-12-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Finally, some good news about airplane travel. If you are on a plane with a sick passenger, you are unlikely to get sick. That is the [[26]] of a new study that looked at how respiratory (呼吸道) viruses [[27]] on airplanes. Researchers found that only people who were seated in the same row as a passenger with the flu, for example—or one row in front of or behind that individual—had a high risk of catching the illness. All other passengers had only a very [[28]] chance of getting sick, according to the findings. Media reports have not necessarily presented [[29]] information about the risk of getting infected on an airplane in the past. Therefore, these new findings should help airplane passengers to feel less [[30]] to catching respiratory infections while traveling by air. Prior to the new study, little was known about the risks of getting [[31]] infected by common respiratory viruses, such as the flu or common cold, on an airplane, the researchers said. So, to [[32]] the risks of infection, the study team flew on 10 different [[33]] in the U.S. during the flu season. The researchers found that passengers sitting within two seats on [[34]] side of a person infected with the flu, as well as those sitting one row in front of or behind this individual, had about an 80 percent chance of getting sick. But other passengers were [[35]] safe from infection. They had a",
+        "less than 3 percent chance of catching the flu."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "accurate"
+        },
+        {
+          "key": "B",
+          "text": "conclusion"
+        },
+        {
+          "key": "C",
+          "text": "directly"
+        },
+        {
+          "key": "D",
+          "text": "either"
+        },
+        {
+          "key": "E",
+          "text": "evaluate"
+        },
+        {
+          "key": "F",
+          "text": "explorations"
+        },
+        {
+          "key": "G",
+          "text": "flights"
+        },
+        {
+          "key": "H",
+          "text": "largely"
+        },
+        {
+          "key": "I",
+          "text": "nearby"
+        },
+        {
+          "key": "J",
+          "text": "respond"
+        },
+        {
+          "key": "K",
+          "text": "slim"
+        },
+        {
+          "key": "L",
+          "text": "spread"
+        },
+        {
+          "key": "M",
+          "text": "summit"
+        },
+        {
+          "key": "N",
+          "text": "vividly"
+        },
+        {
+          "key": "O",
+          "text": "vulnerable"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accurate"
+            },
+            {
+              "key": "B",
+              "text": "conclusion"
+            },
+            {
+              "key": "C",
+              "text": "directly"
+            },
+            {
+              "key": "D",
+              "text": "either"
+            },
+            {
+              "key": "E",
+              "text": "evaluate"
+            },
+            {
+              "key": "F",
+              "text": "explorations"
+            },
+            {
+              "key": "G",
+              "text": "flights"
+            },
+            {
+              "key": "H",
+              "text": "largely"
+            },
+            {
+              "key": "I",
+              "text": "nearby"
+            },
+            {
+              "key": "J",
+              "text": "respond"
+            },
+            {
+              "key": "K",
+              "text": "slim"
+            },
+            {
+              "key": "L",
+              "text": "spread"
+            },
+            {
+              "key": "M",
+              "text": "summit"
+            },
+            {
+              "key": "N",
+              "text": "vividly"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【考点】名词辨析题。 B)【语法判断】空格前是定冠词the,空格后是ofa newstudy作后置定语,因此本空应填入名词。 【语义判断】That指代前一句的内容:即使你和生 病的旅客乘坐同一航班,你也不太可能会患病。 空格后的句子提到,研究人员发现,比如,只有和 得了流感的乘客坐在同一排,或者坐在该乘客前 一排或后一排的人被传染的风险较高。由此可 知,That指的是一项新研究的结果,因此本空应填 人含有“结果,结论”含义的名词,故本题答案为 B) conclusion。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accurate"
+            },
+            {
+              "key": "B",
+              "text": "conclusion"
+            },
+            {
+              "key": "C",
+              "text": "directly"
+            },
+            {
+              "key": "D",
+              "text": "either"
+            },
+            {
+              "key": "E",
+              "text": "evaluate"
+            },
+            {
+              "key": "F",
+              "text": "explorations"
+            },
+            {
+              "key": "G",
+              "text": "flights"
+            },
+            {
+              "key": "H",
+              "text": "largely"
+            },
+            {
+              "key": "I",
+              "text": "nearby"
+            },
+            {
+              "key": "J",
+              "text": "respond"
+            },
+            {
+              "key": "K",
+              "text": "slim"
+            },
+            {
+              "key": "L",
+              "text": "spread"
+            },
+            {
+              "key": "M",
+              "text": "summit"
+            },
+            {
+              "key": "N",
+              "text": "vividly"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【考点】动词辨析题。 L)【语法判断】空格位于how引导的宾语从句中,作 lookedat的宾语,该从句中缺少谓语动词,因此本 空应填人动词。 【语义判断】通读全文可知,本文介绍的新研究关 注的是人们在飞机上感染呼吸道病毒的概率,涉 及呼吸道病毒如何在飞机上传播,因此本空应填 人含有“传播,扩散”含义的动词,故本题答案为 L) spread。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accurate"
+            },
+            {
+              "key": "B",
+              "text": "conclusion"
+            },
+            {
+              "key": "C",
+              "text": "directly"
+            },
+            {
+              "key": "D",
+              "text": "either"
+            },
+            {
+              "key": "E",
+              "text": "evaluate"
+            },
+            {
+              "key": "F",
+              "text": "explorations"
+            },
+            {
+              "key": "G",
+              "text": "flights"
+            },
+            {
+              "key": "H",
+              "text": "largely"
+            },
+            {
+              "key": "I",
+              "text": "nearby"
+            },
+            {
+              "key": "J",
+              "text": "respond"
+            },
+            {
+              "key": "K",
+              "text": "slim"
+            },
+            {
+              "key": "L",
+              "text": "spread"
+            },
+            {
+              "key": "M",
+              "text": "summit"
+            },
+            {
+              "key": "N",
+              "text": "vividly"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【考点】形容词辨析题。 K)【语法判断】空格前是冠词a和副词very,空格后 是名词chance,因此本空应填人形容词。 【语义判断】前一句提到,只有和得了流感的乘客 坐在同一排,或者坐在该乘客前一排或后一排的 人被传染的风险较高。由此可以推断,其他乘客 被传染的风险较低,因此本空应填人含有“低,小” 意义的形容词,故本题答案为K)slim。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accurate"
+            },
+            {
+              "key": "B",
+              "text": "conclusion"
+            },
+            {
+              "key": "C",
+              "text": "directly"
+            },
+            {
+              "key": "D",
+              "text": "either"
+            },
+            {
+              "key": "E",
+              "text": "evaluate"
+            },
+            {
+              "key": "F",
+              "text": "explorations"
+            },
+            {
+              "key": "G",
+              "text": "flights"
+            },
+            {
+              "key": "H",
+              "text": "largely"
+            },
+            {
+              "key": "I",
+              "text": "nearby"
+            },
+            {
+              "key": "J",
+              "text": "respond"
+            },
+            {
+              "key": "K",
+              "text": "slim"
+            },
+            {
+              "key": "L",
+              "text": "spread"
+            },
+            {
+              "key": "M",
+              "text": "summit"
+            },
+            {
+              "key": "N",
+              "text": "vividly"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【考点】形容词辨析题。 A)【语法判断】空格所在句基本成分齐全,空格后是 名词information,因此本空应填人形容词作 定语。 【语义判断】本句指出,在过去,媒体的报道未必能 提供关于在飞机上被传染的风险的, 信 息。前面几句都在讲新研究的发现,指出生病乘 客附近的人被传染的风险较高,所有其他乘客患 病的概率都很小。本句说明过去的媒体报道,与 新研究形成对比,因此本空应填人含有“准确的” 含义的形容词,故本题答案为A)accurate。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accurate"
+            },
+            {
+              "key": "B",
+              "text": "conclusion"
+            },
+            {
+              "key": "C",
+              "text": "directly"
+            },
+            {
+              "key": "D",
+              "text": "either"
+            },
+            {
+              "key": "E",
+              "text": "evaluate"
+            },
+            {
+              "key": "F",
+              "text": "explorations"
+            },
+            {
+              "key": "G",
+              "text": "flights"
+            },
+            {
+              "key": "H",
+              "text": "largely"
+            },
+            {
+              "key": "I",
+              "text": "nearby"
+            },
+            {
+              "key": "J",
+              "text": "respond"
+            },
+            {
+              "key": "K",
+              "text": "slim"
+            },
+            {
+              "key": "L",
+              "text": "spread"
+            },
+            {
+              "key": "M",
+              "text": "summit"
+            },
+            {
+              "key": "N",
+              "text": "vividly"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "O",
+          "explanation": "【考点】形容词辨析题。 O)【语法判断】空格前为系动词feel和比较级标志 词less,因此本空应填入形容词,且能与todoing 相搭配。 【语义判断】所给形容词中,能与todoing搭配的 只有vulnerable,将vulnerable带入句中,句意为: 因此,这些新发现应该可以帮助飞机乘客减轻对 飞机旅行时容易感染呼吸道疾病的忧虑。因此, 本题答案为O)vulnerable。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accurate"
+            },
+            {
+              "key": "B",
+              "text": "conclusion"
+            },
+            {
+              "key": "C",
+              "text": "directly"
+            },
+            {
+              "key": "D",
+              "text": "either"
+            },
+            {
+              "key": "E",
+              "text": "evaluate"
+            },
+            {
+              "key": "F",
+              "text": "explorations"
+            },
+            {
+              "key": "G",
+              "text": "flights"
+            },
+            {
+              "key": "H",
+              "text": "largely"
+            },
+            {
+              "key": "I",
+              "text": "nearby"
+            },
+            {
+              "key": "J",
+              "text": "respond"
+            },
+            {
+              "key": "K",
+              "text": "slim"
+            },
+            {
+              "key": "L",
+              "text": "spread"
+            },
+            {
+              "key": "M",
+              "text": "summit"
+            },
+            {
+              "key": "N",
+              "text": "vividly"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【考点】副词辨析题。 C)【语法判断】空格所在句成分完整,空格位于of短 语中,空格前是系动词getting,空格后是过去分词 infected,因此空格处应填人副词。 【语义判断】通读全文可知,这项新研究关注的是 人们在飞机上感染呼吸道病毒的概率。在飞机上 跟患病乘客接触而感染的话,应该是直接感染,因 此空格处应填人含有“直接地”意义的副词,故本 题答案为C)directly。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accurate"
+            },
+            {
+              "key": "B",
+              "text": "conclusion"
+            },
+            {
+              "key": "C",
+              "text": "directly"
+            },
+            {
+              "key": "D",
+              "text": "either"
+            },
+            {
+              "key": "E",
+              "text": "evaluate"
+            },
+            {
+              "key": "F",
+              "text": "explorations"
+            },
+            {
+              "key": "G",
+              "text": "flights"
+            },
+            {
+              "key": "H",
+              "text": "largely"
+            },
+            {
+              "key": "I",
+              "text": "nearby"
+            },
+            {
+              "key": "J",
+              "text": "respond"
+            },
+            {
+              "key": "K",
+              "text": "slim"
+            },
+            {
+              "key": "L",
+              "text": "spread"
+            },
+            {
+              "key": "M",
+              "text": "summit"
+            },
+            {
+              "key": "N",
+              "text": "vividly"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【考点】动词辨析题。 E)【语法判断】空格所在部分是目的状语,to是动词 不定式的标志,因此空格处应填人动词原形。 【语义判断】前一句提到,人们对在飞机上被普通 呼吸道病毒感染的风险知之甚少。由此可知,研究 团队是为了研究感染风险,因此应填入含有“研究, 评估”意义的动词,故本题答案为E》evaluate。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accurate"
+            },
+            {
+              "key": "B",
+              "text": "conclusion"
+            },
+            {
+              "key": "C",
+              "text": "directly"
+            },
+            {
+              "key": "D",
+              "text": "either"
+            },
+            {
+              "key": "E",
+              "text": "evaluate"
+            },
+            {
+              "key": "F",
+              "text": "explorations"
+            },
+            {
+              "key": "G",
+              "text": "flights"
+            },
+            {
+              "key": "H",
+              "text": "largely"
+            },
+            {
+              "key": "I",
+              "text": "nearby"
+            },
+            {
+              "key": "J",
+              "text": "respond"
+            },
+            {
+              "key": "K",
+              "text": "slim"
+            },
+            {
+              "key": "L",
+              "text": "spread"
+            },
+            {
+              "key": "M",
+              "text": "summit"
+            },
+            {
+              "key": "N",
+              "text": "vividly"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【考点】名词辨析题。 G)【语法判断】空格前为10different,因此本空应填 人名词的复数形式。 【语义判断】空格前有动词flew,而且本文新研究 的内容是呼吸道病毒在飞机上的传播。由此可知, 研究团队会乘坐飞机,空格处应填入含有“航班,飞 机\"意义的名词,故本题答案为G)flights。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accurate"
+            },
+            {
+              "key": "B",
+              "text": "conclusion"
+            },
+            {
+              "key": "C",
+              "text": "directly"
+            },
+            {
+              "key": "D",
+              "text": "either"
+            },
+            {
+              "key": "E",
+              "text": "evaluate"
+            },
+            {
+              "key": "F",
+              "text": "explorations"
+            },
+            {
+              "key": "G",
+              "text": "flights"
+            },
+            {
+              "key": "H",
+              "text": "largely"
+            },
+            {
+              "key": "I",
+              "text": "nearby"
+            },
+            {
+              "key": "J",
+              "text": "respond"
+            },
+            {
+              "key": "K",
+              "text": "slim"
+            },
+            {
+              "key": "L",
+              "text": "spread"
+            },
+            {
+              "key": "M",
+              "text": "summit"
+            },
+            {
+              "key": "N",
+              "text": "vividly"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【考点】语义推断题。 D)【语法判断】空格前是介词on,空格后是名词 side,因此空格处可填人一个修饰side的词。 【语义判断】本句指出,研究人员发现,坐在流感病 两个座位之内的乘客,以及坐在此人 人 前一排或后一排的乘客,患病的概率约为80%。 根据常识可知,飞机上的座位有左右两侧,而side 此处是单数,结合所给名词、形容词和限定词可判断 本题答案为D)either。eitherside表示“任何一侧”。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accurate"
+            },
+            {
+              "key": "B",
+              "text": "conclusion"
+            },
+            {
+              "key": "C",
+              "text": "directly"
+            },
+            {
+              "key": "D",
+              "text": "either"
+            },
+            {
+              "key": "E",
+              "text": "evaluate"
+            },
+            {
+              "key": "F",
+              "text": "explorations"
+            },
+            {
+              "key": "G",
+              "text": "flights"
+            },
+            {
+              "key": "H",
+              "text": "largely"
+            },
+            {
+              "key": "I",
+              "text": "nearby"
+            },
+            {
+              "key": "J",
+              "text": "respond"
+            },
+            {
+              "key": "K",
+              "text": "slim"
+            },
+            {
+              "key": "L",
+              "text": "spread"
+            },
+            {
+              "key": "M",
+              "text": "summit"
+            },
+            {
+              "key": "N",
+              "text": "vividly"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【考点】副词辨析题。 H【语法判断】空格所在句成分完整,空格前面是系 动词were,后面是形容词safe,因此空格处应填人 副词。 【语义判断】上一句提到,在飞机上坐得离流感病 人比较近的话,患病的概率约为80%。本句指出, 但是其他乘客 不会被传染。紧接着下一 句说明他们患流感的概率不到3%。由此可知,其 他乘客很大可能不会被传染,因此本空应填人表 达“可能性较大”的副词,故本题答案为HDlargely。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2019-12-2-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Along with old classics like “carrots give you night vision” and “Santa doesn't bring toys to misbehaving children”, one of the most well-worn phrases of tired parents everywhere is that breakfast is the most important meal of the day. Many of us grow up believing that skipping breakfast is a serious mistake, even if only two thirds of adults in the UK eat breakfast regularly, according to the British Dietetic Association, and around three-quarters of Americans.",
+        "B) “The body uses a lot of energy stores for growth and repair through the night,” explains diet specialist Sarah Elder. “Eating a balanced breakfast helps to up our energy, as well as make up for protein and calcium used throughout the night.” But there's widespread disagreement over whether breakfast should keep its top spot in the hierarchy(等级)of meals. There have been concerns around the sugar content of cereal and the food industry's involvement in pro-breakfast research—and even one claim from an academic that breakfast is “dangerous”.",
+        "C) What's the reality? Is breakfast a necessary start to the day or a marketing tactic by cereal companies? The most researched aspect of breakfast (and breakfast-skipping) has been its links to obesity. Scientists have different theories as to why there's a relationship between the two. In one US study that analysed the health data of 50,000 people over seven years, researchers found that those who made breakfast the largest meal of the day were more likely to have a lower body mass index (BMI) than those who ate a large lunch or dinner. The researchers argued that breakfast helps reduce daily calorie intake and improve the quality of our diet—since breakfast foods are often higher in fibre and nutrients.",
+        "D) But as with any study of this kind, it was unclear if that was the cause—or if breakfast-skippers were just more likely to be overweight to begin with. To find out, researchers designed a study in which 52 obese women took part in a 12-week weight loss programme. All had the same number of calories over the day, but half had breakfast, while the other half did not. What they found was that it wasn't breakfast itself that caused the participants to lose weight; it was changing their normal routine.",
+        "E) If breakfast alone isn't a guarantee of weight loss, why is there a link between obesity and breakfast-skipping? Alexandra Johnstone, professor of appetite research at the University of Aberdeen, argues that it may simply be because breakfast-skippers have been found to be less knowledgeable about nutrition and health. “There are a lot of studies on the relationship between breakfast eating and possible health outcomes, but this may be because those who eat breakfast choose to habitually have health-enhancing behaviours such as regular exercise and not smoking,” she says.",
+        "F) A 2016 review of 10 studies looking into the relationship between breakfast and weight management concluded there is “limited evidence” supporting or refuting (反驳) the argument that breakfast influences weight or food intake, and more evidence is required before breakfast recommendations can be used to help prevent obesity.",
+        "G) Researches from the University of Surrey and University of Aberdeen are halfway through research looking into the mechanisms behind how the time we eat influences body weight. Early findings suggest that a bigger breakfast is beneficial to weight control. Breakfast has been found to affect more than just weight. Skipping breakfast has been associated with a 27% increased risk of heart disease, a 21% higher risk of type 2 diabetes in men, and a 20% higher risk of type 2 diabetes in women. One reason may be breakfast's nutritional value—partly because cereal is fortified (增加营养价值) with vitamins. In one study on the breakfast habits of 1, 600 young people in the UK, researchers found that the fibre and micronutrient intake was better in those who had breakfast regularly. There have been similar findings in Australia, Brazil, Canada and the US.",
+        "H) Breakfast is also associated with improved brain function, including concentration and language use. A review of 54 studies found that eating breakfast can improve memory, though the effects on other brain functions were inconclusive. However, one of the review's researchers, Mary Beth Spitznagel, says there is “reasonable” evidence breakfast does improve concentration—there just needs to be more research. “Looking at studies that tested concentration, the number of studies showing a benefit was exactly the same as the number that found no benefit,” she says. “And no studies found that eating breakfast was bad for concentration.”",
+        "I) What's most important, some argue, is what we eat for breakfast. High-protein breakfasts have been found particularly effective in reducing the longing for food and consumption later in the day, according to research by the Australian Commonwealth Scientific and Industrial Research Organisation. While cereal remains a firm favourite among breakfast consumers in the UK and US, a recent investigation into the sugar content of ‘adult’ breakfast cereals found that some cereals contain more than three-quarters of the recommended daily amount of free sugars in each portion, and sugar was the second or third highest ingredient in cereals.",
+        "J) But some research suggests if we're going to eat sugary foods, it's best to do it early. One study recruited 200 obese adults to take part in a 16-week-long diet, where half added dessert to their breakfast, and half didn't. Those who added dessert lost an average of 40 pounds more—however, the study was unable to show the long-term effects. A review of 54 studies found that there is no consensus yet on what type of breakfast is healthier, and concluded that the type of breakfast doesn't matter as much as simply eating something.",
+        "K) While there's no conclusive evidence on exactly what we should be eating and when, the consensus is that we should listen to our own bodies and eat when we're hungry. “Breakfast is most important for people who are hungry when they wake up,” Johnstone says. “Each body starts the day differently—and those individual differences need to be researched more closely,” Spitznagel says. \"A balanced breakfast is really helpful, but getting regular meals throughout the day is more important to leave blood sugar stable through the day, which helps control weight and hunger levels,\" says Elder. \"Breakfast isn't the only meal we should be getting right.\""
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "According to one professor, obesity is related to a lack of basic awareness of nutrition and health.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【定位】由题干中的professor、obesity、nutrition and health定位到文章E)段前两句。 E)【精析】细节归纳题。定位句指出,阿伯丁大学食 欲研究教授亚历山德拉·约翰斯通认为,肥胖和不 吃早餐之所以有联系,可能只是因为已有研究发现 不吃早餐的人对营养和健康的了解较少。题干中 的isrelatedto对应定位句中的a linkbetween... and..,题干中的a lack ofbasic awareness of nutritionandhealth对应定位句中的beless knowledgeableabout nutrition and health。题于是 对定位句的归纳概括,故答案为E)。"
+        },
+        {
+          "number": 37,
+          "stem": "Some scientists claim that people should consume the right kind of food at breakfast.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【定位】由题干中的scientists和consumethe rightkindoffood定位到文章I)段前两句。 I)【精析】细节归纳题。定位段第一句指出,有人认 为,最重要的是我们早餐吃什么。第二句接着用 澳大利亚联邦科学与工业研究组织的研究发现来 证明这一观点——高蛋白早餐能特别有效地降低 人们当天晚些时候的食欲和消耗量。题干中的 consume the right kind of food at breakfast对应 定位句中的What'smostimportant...iswhatwe eatforbreakfast,故答案为I"
+        },
+        {
+          "number": 38,
+          "stem": "Opinions differ as to whether breakfast is the most important meal of the day.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的Opinionsdiffer、breakfast和 themostimportantmeal定位到文章B)段倒数第 二句。 B)【精析】同义转述题。定位句提到,对于早餐是否 应该在膳食等级结构中占据首位,存在普遍的分 歧。题干中的Opinionsdiffer对应定位句中的 widespreaddisagreement,题于中的breakfastis themost importantmealof theday对应定位句 中的 breakfast should keep its top spot in the hierarchyofmeals,故答案为B)。"
+        },
+        {
+          "number": 39,
+          "stem": "It has been found that not eating breakfast is related to the incidence of certain diseases in some countries.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【定位】由题千中的not eatingbreakfast、diseases 定位到文章G)段第四句。 G)【精析】细节归纳题。定位句提到,不吃早餐会使 患心脏病的风险增加27%,男性患2型糖尿病的 风险增加21%,女性患2型糖尿病的风险增加 20%。题干中的noteatingbreakfast对应定位句 中的Skippingbreakfast,题干中的isrelatedto对 应定位句中的hasbeenassociatedwith。另外,题 干中的the incidenceofcertaindiscases是对定位 句中a 27%increased risk of heart disease,a 21% higher risk of type 2 diabetes in men, and a 20% higher risk of type 2 diabetes in women 的 归纳概括,故答案为G)。"
+        },
+        {
+          "number": 40,
+          "stem": "Researchers found it was a change in eating habits rather than breakfast itself that induced weight loss.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的achange ineatinghabits和 weightloss定位到文章D)段最后一句。 D)【精析】同义转述题。定位句提到,研究人员发 现,并不是早餐本身导致了参与者的体重下降,而 是他们日常生活方式的改变。题干中的achange in eatinghabits对应定位句中的changingtheir normal routine,题干中的induced weight loss对 应定位句中的caused the participants to lose weight,故答案为D)。"
+        },
+        {
+          "number": 41,
+          "stem": "To keep oneself healthy, eating breakfast is more important than choosing what to eat.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【定位】由题干中的healthy和choosingwhatto eat定位到文章J)段最后一句。 J)【精析】同义转述题。定位句提到,一篇综述发 现,对于什么样的早餐更健康还没有达成共识,但 这篇综述得出结论,早餐的种类不如吃点儿早餐 来得重要。题干中的eatingbreakfastismore importantthanchoosingwhattoeat对应定位句 中的 the type of breakfast doesn't matter as muchas simplyeating something,故答案为J)。"
+        },
+        {
+          "number": 42,
+          "stem": "It is widely considered wrong not to eat breakfast.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题干中的widely、wrong和nottoeat breakfast定位到文章A)段最后一句。 A)【精析】同义转述题。定位句提到,根据一项调查 数据,即使只有三分之二的英国成年人有规律地 吃早餐,我们中的很多人在成长过程中都认为不 吃早餐是一个严重的错误。题干中的notto eat breakfast对应定位句中的skippingbreakfast,题 干中的widelyconsideredwrong对应定位句中的 aseriousmistake,故答案为A)。"
+        },
+        {
+          "number": 43,
+          "stem": "More research is needed to prove that breakfast is related to weight loss or food intake.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【定位】由题干中的Moreresearch、weightloss和 foodintake定位到文章F)段。 F)【精析】细节归纳题。定位段提到,2016年的一篇 综述得出结论:支持或反驳“早餐影响体重或食物 摄入量”这一论点的证据有限,还需要更多的证据 才可使用早餐推荐来帮助预防肥胖。题干中的 More research is needed对应定位段中的more evidenceisrequired,题干是对定位段的归纳概 括,故答案为F)。"
+        },
+        {
+          "number": 44,
+          "stem": "People who prioritise breakfasts tend to have lower calorie but higher nutritional intake.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的lower calorie和higher nutritionalintake定位到文章C)段最后两句。 C)【精析】细节归纳题。定位句提到,美国的一项研 究发现,将早餐作为一天中最丰盛的一餐的人,其 身体质量指数更有可能比午餐或晚餐吃得多的人 低。研究人员认为,早餐有助于减少每日热量的 摄人量,并改善我们的饮食质量,因为早餐食品通 常含有较高的纤维和营养成分。题干中的People whoprioritisebreakfasts对应定位句中的those who made breakfast the largest meal of the day, 题于中的havelowercalorie和highernutritional intake分别对应定位句中的reducedailycalorie intake和higher infibre and nutrients,故答案为C)。"
+        },
+        {
+          "number": 45,
+          "stem": "Many studies reveal that eating breakfast helps people memorise and concentrate.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【定位】由题干中的eatingbreakfast、memorise和 concentrate定位到文章HD段前三句。 H)【精析】细节归纳题。定位段第一句提到,早餐也 与改善大脑功能有关,包括专注力和语言使用。 第二、三句接着指出,一篇综述发现,吃早餐可以 改善记忆,也能够提高专注力。题干中的helps peoplememoriseandconcentrate对应定位句中 的improvememory和improve concentration,题 干是对定位句的归纳概括,故答案为H)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2019-12-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Textbooks represent an 11 billion dollar industry, up from $8 billion in 2014. Textbook publisher Pearson is the largest publisher—of any kind—in the world. It costs about $1 million to create a new textbook. A freshman textbook will have dozens of contributors, from subject-matter experts through graphic and layout artists to expert reviewers and classroom testers. Textbook publishers connect professors, instructors and students in ways that alternatives, such as open e-textbooks and open educational resources, simply do not. This connection happens not only by means of collaborative development, review and testing, but also at conferences where faculty regularly decide on their textbooks and curricula for the coming year. It is true that textbook publishers have recently reported losses, largely due to students renting or buying used print textbooks. But this can be chalked up to the excessively high cost of their books—which has increased over 1,000 percent since 1977. A restructuring of the textbook industry may well be in order. But this does not mean the end of the textbook itself. While they may not be as dynamic as an iPad, textbooks are not passive or lifeless. For example, over the centuries, they have simulated (模拟) dialogues in a number of ways. From 1800 to the present day, textbooks have done this by posing questions for students to answer inductively (归纳性地). That means students are asked to use their individual experience to come up with answers to general questions. Today's psychology texts, for example, ask:\"How much of your personality do you think you inherited?\" while ones in physics say:\"How can you predict where the ball you tossed will land?\" Experts observe that \"textbooks come in layers, something like an onion.\" For an active learner, 2019.12/6 (第2套).",
+        "Engaging with a textbook can be an interactive experience. Readers proceed at their own pace. They \"customize\" their books by engaging with different layers and linkages. Highlighting, Post-It notes, dog-ears and other techniques allow for further customization that students value in print books over digital forms of books."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What does the passage say about open educational resources?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They contribute to teaching as much as to learning."
+            },
+            {
+              "key": "B",
+              "text": "They don't profit as much as traditional textbooks do."
+            },
+            {
+              "key": "C",
+              "text": "They can't connect professors and students as textbooks do."
+            },
+            {
+              "key": "D",
+              "text": "They compete fiercely for customers with textbook producers."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的openeducationalresources定 位到第二段第三句。 C)【精析】细节辨认题。定位句指出,教科书出版商 们把教授、讲师和学生联系在一起,而教科书的替 代品,诸如开放的电子教科书和开放的教育资源根 本就做不到。由此可见,开放的教育资源无法像传 统教科书那样将教授和学生联系起来,故答案为C。 【避错】文中并未提及A)“它们对教学的贡献和对 学习的贡献一样多”,故排除。首段第一句提到, 教科书代表着一个价值110亿美元的产业,2014 年其产业价值为80亿美元。由此可见,传统教科 书蕴含着巨大的商机,但是并未与开放的教育资 源在这方面进行比较,故排除B)。第三段第一句 提到,教科书出版商最近报告了亏损,这些亏损很 大程度上是因为学生们租用或购买二手纸质教科 书,由此可见与出版商竞争客户的是二手教科书 等,并未提到开放的教育资源,故排除D)。"
+        },
+        {
+          "number": 47,
+          "stem": "What is the main cause of the publishers' losses?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Failure to meet student need."
+            },
+            {
+              "key": "B",
+              "text": "Industry restructuring."
+            },
+            {
+              "key": "C",
+              "text": "Emergence of e-books."
+            },
+            {
+              "key": "D",
+              "text": "Falling sales."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的maincause of the publishers” losses定位到第三段第一句。 D)【精析】推理判断题。定位句提到,教科书出版商 最近报告了亏损,这些亏损很大程度上是因为学 生们租用或购买二手纸质教科书。由此可知,造 成出版商亏损的主要原因是一些学生不购买新的 教科书,而去买一些二手书,从而导致了销售量的 下降,故答案为D)。 【避错】第四段第一句提到,尽管它们可能并不像 iPad那样不断变化,但是教科书并不是被动的或 无生命的。由此可见,教科书是可以满足学生们 的需求的,A)的表述错误,故排除。第三段倒数第 二句提到,要想摆脱这种销售困境,需要重新调整 产业结构,B)属于应对策略,而非亏损的原因,故 排除。第三段第一句提到,出版商的这些亏损很 天程度上是因为学生们租用或购买二手纸质教科 书。由此可见,并不是电子书的出现导致了出版 商的亏损,故排除C)。"
+        },
+        {
+          "number": 48,
+          "stem": "What does the textbook industry need to do?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Reform its structures."
+            },
+            {
+              "key": "B",
+              "text": "Cut its retail prices."
+            },
+            {
+              "key": "C",
+              "text": "Find replacements for printed textbooks."
+            },
+            {
+              "key": "D",
+              "text": "Change its business strategy periodically."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题干中的thetextbookindustry定位到 第三段第二、三句。 A)【精析】细节辨认题。定位句指出,教科书成本过 高,自1977年以来已经增长了1,000%。对于教 科书产业的调整已经势在必行。由此可见,要想 摆脱销售困境,教科书产业最需要做的就是调整 产业结构,故答案为A)。 【避错】第三段第二句指出,教科书的成本过高,但 并未提及要降低零售价格,故排除B)。第二段第 三句指出,教科书出版商们把教授、讲师和学生联 系在一起,而教科书的替代品根本就做不到。由 此可见,寻找纸质教科书的替代品并不是教科书 产业的可取方法,故排除C)。文中并未提及D) “定期改变经营策略”,故排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What are students expected to do in the learning process?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Think carefully before answering each question."
+            },
+            {
+              "key": "B",
+              "text": "Ask questions based on their own understanding."
+            },
+            {
+              "key": "C",
+              "text": "Answer questions using their personal experience."
+            },
+            {
+              "key": "D",
+              "text": "Give answers showing their respective personality."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的students和the learning process定位到第四段第三、四句。 C【精析】细节辨认题。定位句提到,从1800年到现 在,教科书通过向学生提出向题,让他们作出归纳 性回答来实现这一点。那就意味着学生们被要求 利用自身经历来回答那些一般性问题。由此可 见,学生们在学习教科书时需要用自己的经验回 答问题,故答案为C)。 【避错】第四段第四句提到,学生们需要利用自身 经历来回答那些一般性问题。文中并没有提到学 生在回答每个间题前仔细思考,故排除A)。文中 并未提及学生是基于什么提出问题,故排除B)。 第四段第四句提到,学生们需要利用自身经历来 回答一般性问题,而非给出体现各自个性的答案, D)不符合文义,故排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What do experts say about students using textbooks?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They can digitalize the prints easily."
+            },
+            {
+              "key": "B",
+              "text": "They can learn in an interactive way."
+            },
+            {
+              "key": "C",
+              "text": "They can purchase customized versions."
+            },
+            {
+              "key": "D",
+              "text": "They can adapt the material themselves."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的experts和studentsusing textbooks定位到最后一段前两句。 B)【精析】推理判断题。定位句指出,专家观察到, “教科书就像洋葱一样,是一层一层的”。对主动 的学习者来说,专注于教科书的学习可以是一种 互动体验。由此可见,专家认为,学生在使用教科 书时,能够以互动的方式来学习,故答案为B)。 【避错】最后一段第四句提到,学生们可以“定制” 自己的课本,但是并没有提及将印刷品数字化,故 排除A)。最后一段第五句提到,学生们可以通过 划重点、贴备注、折书角以及其他方法进一步定制 自已的课本,并未提及是否购买定制版本,定制也 不等同于改编,C)、D)与文义不符,故排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2019-12-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "When we think of animals and plants, we have a pretty good way of dividing them into two distinct groups; one converts sunlight into energy and the other has to eat food to make its energy. Well, those dividing lines come crashing down with the discovery of a sea slug (海蛞蝓) that's truly half animal and half plant. It's pretty incredible how it has managed to hijack the genes of the algae (藻类) on which it feeds. The slugs can manufacture chlorophyll, the green pigment (色素) in plants that captures energy from sunlight, and hold these genes within their body. The term kleptoplast is used to describe the practice of using hijacked genes to create nutrients from sunlight. And so far, this green sea slug is the only known animal that can be truly considered solar-powered, although some animals do exhibit some plant-like behaviors. Many scientists have studied the green sea slugs to confirm that they are actually able to create energy from sunlight. In fact, the slugs use the genetic material so well that they pass it on to their future generations. Their babies retain the ability to produce their own chlorophyll, though they can't generate energy from sunlight until they've eaten enough algae to steal the necessary genes, which they can't yet produce on their own. \"There's no way on earth that genes from an alga should work inside an animal cell,\" says Sidney Pierce from the University of South Florida. \"And yet here, they do. They allow the animal to rely on sunshine for its nutrition. So if something happens to their food source, they have a way of not starving 2019. 12 / 7 (第2套)",
+        "to death until they find more algae to eat.\" The sea slugs are so good at gathering energy from the sun that they can live up to nine months without having to eat any food. They get all their nutritional needs met by the genes that they've hijacked from the algae."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What is the distinctive feature of a sea slug?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It looks like both a plant and an animal."
+            },
+            {
+              "key": "B",
+              "text": "It converts some sea animals into plants."
+            },
+            {
+              "key": "C",
+              "text": "It lives half on animals and half on plants."
+            },
+            {
+              "key": "D",
+              "text": "It gets energy from both food and sunlight."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的thedistinctivefeatureofasea slug和题文同序原则定位到第一段。 D)【精析】推理判断题。定位段指出,有一个很好的 方法将动物和植物分为两组:一组将阳光转化为 能量,另一组必须摄人食物来制造能量,而半动物 半植物的海打破了这些分界线。由此可见, 海既可以通过食物也可以通过阳光来获取能 量,故答案为D)。 【避错】第一段第二句提到,这些分界线在海 这种生物面前轰然崩塌,因为它是真正的半动物 半植物生物,但这不代表它的外形看上去既像植 物又像动物,A)选项与原文不符,故排除。文中并 未提及B)“它把一些海洋动物转化为植物”,故排 除。第二段第一句提到,海能够制造叶绿 素——植物体内的这种绿色色素从阳光中获取能 量一—并且把这些基因保存在体内。由此可见, 海蜡并不是既吃动物又吃植物,而是通过食物 和阳光来获取能量,故排除C)。"
+        },
+        {
+          "number": 52,
+          "stem": "What enables the sea slug to live like a plant?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The genes it captures from the sea plant algae."
+            },
+            {
+              "key": "B",
+              "text": "The mechanism by which it conserves energy."
+            },
+            {
+              "key": "C",
+              "text": "The nutrients it hijacks from other species."
+            },
+            {
+              "key": "D",
+              "text": "The green pigment it inherits from its ancestors."
+            }
+          ],
+          "answer": "A",
+          "explanation": "【定位】由题干中的the seaslug、live likea plant 和题文同序原则定位到第二段。 A)【精析】推理判断题。定位段提到,海能够制 造叶绿素——植物体内的这种绿色色素从阳光中 获取能量一—并且把这些基因保存在体内。“盗 食质体”这个术语用来描述利用劫持来的基因从 阳光中制造营养物质的行为。由此可知,海 之所以能够像植物一样活着,是因为它从藻类身 上获取了可以制造叶绿素的基因,故答案为A)。 【避错】B)“它储存能量的机制”在文中没有提到, 故排除。文章第一段最后一句提到,它成功地劫 持了它的食物即藻类的基因。由此可见,海 是从其他物种中劫取可以获得营养物质的基因, 而不是直接劫取营养物质,C)“它从其他物种中 劫持的营养物质”表述错误,故排除。第三段第 二句提到,海需要吃掉足够多的藻类来窃取 这种必要的基因,它们无法自已制造这种基因。 由此可见,它们的叶绿素并不是从先辈那里遗传 而来的,故排除D)“它从先辈那里遗传来的绿色 色素”。"
+        },
+        {
+          "number": 53,
+          "stem": "What does the author say about baby sea slugs?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They can live without sunlight for a long time."
+            },
+            {
+              "key": "B",
+              "text": "They can absorb sunlight right after their birth."
+            },
+            {
+              "key": "C",
+              "text": "They can survive without algae for quite some time."
+            },
+            {
+              "key": "D",
+              "text": "They can produce chlorophyll on their own."
+            }
+          ],
+          "answer": "D",
+          "explanation": "【定位】由题干中的babyseaslugs定位到第三段 第二句。 D)【精析】细节辨认题。定位句指出,幼小的海 保留了这种可以自己制造叶绿素的能力,它们需 要吃掉足够多的藻类来窃取这种必要的基因,因 为它们无法自己制造这种基因,只有这样,它们才 能够从阳光中获取能量。由此可见,当幼小的海 吃掉足够多的藻类并获得藻类基因时,它们 就可以自己制造叶绿素了,故答案为D)。 【避错】文中未提及A)“它们可以在没有阳光的情 况下存活很久”和C)“它们能在没有藻类的情况 下存活很长时间”,故排除。由定位句可知,它们 并不是一出生就能吸收阳光,B)与文义不符,故 排除。"
+        },
+        {
+          "number": 54,
+          "stem": "What does Sidney Pierce say about genes from an alga?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are stolen from animals like the sea slug."
+            },
+            {
+              "key": "B",
+              "text": "They can't function unless exposed to sunlight."
+            },
+            {
+              "key": "C",
+              "text": "They don't usually function inside animal cells."
+            },
+            {
+              "key": "D",
+              "text": "They can readily be converted to sea slug genes."
+            }
+          ],
+          "answer": "C",
+          "explanation": "【定位】由题干中的SidneyPierce和genes from analga定位到第四段第一句。 C)【精析】推理判断题。定位句提到了西德尼·皮尔 斯的话:藻类基因根本不可能在动物细胞内奏效。 但是在海蜡身上,它们却做到了。由此可见,根 据西德尼·皮尔斯的观点,通常情况下,藻类基因 是不能在动物细胞内起作用的,故答案为C)。 【避错】文章未提及A)“它们是从海等动物身 上偷来的”,故排除。定位句提到,藻类基因不可 能在动物细胞内奏效,由此可见这与有无阳光无 关,故排除B)。文章第三段第二句指出,海需 要吃掉足够多的藻类来窃取这种必要的基因,D) 不符合文义,故排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What do we learn about sea slugs from the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They behave the way most plant species do."
+            },
+            {
+              "key": "B",
+              "text": "They can survive for months without eating."
+            },
+            {
+              "key": "C",
+              "text": "They will turn into plants when they mature."
+            },
+            {
+              "key": "D",
+              "text": "They will starve to death without sunlight."
+            }
+          ],
+          "answer": "B",
+          "explanation": "【定位】由题干中的seaslugs和题文同序原则定位 到最后一段。 B)【精析】细节辨认题。定位段指出,海很撞长 从太阳中吸取能量,因此它们可以在不吃任何食 物的情况下生存9个月。由此可见,海在有 阳光的情况下,即使不进食也可以存活数月,故答案为B)。 【避错】第二段第三句指出,尽管一些动物确实展 现出一些类似植物的行为,但这种绿色的海 是迄今为止唯一一种已知的可以真正意义上做到 以太阳能为动力的动物。但这并不代表它的行为 方式和大多数植物类似,故排除A)。文中并未提 及C)“当它们发育成熟后将变成植物”,故排除。 海蜡作为一种动物,即使没有阳光,也可以通过 食物来获取能量,并不会饿死,故排除D)。"
+        }
+      ]
+    }
+  ]
+}

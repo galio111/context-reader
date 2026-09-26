@@ -1,0 +1,1688 @@
+{
+  "id": "cet4-2018-12-2",
+  "level": 4,
+  "year": 2018,
+  "month": 12,
+  "set": 2,
+  "title": "2018 年 12 月四级 · 第 2 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.12/%E7%9C%9F%E9%A2%98Word/2018%E5%B9%B412%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC%E4%BA%8C%E5%A5%97.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2018.12%E5%9B%9B%E7%BA%A7%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%E7%AC%AC%E4%BA%8C%E5%A5%97.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2018-12-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Have you ever used email to apologize to a colleague? Delivered a [[26]] to a subordinate (下属) with a voice-mail message? Flown by plane across the country just to deliver important news in person? The various communication options at our fingertips today can be good for [[27]] and productivity—and at the same time very troublesome. With so many ways to communicate, how should a manager choose the one that's best— [[28]] when the message to be delivered is bad or unwelcome news for the recipient? We've [[29]] business communication consultants and etiquette (礼仪) experts to come up with the following guidelines for [[30]] using the alternative ways of delivering difficult messages. First of all, choose how personal you want to be. A face-to-face communication is the most [[31]] . Other choices, in descending order of personalization, are: a real-time phone call, a voice-mail message, a handwritten note, a typewritten letter, and the most [[32]] is email. Some of these may change order according to the [[33]] situation or your own preferences; for example, a handwritten note might seem more personal than voice-mail. How do you decide on the best choice for the difficult message you've got to deliver? “My [[34]] concern is: How can I soften or civilize this message?” says etiquette expert Dana Casperson. “So when I apologize, I usually choose in-person first, or a phone conversation as my top alternative, and maybe a handwritten note next. Apologizing by email is something I now totally [[35]] .”"
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "avoid"
+        },
+        {
+          "key": "B",
+          "text": "convenience"
+        },
+        {
+          "key": "C",
+          "text": "effectively"
+        },
+        {
+          "key": "D",
+          "text": "escape"
+        },
+        {
+          "key": "E",
+          "text": "intimate"
+        },
+        {
+          "key": "F",
+          "text": "particularly"
+        },
+        {
+          "key": "G",
+          "text": "primary"
+        },
+        {
+          "key": "H",
+          "text": "prompt"
+        },
+        {
+          "key": "I",
+          "text": "reward"
+        },
+        {
+          "key": "J",
+          "text": "silent"
+        },
+        {
+          "key": "K",
+          "text": "specific"
+        },
+        {
+          "key": "L",
+          "text": "surveyed"
+        },
+        {
+          "key": "M",
+          "text": "unfriendly"
+        },
+        {
+          "key": "N",
+          "text": "warning"
+        },
+        {
+          "key": "O",
+          "text": "witnessed"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "avoid"
+            },
+            {
+              "key": "B",
+              "text": "convenience"
+            },
+            {
+              "key": "C",
+              "text": "effectively"
+            },
+            {
+              "key": "D",
+              "text": "escape"
+            },
+            {
+              "key": "E",
+              "text": "intimate"
+            },
+            {
+              "key": "F",
+              "text": "particularly"
+            },
+            {
+              "key": "G",
+              "text": "primary"
+            },
+            {
+              "key": "H",
+              "text": "prompt"
+            },
+            {
+              "key": "I",
+              "text": "reward"
+            },
+            {
+              "key": "J",
+              "text": "silent"
+            },
+            {
+              "key": "K",
+              "text": "specific"
+            },
+            {
+              "key": "L",
+              "text": "surveyed"
+            },
+            {
+              "key": "M",
+              "text": "unfriendly"
+            },
+            {
+              "key": "N",
+              "text": "warning"
+            },
+            {
+              "key": "O",
+              "text": "witnessed"
+            }
+          ],
+          "answer": "N",
+          "explanation": "N)warning。详解)名词辨析题。空格位于动词delivered和不定冠词a之后,后面为介词to,因此空格 处需要填一个单数可数名词。该句的意思为“使用语音邮件传达 给下属”。备选的单数可数名词 中,只有N)waming“警告”符合语义,故为答案。B)convenience“方便,便利”、D)escape\"逃离,逃脱”和 I)reward\"回报,报酬\"均与句意不符,故排除。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "avoid"
+            },
+            {
+              "key": "B",
+              "text": "convenience"
+            },
+            {
+              "key": "C",
+              "text": "effectively"
+            },
+            {
+              "key": "D",
+              "text": "escape"
+            },
+            {
+              "key": "E",
+              "text": "intimate"
+            },
+            {
+              "key": "F",
+              "text": "particularly"
+            },
+            {
+              "key": "G",
+              "text": "primary"
+            },
+            {
+              "key": "H",
+              "text": "prompt"
+            },
+            {
+              "key": "I",
+              "text": "reward"
+            },
+            {
+              "key": "J",
+              "text": "silent"
+            },
+            {
+              "key": "K",
+              "text": "specific"
+            },
+            {
+              "key": "L",
+              "text": "surveyed"
+            },
+            {
+              "key": "M",
+              "text": "unfriendly"
+            },
+            {
+              "key": "N",
+              "text": "warning"
+            },
+            {
+              "key": "O",
+              "text": "witnessed"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)convenience。详解)名词辨析题。空格前是begoodfor,空格后是连词and和名词productivity,所 以应填入一个与productivity并列的名词。本句讲的是指尖上的各种沟通选择带来的好处,其中提到了效 率,备选的名词中,与之并列的应该是convenience\"方便,便利”,故答案为B)。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "avoid"
+            },
+            {
+              "key": "B",
+              "text": "convenience"
+            },
+            {
+              "key": "C",
+              "text": "effectively"
+            },
+            {
+              "key": "D",
+              "text": "escape"
+            },
+            {
+              "key": "E",
+              "text": "intimate"
+            },
+            {
+              "key": "F",
+              "text": "particularly"
+            },
+            {
+              "key": "G",
+              "text": "primary"
+            },
+            {
+              "key": "H",
+              "text": "prompt"
+            },
+            {
+              "key": "I",
+              "text": "reward"
+            },
+            {
+              "key": "J",
+              "text": "silent"
+            },
+            {
+              "key": "K",
+              "text": "specific"
+            },
+            {
+              "key": "L",
+              "text": "surveyed"
+            },
+            {
+              "key": "M",
+              "text": "unfriendly"
+            },
+            {
+              "key": "N",
+              "text": "warning"
+            },
+            {
+              "key": "O",
+              "text": "witnessed"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F)particularly。详解)副词辨析题。空格位于when引导的时间状语从句之前,所在部分主干结构完 整,因此应填人一个副词。本句指出,当你要传递的消息对接收者来说是坏消息或是不受欢迎的消息时,经 理们该怎样做出选择。备选项中的副词有effectively\"有效地”和particularly\"特别地,尤其”,分别代人句 中,只有particularly符合句意,强调在一种特殊的情况下,因此答案为F)。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "avoid"
+            },
+            {
+              "key": "B",
+              "text": "convenience"
+            },
+            {
+              "key": "C",
+              "text": "effectively"
+            },
+            {
+              "key": "D",
+              "text": "escape"
+            },
+            {
+              "key": "E",
+              "text": "intimate"
+            },
+            {
+              "key": "F",
+              "text": "particularly"
+            },
+            {
+              "key": "G",
+              "text": "primary"
+            },
+            {
+              "key": "H",
+              "text": "prompt"
+            },
+            {
+              "key": "I",
+              "text": "reward"
+            },
+            {
+              "key": "J",
+              "text": "silent"
+            },
+            {
+              "key": "K",
+              "text": "specific"
+            },
+            {
+              "key": "L",
+              "text": "surveyed"
+            },
+            {
+              "key": "M",
+              "text": "unfriendly"
+            },
+            {
+              "key": "N",
+              "text": "warning"
+            },
+            {
+              "key": "O",
+              "text": "witnessed"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L)surveyed。详解)动词辨析题。空格位于助动词have之后,由此判断此处应填人动词的过去分词构 成完成时态。此处意为“我们, 商务沟通顾问和礼仪专家”。备选项中,符合语法要求的只有 L)surveyed\"调查,勘测”和O)witnessed“目击,亲身经历”,但只有L)surveyed符合句意,故为答案。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "avoid"
+            },
+            {
+              "key": "B",
+              "text": "convenience"
+            },
+            {
+              "key": "C",
+              "text": "effectively"
+            },
+            {
+              "key": "D",
+              "text": "escape"
+            },
+            {
+              "key": "E",
+              "text": "intimate"
+            },
+            {
+              "key": "F",
+              "text": "particularly"
+            },
+            {
+              "key": "G",
+              "text": "primary"
+            },
+            {
+              "key": "H",
+              "text": "prompt"
+            },
+            {
+              "key": "I",
+              "text": "reward"
+            },
+            {
+              "key": "J",
+              "text": "silent"
+            },
+            {
+              "key": "K",
+              "text": "specific"
+            },
+            {
+              "key": "L",
+              "text": "surveyed"
+            },
+            {
+              "key": "M",
+              "text": "unfriendly"
+            },
+            {
+              "key": "N",
+              "text": "warning"
+            },
+            {
+              "key": "O",
+              "text": "witnessed"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)effectively。详解)副词辨析题。分析句子结构可知,本句基本成分完整,因此可填人副词,修饰 using。备选副词中有effectively\"有效地”和particularly\"特别地,尤其”,其中只有C)effectively\"有效地” 符合句意,故为答案。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "avoid"
+            },
+            {
+              "key": "B",
+              "text": "convenience"
+            },
+            {
+              "key": "C",
+              "text": "effectively"
+            },
+            {
+              "key": "D",
+              "text": "escape"
+            },
+            {
+              "key": "E",
+              "text": "intimate"
+            },
+            {
+              "key": "F",
+              "text": "particularly"
+            },
+            {
+              "key": "G",
+              "text": "primary"
+            },
+            {
+              "key": "H",
+              "text": "prompt"
+            },
+            {
+              "key": "I",
+              "text": "reward"
+            },
+            {
+              "key": "J",
+              "text": "silent"
+            },
+            {
+              "key": "K",
+              "text": "specific"
+            },
+            {
+              "key": "L",
+              "text": "surveyed"
+            },
+            {
+              "key": "M",
+              "text": "unfriendly"
+            },
+            {
+              "key": "N",
+              "text": "warning"
+            },
+            {
+              "key": "O",
+              "text": "witnessed"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E)intimate。详解形容词辨析题。空格位于the most之后,所以应填入一个形容词。该段第一句提 到“首先,选择你想要的私人化程度。”接着本句说明面对面交流的特点。所以空格所填词应与第一句中的 personal意思相近,E)intimate\"亲密的\"符合要求,故为答案。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "avoid"
+            },
+            {
+              "key": "B",
+              "text": "convenience"
+            },
+            {
+              "key": "C",
+              "text": "effectively"
+            },
+            {
+              "key": "D",
+              "text": "escape"
+            },
+            {
+              "key": "E",
+              "text": "intimate"
+            },
+            {
+              "key": "F",
+              "text": "particularly"
+            },
+            {
+              "key": "G",
+              "text": "primary"
+            },
+            {
+              "key": "H",
+              "text": "prompt"
+            },
+            {
+              "key": "I",
+              "text": "reward"
+            },
+            {
+              "key": "J",
+              "text": "silent"
+            },
+            {
+              "key": "K",
+              "text": "specific"
+            },
+            {
+              "key": "L",
+              "text": "surveyed"
+            },
+            {
+              "key": "M",
+              "text": "unfriendly"
+            },
+            {
+              "key": "N",
+              "text": "warning"
+            },
+            {
+              "key": "O",
+              "text": "witnessed"
+            }
+          ],
+          "answer": "M",
+          "explanation": "M)unfriendly。详解)形容词辨析题。空格位于themost之后,所以应填人一个形容词,用于说明电子 邮件的特点。结合上下文可知,作者在此处对各种沟通方式按照私人化程度降序排列,所以电子邮件应该是 最\"不私人化的”,与之意思相近的应该是M)unfriendly\"不友好的”,故为答案。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "avoid"
+            },
+            {
+              "key": "B",
+              "text": "convenience"
+            },
+            {
+              "key": "C",
+              "text": "effectively"
+            },
+            {
+              "key": "D",
+              "text": "escape"
+            },
+            {
+              "key": "E",
+              "text": "intimate"
+            },
+            {
+              "key": "F",
+              "text": "particularly"
+            },
+            {
+              "key": "G",
+              "text": "primary"
+            },
+            {
+              "key": "H",
+              "text": "prompt"
+            },
+            {
+              "key": "I",
+              "text": "reward"
+            },
+            {
+              "key": "J",
+              "text": "silent"
+            },
+            {
+              "key": "K",
+              "text": "specific"
+            },
+            {
+              "key": "L",
+              "text": "surveyed"
+            },
+            {
+              "key": "M",
+              "text": "unfriendly"
+            },
+            {
+              "key": "N",
+              "text": "warning"
+            },
+            {
+              "key": "O",
+              "text": "witnessed"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K)specific。详解)形容词辨析题。空格位于定冠词the和名词situation之间,因此空格处应填人一个 形容词。空格后的or说明“the situation\"与yourownpreferences“个人的偏好\"的意思并列,且空 格前一句提到了按照私人化程度降序排列的各种沟通方式,由此推测此处应该是一些“特殊”或“特定”情况 下的排列。备选形容词中,specific\"特定的,具体的\"符合要求,与situation构成搭配,表示“特定的情况”, 故K)为答案。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "avoid"
+            },
+            {
+              "key": "B",
+              "text": "convenience"
+            },
+            {
+              "key": "C",
+              "text": "effectively"
+            },
+            {
+              "key": "D",
+              "text": "escape"
+            },
+            {
+              "key": "E",
+              "text": "intimate"
+            },
+            {
+              "key": "F",
+              "text": "particularly"
+            },
+            {
+              "key": "G",
+              "text": "primary"
+            },
+            {
+              "key": "H",
+              "text": "prompt"
+            },
+            {
+              "key": "I",
+              "text": "reward"
+            },
+            {
+              "key": "J",
+              "text": "silent"
+            },
+            {
+              "key": "K",
+              "text": "specific"
+            },
+            {
+              "key": "L",
+              "text": "surveyed"
+            },
+            {
+              "key": "M",
+              "text": "unfriendly"
+            },
+            {
+              "key": "N",
+              "text": "warning"
+            },
+            {
+              "key": "O",
+              "text": "witnessed"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G)primary。详解)形容词辨析题。空格前为my,空格后为名词concem,所以空格处应填人形容词。 备选项中未选的形容词有G)primary“主要的,首要的”、H)prompt\"立即的,迅速的\"和J)silent\"沉默的, 寂静的”。代人空格中,只有primary\"主要的,首要的\"符合句意,故答案为G)。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "avoid"
+            },
+            {
+              "key": "B",
+              "text": "convenience"
+            },
+            {
+              "key": "C",
+              "text": "effectively"
+            },
+            {
+              "key": "D",
+              "text": "escape"
+            },
+            {
+              "key": "E",
+              "text": "intimate"
+            },
+            {
+              "key": "F",
+              "text": "particularly"
+            },
+            {
+              "key": "G",
+              "text": "primary"
+            },
+            {
+              "key": "H",
+              "text": "prompt"
+            },
+            {
+              "key": "I",
+              "text": "reward"
+            },
+            {
+              "key": "J",
+              "text": "silent"
+            },
+            {
+              "key": "K",
+              "text": "specific"
+            },
+            {
+              "key": "L",
+              "text": "surveyed"
+            },
+            {
+              "key": "M",
+              "text": "unfriendly"
+            },
+            {
+              "key": "N",
+              "text": "warning"
+            },
+            {
+              "key": "O",
+              "text": "witnessed"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)avoid。详解动词辨析题。空格位于省略引导词that的定语从句中,该从句的主语是I,缺少谓语动 词,主句的时态是一般现在时,所以此处应该填入动词原形。空格前一句介绍了丹纳的道歉方式:优先选择 当面道款或是打电话,接下来是写便条,再结合该段第三句中提到的“最不友好的是电子邮件”,由此推断, 丹纳应该会“避免使用电子邮件道款”,故答案为A)avoid。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2018-12-2-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) The busy streets in Paris were uneven and caked in thick mud, but there was always a breathtaking sight to see in the shop windows of Patisserie de la Rue de la Paix. By 1814, people crowded outside the bakery, straining for a glimpse of the latest sweet food created by the young chef who worked inside.",
+        "B) His name was Marie-Antoine Carême, and he had appeared, one day, almost out of nowhere. But in his short lifetime, which ended exactly 184 years ago today, he would forever revolutionize French gourmet food (美食), write best-selling cook books and think up magical dishes for royals and other important people.",
+        "C) Carême's childhood was one part tragedy, equal part mystery. Born the 16th child to poor parents in Paris in either 1783 or 1784, a young Carême was suddenly abandoned at the height of the French Revolution. At 8 years old, he worked as a kitchen boy for a restaurant in Paris in exchange for room and board. By age 15, he had become an apprentice (学徒) to Sylvain Bailly, a well-known dessert chef with a successful bakery in one of Paris's most fashionable neighborhoods.",
+        "D) Carême was quick at learning in the kitchen. Bailly encouraged his young apprentice to learn to read and write. Carême would often spend his free afternoons at the nearby National Library reading books on art and architecture. In the back room of the little bakery, his interest in design and his baking talent combined to work wonders—he shaped delicious masterpieces out of flour, butter and sugar.",
+        "E) In his teenage years, Carême fashioned eatable copies of the late 18th century's most famous buildings—cookies in the shape of ruins of ancient Athens and pies in the shape of ancient Chinese palaces and temples. Sylvain Bailly, his master, displayed these luxuriant creations—often as large as 4 feet tall—in his bakery windows.",
+        "F) Carême's creations soon captured the discriminating eye of a French diplomat, Charles Maurice de Talleyrand-Périgord. Around 1804, Talleyrand challenged Carême to produce a full menu for his personal castle, instructing the young baker to use local, seasonal fruits and vegetables and to avoid repeating main dishes over the course of an entire year. The experiment was a grand success and Talleyrand's association with French nobility would prove a profitable connection for Carême.",
+        "G) French Emperor Napoleon Bonaparte was known to be unimpressed by the declining taste of early 18th century cooking, but under pressure to entertain Paris's high society, he too called Carême to his kitchen at Tuileries Palace. In 1810, Carême designed the extraordinary cake for the wedding of Napoleon and his second bride, Marie-Louise of Austria. He became one of the first modern chefs to focus on the appearance of his table, not just the flavor of his dishes. “I want order and taste. A well-displayed meal is enhanced one hundred percent in my eyes,” he later wrote in one of his cook books.",
+        "H) In 1816, Carême began a culinary (烹饪的) journey which would forever mark his place as history's first top chef. He voyaged to England to cook in the modern Great Kitchen of the prince regent (摄政王), George IV, and crossed continents to prepare grand banquets for the tables of Tsar Alexander I of Russia. Never afraid to talk up his own accomplishments, a boastful Carême made a fortune as wealthy families with social ambitions invited him to their kitchens. Later, in his cook books, he would often include a sketch of himself, so that people on the street would be able to recognize—and admire—him.",
+        "I) Carême's cooking displays became the symbol of fine French dining; they were plentiful, beautiful and imposing. Guests would fall silent in wonder as servants carried Carême's fancy creations into the dining hall. For a banquet celebrating the Grand Duke Nicholas of Russia's visit to George IV's Brighton Pavillion on Jan. 18, 1817, the menu featured 120 different dishes, highlighting eight different soups, 40 main courses, and 32 desserts.",
+        "J) As he traveled through the homes of early 19th century nobility, Carême forged the new art of French gourmet food. Locked in hot kitchens, Carême created his four “mother sauces.” These sauces—béchamel, velouté, espagnole and allemande—formed the central building blocks for many French main courses. He also perfected the soufflé—a baked egg dish, and introduced the standard chef's uniform—the same double-breasted white coat and tall white hat still worn by many chefs today. The white clothing conveyed an image of cleanliness, according to Carême—and in his realm, appearance was everything.",
+        "K) Between meals, Carême wrote cook books that would be used in European kitchens for the next century. His manuals including The Royal Parisian Baker and the massive five-volume Art of French Cooking Series (1833-1847, completed after his death) first systematized many basic principles of cooking, complete with drawings and step-by-step directions. Long before television cooking shows, Carême walked readers through common kitchen tasks, instructing them to “try this for yourself, at home” as famous American Chef Julia Child might do, many years later.",
+        "L) In the end, however, it was the kitchen that did Carême in. Decades of working over coal fires in tight, closed spaces with little fresh air (to ensure his dishes would not get cold) had fatally damaged his lungs. On Jan. 12, 1833, Carême died just before he turned 50.",
+        "M) But in his lifetime, Carême, ever confident, could see beyond his short domination in the kitchen. He wanted to “set the standard for beauty in classical and modern cooking, and prove to the distant future that the French chefs of the 19th century were the most famous in the world,” as he wrote in his papers.",
+        "N) Decades later, chef Auguste Escoffier would build upon Carême's concept of French cuisine (烹饪). But in the very beginning, there was just Carême, the top chef who elevated dining into art."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Carême was among the first chefs who stressed both the appearance and flavor of dishes.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "G",
+          "explanation": "Careme was among the first chefs G)FrenchEmperorNapoleonBonapartewas kmowntobe who stressed both the appearance unimpressed by the declining taste of early 18th century and flavor of dishes. cooking, but under pressure to entertain Paris's high society, 译文卡莱姆是第一批同时注 he too called Careme to his kitchen at Tuileries Palace. In 1810,Careme designed the extraordinary cake for the wedding 重菜肴外观和味道的厨师。 of Napoleon and his second bride, Marie-Louise of Austria. He 定位由题干中的the became one of the first moderm chefs to focus on the appearanceandflavor定位到文章 appearance of his table, not just the flavor of his dishes. “I G)段画线处。 want order and taste.A well-displayed meal is enhanced one hundred percent in my eyes,” he later wrote in one of his cook books. 详解定位句提到,卡莱姆成为第一批不只关注菜肴味道,而且关注菜品外观的现代厨师中的一位。题干 中的 stressed both the appearance and flavor of dishes对应原文中的focus on the appearance of his table, not justtheflavorofhis dishes,故答案为G)。"
+        },
+        {
+          "number": 37,
+          "stem": "Carême wanted to show to later generations that French chefs of his time were most outstanding in the world.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "M",
+          "explanation": "Caremewantedtoshowtolater generations that French chefs of his time were most outstanding in the world. 译文卡莱姆想向后辈们表明,他所处 时期的法国厨师在世界上是最出色的。 定位由题干中的Frenchchefs和in theworld定位到文章M)段画线处。 M)But in his lifetime, Careme, ever confident, could see beyond his short domination in the kitchen. He wanted to \"set the standard for beauty in classical and modern cooking, and prove to the distant future that the French chefs of the 19th century were the most famous in the world,\" as he wrote in his papers. 详解定位句指出,卡莱姆想要“为经典和现代烹饪美学设立标准,并向久远的未来证明,19世纪的法国厨 师是世界上最有名的”。题干中的latergenerations对应原文中的 the distant future;of his time对应原文中 的ofthe19thcentury;mostoutstanding对应原文中的mostfamous,故答案为M)。"
+        },
+        {
+          "number": 38,
+          "stem": "Carême benefited greatly from serving a French diplomat and his connections.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "F",
+          "explanation": "Caeme benefited greatly from F) Careme's creations soon captured the discriminating eye of a serving a French diplomat and his French diplomat, Charles Maurice de Talleyrand-Perigord. connections. Around 1804, Talleyrand challenged Careme to produce a full 译文卡莱姆从服务一位法国 menu for his personal castle, instructing the young baker to use 外交官和他的人脉圈中收益颐丰。 local, seasonal fruits and vegetables and to avoid repeating 定位)由题干中的aFrench main dishes over the course of an entire year.The experiment was a grand success and Talleyrand's association with French diplomat和connections定位到文 章F)段。 nobility would prove a profitable connection for Careme. 详解)定位段指出卡莱姆为一位法国外交官塔利朗服务,为他的个人城堡制作一份完整的菜单。卡莱姆取 得了巨大成功,同时塔利朗与法国贵族的人脉圈也令卡莱姆收益颇丰。由此可知,卡莱姆为一位法国外交官 服务,从他的人脉圈中收益颇丰。题干是对该段的总结。题干中的 benefited 是对原文中 proftable connection的同义转述,故答案为F)。"
+        },
+        {
+          "number": 39,
+          "stem": "Carême learned his trade from a famous dessert chef in Paris.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Careme learmed his trade from a C) Careme's childhood was one part tragedy, equal part mystery. famous dessert chef in Paris. Bom the 16th child to poor parents in Paris in either 1783 or 1784, a young Careme was suddenly abandoned at the height of 译文卡莱姆行业入门时师从 巴黎一位著名的甜点师。 定位由题干中的dessertchef 定位到文章C)段画线处。 the French Revolution: At 8 years old, he worked as a kitchen boy for a restaurant in Paris in exchange for room and board. By Age 15,he had become an apprentice(学徒)to Sylvain Bailly, a well-known dessert chef with a successful bakery in Oone of Paris's most fashionable neighborhoods. 详解)定位句提到,到了15岁时,卡莱姆已经成为西尔万·贝利的学徒了。西尔万·贝利是巴黎最时尚的 街区之一的一家很成功的面包店的著名甜点师。题干中的leamedhistradefrom是对原文中becomean apprenticeto的同义转述;afamousdessertchef inParis指的是SylvainBailly,故答案为C)。"
+        },
+        {
+          "number": 40,
+          "stem": "Carême's creative works were exhibited in the shop windows by his master.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "E",
+          "explanation": "Careme's creative works were exhibited in the shop windows by his master. 译卡莱姆的创意作品被他的师傅 展示在店面的橱窗里。 定位由题干中的theshopwindows 和hismaster定位到文章E)段画线处。 E) In his teenage years, Careme fashioned eatable copies of the late 18th century's most famous buildings-—cookies in the shape of ruins of ancient Athens and pies in the shape of ancient Chinese palaces and temples.Sylvain Bailly, his master,displayed these luxuriant creations-often as large as 4 feet tall-in his bakery windows. 详解定位句指出,他的师傅西尔万贝利把这些常常有4英尺高的华丽作品展示在他的面包店的橱窗 里。题干中的creative works 对应原文中的 these luxuriant creations;题干中的exhibited 对应原文中的 displayed,故答案为)。"
+        },
+        {
+          "number": 41,
+          "stem": "Carême's knowledge of art and architecture helped him create extraordinary desserts out of ordinary ingredients.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "D",
+          "explanation": "Careme's knowledge of art and architecture helped him create extraordinary desserts out of ordinary ingredients. 译卡莱姆对于艺术和建筑的知识帮 助他把平常的原料创作成非凡的甜点。 定位由题干中的artand architecture 定位到文章D)段画线处。 D) Careme was quick at learming in the kitchen. Bailly encouraged his young apprentice to learn to read and write. Careme would often spend his free afternoons at the nearby National Library reading books on art and architecture. In the back room of the little bakery, his interest in design and his baking talent combined to work wondershe shaped delicious masterpieces out of flour, butter and sugar. 详解)定位句提到,卡莱姆经常在下午有空的时候泡在附近的国家图书馆里读一些有关艺术和建筑的书 籍。后来,他用面粉、黄油和糖塑造出了美味的杰作。题干是对本段最后两句的总结。题干中的 create extraordinarydesserts和ordinaryingredients分别对应原文中的shapeddeliciousmasterpieces和lour, butterand sugar,故答案为D)。"
+        },
+        {
+          "number": 42,
+          "stem": "Many people in Paris were eager to have a look at the latest sweet food made by Carême.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Many people in Paris were eager to have a look at the latest sweet food made by Careme. 译文在巴黎,很多人渴望看一眼卡莱姆 制作的最新款甜食。 定位由题干中的the latest sweet food 定位到文章A)段画线处。 A) The busy streets in Paris were uneven and caked in thick mud, but there was always a breathtaking sight to see in the shop windows of Patisserie de la Rue de la Paix.By 1814,people crowded outside the bakery,straining for a glimpse of the latest sweet food created by the young chef who worked inside. 详解)定位句指出,到1814年时,人们会挤在面包店外,争着瞧一眼在里面上班的一位年轻厨师创作的最 新甜食。题于中的 were eager to have a look at 对应原文中的 straining for a glimpse of,故答案为 A)。"
+        },
+        {
+          "number": 43,
+          "stem": "Carême became extremely wealthy by cooking for rich and socially ambitious families.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "H",
+          "explanation": "Caremebecame extremelyH)In1816,Caremebegana culinary(烹任的)journeywhichwould ..wealthy by cooking for rich and forever mark his place as history's first top chef. He voyaged to socially ambitious families. England to cook in the modern Great Kitchen of the prince regent 译卡莱姆通过给富有且 (摄政王),GeorgeIV,and crossed continents topreparegrand 有社会野心的家庭做菜变得极 banquets for the tables of Tsar Alexander I of Russia. Never 其富裕。 afraid to talk up his own accormplishments, a boastful Careme 定位由题干中的socially made a fortune as wealthy families with social ambitions invited ambitious定位到文章H)段画 him to their kitchens. Later, in his cook books, he would often 线处。 include a sketch of himself, so that people on the street would be able to recognize—and admire—him. 详解)定位句提到,从不畏惧大肆费扬他自己的成就,自负的卡莱姆的确发了一大笔财,因为一些有社会野 心的富裕家庭会邀请他去他们的厨房。题干中的becameextremelywealthy和richand sociallyambitious families 分别对应原文中的made a fortune和wealthyfamilies with social ambitions,故答案为H)。"
+        },
+        {
+          "number": 44,
+          "stem": "Carême's writings dealt with fundamental cooking principles in a systematic way.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "K",
+          "explanation": "Careme's writings dealt withK)Between meals, Careme wrote cook books that would be used fundamental cooking principles in European kitchens for the next century.His manuals in a systematic way. including The Royal Parisian Baker and the massive five- 译文)卡莱姆的著作系统地论 volume Art of French Cooking Series (1833-1847,completed 述了基本的烹饪原理。 after his death) first systematized many basic principles of 定位由题干中的cooking cooking, complete with drawings and step-by-step directions. Long before television cooking shows, Careme walked readers principles和systematic定位到文 through common kitchen tasks, instructing them to “try this for 章K)段画线处。 yourself, at home\" as famous American Chef Julia Child might do, many years later. 详解定位句提到,卡莱姆所写的烹饪指南首次将很多烹饪的基本原理系统化,并且书中还配有插图和每 步的操作指南。题干中的fundamental cookingprinciples和ina systematicway分别是对原文中basic principlesof cooking和systematized的同义转述,故答案为K)。"
+        },
+        {
+          "number": 45,
+          "stem": "Carême's contribution to French cooking was revolutionary.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Careme's contribution to French B)His name was Marie-Antoine Careme, and hehad appeared, cooking was revolutionary. 译文卡莱姆对于法国烹饪做出了 革命性的贡献。 定位由题干中的revolutionary 定位到文章B)段画线处。 one day, almost out of nowhere. But in his short lifetime. which ended exactly 184 years ago today, he would forever revolutionizeFrenchgourmetfood(美食),writebest- selling cook books and think up magical dishes for royals and other important people. 详解,定位句提到,卡莱姆在他短暂的一生中,彻底地变革了法国美食。题干中的Frenchcooking和 revolutionary分别对应原文中的Frenchgourmetfood和revolutionize,故答案为B)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2018-12-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Roughly the size of a soda can, sitting on a bookshelf, a relatively harmless gadget may be turning friends away from your home. The elephant in your living room is your Internet-connected security camera, a device people are increasingly using for peace of mind in their homes. But few stop to think about the effect these devices may have on house guests. Should you tell your friends, for instance, that they're being recorded while you all watch the big game together? “It's certainly new territory, especially as home security cameras become easier to install,” says Lizzie Post, president of the Emily Post Institute, America's foremost manners advisors. “I think it will be very interesting to see what etiquette (礼仪) emerges in terms of whether you tell people you have a camera or not, and whether guests have a right to ask that it be turned off, if it's not a security issue.” Post wants to make clear that she's not talking about legal rights, but rather personal preferenc. She also wants to explain that there are no right or wrong answers regarding manners on this front yet, because the technology is just now becoming mainstream. Besides, the Emily Post Institute doesn't dictate manners. When it comes to security cameras, Post says it's a host's responsibility to make sure guests feel comfortable within their home. “I'm always a fan of being open and honest.” For instance, if the host casually acknowledges that there is a camera in the room by telling a story about it, that may be enough to provide an opening for a guest to say if they are uncomfortable. However, if a contractor is working in your home, you don't need to tell them that there are cameras watching. Then again, the air of accountability that the camera generates can also work in contractors' favor. “If anything does go wrong while they're in the house, they don't want to be blamed for it,” she says. “In fact, the camera could be the thing that proves that they didn't steal the $20, or knock the vase off the table.”"
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "For what reason may your friends feel reluctant to visit your home?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The security camera installed may intrude into their privacy."
+            },
+            {
+              "key": "B",
+              "text": "They don’t want their photos to be circulated on the Internet."
+            },
+            {
+              "key": "C",
+              "text": "The security camera may turn out to be harmful to their health."
+            },
+            {
+              "key": "D",
+              "text": "They may not be willing to interact with your family members."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。定位由题干中的visit your home定位到首段第一句:Roughly the size ofa soda can,stting on a bookshelf, a relatively harmless gadget may be tuming friends away from your home. 详解推理判断题。文章开篇第一句指出,只是一个易拉罐大小、放在书架上且相对没什么害处的 小玩意却可能会让朋友对你家敬而远之。接着第二句指出,这个设备就是安装在客厅里的联网安全摄 像头。由此推断,朋友不愿来家里做客是因为安装的安全摄像头会侵犯他们的隐私,故答案为A)。 点睛B)“他们不希望自己的照片在网上流传”,原文并未提及相关信息,故排除;C)“安全摄像头 可能被证明会对他们的健康有害”,首段第一句提到relativelyharmless“相对没什么害处”,故排除; D)“他们可能不愿意和你的家人交流”,原文并未提及,故排除。"
+        },
+        {
+          "number": 47,
+          "stem": "What does Lizzie Post say is new territory?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The effect of manners advice on the public."
+            },
+            {
+              "key": "B",
+              "text": "Cost of applying new technologies at home."
+            },
+            {
+              "key": "C",
+              "text": "The increasing use of home security devices."
+            },
+            {
+              "key": "D",
+              "text": "Etiquette around home security cameras."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位由题千中的newterritory定位到第二段:“It'scertainlynewterritory,especiallyashome security cameras become easier to install,\" says Lizzie Post... 详解事实细节题。文章第二段第一句提到,利兹·波斯特表示:“这当然是一个新领域,尤其是现 在安装家庭安全摄像头已经不是什么难事了。”接着下文指出,就是否告诉别人你家安装摄像头了以及 客人是否有权要求关掉摄像头方面而言,看会出现什么礼仪问题将会是一件非常有趣的事。由此可 知,第一句中的新领域是指有关于家中安装摄像头涉及的礼仪问题,故答案为D)。 点睛》A)“礼仪建议对公众的影响”,原文并未提及,故排除;B)“在家应用新技术的成本”,本段第 一句指出现在安装家庭安全摄像头已经不是什么难事了,但并未提及有关安装成本的问题,故排除; C)\"家庭安全设备的使用越来越乡”,本选项有很大的迷感性;首先,第一段指出,越来越多的人在家中 安装联网安全接像头,但安全接像头不等于家庭安全设备;其次,波斯特所谈论的话题并不是安全摄像 头的应用范围的问题,而是其中涉及的礼仪问题,故排除该项。"
+        },
+        {
+          "number": 48,
+          "stem": "What is Lizzie Post mainly discussing with regard to the use of home security cameras?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Legal rights."
+            },
+            {
+              "key": "B",
+              "text": "Moral issues"
+            },
+            {
+              "key": "C",
+              "text": "Likes and dislikes of individuals."
+            },
+            {
+              "key": "D",
+              "text": "The possible impact on manners."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定由干中 Lzie st theeohesceuryames定位到第三段第一句:Post mkethat sh'snttking auhbth 详解事实细节题。文章第三段第一旬指出,波斯待想澄清的是,她讨论的不是法律权利,而是个人 喜好问题。C)中的kesadislikesof individuals对应定位句中的sonal peeences故答案 为C)。 点)A)”法律权利”,定位句明确指出波斯特讨论的不是法律权利.故排除;B)\"道德问题”,本项 是对该段第二句\"关于这方面的礼仪,目前还没有对错之分\"的错误理解,且本文并未提及道德问题,故 排除;D)“对礼仪的可能影响”,根据定位段可知,这并非波斯特主要讨论的间题,故排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What is a host’s responsibility regarding security cameras, according to Lizzie Post?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Making their guests feel at ease."
+            },
+            {
+              "key": "B",
+              "text": "Indicating where they are."
+            },
+            {
+              "key": "C",
+              "text": "Turning them off in time."
+            },
+            {
+              "key": "D",
+              "text": "Ensuring their guests’ privacy."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。定位由题平中的ahosis reponsblly 定位到第四段第一句: Whenitcomes to securty cameras, Post says it'sa hostsresponsility to make sure guests feel comfortable within their home. 详解)事实细节题。第四段第一句提到,说到安全摄像头,波斯特说,主人有义务保证客人在家做 客时感到舒适。 A)中的 making their guests feel at ease 对应定位句中的 make sure guests feel comfortable,故答案为A)。 点睛B)“说明安全摄像头的位置”,本段第三句指出主人要是能讲述一件有关于家里摄像头的事 辈儿,漫不经心地承认家里有摄像头,这就足以让客人有机会说自己是否觉得不舒服了,而并非要告诉客 人摄像头的位置,本选项与原文表述不一致,故排除;C)“及时关闭安全摄像头”,本选项为过度推断, 本段并未指出波斯特认为主人应及时关闭摄像头,故排除;D)“确保客人的隐私”,本选项与原文表述 不一致,故排除。"
+        },
+        {
+          "number": 50,
+          "stem": "In what way can the home security camera benefit visitors to your home?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It can satisfy their curiosity."
+            },
+            {
+              "key": "B",
+              "text": "It can prove their innocence."
+            },
+            {
+              "key": "C",
+              "text": "It can help them learn new technology."
+            },
+            {
+              "key": "D",
+              "text": "It can make their visit more enjoyable."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位由题干中的benefit visitors 定位到第五段最后三句:Then again,the air of accountability that the camera generates can also work in contractors' favor.“If anything does go wrong while they're in the house, they don't want to be blamed for it,\" she says. \"In fact, the camera could be the thing that proves that they didn't steal the $ 20, or kock the vase off the table.\" 详解)推理判断题。定位句指出,摄像头所创造的负责任的氛围对来到家里的承包商有利。波斯特 说:“比如,他们在家里工作时,家里确实出了什么问题,他们也不想因此受到指责。”她还提到:“事实 上,摄像头可以证明那20美元不是他们偷的,桌上的花瓶也不是他们打碎的。”由此可知,家庭安全摄 像头可证明访客的清白,故答案为B)。 点睛晴)A)“它可满足他们的好奇心”、C)“它可以帮助他们学习新技术”和D)“它可以使他们的拜 访更愉快”,文中均未提及,故排除。 1"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2018-12-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "PepsiCo is to spend billions of dollars to develop drinks and snacks and reformulate existing ones with lower sugar, salt and fat, as consumers demand healthier options and regulatory pressure intensifies amid an obesity epidemic (流行病). The maker of Mountain Dew and Gatorade has been one of the earlier movers in the industry to offer products with reduced levels of unhealthy ingredients—PepsiCo claims a packet of its chips now contains less salt than a slice of white bread. However, its new 10-year plan makes clear it believes it still has a long way to go. Shifting eating habits, including a sharp drop in consumption of sparkling drinks, have forced radical change on the industry. But those shifts have yet to be reflected in record obesity levels, which stand at 36.5% overall in the US. Indra Nooyi, PepsiCo chairman, said the plan to make its products healthier was important for the company's growth. But on the subject of obesity, she pointed out that consumers’ lifestyles have changed significantly, with many people being more sedentary (久坐不动的) not least because more time is spent in front of computers. She said PepsiCo's contribution was to produce healthier snacks that still tasted good. “Society has to change its habits,” she added. “We can't do much to alter sedentary lifestyles, but we can provide consumers with great-tasting products, low in salt, sugar and fat. In the past we had to have a taste trade-off. But we're breaking that trade-off.” PepsiCo's plan for its foods and drinks is based on guidelines from the World Health Organisation, which last week backed using taxes on sparkling drinks to reduce sugar consumption. Initiatives also include efforts to reduce its environmental impact, water consumption and materials used in packaging by 2025. PepsiCo did not say exactly how much it planned to invest to reach its goals. However, Dr Mehmood Khan, chief scientific officer, said the company had doubled research and development spending in the past five years and was “committed to sustaining investment”, adding that companies cannot cost-cut their way to increasing sales. PepsiCo's research and development budget in 2015 was $754 million."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "Why is PepsiCo making a policy change?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To win support from the federal government."
+            },
+            {
+              "key": "B",
+              "text": "To be more competitive in the global market."
+            },
+            {
+              "key": "C",
+              "text": "To satisfy the growing needs for healthy foods."
+            },
+            {
+              "key": "D",
+              "text": "To invest more wisely in the soft drink industry."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定位由题干中的 PepsiCo 和 a policy change 定位到首段:PepsiCo is to spend bllions of dollars to develop drinks and snacks and reformulate existing ones with lower sugar, salt and fat, as consumers demand healthier options and regulatory pressure intensifies amid an obesity epidemic (流行病). 详解)事实细节题。文章第一段指出,随着消费者需要更健康的选择,监管压力增强,加之肥胖病的 流行,这些都促使百事可乐公司花费数十亿美元研发饮料和零食,并且对当前的产品进行了调整,采用 了低糖、低盐和低脂肪的配方。由此可知,百事可乐公司改变策略是因为消费者对于健康食物的需求 以及监管部门的压力,故答案为C)。 点睛)A)“赢得联邦政府的支持”,原文并未提及相关信息,只是在定位段中指出监管部门的压力 与日俱增,故排除;B)“在全球市场上更具竞争力\"和D)“更明智地投资软饮料行业”,文章并未提及百 事可乐公司改变策略是出于使自已更具竞争力以及投资软饮料的相关信息,这两项均属于无中生有, 故排除。"
+        },
+        {
+          "number": 52,
+          "stem": "What does PepsiCo think it will have to do in the future?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Invest more to develop new snacks."
+            },
+            {
+              "key": "B",
+              "text": "Reduce levels of obesity in the US."
+            },
+            {
+              "key": "C",
+              "text": "Change consumers’ eating habits."
+            },
+            {
+              "key": "D",
+              "text": "Keep on improving its products."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位由题干中的in the future定位到第二段:The maker of MountainDew...However,its new 10-year plan makes clear it believes it still has a long way to go. 详解事实细节题。文章第二段提到,百事可乐公司声称,现在一包薯条的含盐量比一片白面包还 低。然而,该公司新发布的10年计划表明,还有一段漫长的路要走。由此可知,这条路指的是改进其 产品使之变得更健康,故答案为D)“继续改进其产品”。 点睛A)“多投资开发新的零食”,根据原文第一段可知,百事可乐公司投资开发的是健康的零食, 强调的是“健康”,而不仅仅是“新”,故排除。B)“降低美国的肥胖水平”,第三段第二句指出这些转变 并不足以反映在美国创纪录的肥胖率里,并未提及百事可乐公司的计划是要降低美国的肥胖水平,故 排除;C)“改变消费者的饮食习惯”,文章并未提及百事可乐公司的计划是要改变人们的饮食习惯,故 排除。"
+        },
+        {
+          "number": 53,
+          "stem": "Why does PepsiCo plan to alter its products, according to Indra Nooyi?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To ensure the company’s future development."
+            },
+            {
+              "key": "B",
+              "text": "To adapt to its customers’ changed taste."
+            },
+            {
+              "key": "C",
+              "text": "To help improve its consumers’ lifestyles."
+            },
+            {
+              "key": "D",
+              "text": "To break the trade-off in its product design."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。定位由题干中的IndraNooyi定位到第四段第一句:IndraNooyi,PepsiCochairman,saidthe plan to make its products healthier was important for the company's growth. 详解事实细节题。文章第四段第一句指出,百事可乐公司董事长英德拉·努伊表示,使其产品更 健康的计划对公司的发展很重要。由此可知,百事可乐公司改变产品,对于公司未来的发展非常重要。 选项A)中的ensurethecompany'sfuturedevelopment对应定位句中的wasimportantforthe company'sgrowth,故为答案。 点睛B)“为了适应客户口味的变化”,并非该公司的最终目标,故排除;C)“为了帮助改善消费者 的生活方式”,是因为消费者的生活方式发生了改变,百事可乐公司才调整其产品,因果关系倒置,故排 除;D)“为了打破产品设计的平衡”,第五段最后两句指出,百事可乐公司之前必须牺牲口味才能做到 平衡,但现在正在打破这种平衡,该项是针对这两句话设计的于扰项,故排除。"
+        },
+        {
+          "number": 54,
+          "stem": "What does Indra Nooyi say about the obesity epidemic?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is mainly caused by overconsumption of snacks."
+            },
+            {
+              "key": "B",
+              "text": "It results from high sugar and salt consumption."
+            },
+            {
+              "key": "C",
+              "text": "It is attributable to people’s changed lifestyles."
+            },
+            {
+              "key": "D",
+              "text": "It has a lot to do with longer working hours."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定位由题干中的Indra Nooyi和obesity epidemic定位到第四段第二句:But onthe subject of obesity, she pointed out that consumers' lifestyles have changed significantly, with many people being more sedentary(久坐不动的)not least because more time is spent in front of computers. 详解事实细节题。第四段第二句提到,在肥胖这个问题上,英德拉·努伊指出消费者的生活方式 发生了重大变化,现在许多人更加久坐不动,尤其是因为他们要花更多的时间在电脑前。由此可知,英 德拉·努伊认为美国的肥胖问题主要是因为人们的生活方式发生了改变,故答案为C)。 点睛A)“这主要是由于零食的过度消费造成的\"和B)“它是高糖、高盐摄人的结果”,这两个选项 并不是英德拉·努伊的观点,故排除;D)“这与较长的工作时间有很大关系”,定位句指的是人们久坐 不动等生活方式的改变造成了美国的肥胖问题,而非人们工作时间较长,本选项与原文表述不一致,故 排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What has PepsiCo been doing to achieve its objective?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Studying WHO’s guidelines."
+            },
+            {
+              "key": "B",
+              "text": "Increasing its research funding."
+            },
+            {
+              "key": "C",
+              "text": "Expanding its market overseas."
+            },
+            {
+              "key": "D",
+              "text": "Cutting its production costs."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位)由题干中的achieve its objective定位到最后一段第二句:However,DrMehmood Khan, chief scientific officer, said the company had doubled research and development spending in the past five years and was“committed to sustaining investment\".. 详解语义理解题。定位句指出,为了实现十年计划的目标,百事可乐公司首席科学家马哈穆德·康恩 博士表示,在过去5年中,百事可乐公司的研发支出增加了一倍,并称该公司将“继续保持投资”,由此 可知,为了实现十年计划的目标,百事可乐公司一直在增加研发经费,故答案为B)。 点睛A)“研究世界卫生组织的指导方针”,第六段提到百事可乐公司的食品和伙饮料计划是基于世 界卫生组织的指导方针而制订的,而非该公司为了实现十年计划,一直在研究其指导方针,故排除; C)“拓展海外市场”,本文并未提及,故排除;D“降低生产成本\",由定位句可知,马哈穆德·康恩博士 补充称,企业无法通过削减成本来增加销售量,本选项表述与之矛盾,故排除。"
+        }
+      ]
+    }
+  ]
+}

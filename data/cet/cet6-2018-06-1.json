@@ -1,0 +1,1606 @@
+{
+  "id": "cet6-2018-06-1",
+  "level": 6,
+  "year": 2018,
+  "month": 6,
+  "set": 1,
+  "title": "2018 年 6 月六级 · 第 1 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.06/%E7%9C%9F%E9%A2%98Word/2018.06%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97.doc",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2018%E5%B9%B46%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%B8%80%EF%BC%89.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2018-06-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Scientists scanning and mapping the Giza pyramids say they’ve discovered that Great Pyramid of Giza is not exactly even. But really not by much. This pyramid is the oldest of the world’s Seven Wonders. The pyramid’s exact size has [[26]] experts for centuries, as the “more than 21 acres of hard, white casing stones “that originally covered it were [[27]] long ago. Reporting in the most recent issue of the newsletter “AERAGRAM,” which [[28]] the work or the Ancient Egypt Research Associates, engineer Glen Dash says his team used a new measuring approach that involved finding any surviving [[29]] , of the casing in order to determine where the original edge was. They found the east side of the pyramid to be a [[30]] of 5.5 inches shorter than the west side. The question that most [[31]] him, however, isn’t how the Egyptians who designed and built the pyramid got it wrong 4,500 years age, but how they got it so close to [[32]] . “We can only speculate as to how the Egyptians could have laid out these lines with such [[33]] using only the tools they had,” Dash writes. He says his [[34]] is that the Egyptians laid out their design on a grid, noting that the great pyramid is oriented only [[35]] away from the cardinal directions(its north-south axis runs 3 minutes 54 seconds west of due north, while its east-west axis runs 3 minutes 51 seconds north of due east)—an amount that’s “tiny, but similar,” archeologist Atlas Obscura points out."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "chronicles"
+        },
+        {
+          "key": "B",
+          "text": "complete"
+        },
+        {
+          "key": "C",
+          "text": "established"
+        },
+        {
+          "key": "D",
+          "text": "fascinates"
+        },
+        {
+          "key": "E",
+          "text": "hypothesis"
+        },
+        {
+          "key": "F",
+          "text": "maximum"
+        },
+        {
+          "key": "G",
+          "text": "momentum"
+        },
+        {
+          "key": "H",
+          "text": "mysteriously"
+        },
+        {
+          "key": "I",
+          "text": "perfect"
+        },
+        {
+          "key": "J",
+          "text": "precision"
+        },
+        {
+          "key": "K",
+          "text": "puzzled"
+        },
+        {
+          "key": "L",
+          "text": "remnants"
+        },
+        {
+          "key": "M",
+          "text": "removed"
+        },
+        {
+          "key": "N",
+          "text": "revelations"
+        },
+        {
+          "key": "O",
+          "text": "slightly"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "chronicles"
+            },
+            {
+              "key": "B",
+              "text": "complete"
+            },
+            {
+              "key": "C",
+              "text": "established"
+            },
+            {
+              "key": "D",
+              "text": "fascinates"
+            },
+            {
+              "key": "E",
+              "text": "hypothesis"
+            },
+            {
+              "key": "F",
+              "text": "maximum"
+            },
+            {
+              "key": "G",
+              "text": "momentum"
+            },
+            {
+              "key": "H",
+              "text": "mysteriously"
+            },
+            {
+              "key": "I",
+              "text": "perfect"
+            },
+            {
+              "key": "J",
+              "text": "precision"
+            },
+            {
+              "key": "K",
+              "text": "puzzled"
+            },
+            {
+              "key": "L",
+              "text": "remnants"
+            },
+            {
+              "key": "M",
+              "text": "removed"
+            },
+            {
+              "key": "N",
+              "text": "revelations"
+            },
+            {
+              "key": "O",
+              "text": "slightly"
+            }
+          ],
+          "answer": "K",
+          "explanation": "答案:K) puzzled 使迷惑,使困惑 详解:空格所在句是现在完成时,空格位于助动词has 之后,宾语experts 之前,因此应填及物动词的过去分词 形式。此处意为“数百年来,这座金字塔的实际尺寸一直_______学者们”。上文提到,这座金字塔是世界七大奇 迹中最古老的,据此推断学者们以前不清楚这座金字塔的实际尺寸,故此处应填入含有“困扰,不清楚”等意思的 词,故答案为K) puzzled 使迷惑,使困惑。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "chronicles"
+            },
+            {
+              "key": "B",
+              "text": "complete"
+            },
+            {
+              "key": "C",
+              "text": "established"
+            },
+            {
+              "key": "D",
+              "text": "fascinates"
+            },
+            {
+              "key": "E",
+              "text": "hypothesis"
+            },
+            {
+              "key": "F",
+              "text": "maximum"
+            },
+            {
+              "key": "G",
+              "text": "momentum"
+            },
+            {
+              "key": "H",
+              "text": "mysteriously"
+            },
+            {
+              "key": "I",
+              "text": "perfect"
+            },
+            {
+              "key": "J",
+              "text": "precision"
+            },
+            {
+              "key": "K",
+              "text": "puzzled"
+            },
+            {
+              "key": "L",
+              "text": "remnants"
+            },
+            {
+              "key": "M",
+              "text": "removed"
+            },
+            {
+              "key": "N",
+              "text": "revelations"
+            },
+            {
+              "key": "O",
+              "text": "slightly"
+            }
+          ],
+          "answer": "M",
+          "explanation": "答案:M)removed 移走,去除 详解:分析句子结构可知,空格位于as 引导的原因状语从句中,作谓语,在系动词were 之后,由此判断应填入 动词的过去分词形式,构成被动语态,备选动词中符合要求的有established 和removed。又因为从句的主语是stones “石头”,而石头不能be established“被建立”,故答案为M)removed 移走,去除。此处意为“‘超过21 英亩 的坚硬白色围石’原本覆盖在这座金字塔上,但很久以前被移走了”。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "chronicles"
+            },
+            {
+              "key": "B",
+              "text": "complete"
+            },
+            {
+              "key": "C",
+              "text": "established"
+            },
+            {
+              "key": "D",
+              "text": "fascinates"
+            },
+            {
+              "key": "E",
+              "text": "hypothesis"
+            },
+            {
+              "key": "F",
+              "text": "maximum"
+            },
+            {
+              "key": "G",
+              "text": "momentum"
+            },
+            {
+              "key": "H",
+              "text": "mysteriously"
+            },
+            {
+              "key": "I",
+              "text": "perfect"
+            },
+            {
+              "key": "J",
+              "text": "precision"
+            },
+            {
+              "key": "K",
+              "text": "puzzled"
+            },
+            {
+              "key": "L",
+              "text": "remnants"
+            },
+            {
+              "key": "M",
+              "text": "removed"
+            },
+            {
+              "key": "N",
+              "text": "revelations"
+            },
+            {
+              "key": "O",
+              "text": "slightly"
+            }
+          ],
+          "answer": "A",
+          "explanation": "答案:A)chronicles 记录,将......载入编年史中 详解:空格位于which 引导的定语从句中,作谓语,宾语是the work,因此应填入及物动词,本句意为“AERAGRAM 是一份用来__________古埃及研究协会所做工作的简报,在其最新一期的报道中,工程师......。”根据句意推断, 简报应该是“记录工作”,故答案为A)chronicles 记录,将......载入编年史中。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "chronicles"
+            },
+            {
+              "key": "B",
+              "text": "complete"
+            },
+            {
+              "key": "C",
+              "text": "established"
+            },
+            {
+              "key": "D",
+              "text": "fascinates"
+            },
+            {
+              "key": "E",
+              "text": "hypothesis"
+            },
+            {
+              "key": "F",
+              "text": "maximum"
+            },
+            {
+              "key": "G",
+              "text": "momentum"
+            },
+            {
+              "key": "H",
+              "text": "mysteriously"
+            },
+            {
+              "key": "I",
+              "text": "perfect"
+            },
+            {
+              "key": "J",
+              "text": "precision"
+            },
+            {
+              "key": "K",
+              "text": "puzzled"
+            },
+            {
+              "key": "L",
+              "text": "remnants"
+            },
+            {
+              "key": "M",
+              "text": "removed"
+            },
+            {
+              "key": "N",
+              "text": "revelations"
+            },
+            {
+              "key": "O",
+              "text": "slightly"
+            }
+          ],
+          "answer": "L",
+          "explanation": "答案:L)remnants 残余部分,残余物 详解:空格位于起修饰作用的现在分词surviving 之后,介词of 之前,因此应填入名词。此处意为“寻找任何幸 存下来的外壳_________”。根据上文可知,原本覆盖在金字塔上的白色围石很久以前就被移走了,因此幸存下来 的外壳应该是残余物,故答案为L)remnants 残余部分,残余物。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "chronicles"
+            },
+            {
+              "key": "B",
+              "text": "complete"
+            },
+            {
+              "key": "C",
+              "text": "established"
+            },
+            {
+              "key": "D",
+              "text": "fascinates"
+            },
+            {
+              "key": "E",
+              "text": "hypothesis"
+            },
+            {
+              "key": "F",
+              "text": "maximum"
+            },
+            {
+              "key": "G",
+              "text": "momentum"
+            },
+            {
+              "key": "H",
+              "text": "mysteriously"
+            },
+            {
+              "key": "I",
+              "text": "perfect"
+            },
+            {
+              "key": "J",
+              "text": "precision"
+            },
+            {
+              "key": "K",
+              "text": "puzzled"
+            },
+            {
+              "key": "L",
+              "text": "remnants"
+            },
+            {
+              "key": "M",
+              "text": "removed"
+            },
+            {
+              "key": "N",
+              "text": "revelations"
+            },
+            {
+              "key": "O",
+              "text": "slightly"
+            }
+          ],
+          "answer": "F",
+          "explanation": "答案:F)maximum 最大值,最大量 详解:空格位于不定冠词a 之后,介词of 之前,因此应填入可数名词的单数形式。本句意为“他们发现金字塔 东侧的长度________比西侧的长度短5.5 英寸。”根据上文可知,金字塔并不完全对称,但实际相差也不是很多, 因此推断此处表示最多相差5.5 英寸,故答案为F)maximum 最大值,最大量。a maximum of 为固定搭配,表示“最 多,最大”。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "chronicles"
+            },
+            {
+              "key": "B",
+              "text": "complete"
+            },
+            {
+              "key": "C",
+              "text": "established"
+            },
+            {
+              "key": "D",
+              "text": "fascinates"
+            },
+            {
+              "key": "E",
+              "text": "hypothesis"
+            },
+            {
+              "key": "F",
+              "text": "maximum"
+            },
+            {
+              "key": "G",
+              "text": "momentum"
+            },
+            {
+              "key": "H",
+              "text": "mysteriously"
+            },
+            {
+              "key": "I",
+              "text": "perfect"
+            },
+            {
+              "key": "J",
+              "text": "precision"
+            },
+            {
+              "key": "K",
+              "text": "puzzled"
+            },
+            {
+              "key": "L",
+              "text": "remnants"
+            },
+            {
+              "key": "M",
+              "text": "removed"
+            },
+            {
+              "key": "N",
+              "text": "revelations"
+            },
+            {
+              "key": "O",
+              "text": "slightly"
+            }
+          ],
+          "answer": "D",
+          "explanation": "答案:D) fascinates 深深吸引,迷住 详解:空格位于what 引导的定语从句中,作谓语,因此应填入动词。此处意为“最让他______的问题不是......。” 备选动词中符合句意的只有D) fascinates 深深吸引,迷住,故D 为答案。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "chronicles"
+            },
+            {
+              "key": "B",
+              "text": "complete"
+            },
+            {
+              "key": "C",
+              "text": "established"
+            },
+            {
+              "key": "D",
+              "text": "fascinates"
+            },
+            {
+              "key": "E",
+              "text": "hypothesis"
+            },
+            {
+              "key": "F",
+              "text": "maximum"
+            },
+            {
+              "key": "G",
+              "text": "momentum"
+            },
+            {
+              "key": "H",
+              "text": "mysteriously"
+            },
+            {
+              "key": "I",
+              "text": "perfect"
+            },
+            {
+              "key": "J",
+              "text": "precision"
+            },
+            {
+              "key": "K",
+              "text": "puzzled"
+            },
+            {
+              "key": "L",
+              "text": "remnants"
+            },
+            {
+              "key": "M",
+              "text": "removed"
+            },
+            {
+              "key": "N",
+              "text": "revelations"
+            },
+            {
+              "key": "O",
+              "text": "slightly"
+            }
+          ],
+          "answer": "I",
+          "explanation": "答案:I)perfect 完美的 详解:分析句子结构可知,空格位于got it so close to 之后,根据but 前的got it wrong 可以判断,空格处所填词 与wrong 一词对应,也应该填入形容词。前文提到,最吸引他的问题不是设计和建造金字塔的埃及人在4,500 年前 是如何出错的,紧接着用but 进行转折,由此可知此处表示与“出错”相反的意思,备选形容词中只有I)perfect 完 美的符合句意,故为答案,close to perfect 为固定搭配,意为“近乎完美的”。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "chronicles"
+            },
+            {
+              "key": "B",
+              "text": "complete"
+            },
+            {
+              "key": "C",
+              "text": "established"
+            },
+            {
+              "key": "D",
+              "text": "fascinates"
+            },
+            {
+              "key": "E",
+              "text": "hypothesis"
+            },
+            {
+              "key": "F",
+              "text": "maximum"
+            },
+            {
+              "key": "G",
+              "text": "momentum"
+            },
+            {
+              "key": "H",
+              "text": "mysteriously"
+            },
+            {
+              "key": "I",
+              "text": "perfect"
+            },
+            {
+              "key": "J",
+              "text": "precision"
+            },
+            {
+              "key": "K",
+              "text": "puzzled"
+            },
+            {
+              "key": "L",
+              "text": "remnants"
+            },
+            {
+              "key": "M",
+              "text": "removed"
+            },
+            {
+              "key": "N",
+              "text": "revelations"
+            },
+            {
+              "key": "O",
+              "text": "slightly"
+            }
+          ],
+          "answer": "J",
+          "explanation": "答案:J) precision 精确性,精度 详解:空格位于限定词such 之后,因此应填入不可数名词或名词复数。此处意为“埃及人在仅使用当时的工具 的情况下进行铺线是如何做到如此_________的”。根据上文中提到的金字塔不完全对称,但实际相差不多,以及 东侧的长度最多比西侧的长度短5.5 英寸可知,此处在再次强调金字塔的“精准性”,故答案为J) precision 精确性, 精度。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "chronicles"
+            },
+            {
+              "key": "B",
+              "text": "complete"
+            },
+            {
+              "key": "C",
+              "text": "established"
+            },
+            {
+              "key": "D",
+              "text": "fascinates"
+            },
+            {
+              "key": "E",
+              "text": "hypothesis"
+            },
+            {
+              "key": "F",
+              "text": "maximum"
+            },
+            {
+              "key": "G",
+              "text": "momentum"
+            },
+            {
+              "key": "H",
+              "text": "mysteriously"
+            },
+            {
+              "key": "I",
+              "text": "perfect"
+            },
+            {
+              "key": "J",
+              "text": "precision"
+            },
+            {
+              "key": "K",
+              "text": "puzzled"
+            },
+            {
+              "key": "L",
+              "text": "remnants"
+            },
+            {
+              "key": "M",
+              "text": "removed"
+            },
+            {
+              "key": "N",
+              "text": "revelations"
+            },
+            {
+              "key": "O",
+              "text": "slightly"
+            }
+          ],
+          "answer": "E",
+          "explanation": "答案:E)hypothesis 假设 详解:空格位于形容词性物主代词his 之后,从句谓语动词is 之前,故应填入单数名词。上文提到,达什说人们 只能猜测埃及人是如何做到精准铺线的,由speculate“猜测,推测”可知,此处提到的埃及人把设计图画在坐标网 格上也是推测,是达什的假设,故答案为E)hypothesis 假设。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "chronicles"
+            },
+            {
+              "key": "B",
+              "text": "complete"
+            },
+            {
+              "key": "C",
+              "text": "established"
+            },
+            {
+              "key": "D",
+              "text": "fascinates"
+            },
+            {
+              "key": "E",
+              "text": "hypothesis"
+            },
+            {
+              "key": "F",
+              "text": "maximum"
+            },
+            {
+              "key": "G",
+              "text": "momentum"
+            },
+            {
+              "key": "H",
+              "text": "mysteriously"
+            },
+            {
+              "key": "I",
+              "text": "perfect"
+            },
+            {
+              "key": "J",
+              "text": "precision"
+            },
+            {
+              "key": "K",
+              "text": "puzzled"
+            },
+            {
+              "key": "L",
+              "text": "remnants"
+            },
+            {
+              "key": "M",
+              "text": "removed"
+            },
+            {
+              "key": "N",
+              "text": "revelations"
+            },
+            {
+              "key": "O",
+              "text": "slightly"
+            }
+          ],
+          "answer": "O",
+          "explanation": "答案:O)slightly 略微,稍微 详解:空格位于谓语动词is oriented 之后,应填入副词。此处意为“大金字塔仅_______偏离主方向”。由下文 列举出的具体数据可知,大金字塔的南北轴线与正南北轴线之间的差异很小,大金字塔的东西轴线与正东西轴线之 间的差异也很小,故答案为O)slightly 略微,稍微。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2018-06-1-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Parents of teenagers often view their children‘s friends with something like suspicion. They worry that the adolescent peer group has the power to push its members into behavior that is foolish and even dangerous. Such wariness is well founded: statistics show, for example, that a teenage driver with a same-age passenger in the car is at higher risk of a fatal crash than an adolescent driving alone or with an adult.",
+        "B) In a 2005 study, psychologist Laurence Steinberg of Temple University and his co-author, psychologist Margo Gardner, then at Temple, divided 306 people into three age groups: young adolescents, with a mean age of 14; older adolescents, with a mean age of 19; and adults, aged 24 and older. Subjects played a computerized driving game in which the player must avoid crashing into a wall that materializes, without warning, on the roadway. Steinberg and Gardner randomly assigned some participants to play alone or with two same-age peers looking on.",
+        "C) Older adolescents scored about 50 percent higher on an index of risky driving when their peers were in the room—and the driving of early adolescents was fully twice as reckless when other young teens were around. In contrast, adults behaved in similar ways regardless of whether they were on their own or observed by others. “The presence of peers makes adolescents and youth, but not adults, more likely to take risks,” Steinberg and Gardner concluded.",
+        "D) Yet in the years following the publication of this study, Steinberg began to believe that this interpretation did not capture the whole picture. As he and other researchers examined the question of why teens were more apt to take risks in the company of other teenagers, they came to suspect that a crowd‘s influence need not always be negative. Now some experts are proposing that we should take advantage of the teen brain’s keen sensitivity to the presence of friends and leverage it to improve education.",
+        "E) In a 2011 study, Steinberg and his colleagues turned to functional MRI (磁共振) to investigate how the presence of peers affects the activity in the adolescent brain. They scanned the brains of 40 teens and adults who were playing a virtual driving game designed to test whether players would brake at a yellow light or speed on through the crossroad.",
+        "F) The brains of teenagers, but not adults, showed greater activity in two regions associated with rewards when they were being observed by same-age peers than when alone. In other words, rewards are more intense for teens when they are with peers, which motivates them to pursue higher-risk experiences that might bring a big payoff (such as the thrill of just making the light before it turns red). But Steinberg suspected this tendency could also have its advantages. In his latest experiment, published online in August, Steinberg and his colleagues used a computerized version of a card game called the Iowa Gambling Task to investigate how the presence of peers affects the way young people gather and apply information.",
+        "G) The results: Teens who played the Iowa Gambling Task under the eyes of fellow adolescents engaged in more exploratory behavior, learned faster from both positive and negative outcomes, and achieved better performance on the task than those who played in solitude. “What our study suggests is that teenagers learn more quickly and more effectively when their peers are present than when they‘re on their own,” Steinberg says. And this finding could have important implications for how we think about educating adolescents.",
+        "H) Matthew D. Lieberman, a social cognitive neuroscientist at the University of California, Los Angeles, and author of the 2013 book Social: Why Our Brains Are Wired to Connect, suspects that the human brain is especially adept at learning socially salient information. He points to a classic 2004 study in which psychologists at Dartmouth College and Harvard University used functional MRI to track brain activity in 17 young men as they listened to descriptions of people while concentrating on either socially relevant cues (for example, trying to form an impression of a person based on the description) or more socially neutral information (such as noting the order of details in the description).The descriptions were the same in each condition, but people could better remember these statements when given a social motivation.",
+        "I) The study also found that when subjects thought about and later recalled descriptions in terms of their informational content, regions associated with factual memory, such as the medial temporal lobe, became active. But thinking about or remembering descriptions in terms of their social meaning activated the dorsomedial prefrontal cortex—part of the brain‘s social network—even as traditional memory regions registered low levels of activity. More recently, as he reported in a 2012 review, Lieberman has discovered that this region may be part of a distinct network involved in socially motivated learning and memory. Such findings, he says, suggest that “this network can be called on to process and store the kind of information taught in school—potentially giving students access to a range of untapped mental powers.”",
+        "J) If humans are generally geared to recall details about one another, this pattern is probably even more powerful among teenagers who are very attentive to social details: who is in, who is out, who likes whom, who is mad at whom. Their penchant for social drama is not—or not only—a way of distracting themselves from their schoolwork or of driving adults crazy. It is actually a neurological(神经的) sensitivity, initiated by hormonal changes. Evolutionarily speaking, people in this age group are at a stage in which they can prepare to find a mate and start their own family while separating from parents and striking out on their own. To do this successfully, their brain prompts them to think and even obsess about others.",
+        "K) Yet our schools focus primarily on students as individual entities. What would happen if educators instead took advantage of the fact that teens are powerfully compelled to think in social terms? In Social, Lieberman lays out a number of ways to do so. History and English could be presented through the lens of the psychological drives of the people involved. One could therefore present Napoleon in terms of his desire to impress or Churchill in terms of his lonely melancholy. Less inherently interpersonal subjects, such as math, could acquire a social aspect through team problem solving and peer tutoring. Research shows that when we absorb information in order to teach it to someone else, we learn it more accurately and deeply, perhaps in part because we are engaging our social cognition.",
+        "L) And although anxious parents may not welcome the notion, educators could turn adolescent recklessness to academic ends. “Risk taking in an educational context is a vital skill that enables progress and creativity,” wrote Sarah-Jayne Blakemore, a cognitive neuroscientist at University College London, in a review published last year. Yet, she noted, many young people are especially risk averse at school—afraid that one low test score or mediocre grade could cost them a spot at a selective university. We should assure such students that risk, and even peer pressure, can be a good thing—as long as it happens in the classroom and not the car."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "It is thought probable that the human brain is particularly good at picking-up socially important information.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "H",
+          "explanation": "It is thought probable that the H. Matthew D. Lieberman, a social cognitive neuroscientist at the University of human brain is particularly good at California, Los Angeles, and author of the 2013 book Social: Why Our Brains Are picking-up socially important Wired to Connect,suspects that the human brain is especially adept at learning information. socially salient information. He points to a classic 2004 study in which 译文:人们认为人类的大脑可能特 psychologists at Dartmouth College and Harvard University used functional MRI to 别善于获取具有重要社会意义的信 track brain activity in 17 young men as they listened to descriptions of people while 息。 concentrating on either socially relevant cues (for example, trying to form an 定位:由题干关键词the human impression of a person based on the description ) or more socially neutral brain 和 socially important information (such as noting the order of details in the description ).The information 定位到H 段画线处。 descriptions were the same in each condition, but people could better remember these statements when given a social motivation. 详解:H 段第一句提到,马修·D.利伯曼怀疑人类的大脑在学习具有社会意义的信息方面特别熟练。题干中的is particularly good at 对应原文中的is especially skillful at; important 是对原文中significant 的同义转述,故答案为H。"
+        },
+        {
+          "number": 37,
+          "stem": "It can be concluded from experiment that the presence of peers increases risk-taking by adolescents and youth.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "C",
+          "explanation": "It can be concluded from experiment that the C. Older adolescents scored about 50 percent higher on an index of presence of peers increases risk-taking by risky driving when their peers were in the room—and the driving of adolescents and youth. early adolescents was fully twice as reckless when other young teens 译文:从实验中可以得出结论,同龄人的存在 were around. In contrast, adults behaved in similar ways regardless of 增加了青少年和年轻人的冒险行为。 whether they were on their own or observed by others. “The presence of 定位:由题干关键词the presence of peers、 peers makes adolescents and youth, but not adults, more likely to take increases risk-taking 和adolescents and youth 定 risks,” Steinberg and Gardner concluded. 位到C 段画线处。 详解:C 段第一句列举了年龄较大的青少年和年龄较小的青少年这两组实验对象的实验结果:当有同龄人在场时, 年龄较大的青少年在危险驾驶指数上得分要高出大约50%;年龄较小的青少年的鲁莽程度则翻倍。本段最后一句中, 斯坦伯格和加德纳对实验结果进行了总结,即同龄人的存在使青少年和年轻人,而非成年人,更有可能冒险。题干 中的increases risk-taking 对应原文中的makes...more likely to take risks,故答案为C。"
+        },
+        {
+          "number": 38,
+          "stem": "Students should be told that risk-taking in the classroom can be something positive.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "L",
+          "explanation": "Students should be told that risk-taking in L. And although anxious parents may not welcome the notion, the classroom can be something positive. educators could turn adolescent recklessness to academic ends. “Risk 译文:应该告知学生,教室内的冒险可能 taking in an educational context is a vital skill that enables progress and 具有积极作用。 creativity,” wrote Sarah-Jayne Blakemore, a cognitive neuroscientist at 定位:由题干关键词risk-taking in the University College London, in a review published last year. Yet, she noted, classroom 和something positive 定位到L 段 many young people are especially risk averse at school—afraid that one 画线处。 low test score or We should assure such students that risk, and even peer pressure, can be a good thing—as long as it happens in the classroom and not the car.mediocre grade could cost them a spot at a selective university. 详解:L 段最后一句提到,我们应该向此类学生保证,冒险,甚至同龄人的压力都可能会成为一件好事——只要它 发生在教室里,而非汽车里。根据上下文可知,定位句中的it 指代risk;题干中的Students should be told 对应原文 中的We should assure such students;something positive 对应原文中的a good thing,故答案为L。"
+        },
+        {
+          "number": 39,
+          "stem": "The urge of finding a mate and getting married accounts for adolescents’ greater attention to social interactions.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "J",
+          "explanation": "The urge of finding a mate and J. If humans are generally geared to recall details about one another, this pattern is getting married accounts for probably even more powerful among teenagers who are very attentive to social adolescents’ greater attention to details: who is in, who is out, who likes whom, who is mad at whom. Their penchant social interactions. for social drama is not—or not only—a way of distracting themselves from their 译文:寻找伴侣和结婚的强烈愿望 schoolwork or of driving adults crazy. It is actually a neurological (神经的) 使得青少年更加关注社会交往。 sensitivity, initiated by hormonal changes. Evolutionarily speaking, people in this age 定位:由题干关键词finding a mate group are at a stage in which they can prepare to find a mate and start their own 和getting married 定位到J 画线 family while separating from parents and striking out on their own. To do this 处。 successfully, their brain prompts them to think and even obsess about others. 详解:J 段倒数第三句提到,它实际上是一种由荷尔蒙变化引发的神经敏感。由上文可知,定位句句首的It 指代上 一句的主语Their desire for social drama,而initiated by hormonal changes 则说明了青少年关注社会戏剧事件的原因。 紧接着,下一句具体说明了青少年的荷尔蒙变化;从进化的角度来说,这个年龄段的人正处于这样一个阶段,在该 阶段,他们可能准备寻找伴侣和组建自己的家庭,同时与父母分开并自谋生计。题干中的getting married 对应原文 中的start their own family; social interactions 对应原文中的social drama,故答案为J。"
+        },
+        {
+          "number": 40,
+          "stem": "According to Steinberg, the presence of peers increases the speed and effectiveness of teenagers’ leaning.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "G",
+          "explanation": "According to Steinberg, the presence of peers G. The results: Teens who played the Iowa Gambling Task under the increases the speed and effectiveness of teenagers’ eyes of fellow adolescents engaged in more exploratory behavior, leaning. learned faster from both positive and negative outcomes, and achieved 译文:斯坦伯格认为,同龄人在场提高了青少 better performance on the task than those who played in solitude. 年学习的速度和效率。 “What our study suggests is that teenagers learn more quickly and 定位:由题干关键词Steinberg、increases the more effectively when their peers are present than when they‘re on speed and effectiveness 以及teenagers’ leaning 定 their own,” Steinberg says. And this finding could have important 位到G 段画线处。 implications for how we think about educating adolescents. 详解:定位句提到,斯坦伯格表示:“我们的研究表明,青少年在同龄人在场时比他们独处时学习更快、更有效。” 题干中的the presence of peers 对应原文中的their peers are present;increases the speed and effectiveness 对应原文中的 more quickly and more effectively,故答案为G。"
+        },
+        {
+          "number": 41,
+          "stem": "Teenagers’ parents are often concerned about negative peer influence.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Teenagers’ parents are often concerned about A. Parents of teenagers often view their children‘s friends with negative peer influence. something like suspicion. They worry that the adolescent peer group 译文:青少年的父母常常担心同龄人的负面影 has the power to push its members into behavior that is foolish and 响。 even dangerous. Such wariness is well founded: statistics show, for 定位:由题干关键词Teenagers’ parents 和 example, that a teenage driver with a same-age passenger in the car is concerned about 定位到A 段画线处。 at higher risk of a fatal crash than an adolescent driving alone or with an adult. 详解:A 段第一句提到,青少年的父母经常用怀疑的眼光看待自己孩子的朋友。紧接着第二句具体说明父母的担心: 他们担心青少年同龄群体有能力促使其成员做出愚蠢甚至危险的行为。题干中的are ... concerned about 对应原文中 的worry;negative peer influence 是对原文中的the power to push its members into behavior that is foolish and even dangerous 的概括总结,故答案为A。"
+        },
+        {
+          "number": 42,
+          "stem": "Activating the brain’s social network involved in socially motivated learning and memory may allow students to tap unused mental powers.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "I",
+          "explanation": "Activating the brain’s social network I. The study also found that when subjects thought about and later recalled involved in socially motivated learning descriptions in terms of their informational content, regions associated with and memory may allow students to tap factual memory, such as the medial temporal lobe, became active. But thinking unused mental powers. about or remembering descriptions in terms of their social meaning activated 译文:激活涉及社交动机型学习和记忆 the dorsomedial prefrontal cortex—part of the brain‘s social network—even as 的大脑社交网络,可以让学生挖掘尚未 traditional memory regions registered low levels of activity. More recently, as 使用的智力。 he reported in a 2012 review, Lieberman has discovered that this region may 定位:由题干关键词network involved in be part of a distinct network involved in socially motivated learning and socially 和unused mental powers 定位到 memory. Such findings, he says, suggest that “this network can be called on to I 段画线处 process and store the kind of information taught in school—potentially giving students access to a range of untapped mental powers.” 详解:I 段最后两句提到,最近,正如他在2012 年的一篇评论中所报告的,利伯曼已发现,这块这块区域可能是涉 及社交动机型学习和记忆的独特网络的一部分。他表示,这些发现表明“这个网络可以用来处理和存储学校教授的 信息——这有可能会让学生获得一些尚未开发的智力。”题干中的allow students to tap 对应原文中的giving students access to; unused mental powers 对应原文中的untapped mental powers,故答案为I。"
+        },
+        {
+          "number": 43,
+          "stem": "The presence of peer intensifies the feeling of rewards in teens’ brains.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "F",
+          "explanation": "The presence of peer F. The brains of teenagers, but not adults, showed greater activity in two regions intensifies the feeling of rewards associated with rewards when they were being observed by same-age peers than when in teens’ brains. alone. In other words, rewards are more intense for teens when they are with peers, 译文:同龄人在场强化了青少 which motivates them to pursue higher-risk experiences that might bring a big payoff 年大脑对奖励的感觉。 (such as the thrill of just making the light before it turns red). But Steinberg suspected 定位:由题干关键词The this tendency could also have its advantages. In his latest experiment, published online presence of pee、intensifies 和 in August, Steinberg and his colleagues used a computerized version of a card game rewards 定位到F 段画线处。 called the Iowa Gambling Task to investigate how the presence of peers affects the way young people gather and apply information. 详解:F 段第二句提到,换句话说,当青少年和同龄人共处时,奖励对他们而言作用更强烈,这促使他们去追求可 能会带来巨大回报的高风险体验(比如,在信号灯变红之前冲过去所带来的兴奋)。题干中的The presence of peer 对 应原文中的with peers; intensifies the feeling of rewards 对应原文中的rewards are more intense,故答案为F。"
+        },
+        {
+          "number": 44,
+          "stem": "When we absorb information for the purpose of imparting it to others, we do so with greater secretary and depth.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "K",
+          "explanation": "When we absorb information for K. Yet our schools focus primarily on students as individual entities. What would the purpose of imparting it to others, happen if educators instead took advantage of the fact that teens are powerfully we do so with greater secretary and compelled to think in social terms? In Social, Lieberman lays out a number of depth. ways to do so. History and English could be presented through the lens of the 译文:当我们为了把信息传授给别人 psychological drives of the people involved. One could therefore present 而吸收信息时,我们会做得更加准确 Napoleon in terms of his desire to impress or Churchill in terms of his lonely 和深入。 melancholy. Less inherently interpersonal subjects, such as math, could acquire a 定位:由题干关键词absorb social aspect through team problem solving and peer tutoring. Research shows information、imparting it to others 和 that when we absorb information in order to teach it to someone else, we learn it greater secretary and depth 定位到K more accurately and deeply, perhaps in part because we are engaging our social 段画线处。 cognition. 详解:K 段第最后一句提到,研究表明,当我们为了教别人而吸收信息时,我们学的更准确和更深入,也许部分原 因是我们正在参与我们的社会认知。题干中的for the purpose of 对应原文中的in order to;imparting it to others 对应 原文中的teach it to someone else; greater secretary and depth 对应原文中的more accurately and deeply,题干是对定位 句的同义转述,故答案为K。"
+        },
+        {
+          "number": 45,
+          "stem": "Some experts are suggesting that we turn peer influence to good use in education.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "D",
+          "explanation": "Some experts are suggesting that we turn D. Yet in the years following the publication of this study, Steinberg began to peer influence to good use in education. believe that this interpretation did not capture the whole picture. As he and 译文:一些专家建议,我们应该把同龄人 other researchers examined the question of why teens were more apt to take 的影响好好利用在教育中。 risks in the company of other teenagers, they came to suspect that a crowd‘s 定位:由题干关键词Some experts 、 influence need not always be negative. Now some experts are proposing that suggesting 和good use in education 定位 we should take advantage of the teen brain’s keen sensitivity to the presence 到D 段画线处。 of friends and leverage it to improve education. 详解:D 段最后一句提到,现在一些专家提出,我们应该利用青少年的大脑对朋友在场的敏锐感知,并借助它来改 善教育。由上下文可知,定位句中的it 指代前面的the teen brain’s keen sensitivity to the presence of friends;题干中的 suggesting 对应原文中的proposing;turn...to good use in education 对应原文中的leverage...to improve education,故答案为D。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2018-06-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "The Ebro Delta, in Spain, famous as a battleground during the Spanish Civil War, is now the setting for a different contest, one that is pitting rice farmers against two enemies: the rice-eating giant apple snail, and rising sea levels. What happens here will have a bearing on the future of European rice production and the overall health of southern European wetlands. Located on the Mediterranean just two hours south of Barcelona, the Ebro Delta produces 120 million kilograms of rice a year, making it one of the continent’s most important rice-growing areas. As the sea creeps into these freshwater marshes, however, rising salinity (盐分) is hampering rice production. At the same time, this sea-water also kills off the greedy giant apple snail, an introduced pest that feeds on young rice plants. The most promising strategy has become to harness one foe against the other. The battle is currently being waged on land, in greenhouses at the University of Barcelona. Scientists working under the banner “Project Neurice” are seeking varieties of rice that can withstand the increasing salinity without losing the absorbency that makes European rice ideal for traditional Spanish and Italian dishes. “The project has two sides,” says Xavier Serrat, Neurice project manager and researcher at the University of Barcelona. “The short-term fight against the snail, and a mid- to long-term fight against climate change. But the snail has given the project greater urgency.” Originally from South America, the snails were accidentally introduced into the Ebro Delta by Global Aquatic Technologies, a company that raised the snails for fresh-water aquariums (水族馆), but failed to prevent their escape. For now, the giant apple snail’s foothold in Europe is limited to the Ebro Delta. But the snail continues its march to new territory, says Serrat. “The question is not if it will reach other rice-growing areas of Europe, but when.” Over the next year and a half investigators will test the various strains of saline-tolerant rice they’ve concocted. In 2018, farmers will plant the varieties with the most promise in the Ebro Delta and Europe’s other two main rice-growing regions—along the Po in Italy, and France’s Rhône. A season in the field will help determine which, if any, of the varieties are ready for commercialization. As an EU-funded effort, the search for salt-tolerant varieties of rice is taking place in all three countries. Each team is crossbreeding a local European short-grain rice with a long-grain Asian variety that carries the salt-resistant gene. The scientists are breeding successive generations to arrive at varieties that incorporate salt tolerance but retain about 97 percent of the European rice genome (基因组)."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "Why does the author mention the Spanish Civil War at the beginning of the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It had great impact on the life of Spanish rice farmers."
+            },
+            {
+              "key": "B",
+              "text": "It is of great significance in the records of Spanish history."
+            },
+            {
+              "key": "C",
+              "text": "Rice farmers in the Ebro Delta are waging a battle of similar importance."
+            },
+            {
+              "key": "D",
+              "text": "Rice farmers in the Ebro Delta are experiencing as hard a time as in the war."
+            }
+          ],
+          "answer": "C",
+          "explanation": "答案:C 定位:由题干中的专有名词the Spanish Civil War 定位到文章首段首句:The Ebro Delta, in Spain, famous as a battleground during the Spanish Civil War, is now the setting for a different contest, one that is pitting rice farmers against two enemies: the rice-eating giant apple snail, and rising sea levels. 详解:推理判断题。从定位句可以看出,作者提到西班牙内战是为了说明埃布罗河三角洲的知名度,而从后面 内容可知,目前发生的另一场战争也具有重大影响。由此推断,作者提及西班牙内战的目的在于影射埃布罗河三角 洲的农民正经历一场同等重要的战争,故答案为C。 点睛:A“它对西班牙稻农的生活有重要影响”,从定位句可以看出,西班牙内战与西班牙稻农是否有关联, 原文并没有说明,故排除;B“它在西班牙历史中意义重大”,从原文可知,作者提及西班牙内战是为了体现目前 战争的重要性,故排除;D“埃布罗河三角洲的稻农正在经历如同战争中的艰难时刻”,原文没有涉及农民的生活 状况,故排除。"
+        },
+        {
+          "number": 47,
+          "stem": "What may be the most effective strategy for rice farmers to employ in fighting their enemies?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Striking the weaker enemy first."
+            },
+            {
+              "key": "B",
+              "text": "Eliminating the enemy one by one。"
+            },
+            {
+              "key": "C",
+              "text": "Killing two bird with one stone."
+            },
+            {
+              "key": "D",
+              "text": "Using one evil to combat the other."
+            }
+          ],
+          "answer": "D",
+          "explanation": "答案:D 定位:由题干中的关键词strategy 和fighting their enemies 定位到文章第二段最后一句:The most promising strategy has become to harness one foe against the other. 详解:事实细节题。原文第一段第一句指出,稻农面临两大敌人的挑战:巨头苹果蜗牛和上升的海平面,随后 第二段解释了这两大“敌人”对稻米的影响,第二第二段最后一句明确指出,对付这两大敌人的最好方法就是利用 一个敌人去对付另一个,故答案为D。 点睛:A“首先打击更弱的敌人”,从定位句和后文都可以看出,作者并没有分辨哪个敌人更弱,故排除;B “一石二鸟”,定位句的意思是利用一个敌人制服另一个,并没有提到有同时对付两者的方法,故排除;C“逐个 消灭敌人”,第四段虽然提到短期内与蜗牛作战,中长期抵御气候变化,但这是项目要研究的内容,并非文中提到 的最佳策略,故排除。"
+        },
+        {
+          "number": 48,
+          "stem": "What do we learn about “Project Neurice”?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Its goals will have to be realized at a cost."
+            },
+            {
+              "key": "B",
+              "text": "It aims to increase the yield of Spanish rice."
+            },
+            {
+              "key": "C",
+              "text": "Its immediate priority is to bring the pest under control."
+            },
+            {
+              "key": "D",
+              "text": "It tries to kill the snails with the help of climate change."
+            }
+          ],
+          "answer": "C",
+          "explanation": "答案:C 定位:根据题干中的专有名词Project Neurice 定位到文章第四段:...“The short-term fight against the snail, and a mid- to long-term fight against climate change. But the snail has given the project greater urgency.” 详解:推理判断题。定位段提到,该项目有两个任务,短期任务与是害虫蜗牛作战,最后一句又再次强调蜗牛 是这个项目地当务之急,选项C 与原文的意思一致,故为答案。 点睛:A“实现其目标需要付出代价”,作者在最后一段虽然提到了项目得到欧盟的资助,但没并没有提到其 目标实现与付出代价的直接关系,故排除;B“它的目标是提高西班牙的水稻产量”,原文明确说了这个项目的两 个任务,但并不包括提高水稻产量,故排除;D“它试图借助气候变化灭除蜗牛”,抵御气候变化是这个项目的中 远期目标,而消灭蜗牛是其近期目标,这个项目并没有说气候变化会对蜗牛产生何种影响,故排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What does Neurice project manager say about the giant apple snail?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It can survive only on southern European wetlands."
+            },
+            {
+              "key": "B",
+              "text": "It will invade other rice-growing regions of Europe."
+            },
+            {
+              "key": "C",
+              "text": "It multiplies at a speed beyond human imagination."
+            },
+            {
+              "key": "D",
+              "text": "It was introduced into the rice fields on purpose."
+            }
+          ],
+          "answer": "B",
+          "explanation": "答案:B 定位:由题干中的关键词project manager 和giant apple snail 定位到文章第五段最后两句:But the snail continues its march to new territory, says Serrat. “The question is not if it will reach other rice-growing areas of Europe, but when.” 详解:事实细节题。由定位句可知,项目经理塞拉特认为,巨头苹果蜗牛不会仅仅局限在埃布罗河三角洲,而 会扩散到新的土地,这只是个时间问题,选项B 的表述与原文意思一致,故为答案。 点睛:A“它只能在南欧的湿地存活”,由原文可知,这种蜗牛原产自南美洲,而且研究人员认为它还会向欧 洲其他地区扩散,故排除;C“它以超乎人类想象的速度繁殖”,原文并没有提到这种蜗牛的繁殖速度,故排除; D“它是被故意引入到稻米产区的”,原文第五段第一句提到,这种蜗牛原本是为淡水水族馆饲养的,不慎逃脱才 到了稻米产区,故排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What is the ultimate goal of the EU-funded program?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Cultivating ideal salt-resistant rice varieties."
+            },
+            {
+              "key": "B",
+              "text": "Increasing the absorbency of the Spanish rice."
+            },
+            {
+              "key": "C",
+              "text": "Introducing Spanish rice to the rest of Europe."
+            },
+            {
+              "key": "D",
+              "text": "Popularizing the rice crossbreeding technology."
+            }
+          ],
+          "answer": "A",
+          "explanation": "答案:A 定位:根据题干关键词EU-funded 定位到文章最后一段第一句:As an EU-funded effort, the search for salt-tolerant varieties of rice is taking place in all three countries. 详解:事实细节题。定位句指出,这项研究的目的就是开发可以耐受盐分的稻米品种,随后的两句再次强调科 学家的研究目的是培育出既能够耐受盐分,又能够保留97%欧洲稻米基因组的品种,故答案为A。 点睛:B“增加西班牙稻米的吸水性”,原文第三段提到,科学家希望保留西班牙稻米的原有特性,并没有说 要增强其特性,故排除;C“将西班牙稻米推广到欧洲其他地区”,原文并没有提到要推广西班牙稻米,故排除; D“普及水稻杂交技术”,原文只提到科学家利用杂交技术培育他们需要品种,并没有说要推广杂交技术,故排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2018-06-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Photography was once an expensive, laborious ordeal reserved for life’s greatest milestones. Now, the only apparent cost to taking infinite photos of something as common as a meal is the space on your hard drive and your dining companion’s patience. But is there another cost, a deeper cost, to documenting a life experience instead of simply enjoying it? “You hear that you shouldn’t take all these photos and interrupt the experience, and it’s bad for you, and we’re not living in the present moment,” says Kristin Diehl, associate professor of marketing at the University of Southern California Marshall School of Business. Diehl and her fellow researchers wanted to find out if that was true, so they embarked on a series of nine experiments in the lab and in the field testing people’s enjoyment in the presence or absence of a camera. The results, published in the Journal of Personality and Social Psychology, surprised them. Taking photos actually makes people enjoy what they’re doing more, not less. “What we find is you actually look at the world slightly differently, because you’re looking for things you want to capture, that you may want to hang onto,” Diehl explains. “That gets people more engaged in the experience, and they tend to enjoy it more.” Take sightseeing. In one experiment, nearly 200 participants boarded a double-decker bus for a tour of Philadelphia. Both bus tours forbade the use of cell phones but one tour provided digital cameras and encouraged people to take photos. The people who took photos enjoyed the experience significantly more, and said they were more engaged, than those who didn’t. Snapping a photo directs attention, which heightens the pleasure you get from whatever you’re looking at, Diehl says. It works for things as boring as archaeological(考古的)museums, where people were given eye-tracking glasses and instructed either to take photos or not. “People look longer at things they want to photograph,” Diehl says. They report liking the exhibits more, too. To the relief of Instagrammers(Instagram用户)everywhere, it can even make meals more enjoyable. When people were encouraged to take at least three photos while they ate lunch, they were more immersed in their meals than those who weren’t told to take photos. Was it the satisfying click of the camera? The physical act of the snap? No, they found; just the act of planning to take a photo—and not actually taking it—had the same joy-boosting effect. “If you want to take mental photos, that works the same way,” Diehl says. “Thinking about what you would want to photograph also gets you more engaged.”"
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the author say about photo-taking in the past?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It was a painstaking effort for recording life’s major events."
+            },
+            {
+              "key": "B",
+              "text": "It was a luxury that only a few wealthy people could enjoy."
+            },
+            {
+              "key": "C",
+              "text": "It was a good way to preserve one’s precious images."
+            },
+            {
+              "key": "D",
+              "text": "It was a skill that required lots of practice to master."
+            }
+          ],
+          "answer": "A",
+          "explanation": "答案:A 定位:由题干中的photo-taking in the past 定位到文章首段首句:Photography was once an expensive, laborious ordeal reserved for life’s greatest milestones. 详解:事实细节题。文章开篇即指出,摄影曾经是一件昂贵且耗时费力的事情,仅用于生命记录生命中的重大 事件。题干中的photo-taking 和in the past 分别对应定位句中的photography 和once,而A 项中的painstaking 和 recording life’s major events 分别对应定位句中的laborious ordeal 和reserved for life’s greatest milestones,故答案为A。 点睛:B“摄影是少数有钱人才能享有的奢侈品”,第一段虽然提到摄影是一件昂贵的事情,但并没说只有少 数有钱人才能享受,该项属于过度推断,故排除;C“摄影是保存珍贵影像的好方法”,该选项只有preserve 和首 句的reserved 对应,其他均不符合原文意思,故排除;D“摄影这门技术需要大量的练习才能够掌握”原文并未提 及,故排除。"
+        },
+        {
+          "number": 52,
+          "stem": "Kristin Diehl conducted a series of experiments on photo-taking to find out_________.",
+          "options": [
+            {
+              "key": "A",
+              "text": "what kind of pleasure it would actually bring to photo-takers"
+            },
+            {
+              "key": "B",
+              "text": "whether people enjoyed it when they did sightseeing"
+            },
+            {
+              "key": "C",
+              "text": "how it could help to enrich people’s life experiences"
+            },
+            {
+              "key": "D",
+              "text": "whether it prevented people enjoying what they were doing"
+            }
+          ],
+          "answer": "D",
+          "explanation": "答案:D 定位:由题干中的Kristin Diehl 和a series of experiments 定位到原文第三段第一句:Diehl and her fellow researchers wanted to find out if that was true, so they embarked on a series of nine experiments in the lab and in the field testing people’s enjoyment in the presence or absence of a camera. 详解:事实细节题。定位句指出,迪尔和她的同事想知道这样是不是真的不好,于是进行了一系列实验,由定 位句可知,that 指代的是第二段最后一句“...you shouldn’t take all these photos and interrupt the experience, and it’s bad for you, and we’re not living in the present moment...”,即“拍照会干扰你的个人体验,这对你不好,因为你没有活在 当下”,故答案为D。 点睛:A“拍照能给拍照者带来什么样的乐趣”,虽然第三段最后一句提到拍照能让人们更享受体验的过程, 但这并不是迪尔和其同事做实验的原因,而是实验得出的结论,故排除;B“人们在旅游观光时是否喜欢拍照”, 是对原文第五段内容的曲解,也不是迪尔和起同事做实验的原因,故排除;C“拍照如何丰富人们的生活经历”, enrich 这个概念全文都未提及,故排除。"
+        },
+        {
+          "number": 53,
+          "stem": "What do the results of Dienl’s experiments show about people taking pictures?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are distracted from what they are doing."
+            },
+            {
+              "key": "B",
+              "text": "They can better remember what they see or do."
+            },
+            {
+              "key": "C",
+              "text": "They are more absorbed in what catches their eye."
+            },
+            {
+              "key": "D",
+              "text": "They can have a better understanding of the world."
+            }
+          ],
+          "answer": "C",
+          "explanation": "答案:C 定位:由题干中的the results of Dienl’s experiments show 定位到原文第三段最后两句:The results, published in the Journal of Personality and Social Psychology, surprised them. Taking photos actually makes people enjoy what they’re doing more, not less. 详解:事实细节题。本题考查迪尔和其同事实验的结果,因此应该定位到表示结果的The results 和What we find 这两处。C 项中的more absorbed in what catches their eye“更加投入于吸引他们眼球的地方”分别对应两处定位居中 的makes people enjoy what they are doing more 和more engaged in the experience,故C 为答案。 点睛:A“他们的注意力被分散”,文章第六段首句提到拍照能引导注意力,A 中的be distracted from“被分散 注意力”是对这句话的曲解,故排除;B“他们能更好的记住自己的所见所为”和“他们能更好的理解这个世界”, 原文关于实验结果的部分都在讲拍照能够提高实验对象对一件事情的参与度,并没有提到关于记忆或理解的内容, 故均排除。"
+        },
+        {
+          "number": 54,
+          "stem": "What is found about museum visitors with the aid of eye-tracking glasses?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They come out with better photographs of the exhibits."
+            },
+            {
+              "key": "B",
+              "text": "They focus more on the exhibits when taking pictures."
+            },
+            {
+              "key": "C",
+              "text": "They have a better view of what are on display."
+            },
+            {
+              "key": "D",
+              "text": "They follow the historical events more easily."
+            }
+          ],
+          "answer": "B",
+          "explanation": "答案:B 定位:由题干中的museum 和eye-tracking glasses 定位到原文倒数第三段第二至三句:It works for things as boring as archaeological(考古的)museums, where people were given eye-tracking glasses and instructed either to take photos or not. “People look longer at things they want to photograph,” Diehl says. 详解:事实细节题。定位句指出,在参观博物馆时,研究对象被要求戴上眼球追踪镜,并被告知拍照或不拍照。 迪尔说,人们的视线会在他们想拍照的事物上停留的更久一些。B 项中的focus more on the exhibits when taking pictures 对应定位句中的look longer at things they want to photograph,故B 为答案。 点睛:A“他们给展品拍出了更好的照片”,定位段最后一句只提到他们更加喜欢这些展品,并没有提到照片 的好坏,故排除;C“他们可以更好地观察展品”和D“他们更容易理解历史事件”原文均未提及,故排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What do we learn from the last paragraph?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is better to make plans before taking photos."
+            },
+            {
+              "key": "B",
+              "text": "Mental photos can be as beautiful as snapshots."
+            },
+            {
+              "key": "C",
+              "text": "Photographers can derive great joy from the click of the camera."
+            },
+            {
+              "key": "D",
+              "text": "Even the very thought of taking a photo can have a positive effect."
+            }
+          ],
+          "answer": "D",
+          "explanation": "答案:D 定位:由题干中的the last paragraph 定位到原文最后一段。 详解:推理判断题。最后一段用设问句引出迪尔对拍照的看法,即“仅仅是有拍照的这个打算一样能产生增加 愉悦感的效果”以及“哪怕只是想一想你打算拍什么照片也能让你更加投入其中”。D 中的the very thought of taking a photo 对应定位段中的the act of planning to take a photo 和Thinking about what you would want to photograph;have a positive effect 对应原文中的had the same joy-boosting effect 和also gets you more engaged,故答案为D。 点睛:A“最好在拍照前制定的计划”,最后一段提到仅仅有拍照这个打算一样能增加愉悦感,但并未建议人 们先制定计划再拍照,故排除;B“在心里拍照和实际拍照一样美”,最后一段提到如果你在心里拍照,一样能产 生增加愉悦感的效果,而不是说和实际拍照一样美,故排除;C“拍照者可以从相机的咔嚓声中获得巨大的快乐” 是对最后一段第一句的曲解,迪尔对此给出了否定的答案,该项与原文意思相反,故排除。"
+        }
+      ]
+    }
+  ]
+}

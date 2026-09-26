@@ -1,0 +1,1811 @@
+{
+  "id": "cet6-2016-12-3",
+  "level": 6,
+  "year": 2016,
+  "month": 12,
+  "set": 3,
+  "title": "2016 年 12 月六级 · 第 3 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.12/%E7%9C%9F%E9%A2%98Word/2016%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC3%E5%A5%97%EF%BC%89.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2016%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%EF%BC%88%E7%AC%AC3%E5%A5%97%EF%BC%89%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%20.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2016-12-3-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Small communities, with their distinctive character--where life is stable and intensely human—are disappearing. Some have [[26]] from the face of the earth, others are dying slowly, but all have [[27]] changes as they have come into contact with an [[28]] machine civilization. The merging of diverse peoples into a common mass has produced tension among members of the minorities and the majority alike. The Old Order Amish, who arrived on American shores in colonial times, have [[29]] in the modem world in distinctive, small communities. They have resisted the homogenization [[30]] more successfully than others. In planting and harvest time one can see their bearded men working the fields with horses and their women hanging out the laundry in neat rows to dry. Many American people have seen Amish families, with the men wearing broad-brimmed black hats and the women in long dresses, in railway or bus [[31]] Although the Amish have lived with [[32]] America for over two and a half centuries, they have moderated its influence on their personal lives, their families, communities, and their values. The Amish are often [[33]] by other Americans to be relics of the past who live a simple, inflexible life dedicated to inconvenient out-dated customs. They are seen as abandoning both modem [[34]] and the American dream of success and progress. But most people have no quarrel with the Amish for doing things the old-fashioned way. Their conscientious objection was tolerated in wartime, for after all, they are good farmers who [[35]] the virtues of work and thrift."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "accessing"
+        },
+        {
+          "key": "B",
+          "text": "conveniences"
+        },
+        {
+          "key": "C",
+          "text": "destined"
+        },
+        {
+          "key": "D",
+          "text": "expanding"
+        },
+        {
+          "key": "E",
+          "text": "industrialized"
+        },
+        {
+          "key": "F",
+          "text": "perceived"
+        },
+        {
+          "key": "G",
+          "text": "practice"
+        },
+        {
+          "key": "H",
+          "text": "process"
+        },
+        {
+          "key": "I",
+          "text": "progress"
+        },
+        {
+          "key": "J",
+          "text": "respective"
+        },
+        {
+          "key": "K",
+          "text": "survived"
+        },
+        {
+          "key": "L",
+          "text": "terminals"
+        },
+        {
+          "key": "M",
+          "text": "undergone"
+        },
+        {
+          "key": "N",
+          "text": "universal"
+        },
+        {
+          "key": "O",
+          "text": "vanished"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accessing"
+            },
+            {
+              "key": "B",
+              "text": "conveniences"
+            },
+            {
+              "key": "C",
+              "text": "destined"
+            },
+            {
+              "key": "D",
+              "text": "expanding"
+            },
+            {
+              "key": "E",
+              "text": "industrialized"
+            },
+            {
+              "key": "F",
+              "text": "perceived"
+            },
+            {
+              "key": "G",
+              "text": "practice"
+            },
+            {
+              "key": "H",
+              "text": "process"
+            },
+            {
+              "key": "I",
+              "text": "progress"
+            },
+            {
+              "key": "J",
+              "text": "respective"
+            },
+            {
+              "key": "K",
+              "text": "survived"
+            },
+            {
+              "key": "L",
+              "text": "terminals"
+            },
+            {
+              "key": "M",
+              "text": "undergone"
+            },
+            {
+              "key": "N",
+              "text": "universal"
+            },
+            {
+              "key": "O",
+              "text": "vanished"
+            }
+          ],
+          "answer": "O",
+          "explanation": "【锁定答案】开篇首句提出小型社区的总体情况:正在逐渐消失(aredisappearing)。空格句详细说 明:有些已经从地球上 ,其他的正在慢慢消亡(aredyingslowly)。可见,空格词应表示“消失、不 见、不在”之意,vanished正确。 E)industrialized\"实现工业化”与fromtheface of the earth无法搭配。survived“幸存”与文意(are disappearing)相反,且survivedfromthefaceoftheearth搭配错误:survivefrom后多接“历史时期”,如: survivedfrommedievaltimes(从中世纪留存至今)。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accessing"
+            },
+            {
+              "key": "B",
+              "text": "conveniences"
+            },
+            {
+              "key": "C",
+              "text": "destined"
+            },
+            {
+              "key": "D",
+              "text": "expanding"
+            },
+            {
+              "key": "E",
+              "text": "industrialized"
+            },
+            {
+              "key": "F",
+              "text": "perceived"
+            },
+            {
+              "key": "G",
+              "text": "practice"
+            },
+            {
+              "key": "H",
+              "text": "process"
+            },
+            {
+              "key": "I",
+              "text": "progress"
+            },
+            {
+              "key": "J",
+              "text": "respective"
+            },
+            {
+              "key": "K",
+              "text": "survived"
+            },
+            {
+              "key": "L",
+              "text": "terminals"
+            },
+            {
+              "key": "M",
+              "text": "undergone"
+            },
+            {
+              "key": "N",
+              "text": "universal"
+            },
+            {
+              "key": "O",
+              "text": "vanished"
+            }
+          ],
+          "answer": "M",
+          "explanation": "【锁定答案】空格所在分句指出,随着与机械文明相接触,所有的(小型社区)都 了改变。可 见这一分句是在以“指出结果一说明原因”的逻辑表明:外界影响导致事物发生变化,undergone (changes)符合文意。 industrialized\"使...\"工业化”与changes无法搭配。survived填入文中意为“所有小型社区都在变 化中幸存下来”,与前文“正在逐渐消亡”矛盾。perceived填入文中,粗读似乎语义顺滑(当..时,洞 悉/察觉到了变化),但分析可发现逻辑错误:“随着与机器文明接触,这些小型社区 了改变”传递 的不是小型社区“察觉到周围事物的改变”,而是“自身经历、发生了改变”。 【点拔技巧】as引导的状语从句表层说明“时间上的伴随(随着)”,深层引出“情形背后原因(由 于..)”,即:外界影响导致事物变化。如本句allhave...changesastheyhavecomeintocontact with..·。再如:Asthe productioncontinuallyincreased,webegantofeel relaxed.(随着产量持续增长, 我们开始感到轻松。)"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accessing"
+            },
+            {
+              "key": "B",
+              "text": "conveniences"
+            },
+            {
+              "key": "C",
+              "text": "destined"
+            },
+            {
+              "key": "D",
+              "text": "expanding"
+            },
+            {
+              "key": "E",
+              "text": "industrialized"
+            },
+            {
+              "key": "F",
+              "text": "perceived"
+            },
+            {
+              "key": "G",
+              "text": "practice"
+            },
+            {
+              "key": "H",
+              "text": "process"
+            },
+            {
+              "key": "I",
+              "text": "progress"
+            },
+            {
+              "key": "J",
+              "text": "respective"
+            },
+            {
+              "key": "K",
+              "text": "survived"
+            },
+            {
+              "key": "L",
+              "text": "terminals"
+            },
+            {
+              "key": "M",
+              "text": "undergone"
+            },
+            {
+              "key": "N",
+              "text": "universal"
+            },
+            {
+              "key": "O",
+              "text": "vanished"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【锁定答案】空格句指出,随着与 机器文明接触,这些小型社区都经历了改变,空格词应能体 现“机器文明”的特征,D)expanding符合文意:“日益扩张”符合机器文明(machinecivilization)发展的特 点,且契合astheyhavecomeintocontact...含有的“逐渐,日益”之意。 E)industrialized符合语境,但填人文中造成不必要的重复:有machinecivilization,有industrialized civilization,但鲜有industrializedmachinecivilization,且它无法展现机器文明的发展趋势,以及其对小型 社会产生的影响(使其逐渐消失)。 【点拨技巧】本段共3句,但3空均设置于中间一句,对此考生需意识到:上下两句虽未设题,但必为 重要解题线索。整体看本段可发现,1句为段落主旨句,23句展开论述。其中Somehave..·,others aredyingslowly为浅层论述,侧重对应smallcommunitiesaredisappearing(26空解题线索)。而allhave changes as they have come into contact with... machine civilization. The merging of diverse peoplesinto a common masshas produced...为深层论述,重在说明...their distinctive character...are disappearing(27、28空解题线索)。 Il The Old Order Amish, who arrived on American shoresin colonialtimes,have29in the modern world in distinctive, small communities. @They have resisted the homogenization30_more successfully 老阿米什人在殖民时期抵达美国 海岸,以其独特的小型社区形式在现 代社会中幸存下来。他们比其他民族 更加成功地抵制了同质化过程。在播 than others. @In planting and harvest time one can see their bearded men working the fields with horses and their women hanging outthe laundryin neatrows to dry. Many American people have seen Amish families, with the men wearing broad-brimmed black hats and the women in long dresses, in railway or bus"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accessing"
+            },
+            {
+              "key": "B",
+              "text": "conveniences"
+            },
+            {
+              "key": "C",
+              "text": "destined"
+            },
+            {
+              "key": "D",
+              "text": "expanding"
+            },
+            {
+              "key": "E",
+              "text": "industrialized"
+            },
+            {
+              "key": "F",
+              "text": "perceived"
+            },
+            {
+              "key": "G",
+              "text": "practice"
+            },
+            {
+              "key": "H",
+              "text": "process"
+            },
+            {
+              "key": "I",
+              "text": "progress"
+            },
+            {
+              "key": "J",
+              "text": "respective"
+            },
+            {
+              "key": "K",
+              "text": "survived"
+            },
+            {
+              "key": "L",
+              "text": "terminals"
+            },
+            {
+              "key": "M",
+              "text": "undergone"
+            },
+            {
+              "key": "N",
+              "text": "universal"
+            },
+            {
+              "key": "O",
+              "text": "vanished"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【锁定答案】空格所在句指出,老阿米什人以其独特的小型社区形式在现代社会中 。23句 则指出阿米什人抵制住了现代社会的同化,保留了自已男耕女织的劳作。可见survived符合文意。 industrialized\"实现工业化”似乎非常符合语境“原本闭塞的小型社区后来实现了工业化”,但这种 主观推断与下文所述情形“老阿米什人抵制住了同化”矛盾。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accessing"
+            },
+            {
+              "key": "B",
+              "text": "conveniences"
+            },
+            {
+              "key": "C",
+              "text": "destined"
+            },
+            {
+              "key": "D",
+              "text": "expanding"
+            },
+            {
+              "key": "E",
+              "text": "industrialized"
+            },
+            {
+              "key": "F",
+              "text": "perceived"
+            },
+            {
+              "key": "G",
+              "text": "practice"
+            },
+            {
+              "key": "H",
+              "text": "process"
+            },
+            {
+              "key": "I",
+              "text": "progress"
+            },
+            {
+              "key": "J",
+              "text": "respective"
+            },
+            {
+              "key": "K",
+              "text": "survived"
+            },
+            {
+              "key": "L",
+              "text": "terminals"
+            },
+            {
+              "key": "M",
+              "text": "undergone"
+            },
+            {
+              "key": "N",
+              "text": "universal"
+            },
+            {
+              "key": "O",
+              "text": "vanished"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【锁定答案】空格句指出“他们比其他民族更加成功地抵制了同质化 _(或“ 的同质 化)”。空格上文指出:阿米什人以其独特的小型社区形式幸存下来。空格下文展开指出:阿米什人固 守旧有的生活方式。由此推断阿米什人抵制住了同质化的过程,H)process符合文意。 B)conveniences、L)terminals、C)destined、E)industrialized、A)accessing、J)respective、N)universal均 无法与homogenization进行语义搭配,容易排除。上下文中并未提及阿米什人“感知到了同化作用”, Perceived\"感知到的/察觉到的”无从谈及,也可排除。practice、Progress和process语义有很大交叠,较 难取舍,需仔细区分:progress意为“进展,进步”,带正面含义(即,resisttheprogress带有负面色彩); practice意为“练习,践行”,强调“施动者发出具体的行为”;process则强调“过程,进程”,体现的是一种 “不断进行的过程”。可见process更符合文意(同化是潜移默化、随时发生的)。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accessing"
+            },
+            {
+              "key": "B",
+              "text": "conveniences"
+            },
+            {
+              "key": "C",
+              "text": "destined"
+            },
+            {
+              "key": "D",
+              "text": "expanding"
+            },
+            {
+              "key": "E",
+              "text": "industrialized"
+            },
+            {
+              "key": "F",
+              "text": "perceived"
+            },
+            {
+              "key": "G",
+              "text": "practice"
+            },
+            {
+              "key": "H",
+              "text": "process"
+            },
+            {
+              "key": "I",
+              "text": "progress"
+            },
+            {
+              "key": "J",
+              "text": "respective"
+            },
+            {
+              "key": "K",
+              "text": "survived"
+            },
+            {
+              "key": "L",
+              "text": "terminals"
+            },
+            {
+              "key": "M",
+              "text": "undergone"
+            },
+            {
+              "key": "N",
+              "text": "universal"
+            },
+            {
+              "key": "O",
+              "text": "vanished"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【锁定答案】空格句指出:许多美国人在火车或汽车 都看到过阿米什家庭。显然inrailwayor bus 表示地点状语(人口流动较大的公共场合),terminals“火车站或汽车站”正确。 【补充语法】with复合结构“with/without十宾语(名词/代词)十补足语(形容词、副词、介词短语或 非谓语动词)”在句中表状态或说明背景情况。如文中:withthemenwearingbroad-brimmedblackhats (with十名词十现在分词);又如:withthewomeninlongdresses(with十名词十介词短语);再如:With machineryto do all thework,theywill soonhavegot inthe crops.(with+名词+不定式)。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accessing"
+            },
+            {
+              "key": "B",
+              "text": "conveniences"
+            },
+            {
+              "key": "C",
+              "text": "destined"
+            },
+            {
+              "key": "D",
+              "text": "expanding"
+            },
+            {
+              "key": "E",
+              "text": "industrialized"
+            },
+            {
+              "key": "F",
+              "text": "perceived"
+            },
+            {
+              "key": "G",
+              "text": "practice"
+            },
+            {
+              "key": "H",
+              "text": "process"
+            },
+            {
+              "key": "I",
+              "text": "progress"
+            },
+            {
+              "key": "J",
+              "text": "respective"
+            },
+            {
+              "key": "K",
+              "text": "survived"
+            },
+            {
+              "key": "L",
+              "text": "terminals"
+            },
+            {
+              "key": "M",
+              "text": "undergone"
+            },
+            {
+              "key": "N",
+              "text": "universal"
+            },
+            {
+              "key": "O",
+              "text": "vanished"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【锁定答案】空格句指出:尽管阿米什人已经与美国共存超过两个半世纪,但是他们克制住 了其对自已个人生活、家庭、社区以及价值观等的影响。可见,句子展现的是“阿米什人男耕女织旧有 生活方式”对“现代美国生活方式”影响的抵制,空格词应与“现代、新式、工业化等”一致,E) industrialized符合文意。其他项均无法修饰America,更无法体现两种文化的冲突。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accessing"
+            },
+            {
+              "key": "B",
+              "text": "conveniences"
+            },
+            {
+              "key": "C",
+              "text": "destined"
+            },
+            {
+              "key": "D",
+              "text": "expanding"
+            },
+            {
+              "key": "E",
+              "text": "industrialized"
+            },
+            {
+              "key": "F",
+              "text": "perceived"
+            },
+            {
+              "key": "G",
+              "text": "practice"
+            },
+            {
+              "key": "H",
+              "text": "process"
+            },
+            {
+              "key": "I",
+              "text": "progress"
+            },
+            {
+              "key": "J",
+              "text": "respective"
+            },
+            {
+              "key": "K",
+              "text": "survived"
+            },
+            {
+              "key": "L",
+              "text": "terminals"
+            },
+            {
+              "key": "M",
+              "text": "undergone"
+            },
+            {
+              "key": "N",
+              "text": "universal"
+            },
+            {
+              "key": "O",
+              "text": "vanished"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【锁定答案】空格句指出“阿米什人常常被其他美国人 是历史的遗留”,可推断是在说明其他 美国人对于阿米什人的观点看法,perceived符合文意。另外,下文“他们被认为(Theyareseenas.,.)” 也暗示空格应体现“被认为、被看作”之意,perceived正确无误。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accessing"
+            },
+            {
+              "key": "B",
+              "text": "conveniences"
+            },
+            {
+              "key": "C",
+              "text": "destined"
+            },
+            {
+              "key": "D",
+              "text": "expanding"
+            },
+            {
+              "key": "E",
+              "text": "industrialized"
+            },
+            {
+              "key": "F",
+              "text": "perceived"
+            },
+            {
+              "key": "G",
+              "text": "practice"
+            },
+            {
+              "key": "H",
+              "text": "process"
+            },
+            {
+              "key": "I",
+              "text": "progress"
+            },
+            {
+              "key": "J",
+              "text": "respective"
+            },
+            {
+              "key": "K",
+              "text": "survived"
+            },
+            {
+              "key": "L",
+              "text": "terminals"
+            },
+            {
+              "key": "M",
+              "text": "undergone"
+            },
+            {
+              "key": "N",
+              "text": "universal"
+            },
+            {
+              "key": "O",
+              "text": "vanished"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【锁定答案】空格句上文指出“阿米什人被看作是历史的遗留,过着简单不变的生活”,空格句则指 出,人们认为他们放弃了现代化的 以及追求成功和进步的美国梦。可见,空格处应体现“现代化 的优势、益处”,conveniences符合文意。progress与theAmericandreamof..·Progress重复;practice则 不带“优势、益处”的色彩。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accessing"
+            },
+            {
+              "key": "B",
+              "text": "conveniences"
+            },
+            {
+              "key": "C",
+              "text": "destined"
+            },
+            {
+              "key": "D",
+              "text": "expanding"
+            },
+            {
+              "key": "E",
+              "text": "industrialized"
+            },
+            {
+              "key": "F",
+              "text": "perceived"
+            },
+            {
+              "key": "G",
+              "text": "practice"
+            },
+            {
+              "key": "H",
+              "text": "process"
+            },
+            {
+              "key": "I",
+              "text": "progress"
+            },
+            {
+              "key": "J",
+              "text": "respective"
+            },
+            {
+              "key": "K",
+              "text": "survived"
+            },
+            {
+              "key": "L",
+              "text": "terminals"
+            },
+            {
+              "key": "M",
+              "text": "undergone"
+            },
+            {
+              "key": "N",
+              "text": "universal"
+            },
+            {
+              "key": "O",
+              "text": "vanished"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【锁定答案】与从句宾语thevirtues(美德)能构成合理语义搭配的只能是G)practice:践行美德。 progress作及物动词,其后常接“工作或计划”,表示“继续,进展”。如:We're hopingto progress the projectmorequicklynextweek.(我们希望下星期可以更快地推进计划。) 【点拨思路】本文解题的难度很大一部分来自于三个近义词practice,progress,process,对此需要: 1.仔细区分其基本含义(见30题解析),2.辨别其暗含的情感色彩(practice、process中性客观;progress 带有正面色彩);3.注意固定搭配(如practicethevirtue意为“践行美德”);4.解完题后回看(30、35题) 进行确认。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2016-12-3-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) On a glacier-filled island with fjords (峡湾) and elephant seals, Russia has built Antarctica's first Orthodox church on a hill overlooking its research base. Less than an hour away by snowmobile,Chinese labourers have updated the Great Wall Station, a vital part of China's plan to operate five bases on Antarctica, complete with an indoor badminton court and sleeping quarters for 150 people. Not to be outdone, India's futuristic new Bharathi base, built on stilts (桩子) using 134 interlocking shipping containers, resembles a spaceship. Turkey and Iran have announced plans to build bases, too.",
+        "B) More than a century has passed since explorers raced to plant their flags at the bottom of the world, and for decades to come this continent is supposed to be protected as a scientific preserve,shielded from intrusions like military activities and mining. But an array of countries are rushing to assert greater influence here, with an eye not just towards the day those protective treaties expire,but also for the strategic and commercial opportunities that already exist.",
+        "C) The newer players are stepping into what they view as a treasure house of resources. Some of the ventures focus on the Antarctic resources that are already up for grabs, like abundant sea life.South Korea, which operates state-of-the-art bases here, is increasing its fishing of krill (磷虾),found in abundance in the Southern Ocean, while Russia recently frustrated efforts to create one of the world's largest ocean sanctuaries here.",
+        "D) Some scientists are examining the potential for harvesting icebergs from Antarctica, which is estimated to have the biggest reserves of fresh water on the planet. Nations are also pressing ahead with space research and satellite projects to expand their global navigation abilities.",
+        "E) Building on a Soviet-era foothold, Russia is expanding its monitoring stations for Glonass, its version of the Global Positioning System (GPS). At least three Russian stations are already operating in Antarctica, part of its effort to challenge the dominance of the American GPS, and new stations are planned for sites like the Russian base, in the shadow of the Orthodox Church of the Holy Trinity.",
+        "F) Elsewhere in Antarctica, Russian researchers boast of their recent discovery of a freshwater reserve the size of Lake Ontario after drilling through miles of solid ice. \"You can see that we're here to stay,\" said Vladimir Cheberdak,57, chief of the Bellingshausen Station, as he sipped tea under a portrait of Fabian Gottlieb yon Bellingshausen, a high-ranking officer in the Imperial Russian Navy who explored the Antarctic coast in 1820.",
+        "G) Antarctica's mineral, oil and gas wealth are a longer-team prize. The treaty banning mining here, shielding coveted ( 令人垂涎的 ) reserves of iron ore, coal and chromium, comes up for review in 2048. Researchers recently found kimberlite (金伯利岩 ) deposits hinting at the existence of diamonds. And while assessments vary widely, geologists estimate that Antarctica holds at least 36 billion barrels of oil and natural gas.",
+        "H) Beyond the Antarctic treaties, huge obstacles persist to tapping these resources, like drifting icebergs that could jeopardise offshore platforms. Then there is Antarctica's remoteness, with some mineral deposits found in windswept locations on a continent that is larger than Europe and where winter temperatures hover around minus 55 degrees Celsius.",
+        "I) But advances in technology might make Antarctica a lot more accessible three decades from now.And even before then, scholars warn, the demand for resources in an energy-hungry world could raise pressure to renegotiate Antarctica's treaties, possibly allowing more commercial endeavours here well before the prohibitions against them expire. The research stations on King George Island offer a glimpse into the long game on this ice-blanketed continent as nations assert themselves, eroding the sway long held by countries like the United States, Britain, Australia and New Zealand.",
+        "J) Being stationed in Antarctica involves adapting to life on the planet's driest, windiest and coldest continent, yet each nation manages to make itself at home. Bearded Russian priests offer regular services at the Orthodox church for the 16 or so Russian speakers who spend the winter at the base, largely polar scientists in fields like glaciology and meteorology. Their number climbs to about 40 in the warmer summer months. China has arguably the fastest-growing operations in Antarctica. It opened its fourth station last year and is pressing ahead with plans to build a fifth. It is building its second ice-breaking ship and setting up research drilling operations on an ice dome13,422 feet above sea level that is one of the planet's coldest places. Chinese officials say the expansion in Antarctica prioritises scientific research, but they also acknowledge that concerns about \"resource security\" influence their moves.",
+        "K) China's newly renovated Great Wall Station on King George Island makes the Russian and Chilean bases here seem outdated. \"We do weather monitoring here and other research,\" Ning Xu,53, the chief of the Chinese base, said over tea during a fierce blizzard (baofengxuE. in late November.The large base he leads resembles a snowed-in college campus on holiday break, with the capacity to sleep more than 10 times the 13 people who were staying on through the Antarctic winter.Yong Yu, a Chinese microbiologist, showed off the spacious building, with empty desks under an illustrated timeline detailing the rapid growth of China's Antarctic operations since the 1980s. \"We now feel equipped to grow,\" he said.",
+        "L) As some countries expand operations in Antarctica, the United States maintains three year-round stations on the continent with more than 1,000 people during the southern hemisphere's summer, including those at the Amundsen-Scott station, built in 1956 at an elevation of 9,301 feet on a plateau at the South Pole. But US researchers quietly complain about budget restraints and having far fewer icebreakers than Russia, limiting the reach of the United States in Antarctica.",
+        "M) Scholars warn that Antarctica's political drift could blur the distinction between military and civilian activities long before the continent's treaties come up for renegotiation, especially in parts of Antarctica that are ideal for intercepting (拦截) signals from satellites or retasking satellite systems, potentially enhancing global electronic intelligence operations.",
+        "N) Some countries have had a hard time here. Brazil opened a research station in 1984, but it was largely destroyed by a fire that killed two members of the navy in 2012, the same year that a diesel-laden Brazilian barge sank near the base. As if that were not enough, a Brazilian C-130 Hercules military transport plane has remained stranded near the runway of Chile's air base here since it crash-landed in 2014.",
+        "O) However, Brazil's stretch of misfortune has created opportunities for China, with a Chinese company winning the $100 million contract in 2015 to rebuild the Brazilian station.",
+        "P) Amid all the changes, Antarctica maintains its allure. South Korea opened its second Antarctic research base in 2014, describing it as a way to test robots developed by Korean researchers for use in extreme conditions. With Russia's help, Belarus is preparing to build its first Antarctic base. Colombia said this year that it planned to join other South American nations with bases in Antarctica.",
+        "Q) \"The old days of the Antarctic being dominated by the interests and wishes of white men from European, Australasian and North American states are over,\" said Klaus Dodds, a politics scholar at the University of London who specialises in Antarctica. \"The reality is that Antarctica is geopolitically contested.\""
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "According to Chinese officials, their activities in Antarctica lay greater emphasis on scientific research.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "J",
+          "explanation": "[答案][J] [精析]根据[定位词定位]、[核心义匹配]可知本题对应[J]段末句。该句明确指出中国官员的说法：在南极的扩张会以科研为重，但也考虑“资源安全”。可见，本题是对该句的同义转述，其中 their activities in Antarctica、lay greater emphasis on 分别对应 the expansion in Antarctica、priorities。"
+        },
+        {
+          "number": 37,
+          "stem": "Efforts to create one of the world's largest ocean sanctuaries failed because of Russia's obstruction.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "C",
+          "explanation": "由于俄罗斯的阻挠,建立全球最大海洋底护所之一的尝试终告失败。 [答案][C]][精析]根据[定位词定位」、核心义匹配]可知本题对应[C]段末句第二分句。该分 句明确指出:俄罗斯新近使得在南极建立全球最大海洋保护区之一的尝试失败。试题是对该句语义逻 辑的复现,其中failedbecauseof.·.完美展示了文中frustrated僻义“使(努力等)无效”。"
+        },
+        {
+          "number": 38,
+          "stem": "With several monitoring stations operating in Antarctica, Russia is trying hard to counter America's dominance in the field of worldwide navigational facilities.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "E",
+          "explanation": "俄罗斯正凭借其在南极洲运营的若干监测站竭力抗衡美国在全球导航设备领域的统治地位。 [答案」[E」[精析」根据[定位词定位」、[核心义匹配」可知本题对应[E段2句。该段介绍俄罗 斯为挑战美国在全球定位系统方面的统治地位而开发了格洛纳斯定位系统,现已有三个南极站点投入 运营。试题对该句文意的同义转述,其中severalmonitoringstations、tryinghardtocounterAmerica's dominance分别对应Atleast threeRussian stations(Russian stations即指Russianmonitoringstations)、 its efforts to challenge the dominance of the American GPS."
+        },
+        {
+          "number": 39,
+          "stem": "According to geologists' estimates, Antarctica has enormous reserves of oil and natural gas.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "G",
+          "explanation": "据地质学家估测,南极洲有非常丰富的石油和天然气储量。 [答案][G][精析]根据[定位词定位]、[核心义匹配]可知本题对应[G]段末句。该句指出地质 学家的估测:南极至少有360亿桶石油和天然气。试题是对该句的同义概括,其中enormousreserves 是对atleast36billionbarrels的概括。"
+        },
+        {
+          "number": 40,
+          "stem": "It is estimated that Antarctica boasts of the richest reserves of fresh water on earth.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "D",
+          "explanation": "据估测,南极洲有地球上最丰富的淡水资源储量。 L答案」[D」[精析」根据L定位词定位」、L核心义匹配」可知本题对应D段首句。该句指出:一些科 学家正评估开采南极冰山资源的可能性,据估测南极洲拥有地球上最丰富的淡水资源。试题是对句子的 同义转述,其中estimated同词复现,boastsoftherichestreservesoffreshwater精确概括该句文意。"
+        },
+        {
+          "number": 41,
+          "stem": "The demand for energy resources may compel renegotiation of Antarctica's treaties before their expiration.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "I",
+          "explanation": "对于能源资源的需求可能迫使各国在南极条约到期之前就重新谈判。 [答案][」[精析]根据[定位词定位]、[核心义匹配]可知本题对应[}段2句。该句介绍学者们 警告:各国对能源的急切需求可能导致南极洲相关保护条约未到期即被重新审议,从而使得更多商业 行为得以开展。试题是对该句的同义概括,其中compel同义改写raise pressureto。"
+        },
+        {
+          "number": 42,
+          "stem": "Many countries are racing against each other to increase their business and strategic influence on Antarctica.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "B",
+          "explanation": "很多国家正在相互竞争,以扩大各自在南极洲的商业和战略影响。 L答案」[B」[精析」根据定位词定位」、L核心义匹配」可知本题对应B」段未句。该句指出很多 国家正争相扩大在南极的影响力,争夺的对象不只南极条约到期之后的利益,还有现有的战略和商业 机会。试题是对该句的同义转述,其中many与anarrayof同义,racingagainsteachother同义替换 rushing,increase...influence对应 assert greater influence。"
+        },
+        {
+          "number": 43,
+          "stem": "Antarctica's harsh natural conditions constitute huge obstacles to the exploitation of its resources.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "H",
+          "explanation": "南极洲严酷的自然条件对其资源的开发形成巨大的障碍。 [答案][[H[精析]]根据[定位词定位」、[核心义匹配」可知本题对应[H段。该段1句指出除南 极条约之外,开发这些资源还面临巨大的障碍,如漂移冰山可能破坏近海平台等,2句继续介绍其他的 恶劣自然条件。由此可见,恶劣的自然环境是开发南极洲资源的一大障碍,试题是对段落文意的综合 概括,其中the exploitationof itsresources同义替换1句tappingtheseresources,harshnatural conditions是对该段南极洲自然环境的概括。"
+        },
+        {
+          "number": 44,
+          "stem": "With competition from many countries, Antarctica is no longer dominated by the traditional white nations.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "Q",
+          "explanation": "由于多国参与竞争,南极洲不再是传统白人国家的天下。 [答案][Q】[精析]根据[定位词定位]、核心义匹配]可知本题对应[Q|段。该段1句引证指出: 欧洲、澳大拉西亚、北美等白种人国家主导南极的时代已经结束,2句明确现状:南极洲现已成为地缘政 治上各国的争夺对象。可见,试题是对文意的同义概括,其中competitionfrommanycountries同义替换2 句geopolitically contested,no longer dominated对应1句The old days of...being dominated...are over。"
+        },
+        {
+          "number": 45,
+          "stem": "American scientists complain about lack of sufficient money and equipment for their expansion in Antarctica.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            }
+          ],
+          "answer": "L",
+          "explanation": "美国科学家抱怨,他们在南极洲的扩张缺乏足够的资金和设备。 [答案][L][精析]根据定位词定位]、[核心义匹配]可知本题对应[L]段末句。该句指出美国 研究人员抱怨:预算紧张、破冰船远少于俄罗斯,而这会限制美国在南极洲的开拓。试题是对该句的同 义改写,其中complainabout同词复现,theirexpansion同义替换thereachoftheUnitedStates。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2016-12-3-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Any veteran nicotine addict will testify that fancy packaging plays no role in the decision to keep smoking. So, it is argued, stripping cartons of their branding will trigger no mass movement to quit. But that isn't why the government--under pressure from cancer charities, health workers and the Labour party--has agreed to legislate for standardised packaging. The theory is that smoking should be stripped of any appeal to discourage new generations from starting in the first place. Plain packaging would be another step in the reclassification of cigarettes from inviting consumer products to narcotics (麻醉剂). Naturally, the tobacco industry is violently opposed. No business likes to admit that it sells addictive poison as a lifestyle choice. That is why government has historically intervened, banning advertising, imposing health warnings and punitive ( 惩罚性的) duties. This approach has led over time to a fall in smoking with numbers having roughly halved since the 1970s. Evidence from Australia suggests plain packaging pushes society further along that road. Since tobacco is one of the biggest causes of premature death in the UK, a measure that tames the habit even by a fraction is worth trying. So why has it taken so long? The Department of Health declared its intention to consider the move in November 2010 and consulted through 2012. But the plan was suspended in July 2013. It did not escape notice that a lobbying firm set up by Lynton Crosby, David Cameron's election campaign director, had previously acted for Philip Morris International. (The prime minister denied there was a connection between his new adviser's outside interests and the change in legislative programme.) In November 2013, after an unnecessary round of additional consultation, health minister Jane Ellison said the government was minded to proceed after all. Now we are told Members of Parliament (MPs) will have a free vote before parliament is dissolved in March. Parliament has in fact already authorised the government to tame the tobacco trade. MPs voted overwhelmingly in favour of Labour amendments to the children and families bill last February that included the power to regulate for plain packaging. With sufficient will in Downing Street this would have been done already. But strength of will is the missing ingredient where Mr. Cameron and public health are concerned. His attitude to state intervention has looked confused ever since his bizarre 2006 lament (叹惜) that chocolate oranges placed seductively at supermarket checkouts fueled obesity. The government has moved reluctantly into a sensible public health policy, but with such obvious over-cautiousness that any political credit due belongs to the opposition. Without sustained external pressure it seems certain Mr. Cameron would still be hooked on the interests of big tobacco companies."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What do chain smokers think of cigarette packaging?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Fancy packaging can help to engage new smokers."
+            },
+            {
+              "key": "B",
+              "text": "It has little to do with the quality or taste of cigarettes."
+            },
+            {
+              "key": "C",
+              "text": "Plain packaging discourages non-smokers from taking up smoking."
+            },
+            {
+              "key": "D",
+              "text": "It has little impact on their decision whether or not to quit smoking."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]D)。“任何老烟枪都会证明.....”引出其现身说法:花哨的包装并不会起到恐惠继续吸 烟的作用,反过来说,普通的包装也不会刺激戒烟(契合文中So引出的逻辑结果),综合可知,老烟枪认 为香烟包装(好坏与否)不影响吸烟行为,D项中haslittleimpacton对应文中playsnorolein。 [排除干扰]A项肯定包装对吸烟行为的影响,与文意相悸。B项添加文中未涉及信息thequality ortasteof cigarettes并臆断它们与包装的关联情况。C项源自第二段2句“简单包装削减吸烟魅力、可 阻止新一代吸烟”,但这是政府观点,与老烟枪观点相反。 [提炼思路]解答“人物观点题”可:一、借助观点标志词定位所考人物观点:首段1句testify暗示其 后宾从为老烟枪观点(D项与之契合,A项与之相悖);二、判断附近逻辑词所“统领”的语义,再借助逻辑 关系进一步确定答案:首段2句So以及第二段But分别体现“顺承、转折”逻辑,暗示argued(一些人认 为)和thetheoryis(政府看法是)引出的观点一一包装普通不会触发人们戒烟、要破除吸烟一切魅力来 阻断新人吸烟一 一与老烟枪看法分别是“一致”与“相反”的关系,故C项错误。三、切忌从现有信息中 过度臆断文中未涉及内容:B项虽合乎事实、但文章并未提及。"
+        },
+        {
+          "number": 47,
+          "stem": "What has the UK government agreed to do concerning tobacco packaging?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Pass a law to standardise cigarette packaging."
+            },
+            {
+              "key": "B",
+              "text": "Rid cigarette cartons of all advertisements."
+            },
+            {
+              "key": "C",
+              "text": "Subsidise companies to adopt plain packaging."
+            },
+            {
+              "key": "D",
+              "text": "Reclassify cigarettes according to packaging."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]A)。第二段1句中why引导的表语从句表明,政府—在的压力下——同意为标 准化包装立法。A项是对legislateforstandardisedpackaging的同义改写。 [排除干扰」B项源于第三段3句banningadvertising,但这是政府历来做法(historically),而非题干 所示新近行为(has...agreed),其次该内容指“禁止在媒介上投放广告”,而非“去除烟盒上的广告”。C 项由文意“政府欲推行标准化的平装包装”主观推测“烟草商若采取平装包装,则政府会给予补贴”,但 文中并未提及。D项将第二段3句reclassification含义“重新划归香烟的类别属性:消费品→麻醉剂”曲 解为“将香烟根据包装重新分类”。 [提炼思路]易于定位的题目其难度在于“干扰项常源自原文关键词”,解题需:一、辨识政府主动行 为和被动行为、历来行为和新近行为,题干所问为政府新近被动接受的举措(has agreed to do),而非政 府历来主动采取的举措(hashistoricallyintervened,banning..·,imposing...),因此源自第三段3句的 B项可排除;二、注重中心词之外的一些“小词”,如介词、副词等,辨析选项“猫腻”:reclassificationof cigarettesfrom...to...表示“改变香烟的整体门类”,而非“(根据包装)对香烟分门别类,细分种类”,D 项可排除;三、避免由文中信息主观臆断,如C项。"
+        },
+        {
+          "number": 48,
+          "stem": "What has happened in Australia where plain packaging is implemented?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Premature death rates resulting from smoking have declined."
+            },
+            {
+              "key": "B",
+              "text": "The number of smokers has dropped more sharply than in the UK."
+            },
+            {
+              "key": "C",
+              "text": "The sales of tobacco substitutes have increased considerably."
+            },
+            {
+              "key": "D",
+              "text": "Cigarette sales have been falling far more quickly than in the UK."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]B)。第三段3句指出“澳大利亚的证据表明,平装包装使社会在这条路上走得更远 (pushessocietyfurtheralongthatroad)”,“这条路(thatroad)”回指34句“(英国)削减吸烟人数之路/ 控烟之路”。可见,平装包装使澳大利亚在控烟问题上取得了比英国更大的成效,B项符合该结论。 [排除干扰]A项由“澳大利亚情况——吸烟人数比英国减少得更快”与末句“英国情况——吸烟是 促发过早死亡的一大原因”杂臆断而来。C项将澳大利亚控烟举措“实行平装包装”篡改为“鼓励销售 烟草的替代品”。D项将文中两国的比较对象“吸烟人数”偷换为“烟草销量”。 [提炼思路]本题虽易于定位,但难点有二:首先应明确定位句代词thatroad所指,上溯发现4句 hasledtoafallinsmoking体现方向性,故thatroad应指“削减吸烟人数之路”;其次,需明确比较级 further所涉的比较对象,31句叙述英国政府措施取得的成效(体现于吸烟者数量锐减),3句进而指 出澳大利亚的举措,故文中所比为“澳大利亚和英国在控烟问题上取得的成效”,B项正确。"
+        },
+        {
+          "number": 49,
+          "stem": "Why has it taken so long for the UK government to consider plain packaging?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Prime Minister Cameron has been reluctant to take action."
+            },
+            {
+              "key": "B",
+              "text": "There is strong opposition from veteran nicotine addicts."
+            },
+            {
+              "key": "C",
+              "text": "Many Members of Parliament are addicted to smoking."
+            },
+            {
+              "key": "D",
+              "text": "Pressure from tobacco manufacturers remains strong."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案」A)。第四段首句设问契合题干,随后23句回溯整个过程一2010年公开考虑,2012 年商,2013年搁置;接着4句暗示搁置原因:首相卡梅伦的竞选顾问所成立的游说公司曾经代表烟草 公司的利益,暗示首相为谋私利而故意不作为。其次,第五段34句、第六段末句也直指“卡梅伦政府 意愿不足、始终执着于大烟草公司的利益”,综上,A项正确。 [排除干扰]B项strongopposition同义改写第三段1句beviolentlyopposed,但把行为主体从“烟 草业(tobacco industry)”偷换为“老烟枪们”。C项杂第四段末出现的“议会议员”以及4句“政客曾为 大烟草公司游说”而来。D项偷换第二段1句underpressurefrom和末段2句externalpressure的潜在 行为主体:施压者是“癌症慈善机构、卫生工作者和工党”,而非“烟草生产商”,其次他们均旨在“促成政 府推行平装包装的举措”,而非题干的“阻碍这一举措”。另外,依常理看,烟草商确实会反对平装烟法 案,但文中并未提及该阻力,可见其并非耗时久的关键。 [提炼思路]本题虽可以直接定位,但定位段信息不足以完全解题,此时应关注其余段落,看是否同 属一个意群,借以寻找额外信息支撑。解题应:一、锁定目标段落,初步推断答案:第四段Itdidn't escape notice暗示原因:首相狗私,且括号中内容Theprimeministerdenied..·connection..(首相否认关联) 微妙表明该推断正是事实。二、从其他段段首判断意群所属,再结合段中关键信息以确定答案。第五 段开篇Parliamenthasinfactalready和第六段Thegovernmenthasmovedreluctantlyinto.·.提示两段 均承接第四段对“议会确有意向,但无奈搁置”的继续评述,而第五段31句Withsufficientwill.· would have been done、strength of will is the missing ingredient 以及第六段 would still be hooked on the interests...均指向“首相出于私利而使烟草改革悬而不决”,由此确定答案。 ·真题精解·"
+        },
+        {
+          "number": 50,
+          "stem": "What did Cameron say about chocolate oranges at supermarket checkouts?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They fueled a lot of controversy."
+            },
+            {
+              "key": "B",
+              "text": "They attracted a lot of smokers."
+            },
+            {
+              "key": "C",
+              "text": "They made more British people obese."
+            },
+            {
+              "key": "D",
+              "text": "They had certain ingredients missing."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]C)。第五段3句中的时间状语从句指出:(自从)卡梅伦曾叹惜那些诱惑性地摆放在超 市收银台上的巧克力橘子加剧了肥胖,C项是chocolateorangesplaced...fueledobesity的同义改写。 [排除干扰]A项复现3句关键词fueled,却将其宾语obesity(肥胖)偷换为controversy(争议)。B项 attracted近义3句seductively,但巧克力橘子的吸引对象是“爱吃甜食者”,而非“吸烟者”。D项复现4句 missingingredient,但其指“卡梅伦和公共卫生部门的强烈意愿(strengthofwill)”,并非\"巧克力橘子的成分”。 [提炼思路]本题易于定位,但错误项均复现原文关键词、干扰较大,解题需:一、明确正确项是原文 的同义改写(C项mademore.·.obese同义转述fueledobesity),二、熟悉并总结错误项常见干扰方式:总 有信息与原文交叠,但却偷换动词、副词作用对象,或偷换代词所指内容。 Passage Two上大学不是浪费钱财 学一、总体分析 来源:NewStatesman《新政治家》2015.08.20文章Itisnowfashionabletodecryuniversityasa wasteofmoney一butit'sstillworthit(上大学浪费钱财的说法虽然很流行,但它仍然物有所值)。主题: 针对“大学教育不仅回报低,而且造成沉重债务”的流行看法,分析指出“大学教育不仅有种种益处,而 且不上大学妨害人生发展”,呼吁人们接受“大学文凭在当今仍然十分重要”的现实。脉络:树靶,介绍 普遍观点(第一、二段)一一打靶,论证作者观点(第三至五段)。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2016-12-3-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "What a waste of money! In return for an average of ~44,000 of debt, students get an average of only 14 hours of lecture and tutorial time a week in Britain. Annual fees have risen from £1,000 to £9,000 in the last decade, but contact time at university has barely risen at all. And graduating doesn't even provide any guarantee of a decent job : six in ten graduates today are in non-graduate jobs. No wonder it has become fashionable to denounce many universities as little more than elaborate con-tricks (骗术). There's a lot for students to complain about: the repayment threshold for paying back loans will be frozen for five years, meaning that lower-paid graduates have to start repaying their loans; and maintenance grants have been replaced by loans, meaning that students from poorer backgrounds face higher debt than those with wealthier parents. Yet it still pays to go to university. If going to university doesn't work out, students pay very little--if any--of their tuition fees back: you only start repaying when you are earning £21,000 a year. Almost half of graduates--those who go on to earn less--will have a portion of their debt written off. It's not just the lectures and tutorials that are important. Education is the sum of what students teach each other in between lectures and seminars. Students do not merely benefit while at university; studies show- they go on to be healthier and happier than non-graduates, and also far more likely to vote. Whatever your talents, it is extraordinarily difficult to get a leading job in most fields without having been to university. Recruiters circle elite universities like vultures (兀鹰). Many top firms will not even look at applications from those who lack a 2.1, i. e., an upper-second class degree, from an elite university. Students at university also meet those likely to be in leading jobs in the future, forming contacts for life. This might not be right, but school-leavers who fail to acknowledge as much risk making the wrong decision about going to university. Perhaps the reason why so many universities offer their students so little is they know studying at a top university remains a brilliant investment even if you don't learn anything. Studying at university will only become less attractive if employers shift their focus away from where someone went to university--and there is no sign of that happening anytime soon. Schoololeavers may moan, but they have little choice but to embrace university and the student debt that comes with it."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What is the author's opinion of going to university?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is worthwhile after all."
+            },
+            {
+              "key": "B",
+              "text": "It is simply a waste of time."
+            },
+            {
+              "key": "C",
+              "text": "It is hard to say whether it is good or bad."
+            },
+            {
+              "key": "D",
+              "text": "It is too expensive for most young people."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案」A)。首两段主要对人们看法读大学浪费钱(waste)、是骗局(con-tricks)”进行解释:学 费高、贷款负担重、蚕食学习时间。第三段1句转而指出“上大学仍然划算”,且后文也在介绍读大学的 作用,文末给出结论,高中毕业生只有读大学一条路可走(否则就业堪忧),可见作者意在纠正大众观 点,论证上大学(虽然存在各种问题,但)终归是值得的,A项契合Yetitstillpaystogotouniversity以 及其后内容体现的作者态度。 [排除干扰]B项错把普遍观点“上大学无益”当作作者观点。C项把前两段的反对与第三段的支 持混杂,错误推出作者态度犹豫不决,未认识到第三段才是作者态度。D项由首段“学费高、助学贷款债 务重”而来,但这是普遍观点,第三段作者明确指出相当一部分大学毕业生只需偿还一部分学费,这说 明作者认为大学投入最终是划算的。 [提炼思路]本题以作者态度题的形式考查对文章主旨的把握,需明确:带有强烈感情色彩的表达 很重要,但要怀瑞全局意识,区分它们体现的是他人倾向还是作者观点(首两段对大学教育之弊端大书 特书,但这是流行的观点,即靶子;第三段才真正引出作者观点“大学教育物有所值”)。"
+        },
+        {
+          "number": 52,
+          "stem": "What does the author say about the employment situation of British university graduates?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Few of them are satisfied with the jobs they are offered."
+            },
+            {
+              "key": "B",
+              "text": "It usually takes a long time for them to find a decent job."
+            },
+            {
+              "key": "C",
+              "text": "Graduates from elite universities usually can get decent jobs."
+            },
+            {
+              "key": "D",
+              "text": "Most of them take jobs which don't require a college degree."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]D)。该句指出,大学毕业也不能保证获得一份体面工作:六成毕业生从事的工作不需 要大学学历。D项Mostof them、don'trequire a collegedegree分别对应文中six intengraduates、non- graduate jobs。 [排除干扰]A项干扰来源有二:1.前两段弥漫“不满情绪”(barelyrisen、doesn'teven、alot...to complainabout等),但这是人们对读大学“支出高、回报低”的不满,并非不满工作;2.首段末“六成人所 找工作无需大学文凭(工作不好)”,选项过度曲解为“几乎没什么人对所找工作满意”。B项将首段末句 “毕业生未必能找到好工作”篡改为“找很久才能得到好工作”。C项源于第四段2句、末段12句信息 “名校学生更受用人单位青睐”,但“他们大多能找到好工作”过于绝对,与第四段3句含义“若拿不到二 级甲等学位,就算是名校生,顶尖公司也不收”相悸。 [提炼思路]本题定位不难,但一方面beinnon-graduate jobs的表达造成一定理解障碍,另一方面 各选项乍看都正确。解题时避免先深究各选项,而是先借助语篇衔接元素(特殊语法现象、逻辑词、语 境中的复现、对比等)大致判断难点处语义,理清整体定位内容的方向:英文冒号起解释说明作用,表明 其后是对其前内容的进一步阐释,可见全句大方向是“大学毕业不能保证有好工作”;再看选项:B项虽 强调“费时”,但最终是好结局,C项聚焦“名校生”,但仍属总群体,同样是好结局,两者都违背“就业不 利”的大前提。A、D项不好排除,此时结合non-graduate字面含义“非毕业生”推断此处语义应该是“岗 位无需大学文凭即可胜任”,判断D项正确,A项主观判断“就业者心态”,且few过于绝对。"
+        },
+        {
+          "number": 53,
+          "stem": "What does the author say is important for university students besides classroom instruction?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Making sure to obtain an upper-second class degree."
+            },
+            {
+              "key": "B",
+              "text": "Practical skills they will need in their future careers."
+            },
+            {
+              "key": "C",
+              "text": "Interactions among themselves outside the classroom."
+            },
+            {
+              "key": "D",
+              "text": "Developing independent and creative thinking abilities."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]C)。本句指出,(对大学生来说)重要的不仅仅是课程和辅导。紧接着3句指出,教育 还是学生们在课堂和研讨会之外互相学习的总和(whatstudentsteacheachotherinbetweenlectures andseminars),意即:除课堂学习外,学生之间的交流互动也很重要。 [排除干扰]A项利用第四段3句中的anupper-secondclassdegree干扰,但这是针对“名校生就业 情形(若毕业成绩不达标也进不了好公司)”而说,而二级甲等学位对普校大学生而言标准只会更低,谈 不上“很重要”。B项利用常识“大学生普遍缺乏工作所需的实用技能”干扰,但文中并未提及。D项源 于第三段末farmorelikelytovote,但这是读大学的一项积极作用(即结果),而题干问的是“什么东西重 要”,实为好结果的促因;其次“投票选举”强调的是“(更有)公民意识”而非“思考能力”。 [提炼思路]题干“什么对大学生来说很重要”有些含混,但结合主题“大学教育”以及题干状语“除 课堂外”可知,本题实质考查“大学教育的不可替代之处,赋予学生的非凡价值”。观察选项:A项可以说 是“好学生的最起码要求”,与“非凡”不搭边,B项“实用技能”恰恰与大学教育相对,属于职业院校的意 义,D项干扰较强,但核查发现原文并无信息支撑,而C项“课堂外学生互动”形式上与题干“课堂教授” 形成互补,也在文中找到信息支撑。"
+        },
+        {
+          "number": 54,
+          "stem": "What is said to be an advantage of going to university?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Learning how to take risks in an ever-changing world."
+            },
+            {
+              "key": "B",
+              "text": "Meeting people who will be helpful to you in the future."
+            },
+            {
+              "key": "C",
+              "text": "Having opportunities of playing a leading role in society."
+            },
+            {
+              "key": "D",
+              "text": "Gaining up-to-date knowledge in science and technology."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]B)。首句表明好处一:读大学才有机会从事顶尖工作。4句also...引出好处二:还有 机会结识将来可能从事顶尖工作的人,从而建立终生的人脉。B项符合好处二,willbe helpful to youin thefuture是对文中formingcontactsforlife的同义转述。 [排除干扰]A项把段末“中学毕业生不承认读大学的好处会有犯错的危险(riskmakingthewrong decision),即放弃读大学”曲解为“上大学能让人学会如何冒险”。C项把好处一“可能得到行业顶尖工 作(aleadingjobinmostfields)”偷换为“成为全社会领军人(aleadingroleinsociety)”。D项把forming contacts(建立人脉)误解为“接触(从而获得)最新的科技知识”。 [提炼思路]本题与上题很像,但上题关注“大学教育中的什么(因素)能为学生带来积极结果”,而本 题直接询问“上大学能带来什么积极作用/结果”,以此为基础在涉及“大学教育积极结果”的第三、四段搜 寻相关信息,得到第三段中Almosthalf...debtswrittenoff、healthierandhappier...morelikelytovote以及 第四段中difficulttogetaleadingjob...without..·、alsomeetthose...关键信息,最终结合选项确定答案。"
+        },
+        {
+          "number": 55,
+          "stem": "What can we infer from the last paragraph?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is natural for students to make complaints about university education."
+            },
+            {
+              "key": "B",
+              "text": "Few students are willing to bear the burden of debt incurred at university."
+            },
+            {
+              "key": "C",
+              "text": "University education is becoming attractive to students who can afford it."
+            },
+            {
+              "key": "D",
+              "text": "The prestige of the university influences employers' recruitment decisions."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]D)。2句thereisnosignofthathappeninganytimesoon中that回指“雇主把关注点从 毕业院校上转移(employersshifttheirfocusaway)”,反过来说,短期内雇主仍然重视毕业学校,也即“求 职仍会受制于学校名气”,D项是对该内容的合理推断。 [排除干扰]A、B项均利用末句moan干扰,但“中学毕业生抱怨”的具体对象是2句所述现象“雇 主看重大学学历”,既不是“大学教育本身”,也不是“读书的债务负担”,而文末作者说“接纳大学以及读 书债务是唯一选择”恰恰暗示多数人最终还是会选择背债读书。C项干扰来自2句lessattractive,该句 “雇主若不再看重学历则大学吸引力降低”隐含逻辑为“大学吸引力与雇主看法有关”,选项歪曲为“大 学吸引力关乎学生自身经济条件”。 L提炼思路」末段是全文的总结性评述,即使题目锁定本段,但正确项也往往具有“符合段内信息十 反映全文主旨”的特点,因此解题可两步走:一、先根据全文“大线条”排除干扰,缩窄选择范围:作者肯 定上大学的作用,鼓励高中生毕业读大学,而A、B项关注点在于“上大学的负作用”,与总导向相悖。 二、再关注本段细节内容,从剩余项中识别答案:C、D项中的信息都源于2句,而该句只涉及“大学教育 吸引力—一雇主关注点一一毕业院校”三者之间的互动,并不涉及“学生心态”,因此确定答案为D项。 ·真题精解·"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1729 @@
+{
+  "id": "cet4-2017-12-2",
+  "level": 4,
+  "year": 2017,
+  "month": 12,
+  "set": 2,
+  "title": "2017 年 12 月四级 · 第 2 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.12/%E7%9C%9F%E9%A2%98Word/2017%E5%B9%B412%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E5%8D%B7%E4%BA%8C%EF%BC%89.doc",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2017%E5%B9%B412%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A5%97%EF%BC%89.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2017-12-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Technological changes brought dramatic new options to Americans living in the 1990s. During this decade new forms of entertainment, commerce, research, and communication became commonplace in the U. S. The driving force behind much of this change was a(n) [[26]] popularly known as the Internet. The Internet was developed during the 1970s by the Department of Defense. In the case of an attack, military advisers suggested the [[27]] of being able to operate one computer from another terminal. In the early days, the Internet was used mainly by scientists to communicate with other scientists. The Internet [[28]] under government control until 1984. One early problem faced by Internet users was speed. Phone lines could only transmit information at a [[29]] rate. The development of fiber-optic(光纤) cables allowed for billions of bits of information to be received every minute. Companies like Intel developed faster microprocessors, so personal computers could process the [[30]] signals at a more rapid rate. In the early 1990s, the World Wide Web was developed, in large part, for [[31]] purposes. Corporations created home pages where they could place text and graphics to sell products. Soon airline tickets, hotel [[32]] ,and even cars and homes could be purchased online. Universities [[33]] research data on the Internet, so students could find [[34]] information without leaving their dormitories. Companies soon discovered that work could be done at home and [[35]] online, so a whole new class of telecommuters began to earn a living from home offices unshaven and wearing pajamas(睡衣)."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "advantage"
+        },
+        {
+          "key": "B",
+          "text": "commercial"
+        },
+        {
+          "key": "C",
+          "text": "conservation"
+        },
+        {
+          "key": "D",
+          "text": "equipped"
+        },
+        {
+          "key": "E",
+          "text": "incoming"
+        },
+        {
+          "key": "F",
+          "text": "innovation"
+        },
+        {
+          "key": "G",
+          "text": "limited"
+        },
+        {
+          "key": "H",
+          "text": "local"
+        },
+        {
+          "key": "I",
+          "text": "maintained"
+        },
+        {
+          "key": "J",
+          "text": "occupations"
+        },
+        {
+          "key": "K",
+          "text": "posted"
+        },
+        {
+          "key": "L",
+          "text": "remained"
+        },
+        {
+          "key": "M",
+          "text": "reservations"
+        },
+        {
+          "key": "N",
+          "text": "submitted"
+        },
+        {
+          "key": "O",
+          "text": "valuable"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "advantage"
+            },
+            {
+              "key": "B",
+              "text": "commercial"
+            },
+            {
+              "key": "C",
+              "text": "conservation"
+            },
+            {
+              "key": "D",
+              "text": "equipped"
+            },
+            {
+              "key": "E",
+              "text": "incoming"
+            },
+            {
+              "key": "F",
+              "text": "innovation"
+            },
+            {
+              "key": "G",
+              "text": "limited"
+            },
+            {
+              "key": "H",
+              "text": "local"
+            },
+            {
+              "key": "I",
+              "text": "maintained"
+            },
+            {
+              "key": "J",
+              "text": "occupations"
+            },
+            {
+              "key": "K",
+              "text": "posted"
+            },
+            {
+              "key": "L",
+              "text": "remained"
+            },
+            {
+              "key": "M",
+              "text": "reservations"
+            },
+            {
+              "key": "N",
+              "text": "submitted"
+            },
+            {
+              "key": "O",
+              "text": "valuable"
+            }
+          ],
+          "answer": "F",
+          "explanation": "答案:F)innovation 详解:名词辨析题。空格前为冠词a(n),空格后为过去分词短语popularly known as the Internet 作后置定语修 饰该空,因此应填入可数名词单数。本段第一句指出,技术变革为美国人带来了巨大的全新选择,而空格所在句指 出,这一变革背后的推动力是众所周知的_____因特网。由此可知,因特网在30 世纪90 年代的美国是新事物,故 填入F)innovation“新事物,创新”。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "advantage"
+            },
+            {
+              "key": "B",
+              "text": "commercial"
+            },
+            {
+              "key": "C",
+              "text": "conservation"
+            },
+            {
+              "key": "D",
+              "text": "equipped"
+            },
+            {
+              "key": "E",
+              "text": "incoming"
+            },
+            {
+              "key": "F",
+              "text": "innovation"
+            },
+            {
+              "key": "G",
+              "text": "limited"
+            },
+            {
+              "key": "H",
+              "text": "local"
+            },
+            {
+              "key": "I",
+              "text": "maintained"
+            },
+            {
+              "key": "J",
+              "text": "occupations"
+            },
+            {
+              "key": "K",
+              "text": "posted"
+            },
+            {
+              "key": "L",
+              "text": "remained"
+            },
+            {
+              "key": "M",
+              "text": "reservations"
+            },
+            {
+              "key": "N",
+              "text": "submitted"
+            },
+            {
+              "key": "O",
+              "text": "valuable"
+            }
+          ],
+          "answer": "A",
+          "explanation": "答案:A)advantage 详解:名词辨析题。空格位于冠词the 和介词of 之间,应填入名词。本句意为,在遭到攻击的情况下,军事顾问 突出了能够从另一个终端操控一台计算机的______。由句意可知,这样的操作对终端所在地没有限制,具有一定的 优势,因此应填入A)advantage“优势,优点”。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "advantage"
+            },
+            {
+              "key": "B",
+              "text": "commercial"
+            },
+            {
+              "key": "C",
+              "text": "conservation"
+            },
+            {
+              "key": "D",
+              "text": "equipped"
+            },
+            {
+              "key": "E",
+              "text": "incoming"
+            },
+            {
+              "key": "F",
+              "text": "innovation"
+            },
+            {
+              "key": "G",
+              "text": "limited"
+            },
+            {
+              "key": "H",
+              "text": "local"
+            },
+            {
+              "key": "I",
+              "text": "maintained"
+            },
+            {
+              "key": "J",
+              "text": "occupations"
+            },
+            {
+              "key": "K",
+              "text": "posted"
+            },
+            {
+              "key": "L",
+              "text": "remained"
+            },
+            {
+              "key": "M",
+              "text": "reservations"
+            },
+            {
+              "key": "N",
+              "text": "submitted"
+            },
+            {
+              "key": "O",
+              "text": "valuable"
+            }
+          ],
+          "answer": "L",
+          "explanation": "答案:L)remained 详解:动词辨析题。分析句子结构可知,本空位于主语之后,缺少谓语,应填入动词。由句意可知,因特网到1984 年一直由政府控制,应填入表示持续一段时间的动词,故答案是L)remained“继续,依然”。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "advantage"
+            },
+            {
+              "key": "B",
+              "text": "commercial"
+            },
+            {
+              "key": "C",
+              "text": "conservation"
+            },
+            {
+              "key": "D",
+              "text": "equipped"
+            },
+            {
+              "key": "E",
+              "text": "incoming"
+            },
+            {
+              "key": "F",
+              "text": "innovation"
+            },
+            {
+              "key": "G",
+              "text": "limited"
+            },
+            {
+              "key": "H",
+              "text": "local"
+            },
+            {
+              "key": "I",
+              "text": "maintained"
+            },
+            {
+              "key": "J",
+              "text": "occupations"
+            },
+            {
+              "key": "K",
+              "text": "posted"
+            },
+            {
+              "key": "L",
+              "text": "remained"
+            },
+            {
+              "key": "M",
+              "text": "reservations"
+            },
+            {
+              "key": "N",
+              "text": "submitted"
+            },
+            {
+              "key": "O",
+              "text": "valuable"
+            }
+          ],
+          "answer": "G",
+          "explanation": "答案:G)limited 详解:形容词辨析题。本空位于冠词a 和名词rate 之间,因此应填入形容词修饰rate。空格所在句的前一句提到, 因特网用户早期面临的一个问题是网速,也就是说早期的因特网网速很慢。本句是对前一句的进一步解释,电话线 路只能以_______速度传输信息。空格处应填入有“慢”含义的形容词,故答案是G)limited“有限的”。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "advantage"
+            },
+            {
+              "key": "B",
+              "text": "commercial"
+            },
+            {
+              "key": "C",
+              "text": "conservation"
+            },
+            {
+              "key": "D",
+              "text": "equipped"
+            },
+            {
+              "key": "E",
+              "text": "incoming"
+            },
+            {
+              "key": "F",
+              "text": "innovation"
+            },
+            {
+              "key": "G",
+              "text": "limited"
+            },
+            {
+              "key": "H",
+              "text": "local"
+            },
+            {
+              "key": "I",
+              "text": "maintained"
+            },
+            {
+              "key": "J",
+              "text": "occupations"
+            },
+            {
+              "key": "K",
+              "text": "posted"
+            },
+            {
+              "key": "L",
+              "text": "remained"
+            },
+            {
+              "key": "M",
+              "text": "reservations"
+            },
+            {
+              "key": "N",
+              "text": "submitted"
+            },
+            {
+              "key": "O",
+              "text": "valuable"
+            }
+          ],
+          "answer": "E",
+          "explanation": "答案:E)incoming 详解:形容词辨析题。本空位于冠词the 和名词signals 之间,因此应填入形容词修饰signals。本句意为,英特尔 等公司开发出更快的微处理器,这样个人计算机能够以更快的速度处理_______信号。空格所在句的前一句提到, 光纤电缆可以让每分钟接收的信息以数十亿比特计,这就要求个人计算机能更快地处理这些接收的信号,故应填E) incoming“进来的,正来临的”。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "advantage"
+            },
+            {
+              "key": "B",
+              "text": "commercial"
+            },
+            {
+              "key": "C",
+              "text": "conservation"
+            },
+            {
+              "key": "D",
+              "text": "equipped"
+            },
+            {
+              "key": "E",
+              "text": "incoming"
+            },
+            {
+              "key": "F",
+              "text": "innovation"
+            },
+            {
+              "key": "G",
+              "text": "limited"
+            },
+            {
+              "key": "H",
+              "text": "local"
+            },
+            {
+              "key": "I",
+              "text": "maintained"
+            },
+            {
+              "key": "J",
+              "text": "occupations"
+            },
+            {
+              "key": "K",
+              "text": "posted"
+            },
+            {
+              "key": "L",
+              "text": "remained"
+            },
+            {
+              "key": "M",
+              "text": "reservations"
+            },
+            {
+              "key": "N",
+              "text": "submitted"
+            },
+            {
+              "key": "O",
+              "text": "valuable"
+            }
+          ],
+          "answer": "B",
+          "explanation": "答案:B)commercial 详解:形容词辨析题。本空位于名词purposes 之前,应填入形容词作定语修饰purposes。由空格所在句的下一句 可知,企业利用万维网创建主页以销售产品,由此可知万维网诞生之初是因为企业的需求,故应填入B)commercial “商业的”。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "advantage"
+            },
+            {
+              "key": "B",
+              "text": "commercial"
+            },
+            {
+              "key": "C",
+              "text": "conservation"
+            },
+            {
+              "key": "D",
+              "text": "equipped"
+            },
+            {
+              "key": "E",
+              "text": "incoming"
+            },
+            {
+              "key": "F",
+              "text": "innovation"
+            },
+            {
+              "key": "G",
+              "text": "limited"
+            },
+            {
+              "key": "H",
+              "text": "local"
+            },
+            {
+              "key": "I",
+              "text": "maintained"
+            },
+            {
+              "key": "J",
+              "text": "occupations"
+            },
+            {
+              "key": "K",
+              "text": "posted"
+            },
+            {
+              "key": "L",
+              "text": "remained"
+            },
+            {
+              "key": "M",
+              "text": "reservations"
+            },
+            {
+              "key": "N",
+              "text": "submitted"
+            },
+            {
+              "key": "O",
+              "text": "valuable"
+            }
+          ],
+          "answer": "M",
+          "explanation": "答案:M)reservations 详解:名词辨析题。该空位于hotel 之后,而且与airline tickets、cars and homes 构成主语,因此应填入名词。该 句意为,很快,购买机票、______旅馆,甚至购买汽车和房子都可以在网上进行。结合日常生活,我们知道在网上 可以预订宾馆房间,故空格处应填M)reservations“预订”。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "advantage"
+            },
+            {
+              "key": "B",
+              "text": "commercial"
+            },
+            {
+              "key": "C",
+              "text": "conservation"
+            },
+            {
+              "key": "D",
+              "text": "equipped"
+            },
+            {
+              "key": "E",
+              "text": "incoming"
+            },
+            {
+              "key": "F",
+              "text": "innovation"
+            },
+            {
+              "key": "G",
+              "text": "limited"
+            },
+            {
+              "key": "H",
+              "text": "local"
+            },
+            {
+              "key": "I",
+              "text": "maintained"
+            },
+            {
+              "key": "J",
+              "text": "occupations"
+            },
+            {
+              "key": "K",
+              "text": "posted"
+            },
+            {
+              "key": "L",
+              "text": "remained"
+            },
+            {
+              "key": "M",
+              "text": "reservations"
+            },
+            {
+              "key": "N",
+              "text": "submitted"
+            },
+            {
+              "key": "O",
+              "text": "valuable"
+            }
+          ],
+          "answer": "K",
+          "explanation": "答案:K)posted 详解:动词辨析题。分析句子结构可知,本空位于主语universities 和宾语research data 之间,因此应填入动词作 谓语。本句意为,大学把研究数据______到因特网上,学生不用离开宿舍就能找到_______信息。由后半句可知, 学校的数据放到网上,学生足不出户就能找到信息。因此本空应填入含有“上传”含义的动词,故答案为K)posted “发布,张贴”。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "advantage"
+            },
+            {
+              "key": "B",
+              "text": "commercial"
+            },
+            {
+              "key": "C",
+              "text": "conservation"
+            },
+            {
+              "key": "D",
+              "text": "equipped"
+            },
+            {
+              "key": "E",
+              "text": "incoming"
+            },
+            {
+              "key": "F",
+              "text": "innovation"
+            },
+            {
+              "key": "G",
+              "text": "limited"
+            },
+            {
+              "key": "H",
+              "text": "local"
+            },
+            {
+              "key": "I",
+              "text": "maintained"
+            },
+            {
+              "key": "J",
+              "text": "occupations"
+            },
+            {
+              "key": "K",
+              "text": "posted"
+            },
+            {
+              "key": "L",
+              "text": "remained"
+            },
+            {
+              "key": "M",
+              "text": "reservations"
+            },
+            {
+              "key": "N",
+              "text": "submitted"
+            },
+            {
+              "key": "O",
+              "text": "valuable"
+            }
+          ],
+          "answer": "O",
+          "explanation": "答案:O)valuable 详解:形容词辨析题。本空位于不可数名词information 之前,应填入形容词作定语。由句意可知,学生足不出户 就可以在网上查到学校发布的研究数据,而这些数据对他们来说肯定是有用的,因此应填入O)valuable“有价值 的,珍贵的”。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "advantage"
+            },
+            {
+              "key": "B",
+              "text": "commercial"
+            },
+            {
+              "key": "C",
+              "text": "conservation"
+            },
+            {
+              "key": "D",
+              "text": "equipped"
+            },
+            {
+              "key": "E",
+              "text": "incoming"
+            },
+            {
+              "key": "F",
+              "text": "innovation"
+            },
+            {
+              "key": "G",
+              "text": "limited"
+            },
+            {
+              "key": "H",
+              "text": "local"
+            },
+            {
+              "key": "I",
+              "text": "maintained"
+            },
+            {
+              "key": "J",
+              "text": "occupations"
+            },
+            {
+              "key": "K",
+              "text": "posted"
+            },
+            {
+              "key": "L",
+              "text": "remained"
+            },
+            {
+              "key": "M",
+              "text": "reservations"
+            },
+            {
+              "key": "N",
+              "text": "submitted"
+            },
+            {
+              "key": "O",
+              "text": "valuable"
+            }
+          ],
+          "answer": "N",
+          "explanation": "答案:N)submitted 详解:动词辨析题。分析句子结构可知,本空与and 前的done 是并列结构,和be 共同构成被动语态,因此应填 入动词过去分词形式。本句意为,公司很快发现员工可以在家工作,然后通过网络______-,这样全新的远程办公族 就出现了,他们不剃胡子,穿着睡衣在加办公。由此可知,员工可以在家办公,通过网络把完成的任务提交上司, 因此应填入含有“上交”含义的动词,故答案为N)submitted“提交”。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2017-12-2-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) About 15 years ago, I was invited to join a knitting group. I agreed to give it a try.",
+        "B) My mother had taught me to knit at 15, and I knitted in class throughout college and for a few years thereafter. Then decades passed without my touching a knitting needle. But within two Mondays in the group, I was hooked, not only on knitting but also on crocheting(钩织),and I was on my way to becoming a highly productive crafter.",
+        "C) I’ve made countless baby blankets, sweaters, scarves, hats, caps for newborns. I take a knitting project with me everywhere, especially when I have to sit still and listen. As I discovered in college, when my hands are busy, my mind stays focused on the here and now.",
+        "D) It seems, too, that I’m part of a national renewal of interest in needle and other handicrafts(手工艺). The Craft Yarn Council reports that a third of women ages 25-35 now knit or crochet. Even men and schoolchildren are swelling the ranks, among them my friend’s three small grandsons. Last April, the council created a “Stitch Away Stress” campaign in honor of National Stress Awareness Month. Dr. Herbert Benson, a pioneer in mind/body medicine and author of The Relaxation Response, says that the repetitive action of needlework can induce a relaxed stats like that associated with meditation(沉思)and yoga. Once you get beyond the initial learning curve, knitting and crocheting can lower heart rate and blood pressure.",
+        "E) But unlike meditation, craft activities result in tangible and often useful products that can enhance self-esteem. I keep photos of my singular accomplishments on my cellphone to boost my spirits when needed.",
+        "F) Since the 1990s, the council has surveyed hundreds of thousands of knitters and crocheters, who routinely list stress relief and creative fulfillment as the activities’ main benefits. Among them is the father of a prematurely born daughter who reported that during the baby’s five weeks in the intensive care unit, “learning how to knit infant hats gave me a sense of purpose during a time that I felt very helpless. It’s a hobby that I’ve stuck with, and it continues to help me cope with stress at work, provide a sense of order in hectic(忙乱的) days, and allow my brain time to solve problems.”",
+        "G) A recent email from the yarn(纺纱) company Red Heart titled “Health Benefits of Crocheting and Knitting” prompted me to explore what else might be known about the health value of activities like knitting. My research revealed that the rewards go well beyond replacing stress and anxiety with the satisfaction of creation.",
+        "H) For example, Karen Hayes, a life coach in Toronto, conducts knitting therapy programs, including Knit to Quit to help smokers give up the habit, and Knit to Heal for people coping with health crises, like a cancer diagnosis or serious illness of a family member. Schools and prisons with craft programs report that they have a calming effect and enhance social skills. And having to follow instructions on complex craft projects can improve children’s math skills.",
+        "I) Some people find that craftwork helps them control their weight. Just as it’s challenging to smoke while knitting, when hands are holding needles and hooks, there’s less snacking and mindless eating out of boredom.",
+        "J) I’ve found that my handiwork with yarn has helped my arthritic(患关节炎的) fingers remain more dexterous(灵巧的) as I age. A woman encouraged to try knitting and crocheting after developing an autoimmune disease that caused a lot of hand pain reported on the Craft Yarn Council site that her hands are now less stiff and painful.",
+        "K) A 2009 University of British Columbia study of 38 women with an eating disorder who were taught to knit found that learning the craft led to significant improvements. Seventy-four percent of the women said the activity lessened their fears and kept them from thinking about their problem.",
+        "L) Betsan Corkhill, a wellness coach in Bath, England, and author of the book Knit for Health & Wellness, established a website, Stitchlinks, to explore the value of what she calls therapeutic knitting. Among her respondents, 54 percent of those who were clinically depressed said that knitting made them feel happy or very happy. In a study of 60 self-selected people with persistent pain, Ms. Corkhill and colleagues reported that knitting enabled them to redirect their focus, reducing their awareness of pain. She suggested that the brain can process just so much at once, and that activities like knitting and crocheting make it harder for the brain to register pain signals. Perhaps most exciting is research that suggests that crafts like knitting and crocheting may help to keep off a decline in brain function with age. In a 2011 study, researchers led Dr. Yonas Geda at the Mayo Clinic in Rochester interviewed a random(随机的) sample of 1,321 people ages 70-89, most of whom were cognitively(在认知方面) normal, about the cognitive activities they engaged in late in life. The study, published in the Journal of Neuropsychiatry & Clinical Neurosciences, found that those who engaged in crafts like knitting and crocheting had a diminished chance of developing mild cognitive disorder and memory loss.",
+        "M) Although it is possible that only people who are cognitively healthy would pursue such activities, those who read newspapers or magazines or played music did not show similar benefits. The researchers speculate that craft activities promote the development of nerve pathways in the brain that help to maintain cognitive health.",
+        "N) In support of that suggestion, a 2014 study by Denise C. Park of the University of Texas at Dallas and colleagues demonstrated that learning to knit or do digital photography enhanced memory function in older adults. Those who engaged in activities that were not intellectually challenging either in a social group or alone, did not show such improvements.",
+        "O) Given that sustained social contacts have been shown to support health and a long life, those wishing to maximize the health value of crafts might consider joining a group of like-minded folks. I for one try not to miss a single weekly meeting of my knitting group."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "When the author was a college student, she found that knitting helped her concentrate.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "C",
+          "explanation": "When the author was a college student, she found that C) I’ve made countless baby blankets, sweaters, scarves, knitting helped her concentrate. hats, caps for newborns. I take a knitting project with me 译文:当作者是一名大学生时,她发现编织有助于她集 everywhere, especially when I have to sit still and listen. As 中注意力。 I discovered in college, when my hands are busy, my mind 定位:由题干中的college, found 和concentrate 定位到原 stays focused on the here and now. 文画线处。 详解:C 段末句提到,正如我在大学时发现的那样,当我的双手忙碌时,我的头脑就会专注于当下。题干中的 found 对应原文中的discovered; concentrate 对应stays focused on,题干是对定位句的同义转述,故答案为C。"
+        },
+        {
+          "number": 37,
+          "stem": "Knitting can help people stay away from tobacco.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "H",
+          "explanation": "Knitting can help people stay H)For example, Karen Hayes, a life coach in Toronto, conducts knitting therapy away from tobacco. programs, including Knit to Quit to help smokers give up the habit, and Knit to 译文:编织可以帮助人们远离烟草。 Heal for people coping with health crises, like a cancer diagnosis or serious illness 定位:由题干中的Knitting,help of a family member. Schools and prisons with craft programs report that they have a 和tobacco 定位到原文画线处。 calming effect and enhance social skills. And having to follow instructions on complex craft projects can improve children’s math skills. 详解:H 段定位句前半句提到,多伦多的一名人生教练海伦·海耶斯实施了编织治疗方案,其中就包括用“编 织戒烟”方案来帮助抽烟者戒烟。题干中的stay away from tobacco 对应原文中的give up the habit,题干是对定位句的 概括归纳,故答案为H。"
+        },
+        {
+          "number": 38,
+          "stem": "Even men and children are now joining the army of knitters.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "D",
+          "explanation": "Even men and children D) It seems, too, that I’m part of a national renewal of interest in needle and other are now joining the army handicrafts(手工艺). The Craft Yarn Council reports that a third of women ages 25-35 now of knitters. knit or crochet. Even men and schoolchildren are swelling the ranks, among them my friend’s 译文:甚至男士和孩子也 three small grandsons. Last April, the council created a “Stitch Away Stress” campaign in 加入了编织者大军。 honor of National Stress Awareness Month. Dr. Herbert Benson, a pioneer in mind/body 定位:由题干中的men medicine and author of The Relaxation Response, says that the repetitive action of and children 和joining the needlework can induce a relaxed stats like that associated with meditation(沉思)and yoga. army 定位到原文画线处。 Once you get beyond the initial learning curve, knitting and crocheting can lower heart rate and blood pressure. 详解:D 段前三句提到,如今全国人都对编织和其他手艺重燃兴趣,不仅仅是女士对编织和钩织感兴趣,甚至 男士和中小学生也在壮大这一队伍。题干中的men and children 对应原文中的men and schoolchildren;joining the army of knitters 对应原文中的swelling the ranks,题干是对定位句的同义转述,故答案为D。"
+        },
+        {
+          "number": 39,
+          "stem": "Being a member of a crafts group enhances one’s health and prolongs one’s life.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "O",
+          "explanation": "Being a member of a crafts group enhances one’s health O) Given that sustained social contacts have been shown to and prolongs one’s life. support health and a long life, those wishing to maximize 译文:成为某个手工艺小组的成员可以增进健康,延长 the health value of crafts might consider joining a group of 生命。 like-minded folks. I for one try not to miss a single weekly 定位:由题干中的crafts group 和health 定位到原文画线 meeting of my knitting group. 处。 详解:定位句提到,鉴于持续的社会交往已被证明有助于健康和长寿,那些希望最大程度发挥手工艺健康价值 的人可以考虑加入感兴趣的小组。题干是对定位句的概括归纳,故答案为O。"
+        },
+        {
+          "number": 40,
+          "stem": "Knitting diverts people’s attention from their pain.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "L",
+          "explanation": "Knitting diverts L) Betsan Corkhill, a wellness coach in Bath, England, and author of the book Knit for Health & people’s attention Wellness, established a website, Stitchlinks, to explore the value of what she calls therapeutic from their pain. knitting. Among her respondents, 54 percent of those who were clinically depressed said that knitting 译文:编织能转移 made them feel happy or very happy. In a study of 60 self-selected people with persistent pain, Ms. 人们对疼痛的注意 Corkhill and colleagues reported that knitting enabled them to redirect their focus, reducing their 力。 awareness of pain. She suggested that the brain can process just so much at once, and that activities 定位:由题干中的 like knitting and crocheting make it harder for the brain to register pain signals. Perhaps most Knitting 和pain 定 exciting is research that suggests that crafts like knitting and crocheting may help to keep off a 位到原文画线处。 decline in brain function with age. In a 2011 study, researchers led Dr. Yonas Geda at the Mayo Clinic in Rochester interviewed a random(随机的) sample of 1,321 people ages 70-89, most of whom were cognitively(在认知方面) normal, about the cognitive activities they engaged in late in life. The study, published in the Journal of Neuropsychiatry & Clinical Neurosciences, found that those who engaged in crafts like knitting and crocheting had a diminished chance of developing mild cognitive disorder and memory loss. 详解:定位句提到,科克希尔女士和同事们研究发现,编织使人们能够重新调整自己的注意力,减少对疼痛的 意识,编织和钩织之类的活动使大脑很难注意到疼痛信号。由此可知,编织能分散人们对疼痛的注意力,题干是对 定位句的概括归纳,故答案为L。"
+        },
+        {
+          "number": 41,
+          "stem": "The author learnt to knit as a teenager, but it was not until she was much older that she became keenly interested.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "B",
+          "explanation": "The author learnt to knit as a teenager, but it was not until B)My mother had taught me to knit at 15, and I knitted in she was much older that she became keenly interested. class throughout college and for a few years thereafter. Then 译文:作者在青少年时就学过编织,但是直到年长后, decades passed without my touching a knitting needle. But 她才对编织非常感兴趣。 within two Mondays in the group, I was hooked, not only on 定位:由题干中的knit as a teenager 和keenly interested knitting but also on crocheting(钩织),and I was on my way 定位到B 段。 to becoming a highly productive crafter. 详解:定位段提到,作者在15 岁时曾学过编织,在大学期间及大学毕业后的几年里,也一直在编织,但在后来 的几十年里再也没有碰过织针,直到在两个周一参加了编织小组的活动后,作者就被编织和钩织吸引了,快要成为 一个非常高产的手艺人了。题干中的as a teenager 对应原文中的at 15;became keenly interested 对应原文中的was hooked,题干是对定位段的概括总结,故答案为B。"
+        },
+        {
+          "number": 42,
+          "stem": "When people are knitting, they tend to eat fewer snacks.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "I",
+          "explanation": "When people are knitting, they tend to eat fewer snacks. I)Some people find that craftwork helps them control their 译文:当人们编织时,吃的零食往往会变少。 weight. Just as it’s challenging to smoke while knitting, 定位:由题干中的knitting 和fewer snacks 定位到原文画 when hands are holding needles and hooks, there’s less 线处。 snacking and mindless eating out of boredom. 详解:I 段提到,一些人发现,手艺活可以帮助他们控制体重。就像边编织边抽烟很困难一样,当手里拿着编织 针和钩针时,因无聊而吃零食和瞎吃就会减少。简言之,编织时,人们就会减少吃零食。题干中的eat fewer snacks 对应原文中的less snacking and mindless eating,题干是对定位句的同义转述,故答案为I。"
+        },
+        {
+          "number": 43,
+          "stem": "Survey findings show that knitting can help people relieve stress.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "F",
+          "explanation": "Survey findings show that F) Since the 1990s, the council has surveyed hundreds of thousands of knitters and knitting can help people relieve crocheters, who routinely list stress relief and creative fulfillment as the activities’ stress. main benefits. Among them is the father of a prematurely born daughter who reported 译文:调查结果显示,编织可以 that during the baby’s five weeks in the intensive care unit, “learning how to knit 帮助人们缓解压力。 infant hats gave me a sense of purpose during a time that I felt very helpless. It’s a 定位:由题干中的Survey 和 hobby that I’ve stuck with, and it continues to help me cope with stress at work, relieve stress 定位到原文画线处。 provide a sense of order in hectic(忙乱的) days, and allow my brain time to solve problems.” 详解:定位句提到,自20 世纪90 年代以来,工艺纱理事会调查了成千上万的编织者和钩织者,他们经常把缓 解压力和创造性满足列为这些活动的主要收获。题干中的help...relieve stress 对应原文中的stress relief,题干是对定 位句的同义转述,故答案为F。"
+        },
+        {
+          "number": 44,
+          "stem": "According to a study, knitters and crocheters are less likely to suffer mild cognitive damage.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "L",
+          "explanation": "According to a L) Betsan Corkhill, a wellness coach in Bath, England, and author of the book Knit for Health & study, knitters and Wellness, established a website, Stitchlinks, to explore the value of what she calls therapeutic crocheters are less knitting. Among her respondents, 54 percent of those who were clinically depressed said that likely to suffer mild knitting made them feel happy or very happy. In a study of 60 self-selected people with persistent cognitive damage. pain, Ms. Corkhill and colleagues reported that knitting enabled them to redirect their focus, 译文:一项研究发现, reducing their awareness of pain. She suggested that the brain can process just so much at once, 编织者和钩织者遭受 and that activities like knitting and crocheting make it harder for the brain to register pain signals. 轻度认知损害的可能 Perhaps most exciting is research that suggests that crafts like knitting and crocheting may help to 性更低。 keep off a decline in brain function with age. In a 2011 study, researchers led Dr. Yonas Geda at 定位:由题干中的 the Mayo Clinic in Rochester interviewed a random(随机的) sample of 1,321 people ages 70-89, knitters and crocheters most of whom were cognitively(在认知方面) normal, about the cognitive activities they engaged 和 mild cognitive in late in life. The study, published in the Journal of Neuropsychiatry & Clinical Neurosciences, damage 定位到原文画 found that those who engaged in crafts like knitting and crocheting had a diminished chance of 线处。 developing mild cognitive disorder and memory loss. 详解:定位句提到,研究发现那些从事编织和钩织等手工艺的人患轻度认知障碍和记忆力丧失的可能性会降低。 题干中的are less likely to suffer...对应原文中的had a diminished chance of developing...,题干是对定位句的同义转述, 故答案为L。"
+        },
+        {
+          "number": 45,
+          "stem": "The products of knitting can increase one’s sense of self-respect.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "E",
+          "explanation": "The products of knitting can increase one’s sense of E)But unlike meditation, craft activities result in tangible and self-respect. often useful products that can enhance self-esteem. I keep 译文:编织的物品可以增强人们的自尊。 photos of my singular accomplishments on my cellphone to 定位:由题干中的products 和sense of self-respect 定位 boost my spirits when needed. 到原文画线处。 详解:定位句提到,与沉思不同的是,手艺活能做出有形且实用的物品,这些物品能增强自尊,由此可知,编织 的物品可以增强自尊。题干中的increase one’s sense of self-respect 对应原文中的enhance self-esteem,故答案为E。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2017-12-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Nobody really knows how big Lagos is. What’s indisputable is that it’s growing very quic Between now and 2050, the urban population of Africa could triple. Yet cities in sub-Saharan Africa not getting richer the way cities in the rest of the world have. Most urban Africans live in slums(贫民窟); migrants are often not much better off than they were in the countryside. Why? The immediate problem is poverty. Most of Africa is urbanizing at a lower level of income than other regions of the world did. That means there’s little money around for investment that would make cities liveable and more productive. Without upgrades and new capacity, bridges, roads and power systems are unable to cope with expanding populations. With the exception of South Africa, the only light rail metro system in sub-Saharan Africa is in Addis Ababa, Ethiopia. Traffic jam leads to expense and unpredictability, things that keep investors away. In other parts of the world, increasing agricultural productivity and industrialization went together. More productive farmers meant there was a surplus that could feed cities; in turn, that created a pool of labour for factories. But African cities are different. They are too often built around consuming natural resources. Government is concentrated in capitals, so is the money. Most urban Africans work for a small minority of the rich, who tend to be involved in either cronyish(有裙带关系的)businesses or politics. Since African agriculture is still broadly unproductive, food is imported, consuming a portion of revenue. So what can be done? Though African countries are poor, not all African cities are. In Lagos, foreign oil workers can pay as much as $ 65,000 per year in rent for a modest apartment in a safe part of town. If that income were better taxed, it might provide the revenue for better infrastructure. If city leaders were more accountable to their residents, they might favour projects designed to help them more. Yet even as new roads are built, new people arrive. When a city’s population grows by 5% a year, it is difficult to keep up."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What do we learn from the passage about cities in sub-Saharan Africa?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They have more slums than other cities in the world."
+            },
+            {
+              "key": "B",
+              "text": "They are growing fast without becoming richer."
+            },
+            {
+              "key": "C",
+              "text": "They are as modernized as many cities elsewhere."
+            },
+            {
+              "key": "D",
+              "text": "They attract migrants who want to be better off."
+            }
+          ],
+          "answer": "B",
+          "explanation": "答案:B 定位:由题干中的cities in sub-Saharan Africa 定位到首段第四至五句:Yet cities in sub-Saharan Africa are not getting richer the way cities in the rest of the world have. Most urban Africans live in slums(贫民窟); migrants are often not much better off than they were in the countryside. 详解:推理判断题。文章开篇指出拉各斯在快速增大,并用数字突出其人口增长之快。但是定位句话锋一转, 表明撒哈拉沙漠以南地区的非洲城市并没有像世界其他地方的城市那样日益富有。绝大多数的非洲城市人口居住在 贫民窟。由此可见,以拉各斯为代表的撒哈拉沙漠以南的非洲城市虽然人口快速增长,但并没有变得更加富有,故 答案为B。"
+        },
+        {
+          "number": 47,
+          "stem": "What does the author imply about urbanization in other parts of the world?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It benefited from the contribution of immigrants."
+            },
+            {
+              "key": "B",
+              "text": "It started when people’s income was relatively high."
+            },
+            {
+              "key": "C",
+              "text": "It benefited from the accelerated rise in productivity."
+            },
+            {
+              "key": "D",
+              "text": "It started with the improvement of people’s livelihood."
+            }
+          ],
+          "answer": "B",
+          "explanation": "答案:B 定位:由题干中的urbanization in other parts of the world 定位到第二段第二句:Most of Africa is urbanizing at a lower level of income than other regions of the world did. 详解:推理判断题。定位句提到,相对于世界其他地区,大多数非洲地区的城市化进程是在一个较低的收入水 平上进行的。反之,其他地区的城市化进程是在较高的收入水平上进行的,故答案为B。"
+        },
+        {
+          "number": 48,
+          "stem": "Why is sub-Saharan Africa unappealing to investors?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It lacks adequate transport facilities."
+            },
+            {
+              "key": "B",
+              "text": "The living expenses there are too high."
+            },
+            {
+              "key": "C",
+              "text": "It is on the whole too densely populated."
+            },
+            {
+              "key": "D",
+              "text": "The local governments are corrupted."
+            }
+          ],
+          "answer": "A",
+          "explanation": "答案:A 定位:由题干中的unappealing to investors 定位到第二段末句:Traffic jam leads to expense and unpredictability, things that keep investors away. 详解:推理判断题。定位句提到,交通拥挤引起的成本上升以及不确定性等都让投资者望而却步,且第二段第 五句指出,除了南非之外,撒哈拉沙漠以南地区只有埃塞俄比亚的亚迪斯亚贝巴有地铁轻轨系统。由此可见。撒哈 拉沙漠以南地区的城市的基础设施并不健全,无法跟人口扩张所带来的需求的增加,换言之,交通拥挤是该地区的 短板,打消了投资者的投资念头,故答案为A。"
+        },
+        {
+          "number": 49,
+          "stem": "In what way does the author say African cities are different?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They have attracted huge numbers of farm labourers."
+            },
+            {
+              "key": "B",
+              "text": "They still rely heavily on agricultural productivity."
+            },
+            {
+              "key": "C",
+              "text": "They have developed at the expense of nature."
+            },
+            {
+              "key": "D",
+              "text": "They depend far more on foreign investment."
+            }
+          ],
+          "answer": "C",
+          "explanation": "答案:C 定位:由题干中的African cities 和 different 定位到第三段第三至四句:But African cities are different. They are too often built around consuming natural resources. 详解:实施细节题。第三段前两句提到,在世界其他地方,不断提高的农业生产力和工业化进程是相辅相成的。 高产的农民越多意味着过剩的粮食供给城市;反过来,这样又为工厂创造了大量的劳动力。由此可见,在城镇化进 程中,农业的基础作用十分重要。定位句提到,但是非洲的城市不同。它们大多是建立在消耗自然资源的基础之上, 度答案为C。"
+        },
+        {
+          "number": 50,
+          "stem": "What might be a solution to the problems facing African cities?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Lowering of apartment rent."
+            },
+            {
+              "key": "B",
+              "text": "Better education for residents."
+            },
+            {
+              "key": "C",
+              "text": "More rational overall planning."
+            },
+            {
+              "key": "D",
+              "text": "A more responsible government."
+            }
+          ],
+          "answer": "D",
+          "explanation": "答案:D 定位:由题干中的a solution to the problems facing African cities 定位到第四段第五句:If city leaders were more accountable to their residents, they might favour projects designed to help them more. 详解:推理判断题。作者在第四段第一句提出问题:那么,怎样才能改变这一状况呢?接着提出了自己对这一 问题的建议,一个是增加财政收入,另一个则是对领导人提出建议。定位句提到,如果该城市的领导人对他们的市 民更加负责任的话,他们或许会更加支持那些用来帮助市民们的项目,故答案为D。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2017-12-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "For the past several decades, it seems there’s been a general consensus on how to get ahead in America: Get a college education, find a reliable job, and buy your own home. But do Americans still believe in that path, and if they do, is it attainable? The most recent National Journal poll asked respondents about the American dream, what it takes to achieve their goals, and whether or not they felt a significant amount of control over their ability to be successful. Overwhelmingly, the results show that today, the idea of the American dream—and what it takes to achieve it—looks quite different than it did in the late 20th century. By and large, people felt that their actions and hard work—not outside forces—were the deciding factor in how their lives turned out. But respondents had decidedly mixed feelings about what actions make for a better life in current economy. In the last seven years, Americans have grown more pessimistic about the power of education to lead to success. Even though they see going to college as a fairly achievable goal, a majority—52 percent—think that young people do not need a four-year college education in order to be successful. Miguel Maeda, 42, who has a master’s degree and works in public health, was the first in his family to go to college, which has allowed him to achieve a sense of financial stability his parents and grandparents never did. While some, like Maeda, emphasized the value of the degree rather than the education itself, others still see college as a way to gain new perspectives and life experiences. Sixty-year-old Will Fendley, who had a successful career in the military and never earned a college degree, thinks “personal drive” is far more important than just going to college. To Fendley, a sense of drive and purpose, as well as an effective high-school education, and basic life skills, like balancing a checkbook, are the necessary ingredients for a successful life in America."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "It used to be commonly acknowledged that to succeed in America, one had to have .",
+          "options": [
+            {
+              "key": "A",
+              "text": "an advanced academic degree"
+            },
+            {
+              "key": "B",
+              "text": "an ambition to get ahead"
+            },
+            {
+              "key": "C",
+              "text": "a firm belief in their dream"
+            },
+            {
+              "key": "D",
+              "text": "a sense of drive and purpose"
+            }
+          ],
+          "answer": "A",
+          "explanation": "答案:A 定位:由题干中的used to be commonly acknowledged 和succeed in America 定位到第一段第一句:For the past several decades, it seems there’s been a general consensus on how to get ahead in America: Get a college education, find a reliable job, and buy your own home. 详解:实施细节题。定位句指出,在过去的几十年里,关于如何在美国出人头地似乎有一个共识:获得大学文 凭,找一份稳定的工作,买一幢自己的房子。由此可知,上大学,找份稳定的工作,买房子曾是美国成功人士的标 志,故答案为A。"
+        },
+        {
+          "number": 52,
+          "stem": "What is the finding of the latest National Journal poll concerning the American dream?",
+          "options": [
+            {
+              "key": "A",
+              "text": "More and more Americans are finding it hard to realize."
+            },
+            {
+              "key": "B",
+              "text": "It remains alive among the majority of American people."
+            },
+            {
+              "key": "C",
+              "text": "Americans’ idea of it has changed over the past few decades."
+            },
+            {
+              "key": "D",
+              "text": "An increasing number of young Americans are abandoning it."
+            }
+          ],
+          "answer": "C",
+          "explanation": "答案:C 定位:由题干中的the finding of the latest National Journal poll 和the American dream 定位到第二段第二句: Overwhelmingly, the results show that today, the idea of the American dream—and what it takes to achieve it—looks quite different than it did in the late 20th century. 详解:推理判断题。文章第二段指出,最近一期的国家杂志就美国梦这一话题对受访者进行了民意调查,定位 句指出,结果显示,绝大多数人认为,当今人们对美国梦的定义以及实现美国梦的途径与二十世纪晚期人们的看法 相去甚远。换句话说,当今美国人对美国梦的看法已经发生了巨大的变化,故答案为C。"
+        },
+        {
+          "number": 53,
+          "stem": "What do Americans now think of the role of college education in achieving success?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It still remains open to debate."
+            },
+            {
+              "key": "B",
+              "text": "It has proved to be beyond doubt."
+            },
+            {
+              "key": "C",
+              "text": "It is no longer as important as it used to be."
+            },
+            {
+              "key": "D",
+              "text": "It is much better understood now than ever."
+            }
+          ],
+          "answer": "C",
+          "explanation": "答案:C 定位:由题干中的the role of college education in achieving success 定位到第四段:In the last seven years, Americans have grown more pessimistic about the power of education to lead to success. Even though they see going to college as a fairly achievable goal, a majority—52 percent—think that young people do not need a four-year college education in order to be successful. 详解:事实细节题。定位段提到,在过去的七年中,美国人对知识改变命运的看法越来越悲观。即使他们认为 读大学是很多人想要实现的目标,但是52%的人认为,年轻人想要成功并不需要四年的大学教育。此外,文章在接 下来的三段用米格尔·梅达和威尔·芬德利两个例子,对定位段的观点进行了论证,故答案为C。"
+        },
+        {
+          "number": 54,
+          "stem": "How do some people view college education these days?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It promotes gender equality."
+            },
+            {
+              "key": "B",
+              "text": "It needs to be strengthened."
+            },
+            {
+              "key": "C",
+              "text": "It adds to cultural diversity."
+            },
+            {
+              "key": "D",
+              "text": "It helps broaden their minds."
+            }
+          ],
+          "answer": "D",
+          "explanation": "答案:D 定位:由题干中的some people 和view college education these days 定位到第六段:While some, like Maeda, emphasized the value of the degree rather than the education itself, others still see college as a way to gain new perspectives and life experiences. 详解:推理判断题。本题提问在当今社会,一些人对于大学教育的看法。定位段指出,虽然像梅达一样的人强 调,学位的价值要高于教育本身,但其他人仍然认为,大学是一种获取新视野和生活经历的途径。由此可见,当今 社会中,一些人仍然认为大学教育是必不可少的一个过程,可以给人们带来新的视野和经历,故答案为D。"
+        },
+        {
+          "number": 55,
+          "stem": "What is one factor essential to success in America, according to Will Fendley?",
+          "options": [
+            {
+              "key": "A",
+              "text": "A desire to learn and to adapt."
+            },
+            {
+              "key": "B",
+              "text": "A strong sense of responsibility."
+            },
+            {
+              "key": "C",
+              "text": "A willingness to commit oneself."
+            },
+            {
+              "key": "D",
+              "text": "A clear aim and high motivation."
+            }
+          ],
+          "answer": "D",
+          "explanation": "答案:D 定位:由题干中的one factor essential to success 和Will Fendley 定位到文章最后一段末句:To Fendley, a sense of drive and purpose, as well as an effective high-school education, and basic life skills, like balancing a checkbook, are the necessary ingredients for a successful life in America. 详解:推理判断题。定位句提到,对芬德利来说,驱动力以及目标,再加上有效的高中教育和类似于收支平衡 这样的基本生活技能,才是在美国拥有成功人生的必备要素。由此可见,在芬德利的心目中,驱动力以及目标是至 关重要的,故答案为D。"
+        }
+      ]
+    }
+  ]
+}

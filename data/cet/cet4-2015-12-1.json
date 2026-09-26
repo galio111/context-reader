@@ -1,0 +1,1606 @@
+{
+  "id": "cet4-2015-12-1",
+  "level": 4,
+  "year": 2015,
+  "month": 12,
+  "set": 1,
+  "title": "2015 年 12 月四级 · 第 1 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.12/%E7%9C%9F%E9%A2%98Word/2015%E5%B9%B412%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC1%E5%A5%97%EF%BC%89.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2015%E5%B9%B412%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%B8%80%EF%BC%89.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2015-12-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Scholars of the information society are divided over whether social inequality decreases or increases in an information-based society. However, they generally agree with the idea that inequality in the information society is [[36]] different from that of an industrial society. As informatization progresses in society, the cause and structural nature of social inequality changes as well. It seems that the information society [[37]] the quantity of information available to the members of a society by revolutionizing the ways of using and exchanging information. But such a view is a [[38]] analysis based on the quantity of information supplied by various forms of the mass media. A different [[39]] is possible when the actual amount of information [[40]] by the user is taken into account. In fact, the more information [[41]] throughout the entire society, the wider the gap becomes between \"information haves\" and \"information have-nots\" , leading to digital divide. According to recent studies, digital divide has been caused by three major [[42]]: class, sex, and generation. In terms of class, digital divide exists among different types of workers and between the upper and middle classes and the lower class. With [[43]] to sex, digital divide exists between men and women. The greatest gap, however, is between the Net-generation, [[44]] with personal computers and the Internet, and the older generation, [[45]] to an industrial society."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "accustomed"
+        },
+        {
+          "key": "B",
+          "text": "acquired"
+        },
+        {
+          "key": "C",
+          "text": "assembly"
+        },
+        {
+          "key": "D",
+          "text": "attribute"
+        },
+        {
+          "key": "E",
+          "text": "champions"
+        },
+        {
+          "key": "F",
+          "text": "elements"
+        },
+        {
+          "key": "G",
+          "text": "expands"
+        },
+        {
+          "key": "H",
+          "text": "familiar"
+        },
+        {
+          "key": "I",
+          "text": "flows"
+        },
+        {
+          "key": "J",
+          "text": "fundamentally"
+        },
+        {
+          "key": "K",
+          "text": "interpretation"
+        },
+        {
+          "key": "L",
+          "text": "passive"
+        },
+        {
+          "key": "M",
+          "text": "regard"
+        },
+        {
+          "key": "N",
+          "text": "respectively"
+        },
+        {
+          "key": "O",
+          "text": "superficial"
+        }
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "第 36 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accustomed"
+            },
+            {
+              "key": "B",
+              "text": "acquired"
+            },
+            {
+              "key": "C",
+              "text": "assembly"
+            },
+            {
+              "key": "D",
+              "text": "attribute"
+            },
+            {
+              "key": "E",
+              "text": "champions"
+            },
+            {
+              "key": "F",
+              "text": "elements"
+            },
+            {
+              "key": "G",
+              "text": "expands"
+            },
+            {
+              "key": "H",
+              "text": "familiar"
+            },
+            {
+              "key": "I",
+              "text": "flows"
+            },
+            {
+              "key": "J",
+              "text": "fundamentally"
+            },
+            {
+              "key": "K",
+              "text": "interpretation"
+            },
+            {
+              "key": "L",
+              "text": "passive"
+            },
+            {
+              "key": "M",
+              "text": "regard"
+            },
+            {
+              "key": "N",
+              "text": "respectively"
+            },
+            {
+              "key": "O",
+              "text": "superficial"
+            }
+          ],
+          "answer": "J",
+          "explanation": "J) fundamentally。【详解】副词辨析题。空格前面是be 动词,后面为形容词different,因此空格处需要 填入副词形式,以修饰其后的形容词。前一句提到,信息社会的学者们在以信息为基础的社会环境下社会不 公现象是增强还是减弱这一话题上存在分歧,但是他们还是普遍认为信息社会中的不公平区别于工业社会 的不公平。因此,空格处需要填入一个表示“根本上,本质上”的副词,修饰different,由此确定副词 fundamentally 为本题答案,意思为“根本上,基本上”。备选词中只有两个副词,而respectively 意思为“各 自地,依次地”,与此处意思不符,可以排除。"
+        },
+        {
+          "number": 37,
+          "stem": "第 37 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accustomed"
+            },
+            {
+              "key": "B",
+              "text": "acquired"
+            },
+            {
+              "key": "C",
+              "text": "assembly"
+            },
+            {
+              "key": "D",
+              "text": "attribute"
+            },
+            {
+              "key": "E",
+              "text": "champions"
+            },
+            {
+              "key": "F",
+              "text": "elements"
+            },
+            {
+              "key": "G",
+              "text": "expands"
+            },
+            {
+              "key": "H",
+              "text": "familiar"
+            },
+            {
+              "key": "I",
+              "text": "flows"
+            },
+            {
+              "key": "J",
+              "text": "fundamentally"
+            },
+            {
+              "key": "K",
+              "text": "interpretation"
+            },
+            {
+              "key": "L",
+              "text": "passive"
+            },
+            {
+              "key": "M",
+              "text": "regard"
+            },
+            {
+              "key": "N",
+              "text": "respectively"
+            },
+            {
+              "key": "O",
+              "text": "superficial"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G) expands【详解】动词辨析题。空格前面为名词短语the information society,通过分析句子结构可知, 空格处与前面的名词短语the information society 为主谓关系,因此空格处需要填入动词的第三人称单数形 式。文章第一段提到,信息社会中的不公平发生了变化,本句承接上段指出原因:表面上看,信息社会似 乎通过变革使用信息和交换信息的方式扩大了社会成员所能接触到的信息量,因此空格处动词应该有“扩 大” 或“增加”的意思。另外,空格处的动词应该能够和后面的介词to 进行搭配。备选动词中符合以上 两点要求的只有expands,expands...to..意思为“扩大到...”,由此确定答案。此外,空格处需要填入动词第 三人称单数形式,因此可以排除分词形式的accustomed 与acquired 和动词原形attribute 与regard;而flows 无法与the quantity of information 搭配,而且不符合句意,可以排除。"
+        },
+        {
+          "number": 38,
+          "stem": "第 38 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accustomed"
+            },
+            {
+              "key": "B",
+              "text": "acquired"
+            },
+            {
+              "key": "C",
+              "text": "assembly"
+            },
+            {
+              "key": "D",
+              "text": "attribute"
+            },
+            {
+              "key": "E",
+              "text": "champions"
+            },
+            {
+              "key": "F",
+              "text": "elements"
+            },
+            {
+              "key": "G",
+              "text": "expands"
+            },
+            {
+              "key": "H",
+              "text": "familiar"
+            },
+            {
+              "key": "I",
+              "text": "flows"
+            },
+            {
+              "key": "J",
+              "text": "fundamentally"
+            },
+            {
+              "key": "K",
+              "text": "interpretation"
+            },
+            {
+              "key": "L",
+              "text": "passive"
+            },
+            {
+              "key": "M",
+              "text": "regard"
+            },
+            {
+              "key": "N",
+              "text": "respectively"
+            },
+            {
+              "key": "O",
+              "text": "superficial"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O) superficial。【详解】形容词辨析题。空格前面是不定冠同a,后面是名词analysis,因此需要填入形容 词来进行修饰。上一句用seems that...句型指出信息社会存在的假象,本句中连词but 进行转折,指出这种 观点只是一种基于各种大众传媒所提供的信息量的表面的分析,因此填入superficial“表面的,肤浅的”符 合句意。这样也就能与前句在语义上构成转折。备选形容词中,accustomed, familiar 和passive 不符合句意, 可以排除。"
+        },
+        {
+          "number": 39,
+          "stem": "第 39 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accustomed"
+            },
+            {
+              "key": "B",
+              "text": "acquired"
+            },
+            {
+              "key": "C",
+              "text": "assembly"
+            },
+            {
+              "key": "D",
+              "text": "attribute"
+            },
+            {
+              "key": "E",
+              "text": "champions"
+            },
+            {
+              "key": "F",
+              "text": "elements"
+            },
+            {
+              "key": "G",
+              "text": "expands"
+            },
+            {
+              "key": "H",
+              "text": "familiar"
+            },
+            {
+              "key": "I",
+              "text": "flows"
+            },
+            {
+              "key": "J",
+              "text": "fundamentally"
+            },
+            {
+              "key": "K",
+              "text": "interpretation"
+            },
+            {
+              "key": "L",
+              "text": "passive"
+            },
+            {
+              "key": "M",
+              "text": "regard"
+            },
+            {
+              "key": "N",
+              "text": "respectively"
+            },
+            {
+              "key": "O",
+              "text": "superficial"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K) interpretation。【详解】名词辨析题。空格前为不定冠词a 和形容词different,因此应该填入名词单 数形式。根据句意,interpretation “阐述,说明”符合要求,故为答案。assembly“集会,集合”不符合句 意,故排除;champions 和elements 均是复数形式,均可以排除;regard 不符合句意,故排除。"
+        },
+        {
+          "number": 40,
+          "stem": "第 40 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accustomed"
+            },
+            {
+              "key": "B",
+              "text": "acquired"
+            },
+            {
+              "key": "C",
+              "text": "assembly"
+            },
+            {
+              "key": "D",
+              "text": "attribute"
+            },
+            {
+              "key": "E",
+              "text": "champions"
+            },
+            {
+              "key": "F",
+              "text": "elements"
+            },
+            {
+              "key": "G",
+              "text": "expands"
+            },
+            {
+              "key": "H",
+              "text": "familiar"
+            },
+            {
+              "key": "I",
+              "text": "flows"
+            },
+            {
+              "key": "J",
+              "text": "fundamentally"
+            },
+            {
+              "key": "K",
+              "text": "interpretation"
+            },
+            {
+              "key": "L",
+              "text": "passive"
+            },
+            {
+              "key": "M",
+              "text": "regard"
+            },
+            {
+              "key": "N",
+              "text": "respectively"
+            },
+            {
+              "key": "O",
+              "text": "superficial"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B) acquired。【详解】动词辨析题。空格前面为名词information,后面为介词by,由此可知空格处应填入 动词的过去分词形式。动词的过去分词形式有两个:accustomed 和acquired,其中accustomed 常与to 搭配,而 本句中没有,所以排除;acquired “获取,获得”与前面的amount of information 及后面的by the user 构成 搭配,由此可以确定答案为acquired。备选动词中,attribute,expands,flows 和regard 都不是动词的过去 分词形式,可以排除。"
+        },
+        {
+          "number": 41,
+          "stem": "第 41 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accustomed"
+            },
+            {
+              "key": "B",
+              "text": "acquired"
+            },
+            {
+              "key": "C",
+              "text": "assembly"
+            },
+            {
+              "key": "D",
+              "text": "attribute"
+            },
+            {
+              "key": "E",
+              "text": "champions"
+            },
+            {
+              "key": "F",
+              "text": "elements"
+            },
+            {
+              "key": "G",
+              "text": "expands"
+            },
+            {
+              "key": "H",
+              "text": "familiar"
+            },
+            {
+              "key": "I",
+              "text": "flows"
+            },
+            {
+              "key": "J",
+              "text": "fundamentally"
+            },
+            {
+              "key": "K",
+              "text": "interpretation"
+            },
+            {
+              "key": "L",
+              "text": "passive"
+            },
+            {
+              "key": "M",
+              "text": "regard"
+            },
+            {
+              "key": "N",
+              "text": "respectively"
+            },
+            {
+              "key": "O",
+              "text": "superficial"
+            }
+          ],
+          "answer": "I",
+          "explanation": "I) flows 。【详解】动词辨析题。通过分析句子结构可知,该句缺少谓语动词,与后面句子构成the more the more...的句式,主语是the more information,其后并无宾语,所以空格处应该填入不及物动词的第三人称 单数形式。本句意思为:整个社会中流动的信息量越多,那些能够接触到信息和不能够接触到信息的两类人 群之间的差距就越大,flows“流动,传播”符合句意,故为答案。备选项中的accustomed,acquired, attribute 和regard 不是动词第三人称单数形式,可以排除;expands 不符合句意,也可以排除。"
+        },
+        {
+          "number": 42,
+          "stem": "第 42 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accustomed"
+            },
+            {
+              "key": "B",
+              "text": "acquired"
+            },
+            {
+              "key": "C",
+              "text": "assembly"
+            },
+            {
+              "key": "D",
+              "text": "attribute"
+            },
+            {
+              "key": "E",
+              "text": "champions"
+            },
+            {
+              "key": "F",
+              "text": "elements"
+            },
+            {
+              "key": "G",
+              "text": "expands"
+            },
+            {
+              "key": "H",
+              "text": "familiar"
+            },
+            {
+              "key": "I",
+              "text": "flows"
+            },
+            {
+              "key": "J",
+              "text": "fundamentally"
+            },
+            {
+              "key": "K",
+              "text": "interpretation"
+            },
+            {
+              "key": "L",
+              "text": "passive"
+            },
+            {
+              "key": "M",
+              "text": "regard"
+            },
+            {
+              "key": "N",
+              "text": "respectively"
+            },
+            {
+              "key": "O",
+              "text": "superficial"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F) elements。【详解】名词辨析题。空格前面为数词three 和形容词major,所以需要填入可数名词的复 数形式。通过上下文可知,本句大意是数位落差主要由三个方面(因素)引起:阶级、性别和代别。所以 elements“元素,因素”符合句意。assembly,interpretation 和regard 是单数形式,不符合要求,可以排除; champions “冠军”不符合句意,也可以排除。"
+        },
+        {
+          "number": 43,
+          "stem": "第 43 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accustomed"
+            },
+            {
+              "key": "B",
+              "text": "acquired"
+            },
+            {
+              "key": "C",
+              "text": "assembly"
+            },
+            {
+              "key": "D",
+              "text": "attribute"
+            },
+            {
+              "key": "E",
+              "text": "champions"
+            },
+            {
+              "key": "F",
+              "text": "elements"
+            },
+            {
+              "key": "G",
+              "text": "expands"
+            },
+            {
+              "key": "H",
+              "text": "familiar"
+            },
+            {
+              "key": "I",
+              "text": "flows"
+            },
+            {
+              "key": "J",
+              "text": "fundamentally"
+            },
+            {
+              "key": "K",
+              "text": "interpretation"
+            },
+            {
+              "key": "L",
+              "text": "passive"
+            },
+            {
+              "key": "M",
+              "text": "regard"
+            },
+            {
+              "key": "N",
+              "text": "respectively"
+            },
+            {
+              "key": "O",
+              "text": "superficial"
+            }
+          ],
+          "answer": "M",
+          "explanation": "M) regard。【详解】固定搭配题。空格前面为介词with,后面为介词to,因此空格处需要填入一个名词, 构成固定搭配。with regard to 意为“就...而言”,故regard 为本题答案。"
+        },
+        {
+          "number": 44,
+          "stem": "第 44 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accustomed"
+            },
+            {
+              "key": "B",
+              "text": "acquired"
+            },
+            {
+              "key": "C",
+              "text": "assembly"
+            },
+            {
+              "key": "D",
+              "text": "attribute"
+            },
+            {
+              "key": "E",
+              "text": "champions"
+            },
+            {
+              "key": "F",
+              "text": "elements"
+            },
+            {
+              "key": "G",
+              "text": "expands"
+            },
+            {
+              "key": "H",
+              "text": "familiar"
+            },
+            {
+              "key": "I",
+              "text": "flows"
+            },
+            {
+              "key": "J",
+              "text": "fundamentally"
+            },
+            {
+              "key": "K",
+              "text": "interpretation"
+            },
+            {
+              "key": "L",
+              "text": "passive"
+            },
+            {
+              "key": "M",
+              "text": "regard"
+            },
+            {
+              "key": "N",
+              "text": "respectively"
+            },
+            {
+              "key": "O",
+              "text": "superficial"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H) familiar。【详解】形容词辨析题。44 with personal computers and the Internet 修饰 the Net- generation “网络一代” ,根据前后句意可知 ,此处指熟悉电脑和网络的一代, 因此空格处的形容词应该是 familiar “熟悉的”,构成be familiar with 结构,故familiar 为本题答案。空格处以及其后的内容修饰前面的 the Net-generation,空格处可以是形容词,也可以是分词,但符合上下文语义的只有familiar。"
+        },
+        {
+          "number": 45,
+          "stem": "第 45 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accustomed"
+            },
+            {
+              "key": "B",
+              "text": "acquired"
+            },
+            {
+              "key": "C",
+              "text": "assembly"
+            },
+            {
+              "key": "D",
+              "text": "attribute"
+            },
+            {
+              "key": "E",
+              "text": "champions"
+            },
+            {
+              "key": "F",
+              "text": "elements"
+            },
+            {
+              "key": "G",
+              "text": "expands"
+            },
+            {
+              "key": "H",
+              "text": "familiar"
+            },
+            {
+              "key": "I",
+              "text": "flows"
+            },
+            {
+              "key": "J",
+              "text": "fundamentally"
+            },
+            {
+              "key": "K",
+              "text": "interpretation"
+            },
+            {
+              "key": "L",
+              "text": "passive"
+            },
+            {
+              "key": "M",
+              "text": "regard"
+            },
+            {
+              "key": "N",
+              "text": "respectively"
+            },
+            {
+              "key": "O",
+              "text": "superficial"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A) accustomed。【详解】形容词辨析题。空格后面为介词to,分析句子结构可知,空格处需要填入形容 词或分词,修饰前面的the older generation。分析句子结构可知,此句将the Net generation 与the older generation 进行对比,由此可知,the older generation“老一辈”习惯于工业社会。be accustomed to“适应, 习惯”符合句意,故accustomed 为本题答案。备选形容词中,familiar,passive 和superficial 均不符合句意, 均可以排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2015-12-1-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) When Jonathan Swift proposed, in 1729, that the people of Ireland eat their children, he insisted it would solve three problems at once: feed the hungry masses, reduce the population during a severe depression, and stimulate the restaurant business. Even as a satire (讽刺), it seems disgusting and shocking in America with its child-centered culture. But actually, the country is closer to his proposal than you might think.",
+        "B) If you spend much time with educators and policy makers, you'll hear a lot of the following words: \"standards,\" \"results,\" \"skills,\" \"self-control,\" \"accountability,\" and so on. I have visited some of the newer supposedly \"effective\" schools, where children shout slogans in order to leam self-control or must stand behind their desk when they can't sit still.",
+        "C) A look at what goes on in most classrooms these days makes it abundantly clear that when people think about education, they are not thinking about what it feels like to be a child, or what makes childhood an important and valuable stage of life in its own right.",
+        "D) I'm a mother of three, a teacher, and a developmental psychologist. So I've watched a lot of children—talking, playing, arguing, eating, studying, and being young. Here's what I've come to understand. The thing that sets children apart from adults is not their ignorance, nor their lack of skills. It's their enormous capacity for joy. Think of a 3-year-old lost in the pleasures of finding out what he can and cannot sink in the bathtub, a 5-year-old beside herself with the thrill of putting together strings of nonsensical words with her best friends, or an 11-year-old completely absorbed in a fascinating comic strip. A child's ability to become deeply absorbed in something, and derive intense pleasure from that absorption, is something adults spend the rest of their lives trying to return to.",
+        "E) A friend told me the following story. One day, when he went to get his 7-year-old son from soccer practice, his kid greeted him with a downcast face and a sad voice. The coach had criticized him for not focusing on his soccer drills. The little boy walked out of the school with his head and shoulders hanging down. He seemed wrapped in sadness. But just before he reached the car door, he suddenly stopped, crouching (蹲伏) down to peer at something on the sidewalk. His face went down lower and lower, and then, with complete joy he called out, \"Dad. Come here. This is the strangest bug I've ever seen. It has, like, a million legs. Look at this. It's amazing. \" He looked up at his father, his features overflowing with energy and delight. \"Can't we stay here for just a minute? I want to find out what he does with all those legs. This is the coolest ever. \"",
+        "F) The traditional view of such moments is that they constitute a charming but irrelevant byproduct of youth—something to be pushed aside to make room for more important qualities, like perseverance (坚持不懈), obligation, and practicality. Yet moments like this one are just the kind of intense Absoiption and pleasure adults spend the rest of their lives seeking. Human lives are governed by the desire to experience joy. Becoming educated should not require giving up joy but rather lead to finding joy in new kinds of things: reading novels instead of playing with small figures, conducting experiments instead of sinking cups in the bathtub, and debating serious issues rather than stringing together nonsense words, for example. In some cases, schools should help children find new, more grown-up ways of doing the same things that are constant sources of joy: making art, making friends, making decisions.",
+        "G) Building on a child's ability to feel joy, rather than pushing it aside, wouldn't be that hard. It would just require a shift in the education world's mindset (思维模式). Instead of trying to get children to work hard, why not focus on getting them to take pleasure in meaningful, productive activity, like making things, working with others, exploring ideas, and solving problems? These focuses are not so different from the things in which they delight.",
+        "H) Before you brush this argument aside as rubbish, or think of joy as an unaffordable luxury in a nation where there is awful poverty, low academic achievement, and high dropout rates, think again. The more horrible the school circumstances, the more important pleasure is to achieving any educational success.",
+        "I) Many of the assignments and rules teachers come up with, often because they are pressured by their administrators, treat pleasure and joy as the enemies of competence and responsibility. The assumption is that children shouldn't chat in the classroom because it hinders hard work; instead, they should leain to delay gratification (快乐) so that they can pursue abstract goals, like going to college.",
+        "J) Not only is this a boring and awful way to treat children, it makes no sense educationally. Decades of research have shown that in order to acquire skills and real knowledge in school, kids need to want to learn. You can force a child to stay in his or her seat, fill out a worksheet, or practice division. But you can't force the child to think carefully, er\\joy books, digest complex information, or develop a taste for learning. To make that happen, you have to help the child find pleasure in learning—to see school as a source of joy.",
+        "K) Adults tend to talk about learning as if it were medicine; unpleasant, but necessary and good for you. Why not instead think of learning as if it were food—something so valuable to humans that they have evolved to experience it as a pleasure?",
+        "L) Joy should not be trained out of children or left for after-school programs. The more difficult a child's life circumstances, the more important it is for that child to find joy in his or her classroom. \"Pleasure\" is not a dirty word. And it doesn't run counter to the goals of public education. It is, in fact, the precondition."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "It will not be difficult to make learning a source of joy if educators change their way of thinking.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "G",
+          "explanation": "It will not be difficult to make learning a source of joy if educators change their way of thinking.. G)。【译文】如果教育工作者改变他们的思维模式,那么让学习成为快乐的源泉并不困难。 【精析】该段第一句指出,将教育建立在孩子们有能力感知快乐的基础上,而非丢弃快乐,这并没有那么 困难。第二句提出解决问题的关键:它仅仅需要教育界转变思维模式。题干是对这两句话的总结,其中的 educators change their way of thinking 是对原文中 a shift in the education world’s mindset 的同义转述,故答案为G)。"
+        },
+        {
+          "number": 47,
+          "stem": "What distinguishes children from adults is their strong ability to derive joy from what they are doing.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "D",
+          "explanation": "What distinguishes children from adults is their strong ability to derive joy from what they are doing. D)。【译文】孩子与成人的区别在于孩子们从正在做的事情中获取快乐的强大能力。 【精析】该段第四句提到,区别孩子与成人的关键并不是他们的无知或技巧的缺乏,而是他们获取快乐的 巨大能力。题干中的 distinguishes children from adults 是对原文中 sets children apart from adults 的同义转 述, strong ability to derive joy 是对原文中 enormous capacity for joy 的同义转述,故答案为 D)。"
+        },
+        {
+          "number": 48,
+          "stem": "Children in America are being treated with shocking cruelty.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Children in America are being treated with shocking cruelty. A)。【译文】一些快餐企业提供健康食品以给人留下他们在帮助解决肥胖问题的印象。 【精析】该段第一句提到,1729 年,乔纳森•斯威夫特提议爱尔兰人吃他们的孩子。第二句则提到,对奉行以 孩子为中心的文化的美国来说,这看起来是让人无法接受和震惊,甚至很讽刺。第三句转折说道,美国的 情况却更接近于乔纳森•斯威夫特的提议。由此可知,题干是对该段的同义转述,故答案为A)。"
+        },
+        {
+          "number": 49,
+          "stem": "It is human nature to seek joy in life.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "F",
+          "explanation": "It is human nature to seek joy in life. F)。【译文】在生活中寻找快乐是人类的天性。 【精析】该段第三句提到,人生是由体验快乐的欲望所支配的:题干中的seek joy 是对原文experience joy 的 同义转述,故答案为F)。"
+        },
+        {
+          "number": 50,
+          "stem": "Grown-ups are likely to think that learning to children is what medicine is to patients.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "K",
+          "explanation": "Grown-ups are likely to think that learning to children is what medicine is to patients. K)。【译文】成年人可能认为学习对于孩子而言就像药品对病人一样。 【精析】该段第一句中提到,成年人往往在谈论学习时,把它比作药品:虽然味道不好,但却必不可少, 并且大有裨益。由此可知,成年人认为学习虽然痛苦,但对一个人的成长是必要且有益的,这与病人吃药 是一个道埋:良药苦口。题干是对该句的同义转述,故答案为K)。"
+        },
+        {
+          "number": 51,
+          "stem": "Bad school conditions make it all the more important to turn learning into a joyful experience.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "H",
+          "explanation": "Bad school conditions make it all the more important to turn learning into a joyful experience. H)。【译文】在不良的教学环境下,将学习转变为一种快乐的体验显得更加重要。 【精析】该段最后一句提到,教学环境越恶劣,快乐对于取得教育成果的作用就越巨大题干中bad school conditions 是对原文中horrible school circumstances 的同义转述,故答案为H)。"
+        },
+        {
+          "number": 52,
+          "stem": "Adults do not consider children's feelings when it comes to education.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Adults do not consider children’s feelings when it comes to education. C) 。【译文】当涉及教育问题时,成年人不会考虑孩子们的感受。 【精析】该段提到,人们在思考教育的时候,并没有考虑到作为孩子的感受。题干中的not consider children’s feelings 是对原文中 not thinking about what it feels like to be a child 的同义转述;when it comes to education 是对原文中 when people think about education 的同义转述,故答案为 C)。"
+        },
+        {
+          "number": 53,
+          "stem": "Administrators seem to believe that only hard work will lead children to their educational goals.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "I",
+          "explanation": "Administrators seem to believe that only hard work will lead children to their educational goals. I)。【译文】行政人员似乎认为,只要刻苦学习,孩子们就可以达到他们的教育目标。 【精析】该段第一句提到,很多老师在布置作业和制定规则的时候,通常都是迫于行政人员的压力,将快 乐和喜悦当作阻碍能力和责任感发展的敌人。第二句指出,他们认为,孩子们不应该在教室聊天,因为这 会妨碍刻苦学习;相反,他们应该学会将快乐丟掉,从而能够追求抽象目标,如考人大学。简言之,行政人 员认为孩子们应该刻苦学习以达到他们的教育目标。故答案为I)。"
+        },
+        {
+          "number": 54,
+          "stem": "In the so-called \"effective\" schools, children are taught self-control under a set of strict rules.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "B",
+          "explanation": "In the so-called “effective ’’ schools, children are taught self-control under a set of strict rules. B)。【译文】那些所谓“治学严谨”的学校教育孩子们接受一系列严格的规则以使他们具有自控能力。 【精析】该段第二句提到,作者参观过一些新兴的所谓“治学严谨”的学校,在那里,孩子们为了学会自 律而高喊着口号或当他们不能安静地坐着时必须站在自己的课桌后面。题干中的so-called 是对原文中的 supposedly 的同义转述,题干中的a set of strict rules 是对第二句后半句的概述,故答案为B)。"
+        },
+        {
+          "number": 55,
+          "stem": "To make learning effective, educators have to ensure that children want to leam.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "J",
+          "explanation": "To make learning effective, educators have to ensure that children want to learn. J)。【译文】为了使学习有成效,教育学家们不得不确保孩子们渴望学习。 【精析】该段第二句提到,数十年的研究表明,想要使孩子们在学校掌握技能和真正的知识,首先要让孩 子们渴望学习。题干中的 to make learning effective 对应原文中的 in order to acquire skills and real knowledge,故答案为J)。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2015-12-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "When it's five o'clock, people leave their office. The length of the workday, for many workers, is defined by time. They leave when the clock tells them they're done. These days, the time is everywhere-, not just on clocks or watches, but on cell-phones and computers. That may be a bad thing, particularly at work. New research shows that clock-based work schedules hinder morale (士气) and creativity. Clock-timers organize their day by blocks of minutes and hours. For example: a meeting from 9 a. m. to 10 a. m. , research from 10 a. m. to noon, etc. On the other hand, task-timers have a list of things they want to accomplish. They work down the list, each task starts when the previous task is completed. It is said that all of us employ a mix of both these types of planning. What, then, are the effects of thinking about time in these different ways? Does one make us more productive? Better at the tasks at hand? Happier? In experiments conducted by Tamar Avnet and Anne-Laure Sellier, they had participants organize different activities—from project planning, holiday shopping, to yoga—by time or to-do list to measure how they performed under \"clock time\" vs \"task time. \" They found clock timers to be more efficient but less happy because they felt little control Over their lives. Task timers are happier and more creative, but less productive. They tend to enjoy the moment when something good is happening, and seize opportunities that come up. The researchers argue that task-based organizing tends to be undervalued and under-supported in business culture. Smart companies, they believe, will try to bake more task-based planning into their strategies. This might be a small change to the way we view work and the office, but the researchers argue that it challenges a widespread characteristic of the economy: work organized by clock time. While most people will still probably need, and be, to some extent, clock-timers, task-based timing should be used when performing a job that requires more creativity. It'll make those tasks easier, and the task-doers will be happier."
+      ],
+      "questions": [
+        {
+          "number": 56,
+          "stem": "What does the author think of time displayed everywhere?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It makes everybody time-conscious."
+            },
+            {
+              "key": "B",
+              "text": "It is a convenience for work and life."
+            },
+            {
+              "key": "C",
+              "text": "It may have a negative effect on creative work."
+            },
+            {
+              "key": "D",
+              "text": "It clearly indicates the fast pace of modem life."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定位:由题干中的 time displayed everywhere 定位到第二段:These days, the time is everywhere...That may be a bad thing...New research shows that clock-based work schedules hinder morale (士气)and creativity. 详解:观点态度题。文章第二段第一句指出,如今,随处都能看到时间,第二句表明观点:这或许是一件坏 事情,尤其是对于工作而言。第三句进一步指出,以时间为基础的工作安排会阻碍员工的士气和创造力。由 此可知,到处都能看到时间对于需要创造力的工作有负面影响,故答案为C)。 点睛:A) “它让每个人都有时间意识”,文章第三段指出,时间计时者以分钟和小时为模块来规划他们一 天的工作。但是还有另一类人,即任务计时者,所以并不是所有的人都有时间观念,可以排除;B) “它对 生活和工作来说非常便利”和D)“它清楚地表明现代生活的快节奏”,文中没有提及,均可排除。"
+        },
+        {
+          "number": 57,
+          "stem": "How do people usually go about their work according to the author?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They combine clock-based and task-based planning."
+            },
+            {
+              "key": "B",
+              "text": "They give priority to the most urgent task on hand."
+            },
+            {
+              "key": "C",
+              "text": "They set a time limit for each specific task."
+            },
+            {
+              "key": "D",
+              "text": "They accomplish their tasks one by one."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。定位:由题干中的 go about their work 定位到第三段最后一句:It is said that all of us employ a mix of both these types of planning. 详解:事实细节题。文章第三段第一句提到,时间计时者以分钟和小时为模块来规划一天的工作。第三句 则指出,任务计时者则列出一个待做事情的清单。最后一句总结:据说,我们每个人都会将这两种规划类型 结合起来使用。分析原文可知,此句中的these types 即指代上文提到的两种计时方式:clock-timers 和 task-timers。由此可知,人们在工作时往注会把两种规划类型相结合,故答案为A)。 点睛:B)“他们优先处理手头上最紧急的工作”,文中并未提及,故排除;C) “他们给每项具体工作设定 一个时间限制”,第三段前两句提到,时间计时者以分钟和小时为模块来规划一天的工作。例如:上午9 点 到10 点开会;上午10 点到中午做研究等等。这是时间计时者的工作方式,而非所有人都是如此,故排除; D)“他们一件一件地完成工作”,第三段第三、四句提到,任务计时者则列出一个待做事情的清单。他们按 照清单工作,完成前一项工作,再开始另一项工作。由此可知,这是任务计时者的工作方式,并非所有工 作者都如此,故排除。"
+        },
+        {
+          "number": 58,
+          "stem": "What did Tamar Avnet and Anne-Laure Sellier find in their experiments about clock-timers?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They seize opportunities as they come up."
+            },
+            {
+              "key": "B",
+              "text": "They always get their work done in time."
+            },
+            {
+              "key": "C",
+              "text": "They have more control over their lives."
+            },
+            {
+              "key": "D",
+              "text": "They tend to be more productive."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位:由题干中的 Tamar Avnet and Arme-Laure Sellier, experiments 和 clock-timers 定位到第四段 第五、六句:In experiments conducted by Tamar Avnet and Aime-Laure Sellier...They found clock timers to be more efficient but less happy.. 详解:事实细节题。文章第四段第六句指出,实验表明,时间计时者效率更高,但是却不够开心,因为他 们感觉对自己的人生没有掌控权。因此,答案为D)。 点睛:A)“当机会出现时,他们能够抓住它”,第四段最后一句指出,当有好事发生时,他们往往会享受 当下,而当机会出现时,他们会抓住它。此处的“他们”指的是前一句中的任务计时者,可以排除;B)“他 们总是能够及时完成工作”,第四段第六句提到时间计时者效率更高,但并未提到他们总是可以及时完成 工作,可以排除;C)“他们对自己的人生更有掌控权”,第四段第六句提到,时间计时者效率更高,但是 却不够开心,因为他们感觉对自己的人生没有掌控权,可以排除。"
+        },
+        {
+          "number": 59,
+          "stem": "What do the researchers say about today's business culture?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It does not support the strategies adopted by smart companies."
+            },
+            {
+              "key": "B",
+              "text": "It does not attach enough importance to task-based practice."
+            },
+            {
+              "key": "C",
+              "text": "It places more emphasis on work efficiency than on workers' lives."
+            },
+            {
+              "key": "D",
+              "text": "It aims to bring employees' potential and creativity into full play."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位:由题干中的 business culture 定位到第五段第一句:The researchers argue that task-based organizing tends to be undervalued and under-supported in business culture. 详解:推理判断题。第五段第一句提到,研究人员指出,在企业文化中,以任务为基础的筹划往往会被低估, 得不到支持。由此可知,当今的企业文化对以任务为基础的筹划并不重视,故答案为B)。 点睛:A) “它并不支持聪明的企业所采用的策略”,文章第五段第二句是说研究者相信,聪明的企业会努 力将更多以任务为基础的规划纳人其经营策略中,与当今的企业文化所支持的规划类型不符,可以排除; C)“比起员工的生活,它更加重视工作效率”和D)“它的目的是全面激发雇员的潜力和创造力”,文中没 有提及,均可排除。"
+        },
+        {
+          "number": 60,
+          "stem": "What do the researchers suggest?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Task-based timing is preferred for doing creative work."
+            },
+            {
+              "key": "B",
+              "text": "It is important to keep a balance between work and life."
+            },
+            {
+              "key": "C",
+              "text": "Performing creative jobs tends to make workers happier."
+            },
+            {
+              "key": "D",
+              "text": "A scientific standard should be adopted in job evaluation."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。定位:由题干中的 researchers 和 suggest 定位到第六段第一、二句:...the researchers argue that...task-based timing should be used when performing a job that requires more creativity. 详解:推理判断题。第六段第一句提到,研究人员表示,这对于经济学的普遍特点—土作是按时间来安排 的——是一个挑战第二句提出研究人员的观点:尽管大多数人从某种程度上仍旧有可能需要,或者自己作为 时间计时者,但是当我们从事需要更多创造力的工作时,应该使用任务计时的方式。 由此可知,研究人员 建议我们在从事具有创造力的工作时,选择以任务为基础的计时方式,故答案为A)。 点睛:B) “保持工作和生活平衡很重要”,文中没有提及,可以排除;C) “从事有创造力的工作往往会让 工作者更加开心”,第六段第二、三句指出,当我们从事需要更多创造力的工作时,应该使用任务计时的方 式。因为它会使工作更加容易,使工作者更加开心。由此可知,在从事需要创造力的工作时,采用任务计 时的方式才会让工作者更加开心,可以排除;D) “在工作评估中应使用科学的标准”,文中没有提及,可 以排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2015-12-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Martha Stewart was charged, tried and convicted of a crime in 2004. As she neared the end of her prison sentence, a well-known columnist wrote that she was \" paying her dues,\" and that \" there is simply no reason for anyone to attempt to deny her right to start anew. \" Surely, the American ideal of second chances should not be reserved only for the rich and powerful. Unfortunately, many federal and state laws impose post-conviction restrictions on a shockingly large number of Americans, who are prevented from ever fully paying their debt to society. At least 65 million people in the United States have a criminal record. This can result in severe penalties that continue long after punishment is completed. Many of these penalties are imposed regardless of the seriousness of the offense or the person's individual circumstances. Laws can restrict or ban voting, access to public housing, and professional and business licensing. They can affect a person's ability to get a job and qualification for benefits. In all, more than 45,000 laws and rules serve to exclude vast numbers of people from fully participating in American life. Some laws make sense. No one advocates letting someone convicted of pedophilia(恋童癖) work in a school. But too often collateral (附随的) consequences bear no relation to public safety. Should a woman who possessed a small amount of drugs years ago be permanently unable to be licensed as a nurse? These laws are also counterproductive, since they make it harder for people with criminal records to find housing or land a job, two key factors that reduce backsliding. A recent report makes several recommendations, including the abolition of most post-conviction penalties, except for those specifically needed to protect public safety. Where the penalties are not a must, they should be imposed only if the facts of a case support it. The point is not to excuse or forget the crime. Rather, it is to recognize that in America's vast criminal justice system, second chances are crucial. It is in no one's interest to keep a large segment of the population on the margins of society."
+      ],
+      "questions": [
+        {
+          "number": 61,
+          "stem": "What does the well-known columnist's remark about Martha Stewart suggest?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Her past record might stand in her way to a new life."
+            },
+            {
+              "key": "B",
+              "text": "Her business went bankrupt while she was in prison."
+            },
+            {
+              "key": "C",
+              "text": "Her release from prison has drawn little attention."
+            },
+            {
+              "key": "D",
+              "text": "Her prison sentence might have been extended."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。定位: 由题干中的 the well-known columnist 定位到第一段第二句:...a well-known columnist wrote that she was “paying her dues,’’ and that “there is simply no reason for anyone to attempt to deny her right to start anew 详解:推理判断题。第一段第一句指出,玛莎•斯图尔特在2004 年受到指控,经过审判,被判有罪。第二 句则表明这位知名专栏作家的态度:她已经得到了惩罚,而且任何人没有理由去试图剥夺她重新开始的权 利。由此可知,这位作家担心玛莎•斯图尔特的人狱经历会影响到她出狱后的生活,故答案为 A)。 点睛:B)“在她服刑时,她的公司破产了”,文中未提及,可以排除;C)“她刑满出狱并未引起人们注意”, 文章第一段第二句提到一位知名专栏作家就她的情况发表评论,由此可知,她的案件十分轰动,该选项与 原文不符,可以排除;D)“她的刑期可能被延长了”,文章第一段第二句提到她的服刑期即将结束,由此可 知,她即将刑满出狱,可以排除。"
+        },
+        {
+          "number": 62,
+          "stem": "What do we learn from the second paragraph about many criminals in America?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They backslide after serving their terms in prison."
+            },
+            {
+              "key": "B",
+              "text": "They are deprived of chances to turn over a new leaf."
+            },
+            {
+              "key": "C",
+              "text": "They receive severe penalties for committing minor offenses."
+            },
+            {
+              "key": "D",
+              "text": "They are convicted regardless of their individual circumstances."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位:由题干中的the second paragraph 和many criminals in America 定位到第二段第二句:...many federal and state laws impose post-conviction restrictions on a shockingly large number of Americans,who are prevented from ever fully paying their debt to society 详解: 推理判断题。文章第二段第二句指出,很多联邦法律和州立法律对很大一部分美国人强制实施定罪 后限制,使他们不能够再次充分地回报社会。由此可知,一些服刑人员即使刑满释放,也会受到法律的限 制,难以完全融人社会,开始新的人生,故答案为B)。 点睛:A) “他们刑满出狱后又重蹈覆辙”,文章第二段第二句指出,一些强制实施的定罪后限制,使他们 不能够再次充分地回报社会。由此可知,大多数经过改造的犯人还是希望改过自新的,该选项与原文不符, 可以排除;C) “他们因为较轻案件而受到重罚”,第二段第二句指出,很多联邦法律和州立法律对很大一 部分美国人强制实施定罪后限制,即对有犯罪前科的人实行限制,该选项是对原文的曲解,可以排除;D) “不管他们的自身情况如何都会被判有罪”,文中并未提及被判有罪的尺度,可以排除。"
+        },
+        {
+          "number": 63,
+          "stem": "What are the consequences for many Americans with a criminal record?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They remain poor for the rest of their lives."
+            },
+            {
+              "key": "B",
+              "text": "They are deprived of all social benefits."
+            },
+            {
+              "key": "C",
+              "text": "They are marginalized in society."
+            },
+            {
+              "key": "D",
+              "text": "They are deserted by their family."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定位:由题干中的 consequences 和 many Americans with a criminal record 定位到第三段:At least 65 million people.\" have a criminal record. This can result in severe penalties ...和第四段:Many of these penalties are imposed regardless of...Laws can restrict or ban voting.. 详解:推理判断题。第三段第二句中提到,犯罪分子在刑期结束后还要接受时间更长的严重惩罚。第四段第 二句中接着举例进行解释,这些限制惩罚包括可以限制或阻止他们拥有选举权,没有权利申请公租房,不 能取得职业资格证以及商业经营证等,也就是说,享受不到正常公民所拥有的权益,被社会边缘化,故答案为C)。 点睛:A) “他们将终身贫穷”,第四段最后一句指出这些限制会影响一个人通过获取工作和资格谋求福利 的能力,但这并不是唯一条件,也不能片面地说所有刑满释放的人都会终身贫穷,该选项过于绝对,可以排 除;B) “他们被剥夺所有的社会福利”同样表达过于绝对,可以排除;D) “他们被家庭所抛弃”,原文未 提及,可以排除。"
+        },
+        {
+          "number": 64,
+          "stem": "What does the author think of the post-conviction laws and rules?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They help to maintain social stability."
+            },
+            {
+              "key": "B",
+              "text": "Some of them have long been outdated."
+            },
+            {
+              "key": "C",
+              "text": "They are hardly understood by the public."
+            },
+            {
+              "key": "D",
+              "text": "A lot of them have negative effects on society."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位:由题干中的 the author 和 post-conviction laws and rules 定位到第六段:Some laws make sense\". 和第七段:These laws are also counterproductive, since they make it harder for people with criminal records to find housing or land a job, two key factors that reduce backsliding. 详解:观点态度题。文章第六段提到,一些法律是合理的。第七段则指出,这些法律同样会产生相反的效 果,因为它们加大了有犯罪前科的人租房、就业的难度,而这两个因素正是可以让他们避免重蹈覆辙的关 键因素。由此可知,作者对于一些法律、法规并不赞同,认为是对有犯罪前科的人的不公平对待,使得他们 无法改过自新而危及社会,故答案为D)。 点睛:A) “它们有助于维护社会稳定”,文章第七段提到,这些法律加大了有犯罪前科的人租房、就业的 难度,而这两个因素正是可以让他们避免重蹈覆辙的关键因素。由此可知,过于苛刻的定罪后惩罚非但不 能维护社会稳定,很可能会影响社会稳定,故该选项可以排除;B) “一些法律、法规早已过时”,文中并 未提及,可以排除;C) “它们很难被公众所理解”,文章第六段第二句提到没有人会提议让有恋童癖的人 在学校工作。由此可知,公众还是可以理解那些合理的限制的,故该选项可以排除。"
+        },
+        {
+          "number": 65,
+          "stem": "What is the author's main purpose in writing the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To create opportunities for criminals to reform themselves."
+            },
+            {
+              "key": "B",
+              "text": "To appeal for changes in America's criminal justice system."
+            },
+            {
+              "key": "C",
+              "text": "To ensure that people with a criminal record live a decent life."
+            },
+            {
+              "key": "D",
+              "text": "To call people's attention to prisoners' conditions in America."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位:由题干中的 author’s main purpose 定位到文章最后一段:The point is not to excuse or forget the crime. Rather, it is to recognize that in America’s vast criminal justice system, second chances are crucial. It is in no one’s interest to keep a large segment of the population on the margins of society. 详解:主旨大意题。最后一段提到,这个提议并不是为犯罪找借口或忽略它。相反,是让人们认识到,在 美国庞大的刑法体系中,人们拥有改过自新的机会是至关重要的。让那么一大部分群体游走在社会的边缘 对任何人都没有好处。由此可知,作者是希望通过对这一问题的探讨,从而对刑法体系中一些不合理的地 方进行变革,故答案为B)。 点睛:A)“为犯罪分子提供自我改造的机会”,文章最后一段第三句指出让那么一大部分群体游走在社会的 边缘对任何人都没有好处,由此可知,作者建议的真正目的是变革法律中不合理的部分,维护社会稳定, 该选项为表面原因,可以排除;C) “确保有犯罪前科的人能够过上体面的生活”,不符合作者的观点,可 以排除;D)“呼吁人们关注美国闪犯的处境”,文中未提及,可以排除。"
+        }
+      ]
+    }
+  ]
+}

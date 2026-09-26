@@ -1,0 +1,1729 @@
+{
+  "id": "cet6-2017-06-2",
+  "level": 6,
+  "year": 2017,
+  "month": 6,
+  "set": 2,
+  "title": "2017 年 6 月六级 · 第 2 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.06/%E7%9C%9F%E9%A2%98Word/2017%E5%B9%B406%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC2%E5%A5%97%EF%BC%89.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2017.06%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC2%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2017-06-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Half of your brain stays alert and prepared for danger when you sleep in a new place, a study has revealed. This phenomenon is often [[26]] to as the \"first-night-effect\". Researchers from Brown University found that a network in the left hemisphere of the brain \"remained more active\" than the network in the right side of the brain. Playing sounds into the right ears (stimulating the left hemisphere) of [[27]] was more likely to wake them up than if the noises were played into their left ear. It was [[28]] observed that the left side of the brain was more active during deep sleep. When the researchers repeated the laboratory experiment on the second and third nights they found the left hemisphere could not be stimulated in the same way during deep sleep. The researchers explained that the study demonstrated when we are in a [[29]] environment the brain partly remains alert so that humans can defend themselves against any [[30]] danger. The researchers believe this is the first time that the \"first-night-effect\" of different brain states has been [[31]] in humans. It isn't, however, the first time it has ever been seen. Some animal [[32]] also display this phenomenon. For example, dolphins, as well as other [[33]] animals, shut down one hemisphere of the brain when they go to sleep. A previous study noted that dolphins always [[34]] control their breathing. Without keeping the brain active while sleeping, they would probably drown. But, as the human study suggest, another reason for dolphins keeping their eyes open during sleep is that they can look out for [[35]] while asleep. It also keeps their physiological processes working."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "classified"
+        },
+        {
+          "key": "B",
+          "text": "consciously"
+        },
+        {
+          "key": "C",
+          "text": "dramatically"
+        },
+        {
+          "key": "D",
+          "text": "exotic"
+        },
+        {
+          "key": "E",
+          "text": "identified"
+        },
+        {
+          "key": "F",
+          "text": "inherent"
+        },
+        {
+          "key": "G",
+          "text": "marine"
+        },
+        {
+          "key": "H",
+          "text": "novel"
+        },
+        {
+          "key": "I",
+          "text": "potential"
+        },
+        {
+          "key": "J",
+          "text": "predators"
+        },
+        {
+          "key": "K",
+          "text": "referred"
+        },
+        {
+          "key": "L",
+          "text": "species"
+        },
+        {
+          "key": "M",
+          "text": "specifically"
+        },
+        {
+          "key": "N",
+          "text": "varieties"
+        },
+        {
+          "key": "O",
+          "text": "volunteers"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "classified"
+            },
+            {
+              "key": "B",
+              "text": "consciously"
+            },
+            {
+              "key": "C",
+              "text": "dramatically"
+            },
+            {
+              "key": "D",
+              "text": "exotic"
+            },
+            {
+              "key": "E",
+              "text": "identified"
+            },
+            {
+              "key": "F",
+              "text": "inherent"
+            },
+            {
+              "key": "G",
+              "text": "marine"
+            },
+            {
+              "key": "H",
+              "text": "novel"
+            },
+            {
+              "key": "I",
+              "text": "potential"
+            },
+            {
+              "key": "J",
+              "text": "predators"
+            },
+            {
+              "key": "K",
+              "text": "referred"
+            },
+            {
+              "key": "L",
+              "text": "species"
+            },
+            {
+              "key": "M",
+              "text": "specifically"
+            },
+            {
+              "key": "N",
+              "text": "varieties"
+            },
+            {
+              "key": "O",
+              "text": "volunteers"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【锁定答案】空格句指出,这种现象(当在新的地方睡觉时,你的一半大脑会保持警觉,准备应对危 险)为“首夜效应”,可见该句是在对现象下定义,空格处应为“被称作、被视为”之意,referred符合 文意,refertosthassth(文中为被动语态)为固定搭配,意为“把.称作...”。 【补充语法】\"界定事物”的常用表述:·..isreferred toas.·./isnamed(called)..·/isclassified/ identified as... /is known as..."
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "classified"
+            },
+            {
+              "key": "B",
+              "text": "consciously"
+            },
+            {
+              "key": "C",
+              "text": "dramatically"
+            },
+            {
+              "key": "D",
+              "text": "exotic"
+            },
+            {
+              "key": "E",
+              "text": "identified"
+            },
+            {
+              "key": "F",
+              "text": "inherent"
+            },
+            {
+              "key": "G",
+              "text": "marine"
+            },
+            {
+              "key": "H",
+              "text": "novel"
+            },
+            {
+              "key": "I",
+              "text": "potential"
+            },
+            {
+              "key": "J",
+              "text": "predators"
+            },
+            {
+              "key": "K",
+              "text": "referred"
+            },
+            {
+              "key": "L",
+              "text": "species"
+            },
+            {
+              "key": "M",
+              "text": "specifically"
+            },
+            {
+              "key": "N",
+              "text": "varieties"
+            },
+            {
+              "key": "O",
+              "text": "volunteers"
+            }
+          ],
+          "answer": "O",
+          "explanation": "【锁定答案】空格句指出“向右耳播放声音比向他们的左耳播放声音更有可能把他们叫醒”,因 此初步推断空格词为“动物或人”;再联系段落首句(当你...)可知该实验是以“人”为实验对象, volunteers为正确项,指“自愿做研究对象的人”。 其他几个选项中,只有predators有表示“人”的释义“掠夺他人的人,损人利已的人”,但不符合文中 语境(文中并未提及掠夺关系或损人利已等)。 【补充语法】1.动名词兼有动词和名词的特征和作用,其动词特征表现在可带有宾语、状语等,其名 词特征表现在可担当主语、宾语等。2.若语义需要,比较标记词than后可接“if引导的条件状语从句” 或“when引导的时间状语从句”。本段4句包含上述两个语法点:Playing..·ofvolunteers为长动名词 短语作主语;than后接if引导的条件状语从句。 Il 0It was28observed that the left side of the brain was more active during deep sleep. @When the researchers repeated the laboratory experiment on the second and third nights they found the left hemisphere could not be stimulated in the same way during deep sleep. @ The researchers explained that the study demonstratedwhen we are in a environment the brain partly remains alert so that humans can defend themselves against any danger. 研究人员特别观察到,在深度睡眠 期间大脑左半球更活跃。当研究人员 在第二晚和第三晚再重复该实验室实 验时,他们发现在深度睡眠期间,以同 样的方法已经不能够刺激到大脑左半 球了。研究人员解释道,该研究表明, 当我们处于一个新的环境时,大脑部分"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "classified"
+            },
+            {
+              "key": "B",
+              "text": "consciously"
+            },
+            {
+              "key": "C",
+              "text": "dramatically"
+            },
+            {
+              "key": "D",
+              "text": "exotic"
+            },
+            {
+              "key": "E",
+              "text": "identified"
+            },
+            {
+              "key": "F",
+              "text": "inherent"
+            },
+            {
+              "key": "G",
+              "text": "marine"
+            },
+            {
+              "key": "H",
+              "text": "novel"
+            },
+            {
+              "key": "I",
+              "text": "potential"
+            },
+            {
+              "key": "J",
+              "text": "predators"
+            },
+            {
+              "key": "K",
+              "text": "referred"
+            },
+            {
+              "key": "L",
+              "text": "species"
+            },
+            {
+              "key": "M",
+              "text": "specifically"
+            },
+            {
+              "key": "N",
+              "text": "varieties"
+            },
+            {
+              "key": "O",
+              "text": "volunteers"
+            }
+          ],
+          "answer": "M",
+          "explanation": "【锁定答案】空格句上文(上段)指出“实验观察到,睡眠过程中,大脑左半球的网络比大脑右半球的 网络更活跃”。空格句指出“研究者观察到,深度睡眠中,大脑左半球更加活跃”。可见二者逻辑关 系为:由“睡眠过程中的情形”进一步具体、特定到“深度睡眠中的情形”,specifically\"具体地,特定地,特 别地”符合语义。 B)consciously强调“有意识地,自觉地”,但空格句为客观观察到的实验结果,并非有意、刻意为之。 C)dramatically\"戏剧性地、显著地”与observed无法搭配。 【点拨技巧】consciously此处语义搭配较为微妙,且涉及一定背景知识,若考生没有把握完全排除, 可以暂时标记,若下文有更适合处,则此处自然排除。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "classified"
+            },
+            {
+              "key": "B",
+              "text": "consciously"
+            },
+            {
+              "key": "C",
+              "text": "dramatically"
+            },
+            {
+              "key": "D",
+              "text": "exotic"
+            },
+            {
+              "key": "E",
+              "text": "identified"
+            },
+            {
+              "key": "F",
+              "text": "inherent"
+            },
+            {
+              "key": "G",
+              "text": "marine"
+            },
+            {
+              "key": "H",
+              "text": "novel"
+            },
+            {
+              "key": "I",
+              "text": "potential"
+            },
+            {
+              "key": "J",
+              "text": "predators"
+            },
+            {
+              "key": "K",
+              "text": "referred"
+            },
+            {
+              "key": "L",
+              "text": "species"
+            },
+            {
+              "key": "M",
+              "text": "specifically"
+            },
+            {
+              "key": "N",
+              "text": "varieties"
+            },
+            {
+              "key": "O",
+              "text": "volunteers"
+            }
+          ],
+          "answer": "H",
+          "explanation": "【锁定答案】首先空格句指出研究者(对于上文所述研究发现的)解释:“我们处于一个环境时, 大脑部分保持警觉,以保护自已...”。空格词需要描述“环境”的主要特征,需要从前文寻找。前文指 出实验发现:第一晚很容易刺激大脑左半球,而第二、三晚以同样的方法则不再能刺激到,即:这种警觉 仅适用于“新到一个环境”,novel新的,新奇的”正确。其次,开篇句也已概括说明研究发现“当在一个 新的地方(anewplace)睡觉时,你的大脑有一半会保持警惕”,这和本空格句相呼应,因此完全确定与 new近义的novel正确。 classified、marine、potential与上文语境不符,文中并未提及“分类的、海洋的或潜在的”环境。 【点拔技巧】科普类文章往往会在“详细介绍研究发现”之后“给出研究者的解释、提炼”,常见引出 结构为 the researchers/research suggest ( suggests、suggested)/indicate explain/reveal/demonstrate that.··,阅读时可借其把握层次,并关注二者对应关系"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "classified"
+            },
+            {
+              "key": "B",
+              "text": "consciously"
+            },
+            {
+              "key": "C",
+              "text": "dramatically"
+            },
+            {
+              "key": "D",
+              "text": "exotic"
+            },
+            {
+              "key": "E",
+              "text": "identified"
+            },
+            {
+              "key": "F",
+              "text": "inherent"
+            },
+            {
+              "key": "G",
+              "text": "marine"
+            },
+            {
+              "key": "H",
+              "text": "novel"
+            },
+            {
+              "key": "I",
+              "text": "potential"
+            },
+            {
+              "key": "J",
+              "text": "predators"
+            },
+            {
+              "key": "K",
+              "text": "referred"
+            },
+            {
+              "key": "L",
+              "text": "species"
+            },
+            {
+              "key": "M",
+              "text": "specifically"
+            },
+            {
+              "key": "N",
+              "text": "varieties"
+            },
+            {
+              "key": "O",
+              "text": "volunteers"
+            }
+          ],
+          "answer": "I",
+          "explanation": "【锁定答案】空格句指出“大脑部分保持警觉,以便人们可以保护自已免受任何危险”。保持警 觉的目的往往是预防潜在的、可能的威胁,potential\"潜在的,可能发生的”正确。 A)classified\"分类的”与danger无法搭配;D)exotic\"异国的”、G)marine\"海洋的”上文未提及相关信 息;F)inherent\"内在的(危险)”找不到从属对象(谁的内在危险)。 【点拨技巧】假若考生不知exotic的具体含义“异域风情的,外国情调的(含褒义)”,而是知道它大概 指“外来的,外在的”,则很容易认为它可以和danger语义搭配合理,从而误选此项。故提醒考生:学习 词汇时不能只知“大概意思”,而是要知“准确含义”。 【补充语法】sothat用法:1.引导目的状语从句(功用等同于inorderthat,意为“为了,目的是 .....”),从句谓语中常用情态动词may/might、can/could、should、would等,表示尚未完成的目的或意 图,如本段3句。2.引导结果状语从句(功用相当于so,意为“因此,所以”),sothat从句常用逗号同主 句隔开,有明显的“结果、完成”意味。如:Hemadeawrongdecision,sothathalfof hislifetimewas wasted.(他做了错误的决定,因此毁掉了半生)。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "classified"
+            },
+            {
+              "key": "B",
+              "text": "consciously"
+            },
+            {
+              "key": "C",
+              "text": "dramatically"
+            },
+            {
+              "key": "D",
+              "text": "exotic"
+            },
+            {
+              "key": "E",
+              "text": "identified"
+            },
+            {
+              "key": "F",
+              "text": "inherent"
+            },
+            {
+              "key": "G",
+              "text": "marine"
+            },
+            {
+              "key": "H",
+              "text": "novel"
+            },
+            {
+              "key": "I",
+              "text": "potential"
+            },
+            {
+              "key": "J",
+              "text": "predators"
+            },
+            {
+              "key": "K",
+              "text": "referred"
+            },
+            {
+              "key": "L",
+              "text": "species"
+            },
+            {
+              "key": "M",
+              "text": "specifically"
+            },
+            {
+              "key": "N",
+              "text": "varieties"
+            },
+            {
+              "key": "O",
+              "text": "volunteers"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【锁定答案】空格句指出:这是第一次在人类身上不同大脑状态下的“首夜效应” 。下文转而指 出:但“首夜效应”并不是第一次被发现,一些动物也显示出这种现象。故空格也应该体现出“(第一次) 被发现、被识别”之意,E)identified正确。 D)exotic\"外来的、异国的”、F)inherent\"内在的”、G)marine\"海洋的”语义无法衔接。A)classified填 入空格,与下文无法构成转折逻辑。 【点拨技巧】若两句关系为“转折/对比”(体现为however,but,although等),需重点关注两句间“差 异的集中体现”、并意识到其他背景信息大致同指。如本段12句:对比两句可发现,差异集中体现于 is...inhumans,可推测其大致语义“这是第一次在人类身上看到,但(总体上)并非第一次看到”,从而推 测空格词应与seen近义。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "classified"
+            },
+            {
+              "key": "B",
+              "text": "consciously"
+            },
+            {
+              "key": "C",
+              "text": "dramatically"
+            },
+            {
+              "key": "D",
+              "text": "exotic"
+            },
+            {
+              "key": "E",
+              "text": "identified"
+            },
+            {
+              "key": "F",
+              "text": "inherent"
+            },
+            {
+              "key": "G",
+              "text": "marine"
+            },
+            {
+              "key": "H",
+              "text": "novel"
+            },
+            {
+              "key": "I",
+              "text": "potential"
+            },
+            {
+              "key": "J",
+              "text": "predators"
+            },
+            {
+              "key": "K",
+              "text": "referred"
+            },
+            {
+              "key": "L",
+              "text": "species"
+            },
+            {
+              "key": "M",
+              "text": "specifically"
+            },
+            {
+              "key": "N",
+              "text": "varieties"
+            },
+            {
+              "key": "O",
+              "text": "volunteers"
+            }
+          ],
+          "answer": "L",
+          "explanation": "【锁定答案】空格上文讨论“人的首夜效应”,空格句指出:一些动物也显示出这种现象,下文则 以海豚为例进行说明。因此animal整体应表示“动物们”之意,species符合文意,animalspecies意 为“各动物物种”。 predators“捕食者,掠夺者”与下文关于海豚的举例不相符,无论从常识上还是从下文看,都可知海 豚并非动物捕食者,可排除。varieties虽也能表示“种类,品种”,似乎符合空格要求,但varieties实际指 的是“某一类别/物种中的不同品种”(如:Thelakehasmorethan20varietiesof fish.那个湖里有二十多 种鱼),不符合文中animal和dolphins的关系。注:animalvarieties指“某种动物或某些动物的新品种”, :Farmers continually created new animal varieties by selecting who survived to breed, thus handing CharlesDarwinanidea.农民们选那些幸存下来的继续繁殖,不断创造出动物新品种(注:新品种的鸡、 猪等),这给了查尔斯达尔文一个启示。 【点拨拔技巧】“根据上下文推知事物之间的逻辑关系”是确定“名词性选项”的有效思路。如本题:若 根据上下文(主要体现于however体现的转折逻辑以及Forexample体现的例证关系)推知animal 和humans的之间的“相对关系”以及和dolphins的“包含关系”,则很容易确定答案。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "classified"
+            },
+            {
+              "key": "B",
+              "text": "consciously"
+            },
+            {
+              "key": "C",
+              "text": "dramatically"
+            },
+            {
+              "key": "D",
+              "text": "exotic"
+            },
+            {
+              "key": "E",
+              "text": "identified"
+            },
+            {
+              "key": "F",
+              "text": "inherent"
+            },
+            {
+              "key": "G",
+              "text": "marine"
+            },
+            {
+              "key": "H",
+              "text": "novel"
+            },
+            {
+              "key": "I",
+              "text": "potential"
+            },
+            {
+              "key": "J",
+              "text": "predators"
+            },
+            {
+              "key": "K",
+              "text": "referred"
+            },
+            {
+              "key": "L",
+              "text": "species"
+            },
+            {
+              "key": "M",
+              "text": "specifically"
+            },
+            {
+              "key": "N",
+              "text": "varieties"
+            },
+            {
+              "key": "O",
+              "text": "volunteers"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【锁定答案】“dolphins,aswellasother animals(海豚,以及其他动物)\"暗含之意:空格词 应体现“海豚和其他动物的共同特征、属性”,marine符合文意:海豚属于“海洋类”动物。另外,下文的 具体描述中,drown(淹死,溺死)也表明这是在描述“水中情形”,可确定答案。 inherent\"内在的”、classified\"分类的”与animals无法衔接;exotic\"外来的,异国的”不符合上下文语 境(文中没有任何信息表明海豚是异域动物)。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "classified"
+            },
+            {
+              "key": "B",
+              "text": "consciously"
+            },
+            {
+              "key": "C",
+              "text": "dramatically"
+            },
+            {
+              "key": "D",
+              "text": "exotic"
+            },
+            {
+              "key": "E",
+              "text": "identified"
+            },
+            {
+              "key": "F",
+              "text": "inherent"
+            },
+            {
+              "key": "G",
+              "text": "marine"
+            },
+            {
+              "key": "H",
+              "text": "novel"
+            },
+            {
+              "key": "I",
+              "text": "potential"
+            },
+            {
+              "key": "J",
+              "text": "predators"
+            },
+            {
+              "key": "K",
+              "text": "referred"
+            },
+            {
+              "key": "L",
+              "text": "species"
+            },
+            {
+              "key": "M",
+              "text": "specifically"
+            },
+            {
+              "key": "N",
+              "text": "varieties"
+            },
+            {
+              "key": "O",
+              "text": "volunteers"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【锁定答案】空格所在句指出，海豚与人类一样，控制呼吸、下丘脑也睡觉：如果随时保持大脑活跃，它们就有可能会溺死。可见，两句间暗示推理关系：海豚控制呼吸是故意的、有意识的行为，意在防止溺水，B) consciously符合文意。C) dramatically“戏剧性地；显著地”无法衔接前后。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "classified"
+            },
+            {
+              "key": "B",
+              "text": "consciously"
+            },
+            {
+              "key": "C",
+              "text": "dramatically"
+            },
+            {
+              "key": "D",
+              "text": "exotic"
+            },
+            {
+              "key": "E",
+              "text": "identified"
+            },
+            {
+              "key": "F",
+              "text": "inherent"
+            },
+            {
+              "key": "G",
+              "text": "marine"
+            },
+            {
+              "key": "H",
+              "text": "novel"
+            },
+            {
+              "key": "I",
+              "text": "potential"
+            },
+            {
+              "key": "J",
+              "text": "predators"
+            },
+            {
+              "key": "K",
+              "text": "referred"
+            },
+            {
+              "key": "L",
+              "text": "species"
+            },
+            {
+              "key": "M",
+              "text": "specifically"
+            },
+            {
+              "key": "N",
+              "text": "varieties"
+            },
+            {
+              "key": "O",
+              "text": "volunteers"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【锁定答案】空格所在句指出,海豚睡觉时眼睛静开是为了留意(lookoutfor意为“小心,留意,提 防”)一,可见,predators“捕食者,掠夺者”符合文意。另外,上文在介绍关于“人”的类似研究时指出 “人们到了新环境,睡觉时会保持部分大脑警觉,以便保护自已免受危险”,predators显然属于“重大危 险”,故正确。varieties“种类”无法与lookoutfor搭配,且不符合语义要求。 【补充语法】while(当..*·时)引导时间状语从句时,如果主句和从句主语一致,则从句中可省略主 语和be动词,变形为while十现在分词、过去分词、名词、形容词或介词短语”,如本句中whileasleep。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2017-06-2-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Interest in elite high school math competitions has grown in recent years, and in light of last summer's U.S. win at the International Math Olympiad (IMO)—the first for an American team in more than two decades—the trend is likely to continue.",
+        "B) But will such contests, which are overwhelmingly dominated by Asian and white students from middle-class and affluent families, become any more diverse? Many social and cultural factors play roles in determining which promising students get on the path toward international math recognition. But efforts are in place to expose more black, Hispanic, and low-income students to advanced math, in the hope that the demographic pool of high-level contenders will eventually begin to shift and become less exclusive.",
+        "C) \"The challenge is if certain types of people are doing something, it's difficult for other people to break into it,\" said Po-Shen Loh, the head coach of last year's winning U.S. Math Olympiad team. Participation grows through friends and networks and if \"you realize that's how they're growing, you can start to take action\" and bring in other students, he said.",
+        "D) Most of the training for advanced-math competitions happens outside the confines of the normal school day. Students attend after-school clubs, summer camps, online forums and classes, and university-based \"math circles\", to prepare for the competitions.",
+        "E) One of the largest feeders for high school math competitions—including those that eventually lead to the IMO—is a middle school program called Math Counts. About 100,000 students around the country participate in the program's competition series, which culminates in a national game-show-style contest held each May. The most recent one took place last week in Washington, D.C. Students join a team through their schools, which provide a volunteer coach and pay a nominal fee to send students to regional and state competitions. The 224 students who make it to the national competition get an all-expenses- paid trip.",
+        "F) Nearly all members of last year's winning U.S. IMO team took part in Math Counts as middle school students, as did Loh, the coach. \"Middle school is an important age because students have enough math capability to solve advanced problems, but they haven't really decided what they want to do with their lives,\" said Loh. \"They often get hooked then.\"",
+        "G) Another influential feeder for advanced-math students is an online school called Art of Problem Solving, which began about 13 years ago and now has 15,000 users. Students use forums to chat, play games, and solve problems together at no cost, or they can pay a few hundred dollars to take courses with trained teachers. According to Richard Rusczyk, the company founder, the six U.S. team members who competed at the IMO last year collectively took more than 40 courses on the site. Parents of advanced- math students and Math Counts coaches say the children are on the website constantly.",
+        "H) There are also dozens of summer camps—many attached to universities—that aim to prepare elite math students. Some are pricey---a three-week intensive program can cost $4,500 or more—but most offer scholarships. The Math Olympiad Summer Training Program is a three-week math camp held by the Mathematical Association of America that leads straight to the international championship and is free for those who make it. Only about 50 students are invited based on their performance on written tests and at the USA Math Olympiad.",
+        "I) Students in university towns may also have access to another lever for involvement in accelerated math: math circles. In these groups, which came out of an Eastern European tradition of developing young talent, professors teach promising K-12 students advanced mathematics for several hours after school or on weekends. The Los Angeles Math Circle, held at the University of California, Los Angeles, began in 2007 with 20 students and now has more than 250. \"These math circles cost nothing, or they're very cheap for students to get involved in, but you have to know about them,\" said Rusczyk. \"Most people would love to get students from more underserved populations, but they just can't get them in the door. Part of it is communication; part of it is transportation.\"",
+        "J) It's no secret in the advanced-math community that diversity is a problem. According to Mark Saul, the director of competitions for the Mathematical Association of America, not a single African-American or Hispanic student—and only a handful of girls—has ever made it to the Math Olympiad team in its 50 years of existence. Many schools simply don't prioritize academic competitions. \"Do you know who we have to beat?\" asked Saul. \"The football team, the basketball team—that's our competition for resources, student time, attention, school dollars, parent efforts, school enthusiasm.\"",
+        "K) Teachers in low-income urban and rural areas with no history of participating in math competitions may not know about advanced-math opportunities like Math Counts—and those who do may not have support or feel trained to lead them.",
+        "L) But there are initiatives in place to try to get more underrepresented students involved in accelerated math. A New York City-based nonprofit called Bridge to Enter Mathematics runs a residential summer program aimed at getting underserved students,mostly black and Hispanic, working toward math and science careers. The summer after 7th grade, students spend three weeks on a college campus studying advanced math for seven hours a day. Over the next five years, the group helps the students get into other elite summer math programs, high-performing high schools, and eventually college. About 250 students so far have gone through the program, which receives funding from the Jack Kent Cooke Foundation.",
+        "M) \"If you look at a lot of low-income communities in the United States, there are programs that are serving them, but they' re primarily centered around 'Let's get these kids' grades up', and not around 'Let's get these kids access to the same kinds of opportunities as more-affluent kids,'\" said Daniel Zaharopol, the founder and executive director of the program. \"We're trying to create that pathway.\" Students apply to the program directly through their schools. \"We want to reach parents who are not plugged into the system,\" said Zaharopol.",
+        "N) In the past few years, Math Counts added two new middle school programs to try to diversify its participant pool---the National Math Club and the Math Video Challenge. Schools or teachers who sign up for the National Math Club receive a kit full of activities and resources, but there's no special teacher training and no competition attached.",
+        "O) The Math Video Challenge is a competition, but a collaborative one. Teams of four students make a video illustrating a math problem and its real-world application. After the high-pressure Countdown round at this year's national Math Counts competition, in which the top 12 students went head to head solving complex problems in rapid fire, the finalists for the Math Video Challenge took the stage to show their videos. The demographics of that group looked quite different from those in the competition round—of the 16 video finalists, 13 were girls and eight were African-American students. The video challenge does not put individual students on the hot seat—so it's less intimidating by design. It also adds the element of artistic creativity to attract a new pool of students who may not see themselves as \"math people\"."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Middle school is a crucial period when students may become keenly interested in advanced mathematics.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "F",
+          "explanation": "初中是学生可能对高等数学产生强烈兴趣的关键时期。 [答案]F[精析]根据[定位词定位]、[核心义匹配]可知本题对应[F]段23句。23句借罗博 深的话指出“初中阶段很重要,因为这时学生具备学习高数的能力,且未确定志向,很容易(对高数)着 迷”。试题是对2句的同义概括,becomekeenlyinterested与gethooked同义。"
+        },
+        {
+          "number": 37,
+          "stem": "Elite high school math competitions are attracting more interest throughout the United States.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "A",
+          "explanation": "精英高中数学竞赛在全美各地引发更多关注。 [答案]A[精析]根据[定位词定位]、[核心义匹配]可知本题对应[A]段。该段先引出趋势“对精 英高中数学竞赛的兴趣日益浓厚”,后对该趋势作出预测“很可能持续,因为美国刚在国际奥数竞赛中 夺冠”。试题是对A段内容的合理推断,结合“美国刚夺冠”的事实可知该事件正引发美国人关注,故 试题将其合理推断为“在全国范围内引发更多关注”。"
+        },
+        {
+          "number": 38,
+          "stem": "Math circles provide students with access to advanced-math training by university professors.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "I",
+          "explanation": "数学圈为学生提供接受大学教授高等数学训练的机会。 [答案]I[精析]根据[定位词定位]、[核心义匹配]可知本题对应[段2句。该句介绍培训项目 “数学圈”及其提供的服务“大学教授教高等数学”。试题是对该句的同义转述,advanced-math training 对应teach.·.studentsadvancedmath,故[正确。"
+        },
+        {
+          "number": 39,
+          "stem": "Students may take advantage of online resources to learn to solve math problems.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "G",
+          "explanation": "学生们可以利用网络资源学习解决数学问题。 「答案]G[精析]根据[定位词定位]、核心义匹配]可知本题对应[G段。该段介绍网校“解题的 艺术及其提供的(在线)服务“免费论坛与付费课程”,并于2句指出“学生们可以利用网校提供的论坛 解决问题(由上下文语境可知,即指数学问题)”。试题是对该段信息的综合概括,其中Studentsmay take advantage of...高度概括文中Studentsuse...to chat...play...and solve.../they can...take courses等细节。"
+        },
+        {
+          "number": 40,
+          "stem": "The summer program run by a nonprofit organization has helped many underserved students learn advanced math.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "L",
+          "explanation": "由一个非营利机构举办的暑期项目已帮助很多所受服务不足的学生学习高等数学。 [答案]L[精析」根据定位词定位」、核心义匹配」可知本题对应[L段2句。该句介绍了署期 项目的举办者“非营利机构“通往数学之桥””,创办目的“帮助所受服务不足的学生通过学习高数逐步 走向数学生涯”。试题是对该句多个信息点的综合概括,其中hashelpedmanyunderservedstudents learn advanced math 括 getting underserved students... working toward math... careers/students.. . studyingadvancedmath等内容。"
+        },
+        {
+          "number": 41,
+          "stem": "Winners of local contests will participate in the national math competition for free.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "E",
+          "explanation": "本地竞赛优胜者将免费参加全国数学竞赛。 [答案]E[精析]根据[定位词定位]、核心义匹配]可知本题对应[E]段43句。4句介绍打人 全国赛的过程。3句指出“成功打人全国赛的学生,参赛过程中所有费用全免”。试题是对43句的合 理推断,结合打入全国赛的过程(校内组队→地区赛→州级赛→全国赛)可知“打入全国赛的学生”即为 “本地赛优胜者”,winnersof local contests对应studentswhomakeit to thenational competition。"
+        },
+        {
+          "number": 42,
+          "stem": "Many schools don't place academic competitions at the top of their priority list.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "J",
+          "explanation": "[答案][J] [精析]根据[定位词定位]、[核心义匹配]可知本题对应[J]段③句。③句指出“许多学校不优先考虑学术竞赛”。试题是对③句的同义改写。"
+        },
+        {
+          "number": 43,
+          "stem": "Contestants of elite high school math competitions are mostly Asian and white students from well-off families.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "B",
+          "explanation": "精英高中数学竞赛的参赛者大多数是来自优越家庭的亚裔或白人学生。 [答案]B[精析]根据[定位词定位]、[核心义匹配]可知本题对应[B]段1句。1句说明精英高 中数学竞赛选手的组成“由来自中产阶级和富裕家庭的亚商和白人学生主导”。试题是对该句的同义 转述,其中whichare dominated by...修饰such contests,对应Contestants...are mostly...。"
+        },
+        {
+          "number": 44,
+          "stem": "Some math training programs primarily focus on raising students' math scores.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "M",
+          "explanation": "一些数学培训项目主要专注于提高学生的数学成绩。 [答案]M[精析]」根据[定位词定位」、[核心义匹配]可知本题对应M段1句。1句借扎哈罗伯 的话指出“服务低收人人群的(数学训练)项目主要关注提高成绩”。试题是对该句的同义改写,其中 primarily focus on与primarily centered around同义。"
+        },
+        {
+          "number": 45,
+          "stem": "Some intensive summer programs are very expensive but most of them provide scholarships.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "H",
+          "explanation": "一些暑期强化项目非常昂贵,但大部分会提供奖学金。 [答案]H[精析]根据[定位词定位]、[核心义匹配]可知本题对应[H]段2句。2句Some回指 上句summercamps,介绍署期项目的特点“有些价格很高,但多数提供奖学金”,并以“(暑期)强化项目” 为例说明。试题是对该句的同义改写。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2017-06-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "We live today indebted to McCardell, Cashin, Hawes, Wilkins, and Maxwell, and other women who liberated American fashion from the confines of Parisian design. Independence came in tying, wrapping, storing, harmonizing, and rationalizing that wardrobe. These designers established the modem dress code, letting playsuits and other active wear outfits suffice for casual clothing, allowing pants to enter the wardrobe, and prizing rationalism and versatility in dress, in contradiction to dressing for an occasion or allotment of the day. Fashion in America was logical and answerable to the will of the women who wore it. Implicitly or explicitly, American fashion addressed a democracy, whereas traditional Paris-based fashion was prescriptive and imposed on women, willing or not. In an earlier time, American fashion had also followed the dictates of Paris, or even copied and pirated specific French designs. Designer sportswear was not modeled on that of Europe, as \"modem art\" would later be; it was genuinely invented and developed in America. Its designers were not high-end with supplementary lines. The design objective and the business commitment were to sportswear, and the distinctive traits were problem-solving ingenuity and realistic lifestyle applications. Ease of care was most important: summer dresses and outfits, in particular, were chiefly cotton, readily capable of being washed and pressed at home. Closings were simple, practical, and accessible, as the modem woman depended on no personal maid to dress her. American designers prized resourcefulness and the freedom of women who wore the clothing. Many have argued that the women designers of this time were able to project their own clothing values into a new style. Of course, much of this argument in the 1930s-40s was advanced because there was little or no experience in justifying apparel (服装) on the basis of utility. If Paris was cast aside, the tradition of beauty was also to some degree slighted. Designer sportswear would have to be verified by a standard other than that of pure beauty; the emulation of a designer's life in designer sportswear was a crude version of this relationship. The consumer was ultimately to be mentioned as well, especially by the likes of Dorothy Shaver, who could point to the sales figures at Lord &amp; Taylor. Could utility alone justify the new ideas of the American designers? Fashion is often regarded as a pursuit of beauty, and some cherished fashion's trivial relationship to the fine arts. What the designers of the American sportswear proved was that fashion is a genuine design art, answering to the demanding needs of service. Of course these practical, insightful designers have determined the course of late twentieth-century fashion. They were the pioneers of gender equity, in their useful, adaptable clothing, which was both made for the masses and capable of self-expression."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What contribution did the women designers make to American fashion?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They made some improvements on the traditional Parisian design."
+            },
+            {
+              "key": "B",
+              "text": "They formulated a dress code with distinctive American features."
+            },
+            {
+              "key": "C",
+              "text": "They came up with a brand new set of design procedures."
+            },
+            {
+              "key": "D",
+              "text": "They made originality a top priority in their fashion design."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]B)。首段123句指出女性设计师将美国时尚从巴黎式设计中解放出来,确立了现代 着装规范,并指出其具体特征,43句则指出美国时尚完全不同于传统的巴黎时尚。可见B项正确,a dress code对应the moderndress code;而 with distinctive Americanfeatures则概括 letting.. allowing...and prizing...addressed a democracy 等。 [排除干扰]A项将12句“女性设计师把美国时尚从巴黎式设计中解放出来、取得独立(liberated fromtheconfinesofParisiandesign、independence)”弱化为“对巴黎设计进行了某些改进(madesome improvements)。C项将“女性设计师开创了一种全新的时尚/设计风格”偷换为“提出了一套全新的设 计程序(new..·procedures)”。D项将“作者观点:美国时尚具有独创性”偷换为“美国女性设计师观点: 时尚设计的重中之重是独创性”。由343句可知,“实用性”才是美国时尚最鲜明的特征。 [提炼思路]本题实考查首段主旨。解题基本策略在于借助段中同义/近义/上下义词的复现等梳 理段落结构,宏观把握该段(包括“主题事物”及其“特点”):根据1句liberatedAmericanfashionfrom theconfinesofParisiandesign(把美国时尚从巴黎设计的束缚中解放出来)、2句Independence(独立)、 3句establishedthemoderndresscode(确立现代着装规范)、以及13句的对比(whereas),可知第一段 主旨:美国女性打破传统巴黎时尚、形成了特点鲜明的美国时尚、确立了现代着装规范,B项正确。 IlInan earliertime,Americanfashion hadalso followed the dictates of Paris, or even copied and piratedspecific French designs. @ Designer sportswear was not modeled on that of Europe, as“modern art” would later be; it was genuinely@ invented and developed in America. Its designers were not high- endwith supplementarylines.The design objective and the business commitmentwereto sportswear,and distinctive traits were problem-solving ingenuity and realistic lifestyle applications. @ Ease of care was most important:summer dresses and outfits, in particular, were chiefly cotton,readily capable of being washed and pressed at home. @ Closingswere simple, practical, and accessible, as the modern woman depended on no personal maid to dress her. American designers prized resourcefulness and the freedom of women who wore the clothing. 在更早些时候,美国时尚也曾遵 从巴黎原则,甚至复制和剥窃特定的 法国设计。(而)品牌运动装,就像后 来的“现代艺术”一样,不再是仿效欧 洲模式;它是真正在美国发明并发展 起来的。它的设计师不是配有一系 列辅助人员的高端设计师。其设计 目标和商业承诺都指向运动装,其鲜 明特点是解决问题的独创性和现实 主义生活方式的应用。方便打理最 为重要:尤其是,夏季的礼服和套装 主要是棉制的,可以随手在家中洗涤 熨烫。由于现代女性不再倚赖私人 女仆为其穿衣,所以衣服的门襟都简 单、实用、且容易够得着。美国设计 师珍视善于随机应变(的理念)以及 着装女性的自由灵活。 ·"
+        },
+        {
+          "number": 47,
+          "stem": "What do we learn about American designer sportswear?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It imitated the European model."
+            },
+            {
+              "key": "B",
+              "text": "It laid emphasis on women's beauty."
+            },
+            {
+              "key": "C",
+              "text": "It represented genuine American art."
+            },
+            {
+              "key": "D",
+              "text": "It was a completely new invention."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]D)。第二段2句指出品牌运动装并非效仿欧洲模式,它是真正在美国发明并发展起来 的,D项符合此信息,completelynewinvention近义对应genuinelyinvented anddeveloped inAmerica。 [排除干扰]A项与第二段2句“设计师运动装不是仿效的欧洲模式(wasnotmodeledonthatof Europe)”完全相悸。B项将第二段末句“美国品牌运动装珍视女性自由(thefreedomofwomen)”改为 “女性之美(women'sbeauty)”,由第三段34句可知该选项实为偷梁换柱:注重女性之美是“传统巴黎 时尚”的特点。C项利用第四段3句agenuinedesignart设置干扰,但由该句只能推知美国品牌运动装 是一种设计艺术,无法推出它是美国艺术的代表(represent意为“代表,成为典型/象征”)。 [提炼思路]本题考查事实细节,对于文章跨度范围较大,且根据题干只能确定信息搜索的大范围, 解题关键在于根据各选项中关键词分别具体定位,并进行比对(正确项是对原文信息的概括总结或同 义改写;干扰项则常常以文中词汇增大干扰,却暗中偷梁换柱或篡改语义):先定位,A项European model复现第二段2句modeledonthatofEurope,B项women'sbeauty复现第三段1句purebeauty,C 项genuine和art复现第四段3句agenuinedesignart,D项newinvention复现第二段2句was genuinelyinvented;然后逐一比对,A反向干扰,B偷梁换柱,C扭曲语义,只有D同义改写,可确定答案 为D项。"
+        },
+        {
+          "number": 48,
+          "stem": "What characterized American designer sportswear?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Pursuit of beauty."
+            },
+            {
+              "key": "B",
+              "text": "Decorative closings."
+            },
+            {
+              "key": "C",
+              "text": "Ease of care."
+            },
+            {
+              "key": "D",
+              "text": "Fabric quality."
+            }
+          ],
+          "answer": "C",
+          "explanation": "哪项符合美国设计师运动装的特点? A)对美的追求。 B)装饰性的门襟。 C)方便打理。 D)面料材质。 [精准定位]本题依旧考查“设计师运动装的主要特点”,只不过层面较上一题更低、更细。同上题 类似,由题干关键词Americandesignersportswear先定位至第二、三段,随后按选项分别具体定位。 L锁定答案C)。根据第二段5句可知“方便打理(Easeofcare)是当时设计师设计运动装时的重要 考虑因素”,C项正确。 [排除干扰]A项源自第三段多次复现的women、beauty等词,但“注重女性之美是“传统巴黎时 尚”的特点,而非品牌运动装(美国时尚)的特点”。B项利用第二段?句closings干扰,但将closings的 设计特点“简单实用”(simple,practical)篡改为“起装饰作用”(decorative)。D项根据第二段?句.· werechieflycotton设置干扰Fabricquality,但此部分信息意在说明“夏季的棉质面料易于打理(例证强 调“易于打理”)”并非说明其“面料质量”。 提炼思路」本题同上题设问类似,但设问方向更集中:统一指向“美国品牌运动装的具体特点”。 两题解题思路也相似,只不过本题需要更加提防命题人的“偷梁换柱”或“断章义”(应对之策在于,借 助“美国品牌运动装的整体特征一实用性”以及前后逻辑进行判断):A把“传统时尚”的特点偷换给 “美国品牌运动装”B偷换closing的特点;D则对cotton断章取义,只有C是“美国品牌运动装”的明确 特点(且符合其总体特征)。 ·真题精解·泌"
+        },
+        {
+          "number": 49,
+          "stem": "What occurred in the design of women's apparel in America during the 1930s-40s?",
+          "options": [
+            {
+              "key": "A",
+              "text": "A shift of emphasis from beauty to utility."
+            },
+            {
+              "key": "B",
+              "text": "The emulation of traditional Parisian design."
+            },
+            {
+              "key": "C",
+              "text": "A search for balance between tradition and novelty."
+            },
+            {
+              "key": "D",
+              "text": "The involvement of more women in fashion design."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]A)。第三段12句指出“当时的女性设计师能把超前的理念“实用性(utility)”呈现到 服装设计中”,34句则具体说明女装设计从传统时尚“纯美、唯审美标准(purebeauty)”到现代时尚 “引人实用性标准”的转变,A项是对这一变化的正确概括。 [排除干扰」B项将1句\"模拟设计师生活(theemulationofadesigner’slife)”偷换为“模拟传统巴 黎设计”,而美国设计师实则是“抛弃了巴黎设计(3句Pariswascastaside)”。C项错在两点:1. traditionandnovelty错误文中关注点并非“传统和新颖”而是“美和实用”(虽然文中表明“传统”即 “纯美”,但“新颖”不等于“实用”);2.searchforbalance偏差一一与13句事实“美国女装设计抛弃了巴 黎时尚、完全是创新事物”不符。D项将1句“女性设计师得以把自已的新理念运用到时尚设计中”曲解 为“更多女性参与时尚设计”,原文并未论及时尚设计师的性别比重变化。 [提炼思路]本题考查对段落信息的概括推理能力。解题关键在于梳理句间逻辑,明确语义关联: 首先明确题干所问“美国的女装设计发生的变化”与第三段1句“女性设计师将新理念运用到新的时装 风格中(变化)”实为同指,再根据2句“实用性理念在当时是超前的”推断出:传统时尚以“纯美”为标准, 美国设计师则考虑“实用”标准。34句则论述指出当时设计师运动装“抛弃巴黎时尚、仿效现实生活 方式(实用性)”。由此可明确“变化”内容:弱化了传统的“审美性”,开始重视超前的“实用性”。"
+        },
+        {
+          "number": 50,
+          "stem": "What do we learn about designers of American sportswear?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They catered to the taste of the younger generation."
+            },
+            {
+              "key": "B",
+              "text": "They radically changed people's concept of beauty."
+            },
+            {
+              "key": "C",
+              "text": "They advocated equity between men and women."
+            },
+            {
+              "key": "D",
+              "text": "They became rivals of their Parisian counterparts."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]C)。第四段3句指出,她们(美式运动装的设计师)是推动性别平等的先驱者,C项 They advocated equity between men and women是They were the pioneers of gender equity的内含 之意。 [排除干扰]A项由第四段3句answeringtothedemandingneedsofservice以及3句whichwas bothmadefor themasses主观推断设计师“迎合年轻人的口味”,实际上这是在说明设计师注重“实用 性”,文中并未提及年轻人的消费品味。B项对23句“传统认为时尚是对美的追求,而美式运动装设计 师们证明时尚不仅是美”过度推导,由此不能推知“人们对美的认识”发生了改变。D项对4句“美式运 动装设计师确定了20世纪后期的时尚航向”过度推断,文中虽强调美国设计师的影响,但并未提及其与 巴黎同行的竞争。 [提炼思路]本题考查对事实细节的概括推理。解题时先根据题干关键词designersof American sportswear划定大体搜索范围(第四段);然后再在信息搜索范围内寻找与每个选项的关键词相对应的 信息点,并仔细比对原文和选项:A项Theycateredtothetaste对应3句answeringtothe·.·needs,但 捏造原文没有的信息theyoungergeneration。B项conceptofbeauty对应2句apursuitofbeauty,但改 变原文方向:改变的是“对时尚(fashion)的看法”,而不是“对美(beauty)的看法”。C项equitybetween menandwomen对应3句genderequity,且advocated明确werethepioneers暗含之意。D项没有明显 对应词,检索未发现“美国设计师与巴黎同行竞争”相关信息。故确定选C项。 Passage Two垃圾堆成为觅食之地,鸟类停止冬季迁徙 学一、总体分析 来源:TheGuardian《卫报》2016.01.22文章Birds stopmigratingasrubbishdumpsprovide winterfeedinggrounds(由于垃圾堆提供冬季觅食区,鸟类停止迁徙)。主题:垃圾堆影响鸟类迁徙 行为,危害鸟类健康和生态平衡。脉络:提出全文关注对象“垃圾场成了鸟类冬季觅食之地、导致 鸟类停止迁徙”(第一、二段)一具体分析留在垃圾堆上过冬对鸟类的影响(第三、四段)一进一 步说明垃圾堆对迁徙鸟类的诱惑情形(第五、六段)一一进而指出鸟类停止迁徙对整个生态平衡的影 响(第七段)。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2017-06-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Massive rubbish dumps and sprawling landfills constitute one of the more uncomfortable impacts that humans have on wildlife. They have led some birds to give up on migration. Instead of flying thousands of miles in search of food, they make the waste sites their winter feeding grounds. Researchers in Germany used miniature GPS tags to track the migrations of 70 white storks (鹳) from different sites across Europe and Asia during the first five months of their lives. While many birds travelled along well-known routes to warmer climates, others stopped short and spent the winter on landfills, feeding on food waste, and the multitudes of insects that thrive on the dumps. In the short-term, the birds seem to benefit from overwintering (过冬) on rubbish dumps. Andrea Flack of the Max Planck Institute found that birds following traditional migration routes were more likely to die than German storks that flew only as far as northern Morocco, and spent the winter there on rubbish dumps. \"For the birds it's a very convenient way to get food. There are huge clusters of organic waste they can feed on,\" said Flack. The meals are not particularly appetising, or even safe. Much of the waste is discarded rotten meat, mixed in with other human debris such as plastic bags and old toys. \"It's very risky. The birds can easily eat pieces of plastic or rubber bands and they can die,\" said Flack. \"And we don't know about the long-term consequences. They might eat something toxic and damage their health. We cannot estimate that yet.\" The scientists tracked white storks from different colonies in Europe and Africa. The Russian, Greek and Polish storks flew as far as South Africa, while those from Spain, Tunisia and Germany flew only as far as the Sahel. Landfill sites on the Iberian peninsula have long attracted local white storks, but all of the Spanish birds tagged in the study flew across the Sahara desert to the western Sahel. Writing in the journal, the scientists describe how the storks from Germany were clearly affected by the presence of waste sites, with four out of six birds that survived for at least five months overwintering on rubbish dumps in northern Morocco, instead of migrating to the Sahel. Flack said it was too early to know whether the benefits of plentiful food outweighed the risks of feeding on landfills. But that's not the only uncertainty. Migrating birds affect ecosystems both at home and at their winter destinations, and disrupting the traditional routes could have unexpected side effects. White storks feed on locusts (蝗虫) and other insects that can become pests if their numbers get out of hand. \"They provide a useful service,\" said Flack."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What is the impact of rubbish dumps on wildlife?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They have forced white storks to search for safer winter shelters."
+            },
+            {
+              "key": "B",
+              "text": "They have seriously polluted the places where birds spend winter."
+            },
+            {
+              "key": "C",
+              "text": "They have accelerated the reproduction of some harmful insects."
+            },
+            {
+              "key": "D",
+              "text": "They have changed the previous migration habits of certain birds."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]D)。第一段1句指出,垃圾堆对野生动物的影响令人不安,23句具体说明:导致一些 鸟类冬季不再迁徒、不再飞行数千里去觅食,D)正确,Theyhavechangedthepreviousmigrationhabits of certain birds.是对 They have led some birds to give up on migration 以及 Instead of flying thousands of miles.·.,they...的同义改写。 [排除干扰]A项与原文变化相反:垃圾堆使得白鹳“放弃原有迁徙习惯,来垃圾场觅食过冬”,而不 是“离开原来居住地,去寻找更安全的地方过冬”。B项由第二段feedingonfoodwaste,andthe multitudesofinsectsthatthrive句主观推断“垃圾堆污染了鸟类过冬之地(haveseriouslypolluted..,)”, 但实际上是“垃圾堆提供了鸟类冬季觅食之地”(feedingonfoodwaste.:.)。C项利用第二段2句the multitudesofinsectsthatthriveonthedumps干扰,但这仅说明“垃圾堆上虫子大量繁殖”,无法推出“垃 圾堆加速了虫子的繁殖”,acceleratedthereproduction无中生有。 [提炼思路]对于选项较长的情形,应首先将选项信息分类。如本题四个选项中,名词性信息(white storks、the places where birds spend winter、the reproduction of some harmful insects、previous migration habits of certainbirds)体现“选项小话题”,主要用于定位原文,动词性信息(haveforced.,tosearchfor.·、have seriouslypolluted、haveaccelerated、have changed)带有“作者观点性”,用于取舍判断。"
+        },
+        {
+          "number": 52,
+          "stem": "What do we learn about birds following the traditional migration routes?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They can multiply at an accelerating rate."
+            },
+            {
+              "key": "B",
+              "text": "They can better pull through the winter."
+            },
+            {
+              "key": "C",
+              "text": "They help humans kill harmful insects."
+            },
+            {
+              "key": "D",
+              "text": "They are more likely to be at risk of dying."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]D)。第三段2句指出,“沿传统迁徙路线飞行的鹤”比“中途停下在垃圾堆上过冬的鹤” 更可能会死亡(weremorelikelytodie),可见D正确。 [排除干扰]A项借第二段末multitudes、thrive on干扰,但该内容描述的是“垃圾场上虫子 (insects)”的快速繁殖,和“沿传统迁徙路线飞行的鹤”无关。B项利用第三段benefitfrom overwintering..,it'saveryconvenientwaytogetfood等干扰,但这是“半路停止迁徒、留在垃圾场过冬 的鹳(storksthat flewonly..)”的情形。C项利用末段4句设置陷阱,但“帮助人类消灭害虫”的是“所 有白鹳(whitestorks)”,而非仅限于“沿传统迁路线飞行的鹤”。 [提炼思路本题综合多处对比信息设题,解题时要明确题目所问(沿传统线路飞行的白鹤的情 形)、暗中涉及的比较对象(在垃圾堆上过冬的白鹤)、比较点(繁殖速度、过冬状况、除害虫能力、死亡 率),并分别回归原文(第二段末、第三段、以及第七段末)、找到对比结果(在垃圾堆上过冬的白鹤比沿 传统线路迁徙的白鹳更好过冬、存活率更高;二者都可杀害虫;文中并未提及白鹤的繁殖速度),切忌颠 倒对比结果(B)、将二者共性当做其中一类特性(C),或利用其他事物的情形捏造干扰(A)。"
+        },
+        {
+          "number": 53,
+          "stem": "What does Andrea Flack say about the birds overwintering on rubbish dumps?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They may end up staying there permanently."
+            },
+            {
+              "key": "B",
+              "text": "They may eat something harmful."
+            },
+            {
+              "key": "C",
+              "text": "They may evolve new feeding habits."
+            },
+            {
+              "key": "D",
+              "text": "They may have trouble getting adequate food."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]B)。第四段指出AndreaFlack看法:在垃圾场过冬的鸟很容易会吃到一些塑料橡胶等 致命物,以及一些有毒物,B项正确,somethingharmful概括not...safe..·plasticorrubberbandsand they can die...something toxic 等。 [排除干扰]A项对第三段23句“鸟类在垃圾场能更方便地觅得大量食物”过度推导出“白鹳会永 远留在垃圾场”,但文中仅表明垃圾场是鸟类的过冬地之一,并未说明它们度过冬天后仍会留在这里。 C项将第四段2句Thebirds caneasilyeatpiecesof plasticorrubberbands断章取义为“演变出新的食 性”,但原文意在指出“它们可能会误食这些致其死亡的东西(and theycan die)。D项与第三段4句“它 们有大量有机垃圾可以食用”完全相反。 [提炼思路]本题所考查的人物观点分散于文中多处,对此需将其多个小观点一一概括后再与选项 比较、进行判断:将Flack出现在第三、四、七段的观点分别概括为“垃圾场食物丰富、鸟类觅食方便”、 “垃圾场的食物可能有害,不利于鸟类健康”及“鸟类能控制昆虫数量,有益生态平衡”,便能很快地选出 正确项B。"
+        },
+        {
+          "number": 54,
+          "stem": "What can be inferred about the Spanish birds tagged in the study?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They gradually lose the habit of migrating in winter."
+            },
+            {
+              "key": "B",
+              "text": "They prefer rubbish dumps far away to those at home."
+            },
+            {
+              "key": "C",
+              "text": "They are not attracted to the rubbish dumps on their migration routes."
+            },
+            {
+              "key": "D",
+              "text": "They join the storks from Germany on rubbish dumps in Morocco."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]C)。第六段1句指出,伊比利亚半岛上的垃圾填埋场一直都在吸引着当地的白鹤,但 所有带标牌的西班牙白鹤都飞越撒哈拉沙漠,来到了萨赫勒西部。由此可推知,西班牙白鹤没有被垃 圾堆吸引,而是继续前飞,C项正确。Theyarenotattracted totherubbishdumps ontheirmigration routes明确havelongattracted...but..的言外之意。 [排除干扰]A项对第五段storksfromSpain.·.flewonlyasfarastheSahel断章取义,认为西班牙 白鹤不再迁徙,但由下文可知,它们只是迁徙的地方相对较近。B项偷换概念,将“西班牙鸟远离家乡, 飞到萨赫勒西部”偷换为“飞到萨赫勒西部的垃圾堆”。D项在第六段12句之间强加关联:文中仅指出 “西班牙的白鹤没有受沿途垃圾堆吸引;而德国的大部分白鹤却留在了摩洛哥的垃圾堆”,二者并未有 交集。 [提炼思路」由题干...inferredabouttheSpanishbirdstagged可知,本题是针对文中“西班牙白鹤” 设置的推理引申题。解题的关键在于:1.明确第六段1句havelongattractedlocal.·.butalltheSpanish birds.··所传递的言外之意:西班牙白鹤并未(像当地白鹳一样)受到垃圾场的吸引。2.理解第六段1 2两句之间逻辑:分别说明“西班牙白”和“德国白鹤”的情形、重在二者差异(前者未受旅途中的垃圾 场吸引,后者却明显受吸引),二者并无交集。 MI OFlack said it was too early to know whether the benefits of plentiful food outweighed the risks of feeding on landfills. But that's not the only uncertainty. @ Migrating birds affect ecosystems both at home and at their winter destinations, and disrupting the traditional routes could have unexpected sideeffects.White storksfeed onlocusts(蝗虫)and other insects that can become pests if their numbers get out of hand. @\" They provide a useful service,\" said Flack.[464 words] 弗拉克表示,想知道“食物充足的 好处”是否超过“以垃圾场为食的危 险”还为时过早。但这并非唯一的不 确定性。迁徙的鸟类会影响其原住地 和过冬地的生态系统,且“扰乱传统路 线”可能会产生无法预料的副作用。 白鹅以蝗虫及其它虫类为食,而这些 虫类一旦数量失控就会成为害虫。“它 们(白鹅)提供了一项有用的服务,”弗 拉克说道。 ·"
+        },
+        {
+          "number": 55,
+          "stem": "What is scientists' other concern about white storks feeding on landfills?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The potential harm to the ecosystem."
+            },
+            {
+              "key": "B",
+              "text": "The genetic change in the stork species."
+            },
+            {
+              "key": "C",
+              "text": "The spread of epidemics to their homeland."
+            },
+            {
+              "key": "D",
+              "text": "The damaging effect on bio-diversity."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]A)。末段343句指出,迁徙的鸟类很可能会影响“白鹳原住地”、“原本的目的地”、以 及“迁徙沿途地”的生态系统,A项正确,potentialharmtotheecosystem概括原文affectecosystems.. have unexpected side effect。 [排除干扰]B项geneticchange在文中未提及。C项对3句affect.·.bothathomeandattheir winter destinations断章取义,并结合(文中并未提及的)常识“鸟类会传播流行疾病”捏造干扰。D项将 1句Whitestorksfeedonlocustsandotherinsects曲解为“白鹤会消灭昆虫/破坏生物多样性(damaging effect onbio-diversity)”,但文中是在指出“白鹤能控制昆虫的数量,使其不至为害”。 [提炼思路]本题考查学生对人物观点的综合概括能力。解答此题需要跨越两大难点:1.定位难 点在于人物关键词scientists不能用于直接定位原文,但可转而借助otherconcern和末段that'snotthe onlyuncertainty的对应关系以及文中人物关系(Flack为科学家的代表)定位到末段343句。2.解题 难点在于理解343句整体含义,可借助12句意识到:“重概括性观点性的3句”是“重实施性具体性 的43句”的论证对象,三句反向说明鸟类留在垃圾场过冬对生态的可能危害。"
+        }
+      ]
+    }
+  ]
+}

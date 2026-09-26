@@ -1,0 +1,1868 @@
+{
+  "id": "cet6-2020-12-1",
+  "level": 6,
+  "year": 2020,
+  "month": 12,
+  "set": 1,
+  "title": "2020 年 12 月六级 · 第 1 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.12/%E7%9C%9F%E9%A2%98PDF/2020.12%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97%E3%80%90%E5%8F%AF%E5%A4%8D%E5%88%B6%E5%8F%AF%E6%90%9C%E7%B4%A2%EF%BC%8C%E6%89%93%E5%8D%B0%E9%A6%96%E9%80%89%E3%80%91.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2020.12%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC1%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2020-12-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "The idea of taxing things that are bad for society has a powerful allure. It offers the possibility of a double benefit— [[26]] harmful activities, while also providing the government with revenue. Take sin taxes. Taxes on alcohol make it more expensive to get drunk, which reduces excessive drinking and [[27]] driving. At the same time, they provide state and local governments with billions of dollars of revenue. Tobacco taxes, which generate more than twice as much, have proven [[28]] in the decline of smoking, which has saved millions of lives. 6·4",
+        "Taxes can also be an important tool for environmental protection, and many economists say taxing carbon would be the best way to reduce greenhouse gas emissions. Economic theory says that unlike income or sales taxes, carbon taxes can actually increase economic efficiency; because companies that [[29]] carbon dioxide into the sky don't pay the costs of the climate change they cause, carbon taxes would restore the proper [[30]] to the market.",
+        "In reality, carbon taxes alone won't be enough to halt global warming, but they would be a useful part of any climate plan. What's more, the revenue from this tax, which would [[31]] be hundreds of billions of dollars per year, could be handed out to citizens as a [[32]] or used to fund green infrastructure projects.",
+        "Similarly, a wealth tax has been put forward as a way to reduce inequality while raising revenue. The revenue from this tax, which some experts [[33]] will be over $4 trillion per decade, would be designated for housing, child care, health care and other government benefits. If you believe, as many do, that wealth inequality is [[34]] bad, then these taxes improve society while also [[35]] government coffers(金库)."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "discouraging"
+        },
+        {
+          "key": "B",
+          "text": "dividend"
+        },
+        {
+          "key": "C",
+          "text": "emotional"
+        },
+        {
+          "key": "D",
+          "text": "fragments"
+        },
+        {
+          "key": "E",
+          "text": "impaired"
+        },
+        {
+          "key": "F",
+          "text": "imprisoned"
+        },
+        {
+          "key": "G",
+          "text": "incentives"
+        },
+        {
+          "key": "H",
+          "text": "inherently"
+        },
+        {
+          "key": "I",
+          "text": "initially"
+        },
+        {
+          "key": "J",
+          "text": "instrumental"
+        },
+        {
+          "key": "K",
+          "text": "merging"
+        },
+        {
+          "key": "L",
+          "text": "predict"
+        },
+        {
+          "key": "M",
+          "text": "probably"
+        },
+        {
+          "key": "N",
+          "text": "pump"
+        },
+        {
+          "key": "O",
+          "text": "swelling"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "discouraging"
+            },
+            {
+              "key": "B",
+              "text": "dividend"
+            },
+            {
+              "key": "C",
+              "text": "emotional"
+            },
+            {
+              "key": "D",
+              "text": "fragments"
+            },
+            {
+              "key": "E",
+              "text": "impaired"
+            },
+            {
+              "key": "F",
+              "text": "imprisoned"
+            },
+            {
+              "key": "G",
+              "text": "incentives"
+            },
+            {
+              "key": "H",
+              "text": "inherently"
+            },
+            {
+              "key": "I",
+              "text": "initially"
+            },
+            {
+              "key": "J",
+              "text": "instrumental"
+            },
+            {
+              "key": "K",
+              "text": "merging"
+            },
+            {
+              "key": "L",
+              "text": "predict"
+            },
+            {
+              "key": "M",
+              "text": "probably"
+            },
+            {
+              "key": "N",
+              "text": "pump"
+            },
+            {
+              "key": "O",
+              "text": "swelling"
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]空格前文提到,“对有 害社会的事物征税”具有强大的诱惑力,提供了“双重收益”的可能。破折号引出对“双重收益”的解释说 明,harmfulactivities(有害活动)应与providingthegovernmentwithrevenue(向政府提供 收入)语义同向,体现正面、积极的作用,故空格词应表“抑制/消除/控制”等,A符合文意。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "discouraging"
+            },
+            {
+              "key": "B",
+              "text": "dividend"
+            },
+            {
+              "key": "C",
+              "text": "emotional"
+            },
+            {
+              "key": "D",
+              "text": "fragments"
+            },
+            {
+              "key": "E",
+              "text": "impaired"
+            },
+            {
+              "key": "F",
+              "text": "imprisoned"
+            },
+            {
+              "key": "G",
+              "text": "incentives"
+            },
+            {
+              "key": "H",
+              "text": "inherently"
+            },
+            {
+              "key": "I",
+              "text": "initially"
+            },
+            {
+              "key": "J",
+              "text": "instrumental"
+            },
+            {
+              "key": "K",
+              "text": "merging"
+            },
+            {
+              "key": "L",
+              "text": "predict"
+            },
+            {
+              "key": "M",
+              "text": "probably"
+            },
+            {
+              "key": "N",
+              "text": "pump"
+            },
+            {
+              "key": "O",
+              "text": "swelling"
+            }
+          ],
+          "answer": "E",
+          "explanation": "[锁定答案]本 题的解题思路有二;一、从句内逻辑来看,“减少过量饮酒和驾驶”为“喝醉成本提高”的结果,结合 常识可知,醉酒行为越少,危险/醉酒驾车几率越低;二、从段际关系来看,第二段1句提出以“罪恶税”为 例论证首段(对有害社会的事物征税的双重益处),3句指出酒税带来财政收入。2向应该体现酒税“抑 制有害活动\"的效采。综上可知,空格词应意为“危险的/有害的/醉酒的”等,impaired driving为固定搭 配,意为“危险驾驶,不清醒驾驶(尤指醇驾)”,E正确。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "discouraging"
+            },
+            {
+              "key": "B",
+              "text": "dividend"
+            },
+            {
+              "key": "C",
+              "text": "emotional"
+            },
+            {
+              "key": "D",
+              "text": "fragments"
+            },
+            {
+              "key": "E",
+              "text": "impaired"
+            },
+            {
+              "key": "F",
+              "text": "imprisoned"
+            },
+            {
+              "key": "G",
+              "text": "incentives"
+            },
+            {
+              "key": "H",
+              "text": "inherently"
+            },
+            {
+              "key": "I",
+              "text": "initially"
+            },
+            {
+              "key": "J",
+              "text": "instrumental"
+            },
+            {
+              "key": "K",
+              "text": "merging"
+            },
+            {
+              "key": "L",
+              "text": "predict"
+            },
+            {
+              "key": "M",
+              "text": "probably"
+            },
+            {
+              "key": "N",
+              "text": "pump"
+            },
+            {
+              "key": "O",
+              "text": "swelling"
+            }
+          ],
+          "answer": "J",
+          "explanation": "【锁定答案」空格句指出,烟税带来的财政收入超过酒税的两倍,已经(被)证实在减 少吸烟上(in thedeclineof smoking),这拯教了数百万人的生命。空格所在部分一方面应 体现“拯教数百万人生命\"的原因,另一方面应呼应首段“抑制有害活动”,故空格调应表示\"(在减少吸烟 方面)起作用/有帮助\"等,正确。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "discouraging"
+            },
+            {
+              "key": "B",
+              "text": "dividend"
+            },
+            {
+              "key": "C",
+              "text": "emotional"
+            },
+            {
+              "key": "D",
+              "text": "fragments"
+            },
+            {
+              "key": "E",
+              "text": "impaired"
+            },
+            {
+              "key": "F",
+              "text": "imprisoned"
+            },
+            {
+              "key": "G",
+              "text": "incentives"
+            },
+            {
+              "key": "H",
+              "text": "inherently"
+            },
+            {
+              "key": "I",
+              "text": "initially"
+            },
+            {
+              "key": "J",
+              "text": "instrumental"
+            },
+            {
+              "key": "K",
+              "text": "merging"
+            },
+            {
+              "key": "L",
+              "text": "predict"
+            },
+            {
+              "key": "M",
+              "text": "probably"
+            },
+            {
+              "key": "N",
+              "text": "pump"
+            },
+            {
+              "key": "O",
+              "text": "swelling"
+            }
+          ],
+          "answer": "N",
+          "explanation": "N】pump G】incentive5。[确定词性]空29所在从句that29carbon dioxideinto thesky显然缺 少谓语动词(that指代companies,在从句中作主语),句子整体时态为一般现在时,空格词应为及物动词 原形。空30o所在主句carbontaxeswould restoretheProper30tothemarket缺少宾语中心词,空格 调应为名词或动名词。「锁定答案]空格句前一分句指出,碳税能提高经济效率。后一分句指出,由于将 二氧化碳29空中的公司一直未为自己造成的气候变化买单,所以碳税将炭复对市场的正当30。 借助分号作用和语义逻辑可知:分号前后两分句为“概说一解释”关系;分号之后语义重点在主向,即“恢 复对市场的正当30”应与“提高经济效率”同向,空30应表“促进/激励/改善”等,G正确。空29所在 从句(because...)聚焦这类公司(companies):将二氧化碳空中( carbon dioxide into the sky),造成气候变化(theclimatechangetheycause)。显然空格调应表示“排放/输出(二氧化碳)”。再看 整句逻辑:一直以来排碳者不为自己的行为买单(因此市场缺乏激励),现在碳税(让排碳者为自己的行为 买单,所以)将恢复对市场的恰当刺激(从而提高经济效率)。固果关系完全成立,确认N正确。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "discouraging"
+            },
+            {
+              "key": "B",
+              "text": "dividend"
+            },
+            {
+              "key": "C",
+              "text": "emotional"
+            },
+            {
+              "key": "D",
+              "text": "fragments"
+            },
+            {
+              "key": "E",
+              "text": "impaired"
+            },
+            {
+              "key": "F",
+              "text": "imprisoned"
+            },
+            {
+              "key": "G",
+              "text": "incentives"
+            },
+            {
+              "key": "H",
+              "text": "inherently"
+            },
+            {
+              "key": "I",
+              "text": "initially"
+            },
+            {
+              "key": "J",
+              "text": "instrumental"
+            },
+            {
+              "key": "K",
+              "text": "merging"
+            },
+            {
+              "key": "L",
+              "text": "predict"
+            },
+            {
+              "key": "M",
+              "text": "probably"
+            },
+            {
+              "key": "N",
+              "text": "pump"
+            },
+            {
+              "key": "O",
+              "text": "swelling"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G】incentive5。[确定词性]空29所在从句that29carbon dioxideinto thesky显然缺 少谓语动词(that指代companies,在从句中作主语),句子整体时态为一般现在时,空格词应为及物动词 原形。空30o所在主句carbontaxeswould restoretheProper30tothemarket缺少宾语中心词,空格 调应为名词或动名词。「锁定答案]空格句前一分句指出,碳税能提高经济效率。后一分句指出,由于将 二氧化碳29空中的公司一直未为自己造成的气候变化买单,所以碳税将炭复对市场的正当30。 借助分号作用和语义逻辑可知:分号前后两分句为“概说一解释”关系;分号之后语义重点在主向,即“恢 复对市场的正当30”应与“提高经济效率”同向,空30应表“促进/激励/改善”等,G正确。空29所在 从句(because...)聚焦这类公司(companies):将二氧化碳空中( carbon dioxide into the sky),造成气候变化(theclimatechangetheycause)。显然空格调应表示“排放/输出(二氧化碳)”。再看 整句逻辑:一直以来排碳者不为自己的行为买单(因此市场缺乏激励),现在碳税(让排碳者为自己的行为 买单,所以)将恢复对市场的恰当刺激(从而提高经济效率)。固果关系完全成立,确认N正确。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "discouraging"
+            },
+            {
+              "key": "B",
+              "text": "dividend"
+            },
+            {
+              "key": "C",
+              "text": "emotional"
+            },
+            {
+              "key": "D",
+              "text": "fragments"
+            },
+            {
+              "key": "E",
+              "text": "impaired"
+            },
+            {
+              "key": "F",
+              "text": "imprisoned"
+            },
+            {
+              "key": "G",
+              "text": "incentives"
+            },
+            {
+              "key": "H",
+              "text": "inherently"
+            },
+            {
+              "key": "I",
+              "text": "initially"
+            },
+            {
+              "key": "J",
+              "text": "instrumental"
+            },
+            {
+              "key": "K",
+              "text": "merging"
+            },
+            {
+              "key": "L",
+              "text": "predict"
+            },
+            {
+              "key": "M",
+              "text": "probably"
+            },
+            {
+              "key": "N",
+              "text": "pump"
+            },
+            {
+              "key": "O",
+              "text": "swelling"
+            }
+          ],
+          "answer": "M",
+          "explanation": "[锁定答案]which从句指出,碳税带来的财政收入每年达数千亿美元,强调“税收潜力巨大/现有 量庞大”,故空格调应表示“可能/实际/通常\"等,M正确。I)initially作为备选项中另一副词有一定干扰, 但此处若强调“起初,最初”,下文必会提及后来的变化,而实际上并未提及,故排除。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "discouraging"
+            },
+            {
+              "key": "B",
+              "text": "dividend"
+            },
+            {
+              "key": "C",
+              "text": "emotional"
+            },
+            {
+              "key": "D",
+              "text": "fragments"
+            },
+            {
+              "key": "E",
+              "text": "impaired"
+            },
+            {
+              "key": "F",
+              "text": "imprisoned"
+            },
+            {
+              "key": "G",
+              "text": "incentives"
+            },
+            {
+              "key": "H",
+              "text": "inherently"
+            },
+            {
+              "key": "I",
+              "text": "initially"
+            },
+            {
+              "key": "J",
+              "text": "instrumental"
+            },
+            {
+              "key": "K",
+              "text": "merging"
+            },
+            {
+              "key": "L",
+              "text": "predict"
+            },
+            {
+              "key": "M",
+              "text": "probably"
+            },
+            {
+              "key": "N",
+              "text": "pump"
+            },
+            {
+              "key": "O",
+              "text": "swelling"
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]空格句句首What's more表明,该句承接上向,继续说明碳税的其他用途:该项收入数额巨大,可作为分发给市民,或用 于资助绿色基础设施项目。“ 分发给市民”和“资助绿色基础设施项目”应为两项并列的碳税收入 用途,结合受益者的身份“市民”可知,空32应为“福利/红利”等,B正确。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "discouraging"
+            },
+            {
+              "key": "B",
+              "text": "dividend"
+            },
+            {
+              "key": "C",
+              "text": "emotional"
+            },
+            {
+              "key": "D",
+              "text": "fragments"
+            },
+            {
+              "key": "E",
+              "text": "impaired"
+            },
+            {
+              "key": "F",
+              "text": "imprisoned"
+            },
+            {
+              "key": "G",
+              "text": "incentives"
+            },
+            {
+              "key": "H",
+              "text": "inherently"
+            },
+            {
+              "key": "I",
+              "text": "initially"
+            },
+            {
+              "key": "J",
+              "text": "instrumental"
+            },
+            {
+              "key": "K",
+              "text": "merging"
+            },
+            {
+              "key": "L",
+              "text": "predict"
+            },
+            {
+              "key": "M",
+              "text": "probably"
+            },
+            {
+              "key": "N",
+              "text": "pump"
+            },
+            {
+              "key": "O",
+              "text": "swelling"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L】predict。[确定词性]空格所在从句结构为:which(引导词作主语)十someexperts 十will be(系动 词)十overS4trllionPerdecade(表语)。句中已有完整的主系表成分,故someexperts 只能作插入成 分,空格调应为动词。锁定答案]空格所在的which从句指出,财产税收入将超4万亿美元/10年,will表 明这是对未来数据的预测,someexperts为常见的预测者,联系可知,空格词应表\"预测”,L正确。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "discouraging"
+            },
+            {
+              "key": "B",
+              "text": "dividend"
+            },
+            {
+              "key": "C",
+              "text": "emotional"
+            },
+            {
+              "key": "D",
+              "text": "fragments"
+            },
+            {
+              "key": "E",
+              "text": "impaired"
+            },
+            {
+              "key": "F",
+              "text": "imprisoned"
+            },
+            {
+              "key": "G",
+              "text": "incentives"
+            },
+            {
+              "key": "H",
+              "text": "inherently"
+            },
+            {
+              "key": "I",
+              "text": "initially"
+            },
+            {
+              "key": "J",
+              "text": "instrumental"
+            },
+            {
+              "key": "K",
+              "text": "merging"
+            },
+            {
+              "key": "L",
+              "text": "predict"
+            },
+            {
+              "key": "M",
+              "text": "probably"
+            },
+            {
+              "key": "N",
+              "text": "pump"
+            },
+            {
+              "key": "O",
+              "text": "swelling"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H】inherently O】swelling。[确定词性]空34位于系动词is和形容词bad之间,应为副词。空35位 于while引导的状语中,空格后为名词短语governmentcoffers,空格调应为及物动词的-ing分词(while doingsth为whilesbbedoingsth的省略形式,当主从句间主语一致时,从句中的主语和be动词可省略)。 工锁定答案」末段1向“同样,财产税的提出也是为了在减少不平等的同时增加财政收入”表明,财产税被视 为前文所述酒税、烟税、碳税的同类。2句具体说明财产税如何增加财政税收,减少不平等。空格句(3向) 指出,如果认为财富不平等34有害,那么财产税在改善社会的同时也35政府的金库。可见,空格句 承上总结财产税的作用(抑制有害活动、增加政府收入)。空34指向财富不平等“有害社会\"的本质,即“本质 上/根本上/内在地(有害)”,H正确;空35应表“扩充/增加(政府的金库/财政收入)”,O正确。 ·"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "discouraging"
+            },
+            {
+              "key": "B",
+              "text": "dividend"
+            },
+            {
+              "key": "C",
+              "text": "emotional"
+            },
+            {
+              "key": "D",
+              "text": "fragments"
+            },
+            {
+              "key": "E",
+              "text": "impaired"
+            },
+            {
+              "key": "F",
+              "text": "imprisoned"
+            },
+            {
+              "key": "G",
+              "text": "incentives"
+            },
+            {
+              "key": "H",
+              "text": "inherently"
+            },
+            {
+              "key": "I",
+              "text": "initially"
+            },
+            {
+              "key": "J",
+              "text": "instrumental"
+            },
+            {
+              "key": "K",
+              "text": "merging"
+            },
+            {
+              "key": "L",
+              "text": "predict"
+            },
+            {
+              "key": "M",
+              "text": "probably"
+            },
+            {
+              "key": "N",
+              "text": "pump"
+            },
+            {
+              "key": "O",
+              "text": "swelling"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O】swelling。[确定词性]空34位于系动词is和形容词bad之间,应为副词。空35位 于while引导的状语中,空格后为名词短语governmentcoffers,空格调应为及物动词的-ing分词(while doingsth为whilesbbedoingsth的省略形式,当主从句间主语一致时,从句中的主语和be动词可省略)。 工锁定答案」末段1向“同样,财产税的提出也是为了在减少不平等的同时增加财政收入”表明,财产税被视 为前文所述酒税、烟税、碳税的同类。2句具体说明财产税如何增加财政税收,减少不平等。空格句(3向) 指出,如果认为财富不平等34有害,那么财产税在改善社会的同时也35政府的金库。可见,空格句 承上总结财产税的作用(抑制有害活动、增加政府收入)。空34指向财富不平等“有害社会\"的本质,即“本质 上/根本上/内在地(有害)”,H正确;空35应表“扩充/增加(政府的金库/财政收入)”,O正确。 ·"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2020-12-1-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) A group of corn farmers stands huddled around an agronomist(农学家) and his computer on the side of an irrigation machine in central South Africa. The agronomist has just flown over the field with a hybrid unmanned aerial vehicle (UAV) that takes off and lands using propellers yet maintains distance and speed for scanning vast hectares of land through the use of its fixed wings. 6·5",
+        "B) The UAV is fitted with a four spectral band precision sensor that conducts onboard processing immediately after the flight, allowing farmers and field staff to address, almost immediately, any crop abnormalities that the sensor may have recorded, making the data collection truly real-time.",
+        "C) In this instance, the farmers and agronomist are looking to specialized software to give them an accurate plant population count. It's been 10 days since the corn emerged and the farmer wants to determine if there are any parts of the field that require replanting due to a lack of emergence or wind damage, which can be severe in the early stages of the summer rainy season.",
+        "D) At this growth stage of the plant's development, the farmer has another 10 days to conduct any replanting before the majority of his fertilizer and chemical applications need to occur. Once these have been applied, it becomes economically unviable to take corrective action, making any further collected data historical and useful only to inform future practices for the season to come.",
+        "E) The software completes its processing in under 15 minutes producing a plant population count map. It's difficult to grasp just how impressive this is, without understanding that just over a year ago it would have taken three to five days to process the exact same data set, illustrating the advancements that have been achieved in precision agriculture and remote sensing in recent years. With the software having been developed in the United States on the same variety of crops in seemingly similar conditions, the agronomist feels confident that the software will produce a near accurate result.",
+        "F) As the map appears on the screen, the agronomist's face begins to drop. Having walked through the planted rows before the flight to gain a physical understanding of the situation on the ground, he knows the instant he sees the data on his screen that the plant count is not correct, and so do the farmers, even with their limited understanding of how to read remote sensing maps.",
+        "G) Hypothetically, it is possible for machines to learn to solve any problem on earth relating to the physical interaction of all things within a defined or contained environment by using artificial intelligence and machine learning.",
+        "H) Remote sensors enable algorithms(算法) to interpret a field's environment as statistical data that can be understood and useful to farmers for decision-making. Algorithms process the data, adapting and learning based on the data received. The more inputs and statistical information collected, the better the algorithm will be at predicting a range of outcomes. And the aim is that farmers can use this artificial intelligence to achieve their goal of a better harvest through making better decisions in the field.",
+        "I) In 2011, IBM, through its R&D Headquarters in Haifa, Israel, launched an agricultural cloud-computing project. The project, in collaboration with a number of specialized IT and agricultural 6. 6 partners, had one goal in mind—to take a variety of academic and physical data sources from an agricultural environment and turn these into automatic predictive solutions for farmers that would assist them in making real-time decisions in the field.",
+        "J) Interviews with some of the IBM project team members at the time revealed that the team believed it was entirely possible to \"algorithm\" agriculture, meaning that algorithms could solve any problem in the world. Earlier that year, IBM's cognitive learning system, Watson, competed in the game Jeopardy against former winners Brad Rutter and Ken Jennings with astonishing results. Several years later, Watson went on to produce ground-breaking achievements in the field of medicine.",
+        "K) So why did the project have such success in medicine but not agriculture? Because it is one of the most difficult fields to contain for the purpose of statistical quantification. Even within a single field, conditions are always changing from one section to the next. There's unpredictable weather, changes in soil quality, and the ever-present possibility that pests and diseases may pay a visit. Growers may feel their prospects are good for an upcoming harvest, but until that day arrives, the outcome will always be uncertain.",
+        "L) By comparison, our bodies are a contained environment. Agriculture takes place in nature, among ecosystems of interacting organisms and activity, and crop production takes place within that ecosystem environment. But these ecosystems are not contained. They are subject to climatic occurrences such as weather systems, which impact upon hemispheres as a whole, and from continent to continent. Therefore, understanding how to manage an agricultural environment means taking literally many hundreds if not thousands of factors into account.",
+        "M) What may occur with the same seed and fertilizer program in the United States' Midwest region is almost certainly unrelated to what may occur with the same seed and fertilizer program in Australia or South Africa. A few factors that could impact on variation would typically include the measurement of rain per unit of a crop planted, soil type, patterns of soil degradation, daylight hours, temperature and so forth.",
+        "N) So the problem with deploying machine learning and artificial intelligence in agriculture is not that scientists lack the capacity to develop programs and protocols to begin to address the biggest of growers' concerns; the problem is that in most cases, no two environments will be exactly alike, which makes the testing, validation and successful rollout of such technologies much more laborious than in most other industries.",
+        "O) Practically, to say that AI and Machine Learning can be developed to solve all problems related to our physical environment is to basically say that we have a complete understanding of all aspects of the interaction of physical or material activity on the planet. After all, it is only through our understanding of 'the nature of things' that protocols and processes are designed for the rational 6·7 capabilities of cognitive systems to take place. And, although AI and Machine Learning are teaching us many things about how to understand our environment, we are still far from being able to predict critical outcomes in fields like agriculture purely through the cognitive ability of machines.",
+        "P) Backed by the venture capital community, which is now investing billions of dollars in the sector, most agricultural technology startups today are pushed to complete development as quickly as possible and then encouraged to flood the market as quickly as possible with their products.",
+        "Q) This usually results in a failure of a product, which leads to skepticism from the market and delivers a blow to the integrity of Machine Learning technology. In most cases, the problem is not that the technology does not work, the problem is that industry has not taken the time to respect that agriculture is one of the most uncontained environments to manage. For technology to truly make an impact on agriculture, more effort, skills, and funding is needed to test these technologies in farmers' fields.",
+        "R) There is huge potential for artificial intelligence and machine learning to revolutionize agriculture by integrating these technologies into critical markets on a global scale. Only then can it make a difference to the grower, where it really counts."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Farmers will not profit from replanting once they have applied most of the fertilizer and other chemicals to their fields.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            },
+            {
+              "key": "R",
+              "text": "段落 R"
+            }
+          ],
+          "answer": "D",
+          "explanation": "Farmerswillnotprofitfromreplantingoncetheyhaveapplied种植户一旦在田地里施用了大部分肥料 most of the fertilizer and other chemicals to their fields. 和其他化学品,就无法从补种中获利。 [答案」D【精解」由定位词定位至D段。该段明确补种时机:一旦施用了大部分肥料和化学品,再进行补种在 经济上便不可行了。2句中的these回指1句中的themajority of his fertilizerand chemical.,.,take correctiveaction呼应1句中的conduct...replanting,试题是对该句信息的同义改写。"
+        },
+        {
+          "number": 37,
+          "stem": "Agriculture differs from the medical science of the human body in that its environment is not a contained one.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            },
+            {
+              "key": "R",
+              "text": "段落 R"
+            }
+          ],
+          "answer": "L",
+          "explanation": "Agriculture differs from themedical science of thehuman农业与人体医学的区别在于其环境是不 body in that its environment is not a contained one. 受控制的。 [答案]L「精解]由定位词定位至L段。该段前三句对比医药与农业,强调后者环境的特点“不受控制的”。 试题是对二者区别的概括,differsfrom体现了1向Bycomparison、4句But所体现的比较之意;medical science明确了1句ourbodies(呼应上段medicine)所暗指的对象。"
+        },
+        {
+          "number": 38,
+          "stem": "The agronomist is sure that he will obtain a near accurate count of plant population with his software.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            },
+            {
+              "key": "R",
+              "text": "段落 R"
+            }
+          ],
+          "answer": "E",
+          "explanation": "Theagronomist is sure that hewill obtain anear accurate农学家确信可以使用其软件获得一个近 count of plant population with his software. 乎精确的植株数量。 [答案]E【精解]由定位词定位至E段。该段末句指出农学家对专业软件的性能信心十足:该软件将会得出 近乎精确的结果。试题是对该句信息的同义改写。"
+        },
+        {
+          "number": 39,
+          "stem": "The application of artificial intelligence to agriculture is much more challenging than to most other industries.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            },
+            {
+              "key": "R",
+              "text": "段落 R"
+            }
+          ],
+          "answer": "N",
+          "explanation": "Theapplicationof artificial intelligenceto agricultureismuch在农业领域应用人工智能比大多数其他 more challenging than to most other industries. 行业更具挑战性。 [答案]】N[精解]由定位词调定位至N段。该段明确在农业领域应用人工智能的问题所在:人工智能技术的实 测、整证和上市都远比其他大多数行业耗时费力。试题是对该内容的概括,application对应deploying。"
+        },
+        {
+          "number": 40,
+          "stem": "Even the farmers know the data provided by the UAV is not correct.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            },
+            {
+              "key": "R",
+              "text": "段落 R"
+            }
+          ],
+          "answer": "F",
+          "explanation": "Even thefarmersknowthedata Pprovided bytheUAV is not就连种植户都知道无人机提供的数据不 correct. 正确。 [答案]F[精解]由定位调定位至F段2句。该句指出专业软件所得结果不正确:农学家与种植户都立刻发 现数量不对。试题是对该句信息的整合概括,Even对应原文evenwiththeir limitedunderstandingof howto readremote sensingmaps,强调“计算结采铬误过于明显,连身为非专业人士的种植户都能看出来”。"
+        },
+        {
+          "number": 41,
+          "stem": "The pressure for quick results leads to product failure, which, in turn, arouses doubts about the applicability of AI technology to agriculture.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            },
+            {
+              "key": "R",
+              "text": "段落 R"
+            }
+          ],
+          "answer": "Q",
+          "explanation": "Thepressureforquickresultsleadstoproductfailure,which,要求速见成效会导致产品失败,而产品 inturn,arousesdoubtsabouttheapplicabilityofAI失败又转而引发人们对人工智能技术在 technology to agriculture. 农业领域的造用性的怀疑。 [答案]Q[精解]由定位词定位至Q段。该段1句顺承上文内容指出一味追求速见成效的后果:产品失败,市 场对机器学习技术在农业领域的适用性产生怀疑。试题是对该句的同义改写,向中This回指上段所述“一味 求快”的行业乱象,Thepressureforquickresults是对此内容的概括。"
+        },
+        {
+          "number": 42,
+          "stem": "Remote sensors are aimed to help farmers improve decision-making to increase yields.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            },
+            {
+              "key": "R",
+              "text": "段落 R"
+            }
+          ],
+          "answer": "H",
+          "explanation": "Remote sensors areaimed tohelp farmers improvedecision-使用遥感器的目的是帮助种植户改善决 making to increase yields. 策,提高产量。 工答案]H[精解]由定位调定位至H段。该段介绍遥感器在农业领域的潜能,其中4句指出使用遥感器的目 的/作用:让种植户在田间做出更好的决策,增加收成。试题是对该句信息的概括。"
+        },
+        {
+          "number": 43,
+          "stem": "The farmer expects the software to tell him whether he will have to replant any parts of his farm fields. 6·8",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            },
+            {
+              "key": "R",
+              "text": "段落 R"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Thefarmer expects the softwareto tell himwhetherhewill种植户希望软件能告诉他农田里是否有 have to replant any parts of his farm fields. 任何需要补种的部分。 [答案]C[精解]由定位词定位至C段。该段说明种植户对专业软件效用的期待,1向提出期待“专业软件提 供准确的植株数量”,2向解释说明期待“由此确定是否有田块需补种”。试题是对两句信息的提炼。"
+        },
+        {
+          "number": 44,
+          "stem": "Agriculture proves very difficult to quantify because of the constantly changing conditions involved.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            },
+            {
+              "key": "R",
+              "text": "段落 R"
+            }
+          ],
+          "answer": "K",
+          "explanation": "Agricultureprovesverydifficulttoquantifybecauseof the事实证明,由于涉及的条件时刻都在变 constantly changing conditions involved. 化,农业极难量化。 [答案]K[精解」由定位词定位至K段。该段2向指出农业是最难统计量化的领城之一,3句以“即使是在 同一片农田内部,每个地段的环境条件都在时刻发生变化”凸显农业环境“变化莫测”的特点,说明其量化难度 之大。试题是对两句大意的概括,becauseof是对两句间暗含固果关联的明确。"
+        },
+        {
+          "number": 45,
+          "stem": "The same seed and fertilizer program may yield completely different outcomes in different places.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            },
+            {
+              "key": "Q",
+              "text": "段落 Q"
+            },
+            {
+              "key": "R",
+              "text": "段落 R"
+            }
+          ],
+          "answer": "M",
+          "explanation": "The same seed and fertilizerprogrammayyield completely同样一项将种和施肥计划在不同地区可 different outcomes in different places. 能产生截然不同的效采。 [答案]M[精解]由定位词定位至M段。该段1句指出一项播种和施肥计划在美国中西部的效果与其在澳大 利亚、南非的效采互不相干,即同样的计划在不同地区可能产生完全不同的效。试题是对该句大意的概括。 ·"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2020-12-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "What is the place of art in a culture of inattention? Recent visitors to the Louvre report that tourists can now spend only a minute in front of the Mona Lisa before being asked to move on. Much of that time, for some of them, is spent taking photographs not even of the painting but of themselves with the painting in the background.",
+        "One view is that we have democratised tourism and gallery-going so much that we have made it effectively impossible to appreciate what we've travelled to see. In this oversubscribed society, experience becomes a commodity like any other. There are queues to climb Mt. Jolmo Lungma as well as to see famous paintings. Leisure, thus conceived, is hard labour, and returning to work becomes a well-earned break from the ordeal.",
+        "What gets lost in this industrialised haste is the quality of looking. Consider an extreme example, the late philosopher Richard Wollheim. When he visited the Louvre he could spent as much as four hours sitting before a painting. The first hour, he claimed, was necessary for misperceptions to be eliminated. It was only then that the picture would begin to disclose itself. This seems unthinkable today, but it is still possible to organise. Even in the busiest museums there are many rooms and many pictures worth hours of contemplation which the crowds largely ignore. Sometimes the largest crowds are partly the products of bad management; the Mona Lisa is such a hurried experience today partly because the museum is being reorganised. The Uffizi in Florence, another site of cultural pilgrimage, has cut its entry queues down to seven minutes by clever management. And there are some forms of art, those designed to be spectacles as well as objects of contemplation, which can work perfectly well in the face of huge crowds.",
+        "Olafur Eliasson's current Tate Modern show, for instance, might seem nothing more than an entertainment, overrun as it is with kids romping (喧闹地玩耍) in fog rooms and spray mist installations. But it's more than that: where Eliasson is at his most entertaining, he is at his most serious too, and his disorienting installations bring home the reality of the destructive effects we are having on the planet—not least what we are doing to the glaciers of Eliasson's beloved Iceland.",
+        "6·9",
+        "Marcel Proust, another lover of the Louvre, wrote: \"It is only through art that we can escape from ourselves and know how another person sees the universe, whose landscapes would otherwise have remained as unknown as any on the moon.\" If any art remains worth seeing, it must lead us to such escapes. But a minute in front of a painting in a hurried crowd won't do that."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What does the scene at the Louvre demonstrate according to the author?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The enormous appeal of a great piece of artistic work to tourists."
+            },
+            {
+              "key": "B",
+              "text": "The near impossibility of appreciating art in an age of mass tourism."
+            },
+            {
+              "key": "C",
+              "text": "The ever-growing commercial value of long-cherished artistic works."
+            },
+            {
+              "key": "D",
+              "text": "The real difficulty in getting a glimpse at a masterpiece amid a crowd."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]首段23句描述卢浮宫内的场景:卢浮宫要求参观者只能在蒙娜丽莎》前停留一分钟,而在这宝责 的一分钟里,很多游客只顾着拍照,而且是以画像为背景自拍。第二段1句作出评价:我们现在将旅游和观展 变得太过普及,以至于根本无法欣赏奔波前往观看的作品(即在大众旅游时代欣實艺术愈发图难),B正确。 [排除干扰]A虽与“游客排队参观《蒙娜丽莎\"所展露的“艺术品的巨大吸引力”相契合,但文意重点在于“吸 引参观者的是“自己观赏名画”这一体验,面非*名画本身(notevenof thepaintingbutof themselves)”。C将 “卢浮宫内参观《蒙娜丽莎》的游客众多”这一事实与第二段2句commodity(商品)一调强加关联,主观臆测 《蒙娜丽莎》等珍责作品的商业价值越来越高,但原文commodity实际描述的是旅行经历从“一种私人体验”到 “可买卖的商品”的转变。D利用“每位游客在《蒙娜丽莎》画作前只能停留一分钟”设置干扰,但作者意在强调 “在有限的一分钟里,游客也没能好好欣實画作,而只是给自己拍照,把画作当背景”。"
+        },
+        {
+          "number": 47,
+          "stem": "Why did the late philosopher Richard Wollheim spend four hours before a picture?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It takes time to appreciate a piece of art fully."
+            },
+            {
+              "key": "B",
+              "text": "It is quite common to misinterpret artistic works."
+            },
+            {
+              "key": "C",
+              "text": "The longer people contemplate a picture, the more likely they will enjoy it."
+            },
+            {
+              "key": "D",
+              "text": "The more time one spends before a painting, the more valuable one finds it."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案」第三段2向明确Wollheim事例为极端例子(就此追潮至1句观点句“工业化的仓促和快旅游风尚 使旅游及观展品质降低”,并判断2句事例意在以过去情形之“慢”四显当今情形之“快”),3句描述事例 “Wollheim会在画作前停留四个小时之久”,1句借Wollheim之言说明原因:第一个小时是为消除误解,后三 个小时才开始逐渐领悟画作真谛。可见,Wollheim在画作前长时间停留是为了更充分地领悟画作真谛,A正确。 [排除干扰]B虽根据“第一个小时对于消除误解很必要”正确推理出“误读很常见”,但没有涵盖“后三个小时要用以 理解画作真谛\"之意,属以偏概全。C、D将长时间视画作的原因由“领悟真谛\"愉换为“享受乐趣”“发现珍贵之处”。"
+        },
+        {
+          "number": 48,
+          "stem": "What does the case of the Uffizi in Florence show?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Art works in museums should be better taken care of."
+            },
+            {
+              "key": "B",
+              "text": "Sites of cultural pilgrimage are always flooded with visitors."
+            },
+            {
+              "key": "C",
+              "text": "Good management is key to handling large crowds of visitors."
+            },
+            {
+              "key": "D",
+              "text": "Large crowds of visitors cause management problems for museums."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]第三段向指出\"Wollheim式的深度参观(即长时间停留欣赏画作以领悟其真谛)可通过组织管 理来实现”,13句指出“博物馆人满为患、资源配置不当、游客仓促参观的原因是管理不善或正处修整期”, 3句介绍乌菲兹美术馆做法“通过巧妙的管理极大地缩短了入场排队时间”。综合可知,文章提及马菲兹美术 馆的事例是为了说明“良好的组织管理可应对大批游客,为其提供更多空间及时间来实现深度参观”,C正确。 [排除干扰]A由1句largely ignore臆断出“馆藏艺术品未得到很好的保护”,而句意实为“游客忽略了很多艺术 品。B.D虽能根据?句中the crowds/thelargest crowds/hugecrowds,another siteof cultural pilgrimage,bad management/reorganised/clevermanagement合理推断面来,属事实,但均非题干所问事例所服务的目的。"
+        },
+        {
+          "number": 49,
+          "stem": "What do we learn from Olafur Eliasson's current Tate Modern show?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Children learn to appreciate art works most effectively while they are playing."
+            },
+            {
+              "key": "B",
+              "text": "It is possible to combine entertainment with appreciation of serious art."
+            },
+            {
+              "key": "C",
+              "text": "Art works about the environment appeal most to young children."
+            },
+            {
+              "key": "D",
+              "text": "Some forms of art can accommodate huge crowds of visitors."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]第四段先指出“埃利亚松的展览看起来不过是一场娱乐活动,满是嬉闹的孩子”,后转而指出“这 次展览不止于此,埃利亚松娱乐大众,也给人以严肃之感,整个展览意在警示人类行为对环境的影响”。综合 可知,该展览表明“娱乐消遣和欣赏严肃艺术可以很好地结合”,B正确。 排除干扰」A,C均源自第四段1句kidsromping infogroomsand spraymistinstallations,但文中并未比较“孩子 们在不同状态下学习艺术品欣實的效果”及“不同艺术品对小摘子的吸引力”。D利用第三段末句与第四段首句 之间的例证关联设置干扰,但第三段末句实际上并非单单指向“艺术形式空间容量大”,更意在指向“其场面壮 观,游客体验感好”,选项以偏概全,而且与第四段的语义重心不符。"
+        },
+        {
+          "number": 50,
+          "stem": "What can art do according to Marcel Proust?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Enable us to live a much fuller life."
+            },
+            {
+              "key": "B",
+              "text": "Allow us to escape the harsh reality."
+            },
+            {
+              "key": "C",
+              "text": "Help us to see the world from a different perspective."
+            },
+            {
+              "key": "D",
+              "text": "Urge us to explore the unknown domain of the universe."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]末段1句引用普鲁斯特之言指出“唯有通过艺术,我们才能超脱自我,了解他人如何看待天地万 物”。由此可知,普鲁斯特认为“艺术可以帮助我们超越自身固有认知,从另一个角度看世”,C正确。 [排除干扰]A将1向艺术的功能“拓展认知边界:让我们看到不同视角下的世界”曲解为“丰富生活经历:使 我们过上丰富得多的生活(full指富于经历的)”。B将1句我们要脱离的对象“自身的认知”宰改为“严酷的现 实”。D源自1句theuniverse、unknownasanyonthemoon,但“月球上的未知景象”是“他人眼中的景象”的类 比对象,用以强调其“(在没有艺术的情况下)遥不可及,极难知晓”,全文未提及“艺术对于宇宙探索的意义”。 ·"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2020-12-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Every five years, the government tries to tell Americans what to put in their bellies. Eat more vegetables. Dial back the fats. It's all based on the best available science for leading a healthy life. But 6·10",
+        "the best available science also has a lot to say about what those food choices do to the environment, and some researchers are annoyed that new dietary recommendations of the USDA (United States Department of Agriculture) released yesterday seem to utterly ignore that fact.",
+        "Broadly, the 2016 - 2020 dietary recommendations aim for balance: More vegetables, leaner meats and far less sugar.",
+        "But Americans consume more calories per capita than almost any other country in the world. So the things Americans eat have a huge impact on climate change. Soil tilling releases carbon dioxide, and delivery vehicles emit exhaust. The government's dietary guidelines could have done a lot to lower that climate cost. Not just because of their position of authority: The guidelines drive billions of dollars of food production through federal programs like school lunches and nutrition assistance for the needy.",
+        "On its own, plant and animal agriculture contributes 9 percent of all the country's greenhouse gas emissions. That's not counting the fuel burned in transportation, processing, refrigeration, and other waypoints between farm and belly. Red meats are among the biggest and most notorious emitters, but trucking a salad from California to Minnesota in January also carries a significant burden. And greenhouse gas emissions aren't the whole story. Food production is the largest user of fresh water, largest contributor to the loss of biodiversity, and a major contributor to using up natural resources.",
+        "All of these points and more showed up in the Dietary Guidelines Advisory Committee's scientific report, released last February. Miriam Nelson chaired the subcommittee in charge of sustainability for the report, and is disappointed that eating less meat and buying local food aren't in the final product. \"Especially if you consider that eating less meat, especially red and processed, has health benefits,\" she says.",
+        "So what happened? The official response is that sustainability falls too far outside the guidelines' official scope, which is to provide \"nutritional and dietary information.\"",
+        "Possibly the agencies in charge of drafting the decisions are too close to the industries they are supposed to regulate. On one hand, the USDA is compiling dietary advice. On the other, their clients are US agriculture companies.",
+        "The line about keeping the guidelines' scope to nutrition and diet doesn't ring quite right with researchers. David Wallinga, for example, says, \"In previous guidelines, they've always been concerned with things like food security—which is presumably the mission of the USDA. You absolutely need to be worried about climate impacts and future sustainability if you want secure food in the future.\""
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "Why are some researchers irritated at the USDA's 2016 - 2020 Dietary Guidelines?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It ignores the harmful effect of red meat and processed food on health."
+            },
+            {
+              "key": "B",
+              "text": "Too much emphasis is given to eating less meat and buying local food."
+            },
+            {
+              "key": "C",
+              "text": "The dietary recommendations are not based on medical science."
+            },
+            {
+              "key": "D",
+              "text": "It takes no notice of the potential impact on the environment."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]第一段末句指出,一些研究者偏怒的是美国农业部的新版略食建议似乎完全忽视了“食物选择会 对环境造成诸多影响”这一事实(thatfact的具体所指),故D正确。 [排除干扰]A源自第五段3句,但该句接引Nelson之言是意在解释说明其对膳食指南的看法\"忽略可持续性发 展”,选项舍本逐末、偏离观点核心。B源自第五段2向,该句指出Nelson对“膳食指南未提及*少吃肉、购买当地 食品\"”感到失望,换言之,膳食指南并非过分强调少吃肉、购买当地食品”,而是根本未提及。C与第一段4句 “膳食建议建立在现有最佳科学的基础之上”不符,且将the best available science...窄化为medical science\"医学”。"
+        },
+        {
+          "number": 52,
+          "stem": "Why does the author say the USDA could have contributed a lot to lowering the climate cost through its dietary guidelines?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It has the capacity and the financial resources to do so."
+            },
+            {
+              "key": "B",
+              "text": "Its researchers have already submitted relevant proposals."
+            },
+            {
+              "key": "C",
+              "text": "Its agencies in charge of drafting the guidelines have the expertise."
+            },
+            {
+              "key": "D",
+              "text": "It can raise students' environmental awareness through its programs."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案」第三段4向指出政府(USDA)的膳食指南本可以为降低气候成本作出巨大贡献,1向进而点明原 因:这些指导方针不仅仅象征着权威,还可通过各种形式的联邦计划推动数十亿美元的粮食生产。由此可推 断,美国农业部不仅有能力(具有威望)、也有财力(享有财政资源)去降低气候成本,A符合文意。 [排除干扰]B虽由第五段1句Allofthese points andmoreshowedupin...scientificreport...合理推断而来,但 并非作者所认为的USDA膳食指南有助降低气候成本的原固:这些建议即便被纳入USDA终版膳食指南(由 2向可知实际并未被纳入其中),如若USDA本身能力及财力有限,该指南的影响力也将有限,为降低气候成本 作出的贡献电有限。C由第七段1句theagencies in charge of drafting the decisions are.,.和第五段1句“专业性 报告(scientificreport)\"杂揉捏造面来,但第七段1句实际指的是“负责起草食指南的机构与他们本应监管的行 业走得过近(暗示即便是拥有专业性、权威性的美国农业部仍会受到相关利益团体的影响而罔顾食物选择对气 候的消极影响)”,而并非指“起草机构的专业性”。D由第三段1向“这些指导方针可通过诸如学校午餐等联邦 计划推动数十亿的粮食生产\"望文生义,得出“美国农业部可以通过联邦计划提高学生的环保意识”。"
+        },
+        {
+          "number": 53,
+          "stem": "What do we learn from the Dietary Guidelines Advisory Committee's scientific report?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Food is easily contaminated from farm to belly."
+            },
+            {
+              "key": "B",
+              "text": "Greenhouse effect is an issue still under debate."
+            },
+            {
+              "key": "C",
+              "text": "Modern agriculture has increased food diversity."
+            },
+            {
+              "key": "D",
+              "text": "Farming consumes most of our natural resources."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]第四段末句指出,粮食生产是自然资源枯竭的主要原因,D中mostof、consumes...natural resources分别对应句中major contributor、using up natural resources。 [排除干扰]A虽复现原文fromfarmtobelly,却增补文中未投及信息“易被污染”。B利用第凹段greenhousegas emissions与第五段所列举的\"Nelson等研究页对(USDA最终拟定的)腾食指南的失望\"捏造干扰,将研究员之间的 争议焦点由\"膳食指南是否应考虑可持续性”偷换为\"温室效应是否真实存在\"。C对第四段末句Foxd production..: largestcontributor to...biodiversity断章取义,将文意\"农业损害了生物多样性”反向曲解为“农业丰富了盘中餐”。"
+        },
+        {
+          "number": 54,
+          "stem": "What may account for the neglect of sustainability in the USDA's Dietary Guidelines according to the author?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Its exclusive concern with Americans' food safety."
+            },
+            {
+              "key": "B",
+              "text": "Its sole responsibility for providing dietary advice."
+            },
+            {
+              "key": "C",
+              "text": "Its close ties with the agriculture companies."
+            },
+            {
+              "key": "D",
+              "text": "Its alleged failure to regulate the industries."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案」第七段1向中作者先概述指出,负责草拟膳食决议的官方机构(USDA)与其本应监管的行业走得 过近,后于3句明确本应被监管行业的具体所指“美国农业公司”,可见C正确。 [排除干扰]A源自第八段2句concernedwith..food security,但选项中exclusive只关心)\"与句中things like暗示的“也关心包括粮食安全之外的其他问题”相悖,且该句实为研究者观点,并非作者观点。B源自第六 段2句,但该句为USDA官方说辞而非作者观点。D源自第七段1向,虽属作者观点,但将原文“与其应监管 的行业走得过近”的言外之意“农业部对行业的监管较为宽松\"夸大为“农业部完全没有进行监管”。"
+        },
+        {
+          "number": 55,
+          "stem": "What should the USDA do to achieve food security according to David Wallinga?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Give top priority to things like nutrition and food security."
+            },
+            {
+              "key": "B",
+              "text": "Endeavor to ensure the sustainable development of agriculture."
+            },
+            {
+              "key": "C",
+              "text": "Fulfill its mission by closely cooperating with the industries."
+            },
+            {
+              "key": "D",
+              "text": "Study the long-term impact of climate change on food production."
+            }
+          ],
+          "answer": "B",
+          "explanation": "大卫·沃林加认为,美国农业部应该采取什么措施来实现粮食安全? A)将营养和粮食安全这类问题作为第一要务。 C)与行业紧密合作,以完成自身使命。 B)努力保障农业的可持续发展。 D)研究气候变化对粮食生产的长期影响。 工锁定答案]第八段3句大卫·沃林加指出,美国农业部若想在未来保障粮食安全,就必须关注气候影响和未 来可持续性,意即美国农业部要想实现粮食安全,就必须考虑农业发展/粮食生产的可持续性,B正确。 [排除干扰]A由第八段nutrition、thingslike food security杂棵而来,与沃林加的态度“需把粮食安全、可持续 性等问题与营养和腾食同等重视起来”相悸。C由第七段1句closetotheindustries、第八段2句missionof the USDA杂森捏造出“与行业密切合作,以完成自身使命”。D将第八段?句worriedaboutclimateimpacts...food in the future曲解为“应开展相关研究”。"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1770 @@
+{
+  "id": "cet6-2020-12-3",
+  "level": 6,
+  "year": 2020,
+  "month": 12,
+  "set": 3,
+  "title": "2020 年 12 月六级 · 第 3 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.12/%E7%9C%9F%E9%A2%98Word/2020%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC3%E5%A5%97%EF%BC%89.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2020.12%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC3%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2020-12-3-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Social distancing is putting people out of work, canceling school and tanking the stock market. It has been [[26]] by fear, and it is creating even more fear as money problems and uncertainty grow. However, at its core is love, and a sacrifice to protect those most [[27]] to the coronavirus (冠状病毒)effects — the elderly, people with compromised immune systems, and those whose life-saving resources would be used up by a [[28]] epidemic. Americans make life-saving decisions every day as a matter of course. We cut food into bite-sized pieces, we wear seatbelts, and we take care not to exceed the speed limit. But social distancing is [[29]] in that it is completely self-sacrificing. Those who will benefit may be the elderly relatives of the [[30]] person we didn’t pass in Starbucks, on the subway, or in the elevator. Social distancing is millions of people making hundreds of sacrifices to keep the elderly alive. It doesn’t include the [[31]] to run from society or make an excuse to avoid one’s obligations — such as life-saving medical work or the parental obligation to buy groceries. What it does include is applying love through caution. And in doing so, it offers an [[32]] opportunity for those who care about the elderly to find new ways to love them. If we’re not [[33]] as much in our normal work or school, we have extra time to call parents and grandparents. We can also ask elderly relatives how to best support them [[34]] and use our sacrifices as an opportunity to bring us, our community and the world [[35]] ."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "amazing"
+        },
+        {
+          "key": "B",
+          "text": "closer"
+        },
+        {
+          "key": "C",
+          "text": "driven"
+        },
+        {
+          "key": "D",
+          "text": "engaged"
+        },
+        {
+          "key": "E",
+          "text": "malignant"
+        },
+        {
+          "key": "F",
+          "text": "oppressing"
+        },
+        {
+          "key": "G",
+          "text": "premises"
+        },
+        {
+          "key": "H",
+          "text": "random"
+        },
+        {
+          "key": "I",
+          "text": "sentimentally"
+        },
+        {
+          "key": "J",
+          "text": "spiritually"
+        },
+        {
+          "key": "K",
+          "text": "temptations"
+        },
+        {
+          "key": "L",
+          "text": "thriftier"
+        },
+        {
+          "key": "M",
+          "text": "tickled"
+        },
+        {
+          "key": "N",
+          "text": "unique"
+        },
+        {
+          "key": "O",
+          "text": "vulnerable"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "amazing"
+            },
+            {
+              "key": "B",
+              "text": "closer"
+            },
+            {
+              "key": "C",
+              "text": "driven"
+            },
+            {
+              "key": "D",
+              "text": "engaged"
+            },
+            {
+              "key": "E",
+              "text": "malignant"
+            },
+            {
+              "key": "F",
+              "text": "oppressing"
+            },
+            {
+              "key": "G",
+              "text": "premises"
+            },
+            {
+              "key": "H",
+              "text": "random"
+            },
+            {
+              "key": "I",
+              "text": "sentimentally"
+            },
+            {
+              "key": "J",
+              "text": "spiritually"
+            },
+            {
+              "key": "K",
+              "text": "temptations"
+            },
+            {
+              "key": "L",
+              "text": "thriftier"
+            },
+            {
+              "key": "M",
+              "text": "tickled"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]1句说明社交隔离造成的一系列社会问题。2句指出,它/社交隔离由恐惧,且正在制造出 更多的恐惧。结合两句时态变换(isputting...hasbeen...iscreatingevenmore...)可知该句形成时间线条, 说明\"社交隔离由(对新冠传播的)恐惧造成→造成诸多问题→将会遗成更多恐惧/问题(creatingevenmore fear回应putting...canceling..andtanking...)”的过程。空格词应表“造成/驱动\"等,C正确。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "amazing"
+            },
+            {
+              "key": "B",
+              "text": "closer"
+            },
+            {
+              "key": "C",
+              "text": "driven"
+            },
+            {
+              "key": "D",
+              "text": "engaged"
+            },
+            {
+              "key": "E",
+              "text": "malignant"
+            },
+            {
+              "key": "F",
+              "text": "oppressing"
+            },
+            {
+              "key": "G",
+              "text": "premises"
+            },
+            {
+              "key": "H",
+              "text": "random"
+            },
+            {
+              "key": "I",
+              "text": "sentimentally"
+            },
+            {
+              "key": "J",
+              "text": "spiritually"
+            },
+            {
+              "key": "K",
+              "text": "temptations"
+            },
+            {
+              "key": "L",
+              "text": "thriftier"
+            },
+            {
+              "key": "M",
+              "text": "tickled"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "O",
+          "explanation": "[锁定答案]空格句首 先指出,社交隔离的核心是爱,是为了保护那些人(those)而做出的一种牺牲。随后破折号引出三类人群:老 年人、免疫系统受损的人、教命资源将被耗尽的人。thosemost tothecoronaviruseffects(最_冠状病 毒影响的人)显然是对三类人群特征的概括,空格词应意为“易感的/易受影响的/易受侵害的”,vulnerableto 为固定搭配,表示“易受.的侵害”,O正确。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "amazing"
+            },
+            {
+              "key": "B",
+              "text": "closer"
+            },
+            {
+              "key": "C",
+              "text": "driven"
+            },
+            {
+              "key": "D",
+              "text": "engaged"
+            },
+            {
+              "key": "E",
+              "text": "malignant"
+            },
+            {
+              "key": "F",
+              "text": "oppressing"
+            },
+            {
+              "key": "G",
+              "text": "premises"
+            },
+            {
+              "key": "H",
+              "text": "random"
+            },
+            {
+              "key": "I",
+              "text": "sentimentally"
+            },
+            {
+              "key": "J",
+              "text": "spiritually"
+            },
+            {
+              "key": "K",
+              "text": "temptations"
+            },
+            {
+              "key": "L",
+              "text": "thriftier"
+            },
+            {
+              "key": "M",
+              "text": "tickled"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "E",
+          "explanation": "[锁定答案」those...byaepidemic与其前两类群体(theelderly,peoplewith...)一样指向“冠状病毒易 感人群”,可推知a, epidemic即指\"冠状病毒大流行”,空格词既应体现该流行病的性质/特点,又应契合 “教命资源会被流行病耗尽”这一句内语义,故空28应表示“危险的/恶性的/大规模的”等,E正确。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "amazing"
+            },
+            {
+              "key": "B",
+              "text": "closer"
+            },
+            {
+              "key": "C",
+              "text": "driven"
+            },
+            {
+              "key": "D",
+              "text": "engaged"
+            },
+            {
+              "key": "E",
+              "text": "malignant"
+            },
+            {
+              "key": "F",
+              "text": "oppressing"
+            },
+            {
+              "key": "G",
+              "text": "premises"
+            },
+            {
+              "key": "H",
+              "text": "random"
+            },
+            {
+              "key": "I",
+              "text": "sentimentally"
+            },
+            {
+              "key": "J",
+              "text": "spiritually"
+            },
+            {
+              "key": "K",
+              "text": "temptations"
+            },
+            {
+              "key": "L",
+              "text": "thriftier"
+            },
+            {
+              "key": "M",
+              "text": "tickled"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "N",
+          "explanation": "[锁定答案」空 格前两句介绍美国人不时在做出拯教生命的决定,“将食物切成小块、系好安全带、不超速”等做法涉及“自已、 家人以及其他人的生命安全”。空格句指出,但社交隔离是,因为它完全是自我牺牲式的(completelyself- sacrificing,即完全是为了他人的生命安全)。借助12句和3句间的对比可知,空格调应体现“社交隔离作为 挽教生命之举的独特之处/不同寻常”,N正确。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "amazing"
+            },
+            {
+              "key": "B",
+              "text": "closer"
+            },
+            {
+              "key": "C",
+              "text": "driven"
+            },
+            {
+              "key": "D",
+              "text": "engaged"
+            },
+            {
+              "key": "E",
+              "text": "malignant"
+            },
+            {
+              "key": "F",
+              "text": "oppressing"
+            },
+            {
+              "key": "G",
+              "text": "premises"
+            },
+            {
+              "key": "H",
+              "text": "random"
+            },
+            {
+              "key": "I",
+              "text": "sentimentally"
+            },
+            {
+              "key": "J",
+              "text": "spiritually"
+            },
+            {
+              "key": "K",
+              "text": "temptations"
+            },
+            {
+              "key": "L",
+              "text": "thriftier"
+            },
+            {
+              "key": "M",
+              "text": "tickled"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "H",
+          "explanation": "[锁定答案]空格句指出,(社交隔离的)受益者可能是我们在星巴克、地铁或电梯里 都未曾擦肩而过的某个人的年长亲属。结合上句“社交隔离完全是自我牺式的(我们与受益者毫无关 联/完全不相识)\"可知,theperson应该体现我们(we,即实行社交隔离的人)与这些老人(theelderly relatives,即受益者)的“毫无瓜葛/完全不相识”。H)random意为“任意的,胡乱的,随意的”符合要求,the randomperson强调“任意的/随便的/毫不相干的某个人”,与定语从句信息(以点带面,说明我们与这些人完 全未曾谋面)一致,共同强调这些老人“并非我们自己的亲人,而是陌生人的亲人”。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "amazing"
+            },
+            {
+              "key": "B",
+              "text": "closer"
+            },
+            {
+              "key": "C",
+              "text": "driven"
+            },
+            {
+              "key": "D",
+              "text": "engaged"
+            },
+            {
+              "key": "E",
+              "text": "malignant"
+            },
+            {
+              "key": "F",
+              "text": "oppressing"
+            },
+            {
+              "key": "G",
+              "text": "premises"
+            },
+            {
+              "key": "H",
+              "text": "random"
+            },
+            {
+              "key": "I",
+              "text": "sentimentally"
+            },
+            {
+              "key": "J",
+              "text": "spiritually"
+            },
+            {
+              "key": "K",
+              "text": "temptations"
+            },
+            {
+              "key": "L",
+              "text": "thriftier"
+            },
+            {
+              "key": "M",
+              "text": "tickled"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "K",
+          "explanation": "[锁定答案]第三段前三句Social distancingis...、It doesn't include..·、What itdoes include...提示句群逻辑为“说明社交隔离的内涵→说明社交隔离不包含的做法→说明社交隔离真正应包 含的做法”,初步判断空格调表负面语义,备选项中只有K满足条件。进一步聚焦2句发现,破折号后内容解释说明 one'sobligations,即to...or...—suchas..整体语义为\"(借社交隔离之名)遂离社会或遵避责任的—。\" 空格调应表示“(错误的)做法/趋势/想法”等,temptations可表示“采取某种(不良)行为的想法”,确定K正确。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "amazing"
+            },
+            {
+              "key": "B",
+              "text": "closer"
+            },
+            {
+              "key": "C",
+              "text": "driven"
+            },
+            {
+              "key": "D",
+              "text": "engaged"
+            },
+            {
+              "key": "E",
+              "text": "malignant"
+            },
+            {
+              "key": "F",
+              "text": "oppressing"
+            },
+            {
+              "key": "G",
+              "text": "premises"
+            },
+            {
+              "key": "H",
+              "text": "random"
+            },
+            {
+              "key": "I",
+              "text": "sentimentally"
+            },
+            {
+              "key": "J",
+              "text": "spiritually"
+            },
+            {
+              "key": "K",
+              "text": "temptations"
+            },
+            {
+              "key": "L",
+              "text": "thriftier"
+            },
+            {
+              "key": "M",
+              "text": "tickled"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]空格前句指出,社交隔离真正包含的是谨 慎地去爱。空格句指出,在这样做的过程中,它为那些关心老人的人们提供了我到关爱新方式的机会。 两句均传达出作者强烈的建议和肯定,可推知空格词应含正面语义,表示“宝贵的/绝佳的/神奇的”等,A符合 文意+amazingopportunity\"良机/令人惊喜的机会\"可体现文中“无心插柳柳成荫,环事(被迫社交隔离)变好事 (找到关爱老人新方式的良机)\"的情景。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "amazing"
+            },
+            {
+              "key": "B",
+              "text": "closer"
+            },
+            {
+              "key": "C",
+              "text": "driven"
+            },
+            {
+              "key": "D",
+              "text": "engaged"
+            },
+            {
+              "key": "E",
+              "text": "malignant"
+            },
+            {
+              "key": "F",
+              "text": "oppressing"
+            },
+            {
+              "key": "G",
+              "text": "premises"
+            },
+            {
+              "key": "H",
+              "text": "random"
+            },
+            {
+              "key": "I",
+              "text": "sentimentally"
+            },
+            {
+              "key": "J",
+              "text": "spiritually"
+            },
+            {
+              "key": "K",
+              "text": "temptations"
+            },
+            {
+              "key": "L",
+              "text": "thriftier"
+            },
+            {
+              "key": "M",
+              "text": "tickled"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案」本题的解题思路有二:l.从句内逻辑 来看,空格所在条件状语从句“如果我们不再那样正常的工作和学习”为主句“有更多时间打电话给父母 和祖父母”成立的条件,“有更多的空闲时间”势必意味着“减少了在工作和学习上投入的时间”。2.从上下文 关联来看,空格所在向恰好呼应首段“社交隔离正今人们失业、停学”。综上,空格词应表“(不再)忙于/专注 于”等,beengaged in为固定搭配,意为“忙于”,D正确。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "amazing"
+            },
+            {
+              "key": "B",
+              "text": "closer"
+            },
+            {
+              "key": "C",
+              "text": "driven"
+            },
+            {
+              "key": "D",
+              "text": "engaged"
+            },
+            {
+              "key": "E",
+              "text": "malignant"
+            },
+            {
+              "key": "F",
+              "text": "oppressing"
+            },
+            {
+              "key": "G",
+              "text": "premises"
+            },
+            {
+              "key": "H",
+              "text": "random"
+            },
+            {
+              "key": "I",
+              "text": "sentimentally"
+            },
+            {
+              "key": "J",
+              "text": "spiritually"
+            },
+            {
+              "key": "K",
+              "text": "temptations"
+            },
+            {
+              "key": "L",
+              "text": "thriftier"
+            },
+            {
+              "key": "M",
+              "text": "tickled"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "J",
+          "explanation": "[锁定答案]We canalso表明空格句承接上句(多给老人打打电话),引出作者的另外的建议:我们还可以问问年长亲属怎样才 能最好地支持他们。可见此处指向为老年人供精神上的/更大的/实际的支持。supportsbspiritually 表示“在精神上支持某人”,空格选项为J。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "amazing"
+            },
+            {
+              "key": "B",
+              "text": "closer"
+            },
+            {
+              "key": "C",
+              "text": "driven"
+            },
+            {
+              "key": "D",
+              "text": "engaged"
+            },
+            {
+              "key": "E",
+              "text": "malignant"
+            },
+            {
+              "key": "F",
+              "text": "oppressing"
+            },
+            {
+              "key": "G",
+              "text": "premises"
+            },
+            {
+              "key": "H",
+              "text": "random"
+            },
+            {
+              "key": "I",
+              "text": "sentimentally"
+            },
+            {
+              "key": "J",
+              "text": "spiritually"
+            },
+            {
+              "key": "K",
+              "text": "temptations"
+            },
+            {
+              "key": "L",
+              "text": "thriftier"
+            },
+            {
+              "key": "M",
+              "text": "tickled"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案」空35所在部分指出作者另一建议:化逆境(固疫情而被迫社交隔离)为机遇,将我们的 牺牲/社交隔离用作一种机会,使整个社会(更)团结/和谐/紧密联系。bringsbcloser为固定搭配,表示“拉近 某些人的距离”,符合文意,由此确定答案为B。 ·"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2020-12-3-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Picture yourself at a college graduation day, with a fresh cohort (一群)of students about to set sail for new horizons. What are they thinking while they throw their caps in the air? What is it with this thin sheet of paper that makes it so precious? It’s not only the proof of acquired knowledge but plays into the reputation game of where you were trained. Being a graduate from Harvard Law School carries that extra glamour, doesn’t it? Yet take a closer look, and the diploma is the perfect ending to the modern tragedy of education.",
+        "B) Why? Because universities and curricula are designed along the three unities of French classical tragedy: time, action, and place. Students meet at the university campus (unity of place) for classes (unity of action) during their 20s (unity of time). This classical model has traditionally produced prestigious universities, but it is now challenged by the digitalisation of society—which allows everybody who is connected to the internet to access learning — and by the need to acquire skills in step with a fast-changing world. Universities must realise that learning in your 20s won’t be enough. If technological diffusion and implementation develop faster, workers will have to constantly refresh their skills.",
+        "C) The university model needs to evolve. It must equip students with the right skills and knowledge to compete in a world ‘where value will be derived largely from human interaction and the ability to invent and interpret things that machines cannot’,as the English futurist Richard Watson puts it. By teaching foundational knowledge and up-to-date skills, universities will provide students with the future-proof skills of lifelong learning, not just get them ‘job-ready’.",
+        "D) Some universities already play a critical role in lifelong learning as they want to keep the value of their diplomas. This new role comes with a huge set of challenges, and needs largely to be invented. One way to start this transformation process could be to go beyond the ‘five-year diploma model’ to adapt curricula to lifelong learning. We call this model the lifelong passport.",
+        "E) The Bachelor’s degree could be your passport to lifelong learning. For the first few years, students would ‘learn to learn’ and get endowed with reasoning skills that remain with them for the rest of their lives. For instance, physics allows you to observe and rationalise the world, but also to integrate observations into models and, sometimes, models into theories or laws that can be used to make predictions. Mathematics is the language used to formulate the laws of physics or economy, and to make rigorous computations that turn into predictions. These two disciplines naturally form the foundational pillars of education in technical universities.",
+        "F) Recent advances in computational methods and data science push us into rethinking science and engineering. Computers increasingly become principal actors in leveraging data to formulate questions, which requires radically new ways of reasoning. Therefore, a new discipline blending computer science, programming, statistics and machine learning should be added to the traditional foundational topics of mathematics and physics. These three pillars would allow you to keep learning complex technical subjects all your life because numeracy (计算)is the foundation upon which everything else is eventually built.",
+        "G) According to this new model, the Master of Science (MSc) would become the first stamp in the lifelong learning journey. The MSc curriculum should prepare students for their professional career by allowing them to focus on acquiring practical skills through projects.",
+        "H) Those projects are then interwoven with fast-paced technical modules (模块)learned ‘on-the-fly ’ and ‘at will’ depending on the nature of the project. If, for instance, your project is developing an integrated circuit, you will have to take a module on advanced concepts in microelectronics. The most critical skills will be developed before the project even starts, in the form of boot camps (短期强化训练),while the rest can be fostered along with the project, putting them to immediate use and thus providing a rich learning context.",
+        "I) In addition to technical capabilities, the very nature of projects develops social and entrepreneurial skills, such as design thinking, initiative taking, team leading, activity reporting or resource planning. Not only will those skills be actually integrated into the curriculum but they will be very important to have in the future because they are difficult to automate.",
+        "J) After the MSc diploma is earned, there would be many more stamps of lifelong learning over the years. If universities decide to engage in this learning model, they will have to cope with many organisational challenges that might shake their unity of place and action. First, the number of students would be unpredictable. If all of a university’s alumni (往届毕业生)were to become students again, the student body would be much bigger than it is now, and it could become unsustainable for the campus in terms of both size and resources. Second, freshly graduated students would mix with professionally experienced ones. This would change the classroom dynamics, perhaps for the best. Project-based learning with a mixed team reflects the reality of the professional world and could therefore be a better preparation for it.",
+        "K) Sound like science fiction? In many countries, part-time studying is not exceptional: on average across OECD countries, part-time students in 2016 represented 20 per cent of enrolment in tertiary education. In many countries, this share is higher and can exceed 40 per cent in Australia, New Zealand and Sweden.",
+        "L) If lifelong learning were to become a priority and the new norm, diplomas, just like passports, could be revalidated periodically. A time-determined revalidation would ease administration for everybody. Universities as well as employers and employees would know when they have to retrain. For instance, graduates from the year 2000 would have to come back in 2005.",
+        "M) This could fix the main organisational challenges for the university, but not for the learners, due to lack of time, family obligations or funds. Here, online learning might be an option because it allows you to save your ‘travel time’, but it has its limits. So far, none of the major employers associated with online learning platforms such as Coursera and Udacity has committed to hire or even interview graduates of their new online programmes.",
+        "N) Even if time were not an issue, who will pay for lifelong learning? That’s the eternal debate: should it be the learner’s responsibility, that of his employer, or of the state? For example, in Massachusetts, the healthcare professions require continuing education credits, which are carefully evidenced and documented. Yet the same state’s lawyers don’t require continuing legal education, although most lawyers do participate in it informally. One explanation is that technology is less of a factor in law than it is in healthcare.",
+        "O) Europe has many scenarios, but the French and Swiss ones are interesting to compare. In France, every individual has a right to lifelong learning organised via a personal learning account that is credited as you work. In Switzerland, lifelong learning is a personal responsibility and not a government one. However, employers and the state encourage continuing education either by funding parts of it or by allowing employees to attend it.",
+        "P) Universities have a fundamental role to play in this journey, and higher education is in for a change. Just like classical theatre, the old university model produced talent and value for society. We are not advocating its abolition but rather calling for the adaptation of its characteristics to meet the needs of today."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Students should develop the key skills before they start a project.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "H",
+          "explanation": "Students should develop thekey skills beforethey start a project,学生应当在开展项目之前学会关键技能。 [答案]H[精解]由定位词定位至H段3句。该句指出,学生必须在项目开始之前学会最关键的技能(其他技 能则可在项目推进期间加以培养),试题是对此处信息的复现,thekeyskills对应原文的Themostcritical skills。"
+        },
+        {
+          "number": 37,
+          "stem": "By acquiring reasoning skills in the first few years of college, students can lay a foundation for lifelong learning.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "E",
+          "explanation": "Byacquiringreasoningskillsinthefirstfewyearsofcollege,大学起初儿年获得的推理技能可为学生美 students can lay a foundation for lifelong learning. 定终身学习的基础。 [答案」E【精解」由定位词定位至E段。1句指出,学士学位是通向终身学习的通行证;2句指出,大学教育 在起初几年将让学生学会学习,掌握伴其一生的推理能力。固此,学生在大学起初几年获得的推理技能是终 身学习的基础,试题是对两句信息的整合。"
+        },
+        {
+          "number": 38,
+          "stem": "The easy access to learning and rapid technological changes have brought the traditional model of education under challenge.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Theeasyaccessto learning and rapid technological changeshave知识易于获得,技术变化迅速,这让传统 brought the traditional model of education under challenge. 的教育模式受到了挑战。 [答案]】B[精解]由定位词定位至B段4句。该句后半部分指出,传统的大学教育模式如今面临两方面挑战: 社会的数字化(人人均可联网学习)和人们对最新技能的需求(以跟上快速变化的世界)。试题是对此部分信 息的改写,其中The easyaccess to learning和rapid technological changes分别是对 everybody who is connected to the internet to access learning和 a fast-changing world的概括。"
+        },
+        {
+          "number": 39,
+          "stem": "Unbelievable as it may seem, part-time students constitute a considerable portion of the student body in many universities across the world.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "K",
+          "explanation": "Unbelievableas itmay seem,part-timestudents constitutea虽然这可能今人难以置信,但在全球许多 considerable portion of the student body in many universities 大学中,在职学生在学生群体中占有相当 across the world. 高的比例。 [答案]K[精解]由定位词定位至K段。首句针对上文情形“已参加工作的毕业生重返校园学习”指出,这或 许令人难以置信;23句以多国数据说明:经合组织成员国的在职学生占比实际上最高可达40%。试题是对 段落信息的提炼与概括,considerableportion准确体现在职学生占比之高。"
+        },
+        {
+          "number": 40,
+          "stem": "Some social and managerial skills, which are not easily automated, will be of great importance to students’ future careers.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "I",
+          "explanation": "Somesocial andmanagerial skills,which arenot easilyautomated,一些不易实现自动化的社交和管理技能 will be of great importance to students' future careers. 将对学生的未来职业生涯至关重要。 [答案]I[精解]由定位词定位至I段。末句指出,社交与创业技能在未来会非常重要,因为它们很难被机器 取代(thoseskills回指首句socialand entrepreneurialskills),试题是对该句的同义改写。"
+        },
+        {
+          "number": 41,
+          "stem": "A new model of college education should provide students with the knowledge and skills that will make them more inventive and capable of lifelong learning.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Anewmodel of college education should provide students大学教育新模式应当为学生提供这样的知 with the knowledge and skills that will make them more 识和技能,即让他们更加善于创新、能够做 inventive and capable of lifelong learning. 到终身学习。 [答案」C[精解」由定位词定位至C段。2句指出,在当今世界,价值主要源自人际互动以及发明和解释事物 的能力;3句又提出,通过教投基础知识和最新技能,大学教育新模式将赋予学生与时俱进的终身学习技能。 试题是对两向信息的提炼,Anewmodelofcollegeeducation是对2向It的正确解读。"
+        },
+        {
+          "number": 42,
+          "stem": "A mixed student body may change the classroom dynamics and benefit learning.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "J",
+          "explanation": "Amixed studentbodymaychangethe classroomdynamies多元的学生群体或将改变课堂互动方式,有 and benefit learning. 利于学习。 【答案]J[精解]由定位词定位至J段。3向指出“混合式/多元化(mixed)\"学生群体的益处:改善课堂互动 方式:反映了职场真实情况,是一种更好的就业准备方式。试题中的benefitlearning是对changethe classroomdynamics...for the besta better preparation for it(it指代the professional world)的合理概括。"
+        },
+        {
+          "number": 43,
+          "stem": "The question of who will bear the cost of lifelong learning is a topic of constant debate.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "N",
+          "explanation": "Thequestionof whowill bearthe costof lifelong learning is谁将承担终身学习的费用,这一问题一直是 a topic of constant debate. 争论的话题。 [答案」N[精解」由定位调定位至N段。12句抛出疑问“该由谁来为终身学习买单?是学习者、其雇主,还 是政府?\",并评价指出这是一场永无休止的争论。试题是对两向的同义改写,bearthecostof lifelonglearning 和a topic of constant debate分别同义替换pay for lifelong learning和the eternal debate。"
+        },
+        {
+          "number": 44,
+          "stem": "To the traditional subjects of math and physics should be added a new discipline which combines computer science with statistics and other components.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "F",
+          "explanation": "To the traditional subjects ofmath and physics should be除了传统的数学和物理学之外,还应加入一 added a new discipline which combines computer science 门结合了计算机科学、统计学及其他科目的 with statistics and other components. 新学科。 工答案]F[精解」由定位词调定位至F段3向。该句指出,一门融合计算机科学、编程、统计学和机器学习的新 学科应加入数学和物理学这两门传统基础学科的行列,试题是对原文信息的同义改写,combines...with... and...与原文blending...and...同义。"
+        },
+        {
+          "number": 45,
+          "stem": "Students who are burdened with family duties might choose to take online courses.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "M",
+          "explanation": "Studentswho areburdened withfamilydutiesmight choose需要承担家庭责任的学生可能会选择参加 to take online courses. 线上课程。 [答案]M[精解」由定位词定位至M段。首句指出问题:定期认证文凭对于缺少时间、家庭义务缠身或有资金 困难的学习者而言无济于事。2向提出解决办法:在线学习或许是一种替代选择。试题是对这两句内容的概括。 ·"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2020-12-3-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Why does social media trigger feelings of loneliness and inadequacy? Because instead of being real life, it is, for the most part, impression management, a way of marketing yourself, carefully choosing and filtering the pictures and words to put your best face forward. Online “friends” made through social media do not follow the normal psychological progression of an interpersonal relationship. You share neither physical time nor emotional conversations over the Internet. You simply communicate photographs and catchy posts to a diverse group of people whom you have “friended” or “followed” based on an accidental interaction. This is not to say that your social media friends can’t be real friends. They absolutely can, but the two are not synonymous. Generally speaking, there are no unfiltered comments or casually taken photos on our social media pages. And, rightfully so, because it wouldn’t feel safe to be completely authentic and vulnerable with some of our “ friends ” whom we don’t actually know or with whom trust has yet to be built. Social media can certainly be an escape from the daily grind, but we must be cautioned against the negative effects, such as addiction, on a person’s overall psychological well-being. As humans, we yearn for social connection. Scrolling (滚动)through pages of pictures and comments, however, does not provide the same degree of fulfillment as face-to-face interactions do. Also, we tend to idealize others’ lives and compare our downfalls to their greatest accomplishments, ending in feelings of loneliness and inadequacy. Social media can lead people on the unhealthy quest for perfection. Some people begin to attend certain events or travel to different places so that they can snap that “ perfect ” photo. They begin to seek validation through the number of people who “ like ” their posts. In order for it to play a psychologically healthy role in your social life, social media should supplement an already healthy social network. Pictures and posts should be byproducts of life’s treasured moments and fun times, not the planned and calculated image that one is putting out into cyberspace in an attempt to fill insecurities or unmet needs. Ultimately, social media has increased our ability to connect with various types of people all over the globe. It has opened doors for businesses and allowed us to stay connected to people whom we may not otherwise get to follow. However, social media should feel like a fun experience, not one that contributes to negative thoughts and feelings. If the latter is the case, increasing face-to-face time with trusted friends, and minimizing time scrolling online, will prove to be a reminder that your social network is much more rewarding than any “ like,” “ follow ” or “ share ” can be."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What does the author imply social media may do to our life?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It may facilitate our interpersonal relationships."
+            },
+            {
+              "key": "B",
+              "text": "It may filter our negative impressions of others."
+            },
+            {
+              "key": "C",
+              "text": "It may make us feel isolated and incompetent."
+            },
+            {
+              "key": "D",
+              "text": "It may render us vulnerable and inauthentic."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案」首段1句以设问形式暗示作者的观点:社交媒体会让人们感到孤独和无能为力。C正确。 [排除干扰]A借常识设置干扰,且符合末段12向让步信息,但与作者整体观点相悸。B将首段2句 impressionmanagement和filtering杂设置干扰,原文指“筛选展示自己的内容,以给他人留下好印象”,而非 “筛除他人留给自己的不好印象”。D曲解第二段句authenticandvulnerable,原文指“在社交媒体上完全展 示自己真实、脆弱的一面会让我们感到不安(即我们不会在社交媒体上完全展示自己真实、脆弱的一面)”。"
+        },
+        {
+          "number": 47,
+          "stem": "Why do people post comments selectively on social media?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They do not find all their online friends trustworthy."
+            },
+            {
+              "key": "B",
+              "text": "They want to avoid offending any of their audience."
+            },
+            {
+              "key": "C",
+              "text": "They do not want to lose their followers."
+            },
+            {
+              "key": "D",
+              "text": "They are eager to boost their popularity."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]第二段1句指出社交媒体页面上不会出现未经筛选的评论(即题干所述的现象),1句解释原固(50 指代句所述内容):人们未与某些网友建立信任关系,因此不不加选择地展示真实的自已。故A正确。 [排除干扰]B、C、D均基于现实中社交媒体的使用情形对第二段3句“friended”or“followed”主观腾断,得 出\"避免激怒读者或失去粉丝”或是“提升自己的受欢迎度”,均不符合文意。"
+        },
+        {
+          "number": 48,
+          "stem": "What are humans inclined to do according to the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Exaggerate their life’s accomplishments."
+            },
+            {
+              "key": "B",
+              "text": "Strive for perfection regardless of the cost."
+            },
+            {
+              "key": "C",
+              "text": "Paint a rosy picture of other people’s lives."
+            },
+            {
+              "key": "D",
+              "text": "Learn lessons from other people’s downfalls."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]第四段3句指出我们人类(we与上句humans同指)倾向于把别人的生活理想化,并把自己的失 败与他们最大的成就相比较。C正确。 [排除干扰]A、D将第四段3句信息“把自己的失败与别人的最大成就相比较”分别曲解为“大自己的人生 成就”\"吸取别人的失败教训”。B曲解第五段1句theunhealthyquestforPerfection,该信息强调社交媒体对 人们的不良影响(导致人们病态般地追求完关),而非题目所问的人类的本能倾向。"
+        },
+        {
+          "number": 49,
+          "stem": "What is the author’s view of pictures and posts on social media?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They should record the memorable moments in people’s lives."
+            },
+            {
+              "key": "B",
+              "text": "They should be carefully edited so as to present the best image."
+            },
+            {
+              "key": "C",
+              "text": "They should be shown in a way that meets one’s security needs."
+            },
+            {
+              "key": "D",
+              "text": "They should keep people from the unhealthy quest for perfection."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案第五段末句指出,(社交媒体上的)图片和帖子应该是人们生活中珍责时刻和快乐时光的副产品, 言外之意为,人们发布图片和帖子的目的应该是纪念生活中的难忘时刻,故A正确。 [排除干扰]B曲解第五段末句的取舍句式(shouldbe...not...),将作者不赞同的做法(not之后的内容)当作 作者认同的做法。C将作者讽刺的现象“通过图片和帖子刻意营造美好形象来填补缺失的安全感”曲解为作者 的建议“以满足自己安全感需求的方式展示图片和帖子”。D利用第五段1句theunhealthyquestfor perfection设置干扰犹,虽符合作者观点的大方向,但未涉及作者对\"图片和站子”的具体定位。"
+        },
+        {
+          "number": 50,
+          "stem": "What does the author advise people to do when they find their online experience unconstructive?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Use social media to increase their ability to connect with various types of people."
+            },
+            {
+              "key": "B",
+              "text": "Stay connected to those whom they may not otherwise get to know and befriend."
+            },
+            {
+              "key": "C",
+              "text": "Try to prevent negative thoughts and feelings from getting into the online pages."
+            },
+            {
+              "key": "D",
+              "text": "Strengthen ties with real-life friends instead of caring about their online image."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]末段末句指出,若社交媒体让你产生消极想法和情绪(即用户体验缺乏建设性/积极意义),不坊 多与好友面对面交流,尽量减少使用社交媒体的时间,最终你会明白现实中的社交网络比社交媒体更有意义;且 由上文可知社交媒体会诱发病态完关主义,让用户过度在意自已的网络形象。综合可知,D符合作者的建议。 [排除干扰]A、B分别来自末段1句和2向,但这是社交媒体的正面作用(既定事实),并非题干所问(当网络 体验缺乏建设性时,作者建议怎么做)。C曲解末段3句的取舍结构,原文指出“社交媒体应带来快乐体验,而 非让人产生负面想法和情绪”,并非建议“别把负面想法和情绪带到社交媒体中”。 ·"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2020-12-3-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Imagine that an alien species landed on Earth and, through their mere presence, those aliens caused our art to vanish, our music to homogenize, and our technological know-how to disappear. That is effectively what humans have been doing to our closest relatives — chimps (大猩猩). Back in 1999, a team of scientists led by Andrew Whiten showed that chimps from different parts of Africa behave very differently from one another. Some groups would get each other’s attention by rapping branches with their knuckles (指关节),while others did it by loudly ripping leaves with their teeth. The team identified 39 of these traditions that are practiced by some communities but not others — a pattern that, at the time, hadn’t been seen in any animal except humans. It was evidence, the team said, that chimps have their own cultures. It took a long time to convince skeptics that such cultures exist, but now we have plenty of examples of animals learning local traditions from one another. But just when many scientists have come to accept the existence of animal cultures, many of those cultures might vanish. Ammie Kalan and her colleagues have shown, through years of intensive fieldwork, that the very presence of humans has eroded the diversity of chimp behavior. Where we flourish, their cultures wither. It is a bitterly ironic thing to learn on the 20th anniversary of Whiten’s classic study. “ It’s amazing to think that just 60 years ago, we knew next to nothing of the behavior of our sister species in the wild,” Whiten says. “ But now, just as we are truly getting to know our primate(灵长类)cousins, the actions of humans are closing the window on all we have discovered.” “ Sometimes in the rush to conserve the species, I think we forget about the individuals,” says Cat Hobaiter, a professor at the University of St. Andrews. “ Each population, each community, even each generation of chimps is unique. An event might only have a small impact on the total population of chimps, but it may wipe out an entire community — an entire culture. No matter what we do to restore habitat or support population growth, we may never be able to restore that culture.” No one knows whether the destruction of chimp culture is getting worse. Few places have tracked chimp behavior over long periods, and those that have are also more likely to have protected their animals from human influence. Obviously, conservationists need to think about saving species in a completely new way—by preserving animal traditions as well as bodies and genes. “ Instead of focusing only on the conservation of genetically based entities like species, we now need to also consider culturally based entities,” says Andrew Whiten."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the author say we humans have been doing to chimps?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Ruining their culture."
+            },
+            {
+              "key": "B",
+              "text": "Accelerating their extinction."
+            },
+            {
+              "key": "C",
+              "text": "Treating them as alien species."
+            },
+            {
+              "key": "D",
+              "text": "Homogenizing their living habits."
+            }
+          ],
+          "answer": "A",
+          "explanation": "作者说我们人类一直以来在对大猩做什么? A)摧毁它们的文化。 C)将它们视作外星物种。 B)加速它们的灭绝。 D)使它们的生活习惯趋于雷同。 「锁定答案]首段1向虚设情境“某外星物种登陆地球,凭一己之力将人类文明變灭”,2句回归现实,指出“这 正是人类一直以来对大猩猩所做之事\",意即“人类一直都在摧變大强猩的文化”,A正确。 [排除干扰]B将“推毁物种文化(艺术、音乐等)”偷换为“推动物种灭绝”。C复现1句alien Species,但混清虚 拟情境和现实情况,文章实际旨在以类比手法说明“外星物种对人类的所作所为”即“人类对大猩强的所作所 为”。D复现1句homogenize,但将被同质化的事物由“音乐(代指文化活动)”偷换为“生活习惯”。"
+        },
+        {
+          "number": 52,
+          "stem": "What is the finding of Andrew Whiten’s team?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Chimps demonstrate highly developed skills of communication."
+            },
+            {
+              "key": "B",
+              "text": "Chimps rely heavily upon their body language to communicate."
+            },
+            {
+              "key": "C",
+              "text": "Chimps behave in ways quite similar to those of human beings."
+            },
+            {
+              "key": "D",
+              "text": "Different chimp groups differ in their way of communication."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]第二段1句总述团队发现“非洲不同地区的大猩猩行为大不相同”,2句举例详释“群体间引起对 方注意的方式完全不同”,3句进一步指出“研究发现的这种“一些社群遵从奉行,其他社群则不然的行为传 统已达39种”。可见,不同大强猩群体的交流方式截然不同,D正确。 [排除干扰]A中skillsof communication体现于2句“大强狸引起对方注意的方式(byrapping...byloudly ripping...)”,但文中并未体现“其交流技能高度发达”。B中theirbodylanguagetocommunicate体现于2句 withtheirknuckles、withtheirteeth,但文中并未强调它们对肢体语言的高度依赖。C源自34句体现的“大 猩猩”与“人类”的相似性:但相似的是“二者都有文化/社群间传统过异的生存模式”,并非“二者的行为方式”。"
+        },
+        {
+          "number": 53,
+          "stem": "What did Ammie Kalan and her colleagues find through their intensive fieldwork?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Whiten’s classic study has little impact on the diversity of chimp behavior."
+            },
+            {
+              "key": "B",
+              "text": "Chimp behavior becomes less varied with the increase of human activity."
+            },
+            {
+              "key": "C",
+              "text": "Chimps alter their culture to quickly adapt to the changed environment."
+            },
+            {
+              "key": "D",
+              "text": "It might already be too late to prevent animal cultures from extinction."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]第四段1句指出“多种动物文化可能消失不见”,23句介绍艾米·卡兰团队的实地考察发现“正是 人类的存在破坏了大猩猩行为的多样性,人类的发展繁荣之地恰是大猩猩文化的凋零之处”,综合可知B正确。 [排除干扰]A利用第段段末Whiten'sclassicstudy捏造干扰,文章实则强调“Whiten的经典研究旨在提醒 人们关注大猩猩的文化,但正值其发表20周年之际,我们却发现人类一直在破坏其文化”。C与第四段3句 发现\"人类的发展繁荣之地恰是大猩猩文化的调零之所(wither)\"相悸。D对第四段末句Itis a bitterly ironic thing断章取义,与末段作者建议\"环境保护主义者需要保全动物的传统(阻止动物文化消亡)\"相违背。"
+        },
+        {
+          "number": 54,
+          "stem": "What does Cat Hobaiter think we should do for chimp conservation?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Try to understand our sister species’ behavior in the wild."
+            },
+            {
+              "key": "B",
+              "text": "Make efforts to preserve each individual chimp community."
+            },
+            {
+              "key": "C",
+              "text": "Study the unique characteristics of each generation of chimps."
+            },
+            {
+              "key": "D",
+              "text": "Endeavor to restore chimp habitats to expand its total population."
+            }
+          ],
+          "answer": "B",
+          "explanation": "卡特·赫伯特认为我们应如何保护大猩猩? A)试着理解我们的娣妹物种在野外的行为。 C)研究每一代大猩猩的独特特点。 B)努力保全每个独立的大猩猩社群。 D)努力恢复大猩猩栖息地以扩大整个种群。 工锁定答案」第六段均为赫伯特观点,1句指出“人类急于保护整个物种,却急略了大猩猩个体”,2向强调“大 猩猩的每个社群都独一无二”,34句补充指出“某事件可能对大猩猩整个种群影响极小,却可能彻底推毁整 个社群及整个文化,且社群文化一旦消失则极难复原”,可推知,赫伯特认为应努力保全每个大猩猩社群,B正确。 [排除干扰」A由第五段1句weknewnexttonothing...inthewild反推而来,错误有二l.张冠李戴,第五段 为安德鲁·怀膝观点;2.偷换时间,该向说的是60年前的情形,而不是当今状况。C由第六段2句的客观描述 “大猩猩的每一代都独一无二”过度推断出赫伯特的观点“我们要努力研究每一代大猩的独特特征”。D将 第六段4向句前半部分所述的不当做法“只努力恢复栖息地,促进种群增长”当作赫伯特认为的务力方向。"
+        },
+        {
+          "number": 55,
+          "stem": "What does the author suggest conservationists do?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Focus entirely on culturally-based entities rather than genetically-based ones."
+            },
+            {
+              "key": "B",
+              "text": "Place more stress on animal traditions than on their physical conservation."
+            },
+            {
+              "key": "C",
+              "text": "Conserve animal species in a novel and all-round way."
+            },
+            {
+              "key": "D",
+              "text": "Explore the cultures of species before they vanish."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]第八段首句作者提出建议“环境保护主义者需要考虑用一种全新的方式来拯教物种———既保护 动物的驱体和基因,也保全它们的传统”,C正确。 [排除干扰]A将2句的并重关系“既要保护基固实体,又要保护文化实体”改为取含关系“保护文化实体而非 基固实体”。B将1向的并重关系“既要保护驱体和基固,又要保护动物传统\"改为主次关系“相比于保护动物 驱体,更重视动物传统”。D对文中信息“研究人员对动物文化了解尚少”和“人类正在推毁动物文化”强加关联。 ·"
+        }
+      ]
+    }
+  ]
+}

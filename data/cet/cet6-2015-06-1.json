@@ -1,0 +1,1607 @@
+{
+  "id": "cet6-2015-06-1",
+  "level": 6,
+  "year": 2015,
+  "month": 6,
+  "set": 1,
+  "title": "2015 年 6 月六级 · 第 1 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.06/%E7%9C%9F%E9%A2%98PDF/2015%E5%B9%B406%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC1%E5%A5%97%EF%BC%89.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2015.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2015.06%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC1%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2015-06-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Innovation, the elixir (灵丹妙药) of progress, has always cost people their jobs. In the Industrial Revolution hand weavers were [[26]] aside by the mechanical loom. Over the past 30 years the digital revolution has [[27]] many of the mid-skill jobs that supported 20th-century middle-class life. Typists, ticket agents, bank tellers and many production-line jobs have been dispensed with, just as the weavers were. For those who believe that technological progress has made the world a better place, such disruption is a natural part of rising [[28]] . Although innovation kills some jobs, it creates new and better ones, as a more [[29]] society becomes richer and its wealthier inhabitants demand more goods and services. A hundred years ago one in three American workers was [[30]]on a farm. Today less than 2% of them produce far more food. The millions freed from the land were not rendered [[31]] , but found better-paid work as the economy grew more sophisticated. Today the pool of secretaries has [[32]] , but there are ever more computer programmers and web designers. Optimism remains the right starting-point, but for workers the dislocating effects of technology may make themselves evident faster than its [[33]] Even if new jobs and wonderful products emerge, in the short term income gaps will widen, causing huge social dislocation and perhaps even changing politics. Technology's [[34]] will feel like a tornado (旋风),hitting the rich world first, but [[35]] sweeping through poorer countries too. No government is prepared for it."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "benefits"
+        },
+        {
+          "key": "B",
+          "text": "displaced"
+        },
+        {
+          "key": "C",
+          "text": "employed"
+        },
+        {
+          "key": "D",
+          "text": "eventually"
+        },
+        {
+          "key": "E",
+          "text": "impact"
+        },
+        {
+          "key": "F",
+          "text": "jobless"
+        },
+        {
+          "key": "G",
+          "text": "primarily"
+        },
+        {
+          "key": "H",
+          "text": "productive"
+        },
+        {
+          "key": "I",
+          "text": "prosperity"
+        },
+        {
+          "key": "J",
+          "text": "responsive"
+        },
+        {
+          "key": "K",
+          "text": "rhythm"
+        },
+        {
+          "key": "L",
+          "text": "sentiments"
+        },
+        {
+          "key": "M",
+          "text": "shrunk"
+        },
+        {
+          "key": "N",
+          "text": "swept"
+        },
+        {
+          "key": "O",
+          "text": "withdrawn"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "benefits"
+            },
+            {
+              "key": "B",
+              "text": "displaced"
+            },
+            {
+              "key": "C",
+              "text": "employed"
+            },
+            {
+              "key": "D",
+              "text": "eventually"
+            },
+            {
+              "key": "E",
+              "text": "impact"
+            },
+            {
+              "key": "F",
+              "text": "jobless"
+            },
+            {
+              "key": "G",
+              "text": "primarily"
+            },
+            {
+              "key": "H",
+              "text": "productive"
+            },
+            {
+              "key": "I",
+              "text": "prosperity"
+            },
+            {
+              "key": "J",
+              "text": "responsive"
+            },
+            {
+              "key": "K",
+              "text": "rhythm"
+            },
+            {
+              "key": "L",
+              "text": "sentiments"
+            },
+            {
+              "key": "M",
+              "text": "shrunk"
+            },
+            {
+              "key": "N",
+              "text": "swept"
+            },
+            {
+              "key": "O",
+              "text": "withdrawn"
+            }
+          ],
+          "answer": "N",
+          "explanation": "N)swept 语法判断:空格前为handweaverswere,空格后为asidebythemechanicalloom,通过分析句子结构可 知,此处为被动语态,空格处应填入过去分词。符合语法条件的过去分调选项有displaced(使...离开 原位;取代)、employed(雇用)、shrunk(缩减,缩水)、swept(扫;清除)和withdrawn(撤退;撤回)。 语义判断:文章首句提到,革新这剂带来进步的灵丹妙药总是以人们失去工作为代价,可见空格所在 句以举例的方式进一步解释革新给就业岗位带来的影响,所以此处意思是,在工业革命时期,手工织 布工被纺织机\"横扫\"出门,将符合语法条件的备选项代入文中可知swept符合语境,sweepaside为固 定搭配,意为“将.移到一边;对..·置之不理”,在此指手工织布工被织布机所取代。故本题选N。 注意displace虽可以表示\"取代”,但无法与aside搭配,所以此处不可选。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "benefits"
+            },
+            {
+              "key": "B",
+              "text": "displaced"
+            },
+            {
+              "key": "C",
+              "text": "employed"
+            },
+            {
+              "key": "D",
+              "text": "eventually"
+            },
+            {
+              "key": "E",
+              "text": "impact"
+            },
+            {
+              "key": "F",
+              "text": "jobless"
+            },
+            {
+              "key": "G",
+              "text": "primarily"
+            },
+            {
+              "key": "H",
+              "text": "productive"
+            },
+            {
+              "key": "I",
+              "text": "prosperity"
+            },
+            {
+              "key": "J",
+              "text": "responsive"
+            },
+            {
+              "key": "K",
+              "text": "rhythm"
+            },
+            {
+              "key": "L",
+              "text": "sentiments"
+            },
+            {
+              "key": "M",
+              "text": "shrunk"
+            },
+            {
+              "key": "N",
+              "text": "swept"
+            },
+            {
+              "key": "O",
+              "text": "withdrawn"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B) displaced 语法判断:空格前为thedigitalrevolutionhas,空格后为manyofthemid-skill jobs,再联系句首的完成时 时间状语overthepast30years可知,空格处应填入一个过去分词,与has一起构成现在完成时。符合语 法条件的过去分词选项还有displaced、employed、shrunk和withdrawn。 语义判断:由上一题的分析可知,前面举了工业革命的例子说明技术革新对就业岗位的影响,而由本 句中的thedigitalrevolution(数字革命)可知,此处仍为举例,指出数字革命对就业岗位的影响,句子意 思应为,在过去的30年中,数字革命已经使许多中等技能的就业岗位“不复存在”,将符合语法条件的 剩余备选过去分词代入原文可知displaced(取代;使.离开原位)符合语境。故本题选B。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "benefits"
+            },
+            {
+              "key": "B",
+              "text": "displaced"
+            },
+            {
+              "key": "C",
+              "text": "employed"
+            },
+            {
+              "key": "D",
+              "text": "eventually"
+            },
+            {
+              "key": "E",
+              "text": "impact"
+            },
+            {
+              "key": "F",
+              "text": "jobless"
+            },
+            {
+              "key": "G",
+              "text": "primarily"
+            },
+            {
+              "key": "H",
+              "text": "productive"
+            },
+            {
+              "key": "I",
+              "text": "prosperity"
+            },
+            {
+              "key": "J",
+              "text": "responsive"
+            },
+            {
+              "key": "K",
+              "text": "rhythm"
+            },
+            {
+              "key": "L",
+              "text": "sentiments"
+            },
+            {
+              "key": "M",
+              "text": "shrunk"
+            },
+            {
+              "key": "N",
+              "text": "swept"
+            },
+            {
+              "key": "O",
+              "text": "withdrawn"
+            }
+          ],
+          "answer": "I",
+          "explanation": "I) prosperity 语法判断:空格前为anaturalpartof rising,空格后为句点,由此可知,空格处应填入名调,被形容词 rising修饰,充当介调of的宾语。符合语法条件的备选名词有benefits(益处,好处)、impact(影响)、 prosperity(繁荣)、thythm(节奏)和sentiments(情绪;伤感)。 语义判断:由前半句For those who believe that technological progress has made the world a better place(对 于那些认为技术进步已使世界变得更加美好的人来说)可知,此处是说技术进步的有利之处,因此后 半句的意思应为,这类破坏是经济不断“繁荣”的过程中一个自然而然的部分,将符合语法条件的备选 名词代入原文,可知prosperity符合题意,故本题选I。 ·2015年6月六级真题(第一套)·"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "benefits"
+            },
+            {
+              "key": "B",
+              "text": "displaced"
+            },
+            {
+              "key": "C",
+              "text": "employed"
+            },
+            {
+              "key": "D",
+              "text": "eventually"
+            },
+            {
+              "key": "E",
+              "text": "impact"
+            },
+            {
+              "key": "F",
+              "text": "jobless"
+            },
+            {
+              "key": "G",
+              "text": "primarily"
+            },
+            {
+              "key": "H",
+              "text": "productive"
+            },
+            {
+              "key": "I",
+              "text": "prosperity"
+            },
+            {
+              "key": "J",
+              "text": "responsive"
+            },
+            {
+              "key": "K",
+              "text": "rhythm"
+            },
+            {
+              "key": "L",
+              "text": "sentiments"
+            },
+            {
+              "key": "M",
+              "text": "shrunk"
+            },
+            {
+              "key": "N",
+              "text": "swept"
+            },
+            {
+              "key": "O",
+              "text": "withdrawn"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H)productive 语法判断:空格前为amore,空格后为society,由此可知,空格处应填入一个多音节形容词,与前面的 more一起构成形容词的比较级,修饰society。符合语法条件的多音节形容词有jobless无业的;失业 的)、productive(生产力高的;富有成效的)、responsive(回答的,应答的;敏感的)和withdrawn(沉默赛 言的)。 语义判断:结合上一题的分析可知,本段介绍的是技术革新好的一面,故本句意思应为,尽管革新会 使一些工作消失,但是随着“生产力提高”,社会变得更加富裕,居民财富增多并要求获得更多的商品 及服务,它也会创造新的工作机会和更好的工作岗位。符合语法条件的备选形容词中productive(生产 力高的)符合此处语境,故为答案。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "benefits"
+            },
+            {
+              "key": "B",
+              "text": "displaced"
+            },
+            {
+              "key": "C",
+              "text": "employed"
+            },
+            {
+              "key": "D",
+              "text": "eventually"
+            },
+            {
+              "key": "E",
+              "text": "impact"
+            },
+            {
+              "key": "F",
+              "text": "jobless"
+            },
+            {
+              "key": "G",
+              "text": "primarily"
+            },
+            {
+              "key": "H",
+              "text": "productive"
+            },
+            {
+              "key": "I",
+              "text": "prosperity"
+            },
+            {
+              "key": "J",
+              "text": "responsive"
+            },
+            {
+              "key": "K",
+              "text": "rhythm"
+            },
+            {
+              "key": "L",
+              "text": "sentiments"
+            },
+            {
+              "key": "M",
+              "text": "shrunk"
+            },
+            {
+              "key": "N",
+              "text": "swept"
+            },
+            {
+              "key": "O",
+              "text": "withdrawn"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C) employed 语法判断:空格前为oneinthreeAmericanworkerswas,空格后为onafarm,可判断此处为被动语态, 空格处应填入一个过去分词。符合语法条件的过去分词选项还有employed、shrunk和withdrawn。 语义判断:由本句中的时间状语a hundred years ago和下一句的时间状语today可知,此处是今昔对 比,结合句子其他部分可知,此处是说,一百年前,三分之一的美国劳动力“受雇于\"农场,剩余备选过 去分词中employed符合题意,故为答案。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "benefits"
+            },
+            {
+              "key": "B",
+              "text": "displaced"
+            },
+            {
+              "key": "C",
+              "text": "employed"
+            },
+            {
+              "key": "D",
+              "text": "eventually"
+            },
+            {
+              "key": "E",
+              "text": "impact"
+            },
+            {
+              "key": "F",
+              "text": "jobless"
+            },
+            {
+              "key": "G",
+              "text": "primarily"
+            },
+            {
+              "key": "H",
+              "text": "productive"
+            },
+            {
+              "key": "I",
+              "text": "prosperity"
+            },
+            {
+              "key": "J",
+              "text": "responsive"
+            },
+            {
+              "key": "K",
+              "text": "rhythm"
+            },
+            {
+              "key": "L",
+              "text": "sentiments"
+            },
+            {
+              "key": "M",
+              "text": "shrunk"
+            },
+            {
+              "key": "N",
+              "text": "swept"
+            },
+            {
+              "key": "O",
+              "text": "withdrawn"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F)jobless 语法判断:空格前为werenotrendered,空格后为号,由后面的but可知,空格所在部分与后半句为 转折关系的并列句,其中freed fromtheland应为过去分词短语作后置定语,修饰themillions,而were notrendered是句子的谓语部分,由render(使..处于某种状态)一词的固定结构rendersb./sth.+adj.可 知,空格处应填入一个形容词。符合语法条件的形容词备选项有jobless、responsive和withdrawn。 语义判断:由but引出的转折句butfoundbetter-paidworkastheeconomygrewmoresophisticated(而是 随着经济发展的不断成熟找到了收入更为丰厚的工作)可知,空格所在的并列分句意思是,从农田中 解放出来的数以百万计的劳动力并没有因此而处于“无业”状态,备选形容词中jobless符合题意,故为 答案。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "benefits"
+            },
+            {
+              "key": "B",
+              "text": "displaced"
+            },
+            {
+              "key": "C",
+              "text": "employed"
+            },
+            {
+              "key": "D",
+              "text": "eventually"
+            },
+            {
+              "key": "E",
+              "text": "impact"
+            },
+            {
+              "key": "F",
+              "text": "jobless"
+            },
+            {
+              "key": "G",
+              "text": "primarily"
+            },
+            {
+              "key": "H",
+              "text": "productive"
+            },
+            {
+              "key": "I",
+              "text": "prosperity"
+            },
+            {
+              "key": "J",
+              "text": "responsive"
+            },
+            {
+              "key": "K",
+              "text": "rhythm"
+            },
+            {
+              "key": "L",
+              "text": "sentiments"
+            },
+            {
+              "key": "M",
+              "text": "shrunk"
+            },
+            {
+              "key": "N",
+              "text": "swept"
+            },
+            {
+              "key": "O",
+              "text": "withdrawn"
+            }
+          ],
+          "answer": "M",
+          "explanation": "M) shrunk 语法判断:空格前为thepoolofsecretarieshas,空格后为返号,后面跟着but引出的转折关系的并列分 句,从语法上分析,has可能是动词,意为“有”,还可能是现在完成时的助动词,所以空格处应填入名 词或过去分词。符合语法条件的剩余名调选项有benefits、impact、rhythm和sentiments,剩余过去分词 选项还有shrunk和withdrawn。 语义判断:由空格后的并列分句butthereareevermorecomputerprogrammersandwebdesigners(但是计 算机程序员和网页设计师却越来越多了)可知,空格所在的分句是说从事secretaries(秘书)这种职业的 人“越来越少”,与后面的\"越来越多(evermore)”形成对比,符合语法条件的名词选项的含义均与上下 文不符,故排除,过去分词withdrawn\"撤退,撤回\"也不恰当,只有shrunk(缩减,缩水)符合语境,故本 题选M。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "benefits"
+            },
+            {
+              "key": "B",
+              "text": "displaced"
+            },
+            {
+              "key": "C",
+              "text": "employed"
+            },
+            {
+              "key": "D",
+              "text": "eventually"
+            },
+            {
+              "key": "E",
+              "text": "impact"
+            },
+            {
+              "key": "F",
+              "text": "jobless"
+            },
+            {
+              "key": "G",
+              "text": "primarily"
+            },
+            {
+              "key": "H",
+              "text": "productive"
+            },
+            {
+              "key": "I",
+              "text": "prosperity"
+            },
+            {
+              "key": "J",
+              "text": "responsive"
+            },
+            {
+              "key": "K",
+              "text": "rhythm"
+            },
+            {
+              "key": "L",
+              "text": "sentiments"
+            },
+            {
+              "key": "M",
+              "text": "shrunk"
+            },
+            {
+              "key": "N",
+              "text": "swept"
+            },
+            {
+              "key": "O",
+              "text": "withdrawn"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)benefits 语法判断:空格前为thanits,空格后为句点,由此可知,空格处应填入一个名词。符合语法条件的名词 备选项还有benefits、impact、rhythm和sentiments。 语义判断:本段开头提到Optimismremainstherightstarting-point(这种乐观主义情绪方兴未艾),后面 是but引出的转折分句,结合上一段的内容可知,本段讲述技术进步给人们带来的不良影响。由本句中 的makethemselvesevidentfasterthan可知,此处是说,技术革新所造成的混乱效应显现的速度可能比 它所带来的“益处\"展露出来的速度要快,符合此处语义的名词选项是benefits。本题应选A。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "benefits"
+            },
+            {
+              "key": "B",
+              "text": "displaced"
+            },
+            {
+              "key": "C",
+              "text": "employed"
+            },
+            {
+              "key": "D",
+              "text": "eventually"
+            },
+            {
+              "key": "E",
+              "text": "impact"
+            },
+            {
+              "key": "F",
+              "text": "jobless"
+            },
+            {
+              "key": "G",
+              "text": "primarily"
+            },
+            {
+              "key": "H",
+              "text": "productive"
+            },
+            {
+              "key": "I",
+              "text": "prosperity"
+            },
+            {
+              "key": "J",
+              "text": "responsive"
+            },
+            {
+              "key": "K",
+              "text": "rhythm"
+            },
+            {
+              "key": "L",
+              "text": "sentiments"
+            },
+            {
+              "key": "M",
+              "text": "shrunk"
+            },
+            {
+              "key": "N",
+              "text": "swept"
+            },
+            {
+              "key": "O",
+              "text": "withdrawn"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E)impact 语法判断:空格前是technology\"s,空格后是wllfeel likea tomado,由此可知空格处应填入一个名词, 作句子的主语,并被名词所有格technology's所修饰。符合语法条件的剩余名词选项还有impact、 rhythm 和 sentiments。 语义判断:由上一题的分析可知,本段主要讲述技术革新给人们带来的不良影响,而空格所在句的前 一句提到,即使新的就业机会和好的产品涌现出来,从短期来看,收入差距将会加大,从而引起巨大 的社会混乱,甚至可能使政治形势发生变化,可见这是对于这种不良影响的具体阐述。由此可知,空格 所在句应是对不良影响的总结和概括,故备选名词中impact符合语境,答案应选E。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "benefits"
+            },
+            {
+              "key": "B",
+              "text": "displaced"
+            },
+            {
+              "key": "C",
+              "text": "employed"
+            },
+            {
+              "key": "D",
+              "text": "eventually"
+            },
+            {
+              "key": "E",
+              "text": "impact"
+            },
+            {
+              "key": "F",
+              "text": "jobless"
+            },
+            {
+              "key": "G",
+              "text": "primarily"
+            },
+            {
+              "key": "H",
+              "text": "productive"
+            },
+            {
+              "key": "I",
+              "text": "prosperity"
+            },
+            {
+              "key": "J",
+              "text": "responsive"
+            },
+            {
+              "key": "K",
+              "text": "rhythm"
+            },
+            {
+              "key": "L",
+              "text": "sentiments"
+            },
+            {
+              "key": "M",
+              "text": "shrunk"
+            },
+            {
+              "key": "N",
+              "text": "swept"
+            },
+            {
+              "key": "O",
+              "text": "withdrawn"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D) eventually 语法判断:空格前是but,空格后是sweepingthroughpoorercountriestoo,由but及too可知,hitting...和 sweepingthrough..是并列结构,作伴随状语,空格处应填入一个副词,修饰现在分词短语sweeping throughpoorercountriestoo,符合语法条件的备选副词有eventually(最终,终于)和primarily(首先,首 要地;主要地)。 ·2015年6月六级真题(第一套)· 语义判断:结合上一题的分析,由空格前面的hittingtherichworld first(率先侵袭富裕国家)可知,but 后面的部分与前面的first有先后关系,显然,将primarily填入空格处不符合此处语境,应排除。结合下 文Nogovermmentispreparedforit.(没有哪一个政府能够为此做好准备),将eventually(最终)代入文 中,此处句意“但最终也会席卷较为贫困的国家\"符合上下文语境,故本题选D。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2015-06-1-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Have you ever fallen for a novel and been amazed not to find it on lists of great books? Or walked around a sculpture renowned as a classic, struggling to see what the fuss is about? If so, you’ve probably pondered the question a psychologist, James Cutting, asked himself: How does a work of art come to be considered great?",
+        "B) The intuitive answer is that some works of art are just great: as intrinsically superior quality. The paintings that win prime spots in galleries, get taught in classes and reproduced in books are the ones that have proved their artistic value over time. If you can’t see they’re superior, that’s your problem. It’s an intimidatingly neat explanation. But some social scientists have been asking awkward questions of it, raising the possibility that artistic canons (名作目录) are little more than fossilised historical accidents.",
+        "C) Cutting, a professor at Cornell University, wondered if a psychological mechanism known as the “mere-exposure effect” played a role in deciding which paintings rise to the top of the cultural league. Cutting designed an experiment to test his hunch (直觉). Over a lecture course he regularly showed undergraduates works of impressionism for two sessions at a time. Some of the paintings were canonical, included in art-history books. Others were lesser known but of comparable quality. These were exposed four times as often. Afterwards, the students preferred them to the canonical works, while a control group of students liked the canonical ones best. Cutting’s students had grown to like those paintings more simply because they had seen them more.",
+        "D) Cutting believes his experiment offers a clue as to how canons are formed. He points out that the most reproduced works of impressionism today tend to have been bought by five or six wealthy and influential collectors in the late 19th century. The preferences of these men bestowed (给予) prestige on certain works, which made the works more likely to be hung in galleries and printed in collections. The fame passed down the years, gaining momentum from mere exposure as it did so. The more people were exposed to, the more they liked it, and the more they liked it, the more it appeared in books, on posters and in big exhibitions. Meanwhile, academics and critics created sophisticated justifications for its preeminence (卓越). After all, it’s not just the masses who tend to rate what they see more often more highly. As contemporary artists like Warhol and Damien Hirst have grasped, critics’ praise is deeply entwined (交织) with publicity, “Scholars”, Cutting argues, “are no different from the public in the effects of mere exposure.”",
+        "E) The process described by Cutting evokes a principle that the sociologist Duncan Watts calls “cumulative advantage”: once a thing becomes popular, it will tend to become more popular still. A few years ago, Watts, who is employed by Microsoft to study the dynamics of social networks, had a similar experience to Cutting in another Paris museum. After queuing to see the “Mona Lisa” in its climate-controlled bulletproof box at the Louvre, he came away puzzled: why was it considered so superior to the three other Leonardos in the previous chamber, to which nobody seemed to be paying the slightest attention?",
+        "F) When Watts looked into the history of “the greatest painting of all time”, he discovered that, for most of its life, the “Mona Lisa” remained in relative obscurity. In the 1850s, Leonardo da Vinci was considered no match for giants of Renaissance art like Titian and Raphael, whose works were worth almost ten times as much as the “Mona Lisa”. It was only in the 20th century that Leonardo’s portrait of his patron’s wife rocketed to the number-one spot. What propelled it there wasn’t a scholarly re-evaluation, but a theft.",
+        "G) In 1911 a maintenance worker at the Louvre walked out of the museum with the “Mona Lisa” hidden under his smock (工作服). Parisians were shocked at the theft of a painting to which, until then, they had paid little attention. When the museum reopened, people queued to see the gap where the “Mona Lisa” had once hung in a way they had never done for the painting itself. From then on, the “Mona Lisa” came to represent Western culture itself.",
+        "H) Although many have tried, it does seem improbable that the painting's unique status can be attributed entirely to the quality of its brushstrokes. It has been said that the subject's eyes follow the viewer around the room. But as the painting's biographer, Donald Sassoon, dryly notes, “In reality the effect can be obtained from any portrait.” Duncan Watts proposes that the “Mona Lisa” is merely an extreme example of a general rule. Paintings, poems and pop songs are buoyed (使浮起) or sunk by random events or preferences that turn into waves of influence, passing down the generations.",
+        "I) “Saying that cultural objects have value,” Brian Eno once wrote, “is like saying that telephones have conversations.” Nearly all the cultural objects we consume arrive wrapped in inherited opinion; our preferences are always, to some extent, someone else's. Visitors to the “Mona Lisa” know they are about to visit the greatest work of art ever and come away appropriately impressed—or let down. An audience at a performance of “Hamlet” know it is regarded as a work of genius, so that they mostly see. Watts even calls the preeminence of Shakespeare a “historical accident”.",
+        "J) Although the rigid high-low distinction fell apart in the 1960s, we still use culture as a badge of identity. Today's fashion for eclecticism (折衷主义)—“I love Bach, Abba and Jay Z” — is, Shamus Khan, a Columbia University psychologist, argues, a new way for the middle class to distinguish themselves from what they perceive to be the narrow tastes of those beneath them in the social hierarchy.",
+        "K) The intrinsic quality of a work of art is starting to seem like its least important attribute. But perhaps it's more significant than our social scientists allow. First of all, a work needs a certain quality to be eligible to be swept to the top of the pile. The “Mona Lisa” may not be a worthy world champion, but it was in the Louvre in the first place, and not by accident. Secondly, some stuff is simply better than other stuff. Read “Hamlet” after reading even the greatest of Shakespeare's contemporaries, and the difference may strike you as unarguable.",
+        "L) A study in the British Journal of Aesthetics suggests that the exposure effect doesn't work the same way on everything, and points to a different conclusion about how canons are formed. The social scientists are right to say that we should be a little skeptical of greatness, and that we should always look in the next room. Great art and mediocrity (平庸) can get confused, even by experts. But that's why we need to see, and read, as much as we can. The more we're exposed to the good and the bad, the better we are at telling the difference. The eclecticians have it."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "According to Duncan Watts, the superiority of the “Mona Lisa” to Leonardo's other works resulted from the cumulative advantage.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E 解析:注意抓住题干中的关键调DuncanWatts和cumulativeadvantage。文章段落中提到邓肯·沃茨和积 累优势的内容只出现在E段。该段首句提到,卡廷所描述的过程引出了一个原理,社会学家邓肯·沃茨 称之为“积累优势:一旦一件事物变得流行,它会趋向于变得更流行。接下来,该段提到沃茨在卢浮宫 排队参观《蒙娜·丽莎》时的围感:为什么《蒙娜·丽莎》被认为优于前面展览室里莱昂纳多的其他三幅画 作呢?那三幅画作似乎根本没有人关注。由此可知,沃茨认为,《蒙娜·丽莎》之所以优于菜昂纳多的其 他作品是由于积累优势。在下面的段落中,这一说法也得以证实。因此,题干是对原文的同义概括,其 中cumulativeadvantage是原词重现。"
+        },
+        {
+          "number": 37,
+          "stem": "Some social scientists have raised doubts about the intrinsic value of certain works of art.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B 解析:注意抓住题千中的关键信息somesocial scientists和intrinsicvalueofcertainworksofart。文章段 术作品就是很棒:本质上就质量上乘。最后一句又提到,但是一些社会科学家一直在问一些懋尬的问 题,指出成为艺术名作可能仅仅是历史中难以改变的偶然事件,由此可知,一些社会科学家已经对某 些艺术作品的内在价值提出了质疑。故题干是对原文的同义概括。"
+        },
+        {
+          "number": 38,
+          "stem": "It is often random events or preferences that determine the fate of a piece of art.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H 解析:注意抓住题干中的关键词randomevents orpreferences。文章段落中提及决定一件艺术品命运的 因素的内容出现在H段。该段最后一句提到,画作、诗歌和流行歌曲的况浮源于一些偶然事件或个别 人的喜好,随后成为一种趋势世代相传。而前文也指出,《蒙娜·丽莎》不过是这种普遍规则的一个极端 案例。由此可知,题干是对原文的同义概括。randomevents orpreferences是原词重现。"
+        },
+        {
+          "number": 39,
+          "stem": "In his experiment, Cutting found that his subjects liked lesser known works better than canonical works because of more exposure.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C 解析:注意抓住题干中的关键词hisexperiment和Cutting。文章段落中论及心理学家卡廷的实验的是C 段。该段提到,卡廷教授为了弄清楚“曝光效应\"是否对决定哪些画作能骄身为文化界的俊夜者有影响, 特意设计了一个实验。实验结果是学生们更喜欢不太知名的画作,而对照实验组的学生最喜欢经典画 作。卡廷的学生变得喜欢不太知名的画作,仅仅是因为他们看这些画作的次数更多。由此可知,题干是 对原文的同义转述。题干中的becauseofmoreexposure对应原文中的becausetheyhad seenthemmore。"
+        },
+        {
+          "number": 40,
+          "stem": "The author thinks the greatness of an art work still lies in its intrinsic value.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K 解析:注意抓住题干中的关键词thegreatness ofanartwork和its intrinsicvalue。文章段落中论及作者本 人对于伟大的艺术作品的看法的内容出现在K段。该段首句提到,一件艺术作品的内在品质开始变成 似乎最不重要的特征,但是比起社会科学家们所承认的或许重要得多。作者接着指出两点:首先,一件 作品需要有某种品质使其有资格硚身顶尖行列。其次,一些作品就是比其他作品更出色。接着以《蒙娜· 丽莎》和《哈姆雷特》为例分别加以说明。由此可知,作者对于艺术作品的内在价值是很看重的。故题干 是对本段内容的概括。intrinsicvalue对应原文中的intrinsicquality。"
+        },
+        {
+          "number": 41,
+          "stem": "It is true of critics as well as ordinary people that the popularity of artistic works is closely associated with publicity.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D 解析:注意抓住题干中的关键词thepopularityofartisticworks iscloselyassociatedwithpublicity。文章段 落中论及艺术作品的流行程度和公众的关注度密切相关的内容出现在D段。该段最后一句提到,正如 一些当代艺术家所理解的那样,评论家们的赞扬和公众的关注是紧密交织在一起的。卡廷认为,“纯曝 光效应的影响对于学者和大众的作用并没有什么不同。”由此可知,题干是对原文的同义转述。题干中 的closelyassociated with对应原文中的deeply entwined with,题干中的it is true of critics as well as ordinary people 对应原文中的 Scholars are no different from the public。 ·2015年6月六级真题(第一套)·"
+        },
+        {
+          "number": 42,
+          "stem": "We need to expose ourselves to more art and literature in order to tell the superior from",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L 解析:注意抓住题千中的关键词exposeourselvestomoreartand literature和tell thesuperiorfromthe inferior。文章段落中提及我们需要接触更多的艺术和文学的内容出现在L段。该段末尾提到伟大的艺 术和平庸的艺术会混淆,甚至连专家都难以分辨。但这就是为什么我们需要尽可能地多看、多读。我们 接触好的和坏的事物越多,就越能分辨出其中的差别。由此可知,题干是对原文的同义转述。题干中的 tell the superior from the inferior 对应原文中的 telling the difference。"
+        },
+        {
+          "number": 43,
+          "stem": "A study of the history of the greatest paintings suggests even a great work of art could experience years of neglect.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F 解析:注意抓住题干中的关键词a studyofthehistoryofthegreatestpaintings。文章F段提及对伟大作品 的历史的研究。该段首句提到,当沃茨调查“有史以来最伟大的画作”的历史时,他发现,《蒙娜·丽莎》 在被创作完成后的绝大部分时间里是相对没有名气的。倒数第二句又提到,仅仅在20世纪,某昂纳多 为其资助人的委子画的画像才跃居为人们首要关注的作品。由此可知,即便是伟大的艺术作品,也有 可能遭遇被忽视很多年的情况。故题干是对原文的同义概括,其中thehistoryofthegreatestpaintings对 应原文中的 the history of“the greatest painting of all time\"。"
+        },
+        {
+          "number": 44,
+          "stem": "Culture is still used as a mark to distinguish one social class from another.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "J",
+          "explanation": "J 解析:注意抓住题干中的关键词culture和amarktodistinguishonesocialclassfromanother。文章段落中 论及文化作为区分社会阶层的标志的内容出现在J段。该段提到,尽管在20世纪60年代,严格的高低 品位的区分不复存在,我们仍然把文化当做身份的象征。接下来提到,心理学家沙莫斯·卡恩认为,如 今的“折表主义”潮流是中产阶级为了把自和他们认为低于他们社会阶层的狭品位区分开来的一 种新的方式。由此可知,题干是对原文的同义转述。题干中的amarktodistinguishone socialclassfrom another对应原文中的a badge of identity。"
+        },
+        {
+          "number": 45,
+          "stem": "Opinions about and preferences for cultural objects are often inheritable.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "I",
+          "explanation": "I 解析:注意抓住题干中的关键词opinionsaboutandpreferencesforculturalobjects和inheritable。文章段 落中论及对文物的观点和喜好的内容出现在I段。该段第二句提到,我们所消费的几乎所有文物都带 着继承的观点而至;在某种程度上,我们的喜好总是带有他人喜好的色彩。由此可知,题干是对原文的 同义转述。preferences和culturalobjects是原词重现,inheritable对应原文中的inherited。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2015-06-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "When the right person is holding the right job at the right moment, that person's influence is greatly expanded. That is the position in which Janet Yellen, who is expected to be confirmed as the next chair of the Federal Reserve Bank (Fed) in January, now finds herself. If you believe, as many do, that unemployment is the major economic and social concern of our day, then it is no stretch to think Yellen is the most powerful person in the world right now. Throughout the 2008 financial crisis and the recession and recovery that followed, central banks have taken on the role of stimulators of last resort, holding up the global economy with vast amounts of money in the form of asset buying. Yellen, previously a Fed vice chair, was one of the principal architects of the Fed's $3.8 trillion money dump. A star economist known for her groundbreaking work on labor markets, Yellen was a kind of prophetess early on in the crisis for her warnings about the subprime (次级债) meltdown. Now it will be her job to get the Fed and the markets out of one of the biggest and most unconventional monetary program in history without derailing the fragile recovery. The good news is that Yellen, 67, is particularly well suited to meet these challenges. She has a keen understanding of financial markets, an appreciation for their imperfections and a strong belief that human suffering was more related to unemployment than anything else. Some experts worry that Yellen will be inclined to chase unemployment to the neglect of inflation. But with wages still relatively flat and the economy increasingly divided between the well-off and the long-term unemployed, more people worry about the opposite, deflation (通货紧缩) that would aggravate the economy's problems. Either way, the incoming Fed chief will have to walk a fine line in slowly ending the stimulus. It must be steady enough to deflate bubbles (去泡沫) and bring markets back down to earth but not so quick that it creates another credit crisis. Unlike many past Fed leaders, Yellen is not one to buy into the finance industry's argument that it should be left alone to regulate itself. She knows all along the Fed has been too slack on regulation of finance. Yellen is likely to address the issue right after she pushes unemployment below 6%, stabilizes markets and makes sure that the recovery is more inclusive and robust. As Princeton Professor Alan Blinder says, \"She's smart as a whip, deeply logical, willing to argue but also a good listener. She can persuade without creating hostility.\" All those traits will be useful as the global economy's new power player takes on its most annoying problems."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What do many people think is the biggest problem facing Janet Yellen?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Lack of money."
+            },
+            {
+              "key": "B",
+              "text": "Subprime crisis."
+            },
+            {
+              "key": "C",
+              "text": "Unemployment."
+            },
+            {
+              "key": "D",
+              "text": "Social instability."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C 定位:根据题干的信息词manypeople和biggestproblem,可以把答题线索定位到第一段最后一句。 解析:该句指出“如果你像很多人一样,相信失业是我们当前经济和社会的主要问题,那么认为耶伦是 目前这个世界上最有影响力的人一点也不夸张”,显然很多人认为失业是当前的主要问题,也就是说耶 伦所面临的最大问题即失业问题,C项符合文意,故为答案。A项文中并未提及,可排除。B项即次贷危 机,发生于几年前,显然与题意不符。文中提及与“稳定\"有关的内容在第五段,指的是要在去除经济泡 沫和使市场回归常态的过程中保持步调平稳,D项与文意不符,也应排除。"
+        },
+        {
+          "number": 47,
+          "stem": "What did Yellen help the Fed do to tackle the 2008 financial crisis?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Take effective measures to curb inflation."
+            },
+            {
+              "key": "B",
+              "text": "Deflate the bubbles in the American economy."
+            },
+            {
+              "key": "C",
+              "text": "Formulate policies to help financial institutions."
+            },
+            {
+              "key": "D",
+              "text": "Pour money into the market through asset buying."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D 定位:根据题干的信息词YellenhelptheFed和the2008financial crisis,可以把答题线索定位到第二段 的前两句。 解析:该处指出“纵观2008年的金融危机、经济衰退以及随后的经济复苏,中央银行扮演的是终极推 动者的角色,通过使用巨额资金购买资产的形式支撑起了全球经济。耶伦此前是联邦储备委员会副主 席,地是联储3.8万亿资金转储计划的主要设计者之一\",由此可知,2008年金融危机期间,联储使用 了巨额资金购买资产以使市场流动。D项符合文意,故为答案。文中提及“通货膨胀\"的内容出现在第四 段,是指专家担心耶伦会忽视通货膨胀问题,显然和题意不符,应排除A项。去除经济泡沫是当前要做 的事情,并非在2008年做的,B项也可排除。“制定政策以帮助金融机构”文中并未提及,C项也应排 除。"
+        },
+        {
+          "number": 48,
+          "stem": "What is a greater concern of the general public?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Recession."
+            },
+            {
+              "key": "B",
+              "text": "Deflation."
+            },
+            {
+              "key": "C",
+              "text": "Inequality."
+            },
+            {
+              "key": "D",
+              "text": "Income."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B 定位:根据题干的信息词agreaterconcem和thegeneralpublic,可以把答题线索定位到第四段第二句。 解析:该句指出“但在工资水平仍相对平稳以及富有者和长期失业者的经济情况逐步分化的情况下, 更多的人担心的则是相反的情况,即通货紧缩会加剧经济问题”,即公众更担心的是通货紧缩问题。B 项符合文意,故为答案。文中并未提及公众担心经济衰退\",A项可排除。文中提到工资水平相对平稳 以及富有者和长期失业者的经济情况逐步分化,涉及了收入和不平等的问题,但这并不是公众更大的 担心所在,C、D两项均可排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What is Yellen likely to do in her position as the Fed chief?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Develop a new monetary program."
+            },
+            {
+              "key": "B",
+              "text": "Restore public confidence."
+            },
+            {
+              "key": "C",
+              "text": "Tighten financial regulation."
+            },
+            {
+              "key": "D",
+              "text": "Reform the credit system."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C 定位:根据题干的信息词Yellenislikelytodo和Fedchief,可以把答题线索定位到最后三段。 解析:第五段第一句提到“不管怎样,即将上任的联储主席将必须在缓慢结束刺激方案的过程中谨慎 行事”,第六段指出“耶伦并不赞成对金融行业应该放松监管的观点。地向来都知道联储在金融监管上 一直不太严格\",接着第七段第一句指出,在促使失业率低于6%、稳定市场及确保经济复苏得更好之 后,耶伦很可能会着手解决这一问题,显然此处提及的“这一问题\"就是前面第六段中的金融监管太宽松 的问题,由此可知耶伦会加强金融监管力度,故答案为C项。其他三项原文中都没有提及,均可排除。"
+        },
+        {
+          "number": 50,
+          "stem": "How does Alan Blinder portray Yellen?",
+          "options": [
+            {
+              "key": "A",
+              "text": "She possesses strong persuasive power."
+            },
+            {
+              "key": "B",
+              "text": "She has confidence in what she is doing."
+            },
+            {
+              "key": "C",
+              "text": "She is one of the world's greatest economists."
+            },
+            {
+              "key": "D",
+              "text": "She is the most powerful Fed chief in history."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A 定位:根据题干的信息调AlanBlinder,可以把答题线索定位到最后一段第二句。 解析:该句提到了普林斯顿大学的教授艾伦·布林德,他说耶伦能在不引起敌意的情况下说服他人,即 艾伦·布林德认为耶伦能言善辩、富有说服力,A项与文意相符,故为答案。艾伦·布林德并未提及耶伦 是否对自己正在做的工作有信心,也没有将她称为世界上最伟大的经济学家之一或联储历史上最有影 响力的主席,其他三项都属于无中生有,都应该排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2015-06-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Air pollution is deteriorating in many places around the world. The fact that public parks in cities become crowded as soon as the sun shines proves that people long to breathe in green, open spaces. They do not all know what they are seeking but they flock there, nevertheless. And, in these surroundings, they are generally both peaceful and peacable. It is rare to see people fighting in a garden. Perhaps struggle unfolds first, not at an economic or social level, but over the appropriation of air, essential to life itself. If human beings can breathe and share air, they don't need to struggle with one another. Unfortunately, in our western tradition, neither materialist nor idealist theoreticians give enough consideration to this basic condition for life. As for politicians, despite proposing curbs on environmental pollution, they have not yet called for it to be made a crime. Wealthy countries are even allowed to pollute if they pay for it. But is our life worth anything other than money? The plant world shows us in silence what faithfulness to life consists of. It also helps us to a new beginning, urging us to care for our breath, not only at a vital but also at a spiritual level. The interdependence to which we must pay the closest attention is that which exists between ourselves and the plant world. Often described as \"the lungs of the planet\", the woods that cover the earth offer us the gift of breathable air by releasing oxygen. But their capacity to renew the air polluted by industry has long reached its limit. If we lack the air necessary for a healthy life, it is because we have filled it with chemicals and undercut the ability of plants to regenerate it. As we know, rapid deforestation combined with the massive burning of fossil fuels is an explosive recipe for an irreversible disaster. The fight over the appropriation of resources will lead the entire planet to hell unless humans learn to share life, both with each other and with plants. This task is",
+        "simultaneously ethical and political because it can be discharged only when each takes it upon herself or himself and only when it is accomplished together with others. The lesson taught by plants is that sharing life expands and enhances the sphere of the living, while dividing life into so - called natural or human resources diminishes it. We must come to view the air, the plants and ourselves as the contributors to the preservation of life and growth, rather than a web of quantifiable objects or productive potentialities at our disposal. Perhaps then we would finally begin to live, rather than being concerned with bare survival."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the author assume might be the primary reason that people would struggle with each other?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To get their share of clean air"
+            },
+            {
+              "key": "B",
+              "text": "To pursue a comfortable life."
+            },
+            {
+              "key": "C",
+              "text": "To gain a higher social status."
+            },
+            {
+              "key": "D",
+              "text": "To seek economic benefits."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A 定位:根据题干中的信息词theprimaryreason和strugglewitheachother可以将答案线索迅速定位到文 章第一段。 解析:文章第一段倒数第二句提到:“或许,争斗首先不是在经济或者社会层面上展开,而是因占用对 生命本身来说必不可少的空气而产生。”由此可知,作者猜测人们互相争斗的首要原因不是经济上的 也不是社会层面的,而是为了争夺空气。选项A是对原文内容的同义转述,故为答案。选项C中的 social status(社会地位)是社会层面的,可排除;选项D中的economicbenefits(经济利益)是经济层面 的,也可排除;选项B在文章中并未提及,故也可排除。"
+        },
+        {
+          "number": 52,
+          "stem": "What does the author accuse western politicians of?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Depriving common people of the right to clean air."
+            },
+            {
+              "key": "B",
+              "text": "Giving priority to theory rather than practical action."
+            },
+            {
+              "key": "C",
+              "text": "Offering preferential treatment to wealthy countries."
+            },
+            {
+              "key": "D",
+              "text": "Failing to pass laws to curb environmental pollution."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C 定位:根据题干中的信息词westermpoliticians可以将答案线索迅速定位到文章第二段。 解析:文章第二段最后一句提到:“如果环境污染是有偿的,政治家们甚至允许富裕国家这样做。”由 此可知,作者指控西方政治家们为富裕国家提供优惠待遇,允许他们污染环境。选项C是对原文内容 的同义转述,故为答案。文章第二段第一句提到西方的实用主义和理想主义理论家都没有充分考虑空 气这一基本生存条件,并没有提到他们更重视理论而非实际行动,而且这是对理论家而非对政治家的 控诉,与题干不符,故排除;文章第二段第二句提到了政治家没有呼吁将污染环境定为犯罪,而选项D 说的是“通过法律\",不是同一概念,故排除;选项A在文章中并未提及,故也可排除。"
+        },
+        {
+          "number": 53,
+          "stem": "What does the author try to draw our closest attention to?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The massive burning of fossil fuels."
+            },
+            {
+              "key": "B",
+              "text": "Our relationship to the plant world."
+            },
+            {
+              "key": "C",
+              "text": "The capacity of plants to renew polluted air."
+            },
+            {
+              "key": "D",
+              "text": "Large - scale deforestation across the world."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B 定位:根据题干中的信息词closestattention可以将答案线索迅速定位到文章第三段。 解析:文章第三段第四句明确指出:“我们必须对自身与植物界之间的相互依赖给予最密切的关注。” 由此可知,作者试图让我们密切关注自身与植物世界的关系。故选项B为答案。文章第三段倒数第三句 提到了植物净化被污染空气的能力,但是说这种能力早就达到了极限,而非作者想让我们最密切关注 的方面,故排除选项C;文章第三段最后一句提到了大规模燃烧矿物燃料和快速砍伐森林,但作者只 是想说明两者会引发灾难,并没有要求我们给予其最密切的关注,故排除选项A和D。"
+        },
+        {
+          "number": 54,
+          "stem": "How can human beings accomplish the goal of protecting the plant according to the author?",
+          "options": [
+            {
+              "key": "A",
+              "text": "By showing respect for plants."
+            },
+            {
+              "key": "B",
+              "text": "By preserving all forms of life."
+            },
+            {
+              "key": "C",
+              "text": "By tapping all natural resources."
+            },
+            {
+              "key": "D",
+              "text": "By pooling their efforts together."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D 定位:根据题干中的信息词accomplishthegoalofprotectingtheplant可以将答案线索迅速定位到文章 最后一段。 解析:文章最后一段第二句提到:“这个任务既是道德上的,也是政治上的,因为只有当每个人都把它 当作自己的任务,而且只有和其他人一起势力的时候,这个任务才能完成。”“这个任务\"指的就是前一 句提到的“与植物共享生命”。由此可知,作者认为要想完成保护植物的目标,人类必须共同势力,故 选D。该段倒数第二句提到,我们必须把空气、植物和我们自己看作帮助维护生命和成长的一分子。选 项A对应此处,但并不符合题意,故排除;选项B和C在文中均未提及,故排除。 ·2015年6月六级真题(第一套)·"
+        },
+        {
+          "number": 55,
+          "stem": "What does the author suggest we do in order not just to survive?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Expand the sphere of living."
+            },
+            {
+              "key": "B",
+              "text": "Develop nature's potentials."
+            },
+            {
+              "key": "C",
+              "text": "Share life with nature."
+            },
+            {
+              "key": "D",
+              "text": "Allocate the resources."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C 定位:根据题干中的信息词inordernotjustto survive可以将答案线索定位到文章最后一段。 解析:文章最后一段末句提到:“或许到那时候,我们就可以最终开始生活,而不是仅仅为了存活下去 而忧心。”这道题需要根据该段的内容总结出答案。该段开头提到人类需要学习与植物共享生命;接下 来具体阐述了该如何共享。由此可知,作者给我们的建议就是与自然共享生命,故选项C是正确答案。 该段第三句提到了expandsand enhancesthesphereoftheliving(扩展和增加生存空间),但这只是与自 然共享生命的益处,而非作者建议我们做的事情,故排除选项A;选项B和D在文中没有提及,故均 可排除。"
+        }
+      ]
+    }
+  ]
+}

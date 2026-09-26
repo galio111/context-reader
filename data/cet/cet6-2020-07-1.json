@@ -1,0 +1,1693 @@
+{
+  "id": "cet6-2020-07-1",
+  "level": 6,
+  "year": 2020,
+  "month": 7,
+  "set": 1,
+  "title": "2020 年 7 月六级 · 第 1 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.07/%E7%9C%9F%E9%A2%98PDF/2020.07%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E5%85%A81%E5%A5%97%E3%80%90%E5%8F%AF%E5%A4%8D%E5%88%B6%E5%8F%AF%E6%90%9C%E7%B4%A2%EF%BC%8C%E6%89%93%E5%8D%B0%E9%A6%96%E9%80%89%E3%80%91.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.07/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2020.07%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E5%85%A81%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2020-07-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "The United Nations issued a report last week warning that humans are destroying nature at such a rate that life on Earth is at risk. When the report came out, it naturally headlines. But [[26]] obviously it hijack the news agenda in the manner of a major terrorist attack or of war. didn􀆳t [[27]] 6· 4",
+        "The report from the Intergovernmental Platform on Biodiversity and Ecosystem Science-Policy Services (IPBES) is clear on at and what needs to change. IPBES chair Robert Watson what􀆳s [[28]] says the presents an health of ecosystems on “ [[29]] evidence” “ominous (凶兆的) picture”. “The which we and all other species depend is more rapidly than Robert Watson said. [[30]] ever,” “We are the very foundations of our economies, livelihoods, food security, health and quality of [[31]] life The report says not too late if we make worldwide.” it􀆳s “transformative change”—fundamental, every level from local to we need to focus on how tosystem-wide reorganization—at global,and make that happen.",
+        "First, indulge in despair, because despair leads to inertia and doing nothing means certain don􀆳t",
+        "Every action to save nature will improve our collective and personal futures and the only [[32]] . way to respond to a threat of this scale is with action rooted in headstrong optimism. Second, [[33]] we need relentless focus, just like when paramedics (救护人员) arrive on a scene and use the concept of to ensure the most cases get treated first. Saving the natural “triage (伤员鉴别分类)” [[34]] world needs that kind of thinking. We have the to do everything at once. We need to don􀆳t [[35]] make hard choices."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "capacity"
+        },
+        {
+          "key": "B",
+          "text": "declaration"
+        },
+        {
+          "key": "C",
+          "text": "deteriorating"
+        },
+        {
+          "key": "D",
+          "text": "determined"
+        },
+        {
+          "key": "E",
+          "text": "disaster"
+        },
+        {
+          "key": "F",
+          "text": "eroding"
+        },
+        {
+          "key": "G",
+          "text": "grabbed"
+        },
+        {
+          "key": "H",
+          "text": "inventory"
+        },
+        {
+          "key": "I",
+          "text": "junction"
+        },
+        {
+          "key": "J",
+          "text": "monotonous"
+        },
+        {
+          "key": "K",
+          "text": "overwhelming"
+        },
+        {
+          "key": "L",
+          "text": "stagnation"
+        },
+        {
+          "key": "M",
+          "text": "stake"
+        },
+        {
+          "key": "N",
+          "text": "stifled"
+        },
+        {
+          "key": "O",
+          "text": "urgent"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "capacity"
+            },
+            {
+              "key": "B",
+              "text": "declaration"
+            },
+            {
+              "key": "C",
+              "text": "deteriorating"
+            },
+            {
+              "key": "D",
+              "text": "determined"
+            },
+            {
+              "key": "E",
+              "text": "disaster"
+            },
+            {
+              "key": "F",
+              "text": "eroding"
+            },
+            {
+              "key": "G",
+              "text": "grabbed"
+            },
+            {
+              "key": "H",
+              "text": "inventory"
+            },
+            {
+              "key": "I",
+              "text": "junction"
+            },
+            {
+              "key": "J",
+              "text": "monotonous"
+            },
+            {
+              "key": "K",
+              "text": "overwhelming"
+            },
+            {
+              "key": "L",
+              "text": "stagnation"
+            },
+            {
+              "key": "M",
+              "text": "stake"
+            },
+            {
+              "key": "N",
+              "text": "stifled"
+            },
+            {
+              "key": "O",
+              "text": "urgent"
+            }
+          ],
+          "answer": "G",
+          "explanation": "【锁定答案】首句介绍联合国最新报告发现:人类对自然的快速破坏导致地球上的生命面临生存威胁。 23句中headlines、newsagenda提示此两句探讨该报告受媒体关注的程度,两句借But转折,由4句“但这项 报告并没有如大型悬怖袭击事件那般抢占新闻议程(hijackthenewsagenda)”可反向推知,空格句是在让步肯 定“报告在发布之时取得了不少媒体关注”,G符合文意。 注:grab(the)headlines意为“占据新闻头条,成为新闻焦点”,强调事件刚刚发布时大受媒体关注;hjack thenewsagenda意为“抢占/劫持新闻议程”,强调媒体对事件的持续关注。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "capacity"
+            },
+            {
+              "key": "B",
+              "text": "declaration"
+            },
+            {
+              "key": "C",
+              "text": "deteriorating"
+            },
+            {
+              "key": "D",
+              "text": "determined"
+            },
+            {
+              "key": "E",
+              "text": "disaster"
+            },
+            {
+              "key": "F",
+              "text": "eroding"
+            },
+            {
+              "key": "G",
+              "text": "grabbed"
+            },
+            {
+              "key": "H",
+              "text": "inventory"
+            },
+            {
+              "key": "I",
+              "text": "junction"
+            },
+            {
+              "key": "J",
+              "text": "monotonous"
+            },
+            {
+              "key": "K",
+              "text": "overwhelming"
+            },
+            {
+              "key": "L",
+              "text": "stagnation"
+            },
+            {
+              "key": "M",
+              "text": "stake"
+            },
+            {
+              "key": "N",
+              "text": "stifled"
+            },
+            {
+              "key": "O",
+              "text": "urgent"
+            }
+          ],
+          "answer": "B",
+          "explanation": "【锁定答案】由并列连词or前后语义同向可知,“ 战争”应与“大型恐怖袭击\"同为重大事件,再结合整句 可知,二者往往会获得新闻媒体的持续关注。备选项中B最合文意,declarationofwar为固定搭配,意为\"宣战”。 E)disaster符合词性要求,也符合空格处对“危机、灾难\"等消极语义的要求,因此干扰性极强,但可以通 过如下方法排除:一、由上述分析可知+ ofwar应指向重大事件,而disaster代入空格处意为“战争造成 的灾祸”,指向事件的影响;二、disaster在表示“某事造成的灾难/祸患/负面后果\"时通常使用复数。 【点拨技巧】第26、27两题的解答关键在于借助逻辑连词But、or确定向际、语间的逻辑关系:一、由But 可知23句间为“让步一转折”逻辑,由此可判断“ headlines”和\"didn't hijack the news agenda”应语义 对立。二、由or可知 ofwar与amajorterroristattack为并列语义,应共同指向“重大危机事件”。 Il The report from the Intergovernmental Science-Policy Platform on Biodiversity and Eeosystem Services (IPBES) is clear on what's at28_ and what needs to change. IPBES chair Robert Watson says the 29evidence”presents an“ominous(凶兆的) picture\". \"The health of ecosystems on which we and all other species depend is30more rapidly than ever,\" Robert Watson said. \"We are_31_ the very foundations of our economies, livelihoods, food security, health and quality of life worldwide, \" @ The report says it's not too late if we make \"transformative change\"—fundamental, system-widereorganizationat every level from local to global, and we need to focus on how to make that happen. 这份来自联合国生物多样性和生态 系统服务政府间科学政策平台(IPBES) 的报告明确指出了什么正处于危险境地, 以及需要做出何种改变。IPBES的主席 罗伯特·沃森称,“绝大多数证据”呈现出 “不祥的景象”。“人类及其他所有物种所 依赖的生态系统的健康状况正在以前所 未有的速度恶化。”罗伯特·沃森说,“我 们正在侵蚀我们的经济、生计、粮食安全、 健康与全球生活质量的根基。”报告表示, 如采我们现在开始从地方到全球各个层 面做出“变革性改变”—根本性的、全系 一那还为时未晓,且我们需要 统的重组一 重点关注如何实现这一变革。 ·"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "capacity"
+            },
+            {
+              "key": "B",
+              "text": "declaration"
+            },
+            {
+              "key": "C",
+              "text": "deteriorating"
+            },
+            {
+              "key": "D",
+              "text": "determined"
+            },
+            {
+              "key": "E",
+              "text": "disaster"
+            },
+            {
+              "key": "F",
+              "text": "eroding"
+            },
+            {
+              "key": "G",
+              "text": "grabbed"
+            },
+            {
+              "key": "H",
+              "text": "inventory"
+            },
+            {
+              "key": "I",
+              "text": "junction"
+            },
+            {
+              "key": "J",
+              "text": "monotonous"
+            },
+            {
+              "key": "K",
+              "text": "overwhelming"
+            },
+            {
+              "key": "L",
+              "text": "stagnation"
+            },
+            {
+              "key": "M",
+              "text": "stake"
+            },
+            {
+              "key": "N",
+              "text": "stifled"
+            },
+            {
+              "key": "O",
+              "text": "urgent"
+            }
+          ],
+          "answer": "M",
+          "explanation": "【锁定答案】空格句介绍IPBES发布的报告内容“明确了什么正处于 ,以及我们需要做出哪些改 变”。结合首段报告发现“人类对自然的破坏正危及全球生命\"可知,报告应先分析具体存在哪些问题(即人类 活动对生态系统的哪些方面构成威胁),才能对症下药去寻求变革措施,空格词应表示“(处于)危险/灾难/危 急情形\"等意,M正确,atstake为固定搭配,意为\"处于危险境地/生死攸关之际”。E)disaster有干扰性,但其 搭配为in a/the disaster。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "capacity"
+            },
+            {
+              "key": "B",
+              "text": "declaration"
+            },
+            {
+              "key": "C",
+              "text": "deteriorating"
+            },
+            {
+              "key": "D",
+              "text": "determined"
+            },
+            {
+              "key": "E",
+              "text": "disaster"
+            },
+            {
+              "key": "F",
+              "text": "eroding"
+            },
+            {
+              "key": "G",
+              "text": "grabbed"
+            },
+            {
+              "key": "H",
+              "text": "inventory"
+            },
+            {
+              "key": "I",
+              "text": "junction"
+            },
+            {
+              "key": "J",
+              "text": "monotonous"
+            },
+            {
+              "key": "K",
+              "text": "overwhelming"
+            },
+            {
+              "key": "L",
+              "text": "stagnation"
+            },
+            {
+              "key": "M",
+              "text": "stake"
+            },
+            {
+              "key": "N",
+              "text": "stifled"
+            },
+            {
+              "key": "O",
+              "text": "urgent"
+            }
+          ],
+          "answer": "K",
+          "explanation": "【锁定答案】空格句介绍IPBES主席RobertWatson所言: 证据”展现出“不样的景象”。其中“不 祥的景象”照应上文报告发现“人类活动正威胁到地球上所有生命”,再据由“证据→发现/结论”的常识逻辑可 知,报告发现应当有大量的/确凿的证据作支撑,K符合要求。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "capacity"
+            },
+            {
+              "key": "B",
+              "text": "declaration"
+            },
+            {
+              "key": "C",
+              "text": "deteriorating"
+            },
+            {
+              "key": "D",
+              "text": "determined"
+            },
+            {
+              "key": "E",
+              "text": "disaster"
+            },
+            {
+              "key": "F",
+              "text": "eroding"
+            },
+            {
+              "key": "G",
+              "text": "grabbed"
+            },
+            {
+              "key": "H",
+              "text": "inventory"
+            },
+            {
+              "key": "I",
+              "text": "junction"
+            },
+            {
+              "key": "J",
+              "text": "monotonous"
+            },
+            {
+              "key": "K",
+              "text": "overwhelming"
+            },
+            {
+              "key": "L",
+              "text": "stagnation"
+            },
+            {
+              "key": "M",
+              "text": "stake"
+            },
+            {
+              "key": "N",
+              "text": "stifled"
+            },
+            {
+              "key": "O",
+              "text": "urgent"
+            }
+          ],
+          "answer": "C",
+          "explanation": "【锁定答案】第二段31句继续引述RobertWatson的话语,指出“人类及其他物种所依赖的生态系统的 健康状况正以前所未有的速度30;我们正在31我们的经济、生计等的根基”。其中,空30前的生态 系统的健康状况”、空31后的\"经济、生计等的根基”均指向“自然环境(nature)”,再结合空格前句“大量证据表 现出不祥的景象\"以及后句“如果我们能做出“变革性改革\"还为时未晚”可知,两空均应填入“恶化/破坏”等表 示消极趋势的词汇,以实现\"问题一表现一对策”的呼应街接。C)deteriorating(\"恶化,变坏\")为不及物动词, 符合空30词义及词性要求;F)eroding(\"损害,削弱\")可作及物动词,符合空31词义及词性要求。 【点拨技巧】报告/研究负责人的话语往往是对报告内容及意义的总结提炼,应与文中对报告的相关介绍 一致,解题时需寻找对应信息。空30.31所在句均为报告相关负责人RobertWatson的话语,故应与首段报告 发现 humans are destroying nature at such a rate that life on Earth is at risk、第二段首句报告内容what's at stake and what needs to change、下文披告所违解决对策it's not too lateifwemake“transformative change\"形 成照应,才能实现上下文语义的连贯一致。 I o First, don't indulge in despair, because despair leads to inertia and doing nothing means certain 32_. Every action to save nature will improve our collective and personal futures and the only way to respond to a threat of this scale is with33 action rooted in headstrongoptimism, Second, we need relentless focus+ just like when paramedics(敦护人页)arrive on a scene and use the concept of “triage(伤页鉴别分类)”to ensure the most 34 cases get treated first. Saving the natural world needs that kind of thinking. @ We don't have the35_ to do everything at once, @ We need to make hard choices. [285 words] 首先,不要沉沦于绝望,固为绝望会 导致情性,而不作为则意味着某种灾难 会降临。每一次拯教自然的行动都会改 善人类集体及个人的未来,而应对这种 大规模威胁的唯一方法便是采取根植于 顽强乐观主义的坚决行动。其次,我们 需要“残酷的聚焦”,就像救护人员抵达 现场后会采用“伤员鉴别分类”概念来确 保最紧急的病例最先得到治疗。拯款自 然界需要这种思维。我们没有能力同时 做所有的事情。我们需要做出艰难的 拱择。 ·"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "capacity"
+            },
+            {
+              "key": "B",
+              "text": "declaration"
+            },
+            {
+              "key": "C",
+              "text": "deteriorating"
+            },
+            {
+              "key": "D",
+              "text": "determined"
+            },
+            {
+              "key": "E",
+              "text": "disaster"
+            },
+            {
+              "key": "F",
+              "text": "eroding"
+            },
+            {
+              "key": "G",
+              "text": "grabbed"
+            },
+            {
+              "key": "H",
+              "text": "inventory"
+            },
+            {
+              "key": "I",
+              "text": "junction"
+            },
+            {
+              "key": "J",
+              "text": "monotonous"
+            },
+            {
+              "key": "K",
+              "text": "overwhelming"
+            },
+            {
+              "key": "L",
+              "text": "stagnation"
+            },
+            {
+              "key": "M",
+              "text": "stake"
+            },
+            {
+              "key": "N",
+              "text": "stifled"
+            },
+            {
+              "key": "O",
+              "text": "urgent"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【锁定答案】第二段31句继续引述RobertWatson的话语,指出“人类及其他物种所依赖的生态系统的 健康状况正以前所未有的速度30;我们正在31我们的经济、生计等的根基”。其中,空30前的生态 系统的健康状况”、空31后的\"经济、生计等的根基”均指向“自然环境(nature)”,再结合空格前句“大量证据表 现出不祥的景象\"以及后句“如果我们能做出“变革性改革\"还为时未晚”可知,两空均应填入“恶化/破坏”等表 示消极趋势的词汇,以实现\"问题一表现一对策”的呼应街接。C)deteriorating(\"恶化,变坏\")为不及物动词, 符合空30词义及词性要求;F)eroding(\"损害,削弱\")可作及物动词,符合空31词义及词性要求。 【点拨技巧】报告/研究负责人的话语往往是对报告内容及意义的总结提炼,应与文中对报告的相关介绍 一致,解题时需寻找对应信息。空30.31所在句均为报告相关负责人RobertWatson的话语,故应与首段报告 发现 humans are destroying nature at such a rate that life on Earth is at risk、第二段首句报告内容what's at stake and what needs to change、下文披告所违解决对策it's not too lateifwemake“transformative change\"形 成照应,才能实现上下文语义的连贯一致。 I o First, don't indulge in despair, because despair leads to inertia and doing nothing means certain 32_. Every action to save nature will improve our collective and personal futures and the only way to respond to a threat of this scale is with33 action rooted in headstrongoptimism, Second, we need relentless focus+ just like when paramedics(敦护人页)arrive on a scene and use the concept of “triage(伤页鉴别分类)”to ensure the most 34 cases get treated first. Saving the natural world needs that kind of thinking. @ We don't have the35_ to do everything at once, @ We need to make hard choices. [285 words] 首先,不要沉沦于绝望,固为绝望会 导致情性,而不作为则意味着某种灾难 会降临。每一次拯教自然的行动都会改 善人类集体及个人的未来,而应对这种 大规模威胁的唯一方法便是采取根植于 顽强乐观主义的坚决行动。其次,我们 需要“残酷的聚焦”,就像救护人员抵达 现场后会采用“伤员鉴别分类”概念来确 保最紧急的病例最先得到治疗。拯款自 然界需要这种思维。我们没有能力同时 做所有的事情。我们需要做出艰难的 拱择。 ·"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "capacity"
+            },
+            {
+              "key": "B",
+              "text": "declaration"
+            },
+            {
+              "key": "C",
+              "text": "deteriorating"
+            },
+            {
+              "key": "D",
+              "text": "determined"
+            },
+            {
+              "key": "E",
+              "text": "disaster"
+            },
+            {
+              "key": "F",
+              "text": "eroding"
+            },
+            {
+              "key": "G",
+              "text": "grabbed"
+            },
+            {
+              "key": "H",
+              "text": "inventory"
+            },
+            {
+              "key": "I",
+              "text": "junction"
+            },
+            {
+              "key": "J",
+              "text": "monotonous"
+            },
+            {
+              "key": "K",
+              "text": "overwhelming"
+            },
+            {
+              "key": "L",
+              "text": "stagnation"
+            },
+            {
+              "key": "M",
+              "text": "stake"
+            },
+            {
+              "key": "N",
+              "text": "stifled"
+            },
+            {
+              "key": "O",
+              "text": "urgent"
+            }
+          ],
+          "answer": "E",
+          "explanation": "【锁定答案】第二段末向提出问题“如何实现变苹性改变(howtomakethathappen)”,末段1句(空格向) 先指出第一项做法“不要沉于绝望”,并解释原因“绝望会导致懒情,不作为意味着某种 ”。可见本句 是在暗示人们要采取行动,空格词应表示(什么都不做会导致)灾难/困境/危害”等负面结果,E正确。 L)stagnation有较强千扰,但“停滞”仅为“懒情(inertia)/不作为(doingnothing)”的同义表述,无法体现 means所暗藏的因果“懒情/不作为/停滞导致危害”,故排除。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "capacity"
+            },
+            {
+              "key": "B",
+              "text": "declaration"
+            },
+            {
+              "key": "C",
+              "text": "deteriorating"
+            },
+            {
+              "key": "D",
+              "text": "determined"
+            },
+            {
+              "key": "E",
+              "text": "disaster"
+            },
+            {
+              "key": "F",
+              "text": "eroding"
+            },
+            {
+              "key": "G",
+              "text": "grabbed"
+            },
+            {
+              "key": "H",
+              "text": "inventory"
+            },
+            {
+              "key": "I",
+              "text": "junction"
+            },
+            {
+              "key": "J",
+              "text": "monotonous"
+            },
+            {
+              "key": "K",
+              "text": "overwhelming"
+            },
+            {
+              "key": "L",
+              "text": "stagnation"
+            },
+            {
+              "key": "M",
+              "text": "stake"
+            },
+            {
+              "key": "N",
+              "text": "stifled"
+            },
+            {
+              "key": "O",
+              "text": "urgent"
+            }
+          ],
+          "answer": "D",
+          "explanation": "【锁定答案】空格所在句指出,采取行动拯救自然会改善人类的未来,采取根植于额强乐观主义的 行动是解决环境威胁的唯一方法。空格词应体现积极正向的色彩,且呼应theonlyway(唯一方法)、a threat of this scale(如此大规模的威助)以及headstrongoptimism(顽强的乐观主义)所体现的“任务艰巨性/行动必 要性/坚决性”,D正确。 【点拨技巧】借助因果关联词明确逻辑链条。末段12句借助多个显性/隐性因果关联词(because、leadsto、 means,will、theonlywayto)构建两条逻辑链:l.陷入绝望→懒情/不作为→32+2.采取33_行动→应对当 前巨大的环境威胁&.改善人类未来。两条逻辑链恰为正反论证,表达同一语义,由此可明确两空答案。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "capacity"
+            },
+            {
+              "key": "B",
+              "text": "declaration"
+            },
+            {
+              "key": "C",
+              "text": "deteriorating"
+            },
+            {
+              "key": "D",
+              "text": "determined"
+            },
+            {
+              "key": "E",
+              "text": "disaster"
+            },
+            {
+              "key": "F",
+              "text": "eroding"
+            },
+            {
+              "key": "G",
+              "text": "grabbed"
+            },
+            {
+              "key": "H",
+              "text": "inventory"
+            },
+            {
+              "key": "I",
+              "text": "junction"
+            },
+            {
+              "key": "J",
+              "text": "monotonous"
+            },
+            {
+              "key": "K",
+              "text": "overwhelming"
+            },
+            {
+              "key": "L",
+              "text": "stagnation"
+            },
+            {
+              "key": "M",
+              "text": "stake"
+            },
+            {
+              "key": "N",
+              "text": "stifled"
+            },
+            {
+              "key": "O",
+              "text": "urgent"
+            }
+          ],
+          "answer": "O",
+          "explanation": "【锁定答案】末段句先概述指出拯敦自然的第二项做法“我们需要relentlessfocus”,随后以just like... 类比解释:就像教护人员抵达现场后会采用“伤员鉴别分类\"概念来确保最 病例最先得到治疗。结合常 识、relentless focus的大概含义,以及句子逻辑可推知类比解释关系:教护人员要确保最紧急的/严重的病例 最先得到治疗→摇款自然也需要类似的“残忍聚焦:虽然都亟待处理,但还是必须要做出艰难的换择,先处理 最为紧急的事情”。O正确。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "capacity"
+            },
+            {
+              "key": "B",
+              "text": "declaration"
+            },
+            {
+              "key": "C",
+              "text": "deteriorating"
+            },
+            {
+              "key": "D",
+              "text": "determined"
+            },
+            {
+              "key": "E",
+              "text": "disaster"
+            },
+            {
+              "key": "F",
+              "text": "eroding"
+            },
+            {
+              "key": "G",
+              "text": "grabbed"
+            },
+            {
+              "key": "H",
+              "text": "inventory"
+            },
+            {
+              "key": "I",
+              "text": "junction"
+            },
+            {
+              "key": "J",
+              "text": "monotonous"
+            },
+            {
+              "key": "K",
+              "text": "overwhelming"
+            },
+            {
+              "key": "L",
+              "text": "stagnation"
+            },
+            {
+              "key": "M",
+              "text": "stake"
+            },
+            {
+              "key": "N",
+              "text": "stifled"
+            },
+            {
+              "key": "O",
+              "text": "urgent"
+            }
+          ],
+          "answer": "A",
+          "explanation": "【锁定答案】空格句及前后句三句一体,指出拯教自然界需要这种思维(残酷聚焦:确保最繁急的事情先 处理);我们没有 来同时做所有的事情;我们需要做出艰难的快择。可见,作者是在呼吁人们在能力/精 力/资源有限的情况下要做出取含,率先解决最紧急的事情,A正确。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2020-07-1-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Until a few decades ago, scholars believed that young children know very little, if anything, about what others are thinking. Swiss psychologist Jean Piaget, who is credited with founding the scientific study of thinking, was convinced that preschool children cannot consider what children􀆳s goes on in the minds of others. The interviews and experiments he conducted with kids in the middle of the 20th century suggested that they were trapped in their subjective viewpoints, 6· 5 incapable of imagining what others think, feel or believe.",
+        "B) Much of the subsequent research on early childhood thinking was highly influenced by Piaget􀆳s ideas. Scholars sought to refine his theory and empirically confirm his views. But it became increasingly clear that Piaget seemed to have gravely underestimated the intellectual powers of very young kids before they can make themselves understood by speech. Researchers began to devise ever more ingenious ways of figuring out what goes on in the minds of babies, and the resulting picture of their abilities shows subtle variations. Consequently, the old view of children􀆳s egocentric (自我中心的) nature and intellectual weaknesses has increasingly fallen out of favor and become replaced by a more generous position that sees a budding sense not only of the physical world but also of other minds, even in the “youngest young.”",
+        "C) Historically, children receive much respect for their mental powers. Piaget not only believed didn􀆳t that children were in the sense that they were unable to differentiate between their “egocentric” own viewpoint and that of others; he was also convinced that their thinking was characterized by systematic errors and confusions. When playing with others, they cooperate because they do don􀆳t not realize there are different roles and perspectives. He was convinced that children literally cannot their act instead of playing cooperatively and truly together, they play side “get together”: by side, with little regard for others. And when speaking with others, a young child supposedly cannot consider the viewpoint but to himself without listening to listener􀆳s “talks others.”",
+        "D) Piaget and his followers maintained that children go through something like a dark age of intellectual development before slowly and gradually becoming enlightened by reason and rationality as they reach school age. Alongside this enlightenment develops an ever growing understanding of other persons, including their attitudes and views of the world.",
+        "E) Today, a very different picture of mental development emerges. Psychologists children􀆳s continually reveal new insights into the depth of young knowledge of the world, children􀆳s including their understanding of other minds. Recent studies suggest that even infants are sensitive to perspectives and beliefs. others􀆳",
+        "F) Part of the motivation to revise some of conclusions stemmed from an ideological shift Piaget􀆳s about the origin of human knowledge that occurred in the second half of the 20th century. It became increasingly unpopular to assume that a basic understanding of the world can be built entirely from experience. This was in part prompted by theorist Noam Chomsky, who argued that something as complex as the rules of grammar cannot be picked up from exposure to speech, but is supplied by an inborn Others followed suit and defined further “language faculty.” “core areas” in which knowledge allegedly cannot be pieced together from experience but must be possessed at birth. One such area is our knowledge of minds. Some even argue that a basic knowledge others􀆳 of minds is not only possessed by human infants, but must be evolutionarily old and hence others􀆳 6· 6 shared by our nearest living relatives, the great apes.",
+        "G) To prove that infants know more in this realm than had been acknowledged, researchers needed to come up with innovative ways of showing it. A big part of why we now recognize so much more of intellectual capacities is the development of much more sensitive research tools than kids􀆳 Piaget had at his disposal.",
+        "H) Instead of engaging babies in dialog or having them execute complex motor tasks, the newer methods capitalize on behaviors that have a firm place in natural behavior repertoire: infants􀆳 looking, listening, sucking, making facial expressions, gestures and simple manual actions. The idea of focusing on these is that they give kids the chance to demonstrate their “small behaviors” knowledge implicitly and spontaneously without having to respond to questions or instructions. For example, children might look longer at an event that they did not expect to happen, or they might show facial expressions indicating that they have sympathetic concern for others. When researchers measure these less demanding, and often involuntary, behaviors, they can detect a sensitivity to mental states at a much younger age than with the more taxing methods that others􀆳 Piaget and his followers deployed.",
+        "I) In the 1980s, these kinds of implicit measures became customary in developmental psychology. But it took a while longer before these tools were employed to measure grasp of the mental children􀆳s lives of others.",
+        "J) In a set of experiments, my colleagues at the University of Southern California and I found evidence that babies can even anticipate how others will feel when their expectations are children. In these disappointed. We acted out several puppet (木偶) shows in front of two-year-old puppet shows, a protagonist (Cookie Monster) left his precious belongings (cookies) on stage and later returned to fetch them. What the protagonist did not know was that an antagonist had come and messed with his possessions. The children had witnessed these acts and attentively watched the protagonist return. We recorded facial and bodily expressions. Children bit their lips, children􀆳s wrinkled their nose or wiggled (扭动) in their chair when the protagonist came back, as if they anticipated the bewilderment and disappointment he was about to experience. Importantly, children showed no such reactions and remained calm when the protagonist had seen the events himself and thus knew what to expect. Our study reveals that by the tender age of two, kids not only track what others believe or expect; they can even foresee how others will feel when they discover reality.",
+        "K) Studies like this reveal that there is much more going on in small and even minds kids􀆳 infants􀆳 than was previously believed. With the explicit measures used by Piaget and successors, these deeper layers of understanding cannot be accessed. The new investigative tools demonstrate kids􀆳 that kids know more than they can say: when we scratch beneath the surface, we find an emerging 6· 7 understanding of relations and perspectives that Piaget probably did not dream of.",
+        "L) Despite these obvious advances in the study of young thinking, it would be a grave children􀆳s mistake to dismiss the careful and systematic analyses compiled by Piaget and others before the new tests dominated the scene because the original methods revealed essential facts about how children think that the new methods cannot uncover.",
+        "M) no consensus in science community about how much we can infer from a look, a There􀆳s today􀆳s facial expression or a hand gesture. These behaviors clearly indicate a curiosity about what goes on in the mind of others, and probably a set of early intuitions coupled with a willingness to learn more. They pave the way to richer and more explicit forms of understanding of the minds of others. But they can in no way replace the growing ability to articulate and refine her child􀆳s understanding of how people behave and why."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Piaget believed that small children could not collaborate with others while playing.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "C",
+          "explanation": "皮亚杰认为幼儿在玩要时不能相互协作。 [答案]C[精解]34句呈现皮亚杰对幼儿玩要行为的观察“他们不会相互协作,而是各玩各的,因为 他们意识不到玩要时别人的视角和角色与自已不同”,试题是对两句内容的提取及改写。"
+        },
+        {
+          "number": 37,
+          "stem": "The author and his study shows may be able to predict other colleagues􀆳 two-year-olds people􀆳s feelings.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "J",
+          "explanation": "作者与其同事的研究表明,两岁儿童可能具备预料他人感受的能力。 【答案]」【精解]首句概述作者及其同事的研究发现“幼儿可预料他人感受”,下文介绍实验过程,并明确实 验对象“两岁儿童\"。试题是对首句研究发现的同义改写,may be able to predict对应can..anticipate。"
+        },
+        {
+          "number": 38,
+          "stem": "In the latter half of the last century, fewer and fewer people believed the basis for our understanding of the world is wholly empirical.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "F",
+          "explanation": "上世纪下半叶,认为“人类对世界的认识完全基于经验”的人越来越少。 [答案」F[精解」1句指出对皮亚杰儿量自我中心论的修正源于20世纪下率叶的一次观念转变,2句 介绍具体转变趋向““仅靠经验就能建立起对世累的基本认知”的设想越来越不流行”。试题是对两句内容的 归纳机括,共中fewer and fewer peoplebelieved对应It became inereasinglyunpopular to assume..."
+        },
+        {
+          "number": 39,
+          "stem": "Research conducted by Jean Piaget in the last century suggested babies were insensitive to others􀆳 thinking.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "A",
+          "explanation": "让·皮亚杰在上个世纪所做的研究表明,幼儿对他人的所恩所想不敏感。 [答案]A[精解]3句提及皮亚杰在20世纪中期的研究发现儿童无法设想他人的想法、感受及观 念”,试题是对该句的提取及转述,其中babies为kids的下义词。"
+        },
+        {
+          "number": 40,
+          "stem": "Our improved understanding of intellectual power is attributable to better research tools. babies􀆳",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "G",
+          "explanation": "我们对幼儿智力的理解有所加深,这得益于研究工具的改进。 [答案]G[精解]末句解释我们对儿童智力的理解有所加深的主要原因是研究工具更加灵敏。试题是 对该向的同义改写,Our improved understanding of babies’intellectual power改写we now recognize so much more of kids' intellectual capacities。"
+        },
+        {
+          "number": 41,
+          "stem": "It has been found in recent research that even small babies are sensitive to other points of view. people􀆳s",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "E",
+          "explanation": "近期研究发现即便是小婴儿也能敏锐地感知到他人的看法。 [答案]E[精解」3句介绍近期的研究发现“即便是婴儿也对他人的视角和观点敏感”,试题是对该句 的同义改写,其中smallbabies同义替换infants。"
+        },
+        {
+          "number": 42,
+          "stem": "Scientists are still debating what inference can be drawn from certain physical expressions of a child.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "M",
+          "explanation": "我们能从儿童的某些身体表现中推断出什么信息,对此科学家仍争论不休。 [答案]M[精解]首句指出科学界的现状“尚未就“我们可从某个眼神、表情或手势中推断出多少信息” 达成共识”。试题改写该句,Scientists are still debating对应There's no consensus in todays science community,明确\"科学家尚未达成一致/仍在争论”的现状;certain physical expressions ofachild概括a look.,.a facial expression ora handgestureofa child虽未在文中明示,但结合本段大意“儿童思维研究领域 的新方法的局限性”可知,科学家争论的焦点是“我们能从儿童的眼神、表情、手势等自然行为中推断出多少有 关其惠维能力的信息”,因此ofachild是对原文赔含信息的明示。"
+        },
+        {
+          "number": 43,
+          "stem": "The newer research methods focus on simple behaviors instead of requiring them to infants􀆳 answer questions.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "H",
+          "explanation": "新研究方法不要求婴儿回答问题,而是关注他们的简单行为。 [答案]H[精解]12句通过对比凸显新研究方法的特点:观察婴儿已经牢牢掌握的自然行为,而非其 对话、执行复杂肌肉运动的表现(即对问题和指令的回应)。试题是对两句大意的概括,simple一词准确概括 了2句中implicitlyand spontaneously的内涵:新方法关注的是婴儿自然、自发的行为,即无需刻意引导就会 做出的简单行为。"
+        },
+        {
+          "number": 44,
+          "stem": "With the progress in psychology, the traditional view of nature and limited children􀆳s self-centered thinking abilities has become less and less influential.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "B",
+          "explanation": "由于心理学的发展,“儿童天生以自我为中心、思维能力有限”这一传统观点的影响力越来越小。 [答案]B[精解]1句指出皮亚杰的“儿童自我中心论”最初对学界影响极大(subsequent指代皮亚杰 学说建立后紧接着进行的研究),2至1句描述后世心理学者如何逐步另立门户“发现皮亚杰低估了儿童智 力,采用新的方法评估,得出不同发现”,3向指出这种进步的最终结果“导致“儿童自我中心论”日渐失宠”。 试题是对上述因果关系的归纳概括,其中progress inpsychology对应2至1句后世学者循序渐进的研究进 程,With(后接原固)呼应Consequently。"
+        },
+        {
+          "number": 45,
+          "stem": "Even though marked advances have been made, it is wrong to dismiss fundamental Piaget􀆳s contributions to the study of cognitive abilities. kids􀆳 6· 8",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "L",
+          "explanation": "尽管儿童认知能力研究已取得显著进展,但否定皮亚杰的奠基性贡献不可取。 [答案]L[精解]本段强调应正视皮亚杰的学术贡献,试题是对段落大意的概括。Even though.·.对 应 Despite...; Piaget's fundamental contributions... 对应 the careful and systematic analyses compiled by Piaget and others,概括了皮亚杰的重要贡献。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2020-07-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "People often discuss the dangers of too much stress, but lately a very different view of stress is",
+        "gaining popularity: this view of stress, held by members of the positive stress movement, argues that",
+        "stress might actually be beneficial. The positive stress movement is made up of people such as",
+        "Zachary Rapp who are looking for an edge in a competitive world, and routine is a good Rapp􀆳s example of followers of the movement. He wakes up most mornings at dawn, goes for a run, sips",
+        "black coffee while ripping through emails, and then steps into a freezing cold shower. This is a",
+        "routine designed to reduce the stress of running simultaneously three different health and",
+        "biotechnology companies for 18 hours a day.",
+        "Although practices may sound extreme, he is part of a growing movement, consisting Rapp􀆳s largely of tech industry workers who claim that such radical tactics will help them live better and",
+        "longer. Inspired by influential figures in different fields, including entertainers, athletes, entrepreneurs",
+        "and scientists, positive stress practitioners seek out some combination of extreme temperatures,",
+        "restrictive diets, punishing exercise routines and general discomfort.",
+        "Rapp argues that positive stress keeps him balanced. In addition to running and freezing",
+        "showers, Rapp uses ice baths, hot yoga, and unconventional eating practices such as eliminating dairy,",
+        "sugar, alcohol and various other foods high in carbohydrates. He believes that these practices, which",
+        "put stress on his body, actually make him feel less stress from work. However, Rapp does not credit",
+        "anyone in particular for his choices: he said he started using these methods in college, where he got",
+        "into the habit of taking ice baths to recover from sports. He got back into it while trying to get his",
+        "three companies off the ground.",
+        "Rapp works long hours and sleeps only five to seven hours a night but he said he only gets sick",
+        "once a year. For him, the difference between stress, like the kind we feel when moving day-to-day apartments, and positive stress is that the latter involves pushing the body to extremes and forcing it",
+        "to build up a tolerance.",
+        "One thought leader in the positive stress world is Dutch extreme athlete Wim Hof, who earned",
+        "the name for his ability to withstand severe cold using deep breathing exercises. “ice man” Hof􀆳s ideas have become popular among tech industry elites and, thanks to Hof, cold showers are now a",
+        "trend; indeed, some even call it a form of therapy.",
+        "But it is important to note that not everyone agrees with these practitioners; indeed, some 6· 9",
+        "medical professionals argue that positive stress is not for everyone, and that it might even be",
+        "dangerous for people who are unhealthy or older."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What do we learn about followers of the positive stress movement?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are usually quite sensitive to different types of stress."
+            },
+            {
+              "key": "B",
+              "text": "They hold a different view on stress from the popular one."
+            },
+            {
+              "key": "C",
+              "text": "They derive much pleasure from living a very hectic life."
+            },
+            {
+              "key": "D",
+              "text": "They gain a competitive edge by enjoying good health."
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]B。文首句储由转折词but就常规看法(often)与新近非常规看法(latelyaverydfferent view)作出详细对比:普通大众通常认为,压力过大危害重重vs积极压力运动者们则认为,压力实际可能有 益。由此可知B正确,They hold a different view on stress from...改写 a very different view of stress..held by.. - ,the popular one 对应 People often. .- . [排除干扰]A利用1句different、stress等词汇捏造干扰,将文中“不同类型的压力观”审改为“不同 类型的压力”,且quitesensitiveto...stress\"极易受压力影响\"与第四段文意“积极压力运动的追随者具有 更强的身体忍耐力,抗压性更强”相炼。C将1句reducethestress of running.-.for18hoursaday\"减轻 繁忙工作带来的压力”歪曲为“从繁忙工作中获得乐趣”。D混逻辑关系:首段2句lookingforan edge.,,提示“寻找竞争优势”是积极压力运动成员/追随者的目的,第二段1句helpthemlivebetterand longer提示“享有健康”是积极压力运动带来的结果,而选项则将其因果例置为“道过享有健康(手段)获 得竞争优势(结果)”。 [提炼思路]开篇对比处常为出题点所在。首句虽较长,但对比标志明显(but体现转折,其前的People often..,体现大众看法,其后的latelyaverydifferentview.,.体现新奇观点),再借助冒号(特殊标点符号)的 解释说明作用,可知该新奇观点由积极压力运动成员/追随者所持有,故可以很快理清对比信息“不同的压力 观(大众观点VS追随者观点)”,锁定正确项B。 Il O Although Rapp's practices may sound extreme. he is part of a growing movement, consisting largely of tech industry workers who claim that such radical° tacties will help them live better and longer. @ Inspired by influential figures in different fields, including entertainers, athletes. entrepreneurs and scientists, positive stress practitioners seek out some combination of extreme temperatures, restrictive diets, punishing exercise routines and general discomfort. 尽管拉善的做法听起来可能有些极 端,但他参与的运动正日渐壮大,该运动 成贡主要由科技行业的工作者组成,他 们声称这种激进的策略有助于他们活得 更舒担、更长寿。在不同领域有影响力 的人物(包括艺人、运动员、企业家和科 学家等)的启发下,积极压力的实践者们 寻求一种混合体验:极端温度、限制性饮 食、魔鬼式日常锻炼以及周身不适。 ·"
+        },
+        {
+          "number": 47,
+          "stem": "What do followers of the positive stress movement usually do to put their ideas into practice?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They keep changing their living habits."
+            },
+            {
+              "key": "B",
+              "text": "They network with influential figures."
+            },
+            {
+              "key": "C",
+              "text": "They seek jobs in tech industries."
+            },
+            {
+              "key": "D",
+              "text": "They apply extreme tactics."
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]D。第二段1句首先指出,以拉普为代表的积极压力运动参与者采取的是极端做法、激进策 略;2向随后阐释,实践者们求极端温度、限制性饮食、魔鬼式锻炼等的混合体验。可见,该运动的实践者/ 追随者将想法付诸实践的具体做法是使用极端的策略,D正确,extremetacties是对段中practices... extreme radical tactices、 some combination of extreme temperatures, restrictive diets, punishing exercise routines andgeneraldiscomfort所展示语义场的高度凝练。 [排除干扰]A由2向seek outsomecombinationof...推导出“运动成员在生活方式上做出了改变”,但 首段末句routine提示这种新的生活方式已成为一种日常惯例,而非在不断改变(keepchanging)。B将2句 “运动成员采取极端策略的原因:受到有影响力人物的启发\"曲解为“运动成员采取的策略:与有影响力人物交 往”。C将1句“运动成页的身份:大多为科技工作者”偷换为“运动成页的行为:在科技行业找工作”。 [提炼思路]本题实际考查对第二段长难句的理解及其与上下文的联系。解题需:一、认识到第二段1句 中suchradical tactics实际回指Rapp'spractices...extreme\"拉普所来取的那些极端做法”,既概指上段具体 人物事例Rapp's routine...Hewakes up..+and then steps into a freezing cold shower,也概指下句积极压力 运动践行者的集体行为positive stress practitioners seek out some combination of extreme temperatures..,and generaldiscomfort;二、借助语法知识准确切分句子并提取关键信息(追随者做法“采取激进策略”、追随者身 份“科技行业工作者”、追随者灵感来源“受到有影响力人物的启发”);三、借助近、同、反、上下义等语义关联架 构核心语义场,(practices..)extreme,radical(tactics),extreme(temperatures),restrictive(diets)、 punishing(exercise routines)、generaldiscomfort共同措向“挑战身体极限的、令周身都很难受的方法”。在梳 理上下文关联、提取关键信息、构建语义场的过程中不仅锁定了正确项,同时也排除了干扰项。"
+        },
+        {
+          "number": 48,
+          "stem": "What does Zachary Rapp say about his unconventional practices?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They help him combat stress from work."
+            },
+            {
+              "key": "B",
+              "text": "They enable him to cut down living expenses."
+            },
+            {
+              "key": "C",
+              "text": "They enable him to recover from injuries and illnesses."
+            },
+            {
+              "key": "D",
+              "text": "They help him get three companies enlisted all at once."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]A。第三段2句提到拉普的非常规做法,3句进而龄出拉普的观点“这些做法实际上可以让 他感受到的工作压力更少”,即“有助于他应对工作压力”,故A正确。 [排除干扰]B干扰来自2句“不吃乳制品、糖、酒精以及其他各种高碳水化合物食物”,但这是在介绍非常 规饮食法本身的特征,不能主观推出拉普对该饮食法的看法“有助于节省生活开支”。C将4句冰浴/非常规 做法的促进对象“运动后的恢复”审改为“伤病后的恢复”。D将末句事实陈述“拉普因需同时让三家公司顺利 开张而压力重重,故而重拾冰浴习惯”当作拉普的观点“冰浴/非常规习惯有助于同时成立三家公司”。 [提炼思路]本题考查人物观点,可在定位段搜寻观点来源句(1句Rappargues..、?句Hebelieves.. 1句hesaidhe...),比对观点句内容与选 页内容,发现正确项A与原文3句完全对应。但需注意,干犹项大 多并非出自观点来源句,考生切忌利用客观事实主观断人物观点(如B和D)。"
+        },
+        {
+          "number": 49,
+          "stem": "What can be inferred from the passage about stress? day-to-day",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is harmful to physical and mental health. one􀆳s"
+            },
+            {
+              "key": "B",
+              "text": "It does not differ in essence from positive stress."
+            },
+            {
+              "key": "C",
+              "text": "It is something everybody has to live with."
+            },
+            {
+              "key": "D",
+              "text": "It does not help build up tolerance. one􀆳s"
+            }
+          ],
+          "answer": "D",
+          "explanation": "[锁定答案]D。第四段2向指出日常压力与积极压力的区别:后者(即积极压力)能通过把身体推向极限 的方式来提高身体忍耐力。换言之,日常压力无助于增强人体忍耐力,故D正确,同时排除B。 [排除干扰]A由末句involvespushingthebodyto extremes“将身体推向极限\"以及常识“压力有损身心 健康”隐断而来,该信息实际指向的是“积极压力”而非“日常压力”。C利用day-to-day的“日常/寻常”之意、 tolerance\"忍耐力”等碑片信息以及末段信息“积极压力并不适用于所有人”控造出原文未提及的信息“日常压 力是所有人都必须忍受的常事”。 [提炼恩路]本题考查对文中信息的逻辑推理。解题关键是从“X区别于Y的优点”反推出“Y的缺点”, 第四段2句主千结构可归纳为thedifferencebetweenYandXis thatXinvolves...to build uptolerance,即X (相比于Y)的优点是“可增强耐力”,进而可反推出Y(相比于X)的缺点是“没有增强耐力的作用”。本题的另 一个难点是A项非常贴合“压力影响身心健康”这一常识,有很强的干扰抚性,必须速览全文进行信息核实,确定 文中未论及此信息才能排除该项。"
+        },
+        {
+          "number": 50,
+          "stem": "What do some medical professionals think of positive stress?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Its true effect remains to be verified."
+            },
+            {
+              "key": "B",
+              "text": "Its side effect should not be ignored."
+            },
+            {
+              "key": "C",
+              "text": "Its effect varies considerably from person to person."
+            },
+            {
+              "key": "D",
+              "text": "Its practitioners should not take it as a form of therapy."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]C。末段引出医学专家的看法:积极压力并不适合所有人,它可能会给本身健康欠佳的人群 或老年人群带来健康风险,可知积极压力的效采因人而异(对某些人有好处,对另一些人有风险),C正确。 [排除干扰]A、B将医学专家的看法“积极压力只对某些人有疗效,而对另一些人可能有害”分别曲解为 “积极压力的实际疗效有待验证”和“积极压力发挥疗效的同时会附带产生不良影响”。D的言外之意为“积极 压力没有疗效”,显然也不符合文意,医学专家并未全盘否定积极压力的疗效,而是提醒人们注意其对某些特 定人群的潜在风险。 [提炼思路]由各项关键词(A项trueeffect、B项sideeffect、C项effect、D项therapy)可知选项聚焦积极 压力的疗效,需由文中信息总结出医学专家对积极压力疗效的看法(积极压力对某些人有疗效,对另一些人无 效/甚至有害),然后提炼各项核心意(疗效有待验证、发挥疗效的同时带来副作用、疗效因人而异、没有疗效/ 不应被当作疗法)与专家看法进行一一比对,最终确定正确项。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2020-07-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "Is hunting good or bad for the environment? Like so many hot button issues, the answer to this",
+        "question depends upon who you ask. On the one hand, some say, nothing could be more natural than 6·10",
+        "hunting, and indeed just about every animal been either predator or species—including humans—has prey at some point in its evolution. And, ironic as it sounds, since humans have wiped out many",
+        "animal predators, some see hunting as a natural way to reduce the herds of prey animals that now",
+        "reproduce beyond the carrying capacity. environment􀆳s",
+        "On the other hand, many environmental and animal advocates see hunting as savage, arguing",
+        "that it is morally wrong to kill animals, regardless of practical considerations. According to Glenn",
+        "Kirk of the hunting immense suffering to individual wild California-based The Animals􀆳 Voice, “causes and is hunters kill foranimals...” “ irrationally cruel because unlike natural predation (捕食),",
+        "He adds that, despite claims that hunting keeps wildlife populations in balance,pleasure...” hunters􀆳 license fees are used to a few game species into overpopulation at the expensehunters􀆳 “manipulate of a much larger number of species, resulting in the loss of biological diversity, genetic non-game integrity and ecological balance.”",
+        "Beyond moral issues, others contend that hunting is not practical. According to the Humane",
+        "Society of the United States, the vast majority of hunted as waterfowl, rabbits, upland species—such birds and mourning minimal nutrition and do not require population doves—“provide control.”",
+        "Author Gary E. Varner suggests in his book, In Nature􀆳s Interests, that some types of hunting may be morally justifiable while others may not be. Hunting to secure the aggregate welfare of “designed the target species, the integrity of its ecosystem, or both Varner terms therapeutic ”—what “ defensible, while subsistence and sport of which only benefit humanhunting”—is hunting—both not.beings—is",
+        "Regardless of individual stance, fewer Americans hunt today than in recent history. Data one􀆳s gathered by the U.S. Fish & Wildlife Service in 2006 show that only five percent of Americans— some 12.5 million themselves hunters today, down from nine percent in 2001 individuals—consider and 15 percent in 1996.",
+        "Public support for hunting, however, is on the rise. A 2007 survey by Responsive Management",
+        "Inc. found that eighty percent of respondents agreed that has a legitimate place in modern “hunting and the percentage of Americans indicating disapproval of hunting declined from 22 percentsociety,” in 1995 to 16 percent in 2007.",
+        "Perhaps matching the trend among the public, green leaders are increasingly advocating",
+        "cooperation between hunters and environmental groups: After all, both deplore urban sprawl and",
+        "habitat destruction."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the author say sounds ironic?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Some predators may often turn out to be prey of other predators."
+            },
+            {
+              "key": "B",
+              "text": "Hunting may also be a solution to the problem caused by hunting."
+            },
+            {
+              "key": "C",
+              "text": "The species of prey animals continue to vary despite hunting. humans􀆳"
+            },
+            {
+              "key": "D",
+              "text": "The number of prey animals keeps rising despite environmental change. 6·11"
+            }
+          ],
+          "answer": "B",
+          "explanation": "[锁定答案]B。第一段1句引出作者感到奇怪的现象:一方面狩猎令捕食者数量减少,(由此)被捕食者 数量激增、超出环境承载力,但另一方面狩猎又可帮助减少这些数量过多的动物,即狩猎可解决其本身带来的 问题,B正确提炼这一奇怪现象。a solutionto对应文中anaturalwayto,theproblem概括文中\"被辅食者超 过环境承载力(prey animals...reproduce beyond the environment's carrying capacity)”这一问题。 [排除干扰]A由第一段3句“每个动物不是捕食者便是被捕食者”联想到“捕食者会转变为被捕食者/猎 物”,虽符合常识,但并非文意所在,更不是作者认为奇怪的事情。C、D均由第一段4句片段信息“被捕食动物 的数量已超出环境承载力”推测而来,但本身均含有事实错误:“数量超出环境承载力”\"种类不断变化”,故 C错误;D项颠例因果:\"数量增多→超过环境承裁力”子“环境改变→数量增多\")。 [提炼思路]本题考查人物观点的具体内容,根据题千关键词可轻松定位,但难点在于正确理解该定位句 并提炼观点。首先可借由主句someseehuntingasanaturalwayto...把握该句的总体指向\"对狩猎的积极态 度”,初步锁定体现这两个元素的B、C项。其次可借由since梳理出句内的因果逻解:人类狩猎导致猫食者减 少→被摘食者繁殖过量→人类通过狩猎缓解这一问题,此时与选项B、C对比便知B\"猜猎是其导致问题的解 决办法”最能概括这一奇怪现象。 Il o On the other hand, many environmental and animal advocates see hunting as savage, arguing that it is morally wrong to kill animals, regardless of practical According to Glenn Kirk of the considerations. California-based The Animals' Voice, hunting \"causes immense suffering to individual wild animals. .. \" and is “irrationally cruel because unlike natural predation ( 食), hunters kill for pleasure...\" He adds that,despite hunters' claims that hunting keeps wildlife populations in balance, hunters' license fees are used to “\"manipulatea few gamespecies into overpopulation at the expense ofa much larger number of non-game species, resulting in the loss of biological diversity, genetic integrity ecological\" balance.\" 但另一方面,许多环境及动物权益 侣导者都将狩猎视为野蛮行径,认为杀 死动物从道德上讲是错误的,不管其实 际考量为何。加利福尼亚动物之声》 杂志的格伦·柯克称,狩猫“会让野生 动物个体遭受极大的痛苦\"而且 “(特猎)异常残忍+因为与自然辅食不 同,狩猎者杀死动物是为了消遣 他还补充道,尽管狩猎者声称打猎使野 生动植物种群保持平衡,但其执照费被 用以“使少部分狩猎物种进行过度繁 殖,而这伤害了大量非狩猎物种,导致 了生物多样性、基因完整性及生态平衡 and 这三方面的破坏”。 ·"
+        },
+        {
+          "number": 52,
+          "stem": "What does Glenn Kirk think of charging hunters license fees?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It keeps game population under control."
+            },
+            {
+              "key": "B",
+              "text": "It turns hunting into a sport of the rich."
+            },
+            {
+              "key": "C",
+              "text": "It leads to ecological imbalance."
+            },
+            {
+              "key": "D",
+              "text": "It helps stop killing for pleasure."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]C。该句指出GlennKirk称,向狩猎者收取的执照费造成狩猎物种(gamespecies)过度繁殖, 伤害了大量非狩猎物种(non-gamc species),最终导致了生物多样性、基固完整性及生态平衡三方面的破坏。 ecological imbalance同义替换原文thelossof.,.ecological balance,体现收取执照费的糟糕后采之一,故正确。 [排除干扰]A源自该段3句前半部分“狩猎使野生动物种群保持平衡”,但这是狩猎者的观点,despite(尽管) 一词表明GlennKirk并不认同此说法。C杂操第二段license fees、atthe expense of及第四段sport hunting等个别字 词,原文并无此意。D在2句GlennKirk\"对消遗型狩猎的批判\"与“收取狩猎抗照费\"之间强加关联。 [提炼恩路]本题考查涉及人物观点的事实细节。锁定定位句后可首先确定GlennKirk对收取骑猎执照 费的总体态度为消极:despite hunters'claims...hunters”license feesare....之间的转折逻辑表明此人与 hunters的态度恰相反,而hunters对筹猎持积极态度(keepswildlifepopulationsinbalance),故GlennKirk的 态度为消极,由此锁定体现消极评价的B、C。其次再细读定位句对执照费的具体描述:虽然主句部分 manipulate...into...at the expense of..较难理解,但状语部分resulting in theloss of..ecological balance 可直接对应C项leadsto ecological imbalance。"
+        },
+        {
+          "number": 53,
+          "stem": "What is the argument of the Humane Society of the United States against hunting?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Overpopulation is not an issue for most hunted animals."
+            },
+            {
+              "key": "B",
+              "text": "Hunting deprives animal populations of their food sources."
+            },
+            {
+              "key": "C",
+              "text": "Many birds and small animals are being irrationally killed."
+            },
+            {
+              "key": "D",
+              "text": "Hunting is universally acknowledged as a savage behavior."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]A。该段1句介绍部分人对狩猎的反对观点“不实用(not practical)”,2句引出代表性组织 “人道主义协会”两大反对理由:绝大多数被猎的物种提供的营养极少,且不需要种群控制(即狩猎既无益于 人体健康,也无助于生态平衡,不具实用价值),A契合第二个反对理由,故正确。 [排除干扰]B将第三段2句“被摘猎的动物为人类提供营养(provide...nutrition)”曲解为“被捕猎的动 物为其他动物提供营养,猎行为使其他动物丧失食物来源(deprive sbof sth使某人丧失某物)\"。C中 irationally复现于第二段2句,但这一对狩猎行为的评价\"残忍到荒谬\"是GlennKirk观点,并非人道主义协 会的观点。D中savage复现于第二段1句,但张冠李戴,将“视狗猎为野变行径”的主体“环境及动物权益侣导 者”偷换为“人道主义协会”。 [提炼思路]文章涉及多个社会群体/组织/个人的观点,解题关键在于厘清段间及段内逻辑,区辨信息: 1.第三段两句语义顺承,otherscontend..,Accordingto theHumaneSociety...提示段内逻辑\"概述部分人的 观点一—援引代表性组织的观点加以详释\",故人道主义协会的批驳角度为\"狩猎的实用性(notpractical)\";2. 第二、三段it ismorallywrong...Beyondmoral issues...notpractical呈遗段间逻辑“狩猎的道德性→狩猎的 实用性”,可直接排除源自第二段、体现“狩猎行为违背道德\"的C、D两项:3.第三段2句and衔接被猎的物 种两大特征,明确筹猎不实用”的两大理由,B将第一个理由中营养供给对象由“人类”改为“动物捕食者”,A 体现第二个理由“不需要种群控制(即使数量过刻,也不是问题)”。"
+        },
+        {
+          "number": 54,
+          "stem": "When is hunting morally justifiable according to Gary E. Varner?",
+          "options": [
+            {
+              "key": "A",
+              "text": "When it benefits animals and their ecosystem."
+            },
+            {
+              "key": "B",
+              "text": "When it serves both human and animal interests."
+            },
+            {
+              "key": "C",
+              "text": "When it is indispensable to subsistence. humans􀆳"
+            },
+            {
+              "key": "D",
+              "text": "When it stabilizes the population of animal species."
+            }
+          ],
+          "answer": "A",
+          "explanation": "[锁定答案]A。该段1句指出\"狩猎是否合乎道德因其类型而异\",2句明确“旨在保证目标物种总福利或(和) 其生态系统完整性的狩猎合乎情理”,也即“狩猎若有益于目标动物及其生态系统则是道德上无可厚非的”,A正确。 [排除干扰]B将2句(正反)对比逻辑(while)\"考量目标物种利益的狩猎是合手情理的,而仅于人类有益 的狩猎是不合情理的\"事改为并列逻辑(both...and...)\"既符合人类利益又符合动物利益的狩猎才是合 情理的”。C与2向“而为维持生计而进行的狩猎是不合乎情理的”相悼。D将第二段3向狩猎者的说辞“狩 猎使野生动植物种群保持平衡(keeps...inbalance)\"偷换为“狩猎稳定动物物种的数量(stabilizes)\",且 Varner并未论及“狩猎对动物物种数量的影响”。 [提炼思路]本题形似考查狩猎合乎道德的条件,实际考查对第四段长难句中对比关系的把握。首先发 现两句句式相近:均以while标示对比逻辑,分句maybevsmaynotbe、isvsisnot均为判断向式、前肯后否, morally justifiable义近defensible,将狩猎划分为德上正当的和不正当的。然后比对两句,明确some types of hunting指代therapeutichunting,others指代subsistenceand sporthunting,即\"合乎道德的是有疗效的 猎(保证目标动物福利及其生态系统稳定性的狩猎),不合乎道德的是为维持生计而进行的狩猎和运动将猎 (仅仅于人类有益的狩猎)”,锁定A正确。"
+        },
+        {
+          "number": 55,
+          "stem": "What concept are green leaders trying to promote?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Effective protection of animal habitats."
+            },
+            {
+              "key": "B",
+              "text": "Strict control over urban development."
+            },
+            {
+              "key": "C",
+              "text": "Coordinated efforts of hunters and environmentalists."
+            },
+            {
+              "key": "D",
+              "text": "A compromise between development and animal protection."
+            }
+          ],
+          "answer": "C",
+          "explanation": "[锁定答案]C。该段指出色领袖适应公众支持狩猎的倾向,立足狩猎者和环保组织的共同态度“反对 域市的无计划扩张和对栖息地的破坏”,积极倡导双方开展合作,C正确。 [排除干扰」A、B由末句\"动植物橘息地被破坏(habitatdestruction)\"\"城市无计刻扩张(urbansprawl)” 反推出“绿色领袖侣导有效保护柄息地、严格控制域市发展”,但由逻辑词Afterall可知,这是“狩猎者和环保 组织的合作基础”,并非“绿色领袖致力推广的观念”。 。D在\"城市发展扩张(urban sprawl)\"和“动物保护(狩猎 者与环保组织致力实现的目标)”之间强加矛盾,髓断出“两者不能并存,需寻求安协折中”,但文章并未涉及。 [提炼思路]本题易于定位,解题关键在于理解句间关系:Afterall强调原固,狩猎者和环保组织的共同观 点“强烈反对城市的无计划扩张和对栖息地的破坏 是双方合作的基础,故绿色领袖正借导推广的是“环保新 方式:狩猎者与环保组织协同合作”,而非\"环保任务本身:保护动物栖息地,控制城市无计划扩张”,C正确,排 除A、B两项,D结合常识\"发展与保护间往往存在矛盾冲突”主观腹断而来,也错误。"
+        }
+      ]
+    }
+  ]
+}

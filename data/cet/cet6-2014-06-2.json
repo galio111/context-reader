@@ -1,0 +1,1688 @@
+{
+  "id": "cet6-2014-06-2",
+  "level": 6,
+  "year": 2014,
+  "month": 6,
+  "set": 2,
+  "title": "2014 年 6 月六级 · 第 2 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.06/%E7%9C%9F%E9%A2%98Word/2014%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%EF%BC%88%E4%BA%8C%EF%BC%89.docx",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2014%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%EF%BC%88%E4%BA%8C%EF%BC%89.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2014-06-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Fear can be an effective way to change behavior. One study compared the effects of high-fear and low-fear appeals on changes in attitudes and behaviors related to dental hygiene (卫生). One group of subjects was shown awful pictures of [[36]] teeth and diseased gums; another group was shown less frightening materials such as plastic teeth, charts, and graphs. Subjects who saw the frightening materials reported more anxiety and a greater [[37]] to change the way they took care of their teeth than the low-fear group did. But were these reactions actually [[38]] into better dental hygiene practices? To answer this important question, subjects were called back to the laboratory on two [[39]] (five days and six weeks after the experiment). They chewed disclosing wafers(牙疾诊断片) that give a red stain to any uncleaned areas of the teeth and thus provided a direct [[40]] of how well they were really taking care of their teeth. The result showed that the high-fear appeal did actually result in greater and more [[41]] changes in dental hygiene. That is, the subjects [[42]] to high-fear warnings brushed their teeth more [[43]] than did those who saw low-fear warnings. However , to be an effective persuasive device it is very important that the message not be too frightening and that people be given [[44]] guidelines to help them to reduce the cause of the fear. If this isn’t done, they may reduce their anxiety by denying the message or the [[45]] of the communicator. If that happens, it is unlikely that either attitude or behavior change will occur."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "accustomed"
+        },
+        {
+          "key": "B",
+          "text": "carefully"
+        },
+        {
+          "key": "C",
+          "text": "cautiously"
+        },
+        {
+          "key": "D",
+          "text": "concrete"
+        },
+        {
+          "key": "E",
+          "text": "credibility"
+        },
+        {
+          "key": "F",
+          "text": "decayed"
+        },
+        {
+          "key": "G",
+          "text": "desire"
+        },
+        {
+          "key": "H",
+          "text": "dimensions"
+        },
+        {
+          "key": "I",
+          "text": "eligible"
+        },
+        {
+          "key": "J",
+          "text": "exposed"
+        },
+        {
+          "key": "K",
+          "text": "indication"
+        },
+        {
+          "key": "L",
+          "text": "occasions"
+        },
+        {
+          "key": "M",
+          "text": "permanent"
+        },
+        {
+          "key": "N",
+          "text": "sensitivity"
+        },
+        {
+          "key": "O",
+          "text": "translated"
+        }
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "第 36 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accustomed"
+            },
+            {
+              "key": "B",
+              "text": "carefully"
+            },
+            {
+              "key": "C",
+              "text": "cautiously"
+            },
+            {
+              "key": "D",
+              "text": "concrete"
+            },
+            {
+              "key": "E",
+              "text": "credibility"
+            },
+            {
+              "key": "F",
+              "text": "decayed"
+            },
+            {
+              "key": "G",
+              "text": "desire"
+            },
+            {
+              "key": "H",
+              "text": "dimensions"
+            },
+            {
+              "key": "I",
+              "text": "eligible"
+            },
+            {
+              "key": "J",
+              "text": "exposed"
+            },
+            {
+              "key": "K",
+              "text": "indication"
+            },
+            {
+              "key": "L",
+              "text": "occasions"
+            },
+            {
+              "key": "M",
+              "text": "permanent"
+            },
+            {
+              "key": "N",
+              "text": "sensitivity"
+            },
+            {
+              "key": "O",
+              "text": "translated"
+            }
+          ],
+          "answer": "F",
+          "explanation": "F)。动词辨析题。空格位于介词of 之后、名词teeth 之前,并且后面紧跟and 连接的并列短 语diseased gums,据此推断空格处应该填人形容词或形容词性质的分词形式来修饰teeth,而且该 词在意思上应该与diseased 相关,即与疾病相关。根据上句提到的“口腔卫生”和空格所在句提 到的“出现病变的齿龈”,可以推断空格处所填词应与牙齿出现的病变有关,故答案为decayed “腐烂,变坏”。decayed teeth 意为“龋齿”。"
+        },
+        {
+          "number": 37,
+          "stem": "第 37 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accustomed"
+            },
+            {
+              "key": "B",
+              "text": "carefully"
+            },
+            {
+              "key": "C",
+              "text": "cautiously"
+            },
+            {
+              "key": "D",
+              "text": "concrete"
+            },
+            {
+              "key": "E",
+              "text": "credibility"
+            },
+            {
+              "key": "F",
+              "text": "decayed"
+            },
+            {
+              "key": "G",
+              "text": "desire"
+            },
+            {
+              "key": "H",
+              "text": "dimensions"
+            },
+            {
+              "key": "I",
+              "text": "eligible"
+            },
+            {
+              "key": "J",
+              "text": "exposed"
+            },
+            {
+              "key": "K",
+              "text": "indication"
+            },
+            {
+              "key": "L",
+              "text": "occasions"
+            },
+            {
+              "key": "M",
+              "text": "permanent"
+            },
+            {
+              "key": "N",
+              "text": "sensitivity"
+            },
+            {
+              "key": "O",
+              "text": "translated"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G)。名词辨析题。空格前为不定冠词a 和形容词比较级greater,后为不定式结构,据此推断 空格处应该填人名词。再结合空格所在句信息,那些看到令人恐惧的材料的受试者显得更为焦 虑,因此在改变牙齿护理方面也表现出更强的,由前半句中的anxiety 可知,空格处应填表示积 极意义的名词,结合备选项,可确定答案为desire“渴望,欲望”。"
+        },
+        {
+          "number": 38,
+          "stem": "第 38 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accustomed"
+            },
+            {
+              "key": "B",
+              "text": "carefully"
+            },
+            {
+              "key": "C",
+              "text": "cautiously"
+            },
+            {
+              "key": "D",
+              "text": "concrete"
+            },
+            {
+              "key": "E",
+              "text": "credibility"
+            },
+            {
+              "key": "F",
+              "text": "decayed"
+            },
+            {
+              "key": "G",
+              "text": "desire"
+            },
+            {
+              "key": "H",
+              "text": "dimensions"
+            },
+            {
+              "key": "I",
+              "text": "eligible"
+            },
+            {
+              "key": "J",
+              "text": "exposed"
+            },
+            {
+              "key": "K",
+              "text": "indication"
+            },
+            {
+              "key": "L",
+              "text": "occasions"
+            },
+            {
+              "key": "M",
+              "text": "permanent"
+            },
+            {
+              "key": "N",
+              "text": "sensitivity"
+            },
+            {
+              "key": "O",
+              "text": "translated"
+            }
+          ],
+          "answer": "O",
+          "explanation": "O)。动词辨析题。空格所在句为疑问句,be 动词were 位于句首,而且空格后为介词into, 据此推断空格处应该填人动词的过去分词形式,而且该动词能和介词into 搭配。备选项中,符 合要求的只有.translated“转变,变化”。本句意为:但是,这些反应能够切实地转化成更好的口 腔卫生行为吗?"
+        },
+        {
+          "number": 39,
+          "stem": "第 39 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accustomed"
+            },
+            {
+              "key": "B",
+              "text": "carefully"
+            },
+            {
+              "key": "C",
+              "text": "cautiously"
+            },
+            {
+              "key": "D",
+              "text": "concrete"
+            },
+            {
+              "key": "E",
+              "text": "credibility"
+            },
+            {
+              "key": "F",
+              "text": "decayed"
+            },
+            {
+              "key": "G",
+              "text": "desire"
+            },
+            {
+              "key": "H",
+              "text": "dimensions"
+            },
+            {
+              "key": "I",
+              "text": "eligible"
+            },
+            {
+              "key": "J",
+              "text": "exposed"
+            },
+            {
+              "key": "K",
+              "text": "indication"
+            },
+            {
+              "key": "L",
+              "text": "occasions"
+            },
+            {
+              "key": "M",
+              "text": "permanent"
+            },
+            {
+              "key": "N",
+              "text": "sensitivity"
+            },
+            {
+              "key": "O",
+              "text": "translated"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L)。名词辨析题。空格位于介词on 和数词two 之后,且空格后括号中用来补充说明的内容 与时间有关,据此推断空格处应该填人与时间有关的名词。结合句意,为了回答这个重要的问题, 受试者们分别在实验开展五天之 后和六周之后这两个____被召洄实验室,故答案为occasions “时刻,时候”。"
+        },
+        {
+          "number": 40,
+          "stem": "第 40 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accustomed"
+            },
+            {
+              "key": "B",
+              "text": "carefully"
+            },
+            {
+              "key": "C",
+              "text": "cautiously"
+            },
+            {
+              "key": "D",
+              "text": "concrete"
+            },
+            {
+              "key": "E",
+              "text": "credibility"
+            },
+            {
+              "key": "F",
+              "text": "decayed"
+            },
+            {
+              "key": "G",
+              "text": "desire"
+            },
+            {
+              "key": "H",
+              "text": "dimensions"
+            },
+            {
+              "key": "I",
+              "text": "eligible"
+            },
+            {
+              "key": "J",
+              "text": "exposed"
+            },
+            {
+              "key": "K",
+              "text": "indication"
+            },
+            {
+              "key": "L",
+              "text": "occasions"
+            },
+            {
+              "key": "M",
+              "text": "permanent"
+            },
+            {
+              "key": "N",
+              "text": "sensitivity"
+            },
+            {
+              "key": "O",
+              "text": "translated"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K)。名词辨析题。空格位于不定冠词a 和形容词direct 之后,而且空格后为介词of 引导的 从句,据此推断空格处应该填么名词。本句前半部分提到受试者在牙疾诊断片上留下的红色污 点,后半部分提到他们护理牙齿的程度。根据常识可知,进行医疗检查就是为了发现存在的疾病 或者出现的问题,因此牙疾诊断片上留下的红色 污点能够为医生的诊断提供信息或参考,由此 确定答案为indication“迹象,标示”。"
+        },
+        {
+          "number": 41,
+          "stem": "第 41 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accustomed"
+            },
+            {
+              "key": "B",
+              "text": "carefully"
+            },
+            {
+              "key": "C",
+              "text": "cautiously"
+            },
+            {
+              "key": "D",
+              "text": "concrete"
+            },
+            {
+              "key": "E",
+              "text": "credibility"
+            },
+            {
+              "key": "F",
+              "text": "decayed"
+            },
+            {
+              "key": "G",
+              "text": "desire"
+            },
+            {
+              "key": "H",
+              "text": "dimensions"
+            },
+            {
+              "key": "I",
+              "text": "eligible"
+            },
+            {
+              "key": "J",
+              "text": "exposed"
+            },
+            {
+              "key": "K",
+              "text": "indication"
+            },
+            {
+              "key": "L",
+              "text": "occasions"
+            },
+            {
+              "key": "M",
+              "text": "permanent"
+            },
+            {
+              "key": "N",
+              "text": "sensitivity"
+            },
+            {
+              "key": "O",
+              "text": "translated"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。形容词辨析题。空格前面有并列连词and, and 前为形容词比较级greater,因此and 后面 应该也是形容词比较级;空格前已经给出more,据此推断空格处为形容词原形。下一句提到了关 注口腔卫生的一个具体事例—刷牙,故确定答案为concrete“具体的”。"
+        },
+        {
+          "number": 42,
+          "stem": "第 42 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accustomed"
+            },
+            {
+              "key": "B",
+              "text": "carefully"
+            },
+            {
+              "key": "C",
+              "text": "cautiously"
+            },
+            {
+              "key": "D",
+              "text": "concrete"
+            },
+            {
+              "key": "E",
+              "text": "credibility"
+            },
+            {
+              "key": "F",
+              "text": "decayed"
+            },
+            {
+              "key": "G",
+              "text": "desire"
+            },
+            {
+              "key": "H",
+              "text": "dimensions"
+            },
+            {
+              "key": "I",
+              "text": "eligible"
+            },
+            {
+              "key": "J",
+              "text": "exposed"
+            },
+            {
+              "key": "K",
+              "text": "indication"
+            },
+            {
+              "key": "L",
+              "text": "occasions"
+            },
+            {
+              "key": "M",
+              "text": "permanent"
+            },
+            {
+              "key": "N",
+              "text": "sensitivity"
+            },
+            {
+              "key": "O",
+              "text": "translated"
+            }
+          ],
+          "answer": "J",
+          "explanation": "J)。动词辨析题。分析句子结构可知,空格前为句子的主语,句子的谓语动词为brushed, 据此推断空格处所填词和to high-fear warnings 共同充当后置定语,修饰主语the subjects。根据 文意,此处的受试者就是指第一段提到的看到多幅可怕图片的受试者。exposed 有“接触,体验” 的意思,与看到图片意思一致,因此确定为本题的答案。"
+        },
+        {
+          "number": 43,
+          "stem": "第 43 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accustomed"
+            },
+            {
+              "key": "B",
+              "text": "carefully"
+            },
+            {
+              "key": "C",
+              "text": "cautiously"
+            },
+            {
+              "key": "D",
+              "text": "concrete"
+            },
+            {
+              "key": "E",
+              "text": "credibility"
+            },
+            {
+              "key": "F",
+              "text": "decayed"
+            },
+            {
+              "key": "G",
+              "text": "desire"
+            },
+            {
+              "key": "H",
+              "text": "dimensions"
+            },
+            {
+              "key": "I",
+              "text": "eligible"
+            },
+            {
+              "key": "J",
+              "text": "exposed"
+            },
+            {
+              "key": "K",
+              "text": "indication"
+            },
+            {
+              "key": "L",
+              "text": "occasions"
+            },
+            {
+              "key": "M",
+              "text": "permanent"
+            },
+            {
+              "key": "N",
+              "text": "sensitivity"
+            },
+            {
+              "key": "O",
+              "text": "translated"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。副词辨析题。空格位于动弇短语brushed their teeth 之后,且空格前还有比较级的标志 词more,据此推断空格处应该填人副词。根据上一句的信息可知,高恐惧诉求的确能够让受试者 在口腔卫生方面产生更大的、更具 体的变化。那么,具体到刷牙上,高恐惧诉求的受试者应该 会更谨慎,故确定答案为cautiously“慎重地,谨慎地”。备选词里还有另一个副词carefully, 其意思侧重于指一般言行上的谨慎小心;而cautiously 常指为了避 免危险或犯错误而对自己说 的话或做的事十分小心。本文中高恐惧诉求组的受试者对可怕的图片心有余悸, 为了避免患上 同样的疾病,会非常谨慎,因此cautiously 更适合作为本题的答案。"
+        },
+        {
+          "number": 44,
+          "stem": "第 44 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accustomed"
+            },
+            {
+              "key": "B",
+              "text": "carefully"
+            },
+            {
+              "key": "C",
+              "text": "cautiously"
+            },
+            {
+              "key": "D",
+              "text": "concrete"
+            },
+            {
+              "key": "E",
+              "text": "credibility"
+            },
+            {
+              "key": "F",
+              "text": "decayed"
+            },
+            {
+              "key": "G",
+              "text": "desire"
+            },
+            {
+              "key": "H",
+              "text": "dimensions"
+            },
+            {
+              "key": "I",
+              "text": "eligible"
+            },
+            {
+              "key": "J",
+              "text": "exposed"
+            },
+            {
+              "key": "K",
+              "text": "indication"
+            },
+            {
+              "key": "L",
+              "text": "occasions"
+            },
+            {
+              "key": "M",
+              "text": "permanent"
+            },
+            {
+              "key": "N",
+              "text": "sensitivity"
+            },
+            {
+              "key": "O",
+              "text": "translated"
+            }
+          ],
+          "answer": "I",
+          "explanation": "I)。形容词辨析题。空格位于be given 之后,名词guidelines 之前,据此推断空格处应该填 人形容词。由句思可知,要想成为一种行之有效的说服手段,提供的信息不能让人感到过于恐惧, 而且应该给人们提供指导以帮助他们减少产生恐惧的原因,结合备选项,确定答案为eligible“合 格的,有资格的”。"
+        },
+        {
+          "number": 45,
+          "stem": "第 45 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accustomed"
+            },
+            {
+              "key": "B",
+              "text": "carefully"
+            },
+            {
+              "key": "C",
+              "text": "cautiously"
+            },
+            {
+              "key": "D",
+              "text": "concrete"
+            },
+            {
+              "key": "E",
+              "text": "credibility"
+            },
+            {
+              "key": "F",
+              "text": "decayed"
+            },
+            {
+              "key": "G",
+              "text": "desire"
+            },
+            {
+              "key": "H",
+              "text": "dimensions"
+            },
+            {
+              "key": "I",
+              "text": "eligible"
+            },
+            {
+              "key": "J",
+              "text": "exposed"
+            },
+            {
+              "key": "K",
+              "text": "indication"
+            },
+            {
+              "key": "L",
+              "text": "occasions"
+            },
+            {
+              "key": "M",
+              "text": "permanent"
+            },
+            {
+              "key": "N",
+              "text": "sensitivity"
+            },
+            {
+              "key": "O",
+              "text": "translated"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E)。名词辨析题。空格位于定冠词the 之后,of 引导的介词短语之前,据此推断空格处应该 填入名词。结合上一句,要想成为一种行之有效的说服手段,就必须做到两点,否则人们就可能 会否认这些信息或否认信息传播者的_ ,结合备选项,确定答案为credibility“可信度,可靠性”。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2014-06-2-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) When I was growing up, one of my father’s favorite sayings (borrowed from the humorist Will Rogers) was: “It isn’t what we don’t know that causes the trouble; it’s what we think we know that just isn’t so. One of the main insights to be taken from the 100 000 Homes Campaign and its strategy to end chronic homelessness is that, until recently, our society thought it understood the nature of homelessness, but it didn’t.",
+        "B) That led to a series of mistaken assumptions about why people become homeless and what they need. Many of the errors in our homelessness policies have stemmed from the conception that the homeless are a homogeneous group. It’s only in the past 15 years that organizations like Common Ground, and others, have taken a street-level view of the problem—distinguishing the “episodically homeless” from the “chronically homeless” in order to understand their needs at an individual level. This is why we can now envisage a different approach—and get better results.",
+        "C) Most readers expressed support for the effort, although a number were skeptical, and a few utterly dismissive, about the chances of long-term homeless people adapting well to housing. This is to be expected; it’s hard to imagine what we haven’t yet seen. As Niccolo Machiavelli wrote in The Prince, one of the major obstacles in any effort to advance systemic change is the “incredulity of men,” which is to say that people “do not readily believe in new things until they have had a long experience of them.” Most of us have witnessed homeless people on the streets for decades. Few have seen formerly homeless people after they have been housed successfully. We don’t have reference points for that story. So we generalize from what we know-or think we know.",
+        "D) But that can be misleading, even to experts. When I asked Rosanne Haggerty, founder of Common Ground, which currently operates 2 310 units of supportive housing (with 552 more under construction), what had been her biggest surprise in this work, she replied : “Fifteen years ago, I would not have believed that people who had been so broken and stuck in homelessness could thrive to the degree that they do in our buildings. ’’ And Becky Kanis, the campaign’s director, commented : ‘There is this sense in our minds that someone who’s on the streets is almost in their DNA different from someone who has a house. The campaign is creating a first-hand experience for many people that that is really not the case.",
+        "E) One of the startling realizations that I had while researching this column is that anybody could become like a homeless person —all it takes is a traumatic (创伤的)brain injury. A bicycle fall, a car accident, a slip on the ice, or if you’re a soldier, a head wound—and your life could become unrecognizable. James O’Connell, a doctor who has been treating the most vulnerable homeless people on the streets of Boston for 25 years, estimates that 40 percent of the long-term homeless people he’s met had such a brain injury. “For many it was a head injury prior to the time they became homeless,” he said. “They became unpredictable. They’d have mood swings, fits of explosive behavior. They couldn’t hold onto their jobs. Drinking made them feel better. They’d end up on the streets.",
+        "F) Once homeless people return to housing, they’re in a much better position to rebuild their lives. But it’s important to note that housing alone is not enough. As with many complex social problems, when you get through the initial crisis, you have another problem to solve which is no less challenging. But it is a better problem.",
+        "G) Over the past decade, O’Connell has seen this happen. spend half my time on the streets or in the hospital and the other half making house calls to people who lived for years on the streets,” he said. “So from a doctor’s point of view it’s a delightful switch, but it’s not as if putting someone in housing is the answer to addressing all of their problems. It’s the first step. ”",
+        "H) Once in housing, formerly homeless people can become isolated and lonely. If they’ve lived on the streets for years, they may have acquired a certain standing as well as a sense of pride in their survival skills. Now indoors, those aspects of their identity may be stripped away. Many also experience a profound disorientation at the outset. “If you’re homeless for more than six months, you kind of lose your bearings, ”says Haggerty. “Existence becomes not about overcoming homelessness but about finding food, begging, looking for a job to survive another day. The whole process of how you define stability gets reordered. ”",
+        "I) Many need regular, if not continuous, support with mental health problems, addictions and illnesses— and, equally important, assistance in the day-to-day challenges of life, reacquainting with family, building relationships with neighbors, finding enjoyable activities or work, managing finances, and learning how to eat healthy food.",
+        "J) For some people, the best solution is to live in a communal(集体)residence, with special services. This isn’t available everywhere, however. In Boston, for example, homeless people tend to be scattered in apartments throughout the city.",
+        "K) Common Ground’s large residences in New York offer insight into the possibilities for change when homeless people have a rich array of supports. In addition to more traditional social services, residents also make use of communal gardens, classes in things like cooking, yoga, theatre and photography, and job placement. Last year, 188 formerly homeless tenants in four of Common Ground^ residences, found jobs.",
+        "L) Because the properties have many services and are well-managed, Haggerty has found posthousing problems to be surprisingly rare. In the past 10 years, there have been only a handful of incidents of quarrels between tenants. There is very little graffiti (涂鸦)or vandalism (破坏). And the turnover is almost negligible. In the Prince George Hotel in New York, which is home to 208 formerly homeless people and 208 low-income tenants, the average length of tenancy is close to seven years. (All residents pay 30 percent of their income for rent; for the formerly homeless, this comes out of their government benefits.) When people move on, it is usually because they’ve found a preferable apartment.",
+        "M) “Tenants also want to participate in shaping the public areas of the buildings,” said Haggerty. “They formed a gardening committee. They want a terrace on the roof. Those are things I didn’t count on.’’ The most common tenant demand? People always want more storage space—but that’s true of every New Yorker,” she adds. “In many ways, we’re a lot like a normal apartment building. Our tenants look like anyone else. ”",
+        "N) As I mentioned, homelessness is a catch-all for a variety of problems. A number of readers asked whether the campaign will address family homelessness, which has different causes and requires a different solution. I’ve been following some of the promising ideas emerging to address and prevent family homelessness. Later in 2011, I’ll explore these ideas in a column. For now, I’ll conclude with an update on the 100 000 Homes Campaign. Since Tuesday, New Orleans and a few other communities have reported new results. The current count of people housed is 7 043."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "Tenants in Common Ground’s residences all want more room for storage.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "M",
+          "explanation": "Tenants in Common Grounds residences all want more room for storage. M)。【译文】Common Ground 居住区的住户们都希望存储空间再大一些。 【精析】同义转述题。由题干中的Tenants 和 more room for storage 定位到M)段第五、六句。 该 段内容都是在引用Haggerty 所说的话,她是 Common Ground 这一机构的创始人,她所讲述的也 是关于Common Ground 目前的情况。定位句提到,当被问到住在Common Ground 居住区的住户 们最想要什么时,Haggerty 的回答是“人们总是希望存储空间能再大一些”,题干中的 want more room for storage 是对定位句中的 want more storage space 的同义转述,故答案为M)。"
+        },
+        {
+          "number": 47,
+          "stem": "Homes Campaign provides first-hand proof that the homeless are not what they were once believed to be.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "D",
+          "explanation": "Homes Campaign provides first-hand proof that the homeless are not what they were once believed to be. D)。【译文】“安家行动”提供了第一手的证据,证明那些无家可归的人们并不是人们之前所 认为的 那样。 【精析】细节归纳题。由题干中的Homes Campaign 和first-hand 定位到D)段末句。D)段倒数第 二句提到,我们心中都有一种感觉,认为大街上无家可归的人从根本上就与拥有住房的人不一 样,定位句指出,“十万安家行动”却给出了第一手的经验,说明事实并非如此。也就是说,我 们以往对无家可归的人的看法是错误的。题干中的first-hand proof 对应定位句中的first-hand experience,题干中的 not what they were once believed to be 与定位句中的 that is really not the case 意思一致,题干是对定位句的归纳总结,故答案为D)。"
+        },
+        {
+          "number": 48,
+          "stem": "Common Ground’s residences are well-managed and by and large peaceful.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "L",
+          "explanation": "Common Ground’s residences are well-managed and by and large peaceful. L)。【译文】Common Ground 的居住区管理良好,总体来看,十分平静。 【精析】细节归纳题。由题干中的well-managed 定位到L)段首句。定位句中的properties 指的 是 K)段中提到的 Common Ground’s large residences,与题干的主语对应。定位句提到,无家可 归的人入住后,问题并不多,接下来的几句指出,在过去的10 年间,住户间发生争执的事件仅 有几起。涂鸦和破坏的现象很少。人员流动的数量几乎可以忽略不计。由此可知,那里的生活十 分平和安宁。题干是对本段内容的归纳总结,故答案为L)。"
+        },
+        {
+          "number": 49,
+          "stem": "Housing the homeless is only the first step to solving all their problems.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "G",
+          "explanation": "Housing the homeless is only the first step to solving all their problems. G)。【译文】让无家可归的人有房可住仅仅是解决他们所有问题的第一步。 【精析】同义转述题。由题干中的the first step 和 solving all their problems 定位到 G)段最后两 句。定位句引用了 O’Connell 医生的话,他认为,情况在向好的方面发展,然而,并不是说把 无家可归的人安置到房子里就能够解决他们的所有问题。这只是第一步。O’Connell 提到的 someone 指的就是the homeless,题干中的 Housing the homeless 对应定位句中的 putting someone in housing,题干中的solving 是对定位句中addressing —词的同义转述,故答案为G)。"
+        },
+        {
+          "number": 50,
+          "stem": "A large percent of the chronically homeless have suffered from brain injury.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "E",
+          "explanation": "A large percent of the chronically homeless have suffered from brain injury. E)。【译文】很多长期无家可归的人都遭受过脑部创伤。 【精析】同义转述题。由题干中的the chronically homeless 和 brain injury 定位到 E)段第三句。 定位句提到,James O’Connell 医生在过去的25 年间,一直在对那些大街上最脆弱的 无家可归 者进行治疗,据他估计,他接触的无家可归者中,有40%的长期无家可归者都曾经受过 大脑创 伤。也就是说,很多长期无家可归的人曾遭受过脑部创伤。题干中的A large percent 对应定位句 中的40 percent,题千中的the chronically homeless 对应定位句中的 the longterm homeless people。题干是对定位句的同义转述,故答案为E)。"
+        },
+        {
+          "number": 51,
+          "stem": "After being housed many homeless people become confused at first as to how to deal with life off the street.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "H",
+          "explanation": "After being housed many homeless people become confused at first as to how to deal with life off the street. H)。【译文】拥有住房后,很多无家可归的人最初都很困惑,不知道离开大街后生活该怎么过。 【精析】细节推断题。由题干中的After being housed,homeless people 和 at first 定位到 H) 段前四句。定位句提到,拥有住处后,曾经无家可归的人会变得与世隔绝和孤独,如果他们已经 在大街上生活了很多年,他们或许已经建立了某种身份,并且为自己的生存技能而感到自豪。现 在,住进房子里,他们身份中的这些层面可能会荡然无存。刚一开始,很多人还会感到深深的迷 失。题干是对定位句的归纳总结,题干中的 After being housed, confused at first 和life off the street 分别对应定位句中的Once in housing,disorientation at the outset 和Now indoors,故答案为H)。"
+        },
+        {
+          "number": 52,
+          "stem": "Some people think the best way to help the homeless is to provide them with communal housing.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "J",
+          "explanation": "Some people think the best way to help the homeless is to provide them with communal housing. J)。译文】有些人认为,对无家可归者最好的帮助是为他们提供集体住宿。 【精析】同义转述题。由题干中的the best way 和communal 定位到J)段第一句。定位句提到, 对有些人来说,最好的解决办法是让他们生活在集体之中。虽然定位句中没有明确提到 homeless people,但整篇文章都是在围绕对无家可归者的安置展开,而本句中的解决方法自然也是针对那 些无家可归者而言,题干中的the best way 和 provide them with communal housing 分别对应定 位句中的the best solution 和live in a communal residence,题干是对定位句的同义转述,故答案 为J)。"
+        },
+        {
+          "number": 53,
+          "stem": "The homeless with health problems should be given regular support in their daily lives.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "I",
+          "explanation": "The homeless with health problems should be given regular support in their daily lives. I)。【译文】由于家庭友好政策,瑞典的雇主往往在聘用女性担任全职职位时犹豫不决。 【译文】有健康问题的无家可归者应当在日常生活中得到定期帮助。 【精析】细节推断题。由题干中的health problems 和 regular support 定位到 I)段。定位段提 到,很多无家可归的人有健康方面的问题,他们需要定期帮助,以应对日常生活的挑战。题干中 的support in their daily lives 对应定位段中的 assistance in the day-to-day challenges of life,故答案为I)。"
+        },
+        {
+          "number": 54,
+          "stem": "Until recently American society has failed to see what homelessness is all about.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Until recently American society has failed to see what homelessness is all about. A)。【译文】直到最近,美国社会都没能认清无家可归问题的实质。 【精析】同义转述题。由题干中的Until recently 和American society 定位到A)段末句。定位句 提到,我们的社会一直认为自己很了解无家可归这一问题的实质,但事实并非如此。题干中的 American society 和 failed to see 分别对应定位句中的our society 和but it didn’t。题干中的what homelessness is all about 意思为“ 无家可归问题的实质” ,与定位句中的the nature of homelessness 意思一致,故答案为A)。"
+        },
+        {
+          "number": 55,
+          "stem": "Many formerly homeless tenants in New York’s Common Ground’s residences got hired.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "K",
+          "explanation": "Many formerly homeless tenants in New York’s Common Ground’s residences got hired. K)。【译文】在Common Ground 的纽约居住区中,很多曾经无家可归的居民现在都找到了工作。 【精析】细节辨认题。由题干中的formerly homeless tenants 和 Common Ground’s residences 定 位到K)段最后一句。定位句提到,去年,在Common Ground 的四个居住区中,有188 位曾经无 家可归的居民找到了工作。除定位词完全相同外,题干中的got hired 与定位句中的found jobs 意思也相同,故答案为K)。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2014-06-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Technology can make us smarter or stupider, and we need to develop a set of principles to guide our everyday behavior and make sure that tech is improving and not hindering our mental processes. One of the big questions being debated today is: What kind of information do we need to have stored in our heads, and what kind can we leave “in the cloud,” to be accessed as necessary? An increasingly powerful group within education are championing “digital literacy”. In their view, skills beat knowledge, developing “digital literacy” is more important than learning mere content, and all facts are now Google-able and therefore unworthy of committing to memory. But even the most sophisticated digital literacy skills won’t help students and workers navigate the world if they don’t have a broad base of knowledge about how the world actually operates. If you focus on the delivery mechanism and not the content, you’re doing kids a disservice. Indeed, evidence from cognitive science challenges the notion that skills can exist independent of factual knowledge. Data from the last thirty years leads to a conclusion that is not scientifically challengeable: thinking well requires knowing facts, and that’s true not only because you need something to think about. The very processes that teachers care about most —critical thinking processes—are intimately intertwined(交织)with factual knowledge that is stored in long-term memory. In other words, just because you can Google the date of Black Tuesday doesn’t mean you understand why the Great Depression happened or how it compares to our recent economic slump. There is no doubt that the students of today, and the workers of tomorrow, will need to innovate, collaborate and evaluate. But such skills can’t be separated from the knowledge that gives rise to them. To innovate, you have to know what came before. To collaborate, you have to contribute knowledge to the joint venture. And to evaluate, you have to compare new information against knowledge you’ve already mastered. So here’s a principle for thinking in a digital world, in two parts. First, acquire a base of factual knowledge in any domain in which you want to perform well. This base supplies the essential foundation for building skills, and it can’t be outsourced (外包)to a search engine. Second, take advantage of computers’ invariable memory, but also the brain’s elaborative memory. Computers are great when you want to store information that shouldn’t change. But brains are the superior choice when you want information to change, in interesting and useful ways: to connect up with other facts and ideas, to acquire successive layers of meaning, to steep for a while in your accumulated knowledge and experience and so produce a richer mental brew."
+      ],
+      "questions": [
+        {
+          "number": 56,
+          "stem": "What is the author’s concern about the use of technology?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It may leave knowledge “in the cloud”."
+            },
+            {
+              "key": "B",
+              "text": "It may misguide our everyday behavior."
+            },
+            {
+              "key": "C",
+              "text": "It may cause a divide in the circles of education."
+            },
+            {
+              "key": "D",
+              "text": "It may hinder the development of thinking skills."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。推理判断题【考频: ★★★】。由选项中的“in the cloud”,everyday behavior 和hinder 定位到第一段。由定位段第一句可知,作者认为,技术具有两面性,能让人变得更聪明,也能让 人变得更愚蠢。因此作者主张制订一套行为准则来引导日常行为,确保技术能够不断提高而非妨 碍人的思维发展过程。由此可知,作者担心技术可能会阻碍人思维能力的发展。故本题答案为 D)。"
+        },
+        {
+          "number": 57,
+          "stem": "What is the view of educators who advocate digital literacy?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It helps kids to navigate the virtual world at will."
+            },
+            {
+              "key": "B",
+              "text": "It helps kids to broaden their scope of knowledge."
+            },
+            {
+              "key": "C",
+              "text": "It increases kids’ efficiency of acquiring knowledge."
+            },
+            {
+              "key": "D",
+              "text": "It liberates kids from the burden of memorizing facts."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。推理判断题【考频: ★★★】。由题干中的the view of educators 和advocate digital literacy 定位到第二段第一工句。第一句提到,教育界中有一个越来越强大的群体正在支持“ 数字素 养”;第二句用In their view 明确引出他们的观点:技能可以击败知识,培养“数字素养”比单 纯地学习内容更为重要,现在所有信息都可以通过Google 等搜索引擎进行搜索,因此不值得去 记忆。D)“使孩子们摆脱记忆事实的负担”与定位句中的“不值得 去记忆”意思相符,因此答案为D)。"
+        },
+        {
+          "number": 58,
+          "stem": "What does evidence from cognitive science show?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Knowledge is better kept in long-term memory."
+            },
+            {
+              "key": "B",
+              "text": "Critical thinking is based on factual knowledge."
+            },
+            {
+              "key": "C",
+              "text": "Study skills are essential to knowledge acquisition."
+            },
+            {
+              "key": "D",
+              "text": "Critical thinking means challenging existing facts."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。推理判断题【考频:★★★】。由题干中的evidence from cognitive science 定位到第三 段。由定位段第一句可知,来自认知科学的证据对“技能可以不依靠事实性知识而独立存在”的 看法提出了质疑。最后一句又明确地指出,批判性思维过程与储存在大脑长期记忆中的事实性知 识紧密交织在一起。换句话说,批判性思维是建立在事实性知识基础之上的,因此答案为B)。"
+        },
+        {
+          "number": 59,
+          "stem": "What does the author think is key to making evaluations?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Gathering enough evidence before drawing conclusions."
+            },
+            {
+              "key": "B",
+              "text": "Mastering the basic rules and principles for evaluation."
+            },
+            {
+              "key": "C",
+              "text": "Connecting new information with one’s accumulated knowledge."
+            },
+            {
+              "key": "D",
+              "text": "Understanding both what has happened and why it has happened."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。事实细节题【考频:★★★】。由题干中的making evaluations 定位到第四段第二句和 最后一句。第二句提到,现在的学生,也就是未来的工作人员,需要创新、合作和评估;最后一 句指出了进行评估的关键:必须将新信息与已经掌握的知识进行比较。C)“将新信息和已经积累 的知识联系起来”与第四段最后一句意思相符,因此答案为C)。"
+        },
+        {
+          "number": 60,
+          "stem": "What is the author’s purpose in writing the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To warn against learning through memorizing facts."
+            },
+            {
+              "key": "B",
+              "text": "To promote educational reform in the information age."
+            },
+            {
+              "key": "C",
+              "text": "To explain human brains5 function in storing information."
+            },
+            {
+              "key": "D",
+              "text": "To challenge the prevailing overemphasis on digital literacy."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。主旨大意题【考频: ★☆☆】。文章开篇指出,技术有可能让我们变得更愚蠢;接着介 绍了支持“数字素养”的人的观点—技能比知识更重要;在树立这个靶子之后,作者对这种观点 进行了反驳,指出技能必须依靠事实性知识而存在,而且批判性思维过程也与事实性知识紧密交 织在一起,从而强调了事实性知识的重要性;文章最后指出在数字世界里思维必须掌握基本的事 实性知识,还要充分利用大脑的精细记忆。综上可知,作者撰写此文的目的是质疑过分强调“数 字素养”的观点,因此答案为D)。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2014-06-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "America’s recent history has been a persistent tilt to the West—of people, ideas, commerce and even political power. California and Texas are the twin poles of the West, but very different ones. For most of the 20th century the home of Silicon Valley and Hollywood has been the brainier and trendier of the two. Texas has trailed behind: its stereotype has been a conservative Christian in cowboy boots. But twins can change places. Is that happening now? It is easy to find evidence that California is in a panic. At the start of this month the once golden state started paying creditors in IOUs (欠条).The gap between projected outgoings and income for the current fiscal (财政的)year has leapt to a horrible $26 billion. With no sign of a new budget to close this gulf, one credit agency has already downgraded California’s debt. As budgets are cut, universities will let in fewer students, prisoners will be released early and schemes to protect the vulnerable will be rolled back. By contrast, Texas has coped well with the recession, with an unemployment rate two points below the national average and one of the lowest rates of housing repossession. In part this is because Texan banks, hard hit in the last property bust, did not overexpand this time. Texas also clearly offers a different model, based on small government. It has no state capital-gains or income tax, and a business- friendly and immigrant-tolerant attitude. It is home to more Fortune 500 companies than any other state. Despite all this, it still seems too early to hand over America’s future to Texas. To begin with, that lean Texan model has its own problems. It has not invested enough in education, and many experts rightly worry about a “lost generation” of mostly Hispanic Texans with insufficient skills for the demands of the knowledge economy. Second, it has never paid to bet against a state with as many inventive people as California. Even if Hollywood has gone into depression, it still boasts an unequalled array of sunrise industries and the most brisk venture-capital industry on the planet. The state also has an awesome ability to reinvent itself —as it did when its defence industry collapsed at the end of the cold war. The truth is that both states could learn from each other. Texas still lacks California’s great universities and lags in terms of culture. California could adopt not just Texas’s leaner state, but also its more bipartisan (两党的)approach to politics. There is no perfect model of government: it is America’s genius to have 50 public-policy laboratories competing to find out what works best."
+      ],
+      "questions": [
+        {
+          "number": 61,
+          "stem": "What does the author say about California and Texas in Paragraph 1?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They have been competing for the leading position."
+            },
+            {
+              "key": "B",
+              "text": "California has been superior to Texas in many ways."
+            },
+            {
+              "key": "C",
+              "text": "They are both models of development for other states."
+            },
+            {
+              "key": "D",
+              "text": "Texas’s cowboy culture is less known than California’s."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。事实细节题【考频:★★★】。由题干中的Paragraph 1 定位到文章首段。由首段第二句 可知,虽然加利福尼亚州和得克萨斯州是美国西部的双生轴心,但是两州却有很大差别。第三、 四句具体阐述两州的差别:在20 世 纪的大部分时间里,加利福尼亚州一直引领两大轴心的科技 和时尚潮流;而得克萨斯州则落在后面。由此不难看击,加利福尼亚州在很多方面都要优于得克 萨斯州。故答案为B)。"
+        },
+        {
+          "number": 62,
+          "stem": "What does the author say about today’s California?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Its debts are pushing it into bankruptcy."
+            },
+            {
+              "key": "B",
+              "text": "Its budgets have been cut by $26 billion."
+            },
+            {
+              "key": "C",
+              "text": "It is faced with a serious financial crisis."
+            },
+            {
+              "key": "D",
+              "text": "It is trying hard to protect the vulnerable."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。推理判断题【考频: ★★★】。由选项中的debts, budgets 和$26 billion 定位到第二段。 定位段提到,有证据表明,加利福尼亚州正处在恐慌之中,并介绍了产生恐慌的具体原因,包括 给债权人打欠条、预算支出和收人的缺口巨大、信用等级遭到下调等,这些都是严重的金融危机 的表现。由此可以推断出加利福尼亚州当前面临着严重的金融危机,故答案为C)。"
+        },
+        {
+          "number": 63,
+          "stem": "In what way is Texas different from California?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It practices small government."
+            },
+            {
+              "key": "B",
+              "text": "It is home to traditional industries."
+            },
+            {
+              "key": "C",
+              "text": "It has a large Hispanic population."
+            },
+            {
+              "key": "D",
+              "text": "It has an enviable welfare system."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。事实细节题【考频:★★★】。由题干中的Texas different from California 定位到第三段 第三句。由定位句可知,得克萨斯州显然实行了一种与加利福尼亚州截然不同的模式—以小政府 为基础的模式,由此可见,得克 萨斯州与加利福尼亚州的不同之处在于实行小政府模式,故答案为A)。"
+        },
+        {
+          "number": 64,
+          "stem": "What problem is Texas confronted with?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Its Hispanic population is mostly illiterate."
+            },
+            {
+              "key": "B",
+              "text": "Its sunrise industries are shrinking rapidly."
+            },
+            {
+              "key": "C",
+              "text": "Its education cannot meet the needs of the knowledge economy."
+            },
+            {
+              "key": "D",
+              "text": "Its immigrants have a hard time adapting to its cowboy culture."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。事实细节题【考频: ★★★】。由题干中的problem 和选项中的Hispanic, education 和 knowledge economy 定位到第四段第二、三句。第四段第二句提到,得克萨斯州自身仍然存在很 多问题,第三句具体介绍存在的问题:该州在教育方面投人不足;西班牙裔的得克萨斯州人缺乏足 够的技能,难以满足知识经济的需求。也就是说,得克萨斯州面临的一大问题是该州的教育难以 满足知识经济的需要。故答案为C)。"
+        },
+        {
+          "number": 65,
+          "stem": "What do we learn about American politics from the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Each state has its own way of governing."
+            },
+            {
+              "key": "B",
+              "text": "Most states favor a bipartisan approach."
+            },
+            {
+              "key": "C",
+              "text": "Parties collaborate in drawing public policies."
+            },
+            {
+              "key": "D",
+              "text": "All states believe in government for the people."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。推理判断题【考频:★★★】。由题干中的American politics 定位到末段。文章最后一 句提到,世界上没有完美的政府模式,并以美国为例进行说明,美国让50 个公共政策实验室相 互竞争,从而探索出最好的治理模式。 由此可以推断,美国的50 个州都有各自不同的治理模式, 故答案为A)。"
+        }
+      ]
+    }
+  ]
+}

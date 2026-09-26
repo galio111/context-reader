@@ -1,0 +1,1589 @@
+{
+  "id": "cet6-2018-06-2",
+  "level": 6,
+  "year": 2018,
+  "month": 6,
+  "set": 2,
+  "title": "2018 年 6 月六级 · 第 2 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.06/%E7%9C%9F%E9%A2%98PDF/2018.06%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC2%E5%A5%97.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2018%E5%B9%B46%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%BA%8C%EF%BC%89.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2018-06-2-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Did Sarah Josepha Hale write “Mary 's Little Lamb,” the eternal nursery rhyme (儿歌) about a girl named Mary with a stubborn lamb? This is still dispute , but it’s clear that the woman [[26]] for writing it was one of America 's most fascinating [[27]] _. In honor of the poem 's publication on May 24,1830,here’s more about the [[28]] author 's life.",
+        "Hale wasn’t just a writer, she was also a [[29]] social advocate, and she was particularly [[30]] with an ideal New England, which she associated with abundant Thanksgiving meals that she claimed had “a deep moral influence.” she began a nationwide [[31]] to have a national holiday declared that would bring families together while",
+        "第3 页",
+        "celebrating the [[32]] festivals. In 1863, after 17 years of advocacy including letters to five presidents,Hale got it.",
+        "President Abraham Lincoln, during the Civil War, issued a [[33]] setting aside the last Thursday in November for the holiday.",
+        "The true authorship of “Mary’s Little Lamb” is disputed.. According to New England Historical Society, Hale wrote only one part of the poem, but claimed authorship. Regardless of the author, it seems that the poem was [[34]] by a real event. When young Mary Sawyer was followed to school by a lamb in 1816, it caused some problems. A bystander named John Roulstone wrote a poem about the event, then, at some point, Hale herself seems to have helped write it. However, if a 1916 piece by her great-niece is to be trusted, Hale claimed for the [[35]] of her life that “Some other people pretended that someone else wrote the poem”."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "campaign"
+        },
+        {
+          "key": "B",
+          "text": "career"
+        },
+        {
+          "key": "C",
+          "text": "characters"
+        },
+        {
+          "key": "D",
+          "text": "features"
+        },
+        {
+          "key": "E",
+          "text": "fierce"
+        },
+        {
+          "key": "F",
+          "text": "inspired"
+        },
+        {
+          "key": "G",
+          "text": "latter"
+        },
+        {
+          "key": "H",
+          "text": "obsessed"
+        },
+        {
+          "key": "I",
+          "text": "proclamation"
+        },
+        {
+          "key": "J",
+          "text": "rectified"
+        },
+        {
+          "key": "K",
+          "text": "reputed"
+        },
+        {
+          "key": "L",
+          "text": "rest"
+        },
+        {
+          "key": "M",
+          "text": "supposed"
+        },
+        {
+          "key": "N",
+          "text": "traditional"
+        },
+        {
+          "key": "O",
+          "text": "versatile"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "campaign"
+            },
+            {
+              "key": "B",
+              "text": "career"
+            },
+            {
+              "key": "C",
+              "text": "characters"
+            },
+            {
+              "key": "D",
+              "text": "features"
+            },
+            {
+              "key": "E",
+              "text": "fierce"
+            },
+            {
+              "key": "F",
+              "text": "inspired"
+            },
+            {
+              "key": "G",
+              "text": "latter"
+            },
+            {
+              "key": "H",
+              "text": "obsessed"
+            },
+            {
+              "key": "I",
+              "text": "proclamation"
+            },
+            {
+              "key": "J",
+              "text": "rectified"
+            },
+            {
+              "key": "K",
+              "text": "reputed"
+            },
+            {
+              "key": "L",
+              "text": "rest"
+            },
+            {
+              "key": "M",
+              "text": "supposed"
+            },
+            {
+              "key": "N",
+              "text": "traditional"
+            },
+            {
+              "key": "O",
+              "text": "versatile"
+            }
+          ],
+          "answer": "K",
+          "explanation": "答案:K). reputed 据说的,据称的; 详解:空格位于名词woman 之后、介词for 之前。从语法角度进行分析,woman 是以that 引导的主语从句中的 主语,该主语从句主谓俱全,空格所在的位置为后置定语部分,因此空格处很可能填入形容词或动词的分词形式。 上文中提到,究竟谁是这首儿歌的作者仍然存在争议,因此此处the woman _______for writing it 应表示“据称写了 这首儿歌的女子”,故答案为K). reputed 据说的,据称的。在备选项中,M). supposed 据说的,假定的仅用于名词 前,故排除。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "campaign"
+            },
+            {
+              "key": "B",
+              "text": "career"
+            },
+            {
+              "key": "C",
+              "text": "characters"
+            },
+            {
+              "key": "D",
+              "text": "features"
+            },
+            {
+              "key": "E",
+              "text": "fierce"
+            },
+            {
+              "key": "F",
+              "text": "inspired"
+            },
+            {
+              "key": "G",
+              "text": "latter"
+            },
+            {
+              "key": "H",
+              "text": "obsessed"
+            },
+            {
+              "key": "I",
+              "text": "proclamation"
+            },
+            {
+              "key": "J",
+              "text": "rectified"
+            },
+            {
+              "key": "K",
+              "text": "reputed"
+            },
+            {
+              "key": "L",
+              "text": "rest"
+            },
+            {
+              "key": "M",
+              "text": "supposed"
+            },
+            {
+              "key": "N",
+              "text": "traditional"
+            },
+            {
+              "key": "O",
+              "text": "versatile"
+            }
+          ],
+          "answer": "C",
+          "explanation": "答案:C). characters 性格,人物 详解:空格位于形容词fascinating 的最高级形式之后,因此应填入可数名词的复数形式。此处意为“据称写了 这首儿歌的女子是美国最迷人的人物之一”,所以空格处应填入表示“人物”的词。故答案为C). characters 性格, 人物。备选的可数名词复数形式只有C). characters 性格,人物和D). features 特点,此处构成“女子是......人物之一”, 故排除D). features 特点。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "campaign"
+            },
+            {
+              "key": "B",
+              "text": "career"
+            },
+            {
+              "key": "C",
+              "text": "characters"
+            },
+            {
+              "key": "D",
+              "text": "features"
+            },
+            {
+              "key": "E",
+              "text": "fierce"
+            },
+            {
+              "key": "F",
+              "text": "inspired"
+            },
+            {
+              "key": "G",
+              "text": "latter"
+            },
+            {
+              "key": "H",
+              "text": "obsessed"
+            },
+            {
+              "key": "I",
+              "text": "proclamation"
+            },
+            {
+              "key": "J",
+              "text": "rectified"
+            },
+            {
+              "key": "K",
+              "text": "reputed"
+            },
+            {
+              "key": "L",
+              "text": "rest"
+            },
+            {
+              "key": "M",
+              "text": "supposed"
+            },
+            {
+              "key": "N",
+              "text": "traditional"
+            },
+            {
+              "key": "O",
+              "text": "versatile"
+            }
+          ],
+          "answer": "M",
+          "explanation": "答案:M). supposed 据说的,假定的 详解:空格位于定冠词the 之后、名词author 之前,因此应填入一个形容词。上文中提到,究竟谁是这首儿歌的 作者仍然存在争议,可知空格处应填入表示“据说的,假定的”含义的词,故答案为M). supposed 。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "campaign"
+            },
+            {
+              "key": "B",
+              "text": "career"
+            },
+            {
+              "key": "C",
+              "text": "characters"
+            },
+            {
+              "key": "D",
+              "text": "features"
+            },
+            {
+              "key": "E",
+              "text": "fierce"
+            },
+            {
+              "key": "F",
+              "text": "inspired"
+            },
+            {
+              "key": "G",
+              "text": "latter"
+            },
+            {
+              "key": "H",
+              "text": "obsessed"
+            },
+            {
+              "key": "I",
+              "text": "proclamation"
+            },
+            {
+              "key": "J",
+              "text": "rectified"
+            },
+            {
+              "key": "K",
+              "text": "reputed"
+            },
+            {
+              "key": "L",
+              "text": "rest"
+            },
+            {
+              "key": "M",
+              "text": "supposed"
+            },
+            {
+              "key": "N",
+              "text": "traditional"
+            },
+            {
+              "key": "O",
+              "text": "versatile"
+            }
+          ],
+          "answer": "E",
+          "explanation": "答案:E). fierce 凶猛的,狂热的 详解:空格位于不定冠词a 之后、名词短语social advocate“社会运动倡导者”之前,因此应填入一个形容词。 本段下文介绍了该女子是为使感恩节也成为国家节日而做出的各种努力,因此空格处应填入表示“狂热的”含义的 词,表示“狂热的社会运动倡导者”,故答案为E). fierce 凶猛的,狂热的。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "campaign"
+            },
+            {
+              "key": "B",
+              "text": "career"
+            },
+            {
+              "key": "C",
+              "text": "characters"
+            },
+            {
+              "key": "D",
+              "text": "features"
+            },
+            {
+              "key": "E",
+              "text": "fierce"
+            },
+            {
+              "key": "F",
+              "text": "inspired"
+            },
+            {
+              "key": "G",
+              "text": "latter"
+            },
+            {
+              "key": "H",
+              "text": "obsessed"
+            },
+            {
+              "key": "I",
+              "text": "proclamation"
+            },
+            {
+              "key": "J",
+              "text": "rectified"
+            },
+            {
+              "key": "K",
+              "text": "reputed"
+            },
+            {
+              "key": "L",
+              "text": "rest"
+            },
+            {
+              "key": "M",
+              "text": "supposed"
+            },
+            {
+              "key": "N",
+              "text": "traditional"
+            },
+            {
+              "key": "O",
+              "text": "versatile"
+            }
+          ],
+          "answer": "H",
+          "explanation": "答案:H). obsessed 使着迷 详解:空格位于系动词was 之后、介词with 之前,构成be...with 结构。前文提到赫尔不仅是个作家,她还是个 狂热的社会运动倡导者,此处承接前文意思,所以空格处应填入obsessed 使着迷,be obsessed with 为固定搭配,表 示“对......痴迷”,故答案为H). obsessed。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "campaign"
+            },
+            {
+              "key": "B",
+              "text": "career"
+            },
+            {
+              "key": "C",
+              "text": "characters"
+            },
+            {
+              "key": "D",
+              "text": "features"
+            },
+            {
+              "key": "E",
+              "text": "fierce"
+            },
+            {
+              "key": "F",
+              "text": "inspired"
+            },
+            {
+              "key": "G",
+              "text": "latter"
+            },
+            {
+              "key": "H",
+              "text": "obsessed"
+            },
+            {
+              "key": "I",
+              "text": "proclamation"
+            },
+            {
+              "key": "J",
+              "text": "rectified"
+            },
+            {
+              "key": "K",
+              "text": "reputed"
+            },
+            {
+              "key": "L",
+              "text": "rest"
+            },
+            {
+              "key": "M",
+              "text": "supposed"
+            },
+            {
+              "key": "N",
+              "text": "traditional"
+            },
+            {
+              "key": "O",
+              "text": "versatile"
+            }
+          ],
+          "answer": "A",
+          "explanation": "答案:A). campaign 活动,运动 详解:空格位于a nationwide 之后,因此应填入一个单数可数名词,且此名词可与began 搭配。此处意为“她开 启了一个全国范围内的运动”,故答案为A). campaign 活动,运动。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "campaign"
+            },
+            {
+              "key": "B",
+              "text": "career"
+            },
+            {
+              "key": "C",
+              "text": "characters"
+            },
+            {
+              "key": "D",
+              "text": "features"
+            },
+            {
+              "key": "E",
+              "text": "fierce"
+            },
+            {
+              "key": "F",
+              "text": "inspired"
+            },
+            {
+              "key": "G",
+              "text": "latter"
+            },
+            {
+              "key": "H",
+              "text": "obsessed"
+            },
+            {
+              "key": "I",
+              "text": "proclamation"
+            },
+            {
+              "key": "J",
+              "text": "rectified"
+            },
+            {
+              "key": "K",
+              "text": "reputed"
+            },
+            {
+              "key": "L",
+              "text": "rest"
+            },
+            {
+              "key": "M",
+              "text": "supposed"
+            },
+            {
+              "key": "N",
+              "text": "traditional"
+            },
+            {
+              "key": "O",
+              "text": "versatile"
+            }
+          ],
+          "answer": "N",
+          "explanation": "答案:N). traditional 传统的 详解:空格位于定冠词the 之后、名词festivals“节日”之前,因此空格处应填入一个形容词。此处意为“庆祝 这个传统节日”,故答案为N). traditional 传统的。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "campaign"
+            },
+            {
+              "key": "B",
+              "text": "career"
+            },
+            {
+              "key": "C",
+              "text": "characters"
+            },
+            {
+              "key": "D",
+              "text": "features"
+            },
+            {
+              "key": "E",
+              "text": "fierce"
+            },
+            {
+              "key": "F",
+              "text": "inspired"
+            },
+            {
+              "key": "G",
+              "text": "latter"
+            },
+            {
+              "key": "H",
+              "text": "obsessed"
+            },
+            {
+              "key": "I",
+              "text": "proclamation"
+            },
+            {
+              "key": "J",
+              "text": "rectified"
+            },
+            {
+              "key": "K",
+              "text": "reputed"
+            },
+            {
+              "key": "L",
+              "text": "rest"
+            },
+            {
+              "key": "M",
+              "text": "supposed"
+            },
+            {
+              "key": "N",
+              "text": "traditional"
+            },
+            {
+              "key": "O",
+              "text": "versatile"
+            }
+          ],
+          "answer": "I",
+          "explanation": "答案:I). proclamation 公告,声明 详解:空格位于不定冠词a 之后,应填入一个可数名词单数形式。根据句意可知,亚伯拉罕·林肯在内战期间 颁布了一项公告,将这个节日时间定在十一月最后一个星期四。因此答案为I). proclamation 公告,声明。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "campaign"
+            },
+            {
+              "key": "B",
+              "text": "career"
+            },
+            {
+              "key": "C",
+              "text": "characters"
+            },
+            {
+              "key": "D",
+              "text": "features"
+            },
+            {
+              "key": "E",
+              "text": "fierce"
+            },
+            {
+              "key": "F",
+              "text": "inspired"
+            },
+            {
+              "key": "G",
+              "text": "latter"
+            },
+            {
+              "key": "H",
+              "text": "obsessed"
+            },
+            {
+              "key": "I",
+              "text": "proclamation"
+            },
+            {
+              "key": "J",
+              "text": "rectified"
+            },
+            {
+              "key": "K",
+              "text": "reputed"
+            },
+            {
+              "key": "L",
+              "text": "rest"
+            },
+            {
+              "key": "M",
+              "text": "supposed"
+            },
+            {
+              "key": "N",
+              "text": "traditional"
+            },
+            {
+              "key": "O",
+              "text": "versatile"
+            }
+          ],
+          "answer": "F",
+          "explanation": "答案:F). inspired 鼓舞,启发,使产生灵感 详解:空格位于系动词was 之后、介词by 之前,所以此处应填入动词的过去分词,构成被动语态。此处意为“似 乎这首诗是受真实事件的启发而创作完成的”,所以答案为F). inspired 鼓舞,启发,使产生灵感。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "campaign"
+            },
+            {
+              "key": "B",
+              "text": "career"
+            },
+            {
+              "key": "C",
+              "text": "characters"
+            },
+            {
+              "key": "D",
+              "text": "features"
+            },
+            {
+              "key": "E",
+              "text": "fierce"
+            },
+            {
+              "key": "F",
+              "text": "inspired"
+            },
+            {
+              "key": "G",
+              "text": "latter"
+            },
+            {
+              "key": "H",
+              "text": "obsessed"
+            },
+            {
+              "key": "I",
+              "text": "proclamation"
+            },
+            {
+              "key": "J",
+              "text": "rectified"
+            },
+            {
+              "key": "K",
+              "text": "reputed"
+            },
+            {
+              "key": "L",
+              "text": "rest"
+            },
+            {
+              "key": "M",
+              "text": "supposed"
+            },
+            {
+              "key": "N",
+              "text": "traditional"
+            },
+            {
+              "key": "O",
+              "text": "versatile"
+            }
+          ],
+          "answer": "L",
+          "explanation": "答案:L). rest 剩余部分,休息 详解:空格位于定冠词the 之后、介词of 之前,因此应填入一个名词。此处意为“赫尔余生都宣称‘一些人谎 称是别人写了这首诗’”,故答案为L). rest 剩余部分,休息。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2018-06-2-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) Ever since humanity began to farm our own food, we've faced the unpredictable rain that is both friend and enemy. It comes and goes without much warning, and a field of lush (茂盛的) leafy greens one year can dry up and blow away the next. Food security and fortunes depend on sufficient rain, and nowhere more so than in Africa, where 96% of farmland depends on rain instead of the irrigation common in more developed places. It has consequences : South Africa's ongoing drought— the worst in three decades— will cost at least a quarter of its com crop this year.",
+        "B) Biologist Jill Farrant of the University of Cape Town in South Africa says that nature has plenty of answers for people who want to grow crops in places with unpredictable rainfall. She is hard at work finding a way to take traits from rare wild plants that adapt to extreme dry weather and use them in food crops. As the earth's climate changes and rainfall becomes even less predictable in some places, those answers will grow even more valuable.\"The type of farming I'm aiming for is literally so that people can survive as it's going to get more and more dry,\"Farrant says.",
+        "C) Extreme conditions produce extremely tough plants. In the rusty red deserts of South Africa, steep- sided rocky hills called inselbergs rear up from the plains like the bones of the earth. The hills are remnants of an earlier geological era, scraped bare of most soil and exposed to the elements. Yet on these and similar formations in deserts around the world, a few fierce plants have adapted to endure under ever-changing conditions.",
+        "D) Farrant calls them resurrection plants (复苏植物) . During months without water under a harsh sun. They wither, shrink and contract until they look like a pile of dead gray leaves. But rainfall can revive them in a matter of hours. Her time-lapse (间歇性拍摄的) videos of the revivals look like someone playing a tape of the plant's death in reverse. 第4 页",
+        "E) The big difference between \"drought-tolerant\" plants and these tough plants: metabolism. Many different kinds of plants have developed tactics to weather dry spells. Some plants store reserves of water to see them through a drought ; others send roots deep down to subsurface water supplies. But once these plants use up their stored reserve or tap out the underground supply, they cease growing and start to die. They may be able to handle a drought of some length, and many people use the term \"drought tolerant\" to describe such plants, but they never actually stop needing to consume water, so Farrant prefers to call them drought resistant.",
+        "F) Resurrection plants, defined as those capable of recovering from holding less than 0.1 grams of water per gram of dry mass, are different. They lack water-storing structures, and their existence on rock faces prevents them from tapping groundwater, so they have instead developed the ability to change their metabolism .When they detect an extended dry period, they divert their metabolisms, producing sugars and certain stress-associated proteins and other materials in their tissues. As the plant dries, these resources take on first the properties of honey, then rubber, and finally enter a glass-like state that is \"the most stable state that the plant can maintain,\" Farrant says. That slows the plant's metabolism and protects its dried-out tissues. The plants also change shape, shrinking to minimize the surface area through which their remaining water might evaporate. They can recover from months and years without water, depending on the species.",
+        "G) What else can do this dry-out-and-revive trick? Seeds-almost all of them. At the start of her career, Farrant studied . recalcitrant seeds (执拗性种子) ,\" such as avocados, coffee and lychee. While tasty, such seeds are delicate--they cannot bud and grow if they dry out (as you may know if you've ever tried to grow a tree from an avocado pit). In the seed world, that makes them rare, because most seeds from flowering plants are quite robust. Most seeds can wait out the dry, unwelcoming seasons until conditions are right and they sprout (发芽). Yet once they start growing, such plants seem not to retain the ability to hit the pause button on metabolism in their stems or leaves.",
+        "H) After completing her Ph. D. on seeds, Farrant began investigating whether it might be possible to isolate the properties that make most seeds so resilient (迅速恢复活力的) and transfer them to other plant tissues. What Farrant and others have found over the past two decades is that there are many genes involved in resurrection plants' response to dryness. Many of them are the same that regulate how seeds become dryness-tolerant while still attached to their parent plants. Now they are trying to figure out what molecular signaling processes activate those seed-building genes in resurrection plants— and how to reproduce them in crops.\"Most genes are regulated by a master set of genes,\"Farrant says.\"We're looking at gene promoters and what would be their master switch.\"",
+        "I) Once Farrant and her colleagues feel they have a better sense of which switches to throw, they will have to find the best way to do so in useful crops.\"I'm trying three methods of breeding,\"Farrant says : conventional, genetic modification arid gene editing. She says she is aware that plenty of people do not want to eat genetically modified crops, but she is pushing ahead with every available tool until one works. Farmers and consumers alike can choose whether or not to use whichever version prevails :\"I'm giving people an option. \"",
+        "J) Farrant and others in the resurrection business got together last year to discuss the best species of resurrection plant to use as a lab model. Just like medical researchers use rats to test ideas for human medical treatments, botanists use plants that are relatively easy to grow in a lab or greenhouse setting to test their ideas for related species. The Queensland rock violet is one of the best studied resurrection plants so far, with a draft genome (基因图谱) published last year by a Chinese team. Also last year, Farrant and colleagues published a detailed molecular study of another candidate, Xerophyta viscosa, a tough-as-nail south African plant with lily-like flowers, and she says that a genome is on the way. one or both of these models will help researchers test their ideas — so far mostly done in the lab— on test plots.",
+        "K) Understanding the basic science first is key. There are good reasons why crop plants do not use dryness defenses already. For instance, there's a high energy cost in switching from a regular metabolism to an almost-no-water metabolism. It will also be necessary to understand what sort of yield farmers might expect and to establish the plant's safety.\"The yield is never going to be high,\"Farrant says, so these plants will be targeted not at Iowa farmers trying to squeeze more cash 第5 页 out of high-yield fields, but subsistence farmers who need help to survive a drought like the present one in South Africa.\"My vision is for the subsistence farmer,\" Farrant says.\"I'm targeting crops that are of African value. \"."
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "There are a couple of plants tough and adaptable enough to survive on bare rocky hills and in deserts.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "C",
+          "explanation": "There are a couple of plants tough and [C]. Extreme conditions produce extremely tough plants. In the rusty adaptable enough to survive on bare rocky hills red deserts of South Africa, steep- sided rocky hills called inselbergs and in deserts. rear up from the plains like the bones of the earth. The hills are 译文:有一些植物很顽强且适应性强,足以在 remnants of an earlier geological era, scraped bare of most soil and 光秃秃的岩石山丘和沙漠中生存。 exposed to the elements. Yet on these and similar formations in deserts 定位:由题干关键词tough and adaptable、bare around the world, a few fierce plants have adapted to endure under rocky hills 和deserts 定位到原文画线处。 ever-changing conditions. 详解:C 段最后两句提到,这些山丘是早期地质时代的遗留物,大部分土壤已被刮光,遭受风吹日晒。然而,在世 界各地的沙漠中,这些和类似的岩层里,一些顽强的植物已经适应了在不断变化的条件下继续生存。定位句句首的 The hills 指代上一句中的steep-sided rocky hills。题干中的tough 对应原文中的fierce;survive 对应原文中的endure, 答案为C。"
+        },
+        {
+          "number": 37,
+          "stem": "Farrant is trying to isolate genes in resurrection plants and reproduce them in crops.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "H",
+          "explanation": "Farrant is trying to isolate [H]. After completing her Ph. D. on seeds, Farrant began investigating whether it genes in resurrection plants might be possible to isolate the properties that make most seeds so resilient and reproduce them in crops. (迅速恢复活力的) and transfer them to other plant tissues. What Farrant and others 译文:法兰特试图分离复苏 have found over the past two decades is that there are many 植物中的基因,并将起复制 genes involved in resurrection plants' response to dryness. Many of them are the 到农作物上。 same that regulate how seeds become dryness-tolerant while still attached to their 定位:由题干关键词 parent plants. Now they are trying to figure out what molecular signaling processes Farrant 、isolate genes 和 activate those seed-building genes in resurrection plants—and how to reproduce reproduce them in crops 定 them in crops.\"Most genes are regulated by a master set of genes,\"Farrant 位到原文画线处。 says.\"We're looking at gene promoters and what would be their master switch.\" 详解:H 段第一句提到,完成与种子有关的博士学位后,法兰特开始研究是否有可能分离出使大多数种子如此迅速 恢复活力的特性,并将其转移到其他植物组织上。由紧接着的第二句可知,定位句中的特性是指复苏植物应对干旱 的基因。题干中的isolate genes 对应原文中的isolate the properties;reproduce them in crops 对应原文中的transfer them to other plant tissues,故答案为H。"
+        },
+        {
+          "number": 38,
+          "stem": "Farmers in South Africa are more at the mercy of nature, especially inconsistent rainfall.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Farmers in South Africa are more [A]. Ever since humanity began to farm our own food, we've faced the at the mercy of nature, especially unpredictable rain that is both friend and enemy. It comes and goes inconsistent rainfall. without much warning, and a field of lush (茂盛的) leafy greens 译文:南非的农民更容易受到大自然 one year can dry up and blow away the next. Food security and fortunes 的影响,尤其是变化无常的降雨。 depend on sufficient 定位:由题干关键词South Africa、 rain, and nowhere more so than in Africa, where 96% of farmland depends on more at the mercy of nature 和 rain instead of the irrigation common in more developed places. It has inconsistent rainfall 定位到原文画线 consequences : South Africa's ongoing drought—the worst in three 处。 decades— will cost at least a quarter of its com crop this year. 详解:A 段第三句提到,粮食安全和命运依赖于充足的雨水,在非洲尤其如此。在那里,96%农田依赖于降雨,而 不是较发达地区常见的灌溉。紧接着下一句以南非为例说明农田依赖降雨的后果:南非持续的干旱——三十年来最 严重的一次——今年将导致至少四分之一的玉米作物受损。由此可知,非洲农民尤其依赖于降雨,这导致他们更容 易受到不稳定降雨的影响。题干中的more at the mercy of 对应原文中的more so;inconsistent rainfall 对应原文中的 ongoing drought,故答案为A。"
+        },
+        {
+          "number": 39,
+          "stem": "Resurrection crops are most likely to be the choice of subsistence farmers.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "K",
+          "explanation": "Resurrection crops are most [K]. Understanding the basic science first is key. There are good reasons why crop likely to be the choice of plants do not use dryness defenses already. For instance, there's a high energy cost in subsistence farmers. switching from a regular metabolism to an almost-no-water metabolism. It will also be 译文:复苏农作物最有可能成 necessary to understand what sort of yield farmers might expect and to establish the 为维持生计的农民的选择。 plant's safety.\"The yield is never going to be high,\"Farrant says, so these plants will be 定位:由题干关键词 targeted not at Iowa farmers trying to squeeze more cash Resurrection crops 和 out of high-yield fields, but subsistence farmers who need help to survive a drought like subsistence farmers 定位原文 the present one in South Africa.\"My vision is for the subsistence farmer,\" Farrant 画线处。 says.\"I'm targeting crops that are of African value. \". 详解:K 段提到,法兰克说道:“产量永远不会很高”,因此这些植物针对的不是试图从高产农田中榨取更多金钱 的爱荷华州农民,而是那些需要帮助才能挺过像如今南非这种干旱的维持生计型的农民。由上文可知,定位句中的 these plants 指代上一段中的resurrection plants;题干中的are most likely to be the choice of 对应原文中的will be targeted not at...but...,故答案为K。"
+        },
+        {
+          "number": 40,
+          "stem": "Even though many plants have developed various tactics to cope with dry weather, they cannot survive a prolonged drought.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "E",
+          "explanation": "Even though many plants have [E]. The big difference between \"drought-tolerant\" plants and these tough developed various tactics to cope with dry plants: metabolism. Many different kinds of plants have developed tactics to weather, they cannot survive a weather dry spells. Some plants store reserves of water to see them through a prolonged drought. drought ; others send roots deep down to subsurface water supplies. But once 译文:尽管许多植物已形成各种应对干 these plants use up their stored reserve or tap out the underground supply, 旱天气的策略,但它们无法熬过长期干 they cease growing and start to die. They may be able to handle a drought of 旱。 some length, and many people use the term \"drought tolerant\" to describe such 定位:由题干关键词have developed plants, but they never actually stop needing to consume water, so Farrant various tactics 和cope with dry weather 定 prefers to call them drought resistant. 位到原文画线处。 详解:E 段第二句提到,许多不同种类的植物已形成耐受干旱期的策略。然后第四句以But 开头,表明句意发生转 折,指出一旦这些植物耗尽它们储存的水或者用完地下水源,它们就会停止生长并开始死亡。由此可知,如果长期 干旱,这些植物也会因缺水而死亡。题干中的cope with dry weather 对应原文中的weather dry spells;cannot survive 对应原文中的cease growing and start to die,故答案为E。"
+        },
+        {
+          "number": 41,
+          "stem": "Despite consumer resistance, researchers are pushing ahead with genetic modification of crops.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "I",
+          "explanation": "Despite consumer resistance, researchers [I]. Once Farrant and her colleagues feel they have a better sense of are pushing ahead with genetic modification which switches to throw, they will have to find the best way to do so in of crops. useful crops.\"I'm trying three methods of breeding,\"Farrant says : 译文:尽管受到消费者的抵制,研究人员仍 conventional, genetic modification arid gene editing. She says she is 在推进转基因农作物。 aware that plenty of people do not want to eat genetically modified 定位:由题干关键词pushing ahead with 和 crops, but she is pushing ahead with every available tool until one genetic modification of crops 定位到原文画 works. Farmers and consumers alike can choose whether or not to use 线处。 whichever version prevails :\"I'm giving people an option. \" 详解:I 段提到,法兰特表示自己意识到很多人不想吃转基因作物,但她正在推进每种可用的工具,直到其中一种 发挥作用。题干中的consumer resistance 对应原文中的plenty of people do not want to eat;genetic modification of crops 对应原文中的genetically modified crops,故答案为I。"
+        },
+        {
+          "number": 42,
+          "stem": "Most seeds can pull through dry spells and begin growing when conditions are ripe, but once this process starts, it cannot be held back.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "G",
+          "explanation": "Most seeds can pull through dry spells [G]. What else can do this dry-out-and-revive trick? Seeds-almost all of and begin growing when conditions are them. At the start of her career, Farrant studied . recalcitrant seeds (执拗 ripe, but once this process starts, it cannot 性种子) ,\" such as avocados, coffee and lychee. While tasty, such seeds be held back. are delicate--they cannot bud and grow if they dry out (as you 译文:大多数种子可以熬过干旱期,并 may know if you've ever tried to grow a tree from an avocado pit). In 在条件成熟时开始生长,但该过程一旦 the seed world, that makes them rare, because most seeds from flowering 开始,就无法被阻止。 plants are quite robust. Most seeds can wait out the dry, unwelcoming 定位:由题干关键词Most seeds、pull seasons until conditions are right and they sprout (发芽). Yet once through dry spells、conditions are ripe 和 they start growing, such plants seem not to retain the ability to hit the held back 定位到原文画线处。 pause button on metabolism in their stems or leaves. 详解:G 段提到,大多数种子可以等到干旱的、不适宜生长的季节结束,到条件适合,它们就会发芽。然而,一旦 开始生长,这些植物似乎就不再具有暂停其茎叶新陈代谢的能力。题干中的pull through dry spells 对应原文中的wait out the dry, unwelcoming seasons; held back 对应原文中的hit the pause button,故答案为G。"
+        },
+        {
+          "number": 43,
+          "stem": "Farrant is working hard to cultivate food crops that call survive extreme dryness by studying the traits of rare wild plants.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Farrant is working hard to cultivate food crops [B]. Biologist Jill Farrant of the University of Cape Town in South that call survive extreme dryness by studying the Africa says that nature has plenty of answers for people who want to traits of rare wild plants. grow crops in places with unpredictable rainfall. She is hard at 译文:法兰特正通过研究稀有野生植物的特性, work finding a way to take traits from rare wild plants that adapt to 努力培育能够在极度干旱中存活下来的粮食作 extreme dry weather and use them in food crops. As the earth's 物。 climate changes and rainfall becomes even less predictable in some 定位:由题干关键词food crops、survive extreme places, those answers will grow even more valuable.\"The type of dryness 和the traits of rare wild plants 定位到原文 farming I'm aiming for is literally so that people can survive as it's 画线处。 going to get more and more dry,\"Farrant says. 详解:B 段提到,她正在努力寻找一种方法,从那些适应极端干旱天气的稀有野生植物中获得特性,并将它们用作 粮食作物,由上下文可知,定位句中的主语She 指代段首的Jill Farrant。题干中的is working hard 对应原文中的is hard at work; survive extreme dryness 对应原文中的adapt to extreme dry weather,故答案为B。"
+        },
+        {
+          "number": 44,
+          "stem": "By adjusting their metabolism, resurrection plants can recover from an extended period of drought.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "F",
+          "explanation": "By adjusting their [F]. Resurrection plants, defined as those capable of recovering from holding less than metabolism, resurrection 0.1 grams of water per gram of dry mass, are different. They lack water-storing plants can recover from an structures, and their existence on rock faces prevents them from tapping extended period of drought. groundwater, so they have instead developed the ability to change their 译文:通过调整新陈代谢, metabolism .When they detect an extended dry period, they divert their metabolisms, 复苏植物可以从延长的干 producing sugars and certain stress-associated proteins and other materials in their 旱期中恢复过来。 tissues. As the plant dries, these resources take on first the properties of honey, 定位:由题干关键词 then rubber, and finally enter a glass-like state that is \"the most stable state that the adjusting their metabolism、 plant can maintain,\" Farrant says. That slows the plant's metabolism and recover from an extended protects its dried-out tissues. The plants also change shape, shrinking to minimize the period of drought 定位到原 surface area through which their remaining water might evaporate. They can 文画线处。 recover from months and years without water, depending on the species. 详解:F 段第三句提到,当它们察觉到延长的干旱期时,它们会改变新陈代谢。该段最后一句继续指出,它们这么 做是为了能够从数月或数年的无水状态中恢复过来。由上下文可知,定位于中的“他们”指代段首的Resurrection plants。题干中的adjusting 对应原文中的divert; an extended period of drought 是对原文中an extended dry period 的同 义转述,故答案为F。"
+        },
+        {
+          "number": 45,
+          "stem": "Resurrection plants can come back to life in a short time after a rainfall.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "D",
+          "explanation": "Resurrection plants can come back to [D]. Farrant calls them resurrection plants ( 复苏植物) . During months life in a short time after a rainfall. without water under a harsh sun. They wither, shrink and contract until they 译文:降雨之后,复苏植物可以在短时间 look like a pile of dead gray leaves. But rainfall can revive them in a matter 内复苏。 of hours. Her time-lapse (间歇性拍摄的) videos of the revivals look like 定位:由题干关键词come back to life 和 someone playing a tape of the plant's death in reverse. rainfall 定位到原文画线处。 详解:D 段提到,降雨可以使它们在几小时内复苏。由上下文可知,原文中的them 指代该段首句中的resurrection plants。题干中的come back to life 对应原文中的revive; in a short time 对应原文中的in a matter of hours,故答案为 D。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2018-06-2-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Human memory is notoriously unreliable. Even people with the sharpest facial-recognition skills can only remember so much.",
+        "It's tough to quantify how good a person is at remembering. No one really knows how many different faces someone can recall, for example, but various estimates tend to hover in the thousands-based on the number of acquaintances a person might have.",
+        "Machines aren't limited this way, Give the right computer a massive database of faces, and it can process what it sees-then recognize a face it's told to find-with remarkable speed and precision. This skill is what supports the enormous promise of facial-recognition software in the 2lst century. It's also what makes contemporary surveillance systems so scary.",
+        "The thing is, machines still have limitations when it comes to facial recognition. And scientists are only just beginning to understand what those constraints are. To begin to figure out how computers are struggling, researchers at the University of Washington created a massive database of faces- they call it MegaFace- and tested a variety of facial-recognition algorithms (算法) as they scaled up in complexity. The idea was to test the machines on a database that included up to 1 million different images of nearly 700,000 different people-and not just a large database featuring a relatively small number of different faces, more consistent with what's been used in other research.",
+        "As the databases grew, machine accuracy dipped across the board. Algorithms that were right 95% of the time when they were dealing with a 13, 000-image database, for example, were accurate about 70% of the time when confronted with 1 million images. That's still pretty good, says one of the researchers, Ira Kemelmacher-Shlizerman.\"Much better than we expected, \"she said.",
+        "Machines also had difficulty adjusting for people who look a lot alike-either doppelgangers(长 相极相似的人),whom the machine would have trouble identifying as two separate people, or the same person who appeared in different photos at different ages or in different lighting, whom the",
+        "第6 页",
+        "machine would incorrectly view as separate people.",
+        "\"Once we scale up, algorithms must be sensitive to tiny changes in identities and at the same time invariant to lighting, pose, age, \"Kemelmacher-Shlizerman said.",
+        "The trouble is, for many of the researchers who'd like to design systems to address these challenges, massive datasets for experimentation just don't exist--at least, not in formats that are accessible to academic researchers.Training sets like the ones Google and Facebook have are private. There are no public databases that contain millions of faces. MegaFace's creators say it's the largest publicly available facial-recognition dataset out there.",
+        "“An ultimate face recognition algorithm should perform with billions of people in a dataset, ”the researchers wrote."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "Compared with human memory, machines can .",
+          "options": [
+            {
+              "key": "A",
+              "text": "identify human faces more efficiently"
+            },
+            {
+              "key": "B",
+              "text": "tell a friend from a mere acquaintance"
+            },
+            {
+              "key": "C",
+              "text": "store an unlimited number of human faces"
+            },
+            {
+              "key": "D",
+              "text": "perceive images invisible to the human eye"
+            }
+          ],
+          "answer": "A",
+          "explanation": "答案:A 定位:由题干中的human memory 和machines 定位到文章第三段第二句:Give the right computer a massive database of faces, and it can process what it sees-then recognize a face it's told to find-with remarkable speed and precision. 详解:事实细节题。文章前两段指出人类的记忆是十分有限的,一个人最多大约可以记住几千张面孔。第三段 第一句指出,在这方面,机器是没有限制的。接着定位句更明确的说到,如果给一台适宜的电脑植入一个庞大的人 脸数据库,它就能以出色的精度和速度识别人脸。由此可知,机器在人脸识别方面比人类更有效,故答案为A。 点睛:B)“分清朋友和熟人”,原文并没有提及机器可以分辨对人的熟悉程度,只是进行人脸识别,故排除; C)“存储不限量的人脸”,这是对原文第三段第一句的曲解,原文只是说机器在人脸记忆数量方面没有人类那样的 限制,而没有说它们可以存储无限量的人脸,故排除;D)“察觉到人的肉眼看不见的图像”原文并没有提及这方面 的信息,故排除。"
+        },
+        {
+          "number": 47,
+          "stem": "Why did researchers create MegaFace?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To enlarge the volume of the facial-recognition database"
+            },
+            {
+              "key": "B",
+              "text": "To increase the variety of facial-recognition software"
+            },
+            {
+              "key": "C",
+              "text": "To understand computers' problems with facial recognition"
+            },
+            {
+              "key": "D",
+              "text": "To reduce the complexity of facial-recognition algorithms"
+            }
+          ],
+          "answer": "C",
+          "explanation": "答案:C 定位:由题干中的专有名词MegaFace 定位到文章第四段第三句:To begin to figure out how computers are struggling, researchers at the University of Washington created a massive database of faces- they call it MegaFace- and tested a variety of facial-recognition algorithms (算法) as they scaled up in complexity. 详解:事实细节题。根据定位句可知,华盛顿大学的研究人员创建庞大的人脸数据库“巨型面”的目的是为了 弄清楚清电脑在人脸识别方面所面临的困难,选项C 的表述与定位句一致,故答案为C。 点睛:A)“为了扩大人脸识别数据库的容量”,从定位句及其后面的句子可以看出,研究人员虽然扩大了数据 库,但其目的并不在于此,他们是要测试机器在处理更多数据时的精确度,故排除;B)“为了丰富人脸识别软件的 种类”,原文虽然提到了以人脸识别技术为基础的软件,但是并没有说明这次的研究与这些软件有什么关联,故排 除;D)“为了降低人脸识别算法的复杂程度”,定位句指出随着复杂性的逐步加大,测试各类人脸识别算法,该项 与原文矛盾,故排除。"
+        },
+        {
+          "number": 48,
+          "stem": "What does the passage say about machine accuracy?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It falls short of researchers' expectations."
+            },
+            {
+              "key": "B",
+              "text": "It improves with added computing power."
+            },
+            {
+              "key": "C",
+              "text": "It varies greatly with different algorithms."
+            },
+            {
+              "key": "D",
+              "text": "It decreases as the database size increases."
+            }
+          ],
+          "answer": "D",
+          "explanation": "答案:D 定位:由题干中的machine accuracy 定位到文章第五段第一句:As the databases grew, machine accuracy dipped across the board. 详解:事实细节题。定位句指出,随着数据库的增大,机器的精确度全面下降。选项D 的表述与定位句相同, 故答案为D。 点睛:A)“它达不到研究人员的预期”,这与原文的信息相悖,原文第五段末尾处引出研究人员的话指出,这 比研究者的预期好多了,故排除;B)“它随着运算能力的增强而改善”,原文中并没有提到电脑运算能力的问题, 故排除;C)“它随算法的不同而剧烈波动”,文中并没有说明算法的选择对精确度有什么影响,故排除。"
+        },
+        {
+          "number": 49,
+          "stem": "What is said to be a shortcoming of facial-recognition machines?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They cannot easily tell apart people with near-identical appearances."
+            },
+            {
+              "key": "B",
+              "text": "They have difficulty identifying changes in facial expressions"
+            },
+            {
+              "key": "C",
+              "text": "They are not sensitive to minute changes in people's mood"
+            },
+            {
+              "key": "D",
+              "text": "They have problems distinguishing people of the same age"
+            }
+          ],
+          "answer": "A",
+          "explanation": "答案:A 定位:由题干中的a shortcoming of facial-recognition machines 定位到文章第六段:Machines also had difficulty adjusting for people who look a lot alike-either doppelgangers(长相极相似的人),whom the machine would have trouble identifying as two separate people, or the same person who appeared in different photos at different ages or in different lighting, whom the machine would incorrectly view as separate people. 详解:推理判断题。定位句前半部分指出,机器在辨别相似度较高的人时也有困难,会难以区分两个长相极为 相似的人。A)“它们无法轻易地分辨外貌几乎一样的人”符合原文,故为答案。 点睛:B)“它们在识别面部表情变化时有困难”,原文并没有提到面部表情是否对人脸识别机器有影响,故排 除;C)“它们对人们情绪的细微变化不够敏感”,从原文可知,人脸识别技术并不涉及人类的情绪,故排除;D) “它们在分辨相同年龄的人时会遇到问题”,是对定位句前后半部分的曲解,原文的意思是对出现在不同照片中, 年龄不同的同一个人,机器容易误将其认作是不同的人,故排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What is the difficulty confronting researchers of facial-recognition machines?",
+          "options": [
+            {
+              "key": "A",
+              "text": "No computer is yet able to handle huge datasets of human faces"
+            },
+            {
+              "key": "B",
+              "text": "There do not exist public databases with sufficient face sampler"
+            },
+            {
+              "key": "C",
+              "text": "There are no appropriate algorithms to process the face samples"
+            },
+            {
+              "key": "D",
+              "text": "They have trouble converting face datasets into the right format."
+            }
+          ],
+          "answer": "B",
+          "explanation": "答案:B 定位:由题干中的the difficulty 定位到文章倒数第二段第一句:The trouble is, for many of the researchers who'd like to design systems to address these challenges, massive datasets for experimentation just don't exist...和第三句:There are no public databases that contain millions of faces. 详解:事实细节题。文章倒数第二段第一句提到,问题在于,对许多想要设计系统来处理这些挑战的研究人员 而言,并不存在实验所需的庞大数据库——至少,学术研究人员拿不到适当形式的数据。接着第三句提到,尚不存 在包括数百万人脸的公共数据库。由此可知,研究人员最大的困难和问题就是他们没有充足的公共数据样本,故答案为B。 点睛:A)“还没有电脑能够处理巨型人脸数据集”是对原文的曲解,原文只说在处理大型数据库的时候,人脸 识别的算法精确度会下降,并没有说电脑的能力有什么局限,故排除;C)“没有适当的算法能够处理人脸样本”, 虽然原文提到了目前的算法在处理庞大数据时的局限,但并没有说找不到处理人脸样本的正确算法,故排除;D) “他们无法将人脸数据集转换为正确的格式”是对该段第一句后半部分的曲解,原文的意思是即使存在数据集,研 究人员也无法拿到,并不是说研究人员要自己进行格式转换,故排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2018-06-2-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "There’re currently 21.5 million students in America, and many will be funding their college on borrowed money. Given that there's now over $1.3 trillion in student loans on the books, it's pretty clear that many students are far from sensible. The average student's debt upon graduation now 第7 页",
+        "approaches $40, 000, and as college becomes ever more expensive, calls to make it \"free\" are multiplying. Even Hillary Clinton says that when it comes to college, \"Costs won't be a barrier.\"",
+        "But the only way college could be free is if the faculty and staff donated their time, the buildings required no maintenance, and campuses required no utilities. As long as it's impossible to produce something from nothing costs are absolutely a barrier.",
+        "The actual question we debate is who should pay for people to go to college. If taxpayers are to bear the cost of forgiving student loans, shouldn't they have a say in how their money is used?",
+        "At least taxpayers should be able to decide what students will study on the public dime. If we're going to force taxpayers to foot the bill for college degrees, students should only study those subjects that’re of greatest benefit to taxpayers. After all, students making their own choices in this respect is what caused the problem in the first place. We simply don't need more poetry, gender studies, or sociology majors. How do we know which subjects benefit society? Easy.",
+        "Average starting salaries give a clear indication of what type of training society needs its new workers to have. Certainly, there're benefits to a college major beyond the job a student can perform. But if we're talking about the benefits to society, the only thing that matters is what the major enables the student to produce for society. And the value of what the student can produce is reflected in the wage employers are willing to pay the student to produce it.",
+        "A low wage for elementary school teachers, however, doesn't mean elementary education isn’t important. It simply means there're too many elementary school teachers already.",
+        "Meanwhile, there're few who're willing and able to perform jobs requiring a petroleum engineering major, so the value of one more of those people is very high",
+        "So we can have taxpayers pick up students' tuition in exchange for dictating what those students will study. Or we can allow students both to choose their majors and pay for their education themselves. But in the end ,one of two things is true:",
+        "Either a college major is worth its cost or it isn't. If yes, taxpayer financing isn't needed If not taxpayer financing isn't desirable. Either way, taxpayers have no business paying for students' college education."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the author think of college students funding their education through loans?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They only expect to get huge returns."
+            },
+            {
+              "key": "B",
+              "text": "They are acting in an irrational way."
+            },
+            {
+              "key": "C",
+              "text": "They benefit at taxpayers expense."
+            },
+            {
+              "key": "D",
+              "text": "They will regret doing so someday."
+            }
+          ],
+          "answer": "B",
+          "explanation": "答案:B 定位:由题干中的college students 和through loans 定位到文章首段第二句:Given that there's now over $1.3 trillion in student loans on the books, it's pretty clear that many students are far from sensible. 详解:推理判断题。定位句明确指出,从目前账面上看学生贷款的数额,很明显许多学生是不够理智的。结合 上下文推断,作者的意思是通过借贷来接受大学教育并非理智的做法,故答案为B。 点睛:A)“他们只是希望获得巨大的回报”,学生在接受教育后究竟回报如何,在原文中并没有明确提及,故 排除;C)“他们的受益是以纳税人的损失为代价的”作者引入有关纳税人的讨论,是在第三段第二句,由原文可知, 是否让纳税人支付学生的学费尚在讨论之中,并不是既定事实,故排除;D)“他们终有一天会后悔这么做”,从原 文可知,作者并没有对学生未来的态度做出任何判断,故排除。"
+        },
+        {
+          "number": 52,
+          "stem": "In the author's opinion, free college education is .",
+          "options": [
+            {
+              "key": "A",
+              "text": "impractical"
+            },
+            {
+              "key": "B",
+              "text": "unsustainable"
+            },
+            {
+              "key": "C",
+              "text": "a goal to strive for"
+            },
+            {
+              "key": "D",
+              "text": "a way to social equality"
+            }
+          ],
+          "answer": "A",
+          "explanation": "答案:A 定位:由题干的free college education 定位到文章第二段:But the only way college could be free is if the faculty and staff donated their time, the buildings required no maintenance, and campuses required no utilities. As long as it's impossible to produce something from nothing costs are absolutely a barrier. 详解:观点态度题。文章第二段第一句列举了想要让大学教育免费的若干条件,而随后一句则明确地说,这些 条件其实是不可能达成的,想要“无米成炊”根本就是不可能的。可见,作者认为鼓吹大学教育免费是不现实的, 故答案为A。 点睛:B)“不可持续的”,作者从根本上否定了高等教育免费的可能性,更谈不上其是否可持续,故排除,C) “奋斗的目标”,从原文看出,作者对这个呼吁持否定态度,不可能认为这是个合理的目标,故排除;D)“达到社 会平等的方式”,原文中并没有提到社会公平性的问题,故排除。"
+        },
+        {
+          "number": 53,
+          "stem": "What should students do if taxpayers are to bear their college costs?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Work even harder to repay society."
+            },
+            {
+              "key": "B",
+              "text": "Choose their subjects more carefully."
+            },
+            {
+              "key": "C",
+              "text": "Choose majors that will serve society's practical need."
+            },
+            {
+              "key": "D",
+              "text": "Allow taxpayers to participate in college administration."
+            }
+          ],
+          "answer": "C",
+          "explanation": "答案:C 定位:由题干中的if taxpayers are to bear their college costs 定位到文章第三段第二句:If taxpayers are to bear the cost of forgiving student loans, shouldn't they have a say in how their money is used?和第四段强两句:At least taxpayers should be able to decide what students will study on the public dime. If we're going to force taxpayers to foot the bill for college degrees, students should only study those subjects that’re of greatest benefit to taxpayers. 详解:事实细节题。第三段第二句指出,如果由纳税人来承担减免学生的信贷费用,则应该让纳税人对他们的 钱如何使用的有发言权。随后第四段具体解释说,至少纳税人应该能够决定学生学习的内容,即学习那些纳税人最 有裨益的学科。也就是说,必须学习符合社会实际需求的内容,故答案为C。 点睛:A)“更努力地工作来回报社会”,原文没有说学生要更努力的工作,故排除;B)“更谨慎地选择自己的 学科”,原文虽然提到了学科的选择,但并不是谨慎与否的问题,而是要符合社会的实际需求,故排除;D)“允许 纳税人参与大学管理”,在文中没有提及,故排除."
+        },
+        {
+          "number": 54,
+          "stem": "What does the author say about the value of a student's college education?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is underestimated by profit-seeking employers."
+            },
+            {
+              "key": "B",
+              "text": "It is to be proved by what they can do on the job."
+            },
+            {
+              "key": "C",
+              "text": "It is well reflected in their average starting salary."
+            },
+            {
+              "key": "D",
+              "text": "It is embodied in how they remove social barriers. 第8 页"
+            }
+          ],
+          "answer": "C",
+          "explanation": "答案:C 定位:由题干中的the value of a student's college education 定位到文章第五段第一句:Average starting salaries give a clear indication of what type of training society needs its new workers to have.和最后一句:And the value of what the student can produce is reflected in the wage employers are willing to pay the student to produce it. 详解:判断推理题。第五段第一句提到,平均起点工资为社会需要劳动者接受什么样的培训提供了明确的提示。 而所谓的劳动者培训,在本文就是指高等教育。该段最后一句指出,学生能够创造的价值就是通过雇主愿意为学生 创造的东西所支付的薪水来体现的。由此推断,作者认为,大学教育的价值是通过平均起点工资来反映的,故答案 为C。 点睛:A)“它被逐利的雇主们低估了”,作者在第六段和第七段谈论一项工作的社会价值时,暗示这是由工作 岗位与相关人才的供给关系决定的,并没有说雇主低估了其社会价值,故排除;B)“它由学生胜任工作的情况所证 明”,文章并没有探讨学生在工作岗位上的胜任问题,故排除;D)“它以学生们消除社会障碍的方式来体现”,原 文所说的社会障碍就是学生无力支付学费的问题,这显然与作者在定位段讨论的价值衡量问题无关,故排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What message does the author want to convey in the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Students should think care fully whether to go to college"
+            },
+            {
+              "key": "B",
+              "text": "Taxpayers should only finance the most gifted students."
+            },
+            {
+              "key": "C",
+              "text": "The worth of a college education is open to debate."
+            },
+            {
+              "key": "D",
+              "text": "College students should fund their own education.."
+            }
+          ],
+          "answer": "D",
+          "explanation": "答案:D 定位:本体考查文章的中心论点,需要结合全文信息来解答。 详解:主旨大意题。作者在文章开头以大学学费令学生债台高筑引入是否要提供免费的大学教育这个话题,并 随后反驳了这个观点,指出真正免费的教育是不存在的,所谓免费,就是要让纳税人承担,而纳税人是否应该承担 呢?作者进一步论述指出,如果让纳税人承担,则必须是只培养对公众最有价值的人才,而作者在结尾处暗示,纳 税人决定学生学什么,这其实是不可行的,因此纳税人不应该承担学费,这也就意味着,学费还是应该由学生自己 承担,故答案为D。 点睛:A)“学生们应该谨慎考虑是否考上大学”,作者虽然认为背负高额贷款上大学对学生来说不明智,但是 这一点并不是文章讨论的主要问题,故排除;B)“纳税人只应该资助最有天分的学生”,文章中并没有提及要区分 学生的天分,故排除;C)“大学教育的价值有待探讨”,作者集中谈论的是应该由谁来支付大学学费的问题,并没 有质疑大学教育本身的价值,故排除。"
+        }
+      ]
+    }
+  ]
+}

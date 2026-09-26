@@ -1,0 +1,1688 @@
+{
+  "id": "cet6-2018-12-1",
+  "level": 6,
+  "year": 2018,
+  "month": 12,
+  "set": 1,
+  "title": "2018 年 12 月六级 · 第 1 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.12/%E7%9C%9F%E9%A2%98Word/2018%E5%B9%B412%E6%9C%886%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC%E4%B8%80%E5%A5%97.doc",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2018%E5%B9%B412%E6%9C%886%E7%BA%A7%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%E7%AC%AC%E4%B8%80%E5%A5%97.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet6-2018-12-1-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Just off the coast of Southern California sits Santa Cruz Island, where a magical creature called the island fox [[26]] . A decade ago, this island’s ecosystem was in [[27]] . Wild pigs attracted golden eagles from the mainland, and those flying [[28]] crashed the fox population. So the Nature Conservancy launched a [[29]] war against the pigs, complete with helicopters and sharp shooters. And it worked. Today, federal agencies are pulling the island fox from the Endangered Species List. It’s the fastest-ever recovery of a mammal, joining peers like the Louisiana black bear as glowing successes in the history of the Endangered Species Act. But the recovery of Santa Cruz Island isn’t just about the fox. The Nature Conservancy has [[30]] war on a multitude of invasive species here, from sheep to plants to the [[31]] Argentine ant. “Our philosophy with the island has always been, ‘OK, [[32]] the threats and let the island go back to what it was,’” says ecologist Christina Boser. And it appears to be working. Native plants are coming back, and the fox once again bounds about carefree. But keeping those foxes from harm will occupy Boser and her colleagues for years to come. You see, humans are still allowed on Santa Cruz Island, and they bring dogs. So Boser has to vaccinate her foxes against various diseases. “We’re obligated to keep a pulse on the population for at least five years after the foxes are delisted,” says Boser. That includes tagging the foxes and [[33]] their numbers to ensure nothing goes wrong. This is the story of the little fox that has come back, and the people who have [[34]] their lives to protecting it. This is the story of wildlife conservation in the age of mass [[35]] ."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "aggressive"
+        },
+        {
+          "key": "B",
+          "text": "chaos"
+        },
+        {
+          "key": "C",
+          "text": "configuration"
+        },
+        {
+          "key": "D",
+          "text": "declared"
+        },
+        {
+          "key": "E",
+          "text": "dedicated"
+        },
+        {
+          "key": "F",
+          "text": "dwells"
+        },
+        {
+          "key": "G",
+          "text": "extinction"
+        },
+        {
+          "key": "H",
+          "text": "fierce"
+        },
+        {
+          "key": "I",
+          "text": "hinders"
+        },
+        {
+          "key": "J",
+          "text": "mammal"
+        },
+        {
+          "key": "K",
+          "text": "monitoring"
+        },
+        {
+          "key": "L",
+          "text": "predators"
+        },
+        {
+          "key": "M",
+          "text": "remove"
+        },
+        {
+          "key": "N",
+          "text": "tempt"
+        },
+        {
+          "key": "O",
+          "text": "underlying"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aggressive"
+            },
+            {
+              "key": "B",
+              "text": "chaos"
+            },
+            {
+              "key": "C",
+              "text": "configuration"
+            },
+            {
+              "key": "D",
+              "text": "declared"
+            },
+            {
+              "key": "E",
+              "text": "dedicated"
+            },
+            {
+              "key": "F",
+              "text": "dwells"
+            },
+            {
+              "key": "G",
+              "text": "extinction"
+            },
+            {
+              "key": "H",
+              "text": "fierce"
+            },
+            {
+              "key": "I",
+              "text": "hinders"
+            },
+            {
+              "key": "J",
+              "text": "mammal"
+            },
+            {
+              "key": "K",
+              "text": "monitoring"
+            },
+            {
+              "key": "L",
+              "text": "predators"
+            },
+            {
+              "key": "M",
+              "text": "remove"
+            },
+            {
+              "key": "N",
+              "text": "tempt"
+            },
+            {
+              "key": "O",
+              "text": "underlying"
+            }
+          ],
+          "answer": "F",
+          "explanation": "【答案】F。【解析】空格位于 where 引导的定语从句中，从句的主语为 a magical creature，called the island fox 作后置定语修饰主语，故空格处需填入动词充当从句的谓语。该句为陈述客观事实，所以应使用一般现在时，主语 creature 为单数，根据主谓一致原则，空格处需填入谓语动词的第三人称单数形式。符合语法的只有 dwells 和 hinders。根据下文可知，灰狐居住在圣克鲁斯岛上，故选 dwells。hinders 意为阻碍、妨碍，通常用作及物动词，而空格后并没有跟宾语，故排除。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aggressive"
+            },
+            {
+              "key": "B",
+              "text": "chaos"
+            },
+            {
+              "key": "C",
+              "text": "configuration"
+            },
+            {
+              "key": "D",
+              "text": "declared"
+            },
+            {
+              "key": "E",
+              "text": "dedicated"
+            },
+            {
+              "key": "F",
+              "text": "dwells"
+            },
+            {
+              "key": "G",
+              "text": "extinction"
+            },
+            {
+              "key": "H",
+              "text": "fierce"
+            },
+            {
+              "key": "I",
+              "text": "hinders"
+            },
+            {
+              "key": "J",
+              "text": "mammal"
+            },
+            {
+              "key": "K",
+              "text": "monitoring"
+            },
+            {
+              "key": "L",
+              "text": "predators"
+            },
+            {
+              "key": "M",
+              "text": "remove"
+            },
+            {
+              "key": "N",
+              "text": "tempt"
+            },
+            {
+              "key": "O",
+              "text": "underlying"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B) chaos。详解 空格位于介词之后,需要填入名词或动名词。由下文可知,野猪引来了大陆的金雕,导致灰狐数量大减,生态系统遭到破坏,故应选 B) chaos“混乱”。in chaos 表示“处于混乱状态”。C) configuration“布局,结构”虽然能和介词 in 搭配使用,但前面需要搭配形容词,表示“保持......样的状态”,而空格前没有形容词,故排除。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aggressive"
+            },
+            {
+              "key": "B",
+              "text": "chaos"
+            },
+            {
+              "key": "C",
+              "text": "configuration"
+            },
+            {
+              "key": "D",
+              "text": "declared"
+            },
+            {
+              "key": "E",
+              "text": "dedicated"
+            },
+            {
+              "key": "F",
+              "text": "dwells"
+            },
+            {
+              "key": "G",
+              "text": "extinction"
+            },
+            {
+              "key": "H",
+              "text": "fierce"
+            },
+            {
+              "key": "I",
+              "text": "hinders"
+            },
+            {
+              "key": "J",
+              "text": "mammal"
+            },
+            {
+              "key": "K",
+              "text": "monitoring"
+            },
+            {
+              "key": "L",
+              "text": "predators"
+            },
+            {
+              "key": "M",
+              "text": "remove"
+            },
+            {
+              "key": "N",
+              "text": "tempt"
+            },
+            {
+              "key": "O",
+              "text": "underlying"
+            }
+          ],
+          "answer": "L",
+          "explanation": "L) predators。详解 空格前出现了限定词 those 和 flying,故空格处需要填入名词复数作句子的主语,符合条件的只有 L) predators。J) mammal“哺乳动物”不符合常识,因为金雕是卵生的鸟类,不是哺乳动物。另外,根据空格前一句可知,圣克鲁斯岛上的野猪引来了金雕,结果造成灰狐的数量减少,故推测金雕对野猪和灰狐都进行了捕食,L) predators“捕食者,掠夺者”更符合文章意思。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aggressive"
+            },
+            {
+              "key": "B",
+              "text": "chaos"
+            },
+            {
+              "key": "C",
+              "text": "configuration"
+            },
+            {
+              "key": "D",
+              "text": "declared"
+            },
+            {
+              "key": "E",
+              "text": "dedicated"
+            },
+            {
+              "key": "F",
+              "text": "dwells"
+            },
+            {
+              "key": "G",
+              "text": "extinction"
+            },
+            {
+              "key": "H",
+              "text": "fierce"
+            },
+            {
+              "key": "I",
+              "text": "hinders"
+            },
+            {
+              "key": "J",
+              "text": "mammal"
+            },
+            {
+              "key": "K",
+              "text": "monitoring"
+            },
+            {
+              "key": "L",
+              "text": "predators"
+            },
+            {
+              "key": "M",
+              "text": "remove"
+            },
+            {
+              "key": "N",
+              "text": "tempt"
+            },
+            {
+              "key": "O",
+              "text": "underlying"
+            }
+          ],
+          "answer": "H",
+          "explanation": "H) fierce。详解 空格位于冠词和名词之间,故需要填入形容词。空格后提到,这场旨在清除圣克鲁斯岛野猪的战役还使用了直升机和神枪手,故填入 H) fierce“激烈的,凶猛的”来修饰这场生态保护战役的程度。A) aggressive“具有攻击性的,好斗的”也可以用来修饰 war,但空格前面出现了不定冠词 a,而 aggressive 是元音音素开头,需要 an 来修饰,故排除。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aggressive"
+            },
+            {
+              "key": "B",
+              "text": "chaos"
+            },
+            {
+              "key": "C",
+              "text": "configuration"
+            },
+            {
+              "key": "D",
+              "text": "declared"
+            },
+            {
+              "key": "E",
+              "text": "dedicated"
+            },
+            {
+              "key": "F",
+              "text": "dwells"
+            },
+            {
+              "key": "G",
+              "text": "extinction"
+            },
+            {
+              "key": "H",
+              "text": "fierce"
+            },
+            {
+              "key": "I",
+              "text": "hinders"
+            },
+            {
+              "key": "J",
+              "text": "mammal"
+            },
+            {
+              "key": "K",
+              "text": "monitoring"
+            },
+            {
+              "key": "L",
+              "text": "predators"
+            },
+            {
+              "key": "M",
+              "text": "remove"
+            },
+            {
+              "key": "N",
+              "text": "tempt"
+            },
+            {
+              "key": "O",
+              "text": "underlying"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D) declared。详解 空格位于助动词 has 和名词 war 之间,应填入动词的过去分词。由下文可知,美国大自然保护协会的理念是要消除岛上的威胁,故填入 D) declared“宣布,声明”,构成搭配 declare war on...,表示“向......宣战”。E) dedicated 需要搭配介词 to 而不是 on,故排除。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aggressive"
+            },
+            {
+              "key": "B",
+              "text": "chaos"
+            },
+            {
+              "key": "C",
+              "text": "configuration"
+            },
+            {
+              "key": "D",
+              "text": "declared"
+            },
+            {
+              "key": "E",
+              "text": "dedicated"
+            },
+            {
+              "key": "F",
+              "text": "dwells"
+            },
+            {
+              "key": "G",
+              "text": "extinction"
+            },
+            {
+              "key": "H",
+              "text": "fierce"
+            },
+            {
+              "key": "I",
+              "text": "hinders"
+            },
+            {
+              "key": "J",
+              "text": "mammal"
+            },
+            {
+              "key": "K",
+              "text": "monitoring"
+            },
+            {
+              "key": "L",
+              "text": "predators"
+            },
+            {
+              "key": "M",
+              "text": "remove"
+            },
+            {
+              "key": "N",
+              "text": "tempt"
+            },
+            {
+              "key": "O",
+              "text": "underlying"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A) aggressive。详解 空格位于介词和名词之间,需要填入形容词。由上文可知,美国大自然保护协会向众多人侵物种发起了宣战,而阿根廷蚁就是其中一种,故填入 A) aggressive“具有攻击性的,好斗的”,用来形容阿根廷蚁对当地造成的生态危害。O) underlying 意为“潜在的,根本的”,用来修饰不容易发现的事实或潜在的因素等,而文中提到美国大自然保护协会已经注意到并且要消除这些人侵物种,该项不符合原文意思,故排除。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aggressive"
+            },
+            {
+              "key": "B",
+              "text": "chaos"
+            },
+            {
+              "key": "C",
+              "text": "configuration"
+            },
+            {
+              "key": "D",
+              "text": "declared"
+            },
+            {
+              "key": "E",
+              "text": "dedicated"
+            },
+            {
+              "key": "F",
+              "text": "dwells"
+            },
+            {
+              "key": "G",
+              "text": "extinction"
+            },
+            {
+              "key": "H",
+              "text": "fierce"
+            },
+            {
+              "key": "I",
+              "text": "hinders"
+            },
+            {
+              "key": "J",
+              "text": "mammal"
+            },
+            {
+              "key": "K",
+              "text": "monitoring"
+            },
+            {
+              "key": "L",
+              "text": "predators"
+            },
+            {
+              "key": "M",
+              "text": "remove"
+            },
+            {
+              "key": "N",
+              "text": "tempt"
+            },
+            {
+              "key": "O",
+              "text": "underlying"
+            }
+          ],
+          "answer": "M",
+          "explanation": "M) remove。详解 and 连接平行结构,and 后是动词原形和名词构成的动宾结构,故推测空格处也应填入动词原形。既符合语法要求,又符合句意的选项只有 M) remove“消除,移除”。N) tempt 虽然也是动词原形,但要恢复小岛生态,应该消除威胁而不是诱惑威胁,该项不符合句意,故排除。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aggressive"
+            },
+            {
+              "key": "B",
+              "text": "chaos"
+            },
+            {
+              "key": "C",
+              "text": "configuration"
+            },
+            {
+              "key": "D",
+              "text": "declared"
+            },
+            {
+              "key": "E",
+              "text": "dedicated"
+            },
+            {
+              "key": "F",
+              "text": "dwells"
+            },
+            {
+              "key": "G",
+              "text": "extinction"
+            },
+            {
+              "key": "H",
+              "text": "fierce"
+            },
+            {
+              "key": "I",
+              "text": "hinders"
+            },
+            {
+              "key": "J",
+              "text": "mammal"
+            },
+            {
+              "key": "K",
+              "text": "monitoring"
+            },
+            {
+              "key": "L",
+              "text": "predators"
+            },
+            {
+              "key": "M",
+              "text": "remove"
+            },
+            {
+              "key": "N",
+              "text": "tempt"
+            },
+            {
+              "key": "O",
+              "text": "underlying"
+            }
+          ],
+          "answer": "K",
+          "explanation": "K) monitoring。详解 本题的解题方法同第 32 题。and 连接平行结构,and 前是动词现在分词和名词构成的动宾结构,故推测空格处也应填入动词现在分词,符合要求的只有 K) monitoring。空格上一句中的“keep a pulse on...”意为“持续关注......”,故可知波沙及其同事要继续关注灰狐数量,因此填入 K) monitoring“监测,监控”,不但符合语法要求,也符合句意。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aggressive"
+            },
+            {
+              "key": "B",
+              "text": "chaos"
+            },
+            {
+              "key": "C",
+              "text": "configuration"
+            },
+            {
+              "key": "D",
+              "text": "declared"
+            },
+            {
+              "key": "E",
+              "text": "dedicated"
+            },
+            {
+              "key": "F",
+              "text": "dwells"
+            },
+            {
+              "key": "G",
+              "text": "extinction"
+            },
+            {
+              "key": "H",
+              "text": "fierce"
+            },
+            {
+              "key": "I",
+              "text": "hinders"
+            },
+            {
+              "key": "J",
+              "text": "mammal"
+            },
+            {
+              "key": "K",
+              "text": "monitoring"
+            },
+            {
+              "key": "L",
+              "text": "predators"
+            },
+            {
+              "key": "M",
+              "text": "remove"
+            },
+            {
+              "key": "N",
+              "text": "tempt"
+            },
+            {
+              "key": "O",
+              "text": "underlying"
+            }
+          ],
+          "answer": "E",
+          "explanation": "E) dedicated。详解 空格位于助动词 have 和名词 lives 之间,故应填入动词的过去分词。who 引导的定语从句用来修饰先行词 people,并出现了 protecting“保护”一词,由此可知,这里的人指的就是像波沙这类为保护灰狐付出努力的人,故填入 E) dedicated“致力于,献身于”。dedicate 最常见的搭配为 dedicate onesel/on'slife to sth, /doing sth,这里的 to 为介词,后面跟名词或动名词。空格后出现了 theirlivestoprotectingit,故E)为答案。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aggressive"
+            },
+            {
+              "key": "B",
+              "text": "chaos"
+            },
+            {
+              "key": "C",
+              "text": "configuration"
+            },
+            {
+              "key": "D",
+              "text": "declared"
+            },
+            {
+              "key": "E",
+              "text": "dedicated"
+            },
+            {
+              "key": "F",
+              "text": "dwells"
+            },
+            {
+              "key": "G",
+              "text": "extinction"
+            },
+            {
+              "key": "H",
+              "text": "fierce"
+            },
+            {
+              "key": "I",
+              "text": "hinders"
+            },
+            {
+              "key": "J",
+              "text": "mammal"
+            },
+            {
+              "key": "K",
+              "text": "monitoring"
+            },
+            {
+              "key": "L",
+              "text": "predators"
+            },
+            {
+              "key": "M",
+              "text": "remove"
+            },
+            {
+              "key": "N",
+              "text": "tempt"
+            },
+            {
+              "key": "O",
+              "text": "underlying"
+            }
+          ],
+          "answer": "G",
+          "explanation": "G)extinction。详解)空格位于of 短语结构中,形容词之后,应填入名词。最后一段将保护圣克鲁斯岛 生态环境的意义升华,前面的in the ageof表示“在.的时代”,填人G)extinction和前面的mass\"大 规模的\"搭配,表示“物种大灭绝时代”,在这样的时代,保护野生动物的意义才更显重大,故选G)。 B)chaos一般指的是“(秩序或结构的)混乱”,不符合文章物种保护的主题,故排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2018-12-1-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) When Katlyn Burbidge’s son was 6 years old, he was performing some ridiculous song and dance typical of a first-grader. But after she snapped a photo and started using her phone, he asked her a serious question:“Are you going to post that online?” She laughed and answered, “Yes, I think I will.” What he said next stopped her. “Can you not?”",
+        "B) That’s when it dawned on her: She had been posting photos of him online without asking his permission. “We’re big advocates of bodily autonomy and not forcing him to hug or kiss people unless he wants to, but it never occurred to me that I should ask his permission to post photos of him online,” says Burbidge, a mom of two in Wakefield, Massachusetts. “Now when I post a photo of him online, I show him the photo and get his okay.”",
+        "C) When her 8-month-old is 3 or 4 years old, she plans to start asking him in an age-appropriate way, “Do you want other people to see this?” That’s precisely the approach that two researchers advocated before a room of pediatricians (儿科医生) last week at the American Academy of Pediatrics meeting, when they discussed the 21st century challenge of “sharenting,” a new term for parents’ online sharing about their children. “As advocates of children’s rights, we believe that children should have a voice about what information is shared about them if possible,” says Stacey Steinberg, a legal skills professor at the University of Florida Levin College of Law in Gainesville.",
+        "D) Whether it’s ensuring that your child isn’t bullied over something you post, that their identity isn’t digitally “kidnapped”, or that their photos don’t end up on a half dozen child pornography (色情) sites, as one Australian mom discovered, parents and pediatricians are increasingly aware of the importance of protecting children’s digital presence. Steinberg and Bahareh Keith, an assistant professor of pediatrics at the University of Florida College of Medicine, say most children will likely never experience problems related to what their parents share, but a tension still exists between parents’ rights to share their experiences and their children’s rights to privacy.",
+        "E) “We’re in no way trying to silence parents’ voices,” Steinberg says. “At the same time, we recognize that children might have an interest in entering adulthood free to create their own digital footprint.” They cited a study presented earlier this year of 249 pairs of parents and their children in which twice as many children as parents wanted rules on what parents could share. “The parents said, ‘We don’t need rules—we’re fine,’ and the children said, ‘Our parents need rules,’” Keith says. “The children wanted autonomy about this issue and were worried about their parents sharing information about them.”",
+        "F) Although the American Academy of Pediatrics offers guidelines recommending that parents model appropriate social media use for their children, it does not explicitly discuss oversharing by parents. “I think this is a very legitimate concern, and I appreciate their drawing our attention to it,” David Hill, a father of five, says. He sees a role for pediatricians to talk with parents about this, but believes the messaging must extend far beyond pediatricians’ offices. “I look forward to seeing researchers expand our understanding of the issue so we can translate it into effective education and policy,” he says.",
+        "G) There’s been little research on the topic, Steinberg wrote in a law article about this issue. While states could pass laws related to sharing information about children online, Steinberg feels parents themselves are generally best suited to make these decisions for their families. “While we didn’t want to create any unnecessary panic, we did find some concerns that were troublesome, and we thought that parents or at least physicians should be aware of those potential risks,” Steinberg says. They include photos repurposed for inappropriate or illegal means, identity theft, embarrassment, bullying by peers or digital kidnapping.",
+        "H) But that’s the negative side, with risks that must be balanced against the benefits of sharing. Steinberg pointed out that parental sharing on social media helps build communities, connect spread-out families, provide support and raise awareness around important social issues for which parents might be their children’s only voice.",
+        "I) A C.S. Mott survey found among the 56 percent of mothers and 34 percent of fathers who discussed parenting on social media, 72 percent of them said sharing made them feel less alone, and nearly as many said sharing helped them worry less and gave them advice from other parents. The most common topics they discussed included kids’ sleep, nutrition, discipline, behavior problems and day care and preschool.",
+        "J) “There’s this peer-to-peer nature of health care these days with a profound opportunity for parents to learn helpful tips, safety and prevention efforts, pro-vaccine messages and all kinds of other messages from other parents in their social communities,” says Wendy Sue Swanson, a pediatrician and executive director of digital health at Seattle Children’s Hospital, where she blogs about her own parenting journey to help other parents. “They’re getting nurtured by people they’ve already selected that they trust,” she says.",
+        "K) “How do we weigh the risks, how do we think about the benefits, and how do we alleviate the risks?” she says. “Those are the questions we need to ask ourselves, and everyone can have a different answer.”",
+        "L) Some parents find the best route for them is not to share at all. Bridget O’Hanlon and her husband, who live in Cleveland, decided before their daughter was born that they would not post her photos online. When a few family members did post pictures, O’Hanlon and her husband made their wishes clear. “It’s been hard not to share pictures of her because people always want to know how babies and toddlers (学走路的孩子) are doing and to see pictures, but we made the decision to have social media while she did not,” O’Hanlon said. Similarly, Alison Jamison of New York decided with her husband that their child had a right to their own online identity. They did use an invitation-only photo sharing platform so that friends and family, including those far away, could see the photos, but they stood firm, simply refusing to put their child’s photos on other social media platforms.",
+        "M) “For most families, it’s a journey. Sometimes it goes wrong, but most of the time it doesn’t,” says Swanson, who recommends starting to ask children permission to post narratives or photos around ages 6 to 8. “We’ll learn more and more what our tolerance is. We can ask our kids to help us learn as a society what’s okay and what’s not.”",
+        "N) Indeed, that learning process goes both ways. Bria Dunham, a mother in Somerville, Massachusetts, was so excited to watch a moment of brotherly bonding while her first-grader and baby took a bath together that she snapped a few photos. But when she considered posting them online, she took the perspective of her son: How would he feel if his classmates’ parents saw photos of him chest-up in the bathtub? “It made me think about how I’m teaching him to have ownership of his own body and how what is shared today endures into the future,” Dunham says. “So I kept the pictures to myself and accepted this as one more step in supporting his increasing autonomy.”"
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Steinberg argued parental sharing online can be beneficial.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "H",
+          "explanation": "Steinberg argued parental sharing [H] But that's the negative side, with risks that must be balanced online can be beneficial. 译文斯坦伯格认为家长在线 分享是有益的。 定位由题干关键词Steinberg 和beneficial定位到文章[H]段。 against the benefits of sharing. Steinberg pointed out that parental sharing on social media helps build communities, connect spread-out families, provide support and raise awareness around important social issues for which parents might be their children's only voice. 详解【H]段第一句提到,风险必须与分享的益处相平衡,而随后一句引用斯坦伯格的说法,具体阐述父母 在社交媒体上进行分享的好处。题干是对该段的概括,故答案为【H]。"
+        },
+        {
+          "number": 37,
+          "stem": "According to an expert, when children reach school age, they can help their parents learn what can and cannot be done.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "M",
+          "explanation": "According to an expert, when children reach school age, they can help their parents learn what can and cannot be done. 译文根据一位专家的说法,当孩子达到上 学年龄时,他们可以帮助父母认识到什么能 做,什么不能做。 定位)由题干关键词reachschoolage和 help their parents learn what can and cannot bedone定位到文章[M]段画线处。 [M]*For most families,it's a journey.Sometimes it goes wrong, but most of the time it doesn't,\" says Swanson, who recommends starting to ask children permission to post narratives or photos around ages 6 to 8.We'll learn more and more what our tolerance is.We can ask our kids to help us learn as a society what's okay and what's not.\" 详解【M]段第二句提到,从孩子6至8岁左右父母就可以对是否发布他们的故事或照片去征求他们的意 见,最后一句说,父母可以要求孩子帮助他们了解什么能做,什么不能做。题干中的 reach school age对应原 文中的 around ages 6 to 8;help their parents lean what can and cannot be done 对应原文中的 help us leam asasocietywhat'sokayandwhat'snot,故答案为[M]。"
+        },
+        {
+          "number": 38,
+          "stem": "One mother refrained from posting her son’s photos online when she considered the matter from her son’s perspective.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "N",
+          "explanation": "Onemotherrefrainedfromposting [N] Indeed, that leaming process goes both ways. Bria Dunham, her son's photos online when she considered the matter from her son's perspective. 译文一位母亲在从儿子的角度 考虑这件事后,放弃了将儿子的照 片上传到网上的打算。 定位由题干关键词refrained frompostingher son's photos online和fromher son's perspective 定位到文章[N]段画线处。 a mother in Somerville, Massachusetts, was so excited to watch a moment of brotherly bonding while her first-grader and baby took a bath together that she snapped a few photos. But when she considered posting them online, she took the perspective of her son: How would he feelif his clasmates’ parents saw photos of him chest-up in the bathtub? \"It made me think about how I'm teaching him to have ownership of his own body and how what is shared today endures into the future,\" Dunham says. \"So I kept the pictures to myself and accepted this as one morestep in supporting his increasing autonomy.\" 详解)【N]段定位句提到,一位母亲在考虑是否将孩子的照片放到网上时,她从孩子的角度考虑问题,最终 将照片留给了自己,放弃了在网上发布照片的打算。题干中的from her son's perspective对应原文中的 took the perspective of her son,refrained from posting her son's photos online 对应原文中的 I kept the pictures tomyself,故答案为[N]。"
+        },
+        {
+          "number": 39,
+          "stem": "According to a study, more children than parents think there should be rules on parents’ sharing.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "E",
+          "explanation": "Accordingtoa study,more [E] \"We're in no way trying to silence parents' voices,\" Steinberg children than parents think thereshouldberules on parents' sharing. 译文)一项研究得出,认为父 母分享应受到规范的孩子比父 母多。 定位)由题干关键词astudy 和rulesonparentssharing定 位到文章[E]段画线处。 says.\"At the same time, we recognize that children might have an interest in entering adulthood free to create their own digital footprint. \" They cited a study presented earlier this year of 249 pairs of parents and their children in which twice as many children as parents wanted rules on what parents could share.\"The parents said, We don't need rules-we're fine, and the children said, Our parents need rules,'\" \" Keith says. \"The children wanted autonomy about this issue and were worried about their parents sharing information about them.\" 详解【E】段第三句提到,研究人员引用了今年早些时候针对249对父母及其孩子进行的一项研究,该研 究显示,希望规范父母分享行为的孩子是父母的两倍。题干中的more childrenthanparents对应原文中的 twiceas many children as parents,rules on parents'sharing 对应原文中的rules on what parents could share,故答案为[E]。"
+        },
+        {
+          "number": 40,
+          "stem": "Katlyn Burbidge had never realized she had to ask her son’s approval to put his photos online.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Katlyn Burbidge had never realized she had to ask her son's approval to put his photos online. 译文凯特琳·伯比奇从来没有意识到 她必须征得儿子的同意才能把他的照片放 到网上。 定位由题干关键词KatlynBurbidge 以及askherson'sapproval定位到文章 [B]段画线处。 [B] That's when it dawned on her: She had been posting photos of him online without asking his permission. *We're big advocates of bodily autonomy and not forcing him to hug or kiss people unless he wants to. but it never occurred to me that I should ask his permission to post photos of him online,\" says Wakefield, two Burbidge, mom of in a Massachusetts.\"Now when I post a photo of him online, I show him the photo and get his okay. 详解【B】段第一句提到,就在那时她才忧然大悟:她一直在网上张贴他的照片而没有征得他的同意,可知她 以前没有意识到这个问题。这里的she就是KatlynBurbidge。而第二句中又提到她从来没有想到在网上发布 她儿子的照片前应该先征得他的允许。题干中的hadneverrealized对应原文中的neveroccurredto,askher son'sapproval对应原文第一句中的askinghispermission和第二句中的askhispermission,故答案为[B]。"
+        },
+        {
+          "number": 41,
+          "stem": "A mother decided not to post her son’s photo online when he asked her not to.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A mother decided not to post her son's[A] When Katlyn Burbidge's son was 6 years old, he was photo online when he asked her not to. ■译文)一位母亲在儿子要求她不要将他 的照片上传到网上时,她决定不这么做。 定位)由题干关键词postherson's photo online及heaskedhernotto定位 到文章[A]段画线处。 performing some ridiculous song and dance typical of a first-grader.But after she snapped a photo and started using her phone, he asked her a serious question:\"Are you going to post that online?\" She laughed and answered, “Yes, I think I wil.\" What he said next stopped her.\"Can you not?\" 详解[A】段提到,凯特琳·伯比奇正打算在网上分享孩子的照片时,孩子问是否要在网上发布,并请求她 不要这样做,他说的话阻止了这位母亲。题于中的posther son'sphoto online对应原文中的postthat online,decidednotto对应原文中的stopped,故答案为[A]。"
+        },
+        {
+          "number": 42,
+          "stem": "A woman pediatrician tries to help other parents by sharing her own parenting experience.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "J",
+          "explanation": "A woman pediatrician tries to help [J] \"There's this peer-to-peer nature of health care these days otherparents bysharing her own with a profound opportunity for parents to learn helpful parenting experience. tips, safety and prevention efforts, pro-vaccine messages 译文一位女儿科医生试图通过分 享自己的育儿经历来帮助其他父母。 定位由题干关键词pediatrician、 to help other parents 和 sharing her ownparentingexperience定位到文 章[J]段画线处。 andalkindsofothermsagesfromotherparents intheir social communitis,\"says WendySue Swanson pediatrician andexcutivedirectorofdigitalheatha Seatle Childrens Hospitalwhere sheblogs about her own parenting journey tohelpotherparents.“Theyre gtting nurtured by people theyve already selected that they trust,\" she says. 详解)[J]段提到,西雅图儿童医院的儿科医师兼数字健康执行主任温迪·苏·斯旺森写博客介绍自己在 育儿方面的经历来帮助其他父母。 题干中的 help other parents by sharing her own parenting experience 对 应原文中的 blogs about her own parenting journey to help other parents,故答案为[J]。"
+        },
+        {
+          "number": 43,
+          "stem": "There are people who decide simply not to share their children’s photos online.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "L",
+          "explanation": "Therearepeoplewho [L] Some parents find the best route for them is not to share at all, Bridget decide simply not to O'Hanlon and her husband, who live in Cleveland, decided before their share their children's daughter was borm that they would not post her photos online. When a photos online. few family members did post pictures, O'Hanlon and her husband made 译文有些人干脆决 their wishes clear.\"It's been hard not to share pictures of her because 定不在网上分享孩子的 peoplealwayswanttoknowhowbabiesand toddlers(学走路的孩子) 照片。 are doing and to see pictures, but we made the decision to have social 定位由题干关键词 media while she did not,\" o'Hanlon said. Similarly, Alison Jamison of New York decided with her husband that their child had a right to their simplynotto share定 own online identity. They did use an invitation-only photo sharing 位到文章[L]段画线处。 plaform so thatfriends and family,including those far away,could see the photos, but they stood firm, simply refusing to put their child's photos on other social media platforms. 详解[L]段首句就提到,有些父母觉得对于自己已而言最好的办法就是完全不分享。题干是对该段首句的 同义转述,故答案为[L]。"
+        },
+        {
+          "number": 44,
+          "stem": "Parents and physicians should realize sharing information online about children may involve risks.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "G",
+          "explanation": "Parents and physicians should [G] There's been lttle research on the topic, Steinberg wrote in a realizesharinginformation onlineaboutchildren may involve risks. 译文家长和医生应该意识 到,在网上分享有关儿童的信息 可能会带来风险。 定位由题干关键词parents and physicians、realize 和 risks 定位到文章[G]段画线处。 law article about this issue. While states could pass laws related to sharing information about children online, Steinberg feels parents themselves are generally best suited to make these decisions for theirfamilies.\"while we didn't want to create any unnecessary panic, we did find some concems that were troublesome, and we thought that parents or at least physicians should be aware of those potental risks, Steinberg says.They include photos repurposed for inappropriate or illgal means, identity thet, embarrassment bullying by peers or digital kidnapping. (详解)[G]段第三句提到,研究人员认为父母或至少医生应该意识到这些潜在的风险。 题干中的 parens and physicians 对应原文中的 parents or at least physicians,realze 对应原文中的 be aware of,故答案为 [G]。"
+        },
+        {
+          "number": 45,
+          "stem": "Parents who share their parenting experiences may find themselves intruding into their children’s privacy.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            }
+          ],
+          "answer": "D",
+          "explanation": "Parents who share their yshatthyn'tdgaykappd parenting experiences may heirphoosdon'tdonhalozenhildpomogaphy( find themselves intruding into their children's privacy. 译文分享育儿经历的父 母可能会发现自己侵犯了孩 子的隐私。 定位由题干关键词 sies,as one Australianmom disved, prnsand pediaticia arincreasinglyawareothe imporanceofprotecting chldrens digialencSteinbergandBaharehkeithaasistant profesorfpedatsatheUniversiyfFlda Coee Mdciymotdewilklyob relatedtowhattheirparens sharebuttensionstilets parenting experiences 和 wrenghssharetheirxereadher children's privacy定位到文 children's rights to privacy. 章[D]段画线处。 评酮[D]段最后一旬中提到,父母分然历的权利与孩于的隐私权之间仍然存在紫张关系。题于中的 n 原文中的a tensionstilexists,故答案为[D]。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2018-12-1-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "Perhaps it is time for farmers to put their feet up now that robots are used to inspect crops, dig up weeds, and even have become shepherds, too. Commercial growing fields are astronomically huge and take thousands of man-hours to operate. One prime example is one of Australia’s most isolated cattle stations, Suplejack Downs in the Northern Territory, extending across 4,000 square kilometers, taking over 13 hours to reach by car from the nearest major town—Alice Springs. The extreme isolation of these massive farms leaves them often unattended, and monitored only once or twice a year, which means if the livestock falls ill or requires assistance, it can be a long time for farmers to discover. However, robots are coming to the rescue. Robots are currently under a two-year trial in Wales which will train “farmbots” to herd, monitor the health of livestock, and make sure there is enough pasture for them to graze on. The robots are equipped with many sensors to identify conditions of the environment, cattle and food, using thermal and vision sensors that detect changes in body temperature. “You’ve also got color, texture and shape sensors looking down at the ground to check pasture quality,” says Salah Sukkarieh of the University of Sydney, who will carry out trials on several farms in central New South Wales. During the trials, the robot algorithms (算法) and mechanics will be fine-tuned to make it better suited to ailing livestock and ensure it safely navigates around potential hazards including trees, mud, swamps, and hills. “We want to improve the quality of animal health and make it easier for farmers to maintain large landscapes where animals roam free,” says Sukkarieh. The robots are not limited to herding and monitoring livestock. They have been created to count individual fruit, inspect crops, and even pull weeds. Many robots are equipped with high-tech sensors and complex learning algorithms to avoid injuring humans as they work side by side. The robots also learn the most efficient and safest passages, and allow engineers and farmers to analyze and better optimize the attributes and tasks of the robot, as well as provide a live stream giving real-time feedback on exactly what is happening on the farms. Of course, some worry lies in replacing agricultural workers. However, it is farmers that are pushing for the advancements due to ever-increasing labor vacancies, making it difficult to maintain large-scale operations. The robots have provided major benefits to farmers in various ways, from hunting and pulling weeds to monitoring the condition of every single fruit. Future farms will likely experience a greater deal of autonomy as robots take up more and more farm work efficiently."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What may farmers be able to do with robots appearing on the farming scene?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Upgrade farm produce"
+            },
+            {
+              "key": "B",
+              "text": "Enjoy more leisure hours."
+            },
+            {
+              "key": "C",
+              "text": "Modify the genes of crops."
+            },
+            {
+              "key": "D",
+              "text": "Cut down farming costs."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位)由题干中的 may farmers be able to do with robots 定位到文章首段首句:Perhaps itis time for farmers to put their feet up now that robots are used to inspect crops, dig up weeds, and even have become shepherds, too. 详解事实细节题。文章开篇第一句就提到,也许现在是农民翘着脚休息的时候了,接下来解释说, 这是因为机器人被用来检查庄稼,挖杂草,甚至成为了牧羊人。由此可见,当机器人出现于农业劳作的 场景中时,农民或许可以享受休闲时光了,故答案为B)。 点睛】A)“升级农场的产品”、C)“改变农作物的基因\"和D)\"削减农业生产成本\"在原文中没有依"
+        },
+        {
+          "number": 47,
+          "stem": "What will “farmbots” be expected to do?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Take up many of the farmers’ routines."
+            },
+            {
+              "key": "B",
+              "text": "Provide medical treatments for livestock."
+            },
+            {
+              "key": "C",
+              "text": "Lead the trend in farming the world over."
+            },
+            {
+              "key": "D",
+              "text": "Improve the quality of pastures for grazing."
+            }
+          ],
+          "answer": "A",
+          "explanation": "。是由中的ots定文第四段第Rekderal 据,属于无中生有,故均排除。 in Wales which willtrain“fambots\" to herd, monitor the health of lvstock, and make sure there is enough pasture for them to graze on. 详解)事实细节题。定位旬指出,该试验将训练“农业机器人\"放牧,监测性畜的健康状况,并确保 有足够的牧场供它们取食,再结合上文提到,有了机器人,农民可以翘着脚休息了,可知这种机器人录 担了许多农民的工作,故答案为A)。 点睛)B)“为性畜提供治疗”,是根据定位句中的 monitor the health of livestock 设置的干扰项,但 原文是说监测性畜的健康状况,而不是进行治疗,故排除;C)\"引领世界农场业的潮流\",在文中没有提 到,属于无中生有,故排除;D“改善畜牧草场的质量“是根据定位句后半部分设置的干扰,但原文只说 有足够的牧场,而未提及质量,因此该项不符合原文意思,故排除。"
+        },
+        {
+          "number": 48,
+          "stem": "What can robots do when equipped with high-tech sensors and complex learning algorithms?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Help farmers choose the most efficient and safest passages."
+            },
+            {
+              "key": "B",
+              "text": "Help farmers simplify their farming tasks and management."
+            },
+            {
+              "key": "C",
+              "text": "Allow farmers to learn instantly what is occurring on the farm."
+            },
+            {
+              "key": "D",
+              "text": "Allow farmers to give them real-time instructions on what to do."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定位由题干中的 high-tech sensors and complex leaming algorthms 定位到文章第九段:Many robots are equipped with high-tech sensorsand complex leaming algorithms to avoid injuring humans as they work side by side. The robots also learm the most eficient and safest passages, and llow engineers and farmers to analyze and better optimize the attributes and tasks of the robot, as welas provide a live stream giving real-time feedback on exactly what is happening on the farms: 详解)事实细节题。定位句提到,配备了高科技传感器和复杂的学习算法的机器人能为农民提供实 时流,对农场上正在发生的事情给出实时反馈,由此可知,C)为该部分的同义转述,故为答案。 点睛)A)“帮助农民选择最有效和最安全的通道”,混淆了定位段第二句的意思,原文是说机器人 能够使用最有效和最安全的通道,可见A)与原文不符,故排除;B)“帮助农民简化耕作任务和管理”, 定位部分未曾提及,故排除;D)“让农民得以对后面的工作进行实时指导”,是根据定位段第二句中的 allow engineers and farmers to analyze and better optimize the attributes and tasks of the robot 设置 的干扰,原文虽然提到可以优化机器人的任务,但没有提到实时指导,该项与原文不符,故排除。"
+        },
+        {
+          "number": 49,
+          "stem": "Why are farmers pressing for robotic farming?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Farming costs are fast increasing."
+            },
+            {
+              "key": "B",
+              "text": "Robotics technology is maturing."
+            },
+            {
+              "key": "C",
+              "text": "Robotic farming is the trend."
+            },
+            {
+              "key": "D",
+              "text": "Labor short is worsening"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位)由题干中的farmers pressingforrobotsfarming定位到文章倒数第二段最后一句:However, it is farmers that are pushing for the advancements due to ever-increasing labor vacancies,making it difficult to maintain large-scale operations. 详解事实细节题。定位句指出,正是农民本身出于劳动力空缺不断增加,大规模经营难以为继的 缘故,才不断推动着(农业科技的)进步,四个选项中D)与第一个原因相吻合,故答案为D)。 点睛A)“农业生产成本快速增加”、B)“机器人科技渐趋成熟”以及C)“机器人农业是趋势\"在原 文中均未提及,属于无中生有,故排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What does the author think future farms will be like?",
+          "options": [
+            {
+              "key": "A",
+              "text": "More and more automated."
+            },
+            {
+              "key": "B",
+              "text": "More and more productive."
+            },
+            {
+              "key": "C",
+              "text": "Larger and larger in scale."
+            },
+            {
+              "key": "D",
+              "text": "Better and better in condition."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。定位由题干中的futurefarms定位到文章最后一句:Futurefarmswillikelyexperienceagreater deal of autonomy as robots take up more and more farm work efficiently. 详解事实细节题。定位句指出,随着机器人高效地承担越来越多的农业劳作,未来的农场可能会体 验到更多的自主性,由此可知A)与原文中的experienceagreaterdealofautonomy同义,故答案为A)。 点睛B)“产能越来越高”、C)“规模越来越大”以及D)“条件越来越好”在文中均没有依据,故 排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2018-12-1-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "The public must be able to understand the basics of science to make informed decisions. Perhaps the most dramatic example of the negative consequences of poor communication between scientists and the public is the issue of climate change, where a variety of factors, not the least of which is a breakdown in the transmission of fundamental climate data to the general public, has contributed to widespread mistrust and misunderstanding of scientists and their research. The issue of climate change also illustrates how the public acceptance and understanding of science (or the lack of it) can influence governmental decision-making with regard to regulation, science policy and research funding. However, the importance of effective communication with a general audience is not limited to hot issues like climate change. It is also critical for socially charged neuroscience issues such as the genetic basis for a particular behavior, the therapeutic potential of stem cell therapy for neurodegenerative diseases, or the use of animal models, areas where the public understanding of science can also influence policy and funding decisions. Furthermore, with continuing advances in individual genome (基因组) sequencing and the advent of personalized medicine, more non-scientists will need to be comfortable analyzing complex scientific information to make decisions that directly affect their quality of life. Science journalism is the main channel for the popularization of scientific information among the public. Much has been written about how the relationship between scientists and the media can shape the efficient transmission of scientific advances to the public. Good science journalists are specialists in making complex topics accessible to a general audience, while adhering to scientific accuracy. Unfortunately, pieces of science journalism can also oversimplify and generalize their subject material to the point that the basic information conveyed is obscured or at worst, obviously wrong. The impact of a basic discovery on human health can be exaggerated so that the public thinks a miraculous cure is a few months to years away when in reality the significance of the study is far more limited. Even though scientists play a part in transmitting information to journalists and ultimately the public, too often the blame for ineffective communication is placed on the side of the journalists. We believe that at least part of the problem lies in places other than the interaction between scientists and members of the media, and exists because for one thing we underestimate how difficult it is for scientists to communicate effectively with a diversity of audiences, and for another most scientists do not receive formal training in science communication."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What does the example of climate change serve to show?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The importance of climate data is increasingly recognized."
+            },
+            {
+              "key": "B",
+              "text": "Adequate government funding is vital to scientific research."
+            },
+            {
+              "key": "C",
+              "text": "Government regulation helps the public understand science."
+            },
+            {
+              "key": "D",
+              "text": "Common folks’ scientific knowledge can sway policy making."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位由题干中的 example of climate change 定位到文章首段第二句:Perhaps the most dramatic examplefthenegative consequencesof porcommunication beweenscientists andthepublicis the issue of climate change... 和第二段The issue of climate change alsoillustrates how the public acceptance and understanding of science (or the lack of it) can influence govemmental decision- making with regard to regulation, science policy and research funding. 详解)推理判断题。第一段第二句明确指出,气候变化问题是科学家与公众之间沟通不畅产生负面 后果的例证,而第二段首句说,气候变化问题也说明了公众对科学的接受和理解(抑或是缺失)对于政 府在监管、科学政策和研究资金方面的决策会产生怎样的影响,可知D)是对第二段的同义转述,故为 答案。 点睛)A)“对气候数据重要性的认识在不断增强”,是对首段第二句后半部分的曲解,原文只是提 到向公众传播气候数据的障碍,并未提及对气候数据重要性的认识在不断增强,故排除;B)“充足的政 府资金对于科学研究至关重要”和C)“政府监管有助于公众对科学的理解”,文中均未涉及,故排除。"
+        },
+        {
+          "number": 52,
+          "stem": "What should non-scientists do to ensure their quality of life?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Seek personalized medical assistance from doctors."
+            },
+            {
+              "key": "B",
+              "text": "Acquire a basic understanding of medical science."
+            },
+            {
+              "key": "C",
+              "text": "Have their individual genome sequenced."
+            },
+            {
+              "key": "D",
+              "text": "Make informed use of animal models."
+            }
+          ],
+          "answer": "B",
+          "explanation": "B)。定位)由题干中的non-scientists定位到文章第三段第三句后半部分:.morenon-scientistswill need to be comfortable analyzing complex scientific information to make decisions that directly affect their quality of life. 详解)事实细节题。定位句指出,更多并非科学家的人将需要自如地分析复杂的科学信息,从而做出 直接影响其生活质量的决策。而怎样才能自如地分析复杂的科学信息呢?结合文章开篇提出的主题“公 众必须能够理解科学的基本知识,才能做出有根据的决定”可知,B)对此处信息概括正确,故为答案。 点睛A)“向医生寻求个性化的医疗帮助”,该选项是对定位句前半部分的曲解,原文只是提到个 性化医疗的出现,没有提到这与保证生活品质的关系,故排除;C)“对个人的基因组进行测序\"和D)“充 分地利用动物模型”都是利用定位句前半部分设置的干扰,而原文提到基因组测序和动物模型都只是 举例说明当前的科技发展,而不是那些并非科学家的人要做的事,故排除。"
+        },
+        {
+          "number": 53,
+          "stem": "Why is it important for scientists to build a good relationship with the media?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It helps them to effectively popularize new scientific information."
+            },
+            {
+              "key": "B",
+              "text": "It enables the public to develop a positive attitude toward science."
+            },
+            {
+              "key": "C",
+              "text": "It helps them to establish a more positive public image."
+            },
+            {
+              "key": "D",
+              "text": "It enables them to apply their findings to public health."
+            }
+          ],
+          "answer": "A",
+          "explanation": "A)。定位由题干中的 scientists to build a good relationship with the media 定位到文章第四段第二 句:Much has been written about how the relationship between scientists and the media can shape the efficient transmission of scientific advances to the public. 详解)推理判断题。定位句指出,已经有很多文章涉及科学家和媒体之间的关系对于向公众有效传 播科学进步所产生的影响,由此推断,如果科学家与媒体关系良好,就有助于向公众传播科学信息,故 答案为A)。 点睛)B)“它能够培养公众对科学的积极态度”和C)“它有助于他们树立正面的公众形象”,文中 均未提及,故排除;D)“让他们能够将自已的发现应用于公共健康事业\"是利用第三段中与医疗保健相 关的信息设置的干扰,但定位段是从整体角度探讨科学家与媒体的关系,而不是局限于公共健康领域, 故排除。"
+        },
+        {
+          "number": 54,
+          "stem": "What does the author say is the problem with science journalism?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is keen on transmitting sensational information."
+            },
+            {
+              "key": "B",
+              "text": "It tends to oversimplify people’s health problems."
+            },
+            {
+              "key": "C",
+              "text": "It may give inaccurate or distorted information to the public."
+            },
+            {
+              "key": "D",
+              "text": "It may provide information open to different interpretations."
+            }
+          ],
+          "answer": "C",
+          "explanation": "C)。定位由题干中的 problem wihscience joualamn 定位到文章第五段第一句:Uunforuatly, piecesof science joumalim canalsooversimplify and generalize theirsubject materialtothe point that the basic infomation conveyed is obscured or at worst, obviously wrong. 详解)事实细节题。定位句指出,科学新闻也可能会过分简化和概括它们的主题材料,以至于所传 达的基本信息是模糊不清的,或更有甚者,是明显错误的,可知 C)与该句意义相符,故为答案。 点脑》A)“它热表于传播箕人听闻的消息\"和 D)“它提供的信息可能会有不同解释”,在文章中均 没有依据,故排除;B)“它往往过分简化人们的健康问题\"以偏概全,原文绝不是仅仅讨论健康方面的 问题,故排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What should scientists do to impart their latest findings to the public more effectively?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Give training to science journalists."
+            },
+            {
+              "key": "B",
+              "text": "Stimulate public interest in science."
+            },
+            {
+              "key": "C",
+              "text": "Seek timely assistance from the media."
+            },
+            {
+              "key": "D",
+              "text": "Improve their communication skills."
+            }
+          ],
+          "answer": "D",
+          "explanation": "D)。定位)由题干中的 scientists do to impart 和 effectively 定位到文章最后一段首句;Even though scientists play a part in transmitting information to journalists and ultimately the public, too often the blame for ineffective communication is placed on the side of the journalists.和第二句后半部分: ...and exists because for one thing we underestimate how difficult it is for scientists to communicate effectively with a diversity of audiences, and for another most scientists do not receive formal training in science communication. 详解)事实细节题。定位部分指出,科学信息传播是否有效的问题往往是科学记者的责任,但作者 分析了他所认为的两个真正原因:一是我们低估了科学家与多种受众进行有效沟通的难度,二是大多 数科学家没有接受过科学沟通的正规训练,D)所述与第二条原因相符合,故为答案。 点睛A)“对科学记者进行培训”,是对原文的误读,原文提出的是培训科学家的沟通能力,故排 除;B)“激发公众对科学的兴趣”,在原文中并未提及,故排除;C)“及时向媒体寻求帮助”,与最后一段 第二句前半部分相俘,故排除。"
+        }
+      ]
+    }
+  ]
+}

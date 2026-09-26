@@ -1,0 +1,1629 @@
+{
+  "id": "cet4-2018-06-3",
+  "level": 4,
+  "year": 2018,
+  "month": 6,
+  "set": 3,
+  "title": "2018 年 6 月四级 · 第 3 套",
+  "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.06/%E7%9C%9F%E9%A2%98PDF/2018.06%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC3%E5%A5%97.pdf",
+  "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2018%E5%B9%B46%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%B8%89%EF%BC%89.pdf",
+  "status": "ready",
+  "sections": [
+    {
+      "id": "cet4-2018-06-3-a",
+      "type": "cloze",
+      "title": "选词填空",
+      "paragraphs": [
+        "Neon (霓虹) is to Hong Kong as red phone booths are to London and fog is to San Francisco.",
+        "When night falls, red and blue and other colors [[26]] a hazy (雾蒙蒙的) glow over a city lit",
+        "up by tens of thousands of neon signs. But many of them are going dark, [[27]] by more",
+        "practical, but less romantic, LEDs (发光二极管).",
+        "Changing building codes, evolving tastes, and the high cost of maintaining those wonderful",
+        "old signs have businesses embracing LEDs, which are energy [[28]] , but still carry",
+        "great cost. \"To me, neon represents memories of the past,\" says photographer Sharon Blance,",
+        "whose series Hong Kong Neon celebrates the city's famous signs. \"Looking at the signs now I get",
+        "a feeling of amazement, mixed with sadness.\"",
+        "Building a neon sign is an art practiced by [[29]] trained on the job to mold",
+        "glass tubes into [[30]] shapes and letters. They fill these tubes with gases that glow",
+        "when [[31]] . Neon makes orange, while other gases make yellow or blue. It takes",
+        "many hours to craft a single sign.",
+        "Blance spent a week in Hong Kong and [[32]] more than 60 signs; 22 of them",
+        "appear in the series that capture the signs lighting up lonely streets—an [[33]] that",
+        "makes it easy to admire their colors and craftsmanship. \"I love the beautiful, handcrafted,",
+        "old-fashioned [[34]] of neon,\" says Blance. The signs do nothing more than [[35]]",
+        "a restaurant, theater, or other business, but do so in the most striking way possible."
+      ],
+      "bank": [
+        {
+          "key": "A",
+          "text": "alternative"
+        },
+        {
+          "key": "B",
+          "text": "approach"
+        },
+        {
+          "key": "C",
+          "text": "cast"
+        },
+        {
+          "key": "D",
+          "text": "challenging"
+        },
+        {
+          "key": "E",
+          "text": "decorative"
+        },
+        {
+          "key": "F",
+          "text": "efficient"
+        },
+        {
+          "key": "G",
+          "text": "electrified"
+        },
+        {
+          "key": "H",
+          "text": "identify"
+        },
+        {
+          "key": "I",
+          "text": "photographed"
+        },
+        {
+          "key": "J",
+          "text": "professionals"
+        },
+        {
+          "key": "K",
+          "text": "quality"
+        },
+        {
+          "key": "L",
+          "text": "replaced"
+        },
+        {
+          "key": "M",
+          "text": "stimulate"
+        },
+        {
+          "key": "N",
+          "text": "symbolizes"
+        },
+        {
+          "key": "O",
+          "text": "volunteers"
+        }
+      ],
+      "questions": [
+        {
+          "number": 26,
+          "stem": "第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alternative"
+            },
+            {
+              "key": "B",
+              "text": "approach"
+            },
+            {
+              "key": "C",
+              "text": "cast"
+            },
+            {
+              "key": "D",
+              "text": "challenging"
+            },
+            {
+              "key": "E",
+              "text": "decorative"
+            },
+            {
+              "key": "F",
+              "text": "efficient"
+            },
+            {
+              "key": "G",
+              "text": "electrified"
+            },
+            {
+              "key": "H",
+              "text": "identify"
+            },
+            {
+              "key": "I",
+              "text": "photographed"
+            },
+            {
+              "key": "J",
+              "text": "professionals"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "replaced"
+            },
+            {
+              "key": "M",
+              "text": "stimulate"
+            },
+            {
+              "key": "N",
+              "text": "symbolizes"
+            },
+            {
+              "key": "O",
+              "text": "volunteers"
+            }
+          ],
+          "answer": "C",
+          "explanation": "答案:C) cast 投射,扫视 详解:动词辨析题。本空前后都是名词词组,而且所在的句子没有谓语动词,因此本空应填入动词;另根据从句 when night falls 可知本句时态是一般现在时,而且主语colors 是复数,空格所填动词应该是原形,符合条件的是有 B) approach、C) cast、H) identify 和M) stimulate。本句大意为:当夜幕降临时,红色、蓝色和其他颜色为这座被成 千上万个霓虹灯指示牌点亮的城市蒙上了一层雾蒙蒙的微光。由句意可知,各种颜色的霓虹灯发出了微光,因此本 空应填入含有“发光”意义的动词,故答案为C) cast 投射,扫视。"
+        },
+        {
+          "number": 27,
+          "stem": "第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alternative"
+            },
+            {
+              "key": "B",
+              "text": "approach"
+            },
+            {
+              "key": "C",
+              "text": "cast"
+            },
+            {
+              "key": "D",
+              "text": "challenging"
+            },
+            {
+              "key": "E",
+              "text": "decorative"
+            },
+            {
+              "key": "F",
+              "text": "efficient"
+            },
+            {
+              "key": "G",
+              "text": "electrified"
+            },
+            {
+              "key": "H",
+              "text": "identify"
+            },
+            {
+              "key": "I",
+              "text": "photographed"
+            },
+            {
+              "key": "J",
+              "text": "professionals"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "replaced"
+            },
+            {
+              "key": "M",
+              "text": "stimulate"
+            },
+            {
+              "key": "N",
+              "text": "symbolizes"
+            },
+            {
+              "key": "O",
+              "text": "volunteers"
+            }
+          ],
+          "answer": "L",
+          "explanation": "答案:L) replaced 代替 详解:动词辨析题。本空后面是by 引出的介词词组,因此应填入动词的过去分词形式构成被动语态。本句意思 为:但是很多霓虹灯都变暗了,被更实用,但是不那么浪漫的LED 灯替代了。本句中的them 指的是霓虹灯,霓虹 灯变暗说明商家不再使用它们了,而第二段第一句也提到businesses embracing LEDs,说明LED 灯取代了霓虹灯, 因此本题答案为L) replaced 代替。备选动词中,是过去分词形式的有G) electrified、I) photographed 和L) replaced, 而前两者都不符合句意,因此排除。"
+        },
+        {
+          "number": 28,
+          "stem": "第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alternative"
+            },
+            {
+              "key": "B",
+              "text": "approach"
+            },
+            {
+              "key": "C",
+              "text": "cast"
+            },
+            {
+              "key": "D",
+              "text": "challenging"
+            },
+            {
+              "key": "E",
+              "text": "decorative"
+            },
+            {
+              "key": "F",
+              "text": "efficient"
+            },
+            {
+              "key": "G",
+              "text": "electrified"
+            },
+            {
+              "key": "H",
+              "text": "identify"
+            },
+            {
+              "key": "I",
+              "text": "photographed"
+            },
+            {
+              "key": "J",
+              "text": "professionals"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "replaced"
+            },
+            {
+              "key": "M",
+              "text": "stimulate"
+            },
+            {
+              "key": "N",
+              "text": "symbolizes"
+            },
+            {
+              "key": "O",
+              "text": "volunteers"
+            }
+          ],
+          "answer": "F",
+          "explanation": "答案:F) efficient 高效能的,有效率的 详解:形容词辨析题。本空位于名词energy 之后,可以填入名词或形容词。第二段第一句在对比LED 灯和霓虹 灯的优缺点,空格所在的定语从句用来修饰前面的LEDs。根据常识,商家肯定选择节省能源的,而不是耗能更多 的,因此此处意思应该是“节约能源的”,答案为F) efficient 高效能的,有效率的。"
+        },
+        {
+          "number": 29,
+          "stem": "第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alternative"
+            },
+            {
+              "key": "B",
+              "text": "approach"
+            },
+            {
+              "key": "C",
+              "text": "cast"
+            },
+            {
+              "key": "D",
+              "text": "challenging"
+            },
+            {
+              "key": "E",
+              "text": "decorative"
+            },
+            {
+              "key": "F",
+              "text": "efficient"
+            },
+            {
+              "key": "G",
+              "text": "electrified"
+            },
+            {
+              "key": "H",
+              "text": "identify"
+            },
+            {
+              "key": "I",
+              "text": "photographed"
+            },
+            {
+              "key": "J",
+              "text": "professionals"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "replaced"
+            },
+            {
+              "key": "M",
+              "text": "stimulate"
+            },
+            {
+              "key": "N",
+              "text": "symbolizes"
+            },
+            {
+              "key": "O",
+              "text": "volunteers"
+            }
+          ],
+          "answer": "J",
+          "explanation": "答案:J) professionals 专业人士 详解:名词辨析题。本空前有practiced by 构成被动语态,因此本空是practiced 这个动作的施动者,应填入表示 人的名词。本空后面有trained on the job(受过在岗培训)来修饰本空所填名词,受过培训的人可以称为“专业人士”, 因此本题答案为J) professionals 专业人士。备选名词中,表示人的名词有C) cast、J) professionals 和O) volunteers, 而cast 和volunteers 均不符合句意,因此排除。"
+        },
+        {
+          "number": 30,
+          "stem": "第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alternative"
+            },
+            {
+              "key": "B",
+              "text": "approach"
+            },
+            {
+              "key": "C",
+              "text": "cast"
+            },
+            {
+              "key": "D",
+              "text": "challenging"
+            },
+            {
+              "key": "E",
+              "text": "decorative"
+            },
+            {
+              "key": "F",
+              "text": "efficient"
+            },
+            {
+              "key": "G",
+              "text": "electrified"
+            },
+            {
+              "key": "H",
+              "text": "identify"
+            },
+            {
+              "key": "I",
+              "text": "photographed"
+            },
+            {
+              "key": "J",
+              "text": "professionals"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "replaced"
+            },
+            {
+              "key": "M",
+              "text": "stimulate"
+            },
+            {
+              "key": "N",
+              "text": "symbolizes"
+            },
+            {
+              "key": "O",
+              "text": "volunteers"
+            }
+          ],
+          "answer": "E",
+          "explanation": "答案:E) decorative 装饰用的 详解:形容词辨析题。本空后面是名词词组,因此应填入形容词起修饰作用。本句介绍了霓虹灯指示牌的制作, 首先要把玻璃管塑造成各种形状和字母。霓虹灯指示牌的作用之一就是装点商铺的门面,由此可知本空应填入含有 “装饰的”意义的词,因此答案为E) decorative 装饰用的。其余备选形容词均不符合句意,因此排除。"
+        },
+        {
+          "number": 31,
+          "stem": "第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alternative"
+            },
+            {
+              "key": "B",
+              "text": "approach"
+            },
+            {
+              "key": "C",
+              "text": "cast"
+            },
+            {
+              "key": "D",
+              "text": "challenging"
+            },
+            {
+              "key": "E",
+              "text": "decorative"
+            },
+            {
+              "key": "F",
+              "text": "efficient"
+            },
+            {
+              "key": "G",
+              "text": "electrified"
+            },
+            {
+              "key": "H",
+              "text": "identify"
+            },
+            {
+              "key": "I",
+              "text": "photographed"
+            },
+            {
+              "key": "J",
+              "text": "professionals"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "replaced"
+            },
+            {
+              "key": "M",
+              "text": "stimulate"
+            },
+            {
+              "key": "N",
+              "text": "symbolizes"
+            },
+            {
+              "key": "O",
+              "text": "volunteers"
+            }
+          ],
+          "answer": "G",
+          "explanation": "答案:G) electrified 使充电 详解:动词辨析题。空格位于when 引导的时间状语中,因为逻辑主语也是gases,所以省略了,但是要保留动词 并改成现在分词或过去分词的形式,因此本空应填入动词。本句意为:他们把________时发光的气体注入这些玻璃 管中。根据常识,霓虹灯利用的就是某些气体在被通电时会发光的原理,因此本题答案为G) electrified 使充电。在 备选动词中,是现在分词或过去分词的有D) challenging、G) electrified、I) photographed 和L) replaced,而除了 electrified 之外,其他的词均不符合句意,因此排除。"
+        },
+        {
+          "number": 32,
+          "stem": "第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alternative"
+            },
+            {
+              "key": "B",
+              "text": "approach"
+            },
+            {
+              "key": "C",
+              "text": "cast"
+            },
+            {
+              "key": "D",
+              "text": "challenging"
+            },
+            {
+              "key": "E",
+              "text": "decorative"
+            },
+            {
+              "key": "F",
+              "text": "efficient"
+            },
+            {
+              "key": "G",
+              "text": "electrified"
+            },
+            {
+              "key": "H",
+              "text": "identify"
+            },
+            {
+              "key": "I",
+              "text": "photographed"
+            },
+            {
+              "key": "J",
+              "text": "professionals"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "replaced"
+            },
+            {
+              "key": "M",
+              "text": "stimulate"
+            },
+            {
+              "key": "N",
+              "text": "symbolizes"
+            },
+            {
+              "key": "O",
+              "text": "volunteers"
+            }
+          ],
+          "answer": "I",
+          "explanation": "答案:I) photographed 拍照 详解:动词辨析题。本空后面是名词词组,前面有and 表示并列,可以判断出and 后是并列的谓语,由前面的spent 可知,此处也应填入动词过去式。第二段提到布朗斯是一位摄影师,而且喜爱拍摄霓虹灯指示牌,所以她在香港期 间肯定是“拍摄”这些指示牌,因此本题答案为I) photographed 拍照。备选动词中只有G) electrified、I) photographed 和L) replaced 是动词过去式,而除了photographed 之外,其他词均不符合句意,因此排除。"
+        },
+        {
+          "number": 33,
+          "stem": "第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alternative"
+            },
+            {
+              "key": "B",
+              "text": "approach"
+            },
+            {
+              "key": "C",
+              "text": "cast"
+            },
+            {
+              "key": "D",
+              "text": "challenging"
+            },
+            {
+              "key": "E",
+              "text": "decorative"
+            },
+            {
+              "key": "F",
+              "text": "efficient"
+            },
+            {
+              "key": "G",
+              "text": "electrified"
+            },
+            {
+              "key": "H",
+              "text": "identify"
+            },
+            {
+              "key": "I",
+              "text": "photographed"
+            },
+            {
+              "key": "J",
+              "text": "professionals"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "replaced"
+            },
+            {
+              "key": "M",
+              "text": "stimulate"
+            },
+            {
+              "key": "N",
+              "text": "symbolizes"
+            },
+            {
+              "key": "O",
+              "text": "volunteers"
+            }
+          ],
+          "answer": "B",
+          "explanation": "答案:B) approach 方法,来临 详解:名词辨析题。本空前有不定冠词an,后面没有其他名词,因此应填入以元音音素开头的单数名词。空格所 在句位于破折号之后,是对前面一句的解释说明。此处意为:其中22 个出现在捕捉点亮孤独街道指示牌系列摄影 中——一种让人很容易欣赏它们的色彩和技艺的_________。鲜亮的霓虹灯指示牌和孤独无人的街道形成鲜明对比, 让人容易注意到广告牌的色彩和技艺,这是一种很巧妙的“方式、方法”,因此本题答案为B) approach 方法,来 临。备选名词中,以元音音素开头的单数名词只有A) alternative 和B) approach,而alternative 不符合此处句意,因 此排除。"
+        },
+        {
+          "number": 34,
+          "stem": "第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alternative"
+            },
+            {
+              "key": "B",
+              "text": "approach"
+            },
+            {
+              "key": "C",
+              "text": "cast"
+            },
+            {
+              "key": "D",
+              "text": "challenging"
+            },
+            {
+              "key": "E",
+              "text": "decorative"
+            },
+            {
+              "key": "F",
+              "text": "efficient"
+            },
+            {
+              "key": "G",
+              "text": "electrified"
+            },
+            {
+              "key": "H",
+              "text": "identify"
+            },
+            {
+              "key": "I",
+              "text": "photographed"
+            },
+            {
+              "key": "J",
+              "text": "professionals"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "replaced"
+            },
+            {
+              "key": "M",
+              "text": "stimulate"
+            },
+            {
+              "key": "N",
+              "text": "symbolizes"
+            },
+            {
+              "key": "O",
+              "text": "volunteers"
+            }
+          ],
+          "answer": "K",
+          "explanation": "答案:K) quality 特点,质量 详解:名词辨析题。本空前有形容词,后面是介词of,因此应填入名词。本句意为:我喜欢霓虹灯的美丽、手工 制作且老派的_________。前面三个形容词beautiful、handcrafted old-fashioned 都是说明霓虹灯的特点,因此本空应 填入含有“特点、特色”意义的名词,可推断本题答案为K) quality。备选名词中,首先可以排除指人的名词,因为 这里是指“霓虹灯的_______”。而剩下的A) alternative 和B) approach 均不符合句意,因此排除。"
+        },
+        {
+          "number": 35,
+          "stem": "第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alternative"
+            },
+            {
+              "key": "B",
+              "text": "approach"
+            },
+            {
+              "key": "C",
+              "text": "cast"
+            },
+            {
+              "key": "D",
+              "text": "challenging"
+            },
+            {
+              "key": "E",
+              "text": "decorative"
+            },
+            {
+              "key": "F",
+              "text": "efficient"
+            },
+            {
+              "key": "G",
+              "text": "electrified"
+            },
+            {
+              "key": "H",
+              "text": "identify"
+            },
+            {
+              "key": "I",
+              "text": "photographed"
+            },
+            {
+              "key": "J",
+              "text": "professionals"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "replaced"
+            },
+            {
+              "key": "M",
+              "text": "stimulate"
+            },
+            {
+              "key": "N",
+              "text": "symbolizes"
+            },
+            {
+              "key": "O",
+              "text": "volunteers"
+            }
+          ],
+          "answer": "H",
+          "explanation": "答案:H) identify 识别,表明......的身份 详解:动词辨析题。more than 之前的do nothing 和本空对应,因此本空应填入动词原形。此处意为:这些指示牌 所做的无非就是_______餐馆、剧院或其他商铺。由常识可知,指示牌的作用就是区分店铺,因此本空应填含有“识 别、区分”意义的动词,所以答案为H) identify 识别,表明......的身份。备选动词原形有B) approach、C) cast、H) identify 和M) stimulate,除了identify 之外,其他词均不符合句意,因此排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2018-06-3-b",
+      "type": "matching",
+      "title": "长篇匹配",
+      "paragraphs": [
+        "A) This fall, David Aderhold, the chief of a high-achieving school district near Princeton, New Jersey, sent parents an alarming 16-page letter. The school district, he said, was facing a crisis. Its students were overburdened and stressed out, having to cope with too much work and too many demands. In the previous school year, 120 middle and high school students were recommended for mental health assessments and 40 were hospitalized. And on a survey administered by the district, students wrote things like, \"I hate going to school,\" and \"Coming out of 12 years in this district, I have learned one thing: that a grade, a percentage or even a point is to be valued over anything else.\"",
+        "B) With his letter, Aderhold inserted West Windsor-Plainsboro Regional School District into a national discussion about the intense focus on achievement at elite schools, and whether it has gone too far. At follow-up meetings, he urged parents to join him in advocating a \"whole child\" approach to schooling that respects \"social-emotional development\" and \"deep and meaningful learning\" over academics alone. The alternative, he suggested, was to face the prospect of becoming another Palo Alto, California, where outsize stress on teenage students is believed to have contributed to a number of suicides in the last six years.",
+        "C) But instead of bringing families together, Aderhold's letter revealed a divide in the district, which has 9,700 students, and one that broke down roughly along racial lines. On one side are white parents like Catherine Foley, a former president of the Parent-Teacher-Student Association at her daughter's middle school, who has come to see the district's increasingly pressured atmosphere as opposed to learning. \"My son was in fourth grade and told me, 'I'm not going to amount to anything because I have nothing to put on my resume,'\" she said. On the other side are parents like Mike Jia, one of the thousands of Asian-American professionals who have moved to the district in the past decade, who said Aderhold's reforms would amount to a \"dumbing down\" of his children's education. \"What is happening here reflects a national anti-intellectual trend that will not prepare our children for the future,\" Jia said.",
+        "D) About 10 minutes from Princeton and an hour and a half from New York City, West Windsor and Plainsboro have become popular bedroom communities for technology entrepreneurs, researchers and engineers, drawn in large part by the public schools. From the last three graduating classes, 16 seniors were admitted to MIT. It produces Science Olympiad winners, classically trained musicians and students with perfect SAT scores.",
+        "E) The district has become increasingly popular with immigrant families from China, India and Korea. This year, 65 percent of its students are Asian-American, compared with 44 percent in 2007. Many of them are the first in their families born in the United States. They have had a growing influence on the district. Asian-American parents are enthusiastic supporters of the competitive instrumental music program. They have been huge supporters of the district's advanced mathematics program, which once began in the fourth grade but will now start in the sixth. The change to the program, in which 90 percent of the participating students are Asian-American, is one of Aderhold's reforms.",
+        "F) Asian-American students have been eager participants in a state program that permits them to take summer classes off campus for high school credit, allowing them to maximize the number of honors and Advanced Placement classes they can take, another practice that Aderhold is limiting this school year. With many Asian-American children attending supplementary instructional programs, there is a perception among some white families that the elementary school curriculum is being sped up to accommodate them.",
+        "G) Both Asian-American and white families say the tension between the two groups has grown steadily over the past few years, as the number of Asian families has risen. But the division has become more obvious in recent months as Aderhold has made changes, including no-homework nights, an end to high school midterms and finals, and an initiative that made it easier to participate in the music program.",
+        "H) Jennifer Lee, professor of sociology at the University of California, Irvine, and an author of the Asian American Achievement Paradox, says misunderstanding between first-generation Asian-American parents and those who have been in this country longer are common. What white middle-class parents do not always understand, she said, is how much pressure recent immigrants feel to boost their children into the middle class. \"They don't have the same chances to get their children internships (实习职位) or jobs at law firms,\" Lee said. \"So what they believe is that their children must excel and beat their white peers in academic settings so they have the same chances to excel later. \"",
+        "I) The issue of the stresses felt by students in elite school districts has gained attention in recent years as schools in places like Newton, Massachusetts, and Palo Alto have reported a number of suicides. West Windsor-Plainsboro has not had a teenage suicide in recent years, but Aderhold, who has worked in the district for seven years and been chief for the last three years, said he had seen troubling signs. In a recent art assignments, a middle school student depicted (描绘) an overburdened child who was being scolded for earning an A, rather than an A+ , on a math exam. In the image, the mother scolds the student with the words, \"Shame on you!\" Further, he said, the New Jersey Education Department has flagged at least two pieces of writing on state English language assessments in which students expressed suicidal thoughts.",
+        "J) The survey commissioned by the district found that 68 percent of high school honor and Advanced Placement students reported feeling stressed about school \"always or most of the time.\" \"We need to bring back some balance,\" Aderhold said. \"You don't want to wait until it's too late to do something. \"",
+        "K) Not all public opinion has fallen along racial lines. Karen Sue, the Chinese-American mother of a fifth-grader and an eighth-grader, believes the competition within the district has gotten out of control. Sue, who was born in the United States to immigrant parents, wants her peers to dial it back. \"It's become an arms race, an educational arms race,\" she said. \"We all want our kids to achieve and be successful. The question is, at what cost?\""
+      ],
+      "questions": [
+        {
+          "number": 36,
+          "stem": "Aderhold is limiting the extra classes that students are allowed to take off campus.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "F",
+          "explanation": "Aderhold is limiting the extra that permits them to take summer classes off campus for high school credit, classes that students are allowed to take off allowing them to maximize the number of honors and Advanced Placement campus. classes they can take, another practice that Aderhold is limiting this school 译文:阿德霍尔德正在对允许学生在校外 year. With many Asian-American children attending supplementary 上额外课程进行限制。 instructional programs, there is a perception among some white families 定位:由题干中的limiting 、extra classes that the elementary school curriculum is being sped up to accommodate 和off campus 定位到文章F 段第一句。 them. 详解:F 段第一句指出,亚裔美国学生一直以来都很热切的参加一个国家项目,该项目允许他们去上学校以外的 暑假班来增加高中的学分,这就使得他们可以将能够获得荣誉数量和大学预修课的数量最大化。这也是阿德霍尔德 本学年正在采取的限制措施举措之一。由此可知,阿德霍尔德正在对允许学生在校外上的额外课程进行限制。题干 中的extra ckasses 对应原文中的summer classes,故答案为F。"
+        },
+        {
+          "number": 37,
+          "stem": "White and Asian-American parents responded differently to Aderhold's appeal.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "C",
+          "explanation": "White and Asian-American C) But instead of bringing families together, Aderhold's letter revealed a divide parents responded differently to in the district, which has 9,700 students, and one that broke down roughly Aderhold's appeal. along racial lines. On one side are white parents like Catherine Foley, a former 译文:白人父母和亚裔美国父母对阿德 president of the Parent-Teacher-Student Association at her daughter's middle 霍尔德的呼吁有不同的反应。 school, who has come to see the district's increasingly pressured atmosphere as 定位:由题干中的White and opposed to learning. \"My son was in fourth grade and told me, 'I'm not going Asian-American parents responded to amount to anything because I have nothing to put on my resume,'\" she said. differently 定位到文章C 段。 On the other side are parents like Mike Jia, one of the thousands of Asian-American professionals who have moved to the district in the past decade, who said Aderhold's reforms would amount to a \"dumbing down\" of his children's education. \"What is happening here reflects a national anti-intellectual trend that will not prepare our children for the future,\" Jia said. 详解:C 段提到,阿德霍尔德的信没有让这些家庭联合起来,相反他的信揭示了这个有着9,700 名学生的学区的 一个分歧,分歧的双方一边是白人父母,另一边是亚裔美国父母。由此可知,白人父母和亚裔美国父母对阿德霍尔 德的呼吁有不同的反应。题干中的responded differently 对应原文中的a divide,题干是对定位段的概括总结,故答案为C。"
+        },
+        {
+          "number": 38,
+          "stem": "Suicidal thoughts have appeared in some students' writings.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "I",
+          "explanation": "Suicidal thoughts have in recent years as schools in places like Newton, Massachusetts, and Palo Alto have appeared in some students' reported a number of suicides. West Windsor-Plainsboro has not had a teenage suicide writings. in recent years, but Aderhold, who has worked in the district for seven years and been 译文:一些学生在作文中已经表 chief for the last three years, said he had seen troubling signs. In a recent art 露出了自杀的念头 assignments, a middle school student depicted (描绘) an overburdened child who was 定位:由题干中的Suicidal being scolded for earning an A, rather than an A+ , on a math exam. In the image, the thoughts 和writings 定位到文章 mother scolds the student with the words, \"Shame on you!\" Further, he said, the New I 段最后一句。 Jersey Education Department has flagged at least two pieces of writing on state English language assessments in which students expressed suicidal thoughts. 详解:I 段最后一句指出,新泽西州教育部在国家英语语言评估中至少标注了两篇作文,学生在作文中表达了自 杀的想法。由此可知,一些学生在作文中表露出自杀的念头。题干中的apprared 是对原文中expressed 的同义转述, 故答案为I。"
+        },
+        {
+          "number": 39,
+          "stem": "Aderhold's reform of the advanced mathematics program will affect Asian-American students most.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "E",
+          "explanation": "Aderhold's reform of the E) The district has become increasingly popular with immigrant families from advanced mathematics program will China, India and Korea. This year, 65 percent of its students are Asian-American, affect Asian-American students compared with 44 percent in 2007. Many of them are the first in their families bornmost. 译文:阿德霍尔德有关高等数学项 in the United States. They have had a growing influence on the district. 目的改革将对亚裔美国学生产生 Asian-American parents are enthusiastic supporters of the competitive instrumental 的影响最大。 music program. They have been huge supporters of the district's advanced 定位:由题干中的Aderhold's mathematics program, which once began in the fourth grade but will now start in thereform 和advanced mathematics sixth. The change to the program, in which 90 percent of the participating studentsprogram 定位到文章E 段最后两句 are Asian-American, is one of Aderhold's reforms. 详解:E 段最后两句提到,亚裔美国父母还对这个学区的高等数学项目提供鼎力支持,这一项目曾经从四年级开 始,但现在将从六年级开始。对这个90%的参加者为亚裔美国学生的项目进行改变,正式阿德霍尔德改革之一。由 此推断,阿德霍尔德有关高等数学项目的改革将对亚裔美国学生产生的影响最大。题干是对定位句的推理判断,故 答案为E。"
+        },
+        {
+          "number": 40,
+          "stem": "Aderhold appealed for parents' support in promoting an all-round development of children, instead of focusing only on their academic performance.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Aderhold appealed for parents' B) With his letter, Aderhold inserted West Windsor-Plainsboro Regional support in promoting an all-round School District into a national discussion about the intense focus on development of children, instead of achievement at elite schools, and whether it has gone too far. At follow-upfocusing only on their academic performance. meetings, he urged parents to join him in advocating a \"whole child\" approach 译文:阿德霍尔德呼吁家长们支持孩子 to schooling that respects \"social-emotional development\" and \"deep and 们的全面发展,而不是只关注他们的学 meaningful learning\" over academics alone. The alternative, he suggested, was 业表现。 to face the prospect of becoming another Palo Alto, California, where outsize定位:由题干中的an all-round development 和academic performance 定 stress on teenage students is believed to have contributed to a number of 位到文章B 段第二句。 suicides in the last six years. 详解:B 段第二句提到,阿德霍尔德强烈要求家长跟他一起倡导一种“完整孩子”的教育方法,尊重“社会情感 的发展”和“深刻且有意义的学习”,摒弃只局限于学术的教育。由此可知,阿德霍尔德呼吁家长们支持孩子的全 面发展,而不是只关注他们的学业表现。题干中的appealed for parents' support in promoting 对应原文中的urged parents to join him in advocating; an all-round development 对应原文中的a “whole child” approach,故答案为B。"
+        },
+        {
+          "number": 41,
+          "stem": "One Chinese-American parent thinks the competition in the district has gone too far.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "K",
+          "explanation": "One Chinese-American parent thinks K) Not all public opinion has fallen along racial lines. Karen Sue, the the competition in the district has gone too Chinese-American mother of a fifth-grader and an eighth-grader, believes far. the competition within the district has gotten out of control. Sue, who was 译文:一位美籍华裔家长认为,学区内的竞 born in the United States to immigrant parents, wants her peers to dial it 争太过了。 back. \"It's become an arms race, an educational arms race,\" she said. \"We 定位:由题干中的Chinese-American parent all want our kids to achieve and be successful. The question is, at what 和competition in the district 定位到文章K 段 cost?\" 第二句。 详解:K 段第二句提到,凯伦·苏是一位五年级学生和八年级学生的华裔美国妈妈,她认为这个学区内的竞争已 经失控了。题干中的One Chinese-American parent 指Karen Sue;题干中的has gone too far 对应原文中的has gotten out of control,故答案为K。"
+        },
+        {
+          "number": 42,
+          "stem": "Immigrant parents believe that academic excellence will allow their children equal chances to succeed in the future.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "H",
+          "explanation": "Immigrant parents believe that H) Jennifer Lee, professor of sociology at the University of California, Irvine, academic excellence will allow their and an author of the Asian American Achievement Paradox, says children equal chances to succeed in the misunderstanding between first-generation Asian-American parents and those future. who have been in this country longer are common. What white middle-class 译文:移民父母认为,学术上卓越成 parents do not always understand, she said, is how much pressure recent 就将使他们的孩子在未来具有平等的 immigrants feel to boost their children into the middle class. \"They don't have 机会获得成功。 the same chances to get their children internships (实习职位) or jobs at law 定位:由题干中的academic excellence firms,\" Lee said. \"So what they believe is that their children must excel and beat 和equal chances 定位到文章H 段最后 their white peers in academic settings so they have the same chances to excel 一句。 later. \" 详解:H 段最后一句指出,新移民信奉的是,他们的孩子必须要出类拔萃,在学术背景上打败白人同学,这样他 们才会有同等的机会在以后胜出。由此可知,移民父母认为,学术上的卓越成就将使他们的孩子在未来具有平等的 机会获得成功。题干中的equal chances 对应原文中的same chances,故答案为H。"
+        },
+        {
+          "number": 43,
+          "stem": "Many businessmen and professionals have moved to West Windsor and Plainsboro because of the public schools there.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "D",
+          "explanation": "Many businessmen and professionals have D) About 10 minutes from Princeton and an hour and a half from moved to West Windsor and Plainsboro because of the New York City, West Windsor and Plainsboro have become public schools there. popular bedroom communities for technology entrepreneurs, 译文:大很多商人和专业人士搬到了西温莎-普莱恩 researchers and engineers, drawn in large part by the public 斯伯勒学区是因为那里的公立学校。 schools. From the last three graduating classes, 16 seniors were 定位:由题干中的West Windsor and Plainsboro 和 admitted to MIT. It produces Science Olympiad winners, public schools 定位到文章D 段第一句。 classically trained musicians and students with perfect SAT scores. 详解:D 段定位句提到,距离普林斯顿10 分钟,离纽约市一个半小时车程的西温莎-普莱恩斯伯勒学区已经成为 科技形创业者、研究者和工程师青睐的居住社区,很多人很大程度上是受公立学校的吸引而来。由此可知,很多商 人和专业人士搬到西温莎-普莱恩斯伯勒学区是因为那里的公立学校。题干中的moved to 和because of 分别对应原文 中的drawn 和in large part by,故答案为D。"
+        },
+        {
+          "number": 44,
+          "stem": "A number of students in Aderhold's school district were found to have stress-induced mental health problems.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A number of students in A) This fall, David Aderhold, the chief of a high-achieving school district near Aderhold's school district were found to Princeton, New Jersey, sent parents an alarming 16-page letter. The school have stress-induced mental health district, he said, was facing a crisis. Its students were overburdened and stressed problems. out, having to cope with too much work and too many demands. In the previous 译文:在阿德霍尔德负责的学区中,许 school year, 120 middle and high school students were recommended for mental 多学生被发现有压力导致的心理健康 health assessments and 40 were hospitalized. And on a survey administered by 问题。 the district, students wrote things like, \"I hate going to school,\" and \"Coming 定位:由题干中的stress-induced 和 out of 12 years in this district, I have learned one thing: that a grade, a mental health 定位到文章A 段画线处。 percentage or even a point is to be valued over anything else.\" 详解:A 段第四句提到,在过去的一学年里,120 名初高中学生被建议去做心理健康评估,而其中40 名学生入院 就医。由此可知,在阿德霍尔德负责的学区,许多学生被发现有压力导致的心理健康问题。题干是对段落的总结, 故答案为A。"
+        },
+        {
+          "number": 45,
+          "stem": "The tension between Asian-American and white families has increased in recent years.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "G",
+          "explanation": "The tension between Asian-American G) Both Asian-American and white families say the tension between the and white families has increased in recent two groups has grown steadily over the past few years, as the number of years. 译文:近年来,亚裔美国人和白人家庭之 Asian families has risen. But the division has become more obvious in 间的紧张关系有所加剧。 recent months as Aderhold has made changes, including no-homework 定位:由题干中的 tension 和 nights, an end to high school midterms and finals, and an initiative that Asian-American and white families 定位到文 made it easier to participate in the music program. 章G 段第一句。 详解:G 段首句提到,亚裔美国人和白人家庭都说在过去几年里,随着亚裔家庭的增多,两个群体之间的关系越 来越紧张了。由此可知,近年来,亚裔美国人和白人家庭之间的紧张关系有所加剧。题干中的has increased 是对原 文中has grown steadily 的同义转述,故答案为G。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2018-06-3-c1",
+      "type": "detail",
+      "title": "仔细阅读 · 1",
+      "paragraphs": [
+        "For thousands of years, people have known that the best way to understand a concept is to",
+        "explain it to someone else. \"While we teach, we learn,\" said Roman philosopher Seneca. Now",
+        "scientists are bringing this ancient wisdom up-to-date. They're documenting why teaching is such",
+        "a fruitful way to learn, and designing innovative ways for young people to engage in instruction.",
+        "Researchers have found that students who sign up to tutor others work harder to understand",
+        "the material, recall it more accurately and apply it more effectively. Student teachers score higher",
+        "on tests than pupils who're learning only for their own sake. But how can children, still learning",
+        "themselves, teach others? One answer: They can tutor younger kids. Some studies have found that",
+        "first-born children are more intelligent than their later-born siblings (兄弟姐妹). This suggests",
+        "their higher IQs result from the time they spend teaching their siblings. Now educators are",
+        "experimenting with ways to apply this model to academic subjects. They engage college",
+        "undergraduates to teach computer science to high school students, who in turn instruct middle",
+        "school students on the topic.",
+        "But the most cutting-edge tool under development is the \"teachable agent\"—a computerized",
+        "character who learns, tries, makes mistakes and asks questions just like a real-world pupil.",
+        "Computer scientists have created an animated (动画的) figure called Betty's Brain, who has been",
+        "\"taught\" about environmental science by hundreds of middle school students. Student teachers are",
+        "motivated to help Betty master certain materials. While preparing to teach, they organize their",
+        "knowledge and improve their own understanding. And as they explain the information to it, they",
+        "identify problems in their own thinking.",
+        "Feedback from the teachable agents further enhances the tutors' learning. The agents'",
+        "questions compel student tutors to think and explain the materials in different ways, and watching",
+        "the agent solve problems allows them to see their knowledge put into action.",
+        "Above all, it's the emotions one experiences in teaching that facilitate learning. Student tutors",
+        "feel upset when their teachable agents fail, but happy when these virtual pupils succeed as they",
+        "derive pride and satisfaction from someone else's accomplishment."
+      ],
+      "questions": [
+        {
+          "number": 46,
+          "stem": "What are researchers rediscovering through their studies?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Seneca's thinking is still applicable today."
+            },
+            {
+              "key": "B",
+              "text": "Better learners will become better teachers."
+            },
+            {
+              "key": "C",
+              "text": "Human intelligence tends to grow with age."
+            },
+            {
+              "key": "D",
+              "text": "Philosophical thinking improves instruction."
+            }
+          ],
+          "answer": "A",
+          "explanation": "答案:A 定位:由题干中的researchers rediscovering 和studies 定位到首段第二、三句:\"While we teach, we learn,\" said Roman philosopher Seneca. Now scientists are bringing this ancient wisdom up-to-date. 详解:推理判断题。文章首段第二、三句指出古代哲学家的智慧被现代人运用。罗马哲学家塞内卡说,“我们 教别人时,也在学习”。现如今,科学家们把这个古老的智慧进行了更新。故答案为A。 点睛:B)“更好的学习者可以成为更好的老师”,第一段主要阐述了教授别人对于学习者自身的好处,并非讨 论哪种人更适合做为老师,可以排除;C)“人类的智力会随着年龄增长”,文章第二段提到研究发现家庭中最年长 的孩子会比弟弟妹妹更聪明,这只是在家庭单位中几个孩子之间的比较,而非整个人类的智力会随着年龄增长,可 以排除。D)“哲学思考能促进教学”,虽然文章首段引用了哲学家的名言,但并非指哲学和教学之间的关系,可以 排除。"
+        },
+        {
+          "number": 47,
+          "stem": "What do we learn about Betty's Brain?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is a character in a popular animation."
+            },
+            {
+              "key": "B",
+              "text": "It is a teaching tool under development."
+            },
+            {
+              "key": "C",
+              "text": "It is a cutting-edge app in digital games."
+            },
+            {
+              "key": "D",
+              "text": "It is a tutor for computer science students."
+            }
+          ],
+          "answer": "B",
+          "explanation": "答案:B 定位:由题干中的Betty's Brain 定位到第三段前两句:But the most cutting-edge tool under development is the \"teachable agent\"—a computerized character who learns, tries, makes mistakes and asks questions just like a real-world pupil. Computer scientists have created an animated (动画的) figure called Betty's Brain, who has been \"taught\" about... 详解:事实细节题。文章第三段第一句提到,正处于研发中的最尖端的工具是“可被教的机器人”。第二句随 即提到了计算机科学家们已经创造了一个叫作“贝蒂的大脑”的动画人物,也就是第一句中提到的“可被教的机器 人”故答案为B。 点睛:A)“它是一部流行动画片中的角色”,文章文中只提到了它是一个动画人物,而非某部动画片中的角色, 本项属于偷换概念,可以排除;C)“它是电子游戏领域中一个很前沿的应用程序”,根据定位句可知这是一个动画 人物,而非应用程序,可以排除;D)“它是计算机科学系学生的导师”,定位句中提及它的任务是被别人教导,而 非教导别人,可以排除。"
+        },
+        {
+          "number": 48,
+          "stem": "How does teaching others benefit student tutors?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It makes them aware of what they are strong at."
+            },
+            {
+              "key": "B",
+              "text": "It motivates them to try novel ways of teaching."
+            },
+            {
+              "key": "C",
+              "text": "It helps them learn their academic subjects better."
+            },
+            {
+              "key": "D",
+              "text": "It enables them to better understand their teachers."
+            }
+          ],
+          "answer": "C",
+          "explanation": "答案:C 定位:由题干中的teaching others benefit student tutors 定位到第三段第四句:While preparing to teach, they organize their knowledge and improve their own understanding. And as they explain the information to it, they identify problems in their own thinking. 详解:推理判断题。文章第三段第四句指出,在备课的过程中,他们重组自己的知识并且增强自己的理解。首 先,结合上文可知该句中的“他们”指的就是充当老师的学生;另外,根据句意,重组自己的知识且增强理解,其 实就是把自己的学科学得更好,故答案为C。 点睛:A)“这让他们明白自己的强项”,第三段最后一句提到,这一过程可以让他们发现自身想法的一些问题, 而非强项,选项与文意相反,可以排除;B)“这激励他们使用新颖的教学方式”,该段第三句提到了这些充当老师 的学生受到激励去教授贝蒂,并非激励他们使用新颖的教学方式,排除本项;D)“这让他们更好地理解自己的老师”, 该段讲到学生教课的益处时,主要围绕对自身学业的提高,并非提及和他们真实的老师有关的益处,排除本项。"
+        },
+        {
+          "number": 49,
+          "stem": "What do students do to teach their teachable agents?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They motivate them to think independently."
+            },
+            {
+              "key": "B",
+              "text": "They ask them to design their own questions."
+            },
+            {
+              "key": "C",
+              "text": "They encourage them to give prompt feedback."
+            },
+            {
+              "key": "D",
+              "text": "They use various ways to explain the materials."
+            }
+          ],
+          "answer": "D",
+          "explanation": "答案:D 定位:由题干中的teach 和teachable agents 定位到第四段第二句:The agents' questions compel student tutors to think and explain the materials in different ways... 详解:事实细节题。第四段第二句指出,机器人的问题促使这些充当老师的学生思考并用不同的方式解释这些 材料,故答案为D)。 点睛:A)“他们鼓励机器人独立思考”,定位句指出,是充当老师的学生们思考并用不同的方式解释这些材料, 并非让机器人自己思考,故排除;B)“他们让机器人设计自己的问题”,定位句提到学生们让机器人自己解决问题, 而非设计问题,故排出;C)“他们鼓励机器人迅速给出反馈”,第四段第一句虽然提及其机器人的反馈会促进这些 老师们的学习,但并未提及学生们让机器人迅速给出反馈,故排除。"
+        },
+        {
+          "number": 50,
+          "stem": "What is the key factor that eases student tutors' learning?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Their sense of responsibility."
+            },
+            {
+              "key": "B",
+              "text": "Their emotional involvement."
+            },
+            {
+              "key": "C",
+              "text": "The learning strategy acquired."
+            },
+            {
+              "key": "D",
+              "text": "The teaching experience gained."
+            }
+          ],
+          "answer": "B",
+          "explanation": "答案:B 定位:由题干中的key factor 和eases student tutors’ learning 定位到最后一段首句:Above all, it's the emotions one experiences in teaching that facilitate learning. 详解:事实细节题。最后一段第一句提到,一个人在教学中体验到的激情促进了学习。该句中的facilitate 和题 干中的eases 有相似的含义,而B)选项中的emotional involvement 正是对定位句中the emotions one experiences 的同 义转述,故答案为B。 点睛:A)“他们的责任感”,文中最后一段虽然提及这些充当老师的学生会对所教学生的成绩有所不同的感受, 但是并不能等同于责任感,文中并未点明二者关系,可以排除;C)“所获得的学习策略”,全文都在阐述学生教授 别人的过程,而非自己学习的过程,故排除;D)“所获得的教学经验”,全文都在讨论教学过程对学生学习的反哺 作用,但是仔细推敲会发现,并非教学经验使得学生受益,而是教学过程中学生对自身学习的反思,故排除。"
+        }
+      ]
+    },
+    {
+      "id": "cet4-2018-06-3-c2",
+      "type": "detail",
+      "title": "仔细阅读 · 2",
+      "paragraphs": [
+        "A new batch of young women—members of the so-called Millennial (千禧的)",
+        "generation—has been entering the workforce for the past decade. At the starting line of their",
+        "careers, they are better educated than their mothers and grandmothers had been—or than their",
+        "young male counterparts are now. But when they look ahead, they see roadblocks to their success.",
+        "They believe that women are paid less than men for doing the same job. They think it's easier for",
+        "men to get top executive jobs than it is for them. And they assume that if and when they have",
+        "children, it will be even harder for them to advance in their careers.",
+        "While the public sees greater workplace equality between men and women now than it did",
+        "20-30 years ago, most believe more change is needed. Among Millennial women, 75% say this",
+        "country needs to continue making changes to achieve gender equality in the workplace, compared",
+        "with 57% of Millennial men. Even so, relatively few young women (15%) say they have been",
+        "discriminated against at work because of their gender.",
+        "As Millennial women come of age they share many of the same views and values about work",
+        "as their male counterparts. They want jobs that provide security and flexibility, and they place",
+        "relatively little importance on high pay. At the same time, however, young working women are",
+        "less likely than men to aim at top management jobs: 34% say they're not interested in becoming a",
+        "boss or top manager; only 24% of young men say the same. The gender gap on this question is",
+        "even wider among working adults in their 30s and 40s, when many women face the trade-offs that",
+        "go with work and motherhood.",
+        "These findings are based on a new Pew Research Center survey of 2,002 adults, including",
+        "810 Millennials (ages 18-32), conducted Oct. 7-27, 2013. The survey finds that, in spite of the",
+        "dramatic gains women have made in educational attainment and labor force participation in recent",
+        "decades, young women view this as a man's world—just as middle-aged and older women do."
+      ],
+      "questions": [
+        {
+          "number": 51,
+          "stem": "What do we learn from the first paragraph about Millennial women starting their careers?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They can get ahead only by striving harder."
+            },
+            {
+              "key": "B",
+              "text": "They expect to succeed just like Millennial men."
+            },
+            {
+              "key": "C",
+              "text": "They are generally quite optimistic about their future."
+            },
+            {
+              "key": "D",
+              "text": "They are better educated than their male counterparts."
+            }
+          ],
+          "answer": "D",
+          "explanation": "答案:D 定位:由题干中的the first paragraph 和Millennial women starting their careers 定位到第一段第二句:At the starting line of their careers, they are better educated than their mothers and grandmothers had been—or than their young male counterparts are now. 详解:事实细节题。定位句指出,在她们职业生涯的开端,她们比自己的母亲和祖母当年接受的教育更好—— 或者比她们现在的男性同龄人接受的教育更好。选项D)“她们比男性同龄人受到的教育更好”意思与此一致,故答案为D。 点睛:A)“她们只有更加努力才能取得成功”,文章第一段提到女性通往成功的路上有很多障碍,在职场中前 进比男性更难,并没有说她们如何才能取得成功,A)项属于过度推断,故排除;B)“她们希望像千禧一代的男性一 样成功”,文章第一段虽然对女性和男性进行了比较,但侧重说的是女性成功要比男性更难,该项观点文中未提及, 可以排除;C)“她们通常对未来发展很乐观”,第一段第三句指出女性看到了通往成功路上的障碍,该项与文意不 服,可以排除。"
+        },
+        {
+          "number": 52,
+          "stem": "How do most Millennial women feel about their treatment in the workplace?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are the target of discrimination."
+            },
+            {
+              "key": "B",
+              "text": "They find it satisfactory on the whole."
+            },
+            {
+              "key": "C",
+              "text": "They think it needs further improving."
+            },
+            {
+              "key": "D",
+              "text": "They find their complaints ignored."
+            }
+          ],
+          "answer": "C",
+          "explanation": "答案:C 定位:由题干中的most Millennial women 和treatment in the workplace 定位到第二段第二句:Among Millennial women, 75% say this country needs to continue making changes to achieve gender equality in the workplace, compared with 57% of Millennial men. 详解:事实细节题。定位句提指出,在千禧一代的女性里,75%的人认为国家需要继续做出改变来达到职场上的 性别公平,即大多数女性认为需要继续努力来达到职场的平等关系,选项C 中的further improving 和原文中的 continue making changes 含义一致,故答案为C。 点睛:A)“她们是歧视的目标”,文章中只提及女性职场人士在职业上升方面的阻力相比男性更大,虽然第二 段最后一句提到15%的女性遭到歧视,但是并不能代表大部分女性,和题干不符,可以排除;B)“总体而言她们感 到满意”,根据定位句可知,她们希望看到改变,因此她们并没有感到满意,可以排除;D)“她们发现自己的抱怨 被忽视了”,文中子提及女性对现状改变的期望,并未提到其想法被忽视,可以排除。"
+        },
+        {
+          "number": 53,
+          "stem": "What do Millennial women value most when coming of age?",
+          "options": [
+            {
+              "key": "A",
+              "text": "A sense of accomplishment."
+            },
+            {
+              "key": "B",
+              "text": "Job stability and flexibility."
+            },
+            {
+              "key": "C",
+              "text": "Rewards and promotions."
+            },
+            {
+              "key": "D",
+              "text": "Joy derived from work."
+            }
+          ],
+          "answer": "B",
+          "explanation": "答案:B 定位:由题干中的value most和coming of age定位到第三段第一、二句:As Millennial women come of age they share many of the same views and values about work as their male counterparts. They want jobs that provide security and flexibility, and they place relatively little importance on high pay. 详解:事实细节题。第三段第二句指出,女性要想那种提供保障和灵活性的工作,相对而言不是特别看重高收 入。选项B 中的stability 和原文中的security 是近义词,故答案为B。 点睛:A)“成就感”,、C)“报酬和升职”,和D)“工作的快乐”在文中都无体现,均排除。"
+        },
+        {
+          "number": 54,
+          "stem": "What are women in their 30s and 40s concerned about?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The welfare of their children."
+            },
+            {
+              "key": "B",
+              "text": "The narrowing of the gender gap."
+            },
+            {
+              "key": "C",
+              "text": "The fulfillment of their dreams in life."
+            },
+            {
+              "key": "D",
+              "text": "The balance between work and family."
+            }
+          ],
+          "answer": "D",
+          "explanation": "答案:D 定位:由题干中的women 和30s and 40s 定位到第三段最后一句:The gender gap on this question is even wider among working adults in their 30s and 40s, when many women face the trade-offs that go with work and motherhood. 详解:推理判断题。定位句指出,在这一问题上的性别差异是30 多岁和到40 多岁的成年职场人士中会更为明 显,这也正是很多女性面临工作和生育之间的权衡的时候。选项D 中的balance 和定位句中的trade-offs 是近义词, 故答案为D。 点睛:根据定位句的含义,可以明确看出这一年龄段的女性担忧的事情,其他三个选项A)“她们孩子的福利”、 B)“性别差异的缩小”和C)“生命中梦想的实现”在文中均无体现,可以排除。"
+        },
+        {
+          "number": 55,
+          "stem": "What conclusion can be drawn about Millennial women from the 2013 survey?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They still view this world as one dominated by males."
+            },
+            {
+              "key": "B",
+              "text": "They account for half the workforce in the job market."
+            },
+            {
+              "key": "C",
+              "text": "They see the world differently from older generations."
+            },
+            {
+              "key": "D",
+              "text": "They do better in work than their male counterparts."
+            }
+          ],
+          "answer": "A",
+          "explanation": "答案:A 定位:由题干中的2013 survey 定位到第四段:These findings are based on a new Pew Research Center survey of 2,002 adults, including 810 Millennials (ages 18-32), conducted Oct. 7-27, 2013. The survey finds that, in spite of the dramatic gains women have made in educational attainment and labor force participation in recent decades, young women view this as a man's world—just as middle-aged and older women do. 详解:事实细节题。定位句指出,调查发现,近几十年,尽管在学业成就和工作参与度方面女性的收获令人瞩 目,但年轻女性如同中老年女性一样,还是认为职场是男性的天下。选项A)中的domiinated by males 和定位句中的 mans’s world 意思一致,故答案为A。 点睛:B)“她们占据了就业市场一半的劳动力”并非调查结论,可以排除;C)“她们看待世界的方式不同于上 代人”,定位句指出,千禧一代女性和岁数更大的女性有相同的看法,可以排除;D)“她们能比同龄男性更好地完 成工作”,调查结论没有提到女性和男性关于完成工作好坏的对比,可以排除。"
+        }
+      ]
+    }
+  ]
+}
