@@ -29,7 +29,7 @@ export function cetPracticeSectionElapsedMs(activity: CetActivity, sectionId: st
 export function cetHistoryLabel(activity: CetActivity): string {
   const legacy = activity.legacy ? "旧版 · " : "";
   if (activity.status === "ended") return `${legacy}未完成结束 · 查看记录`;
-  if (activity.status === "submitted") return `${legacy}已完成 · 查看结果`;
+  if (activity.status === "submitted") return activity.purpose === "self_test" ? `${legacy}已提交` : `${legacy}已完成 · 查看结果`;
   if (activity.status === "paused") return `${legacy}已暂停 · 继续自测`;
   if (activity.purpose === "self_test") return `${legacy}进行中 · 继续自测`;
   const count = activity.sectionIds.filter((id) => cetFinalizedSection(activity, id)).length;

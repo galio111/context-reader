@@ -9,6 +9,10 @@
 
 第三轮已上线 `20260924T184912`，父版本 `20260924T041127`，source `f87313909b3d3d12820ec5f07af7d9d9e47a1c10`。完整发布身份与逐项证据见[cet-revision3-release.md](cet-revision3-release.md)。全局历史默认跨全部真题；练习支持一次提交当前范围全部未提交篇，旧快照不变。目录连续加载元数据，宽屏历史按C01右侧工程默认，窄屏移下方。外刊固定裁剪外框，原缩放与3D移入框内，保护规则保持；摘要只在标题悬停/原卡片键盘焦点出现。每日提示独立按上海日和账号在本浏览器去重，累计可见两秒。开屏按实测字宽排版、缓存粒子布局；账号请求与本地存储并行；嵌入说明按容器宽度排版；夜间按钮配色由组件控制。真实局部验证和未验证范围见[cet-revision3-progress.md](cet-revision3-progress.md)，不能将开发环境矩阵或API当作生产视觉全通过。
 
+## 555.pdf 界面调整（待生产验收）
+
+计时类型改为悬停提示，时间与暂停/继续图标靠左、更多设置居中；开始自测与调整倒计时复用可输入、加减的时长控件。练习倒计时到零仅暂停，仍可作答，不自动提交；不增加自动提交文案。选词填空仅正文作答，移除桌面与手机题目窗入口；其余题型保留原题窗。已提交自测在首页、开始页及全局历史均显示“已提交”，仍可回看。极窄屏返回按钮单独成行，避免遮挡计时。
+
 ## 当前实现
 
 真实首页 `HomeRedesign` 的精选外刊旁切换至四六级真题，由 `HomeClient` 打开复用 `ReaderView` 的 `CetReader`。第二轮已按生产授权规范完成实现，发布验收状态与准确版本见 [第二轮发布记录](cet-revision2-release.md)，逐项边界见 [第二轮验收](cet-revision2-acceptance.md)。用户最终视觉确认仍是独立环节。
@@ -42,7 +46,7 @@
 
 基础管理键为 `context-reader:cet-activities:v2`、`context-reader:cet-finalizations:v2`、`context-reader:cet-exposures:v2`。对应 protocol-2 preferences 前缀为 `cet-activity:v2:`、`cet-finalization:v2:`、`cet-exposure:v2:`，复用原 CAS、manifest、游标、IndexedDB、归档与账号恢复。首登只认领游客记录；跨账号归档包含三种对象。异步开始/提交/离开返回前重新检查 owner。
 
-正计时采用 `schemaVersion: 3`，独立本地键 `context-reader:cet-activities:v3` / `context-reader:cet-finalizations:v3` 及 preferences 前缀 `cet-activity:v3:` / `cet-finalization:v3:`。全部显式注册为受管理键，包含账号归档/认领；曝光记录继续 v2。v1/v2 不批量迁移，旧客户端不会用 v2 格式重写 v3。计时、题数、题卡、答案和结果统一从固定 scope / 选定快照派生；范围不一致保留记录并提示，禁止错范围提交。题卡区分未提交草稿与已提交正误/空答；跨篇跳题等待弹层解锁。最后一篇可结束整个活动并保留所有未提交草稿；结果回看不继续计时。
+正计时采用 `schemaVersion: 3`，独立本地键 `context-reader:cet-activities:v3` / `context-reader:cet-finalizations:v3` 及 preferences 前缀 `cet-activity:v3:` / `cet-finalization:v3:`。全部显式注册为受管理键，包含账号归档/认领；曝光记录继续 v2。v1/v2 不批量迁移，旧客户端不会用 v2 格式重写 v3。计时、题数、题卡、答案和结果统一从固定 scope / 选定快照派生；范围不一致保留记录并提示，禁止错范围提交。题卡区分未提交草稿与已提交正误/空答；跨篇跳题等待弹层解锁。练习前面各篇底部仅提交本篇，固定答卷范围最后一篇另显示提交全部；不再提供结束练习并精读。自测仅最后一篇底部显示提交自测，顶部整卷提交入口保持。正文和题窗共用同一命令；结果回看不继续计时。
 
 正文、词库、题干和选项复用 Reader 的 WordToken 与拖词处理，按实际片段偏移标识每次出现，跨行/反向选择补齐完整词边界。字母按钮作答、文本查词；考试中取消未完成查询并阻断 Menu/辅助入口。普通阅读侧栏打开真实选择真题窗口；取消保留原文章、编辑和解释，确认保存后才切换，CET 独立历史不替代普通文章的近期阅读。
 

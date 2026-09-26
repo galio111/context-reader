@@ -44,6 +44,15 @@ test("real CET events preserve drafts, freeze one passage and start an independe
     assert.equal(readCetActivities().length, 0);
     await user.dblClick(ui.getByRole("button", { name: "开始练习" }));
     await waitFor(() => assert.equal(readCetActivities().length, 1));
+    // Action placement only; actual Reader geometry is verified separately in a browser.
+    const bottomActions=()=>Array.from(ui.container.querySelectorAll('[data-question-actions="inline"] > button')).map(b=>b.getAttribute('data-action'));
+    for(const [index,label] of ['选词填空','长篇匹配','仔细阅读 · 1','仔细阅读 · 2'].entries()) {
+      await user.click(ui.getByRole('button',{name:label,exact:true}));
+      assert.deepEqual(bottomActions(),index===3?['submit-section','submit-all']:['submit-section']);
+      assert.equal(ui.queryByRole('button',{name:'结束练习并精读'}),null);
+    }
+    await user.click(ui.getByRole('button',{name:'选词填空',exact:true}));
+
     await user.click(ui.getByRole("button", { name: "第 26 空，未作答" }));
     await user.click(ui.getByRole("option", { name: /^C\s*chance$/ }));
     // This checks CetReader dialog lifetime, not the real Reader pointer layer.
@@ -109,6 +118,12 @@ test("real CET events preserve drafts, freeze one passage and start an independe
     await waitFor(() => assert.equal(readCetActivities().length, 2));
     const selfTest = readCetActivities().find((a) => a.purpose === "self_test")!;
     assert.equal(selfTest.id,pendingStartId);
+    for(const [index,label] of ['选词填空','长篇匹配','仔细阅读 · 1','仔细阅读 · 2'].entries()) {
+      await user.click(ui.getByRole('button',{name:label,exact:true}));
+      assert.deepEqual(bottomActions(),index===3?['submit-test']:[]);
+    }
+    await user.click(ui.getByRole('button',{name:'选词填空',exact:true}));
+
     reliableStore.flush=async()=>{throw new Error("injected local persistence failure");};
     await user.click(ui.getByRole("button",{name:"暂停自测计时"}));
     await waitFor(()=>assert.ok(ui.getByText("计时状态未能保存，请重试。")));
@@ -126,12 +141,12 @@ test("real CET events preserve drafts, freeze one passage and start an independe
     const {within}=await import("@testing-library/react");
     await user.click(within(ui.getByRole("dialog",{name:"提交自测"})).getByRole("button",{name:"提交自测"}));
     await waitFor(()=>assert.ok(ui.getByRole("dialog",{name:"保存失败"})));
-    assert.equal(ui.queryByText(/原答案/),null);
+    assert.equal(Boolean(ui.queryByText(/原答案/)),false);
     const pendingCommit=readCetActivities().find(a=>a.id===selfTest.id)!;
     const finalId=Object.keys(pendingCommit.finalizations)[0];
     reliableStore.flush=realFlush;
     await user.click(ui.getByRole("button",{name:"重试保存"}));
-    await waitFor(()=>assert.equal(ui.queryByRole("dialog",{name:"保存失败"}),null));
+    await waitFor(()=>assert.equal(Boolean(ui.queryByRole("dialog",{name:"保存失败"})),false));
     assert.deepEqual(Object.keys(readCetActivities().find(a=>a.id===selfTest.id)!.finalizations),[finalId]);
     assert.deepEqual(selfTest.answers, {});
     assert.ok(selfTest.knownPriorSectionIds.length);
