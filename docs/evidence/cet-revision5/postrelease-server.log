@@ -1,0 +1,19 @@
+/opt/context-reader-releases/20260926T040318
+{
+  "schemaVersion": 1,
+  "releaseId": "20260926T040318",
+  "parentReleaseId": "20260925T163006",
+  "sourceRevision": "fafe892750e394aa2f0f69a717cc698fe8124287",
+  "acceptedAt": "2026-09-26T04:10:00.056539+00:00",
+  "guardVersion": 1
+}
+healthcheck passed
+/var/backups/context-reader/postgres/daily/context-reader-20260925T192131Z.dump: OK
+GRANT
+ restored_public_tables 
+------------------------
+                     16
+(1 row)
+
+restore verification passed
+sha256:31fe97d21ac0aab11a49b2203d6a6eac29843adc99dea5136152350c6b9962ab

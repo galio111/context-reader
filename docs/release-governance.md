@@ -2,9 +2,9 @@
 
 This file is the final-state contract for parallel development and mainland production releases. It exists to prevent a later task from silently publishing an older source snapshot and removing work that another task already shipped.
 
-## Current accepted third-round release (2026-09-25)
+## Current accepted release (2026-09-26)
 
-Accepted `20260924T184912`, parent `20260924T041127`, source `f87313909b3d3d12820ec5f07af7d9d9e47a1c10`. Public mainland identity, resolved current path and manifest agree. Clean cumulative 39-file package used the stable guarded entrypoint; only app/caddy recreated. Post-release account/sync/AI/Admin boundaries, real Reader submit-all, homepage switching and embedded guide were verified; full visual matrix remains partial. Latest backup SHA and isolated 16-table restore passed; current/parent images exist, no rollback performed. See [third-round evidence](cet-revision3-release.md) for R01–R16 and limits. Later main changes are documentation only.
+Accepted `20260926T040318`, parent `20260925T163006`, source `fafe892750e394aa2f0f69a717cc698fe8124287`. Public identity and current/state agree with mainland_internal. Only app/caddy recreated. 555.pdf UI fixes and explicit practice countdown pause-only rule passed real public desktop/mobile checks; signed-in AI, manual browser sync, Admin boundaries, health and isolated 16-table restore passed. Physical touch hardware and background auto-sync latency remain unverified. See [fifth-round evidence](cet-revision5-release.md). Later main changes are documentation only.
 
 ## The three different copies of “the code”
 

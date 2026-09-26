@@ -1,0 +1,71 @@
+{
+  "questionTrigger": false,
+  "timer": "00:34Ⅱ",
+  "toolbar": [
+    {
+      "name": "暂停学习计时",
+      "rect": {
+        "bottom": 58,
+        "height": 44,
+        "left": 945,
+        "right": 1095,
+        "top": 14,
+        "width": 150,
+        "x": 945,
+        "y": 14
+      }
+    },
+    {
+      "name": "更多计时设置",
+      "rect": {
+        "bottom": 58,
+        "height": 44,
+        "left": 1047,
+        "right": 1091,
+        "top": 14,
+        "width": 44,
+        "x": 1047,
+        "y": 14
+      }
+    },
+    {
+      "name": "答题卡 0/30答题卡 0/30",
+      "rect": {
+        "bottom": 58,
+        "height": 44,
+        "left": 1120.046875,
+        "right": 1217.125,
+        "top": 14,
+        "width": 97.078125,
+        "x": 1120.046875,
+        "y": 14
+      }
+    },
+    {
+      "name": "提交全部提交全部",
+      "rect": {
+        "bottom": 58,
+        "height": 44,
+        "left": 1242.171875,
+        "right": 1318.171875,
+        "top": 14,
+        "width": 76,
+        "x": 1242.171875,
+        "y": 14
+      }
+    },
+    {
+      "name": "MenuMenu",
+      "rect": {
+        "bottom": 58,
+        "height": 44,
+        "left": 1343.21875,
+        "right": 1405,
+        "top": 14,
+        "width": 61.78125,
+        "x": 1343.21875,
+        "y": 14
+      }
+    }
+  ]
+}
