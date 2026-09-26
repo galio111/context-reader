@@ -1,0 +1,41 @@
+{
+  "scope": "555.pdf and explicit practice-timer correction",
+  "local": {
+    "productionBuild": true,
+    "typecheck": true,
+    "cetTests": 61,
+    "criticalTests": 89,
+    "providerTests": 9,
+    "routeBillingTests": 1,
+    "protectedContracts": 9,
+    "staticEgress": true,
+    "practiceMinuteExpiry": "00:00 paused, no submission, question 26 answer C remained editable",
+    "clozeDock": "absent on desktop and mobile, switching back removes dock",
+    "otherDock": "matching and detail use original answer state and shared actions",
+    "bottomActions": "practice first three submit-section only, last additionally submit-all; self-test last only",
+    "history": "submitted self-test opens original result; start page label also submitted",
+    "viewports": [
+      1440,
+      1024,
+      390,
+      320
+    ]
+  },
+  "pending": [],
+  "unverified": [
+    "physical iOS/Safari and Android touch hardware",
+    "user final visual acceptance",
+    "background automatic sync latency under continuous input; explicit sync used for cloud verification"
+  ],
+  "production": {
+    "releaseId": "20260926T040318",
+    "parentReleaseId": "20260925T163006",
+    "sourceRevision": "fafe892750e394aa2f0f69a717cc698fe8124287",
+    "acceptedAt": "2026-09-26T04:10:00.056539+00:00",
+    "backendMode": "mainland_internal",
+    "realBrowser": "night desktop and 320px; minute expiry still editable; manual submit-all 4/4, self-test result and homepage submitted history; explicit account-panel sync verified 5 immutable commit packages",
+    "services": "healthy; only app/caddy recreated",
+    "backup": "SHA verified, isolated restore 16 tables",
+    "rollback": "parent accepted image present; not executed"
+  }
+}

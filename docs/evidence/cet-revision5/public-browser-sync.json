@@ -1,0 +1,18 @@
+{
+  "activities": [
+    {
+      "purpose": "self_test",
+      "status": "submitted",
+      "snapshots": 1,
+      "answers": 0
+    },
+    {
+      "purpose": "practice",
+      "status": "submitted",
+      "snapshots": 4,
+      "answers": 1
+    }
+  ],
+  "commitPackages": 5,
+  "method": "real browser manual sync followed by authenticated protocol-2 read"
+}

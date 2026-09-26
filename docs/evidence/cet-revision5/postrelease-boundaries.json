@@ -1,0 +1,28 @@
+{
+  "/api/auth/session authenticated": {
+    "status": 200
+  },
+  "/api/account/sync?protocol=2 authenticated": {
+    "status": 200
+  },
+  "/api/account/sync?protocol=2 anonymous": {
+    "status": 401
+  },
+  "/api/admin/session anonymous": {
+    "status": 200
+  },
+  "/api/admin/models anonymous": {
+    "status": 401
+  },
+  "/api/cet authenticated": {
+    "status": 200,
+    "total": 25
+  },
+  "/api/cet?level=6 authenticated": {
+    "status": 200,
+    "total": 28
+  },
+  "/api/public-articles/daily-updates anonymous": {
+    "status": 200
+  }
+}

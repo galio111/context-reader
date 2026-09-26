@@ -1,0 +1,14 @@
+{
+  "lookup": {
+    "ok": true,
+    "responseBytes": 746
+  },
+  "dictionary": {
+    "ok": true,
+    "responseBytes": 4528
+  },
+  "translation": {
+    "ok": true,
+    "responseBytes": 209
+  }
+}
