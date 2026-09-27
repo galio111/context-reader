@@ -11,7 +11,7 @@ import { readCetAttempts } from "@/lib/cetProgress";
 import { adaptLegacyCetAttempt } from "@/lib/cetLegacy";
 import { cetObservedConditions, exposureFor, priorCetSections, readCetExposures, saveCetExposure } from "@/lib/cetExposure";
 import { readCetActivities, saveCetActivity } from "@/lib/cetActivityStorage";
-import { cetElapsedMs, cetHistoryLabel, cetAnswer, cetContentVersion, cetEligibility, cetFinalizedSection, cetFinalize, cetPause, cetPracticeSectionElapsedMs, cetQuestionKey, cetRemainingMs, cetResume, cetScopeKey, createCetActivity } from "@/lib/cetActivity";
+import { cetElapsedMs, cetSelectSection, cetHistoryLabel, cetAnswer, cetContentVersion, cetEligibility, cetFinalizedSection, cetFinalize, cetPause, cetPracticeSectionElapsedMs, cetQuestionKey, cetRemainingMs, cetResume, cetScopeKey, createCetActivity } from "@/lib/cetActivity";
 import { ACCOUNT_DATA_MERGED_EVENT } from "@/lib/accountEvents";
 import { CetLibrary, type CetEntry } from "./CetLibrary";
 import { prepareCetPracticeSubmitAll, cetPracticeTotals } from "@/lib/cetPracticeSubmitAll";
@@ -537,7 +537,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
     const a = current.current;
     if (a) {
       if(a.status === "submitted" || a.status === "ended") {const next={...a,activeSection:id};current.current=next;setActivity(next);}
-      else persistDraft({ ...a, activeSection: id, updatedAt: new Date().toISOString() });
+      else persistDraft(cetSelectSection(a, id));
       if (a.purpose === "practice" && a.status === "in_progress" && !a.practiceTimerPaused && !cetFinalizedSection(a, id) && !document.hidden) practiceSegment.current = { id: `${id}#${crypto.randomUUID()}`, sectionId: id, start: Date.now() };
     } else setDirectSectionId(id);
   };

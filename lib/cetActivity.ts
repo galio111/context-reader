@@ -137,6 +137,15 @@ export function cetTimingAnomaly(activity: CetActivity, now = Date.now()): boole
     || Boolean(activity.runningSince && now + 5000 < Date.parse(activity.runningSince));
 }
 
+export function cetSelectSection(activity: CetActivity, sectionId: string, now = Date.now()): CetActivity {
+  if (!activity.sectionIds.includes(sectionId)) return activity;
+  // A timer checkpoint and the following click can share a millisecond.
+  // The explicit navigation must sort after the checkpoint during merging.
+  const previous = Date.parse(activity.updatedAt);
+  const updatedAt = new Date(Math.max(now, Number.isFinite(previous) ? previous + 1 : now)).toISOString();
+  return { ...activity, activeSection: sectionId, updatedAt };
+}
+
 export function cetAnswer(activity: CetActivity, key: string, value: string, now = new Date().toISOString(), eventId = crypto.randomUUID()): CetActivity {
   if (activity.status !== "in_progress" || !activity.questionKeys.includes(key)) return activity;
   if (activity.purpose === "practice" && Object.values(activity.finalizations).some((f) => f.sectionId && key.startsWith(`${f.sectionId}:`))) return activity;

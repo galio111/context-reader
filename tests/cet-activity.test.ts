@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import {
   cetAnswer,
+  cetSelectSection,
   cetEligibility,
   cetFinalize,
   cetPause,
@@ -104,4 +105,15 @@ test("merge of edits and snapshots is idempotent, commutative and associative", 
   assert.deepEqual(mergeCetActivity(a, b), mergeCetActivity(b, a));
   assert.deepEqual(mergeCetActivity(mergeCetActivity(a, b), c), mergeCetActivity(a, mergeCetActivity(b, c)));
   assert.equal(mergeCetActivity(a, b).answers[k1].value, "");
+});
+
+
+test("same-millisecond navigation survives merging with its timer checkpoint", () => {
+  const checkpoint = { ...make(), activeSection: paper.sections[3].id };
+  const selected = cetSelectSection(checkpoint, paper.sections[0].id, Date.parse(checkpoint.updatedAt));
+  assert.equal(mergeCetActivity(checkpoint, selected).activeSection, paper.sections[0].id);
+  assert.equal(mergeCetActivity(selected, checkpoint).activeSection, paper.sections[0].id);
+  assert.deepEqual(selected.timerParts, checkpoint.timerParts);
+  assert.deepEqual(selected.answers, checkpoint.answers);
+  assert.equal(cetSelectSection(checkpoint, "outside-scope"), checkpoint);
 });
