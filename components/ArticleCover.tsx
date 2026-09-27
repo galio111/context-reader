@@ -23,12 +23,17 @@ export function ArticleCover({ article, featured = false, motion3dEnabled = true
   useEffect(() => {
     const surface = surfaceRef.current;
     if (!surface) return;
-    const measure = () => setMeasuredSizes(`${Math.ceil(surface.getBoundingClientRect().width * 1.06)}px`);
+    const measure = () => {
+      const ratio = validVariants ? validVariants.width / validVariants.height : 4 / 3;
+      // offset sizes exclude the animated scale(.9); object-fit:cover may need
+      // more source width than the box when the accepted photo is very wide.
+      setMeasuredSizes(`${Math.ceil(Math.max(surface.offsetWidth, surface.offsetHeight * ratio) * 1.06)}px`);
+    };
     measure();
     const observer = new ResizeObserver(measure);
     observer.observe(surface);
     return () => observer.disconnect();
-  }, []);
+  }, [validVariants?.width, validVariants?.height]);
   useEffect(() => {
     const surface = surfaceRef.current;
     if (!surface || featured || !coverUrl || !measuredSizes) return;

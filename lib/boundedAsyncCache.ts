@@ -4,7 +4,10 @@ export class BoundedAsyncCache<T> {
   private pending = new Map<string, Promise<T>>();
   private generation = 0;
   private bytes = 0;
+  private reads = { hits: 0, misses: 0, joins: 0, oversized: 0 };
   constructor(private readonly ttlMs: number, private readonly maxEntries: number, private readonly maxBytes: number) {}
+  /** Server-only diagnostics; never includes keys or values. */
+  snapshot() { return { ...this.reads, entries: this.values.size, pending: this.pending.size, bytes: this.bytes }; }
 
   clear(): void {
     this.generation++;
@@ -15,14 +18,16 @@ export class BoundedAsyncCache<T> {
 
   async get(key: string, load: () => Promise<T>): Promise<T> {
     const hit = this.values.get(key);
-    if (hit && hit.expires > Date.now()) return hit.value;
+    if (hit && hit.expires > Date.now()) { this.reads.hits++; return hit.value; }
     const running = this.pending.get(key);
-    if (running) return running;
+    if (running) { this.reads.joins++; return running; }
+    this.reads.misses++;
     // Bound retained promises too; uncached loads still retain their normal route limits.
     if (this.pending.size >= this.maxEntries) return load();
     const generation = this.generation;
     const task = Promise.resolve().then(load).then(value => {
       const bytes = Buffer.byteLength(JSON.stringify(value) ?? "null");
+      if (bytes > this.maxBytes) this.reads.oversized++;
       if (generation === this.generation && bytes <= this.maxBytes) {
         const previous = this.values.get(key);
         if (previous) { this.bytes -= previous.bytes; this.values.delete(key); }

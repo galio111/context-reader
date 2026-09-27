@@ -1,4 +1,5 @@
 import type { PublicArticle } from "@/types/publicArticle";
+import { validCoverVariants } from "./coverVariantMetadata";
 
 /** Keep every catalogue item and reader-facing field; editorial evidence stays in Admin/detail. */
 export function publicArticleSummary(article: PublicArticle): PublicArticle {
@@ -9,7 +10,7 @@ export function publicArticleSummary(article: PublicArticle): PublicArticle {
     createdAt: article.createdAt, updatedAt: article.updatedAt,
     ...(r ? { recommendation: {
       coverImageUrl: r.coverImageUrl, coverImageAlt: r.coverImageAlt,
-      coverVariants: r.coverVariants?.sourceUrl === r.coverImageUrl ? r.coverVariants : undefined,
+      coverVariants: validCoverVariants(r.coverVariants, r.coverImageUrl) ? r.coverVariants : undefined,
       coverImageCredit: r.coverImageCredit, coverImageSourceUrl: r.coverImageSourceUrl,
       difficulty: r.difficulty, cefr: r.cefr, audienceStages: r.audienceStages,
       topics: r.topics, homepageCategory: r.homepageCategory, wordCount: r.wordCount,

@@ -45,6 +45,8 @@ export function CetLibrary({
     [retry, setRetry] = useState(0);
   const [historyPurpose, setHistoryPurpose] = useState<"" | "practice" | "self_test">("");
   const catalogue = useRef<{key:string;papers:CetPaper[]}>({key:"",papers:[]});
+  const catalogueOwner = account.authenticated ? account.profile?.userId || "authenticated-pending" : "guest";
+  const catalogueKey = `${level}:${catalogueOwner}:${year}`;
   useEffect(() => { writeCetLibraryView({ level, view, type, year, page:0 }); }, [level, view, type, year]);
   useEffect(() => {
     const owner = account.authenticated ? account.profile?.userId || "authenticated-pending" : "guest";
@@ -82,7 +84,7 @@ export function CetLibrary({
       window.removeEventListener(ACCOUNT_DATA_CHANGED_EVENT, refresh);
     };
   }, [account.profile?.userId]);
-  const filtered = papers.filter(
+  const filtered = (catalogue.current.key === catalogueKey ? papers : []).filter(
       (p) => !account.authenticated || year === "recent" || String(p.year) === year,
     ),
     rows =

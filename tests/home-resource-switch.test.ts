@@ -72,7 +72,9 @@ test("featured and expanded recommendations retain their entry, exit and pointer
   const component = readFileSync(new URL("../components/HomeRedesign.tsx", import.meta.url), "utf8");
   const styles = readFileSync(new URL("../components/HomeRedesign.module.css", import.meta.url), "utf8");
   assert.match(component, /useArticleReveal\(articleGridRef, styles\.articleCard, resourceTab, `\$\{activeCategory\}.*\$\{displayArticleMotionKey\}`\)/);
-  assert.match(component, /className=\{styles\.coverClip\}/);
+  const cover = readFileSync(new URL("../components/ArticleCover.tsx", import.meta.url), "utf8");
+  assert.match(component, /<ArticleCover article=\{item\}/);
+  assert.match(cover, /className=\{styles\.coverClip\}/);
   assert.match(styles, /\.coverClip \{[^}]*overflow: hidden;[^}]*\}/);
   assert.match(component, /motion3dEnabled=\{recommendationMotionEnabled\}/);
   assert.match(styles, /\.articleCard\[data-motion-ready\]:not\(\[data-visible\]\) \.coverSurface \{ transform: translateZ\(0\) scale\(\.9\); \}/);

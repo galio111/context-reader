@@ -54,7 +54,10 @@ async function networkFirst(request) {
 
 async function cachedPublicCatalogue(request) {
   const cache = await caches.open(CACHE_VERSION);
-  const cached = await cache.match(request);
+  // One versioned metadata entry. Retire only obsolete catalogue copies after
+  // a successful replacement; preserve article/offline and user-owned stores.
+  const cacheKey = new URL("/api/public-articles?format=metadata-v2", self.location.origin).href;
+  const cached = await cache.match(cacheKey);
   const cachedAt = Number(cached?.headers.get("X-SW-Cached-At") ?? 0);
   if (cached && cachedAt > 0 && Date.now() - cachedAt < 60_000) return cached;
 
@@ -67,7 +70,7 @@ async function cachedPublicCatalogue(request) {
       const refreshedHeaders = new Headers(cached.headers);
       refreshedHeaders.set("X-SW-Cached-At", String(Date.now()));
       try {
-        await cache.put(request, new Response(cached.clone().body, {
+        await cache.put(cacheKey, new Response(cached.clone().body, {
           status: cached.status, statusText: cached.statusText, headers: refreshedHeaders,
         }));
       } catch {}
@@ -77,9 +80,11 @@ async function cachedPublicCatalogue(request) {
       const storedHeaders = new Headers(response.headers);
       storedHeaders.set("X-SW-Cached-At", String(Date.now()));
       try {
-        await cache.put(request, new Response(response.clone().body, {
+        await cache.put(cacheKey, new Response(response.clone().body, {
           status: response.status, statusText: response.statusText, headers: storedHeaders,
         }));
+        const obsolete = (await cache.keys()).filter(item => new URL(item.url).pathname === "/api/public-articles" && item.url !== cacheKey);
+        await Promise.all(obsolete.map(item => cache.delete(item)));
       } catch {}
     }
     if (!response.ok && cached && cachedAt > 0 && Date.now() - cachedAt <= PUBLIC_ARTICLE_TTL_MS) return cached;

@@ -4,6 +4,7 @@ import { createClient } from "@supabase/supabase-js";
 import { revalidateTag } from "next/cache";
 import sharp from "sharp";
 import { generateCoverVariants } from "./coverVariants.mjs";
+import { validCoverVariants } from "./coverVariantMetadata";
 import { recommendationWithBodyImageFallback, removeFailedArticleImages } from "@/lib/articleMedia";
 import { isExternalArticleImageUrl, isFirstPartyArticleImageUrl } from "@/lib/articleImageUrls";
 import { assertSafeRemoteUrl, readResponseBytes, safeRemoteFetch } from "@/lib/safeRemoteFetch";
@@ -120,7 +121,7 @@ export async function withPublicCoverPreview<T extends PublicArticleInput>(input
   const recommendation = input.recommendation ?? input.importedArticle?.recommendation;
   if (!recommendation) return input;
   const coverUrl = recommendation.coverImageUrl?.trim() || "";
-  let variants = recommendation.coverVariants?.sourceUrl === coverUrl ? recommendation.coverVariants : undefined;
+  let variants = validCoverVariants(recommendation.coverVariants, coverUrl) ? recommendation.coverVariants : undefined;
   if (coverUrl && isStoredPublicCoverUrl(coverUrl)) {
     try {
       if (variants?.version === 1) return input;
