@@ -221,6 +221,9 @@ export function HomeRedesign(props: HomeRedesignProps) {
   ));
   const journeyPending = !guestPreviewAllowed && !memberPreviewAllowed && journeyHomeMode === null;
   const memberHome = memberPreviewAllowed || (!guestPreviewAllowed && journeyHomeMode === "member");
+  // Keep the current visual journey after login, but resolve library access from
+  // the live account so signing in unlocks the catalogue without a page reset.
+  const memberLibraryAccess = !guestPreviewAllowed && account.authenticated;
   useEffect(() => { startupMark("script-ready"); void document.fonts.ready.then(() => startupMark("fonts-ready")); }, []);
   useEffect(() => { if (!journeyPending) requestAnimationFrame(() => startupMark("identity-dots-removed")); }, [journeyPending]);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -292,13 +295,13 @@ export function HomeRedesign(props: HomeRedesignProps) {
   }, []);
   const recommendationsRef = useRef<HTMLElement | null>(null);
   useEffect(() => {
-    if (!memberHome || !account.authenticated || resourceTab !== "articles" || journeyPending || props.catalogueStatus !== "idle" || !recommendationsRef.current) return;
+    if (!memberLibraryAccess || resourceTab !== "articles" || journeyPending || props.catalogueStatus !== "idle" || !recommendationsRef.current) return;
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) { props.onRequestCatalogue?.(); observer.disconnect(); }
     }, { rootMargin: "240px" });
     observer.observe(recommendationsRef.current);
     return () => observer.disconnect();
-  }, [memberHome, account.authenticated, resourceTab, journeyPending, props.catalogueStatus, props.onRequestCatalogue]);
+  }, [memberLibraryAccess, resourceTab, journeyPending, props.catalogueStatus, props.onRequestCatalogue]);
   useEffect(() => {
     if (journeyPending || !recommendationsRef.current) return;
     const observer = new IntersectionObserver(([entry]) => {
@@ -367,7 +370,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const [previewError, setPreviewError] = useState(false);
   const [previewRetry, setPreviewRetry] = useState(0);
   const preferenceKey = `${recommendationPreferences.readingLevel}:${recommendationPreferences.interests.join(",")}:${recommendationDayKey}`;
-  const customGuestPreferences = !memberHome && activeCategory === "推荐" && Boolean(recommendationPreferences.readingLevel || recommendationPreferences.interests.length);
+  const customGuestPreferences = !memberLibraryAccess && activeCategory === "推荐" && Boolean(recommendationPreferences.readingLevel || recommendationPreferences.interests.length);
   useEffect(() => {
     if (!customGuestPreferences || activeCategory !== "推荐") return;
     const controller = new AbortController();
@@ -404,7 +407,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
     });
   }, [librarySearch, personalizedAllCategoryArticles]);
   const fullLibraryReady = props.catalogueStatus === "ready";
-  const expandedLibraryVisible = memberHome && memberLibraryOpen;
+  const expandedLibraryVisible = memberLibraryAccess && memberLibraryOpen;
   const displayArticles = expandedLibraryVisible
     ? libraryArticles
     : homepageShowcaseArticles(personalizedCategoryArticles, showcaseArticleCount);
@@ -415,7 +418,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const catalogueStatus = props.catalogueStatus;
   const requestCatalogue = props.onRequestCatalogue;
   useEffect(() => {
-    if (!restoreOrigin || !viewStateReady || journeyPending || (memberHome && memberLibraryOpen && catalogueStatus !== "ready" && catalogueStatus !== "error") || (!returnArticleVisible && catalogueStatus !== "ready" && catalogueStatus !== "error")) return;
+    if (!restoreOrigin || !viewStateReady || journeyPending || (memberLibraryAccess && memberLibraryOpen && catalogueStatus !== "ready" && catalogueStatus !== "error") || (!returnArticleVisible && catalogueStatus !== "ready" && catalogueStatus !== "error")) return;
     let secondFrame = 0;
     const firstFrame = window.requestAnimationFrame(() => {
       secondFrame = window.requestAnimationFrame(() => {
@@ -434,10 +437,10 @@ export function HomeRedesign(props: HomeRedesignProps) {
       window.cancelAnimationFrame(firstFrame);
       if (secondFrame) window.cancelAnimationFrame(secondFrame);
     };
-  }, [catalogueStatus, displayArticleMotionKey, journeyPending, memberHome, memberLibraryOpen, onReturnRestored, restoreOrigin, returnArticleVisible, viewStateReady]);
+  }, [catalogueStatus, displayArticleMotionKey, journeyPending, memberLibraryAccess, memberLibraryOpen, onReturnRestored, restoreOrigin, returnArticleVisible, viewStateReady]);
   useEffect(() => {
-    if (memberHome && restoreOrigin && catalogueStatus === "idle") requestCatalogue?.();
-  }, [memberHome, catalogueStatus, requestCatalogue, restoreOrigin]);
+    if (memberLibraryAccess && restoreOrigin && catalogueStatus === "idle") requestCatalogue?.();
+  }, [memberLibraryAccess, catalogueStatus, requestCatalogue, restoreOrigin]);
   useEffect(() => {
     if (!libraryOpenRequested || catalogueStatus !== "ready") return;
     setLibraryOpenRequested(false);
@@ -938,7 +941,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
   }
 
   function openRecommendationPreferences() {
-    if (memberHome) props.onRequestCatalogue?.();
+    if (memberLibraryAccess) props.onRequestCatalogue?.();
     setPreferenceDraft(recommendationPreferences);
     setPreferenceOpen(true);
   }
@@ -980,7 +983,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
   }
 
   function switchCategory(nextCategory: string) {
-    if (memberHome) props.onRequestCatalogue?.();
+    if (memberLibraryAccess) props.onRequestCatalogue?.();
     if (nextCategory === activeCategory || categorySwitching) return;
     setCategorySwitching(true);
     categorySwitchTimerRef.current = window.setTimeout(() => {
@@ -1321,10 +1324,10 @@ export function HomeRedesign(props: HomeRedesignProps) {
             </>}
           </div>
 
-          {previewError && !memberHome && <p role="status">推荐暂时无法更新，已有文章仍可阅读。<button onClick={() => setPreviewRetry(n => n + 1)}>重试</button></p>}
+          {previewError && !memberLibraryAccess && <p role="status">推荐暂时无法更新，已有文章仍可阅读。<button onClick={() => setPreviewRetry(n => n + 1)}>重试</button></p>}
           {resourceTab === "cet" ? <CetLibrary onOpen={entry => props.onOpenCet?.(entry)} /> : <>
           
-          {memberHome && props.catalogueStatus === "error" && <p role="status">完整外刊目录暂时无法加载，已显示的文章仍可打开。<button type="button" onClick={props.onRequestCatalogue}>重试</button></p>}
+          {memberLibraryAccess && props.catalogueStatus === "error" && <p role="status">完整外刊目录暂时无法加载，已显示的文章仍可打开。<button type="button" onClick={props.onRequestCatalogue}>重试</button></p>}
           {displayArticles.length ? (
             <div ref={articleGridRef} className={styles.articleGrid} data-switching={categorySwitching || undefined}>
               {displayArticles.map((item, index) => {
@@ -1366,7 +1369,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
           ) : (
             <div className={styles.emptyArticles}>这一分类的首页外刊正在整理中。</div>
           )}
-          {memberHome && totalCategoryCount > showcaseArticleCount && (
+          {memberLibraryAccess && totalCategoryCount > showcaseArticleCount && (
             <div className={styles.libraryAction}>
               <button type="button" onClick={() => {
                 if (!fullLibraryReady) { setMemberLibraryOpen(true); setLibraryOpenRequested(true); props.onRequestCatalogue?.(); return; }
@@ -1377,7 +1380,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
               <span>{expandedLibraryVisible ? `当前显示 ${displayArticles.length} 篇` : `还有 ${totalCategoryCount - showcaseArticleCount} 篇`}</span>
             </div>
           )}
-          {!memberHome && (
+          {!memberLibraryAccess && (
             <div className={styles.guestLibraryAction}>
               <span>{totalCategoryCount > showcaseArticleCount ? `登录后可继续查看这一栏目的其余 ${totalCategoryCount - showcaseArticleCount} 篇外刊` : "登录后可进入完整外刊库，并保存自己的阅读进度"}</span>
               <button type="button" onClick={() => openLogin("登录后可查看更多精选外刊。")}>登录查看更多</button>
