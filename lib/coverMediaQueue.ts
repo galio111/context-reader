@@ -67,6 +67,8 @@ function pump() {
       if (settled) return;
       settled = true; clearTimeout(timeout); network--; image.onload = null; image.onerror = null;
       if (error) {
+        // Cancel the timed-out transfer before releasing its network slot.
+        image.removeAttribute("srcset"); image.removeAttribute("src");
         if (!job.cancelled) job.done({ src: job.src, srcSet: job.srcSet, sizes: job.sizes, error: true });
         pump(); return;
       }

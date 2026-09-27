@@ -114,7 +114,7 @@ export function ArticleCover({ article, featured = false, motion3dEnabled = true
       {coverUrl && !coverFailed && (featured || ready) ? (
         // Native srcset selects pre-generated immutable files; no visit-time conversion.
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={coverUrl} srcSet={ready?.srcSet || srcSet} sizes={ready?.sizes || criticalSizes}
+        <img src={coverUrl} srcSet={ready?.srcSet || srcSet} sizes={ready?.sizes || measuredSizes || criticalSizes}
           alt={article.recommendation?.coverImageAlt || article.title}
           width={validVariants?.width || 1920} height={validVariants?.height || 1440}
           loading="eager" decoding="async" fetchPriority={featured ? "high" : "auto"} draggable={false}

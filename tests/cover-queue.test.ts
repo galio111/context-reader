@@ -5,11 +5,14 @@ import { prepareCover } from "../lib/coverMediaQueue";
 test("actual image assignments obey network/decode limits and subscriber cleanup", async () => {
   const originals = new Map(["window", "Image", "IntersectionObserver"].map(key => [key, Object.getOwnPropertyDescriptor(globalThis, key)]));
   let active = 0, maxNetwork = 0, decodeActive = 0, maxDecode = 0;
+  const timeouts: Array<() => void> = [];
+  let cancelledTransfers = 0;
   const images: FakeImage[] = [], decodes: Array<() => void> = [];
   class FakeImage {
     onload: (() => void) | null = null; onerror: (() => void) | null = null;
     sizes = ""; srcset = ""; decoding = ""; loaded = false;
     set src(_value: string) { active++; maxNetwork = Math.max(maxNetwork, active); images.push(this); }
+    removeAttribute(name: string) { if (name === "src" && !this.loaded) { this.loaded = true; active--; cancelledTransfers++; } }
     load() { if (this.loaded) return; this.loaded = true; active--; this.onload?.(); }
     decode() {
       decodeActive++; maxDecode = Math.max(maxDecode, decodeActive);
@@ -21,7 +24,7 @@ test("actual image assignments obey network/decode limits and subscriber cleanup
     observe(target: unknown) { this.callback([{ target, isIntersecting: true }]); }
     unobserve() {} disconnect() {}
   }
-  const windowMock = { innerHeight: 900, scrollY: 0, devicePixelRatio: 2, matchMedia: () => ({ matches: false }), addEventListener() {}, removeEventListener() {}, setTimeout, };
+  const windowMock = { innerHeight: 900, scrollY: 0, devicePixelRatio: 2, matchMedia: () => ({ matches: false }), addEventListener() {}, removeEventListener() {}, setTimeout: (callback: () => void, delay: number) => { timeouts.push(callback); return setTimeout(callback, delay); }, };
   for (const [key, value] of Object.entries({ window: windowMock, Image: FakeImage, IntersectionObserver: Observer })) Object.defineProperty(globalThis, key, { configurable: true, value });
   const cleanups: Array<() => void> = []; const done: number[] = [];
   try {
@@ -29,6 +32,9 @@ test("actual image assignments obey network/decode limits and subscriber cleanup
       src: `/cover-${i}.webp`, srcSet: `/cover-${i}.webp 1000w`, sizes: "500px", done: () => done.push(i),
     }));
     assert.equal(images.length, 4); cleanups[0]();
+    timeouts[1](); // A stalled transfer must end before another takes its slot.
+    assert.equal(cancelledTransfers, 1);
+    assert.equal(active, 4);
     for (let round = 0; round < 20 && done.length < 9; round++) {
       for (const image of [...images]) image.load();
       for (const finish of decodes.splice(0)) finish();
