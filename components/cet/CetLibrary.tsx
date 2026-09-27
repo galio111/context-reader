@@ -12,7 +12,7 @@ import {
 } from "@/lib/accountEvents";
 import type { CetActivity, CetAttempt, CetPaper } from "@/types/cet";
 import "./cet.css";
-import { loadCetCatalogue } from "@/lib/cetCatalogueLoader";
+import { subscribeCetCatalogue } from "@/lib/cetCatalogueClient";
 import { CetSelect } from "./CetSelect";
 export interface CetEntry {
   paperId: string;
@@ -47,24 +47,20 @@ export function CetLibrary({
   const catalogue = useRef<{key:string;papers:CetPaper[]}>({key:"",papers:[]});
   useEffect(() => { writeCetLibraryView({ level, view, type, year, page:0 }); }, [level, view, type, year]);
   useEffect(() => {
-    const controller = new AbortController();
-    const key = `${level}:${account.authenticated}:${year}`;
+    const owner = account.authenticated ? account.profile?.userId || "authenticated-pending" : "guest";
+    const key = `${level}:${owner}:${year}`;
     if(catalogue.current.key !== key){catalogue.current={key,papers:[]};setPapers([]);setTotal(0);}
     setLoading(true);setError("");
-    void loadCetCatalogue({ signal:controller.signal, initial:catalogue.current.papers,
-      fetchPage:async page=>{
-        const response=await fetch(`/api/cet?level=${level}&page=${page}&year=${account.authenticated ? year : "recent"}`,{signal:controller.signal});
-        const data=await response.json();if(!response.ok)throw Error(data.error || "目录加载失败");return data;
-      },
-      onBatch:batch=>{
-        if(controller.signal.aborted || catalogue.current.key!==key)return;
-        if(account.authenticated && year!=="recent" && !batch.years.map(String).includes(year)){controller.abort();setYear("recent");return;}
+    return subscribeCetCatalogue({level,year,owner}, {
+      batch:batch=>{
+        if(catalogue.current.key!==key)return;
+        if(account.authenticated && year!=="recent" && !batch.years.map(String).includes(year)){setYear("recent");return;}
         catalogue.current.papers=batch.papers;setPapers(batch.papers);setTotal(batch.total);setYears(batch.years);
-      }
-    }).catch(()=>{if(!controller.signal.aborted)setError(catalogue.current.papers.length ? "后续目录加载失败，重试" : "试卷暂时未能加载，请重试。");})
-      .finally(()=>{if(!controller.signal.aborted)setLoading(false);});
-    return ()=>controller.abort();
-  }, [level, account.authenticated, year, retry]);
+      },
+      error:()=>setError(catalogue.current.papers.length ? "后续目录加载失败，重试" : "试卷暂时未能加载，请重试。"),
+      done:()=>setLoading(false),
+    });
+  }, [level, account.authenticated, account.profile?.userId, year, retry]);
   useEffect(() => {
     let live = true;
     setHistory([]); setLegacyHistory([]);
@@ -189,7 +185,7 @@ export function CetLibrary({
             <div className="cet-login-note">
               <span>
                 游客可阅读本级别的 6 {view === "paper" ? "套试卷" : "篇阅读"}
-                。登录后查看已导入的完整历年真题。
+                。登录可体验近十年及以上的真题。
               </span>
               <button
                 onClick={() =>

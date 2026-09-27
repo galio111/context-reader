@@ -1,3 +1,4 @@
+import { publicArticleSummary } from "@/lib/publicArticleSummary";
 import type { ImportedArticle, ImportedArticleBlock } from "@/types/article";
 import { publicReadCache, invalidatePublicReadCache } from "@/lib/publicReadCache";
 import { revalidatePath, revalidateTag } from "next/cache";
@@ -430,11 +431,18 @@ export async function listPublicArticles(options: { includeImportedArticle?: boo
  */
 export async function listPublicArticleSummaries(): Promise<PublicArticle[]> {
   return publicReadCache.summaries.get("catalogue", async () => {
-  const rows = await supabaseFetch<SupabaseArticleRow[]>(
-    "public_articles?select=id,title,summary,source_url,source_name,recommendation:imported_article->recommendation,created_at,updated_at&published=eq.true&order=updated_at.desc",
+  const fields = ["coverImageUrl", "coverImageAlt", "coverImageCredit", "coverImageSourceUrl", "difficulty", "cefr", "audienceStages", "topics", "homepageCategory", "wordCount", "timeliness", "sourceKind", "classificationSource", "manualFields"] as const;
+  const projection = fields.map(field => `${field}:imported_article->recommendation->${field}`).join(",");
+  const rows = await supabaseFetch<Array<SupabaseArticleRow & Partial<ArticleRecommendationMetadata> & { editorialVersion?: number }>>(
+    `public_articles?select=id,title,summary,source_url,source_name,created_at,updated_at,${projection},editorialVersion:imported_article->recommendation->editorialReview->version&published=eq.true&order=updated_at.desc`,
     { next: { revalidate: 300, tags: ["public-article-summaries"] } },
   );
-  return rows.map((row) => mapArticle(row));
+  return rows.map(row => {
+    const recommendation = Object.fromEntries(fields.filter(field => row[field] != null).map(field => [field, row[field]])) as unknown as ArticleRecommendationMetadata;
+    // The normal mapper only needs this marker to retain an explicitly reviewed CEFR.
+    if (row.editorialVersion === 1) recommendation.manualFields = [...(recommendation.manualFields || []), "cefr"];
+    return publicArticleSummary(mapArticle({ ...row, recommendation }));
+  });
   });
 }
 

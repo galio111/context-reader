@@ -1,7 +1,9 @@
 "use client";
 
 import dynamicCet from "next/dynamic";
-const CetLibrary = dynamicCet(() => import("@/components/cet/CetLibrary").then(m => m.CetLibrary), { loading: () => <p role="status">正在读取真题目录…</p> });
+import { prepareCetPreview } from "@/lib/cetCatalogueClient";
+const loadCetLibrary = () => import("@/components/cet/CetLibrary");
+const CetLibrary = dynamicCet(() => loadCetLibrary().then(m => m.CetLibrary), { loading: () => <p role="status">正在读取真题目录…</p> });
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type MouseEvent as ReactMouseEvent, type PointerEvent } from "react";
 import Image from "next/image";
 import { useDailyPublicationNotice } from "@/components/useDailyPublicationNotice";
@@ -401,13 +403,24 @@ export function HomeRedesign(props: HomeRedesignProps) {
   }, []);
   const recommendationsRef = useRef<HTMLElement | null>(null);
   useEffect(() => {
-    if (resourceTab !== "articles" || journeyPending || props.catalogueStatus !== "idle" || !recommendationsRef.current) return;
+    if (!memberHome || !account.authenticated || resourceTab !== "articles" || journeyPending || props.catalogueStatus !== "idle" || !recommendationsRef.current) return;
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) { props.onRequestCatalogue?.(); observer.disconnect(); }
     }, { rootMargin: "240px" });
     observer.observe(recommendationsRef.current);
     return () => observer.disconnect();
-  }, [resourceTab, journeyPending, props.catalogueStatus, props.onRequestCatalogue]);
+  }, [memberHome, account.authenticated, resourceTab, journeyPending, props.catalogueStatus, props.onRequestCatalogue]);
+  useEffect(() => {
+    if (journeyPending || !recommendationsRef.current) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      void loadCetLibrary();
+      void prepareCetPreview().catch(() => {});
+      observer.disconnect();
+    }, {rootMargin:"800px"});
+    observer.observe(recommendationsRef.current);
+    return () => observer.disconnect();
+  }, [journeyPending]);
   const articleGridRef = useRef<HTMLDivElement | null>(null);
   const preferenceControlRef = useRef<HTMLDivElement | null>(null);
   const publicationBridgeRef = useRef<HTMLDivElement | null>(null);
@@ -460,11 +473,30 @@ export function HomeRedesign(props: HomeRedesignProps) {
     },
     [allCategoryArticles, category, props.homepageCuration, recommendationDayKey],
   );
+  const [guestPreview, setGuestPreview] = useState<{key: string; articles: PublicArticle[]} | null>(null);
+  const [previewError, setPreviewError] = useState(false);
+  const [previewRetry, setPreviewRetry] = useState(0);
+  const preferenceKey = `${recommendationPreferences.readingLevel}:${recommendationPreferences.interests.join(",")}:${recommendationDayKey}`;
+  const customGuestPreferences = !memberHome && activeCategory === "推荐" && Boolean(recommendationPreferences.readingLevel || recommendationPreferences.interests.length);
+  useEffect(() => {
+    if (!customGuestPreferences || activeCategory !== "推荐") return;
+    const controller = new AbortController();
+    setPreviewError(false);
+    const params = new URLSearchParams({level: recommendationPreferences.readingLevel, interests: recommendationPreferences.interests.join(",")});
+    void fetch(`/api/public-articles/preview?${params}`, {signal: controller.signal}).then(async response => {
+      if (!response.ok) throw Error("preview");
+      const data = await response.json();
+      if (!Array.isArray(data.articles)) throw Error("preview");
+      if (!controller.signal.aborted) setGuestPreview({key: preferenceKey, articles: data.articles});
+    }).catch(() => {if (!controller.signal.aborted) setPreviewError(true);});
+    return () => controller.abort();
+  }, [customGuestPreferences, activeCategory, preferenceKey, recommendationPreferences.readingLevel, recommendationPreferences.interests, previewRetry]);
   const personalizedCategoryArticles = useMemo(() => {
+    if (customGuestPreferences) return guestPreview?.key === preferenceKey ? guestPreview.articles : orderRecommendationArticles(categoryArticles, props.homepageCuration, emptyRecommendationPreferences(), recommendationDayKey);
     return activeCategory === "推荐"
       ? orderRecommendationArticles(categoryArticles, props.homepageCuration, recommendationPreferences, recommendationDayKey)
       : categoryArticles;
-  }, [activeCategory, categoryArticles, props.homepageCuration, recommendationDayKey, recommendationPreferences]);
+  }, [customGuestPreferences, guestPreview, preferenceKey, activeCategory, categoryArticles, props.homepageCuration, recommendationDayKey, recommendationPreferences]);
   const personalizedAllCategoryArticles = useMemo(
     () => activeCategory === "推荐"
       ? orderRecommendationArticles(allCategoryArticles, props.homepageCuration, recommendationPreferences, recommendationDayKey)
@@ -482,7 +514,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
     });
   }, [librarySearch, personalizedAllCategoryArticles]);
   const fullLibraryReady = props.catalogueStatus === "ready";
-  const expandedLibraryVisible = memberHome && memberLibraryOpen && fullLibraryReady;
+  const expandedLibraryVisible = memberHome && memberLibraryOpen;
   const displayArticles = expandedLibraryVisible
     ? libraryArticles
     : homepageShowcaseArticles(personalizedCategoryArticles, showcaseArticleCount);
@@ -514,8 +546,8 @@ export function HomeRedesign(props: HomeRedesignProps) {
     };
   }, [catalogueStatus, displayArticleMotionKey, journeyPending, memberHome, memberLibraryOpen, onReturnRestored, restoreOrigin, returnArticleVisible, viewStateReady]);
   useEffect(() => {
-    if (restoreOrigin && catalogueStatus === "idle") requestCatalogue?.();
-  }, [catalogueStatus, requestCatalogue, restoreOrigin]);
+    if (memberHome && restoreOrigin && catalogueStatus === "idle") requestCatalogue?.();
+  }, [memberHome, catalogueStatus, requestCatalogue, restoreOrigin]);
   useEffect(() => {
     if (!libraryOpenRequested || catalogueStatus !== "ready") return;
     setLibraryOpenRequested(false);
@@ -1016,7 +1048,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
   }
 
   function openRecommendationPreferences() {
-    props.onRequestCatalogue?.();
+    if (memberHome) props.onRequestCatalogue?.();
     setPreferenceDraft(recommendationPreferences);
     setPreferenceOpen(true);
   }
@@ -1058,7 +1090,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
   }
 
   function switchCategory(nextCategory: string) {
-    props.onRequestCatalogue?.();
+    if (memberHome) props.onRequestCatalogue?.();
     if (nextCategory === activeCategory || categorySwitching) return;
     setCategorySwitching(true);
     categorySwitchTimerRef.current = window.setTimeout(() => {
@@ -1393,9 +1425,10 @@ export function HomeRedesign(props: HomeRedesignProps) {
             </>}
           </div>
 
+          {previewError && !memberHome && <p role="status">推荐暂时无法更新，已有文章仍可阅读。<button onClick={() => setPreviewRetry(n => n + 1)}>重试</button></p>}
           {resourceTab === "cet" ? <CetLibrary onOpen={entry => props.onOpenCet?.(entry)} /> : <>
-          {props.catalogueStatus === "loading" && <p role="status">正在加载完整外刊目录…</p>}
-          {props.catalogueStatus === "error" && <p role="status">完整外刊目录暂时无法加载，已显示的文章仍可打开。<button type="button" onClick={props.onRequestCatalogue}>重试</button></p>}
+          
+          {memberHome && props.catalogueStatus === "error" && <p role="status">完整外刊目录暂时无法加载，已显示的文章仍可打开。<button type="button" onClick={props.onRequestCatalogue}>重试</button></p>}
           {displayArticles.length ? (
             <div ref={articleGridRef} className={styles.articleGrid} data-switching={categorySwitching || undefined}>
               {displayArticles.map((item, index) => {
@@ -1440,10 +1473,10 @@ export function HomeRedesign(props: HomeRedesignProps) {
           {memberHome && totalCategoryCount > showcaseArticleCount && (
             <div className={styles.libraryAction}>
               <button type="button" onClick={() => {
-                if (!fullLibraryReady) { setLibraryOpenRequested(true); props.onRequestCatalogue?.(); return; }
+                if (!fullLibraryReady) { setMemberLibraryOpen(true); setLibraryOpenRequested(true); props.onRequestCatalogue?.(); return; }
                 setMemberLibraryOpen((current) => { const next = !current; persistHomeViewState({ memberLibraryOpen: next }); return next; });
-              }} aria-expanded={expandedLibraryVisible} disabled={props.catalogueStatus === "loading"}>
-                {props.catalogueStatus === "loading" ? "正在准备完整目录…" : expandedLibraryVisible ? "收起更多外刊" : "显示更多"}
+              }} aria-expanded={expandedLibraryVisible} aria-busy={props.catalogueStatus === "loading"}>
+                {expandedLibraryVisible ? "收起更多外刊" : "显示更多"}
               </button>
               <span>{expandedLibraryVisible ? `当前显示 ${displayArticles.length} 篇` : `还有 ${totalCategoryCount - showcaseArticleCount} 篇`}</span>
             </div>
