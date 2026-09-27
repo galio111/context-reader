@@ -1,0 +1,21 @@
+{
+  "releaseId": "20260927T031000",
+  "realReader": true,
+  "submitAllRestored": "1/30; 4/4 sections; 00:25",
+  "manualSyncCompleted": true,
+  "currentSectionAfterSync": "选词填空",
+  "bankLookupAfterSync": "average: 平均的；普通的；一般的",
+  "mobile": {
+    "viewport": 390,
+    "document": 375
+  },
+  "consoleErrors": [],
+  "limitations": [
+    "未验证物理触屏",
+    "词库单词没有原句，上下文翻译另由实际API验收"
+  ],
+  "screenshots": [
+    "public-bank-lookup.png",
+    "public-reader-mobile.png"
+  ]
+}

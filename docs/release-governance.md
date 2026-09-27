@@ -2,9 +2,9 @@
 
 This file is the final-state contract for parallel development and mainland production releases. It exists to prevent a later task from silently publishing an older source snapshot and removing work that another task already shipped.
 
-## Current accepted release (2026-09-26)
+## Current accepted release (2026-09-27)
 
-Accepted `20260926T040318`, parent `20260925T163006`, source `fafe892750e394aa2f0f69a717cc698fe8124287`. Public identity and current/state agree with mainland_internal. Only app/caddy recreated. 555.pdf UI fixes and explicit practice countdown pause-only rule passed real public desktop/mobile checks; signed-in AI, manual browser sync, Admin boundaries, health and isolated 16-table restore passed. Physical touch hardware and background auto-sync latency remain unverified. See [fifth-round evidence](cet-revision5-release.md). Later main changes are documentation only.
+Accepted `20260927T031000`, parent `20260927T030500`, source `b3cc5589002eb02e37ac1a802961f16ae9aec194`. Public identity and current/state agree with mainland_internal. CET archive now has149 papers; prior53 remain byte-identical. Real Reader submit-all, cloud snapshots, manual sync preserving the viewed passage, dictionary bank lookup and desktop/mobile viewport checks passed. AI/account/Admin boundaries, health, isolated16-table backup restore and rollback images passed. Only app/caddy recreated. Physical touch and word-for-word manual review of all source material remain unverified. See [archive release evidence](cet-full-archive-release.md). Later main changes are documentation only.
 
 ## The three different copies of “the code”
 

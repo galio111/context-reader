@@ -1,0 +1,1000 @@
+{
+  "identity": {
+    "ok": true,
+    "checkedAt": "2026-09-27T03:01:53.195Z",
+    "releaseId": "20260927T025500",
+    "parentReleaseId": "20260926T040318",
+    "backendMode": "mainland_internal"
+  },
+  "papers": 149,
+  "questions": 4470,
+  "guestPerLevel": 6,
+  "missingAnswersExcluded": [
+    "cet4-2026-06-1",
+    "cet4-2026-06-2",
+    "cet4-2026-06-3",
+    "cet6-2023-12-3"
+  ],
+  "pages": [
+    {
+      "level": 4,
+      "page": 0,
+      "bytes": 19415,
+      "seconds": 0.248
+    },
+    {
+      "level": 4,
+      "page": 1,
+      "bytes": 19465,
+      "seconds": 0.228
+    },
+    {
+      "level": 4,
+      "page": 2,
+      "bytes": 19095,
+      "seconds": 0.233
+    },
+    {
+      "level": 4,
+      "page": 3,
+      "bytes": 20886,
+      "seconds": 0.256
+    },
+    {
+      "level": 4,
+      "page": 4,
+      "bytes": 21690,
+      "seconds": 0.367
+    },
+    {
+      "level": 4,
+      "page": 5,
+      "bytes": 22137,
+      "seconds": 0.234
+    },
+    {
+      "level": 4,
+      "page": 6,
+      "bytes": 1949,
+      "seconds": 0.235
+    },
+    {
+      "level": 6,
+      "page": 0,
+      "bytes": 20077,
+      "seconds": 0.336
+    },
+    {
+      "level": 6,
+      "page": 1,
+      "bytes": 21374,
+      "seconds": 0.258
+    },
+    {
+      "level": 6,
+      "page": 2,
+      "bytes": 21050,
+      "seconds": 0.229
+    },
+    {
+      "level": 6,
+      "page": 3,
+      "bytes": 21029,
+      "seconds": 0.224
+    },
+    {
+      "level": 6,
+      "page": 4,
+      "bytes": 21132,
+      "seconds": 0.253
+    },
+    {
+      "level": 6,
+      "page": 5,
+      "bytes": 21433,
+      "seconds": 0.245
+    },
+    {
+      "level": 6,
+      "page": 6,
+      "bytes": 7351,
+      "seconds": 0.193
+    }
+  ],
+  "singlePapers": [
+    {
+      "id": "cet4-2025-12-1",
+      "questions": 30,
+      "bytes": 49256,
+      "seconds": 0.299
+    },
+    {
+      "id": "cet4-2025-12-2",
+      "questions": 30,
+      "bytes": 49086,
+      "seconds": 0.287
+    },
+    {
+      "id": "cet4-2025-12-3",
+      "questions": 30,
+      "bytes": 49200,
+      "seconds": 0.3
+    },
+    {
+      "id": "cet4-2025-06-1",
+      "questions": 30,
+      "bytes": 50171,
+      "seconds": 0.286
+    },
+    {
+      "id": "cet4-2025-06-2",
+      "questions": 30,
+      "bytes": 47049,
+      "seconds": 0.286
+    },
+    {
+      "id": "cet4-2025-06-3",
+      "questions": 30,
+      "bytes": 49066,
+      "seconds": 0.295
+    },
+    {
+      "id": "cet4-2024-12-1",
+      "questions": 30,
+      "bytes": 49588,
+      "seconds": 0.279
+    },
+    {
+      "id": "cet4-2024-12-2",
+      "questions": 30,
+      "bytes": 49595,
+      "seconds": 0.278
+    },
+    {
+      "id": "cet4-2024-12-3",
+      "questions": 30,
+      "bytes": 49766,
+      "seconds": 0.349
+    },
+    {
+      "id": "cet4-2024-06-1",
+      "questions": 30,
+      "bytes": 50345,
+      "seconds": 0.307
+    },
+    {
+      "id": "cet4-2024-06-2",
+      "questions": 30,
+      "bytes": 47826,
+      "seconds": 0.332
+    },
+    {
+      "id": "cet4-2024-06-3",
+      "questions": 30,
+      "bytes": 49977,
+      "seconds": 0.272
+    },
+    {
+      "id": "cet4-2023-12-1",
+      "questions": 30,
+      "bytes": 49821,
+      "seconds": 0.28
+    },
+    {
+      "id": "cet4-2023-12-2",
+      "questions": 30,
+      "bytes": 50372,
+      "seconds": 0.312
+    },
+    {
+      "id": "cet4-2023-12-3",
+      "questions": 30,
+      "bytes": 46524,
+      "seconds": 0.32
+    },
+    {
+      "id": "cet4-2023-06-1",
+      "questions": 30,
+      "bytes": 39392,
+      "seconds": 0.303
+    },
+    {
+      "id": "cet4-2023-06-2",
+      "questions": 30,
+      "bytes": 39651,
+      "seconds": 0.27
+    },
+    {
+      "id": "cet4-2023-06-3",
+      "questions": 30,
+      "bytes": 39226,
+      "seconds": 0.29
+    },
+    {
+      "id": "cet4-2023-03-1",
+      "questions": 30,
+      "bytes": 47419,
+      "seconds": 0.27
+    },
+    {
+      "id": "cet4-2022-12-1",
+      "questions": 30,
+      "bytes": 39053,
+      "seconds": 0.277
+    },
+    {
+      "id": "cet4-2022-12-2",
+      "questions": 30,
+      "bytes": 37960,
+      "seconds": 0.304
+    },
+    {
+      "id": "cet4-2022-12-3",
+      "questions": 30,
+      "bytes": 42104,
+      "seconds": 0.296
+    },
+    {
+      "id": "cet4-2022-09-1",
+      "questions": 30,
+      "bytes": 41768,
+      "seconds": 0.264
+    },
+    {
+      "id": "cet4-2022-06-1",
+      "questions": 30,
+      "bytes": 39805,
+      "seconds": 0.417
+    },
+    {
+      "id": "cet4-2022-06-2",
+      "questions": 30,
+      "bytes": 40013,
+      "seconds": 0.353
+    },
+    {
+      "id": "cet4-2021-12-1",
+      "questions": 30,
+      "bytes": 46900,
+      "seconds": 0.282
+    },
+    {
+      "id": "cet4-2021-12-2",
+      "questions": 30,
+      "bytes": 44094,
+      "seconds": 0.26
+    },
+    {
+      "id": "cet4-2021-12-3",
+      "questions": 30,
+      "bytes": 45021,
+      "seconds": 0.284
+    },
+    {
+      "id": "cet4-2021-06-1",
+      "questions": 30,
+      "bytes": 45769,
+      "seconds": 0.285
+    },
+    {
+      "id": "cet4-2021-06-2",
+      "questions": 30,
+      "bytes": 46134,
+      "seconds": 0.258
+    },
+    {
+      "id": "cet4-2021-06-3",
+      "questions": 30,
+      "bytes": 46334,
+      "seconds": 0.307
+    },
+    {
+      "id": "cet4-2020-12-1",
+      "questions": 30,
+      "bytes": 47650,
+      "seconds": 0.275
+    },
+    {
+      "id": "cet4-2020-12-2",
+      "questions": 30,
+      "bytes": 44534,
+      "seconds": 0.288
+    },
+    {
+      "id": "cet4-2020-12-3",
+      "questions": 30,
+      "bytes": 47093,
+      "seconds": 0.299
+    },
+    {
+      "id": "cet4-2020-09-1",
+      "questions": 30,
+      "bytes": 46504,
+      "seconds": 0.28
+    },
+    {
+      "id": "cet4-2020-09-2",
+      "questions": 30,
+      "bytes": 47963,
+      "seconds": 0.265
+    },
+    {
+      "id": "cet4-2020-07-1",
+      "questions": 30,
+      "bytes": 46755,
+      "seconds": 0.407
+    },
+    {
+      "id": "cet4-2019-12-1",
+      "questions": 30,
+      "bytes": 45137,
+      "seconds": 0.286
+    },
+    {
+      "id": "cet4-2019-12-2",
+      "questions": 30,
+      "bytes": 46842,
+      "seconds": 0.332
+    },
+    {
+      "id": "cet4-2019-12-3",
+      "questions": 30,
+      "bytes": 44326,
+      "seconds": 0.275
+    },
+    {
+      "id": "cet4-2019-06-1",
+      "questions": 30,
+      "bytes": 48452,
+      "seconds": 0.286
+    },
+    {
+      "id": "cet4-2019-06-2",
+      "questions": 30,
+      "bytes": 46579,
+      "seconds": 0.298
+    },
+    {
+      "id": "cet4-2019-06-3",
+      "questions": 30,
+      "bytes": 49688,
+      "seconds": 0.273
+    },
+    {
+      "id": "cet4-2018-12-1",
+      "questions": 30,
+      "bytes": 55140,
+      "seconds": 0.305
+    },
+    {
+      "id": "cet4-2018-12-2",
+      "questions": 30,
+      "bytes": 52409,
+      "seconds": 0.288
+    },
+    {
+      "id": "cet4-2018-12-3",
+      "questions": 30,
+      "bytes": 51006,
+      "seconds": 0.27
+    },
+    {
+      "id": "cet4-2018-06-1",
+      "questions": 30,
+      "bytes": 56476,
+      "seconds": 0.28
+    },
+    {
+      "id": "cet4-2018-06-2",
+      "questions": 30,
+      "bytes": 53670,
+      "seconds": 0.271
+    },
+    {
+      "id": "cet4-2018-06-3",
+      "questions": 30,
+      "bytes": 57513,
+      "seconds": 0.297
+    },
+    {
+      "id": "cet4-2017-12-1",
+      "questions": 30,
+      "bytes": 46576,
+      "seconds": 0.294
+    },
+    {
+      "id": "cet4-2017-12-2",
+      "questions": 30,
+      "bytes": 50779,
+      "seconds": 0.271
+    },
+    {
+      "id": "cet4-2017-12-3",
+      "questions": 30,
+      "bytes": 50846,
+      "seconds": 0.279
+    },
+    {
+      "id": "cet4-2017-06-1",
+      "questions": 30,
+      "bytes": 50052,
+      "seconds": 0.294
+    },
+    {
+      "id": "cet4-2017-06-2",
+      "questions": 30,
+      "bytes": 54351,
+      "seconds": 0.277
+    },
+    {
+      "id": "cet4-2017-06-3",
+      "questions": 30,
+      "bytes": 53956,
+      "seconds": 0.281
+    },
+    {
+      "id": "cet4-2016-12-1",
+      "questions": 30,
+      "bytes": 41085,
+      "seconds": 0.27
+    },
+    {
+      "id": "cet4-2016-12-2",
+      "questions": 30,
+      "bytes": 40529,
+      "seconds": 0.281
+    },
+    {
+      "id": "cet4-2016-12-3",
+      "questions": 30,
+      "bytes": 42702,
+      "seconds": 0.283
+    },
+    {
+      "id": "cet4-2016-06-1",
+      "questions": 30,
+      "bytes": 45930,
+      "seconds": 0.303
+    },
+    {
+      "id": "cet4-2016-06-2",
+      "questions": 30,
+      "bytes": 41994,
+      "seconds": 0.275
+    },
+    {
+      "id": "cet4-2016-06-3",
+      "questions": 30,
+      "bytes": 38749,
+      "seconds": 0.274
+    },
+    {
+      "id": "cet4-2015-12-1",
+      "questions": 30,
+      "bytes": 50577,
+      "seconds": 0.283
+    },
+    {
+      "id": "cet4-2015-12-2",
+      "questions": 30,
+      "bytes": 47249,
+      "seconds": 0.256
+    },
+    {
+      "id": "cet4-2015-12-3",
+      "questions": 30,
+      "bytes": 40820,
+      "seconds": 0.269
+    },
+    {
+      "id": "cet4-2015-06-1",
+      "questions": 30,
+      "bytes": 53760,
+      "seconds": 0.283
+    },
+    {
+      "id": "cet4-2015-06-2",
+      "questions": 30,
+      "bytes": 48775,
+      "seconds": 0.313
+    },
+    {
+      "id": "cet4-2015-06-3",
+      "questions": 30,
+      "bytes": 47483,
+      "seconds": 0.274
+    },
+    {
+      "id": "cet4-2014-12-1",
+      "questions": 30,
+      "bytes": 49127,
+      "seconds": 0.283
+    },
+    {
+      "id": "cet4-2014-12-2",
+      "questions": 30,
+      "bytes": 47775,
+      "seconds": 0.293
+    },
+    {
+      "id": "cet4-2014-12-3",
+      "questions": 30,
+      "bytes": 47312,
+      "seconds": 0.253
+    },
+    {
+      "id": "cet4-2014-06-1",
+      "questions": 30,
+      "bytes": 46915,
+      "seconds": 0.28
+    },
+    {
+      "id": "cet4-2014-06-2",
+      "questions": 30,
+      "bytes": 47196,
+      "seconds": 0.404
+    },
+    {
+      "id": "cet4-2014-06-3",
+      "questions": 30,
+      "bytes": 50474,
+      "seconds": 0.279
+    },
+    {
+      "id": "cet6-2026-06-1",
+      "questions": 30,
+      "bytes": 34885,
+      "seconds": 0.233
+    },
+    {
+      "id": "cet6-2026-06-2",
+      "questions": 30,
+      "bytes": 35033,
+      "seconds": 0.336
+    },
+    {
+      "id": "cet6-2026-06-3",
+      "questions": 30,
+      "bytes": 36047,
+      "seconds": 0.273
+    },
+    {
+      "id": "cet6-2025-12-1",
+      "questions": 30,
+      "bytes": 36630,
+      "seconds": 0.26
+    },
+    {
+      "id": "cet6-2025-12-2",
+      "questions": 30,
+      "bytes": 36145,
+      "seconds": 0.274
+    },
+    {
+      "id": "cet6-2025-12-3",
+      "questions": 30,
+      "bytes": 37280,
+      "seconds": 0.288
+    },
+    {
+      "id": "cet6-2025-06-1",
+      "questions": 30,
+      "bytes": 45954,
+      "seconds": 0.296
+    },
+    {
+      "id": "cet6-2025-06-2",
+      "questions": 30,
+      "bytes": 47996,
+      "seconds": 0.279
+    },
+    {
+      "id": "cet6-2025-06-3",
+      "questions": 30,
+      "bytes": 47469,
+      "seconds": 0.307
+    },
+    {
+      "id": "cet6-2024-12-1",
+      "questions": 30,
+      "bytes": 43528,
+      "seconds": 0.423
+    },
+    {
+      "id": "cet6-2024-12-2",
+      "questions": 30,
+      "bytes": 43383,
+      "seconds": 0.276
+    },
+    {
+      "id": "cet6-2024-12-3",
+      "questions": 30,
+      "bytes": 43807,
+      "seconds": 0.273
+    },
+    {
+      "id": "cet6-2024-06-1",
+      "questions": 30,
+      "bytes": 53063,
+      "seconds": 0.291
+    },
+    {
+      "id": "cet6-2024-06-2",
+      "questions": 30,
+      "bytes": 48654,
+      "seconds": 0.289
+    },
+    {
+      "id": "cet6-2024-06-3",
+      "questions": 30,
+      "bytes": 50117,
+      "seconds": 0.29
+    },
+    {
+      "id": "cet6-2023-12-1",
+      "questions": 30,
+      "bytes": 53021,
+      "seconds": 0.275
+    },
+    {
+      "id": "cet6-2023-12-2",
+      "questions": 30,
+      "bytes": 52354,
+      "seconds": 0.302
+    },
+    {
+      "id": "cet6-2023-06-1",
+      "questions": 30,
+      "bytes": 44056,
+      "seconds": 0.269
+    },
+    {
+      "id": "cet6-2023-06-2",
+      "questions": 30,
+      "bytes": 44199,
+      "seconds": 0.29
+    },
+    {
+      "id": "cet6-2023-06-3",
+      "questions": 30,
+      "bytes": 44131,
+      "seconds": 0.302
+    },
+    {
+      "id": "cet6-2022-12-1",
+      "questions": 30,
+      "bytes": 42890,
+      "seconds": 0.316
+    },
+    {
+      "id": "cet6-2022-12-2",
+      "questions": 30,
+      "bytes": 47796,
+      "seconds": 0.273
+    },
+    {
+      "id": "cet6-2022-12-3",
+      "questions": 30,
+      "bytes": 46241,
+      "seconds": 0.294
+    },
+    {
+      "id": "cet6-2022-09-1",
+      "questions": 30,
+      "bytes": 45062,
+      "seconds": 0.331
+    },
+    {
+      "id": "cet6-2022-09-2",
+      "questions": 30,
+      "bytes": 45062,
+      "seconds": 0.35
+    },
+    {
+      "id": "cet6-2022-09-3",
+      "questions": 30,
+      "bytes": 45062,
+      "seconds": 0.394
+    },
+    {
+      "id": "cet6-2022-06-1",
+      "questions": 30,
+      "bytes": 43091,
+      "seconds": 0.292
+    },
+    {
+      "id": "cet6-2022-06-2",
+      "questions": 30,
+      "bytes": 43309,
+      "seconds": 0.29
+    },
+    {
+      "id": "cet6-2021-06-1",
+      "questions": 30,
+      "bytes": 51822,
+      "seconds": 0.272
+    },
+    {
+      "id": "cet6-2021-06-2",
+      "questions": 30,
+      "bytes": 49810,
+      "seconds": 0.26
+    },
+    {
+      "id": "cet6-2021-06-3",
+      "questions": 30,
+      "bytes": 48632,
+      "seconds": 0.323
+    },
+    {
+      "id": "cet6-2020-12-1",
+      "questions": 30,
+      "bytes": 55674,
+      "seconds": 0.318
+    },
+    {
+      "id": "cet6-2020-12-2",
+      "questions": 30,
+      "bytes": 50591,
+      "seconds": 0.286
+    },
+    {
+      "id": "cet6-2020-12-3",
+      "questions": 30,
+      "bytes": 51059,
+      "seconds": 0.272
+    },
+    {
+      "id": "cet6-2020-09-1",
+      "questions": 30,
+      "bytes": 57551,
+      "seconds": 0.312
+    },
+    {
+      "id": "cet6-2020-09-2",
+      "questions": 30,
+      "bytes": 63937,
+      "seconds": 0.307
+    },
+    {
+      "id": "cet6-2020-07-1",
+      "questions": 30,
+      "bytes": 65456,
+      "seconds": 0.318
+    },
+    {
+      "id": "cet6-2019-12-1",
+      "questions": 30,
+      "bytes": 47166,
+      "seconds": 0.319
+    },
+    {
+      "id": "cet6-2019-12-2",
+      "questions": 30,
+      "bytes": 48781,
+      "seconds": 0.307
+    },
+    {
+      "id": "cet6-2019-12-3",
+      "questions": 30,
+      "bytes": 47938,
+      "seconds": 0.355
+    },
+    {
+      "id": "cet6-2019-06-1",
+      "questions": 30,
+      "bytes": 56628,
+      "seconds": 0.287
+    },
+    {
+      "id": "cet6-2019-06-2",
+      "questions": 30,
+      "bytes": 58768,
+      "seconds": 0.31
+    },
+    {
+      "id": "cet6-2019-06-3",
+      "questions": 30,
+      "bytes": 60921,
+      "seconds": 0.295
+    },
+    {
+      "id": "cet6-2018-12-1",
+      "questions": 30,
+      "bytes": 57157,
+      "seconds": 0.308
+    },
+    {
+      "id": "cet6-2018-12-2",
+      "questions": 30,
+      "bytes": 54959,
+      "seconds": 0.277
+    },
+    {
+      "id": "cet6-2018-12-3",
+      "questions": 30,
+      "bytes": 56049,
+      "seconds": 0.297
+    },
+    {
+      "id": "cet6-2018-06-1",
+      "questions": 30,
+      "bytes": 59881,
+      "seconds": 0.309
+    },
+    {
+      "id": "cet6-2018-06-2",
+      "questions": 30,
+      "bytes": 59105,
+      "seconds": 0.302
+    },
+    {
+      "id": "cet6-2018-06-3",
+      "questions": 30,
+      "bytes": 62446,
+      "seconds": 0.289
+    },
+    {
+      "id": "cet6-2017-12-1",
+      "questions": 30,
+      "bytes": 59096,
+      "seconds": 0.279
+    },
+    {
+      "id": "cet6-2017-12-2",
+      "questions": 30,
+      "bytes": 64803,
+      "seconds": 0.368
+    },
+    {
+      "id": "cet6-2017-12-3",
+      "questions": 30,
+      "bytes": 66403,
+      "seconds": 0.3
+    },
+    {
+      "id": "cet6-2017-06-1",
+      "questions": 30,
+      "bytes": 61447,
+      "seconds": 0.329
+    },
+    {
+      "id": "cet6-2017-06-2",
+      "questions": 30,
+      "bytes": 63714,
+      "seconds": 0.351
+    },
+    {
+      "id": "cet6-2017-06-3",
+      "questions": 30,
+      "bytes": 57276,
+      "seconds": 0.357
+    },
+    {
+      "id": "cet6-2016-12-1",
+      "questions": 30,
+      "bytes": 59234,
+      "seconds": 0.328
+    },
+    {
+      "id": "cet6-2016-12-2",
+      "questions": 30,
+      "bytes": 59213,
+      "seconds": 0.284
+    },
+    {
+      "id": "cet6-2016-12-3",
+      "questions": 30,
+      "bytes": 60752,
+      "seconds": 0.313
+    },
+    {
+      "id": "cet6-2016-06-1",
+      "questions": 30,
+      "bytes": 53944,
+      "seconds": 0.295
+    },
+    {
+      "id": "cet6-2016-06-2",
+      "questions": 30,
+      "bytes": 50639,
+      "seconds": 0.302
+    },
+    {
+      "id": "cet6-2016-06-3",
+      "questions": 30,
+      "bytes": 49317,
+      "seconds": 0.304
+    },
+    {
+      "id": "cet6-2015-12-1",
+      "questions": 30,
+      "bytes": 51624,
+      "seconds": 0.349
+    },
+    {
+      "id": "cet6-2015-12-2",
+      "questions": 30,
+      "bytes": 52728,
+      "seconds": 0.307
+    },
+    {
+      "id": "cet6-2015-12-3",
+      "questions": 30,
+      "bytes": 51924,
+      "seconds": 0.327
+    },
+    {
+      "id": "cet6-2015-06-1",
+      "questions": 30,
+      "bytes": 51502,
+      "seconds": 0.294
+    },
+    {
+      "id": "cet6-2015-06-2",
+      "questions": 30,
+      "bytes": 54628,
+      "seconds": 0.323
+    },
+    {
+      "id": "cet6-2015-06-3",
+      "questions": 30,
+      "bytes": 49068,
+      "seconds": 0.314
+    },
+    {
+      "id": "cet6-2014-06-1",
+      "questions": 30,
+      "bytes": 44406,
+      "seconds": 0.306
+    },
+    {
+      "id": "cet6-2014-06-2",
+      "questions": 30,
+      "bytes": 48324,
+      "seconds": 0.296
+    },
+    {
+      "id": "cet6-2014-06-3",
+      "questions": 30,
+      "bytes": 47384,
+      "seconds": 0.307
+    },
+    {
+      "id": "cet6-2013-12-1",
+      "questions": 30,
+      "bytes": 48830,
+      "seconds": 0.307
+    },
+    {
+      "id": "cet6-2013-12-2",
+      "questions": 30,
+      "bytes": 48146,
+      "seconds": 0.282
+    },
+    {
+      "id": "cet6-2013-12-3",
+      "questions": 30,
+      "bytes": 49395,
+      "seconds": 0.302
+    },
+    {
+      "id": "cet6-2013-06-1",
+      "questions": 30,
+      "bytes": 47631,
+      "seconds": 0.298
+    },
+    {
+      "id": "cet6-2013-06-2",
+      "questions": 30,
+      "bytes": 49818,
+      "seconds": 0.296
+    },
+    {
+      "id": "cet6-2013-06-3",
+      "questions": 30,
+      "bytes": 50220,
+      "seconds": 0.268
+    }
+  ]
+}
