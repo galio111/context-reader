@@ -236,7 +236,12 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
       const a = current.current;
       if (!a) return;
       const updated = readCetActivities().find((item) => item.id === a.id);
-      if (updated) { current.current = updated; setActivity(updated); }
+      if (updated) {
+        // Sync data without moving the passage the user is currently reading.
+        const visible = updated.owner === a.owner && updated.sectionIds.includes(a.activeSection)
+          ? { ...updated, activeSection: a.activeSection } : updated;
+        current.current = visible; setActivity(visible);
+      }
     };
     document.addEventListener("visibilitychange", onVisibility);
     window.addEventListener("pagehide", onPageHide);

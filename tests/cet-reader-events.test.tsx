@@ -30,7 +30,7 @@ test("real CET events preserve drafts, freeze one passage and start an independe
   const { CetReader } = await import("../components/cet/CetReader");
   const { readCetActivities } = await import("../lib/cetActivityStorage");
   const { getLearningStorage, isLearningStorage } = await import("../lib/learningStorage");
-  const { render, waitFor, cleanup } = await import("@testing-library/react");
+  const { render, waitFor, cleanup, act } = await import("@testing-library/react");
   const { default: userEvent } = await import("@testing-library/user-event");
   const paper = JSON.parse(readFileSync(new URL("../data/cet/cet4-2025-12-1.json", import.meta.url), "utf8"));
   const originalFetch = globalThis.fetch;
@@ -92,6 +92,11 @@ test("real CET events preserve drafts, freeze one passage and start an independe
     await user.dblClick(ui.getByRole("button", {name:"重试保存"}));
     await waitFor(() => assert.ok(ui.getByRole("button",{name:"全部已提交"})));
     assert.deepEqual(Object.keys(readCetActivities()[0].finalizations),batchIds);
+    assert.equal(JSON.stringify(Object.values(readCetActivities()[0].finalizations)[0]),existingSnapshot);
+    await user.click(ui.getByRole("button", { name: "选词填空 · 已提交" }));
+    const { ACCOUNT_DATA_MERGED_EVENT } = await import("../lib/accountEvents");
+    await act(async () => { window.dispatchEvent(new CustomEvent(ACCOUNT_DATA_MERGED_EVENT)); });
+    assert.ok(ui.getByRole("button", { name: "第 26 空，C" }));
     assert.equal(JSON.stringify(Object.values(readCetActivities()[0].finalizations)[0]),existingSnapshot);
     await user.click(ui.getByRole("button", { name: /重新练习保留本轮记录/ }));
     await user.click(ui.getByRole("button", { name: "开始新一轮" }));
