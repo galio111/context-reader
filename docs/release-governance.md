@@ -4,7 +4,7 @@ This file is the final-state contract for parallel development and mainland prod
 
 ## Current accepted release (2026-09-27)
 
-Accepted `20260927T031000`, parent `20260927T030500`, source `b3cc5589002eb02e37ac1a802961f16ae9aec194`. Public identity and current/state agree with mainland_internal. CET archive now has149 papers; prior53 remain byte-identical. Real Reader submit-all, cloud snapshots, manual sync preserving the viewed passage, dictionary bank lookup and desktop/mobile viewport checks passed. AI/account/Admin boundaries, health, isolated16-table backup restore and rollback images passed. Only app/caddy recreated. Physical touch and word-for-word manual review of all source material remain unverified. See [archive release evidence](cet-full-archive-release.md). Later main changes are documentation only.
+Accepted `20260927T091952`, parent `20260927T031000`, source `00f34707feaedc8419bfc7737ae521bd38bd9eea`. Public identity, current symlink and accepted state agree with mainland_internal. Includes loading/HD resource improvements and live-account library access while retaining the visual journey. User explicitly requested this release with the known fast-scroll image misses retained; the full optimization acceptance matrix is not complete. 194 automatic regressions, release/egress guards, local/server builds, public member library/Reader/AI/sync smoke, anonymous boundaries, health, isolated16-table restore and current/parent images passed. Only app/caddy recreated. See [loading release evidence](loading-hd-release.md). Later main changes are documentation only.
 
 ## The three different copies of “the code”
 

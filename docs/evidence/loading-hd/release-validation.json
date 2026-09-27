@@ -1,0 +1,20 @@
+{
+  "sourceRevision": "00f34707feaedc8419bfc7737ae521bd38bd9eea",
+  "releaseId": "20260927T091952",
+  "parentReleaseId": "20260927T031000",
+  "tests": {
+    "critical": 89,
+    "cet": 67,
+    "media": 6,
+    "loading": 7,
+    "integrations": 25
+  },
+  "lint": {
+    "errors": 0,
+    "warnings": 44
+  },
+  "build": "passed locally and on stable production deploy",
+  "guards": "release contracts and egress passed",
+  "deltaFiles": 68,
+  "knownFailure": "Deep-list fast scroll still misses at measured ~2.9 Mbps; explicitly accepted for this release by user."
+}

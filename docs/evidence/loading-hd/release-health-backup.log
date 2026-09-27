@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "20260927T091952",
+  "parentReleaseId": "20260927T031000",
+  "sourceRevision": "00f34707feaedc8419bfc7737ae521bd38bd9eea",
+  "acceptedAt": "2026-09-27T09:25:24.592508+00:00",
+  "guardVersion": 1
+}
+/opt/context-reader-releases/20260927T091952
+healthcheck passed
+/var/backups/context-reader/postgres/daily/context-reader-20260926T192051Z.dump: OK
+GRANT
+ restored_public_tables 
+------------------------
+                     16
+(1 row)
+
+restore verification passed
+context-reader-caddy-1 1c82fd854ecd Up 28 seconds
+context-reader-app-1 0b76385cafd0 Up 33 seconds (healthy)
+context-reader-supabase-api-1 8cf4b5ce5465 Up 7 weeks (healthy)
+context-reader-postgres-1 eb78126dbbad Up 7 weeks (healthy)
+context-reader-storage-1 bcaee44aa72f Up 7 weeks (healthy)
+context-reader-auth-1 85536a2958e0 Up 7 weeks (healthy)
+context-reader-rest-1 5439521fa22b Up 4 weeks (healthy)
+sha256:f7e61df920a7a0ba782cc607854b6580f7df05eff653cbc6fa77793e77d5bcb8
+sha256:18d3209aedef52ab7ea5c39cc3810c4401f98170a78f2c3b25b2a8dcb2c527c3

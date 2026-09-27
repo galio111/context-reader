@@ -1,8 +1,8 @@
 # Context Reader Architecture
 
-## 2026-09-27 加载优化发布候选
+## 2026-09-27 加载优化已发布（保留已知限制）
 
-当前集成采用轻量公共元数据、按需完整目录、CET预览缓存、发布时高清同构图变体和有界媒体调度。中途登录保留视觉布局，但完整库权限独立跟随实时账号。用户明确接受快速滚动仍缺图的已知限制并要求先发布；不能宣称任务包全部验收通过。完整状态及证据见 [loading-hd-release.md](loading-hd-release.md)。尚待生产发布验证。
+当前集成采用轻量公共元数据、按需完整目录、CET预览缓存、发布时高清同构图变体和有界媒体调度。中途登录保留视觉布局，但完整库权限独立跟随实时账号。用户明确接受快速滚动仍缺图的已知限制并要求先发布；不能宣称任务包全部验收通过。完整状态及证据见 [loading-hd-release.md](loading-hd-release.md)。已核验生产20260927T091952，source 00f34707feaedc8419bfc7737ae521bd38bd9eea；完整任务验收仍未全部通过。
 
 
 Capacity implementation and acceptance boundaries are documented in [capacity-plan.md](capacity-plan.md) and [cold-start-performance.md](cold-start-performance.md): the root server-renders the unchanged initial showcases for every category (a union of at most 50 articles) and full category counts; the unchanged complete catalogue loads near the article section or on catalogue intent. In-flight catalogue requests are shared, failures retain initial articles with retry, and vocabulary source recovery requests the complete inventory. Pure recommendation calculations live in `recommendationPreferencesShared.ts`; browser persistence remains behind the client module. Bounded public-read caching, mutation invalidation, on-demand reader/tool bundles and the shared AI pool remain. Account authorization, quota and protocol-2 sync remain uncached and unchanged. Production acceptance is recorded separately in the journey.

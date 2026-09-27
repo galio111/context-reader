@@ -1,0 +1,24 @@
+{
+  "cards": 500,
+  "catalogueCount": "702",
+  "images": [
+    {
+      "complete": true,
+      "url": "https://context-reader.com/storage/v1/object/public/public-article-covers/article-images/f0/f0cb17343d78fe1fc8ead05ca46b9d7e67c2e7ca691764bd073222d99588e678.webp"
+    },
+    {
+      "complete": true,
+      "url": "https://context-reader.com/storage/v1/object/public/public-article-covers/article-images/aa/aadf5322c04516cd221870c2545e2a6341424d88ed5049eaff80746f02d48ca5.webp"
+    },
+    {
+      "complete": true,
+      "url": "https://context-reader.com/storage/v1/object/public/public-article-covers/article-images/5b/5bd0365f3e321554fbafa630a19a6466d528521b091c8b012970b1809d202314.webp"
+    },
+    {
+      "complete": true,
+      "url": "https://context-reader.com/storage/v1/object/public/public-article-covers/article-images/d4/d454c3b457c19588dfc5d65fb9bcdc9fb0cf0f1f190586862518fbf7f9b0cc86.webp"
+    }
+  ],
+  "loginMore": false,
+  "status": "ready"
+}

@@ -1,0 +1,63 @@
+{
+  "identity": {
+    "backendMode": "mainland_internal",
+    "releaseId": "20260927T091952",
+    "parentReleaseId": "20260927T031000"
+  },
+  "checks": [
+    {
+      "path": "/api/connectivity",
+      "status": 200,
+      "bytes": 150,
+      "ms": 212,
+      "cacheControl": "no-store, no-cache, must-revalidate"
+    },
+    {
+      "path": "/api/auth/session",
+      "status": 200,
+      "bytes": 938,
+      "ms": 197,
+      "cacheControl": null,
+      "authenticated": false
+    },
+    {
+      "path": "/api/account/sync",
+      "status": 401,
+      "bytes": 51,
+      "ms": 158,
+      "cacheControl": null
+    },
+    {
+      "path": "/api/admin/accounts",
+      "status": 401,
+      "bytes": 33,
+      "ms": 138,
+      "cacheControl": "private, no-store"
+    },
+    {
+      "path": "/api/cet/preview?level=4",
+      "status": 200,
+      "bytes": 16862,
+      "ms": 208,
+      "cacheControl": "public, max-age=60, must-revalidate",
+      "papersCount": 12
+    },
+    {
+      "path": "/api/cet?level=6",
+      "status": 200,
+      "bytes": 9695,
+      "ms": 144,
+      "cacheControl": "private, no-store",
+      "papersCount": 6,
+      "total": 6
+    },
+    {
+      "path": "/api/public-articles/preview",
+      "status": 200,
+      "bytes": 19990,
+      "ms": 829,
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "articlesCount": 10
+    }
+  ]
+}

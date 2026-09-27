@@ -853,77 +853,100 @@
       "requirement": "R12",
       "action": "核对实际权限、干净worktree、保护分支和当前生产父版本。",
       "expected": "不覆写脏工作区、不强推；发布parent来自此刻accepted状态。",
-      "status": "not_run",
-      "evidence": [],
-      "notes": ""
+      "status": "pass",
+      "evidence": [
+        "evidence/release-public-smoke.json",
+        "evidence/test-logs/release-health-backup.log"
+      ],
+      "notes": "独立发布worktree从接受源码b3cc558开始，合入origin/main和042c0ea；干净源码00f3470，父版本031000实查一致。"
     },
     {
       "id": "P02",
       "requirement": "R12",
       "action": "完成CET、核心、同步、用量/模型、lint、正式build和保护契约。",
       "expected": "必需测试真实通过；未验证/基线失败单列，不能降低断言或跳过核心。",
-      "status": "partial",
+      "status": "pass",
       "evidence": [
         "evidence/test-logs/phase-e-cet.log",
         "evidence/test-logs/phase-e-loading.log",
         "evidence/test-logs/phase-e-critical.log",
-        "evidence/test-logs/phase-e-integrations-final.log"
+        "evidence/test-logs/phase-e-integrations-final.log",
+        "evidence/release-public-smoke.json",
+        "evidence/test-logs/release-health-backup.log"
       ],
-      "notes": "67 CET、89核心、7加载、20集成已通过；82c1376媒体6项通过，最终正式build进行中。视觉未全通过。"
+      "notes": "npm ci、89核心/67CET/6媒体/7加载/25集成共194项通过；lint0错误44警告，本机/服务器正式build、保护契约和出口审计通过。"
     },
     {
       "id": "P03",
       "requirement": "R12",
       "action": "审查变体补生成范围、原图保留、配置变化和差异清单。",
       "expected": "仅有本轮必要变化；无凭据/私有HAR/生产包/字体文件误入Git。",
-      "status": "not_run",
-      "evidence": [],
-      "notes": ""
+      "status": "pass",
+      "evidence": [
+        "evidence/release-public-smoke.json",
+        "evidence/test-logs/release-health-backup.log"
+      ],
+      "notes": "700封面变体有原数据备份/回滚文件，原图保留；68文件精确差异校验通过，未增付费服务或修改计费。"
     },
     {
       "id": "P04",
       "requirement": "R12",
       "action": "正常集成推送main并核对远端SHA。",
       "expected": "remote main与审查集成提交一致；若远端前进重新集成，不force。",
-      "status": "not_run",
-      "evidence": [],
-      "notes": "尚未合入或推送main，E门槛未满足。"
+      "status": "pass",
+      "evidence": [
+        "evidence/release-public-smoke.json",
+        "evidence/test-logs/release-health-backup.log"
+      ],
+      "notes": "正常非force推main到00f34707feaedc8419bfc7737ae521bd38bd9eea，git ls-remote核对相同；后续仅发布文档提交。"
     },
     {
       "id": "P05",
       "requirement": "R12",
       "action": "从干净集成提交按稳定发布入口打包部署。",
       "expected": "锁、parent recheck、changedFiles准确；只重建允许的app/caddy，数据服务不重启。",
-      "status": "not_run",
-      "evidence": [],
-      "notes": "未打包/切换新应用；生产仍20260927T031000。"
+      "status": "pass",
+      "evidence": [
+        "evidence/release-public-smoke.json",
+        "evidence/test-logs/release-health-backup.log"
+      ],
+      "notes": "稳定入口/opt/context-reader/bin/deploy-release成功，锁/父版本重查/保护契约保持；仅app/caddy容器重建。"
     },
     {
       "id": "P06",
       "requirement": "R12",
       "action": "公网核对connectivity、服务器manifest与实际媒体URL。",
       "expected": "releaseId、parent、backendMode正确；sourceRevision用实际manifest核对，不能虚构API字段。",
-      "status": "not_run",
-      "evidence": [],
-      "notes": "没有新生产版本；现有release/parent已核验，仅基线事实。"
+      "status": "partial",
+      "evidence": [
+        "evidence/release-public-smoke.json",
+        "evidence/test-logs/release-health-backup.log"
+      ],
+      "notes": "公网releaseId091952、parent031000、mainland_internal与server state/source/current一致；实际图片源已核对，所有媒体/客户端矩阵未全验。"
     },
     {
       "id": "P07",
       "requirement": "R12",
       "action": "生产真实游客/登录轻量路径与核心AI/同步烟测，保存视觉证据。",
       "expected": "正常路径未出现PDF问题；接口通过不代替视觉；受阻如实记录并处置。",
-      "status": "not_run",
-      "evidence": [],
-      "notes": "新版本未上线，不能声称公网视觉通过。"
+      "status": "partial",
+      "evidence": [
+        "evidence/release-public-smoke.json",
+        "evidence/test-logs/release-health-backup.log"
+      ],
+      "notes": "生产Chrome既有真实登录会话展开500篇/全目录702、末尾搜索及Reader返回通过；解释含句译、词典、全文翻译可见结果及接口200，手动同步请求200；CET目录/匿名边界通过。严格G0游客、Edge及手机未验；深列表快速滚动仍失败，用户明确要求先部署。"
     },
     {
       "id": "P08",
       "requirement": "R12",
       "action": "检查当前/父镜像、备份与恢复证据、失败回退方案，回写文档。",
       "expected": "未实际回滚就不写演练完成；最终main与source差异仅允许明确的发布文档。",
-      "status": "not_run",
-      "evidence": [],
-      "notes": "未执行应用回滚演练；数据补齐保留精确恢复SQL。"
+      "status": "pass",
+      "evidence": [
+        "evidence/release-public-smoke.json",
+        "evidence/test-logs/release-health-backup.log"
+      ],
+      "notes": "健康通过、最新备份隔离恢复16表、当前及直接父镜像存在；按版本治理保留回退路径，没有实际回滚演练。"
     }
   ]
 }
