@@ -5,7 +5,7 @@ import { prepareCetPreview } from "@/lib/cetCatalogueClient";
 const loadCetLibrary = () => import("@/components/cet/CetLibrary");
 const CetLibrary = dynamicCet(() => loadCetLibrary().then(m => m.CetLibrary), { loading: () => <p role="status">正在读取真题目录…</p> });
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type MouseEvent as ReactMouseEvent, type PointerEvent } from "react";
-import Image from "next/image";
+import { ArticleCover } from "@/components/ArticleCover";
 import { useDailyPublicationNotice } from "@/components/useDailyPublicationNotice";
 import { useArticleSummary } from "@/components/useArticleSummary";
 import { startupMark } from "@/lib/startupPerformance";
@@ -207,118 +207,6 @@ function orderRecommendationArticles(
   return orderHomepageRecommendations(articles, curation, preferences, dayKey);
 }
 
-function ArticleCover({ article, featured = false, motion3dEnabled = true }: { article: PublicArticle; featured?: boolean; motion3dEnabled?: boolean }) {
-  const surfaceRef = useRef<HTMLSpanElement | null>(null);
-  const pointerFrameRef = useRef(0);
-  const pointerTargetRef = useRef({ x: 0.5, y: 0.5 });
-  const pointerCurrentRef = useRef({ x: 0.5, y: 0.5 });
-  const [coverFailed, setCoverFailed] = useState(false);
-  const [loadedCoverUrl, setLoadedCoverUrl] = useState<string | null>(null);
-  const [loadFullCover, setLoadFullCover] = useState(featured);
-
-  useEffect(() => {
-    const surface = surfaceRef.current;
-    if (!surface || featured) return;
-    if (!("IntersectionObserver" in window)) { setLoadFullCover(true); return; }
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) { setLoadFullCover(true); observer.disconnect(); }
-    }, { rootMargin: "2400px 0px" });
-    observer.observe(surface);
-    return () => observer.disconnect();
-  }, [featured]);
-
-  useEffect(() => () => {
-    if (pointerFrameRef.current) window.cancelAnimationFrame(pointerFrameRef.current);
-  }, []);
-
-  useEffect(() => {
-    if (motion3dEnabled) return;
-    pointerTargetRef.current = { x: 0.5, y: 0.5 };
-    pointerCurrentRef.current = { x: 0.5, y: 0.5 };
-    const surface = surfaceRef.current;
-    surface?.style.setProperty("--pointer-x", ".5");
-    surface?.style.setProperty("--pointer-y", ".5");
-    surface?.style.setProperty("--rotate-x", "0deg");
-    surface?.style.setProperty("--rotate-y", "0deg");
-  }, [motion3dEnabled]);
-
-  function animatePointer() {
-    const surface = surfaceRef.current;
-    if (!surface) {
-      pointerFrameRef.current = 0;
-      return;
-    }
-    const current = pointerCurrentRef.current;
-    const target = pointerTargetRef.current;
-    current.x += (target.x - current.x) * 0.14;
-    current.y += (target.y - current.y) * 0.14;
-    surface.style.setProperty("--pointer-x", current.x.toFixed(4));
-    surface.style.setProperty("--pointer-y", current.y.toFixed(4));
-    surface.style.setProperty("--rotate-x", `${((0.5 - current.y) * 10).toFixed(2)}deg`);
-    surface.style.setProperty("--rotate-y", `${((current.x - 0.5) * 13).toFixed(2)}deg`);
-    if (Math.abs(target.x - current.x) + Math.abs(target.y - current.y) > 0.001) {
-      pointerFrameRef.current = window.requestAnimationFrame(animatePointer);
-    } else {
-      pointerFrameRef.current = 0;
-    }
-  }
-
-  function startPointerAnimation() {
-    if (!pointerFrameRef.current) pointerFrameRef.current = window.requestAnimationFrame(animatePointer);
-  }
-
-  function updatePointer(event: PointerEvent<HTMLSpanElement>) {
-    if (!motion3dEnabled) return;
-    const bounds = event.currentTarget.getBoundingClientRect();
-    const x = (event.clientX - bounds.left) / Math.max(1, bounds.width);
-    const y = (event.clientY - bounds.top) / Math.max(1, bounds.height);
-    pointerTargetRef.current = { x, y };
-    startPointerAnimation();
-  }
-
-  function resetPointer() {
-    pointerTargetRef.current = { x: 0.5, y: 0.5 };
-    startPointerAnimation();
-  }
-
-  const coverUrl = article.recommendation?.coverImageUrl?.trim();
-  const coverPreview = article.recommendation?.coverPreviewDataUrl?.startsWith("data:image/webp;base64,")
-    ? article.recommendation.coverPreviewDataUrl : undefined;
-  const coverReady = Boolean(coverUrl && loadedCoverUrl === coverUrl && !coverFailed);
-  useEffect(() => setCoverFailed(false), [coverUrl]);
-  return (
-    <span className={styles.coverClip}>
-    <span
-      ref={surfaceRef}
-      className={`${styles.coverSurface} ${featured ? styles.coverFeatured : ""}`}
-      data-image-pending={Boolean(coverUrl && !coverPreview && !coverFailed && !coverReady) || undefined}
-      data-image-ready={coverReady || undefined}
-      data-tilt-disabled={!motion3dEnabled || undefined}
-      onPointerMove={updatePointer}
-      onPointerEnter={() => setLoadFullCover(true)}
-      onPointerLeave={resetPointer}
-    >
-      {coverPreview && (
-        <Image src={coverPreview} alt={article.recommendation?.coverImageAlt || article.title} width={256} height={192} unoptimized loading="eager" draggable={false} data-cover-preview="true" />
-      )}
-      {coverUrl && !coverPreview && !coverReady && !coverFailed && (
-        <span className={styles.coverFallback} aria-hidden="true">
-          <i>READING</i><strong>{(article.sourceName || "Context Reader").slice(0, 28)}</strong>
-        </span>
-      )}
-      {coverUrl && !coverFailed && (loadFullCover || !coverPreview) ? (
-        <Image src={coverUrl} alt={article.recommendation?.coverImageAlt || article.title} width={1920} height={1440} sizes={featured ? "(max-width: 900px) 94vw, (max-width: 1440px) 58vw, 800px" : "(max-width: 900px) 46vw, (max-width: 1440px) 30vw, 420px"} quality={75} unoptimized loading="eager" fetchPriority={featured ? "high" : "auto"} draggable={false} onLoad={() => setLoadedCoverUrl(coverUrl)} onError={() => setCoverFailed(true)} />
-      ) : (!coverUrl || (coverFailed && !coverPreview)) ? (
-        <span className={styles.coverFallback} aria-label="纯文本外刊封面">
-          <i>TEXT EDITION</i>
-          <strong>{(article.sourceName || "Context Reader").slice(0, 28)}</strong>
-          <small>{article.summary || "一篇值得慢慢读完的英文文章"}</small>
-        </span>
-      ) : null}
-    </span>
-    </span>
-  );
-}
 
 export function HomeRedesign(props: HomeRedesignProps) {
   const { account, loading: accountLoading, hasLocalAccountAccess, isOffline, localAccount, openLogin, requireAccount } = useAccount();

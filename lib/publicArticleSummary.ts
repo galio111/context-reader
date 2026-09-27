@@ -9,6 +9,7 @@ export function publicArticleSummary(article: PublicArticle): PublicArticle {
     createdAt: article.createdAt, updatedAt: article.updatedAt,
     ...(r ? { recommendation: {
       coverImageUrl: r.coverImageUrl, coverImageAlt: r.coverImageAlt,
+      coverVariants: r.coverVariants?.sourceUrl === r.coverImageUrl ? r.coverVariants : undefined,
       coverImageCredit: r.coverImageCredit, coverImageSourceUrl: r.coverImageSourceUrl,
       difficulty: r.difficulty, cefr: r.cefr, audienceStages: r.audienceStages,
       topics: r.topics, homepageCategory: r.homepageCategory, wordCount: r.wordCount,

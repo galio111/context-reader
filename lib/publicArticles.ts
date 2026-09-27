@@ -431,7 +431,7 @@ export async function listPublicArticles(options: { includeImportedArticle?: boo
  */
 export async function listPublicArticleSummaries(): Promise<PublicArticle[]> {
   return publicReadCache.summaries.get("catalogue", async () => {
-  const fields = ["coverImageUrl", "coverImageAlt", "coverImageCredit", "coverImageSourceUrl", "difficulty", "cefr", "audienceStages", "topics", "homepageCategory", "wordCount", "timeliness", "sourceKind", "classificationSource", "manualFields"] as const;
+  const fields = ["coverImageUrl", "coverVariants", "coverImageAlt", "coverImageCredit", "coverImageSourceUrl", "difficulty", "cefr", "audienceStages", "topics", "homepageCategory", "wordCount", "timeliness", "sourceKind", "classificationSource", "manualFields"] as const;
   const projection = fields.map(field => `${field}:imported_article->recommendation->${field}`).join(",");
   const rows = await supabaseFetch<Array<SupabaseArticleRow & Partial<ArticleRecommendationMetadata> & { editorialVersion?: number }>>(
     `public_articles?select=id,title,summary,source_url,source_name,created_at,updated_at,${projection},editorialVersion:imported_article->recommendation->editorialReview->version&published=eq.true&order=updated_at.desc`,

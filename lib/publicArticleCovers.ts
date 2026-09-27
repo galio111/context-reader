@@ -3,6 +3,7 @@ import { AsyncLocalStorage } from "node:async_hooks";
 import { createClient } from "@supabase/supabase-js";
 import { revalidateTag } from "next/cache";
 import sharp from "sharp";
+import { generateCoverVariants } from "./coverVariants.mjs";
 import { recommendationWithBodyImageFallback, removeFailedArticleImages } from "@/lib/articleMedia";
 import { isExternalArticleImageUrl, isFirstPartyArticleImageUrl } from "@/lib/articleImageUrls";
 import { assertSafeRemoteUrl, readResponseBytes, safeRemoteFetch } from "@/lib/safeRemoteFetch";
@@ -114,24 +115,34 @@ export async function coverPreviewDataUrl(bytes: Uint8Array): Promise<string> {
   return `data:image/webp;base64,${preview.toString("base64")}`;
 }
 
-/** Regenerate from the final first-party cover so edited covers cannot keep a stale preview. */
+/** Prepare immutable variants at publication; retained name keeps existing callers compatible. */
 export async function withPublicCoverPreview<T extends PublicArticleInput>(input: T, strict = false): Promise<T> {
   const recommendation = input.recommendation ?? input.importedArticle?.recommendation;
   if (!recommendation) return input;
   const coverUrl = recommendation.coverImageUrl?.trim() || "";
-  let preview = "";
+  let variants = recommendation.coverVariants?.sourceUrl === coverUrl ? recommendation.coverVariants : undefined;
   if (coverUrl && isStoredPublicCoverUrl(coverUrl)) {
     try {
+      if (variants?.version === 1) return input;
       const objectPath = decodeURIComponent(new URL(coverUrl).pathname.split(`/storage/v1/object/public/${PUBLIC_COVER_BUCKET}/`)[1] || "");
       if (!objectPath) throw new Error("封面存储路径无效。");
       const { data, error } = await supabaseAdmin().storage.from(PUBLIC_COVER_BUCKET).download(objectPath);
       if (error || !data || data.size > PUBLIC_COVER_MAX_UPLOAD_BYTES) throw new Error("封面读取失败。");
-      preview = await coverPreviewDataUrl(new Uint8Array(await data.arrayBuffer()));
+      const bytes = new Uint8Array(await data.arrayBuffer());
+      const generated = await generateCoverVariants(bytes);
+      const items = [];
+      for (const item of generated.items) {
+        const hash = createHash("sha256").update(item.bytes).digest("hex");
+        const url = await uploadCoverBytes(item.bytes, "image/webp", "webp", `variants/v1/${hash.slice(0, 2)}/${hash}.webp`);
+        items.push({ url, width: item.width, height: item.height });
+      }
+      items.push({ url: coverUrl, width: generated.width, height: generated.height });
+      variants = { version: 1, sourceUrl: coverUrl, width: generated.width, height: generated.height, items };
     } catch (error) {
       if (strict) throw error;
     }
   }
-  const updated = { ...recommendation, coverPreviewDataUrl: preview || undefined };
+  const updated = { ...recommendation, coverPreviewDataUrl: undefined, coverVariants: variants };
   return {
     ...input,
     recommendation: updated,

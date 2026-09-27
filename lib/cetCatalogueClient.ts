@@ -5,7 +5,7 @@ let seed: { papers: CetPaper[]; version: string; at: number } | undefined;
 let pendingSeed: Promise<void> | undefined;
 export function prepareCetPreview(): Promise<void> {
   if (seed && Date.now() - seed.at < 60_000) return Promise.resolve();
-  return pendingSeed ??= fetch("/api/cet/preview").then(async response => {
+  return pendingSeed ??= fetch("/api/cet/preview", { signal: AbortSignal.timeout(12_000) }).then(async response => {
     if (!response.ok) throw Error("preview");
     const value = await response.json();
     if (!Array.isArray(value.papers) || typeof value.version !== "string") throw Error("preview");
@@ -45,7 +45,7 @@ export function subscribeCetCatalogue(scope: {level: 4 | 6; year: string; owner:
     void loadCetCatalogue({signal:controller.signal,initial:entry.value?.papers,
       fetchPage:async page => {
         const params = new URLSearchParams({level:String(scope.level),year:guest ? "recent" : scope.year,page:String(page)});
-        const response = await fetch(`/api/cet?${params}`, {signal:controller.signal});
+        const response = await fetch(`/api/cet?${params}`, {signal:AbortSignal.any([controller.signal, AbortSignal.timeout(12_000)])});
         if (!response.ok) throw Error("catalogue");
         return response.json();
       },

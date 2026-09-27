@@ -73,6 +73,13 @@ export interface ArticleRecommendationMetadata {
   discoverySourceId?: string;
   rejectionReason?: string;
   coverImageUrl: string;
+  coverVariants?: {
+    version: 1;
+    sourceUrl: string;
+    width: number;
+    height: number;
+    items: Array<{ url: string; width: number; height: number }>;
+  };
   /** Tiny inline preview of the same stored cover, visible before the full image loads. */
   coverPreviewDataUrl?: string;
   coverImageAlt?: string;
