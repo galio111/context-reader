@@ -58,14 +58,15 @@
   "addedPapers": [
     {
       "id": "cet4-2014-06-1",
-      "sha256": "feffc2d6f04f63a11f2b3045969b3c92dd5b480b7499ad626924695f5e930178",
+      "sha256": "a72328313132c9130259242dd720e67a216c286d7e0c40e75a1296fba1806a40",
       "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.06/%E7%9C%9F%E9%A2%98Word/2014%E5%B9%B46%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97.docx",
       "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2014%E5%B9%B46%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%B8%80%EF%BC%89.pdf",
       "numberRange": [
         36,
         65
       ],
-      "reviewedCorrections": 2
+      "reviewedCorrections": 2,
+      "removedPageFooters": 4
     },
     {
       "id": "cet4-2014-06-2",
@@ -80,14 +81,15 @@
     },
     {
       "id": "cet4-2014-06-3",
-      "sha256": "f7ab18f700d9374e4661016fa89bd71d41fcbe6f04cd22ee8a1d2e7ef13d0b0f",
+      "sha256": "fc2d825ae22402de553a1eed7c3acee67290b4a7a557195f517cda6d6d8bbd83",
       "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.06/%E7%9C%9F%E9%A2%98Word/2014%E5%B9%B46%E6%9C%88%E5%B9%B4%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%EF%BC%88%E4%B8%89%EF%BC%89.doc",
       "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2014.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2014%E5%B9%B46%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E5%8F%8A%E8%A7%A3%E6%9E%90%EF%BC%88%E5%8D%B7%E4%B8%89%EF%BC%89.pdf",
       "numberRange": [
         36,
         65
       ],
-      "reviewedCorrections": 0
+      "reviewedCorrections": 0,
+      "removedPageFooters": 4
     },
     {
       "id": "cet4-2014-12-1",

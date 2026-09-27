@@ -176,6 +176,7 @@ test("archive expansion preserves existing papers and ships only paired, bounded
     const bytes = readFileSync(new URL(`${added.id}.json`, dir));
     assert.equal(createHash("sha256").update(bytes).digest("hex"), added.sha256);
     assert.ok(bytes.length < 100_000, `${added.id}: unbounded paper payload`);
+    assert.doesNotMatch(bytes.toString("utf8"), /第\s*\d+\s*页\s*共\s*\d+\s*页/, `${added.id}: source page footer`);
     const paper = JSON.parse(bytes.toString("utf8")) as CetPaper;
     for (const url of [paper.source, paper.answerSource!])
       assert.ok(sources.has(decodeURIComponent(url.split(`/${audit.revision}/`)[1])), url);
