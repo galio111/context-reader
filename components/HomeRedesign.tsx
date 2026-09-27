@@ -1240,7 +1240,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
           </section>
         )}
 
-        {!memberHome && <FeatureShowcase sectionRef={featureShowcaseRef} enabled={!journeyPending && (guestOpeningComplete || Boolean(props.skipMemberOpening))} onGuide={() => { setMenuStandalonePreview(false); setMenuInitialPreview("guide"); setMenuGuideSection(null); setMenuOpen(true); }} guideOpen={menuOpen} motionEnabled={recommendationMotionEnabled} />}
+        {!memberHome && <FeatureShowcase sectionRef={featureShowcaseRef} prepareEnabled={!journeyPending} enabled={!journeyPending && (guestOpeningComplete || Boolean(props.skipMemberOpening))} onGuide={() => { setMenuStandalonePreview(false); setMenuInitialPreview("guide"); setMenuGuideSection(null); setMenuOpen(true); }} guideOpen={menuOpen} motionEnabled={recommendationMotionEnabled} />}
 
         <section ref={recommendationsRef} className={styles.recommendations} aria-labelledby="selected-reading-title">
           <div className={styles.sectionHead}>

@@ -14,7 +14,7 @@ export const FEATURE_SHOWCASE = [
   { id: "explore", label: "继续探索", detail: "还有更多", title: ["读进去之后，", "还有更多发现。"], paragraphs: ["全文翻译、文章摘要、独立词典，还有为下一次阅读保存的进度。", "更多顺手的小功能，等你在阅读中发现。"], color: "#e3eaf0", screens: [] },
 ] as const;
 
-export function FeatureShowcase({ sectionRef, onGuide, motionEnabled, guideOpen = false, enabled = true }: { sectionRef: RefObject<HTMLElement | null>; onGuide: () => void; motionEnabled: boolean; guideOpen?: boolean; enabled?: boolean }) {
+export function FeatureShowcase({ sectionRef, onGuide, motionEnabled, guideOpen = false, enabled = true, prepareEnabled = true }: { sectionRef: RefObject<HTMLElement | null>; onGuide: () => void; motionEnabled: boolean; guideOpen?: boolean; enabled?: boolean; prepareEnabled?: boolean }) {
   const [active, setActive] = useState(0);
   const [replay, setReplay] = useState(0);
   const [visible, setVisible] = useState(false);
@@ -32,13 +32,20 @@ export function FeatureShowcase({ sectionRef, onGuide, motionEnabled, guideOpen 
     const updateVisibility = () => setVisible(section.getBoundingClientRect().bottom > 0 && section.getBoundingClientRect().top < window.innerHeight && !document.hidden);
     const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting && !document.hidden), { threshold: 0 });
     observer.observe(section);
+    document.addEventListener("visibilitychange", updateVisibility);
+    return () => { observer.disconnect(); document.removeEventListener("visibilitychange", updateVisibility); };
+  }, [enabled]);
+  // Resource preparation may overlap the retained opening; playback still waits
+  // for enabled + visibility above. Only the current nearby recording is warmed.
+  useEffect(() => {
+    const section = mediaRef.current;
+    if (!section || !prepareEnabled) return;
     const warmer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) { setWarm(true); warmer.disconnect(); }
     }, { rootMargin: `${Math.round(window.innerHeight * 1.5)}px 0px` });
     warmer.observe(section);
-    document.addEventListener("visibilitychange", updateVisibility);
-    return () => { observer.disconnect(); warmer.disconnect(); document.removeEventListener("visibilitychange", updateVisibility); };
-  }, [enabled]);
+    return () => warmer.disconnect();
+  }, [prepareEnabled]);
   useLayoutEffect(() => {
     const y = selectionScrollY.current;
     if (y === null) return;

@@ -42,3 +42,34 @@ test("video warms before playback and stale promises cannot stop a new generatio
     for (const [key, descriptor] of saved) { if (descriptor) Object.defineProperty(globalThis, key, descriptor); else Reflect.deleteProperty(globalThis, key); }
   }
 });
+
+test("nearby recording prepares during the opening without permission to play", async () => {
+  const dom = new JSDOM('<div id="root"></div>');
+  const saved = new Map(["window", "document", "IS_REACT_ACT_ENVIRONMENT"].map(key => [key, Object.getOwnPropertyDescriptor(globalThis, key)]));
+  for (const [key, value] of Object.entries({ window: dom.window, document: dom.window.document, IS_REACT_ACT_ENVIRONMENT: true })) Object.defineProperty(globalThis, key, { configurable: true, value });
+  const observers = [];
+  class Observer { constructor(callback, options) { this.callback=callback; this.options=options; observers.push(this); } observe() {} disconnect() {} }
+  const source = readFileSync(new URL("../components/FeatureShowcase.tsx", import.meta.url), "utf8");
+  const component = source.slice(source.indexOf("export const FEATURE_SHOWCASE")).replaceAll("export const", "const").replaceAll("export function", "function");
+  const context = { React, useRef: React.useRef, useState: React.useState, useEffect: React.useEffect, useLayoutEffect: React.useLayoutEffect, window: dom.window, document: dom.window.document, IntersectionObserver: Observer, styles: {}, GuideLanyard:()=>null, ShowcaseRecording: props=>React.createElement('video',{'data-warm':props.warm,'data-playing':props.playing}) };
+  vm.runInNewContext(ts.transpileModule(component + "\nglobalThis.Showcase=FeatureShowcase;", { compilerOptions: { jsx: ts.JsxEmit.React, target: ts.ScriptTarget.ES2020 } }).outputText, context);
+  const host=dom.window.document.getElementById('root'), root=createRoot(host);
+  const render=(enabled,prepareEnabled=true)=>act(async()=>root.render(React.createElement(context.Showcase,{enabled,prepareEnabled,sectionRef:{current:null},motionEnabled:true,onGuide(){}})));
+  try {
+    await render(false,false);
+    assert.equal(observers.length,0,"unknown identity does not preload guest media");
+    await render(false,true);
+    const warmer=observers.find(o=>o.options?.rootMargin);
+    assert.ok(warmer,'opening does not gate nearby resource preparation');
+    await act(async()=>warmer.callback([{isIntersecting:true}]));
+    assert.equal(host.querySelector('video').dataset.warm,'true');
+    assert.equal(host.querySelector('video').dataset.playing,'false');
+    await render(true);
+    await act(async()=>observers.find(o=>o.options?.threshold===0).callback([{isIntersecting:true}]));
+    // jsdom is hidden by default: visibility remains a separate playback gate.
+    assert.equal(host.querySelector('video').dataset.warm,'true');
+  } finally {
+    await act(async()=>root.unmount());dom.window.close();
+    for(const [key,descriptor] of saved){if(descriptor)Object.defineProperty(globalThis,key,descriptor);else Reflect.deleteProperty(globalThis,key);}
+  }
+});
