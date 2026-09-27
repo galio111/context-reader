@@ -1,4 +1,5 @@
 "use client";
+import { cetSubmitPolicy, type CetSubmitCommand } from "@/lib/cetSubmitPolicy";
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type ComponentProps, type ReactNode } from "react";
 import { CetOptionList, CetSelect } from "./CetSelect";
@@ -598,12 +599,18 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
     <details className="cet-source-info"><summary>资料信息</summary><p>真题来源：{paper.source}</p></details>
   </div>;
 
-  const questionActions: QuestionAction[] = [];
-  if(activity?.purpose==='practice'&&activity.status==='in_progress') {
-    if(!sectionResult)questionActions.push({id:'submit-section',label:'提交本篇',disabled:busy||model.mismatch,invoke:()=>setSheet('提交本篇'),className:'cet-submit-passage'});
-    if(activeSectionIndex===scope.length-1)questionActions.push({id:'submit-all',label:'提交全部',disabled:busy||model.mismatch,invoke:submitAll,className:'cet-submit-passage'});
-  }
-  if(activity?.purpose==='self_test'&&activity.status==='in_progress'&&activeSectionIndex===scope.length-1)questionActions.push({id:'submit-test',label:'提交自测',disabled:busy||model.mismatch,invoke:()=>setSheet('提交自测'),className:'cet-submit-passage'});
+  const submitPolicy = cetSubmitPolicy({ purpose: activity?.purpose || "practice", status: activity?.status || "in_progress", sectionId: activity ? activity.sectionId : entry.sectionId, sectionIds: scopeIds, activeSectionId: section.id, finalized: Boolean(sectionResult), mismatch: model.mismatch });
+  const invokeSubmit = (command: CetSubmitCommand) => {
+    if (command === "submit_all") submitAll();
+    else setSheet(command === "passage_submit" ? "提交本篇" : "提交自测");
+  };
+  const questionActions: QuestionAction[] = activity ? submitPolicy.questions.map(command => ({
+    id: command === "passage_submit" ? "submit-section" : command === "submit_all" ? "submit-all" : "submit-test",
+    label: command === "passage_submit" ? "提交本篇" : command === "submit_all" ? "提交全部" : "提交自测",
+    disabled: busy || model.mismatch,
+    invoke: () => invokeSubmit(command),
+    className: "cet-submit-passage",
+  })) : [];
   const renderNavigation = () => (activity?.sectionId ? <nav className="cet-bottom-nav" aria-label="同题型路线">
         {previousUnit && <button disabled={busy||routeLoading||Boolean(routeError)} onClick={()=>void navigateTypeUnit(previousUnit)}>← 上一题</button>}
         <span title="同级别、同题型、同目标的全部可访问年份">{routeLoading?'正在读取同题型目录…':`${routePosition} / ${routeUnits.length} 篇`}</span>
@@ -655,7 +662,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
         if(current.current)try{touchTrail(current.current,paper,"assistance_shown");}catch{setNotice("路线记录尚未保存，请保留页面重试。");}
         try { saveCetExposure(exposureFor(section, paper.id, owner.current, "assist", `assist:${activity?.id || directSessionId.current}:${section.id}`, activity?.id)); } catch { /* Reading tools remain usable if exposure persistence is temporarily unavailable. */ }
       },
-      toolbar: <>{shown && <PillNavAction className={toolbarStyles.action} label={`答题卡 ${answered}/${model.total}`} onClick={() => setSheet("答题卡")} />}{(testing || paused) && <PillNavAction className={toolbarStyles.action} label="提交自测" onClick={() => setSheet("提交自测")} />}{shown && activity?.purpose === "practice" && !activity.legacy && <PillNavAction className={toolbarStyles.action} label={activity.status === "submitted" ? "全部已提交" : activity.status === "ended" ? "练习已结束" : "提交全部"} disabled={busy || activity.status !== "in_progress" || model.mismatch} onClick={submitAll} />}</>,
+      toolbar: <>{shown && <PillNavAction className={toolbarStyles.action} label={`答题卡 ${answered}/${model.total}`} onClick={() => setSheet("答题卡")} />}{(testing || paused) && <PillNavAction className={toolbarStyles.action} label="提交自测" onClick={() => setSheet("提交自测")} />}{shown && activity?.purpose === "practice" && !activity.legacy && <PillNavAction className={toolbarStyles.action} label={submitPolicy.toolbar.label} disabled={busy || submitPolicy.toolbar.disabled} onClick={() => invokeSubmit(submitPolicy.toolbar.command)} />}</>,
       rail: <div className={`${toolbarStyles.railActions} cet-rail`}><button onClick={() => setSheet("选择真题")}><span>选择真题</span><small>按试卷或题型选择</small></button><button onClick={openGlobalHistory}><span>练习历史</span><small>继续或回看</small></button>{shown && <button onClick={() => setSheet("重新练习")}><span>重新练习</span><small>保留本轮记录</small></button>}</div>,
       timer,
 

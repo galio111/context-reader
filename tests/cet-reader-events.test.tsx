@@ -157,6 +157,26 @@ test("real CET events preserve drafts, freeze one passage and start an independe
     assert.ok(selfTest.knownPriorSectionIds.length);
     assert.ok(ui.getByRole("button", { name: "第 26 空，未作答" }));
     assert.equal(ui.queryByRole("link", { name: /参考答案/ }), null);
+    cleanup();
+    for (const singleSection of paper.sections) {
+      const singleUi = render(<CetReader {...props} entry={{ paperId: paper.id, sectionId: singleSection.id }} />);
+      await user.click(await singleUi.findByRole("button", { name: "开始练习" }));
+      await waitFor(() => assert.ok(singleUi.getAllByRole("button", { name: "提交本篇" }).length >= 2));
+      assert.equal(singleUi.queryByRole("button", { name: "提交全部" }), null);
+      const beforeSingle = readCetActivities();
+      const activeSingle = beforeSingle.find(a => a.sectionId === singleSection.id && a.status === "in_progress")!;
+      const unaffected = JSON.stringify(beforeSingle.filter(a => a.id !== activeSingle.id));
+      await user.click(singleUi.getAllByRole("button", { name: "提交本篇" })[0]);
+      await user.click(singleUi.getByRole("button", { name: "返回继续" }));
+      assert.equal(readCetActivities().find(a => a.id === activeSingle.id)!.status, "in_progress");
+      await user.click(singleUi.getAllByRole("button", { name: "提交本篇" })[0]);
+      await user.click(singleUi.getByRole("button", { name: "提交并查看解析" }));
+      await waitFor(() => assert.ok(singleUi.getByRole("button", { name: "本篇已提交" })));
+      const saved = readCetActivities().find(a => a.id === activeSingle.id)!;
+      assert.deepEqual(Object.values(saved.finalizations).map(f => [f.reason, f.sectionId]), [["passage_submit", singleSection.id]]);
+      assert.equal(JSON.stringify(readCetActivities().filter(a => a.id !== activeSingle.id)), unaffected);
+      cleanup();
+    }
   } finally {
     cleanup(); globalThis.fetch = originalFetch;
     const storage = getLearningStorage(); if (isLearningStorage(storage)) storage.close();
