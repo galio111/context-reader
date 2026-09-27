@@ -7,6 +7,7 @@ let network = 0;
 let decoding = 0;
 const decodeQueue: Array<() => void> = [];
 let elapsedEstimate = 2200; // Initial direct-network cover sample: 1.9–2.3 s.
+const elapsedSamples = [elapsedEstimate];
 let velocity = 0;
 let lastY = 0;
 let lastTime = 0;
@@ -77,7 +78,12 @@ function pump() {
       }
       nextDecode(() => {
         image.decode().then(() => {
-          elapsedEstimate = elapsedEstimate * .75 + (performance.now() - start) * .25;
+          // A few fast files must not erase the observed tail before later rows
+          // enter. Keep a bounded recent p90, rather than an average of latencies.
+          elapsedSamples.push(performance.now() - start);
+          if (elapsedSamples.length > 16) elapsedSamples.shift();
+          const sorted = [...elapsedSamples].sort((a, b) => a - b);
+          elapsedEstimate = sorted[Math.ceil(sorted.length * .9) - 1];
           decoded.delete(key); decoded.set(key, image);
           while (decoded.size > 24) decoded.delete(decoded.keys().next().value!);
           if (!job.cancelled) job.done({ src: job.src, srcSet: job.srcSet, sizes: job.sizes });
