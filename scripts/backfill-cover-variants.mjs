@@ -18,8 +18,21 @@ const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
 if (!base || !key) throw new Error("Run with the active mainland app environment");
 const headers = { apikey: key, Authorization: `Bearer ${key}` };
 const bucket = "public-article-covers";
+// Only reads and immutable, x-upsert:false uploads use this bounded retry.
+async function fetchBounded(url, init) {
+  for (let attempt = 0; ; attempt++) {
+    try {
+      const response = await fetch(url, { ...init, signal: AbortSignal.timeout(30_000) });
+      if (response.status < 500 || attempt === 2) return response;
+      await response.body?.cancel();
+    } catch (error) {
+      if (attempt === 2) throw error;
+    }
+    await new Promise(resolve => setTimeout(resolve, 250 * (attempt + 1)));
+  }
+}
 async function request(path, init = {}) {
-  const response = await fetch(`${base}${path}`, { ...init, signal: AbortSignal.timeout(30_000), headers: { ...headers, ...init.headers } });
+  const response = await fetchBounded(`${base}${path}`, { ...init, signal: AbortSignal.timeout(30_000), headers: { ...headers, ...init.headers } });
   if (!response.ok) throw new Error(`Storage/database HTTP ${response.status}`);
   return response;
 }
@@ -46,11 +59,12 @@ for (const row of rows) {
     const path = `variants/v1/${hash.slice(0, 2)}/${hash}.webp`;
     hashes.push({ hash, bytes: item.bytes.length, width: item.width, height: item.height });
     if (apply) {
-    const response = await fetch(`${base}/storage/v1/object/${bucket}/${path}`, {
+    const response = await fetchBounded(`${base}/storage/v1/object/${bucket}/${path}`, {
       method: "POST", headers: { ...headers, "Content-Type": "image/webp", "Cache-Control": "max-age=31536000", "x-upsert": "false" },
       body: item.bytes, signal: AbortSignal.timeout(30_000),
     });
-    if (!response.ok && !/already exists|duplicate|resource exists/i.test(await response.text())) throw new Error(`Upload HTTP ${response.status}`);
+    const uploadReply = await response.text(); // Release every response body, including success.
+    if (!response.ok && !/already exists|duplicate|resource exists/i.test(uploadReply)) throw new Error(`Upload HTTP ${response.status}`);
     }
     items.push({ url: `${publicBase}/storage/v1/object/public/${bucket}/${path}`, width: item.width, height: item.height });
   }
