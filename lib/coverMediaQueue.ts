@@ -23,7 +23,10 @@ function finishDecode() {
 }
 function configureObserver() {
   const h = window.innerHeight;
-  const nextMargin = Math.round(Math.min(3 * h, Math.max(2 * h, Math.abs(velocity) * elapsedEstimate + h)) / 200) * 200;
+  // The first ordinary row sits beyond the hero and showcase. Start its bounded
+  // requests during the existing opening, not only after the first scroll.
+  const lead = window.scrollY === 0 ? 3 * h : Math.max(2 * h, Math.abs(velocity) * elapsedEstimate + h);
+  const nextMargin = Math.min(3 * h, Math.round(lead / 200) * 200);
   if (observer && nextMargin === margin) return;
   margin = nextMargin;
   observer?.disconnect();

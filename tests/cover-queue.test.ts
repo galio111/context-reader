@@ -20,16 +20,22 @@ test("actual image assignments obey network/decode limits and subscriber cleanup
     }
   }
   class Observer {
-    constructor(private callback: (entries: Array<{target: unknown; isIntersecting: boolean}>) => void) {}
-    observe(target: unknown) { this.callback([{ target, isIntersecting: true }]); }
+    constructor(private callback: (entries: Array<{target: unknown; isIntersecting: boolean}>) => void, private options: { rootMargin: string }) {}
+    observe(target: HTMLElement) {
+      const box = target.getBoundingClientRect();
+      this.callback([{ target, isIntersecting: box.top < 900 + parseInt(this.options.rootMargin) }]);
+    }
     unobserve() {} disconnect() {}
   }
   const windowMock = { innerHeight: 900, scrollY: 0, devicePixelRatio: 2, matchMedia: () => ({ matches: false }), addEventListener() {}, removeEventListener() {}, setTimeout: (callback: () => void, delay: number) => { timeouts.push(callback); return setTimeout(callback, delay); }, };
   for (const [key, value] of Object.entries({ window: windowMock, Image: FakeImage, IntersectionObserver: Observer })) Object.defineProperty(globalThis, key, { configurable: true, value });
   const cleanups: Array<() => void> = []; const done: number[] = [];
   try {
-    for (let i = 0; i < 10; i++) cleanups.push(prepareCover({ getBoundingClientRect: () => ({ top: i * 100, bottom: i * 100 + 100 }) } as HTMLElement, {
+    for (let i = 0; i < 10; i++) cleanups.push(prepareCover({ getBoundingClientRect: () => ({ top: 3000 + i * 50, bottom: 3100 + i * 50 }) } as HTMLElement, {
       src: `/cover-${i}.webp`, srcSet: `/cover-${i}.webp 1000w`, sizes: "500px", done: () => done.push(i),
+    }));
+    cleanups.push(prepareCover({ getBoundingClientRect: () => ({ top: 5000, bottom: 5100 }) } as HTMLElement, {
+      src: "/distant.webp", sizes: "500px", done: () => assert.fail("distant media must remain unrequested"),
     }));
     assert.equal(images.length, 4); cleanups[0]();
     timeouts[1](); // A stalled transfer must end before another takes its slot.
