@@ -34,7 +34,8 @@ import type { PublicArticle } from "@/types/publicArticle";
 import type { VocabularyEntry } from "@/types/vocabulary";
 import type { TemporaryReading } from "@/lib/temporaryReading";
 import type { BallpitHandle } from "@/components/Ballpit";
-const Ballpit = dynamic(() => import("@/components/Ballpit"), { ssr: false });
+const loadBallpit = () => import("@/components/Ballpit");
+const Ballpit = dynamic(loadBallpit, { ssr: false });
 import { FallingWordOpening } from "@/components/FallingWordOpening";
 import {
   emptyRecommendationPreferences,
@@ -315,7 +316,8 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const importRef = useRef<HTMLElement | null>(null);
   const featureShowcaseRef = useRef<HTMLElement | null>(null);
   useEffect(() => {
-    if (memberHome || journeyPending || guestBallpitStarted || !(guestOpeningComplete || props.skipMemberOpening)) return;
+    if (memberHome || journeyPending || guestBallpitStarted) return;
+    void loadBallpit().catch(() => {});
     const cover = coverStageRef.current;
     if (!cover) return;
     const observer = new IntersectionObserver(([entry]) => {
@@ -323,7 +325,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
     });
     observer.observe(cover);
     return () => observer.disconnect();
-  }, [guestBallpitStarted, guestOpeningComplete, journeyPending, memberHome, props.skipMemberOpening]);
+  }, [guestBallpitStarted, journeyPending, memberHome]);
   const closingRef = useRef<HTMLElement | null>(null);
   const coverProgressRef = useRef(0);
   const memberOpeningFrameRef = useRef(0);
@@ -1187,6 +1189,12 @@ export function HomeRedesign(props: HomeRedesignProps) {
             initialLayout="right"
             controllerRef={ballpitControllerRef}
             onReady={() => {
+              // Deferred modules must use the current geometry before the first paint.
+              if (document.body.style.position !== "fixed") {
+                const stage = coverStageRef.current?.getBoundingClientRect();
+                const showcase = featureShowcaseRef.current?.getBoundingClientRect();
+                if (stage && showcase) coverProgressRef.current = Math.min(1, Math.max(0, -stage.top / Math.max(1, showcase.top - stage.top)));
+              }
               const departureInput = Math.min(1, Math.max(0, (coverProgressRef.current - 0.04) / 0.96));
               ballpitControllerRef.current?.setDepartureProgress(departureInput);
             }}

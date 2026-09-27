@@ -8,6 +8,7 @@ import { generateCoverVariants } from "../lib/coverVariants.mjs";
 const args = process.argv.slice(2);
 const value = (name, fallback) => args[args.indexOf(name) + 1] && args.includes(name) ? args[args.indexOf(name) + 1] : fallback;
 const apply = args.includes("--apply");
+const analyze = args.includes("--analyze");
 const limit = Number(value("--limit", "10"));
 const after = value("--after", "");
 if (!Number.isInteger(limit) || limit < 1 || limit > 25 || (after && !/^[a-f0-9-]{36}$/.test(after))) throw new Error("Invalid bounded batch");
@@ -34,32 +35,45 @@ for (const row of rows) {
   const url = new URL(sourceUrl);
   const prefix = `/storage/v1/object/public/${bucket}/`;
   if (!url.pathname.startsWith(prefix) || url.origin !== new URL(publicBase).origin) throw new Error(`Noncanonical source ${row.id}`);
-  if (!apply) { console.log(JSON.stringify({ id: row.id, status: "planned", sourceUrl })); continue; }
+  if (!apply && !analyze) { console.log(JSON.stringify({ id: row.id, status: "planned", sourceUrl })); continue; }
   const bytes = new Uint8Array(await (await request(`/storage/v1/object/${bucket}/${url.pathname.slice(prefix.length)}`)).arrayBuffer());
   if (bytes.length > 5 * 1024 * 1024) throw new Error(`Oversize source ${row.id}`);
   const generated = await generateCoverVariants(bytes);
   const items = [];
+  const hashes = [];
   for (const item of generated.items) {
     const hash = createHash("sha256").update(item.bytes).digest("hex");
     const path = `variants/v1/${hash.slice(0, 2)}/${hash}.webp`;
+    hashes.push({ hash, bytes: item.bytes.length, width: item.width, height: item.height });
+    if (apply) {
     const response = await fetch(`${base}/storage/v1/object/${bucket}/${path}`, {
       method: "POST", headers: { ...headers, "Content-Type": "image/webp", "Cache-Control": "max-age=31536000", "x-upsert": "false" },
       body: item.bytes, signal: AbortSignal.timeout(30_000),
     });
     if (!response.ok && !/already exists|duplicate|resource exists/i.test(await response.text())) throw new Error(`Upload HTTP ${response.status}`);
+    }
     items.push({ url: `${publicBase}/storage/v1/object/public/${bucket}/${path}`, width: item.width, height: item.height });
   }
   items.push({ url: sourceUrl, width: generated.width, height: generated.height });
-  // Backup before CAS. Do not rewrite article content, timestamps or publication order.
+  if (!apply) {
+    console.log(JSON.stringify({ id: row.id, status: "analyzed-no-writes", sourceHash: createHash("sha256").update(bytes).digest("hex"), sourceBytes: bytes.length, variants: hashes }));
+    continue;
+  }
+  // The production timestamp trigger would reorder the catalogue on REST PATCH.
+  // Stage a small, reviewable SQL transaction instead; no DB mutation in this script.
   await appendFile(resolve(backupDir, "before.jsonl"), JSON.stringify(row) + "\n", { mode: 0o600 });
-  const importedArticle = { ...row.imported_article, recommendation: { ...recommendation, coverVariants: {
-    version: 1, sourceUrl, width: generated.width, height: generated.height, items,
-  } } };
-  const changed = await (await request(`/rest/v1/public_articles?id=eq.${row.id}&updated_at=eq.${encodeURIComponent(row.updated_at)}`, {
-    method: "PATCH", headers: { "Content-Type": "application/json", Prefer: "return=representation" },
-    body: JSON.stringify({ imported_article: importedArticle }),
-  })).json();
-  const status = changed.length === 1 ? "updated" : "conflict-retry-later";
+  const variants = { version: 1, sourceUrl, width: generated.width, height: generated.height, items };
+  const literal = value => "'" + String(value).replaceAll("'", "''") + "'";
+  const condition = `id=${literal(row.id)}::uuid AND updated_at=${literal(row.updated_at)}::timestamptz`;
+  const transaction = update => `BEGIN;\nSET LOCAL lock_timeout='3s';\nLOCK TABLE public.public_articles IN SHARE ROW EXCLUSIVE MODE;\nALTER TABLE public.public_articles DISABLE TRIGGER public_articles_set_updated_at;\n${update};\nALTER TABLE public.public_articles ENABLE TRIGGER public_articles_set_updated_at;\nCOMMIT;\n`;
+  const json = literal(JSON.stringify(variants)) + "::jsonb";
+  const sql = transaction(`UPDATE public.public_articles SET imported_article=jsonb_set(imported_article, '{recommendation,coverVariants}', ${json}) WHERE ${condition} RETURNING id`);
+  const old = recommendation.coverVariants;
+  const restore = old ? `jsonb_set(imported_article, '{recommendation,coverVariants}', ${literal(JSON.stringify(old))}::jsonb)` : "imported_article #- '{recommendation,coverVariants}'";
+  const rollback = transaction(`UPDATE public.public_articles SET imported_article=${restore} WHERE ${condition} AND imported_article#>'{recommendation,coverVariants}'=${json} RETURNING id`);
+  await appendFile(resolve(backupDir, "apply.sql"), sql, { mode: 0o600 });
+  await appendFile(resolve(backupDir, "rollback.sql"), rollback, { mode: 0o600 });
+  const status = "uploaded-sql-staged-not-applied";
   await appendFile(resolve(backupDir, "progress.jsonl"), JSON.stringify({ id: row.id, status, at: new Date().toISOString() }) + "\n", { mode: 0o600 });
   console.log(JSON.stringify({ id: row.id, status, variants: items.length }));
 }

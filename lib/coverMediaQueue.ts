@@ -6,7 +6,7 @@ let observer: IntersectionObserver | undefined;
 let network = 0;
 let decoding = 0;
 const decodeQueue: Array<() => void> = [];
-let elapsedEstimate = 700;
+let elapsedEstimate = 2200; // Initial direct-network cover sample: 1.9–2.3 s.
 let velocity = 0;
 let lastY = 0;
 let lastTime = 0;
@@ -23,7 +23,7 @@ function finishDecode() {
 }
 function configureObserver() {
   const h = window.innerHeight;
-  const nextMargin = Math.round(Math.min(3 * h, Math.max(h, Math.abs(velocity) * elapsedEstimate + h)) / 200) * 200;
+  const nextMargin = Math.round(Math.min(3 * h, Math.max(2 * h, Math.abs(velocity) * elapsedEstimate + h)) / 200) * 200;
   if (observer && nextMargin === margin) return;
   margin = nextMargin;
   observer?.disconnect();

@@ -668,6 +668,7 @@ class BallpitScene {
   private isIntersecting = true;
   private isAnimating = false;
   private disposed = false;
+  private initialized = false;
   private readonly debugPerformance = typeof window !== "undefined"
     && new URLSearchParams(window.location.search).has("perf");
   private performanceSampleStart = 0;
@@ -728,7 +729,14 @@ class BallpitScene {
     }
 
     this.resize();
-    this.start();
+  }
+
+  /** Caller binds the controller and applies the current scroll phase before any paint. */
+  activate() {
+    this.initialized = true;
+    this.spheres.update(0);
+    this.renderer.render(this.scene, this.camera);
+    if (this.isIntersecting && !document.hidden) this.start();
   }
 
   private readonly handleResize = () => {
@@ -815,11 +823,11 @@ class BallpitScene {
     const pixelBudgetRatio = Math.sqrt(MAX_RENDER_PIXELS / Math.max(1, width * height));
     this.renderer.setPixelRatio(Math.max(0.8, Math.min(window.devicePixelRatio || 1, 1, pixelBudgetRatio)));
     this.renderer.setSize(width, height, false);
-    this.renderer.render(this.scene, this.camera);
+    if (this.initialized) this.renderer.render(this.scene, this.camera);
   }
 
   private start() {
-    if (this.isAnimating || this.disposed) return;
+    if (!this.initialized || this.spheres.departureProgress >= 0.985 || this.isAnimating || this.disposed) return;
 
     this.isAnimating = true;
     this.timer.reset();
@@ -884,7 +892,7 @@ class BallpitScene {
     this.spheres.departureProgress = next;
     this.canvas.style.visibility = next >= 0.985 ? "hidden" : "visible";
     if (next >= 0.985) {
-      if (previous < 0.985) {
+      if (this.initialized && previous < 0.985) {
         this.spheres.update(0);
         this.renderer.render(this.scene, this.camera);
       }
@@ -1009,6 +1017,7 @@ export default function Ballpit({
           };
         }
         onReadyRef.current?.();
+        ballpitScene.activate();
       } catch (error) {
         canvas.style.display = "none";
         console.info("Ballpit is using its static cover fallback.", error);

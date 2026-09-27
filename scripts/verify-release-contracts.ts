@@ -199,8 +199,11 @@ requireSource("components/ReaderView.tsx", [
 requireSource("components/HomeRedesign.tsx", [
   'useArticleReveal(articleGridRef, styles.articleCard, resourceTab, `${activeCategory}\\0${displayArticleMotionKey}`);',
   "motion3dEnabled={recommendationMotionEnabled}",
-  'data-cover-preview="true"',
+  '<ArticleCover article={item}',
 ]);
+requireSource("components/ArticleCover.tsx", ["prepareCover", "srcSet=", "onPointerMove={updatePointer}", "onPointerLeave={resetPointer}", "TEXT EDITION"]);
+assert.doesNotMatch(source("components/ArticleCover.tsx"), /data-cover-preview|<i>READING<\/i>/,
+  "normal photos must use the clear source without a blurry/text replacement");
 requireSource("components/HomeRedesign.module.css", [
   ".articleCard[data-motion-ready]:not([data-visible]) .coverSurface { transform: translateZ(0) scale(.9); }",
   '.articleCard[data-visible="true"] .coverSurface { transform: translateZ(0) scale(1); }',
