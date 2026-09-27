@@ -1,0 +1,29 @@
+{
+  "runs": [
+    {
+      "file": "e-deep-fast-before",
+      "samples": 375,
+      "missSamples": 375,
+      "finishedImages": 99,
+      "bytes": 7270896,
+      "sampleSeconds": 19.995400000002235,
+      "observedMbps": 2.909027476319228,
+      "maxObservedInflight": 4,
+      "requestP50Ms": 709.3239999994694,
+      "requestP95Ms": 1503.1969999981811
+    },
+    {
+      "file": "e-deep-fast-after01",
+      "samples": 374,
+      "missSamples": 374,
+      "finishedImages": 102,
+      "bytes": 7389489,
+      "sampleSeconds": 19.96639999999851,
+      "observedMbps": 2.9607696930846026,
+      "maxObservedInflight": 12,
+      "requestP50Ms": 2253.6680000011984,
+      "requestP95Ms": 3267.1789999985776
+    }
+  ],
+  "limits": "HTTP cache disabled and SW bypass; authenticated existing profile, no N1 throttle. 500 real cards. Starts at y=5000 rather than warm full page. Measured throughput aligns with documented 3Mbps server plan; provider live billing configuration not read. Expanded concurrency experiment rejected and source reverted."
+}

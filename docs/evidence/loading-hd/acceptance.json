@@ -1,0 +1,929 @@
+{
+  "basis": "优化.pdf + 当前代码保留规则",
+  "baseline": "13a94b8bb5eaad70f011660bc234baea50005573",
+  "status_policy": "所有初始为not_run；只凭命令退出码不能填写视觉pass。允许pass/fail/blocked/partial，不把skip计pass。",
+  "tests": [
+    {
+      "id": "T01",
+      "requirement": "R01",
+      "action": "按题型进入仔细阅读练习，检查顶部、正文题尾、右侧题尾。",
+      "expected": "三处只出现适合单篇的提交本篇；正文和右侧不含提交全部。",
+      "status": "pass",
+      "evidence": [
+        "evidence/e-single-submit-dock.png",
+        "evidence/e-single-submitted-dom.txt"
+      ],
+      "notes": "Windows Chrome、本地正式构建：顶部/正文/侧窗均提交本篇，无提交全部。"
+    },
+    {
+      "id": "T02",
+      "requirement": "R01",
+      "action": "同样进入单篇长篇匹配与单篇选词填空。",
+      "expected": "匹配两处规则一致；填空仍仅原文作答，不重新出现题窗。",
+      "status": "partial",
+      "evidence": [
+        "evidence/test-logs/phase-e-cet.log",
+        "evidence/e-matching-practice-dom.txt",
+        "evidence/e-cloze-practice-dom.txt",
+        "evidence/e-cloze-practice.png"
+      ],
+      "notes": "Chrome真实匹配顶部/正文/右侧提交本篇，填空无题窗，匹配答案同步；Edge仍待接入。"
+    },
+    {
+      "id": "T03",
+      "requirement": "R01",
+      "action": "单篇有未答题时从顶部提交，取消，再从右窗提交。",
+      "expected": "未答确认范围正确，取消不变状态；成功只终结当前篇。",
+      "status": "pass",
+      "evidence": [
+        "evidence/e-single-submitted.png",
+        "evidence/e-single-submitted-dom.txt"
+      ],
+      "notes": "顶部5题未答确认取消后继续，侧窗确认成功；解析出现，顶部本篇已提交禁用。其他记录隔离另见组件测试，不冒充双端浏览器。"
+    },
+    {
+      "id": "T04",
+      "requirement": "R01",
+      "action": "单篇按题型导航已有多个已访问题组，提交当前篇。",
+      "expected": "只写当前activity/题组；路线其他篇答案和完成状态不变。",
+      "status": "partial",
+      "evidence": [
+        "evidence/test-logs/phase-e-cet.log"
+      ],
+      "notes": "固定scope、同题型路线和实际组件提交事件通过；多已访问题组真实浏览器流程待补。"
+    },
+    {
+      "id": "T05",
+      "requirement": "R01",
+      "action": "整套练习提交第一篇，再提交全部。",
+      "expected": "原第一篇快照逐字段不变，其余逐篇保存，总分/未答口径正确。",
+      "status": "partial",
+      "evidence": [
+        "evidence/test-logs/phase-e-cet.log"
+      ],
+      "notes": "submit-all测试逐字段保留既有快照/独立ID/晚到草稿；整套浏览器复测待补。"
+    },
+    {
+      "id": "T06",
+      "requirement": "R01",
+      "action": "单篇自测，暂停、恢复、手动提交及到时。",
+      "expected": "没有提交全部；仍按自测终结，未变成带即时反馈的练习。",
+      "status": "partial",
+      "evidence": [
+        "evidence/test-logs/phase-e-cet.log",
+        "evidence/e-selftest-paused.txt",
+        "evidence/e-selftest-expiry-observation.txt",
+        "evidence/e-selftest-expired.png"
+      ],
+      "notes": "Chrome真实一分钟自测暂停遮题、继续、到时自动固定答卷并恢复工具；手动提交自测及Edge仍待。"
+    },
+    {
+      "id": "T07",
+      "requirement": "R01",
+      "action": "注入本机flush失败并连续点击两处提交，恢复后重试。",
+      "expected": "未保存不揭答案；共用提交锁/pending ID，仅一份相同提交意图结果。",
+      "status": "partial",
+      "evidence": [
+        "evidence/test-logs/phase-e-cet.log"
+      ],
+      "notes": "实际组件事件及存储失败/提交包重放测试通过；尚未浏览器注入flush失败。"
+    },
+    {
+      "id": "T08",
+      "requirement": "R01",
+      "action": "提交后重开历史与新建练习，执行双端晚到草稿同步。",
+      "expected": "提交快照不变，新建独立ID，旧草稿不覆盖分数。",
+      "status": "partial",
+      "evidence": [
+        "evidence/test-logs/phase-e-cet.log"
+      ],
+      "notes": "真实IndexedDB和protocol-2双设备同步回归通过；不是双独立浏览器端到端证据。"
+    },
+    {
+      "id": "T09",
+      "requirement": "R02/R03",
+      "action": "全新无Cookie/SW的真实游客打开首页并滚动到所有当前展示的外刊。",
+      "expected": "不请求全量/api/public-articles目录、全库base64或远处会员图片；有限卡片正常可用。",
+      "status": "partial",
+      "evidence": [
+        "evidence/e-isolated-after-n1-network01.json"
+      ],
+      "notes": "既有游客站点、HTTP缓存关闭/SW绕过：请求列表无完整目录。G0新隔离上下文仍未提供。"
+    },
+    {
+      "id": "T10",
+      "requirement": "R02/R03",
+      "action": "游客滚动时监视页尾按钮，点击登录。",
+      "expected": "始终为登录查看更多并可用，真实登录打开；无准备完整目录状态。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T11",
+      "requirement": "R02/R03",
+      "action": "游客切换全部外刊分类，检查卡片、主推、顺序。",
+      "expected": "与原分类橱窗口径一致；不是只保留推荐分类，不误请求全库。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T12",
+      "requirement": "R02/R03",
+      "action": "游客选择不同水平和兴趣，核对完整白名单排名样例。",
+      "expected": "有限预览来自正确完整候选排序，不只在最初bootstrap子集排序。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T13",
+      "requirement": "R02/R03",
+      "action": "改变白名单、默认主推或撤下一篇文章，在验证环境读取新版本。",
+      "expected": "缓存失效/版本更新正确，已撤下不被全库存量回填；私有草稿不公开。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T14",
+      "requirement": "R02/R03",
+      "action": "已登录账号使用preview=guest，同时记录真实权限和界面分支。",
+      "expected": "展示态与鉴权态可解释；不因视觉预览让受保护API放行或显示错误的等待控件。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T15",
+      "requirement": "R02/R03",
+      "action": "游客在当前外刊位置登录、关闭登录、返回同一位置。",
+      "expected": "已显示卡片、滚动及动效过程不突然重置；权限变更后数据请求正确分层。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T16",
+      "requirement": "R02/R03",
+      "action": "会员初次点击显示更多，后续页注入延迟。",
+      "expected": "立即展现已准备部分；后续自然追加，不等整库图片或全部请求完成。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T17",
+      "requirement": "R02/R03",
+      "action": "会员只滚动前5屏但目录含大量文章，检查请求清单。",
+      "expected": "只获取有限邻近媒体，不并发请求所有高清图；完整内容仍可继续访问。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T18",
+      "requirement": "R02/R03",
+      "action": "会员搜索一个尚未被渲染的末尾文章。",
+      "expected": "能检索并打开，不能只搜索已挂载项目。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T19",
+      "requirement": "R02/R03",
+      "action": "完整元数据后台到达时，保持在某张卡片上并打开标题摘要。",
+      "expected": "同一ID卡片不重新挂载、跳位或全体重播动画；摘要/选中状态合理保留。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T20",
+      "requirement": "R02/R03",
+      "action": "记录序列化/压缩字节与缓存命中，分别执行当前版本与修复版。",
+      "expected": "新元数据不含全库内联图片；报告实测差异，不凭缓存上限推断命中。",
+      "status": "pass",
+      "evidence": [
+        "evidence/e-after-variants-catalogue.json",
+        "evidence/before-catalogue.json",
+        "evidence/e-real-catalogue-cache.json"
+      ],
+      "notes": "702条完整元数据，补齐700篇变体后约1.409MB，对比旧6.707MB；无内联预览，实际bounded cache calls=1/hit=1/miss=1/join=1/oversized=0。此为资源字节/缓存验收，不等于视觉通过。"
+    },
+    {
+      "id": "T21",
+      "requirement": "R02/R03",
+      "action": "在服务器缓存TTL边界同时发起两个公共目录读取。",
+      "expected": "相同计算去重，有限缓存正常；不新增全站大锁阻塞其他功能。",
+      "status": "partial",
+      "evidence": [
+        "evidence/e-real-catalogue-cache.json",
+        "evidence/test-logs/phase-e-loading.log"
+      ],
+      "notes": "实际目录序列化后并发读取去重一次；TTL边界/服务器两会话运行待补。"
+    },
+    {
+      "id": "T22",
+      "requirement": "R02/R03",
+      "action": "公共预览接口失败或超时，再恢复网络。",
+      "expected": "已有SSR内容和登录入口保留；有界重试/可理解错误，不长时间空白或永远无提示。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T23",
+      "requirement": "R04",
+      "action": "N1冷浏览器首次点击CET页签；从零开始录制点击到首批可交互。",
+      "expected": "正确种子及时展示；目标≤1.2s，无组件→身份→目录的无谓串行等待。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T24",
+      "requirement": "R04",
+      "action": "页签预热后首次切CET，再四级→六级→四级。",
+      "expected": "正确级别首批目标≤300ms，无需二次点击、不显示串级卡片。",
+      "status": "partial",
+      "evidence": [
+        "evidence/e-cet-warm-10.json"
+      ],
+      "notes": "Chrome实际390×844 DPR1暖页签10轮DOM及时恢复；不是N1冷首组成帧。"
+    },
+    {
+      "id": "T25",
+      "requirement": "R04",
+      "action": "在不同响应延迟下连续切换级别和年份。",
+      "expected": "晚返回的旧请求不能覆盖当前key；取消不误取消其他活跃订阅。",
+      "status": "partial",
+      "evidence": [
+        "evidence/test-logs/phase-e-cet.log"
+      ],
+      "notes": "客户端独立取消、owner分区、晚到请求及loader回归通过；真实网络延迟切级别待补。"
+    },
+    {
+      "id": "T26",
+      "requirement": "R04",
+      "action": "从首页和Reader真题选择器先后打开同一目录。",
+      "expected": "可复用正确缓存/请求，关闭一个入口不会毁掉另一个入口。",
+      "status": "partial",
+      "evidence": [
+        "evidence/test-logs/phase-e-cet.log"
+      ],
+      "notes": "共享订阅取消独立、owner/version/level/year缓存测试通过；两真实入口联动待补。"
+    },
+    {
+      "id": "T27",
+      "requirement": "R04",
+      "action": "游客种子与所有脚本资源检查正文/答案/受保护目录。",
+      "expected": "只有允许的有限公开元数据；没有全题库正文或受保护答案。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T28",
+      "requirement": "R04",
+      "action": "游客直接请求不在允许范围的正文；登录后请求；再登出。",
+      "expected": "仍有服务器权限边界；登录响应不进入匿名公共缓存，登出不遗留私有展示。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T29",
+      "requirement": "R04",
+      "action": "会员连续滚动到当前级别最后一份材料，再从题型路线访问末项。",
+      "expected": "与服务端匹配的完整范围一致，不只前12套，不将动态数量写死为149。",
+      "status": "partial",
+      "evidence": [
+        "evidence/test-logs/phase-e-cet.log"
+      ],
+      "notes": "目录loader达到最后元数据记录且不写死总量；会员真实连续浏览待补。"
+    },
+    {
+      "id": "T30",
+      "requirement": "R04",
+      "action": "连续目录后续批次失败然后重试。",
+      "expected": "首批可操作；从正确位置续取，不重复、不从0闪空重载。",
+      "status": "partial",
+      "evidence": [
+        "evidence/test-logs/phase-e-cet.log"
+      ],
+      "notes": "loader失败保留首批、恢复正确cursor且不重复；浏览器故障注入待补。"
+    },
+    {
+      "id": "T31",
+      "requirement": "R04",
+      "action": "检查所有游客目录文案、旧客户端SW刷新后的文案。",
+      "expected": "采用登录可体验近十年及以上的真题；不出现陆续补齐等内部进度；事实无全考次承诺。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T32",
+      "requirement": "R05/R06",
+      "action": "定位录屏3篇文章的预览、实际原图、DOM样式和请求，固定矩形对照。",
+      "expected": "记录真实URL/尺寸/裁切；区分已证明的清晰度变化和未证实根因。",
+      "status": "partial",
+      "evidence": [
+        "evidence/c-variant-pilot.json",
+        "evidence/forest-css-crop.png",
+        "evidence/forest-preview-display.png"
+      ],
+      "notes": "已获取真实1020×776原图及256×192旧预览，构图/清晰度已对照；尚未完整复现录屏内延后位移因果。"
+    },
+    {
+      "id": "T33",
+      "requirement": "R05/R06",
+      "action": "生成同一封面各宽度变体，比较主图焦点坐标与有效可见区域。",
+      "expected": "所有变体构图一致，不额外entropy裁切造成内容位移。",
+      "status": "partial",
+      "evidence": [
+        "evidence/c-variant-pilot.json",
+        "evidence/c-pilot-verification.json"
+      ],
+      "notes": "生成器及首批实图等比、无entropy二次裁切；全量逐图视觉对照未完成。"
+    },
+    {
+      "id": "T34",
+      "requirement": "R05/R06",
+      "action": "在DPR1/2/3及窄/宽视口检查currentSrc、固有像素、实际传输。",
+      "expected": "选择合适清晰档位；sizes属性不是空设；不把256图当最终高清。",
+      "status": "partial",
+      "evidence": [
+        "evidence/e-srcset-desktop.json",
+        "evidence/e-srcset-mobile-dpr3.json"
+      ],
+      "notes": "实际DPR1桌面和DPR3窄视口源选择已核对；DPR2和Edge待补。"
+    },
+    {
+      "id": "T35",
+      "requirement": "R05/R06",
+      "action": "检查有照片、无照片文本版、坏图三类文章。",
+      "expected": "有照片不先展示文字替代；合法文本版保留；真实坏图可恢复并记录。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T36",
+      "requirement": "R05/R06",
+      "action": "N0/N1冷浏览器，以约1屏/秒从首屏滚到游客末行。",
+      "expected": "卡片第一次正常显现已清晰，所有进入/退出效果存在，无灰块/明显糊图。",
+      "status": "fail",
+      "evidence": [
+        "evidence/e-isolated-after-n1-run07.json",
+        "evidence/e-isolated-after-n1-network07.json",
+        "evidence/e-tail-n1-summary.json",
+        "evidence/e-deep-fast-before.json",
+        "evidence/e-deep-fast-before-network.json",
+        "evidence/e-deep-throughput-comparison.json"
+      ],
+      "notes": "完整500篇会员列表持续/较快滚动实际缺图。2屏/秒375/375采样有miss；4并发2.909Mbps、12并发2.961Mbps且延迟上升，无效调整已撤回。首10图零miss不能覆盖此失败。等待资源交付能力方案并重验。"
+    },
+    {
+      "id": "T37",
+      "requirement": "R05/R06",
+      "action": "N0/N1以约2屏/秒、停留后反向滚动，再重复一遍。",
+      "expected": "相同正常路径不出现延后高清替换、丢图或被拆掉的动画。",
+      "status": "fail",
+      "evidence": [
+        "evidence/e-after-n1-fast-run01.json",
+        "evidence/e-network-rule-correction.json",
+        "evidence/e-tail-n1-fast.json",
+        "evidence/e-deep-fast-before.json",
+        "evidence/e-deep-fast-before-network.json",
+        "evidence/e-deep-throughput-comparison.json"
+      ],
+      "notes": "完整500篇会员列表持续/较快滚动实际缺图。2屏/秒375/375采样有miss；4并发2.909Mbps、12并发2.961Mbps且延迟上升，无效调整已撤回。首10图零miss不能覆盖此失败。等待资源交付能力方案并重验。"
+    },
+    {
+      "id": "T38",
+      "requirement": "R05/R06",
+      "action": "会员展开并连续浏览5屏以上，记录网络并发/解码/DOM。",
+      "expected": "有界预取优先可见区域，没有全部资源high/eager或整库预载屏障。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T39",
+      "requirement": "R05/R06",
+      "action": "停在同一屏20秒，鼠标移到空白，视频记录所有卡片。",
+      "expected": "不出现10余秒后一起变清晰/换构图，静态框几何加载前后偏差≤1CSS像素。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T40",
+      "requirement": "R05/R06",
+      "action": "给同一高清图片响应延迟，记录onLoad、decode、显示状态和transform。",
+      "expected": "不会onLoad后重置指针/裁切导致水平跳动；延迟造成miss如实计失败，不靠隐藏绕过。",
+      "status": "partial",
+      "evidence": [
+        "evidence/c-probe-direct.json",
+        "evidence/c-scroll-direct-1screen.json"
+      ],
+      "notes": "已保存首版实际miss并据1.9–2.3秒资源耗时调整有界提前量；最新变体版本高频冷滚尚待执行。"
+    },
+    {
+      "id": "T41",
+      "requirement": "R05/R06",
+      "action": "背景追加元数据与缓存更新时观察已可见图像身份。",
+      "expected": "现有稳定来源不重挂载、不退回预览再变高清；新图片单独进入。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T42",
+      "requirement": "R05/R06",
+      "action": "记录开屏、滚入滚出、3D四角悬停、点击Reader转场的关键帧。",
+      "expected": "与保留基线功能/运动规律相符；不是只剩最后静态图。",
+      "status": "partial",
+      "evidence": [
+        "evidence/e-reader-entry-frames.json",
+        "evidence/e-reader-return-frames.json",
+        "evidence/test-logs/phase-e-cover-tail-media.log"
+      ],
+      "notes": "已采集进入Reader 39帧/返回80帧，实际完成画面与返回位置核对；仍缺整组开屏/退出/四角悬停对照。"
+    },
+    {
+      "id": "T43",
+      "requirement": "R05/R06",
+      "action": "保存/读取文章，返回原卡片位置，再切分类/搜索。",
+      "expected": "既有文章打开、返回定位、分类和摘要不因图片拆分失效。",
+      "status": "partial",
+      "evidence": [
+        "evidence/e-reader-entry-final.png",
+        "evidence/e-reader-return-final.png"
+      ],
+      "notes": "真实完整文章打开及返回同scrollY=2354已验证；保存/分类/搜索组合待补。"
+    },
+    {
+      "id": "T44",
+      "requirement": "R05/R06",
+      "action": "旧封面补变体dry-run、一小批成功、一小批注入失败，再重跑。",
+      "expected": "有输入输出清单与哈希；幂等可恢复，失败保留原图；新发布也自动处理。",
+      "status": "partial",
+      "evidence": [
+        "evidence/c-backfill-summary.json",
+        "evidence/c-pilot-verification.json"
+      ],
+      "notes": "生产700张照片已补齐变体；10篇pilot+后续690篇，1868次后续资源HEAD全部200；逐行验证除coverVariants外内容及updated_at不变。真实超时后恢复成功；新发布完整浏览器流程待补。"
+    },
+    {
+      "id": "T45",
+      "requirement": "R05/R06",
+      "action": "改变同一文章封面后验证缓存更新和旧版本回退。",
+      "expected": "新不可变URL可见；不会长期显示旧预览/串图；旧资源与旧版本仍可用。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T46",
+      "requirement": "R05/R06",
+      "action": "重复浏览30次，关闭弹窗、来回切页签，检查内存趋势和队列长度。",
+      "expected": "无持续单调增长、孤儿观察器/请求/解码队列；达到限定容量后可收敛。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T47",
+      "requirement": "R07",
+      "action": "真实游客冷启动，完整记录身份→字标→球体第一帧。",
+      "expected": "球体在正确hero阶段及时出现，无延长开屏掩盖等待。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T48",
+      "requirement": "R07",
+      "action": "刻意延迟Ballpit模块就绪，在其完成前滑到功能展示区。",
+      "expected": "迟到首帧不在展示区画默认球体；无需上下滑动修正。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T49",
+      "requirement": "R07",
+      "action": "球体首次ready前后分别滚动/改变视口宽度。",
+      "expected": "采用最新阶段/容器，旧闭包不覆盖当前位置。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T50",
+      "requirement": "R07",
+      "action": "hero/展示/外刊位置打开Menu、生词本和我的文章，再关闭。",
+      "expected": "body锁滚动不把场景复位首页，不出现球体穿层或背景跳转。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T51",
+      "requirement": "R07",
+      "action": "从Reader返回滚动位置、浏览器恢复页面位置、旋转手机。",
+      "expected": "场景与当前阶段一致，不要求人为触发scroll。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T52",
+      "requirement": "R07",
+      "action": "隐藏标签页20秒后回到hero与展示区。",
+      "expected": "后台暂停合理，恢复不累积大delta乱飞、不重随机化或重复创建WebGL上下文。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T53",
+      "requirement": "R07",
+      "action": "正常桌面和手机分别检查碰撞、退场、返回、字标与指针效果。",
+      "expected": "效果保留；不能静态海报/少到失真球体/永久禁动效。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T54",
+      "requirement": "R07",
+      "action": "模拟WebGL失败或模块网络失败。",
+      "expected": "功能内容不永久阻塞；错误/既有降级可解释，正常路径不被强制降级。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T55",
+      "requirement": "R08",
+      "action": "采集原始、mobile、桌面视频的ffprobe与响应头。",
+      "expected": "记录真实分辨率/码率/时长/格式/moov/Range，避免凭文件名认定清晰。",
+      "status": "pass",
+      "evidence": [
+        "evidence/d-video-containers.json",
+        "evidence/d-video-before.png",
+        "evidence/d-video-after.png"
+      ],
+      "notes": "实际容器/FFmpeg检查分辨率、帧率、码率、moov及哈希；新资源保留1758×1440/30fps原有较高清同内容，Range本地实测206。"
+    },
+    {
+      "id": "T56",
+      "requirement": "R08",
+      "action": "N0/N1游客首次从hero进入功能展示，不点击任何播放按钮。",
+      "expected": "已适度预热，正常支持浏览器自动播放；可见到首播放帧目标≤300ms。",
+      "status": "partial",
+      "evidence": [
+        "evidence/e-isolated-after-n1-run01.json",
+        "evidence/e-isolated-after-n1-run10.json",
+        "evidence/e-tail-n1-summary.json"
+      ],
+      "notes": "N1十轮不等待媒体，首可见帧采样上界p50 84.5ms、p95/最差120.9ms；非G0且Edge待。"
+    },
+    {
+      "id": "T57",
+      "requirement": "R08",
+      "action": "手机真机首次无手势播放与桌面分别录制清晰度。",
+      "expected": "既有文案/画面比例保留，小字达到源能力下的可读清晰度；实机缺失不写通过。",
+      "status": "partial",
+      "evidence": [
+        "evidence/d-video-before.png",
+        "evidence/d-video-after.png"
+      ],
+      "notes": "桌面源画质对照已核对；用户明确暂缓手机真机，不能标手机通过。"
+    },
+    {
+      "id": "T58",
+      "requirement": "R08",
+      "action": "快速切换演示模块并返回，控制play Promise以相反顺序完成。",
+      "expected": "旧generation不能暂停新播放或显示错误blocked按钮。",
+      "status": "pass",
+      "evidence": [
+        "tests/showcase-playback.test.mjs"
+      ],
+      "notes": "实际React媒体组件事件测试覆盖旧generation Promise不影响新播放。属于组件证据。"
+    },
+    {
+      "id": "T59",
+      "requirement": "R08",
+      "action": "区分NotAllowedError、AbortError、404、解码失败。",
+      "expected": "仅真实策略阻止才提示点击；其他有正确恢复、有限重试，不无限play循环。",
+      "status": "partial",
+      "evidence": [
+        "evidence/test-logs/phase-e-cover-tail-media.log"
+      ],
+      "notes": "组件覆盖播放generation/Abort/NotAllowed及手动暂停；真实404/解码失败浏览器注入待补。"
+    },
+    {
+      "id": "T60",
+      "requirement": "R08",
+      "action": "手动暂停、滚出滚回、切后台回来。",
+      "expected": "尊重手动暂停；自动可见性暂停与用户意图分开，不能每次进入强制播放。",
+      "status": "pass",
+      "evidence": [
+        "evidence/e-showcase-playing.png"
+      ],
+      "notes": "真实桌面手动暂停→离开→返回仍暂停；组件事件测试同时覆盖可见性与用户意图。"
+    },
+    {
+      "id": "T61",
+      "requirement": "R08",
+      "action": "检查网络录制：选择mobile或WebM后播放、失败回退。",
+      "expected": "不同时下载所有源；回退有界；Range缓存正确，不反复下载全片。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T62",
+      "requirement": "R08",
+      "action": "没有素材的其他模块与继续探索吊牌。",
+      "expected": "原占位事实与吊牌功能保留，不伪造演示或删模块。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T63",
+      "requirement": "R08",
+      "action": "发布新视频变体、旧SW/浏览器缓存下再次进入。",
+      "expected": "使用正确版本URL和清晰poster，不取过期mobile糊视频。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T64",
+      "requirement": "R09",
+      "action": "两独立真实浏览器会话同时冷打开并滚动、分别点击查词。",
+      "expected": "共享公共读取/静态资源不互相排长队；账号和用量不串，记录响应与CPU/RSS。",
+      "status": "partial",
+      "evidence": [
+        "evidence/e-baseline-background-completion.json",
+        "evidence/e-lead-after-n1-network01.json"
+      ],
+      "notes": "实际发现旧版后台6.7MB完整目录持续28.6秒，可干扰另一页媒体请求。尚非两独立候选会话+查词验收。"
+    },
+    {
+      "id": "T65",
+      "requirement": "R09",
+      "action": "比较单会话与双会话的p50/p95、缓存、图片处理计数。",
+      "expected": "无第二用户必然触发重复批量转码；性能退化可解释，不靠暂停后台任务长期换分。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T66",
+      "requirement": "R09",
+      "action": "检查正式accepted目录Caddy/缓存卷/资源响应，不只读模板。",
+      "expected": "报告实际处理链、headers和HIT证据；不虚构CDN或在线服务能力。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T67",
+      "requirement": "R09",
+      "action": "分别无SW、新SW、旧SW运行游客与登录路径。",
+      "expected": "新旧缓存不恢复错误加载策略；私有接口仍不进入公共缓存。",
+      "status": "partial",
+      "evidence": [
+        "tests/public-catalogue-cache.test.mjs"
+      ],
+      "notes": "真实SW脚本测试新旧metadata键替换、保留文章缓存/304；尚缺真实旧SW升级和账号矩阵。"
+    },
+    {
+      "id": "T68",
+      "requirement": "R09",
+      "action": "新发布/撤下文章、目录版本更新、封面更新、短时网络失败。",
+      "expected": "缓存可更新和有界失效，旧可用内容合理保留，撤下不永久回流。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T69",
+      "requirement": "R09",
+      "action": "验证优化配置差异及回滚版本。",
+      "expected": "不调整无关安全/鉴权/配额/数据后端，不把build cpus误当线上瓶颈。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "T70",
+      "requirement": "R10/R11",
+      "action": "对所有R项完成改前/改后正式构建路径、trace与原图对照。",
+      "expected": "证据同条件，不能用dev对prod或热缓存对冷缓存制造提速。",
+      "status": "partial",
+      "evidence": [
+        "evidence/e-network-rule-correction.json",
+        "evidence/e-isolated-after-n1-run07.json"
+      ],
+      "notes": "已纠正未命中限速规则。真实N1改前/改后各10轮已保存，但候选存在缺图；后续修复待复测。旧版与候选均使用当前加变体数据/只读代理，非原任务前数据，不能把本地TTFB当生产提速。G0及Edge仍未验。"
+    },
+    {
+      "id": "T71",
+      "requirement": "R10/R11",
+      "action": "执行N2压力及单资源延迟/失败/断网，再恢复。",
+      "expected": "已有内容/CTA不损坏，重试有界；不达正常体验的情况单独标注，不伪称全通过。",
+      "status": "partial",
+      "evidence": [
+        "evidence/e-network-rule-correction.json",
+        "evidence/e-tail-n2-run01.json",
+        "evidence/e-preview-failure.png",
+        "evidence/e-preview-failure-dom.txt"
+      ],
+      "notes": "真实N2+CPU4倍177采样无图片miss；预览请求阻断后保留旧10篇和重试。完整失败矩阵/恢复结果仍待。"
+    },
+    {
+      "id": "T72",
+      "requirement": "R10/R11",
+      "action": "关闭诊断探针重复性能核心路径。",
+      "expected": "确认探针开销不造成测量结论反转；不支持指标为unknown。",
+      "status": "partial",
+      "evidence": [
+        "evidence/e-network-rule-correction.json"
+      ],
+      "notes": "旧无探针样本网络标签无效；本轮旧版无探针对照超时，不能计通过。"
+    },
+    {
+      "id": "T73",
+      "requirement": "R10/R11",
+      "action": "逐项复测不可退化清单K01—K18并记录对应证据。",
+      "expected": "所有保留项可追溯，不靠缩减功能获得性能指标。",
+      "status": "partial",
+      "evidence": [
+        "07-进度记录.md",
+        "acceptance.json"
+      ],
+      "notes": "逐项状态开始回填；尚未满足R10与全部K项证据，因此不称完整通过。"
+    },
+    {
+      "id": "T74",
+      "requirement": "R10/R11",
+      "action": "运行真实Reader查词含原句译文、独立词典、全文翻译和取消/切换。",
+      "expected": "默认模型/独立回退与单次计费不变；翻译不自动重启丢缓存。",
+      "status": "partial",
+      "evidence": [
+        "evidence/e-translation-awaits-action.png",
+        "evidence/test-logs/phase-e-integrations-final.log"
+      ],
+      "notes": "浏览器开翻译栏保持开始翻译，不自动请求；模型/计费路由测试通过。真实查词/生成/取消组合待补。"
+    },
+    {
+      "id": "T75",
+      "requirement": "R10/R11",
+      "action": "词典删除历史后重开/跨日/旧设备同步，再主动重新查询。",
+      "expected": "不复活旧删除记录；主动重查可记新历史；缓存和生词不误删。",
+      "status": "partial",
+      "evidence": [
+        "evidence/test-logs/phase-e-cet.log"
+      ],
+      "notes": "真实IndexedDB+protocol-2覆盖删除/旧端同步/主动重查/owner隔离；浏览器跨日链待补。"
+    },
+    {
+      "id": "T76",
+      "requirement": "R10/R11",
+      "action": "右题窗收放、两处作答、半圆入口、暂停自测、提交后工具恢复。",
+      "expected": "功能与动画保留，已移除的填空题窗和结束练习入口不回来。",
+      "status": "partial",
+      "evidence": [
+        "evidence/test-logs/phase-e-cet.log",
+        "evidence/e-single-submit-dock.png",
+        "evidence/e-matching-shared-answer.txt",
+        "evidence/e-cloze-practice-dom.txt",
+        "evidence/e-selftest-expiry-observation.txt"
+      ],
+      "notes": "Chrome匹配正文/侧窗同步，填空不出现题窗，自测暂停遮题及到时工具恢复；完整收放关键帧仍待。"
+    },
+    {
+      "id": "T77",
+      "requirement": "R10/R11",
+      "action": "计时左键暂停、右键归零/倒计时、刷新、跨设备和readonly结果。",
+      "expected": "已有epoch/答案/累计用时与不可变结果语义不变。",
+      "status": "partial",
+      "evidence": [
+        "evidence/test-logs/phase-e-cet.log",
+        "evidence/e-matching-timer-reset.txt",
+        "evidence/e-matching-submitted.txt",
+        "evidence/e-selftest-expiry-observation.txt"
+      ],
+      "notes": "实际暂停归零保持答案、匹配提交固定累计38秒、60秒自测到时固定；右键/跨设备/刷新终态待。"
+    },
+    {
+      "id": "T78",
+      "requirement": "R10/R11",
+      "action": "访客认领、账号A/B切换、离线本机可见性、旧记录读写。",
+      "expected": "owner与权限隔离，不丢历史；迟到请求不向其他账号写入。",
+      "status": "partial",
+      "evidence": [
+        "evidence/test-logs/phase-e-cet.log",
+        "evidence/test-logs/phase-e-integrations-final.log"
+      ],
+      "notes": "访客认领/A-B隔离/旧记录/同步回归通过；实际登录切换及离线UI待补。"
+    },
+    {
+      "id": "T79",
+      "requirement": "R10/R11",
+      "action": "核对题库和已有图片/正文/已保存词的内容身份。",
+      "expected": "无内容删减、题号ID变化或自动改写旧答卷；本轮只做必要资源扩展。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "P01",
+      "requirement": "R12",
+      "action": "核对实际权限、干净worktree、保护分支和当前生产父版本。",
+      "expected": "不覆写脏工作区、不强推；发布parent来自此刻accepted状态。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "P02",
+      "requirement": "R12",
+      "action": "完成CET、核心、同步、用量/模型、lint、正式build和保护契约。",
+      "expected": "必需测试真实通过；未验证/基线失败单列，不能降低断言或跳过核心。",
+      "status": "partial",
+      "evidence": [
+        "evidence/test-logs/phase-e-cet.log",
+        "evidence/test-logs/phase-e-loading.log",
+        "evidence/test-logs/phase-e-critical.log",
+        "evidence/test-logs/phase-e-integrations-final.log"
+      ],
+      "notes": "67 CET、89核心、7加载、20集成已通过；82c1376媒体6项通过，最终正式build进行中。视觉未全通过。"
+    },
+    {
+      "id": "P03",
+      "requirement": "R12",
+      "action": "审查变体补生成范围、原图保留、配置变化和差异清单。",
+      "expected": "仅有本轮必要变化；无凭据/私有HAR/生产包/字体文件误入Git。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "P04",
+      "requirement": "R12",
+      "action": "正常集成推送main并核对远端SHA。",
+      "expected": "remote main与审查集成提交一致；若远端前进重新集成，不force。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": "尚未合入或推送main，E门槛未满足。"
+    },
+    {
+      "id": "P05",
+      "requirement": "R12",
+      "action": "从干净集成提交按稳定发布入口打包部署。",
+      "expected": "锁、parent recheck、changedFiles准确；只重建允许的app/caddy，数据服务不重启。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": "未打包/切换新应用；生产仍20260927T031000。"
+    },
+    {
+      "id": "P06",
+      "requirement": "R12",
+      "action": "公网核对connectivity、服务器manifest与实际媒体URL。",
+      "expected": "releaseId、parent、backendMode正确；sourceRevision用实际manifest核对，不能虚构API字段。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": "没有新生产版本；现有release/parent已核验，仅基线事实。"
+    },
+    {
+      "id": "P07",
+      "requirement": "R12",
+      "action": "生产真实游客/登录轻量路径与核心AI/同步烟测，保存视觉证据。",
+      "expected": "正常路径未出现PDF问题；接口通过不代替视觉；受阻如实记录并处置。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": "新版本未上线，不能声称公网视觉通过。"
+    },
+    {
+      "id": "P08",
+      "requirement": "R12",
+      "action": "检查当前/父镜像、备份与恢复证据、失败回退方案，回写文档。",
+      "expected": "未实际回滚就不写演练完成；最终main与source差异仅允许明确的发布文档。",
+      "status": "not_run",
+      "evidence": [],
+      "notes": "未执行应用回滚演练；数据补齐保留精确恢复SQL。"
+    }
+  ]
+}

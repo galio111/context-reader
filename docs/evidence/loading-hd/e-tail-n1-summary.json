@@ -1,0 +1,218 @@
+{
+  "source": "82c1376",
+  "conditions": "Windows Chrome, 1440x900 DPR1, global N1 rule verified on requests, existing guest origin, HTTP cache disabled + SW bypass; no G0; no baseline background catalogue traffic; 50ms diagnostic samples; not probe-free benchmark",
+  "runs": [
+    {
+      "file": "e-tail-n1-run01.json",
+      "width": 1440,
+      "height": 900,
+      "ttfbMs": 27.5,
+      "missSamples": 0,
+      "videoFirstFrameUpperBoundMs": 72.39999999925476,
+      "photoIds": [
+        "25474612-3d1f-40de-bc13-b087d1a42873",
+        "3a7f2aaf-fdf2-4225-b23a-20af7b4f132d",
+        "564cf50f-7bf7-4b4d-848f-ae483bb7c90f",
+        "78ad3b64-3247-455a-be45-56ddbd6a672c",
+        "91408499-2a96-4c4e-ae95-6957dead3a6d",
+        "93a77101-17c6-4651-a7e5-008aa1e94d6d",
+        "95ceee41-6d99-49df-abd5-addf1a333f55",
+        "a56f07fd-2767-4a5f-93c7-ce9abd8fddea",
+        "b4f7f92e-5e4b-4e0a-9bee-255f9607c23d",
+        "fcc89ac0-c8b3-4ac0-8480-6b091cee71fe"
+      ]
+    },
+    {
+      "file": "e-tail-n1-run02.json",
+      "width": 1440,
+      "height": 900,
+      "ttfbMs": 389.19999999925494,
+      "missSamples": 0,
+      "videoFirstFrameUpperBoundMs": 114.90000000000009,
+      "photoIds": [
+        "25474612-3d1f-40de-bc13-b087d1a42873",
+        "3a7f2aaf-fdf2-4225-b23a-20af7b4f132d",
+        "564cf50f-7bf7-4b4d-848f-ae483bb7c90f",
+        "78ad3b64-3247-455a-be45-56ddbd6a672c",
+        "91408499-2a96-4c4e-ae95-6957dead3a6d",
+        "93a77101-17c6-4651-a7e5-008aa1e94d6d",
+        "95ceee41-6d99-49df-abd5-addf1a333f55",
+        "a56f07fd-2767-4a5f-93c7-ce9abd8fddea",
+        "b4f7f92e-5e4b-4e0a-9bee-255f9607c23d",
+        "fcc89ac0-c8b3-4ac0-8480-6b091cee71fe"
+      ]
+    },
+    {
+      "file": "e-tail-n1-run03.json",
+      "width": 1440,
+      "height": 900,
+      "ttfbMs": 21.699999999254942,
+      "missSamples": 0,
+      "videoFirstFrameUpperBoundMs": 120.9000000014903,
+      "photoIds": [
+        "25474612-3d1f-40de-bc13-b087d1a42873",
+        "3a7f2aaf-fdf2-4225-b23a-20af7b4f132d",
+        "564cf50f-7bf7-4b4d-848f-ae483bb7c90f",
+        "78ad3b64-3247-455a-be45-56ddbd6a672c",
+        "91408499-2a96-4c4e-ae95-6957dead3a6d",
+        "93a77101-17c6-4651-a7e5-008aa1e94d6d",
+        "95ceee41-6d99-49df-abd5-addf1a333f55",
+        "a56f07fd-2767-4a5f-93c7-ce9abd8fddea",
+        "b4f7f92e-5e4b-4e0a-9bee-255f9607c23d",
+        "fcc89ac0-c8b3-4ac0-8480-6b091cee71fe"
+      ]
+    },
+    {
+      "file": "e-tail-n1-run04.json",
+      "width": 1440,
+      "height": 900,
+      "ttfbMs": 24.5,
+      "missSamples": 0,
+      "videoFirstFrameUpperBoundMs": 120.70000000149003,
+      "photoIds": [
+        "25474612-3d1f-40de-bc13-b087d1a42873",
+        "3a7f2aaf-fdf2-4225-b23a-20af7b4f132d",
+        "564cf50f-7bf7-4b4d-848f-ae483bb7c90f",
+        "78ad3b64-3247-455a-be45-56ddbd6a672c",
+        "91408499-2a96-4c4e-ae95-6957dead3a6d",
+        "93a77101-17c6-4651-a7e5-008aa1e94d6d",
+        "95ceee41-6d99-49df-abd5-addf1a333f55",
+        "a56f07fd-2767-4a5f-93c7-ce9abd8fddea",
+        "b4f7f92e-5e4b-4e0a-9bee-255f9607c23d",
+        "fcc89ac0-c8b3-4ac0-8480-6b091cee71fe"
+      ]
+    },
+    {
+      "file": "e-tail-n1-run05.json",
+      "width": 1440,
+      "height": 900,
+      "ttfbMs": 313,
+      "missSamples": 0,
+      "videoFirstFrameUpperBoundMs": 72.20000000074515,
+      "photoIds": [
+        "25474612-3d1f-40de-bc13-b087d1a42873",
+        "3a7f2aaf-fdf2-4225-b23a-20af7b4f132d",
+        "564cf50f-7bf7-4b4d-848f-ae483bb7c90f",
+        "78ad3b64-3247-455a-be45-56ddbd6a672c",
+        "91408499-2a96-4c4e-ae95-6957dead3a6d",
+        "93a77101-17c6-4651-a7e5-008aa1e94d6d",
+        "95ceee41-6d99-49df-abd5-addf1a333f55",
+        "a56f07fd-2767-4a5f-93c7-ce9abd8fddea",
+        "b4f7f92e-5e4b-4e0a-9bee-255f9607c23d",
+        "fcc89ac0-c8b3-4ac0-8480-6b091cee71fe"
+      ]
+    },
+    {
+      "file": "e-tail-n1-run06.json",
+      "width": 1440,
+      "height": 900,
+      "ttfbMs": 21.699999999254942,
+      "missSamples": 0,
+      "videoFirstFrameUpperBoundMs": 79.40000000074497,
+      "photoIds": [
+        "25474612-3d1f-40de-bc13-b087d1a42873",
+        "3a7f2aaf-fdf2-4225-b23a-20af7b4f132d",
+        "564cf50f-7bf7-4b4d-848f-ae483bb7c90f",
+        "78ad3b64-3247-455a-be45-56ddbd6a672c",
+        "91408499-2a96-4c4e-ae95-6957dead3a6d",
+        "93a77101-17c6-4651-a7e5-008aa1e94d6d",
+        "95ceee41-6d99-49df-abd5-addf1a333f55",
+        "a56f07fd-2767-4a5f-93c7-ce9abd8fddea",
+        "b4f7f92e-5e4b-4e0a-9bee-255f9607c23d",
+        "fcc89ac0-c8b3-4ac0-8480-6b091cee71fe"
+      ]
+    },
+    {
+      "file": "e-tail-n1-run07.json",
+      "width": 1440,
+      "height": 900,
+      "ttfbMs": 21.899999998509884,
+      "missSamples": 0,
+      "videoFirstFrameUpperBoundMs": 84.5000000014902,
+      "photoIds": [
+        "25474612-3d1f-40de-bc13-b087d1a42873",
+        "3a7f2aaf-fdf2-4225-b23a-20af7b4f132d",
+        "564cf50f-7bf7-4b4d-848f-ae483bb7c90f",
+        "78ad3b64-3247-455a-be45-56ddbd6a672c",
+        "91408499-2a96-4c4e-ae95-6957dead3a6d",
+        "93a77101-17c6-4651-a7e5-008aa1e94d6d",
+        "95ceee41-6d99-49df-abd5-addf1a333f55",
+        "a56f07fd-2767-4a5f-93c7-ce9abd8fddea",
+        "b4f7f92e-5e4b-4e0a-9bee-255f9607c23d",
+        "fcc89ac0-c8b3-4ac0-8480-6b091cee71fe"
+      ]
+    },
+    {
+      "file": "e-tail-n1-run08.json",
+      "width": 1440,
+      "height": 900,
+      "ttfbMs": 287.79999999701977,
+      "missSamples": 0,
+      "videoFirstFrameUpperBoundMs": 72.20000000074515,
+      "photoIds": [
+        "25474612-3d1f-40de-bc13-b087d1a42873",
+        "3a7f2aaf-fdf2-4225-b23a-20af7b4f132d",
+        "564cf50f-7bf7-4b4d-848f-ae483bb7c90f",
+        "78ad3b64-3247-455a-be45-56ddbd6a672c",
+        "91408499-2a96-4c4e-ae95-6957dead3a6d",
+        "93a77101-17c6-4651-a7e5-008aa1e94d6d",
+        "95ceee41-6d99-49df-abd5-addf1a333f55",
+        "a56f07fd-2767-4a5f-93c7-ce9abd8fddea",
+        "b4f7f92e-5e4b-4e0a-9bee-255f9607c23d",
+        "fcc89ac0-c8b3-4ac0-8480-6b091cee71fe"
+      ]
+    },
+    {
+      "file": "e-tail-n1-run09.json",
+      "width": 1440,
+      "height": 900,
+      "ttfbMs": 21.300000000745058,
+      "missSamples": 0,
+      "videoFirstFrameUpperBoundMs": 108.5,
+      "photoIds": [
+        "25474612-3d1f-40de-bc13-b087d1a42873",
+        "3a7f2aaf-fdf2-4225-b23a-20af7b4f132d",
+        "564cf50f-7bf7-4b4d-848f-ae483bb7c90f",
+        "78ad3b64-3247-455a-be45-56ddbd6a672c",
+        "91408499-2a96-4c4e-ae95-6957dead3a6d",
+        "93a77101-17c6-4651-a7e5-008aa1e94d6d",
+        "95ceee41-6d99-49df-abd5-addf1a333f55",
+        "a56f07fd-2767-4a5f-93c7-ce9abd8fddea",
+        "b4f7f92e-5e4b-4e0a-9bee-255f9607c23d",
+        "fcc89ac0-c8b3-4ac0-8480-6b091cee71fe"
+      ]
+    },
+    {
+      "file": "e-tail-n1-run10.json",
+      "width": 1440,
+      "height": 900,
+      "ttfbMs": 21.300000000745058,
+      "missSamples": 0,
+      "videoFirstFrameUpperBoundMs": 115.69999999851007,
+      "photoIds": [
+        "25474612-3d1f-40de-bc13-b087d1a42873",
+        "3a7f2aaf-fdf2-4225-b23a-20af7b4f132d",
+        "564cf50f-7bf7-4b4d-848f-ae483bb7c90f",
+        "78ad3b64-3247-455a-be45-56ddbd6a672c",
+        "91408499-2a96-4c4e-ae95-6957dead3a6d",
+        "93a77101-17c6-4651-a7e5-008aa1e94d6d",
+        "95ceee41-6d99-49df-abd5-addf1a333f55",
+        "a56f07fd-2767-4a5f-93c7-ce9abd8fddea",
+        "b4f7f92e-5e4b-4e0a-9bee-255f9607c23d",
+        "fcc89ac0-c8b3-4ac0-8480-6b091cee71fe"
+      ]
+    }
+  ],
+  "ttfb": {
+    "p50": 21.899999998509884,
+    "p95": 389.19999999925494,
+    "worst": 389.19999999925494
+  },
+  "videoFirstFrameUpperBound": {
+    "p50": 84.5000000014902,
+    "p95": 120.9000000014903,
+    "worst": 120.9000000014903
+  },
+  "totalMissSamples": 0,
+  "limits": "10 runs of same 10 photos, not 30 unique photos. Public readonly local proxy; absolute TTFB is not production performance."
+}
