@@ -1,5 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';
-import {historicalTrailEvents,mergeTrailEvents,projectTrail,resolveNext,resolvePrevious,trailPosition,type CetTrailKey,type CetTrailEvent} from '../lib/cetTypeTrail';
+import {historicalTrailEvents,mergeTrailEvents,projectTrail,projectViewedTrail,resolveNext,resolvePrevious,trailPosition,trailViewedCount,type CetTrailKey,type CetTrailEvent} from '../lib/cetTypeTrail';
 import {readFileSync} from 'node:fs';
 import {createCetActivity,cetAnswer} from '../lib/cetActivity';
 import type {CetPaper,CetExposure} from '../types/cet';
@@ -43,4 +43,32 @@ test('explicit restart replaces activity binding without adding material; new ro
  assert.equal(p.trail.length,2);assert.equal(p.trail[0].activityId,'new-A');
  const round={...event(0),id:'round2',reason:'round' as const,at:'2026-09-25T02:00:00Z'};
  assert.equal(projectTrail([...events,round],key,units).trail.length,0);assert.equal(events.length,3);
+});
+test('opening an unanswered unit advances the seen count, including a later direct year selection',()=>{
+ const viewed=(i:number):CetTrailEvent=>({...event(i),id:`view-${i}`,reason:'view'});
+ const first=projectTrail([viewed(0)],key,units).trail;
+ assert.equal(first.length,1);
+ assert.equal(trailPosition(first,units,units[1]),2);
+ const second=projectTrail([viewed(0),viewed(1)],key,units).trail;
+ assert.equal(trailPosition(second,units,units[1]),2);
+ assert.deepEqual(resolveNext(second,units,units[1],null,()=>0),units[2]);
+ const fromYearPicker=projectTrail([viewed(0),viewed(1),viewed(2)],key,units).trail;
+ assert.equal(trailPosition(fromYearPicker,units,units[2]),3);
+ assert.equal(trailViewedCount(fromYearPicker,units,units[0]),3);
+ assert.equal(trailViewedCount(first,units,units[2]),2);
+ assert.equal(resolveNext(fromYearPicker,units,units[2],null,()=>0),undefined);
+});
+test('seen count spans practice and self-test while activity binding stays purpose-specific',()=>{
+ const practice={...event(0),reason:'view' as const};
+ const selfTest={...event(1),id:'self-test-view',purpose:'self_test' as const,reason:'view' as const};
+ const seen=projectViewedTrail([practice,selfTest],key,units);
+ assert.equal(seen.trail.length,2);
+ assert.equal(trailPosition(seen.trail,units,units[1]),2);
+ assert.equal(trailViewedCount(seen.trail,units,units[0]),2);
+ assert.equal(projectTrail([practice,selfTest],key,units).trail.length,1);
+ assert.equal(projectTrail([practice,selfTest],{...key,purpose:'self_test'},units).trail.length,1);
+ const round={...practice,id:'all-seen-round',at:'2026-09-25T01:00:00Z',reason:'round' as const};
+ const newSelfTest={...selfTest,id:'new-self-test-view',at:'2026-09-25T01:00:01Z',round:round.id};
+ assert.equal(projectViewedTrail([practice,selfTest,round,newSelfTest],key,units).trail.length,1);
+ assert.equal(projectTrail([practice,selfTest,round,newSelfTest],{...key,purpose:'self_test'},units).trail.length,1);
 });

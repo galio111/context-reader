@@ -2,7 +2,7 @@ import type { CetActivity, CetExposure, CetPaper, CetPurpose, CetType } from '..
 export interface CetTypeUnit { paperId: string; sectionId: string }
 export interface CetTrailKey { owner: string; level: 4|6; type: CetType; purpose: CetPurpose }
 export interface CetTrailEvent extends CetTrailKey, CetTypeUnit {
- id: string; activityId: string; at: string; reason: 'answer'|'assistance_shown'|'finalized'|'restart'|'round'; round: string;
+ id: string; activityId: string; at: string; reason: 'view'|'answer'|'assistance_shown'|'finalized'|'restart'|'round'; round: string;
 }
 export const cetUnitKey = (unit: CetTypeUnit) => JSON.stringify([unit.paperId,unit.sectionId]);
 export const cetTrailKey = (key: CetTrailKey) => JSON.stringify([key.owner,key.level,key.type,key.purpose]);
@@ -31,14 +31,14 @@ export function mergeTrailEvents(...sets:CetTrailEvent[][]):CetTrailEvent[]{
  const events=new Map<string,CetTrailEvent>();
  for(const e of sets.flat()){
   if(!e || typeof e.id!=='string'||typeof e.owner!=='string'||![4,6].includes(e.level)||!['cloze','matching','detail'].includes(e.type)
-   ||!['practice','self_test'].includes(e.purpose)||!['answer','assistance_shown','finalized','restart','round'].includes(e.reason)
+   ||!['practice','self_test'].includes(e.purpose)||!['view','answer','assistance_shown','finalized','restart','round'].includes(e.reason)
    ||typeof e.paperId!=='string'||typeof e.sectionId!=='string'||typeof e.round!=='string'||typeof e.activityId!=='string'||!Number.isFinite(Date.parse(e.at)))continue;
   const old=events.get(e.id);if(!old||JSON.stringify(e)>JSON.stringify(old))events.set(e.id,e);
  }
  return [...events.values()].sort((a,b)=>a.at.localeCompare(b.at)||a.id.localeCompare(b.id));
 }
 export function currentTrailRound(events:CetTrailEvent[],key:CetTrailKey):string{
- return mergeTrailEvents(events).filter(e=>cetTrailKey(e)===cetTrailKey(key)&&e.reason==='round').at(-1)?.id||'initial';
+ return mergeTrailEvents(events).filter(e=>e.owner===key.owner&&e.level===key.level&&e.type===key.type&&e.reason==='round').at(-1)?.id||'initial';
 }
 export function projectTrail(events:CetTrailEvent[],key:CetTrailKey,units:CetTypeUnit[]){
  const accessible=new Set(units.map(cetUnitKey)),round=currentTrailRound(events,key),byUnit=new Map<string,CetTrailEvent>();
@@ -47,6 +47,15 @@ export function projectTrail(events:CetTrailEvent[],key:CetTrailKey,units:CetTyp
   const id=cetUnitKey(event),existing=byUnit.get(id);
   if(!existing)byUnit.set(id,event);
   else if(event.reason==='restart')byUnit.set(id,{...existing,activityId:event.activityId});
+ }
+ return {round,trail:[...byUnit.values()].filter(e=>accessible.has(cetUnitKey(e))),inaccessible:[...byUnit.values()].filter(e=>!accessible.has(cetUnitKey(e)))};
+}
+export function projectViewedTrail(events:CetTrailEvent[],key:CetTrailKey,units:CetTypeUnit[]){
+ const accessible=new Set(units.map(cetUnitKey)),round=currentTrailRound(events,key),byUnit=new Map<string,CetTrailEvent>();
+ for(const event of mergeTrailEvents(events)){
+  if(event.owner!==key.owner||event.level!==key.level||event.type!==key.type||event.reason==='round'||event.round!==round)continue;
+  const id=cetUnitKey(event);
+  if(!byUnit.has(id))byUnit.set(id,event);
  }
  return {round,trail:[...byUnit.values()].filter(e=>accessible.has(cetUnitKey(e))),inaccessible:[...byUnit.values()].filter(e=>!accessible.has(cetUnitKey(e)))};
 }
@@ -62,4 +71,9 @@ export function resolveNext(trail:CetTrailEvent[],units:CetTypeUnit[],current:Ce
 export function trailPosition(trail:CetTrailEvent[],units:CetTypeUnit[],current:CetTypeUnit):number{
  if(!units.some(u=>cetUnitKey(u)===cetUnitKey(current)))return 0;
  const i=trail.findIndex(e=>cetUnitKey(e)===cetUnitKey(current));return Math.min(units.length,i<0?trail.length+1:i+1);
+}
+export function trailViewedCount(trail:CetTrailEvent[],units:CetTypeUnit[],current:CetTypeUnit):number{
+ if(!units.some(u=>cetUnitKey(u)===cetUnitKey(current)))return 0;
+ const seen=new Set(trail.map(cetUnitKey));
+ return Math.min(units.length,seen.size+(seen.has(cetUnitKey(current))?0:1));
 }

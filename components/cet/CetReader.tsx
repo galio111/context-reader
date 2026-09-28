@@ -2,6 +2,7 @@
 import { cetSubmitPolicy, type CetSubmitCommand } from "@/lib/cetSubmitPolicy";
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type ComponentProps, type ReactNode } from "react";
+import { createPortal } from "react-dom";
 import { CetOptionList, CetSelect } from "./CetSelect";
 import { ReaderView } from "@/components/ReaderView";
 import { PillNavAction } from "@/components/PillNavAction";
@@ -19,12 +20,13 @@ import { prepareCetPracticeSubmitAll, cetPracticeTotals } from "@/lib/cetPractic
 import { cetViewModel } from "@/lib/cetViewModel";
 import {adjustCetTimer,projectCetTimer,currentCetEpoch,type CetTimerTarget} from "@/lib/cetAdjustableTimer";
 import { loadCetCatalogue } from "@/lib/cetCatalogueLoader";
-import { historicalTrailEvents, listAccessibleUnits, projectTrail, resolvePrevious, resolveNext, trailPosition, currentTrailRound, type CetTrailKey, type CetTypeUnit } from "@/lib/cetTypeTrail";
+import { historicalTrailEvents, listAccessibleUnits, projectTrail, projectViewedTrail, resolvePrevious, resolveNext, trailViewedCount, currentTrailRound, type CetTrailKey, type CetTypeUnit } from "@/lib/cetTypeTrail";
 import {readCetTrail,saveCetTrail} from "@/lib/cetTypeTrailStorage";
 import { CetQuestionSurface, CetQuestionActions, type QuestionSurface, type QuestionAction } from "./CetQuestionSurface";
 import {readCetViewport,saveCetViewport} from "@/lib/cetLocalViewport";
 import { CetText } from "./CetText";
-import type { CetActivity, CetPaper, CetQuestion, CetSection } from "@/types/cet";
+import { addCetUnderlines, liveCetUnderlines, updateCetUnderline, type CetUnderlineRange } from "@/lib/cetUnderlines";
+import type { CetActivity, CetPaper, CetQuestion, CetSection, CetUnderline, CetUnderlineColor } from "@/types/cet";
 import type { WordContext } from "@/types/reader";
 import toolbarStyles from "@/components/ReaderToolbar.module.css";
 import "./cet.css";
@@ -33,6 +35,10 @@ const names = { cloze: "选词填空", matching: "长篇匹配", detail: "仔细
 const formatTime = (ms: number) => `${Math.floor(Math.max(0, ms) / 60000).toString().padStart(2, "0")}:${Math.floor((Math.max(0, ms) / 1000) % 60).toString().padStart(2, "0")}`;
 type BaseProps = Pick<ComponentProps<typeof ReaderView>, "savedArticles" | "onArticleSaved" | "onOpenSavedArticle" | "onRenameSavedArticle" | "onDeleteSavedArticle" | "onOpenImportedArticle">;
 type DialogName = "选择真题" | "练习历史" | "答题卡" | "提交本篇" | "提交全部" | "提交自测" | "结束自测并精读" | "重新练习" | "开始新自测" | "保存失败" | "计时归零" | "设置倒计时" | "";
+type UnderlineMenu = { kind: "selection"; ranges: CetUnderlineRange[]; left: number; top: number } | { kind: "mark"; id: string; left: number; top: number };
+const underlineColors: { id: CetUnderlineColor; label: string }[] = [
+  { id: "blue", label: "蓝色" }, { id: "teal", label: "绿色" }, { id: "amber", label: "橙色" }, { id: "rose", label: "粉色" },
+];
 
 function Sheet({ title, onClose, children, left = false }: { title: string; onClose: () => void; children: ReactNode; left?: boolean }) {
   const ref = useRef<HTMLDialogElement>(null);
@@ -87,6 +93,10 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   const jumpQuestion = useRef<number | null>(null);
   const pausedScroll = useRef(0);
   const [activeToken, setActiveToken] = useState("");
+  const [underlineMenu, setUnderlineMenu] = useState<UnderlineMenu | null>(null);
+  const [underlineColor, setUnderlineColor] = useState<CetUnderlineColor>("blue");
+  const passageRoot = useRef<HTMLDivElement>(null);
+  const jumpUnderline = useRef<string | null>(null);
   const [expanded, setExpanded] = useState<string[]>([]);
   const [selectedFinalId, setSelectedFinalId] = useState("");
   const [directSectionId, setDirectSectionId] = useState("");
@@ -158,6 +168,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
     setMinutes(String(entry.sectionId ? 10 : 40));setTimerMode("countdown");
     setTimerAnchor(null);timerTarget.current=null;pendingTimer.current=null;
     setSelectedFinalId(""); setDirectSectionId("");
+    setUnderlineMenu(null); jumpUnderline.current = null;
     recordedExposureIds.current.clear();
     setHistory([]);setLegacyHistory([]);setPaper(null); setActivity(null); setLegacyPreview(null); setView("start"); setError(""); setNotice(""); setChoice(null);
     void Promise.all([
@@ -213,16 +224,26 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
     return ()=>controller.abort();
   }, [routeLevel, routeEnabled, account.profile?.userId, account.authenticated, routeRetry, storageOwner]);
 
-  const touchTrail = useCallback((a:CetActivity,loaded:CetPaper,reason:'answer'|'assistance_shown'|'finalized'|'restart')=>{
+  const touchTrail = useCallback((a:CetActivity,loaded:CetPaper,reason:'view'|'answer'|'assistance_shown'|'finalized'|'restart')=>{
     if(!a.sectionId || a.owner!==storageOwner())return;
     const part=loaded.sections.find(s=>s.id===a.sectionId);if(!part)return;
     const key:CetTrailKey={owner:a.owner,level:loaded.level,type:part.type,purpose:a.purpose};
     const events=readCetTrail(),round=currentTrailRound(events,key);
     const already=events.some(e=>e.owner===key.owner&&e.level===key.level&&e.type===key.type&&e.purpose===key.purpose&&e.round===round&&e.paperId===loaded.id&&e.sectionId===part.id&&e.reason!=='round');
     if(already&&reason!=='restart' || !already&&reason==='restart')return;
-    saveCetTrail({...key,round,id:crypto.randomUUID(),at:new Date().toISOString(),paperId:loaded.id,sectionId:part.id,activityId:a.id,reason});
+    const recent=events.filter(e=>e.owner===key.owner&&e.level===key.level&&e.type===key.type&&e.round===round).at(-1);
+    const now=Date.now(),last=recent?Date.parse(recent.at):0;
+    const at=new Date(last>=now&&last-now<2000?last+1:now).toISOString();
+    saveCetTrail({...key,round,id:crypto.randomUUID(),at,paperId:loaded.id,sectionId:part.id,activityId:a.id,reason});
     setTrailEvents(readCetTrail());
   },[storageOwner]);
+
+  useEffect(() => {
+    const shown = current.current;
+    if (!paper || !shown?.sectionId || shown.status !== "in_progress" || view !== "reading") return;
+    try { touchTrail(shown, paper, "view"); }
+    catch { setNotice("已打开题目，但浏览记录尚未保存，请保留页面重试。"); }
+  }, [paper, activity?.id, activity?.sectionId, activity?.status, view, touchTrail]);
 
   useEffect(() => {
     const interval = window.setInterval(() => checkpointPractice(), 10_000);
@@ -254,6 +275,32 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
     if (jumpQuestion.current !== null || sheet) return;
     if (pendingScroll.current !== null) { window.scrollTo(0, pendingScroll.current); pendingScroll.current = null; }
   }, [activity?.activeSection, activity?.status, directSectionId, sheet]);
+
+  useEffect(() => {
+    if (!jumpUnderline.current || !passageRoot.current) return;
+    const id = jumpUnderline.current;
+    let frame = 0, attempts = 0;
+    const find = () => {
+      const node = passageRoot.current?.querySelector<HTMLElement>(`[data-cet-underline-id="${CSS.escape(id)}"]`);
+      if (node) { node.scrollIntoView({block:"center"}); jumpUnderline.current = null; }
+      else if (++attempts < 12) frame = requestAnimationFrame(find);
+    };
+    frame = requestAnimationFrame(find);
+    return () => cancelAnimationFrame(frame);
+  }, [activity?.activeSection, directSectionId]);
+
+  useEffect(() => {
+    if (!underlineMenu) return;
+    const dismiss = (event: PointerEvent) => {
+      if (event.target instanceof window.Element && !event.target.closest(".cet-underline-menu")) setUnderlineMenu(null);
+    };
+    const escape = (event: KeyboardEvent) => { if (event.key === "Escape") setUnderlineMenu(null); };
+    document.addEventListener("pointerdown", dismiss);
+    document.addEventListener("keydown", escape);
+    return () => { document.removeEventListener("pointerdown", dismiss); document.removeEventListener("keydown", escape); };
+  }, [underlineMenu]);
+
+  useEffect(() => { setUnderlineMenu(null); }, [activity?.id, activity?.activeSection, activity?.status, sheet, view]);
 
   useEffect(() => {
     if (sheet || jumpQuestion.current === null) return;
@@ -468,11 +515,77 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   const activeSectionIndex = scope.indexOf(section);
   const routeKey:CetTrailKey={owner:owner.current,level:paper.level,type:section.type,purpose:activity?.purpose||'practice'};
   const routeUnits=listAccessibleUnits(routePapers,paper.level,section.type);
-  const routeProjection=projectTrail(trailEvents,routeKey,routeUnits);
+  const routeProjection=projectViewedTrail(trailEvents,routeKey,routeUnits);
   const unit={paperId:paper.id,sectionId:section.id};
   const previousUnit=resolvePrevious(routeProjection.trail,unit);
   const hasNextUnit=Boolean(resolveNext(routeProjection.trail,routeUnits,unit,routePending.current,()=>0));
-  const routePosition=trailPosition(routeProjection.trail,routeUnits,unit);
+  const routePosition=trailViewedCount(routeProjection.trail,routeUnits,unit);
+  const allUnderlines = activity?.purpose === "self_test"
+    ? activity.status === "submitted" || activity.status === "ended" ? liveCetUnderlines(result?.underlines) : liveCetUnderlines(activity.underlines)
+    : [];
+  const sectionUnderlines = allUnderlines.filter(mark => mark.sectionId === section.id);
+  const passageParagraphs = result?.underlinedParagraphs?.[section.id] || section.paragraphs;
+  const underlineExcerpt = (mark: CetUnderline) => {
+    const source = result?.underlinedParagraphs?.[mark.sectionId]
+      || paper.sections.find(item => item.id === mark.sectionId)?.paragraphs;
+    return source?.[mark.paragraphIndex]?.slice(mark.start, mark.end).trim() || "原文位置";
+  };
+  const captureUnderlineSelection = () => {
+    const root = passageRoot.current, selection = window.getSelection();
+    if (!testing || !root || !selection || selection.isCollapsed || !selection.rangeCount || busy || sheet) return;
+    const range = selection.getRangeAt(0);
+    if (!root.contains(range.startContainer) || !root.contains(range.endContainer)) return;
+    const ranges: CetUnderlineRange[] = [];
+    for (const part of root.querySelectorAll<HTMLElement>("[data-cet-part-start]")) {
+      if (!range.intersectsNode(part)) continue;
+      const paragraph = part.closest<HTMLElement>("[data-cet-paragraph]");
+      const paragraphIndex = Number(paragraph?.dataset.cetParagraph);
+      const partStart = Number(part.dataset.cetPartStart);
+      if (!Number.isInteger(paragraphIndex) || !Number.isInteger(partStart)) continue;
+      const partRange = document.createRange(); partRange.selectNodeContents(part);
+      const intersection = range.cloneRange();
+      if (intersection.compareBoundaryPoints(Range.START_TO_START, partRange) < 0) intersection.setStart(part, 0);
+      if (intersection.compareBoundaryPoints(Range.END_TO_END, partRange) > 0) intersection.setEnd(part, part.childNodes.length);
+      if (intersection.collapsed) continue;
+      const before = document.createRange(); before.selectNodeContents(part);
+      before.setEnd(intersection.startContainer, intersection.startOffset);
+      const start = partStart + before.toString().length;
+      const end = start + intersection.toString().length;
+      if (end > start && passageParagraphs[paragraphIndex]?.slice(start, end).trim()) ranges.push({sectionId:section.id,paragraphIndex,start,end});
+    }
+    if (!ranges.length || ranges.length > 24 || ranges.reduce((length, item) => length + item.end - item.start, 0) > 2000) return;
+    const rect = range.getClientRects?.()[0] || range.getBoundingClientRect?.() || root.getBoundingClientRect();
+    setUnderlineMenu({kind:"selection",ranges,left:Math.max(8,Math.min(window.innerWidth-252,rect.left)),top:rect.top > 70 ? rect.top-56 : rect.bottom+10});
+  };
+  const openExistingUnderline = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (!testing || !window.getSelection()?.isCollapsed) return;
+    const target = event.target instanceof window.Element ? event.target.closest<HTMLElement>("[data-cet-underline-id]") : null;
+    const id = target?.dataset.cetUnderlineId;
+    if (!id || !sectionUnderlines.some(mark => mark.id === id)) return;
+    const rect = target.getBoundingClientRect();
+    setUnderlineMenu({kind:"mark",id,left:Math.max(8,Math.min(window.innerWidth-252,rect.left)),top:rect.top > 70 ? rect.top-56 : rect.bottom+10});
+  };
+  const applyUnderline = (color: CetUnderlineColor | "remove") => {
+    const a = current.current, menu = underlineMenu;
+    if (!a || !menu || !testing || model.mismatch || a.status !== "in_progress" || a.owner !== storageOwner() || busy) return;
+    if (cetRemainingMs(a) <= 0) { void commit("time_expired"); return; }
+    const next = menu.kind === "mark" ? updateCetUnderline(a,menu.id,color)
+      : color === "remove" ? a : addCetUnderlines(a,paper,menu.ranges,color);
+    if (next === a) return;
+    if (persistDraft(next)) {
+      if (color !== "remove") setUnderlineColor(color);
+      setUnderlineMenu(null);window.getSelection()?.removeAllRanges();
+    }
+  };
+  const jumpToUnderline = (mark: CetUnderline) => {
+    jumpUnderline.current = mark.id;
+    if (section.id !== mark.sectionId) changeSection(mark.sectionId, true);
+    else window.requestAnimationFrame(() => {
+      const node = document.querySelector<HTMLElement>(`[data-cet-underline-id="${CSS.escape(mark.id)}"]`);
+      node?.scrollIntoView({block:"center",behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});
+      jumpUnderline.current = null;
+    });
+  };
   const sectionAnswered = section.questions.filter((q) => model.answer(section.id,cetQuestionKey(section.id,q.number))).length;
   const remaining = activity?.purpose === "practice" ? section.questions.length - sectionAnswered : model.total - answered;
   const submittedCount = activity?.purpose === "practice" ? scope.filter((s) => cetFinalizedSection(activity, s.id)).length : 0;
@@ -547,7 +660,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
       if (a.purpose === "practice" && a.status === "in_progress" && !a.practiceTimerPaused && !cetFinalizedSection(a, id) && !document.hidden) practiceSegment.current = { id: `${id}#${crypto.randomUUID()}`, sectionId: id, start: Date.now() };
     } else setDirectSectionId(id);
   };
-  const lookupText = (text: string, lookup: (context: WordContext) => void, contextText?: string, contextOffset = 0) => <CetText text={text} locked={locked} lookup={lookup} active={activeToken} onActive={setActiveToken} contextText={contextText} contextOffset={contextOffset} />;
+  const lookupText = (text: string, lookup: (context: WordContext) => void, contextText?: string, contextOffset = 0, underlines?: CetUnderline[]) => <CetText text={text} locked={locked} lookup={lookup} active={activeToken} onActive={setActiveToken} contextText={contextText} contextOffset={contextOffset} underlines={underlines} />;
   const answerFor = (question: CetQuestion) => displayAnswer(section.id, cetQuestionKey(section.id, question.number));
   const isRevealed = (question: CetQuestion) => !testing && (showAnswers || Boolean(activity?.legacy?.raw.revealed[section.id]) || Boolean(activity?.legacy?.mode === "study" && activity.legacy.raw.answers[cetQuestionKey(section.id, question.number)]));
   const explain = (question: CetQuestion, surface: QuestionSurface = "inline") => {
@@ -613,7 +726,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   })) : [];
   const renderNavigation = () => (activity?.sectionId ? <nav className="cet-bottom-nav" aria-label="同题型路线">
         {previousUnit && <button disabled={busy||routeLoading||Boolean(routeError)} onClick={()=>void navigateTypeUnit(previousUnit)}>← 上一题</button>}
-        <span title="同级别、同题型、同目标的全部可访问年份">{routeLoading?'正在读取同题型目录…':`${routePosition} / ${routeUnits.length} 篇`}</span>
+        <span title="同级别、同题型本轮已看过的题目">{routeLoading?'正在读取同题型目录…':`${routePosition} / ${routeUnits.length} 篇`}</span>
         {routeError ? <button onClick={()=>setRouteRetry(n=>n+1)}>重试目录</button> : hasNextUnit ? <button disabled={busy||routeLoading} onClick={()=>{const target=resolveNext(routeProjection.trail,routeUnits,unit,routePending.current,Math.random);if(target)void navigateTypeUnit(target);}}>下一题 →</button> : !routeLoading && routeUnits.length>0 && routeProjection.trail.length===routeUnits.length && <span>本轮该题型已全部接触 <button onClick={()=>{saveCetTrail({...routeKey,...unit,id:crypto.randomUUID(),activityId:activity.id,at:new Date().toISOString(),reason:'round',round:routeProjection.round});setTrailEvents(readCetTrail());startNew(activity.purpose);}}>开始新一轮</button></span>}
       </nav> : <nav className="cet-bottom-nav"><button disabled={activeSectionIndex === 0} onClick={() => changeSection(scope[activeSectionIndex - 1].id, true)}>← 上一篇</button><span>{activeSectionIndex + 1} / {scope.length}</span><button disabled={activeSectionIndex === scope.length - 1} onClick={() => changeSection(scope[activeSectionIndex + 1].id, true)}>下一篇 →</button></nav>);
   const renderQuestions = (surface:QuestionSurface,lookup:(context:WordContext)=>void) => <CetQuestionSurface surface={surface} section={section} disabled={!activity||activity.status!=='in_progress'} answerFor={answerFor} revealed={isRevealed} renderText={text=>lookupText(text,lookup)} explain={explain} onAnswer={(q,value)=>updateDraft(q,value)} onOpenChoice={openChoice} openNumber={choice?.surface===surface?choice.question.number:undefined}/>;
@@ -635,24 +748,26 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
       {applicableFinalizations.length > 1 && <div className="cet-conflicts"><p>这次活动在不同设备产生了 {applicableFinalizations.length} 份提交快照。原答案分别保留，暂不纳入默认自测统计。</p><div>{applicableFinalizations.map((item, index) => <button type="button" key={item.id} aria-pressed={result?.id === item.id} onClick={() => setSelectedFinalId(item.id)}>答卷 {index + 1} · {new Date(item.at).toLocaleString("zh-CN")}</button>)}</div></div>}
       {result && <div className="cet-result" role="status"><strong>{result.reason === "ended_for_study" ? "未完成结束" : activity?.purpose === "self_test" ? "自测结果" : "本篇结果"}</strong><span>{result.reason === "ended_for_study" ? `已答 ${result.questions.length - result.unanswered} 题 · 不计入完成成绩` : result.scoreable ? `答对 ${result.correct}/${result.scoreable} 题 · 未答 ${result.unanswered} 题` : "暂无可计分结果"}</span><span>{activity?.legacy ? "旧版计时" : activity?.purpose === "self_test" ? "自测用时" : "学习用时"} {formatTime(result.elapsedMs)}{result.everPaused ? " · 曾中断" : ""}</span>{contentChanged && <small>当前题库与作答时版本不同，此处按当时快照展示。</small>}{activity?.purpose === "self_test" && <small>{observedConditions.length ? "作答期间另有学习接触记录 · 条件记录不完整" : cetEligibility(activity, observedConditions) === "repeat_test" ? "重复材料自测" : cetEligibility(activity, observedConditions) === "conditions_incomplete" ? "条件记录不完整" : "首次在本站自测"}</small>}</div>}
 
+      {result && activity?.purpose === "self_test" && allUnderlines.length > 0 && <details className="cet-underline-index" open><summary>自测划记 · {allUnderlines.length} 处</summary><p>点击划记跳转到原文，再点单词查词。划记已随本次答卷固定。</p><div>{allUnderlines.map(mark => <button type="button" key={mark.id} onClick={() => jumpToUnderline(mark)}><i data-color={mark.color} aria-hidden="true" /><span>{paper.sections.find(item => item.id === mark.sectionId)?.title || "阅读原文"} · {underlineExcerpt(mark)}</span></button>)}</div></details>}
       <p className="cet-directions">{section.type === "cloze" ? "从词库中选择合适单词填入空格，每词限用一次。" : section.type === "matching" ? "为每个陈述选择对应段落；段落可以被重复选择。" : "阅读文章，并为每道题选择一个最佳答案。"}</p>
+      {testing && <p className="cet-underline-hint">选中原文可添加彩色下划线；提交后划记固定在这次自测中。</p>}
       <h1>{section.title}</h1>
       {section.bank && <div className="cet-word-bank">{section.bank.map((option) => <span key={option.key} data-used={section.questions.some(q=>answerFor(q)===option.key) || undefined}><b>{option.key}</b> {lookupText(option.text, lookup)}{section.questions.some(q=>answerFor(q)===option.key) && <small>已用</small>}</span>)}</div>}
-      <div className="cet-passages">{section.paragraphs.map((text, index) => <p key={index}>{section.type === "cloze" ? text.split(/(\[\[\d+\]\])/g).map((part, partIndex, parts) => {
+      <div ref={passageRoot} className="cet-passages" data-native-selection="blue" onMouseUpCapture={() => requestAnimationFrame(captureUnderlineSelection)} onKeyUpCapture={() => requestAnimationFrame(captureUnderlineSelection)} onTouchEndCapture={() => window.setTimeout(captureUnderlineSelection, 80)} onClickCapture={openExistingUnderline}>{passageParagraphs.map((text, index) => <p key={index} data-cet-paragraph={index}>{section.type === "cloze" ? text.split(/(\[\[\d+\]\])/g).map((part, partIndex, parts) => {
         const number = Number(part.match(/\[\[(\d+)\]\]/)?.[1]);
         const question = section.questions.find((item) => item.number === number);
-        return question ? <span className="cet-gap" id={`cet-inline-q-${number}`} key={partIndex}><button type="button" disabled={isRevealed(question) || !activity || activity.status !== "in_progress"} onClick={(event) => openChoice(event, question)} aria-haspopup="listbox" aria-expanded={choice?.surface === "inline" && choice?.question.number === number} aria-label={`第 ${number} 空，${answerFor(question) || "未作答"}`}><b>{number}</b>{answerFor(question) ? <span>{question.options.find((option) => option.key === answerFor(question))?.text || answerFor(question)}</span> : null}</button></span> : <span key={partIndex}>{lookupText(part, lookup, text, parts.slice(0, partIndex).join("").length)}</span>;
-      }) : lookupText(text, lookup)}</p>)}</div>
+        const offset = parts.slice(0, partIndex).join("").length;
+        return question ? <span className="cet-gap" id={`cet-inline-q-${number}`} key={partIndex}><button type="button" disabled={isRevealed(question) || !activity || activity.status !== "in_progress"} onClick={(event) => openChoice(event, question)} aria-haspopup="listbox" aria-expanded={choice?.surface === "inline" && choice?.question.number === number} aria-label={`第 ${number} 空，${answerFor(question) || "未作答"}`}><b>{number}</b>{answerFor(question) ? <span>{question.options.find((option) => option.key === answerFor(question))?.text || answerFor(question)}</span> : null}</button></span> : <span key={partIndex} data-cet-part-start={offset}>{lookupText(part, lookup, text, offset, sectionUnderlines.filter(mark => mark.paragraphIndex === index && mark.start < offset + part.length && mark.end > offset).map(mark => ({...mark,start:Math.max(0,mark.start-offset),end:Math.min(part.length,mark.end-offset)})))}</span>;
+      }) : <span data-cet-part-start={0}>{lookupText(text, lookup, undefined, 0, sectionUnderlines.filter(mark => mark.paragraphIndex === index))}</span>}</p>)}</div>
       {activity?.conditions.includes("legacy_draft_conflict") && <p role="status">旧设备有不同草稿，已保留在本机备份中，当前答卷和已提交结果未被替换。</p>}
       {activity?.conditions.includes("timer_adjusted") && <p className="cet-muted">计时已调整 · 结果保留累计有效用时</p>}
       {renderQuestions("inline",lookup)}
       {renderActions("inline")}
-      {activity?.sectionId && testing && <p className="cet-muted">切换将保存当前自测并暂停。</p>}
     </div>;
   };
 
   return <>
-    <ReaderView backLabel={testing || paused ? "保存并离开" : "返回首页"} key={`${paper.id}:${section.id}:${view}`} {...base} article={shown && !paused ? section.paragraphs.join("\n\n").replace(/\[\[(\d+)\]\]/g, "（第 $1 空）") : ""} importedArticle={shown && !paused ? { title: `${paper.title} · ${section.title}`, siteName: "四六级真题", url: paper.source, text: section.paragraphs.join("\n\n"), blocks: section.paragraphs.map((text, index) => ({ id: `${section.id}-${index}`, type: "paragraph" as const, text })) } : null} onBack={() => void leaveTo(onBack)} desktopViewportInsetLeft={132} examSurface={{
+    <ReaderView backLabel={testing || paused ? "保存并离开" : "返回首页"} key={`${paper.id}:${section.id}:${view}`} {...base} article={shown && !paused ? passageParagraphs.join("\n\n").replace(/\[\[(\d+)\]\]/g, "（第 $1 空）") : ""} importedArticle={shown && !paused ? { title: `${paper.title} · ${section.title}`, siteName: "四六级真题", url: paper.source, text: passageParagraphs.join("\n\n"), blocks: passageParagraphs.map((text, index) => ({ id: `${section.id}-${index}`, type: "paragraph" as const, text })) } : null} onBack={() => void leaveTo(onBack)} desktopViewportInsetLeft={132} examSurface={{
       locked,
       testing: testing || paused,
       startScreen: view === "start",
@@ -671,6 +786,11 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
         render:lookup=><div className="cet-dock-reading">{renderQuestions('dock',lookup)}{renderActions('dock')}</div>} : undefined,
       render: renderReading,
     }} />
+    {typeof document !== "undefined" && testing && underlineMenu && createPortal(<div className="cet-underline-menu" role="toolbar" aria-label={underlineMenu.kind === "selection" ? "为选中原文添加下划线" : "编辑自测划记"} style={{left:underlineMenu.left,top:underlineMenu.top}} onPointerDown={event => event.preventDefault()}>
+      {underlineMenu.kind === "selection" && <button type="button" className="cet-underline-apply" onClick={() => applyUnderline(underlineColor)}><u>U</u> 下划线</button>}
+      <div className="cet-underline-colors" aria-label="下划线颜色">{underlineColors.map(color => <button type="button" key={color.id} data-color={color.id} aria-label={`${color.label}下划线`} title={`${color.label}下划线`} onClick={() => applyUnderline(color.id)} />)}</div>
+      {underlineMenu.kind === "mark" && <button type="button" className="cet-underline-remove" onClick={() => applyUnderline("remove")}>删除</button>}
+    </div>, document.body)}
     {timerAnchor && <CetOptionList anchor={timerAnchor} label="计时设置" value="" options={[{key:'reset',text:'归零'},{key:'countdown',text:activity&&projectCetTimer(activity,section.id).mode==='countdown'?'调整倒计时':'改为倒计时'}]} onClose={()=>setTimerAnchor(null)} onChoose={key=>{setTimerAnchor(null);setNotice('');setMinutes(String((activity&&projectCetTimer(activity,section.id).budget||600000)/60000));setSheet(key==='reset'?'计时归零':'设置倒计时');}} />}
     {choice && activity?.status==="in_progress" && choice.activityId===activity.id && choice.section.id===activity.activeSection && <CetOptionList anchor={choice.anchor} options={[{key:"",text:"清空答案"}, ...choice.question.options.map(o=>({key:o.key,text:`${o.key} ${o.text}`}))]} value={activity?.answers[cetQuestionKey(choice.section.id, choice.question.number)]?.value || ""} label={`第 ${choice.question.number} 题选择${choice.section.type === "matching" ? "段落" : "单词"}`} onChoose={(key) => { updateDraft(choice.question, key, {activityId:choice.activityId,sectionId:choice.section.id}); setChoice(null); }} onClose={() => setChoice(null)} />}
     {sheet && <Sheet title={sheet} left={sheet === "选择真题"} onClose={() => setSheet("")}>

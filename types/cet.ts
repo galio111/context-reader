@@ -66,6 +66,18 @@ export interface CetQuestionSnapshot {
   answer?: string;
   explanation?: string;
 }
+export type CetUnderlineColor = "blue" | "teal" | "amber" | "rose";
+export interface CetUnderline {
+  id: string;
+  sectionId: string;
+  paragraphIndex: number;
+  start: number;
+  end: number;
+  color: CetUnderlineColor;
+  updatedAt: string;
+  eventId: string;
+  deleted?: boolean;
+}
 export interface CetFinalization {
   timerMode?: "countdown" | "countup";
   id: string;
@@ -83,6 +95,8 @@ export interface CetFinalization {
   elapsedMs: number;
   everPaused: boolean;
   conditions: string[];
+  underlines?: CetUnderline[];
+  underlinedParagraphs?: Record<string, string[]>;
 }
 export interface CetActivity {
   schemaVersion: 2 | 3 | 4;
@@ -104,6 +118,7 @@ export interface CetActivity {
   activeSection: string;
   status: CetActivityStatus;
   answers: Record<string, CetAnswerRevision>;
+  underlines?: Record<string, CetUnderline>;
   finalizations: Record<string, CetFinalization>;
   createdAt: string;
   startedAt: string;

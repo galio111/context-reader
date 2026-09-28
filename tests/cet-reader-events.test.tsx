@@ -10,7 +10,7 @@ import type { WordContext } from "../types/reader";
 test("real CET events preserve drafts, freeze one passage and start an independent self-test", async () => {
   const dom = new JSDOM("<!doctype html><body></body>", { url: "https://context-reader.com", pretendToBeVisual: true });
   Object.assign(globalThis, { IS_REACT_ACT_ENVIRONMENT: true });
-  for (const [key, value] of Object.entries({ window: dom.window, document: dom.window.document, navigator: dom.window.navigator, HTMLElement: dom.window.HTMLElement, CustomEvent: dom.window.CustomEvent, Event: dom.window.Event, React, requestAnimationFrame: dom.window.requestAnimationFrame.bind(dom.window) })) Object.defineProperty(globalThis, key, { configurable: true, value });
+  for (const [key, value] of Object.entries({ window: dom.window, document: dom.window.document, navigator: dom.window.navigator, HTMLElement: dom.window.HTMLElement, CustomEvent: dom.window.CustomEvent, Event: dom.window.Event, Range: dom.window.Range, React, requestAnimationFrame: dom.window.requestAnimationFrame.bind(dom.window) })) Object.defineProperty(globalThis, key, { configurable: true, value });
   Object.defineProperty(dom.window, "indexedDB", { value: new IDBFactory() });
   Object.defineProperty(globalThis, "cancelAnimationFrame", { configurable: true, value: dom.window.cancelAnimationFrame.bind(dom.window) });
   Object.defineProperty(globalThis, "getComputedStyle", { configurable: true, value: dom.window.getComputedStyle.bind(dom.window) });
@@ -129,6 +129,21 @@ test("real CET events preserve drafts, freeze one passage and start an independe
     }
     await user.click(ui.getByRole('button',{name:'选词填空'}));
 
+    const { fireEvent } = await import("@testing-library/react");
+    const sourcePart = ui.container.querySelector<HTMLElement>(".cet-passages [data-cet-part-start]")!;
+    const textNode = sourcePart.querySelector(".cet-text")!.firstElementChild!.firstChild!;
+    const selection = dom.window.getSelection()!;
+    const range = dom.window.document.createRange();
+    range.setStart(textNode, 0); range.setEnd(textNode, 12);
+    selection.removeAllRanges(); selection.addRange(range);
+    fireEvent.mouseUp(sourcePart);
+    await waitFor(() => assert.ok(ui.getByRole("toolbar", {name:"为选中原文添加下划线"})));
+    await user.click(ui.getByRole("button", {name:"粉色下划线"}));
+    const marked = readCetActivities().find(a => a.id === selfTest.id)!;
+    assert.equal(Object.values(marked.underlines || {}).filter(mark => !mark.deleted).length, 1);
+    assert.ok(sourcePart.querySelector('[data-cet-underline-id][data-color="rose"]'));
+    assert.equal(ui.queryByText("切换将保存当前自测并暂停。"), null);
+
     reliableStore.flush=async()=>{throw new Error("injected local persistence failure");};
     await user.click(ui.getByRole("button",{name:"暂停自测计时"}));
     await waitFor(()=>assert.ok(ui.getByText("计时状态未能保存，请重试。")));
@@ -153,6 +168,9 @@ test("real CET events preserve drafts, freeze one passage and start an independe
     await user.click(ui.getByRole("button",{name:"重试保存"}));
     await waitFor(()=>assert.equal(Boolean(ui.queryByRole("dialog",{name:"保存失败"})),false));
     assert.deepEqual(Object.keys(readCetActivities().find(a=>a.id===selfTest.id)!.finalizations),[finalId]);
+    assert.equal(readCetActivities().find(a=>a.id===selfTest.id)!.finalizations[finalId].underlines?.length,1);
+    assert.ok(ui.getByText(/自测划记 · 1 处/));
+    assert.equal(ui.queryByRole("toolbar", {name:"编辑自测划记"}), null);
     assert.deepEqual(selfTest.answers, {});
     assert.ok(selfTest.knownPriorSectionIds.length);
     assert.ok(ui.getByRole("button", { name: "第 26 空，未作答" }));
