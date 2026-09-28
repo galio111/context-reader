@@ -8,6 +8,7 @@ import type {
   CetQuestionSnapshot,
   CetPurpose,
 } from "@/types/cet";
+import { liveCetUnderlines, mergeCetUnderlines } from "./cetUnderlines";
 
 export const CET_SELF_TEST_MINUTES = { paper: 40, section: 10 } as const;
 export const CET_SELF_TEST_MIN_RANGE = 1;
@@ -224,6 +225,10 @@ export function cetFinalize(activity: CetActivity, paper: CetPaper, reason: CetF
     elapsedMs,
     everPaused: activity.everPaused,
     conditions: [...new Set([...activity.conditions, ...(activity.knownPriorSectionIds.length ? ["prior_material"] : []), ...(cetTimingAnomaly(activity, Date.parse(now)) ? ["timing_anomaly"] : [])])],
+    ...(activity.purpose === "self_test" ? {
+      underlines: liveCetUnderlines(activity.underlines),
+      underlinedParagraphs: Object.fromEntries(sectionIds.filter(id => liveCetUnderlines(activity.underlines).some(mark => mark.sectionId === id)).map(id => [id, [...(paper.sections.find(section => section.id === id)?.paragraphs || [])]])),
+    } : {}),
   };
   const finalizations = { ...activity.finalizations, [id]: finalization };
   const allPracticeDone = isPractice && activity.sectionIds.every((s) => Object.values(finalizations).some((f) => f.sectionId === s));
@@ -289,6 +294,7 @@ export function mergeCetActivity(a: CetActivity | undefined, b: CetActivity): Ce
   const merged: CetActivity = {
     ...latest,
     answers,
+    ...(a.underlines || b.underlines ? { underlines: mergeCetUnderlines(a.underlines, b.underlines) } : {}),
     finalizations,
     status,
     activeSection: latest.activeSection,

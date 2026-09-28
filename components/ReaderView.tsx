@@ -3701,7 +3701,7 @@ export function ReaderView({
   const activeArticleStyle = normalizeArticleStyle(currentImportedArticle?.style);
   const articleShellClassName = [
     "mx-auto overflow-x-hidden break-words [overflow-wrap:anywhere]",
-    editingArticle ? "select-text" : "select-none touch-pan-y",
+    editingArticle || examSurface?.locked ? "select-text touch-pan-y" : "select-none touch-pan-y",
     activeArticleStyle.contentWidth === "narrow" ? "max-w-2xl" : activeArticleStyle.contentWidth === "wide" ? "max-w-4xl" : "max-w-[52rem]",
     activeArticleStyle.fontFamily === "serif" ? "font-serif" : activeArticleStyle.fontFamily === "mono" ? "font-mono" : "font-sans",
   ].join(" ");

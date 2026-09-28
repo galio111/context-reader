@@ -230,6 +230,67 @@
 .cet-passages > p {
   margin: 0 0 28px;
 }
+.cet-underline {
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-color: var(--cet-underline-color);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.17em;
+  text-decoration-skip-ink: none;
+}
+.cet-underline[data-color="blue"], .cet-underline-colors [data-color="blue"], .cet-underline-index i[data-color="blue"] { --cet-underline-color: #2563eb; }
+.cet-underline[data-color="teal"], .cet-underline-colors [data-color="teal"], .cet-underline-index i[data-color="teal"] { --cet-underline-color: #0f766e; }
+.cet-underline[data-color="amber"], .cet-underline-colors [data-color="amber"], .cet-underline-index i[data-color="amber"] { --cet-underline-color: #b45309; }
+.cet-underline[data-color="rose"], .cet-underline-colors [data-color="rose"], .cet-underline-index i[data-color="rose"] { --cet-underline-color: #be185d; }
+.cet-underline-hint {
+  margin: -5px 0 18px;
+  color: #425d68;
+  font-size: 13px;
+}
+.cet-underline-menu {
+  position: fixed;
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  max-width: calc(100vw - 16px);
+  padding: 6px;
+  border-radius: 10px;
+  background: #1d2b32;
+  color: #fff;
+  box-shadow: 0 4px 8px rgb(15 30 40 / 24%);
+}
+.cet-underline-menu button {
+  min-width: 38px;
+  min-height: 38px;
+  border-radius: 6px;
+  color: inherit;
+}
+.cet-underline-menu button:focus-visible,
+.cet-underline-index button:focus-visible { outline: 2px solid #0d8fac; outline-offset: 2px; }
+.cet-underline-apply { padding: 0 9px; font-size: 13px; white-space: nowrap; }
+.cet-underline-apply u { font-weight: 700; margin-right: 3px; }
+.cet-underline-colors { display: flex; gap: 3px; }
+.cet-underline-colors button { display: grid; place-items: center; }
+.cet-underline-colors button::after { content: ""; width: 16px; height: 16px; border-radius: 50%; background: var(--cet-underline-color); border: 2px solid #fff; }
+.cet-underline-menu button:hover { background: #354a54; }
+.cet-underline-remove { padding: 0 9px; font-size: 13px; }
+.cet-underline-index { margin: 16px 0 24px; border-top: 1px solid #c9d9dc; border-bottom: 1px solid #c9d9dc; padding: 10px 0; }
+.cet-underline-index summary { cursor: pointer; font-weight: 650; color: #234e5a; }
+.cet-underline-index > p { margin: 8px 0; color: #425d68; font-size: 13px; }
+.cet-underline-index > div { display: grid; gap: 2px; max-height: 225px; overflow-y: auto; }
+.cet-underline-index button { display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 7px 4px; border-radius: 5px; }
+.cet-underline-index button:hover { background: #e8f2f3; }
+.cet-underline-index button span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cet-underline-index i { flex: 0 0 8px; width: 8px; height: 8px; border-radius: 50%; background: var(--cet-underline-color); }
+html[data-context-theme="night"] .cet-underline[data-color="blue"], html[data-context-theme="night"] .cet-underline-colors [data-color="blue"], html[data-context-theme="night"] .cet-underline-index i[data-color="blue"] { --cet-underline-color: #93b4ff; }
+html[data-context-theme="night"] .cet-underline[data-color="teal"], html[data-context-theme="night"] .cet-underline-colors [data-color="teal"], html[data-context-theme="night"] .cet-underline-index i[data-color="teal"] { --cet-underline-color: #75d6c6; }
+html[data-context-theme="night"] .cet-underline[data-color="amber"], html[data-context-theme="night"] .cet-underline-colors [data-color="amber"], html[data-context-theme="night"] .cet-underline-index i[data-color="amber"] { --cet-underline-color: #f2bd70; }
+html[data-context-theme="night"] .cet-underline[data-color="rose"], html[data-context-theme="night"] .cet-underline-colors [data-color="rose"], html[data-context-theme="night"] .cet-underline-index i[data-color="rose"] { --cet-underline-color: #f39abe; }
+html[data-context-theme="night"] .cet-underline-hint, html[data-context-theme="night"] .cet-underline-index > p { color: #b9d0d6; }
+html[data-context-theme="night"] .cet-underline-index { border-color: #48646d; }
+html[data-context-theme="night"] .cet-underline-index summary { color: #bce6ee; }
+html[data-context-theme="night"] .cet-underline-index button:hover { background: #294753; }
 .cet-text [data-cet-token] {
   cursor: pointer;
 }

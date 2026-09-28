@@ -4,6 +4,7 @@ import type { CetActivity, CetFinalization } from "@/types/cet";
 import { mergeCetActivity } from "@/lib/cetActivity";
 import { getLearningStorage, isLearningStorage } from "@/lib/learningStorage";
 import { notifyAccountDataChanged } from "@/lib/accountEvents";
+import { validCetUnderline } from "@/lib/cetUnderlines";
 
 export const CET_ACTIVITIES_KEY = "context-reader:cet-activities:v2";
 export const CET_FINALIZATIONS_KEY = "context-reader:cet-finalizations:v2";
@@ -41,7 +42,9 @@ export function normalizeCetActivity(value: unknown): CetActivity | null {
   if (a.schemaVersion === 2 && a.timerMode === "countup") return null;
   if (a.schemaVersion === 2 && a.purpose === "self_test" && !a.legacy && (!Number.isFinite(a.budgetMs) || !Number.isFinite(a.remainingMs))) return null;
   if (Object.values(a.answers).some((r) => !r || typeof r.value !== "string" || !r.eventId || !Number.isFinite(Date.parse(r.at)))) return null;
+  if (a.underlines !== undefined && (typeof a.underlines !== "object" || Array.isArray(a.underlines) || Object.entries(a.underlines).some(([id, mark]) => id !== mark?.id || !validCetUnderline(mark)))) return null;
   if (Object.entries(a.finalizations).some(([id, f]) => !f || f.id !== id || !Number.isFinite(Date.parse(f.at)) || !Array.isArray(f.questions))) return null;
+  if (Object.values(a.finalizations).some(f => f.underlines !== undefined && (!Array.isArray(f.underlines) || f.underlines.some(mark => !validCetUnderline(mark))))) return null;
   return a;
 }
 
