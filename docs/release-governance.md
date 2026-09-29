@@ -2,9 +2,9 @@
 
 This file is the final-state contract for parallel development and mainland production releases. It exists to prevent a later task from silently publishing an older source snapshot and removing work that another task already shipped.
 
-## Current accepted release (2026-09-27)
+## Current accepted release (2026-09-29)
 
-Accepted `20260927T091952`, parent `20260927T031000`, source `00f34707feaedc8419bfc7737ae521bd38bd9eea`. Public identity, current symlink and accepted state agree with mainland_internal. Includes loading/HD resource improvements and live-account library access while retaining the visual journey. User explicitly requested this release with the known fast-scroll image misses retained; the full optimization acceptance matrix is not complete. 194 automatic regressions, release/egress guards, local/server builds, public member library/Reader/AI/sync smoke, anonymous boundaries, health, isolated16-table restore and current/parent images passed. Only app/caddy recreated. See [loading release evidence](loading-hd-release.md). Later main changes are documentation only.
+Accepted `20260929T144645`, parent `20260928T125723`, source `43d96fa9014f3e2ef9db3c43ca01c43672830ad7`. Public identity, current symlink and accepted state agree with mainland_internal. This cumulative release improves editorial provider response handling and source selection; the production setting now enables verified The Conversation regional Business feeds and CNBC Economy, with DeepSeek Flash primary and MiMo fallback. Protected contracts, local/server builds, public homepage/article/account/Admin boundaries, seven-service health, isolated 16-table backup restore and current/parent images passed. Only app/caddy recreated. The next full-day editorial yield is unverified; see [editorial audit](editorial-supply-20260929.md). Earlier loading/HD fast-scroll image misses and incomplete visual/device acceptance remain documented in [loading release evidence](loading-hd-release.md).
 
 ## The three different copies of “the code”
 

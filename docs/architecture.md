@@ -14,7 +14,7 @@ Production builds generate immutable Brotli sidecars for JS/CSS. Middleware nego
 
 自动精选目标约 60，合格范围 55–68、四板块各 13–17，预算不足报告缺口。默认 Flash 综合审核，Jev 关闭；新后台允许按功能和套餐切换主备模型。质量门槛、手动候选和高中标签保留。完整规则见 automated-editorial.md。
 
-2026-09-23 自动精选的实际缺口来自 150 次尝试上限和商业来源命中率低；修正后的调度在某板块不足 13 篇时只轮询有机会补该板块的已验证来源，优先单主题来源，再用兼含主题来源。最终发布要求至少 401 英文词、至少一张已存储正文图片、审核哈希与分类门槛。Reader 图片快速下滑时的灰色占位及短暂停顿仍待修复，见 [Reader 图片滚动问题](featured-image-scroll-open-issue.md)。
+2026-09-29 自动精选在某板块不足 13 篇时只轮询有机会补该板块的已验证来源，优先单主题来源，再用兼含主题来源；近 72 小时的实际审核分类会调整优先级，至少八篇审核输出却没有缺口板块产出的来源暂不继续消耗该板块的尝试次数。综合审核的 HTTP 200 响应必须有非空内容与完整 token usage，否则记录为供应商失败并按已配置路由尝试备用，同时保留未知费用预留。当前生产文字/图片审核为 DeepSeek Flash 主用、MiMo 备用，商业来源扩为 The Conversation AU/US/UK Business 与 CNBC Business/Economy，¥1.50 硬预算及 401 词、已存储正文图片、审核哈希等发布门槛不变。三日日账与未验证的下一日收益见 [供给审计](editorial-supply-20260929.md)。Reader 图片快速下滑时的灰色占位及短暂停顿仍待修复，见 [Reader 图片滚动问题](featured-image-scroll-open-issue.md)。
 
 ## System map
 
