@@ -26,6 +26,7 @@ export function defaultDiscoverySites(): DiscoverySite[] {
     ["OECD Ecoscope", "oecdecoscope.blog", "https://oecdecoscope.blog/feed/", ["商业经济"], false],
     ["Global Voices", "globalvoices.org", "https://globalvoices.org/feed/", ["社会生活", "文化历史"], false],
     ["Crunchbase News", "news.crunchbase.com", "https://news.crunchbase.com/feed/", ["商业经济"], false],
+    ["CNBC Business", "cnbc.com", "https://www.cnbc.com/id/10001147/device/rss/rss.html", ["商业经济"], false],
     ["Euronews", "euronews.com", "https://www.euronews.com/rss?level=theme&name=news", ["社会生活", "商业经济"], false],
     ["Live Science", "livescience.com", "https://www.livescience.com/feeds/all", ["科技科学", "自然环境"], false],
     ["ZME Science", "zmescience.com", "https://www.zmescience.com/feed/", ["科技科学", "自然环境"], false],
@@ -67,7 +68,19 @@ export function defaultDiscoverySites(): DiscoverySite[] {
   });
   const sites = [...groups.values()];
   const guardian = sites.find((site) => site.articleHosts[0] === "theguardian.com");
-  if (guardian) { guardian.feeds = [guardian.feedUrl = "https://www.theguardian.com/business/rss", "https://www.theguardian.com/world/rss"]; guardian.topics = ["商业经济", "社会生活", "文化历史", "自然环境"]; }
+  if (guardian) { guardian.feeds = [guardian.feedUrl = "https://www.theguardian.com/business/rss"]; guardian.topics = ["商业经济", "社会生活", "文化历史", "自然环境"]; }
+  const conversation = sites.find((site) => site.articleHosts[0] === "theconversation.com");
+  if (conversation) {
+    conversation.name = "The Conversation - Business";
+    conversation.feeds = [
+      conversation.feedUrl = "https://theconversation.com/au/business/articles.atom",
+      "https://theconversation.com/us/business/articles.atom",
+      "https://theconversation.com/uk/business/articles.atom",
+    ];
+    conversation.topics = ["商业经济", "社会生活"];
+  }
+  const cnbc = sites.find((site) => site.articleHosts[0] === "cnbc.com");
+  if (cnbc) cnbc.feeds = [cnbc.feedUrl, "https://www.cnbc.com/id/20910258/device/rss/rss.html"];
   const pdr = sites.find((site) => site.articleHosts[0] === "publicdomainreview.org");
   if (pdr) pdr.feeds = [pdr.feedUrl = "https://publicdomainreview.org/rss.xml"];
   const science = sites.find((site) => site.articleHosts[0] === "sciencedaily.com");

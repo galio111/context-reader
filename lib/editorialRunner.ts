@@ -1,5 +1,5 @@
 import {DAILY_TOTAL_MAX,DAILY_CATEGORY_MAX,DAILY_CATEGORIES,distributionSatisfied} from './editorialDistribution';
-import {rankEditorialSources} from './editorialSourcePriority';
+import {rankEditorialSources, type SourceCategoryYield} from './editorialSourcePriority';
 import {isFirstPartyArticleImageUrl} from './articleImageUrls';
 import {countArticleEnglishWords} from './articleWordCount';
 import { getEditorialSpend, withEditorialBudget } from "@/lib/editorialBudget";
@@ -141,12 +141,14 @@ async function runBudgetedBatch(origin: string, trigger: "scheduled" | "manual",
   const maySpend=!spend.blocked && spend.actualMicrocny+spend.reservedMicrocny<(config.dailyBudgetCny??1.5)*1e6;
   const softBudgetReached=distributionSatisfied(counts()) && spend.actualMicrocny+spend.reservedMicrocny>=1e6;
   const expired=Date.now()-Date.parse(ledger.startedAt)>120*60_000;
-  const observed:Record<string,{matched:number;total:number}>={};
-  for(const article of [...published,...candidates]){
+  const observed:Record<string,SourceCategoryYield>={};
+  for(const article of new Map([...published,...candidates].map(article=>[article.id,article])).values()){
     const source=article.recommendation?.discoverySourceId;
-    if(!source || !article.recommendation?.editorialReview?.checkedAt || shanghaiDay(article.recommendation.editorialReview.checkedAt)!==today)continue;
-    const row=observed[source] ||= {matched:0,total:0};row.total++;
-    if(article.recommendation.topics[0]==="商业经济" || editorialCategoryForArticle(article)==="商业")row.matched++;
+    const checkedAt=Date.parse(article.recommendation?.editorialReview?.checkedAt || "");
+    if(!source || !Number.isFinite(checkedAt) || checkedAt<Date.now()-3*24*3600_000)continue;
+    const row=observed[source] ||= {total:0,categories:{}};row.total++;
+    const category=editorialCategoryForArticle(article);
+    row.categories[category]=(row.categories[category]||0)+1;
   }
   const sites=rankEditorialSources(await getDiscoverySites(),counts(),ledger.sites,observed);
   const site=sites[0];

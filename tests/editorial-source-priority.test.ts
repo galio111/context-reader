@@ -16,3 +16,19 @@ test("when all category minimums are met, choose categories with room to reach t
   const counts = { "时事": 17, "科技": 13, "文化": 13, "商业": 13 };
   assert.deepEqual(rankEditorialSources([secondary, business, culture], counts, {}).map(s => s.id), ["business", "culture"]);
 });
+
+test("a source with repeated off-category output is retired for the missing category", () => {
+  const counts = { "时事": 17, "科技": 14, "文化": 11, "商业": 7 };
+  const observed = {
+    secondary: { total: 12, categories: { "时事": 12 } },
+    business: { total: 8, categories: { "商业": 3, "科技": 5 } },
+  };
+  assert.deepEqual(rankEditorialSources([secondary, business], counts, {}, observed).map(s => s.id), ["business"]);
+  assert.deepEqual(rankEditorialSources([secondary], counts, {}, observed), []);
+});
+
+test("a secondary source with proven output in a missing category remains eligible", () => {
+  const counts = { "时事": 17, "科技": 14, "文化": 13, "商业": 7 };
+  const observed = { secondary: { total: 10, categories: { "时事": 8, "商业": 2 } } };
+  assert.deepEqual(rankEditorialSources([secondary], counts, {}, observed).map(s => s.id), ["secondary"]);
+});

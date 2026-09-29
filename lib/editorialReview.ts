@@ -17,6 +17,14 @@ import { EDITORIAL_POLICY_VERSION, EDITORIAL_QUESTIONS, editorialChunks, editori
 import type { ImportedArticle } from "@/types/article";
 
 export interface EditorialConfig { enabled: boolean; provider: EditorialProvider; jevMonthlyBudgetUsd: number; dailyReviewLimit: number; dailyBudgetCny?: number; budgetTrial?: EditorialBudgetTrial | null; jevAutoAdopt?: boolean; approvedJevChecks?: EditorialCheck[] }
+type EditorialCompletion = { choices?: Array<{ message?: { content?: string } }>; usage?: ProviderTokenUsage };
+export function validEditorialCompletion(value: unknown): value is EditorialCompletion {
+  const payload = value as EditorialCompletion | null;
+  return !!payload && typeof payload.choices?.[0]?.message?.content === "string"
+    && payload.choices[0].message.content.trim().length > 0
+    && Number.isFinite(payload.usage?.prompt_tokens)
+    && Number.isFinite(payload.usage?.completion_tokens);
+}
 export const EDITORIAL_CONFIG_KEY = "recommendation_editorial_config_v1";
 export async function getEditorialConfig(): Promise<EditorialConfig> {
   const value = await readDiscoverySetting<Partial<EditorialConfig>>(EDITORIAL_CONFIG_KEY, {});
@@ -67,6 +75,7 @@ export async function completeReview(prompt: string, model: string, images: stri
   const selected=(requested===route.primary||requested===route.fallback)?requested:route.primary;
   const choices=[selected,...(route.fallback&&route.fallback!==selected?[route.fallback]:[])];
   let response:Response|undefined;
+  let payload:EditorialCompletion|undefined;
   for(const candidate of choices){
     model=candidate;const credentials=modelCredentials(candidate);const started=Date.now();
     if(!credentials.key){if(candidate!==choices.at(-1))continue;throw Error('editorial_model_unconfigured');}
@@ -75,12 +84,22 @@ export async function completeReview(prompt: string, model: string, images: stri
         method:'POST',headers:{Authorization:`Bearer ${credentials.key}`,'Content-Type':'application/json'},
         body:JSON.stringify(modelBody(candidate,{messages:[{role:'user',content:images.length?content:prompt}],response_format:{type:'json_object'},temperature:0,max_tokens:maxTokens})),signal:AbortSignal.timeout(45000)
       }));
-      await recordModelHealth(model,response.status,Date.now()-started);
-      if(response.ok||!([401,402,408,429].includes(response.status)||response.status>=500)||candidate===choices.at(-1))break;
+      const received=response.ok?await response.clone().json().catch(()=>null):null;
+      const malformed=response.ok&&!validEditorialCompletion(received);
+      await recordModelHealth(model,malformed?502:response.status,Date.now()-started);
+      if(malformed){
+        // A 200 with no usable completion or usage is a provider failure, not
+        // an editorial decision. Its unresolved cost reservation remains held.
+        if(candidate!==choices.at(-1))continue;
+        throw Error('editorial_provider_invalid_envelope');
+      }
+      if(response.ok){payload=received as EditorialCompletion;break;}
+      if(!([401,402,408,429].includes(response.status)||response.status>=500)||candidate===choices.at(-1))break;
     }catch(e){if(String(e).includes('cost_limit')||candidate===choices.at(-1))throw e;await recordModelHealth(model,0,Date.now()-started);}
   }
   if(!response)throw Error('editorial_model_unavailable');
-  const payload = await response.json() as { choices?: Array<{ message?: { content?: string } }>; usage?: ProviderTokenUsage };
+  if(!response.ok)throw Error(`editorial_provider_${response.status}`);
+  if(!payload)throw Error('editorial_provider_invalid_envelope');
   const usage = payload.usage || {};
   const cost = estimateDeepSeekCostMicrousd(model, usage);
   await recordSystemUsageExecution({ feature: "editorial_review", route: "/api/cron/recommendations", provider: modelCredentials(model as ModelId).provider, model, promptTokens: usage.prompt_tokens, promptCacheHitTokens: usage.prompt_cache_hit_tokens, promptCacheMissTokens: usage.prompt_cache_miss_tokens, completionTokens: usage.completion_tokens, estimatedCostMicrousd: cost, status: response.ok ? "succeeded" : "failed" }).catch(() => undefined);
