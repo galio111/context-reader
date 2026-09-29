@@ -38,7 +38,7 @@ export function mergeTrailEvents(...sets:CetTrailEvent[][]):CetTrailEvent[]{
  return [...events.values()].sort((a,b)=>a.at.localeCompare(b.at)||a.id.localeCompare(b.id));
 }
 export function currentTrailRound(events:CetTrailEvent[],key:CetTrailKey):string{
- return mergeTrailEvents(events).filter(e=>e.owner===key.owner&&e.level===key.level&&e.type===key.type&&e.reason==='round').at(-1)?.id||'initial';
+ return mergeTrailEvents(events).filter(e=>cetTrailKey(e)===cetTrailKey(key)&&e.reason==='round').at(-1)?.id||'initial';
 }
 export function projectTrail(events:CetTrailEvent[],key:CetTrailKey,units:CetTypeUnit[]){
  const accessible=new Set(units.map(cetUnitKey)),round=currentTrailRound(events,key),byUnit=new Map<string,CetTrailEvent>();
@@ -53,7 +53,7 @@ export function projectTrail(events:CetTrailEvent[],key:CetTrailKey,units:CetTyp
 export function projectViewedTrail(events:CetTrailEvent[],key:CetTrailKey,units:CetTypeUnit[]){
  const accessible=new Set(units.map(cetUnitKey)),round=currentTrailRound(events,key),byUnit=new Map<string,CetTrailEvent>();
  for(const event of mergeTrailEvents(events)){
-  if(event.owner!==key.owner||event.level!==key.level||event.type!==key.type||event.reason==='round'||event.round!==round)continue;
+  if(cetTrailKey(event)!==cetTrailKey(key)||event.reason==='round')continue;
   const id=cetUnitKey(event);
   if(!byUnit.has(id))byUnit.set(id,event);
  }
@@ -63,10 +63,11 @@ export function resolvePrevious(trail:CetTrailEvent[],current:CetTypeUnit):CetTr
  const i=trail.findIndex(e=>cetUnitKey(e)===cetUnitKey(current));return i<0?trail.at(-1):trail[i-1];
 }
 export function resolveNext(trail:CetTrailEvent[],units:CetTypeUnit[],current:CetTypeUnit,fixed:CetTypeUnit|null,rng:()=>number):CetTypeUnit|undefined{
- const i=trail.findIndex(e=>cetUnitKey(e)===cetUnitKey(current));if(i>=0&&trail[i+1])return trail[i+1];
  const seen=new Set(trail.map(cetUnitKey));const remaining=units.filter(u=>!seen.has(cetUnitKey(u))&&cetUnitKey(u)!==cetUnitKey(current));
  if(fixed&&remaining.some(u=>cetUnitKey(u)===cetUnitKey(fixed)))return fixed;
- return remaining.length?remaining[Math.min(remaining.length-1,Math.max(0,Math.floor(rng()*remaining.length)))]:undefined;
+ const candidates=remaining.length?remaining:units.filter(u=>cetUnitKey(u)!==cetUnitKey(current));
+ if(fixed&&candidates.some(u=>cetUnitKey(u)===cetUnitKey(fixed)))return fixed;
+ return candidates.length?candidates[Math.min(candidates.length-1,Math.max(0,Math.floor(rng()*candidates.length)))]:undefined;
 }
 export function trailPosition(trail:CetTrailEvent[],units:CetTypeUnit[],current:CetTypeUnit):number{
  if(!units.some(u=>cetUnitKey(u)===cetUnitKey(current)))return 0;

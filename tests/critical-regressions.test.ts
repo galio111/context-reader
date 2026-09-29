@@ -1561,13 +1561,13 @@ test("full translation keeps progressive output while batching upstream context"
   assert.match(translationRoute, /stream:\s*true/);
   assert.match(translationRoute, /application\/x-ndjson/);
   assert.match(translationRoute, /"deepseek-flash"/);
-  assert.match(translationBatching, /ARTICLE_TRANSLATION_BATCH_MAX_BLOCKS\s*=\s*80/);
+  assert.match(translationBatching, /ARTICLE_TRANSLATION_BATCH_MAX_BLOCKS\s*=\s*10/);
   assert.match(translationRoute, /MAX_CONTEXT_TOTAL_CHARS\s*=\s*64_000/);
   assert.match(translationRoute, /contextMatchesTarget\s*\?/);
   assert.match(translationRoute, /emitFallbackDocument/);
   assert.match(translationRoute, /IncrementalJsonObjectParser/);
   assert.doesNotMatch(translationRoute, /正在保留已完成段落/);
-  assert.match(translationBatching, /ARTICLE_TRANSLATION_BATCH_MAX_CHARS\s*=\s*24_000/);
+  assert.match(translationBatching, /ARTICLE_TRANSLATION_BATCH_MAX_CHARS\s*=\s*5_000/);
   assert.match(translationJobs, /onTranslation\(event\.translation\)/);
   assert.match(translationJobs, /setInterval\(updateCountdown, 1_000\)/);
   assert.match(reader, /mobileTranslationScrollTopRef\.current = mobileTranslationScrollRef\.current\.scrollTop/);
@@ -1580,7 +1580,7 @@ test("full translation keeps progressive output while batching upstream context"
   assert.match(adminPage, /articleId: published\.id/);
   assert.match(adminPage, /uploadCurrentPublishedTranslation/);
   assert.doesNotMatch(adminPage, /AdminArticleTranslationUpload|录入译文|粘贴整篇中文/);
-  assert.doesNotMatch(translationBatching, /ARTICLE_TRANSLATION_BATCH_MAX_BLOCKS\s*=\s*1/);
+  assert.doesNotMatch(translationBatching, /ARTICLE_TRANSLATION_BATCH_MAX_BLOCKS\s*=\s*1\s*;/);
 });
 
 test("published homepage toggles persist immediately while candidate choices remain draft", () => {

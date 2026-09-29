@@ -27,8 +27,8 @@ test('A/B/C effective trace, previews do not occupy slots and back/forward resto
  assert.equal(trailPosition(trail,units,units[1]),2);assert.equal(trailPosition(trail,units,units[2]),2);
  assert.equal(resolvePrevious(trail,units[1])?.activityId,'activity0');
  events=mergeTrailEvents(events,[event(1),event(2),event(0)]);trail=projectTrail(events,key,units).trail;
- assert.equal(trail.length,3);assert.equal(resolveNext(trail,units,units[0],null,()=>{throw Error('must not draw');})?.paperId,'B');
- assert.equal(resolveNext(trail,units,units[2],null,()=>0),undefined);assert.equal(trailPosition(trail,units,units[0]),1);
+ assert.equal(trail.length,3);assert.equal(resolveNext(trail,units,units[0],null,()=>0)?.paperId,'B');
+ assert.deepEqual(resolveNext(trail,units,units[2],null,()=>0),units[0]);assert.equal(trailPosition(trail,units,units[0]),1);
 });
 test('race/order dedup, purpose/owner isolation, accessible projection and fixed retry',()=>{
  const events=mergeTrailEvents([event(2),event(0)],[event(1),event(0)]);assert.deepEqual(events.map(e=>e.id),['e0','e1','e2']);
@@ -42,7 +42,7 @@ test('explicit restart replaces activity binding without adding material; new ro
  const events=mergeTrailEvents([event(0),event(1)],[restart]);const p=projectTrail(events,key,units);
  assert.equal(p.trail.length,2);assert.equal(p.trail[0].activityId,'new-A');
  const round={...event(0),id:'round2',reason:'round' as const,at:'2026-09-25T02:00:00Z'};
- assert.equal(projectTrail([...events,round],key,units).trail.length,0);assert.equal(events.length,3);
+ assert.equal(projectTrail([...events,round],key,units).trail.length,0);assert.equal(projectViewedTrail([...events,round],key,units).trail.length,2);assert.equal(events.length,3);
 });
 test('opening an unanswered unit advances the seen count, including a later direct year selection',()=>{
  const viewed=(i:number):CetTrailEvent=>({...event(i),id:`view-${i}`,reason:'view'});
@@ -56,19 +56,21 @@ test('opening an unanswered unit advances the seen count, including a later dire
  assert.equal(trailPosition(fromYearPicker,units,units[2]),3);
  assert.equal(trailViewedCount(fromYearPicker,units,units[0]),3);
  assert.equal(trailViewedCount(first,units,units[2]),2);
- assert.equal(resolveNext(fromYearPicker,units,units[2],null,()=>0),undefined);
+ assert.deepEqual(resolveNext(fromYearPicker,units,units[2],null,()=>0),units[0]);
 });
-test('seen count spans practice and self-test while activity binding stays purpose-specific',()=>{
+test('seen count is purpose-specific and persists through later rounds',()=>{
  const practice={...event(0),reason:'view' as const};
  const selfTest={...event(1),id:'self-test-view',purpose:'self_test' as const,reason:'view' as const};
  const seen=projectViewedTrail([practice,selfTest],key,units);
- assert.equal(seen.trail.length,2);
+ assert.equal(seen.trail.length,1);
  assert.equal(trailPosition(seen.trail,units,units[1]),2);
- assert.equal(trailViewedCount(seen.trail,units,units[0]),2);
+ assert.equal(trailViewedCount(seen.trail,units,units[0]),1);
+ assert.equal(projectViewedTrail([practice,selfTest],{...key,purpose:'self_test'},units).trail.length,1);
  assert.equal(projectTrail([practice,selfTest],key,units).trail.length,1);
  assert.equal(projectTrail([practice,selfTest],{...key,purpose:'self_test'},units).trail.length,1);
  const round={...practice,id:'all-seen-round',at:'2026-09-25T01:00:00Z',reason:'round' as const};
  const newSelfTest={...selfTest,id:'new-self-test-view',at:'2026-09-25T01:00:01Z',round:round.id};
  assert.equal(projectViewedTrail([practice,selfTest,round,newSelfTest],key,units).trail.length,1);
  assert.equal(projectTrail([practice,selfTest,round,newSelfTest],{...key,purpose:'self_test'},units).trail.length,1);
+ assert.equal(projectViewedTrail([practice,selfTest,round,newSelfTest],{...key,purpose:'self_test'},units).trail.length,1);
 });

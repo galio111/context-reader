@@ -36,3 +36,18 @@ test("submission freezes both underline offsets and marked passage text despite 
   assert.equal(merged.status,"submitted");
   assert.deepEqual(merged.finalizations["final-1"].underlines,submitted.finalizations["final-1"].underlines);
 });
+
+test("self-test question stem, option and word bank marks keep their own positions", () => {
+  const id = ids();
+  const question = section.questions[0];
+  const ranges = [
+    { sectionId: section.id, target: "stem" as const, questionNumber: question.number, paragraphIndex: 0, start: 0, end: Math.min(8, question.stem.length) },
+    { sectionId: section.id, target: "option" as const, questionNumber: question.number, optionKey: question.options[0].key, paragraphIndex: 0, start: 0, end: Math.min(5, question.options[0].text.length) },
+    { sectionId: section.id, target: "bank" as const, optionKey: section.bank![0].key, paragraphIndex: 0, start: 0, end: Math.min(5, section.bank![0].text.length) },
+  ];
+  const marked = addCetUnderlines(start(), paper, ranges, "blue", "2026-09-28T00:00:01.000Z", id);
+  assert.deepEqual(liveCetUnderlines(marked.underlines).map(mark => mark.target), ["bank", "option", "stem"]);
+  assert.ok(normalizeCetActivity(marked));
+  const submitted = cetFinalize(marked, paper, "manual_submit", undefined, "2026-09-28T00:01:00.000Z", "final-2");
+  assert.equal(submitted.finalizations["final-2"].underlines?.length, 3);
+});

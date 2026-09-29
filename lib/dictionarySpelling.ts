@@ -42,6 +42,11 @@ export function normalizeDictionarySpelling(
   const direction = result.direction === "cn_to_en" ? "cn_to_en" : "en_to_cn";
   const pronunciationTarget = direction === "cn_to_en" ? lemma : query;
   const pronunciation = normalizePhoneticOwnership(result, pronunciationTarget);
+  const pronunciations = direction === "en_to_cn" && Array.isArray(result.pronunciations)
+    ? result.pronunciations.slice(0, 10).filter((item) => item && (item.accent === "en-US" || item.accent === "en-GB")
+      && ["noun", "verb", "adjective", "adverb", "other"].includes(item.partOfSpeech)
+      && typeof item.phonetic === "string" && item.phonetic.trim().length > 0 && item.phonetic.length <= 100)
+      .map((item) => ({ accent: item.accent, partOfSpeech: item.partOfSpeech, phonetic: item.phonetic.trim() })) : [];
   const senses = Array.isArray(result.senses)
     ? result.senses.map((sense) => ({
       ...sense,
@@ -62,6 +67,7 @@ export function normalizeDictionarySpelling(
       query,
       lemma,
       ...pronunciation,
+      pronunciations: [],
       direction,
       senses,
       verbForms: null,
@@ -85,5 +91,5 @@ export function normalizeDictionarySpelling(
   const suggestedQuery = normalized(suggestionCandidate) !== normalized(query)
     ? suggestionCandidate
     : "";
-  return { ...result, query, lemma, ...pronunciation, direction, senses, verbForms, inputStatus, suggestedQuery };
+  return { ...result, query, lemma, ...pronunciation, pronunciations: inputStatus === "misspelled" ? [] : pronunciations, direction, senses, verbForms, inputStatus, suggestedQuery };
 }

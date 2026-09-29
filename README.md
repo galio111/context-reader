@@ -1,6 +1,6 @@
 # Context Reader
 
-四六级阅读当前已支持自测原文彩色下划线、提交后划记定位与查词，以及跨练习和自测累计的分题型已看进度。生产身份、验证与开放项见 [本次发布记录](docs/cet-underline-progress-release.md)。
+四六级阅读支持自测原文与题目四色下划线、提交后只读划记定位与查词，以及练习/自测分别累计的同题型已看进度。生产身份、验证与开放项见 [发布治理](docs/release-governance.md) 和 [产品历程](docs/product-journey.md)。
 
 Context Reader is a Next.js reading tool for importing real English articles and understanding them with Chinese context-aware explanations, full-article translation, vocabulary capture and Anki export.
 
@@ -184,4 +184,4 @@ Then use the cumulative versioned workflow under `ops/mainland/`. Package only a
 
 ## 四六级阅读真题
 
-首页与精选外刊并列的真实阅读题库，复用 ReaderView；支持阅读练习、自测、按卷/题型、正计时/倒计时、进度同步与重做。自测可在原文划记并于提交后按划记定位查词；分题型数字表示本轮看过的不同题组。题库包含来源2013–2026年间有完整阅读题序及答案解析的149套试卷（四级73套、六级76套），材料清单、性能与扩库流程见 [docs/cet-reading.md](docs/cet-reading.md)。生产状态以 [release-governance](docs/release-governance.md) 和产品历程为准。
+首页与精选外刊并列的真实阅读题库，复用 ReaderView；支持阅读练习、自测、按卷/题型、正计时/倒计时、进度同步与重做。自测可在原文、题干、选项及词库划记，提交后按划记定位查词；分题型数字按练习/自测分别表示历轮看过的不同题组。题库包含来源2013–2026年间有完整阅读题序及答案解析的149套试卷（四级73套、六级76套），材料清单、性能与扩库流程见 [docs/cet-reading.md](docs/cet-reading.md)。生产状态以 [release-governance](docs/release-governance.md) 和产品历程为准。

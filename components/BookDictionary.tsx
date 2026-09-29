@@ -76,6 +76,32 @@ function groupSensesByPartOfSpeech(senses: DictionaryResult["senses"]) {
   return Array.from(groups, ([label, groupedSenses]) => ({ label, senses: groupedSenses }));
 }
 
+function DictionaryPronunciations({ result }: { result: DictionaryResult }) {
+  const entries = result.pronunciations || [];
+  if (!entries.length) return null;
+  const parts = [...new Set(entries.map(item => item.partOfSpeech))];
+  const differsByPart = parts.length > 1;
+  return <section className={styles.pronunciationVariants} aria-label="按口音和词性区分的发音">
+    {parts.map(part => {
+      const items = entries.filter(item => item.partOfSpeech === part);
+      const us = items.find(item => item.accent === "en-US");
+      const gb = items.find(item => item.accent === "en-GB");
+      const context = differsByPart && part === "verb" ? `to ${result.query}` : differsByPart && part === "noun" ? `the ${result.query}` : result.query;
+      const rows = us && gb && us.phonetic === gb.phonetic
+        ? [{ label: "英美共用", phonetic: us.phonetic, accents: ["en-US", "en-GB"] as const }]
+        : [us && { label: "美音", phonetic: us.phonetic, accents: ["en-US"] as const }, gb && { label: "英音", phonetic: gb.phonetic, accents: ["en-GB"] as const }].filter((row): row is NonNullable<typeof row> => Boolean(row));
+      return <div className={styles.pronunciationVariant} key={part}>
+        <strong>{part === "other" ? "发音" : partOfSpeechLabels[part] || part}</strong>
+        {rows.map(row => <div className={styles.pronunciationVariantRow} key={row.label}>
+          <span><small>{row.label}</small> {row.phonetic}</span>
+          <PronunciationButtons text={context} displayText={result.query} accents={[...row.accents]} />
+        </div>)}
+        {context !== result.query && <small>语境发音：{context}</small>}
+      </div>;
+    })}
+  </section>;
+}
+
 function readSession(owner: string): DictionarySession {
   try {
     const raw = window.sessionStorage.getItem(`${SESSION_KEY}:${owner}`) ?? window.sessionStorage.getItem(SESSION_KEY);
@@ -237,12 +263,14 @@ function DictionaryResultContent({
             : result.lemma !== result.query && <p>原型：{result.lemma}</p>}
         </div>
         <div className={styles.pronunciation}>
-          {result.phonetic && (
+          {result.phonetic && !result.pronunciations?.length && (
             <span><small>当前词音标</small>{result.phonetic}</span>
           )}
-          {result.query && <PronunciationButtons text={result.query} preload />}
+          {result.query && !result.pronunciations?.length && <PronunciationButtons text={result.query} preload />}
         </div>
       </header>
+
+      <DictionaryPronunciations result={result} />
 
       {result.senses.length > 0 && (
         <ol className={styles.senses}>

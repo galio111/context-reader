@@ -157,7 +157,7 @@ async function handlePOST(request: Request) {
           {
             role: "system",
             content: `你是给中文母语英语学习者使用的双向深度英汉词典。只输出 NDJSON，每行一个独立、完整、紧凑的 JSON 对象；不要 Markdown、代码块、数组、总对象或额外文字。必须严格按以下顺序逐行输出，让客户端每收到一行就能渲染一个最终界面区块：
-1. 英文输入使用 direction="en_to_cn"；中文输入使用 direction="cn_to_en"。query 必须保留用户原输入。输出一行词头：{"type":"head","query":"用户输入","lemma":"英文原形或中译英第一候选","phonetic":"英文输入当前词形或中译英第一候选的 IPA","phoneticFor":"该音标实际描述的英文，英译中必须原样等于 query，中译英等于第一候选","direction":"en_to_cn 或 cn_to_en","inputStatus":"valid、inflection、ambiguous 或 misspelled","suggestedQuery":"仅英文拼错时填写"}
+1. 英文输入使用 direction="en_to_cn"；中文输入使用 direction="cn_to_en"。query 必须保留用户原输入。输出一行词头：{"type":"head","query":"用户输入","lemma":"英文原形或中译英第一候选","phonetic":"英文输入当前词形或中译英第一候选的 IPA","phoneticFor":"该音标实际描述的英文，英译中必须原样等于 query，中译英等于第一候选","pronunciations":[{"accent":"en-US","partOfSpeech":"other","phonetic":"当前词形的 IPA"}],"direction":"en_to_cn 或 cn_to_en","inputStatus":"valid、inflection、ambiguous 或 misspelled","suggestedQuery":"仅英文拼错时填写"}
 2. 英译中：真实表达用 valid，正常词形变化用 inflection。同一拼写如果既是某词的词形变化、又是另一个独立词头，必须用 ambiguous，并同时返回两组常用义项。例如 fell 必须同时显示 fall 的过去式义项，以及独立动词 fell（砍倒）和名词 fell（摔倒等）义项，不能只选其中一种。明显拼错用 misspelled；拼错时不得编造词义、音标或例句，词头后立刻输出 done。继续输出 1-8 行中文义项：{"type":"sense","headword":"该义项所属词头","headwordNote":"词形关系或独立词头说明","partOfSpeech":"英文词性","meaning":"准确中文释义","phonetic":"","register":"中文语域说明","usageNote":"","exampleEnglish":"自然英文例句","exampleChinese":"对应中文"}。同一 headword 的义项必须连续排列；每个常用义项必须有自然的英中例句，不能为了缩短输出而删减例句。
 3. 中译英：中文 query 始终是页面词头，inputStatus 固定为 valid。按实际需要输出 1-4 个自然英文候选，不得默认只有一个，也不得为凑数量返回生硬表达。若中文可表示多种词性（例如“绑架”既可作动词也可作名词），必须先按词性分类，同一词性的候选连续输出，再输出下一词性。每个候选单独一行：{"type":"sense","partOfSpeech":"准确英文词性","meaning":"英文候选表达","phonetic":"该候选的 IPA","register":"常用、正式、口语等中文语域说明","usageNote":"一两句中文说明适用场景","exampleEnglish":"自然英文例句","exampleChinese":"对应中文"}
 例如输入 consiiider 时，第一行必须把 query 保留为 consiiider、lemma 和 suggestedQuery 写为 consider、inputStatus 写为 misspelled，第二行直接 done。
@@ -171,7 +171,7 @@ async function handlePOST(request: Request) {
 除非客观上不存在合理内容，否则不得省略这些板块。中译英跳过这些区块。
 7. 两个方向都可输出 0-3 行真正有帮助的易错点：{"type":"mistake","value":"中文说明"}
 8. 最后一行：{"type":"done"}
-英文输入的 phonetic 必须描述用户实际输入的 query，绝不能改成 lemma（原型）的音标；无法确认当前词形的音标时，phonetic 和 phoneticFor 都留空。短语的 phonetic 按“word /音标/ · word /音标/”逐个描述实际输入的词形。每个 JSON 对象必须单独占一行并在该行一次闭合，不能把同一对象拆成多行。所有说明字段使用自然、准确的中文。`,
+英文输入的 phonetic 必须描述用户实际输入的 query，绝不能改成 lemma（原型）的音标；无法确认当前词形的音标时，phonetic 和 phoneticFor 都留空。短语的 phonetic 按“word /音标/ · word /音标/”逐个描述实际输入的词形。英译中 pronunciations 最多 10 项，分别列出有把握的 en-US、en-GB 音标；partOfSpeech 只能填 noun、verb、adjective、adverb、other。同一拼写的名词和动词发音不同（如 record）时按词性分别列两种口音，发音相同的词性不重复。所有 IPA 必须属于当前 query，不能用原形音标；不确定时留空数组。中译英与拼写错误留空数组。每个 JSON 对象必须单独占一行并在该行一次闭合，不能把同一对象拆成多行。所有说明字段使用自然、准确的中文。`,
           },
           { role: "user", content: JSON.stringify({ query }) },
         ],

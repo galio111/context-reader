@@ -11,9 +11,12 @@ import type { PronunciationAccent } from "@/lib/pronunciation";
 interface PronunciationButtonsProps {
   text: string;
   preload?: boolean;
+  accents?: PronunciationAccent[];
+  displayText?: string;
 }
 
 let sharedAudioContext: AudioContext | null = null;
+const DEFAULT_ACCENTS: PronunciationAccent[] = ["en-US", "en-GB"];
 
 function supportsBrowserSpeech(): boolean {
   return (
@@ -57,6 +60,8 @@ function playbackErrorMessage(error: unknown, accent: PronunciationAccent): stri
 export const PronunciationButtons = memo(function PronunciationButtons({
   text,
   preload = false,
+  accents = DEFAULT_ACCENTS,
+  displayText = text,
 }: PronunciationButtonsProps) {
   const [playingAccent, setPlayingAccent] = useState<PronunciationAccent | null>(null);
   const [loadingAccent, setLoadingAccent] = useState<PronunciationAccent | null>(null);
@@ -65,6 +70,7 @@ export const PronunciationButtons = memo(function PronunciationButtons({
   const sourceRef = useRef<AudioBufferSourceNode | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const audioUrlRef = useRef("");
+  const accentKey = accents.join(",");
 
   function releaseAudio() {
     if (sourceRef.current) {
@@ -96,10 +102,11 @@ export const PronunciationButtons = memo(function PronunciationButtons({
 
   useEffect(() => {
     if (!preload || !text.trim()) return;
-    void requestPronunciationPair(text).catch(() => {
+    const selectedAccents = accentKey.split(",") as PronunciationAccent[];
+    void (selectedAccents.length === 2 ? requestPronunciationPair(text) : Promise.all(selectedAccents.map(accent => requestPronunciationMedia(text, accent)))).catch(() => {
       // A visible click reports the actionable error; background preparation is silent.
     });
-  }, [preload, text]);
+  }, [preload, text, accentKey]);
 
   useEffect(() => {
     return () => {
@@ -235,30 +242,32 @@ export const PronunciationButtons = memo(function PronunciationButtons({
   const buttonClassName = "cr-pronunciation-control inline-flex h-11 items-center gap-1.5 rounded-full border border-[#d2d2d7] bg-white px-3.5 text-sm font-medium text-[#1d1d1f] transition hover:border-[#0066cc] hover:text-[#0066cc] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#0071e3]/20 lg:h-8 lg:gap-1 lg:px-2.5 lg:text-xs";
   return (
     <div className="flex flex-wrap items-center gap-1.5" role="group" aria-label="发音选项">
+      {accents.includes("en-US") &&
       <button
         type="button"
         className={buttonClassName}
         onClick={() => void playPronunciation("en-US")}
-        aria-label={`播放 ${text} 的美式发音`}
+        aria-label={`播放 ${displayText} 的美式发音`}
         aria-pressed={playingAccent === "en-US"}
         aria-busy={loadingAccent === "en-US"}
         title="美式发音"
       >
         <span aria-hidden="true">{loadingAccent === "en-US" ? "…" : playingAccent === "en-US" ? "■" : "▶"}</span>
         <span>{loadingAccent === "en-US" ? "准备中" : "美音"}</span>
-      </button>
+      </button>}
+      {accents.includes("en-GB") &&
       <button
         type="button"
         className={buttonClassName}
         onClick={() => void playPronunciation("en-GB")}
-        aria-label={`播放 ${text} 的英式发音`}
+        aria-label={`播放 ${displayText} 的英式发音`}
         aria-pressed={playingAccent === "en-GB"}
         aria-busy={loadingAccent === "en-GB"}
         title="英式发音"
       >
         <span aria-hidden="true">{loadingAccent === "en-GB" ? "…" : playingAccent === "en-GB" ? "■" : "▶"}</span>
         <span>{loadingAccent === "en-GB" ? "准备中" : "英音"}</span>
-      </button>
+      </button>}
       {playbackError && (
         <p className="basis-full text-xs leading-5 text-[#6e6e73]" role="status">
           {playbackError}

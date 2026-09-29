@@ -9,6 +9,7 @@ type DictionaryStreamEvent =
     lemma?: string;
     phonetic?: string;
     phoneticFor?: string;
+    pronunciations?: DictionaryResult["pronunciations"];
     direction?: "en_to_cn" | "cn_to_en";
     inputStatus?: "valid" | "inflection" | "ambiguous" | "misspelled";
     suggestedQuery?: string;
@@ -77,6 +78,7 @@ export function parseDictionaryStream(text: string, fallbackQuery: string): Pars
           ? clean(event.phonetic)
           : "";
         result.phoneticFor = result.phonetic ? fallbackQuery : "";
+        result.pronunciations = event.pronunciations;
         result.direction = /[\u3400-\u9fff\uf900-\ufaff]/u.test(fallbackQuery)
           ? "cn_to_en"
           : "en_to_cn";

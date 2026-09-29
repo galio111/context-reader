@@ -26,7 +26,7 @@
     "cet4-2025-12-1.json": "435942418b74dee8c620759b2c324271c7c95014d12888d3ccd14a72df2e14ef",
     "cet4-2025-12-2.json": "85d6f2fe823a97612420aa8b3abc48c9ad1f1a1bbe58cdf1330fbdd6dda06f64",
     "cet4-2025-12-3.json": "a40e7f1a2dd85b06950b68efcd52f69f3c957f2e75038ab5861a6bce2345e9e9",
-    "cet6-2022-06-1.json": "35a39685e30c351e98b8c5d4772684c08cdb87b8ea5cf9b65da675be8d599f0e",
+    "cet6-2022-06-1.json": "28583bb0c3de65734028f9a9fee645286ac98362640b884133ce8303884f36d2",
     "cet6-2022-06-2.json": "c1c9e0757170a50dd9a9f67a13ea16720c86e256e1667c8c0a3d133a822d8038",
     "cet6-2022-09-1.json": "936e9792c5856348b513271448ce526598cf265550595c5c10de178467fff5c7",
     "cet6-2022-09-2.json": "98b9cf5cabcae6277cb5df4515d40e5a6dbdce7e3fbdeb66d1122257b82c9c23",
@@ -38,7 +38,7 @@
     "cet6-2023-06-2.json": "72a5aff84c5a0068b0cc940358221a4a2a3b5a0912f3ccd5158399b837ff29ca",
     "cet6-2023-06-3.json": "a2b1550d35565854be23cc2488bad2a305a62e9d0c859cff9b4b8cbd3ae946fc",
     "cet6-2023-12-1.json": "33957b98e20234b0b997dfdc57e39ab223b7ac6befa643ccad9483c3cf56f4ba",
-    "cet6-2023-12-2.json": "b9f722ee257de8579434d7f34bc3731db08aa8e7f796045028bbe57902df0705",
+    "cet6-2023-12-2.json": "4e794fee7cbd3da280373d0e5e7b3f24c2e5732f351625829c0430a5ddf980e5",
     "cet6-2024-06-1.json": "318da45d3b26bbd8b4bf2fc20fe6fd1d659564dcac4da02bd59b56142c2fed25",
     "cet6-2024-06-2.json": "ccce75dfa08335ad4c3cbdfcafadc58e3e84d975220b5d09a0d7e0bc3305554e",
     "cet6-2024-06-3.json": "70baae953a9aac69a76f3771965f75f9144fb85105e406f1c0f2e7037ca431b6",
@@ -1050,7 +1050,7 @@
     },
     {
       "id": "cet6-2020-12-1",
-      "sha256": "b49225ace2fc50a08443ca2b4e046f61c184bf3ebe453ed43a46ab3b74772a59",
+      "sha256": "426e9f36aabcdaddd5d604d8bfcafadee28ac8567c9348e6e992b6afbfc16073",
       "questionSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.12/%E7%9C%9F%E9%A2%98PDF/2020.12%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97%E3%80%90%E5%8F%AF%E5%A4%8D%E5%88%B6%E5%8F%AF%E6%90%9C%E7%B4%A2%EF%BC%8C%E6%89%93%E5%8D%B0%E9%A6%96%E9%80%89%E3%80%91.pdf",
       "answerSource": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2020.12%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%80%83%E8%AF%95%E7%AC%AC1%E5%A5%97%E8%A7%A3%E6%9E%90.pdf",
       "numberRange": [

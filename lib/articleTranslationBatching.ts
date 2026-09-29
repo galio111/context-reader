@@ -1,7 +1,9 @@
 import type { ArticleTranslationBlock } from "@/types/reader";
 
-export const ARTICLE_TRANSLATION_BATCH_MAX_BLOCKS = 80;
-export const ARTICLE_TRANSLATION_BATCH_MAX_CHARS = 24_000;
+// Keep each provider stream comfortably below its output and time limits while
+// still sending the complete article as context for every batch.
+export const ARTICLE_TRANSLATION_BATCH_MAX_BLOCKS = 10;
+export const ARTICLE_TRANSLATION_BATCH_MAX_CHARS = 5_000;
 
 export function createArticleTranslationBatches(blocks: ArticleTranslationBlock[]): ArticleTranslationBlock[][] {
   const batches: ArticleTranslationBlock[][] = [];

@@ -141,14 +141,11 @@ async function requestArticleTranslation(
       const decoder = new TextDecoder();
       let buffer = "";
       let streamError: TranslationApiResponse | null = null;
-      while (true) {
-        const { done, value } = await reader.read();
-        buffer += decoder.decode(value, { stream: !done });
-        const lines = buffer.split(/\r?\n/);
-        buffer = done ? "" : lines.pop() ?? "";
-        for (const line of lines) {
-          if (!line.trim()) continue;
-          const event = JSON.parse(line) as { type?: string; translation?: ArticleTranslationItem; error?: string; code?: string };
+      const consumeLine = (line: string) => {
+          if (!line.trim()) return;
+          let event: { type?: string; translation?: ArticleTranslationItem; error?: string; code?: string };
+          try { event = JSON.parse(line); }
+          catch { streamError = { error: "翻译流数据不完整。", code: "provider_temporary" }; return; }
           if (event.type === "translation" && event.translation?.id && event.translation.translation?.trim()) {
             if (!collected.has(event.translation.id)) {
               collected.set(event.translation.id, event.translation);
@@ -157,8 +154,19 @@ async function requestArticleTranslation(
           } else if (event.type === "error") {
             streamError = { error: event.error, code: event.code };
           }
+      };
+      try {
+        while (true) {
+          const { done, value } = await reader.read();
+          buffer += decoder.decode(value, { stream: !done });
+          const lines = buffer.split(/\r?\n/);
+          buffer = lines.pop() ?? "";
+          for (const line of lines) consumeLine(line);
+          if (done) { consumeLine(buffer); break; }
         }
-        if (done) break;
+      } catch (error) {
+        if (signal.aborted) throw error;
+        streamError = { error: "翻译流连接中断。", code: "provider_temporary" };
       }
       if (!streamError && blocks.every((block) => collected.has(block.id))) {
         return blocks.map((block) => collected.get(block.id)!).filter(Boolean);

@@ -29,8 +29,9 @@ const dictionaryPrompt = `你是给中文母语英语学习者使用的双向深
 7. 英译中若词头或常见义项可作动词，verbForms 返回过去式、过去分词、现在分词；不是动词则为 null。中译英始终为 null。
 8. 中译英的 usageGuide 只需简短比较各候选之间的选择差别，不重复逐项说明；collocations、wordFamily、synonyms 和 memoryTip 返回空数组或空字符串。
 9. commonMistakes 仅在确有常见中式英语或选词误区时返回 0-3 条。
+10. 英译中增加 pronunciations 数组：用 en-US、en-GB 分别给出有把握的 IPA；partOfSpeech 只能为 noun、verb、adjective、adverb 或 other。同一拼写名词/动词读法不同（如 record）时，按词性分别列出两种口音；读法相同的词性不要重复。每个 IPA 都必须属于用户查询的当前拼写，不能用原形音标。不能可靠确认时留空数组，不得猜造。中译英留空数组。
 返回结构：
-{"query":"","lemma":"","phonetic":"","phoneticFor":"","direction":"en_to_cn","inputStatus":"valid","suggestedQuery":"","senses":[{"headword":"","headwordNote":"","partOfSpeech":"","meaning":"","phonetic":"","register":"","usageNote":"","exampleEnglish":"","exampleChinese":""}],"verbForms":{"pastTense":"","pastParticiple":"","presentParticiple":""},"usageGuide":"","collocations":[{"phrase":"","meaning":"","exampleEnglish":""}],"wordFamily":[{"word":"","partOfSpeech":"","meaning":""}],"synonyms":[{"word":"","difference":""}],"commonMistakes":[""],"memoryTip":""}`;
+{"query":"","lemma":"","phonetic":"","phoneticFor":"","pronunciations":[{"accent":"en-US","partOfSpeech":"other","phonetic":""}],"direction":"en_to_cn","inputStatus":"valid","suggestedQuery":"","senses":[{"headword":"","headwordNote":"","partOfSpeech":"","meaning":"","phonetic":"","register":"","usageNote":"","exampleEnglish":"","exampleChinese":""}],"verbForms":{"pastTense":"","pastParticiple":"","presentParticiple":""},"usageGuide":"","collocations":[{"phrase":"","meaning":"","exampleEnglish":""}],"wordFamily":[{"word":"","partOfSpeech":"","meaning":""}],"synonyms":[{"word":"","difference":""}],"commonMistakes":[""],"memoryTip":""}`;
 
 interface ProviderProfile {
   apiKey: string;
@@ -115,6 +116,12 @@ function normalizeDictionary(value: unknown, query: string): DictionaryResult {
     phoneticFor: isChineseQuery
       ? senses[0]?.meaning || text(data.phoneticFor)
       : pronunciationTargetMatches(text(data.phoneticFor), query) ? query : "",
+    pronunciations: rows<NonNullable<DictionaryResult["pronunciations"]>[number]>(data.pronunciations, (item) => {
+      const accent = item.accent === "en-US" || item.accent === "en-GB" ? item.accent : null;
+      const partOfSpeech = ["noun", "verb", "adjective", "adverb", "other"].includes(text(item.partOfSpeech))
+        ? text(item.partOfSpeech) as NonNullable<DictionaryResult["pronunciations"]>[number]["partOfSpeech"] : null;
+      return accent && partOfSpeech && text(item.phonetic) ? { accent, partOfSpeech, phonetic: text(item.phonetic) } : null;
+    }, 10),
     direction: isChineseQuery ? "cn_to_en" : "en_to_cn",
     inputStatus:
       data.inputStatus === "inflection" || data.inputStatus === "ambiguous" || data.inputStatus === "misspelled"

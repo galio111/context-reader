@@ -14,7 +14,7 @@
 .accountResolving {
   position: fixed;
   inset: 0;
-  z-index: 190;
+  z-index: 125;
   display: flex;
   align-items: center;
   justify-content: center;

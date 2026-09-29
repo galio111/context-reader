@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
 import { getAuthenticatedUser } from "@/lib/userAuth";
 import papersData from "@/data/cet/catalog.json";
-import { readFile } from "node:fs/promises";
-import path from "node:path";
+import { readCetPaperWithOverrides } from "@/lib/cetPaperOverrides";
 import type { CetPaper } from "@/types/cet";
 export async function GET(request: Request) {
   const params = new URL(request.url).searchParams;
@@ -23,12 +22,7 @@ export async function GET(request: Request) {
         { error: user ? "未找到这份试卷。" : "请登录后查看这份试卷。" },
         { status: user ? 404 : 401 },
       );
-    const paper = JSON.parse(
-      await readFile(
-        path.join(process.cwd(), "data", "cet", `${item.id}.json`),
-        "utf8",
-      ),
-    ) as CetPaper;
+    const { paper } = await readCetPaperWithOverrides(item.id);
     paper.sections = paper.sections.map((section) => {
       const metadata = item.sections.find((candidate) => candidate.id === section.id);
       return { ...section, materialId: metadata?.materialId, questionSetId: metadata?.questionSetId };

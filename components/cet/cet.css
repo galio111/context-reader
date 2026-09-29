@@ -231,12 +231,13 @@
   margin: 0 0 28px;
 }
 .cet-underline {
-  text-decoration-line: underline;
-  text-decoration-style: solid;
-  text-decoration-color: var(--cet-underline-color);
-  text-decoration-thickness: 2px;
-  text-underline-offset: 0.17em;
-  text-decoration-skip-ink: none;
+  background-image: linear-gradient(var(--cet-underline-color), var(--cet-underline-color));
+  background-repeat: repeat-x;
+  background-size: 100% 2px;
+  background-position: left calc(100% - .12em);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  white-space: pre-wrap;
 }
 .cet-underline[data-color="blue"], .cet-underline-colors [data-color="blue"], .cet-underline-index i[data-color="blue"] { --cet-underline-color: #2563eb; }
 .cet-underline[data-color="teal"], .cet-underline-colors [data-color="teal"], .cet-underline-index i[data-color="teal"] { --cet-underline-color: #0f766e; }
@@ -247,6 +248,16 @@
   color: #425d68;
   font-size: 13px;
 }
+.cet-paper-editor { display: grid; gap: 16px; color: #294654; font-size: 14px; line-height: 1.6; }
+.cet-paper-editor p { margin: 0; }
+.cet-paper-editor label { display: grid; gap: 6px; font-weight: 600; }
+.cet-paper-editor textarea { width: 100%; min-height: min(58vh, 620px); resize: vertical; border: 1px solid #b5cbd1; border-radius: 8px; padding: 14px; color: #1d3540; background: #fff; font: 15px/1.7 Georgia, serif; }
+.cet-paper-editor textarea:focus-visible { outline: 2px solid #27778c; outline-offset: 2px; }
+.cet-paper-editor small { color: #526771; }
+.cet-paper-editor-actions { display: flex; justify-content: flex-end; gap: 10px; }
+.cet-paper-editor-actions button { padding: 8px 14px; border: 1px solid #9cb8c2; border-radius: 7px; }
+.cet-paper-editor-actions button:last-child { color: #fff; background: #24647a; }
+.cet-paper-editor-actions button:disabled { opacity: .5; cursor: default; }
 .cet-underline-menu {
   position: fixed;
   z-index: 80;
@@ -300,7 +311,13 @@ html[data-context-theme="night"] .cet-underline-index button:hover { background:
 }
 .cet-text::selection,
 .cet-text ::selection {
-  background: #dceef4;
+  color: #12343c;
+  background: #83d1e4;
+}
+.cet-passages ::selection,
+.cet-markable-questions ::selection {
+  color: #12343c;
+  background: #83d1e4;
 }
 .cet-word-bank {
   display: flex;
@@ -1117,7 +1134,7 @@ html[data-context-theme="night"] .cet-disabled-menu button { background: #243b44
 .cet-dock-reading .cet-bottom-nav { position:static;transform:none;width:100%;max-width:100%;display:flex;flex-wrap:wrap;margin:20px 0 0;padding:8px;gap:8px;font-size:13px; }
 .cet-dock-reading .cet-bottom-nav button { padding:8px;min-height:44px; }
 .cet-dock-reading .cet-question-actions > button { margin:12px 6px 0 0;min-height:44px; }
-.cet-question-dock-content .cet-text { user-select:none; }
+.cet-question-dock-content .cet-text { user-select:text; }
 .cet-timer-wrapper .cet-timer-more { display: grid; place-items: center; width: 44px; height: 44px; min-width: 44px; min-height: 44px; padding: 0; line-height: 1; color: #245d70; }
 .cet-timer-more > span { display: block; font-size: 22px; line-height: 1; }
 .cet-shared-toolbar .cet-timer-wrapper button.cet-timer { justify-content: flex-start; padding: 0 12px; gap: 8px; white-space: nowrap; }

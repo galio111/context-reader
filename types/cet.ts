@@ -70,6 +70,9 @@ export type CetUnderlineColor = "blue" | "teal" | "amber" | "rose";
 export interface CetUnderline {
   id: string;
   sectionId: string;
+  target?: "passage" | "stem" | "option" | "bank";
+  questionNumber?: number;
+  optionKey?: string;
   paragraphIndex: number;
   start: number;
   end: number;

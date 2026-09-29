@@ -25,7 +25,8 @@ import {readCetTrail,saveCetTrail} from "@/lib/cetTypeTrailStorage";
 import { CetQuestionSurface, CetQuestionActions, type QuestionSurface, type QuestionAction } from "./CetQuestionSurface";
 import {readCetViewport,saveCetViewport} from "@/lib/cetLocalViewport";
 import { CetText } from "./CetText";
-import { addCetUnderlines, liveCetUnderlines, updateCetUnderline, type CetUnderlineRange } from "@/lib/cetUnderlines";
+import { CetPaperEditor } from "./CetPaperEditor";
+import { addCetUnderlines, cetUnderlineSource, liveCetUnderlines, updateCetUnderline, type CetUnderlineRange } from "@/lib/cetUnderlines";
 import type { CetActivity, CetPaper, CetQuestion, CetSection, CetUnderline, CetUnderlineColor } from "@/types/cet";
 import type { WordContext } from "@/types/reader";
 import toolbarStyles from "@/components/ReaderToolbar.module.css";
@@ -84,6 +85,8 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   const [error, setError] = useState("");
   const [notice, setNotice] = useState("");
   const [sheet, setSheet] = useState<DialogName>("");
+  const [paperEditorOpen, setPaperEditorOpen] = useState(false);
+  const [canEditPaper, setCanEditPaper] = useState(false);
   const [minutes, setMinutes] = useState(String(entry.sectionId ? 10 : 40));
   const [timerMode, setTimerMode] = useState<"countdown" | "countup">("countdown");
   const [historyPurpose, setHistoryPurpose] = useState<"all" | "practice" | "self_test">("all");
@@ -130,6 +133,14 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   const storageOwner = useCallback(() => getLearningStorage().getItem("context-reader:local-account-owner:v1") || "guest", []);
 
   const refreshHistory = useCallback(() => { setTrailEvents(readCetTrail()); setHistory(readCetActivities().filter(a => a.owner === storageOwner()).sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))); setLegacyHistory(readCetAttempts()); setExposures(readCetExposures()); }, [storageOwner]);
+  useEffect(() => {
+    if (!account.authenticated) { setCanEditPaper(false); return; }
+    let live = true;
+    void fetch("/api/admin/session", { cache: "no-store" }).then(response => response.json()).then(data => {
+      if (live) setCanEditPaper(data.accessMode === "developer");
+    }).catch(() => { if (live) setCanEditPaper(false); });
+    return () => { live = false; };
+  }, [account.authenticated, account.profile?.userId]);
   const persistDraft = useCallback((next: CetActivity): boolean => {
     if (owner.current !== storageOwner()) { setNotice("账号已切换，请重新打开这份阅读。"); return false; }
     current.current = next;
@@ -208,8 +219,16 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
     const controller = new AbortController(), expectedOwner = storageOwner();
     setRouteLoading(true);setRouteError("");setRoutePapers([]);routePending.current=null;
     void loadCetCatalogue({signal:controller.signal,fetchPage:async(page)=>{
-      const response=await fetch(`/api/cet?level=${routeLevel}&page=${page}&year=recent`,{signal:controller.signal});
-      const data=await response.json();if(!response.ok)throw Error('目录暂不可用');return data;
+      for(let attempt=0;attempt<3;attempt++){
+        try {
+          const response=await fetch(`/api/cet?level=${routeLevel}&page=${page}`,{signal:controller.signal});
+          const data=await response.json();if(!response.ok)throw Error('目录暂不可用');return data;
+        } catch(error) {
+          if(controller.signal.aborted||attempt===2)throw error;
+          await new Promise<void>(resolve=>window.setTimeout(resolve,350*(attempt+1)));
+        }
+      }
+      throw Error('目录暂不可用');
     },onBatch:batch=>{
       if(controller.signal.aborted||storageOwner()!==expectedOwner)return;
       setRoutePapers(batch.papers);
@@ -231,7 +250,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
     const events=readCetTrail(),round=currentTrailRound(events,key);
     const already=events.some(e=>e.owner===key.owner&&e.level===key.level&&e.type===key.type&&e.purpose===key.purpose&&e.round===round&&e.paperId===loaded.id&&e.sectionId===part.id&&e.reason!=='round');
     if(already&&reason!=='restart' || !already&&reason==='restart')return;
-    const recent=events.filter(e=>e.owner===key.owner&&e.level===key.level&&e.type===key.type&&e.round===round).at(-1);
+    const recent=events.filter(e=>e.owner===key.owner&&e.level===key.level&&e.type===key.type&&e.purpose===key.purpose&&e.round===round).at(-1);
     const now=Date.now(),last=recent?Date.parse(recent.at):0;
     const at=new Date(last>=now&&last-now<2000?last+1:now).toISOString();
     saveCetTrail({...key,round,id:crypto.randomUUID(),at,paperId:loaded.id,sectionId:part.id,activityId:a.id,reason});
@@ -240,7 +259,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
 
   useEffect(() => {
     const shown = current.current;
-    if (!paper || !shown?.sectionId || shown.status !== "in_progress" || view !== "reading") return;
+    if (!paper || !shown?.sectionId || view !== "reading") return;
     try { touchTrail(shown, paper, "view"); }
     catch { setNotice("已打开题目，但浏览记录尚未保存，请保留页面重试。"); }
   }, [paper, activity?.id, activity?.sectionId, activity?.status, view, touchTrail]);
@@ -277,11 +296,11 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   }, [activity?.activeSection, activity?.status, directSectionId, sheet]);
 
   useEffect(() => {
-    if (!jumpUnderline.current || !passageRoot.current) return;
+    if (!jumpUnderline.current) return;
     const id = jumpUnderline.current;
     let frame = 0, attempts = 0;
     const find = () => {
-      const node = passageRoot.current?.querySelector<HTMLElement>(`[data-cet-underline-id="${CSS.escape(id)}"]`);
+      const node = document.querySelector<HTMLElement>(`.cet-reading [data-cet-underline-id="${CSS.escape(id)}"]`);
       if (node) { node.scrollIntoView({block:"center"}); jumpUnderline.current = null; }
       else if (++attempts < 12) frame = requestAnimationFrame(find);
     };
@@ -526,12 +545,19 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   const sectionUnderlines = allUnderlines.filter(mark => mark.sectionId === section.id);
   const passageParagraphs = result?.underlinedParagraphs?.[section.id] || section.paragraphs;
   const underlineExcerpt = (mark: CetUnderline) => {
+    if (mark.target && mark.target !== "passage") {
+      const question = result?.questions.find(item => item.sectionId === mark.sectionId && item.number === mark.questionNumber);
+      const source = mark.target === "bank" ? paper.sections.find(item => item.id === mark.sectionId)?.bank?.find(item => item.key === mark.optionKey)?.text
+        : mark.target === "stem" ? question?.stem || cetUnderlineSource(paper, mark)
+        : question?.options.find(item => item.key === mark.optionKey)?.text || cetUnderlineSource(paper, mark);
+      return source?.slice(mark.start,mark.end).trim() || "题目位置";
+    }
     const source = result?.underlinedParagraphs?.[mark.sectionId]
       || paper.sections.find(item => item.id === mark.sectionId)?.paragraphs;
     return source?.[mark.paragraphIndex]?.slice(mark.start, mark.end).trim() || "原文位置";
   };
-  const captureUnderlineSelection = () => {
-    const root = passageRoot.current, selection = window.getSelection();
+  const captureUnderlineSelection = (root: HTMLElement | null = passageRoot.current) => {
+    const selection = window.getSelection();
     if (!testing || !root || !selection || selection.isCollapsed || !selection.rangeCount || busy || sheet) return;
     const range = selection.getRangeAt(0);
     if (!root.contains(range.startContainer) || !root.contains(range.endContainer)) return;
@@ -539,9 +565,13 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
     for (const part of root.querySelectorAll<HTMLElement>("[data-cet-part-start]")) {
       if (!range.intersectsNode(part)) continue;
       const paragraph = part.closest<HTMLElement>("[data-cet-paragraph]");
-      const paragraphIndex = Number(paragraph?.dataset.cetParagraph);
+      const questionText = part.closest<HTMLElement>("[data-cet-mark-target]");
+      const paragraphIndex = paragraph ? Number(paragraph.dataset.cetParagraph) : 0;
       const partStart = Number(part.dataset.cetPartStart);
-      if (!Number.isInteger(paragraphIndex) || !Number.isInteger(partStart)) continue;
+      if ((!paragraph && !questionText) || !Number.isInteger(paragraphIndex) || !Number.isInteger(partStart)) continue;
+      const target = questionText?.dataset.cetMarkTarget as CetUnderlineRange["target"];
+      const questionNumber = questionText?.dataset.cetQuestionNumber ? Number(questionText.dataset.cetQuestionNumber) : undefined;
+      const optionKey = questionText?.dataset.cetOptionKey;
       const partRange = document.createRange(); partRange.selectNodeContents(part);
       const intersection = range.cloneRange();
       if (intersection.compareBoundaryPoints(Range.START_TO_START, partRange) < 0) intersection.setStart(part, 0);
@@ -551,13 +581,14 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
       before.setEnd(intersection.startContainer, intersection.startOffset);
       const start = partStart + before.toString().length;
       const end = start + intersection.toString().length;
-      if (end > start && passageParagraphs[paragraphIndex]?.slice(start, end).trim()) ranges.push({sectionId:section.id,paragraphIndex,start,end});
+      const candidate: CetUnderlineRange = {sectionId:section.id,target,questionNumber,optionKey,paragraphIndex,start,end};
+      if (end > start && cetUnderlineSource(paper,candidate)?.slice(start,end).trim()) ranges.push(candidate);
     }
     if (!ranges.length || ranges.length > 24 || ranges.reduce((length, item) => length + item.end - item.start, 0) > 2000) return;
     const rect = range.getClientRects?.()[0] || range.getBoundingClientRect?.() || root.getBoundingClientRect();
     setUnderlineMenu({kind:"selection",ranges,left:Math.max(8,Math.min(window.innerWidth-252,rect.left)),top:rect.top > 70 ? rect.top-56 : rect.bottom+10});
   };
-  const openExistingUnderline = (event: React.MouseEvent<HTMLDivElement>) => {
+  const openExistingUnderline = (event: React.MouseEvent<HTMLElement>) => {
     if (!testing || !window.getSelection()?.isCollapsed) return;
     const target = event.target instanceof window.Element ? event.target.closest<HTMLElement>("[data-cet-underline-id]") : null;
     const id = target?.dataset.cetUnderlineId;
@@ -697,7 +728,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
     <span className="cet-start-kicker">{entry.sectionId ? "单篇题组" : "阅读套卷"} · CET {paper.level}</span>
     <h1>{entry.sectionId ? `${paper.title} · ${section.title}` : paper.title}</h1>
     <p>{entry.sectionId ? names[section.type] : "选词填空 · 长篇匹配 · 仔细阅读"} · 共 {model.total} 题</p>
-    {legacyPreview && <div className="cet-legacy-preview"><strong>旧版{legacyPreview.purpose === "self_test" ? "自测" : "练习"}记录</strong><p>{legacyPreview.status === "submitted" ? "可回看旧答案；当时的辅助和计时条件记录不完整。" : legacyPreview.purpose === "self_test" ? "可继续原答案，保留旧版手动计时口径；曾提前查看的答案不会被清除。" : "已即时反馈的题目会保持原答案，不会变成新的未揭晓练习。"}</p><button type="button" onClick={() => { try { const saved = saveCetActivity(legacyPreview); current.current = saved; setActivity(saved); setView("reading"); setLegacyPreview(null); } catch { setNotice("旧版记录迁移未能保存，请重试。"); } }}>{legacyPreview.status === "submitted" ? "回看旧答卷" : "继续旧版进度"}</button></div>}
+    {legacyPreview && <div className="cet-legacy-preview"><strong>旧版{legacyPreview.purpose === "self_test" ? "自测" : "练习"}记录</strong><p>{legacyPreview.status === "submitted" ? "可回看旧答案与用时。" : legacyPreview.purpose === "self_test" ? "可继续原答案，保留旧版手动计时口径；曾提前查看的答案不会被清除。" : "已即时反馈的题目会保持原答案，不会变成新的未揭晓练习。"}</p><button type="button" onClick={() => { try { const saved = saveCetActivity(legacyPreview); current.current = saved; setActivity(saved); setView("reading"); setLegacyPreview(null); } catch { setNotice("旧版记录迁移未能保存，请重试。"); } }}>{legacyPreview.status === "submitted" ? "回看旧答卷" : "继续旧版进度"}</button></div>}
     <div className="cet-start-goals">{(["practice", "self_test"] as const).map(purpose => {
       const records = scopedHistory.filter(r=>r.purpose===purpose);
       const ongoing = records.find(r=>r.status==='in_progress'||r.status==='paused');
@@ -725,11 +756,21 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
     className: "cet-submit-passage",
   })) : [];
   const renderNavigation = () => (activity?.sectionId ? <nav className="cet-bottom-nav" aria-label="同题型路线">
-        {previousUnit && <button disabled={busy||routeLoading||Boolean(routeError)} onClick={()=>void navigateTypeUnit(previousUnit)}>← 上一题</button>}
-        <span title="同级别、同题型本轮已看过的题目">{routeLoading?'正在读取同题型目录…':`${routePosition} / ${routeUnits.length} 篇`}</span>
-        {routeError ? <button onClick={()=>setRouteRetry(n=>n+1)}>重试目录</button> : hasNextUnit ? <button disabled={busy||routeLoading} onClick={()=>{const target=resolveNext(routeProjection.trail,routeUnits,unit,routePending.current,Math.random);if(target)void navigateTypeUnit(target);}}>下一题 →</button> : !routeLoading && routeUnits.length>0 && routeProjection.trail.length===routeUnits.length && <span>本轮该题型已全部接触 <button onClick={()=>{saveCetTrail({...routeKey,...unit,id:crypto.randomUUID(),activityId:activity.id,at:new Date().toISOString(),reason:'round',round:routeProjection.round});setTrailEvents(readCetTrail());startNew(activity.purpose);}}>开始新一轮</button></span>}
+        {previousUnit && <button disabled={busy} onClick={()=>void navigateTypeUnit(previousUnit)}>← 上一题</button>}
+        <span title={`该题型${activity.purpose==='self_test'?'自测':'练习'}中已看过的不同题目`}>{routeLoading?'正在读取同题型目录…':routeError?`已载入 ${routeUnits.length} 篇`:`${routePosition} / ${routeUnits.length} 篇`}</span>
+        {hasNextUnit && <button disabled={busy} onClick={()=>{const target=resolveNext(routeProjection.trail,routeUnits,unit,routePending.current,Math.random);if(target)void navigateTypeUnit(target);}}>下一题 →</button>}
+        {routeError && <button onClick={()=>setRouteRetry(n=>n+1)}>重试目录</button>}
       </nav> : <nav className="cet-bottom-nav"><button disabled={activeSectionIndex === 0} onClick={() => changeSection(scope[activeSectionIndex - 1].id, true)}>← 上一篇</button><span>{activeSectionIndex + 1} / {scope.length}</span><button disabled={activeSectionIndex === scope.length - 1} onClick={() => changeSection(scope[activeSectionIndex + 1].id, true)}>下一篇 →</button></nav>);
-  const renderQuestions = (surface:QuestionSurface,lookup:(context:WordContext)=>void) => <CetQuestionSurface surface={surface} section={section} disabled={!activity||activity.status!=='in_progress'} answerFor={answerFor} revealed={isRevealed} renderText={text=>lookupText(text,lookup)} explain={explain} onAnswer={(q,value)=>updateDraft(q,value)} onOpenChoice={openChoice} openNumber={choice?.surface===surface?choice.question.number:undefined}/>;
+  const renderQuestions = (surface:QuestionSurface,lookup:(context:WordContext)=>void) => {
+    const markedQuestionText = (text:string,target?:Pick<CetUnderlineRange,"target"|"questionNumber"|"optionKey">) => {
+      if (!target?.target) return lookupText(text,lookup);
+      const marks=sectionUnderlines.filter(mark=>mark.target===target.target&&mark.questionNumber===target.questionNumber&&mark.optionKey===target.optionKey);
+      return <span data-cet-mark-target={target.target} data-cet-question-number={target.questionNumber} data-cet-option-key={target.optionKey}><span data-cet-part-start={0}>{lookupText(text,lookup,undefined,0,marks)}</span></span>;
+    };
+    const displaySection=result?.questions.length && activity?.purpose==='self_test'
+      ? {...section,questions:section.questions.map(question=>result.questions.find(snapshot=>snapshot.sectionId===section.id&&snapshot.number===question.number)||question)} : section;
+    return <div className="cet-markable-questions" data-native-selection="blue" onMouseUpCapture={event=>{const root=event.currentTarget;requestAnimationFrame(()=>captureUnderlineSelection(root));}} onKeyUpCapture={event=>{const root=event.currentTarget;requestAnimationFrame(()=>captureUnderlineSelection(root));}} onTouchEndCapture={event=>{const root=event.currentTarget;window.setTimeout(()=>captureUnderlineSelection(root),80);}} onClickCapture={openExistingUnderline}><CetQuestionSurface surface={surface} section={displaySection} disabled={!activity||activity.status!=='in_progress'} answerFor={answerFor} revealed={isRevealed} renderText={markedQuestionText} explain={explain} onAnswer={(q,value)=>updateDraft(q,value)} onOpenChoice={openChoice} openNumber={choice?.surface===surface?choice.question.number:undefined}/></div>;
+  };
   const renderActions = (surface:QuestionSurface) => <CetQuestionActions surface={surface} actions={questionActions}>{renderNavigation()}</CetQuestionActions>;
 
   const renderReading = (lookup: (context: WordContext) => void) => {
@@ -742,23 +783,23 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
       <nav className="cet-sections" aria-label="阅读部分">{scope.map((item) => <button key={item.id} aria-current={item.id === section.id ? "page" : undefined} onClick={() => changeSection(item.id)}>{item.type === "detail" ? item.title : names[item.type]}{activity?.purpose === "practice" && cetFinalizedSection(activity, item.id) ? " · 已提交" : ""}</button>)}</nav>
       {model.mismatch && <p className="cet-notice" role="alert">此记录的题目范围与当前题库不一致。原记录已保留，请查看历史答卷；暂不能继续提交。</p>}{notice && <p className="cet-notice" role="alert">{notice}</p>}
       {isOffline && activity && <p className="cet-notice" role="status">已保存到本机，待网络恢复后同步。</p>}
-      {activity?.legacy && <p className="cet-notice">旧版记录，条件记录不完整。{activity.conditions.includes("legacy_early_reveal") ? "曾提前查看答案；该事实保留。" : ""}</p>}
+      {activity?.legacy && activity.conditions.includes("legacy_early_reveal") && <p className="cet-notice">旧版记录曾提前查看答案；该事实保留。</p>}
       {result?.reason === "time_expired" && <p className="cet-notice" role="status">时间已结束，已固定本次答卷。</p>}
       {result?.unreliable ? <p className="cet-notice">另有 {result.unreliable} 题缺少可靠参考答案，不计入结果分母。</p> : null}
       {applicableFinalizations.length > 1 && <div className="cet-conflicts"><p>这次活动在不同设备产生了 {applicableFinalizations.length} 份提交快照。原答案分别保留，暂不纳入默认自测统计。</p><div>{applicableFinalizations.map((item, index) => <button type="button" key={item.id} aria-pressed={result?.id === item.id} onClick={() => setSelectedFinalId(item.id)}>答卷 {index + 1} · {new Date(item.at).toLocaleString("zh-CN")}</button>)}</div></div>}
-      {result && <div className="cet-result" role="status"><strong>{result.reason === "ended_for_study" ? "未完成结束" : activity?.purpose === "self_test" ? "自测结果" : "本篇结果"}</strong><span>{result.reason === "ended_for_study" ? `已答 ${result.questions.length - result.unanswered} 题 · 不计入完成成绩` : result.scoreable ? `答对 ${result.correct}/${result.scoreable} 题 · 未答 ${result.unanswered} 题` : "暂无可计分结果"}</span><span>{activity?.legacy ? "旧版计时" : activity?.purpose === "self_test" ? "自测用时" : "学习用时"} {formatTime(result.elapsedMs)}{result.everPaused ? " · 曾中断" : ""}</span>{contentChanged && <small>当前题库与作答时版本不同，此处按当时快照展示。</small>}{activity?.purpose === "self_test" && <small>{observedConditions.length ? "作答期间另有学习接触记录 · 条件记录不完整" : cetEligibility(activity, observedConditions) === "repeat_test" ? "重复材料自测" : cetEligibility(activity, observedConditions) === "conditions_incomplete" ? "条件记录不完整" : "首次在本站自测"}</small>}</div>}
+      {result && <div className="cet-result" role="status"><strong>{result.reason === "ended_for_study" ? "未完成结束" : activity?.purpose === "self_test" ? "自测结果" : "本篇结果"}</strong><span>{result.reason === "ended_for_study" ? `已答 ${result.questions.length - result.unanswered} 题 · 不计入完成成绩` : result.scoreable ? `答对 ${result.correct}/${result.scoreable} 题 · 未答 ${result.unanswered} 题` : "暂无可计分结果"}</span><span>{activity?.legacy ? "旧版计时" : activity?.purpose === "self_test" ? "自测用时" : "学习用时"} {formatTime(result.elapsedMs)}{result.everPaused ? " · 曾中断" : ""}</span>{contentChanged && <small>当前题库与作答时版本不同，此处按当时快照展示。</small>}{activity?.purpose === "self_test" && cetEligibility(activity, observedConditions) === "repeat_test" && <small>重复材料自测</small>}</div>}
 
-      {result && activity?.purpose === "self_test" && allUnderlines.length > 0 && <details className="cet-underline-index" open><summary>自测划记 · {allUnderlines.length} 处</summary><p>点击划记跳转到原文，再点单词查词。划记已随本次答卷固定。</p><div>{allUnderlines.map(mark => <button type="button" key={mark.id} onClick={() => jumpToUnderline(mark)}><i data-color={mark.color} aria-hidden="true" /><span>{paper.sections.find(item => item.id === mark.sectionId)?.title || "阅读原文"} · {underlineExcerpt(mark)}</span></button>)}</div></details>}
+      {result && activity?.purpose === "self_test" && allUnderlines.length > 0 && <details className="cet-underline-index" open><summary>自测划记 · {allUnderlines.length} 处</summary><p>点击划记跳转到原文或题目，再点单词查词。划记已随本次答卷固定。</p><div>{allUnderlines.map(mark => <button type="button" key={mark.id} onClick={() => jumpToUnderline(mark)}><i data-color={mark.color} aria-hidden="true" /><span>{paper.sections.find(item => item.id === mark.sectionId)?.title || "阅读原文"}{mark.questionNumber ? ` · 第 ${mark.questionNumber} 题` : ""} · {underlineExcerpt(mark)}</span></button>)}</div></details>}
       <p className="cet-directions">{section.type === "cloze" ? "从词库中选择合适单词填入空格，每词限用一次。" : section.type === "matching" ? "为每个陈述选择对应段落；段落可以被重复选择。" : "阅读文章，并为每道题选择一个最佳答案。"}</p>
-      {testing && <p className="cet-underline-hint">选中原文可添加彩色下划线；提交后划记固定在这次自测中。</p>}
+      {testing && <p className="cet-underline-hint">选中原文或题目可添加彩色下划线；提交后划记固定在这次自测中。</p>}
       <h1>{section.title}</h1>
-      {section.bank && <div className="cet-word-bank">{section.bank.map((option) => <span key={option.key} data-used={section.questions.some(q=>answerFor(q)===option.key) || undefined}><b>{option.key}</b> {lookupText(option.text, lookup)}{section.questions.some(q=>answerFor(q)===option.key) && <small>已用</small>}</span>)}</div>}
-      <div ref={passageRoot} className="cet-passages" data-native-selection="blue" onMouseUpCapture={() => requestAnimationFrame(captureUnderlineSelection)} onKeyUpCapture={() => requestAnimationFrame(captureUnderlineSelection)} onTouchEndCapture={() => window.setTimeout(captureUnderlineSelection, 80)} onClickCapture={openExistingUnderline}>{passageParagraphs.map((text, index) => <p key={index} data-cet-paragraph={index}>{section.type === "cloze" ? text.split(/(\[\[\d+\]\])/g).map((part, partIndex, parts) => {
+      {section.bank && <div className="cet-word-bank cet-markable-questions" data-native-selection="blue" onMouseUpCapture={event=>{const root=event.currentTarget;requestAnimationFrame(()=>captureUnderlineSelection(root));}} onKeyUpCapture={event=>{const root=event.currentTarget;requestAnimationFrame(()=>captureUnderlineSelection(root));}} onTouchEndCapture={event=>{const root=event.currentTarget;window.setTimeout(()=>captureUnderlineSelection(root),80);}} onClickCapture={openExistingUnderline}>{section.bank.map((option) => <span key={option.key} data-used={section.questions.some(q=>answerFor(q)===option.key) || undefined}><b>{option.key}</b> <span data-cet-mark-target="bank" data-cet-option-key={option.key}><span data-cet-part-start={0}>{lookupText(option.text, lookup, undefined, 0, sectionUnderlines.filter(mark=>mark.target==="bank"&&mark.optionKey===option.key))}</span></span>{section.questions.some(q=>answerFor(q)===option.key) && <small>已用</small>}</span>)}</div>}
+      <div ref={passageRoot} className="cet-passages" data-native-selection="blue" onMouseUpCapture={() => requestAnimationFrame(() => captureUnderlineSelection())} onKeyUpCapture={() => requestAnimationFrame(() => captureUnderlineSelection())} onTouchEndCapture={() => window.setTimeout(() => captureUnderlineSelection(), 80)} onClickCapture={openExistingUnderline}>{passageParagraphs.map((text, index) => <p key={index} data-cet-paragraph={index}>{section.type === "cloze" ? text.split(/(\[\[\d+\]\])/g).map((part, partIndex, parts) => {
         const number = Number(part.match(/\[\[(\d+)\]\]/)?.[1]);
         const question = section.questions.find((item) => item.number === number);
         const offset = parts.slice(0, partIndex).join("").length;
-        return question ? <span className="cet-gap" id={`cet-inline-q-${number}`} key={partIndex}><button type="button" disabled={isRevealed(question) || !activity || activity.status !== "in_progress"} onClick={(event) => openChoice(event, question)} aria-haspopup="listbox" aria-expanded={choice?.surface === "inline" && choice?.question.number === number} aria-label={`第 ${number} 空，${answerFor(question) || "未作答"}`}><b>{number}</b>{answerFor(question) ? <span>{question.options.find((option) => option.key === answerFor(question))?.text || answerFor(question)}</span> : null}</button></span> : <span key={partIndex} data-cet-part-start={offset}>{lookupText(part, lookup, text, offset, sectionUnderlines.filter(mark => mark.paragraphIndex === index && mark.start < offset + part.length && mark.end > offset).map(mark => ({...mark,start:Math.max(0,mark.start-offset),end:Math.min(part.length,mark.end-offset)})))}</span>;
-      }) : <span data-cet-part-start={0}>{lookupText(text, lookup, undefined, 0, sectionUnderlines.filter(mark => mark.paragraphIndex === index))}</span>}</p>)}</div>
+        return question ? <span className="cet-gap" id={`cet-inline-q-${number}`} key={partIndex}><button type="button" disabled={isRevealed(question) || !activity || activity.status !== "in_progress"} onClick={(event) => openChoice(event, question)} aria-haspopup="listbox" aria-expanded={choice?.surface === "inline" && choice?.question.number === number} aria-label={`第 ${number} 空，${answerFor(question) || "未作答"}`}><b>{number}</b>{answerFor(question) ? <span>{question.options.find((option) => option.key === answerFor(question))?.text || answerFor(question)}</span> : null}</button></span> : <span key={partIndex} data-cet-part-start={offset}>{lookupText(part, lookup, text, offset, sectionUnderlines.filter(mark => (!mark.target || mark.target === "passage") && mark.paragraphIndex === index && mark.start < offset + part.length && mark.end > offset).map(mark => ({...mark,start:Math.max(0,mark.start-offset),end:Math.min(part.length,mark.end-offset)})))}</span>;
+      }) : <span data-cet-part-start={0}>{lookupText(text, lookup, undefined, 0, sectionUnderlines.filter(mark => (!mark.target || mark.target === "passage") && mark.paragraphIndex === index))}</span>}</p>)}</div>
       {activity?.conditions.includes("legacy_draft_conflict") && <p role="status">旧设备有不同草稿，已保留在本机备份中，当前答卷和已提交结果未被替换。</p>}
       {activity?.conditions.includes("timer_adjusted") && <p className="cet-muted">计时已调整 · 结果保留累计有效用时</p>}
       {renderQuestions("inline",lookup)}
@@ -778,7 +819,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
         try { saveCetExposure(exposureFor(section, paper.id, owner.current, "assist", `assist:${activity?.id || directSessionId.current}:${section.id}`, activity?.id)); } catch { /* Reading tools remain usable if exposure persistence is temporarily unavailable. */ }
       },
       toolbar: <>{shown && <PillNavAction className={toolbarStyles.action} label={`答题卡 ${answered}/${model.total}`} onClick={() => setSheet("答题卡")} />}{(testing || paused) && <PillNavAction className={toolbarStyles.action} label="提交自测" onClick={() => setSheet("提交自测")} />}{shown && activity?.purpose === "practice" && !activity.legacy && <PillNavAction className={toolbarStyles.action} label={submitPolicy.toolbar.label} disabled={busy || submitPolicy.toolbar.disabled} onClick={() => invokeSubmit(submitPolicy.toolbar.command)} />}</>,
-      rail: <div className={`${toolbarStyles.railActions} cet-rail`}><button onClick={() => setSheet("选择真题")}><span>选择真题</span><small>按试卷或题型选择</small></button><button onClick={openGlobalHistory}><span>练习历史</span><small>继续或回看</small></button>{shown && <button onClick={() => setSheet("重新练习")}><span>重新练习</span><small>保留本轮记录</small></button>}</div>,
+      rail: <div className={`${toolbarStyles.railActions} cet-rail`}><button onClick={() => setSheet("选择真题")}><span>选择真题</span><small>按试卷或题型选择</small></button><button onClick={openGlobalHistory}><span>练习历史</span><small>继续或回看</small></button>{shown && <button onClick={() => setSheet("重新练习")}><span>重新练习</span><small>保留本轮记录</small></button>}{canEditPaper && <button onClick={() => setPaperEditorOpen(true)}><span>编辑真题排版</span><small>开发者专用</small></button>}</div>,
       timer,
 
       questions: shown && section.type!=="cloze" ? {key:`${owner.current}:${activity?.id||directSessionId.current}:${section.id}`, available:!paused, title:section.title, answered:sectionAnswered,total:section.questions.length,
@@ -791,6 +832,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
       <div className="cet-underline-colors" aria-label="下划线颜色">{underlineColors.map(color => <button type="button" key={color.id} data-color={color.id} aria-label={`${color.label}下划线`} title={`${color.label}下划线`} onClick={() => applyUnderline(color.id)} />)}</div>
       {underlineMenu.kind === "mark" && <button type="button" className="cet-underline-remove" onClick={() => applyUnderline("remove")}>删除</button>}
     </div>, document.body)}
+    {paperEditorOpen && <Sheet title="编辑真题排版" left onClose={() => setPaperEditorOpen(false)}><CetPaperEditor paperId={paper.id} initialSectionId={section.id} onSaved={() => setNotice("真题排版已保存；重新打开题目可查看新版内容。")}/></Sheet>}
     {timerAnchor && <CetOptionList anchor={timerAnchor} label="计时设置" value="" options={[{key:'reset',text:'归零'},{key:'countdown',text:activity&&projectCetTimer(activity,section.id).mode==='countdown'?'调整倒计时':'改为倒计时'}]} onClose={()=>setTimerAnchor(null)} onChoose={key=>{setTimerAnchor(null);setNotice('');setMinutes(String((activity&&projectCetTimer(activity,section.id).budget||600000)/60000));setSheet(key==='reset'?'计时归零':'设置倒计时');}} />}
     {choice && activity?.status==="in_progress" && choice.activityId===activity.id && choice.section.id===activity.activeSection && <CetOptionList anchor={choice.anchor} options={[{key:"",text:"清空答案"}, ...choice.question.options.map(o=>({key:o.key,text:`${o.key} ${o.text}`}))]} value={activity?.answers[cetQuestionKey(choice.section.id, choice.question.number)]?.value || ""} label={`第 ${choice.question.number} 题选择${choice.section.type === "matching" ? "段落" : "单词"}`} onChoose={(key) => { updateDraft(choice.question, key, {activityId:choice.activityId,sectionId:choice.section.id}); setChoice(null); }} onClose={() => setChoice(null)} />}
     {sheet && <Sheet title={sheet} left={sheet === "选择真题"} onClose={() => setSheet("")}>
