@@ -2,9 +2,13 @@
 
 This file is the final-state contract for parallel development and mainland production releases. It exists to prevent a later task from silently publishing an older source snapshot and removing work that another task already shipped.
 
-## Current accepted release (2026-09-27)
+## Current accepted release (2026-09-28)
 
-Accepted `20260927T091952`, parent `20260927T031000`, source `00f34707feaedc8419bfc7737ae521bd38bd9eea`. Public identity, current symlink and accepted state agree with mainland_internal. Includes loading/HD resource improvements and live-account library access while retaining the visual journey. User explicitly requested this release with the known fast-scroll image misses retained; the full optimization acceptance matrix is not complete. 194 automatic regressions, release/egress guards, local/server builds, public member library/Reader/AI/sync smoke, anonymous boundaries, health, isolated16-table restore and current/parent images passed. Only app/caddy recreated. See [loading release evidence](loading-hd-release.md). Later main changes are documentation only.
+Accepted `20260928T125723`, parent `20260927T091952`, source `e766f905ecb76aa5078a4ddbfa87eee78d14e6a2`. Public identity, release state and current symlink agree with `mainland_internal`. CET self-test now keeps colored passage underlines in its own immutable result, and by-type progress counts distinct viewed units across practice, self-test and direct year selection. The obsolete self-test footer hint was removed. The accepted release includes 32 reviewed file changes from the previous production source; 71 CET regressions, release contracts, local/server builds, public guest interaction, anonymous account/Admin boundaries, seven-service health, latest-backup isolated 16-table restore and current/parent images passed. Only app/caddy were recreated. Physical touch, signed-in cross-device replay and final visual acceptance remain open. See [CET underline release](cet-underline-progress-release.md).
+
+## Previous accepted release (2026-09-27)
+
+Accepted `20260927T091952`, parent `20260927T031000`, source `00f34707feaedc8419bfc7737ae521bd38bd9eea`. Public identity, current symlink and accepted state agreed with mainland_internal at that release. Includes loading/HD resource improvements and live-account library access while retaining the visual journey. User explicitly requested this release with the known fast-scroll image misses retained; the full optimization acceptance matrix is not complete. 194 automatic regressions, release/egress guards, local/server builds, public member library/Reader/AI/sync smoke, anonymous boundaries, health, isolated16-table restore and current/parent images passed. Only app/caddy recreated. See [loading release evidence](loading-hd-release.md).
 
 ## The three different copies of “the code”
 

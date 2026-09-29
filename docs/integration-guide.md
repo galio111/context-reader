@@ -308,3 +308,5 @@ Admin editorial PATCH accepts optional budgetTrial (day in Shanghai YYYY-MM-DD; 
 
 
 第四轮已生产客户端新增preferences对象前缀cet-type-trail:v1:、dictionary-history-event:v1:、cet-activity:v4:与cet-finalization:v4:，继续走现有protocol-2及owner归档/游客认领，不增云数据库。旧端的v2/v3读写不得覆盖v4；独立双会话实际生产API回归已通过，发布身份另见第四轮验收记录。
+
+当前 CET 活动的可选 `underlines` 映射存自测草稿，标记按 ID、更新时间和事件 ID 合并，删除保留 tombstone；提交包的 `underlines` 数组及 `underlinedParagraphs` 为该次自测的只读快照。浏览计数继续使用 `cet-type-trail:v1`，新增 `view` 事件；展示端跨练习/自测按 owner、级别、题型、轮次去重，答卷活动本身仍按目标隔离。旧记录无浏览事件时不补造。接口、云表和同步协议版本均未增加。
