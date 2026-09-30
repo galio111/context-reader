@@ -19,11 +19,10 @@ import { useAccount } from "@/components/AccountProvider";
 import { BookLetterField } from "@/components/BookLetterField";
 import ClearableField from "@/components/ClearableField";
 import dynamic from "next/dynamic";
-import type { GuideSection, PreviewKind } from "@/components/HomeOptionMenu";
+import { HomeOptionMenu, type GuideSection, type PreviewKind } from "@/components/HomeOptionMenu";
 const BookDictionary = dynamic(() => import("@/components/BookDictionary").then(module => module.BookDictionary), {
   loading: () => <p role="status">正在打开词典…</p>,
 });
-const HomeOptionMenu = dynamic(() => import("@/components/HomeOptionMenu").then(module => module.HomeOptionMenu));
 import { PillNavAction } from "@/components/PillNavAction";
 import { MOBILE_READER_SHEET_HEIGHT, useMobileBottomSheet } from "@/components/useMobileBottomSheet";
 import { useDocumentScrollLock } from "@/components/useDocumentScrollLock";
