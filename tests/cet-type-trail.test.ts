@@ -74,3 +74,18 @@ test('seen count is purpose-specific and persists through later rounds',()=>{
  assert.equal(projectTrail([practice,selfTest,round,newSelfTest],{...key,purpose:'self_test'},units).trail.length,1);
  assert.equal(projectViewedTrail([practice,selfTest,round,newSelfTest],{...key,purpose:'self_test'},units).trail.length,1);
 });
+
+test('back and forward follow the same viewed order before drawing another unanswered unit',()=>{
+ const order=[event(0),{...event(2),at:'2026-09-25T00:00:01Z'}, {...event(1),at:'2026-09-25T00:00:02Z'}];
+ const trail=projectViewedTrail(order.map(e=>({...e,reason:'view'})),key,units).trail;
+ assert.equal(trailPosition(trail,units,units[1]),3);
+ const previous=resolvePrevious(trail,units[1])!;
+ assert.equal(previous.paperId,'C');
+ assert.equal(trailPosition(trail,units,previous),2);
+ assert.deepEqual(resolveNext(trail,units,previous,null,()=>{throw Error('forward must not redraw');}),units[1]);
+ const earlier=resolvePrevious(trail,previous)!;
+ assert.equal(trailPosition(trail,units,earlier),1);
+ assert.deepEqual(resolveNext(trail,units,earlier,null,()=>{throw Error('forward must not redraw');}),units[2]);
+ assert.deepEqual(resolveNext(trail.slice(0,2),units,units[2],null,()=>0),units[1]);
+ assert.deepEqual(resolveNext(trail,units,units[1],null,()=>{throw Error('completed trail wraps in order');}),units[0]);
+});

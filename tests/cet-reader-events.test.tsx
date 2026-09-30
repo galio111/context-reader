@@ -150,8 +150,13 @@ test("real CET events preserve drafts, freeze one passage and start an independe
     assert.ok(ui.getByRole("button",{name:"第 26 空，未作答"}));
     reliableStore.flush=realFlush;
     await user.click(ui.getByRole("button",{name:"暂停自测计时"}));
-    await waitFor(()=>assert.ok(ui.getByText("自测已暂停")));
-    assert.equal(ui.queryByRole("button",{name:"第 26 空，未作答"}),null);
+    await waitFor(()=>assert.ok(ui.getByText("已暂停 · 已答 0/30 题")));
+    assert.equal(ui.queryByText("题目暂时隐藏，本次中断已记录。点击计时胶囊继续原答卷。"),null);
+    assert.ok(ui.container.querySelector('.cet-passages [data-cet-underline-id][data-color="rose"]'));
+    assert.equal((ui.getByRole("button",{name:"第 26 空，未作答"}) as HTMLButtonElement).disabled,true);
+    const pausedActivity=readCetActivities().find(a=>a.id===selfTest.id)!;
+    assert.equal(pausedActivity.status,'paused');
+    assert.equal(pausedActivity.runningSince,undefined);
     await user.click(ui.getByRole("button",{name:"继续自测计时"}));
     await waitFor(()=>assert.ok(ui.getByRole("button",{name:"第 26 空，未作答"})));
     assert.equal(readCetActivities().filter(a=>a.purpose==='self_test').length,1);
@@ -195,6 +200,44 @@ test("real CET events preserve drafts, freeze one passage and start an independe
       assert.equal(JSON.stringify(readCetActivities().filter(a => a.id !== activeSingle.id)), unaffected);
       cleanup();
     }
+    // Real buttons and entry changes reproduce the reported unanswered back/forward flow.
+    const navPapers=['a','b','c'].map(id=>({...structuredClone(paper),id:`cet6-nav-${id}`,level:6,title:`Navigation ${id}`}));
+    globalThis.fetch=async(input)=>{
+      const url=new URL(String(input),'https://context-reader.com');
+      return Response.json(url.searchParams.has('id')?{paper:navPapers.find(p=>p.id===url.searchParams.get('id'))}:{papers:navPapers,total:3,years:[2025]});
+    };
+    const sectionId=navPapers[0].sections[0].id;
+    const openNav=(entry:Parameters<typeof CetReader>[0]['entry'])=>navUi.rerender(<CetReader {...props} entry={entry} onOpen={openNav}/>);
+    const navUi=render(<CetReader {...props} entry={{paperId:navPapers[0].id,sectionId}} onOpen={openNav}/>);
+    await user.click(await navUi.findByRole('button',{name:'开始练习'}));
+    const position=()=>navUi.getByLabelText('当前题组位置').textContent;
+    const currentId=()=>{
+      const visible=navPapers.find(p=>navUi.container.querySelector('.cet-reading-meta')?.textContent?.includes(p.title))!;
+      return readCetActivities().find(a=>a.paperId===visible.id&&a.purpose==='practice')!.id;
+    };
+    await waitFor(()=>assert.equal(position(),'1 / 3 篇'));
+    const firstId=currentId();
+    await user.click(navUi.getByRole('button',{name:'下一题 →'}));
+    await waitFor(()=>assert.equal(position(),'2 / 3 篇'));
+    const secondId=currentId();
+    await user.click(navUi.getByRole('button',{name:'下一题 →'}));
+    await waitFor(()=>assert.equal(position(),'3 / 3 篇'));
+    const thirdId=currentId();
+    await user.click(navUi.getByRole('button',{name:'← 上一题'}));
+    await waitFor(()=>assert.equal(position(),'2 / 3 篇'));
+    assert.equal(currentId(),secondId);
+    await user.click(navUi.getByRole('button',{name:'← 上一题'}));
+    await waitFor(()=>assert.equal(position(),'1 / 3 篇'));
+    assert.equal(currentId(),firstId);
+    await user.click(navUi.getByRole('button',{name:'下一题 →'}));
+    await waitFor(()=>assert.equal(position(),'2 / 3 篇'));
+    assert.equal(currentId(),secondId);
+    await user.click(navUi.getByRole('button',{name:'下一题 →'}));
+    await waitFor(()=>assert.equal(position(),'3 / 3 篇'));
+    assert.equal(currentId(),thirdId);
+    assert.equal(readCetActivities().filter(a=>a.paperId.startsWith('cet6-nav-')).length,3);
+    assert.ok(readCetActivities().filter(a=>a.paperId.startsWith('cet6-nav-')).every(a=>Object.keys(a.answers).length===0));
+    cleanup();
   } finally {
     cleanup(); globalThis.fetch = originalFetch;
     const storage = getLearningStorage(); if (isLearningStorage(storage)) storage.close();

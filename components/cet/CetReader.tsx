@@ -20,7 +20,7 @@ import { prepareCetPracticeSubmitAll, cetPracticeTotals } from "@/lib/cetPractic
 import { cetViewModel } from "@/lib/cetViewModel";
 import {adjustCetTimer,projectCetTimer,currentCetEpoch,type CetTimerTarget} from "@/lib/cetAdjustableTimer";
 import { loadCetCatalogue } from "@/lib/cetCatalogueLoader";
-import { historicalTrailEvents, listAccessibleUnits, projectTrail, projectViewedTrail, resolvePrevious, resolveNext, trailViewedCount, currentTrailRound, type CetTrailKey, type CetTypeUnit } from "@/lib/cetTypeTrail";
+import { historicalTrailEvents, listAccessibleUnits, projectTrail, projectViewedTrail, resolvePrevious, resolveNext, trailPosition, currentTrailRound, type CetTrailKey, type CetTypeUnit } from "@/lib/cetTypeTrail";
 import {readCetTrail,saveCetTrail} from "@/lib/cetTypeTrailStorage";
 import { CetQuestionSurface, CetQuestionActions, type QuestionSurface, type QuestionAction } from "./CetQuestionSurface";
 import {readCetViewport,saveCetViewport} from "@/lib/cetLocalViewport";
@@ -94,7 +94,6 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   const [historyLevel, setHistoryLevel] = useState("all");
   const [legacyHistory, setLegacyHistory] = useState<ReturnType<typeof readCetAttempts>>([]);
   const jumpQuestion = useRef<number | null>(null);
-  const pausedScroll = useRef(0);
   const [activeToken, setActiveToken] = useState("");
   const [underlineMenu, setUnderlineMenu] = useState<UnderlineMenu | null>(null);
   const [underlineColor, setUnderlineColor] = useState<CetUnderlineColor>("blue");
@@ -337,7 +336,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   }, [activity?.activeSection, directSectionId, sheet]);
 
   useEffect(() => {
-    if (!paper || view === "start" || activity?.status === "paused") return;
+    if (!paper || view === "start") return;
     const section = paper.sections.find((item) => item.id === (activity?.activeSection || directSectionId || entry.sectionId || paper.sections[0]?.id));
     if (!section) return;
     const base = activity?.id || directSessionId.current;
@@ -477,10 +476,10 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
     const interval=window.setInterval(tick,250);return()=>window.clearInterval(interval);
   },[activity,checkpointPractice,persistDraft]);
 
-  const navigateTypeUnit = async (target:CetTypeUnit) => {
+  const navigateTypeUnit = async (target:CetTypeUnit, retryNext = false) => {
     const a=current.current,loaded=paper,expectedOwner=owner.current;
     if(!a?.sectionId||!loaded||routeNavigating.current||submitting.current||expectedOwner!==storageOwner())return;
-    routeNavigating.current=true;routePending.current=target;setBusy(true);setNotice("");
+    routeNavigating.current=true;routePending.current=retryNext?target:null;setBusy(true);setNotice("");
     try {
       if(a.purpose==='self_test'&&a.status==='in_progress'&&cetRemainingMs(a)<=0){await commit('time_expired');if(pendingFinal.current)throw Error('save');}
       checkpointPractice(true);
@@ -538,7 +537,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   const unit={paperId:paper.id,sectionId:section.id};
   const previousUnit=resolvePrevious(routeProjection.trail,unit);
   const hasNextUnit=Boolean(resolveNext(routeProjection.trail,routeUnits,unit,routePending.current,()=>0));
-  const routePosition=trailViewedCount(routeProjection.trail,routeUnits,unit);
+  const routePosition=trailPosition(routeProjection.trail,routeUnits,unit);
   const allUnderlines = activity?.purpose === "self_test"
     ? activity.status === "submitted" || activity.status === "ended" ? liveCetUnderlines(result?.underlines) : liveCetUnderlines(activity.underlines)
     : [];
@@ -643,10 +642,10 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
     }
     if (a.status === "in_progress" && cetRemainingMs(a) <= 0) {await commit("time_expired");return;}
     setBusy(true);
-    try { if(a.status === "in_progress") pausedScroll.current=window.scrollY;
+    try {
       const next = a.status === "paused" ? cetResume(a) : cetPause(a); const saved=saveCetActivity(next); await flushLearningStorage();
       if(owner.current!==storageOwner())return;
-      current.current=saved;setActivity(saved); if(saved.status==='in_progress') pendingScroll.current=pausedScroll.current;
+      current.current=saved;setActivity(saved);
     } catch {setNotice("计时状态未能保存，请重试。");} finally {setBusy(false);}
   };
   const timerStopped = activity?.status === "submitted" || activity?.status === "ended" || Boolean(sectionResult);
@@ -757,8 +756,8 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   })) : [];
   const renderNavigation = () => (activity?.sectionId ? <nav className="cet-bottom-nav" aria-label="同题型路线">
         {previousUnit && <button disabled={busy} onClick={()=>void navigateTypeUnit(previousUnit)}>← 上一题</button>}
-        <span title={`该题型${activity.purpose==='self_test'?'自测':'练习'}中已看过的不同题目`}>{routeLoading?'正在读取同题型目录…':routeError?`已载入 ${routeUnits.length} 篇`:`${routePosition} / ${routeUnits.length} 篇`}</span>
-        {hasNextUnit && <button disabled={busy} onClick={()=>{const target=resolveNext(routeProjection.trail,routeUnits,unit,routePending.current,Math.random);if(target)void navigateTypeUnit(target);}}>下一题 →</button>}
+        <span aria-label="当前题组位置" title={`该题型${activity.purpose==='self_test'?'自测':'练习'}浏览顺序中的当前位置`}>{routeLoading?'正在读取同题型目录…':routeError?`已载入 ${routeUnits.length} 篇`:`${routePosition} / ${routeUnits.length} 篇`}</span>
+        {hasNextUnit && <button disabled={busy} onClick={()=>{const target=resolveNext(routeProjection.trail,routeUnits,unit,routePending.current,Math.random);if(target)void navigateTypeUnit(target,true);}}>下一题 →</button>}
         {routeError && <button onClick={()=>setRouteRetry(n=>n+1)}>重试目录</button>}
       </nav> : <nav className="cet-bottom-nav"><button disabled={activeSectionIndex === 0} onClick={() => changeSection(scope[activeSectionIndex - 1].id, true)}>← 上一篇</button><span>{activeSectionIndex + 1} / {scope.length}</span><button disabled={activeSectionIndex === scope.length - 1} onClick={() => changeSection(scope[activeSectionIndex + 1].id, true)}>下一篇 →</button></nav>);
   const renderQuestions = (surface:QuestionSurface,lookup:(context:WordContext)=>void) => {
@@ -775,10 +774,9 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
 
   const renderReading = (lookup: (context: WordContext) => void) => {
     if (view === "start") return startSurface;
-    if (paused && activity) return <div className="cet-paused">{notice && <p className="cet-notice" role="alert">{notice}</p>}<h1>自测已暂停</h1><p>题目暂时隐藏，本次中断已记录。点击计时胶囊继续原答卷。</p><button type="button" className="cet-primary" disabled={busy} onClick={() => void toggleTimer()}>继续自测</button><button type="button" onClick={() => void leaveTo(onBack)}>返回首页</button></div>;
     return <div className="cet-reading">
       {practiceTotals && activity?.status === "submitted" && <div className="cet-practice-total" role="status">{practiceTotals.conflict ? "存在不同提交结果，请分别查看，暂不合成总分。" : `答对 ${practiceTotals.correct}/${practiceTotals.scoreable} · 未答 ${practiceTotals.unanswered} · 已完成 ${practiceTotals.completed}/${scope.length} 篇 · 学习用时 ${formatTime(practiceTotals.elapsedMs)}${practiceTotals.unreliable ? ` · ${practiceTotals.unreliable} 题答案待核对，不计分` : ""}`}</div>}
-      <div className="cet-reading-meta"><span>{paper.title} · {activity?.purpose === "self_test" ? activity.sectionId ? "单篇自测" : "阅读套卷自测" : "阅读练习"}</span><span>{activity?.purpose === "practice" ? `已完成 ${submittedCount}/${scope.length} 篇` : activity?.purpose === "self_test" && activity.status === "in_progress" ? `已答 ${answered}/${model.total} 题` : activity?.status === "ended" ? "未完成结束" : activity?.status === "submitted" ? "已提交" : ""}</span></div>
+      <div className="cet-reading-meta"><span>{paper.title} · {activity?.purpose === "self_test" ? activity.sectionId ? "单篇自测" : "阅读套卷自测" : "阅读练习"}</span><span>{activity?.purpose === "practice" ? `已完成 ${submittedCount}/${scope.length} 篇` : locked ? `${paused ? "已暂停 · " : ""}已答 ${answered}/${model.total} 题` : activity?.status === "ended" ? "未完成结束" : activity?.status === "submitted" ? "已提交" : ""}</span></div>
       <div className="cet-mobile-actions"><button onClick={() => setSheet("选择真题")}>选择真题</button><button onClick={openGlobalHistory}>练习历史</button><button onClick={() => setSheet("答题卡")}>答题卡</button></div>
       <nav className="cet-sections" aria-label="阅读部分">{scope.map((item) => <button key={item.id} aria-current={item.id === section.id ? "page" : undefined} onClick={() => changeSection(item.id)}>{item.type === "detail" ? item.title : names[item.type]}{activity?.purpose === "practice" && cetFinalizedSection(activity, item.id) ? " · 已提交" : ""}</button>)}</nav>
       {model.mismatch && <p className="cet-notice" role="alert">此记录的题目范围与当前题库不一致。原记录已保留，请查看历史答卷；暂不能继续提交。</p>}{notice && <p className="cet-notice" role="alert">{notice}</p>}
@@ -808,11 +806,11 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   };
 
   return <>
-    <ReaderView backLabel={testing || paused ? "保存并离开" : "返回首页"} key={`${paper.id}:${section.id}:${view}`} {...base} article={shown && !paused ? passageParagraphs.join("\n\n").replace(/\[\[(\d+)\]\]/g, "（第 $1 空）") : ""} importedArticle={shown && !paused ? { title: `${paper.title} · ${section.title}`, siteName: "四六级真题", url: paper.source, text: passageParagraphs.join("\n\n"), blocks: passageParagraphs.map((text, index) => ({ id: `${section.id}-${index}`, type: "paragraph" as const, text })) } : null} onBack={() => void leaveTo(onBack)} desktopViewportInsetLeft={132} examSurface={{
+    <ReaderView backLabel={testing || paused ? "保存并离开" : "返回首页"} key={`${paper.id}:${section.id}:${view}`} {...base} article={shown ? passageParagraphs.join("\n\n").replace(/\[\[(\d+)\]\]/g, "（第 $1 空）") : ""} importedArticle={shown ? { title: `${paper.title} · ${section.title}`, siteName: "四六级真题", url: paper.source, text: passageParagraphs.join("\n\n"), blocks: passageParagraphs.map((text, index) => ({ id: `${section.id}-${index}`, type: "paragraph" as const, text })) } : null} onBack={() => void leaveTo(onBack)} desktopViewportInsetLeft={132} examSurface={{
       locked,
       testing: testing || paused,
       startScreen: view === "start",
-      lockedMessage: !shown ? "选择学习目标后开始阅读。" : paused ? "自测已暂停。点击继续自测后恢复题目与计时。" : undefined,
+      lockedMessage: !shown ? "选择学习目标后开始阅读。" : undefined,
       onAssistanceShown: () => {
         if (view === "start" || testing || paused || owner.current !== storageOwner()) return;
         if(current.current)try{touchTrail(current.current,paper,"assistance_shown");}catch{setNotice("路线记录尚未保存，请保留页面重试。");}
@@ -822,7 +820,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
       rail: <div className={`${toolbarStyles.railActions} cet-rail`}><button onClick={() => setSheet("选择真题")}><span>选择真题</span><small>按试卷或题型选择</small></button><button onClick={openGlobalHistory}><span>练习历史</span><small>继续或回看</small></button>{shown && <button onClick={() => setSheet("重新练习")}><span>重新练习</span><small>保留本轮记录</small></button>}{canEditPaper && <button onClick={() => setPaperEditorOpen(true)}><span>编辑真题排版</span><small>开发者专用</small></button>}</div>,
       timer,
 
-      questions: shown && section.type!=="cloze" ? {key:`${owner.current}:${activity?.id||directSessionId.current}:${section.id}`, available:!paused, title:section.title, answered:sectionAnswered,total:section.questions.length,
+      questions: shown && section.type!=="cloze" ? {key:`${owner.current}:${activity?.id||directSessionId.current}:${section.id}`, available:true, title:section.title, answered:sectionAnswered,total:section.questions.length,
         onDismiss:()=>setChoice(prior=>prior?.surface==='dock'?null:prior),
         render:lookup=><div className="cet-dock-reading">{renderQuestions('dock',lookup)}{renderActions('dock')}</div>} : undefined,
       render: renderReading,
