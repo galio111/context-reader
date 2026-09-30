@@ -560,11 +560,15 @@
 .pronunciation { display: flex; padding-top: 8px; align-items: flex-end; flex-direction: column; gap: 8px; }
 .pronunciation > span { display: flex; align-items: baseline; gap: 7px; color: #255c84; font-family: Georgia, serif; font-size: 16px; }
 .pronunciation > span small { color: #71818c; font-family: "Microsoft YaHei UI", "PingFang SC", system-ui, sans-serif; font-size: 11px; font-weight: 600; }
-.pronunciationVariants { display: grid; gap: 12px; padding: 14px 0 18px; border-bottom: 1px solid #dbe2e7; }
+.pronunciationVariants { display: grid; gap: 12px; padding: 10px 0 18px; border-bottom: 1px solid #dbe2e7; }
+.result:has(.pronunciationVariants) > header { padding-bottom: 4px; border-bottom: 0; }
+:global(html[data-context-theme="night"]) .compact.panel .pronunciationVariantRow > span { color: #9ed2dc; }
+:global(html[data-context-theme="night"]) .compact.panel .pronunciationVariant > strong { color: #9ed2dc; }
+:global(html[data-context-theme="night"]) .compact.panel .pronunciationVariants { border-color: rgb(190 220 227 / 18%); }
 .pronunciationVariant { display: grid; gap: 7px; }
 .pronunciationVariant > strong { color: #24536a; font-size: 13px; }
 .pronunciationVariant > small { color: #71818c; font-size: 11px; }
-.pronunciationVariantRow { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.pronunciationVariantRow { display: flex; align-items: center; justify-content: flex-start; gap: 10px; flex-wrap: wrap; }
 .pronunciationVariantRow > span { color: #255c84; font-family: Georgia, serif; font-size: 16px; }
 .pronunciationVariantRow > span small { color: #71818c; font-family: "Microsoft YaHei UI", "PingFang SC", system-ui, sans-serif; font-size: 11px; }
 .result h4 { margin: 0 0 8px; color: #284b63; font-size: 12px; }

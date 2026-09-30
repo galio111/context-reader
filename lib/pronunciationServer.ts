@@ -5,6 +5,8 @@ import { createClient } from "@supabase/supabase-js";
 import type { PronunciationAccent } from "@/lib/pronunciation";
 import { normalizePronunciationText } from "@/lib/pronunciation";
 
+import { normalizePronunciationPhonetic, pronunciationSynthesisInput } from "./pronunciationSsml";
+
 const PRONUNCIATION_BUCKET = "context-reader-pronunciation";
 const PROVIDER_ID = "volcengine-v1";
 const MAX_AUDIO_BYTES = 2 * 1024 * 1024;
@@ -107,9 +109,9 @@ async function ensurePronunciationBucket(client: PronunciationCacheClient): Prom
   if (error && !/already exists/i.test(error.message)) throw error;
 }
 
-function cacheIdentity(text: string, accent: PronunciationAccent, voice: string): string {
+function cacheIdentity(text: string, accent: PronunciationAccent, voice: string, phonetic = ""): string {
   return createHash("sha256")
-    .update([PROVIDER_ID, accent, voice, text].join("\n"))
+    .update([PROVIDER_ID, accent, voice, text, ...(phonetic ? ["ipa-ssml-v1", phonetic] : [])].join("\n"))
     .digest("hex");
 }
 
@@ -156,6 +158,7 @@ async function requestVolcengineAudioOnce(
   accent: PronunciationAccent,
   voice: string,
   timeoutMs: number,
+  phonetic = "",
 ): Promise<Uint8Array> {
   const appId = process.env.VOLCENGINE_TTS_APP_ID?.trim() || "";
   const accessToken = process.env.VOLCENGINE_TTS_ACCESS_TOKEN?.trim() || "";
@@ -163,6 +166,7 @@ async function requestVolcengineAudioOnce(
     throw new MissingPronunciationConfigurationError();
   }
 
+  const synthesis = pronunciationSynthesisInput(text, phonetic);
   const response = await fetch(
     process.env.VOLCENGINE_TTS_ENDPOINT?.trim() || DEFAULT_ENDPOINT,
     {
@@ -188,8 +192,8 @@ async function requestVolcengineAudioOnce(
         },
         request: {
           reqid: randomUUID(),
-          text,
-          text_type: "plain",
+          text: synthesis.text,
+          text_type: synthesis.textType,
           operation: "query",
         },
       }),
@@ -225,13 +229,13 @@ async function requestVolcengineAudioOnce(
   return bytes;
 }
 
-async function requestVolcengineAudio(text: string, accent: PronunciationAccent, voice: string): Promise<Uint8Array> {
+async function requestVolcengineAudio(text: string, accent: PronunciationAccent, voice: string, phonetic = ""): Promise<Uint8Array> {
   // Leave room for cache I/O inside the browser's 20-second request budget.
   const timeouts = [8_000, 6_000];
   for (let attempt = 0; attempt < timeouts.length; attempt++) {
     try {
-      auditAudio("provider_request", cacheIdentity(text.toLowerCase(), accent, voice), accent, text.length);
-      return await requestVolcengineAudioOnce(text, accent, voice, timeouts[attempt]);
+      auditAudio("provider_request", cacheIdentity(text.toLowerCase(), accent, voice, phonetic), accent, text.length);
+      return await requestVolcengineAudioOnce(text, accent, voice, timeouts[attempt], phonetic);
     } catch (error) {
       const retryable = error instanceof TypeError
         || (error instanceof Error && error.name === "TimeoutError")
@@ -248,10 +252,11 @@ async function requestVolcengineAudio(text: string, accent: PronunciationAccent,
 async function createPronunciation(
   text: string,
   accent: PronunciationAccent,
+  phonetic = "",
 ): Promise<PronunciationResult> {
   const normalizedText = normalizePronunciationText(text);
   const voice = configuredVoice(accent);
-  const identity = cacheIdentity(normalizedText.toLowerCase(), accent, voice);
+  const identity = cacheIdentity(normalizedText.toLowerCase(), accent, voice, normalizePronunciationPhonetic(phonetic));
   const path = cachePath(accent, identity);
   const filename = mediaFilename(accent, identity);
   const client = pronunciationCacheClient();
@@ -275,7 +280,7 @@ async function createPronunciation(
     }
   }
 
-  const bytes = await requestVolcengineAudio(normalizedText, accent, voice);
+  const bytes = await requestVolcengineAudio(normalizedText, accent, voice, phonetic);
   auditAudio("provider_success", identity, accent, normalizedText.length);
   // Keep the successful MP3 even if durable storage fails. The existing
   // in-flight promise still serializes callers until persistence completes.
@@ -296,10 +301,11 @@ async function createPronunciation(
 export function getPronunciationAudio(
   text: string,
   accent: PronunciationAccent,
+  phonetic = "",
 ): Promise<PronunciationResult> {
   const voice = configuredVoice(accent);
   const normalizedText = normalizePronunciationText(text);
-  const key = cacheIdentity(normalizedText.toLowerCase(), accent, voice);
+  const key = cacheIdentity(normalizedText.toLowerCase(), accent, voice, normalizePronunciationPhonetic(phonetic));
   const existing = inFlight.get(key);
   if (existing) return existing;
   const hot = hotAudio.get(key);
@@ -325,7 +331,7 @@ export function getPronunciationAudio(
     return Promise.resolve({ ...hot, cacheStatus: "hit" });
   }
 
-  const request = createPronunciation(normalizedText, accent).then((result) => {
+  const request = createPronunciation(normalizedText, accent, phonetic).then((result) => {
     rememberAudio(key, result);
     return result;
   }).finally(() => {

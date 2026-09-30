@@ -12,11 +12,15 @@ import {
 } from "@/lib/pronunciationServer";
 import { recordServerError, reportReference } from "@/lib/serverErrorReporting";
 
+import { normalizePronunciationPhonetic } from "@/lib/pronunciationSsml";
+import { requiresCurrentFormPhonetic } from "@/lib/pronunciation";
+
 export const maxDuration = 30;
 
 interface PronunciationRequestBody {
   text?: unknown;
   accent?: unknown;
+  phonetic?: unknown;
 }
 
 export async function POST(request: Request) {
@@ -43,8 +47,12 @@ export async function POST(request: Request) {
     );
   }
 
+  const phonetic = typeof body.phonetic === "string" ? normalizePronunciationPhonetic(body.phonetic) : "";
+  if (body.phonetic !== undefined && (!phonetic || !requiresCurrentFormPhonetic(text))) {
+    return NextResponse.json({ error: "当前音标无法用于单词发音。", code: "unsupported_pronunciation_phonetic" }, { status: 400 });
+  }
   try {
-    const result = await getPronunciationAudio(text, body.accent);
+    const result = await getPronunciationAudio(text, body.accent, phonetic);
     return new Response(Buffer.from(result.bytes), {
       status: 200,
       headers: {
@@ -77,7 +85,7 @@ export async function POST(request: Request) {
       severity: "warning",
       operation: "pronunciation_tts",
       endpoint: "/api/pronunciation",
-      userMessage: "云端发音暂时不可用，已尝试使用当前设备的本地语音。",
+      userMessage: phonetic ? "云端发音暂时不可用，请稍后重试。" : "云端发音暂时不可用，已尝试使用当前设备的本地语音。",
       technicalMessage: error instanceof Error ? error.message : "Unknown pronunciation provider failure.",
       code,
       httpStatus: status,

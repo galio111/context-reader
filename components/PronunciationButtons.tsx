@@ -4,7 +4,6 @@ import { memo, useEffect, useRef, useState } from "react";
 import {
   PronunciationRequestError,
   requestPronunciationMedia,
-  requestPronunciationPair,
 } from "@/lib/pronunciationClient";
 import type { PronunciationAccent } from "@/lib/pronunciation";
 
@@ -13,6 +12,7 @@ interface PronunciationButtonsProps {
   preload?: boolean;
   accents?: PronunciationAccent[];
   displayText?: string;
+  phonetics?: Partial<Record<PronunciationAccent, string>>;
 }
 
 let sharedAudioContext: AudioContext | null = null;
@@ -62,6 +62,7 @@ export const PronunciationButtons = memo(function PronunciationButtons({
   preload = false,
   accents = DEFAULT_ACCENTS,
   displayText = text,
+  phonetics,
 }: PronunciationButtonsProps) {
   const [playingAccent, setPlayingAccent] = useState<PronunciationAccent | null>(null);
   const [loadingAccent, setLoadingAccent] = useState<PronunciationAccent | null>(null);
@@ -71,6 +72,8 @@ export const PronunciationButtons = memo(function PronunciationButtons({
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const audioUrlRef = useRef("");
   const accentKey = accents.join(",");
+  const usPhonetic = phonetics?.["en-US"];
+  const ukPhonetic = phonetics?.["en-GB"];
 
   function releaseAudio() {
     if (sourceRef.current) {
@@ -103,10 +106,10 @@ export const PronunciationButtons = memo(function PronunciationButtons({
   useEffect(() => {
     if (!preload || !text.trim()) return;
     const selectedAccents = accentKey.split(",") as PronunciationAccent[];
-    void (selectedAccents.length === 2 ? requestPronunciationPair(text) : Promise.all(selectedAccents.map(accent => requestPronunciationMedia(text, accent)))).catch(() => {
+    void Promise.all(selectedAccents.map(accent => requestPronunciationMedia(text, accent, accent === "en-US" ? usPhonetic : ukPhonetic))).catch(() => {
       // A visible click reports the actionable error; background preparation is silent.
     });
-  }, [preload, text, accentKey]);
+  }, [preload, text, accentKey, usPhonetic, ukPhonetic]);
 
   useEffect(() => {
     return () => {
@@ -210,7 +213,7 @@ export const PronunciationButtons = memo(function PronunciationButtons({
     const resumePromise = context?.resume();
 
     try {
-      const media = await requestPronunciationMedia(spokenText, accent);
+      const media = await requestPronunciationMedia(spokenText, accent, phonetics?.[accent]);
       if (playbackRequestIdRef.current !== playbackRequestId) return;
       await resumePromise;
       setLoadingAccent(null);
@@ -227,6 +230,12 @@ export const PronunciationButtons = memo(function PronunciationButtons({
     } catch (error) {
       if (playbackRequestIdRef.current !== playbackRequestId) return;
       releaseAudio();
+      if (phonetics?.[accent]) {
+        setLoadingAccent(null);
+        setPlayingAccent(null);
+        setPlaybackError(playbackErrorMessage(error, accent));
+        return;
+      }
       try {
         setLoadingAccent(null);
         setPlayingAccent(accent);

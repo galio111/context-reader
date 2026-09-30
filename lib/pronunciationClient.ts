@@ -1,6 +1,7 @@
 "use client";
 
 import type { PronunciationAccent } from "@/lib/pronunciation";
+import { normalizePronunciationPhonetic } from "./pronunciationSsml";
 
 export interface PronunciationMedia {
   bytes: Uint8Array;
@@ -23,8 +24,8 @@ export class PronunciationRequestError extends Error {
 const mediaRequests = new Map<string, Promise<PronunciationMedia>>();
 const MAX_CACHED_MEDIA = 120;
 
-function cacheKey(text: string, accent: PronunciationAccent): string {
-  return `${accent}\n${text.trim().toLowerCase()}`;
+function cacheKey(text: string, accent: PronunciationAccent, phonetic = ""): string {
+  return `${accent}\n${text.trim().toLowerCase()}\n${normalizePronunciationPhonetic(phonetic)}`;
 }
 
 function filenameFromHeader(response: Response, accent: PronunciationAccent): string {
@@ -36,13 +37,14 @@ function filenameFromHeader(response: Response, accent: PronunciationAccent): st
 async function loadPronunciationMedia(
   text: string,
   accent: PronunciationAccent,
+  phonetic = "",
 ): Promise<PronunciationMedia> {
   let response: Response;
   try {
     response = await fetch("/api/pronunciation", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ text, accent }),
+      body: JSON.stringify({ text, accent, ...(phonetic ? { phonetic } : {}) }),
       signal: AbortSignal.timeout(20_000),
     });
   } catch {
@@ -78,12 +80,13 @@ async function loadPronunciationMedia(
 export function requestPronunciationMedia(
   text: string,
   accent: PronunciationAccent,
+  phonetic = "",
 ): Promise<PronunciationMedia> {
-  const key = cacheKey(text, accent);
+  const key = cacheKey(text, accent, phonetic);
   const existing = mediaRequests.get(key);
   if (existing) return existing;
 
-  const request = loadPronunciationMedia(text, accent).catch((error) => {
+  const request = loadPronunciationMedia(text, accent, phonetic).catch((error) => {
     mediaRequests.delete(key);
     throw error;
   });
