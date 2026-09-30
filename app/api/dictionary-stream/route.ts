@@ -171,7 +171,7 @@ async function handlePOST(request: Request) {
 除非客观上不存在合理内容，否则不得省略这些板块。中译英跳过这些区块。
 7. 两个方向都可输出 0-3 行真正有帮助的易错点：{"type":"mistake","value":"中文说明"}
 8. 最后一行：{"type":"done"}
-英文输入的 phonetic 必须描述用户实际输入的 query，绝不能改成 lemma（原型）的音标；无法确认当前词形的音标时，phonetic 和 phoneticFor 都留空。短语的 phonetic 按“word /音标/ · word /音标/”逐个描述实际输入的词形。英译中 pronunciations 最多 10 项，分别列出有把握的 en-US、en-GB 音标；partOfSpeech 只能填 noun、verb、adjective、adverb、other。同一拼写的名词和动词发音不同（如 record）时按词性分别列两种口音，发音相同的词性不重复。所有 IPA 必须属于当前 query，不能用原形音标；不确定时留空数组。中译英与拼写错误留空数组。每个 JSON 对象必须单独占一行并在该行一次闭合，不能把同一对象拆成多行。所有说明字段使用自然、准确的中文。`,
+英文输入的 phonetic 必须描述用户实际输入的 query，绝不能改成 lemma（原型）的音标；无法确认当前词形的音标时，phonetic 和 phoneticFor 都留空。短语的 phonetic 按“word /音标/ · word /音标/”逐个描述实际输入的词形。英译中 pronunciations 最多 10 项，分别列出有把握的 en-US、en-GB 音标；partOfSpeech 只能填 noun、verb、adjective、adverb、other。同一拼写的名词和动词发音不同（如 record）时按词性分别列两种口音，只有真实读音差异才按词性分组；发音相同的所有词性只返回一组 other，不重复。英美差异必须有可靠词典依据，统一音标记号体系，不得为了区分口音制造细微差别，不确定的口音音标留空。所有 IPA 必须属于当前 query，不能用原形音标；不确定时留空数组。中译英与拼写错误留空数组。每个 JSON 对象必须单独占一行并在该行一次闭合，不能把同一对象拆成多行。所有说明字段使用自然、准确的中文。`,
           },
           { role: "user", content: JSON.stringify({ query }) },
         ],

@@ -4,10 +4,12 @@ import { createHash, randomUUID } from "node:crypto";
 import { runInNewContext } from "node:vm";
 import test from "node:test";
 import ts from "typescript";
+import { normalizePronunciationPhonetic, pronunciationSynthesisInput } from "../lib/pronunciationSsml";
 
 function harness(options: { readFailures?: number; writeFailure?: boolean; stored?: boolean; providerFailures?: number; providerStatus?: number } = {}) {
   let reads = 0, providers = 0, writes = 0;
   const events: string[] = [];
+  const requests: Array<{ request: { text: string; text_type: string } }> = [];
   const audio = new Uint8Array([1, 2, 3]);
   const storage = {
     getBucket: async () => ({ data: {} }),
@@ -27,13 +29,30 @@ function harness(options: { readFailures?: number; writeFailure?: boolean; store
   const context = {
     createHash, randomUUID, createClient: () => ({ storage }),
     normalizePronunciationText: (value: string) => value.trim().replace(/\s+/g, " "),
+    normalizePronunciationPhonetic, pronunciationSynthesisInput,
     process: { env: { SUPABASE_URL: "mock", SUPABASE_SERVICE_ROLE_KEY: "mock", VOLCENGINE_TTS_APP_ID: "mock", VOLCENGINE_TTS_ACCESS_TOKEN: "mock" } },
     Buffer, Uint8Array, AbortSignal, Error, TypeError, console: { info: (value: string) => events.push(value), error: () => {} },
-    fetch: async () => { providers++; if (providers <= (options.providerFailures ?? 0)) { if (options.providerStatus) return new Response("rejected", { status: options.providerStatus }); throw Object.assign(new Error("timeout"), { name: "TimeoutError" }); } return new Response(JSON.stringify({ data: Buffer.from(audio).toString("base64") })); },
+    fetch: async (_url: string, init: { body: string }) => { requests.push(JSON.parse(init.body)); providers++; if (providers <= (options.providerFailures ?? 0)) { if (options.providerStatus) return new Response("rejected", { status: options.providerStatus }); throw Object.assign(new Error("timeout"), { name: "TimeoutError" }); } return new Response(JSON.stringify({ data: Buffer.from(audio).toString("base64") })); },
   };
-  const getAudio = runInNewContext(js + "\ngetPronunciationAudio", context) as (text: string, accent: string) => Promise<{ bytes: Uint8Array; cacheStatus: string }>;
-  return { getAudio, events, counts: () => ({ reads, providers, writes }) };
+  const getAudio = runInNewContext(js + "\ngetPronunciationAudio", context) as (text: string, accent: string, phonetic?: string) => Promise<{ bytes: Uint8Array; cacheStatus: string; filename: string }>;
+  return { getAudio, events, requests, counts: () => ({ reads, providers, writes }) };
 }
+
+test("noun/verb pronunciation requests use only the word with its IPA, and never share plain or other-IPA audio", async () => {
+  const h = harness();
+  const plain = await h.getAudio("record", "en-US");
+  const noun = await h.getAudio("record", "en-US", "/ˈrekərd/");
+  const verb = await h.getAudio("record", "en-US", "/rɪˈkɔːrd/");
+  assert.equal(new Set([plain.filename, noun.filename, verb.filename]).size, 3);
+  assert.equal(h.requests[0].request.text_type, "plain");
+  assert.equal(h.requests[1].request.text_type, "ssml");
+  assert.equal(h.requests[1].request.text, '<speak><phoneme alphabet="ipa" ph="ˈrekərd">record</phoneme></speak>');
+  assert.equal(h.requests[2].request.text, '<speak><phoneme alphabet="ipa" ph="rɪˈkɔːrd">record</phoneme></speak>');
+  await h.getAudio("record", "en-US", "rɪˈkɔːrd");
+  assert.equal(h.counts().providers, 3);
+  await h.getAudio("record", "en-GB", "/rɪˈkɔːd/");
+  assert.equal(h.counts().providers, 4);
+});
 
 test("concurrent and repeated requests reuse one generated MP3; accents remain distinct", async () => {
   const h = harness();

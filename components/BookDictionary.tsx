@@ -32,6 +32,8 @@ import {
 } from "@/lib/standaloneDictionaryHistory";
 import type { DictionaryResult } from "@/types/dictionary";
 import styles from "./BookDictionary.module.css";
+import { groupDictionaryPronunciations, dictionaryPronunciationRows } from "@/lib/dictionaryPronunciation";
+import { requiresCurrentFormPhonetic } from "@/lib/pronunciation";
 
 const SESSION_KEY = "context-reader:standalone-dictionary:session:v3";
 const examples = ["take in", "微妙", "落实"];
@@ -77,28 +79,18 @@ function groupSensesByPartOfSpeech(senses: DictionaryResult["senses"]) {
 }
 
 function DictionaryPronunciations({ result }: { result: DictionaryResult }) {
-  const entries = result.pronunciations || [];
-  if (!entries.length) return null;
-  const parts = [...new Set(entries.map(item => item.partOfSpeech))];
-  const differsByPart = parts.length > 1;
-  return <section className={styles.pronunciationVariants} aria-label="按口音和词性区分的发音">
-    {parts.map(part => {
-      const items = entries.filter(item => item.partOfSpeech === part);
-      const us = items.find(item => item.accent === "en-US");
-      const gb = items.find(item => item.accent === "en-GB");
-      const context = differsByPart && part === "verb" ? `to ${result.query}` : differsByPart && part === "noun" ? `the ${result.query}` : result.query;
-      const rows = us && gb && us.phonetic === gb.phonetic
-        ? [{ label: "英美共用", phonetic: us.phonetic, accents: ["en-US", "en-GB"] as const }]
-        : [us && { label: "美音", phonetic: us.phonetic, accents: ["en-US"] as const }, gb && { label: "英音", phonetic: gb.phonetic, accents: ["en-GB"] as const }].filter((row): row is NonNullable<typeof row> => Boolean(row));
-      return <div className={styles.pronunciationVariant} key={part}>
-        <strong>{part === "other" ? "发音" : partOfSpeechLabels[part] || part}</strong>
-        {rows.map(row => <div className={styles.pronunciationVariantRow} key={row.label}>
-          <span><small>{row.label}</small> {row.phonetic}</span>
-          <PronunciationButtons text={context} displayText={result.query} accents={[...row.accents]} />
-        </div>)}
-        {context !== result.query && <small>语境发音：{context}</small>}
-      </div>;
-    })}
+  const groups = groupDictionaryPronunciations(result.pronunciations);
+  if (!groups.length) return null;
+  const differsByPart = groups.length > 1;
+  return <section className={styles.pronunciationVariants} aria-label="单词发音">
+    {groups.map((group, index) => <div className={styles.pronunciationVariant} key={index}>
+      {differsByPart && <strong>{group.parts.filter(part => part !== "other").map(part => partOfSpeechLabels[part] || part).join(" / ") || "另一读音"}</strong>}
+      {dictionaryPronunciationRows(group).map((row, rowIndex) => <div className={styles.pronunciationVariantRow} key={rowIndex}>
+        <span>{row.phonetic}</span>
+        <PronunciationButtons text={result.query} accents={row.accents}
+          phonetics={requiresCurrentFormPhonetic(result.query) ? row.phonetics : undefined} />
+      </div>)}
+    </div>)}
   </section>;
 }
 
