@@ -2,7 +2,11 @@
 
 This file is the final-state contract for parallel development and mainland production releases. It exists to prevent a later task from silently publishing an older source snapshot and removing work that another task already shipped.
 
-## Current accepted release (2026-09-29)
+## Current accepted release (2026-09-30)
+
+Accepted `20260930T091812`, parent `20260929T232511`, source `fb1e5720f20fa574c35d9b27d2f5cc015dff4cc6`. The parent `20260929T232511` carried the `1234.pdf` CET corrections from source `00b027faa7dd6c1793f84b673dda067c1e94309f`, itself based on `20260929T144645`. Final release makes the homepage Menu available on first click while account loading is still visible. Public `/api/connectivity`, server current/state and `mainland_internal` agree. CET browser interactions, 75 CET/89 core/6 media regressions, nine release contracts, production builds, seven-service health, isolated 17-table backup restore, and current/parent images passed; only app/caddy were recreated. Physical touch, signed-in cross-device replay and live signed-in translation remain open; see [1234.pdf release evidence](cet-pdf-1234-release.md).
+
+## Previous accepted release (2026-09-29)
 
 Accepted `20260929T144645`, parent `20260928T125723`, source `43d96fa9014f3e2ef9db3c43ca01c43672830ad7`. Public identity, current symlink and accepted state agree with mainland_internal. This cumulative release improves editorial provider response handling and source selection; the production setting now enables verified The Conversation regional Business feeds and CNBC Economy, with DeepSeek Flash primary and MiMo fallback. Protected contracts, local/server builds, public homepage/article/account/Admin boundaries, seven-service health, isolated 16-table backup restore and current/parent images passed. Only app/caddy recreated. The next full-day editorial yield is unverified; see [editorial audit](editorial-supply-20260929.md). Earlier loading/HD fast-scroll image misses and incomplete visual/device acceptance remain documented in [loading release evidence](loading-hd-release.md).
 

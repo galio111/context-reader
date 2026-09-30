@@ -1,6 +1,6 @@
 # Context Reader
 
-四六级阅读支持自测原文与题目四色下划线、提交后只读划记定位与查词，以及练习/自测分别累计的同题型已看进度。生产身份、验证与开放项见 [发布治理](docs/release-governance.md) 和 [产品历程](docs/product-journey.md)。
+四六级阅读支持自测原文与题目四色下划线、提交后只读划记定位与查词，以及练习/自测分别累计的同题型已看进度。生产身份、验证与开放项见 [1234.pdf 发布记录](docs/cet-pdf-1234-release.md)、[发布治理](docs/release-governance.md) 和 [产品历程](docs/product-journey.md)。
 
 Context Reader is a Next.js reading tool for importing real English articles and understanding them with Chinese context-aware explanations, full-article translation, vocabulary capture and Anki export.
 
