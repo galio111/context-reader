@@ -86,6 +86,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   const [notice, setNotice] = useState("");
   const [sheet, setSheet] = useState<DialogName>("");
   const [paperEditorOpen, setPaperEditorOpen] = useState(false);
+  const [editedParagraphs, setEditedParagraphs] = useState<Record<string, string[]>>({});
   const [canEditPaper, setCanEditPaper] = useState(false);
   const [minutes, setMinutes] = useState(String(entry.sectionId ? 10 : 40));
   const [timerMode, setTimerMode] = useState<"countdown" | "countup">("countdown");
@@ -177,7 +178,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
     pendingFinal.current = null;pendingStart.current=null;
     setMinutes(String(entry.sectionId ? 10 : 40));setTimerMode("countdown");
     setTimerAnchor(null);timerTarget.current=null;pendingTimer.current=null;
-    setSelectedFinalId(""); setDirectSectionId("");
+    setSelectedFinalId(""); setDirectSectionId(""); setPaperEditorOpen(false); setEditedParagraphs({});
     setUnderlineMenu(null); jumpUnderline.current = null;
     recordedExposureIds.current.clear();
     setHistory([]);setLegacyHistory([]);setPaper(null); setActivity(null); setLegacyPreview(null); setView("start"); setError(""); setNotice(""); setChoice(null);
@@ -418,6 +419,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   }, [paper, activity, commit]);
 
   const leaveTo = useCallback(async (target: () => void) => {
+    if (paperEditorOpen) { setNotice("请先完成原文编辑，再离开阅读。"); return; }
     const a = current.current;
     const expectedOwner = owner.current;
     if (expectedOwner !== storageOwner()) { setNotice("账号已切换，请重新打开这份阅读。"); return; }
@@ -438,7 +440,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
     checkpointPractice(true);
     try { await flushLearningStorage(); if (expectedOwner === storageOwner()) target(); }
     catch { setNotice("本机保存失败，仍停留在当前阅读。请重试。"); }
-  }, [checkpointPractice, storageOwner, commit]);
+  }, [checkpointPractice, storageOwner, commit, paperEditorOpen]);
 
   const applyTimerAdjustment = async (kind:'reset'|'countdown') => {
     const a=current.current,target=timerTarget.current;
@@ -477,6 +479,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   },[activity,checkpointPractice,persistDraft]);
 
   const navigateTypeUnit = async (target:CetTypeUnit, retryNext = false) => {
+    if (paperEditorOpen) { setNotice("请先完成原文编辑，再切换题目。"); return; }
     const a=current.current,loaded=paper,expectedOwner=owner.current;
     if(!a?.sectionId||!loaded||routeNavigating.current||submitting.current||expectedOwner!==storageOwner())return;
     routeNavigating.current=true;routePending.current=retryNext?target:null;setBusy(true);setNotice("");
@@ -523,7 +526,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   const shown = view !== "start";
   const testing = Boolean(activity?.purpose === "self_test" && activity.status === "in_progress");
   const paused = Boolean(activity?.purpose === "self_test" && activity.status === "paused");
-  const locked = testing || paused;
+  const locked = testing || paused || paperEditorOpen;
   const applicableFinalizations = activity ? Object.values(activity.finalizations).filter((item) => activity.purpose === "self_test" ? !item.sectionId : item.sectionId === section.id || item.reason === "ended_for_study" && item.questions.some(q=>q.sectionId===section.id)) : [];
   const result = applicableFinalizations.find((item) => item.id === selectedFinalId) || applicableFinalizations[0];
   const sectionResult = activity?.purpose === "practice" ? result : undefined;
@@ -538,11 +541,12 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   const previousUnit=resolvePrevious(routeProjection.trail,unit);
   const hasNextUnit=Boolean(resolveNext(routeProjection.trail,routeUnits,unit,routePending.current,()=>0));
   const routePosition=trailPosition(routeProjection.trail,routeUnits,unit);
-  const allUnderlines = activity?.purpose === "self_test"
+  const allUnderlines = (activity?.purpose === "self_test"
     ? activity.status === "submitted" || activity.status === "ended" ? liveCetUnderlines(result?.underlines) : liveCetUnderlines(activity.underlines)
-    : [];
+    : []).filter(mark => mark.target && mark.target !== "passage" || !editedParagraphs[mark.sectionId]
+      || JSON.stringify(editedParagraphs[mark.sectionId]) === JSON.stringify(result?.underlinedParagraphs?.[mark.sectionId]));
   const sectionUnderlines = allUnderlines.filter(mark => mark.sectionId === section.id);
-  const passageParagraphs = result?.underlinedParagraphs?.[section.id] || section.paragraphs;
+  const passageParagraphs = editedParagraphs[section.id] || result?.underlinedParagraphs?.[section.id] || section.paragraphs;
   const underlineExcerpt = (mark: CetUnderline) => {
     if (mark.target && mark.target !== "passage") {
       const question = result?.questions.find(item => item.sectionId === mark.sectionId && item.number === mark.questionNumber);
@@ -680,6 +684,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
     if(persisted) setNotice("");
   };
   const changeSection = (id: string, scroll = false) => {
+    if (paperEditorOpen) { setNotice("请先完成原文编辑，再切换阅读部分。"); return; }
     pendingScroll.current = scroll ? 0 : window.scrollY;
     setChoice(null); setActiveToken("");
     checkpointPractice(true);
@@ -744,6 +749,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
 
   const submitPolicy = cetSubmitPolicy({ purpose: activity?.purpose || "practice", status: activity?.status || "in_progress", sectionId: activity ? activity.sectionId : entry.sectionId, sectionIds: scopeIds, activeSectionId: section.id, finalized: Boolean(sectionResult), mismatch: model.mismatch });
   const invokeSubmit = (command: CetSubmitCommand) => {
+    if (paperEditorOpen) { setNotice("请先完成原文编辑，再提交答卷。"); return; }
     if (command === "submit_all") submitAll();
     else setSheet(command === "passage_submit" ? "提交本篇" : "提交自测");
   };
@@ -768,7 +774,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
     };
     const displaySection=result?.questions.length && activity?.purpose==='self_test'
       ? {...section,questions:section.questions.map(question=>result.questions.find(snapshot=>snapshot.sectionId===section.id&&snapshot.number===question.number)||question)} : section;
-    return <div className="cet-markable-questions" data-native-selection="blue" onMouseUpCapture={event=>{const root=event.currentTarget;requestAnimationFrame(()=>captureUnderlineSelection(root));}} onKeyUpCapture={event=>{const root=event.currentTarget;requestAnimationFrame(()=>captureUnderlineSelection(root));}} onTouchEndCapture={event=>{const root=event.currentTarget;window.setTimeout(()=>captureUnderlineSelection(root),80);}} onClickCapture={openExistingUnderline}><CetQuestionSurface surface={surface} section={displaySection} disabled={!activity||activity.status!=='in_progress'} answerFor={answerFor} revealed={isRevealed} renderText={markedQuestionText} explain={explain} onAnswer={(q,value)=>updateDraft(q,value)} onOpenChoice={openChoice} openNumber={choice?.surface===surface?choice.question.number:undefined}/></div>;
+    return <div className="cet-markable-questions" data-native-selection="blue" onMouseUpCapture={event=>{const root=event.currentTarget;requestAnimationFrame(()=>captureUnderlineSelection(root));}} onKeyUpCapture={event=>{const root=event.currentTarget;requestAnimationFrame(()=>captureUnderlineSelection(root));}} onTouchEndCapture={event=>{const root=event.currentTarget;window.setTimeout(()=>captureUnderlineSelection(root),80);}} onClickCapture={openExistingUnderline}><CetQuestionSurface surface={surface} section={displaySection} disabled={paperEditorOpen||!activity||activity.status!=='in_progress'} answerFor={answerFor} revealed={isRevealed} renderText={markedQuestionText} explain={explain} onAnswer={(q,value)=>updateDraft(q,value)} onOpenChoice={openChoice} openNumber={choice?.surface===surface?choice.question.number:undefined}/></div>;
   };
   const renderActions = (surface:QuestionSurface) => <CetQuestionActions surface={surface} actions={questionActions}>{renderNavigation()}</CetQuestionActions>;
 
@@ -791,17 +797,21 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
       <p className="cet-directions">{section.type === "cloze" ? "从词库中选择合适单词填入空格，每词限用一次。" : section.type === "matching" ? "为每个陈述选择对应段落；段落可以被重复选择。" : "阅读文章，并为每道题选择一个最佳答案。"}</p>
       {testing && <p className="cet-underline-hint">选中原文或题目可添加彩色下划线；提交后划记固定在这次自测中。</p>}
       <h1>{section.title}</h1>
+      {shown && canEditPaper && !paperEditorOpen && <button type="button" className="cet-edit-paper" disabled={testing || paused} onClick={() => { setNotice(""); setPaperEditorOpen(true); }}>编辑真题排版</button>}
+      {result && editedParagraphs[section.id] && <p className="cet-directions">当前显示已保存排版；历史答卷保留提交时的内容。</p>}
       {section.bank && <div className="cet-word-bank cet-markable-questions" data-native-selection="blue" onMouseUpCapture={event=>{const root=event.currentTarget;requestAnimationFrame(()=>captureUnderlineSelection(root));}} onKeyUpCapture={event=>{const root=event.currentTarget;requestAnimationFrame(()=>captureUnderlineSelection(root));}} onTouchEndCapture={event=>{const root=event.currentTarget;window.setTimeout(()=>captureUnderlineSelection(root),80);}} onClickCapture={openExistingUnderline}>{section.bank.map((option) => <span key={option.key} data-used={section.questions.some(q=>answerFor(q)===option.key) || undefined}><b>{option.key}</b> <span data-cet-mark-target="bank" data-cet-option-key={option.key}><span data-cet-part-start={0}>{lookupText(option.text, lookup, undefined, 0, sectionUnderlines.filter(mark=>mark.target==="bank"&&mark.optionKey===option.key))}</span></span>{section.questions.some(q=>answerFor(q)===option.key) && <small>已用</small>}</span>)}</div>}
-      <div ref={passageRoot} className="cet-passages" data-native-selection="blue" onMouseUpCapture={() => requestAnimationFrame(() => captureUnderlineSelection())} onKeyUpCapture={() => requestAnimationFrame(() => captureUnderlineSelection())} onTouchEndCapture={() => window.setTimeout(() => captureUnderlineSelection(), 80)} onClickCapture={openExistingUnderline}>{passageParagraphs.map((text, index) => <p key={index} data-cet-paragraph={index}>{section.type === "cloze" ? text.split(/(\[\[\d+\]\])/g).map((part, partIndex, parts) => {
+      {paperEditorOpen && canEditPaper ? <CetPaperEditor key={`${paper.id}:${section.id}`} paperId={paper.id} section={paper.sections.find(item => item.id === section.id)!} onClose={() => setPaperEditorOpen(false)} onSaved={paragraphs => {
+        setPaper(current => current && { ...current, sections: current.sections.map(item => item.id === section.id ? { ...item, paragraphs } : item) });
+        setEditedParagraphs(previous => ({ ...previous, [section.id]: paragraphs }));
+      }} /> : <div ref={passageRoot} className="cet-passages" data-native-selection="blue" onMouseUpCapture={() => requestAnimationFrame(() => captureUnderlineSelection())} onKeyUpCapture={() => requestAnimationFrame(() => captureUnderlineSelection())} onTouchEndCapture={() => window.setTimeout(() => captureUnderlineSelection(), 80)} onClickCapture={openExistingUnderline}>{passageParagraphs.map((text, index) => <p key={index} data-cet-paragraph={index}>{section.type === "cloze" ? text.split(/(\[\[\d+\]\])/g).map((part, partIndex, parts) => {
         const number = Number(part.match(/\[\[(\d+)\]\]/)?.[1]);
         const question = section.questions.find((item) => item.number === number);
         const offset = parts.slice(0, partIndex).join("").length;
         return question ? <span className="cet-gap" id={`cet-inline-q-${number}`} key={partIndex}><button type="button" disabled={isRevealed(question) || !activity || activity.status !== "in_progress"} onClick={(event) => openChoice(event, question)} aria-haspopup="listbox" aria-expanded={choice?.surface === "inline" && choice?.question.number === number} aria-label={`第 ${number} 空，${answerFor(question) || "未作答"}`}><b>{number}</b>{answerFor(question) ? <span>{question.options.find((option) => option.key === answerFor(question))?.text || answerFor(question)}</span> : null}</button></span> : <span key={partIndex} data-cet-part-start={offset}>{lookupText(part, lookup, text, offset, sectionUnderlines.filter(mark => (!mark.target || mark.target === "passage") && mark.paragraphIndex === index && mark.start < offset + part.length && mark.end > offset).map(mark => ({...mark,start:Math.max(0,mark.start-offset),end:Math.min(part.length,mark.end-offset)})))}</span>;
-      }) : <span data-cet-part-start={0}>{lookupText(text, lookup, undefined, 0, sectionUnderlines.filter(mark => (!mark.target || mark.target === "passage") && mark.paragraphIndex === index))}</span>}</p>)}</div>
+      }) : <span data-cet-part-start={0}>{lookupText(text, lookup, undefined, 0, sectionUnderlines.filter(mark => (!mark.target || mark.target === "passage") && mark.paragraphIndex === index))}</span>}</p>)}</div>}
       {activity?.conditions.includes("legacy_draft_conflict") && <p role="status">旧设备有不同草稿，已保留在本机备份中，当前答卷和已提交结果未被替换。</p>}
-      {activity?.conditions.includes("timer_adjusted") && <p className="cet-muted">计时已调整 · 结果保留累计有效用时</p>}
       {renderQuestions("inline",lookup)}
-      {renderActions("inline")}
+      {!paperEditorOpen && renderActions("inline")}
     </div>;
   };
 
@@ -817,10 +827,10 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
         try { saveCetExposure(exposureFor(section, paper.id, owner.current, "assist", `assist:${activity?.id || directSessionId.current}:${section.id}`, activity?.id)); } catch { /* Reading tools remain usable if exposure persistence is temporarily unavailable. */ }
       },
       toolbar: <>{shown && <PillNavAction className={toolbarStyles.action} label={`答题卡 ${answered}/${model.total}`} onClick={() => setSheet("答题卡")} />}{(testing || paused) && <PillNavAction className={toolbarStyles.action} label="提交自测" onClick={() => setSheet("提交自测")} />}{shown && activity?.purpose === "practice" && !activity.legacy && <PillNavAction className={toolbarStyles.action} label={submitPolicy.toolbar.label} disabled={busy || submitPolicy.toolbar.disabled} onClick={() => invokeSubmit(submitPolicy.toolbar.command)} />}</>,
-      rail: <div className={`${toolbarStyles.railActions} cet-rail`}><button onClick={() => setSheet("选择真题")}><span>选择真题</span><small>按试卷或题型选择</small></button><button onClick={openGlobalHistory}><span>练习历史</span><small>继续或回看</small></button>{shown && <button onClick={() => setSheet("重新练习")}><span>重新练习</span><small>保留本轮记录</small></button>}{canEditPaper && <button onClick={() => setPaperEditorOpen(true)}><span>编辑真题排版</span><small>开发者专用</small></button>}</div>,
+      rail: <div className={`${toolbarStyles.railActions} cet-rail`}><button disabled={paperEditorOpen} onClick={() => setSheet("选择真题")}><span>选择真题</span><small>按试卷或题型选择</small></button><button disabled={paperEditorOpen} onClick={openGlobalHistory}><span>练习历史</span><small>继续或回看</small></button>{shown && <button disabled={paperEditorOpen} onClick={() => setSheet("重新练习")}><span>重新练习</span><small>保留本轮记录</small></button>}{canEditPaper && <button disabled={paperEditorOpen || testing || paused} onClick={() => { setNotice(""); setView("reading"); setPaperEditorOpen(true); }}><span>编辑真题排版</span><small>开发者专用</small></button>}</div>,
       timer,
 
-      questions: shown && section.type!=="cloze" ? {key:`${owner.current}:${activity?.id||directSessionId.current}:${section.id}`, available:true, title:section.title, answered:sectionAnswered,total:section.questions.length,
+      questions: shown && !paperEditorOpen && section.type!=="cloze" ? {key:`${owner.current}:${activity?.id||directSessionId.current}:${section.id}`, available:true, title:section.title, answered:sectionAnswered,total:section.questions.length,
         onDismiss:()=>setChoice(prior=>prior?.surface==='dock'?null:prior),
         render:lookup=><div className="cet-dock-reading">{renderQuestions('dock',lookup)}{renderActions('dock')}</div>} : undefined,
       render: renderReading,
@@ -830,7 +840,6 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
       <div className="cet-underline-colors" aria-label="下划线颜色">{underlineColors.map(color => <button type="button" key={color.id} data-color={color.id} aria-label={`${color.label}下划线`} title={`${color.label}下划线`} onClick={() => applyUnderline(color.id)} />)}</div>
       {underlineMenu.kind === "mark" && <button type="button" className="cet-underline-remove" onClick={() => applyUnderline("remove")}>删除</button>}
     </div>, document.body)}
-    {paperEditorOpen && <Sheet title="编辑真题排版" left onClose={() => setPaperEditorOpen(false)}><CetPaperEditor paperId={paper.id} initialSectionId={section.id} onSaved={() => setNotice("真题排版已保存；重新打开题目可查看新版内容。")}/></Sheet>}
     {timerAnchor && <CetOptionList anchor={timerAnchor} label="计时设置" value="" options={[{key:'reset',text:'归零'},{key:'countdown',text:activity&&projectCetTimer(activity,section.id).mode==='countdown'?'调整倒计时':'改为倒计时'}]} onClose={()=>setTimerAnchor(null)} onChoose={key=>{setTimerAnchor(null);setNotice('');setMinutes(String((activity&&projectCetTimer(activity,section.id).budget||600000)/60000));setSheet(key==='reset'?'计时归零':'设置倒计时');}} />}
     {choice && activity?.status==="in_progress" && choice.activityId===activity.id && choice.section.id===activity.activeSection && <CetOptionList anchor={choice.anchor} options={[{key:"",text:"清空答案"}, ...choice.question.options.map(o=>({key:o.key,text:`${o.key} ${o.text}`}))]} value={activity?.answers[cetQuestionKey(choice.section.id, choice.question.number)]?.value || ""} label={`第 ${choice.question.number} 题选择${choice.section.type === "matching" ? "段落" : "单词"}`} onChoose={(key) => { updateDraft(choice.question, key, {activityId:choice.activityId,sectionId:choice.section.id}); setChoice(null); }} onClose={() => setChoice(null)} />}
     {sheet && <Sheet title={sheet} left={sheet === "选择真题"} onClose={() => setSheet("")}>

@@ -30,7 +30,8 @@ export function applyCetPaperOverride(paper: CetPaper, row: CetPaperOverrideRow 
     sections: paper.sections.map(section => {
       const paragraphs = row.paragraphs[section.id];
       return Array.isArray(paragraphs) && paragraphs.length > 0 && paragraphs.length <= 100
-        && paragraphs.every(value => typeof value === "string" && value.length > 0 && value.length <= 20_000)
+        && paragraphs.some(value => typeof value === "string" && value.trim().length > 0)
+        && paragraphs.every(value => typeof value === "string" && value.length <= 20_000)
         ? { ...section, paragraphs } : section;
     }),
   };
@@ -52,7 +53,7 @@ export async function saveCetPaperParagraphs(input: {
   sectionId: string;
   paragraphs: string[];
   expectedRevision: string | null;
-}): Promise<"saved" | "conflict"> {
+}): Promise<{ revision: string } | "conflict"> {
   const base = await readBaseCetPaper(input.paperId);
   const section = base.sections.find(section => section.id === input.sectionId);
   if (!section) throw new Error("Invalid CET section.");
@@ -63,20 +64,20 @@ export async function saveCetPaperParagraphs(input: {
   if (validationError) throw new Error(validationError);
   const paragraphs = { ...(old?.paragraphs || {}), [input.sectionId]: input.paragraphs };
   if (!old) {
-    const rows = await accountFetch<CetPaperOverrideRow[]>("cet_paper_overrides?on_conflict=paper_id&select=paper_id", {
+    const rows = await accountFetch<CetPaperOverrideRow[]>("cet_paper_overrides?on_conflict=paper_id&select=updated_at", {
       method: "POST",
       headers: { Prefer: "resolution=ignore-duplicates,return=representation" },
       body: JSON.stringify([{ paper_id: input.paperId, paragraphs }]),
     });
-    return rows.length ? "saved" : "conflict";
+    return rows.length ? { revision: rows[0].updated_at } : "conflict";
   }
   const rows = await accountFetch<CetPaperOverrideRow[]>(
-    `cet_paper_overrides?paper_id=eq.${encodeURIComponent(input.paperId)}&updated_at=eq.${encodeURIComponent(old.updated_at)}&select=paper_id`,
+    `cet_paper_overrides?paper_id=eq.${encodeURIComponent(input.paperId)}&updated_at=eq.${encodeURIComponent(old.updated_at)}&select=updated_at`,
     {
       method: "PATCH",
       headers: { Prefer: "return=representation" },
       body: JSON.stringify({ paragraphs, updated_at: new Date(Math.max(Date.now(), Date.parse(old.updated_at) + 1)).toISOString() }),
     },
   );
-  return rows.length ? "saved" : "conflict";
+  return rows.length ? { revision: rows[0].updated_at } : "conflict";
 }

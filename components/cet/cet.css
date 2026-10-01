@@ -229,6 +229,8 @@
 }
 .cet-passages > p {
   margin: 0 0 28px;
+  white-space: pre-wrap;
+  min-height: 1lh;
 }
 .cet-underline {
   background-image: linear-gradient(var(--cet-underline-color), var(--cet-underline-color));
@@ -248,16 +250,16 @@
   color: #425d68;
   font-size: 13px;
 }
-.cet-paper-editor { display: grid; gap: 16px; color: #294654; font-size: 14px; line-height: 1.6; }
-.cet-paper-editor p { margin: 0; }
-.cet-paper-editor label { display: grid; gap: 6px; font-weight: 600; }
-.cet-paper-editor textarea { width: 100%; min-height: min(58vh, 620px); resize: vertical; border: 1px solid #b5cbd1; border-radius: 8px; padding: 14px; color: #1d3540; background: #fff; font: 15px/1.7 Georgia, serif; }
-.cet-paper-editor textarea:focus-visible { outline: 2px solid #27778c; outline-offset: 2px; }
-.cet-paper-editor small { color: #526771; }
-.cet-paper-editor-actions { display: flex; justify-content: flex-end; gap: 10px; }
+.cet-paper-editor-tools { display: grid; gap: 10px; margin-bottom: 24px; color: #294654; font-size: 14px; line-height: 1.6; }
+.cet-paper-editor-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 .cet-paper-editor-actions button { padding: 8px 14px; border: 1px solid #9cb8c2; border-radius: 7px; }
 .cet-paper-editor-actions button:last-child { color: #fff; background: #24647a; }
 .cet-paper-editor-actions button:disabled { opacity: .5; cursor: default; }
+.cet-editable-passages { white-space: pre-wrap; outline: none; }
+.cet-editable-passages:focus-visible { outline: 1px solid #27778c; outline-offset: 8px; }
+.cet-editable-passages > div { margin: 0 0 28px; min-height: 1lh; }
+.cet-editable-gap { display: inline-flex; align-items: center; justify-content: center; min-width: 64px; min-height: 36px; margin: 0 4px; border-bottom: 1px solid #749baa; font-size: .8em; user-select: none; }
+.cet-edit-paper { margin: -12px 0 24px; color: #24647a; font-size: 14px; text-decoration: underline; text-underline-offset: 4px; }
 .cet-underline-menu {
   position: fixed;
   z-index: 80;

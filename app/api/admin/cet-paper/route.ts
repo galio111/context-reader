@@ -34,14 +34,15 @@ export async function PATCH(request: Request) {
   const expectedRevision = body?.expectedRevision;
   if (typeof paperId !== "string" || !paperIdPattern.test(paperId) || typeof sectionId !== "string" || sectionId.length > 100
     || !Array.isArray(paragraphs) || paragraphs.length < 1 || paragraphs.length > 100
-    || !paragraphs.every(value => typeof value === "string" && value.trim().length > 0 && value.length <= 20_000)
+    || !paragraphs.some(value => typeof value === "string" && value.trim().length > 0)
+    || !paragraphs.every(value => typeof value === "string" && value.length <= 20_000)
     || !(expectedRevision === null || typeof expectedRevision === "string" && expectedRevision.length <= 50)) {
-    return NextResponse.json({ error: "排版内容无效；每段都需要保留文字。" }, { status: 400 });
+    return NextResponse.json({ error: "排版内容无效，请保留正文。" }, { status: 400 });
   }
   try {
     const result = await saveCetPaperParagraphs({ paperId, sectionId, paragraphs, expectedRevision });
     if (result === "conflict") return NextResponse.json({ error: "此题已由另一处更新，请重新载入后再编辑。" }, { status: 409 });
-    return NextResponse.json({ ok: true }, { headers: { "Cache-Control": "private, no-store" } });
+    return NextResponse.json({ ok: true, revision: result.revision }, { headers: { "Cache-Control": "private, no-store" } });
   } catch (error) {
     const message = error instanceof Error ? error.message : "";
     const invalid = message === "填空编号不能改变。" || message.startsWith("正文变动过大");
