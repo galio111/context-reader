@@ -4,6 +4,14 @@ This file is the final-state contract for parallel development and mainland prod
 
 ## Current accepted release (2026-09-30)
 
+Accepted `20260930T120723`, parent `20260930T113229`, source `4eb1f036e1d508268e5dbbce760c8a4b56d892e9`. Public connectivity, current symlink and accepted state agree with mainland_internal. CET by-type navigation shows current position over the accessible type total, follows saved back/forward order and only draws new material at the tail; paused tests keep the passage and questions visible. The accepted dictionary changes are retained by an explicit merge. Twelve reviewed files, local/server builds, 76 CET/89 core/15 pronunciation regressions, nine contracts, egress guard, public browser/API checks, seven-service health, a fresh isolated 17-table restore and current/parent images passed. Only app/caddy recreated. Physical touch and signed-in cross-device verification remain open; see [navigation and pause evidence](cet-navigation-pause-release.md).
+
+## Previous accepted release (2026-09-30 dictionary)
+
+Accepted `20260930T113229`, parent `20260930T091812`, source `101d6df3d120bb9f3e365da3dc6f1cf5ede90f0b`, confirmed in the accepted state before integration. It simplifies the dictionary pronunciation area and binds playback/cache identity to the selected IPA. This release remains the direct rollback parent. Pronunciation correctness and listening limits are documented in [dictionary evidence](lookup-pdf-20260930.md).
+
+## Previous accepted release (2026-09-30 CET PDF/Menu)
+
 Accepted `20260930T091812`, parent `20260929T232511`, source `fb1e5720f20fa574c35d9b27d2f5cc015dff4cc6`. The parent `20260929T232511` carried the `1234.pdf` CET corrections from source `00b027faa7dd6c1793f84b673dda067c1e94309f`, itself based on `20260929T144645`. Final release makes the homepage Menu available on first click while account loading is still visible. Public `/api/connectivity`, server current/state and `mainland_internal` agree. CET browser interactions, 75 CET/89 core/6 media regressions, nine release contracts, production builds, seven-service health, isolated 17-table backup restore, and current/parent images passed; only app/caddy were recreated. Physical touch, signed-in cross-device replay and live signed-in translation remain open; see [1234.pdf release evidence](cet-pdf-1234-release.md).
 
 ## Previous accepted release (2026-09-29)
