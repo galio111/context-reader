@@ -1,5 +1,9 @@
 # Production Release Governance
 
+## Current accepted homepage resource release
+
+Accepted `20261001T202200`, parent `20261001T133400`, source `1f9366c16a12d9208a879220ff4d58c41e690c11`, accepted at 2026-10-01 12:27:59 UTC. Public mainland identity, accepted state and current symlink agree. Exact 24-file cumulative delta; only app/caddy recreated. The preceding CET editing/pronunciation releases remain included. Browser/core/account/Admin/health/17-table isolated restore and current/parent image evidence, plus remaining visual/device gates: [resource handoff](home-cet-motion-20261001.md). Later evidence-only commits do not change this deployed source identity.
+
 This file is the final-state contract for parallel development and mainland production releases. It exists to prevent a later task from silently publishing an older source snapshot and removing work that another task already shipped.
 
 ## Current accepted release (2026-10-01 CET inline formatting)
