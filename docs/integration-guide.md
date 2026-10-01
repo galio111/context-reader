@@ -309,4 +309,4 @@ Admin editorial PATCH accepts optional budgetTrial (day in Shanghai YYYY-MM-DD; 
 
 第四轮已生产客户端新增preferences对象前缀cet-type-trail:v1:、dictionary-history-event:v1:、cet-activity:v4:与cet-finalization:v4:，继续走现有protocol-2及owner归档/游客认领，不增云数据库。旧端的v2/v3读写不得覆盖v4；独立双会话实际生产API回归已通过，发布身份另见第四轮验收记录。
 
-当前 CET 活动的可选 `underlines` 映射存自测草稿，原文/题干/选项/词库标记按 ID、更新时间和事件 ID 合并，删除保留 tombstone；提交包的 `underlines` 数组及标记文字为该次自测的只读快照。浏览计数继续使用 `cet-type-trail:v1`，新增 `view` 事件；展示端按 owner、级别、题型、练习或自测目标合并历轮不同题组，答卷活动本身仍按目标隔离。旧记录无浏览事件时不补造。开发者专用 `GET/PATCH /api/admin/cet-paper` 仅修改正文段落，要求同源、受限请求体与乐观版本校验；`cet_paper_overrides` 表只授予服务角色读写，迁移位于 `ops/mainland/migrate-cet-paper-overrides.sql`。云同步协议版本不变。
+当前 CET 活动的可选 `underlines` 映射存自测草稿，原文/题干/选项/词库标记按 ID、更新时间和事件 ID 合并，删除保留 tombstone；提交包的 `underlines` 数组及标记文字为该次自测的只读快照。浏览计数继续使用 `cet-type-trail:v1`，新增 `view` 事件；展示端按 owner、级别、题型、练习或自测目标合并历轮不同题组，答卷活动本身仍按目标隔离。旧记录无浏览事件时不补造。开发者专用 `GET/PATCH /api/admin/cet-paper` 仅修改正文段落，要求同源、受限请求体与乐观版本校验；PATCH 成功响应包含本次保存的 `revision`，后续保存将其作为 `expectedRevision`；空段落允许保留，但正文不能全空，编号序列及变动长度门槛不变。客户端即时更新原文，无需重新打开。`cet_paper_overrides` 表只授予服务角色读写，迁移位于 `ops/mainland/migrate-cet-paper-overrides.sql`。云同步协议版本不变。
