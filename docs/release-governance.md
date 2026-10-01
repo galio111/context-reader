@@ -2,7 +2,11 @@
 
 This file is the final-state contract for parallel development and mainland production releases. It exists to prevent a later task from silently publishing an older source snapshot and removing work that another task already shipped.
 
-## Current accepted release (2026-10-01)
+## Current accepted release (2026-10-01 CET inline formatting)
+
+Accepted `20261001T133400`, parent `20261001T132600`, source `3a4edb459e8bfe86fcb40fd889a647c5bd6aa40b`. Cumulative from `20261001T101112` through the inline editor `20261001T131000` and editor-message `20261001T132600`. Developer formatting now edits in the real passage and updates immediately after saving; blank paragraphs and soft breaks survive reopening. The intrusive timer-adjustment line is removed. 78 CET, 89 core and 8 provider/billing regressions, nine contracts, local/server builds, signed-in reading core, public editor persistence, day/night desktop/mobile, health, backup restore and rollback images passed. Only app/caddy recreated. Physical-device, Edge, cross-device and user visual acceptance remain open; see [release evidence](cet-inline-layout-release.md).
+
+## Previous accepted release (2026-10-01 pronunciation)
 
 Accepted `20261001T101112`, parent `20260930T120723`, source `0cd406d09026ba36a3a75e1434e7279f06e0f1e0`. Public connectivity, current symlink and accepted state agree with mainland_internal. Ordinary dictionary words use the English voice's normal reading; genuinely different part-of-speech pronunciations use supported CMU phonemes with stress, bypassing the incorrect IPA SSML cache. Guest hover navigation now remains clickable across its gaps. Nineteen reviewed files, 111 regressions, nine contracts, types and local/server production builds passed. Public audio synthesis/download took 751–878 ms on four misses, cached requests 61–251 ms; repeated browser playback reused its local media without another request. Public guest menu, account/sync/Admin boundaries, recovery Admin, seven-service health, SHA-verified isolated 17-table restore and current/parent images passed. Only app/caddy recreated. Full pronunciation/listening and physical-device acceptance remain open; see [pronunciation evidence](pronunciation-20261001.md).
 
