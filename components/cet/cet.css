@@ -260,6 +260,12 @@
 .cet-editable-passages > div { margin: 0 0 28px; min-height: 1lh; }
 .cet-editable-gap { display: inline-flex; align-items: center; justify-content: center; min-width: 64px; min-height: 36px; margin: 0 4px; border-bottom: 1px solid #749baa; font-size: .8em; user-select: none; }
 .cet-edit-paper { margin: -12px 0 24px; color: #24647a; font-size: 14px; text-decoration: underline; text-underline-offset: 4px; }
+html[data-context-theme="night"] .cet-paper-editor-tools { color: #dcebed; }
+html[data-context-theme="night"] .cet-paper-editor-actions button { background: #294753; color: #e4f3f5; border-color: #749baa; }
+html[data-context-theme="night"] .cet-paper-editor-actions button:last-child { background: #9bd8e3; color: #10272e; }
+html[data-context-theme="night"] .cet-edit-paper { color: #9bd8e3; }
+html[data-context-theme="night"] .cet-editable-passages:focus-visible { outline-color: #9bd8e3; }
+html[data-context-theme="night"] .cet-editable-gap { border-color: #9bd8e3; }
 .cet-underline-menu {
   position: fixed;
   z-index: 80;
