@@ -2,7 +2,19 @@
 
 This file is the final-state contract for parallel development and mainland production releases. It exists to prevent a later task from silently publishing an older source snapshot and removing work that another task already shipped.
 
-## Current accepted release (2026-09-30)
+## Current accepted release (2026-10-01)
+
+Accepted `20261001T101112`, parent `20260930T120723`, source `0cd406d09026ba36a3a75e1434e7279f06e0f1e0`. Public connectivity, current symlink and accepted state agree with mainland_internal. Ordinary dictionary words use the English voice's normal reading; genuinely different part-of-speech pronunciations use supported CMU phonemes with stress, bypassing the incorrect IPA SSML cache. Guest hover navigation now remains clickable across its gaps. Nineteen reviewed files, 111 regressions, nine contracts, types and local/server production builds passed. Public audio synthesis/download took 751–878 ms on four misses, cached requests 61–251 ms; repeated browser playback reused its local media without another request. Public guest menu, account/sync/Admin boundaries, recovery Admin, seven-service health, SHA-verified isolated 17-table restore and current/parent images passed. Only app/caddy recreated. Full pronunciation/listening and physical-device acceptance remain open; see [pronunciation evidence](pronunciation-20261001.md).
+
+## Previous accepted release (2026-09-30)
+
+Accepted `20260930T120723`, parent `20260930T113229`, source `4eb1f036e1d508268e5dbbce760c8a4b56d892e9`. Public connectivity, current symlink and accepted state agree with mainland_internal. CET by-type navigation shows current position over the accessible type total, follows saved back/forward order and only draws new material at the tail; paused tests keep the passage and questions visible. The accepted dictionary changes are retained by an explicit merge. Twelve reviewed files, local/server builds, 76 CET/89 core/15 pronunciation regressions, nine contracts, egress guard, public browser/API checks, seven-service health, a fresh isolated 17-table restore and current/parent images passed. Only app/caddy recreated. Physical touch and signed-in cross-device verification remain open; see [navigation and pause evidence](cet-navigation-pause-release.md).
+
+## Previous accepted release (2026-09-30 dictionary)
+
+Accepted `20260930T113229`, parent `20260930T091812`, source `101d6df3d120bb9f3e365da3dc6f1cf5ede90f0b`, confirmed in the accepted state before integration. It simplified the dictionary pronunciation area and bound playback/cache identity to the selected IPA. Its unsupported IPA synthesis was corrected in the 2026-10-01 release. Historical checks and listening limits are documented in [dictionary evidence](lookup-pdf-20260930.md).
+
+## Previous accepted release (2026-09-30 CET PDF/Menu)
 
 Accepted `20260930T091812`, parent `20260929T232511`, source `fb1e5720f20fa574c35d9b27d2f5cc015dff4cc6`. The parent `20260929T232511` carried the `1234.pdf` CET corrections from source `00b027faa7dd6c1793f84b673dda067c1e94309f`, itself based on `20260929T144645`. Final release makes the homepage Menu available on first click while account loading is still visible. Public `/api/connectivity`, server current/state and `mainland_internal` agree. CET browser interactions, 75 CET/89 core/6 media regressions, nine release contracts, production builds, seven-service health, isolated 17-table backup restore, and current/parent images passed; only app/caddy were recreated. Physical touch, signed-in cross-device replay and live signed-in translation remain open; see [1234.pdf release evidence](cet-pdf-1234-release.md).
 
