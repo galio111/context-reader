@@ -820,7 +820,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
       locked,
       testing: testing || paused,
       startScreen: view === "start",
-      lockedMessage: !shown ? "选择学习目标后开始阅读。" : undefined,
+      lockedMessage: paperEditorOpen ? "正在编辑原文排版，请完成编辑后使用阅读工具。" : !shown ? "选择学习目标后开始阅读。" : undefined,
       onAssistanceShown: () => {
         if (view === "start" || testing || paused || owner.current !== storageOwner()) return;
         if(current.current)try{touchTrail(current.current,paper,"assistance_shown");}catch{setNotice("路线记录尚未保存，请保留页面重试。");}
