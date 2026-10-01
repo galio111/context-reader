@@ -14,6 +14,8 @@ import type { CetActivity, CetAttempt, CetPaper } from "@/types/cet";
 import "./cet.css";
 import { subscribeCetCatalogue } from "@/lib/cetCatalogueClient";
 import { CetSelect } from "./CetSelect";
+import { CET_GUEST_PREVIEW_COUNT } from "@/lib/cetGuestPreview";
+import { CetLibraryPlaceholder } from "./CetLibraryPlaceholder";
 export interface CetEntry {
   paperId: string;
   sectionId?: string;
@@ -95,7 +97,7 @@ export function CetLibrary({
               .filter((s) => s.type === type)
               .map((section) => ({ paper: p, section })),
           ),
-    visible = account.authenticated ? rows : rows.slice(0, 6);
+    visible = account.authenticated ? rows : rows.slice(0, CET_GUEST_PREVIEW_COUNT);
   const filteredHistory = history.filter((h) => (!historyPurpose || h.purpose === historyPurpose));
   const filteredLegacy = legacyHistory.filter((h) => (!historyPurpose || (h.mode === "exam" ? "self_test" : "practice") === historyPurpose));
   return (
@@ -143,7 +145,7 @@ export function CetLibrary({
       >
         <div className="cet-resource-grid">
           {loading && !visible.length ? (
-            <p role="status">正在读取试卷…</p>
+            <CetLibraryPlaceholder />
           ) : error && !visible.length ? (
             <p role="alert">
               {error}
@@ -186,7 +188,7 @@ export function CetLibrary({
           {!account.authenticated && (
             <div className="cet-login-note">
               <span>
-                游客可阅读本级别的 6 {view === "paper" ? "套试卷" : "篇阅读"}
+                游客可阅读本级别的 {CET_GUEST_PREVIEW_COUNT} {view === "paper" ? "套试卷" : "篇阅读"}
                 。登录可体验近十年及以上的真题。
               </span>
               <button

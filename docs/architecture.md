@@ -1,5 +1,9 @@
 # Context Reader Architecture
 
+## Homepage resource handoff
+
+`HomeRedesign` keeps the guest publication-to-import bridge outside both resource branches, so article/CET switching retains the same element and reveal styles. Fresh visits start on articles; same-session Reader returns restore the resource tab. The unselected label is 3px smaller. The guest showcase exit reads cached geometry and schedules frames only near the showcase/header; title labels reveal horizontally without translating. Reduced motion and disabled recommendation motion restore visible defaults. `CET_GUEST_PREVIEW_COUNT` centrally defines 12 records per level for preview metadata, detail authorization and the UI; public seeds contain neither passage text nor answers. Initial component/catalogue loading renders `CetLibraryPlaceholder`, with visible error recovery retained.
+
 ## 2026-09-27 加载优化已发布（保留已知限制）
 
 当前集成采用轻量公共元数据、按需完整目录、CET预览缓存、发布时高清同构图变体和有界媒体调度。中途登录保留视觉布局，但完整库权限独立跟随实时账号。用户明确接受快速滚动仍缺图的已知限制并要求先发布；不能宣称任务包全部验收通过。完整状态及证据见 [loading-hd-release.md](loading-hd-release.md)。已核验生产20260927T091952，source 00f34707feaedc8419bfc7737ae521bd38bd9eea；完整任务验收仍未全部通过。

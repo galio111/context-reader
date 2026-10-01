@@ -3,6 +3,7 @@ import { getAuthenticatedUser } from "@/lib/userAuth";
 import papersData from "@/data/cet/catalog.json";
 import { readCetPaperWithOverrides } from "@/lib/cetPaperOverrides";
 import type { CetPaper } from "@/types/cet";
+import { CET_GUEST_PREVIEW_COUNT } from "@/lib/cetGuestPreview";
 export async function GET(request: Request) {
   const params = new URL(request.url).searchParams;
   const user = await getAuthenticatedUser().catch(() => null);
@@ -12,7 +13,7 @@ export async function GET(request: Request) {
   const visible = user
     ? all
     : [4, 6].flatMap((level) =>
-        all.filter((p) => p.level === level).slice(0, 6),
+        all.filter((p) => p.level === level).slice(0, CET_GUEST_PREVIEW_COUNT),
       );
   const id = params.get("id");
   if (id) {

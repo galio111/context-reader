@@ -2,8 +2,9 @@
 
 import dynamicCet from "next/dynamic";
 import { prepareCetPreview } from "@/lib/cetCatalogueClient";
+import { CetLibraryPlaceholder } from "@/components/cet/CetLibraryPlaceholder";
 const loadCetLibrary = () => import("@/components/cet/CetLibrary");
-const CetLibrary = dynamicCet(() => loadCetLibrary().then(m => m.CetLibrary), { loading: () => <p role="status">正在读取真题目录…</p> });
+const CetLibrary = dynamicCet(() => loadCetLibrary().then(m => m.CetLibrary), { loading: () => <CetLibraryPlaceholder /> });
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type MouseEvent as ReactMouseEvent, type PointerEvent } from "react";
 import { ArticleCover } from "@/components/ArticleCover";
 import { useDailyPublicationNotice } from "@/components/useDailyPublicationNotice";
@@ -290,9 +291,14 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const memberBallpitControllerRef = useRef<BallpitHandle | null>(null);
   const [resourceTab, setResourceTab] = useState<"articles" | "cet">("articles");
   useEffect(() => {
+    if (!props.skipMemberOpening) {
+      try { sessionStorage.removeItem("context-reader:home-resource"); } catch { /* A fresh visit still starts with articles. */ }
+      return;
+    }
     try { if (sessionStorage.getItem("context-reader:home-resource") === "cet") setResourceTab("cet"); } catch { /* In-memory tabs still work without storage. */ }
-  }, []);
+  }, [props.skipMemberOpening]);
   const recommendationsRef = useRef<HTMLElement | null>(null);
+  const resourceHeadRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
     if (!memberLibraryAccess || resourceTab !== "articles" || journeyPending || props.catalogueStatus !== "idle" || !recommendationsRef.current) return;
     const observer = new IntersectionObserver(([entry]) => {
@@ -555,6 +561,67 @@ export function HomeRedesign(props: HomeRedesignProps) {
   }, []);
 
   useArticleReveal(articleGridRef, styles.articleCard, resourceTab, `${activeCategory}\0${displayArticleMotionKey}`);
+
+  useEffect(() => {
+    const showcase = featureShowcaseRef.current;
+    const head = resourceHeadRef.current;
+    if (memberHome || journeyPending || !showcase || !head) return;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let stop = () => {};
+    const configure = () => {
+      stop();
+      if (reduced.matches || !recommendationMotionEnabled || !("IntersectionObserver" in window)) return;
+      let frame = 0;
+      let bottom = 0;
+      let headTop = 0;
+      let viewport = window.innerHeight;
+      const nearby = new Set<Element>();
+      const clamp = (value: number) => Math.min(1, Math.max(0, value));
+      const paint = () => {
+        frame = 0;
+        const exit = clamp((viewport * .76 - (bottom - window.scrollY)) / (viewport * .6));
+        const reveal = clamp((viewport * .93 - (headTop - window.scrollY)) / (viewport * .36));
+        showcase.style.setProperty("--showcase-exit", exit.toFixed(4));
+        head.style.setProperty("--resource-reveal", reveal.toFixed(4));
+      };
+      const schedule = () => { if (!frame && nearby.size) frame = window.requestAnimationFrame(paint); };
+      const measure = () => {
+        // Cache layout on resize. Scrolling only reads the scroll offset.
+        viewport = window.innerHeight;
+        bottom = showcase.getBoundingClientRect().bottom + window.scrollY;
+        headTop = head.getBoundingClientRect().top + window.scrollY;
+        paint();
+      };
+      measure();
+      showcase.dataset.handoffMotion = "true";
+      head.dataset.handoffMotion = "true";
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => { if (entry.isIntersecting) nearby.add(entry.target); else nearby.delete(entry.target); });
+        paint();
+      }, { rootMargin: "160px" });
+      observer.observe(showcase);
+      observer.observe(head);
+      const resize = new ResizeObserver(measure);
+      resize.observe(showcase);
+      resize.observe(head);
+      window.addEventListener("scroll", schedule, { passive: true });
+      window.addEventListener("resize", measure);
+      stop = () => {
+        observer.disconnect();
+        resize.disconnect();
+        window.cancelAnimationFrame(frame);
+        window.removeEventListener("scroll", schedule);
+        window.removeEventListener("resize", measure);
+        delete showcase.dataset.handoffMotion;
+        delete head.dataset.handoffMotion;
+        showcase.style.removeProperty("--showcase-exit");
+        head.style.removeProperty("--resource-reveal");
+      };
+    };
+    configure();
+    reduced.addEventListener("change", configure);
+    return () => { stop(); reduced.removeEventListener("change", configure); };
+  }, [memberHome, journeyPending, recommendationMotionEnabled]);
 
   useEffect(() => {
     const sections = [publicationBridgeRef.current, importRef.current, closingRef.current]
@@ -1245,9 +1312,9 @@ export function HomeRedesign(props: HomeRedesignProps) {
         {!memberHome && <FeatureShowcase sectionRef={featureShowcaseRef} prepareEnabled={!journeyPending} enabled={!journeyPending && (guestOpeningComplete || Boolean(props.skipMemberOpening))} onGuide={() => { setMenuStandalonePreview(false); setMenuInitialPreview("guide"); setMenuGuideSection(null); setMenuOpen(true); }} guideOpen={menuOpen} motionEnabled={recommendationMotionEnabled} />}
 
         <section ref={recommendationsRef} className={styles.recommendations} aria-labelledby="selected-reading-title">
-          <div className={styles.sectionHead}>
+          <div ref={resourceHeadRef} className={styles.sectionHead}>
             <p>SELECTED READING</p>
-            <h2 id="selected-reading-title" className={styles.resourceSwitch}><button aria-pressed={resourceTab === "articles"} onClick={() => switchResource("articles")}>精选外刊</button><span>/</span><button aria-pressed={resourceTab === "cet"} onClick={() => switchResource("cet")}>四六级真题</button></h2>
+            <h2 id="selected-reading-title" className={styles.resourceSwitch}><button aria-pressed={resourceTab === "articles"} onClick={() => switchResource("articles")}><span className={styles.resourceLabel}>精选外刊</span></button><span>/</span><button aria-pressed={resourceTab === "cet"} onClick={() => switchResource("cet")}><span className={styles.resourceLabel}>四六级真题</span></button></h2>
             {resourceTab === "articles" && <>
             <div className={styles.preferenceBar}>
               <div ref={preferenceControlRef} className={styles.preferenceControl} data-open={preferenceOpen || undefined}>
@@ -1385,6 +1452,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
               <button type="button" onClick={() => openLogin("登录后可查看更多精选外刊。")}>登录查看更多</button>
             </div>
           )}
+          </>}
           {!memberHome && (
             <div ref={publicationBridgeRef} className={styles.publicationBridge} aria-hidden="true">
               <span>FROM THEIR PAGES TO YOURS</span>
@@ -1392,7 +1460,6 @@ export function HomeRedesign(props: HomeRedesignProps) {
               <i />
             </div>
           )}
-          </>}
         </section>
         </section>
 

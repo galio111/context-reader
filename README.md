@@ -184,4 +184,4 @@ Then use the cumulative versioned workflow under `ops/mainland/`. Package only a
 
 ## 四六级阅读真题
 
-首页与精选外刊并列的真实阅读题库，复用 ReaderView；支持阅读练习、自测、按卷/题型、正计时/倒计时、进度同步与重做。自测可在原文、题干、选项及词库划记，提交后按划记定位查词；分题型数字按练习/自测分别表示历轮看过的不同题组。题库包含来源2013–2026年间有完整阅读题序及答案解析的149套试卷（四级73套、六级76套），材料清单、性能与扩库流程见 [docs/cet-reading.md](docs/cet-reading.md)。生产状态以 [release-governance](docs/release-governance.md) 和产品历程为准。
+首页与精选外刊并列的真实阅读题库，复用 ReaderView；支持阅读练习、自测、按卷/题型、正计时/倒计时、进度同步与重做。游客每级预览十二套试卷或十二篇同题型阅读；全新打开默认外刊，Reader 返回恢复原分类。自测可在原文、题干、选项及词库划记，提交后按划记定位查词；分题型数字按练习/自测分别表示历轮看过的不同题组。题库包含来源2013–2026年间有完整阅读题序及答案解析的149套试卷（四级73套、六级76套），材料清单、性能与扩库流程见 [docs/cet-reading.md](docs/cet-reading.md)。生产状态以 [release-governance](docs/release-governance.md) 和产品历程为准。

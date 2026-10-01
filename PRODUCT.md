@@ -24,6 +24,8 @@ Guests can read immediately and receive a small daily lookup trial. Login is req
 
 ## Brand Personality
 
+The resource switch starts on curated publications on fresh visits and restores the chosen resource when returning from Reader. Guest CET previews show twelve records per level. The unselected resource label is slightly smaller and lighter; guest showcase departure contracts and fades while resource titles reveal horizontally. Both resources retain the same guest bridge into personal article import.
+
 Quiet, focused, practical, with one memorable brand surface rather than continuous spectacle.
 
 The reading workspace should remain calm and compact. The homepage may be more expressive, but its first job is to create a quick path into a real article. Expressive motion must earn its repeated-use cost; an effect that is impressive once but delays reading or competes with natural scrolling is not successful product motion.
