@@ -9,7 +9,7 @@ import { groupDictionaryPronunciations, dictionaryPronunciationRows } from "../l
 import { requiresCurrentFormPhonetic } from "../lib/pronunciation";
 import type { DictionaryResult } from "../types/dictionary";
 
-test("real pronunciation rows omit redundant labels, send only the word and IPA, and do not fall back to an uncontrolled reading", async () => {
+test("ordinary rows use word reading, heteronyms send their reading, and dictionary failures never fall back to device speech", async () => {
   const dom = new JSDOM("<!doctype html><body></body>", { url: "https://context-reader.com" });
   for (const [key, value] of Object.entries({ window: dom.window, document: dom.window.document, navigator: dom.window.navigator, HTMLElement: dom.window.HTMLElement, React, IS_REACT_ACT_ENVIRONMENT: true })) Object.defineProperty(globalThis, key, { configurable: true, writable: true, value });
   let spoken = 0;
@@ -45,7 +45,7 @@ test("real pronunciation rows omit redundant labels, send only the word and IPA,
     await user.click(ui.getByRole("button", { name: "播放 regiment 的美式发音" }));
     await waitFor(() => assert.equal(calls.length, 1));
     await waitFor(() => assert.ok(ui.getByText("云端美音暂时不可用，请稍后重试。")));
-    assert.deepEqual(calls[0], { text: "regiment", accent: "en-US", phonetic: "/ˈredʒɪment/" });
+    assert.deepEqual(calls[0], { text: "regiment", accent: "en-US" });
     assert.equal(spoken, 0);
     ui.rerender(<Component result={{ query: "record", pronunciations: [
       { accent: "en-US", partOfSpeech: "noun", phonetic: "/ˈrekərd/" },

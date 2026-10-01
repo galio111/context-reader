@@ -110,8 +110,10 @@ async function ensurePronunciationBucket(client: PronunciationCacheClient): Prom
 }
 
 function cacheIdentity(text: string, accent: PronunciationAccent, voice: string, phonetic = ""): string {
+  const synthesis = pronunciationSynthesisInput(text, phonetic);
   return createHash("sha256")
-    .update([PROVIDER_ID, accent, voice, text, ...(phonetic ? ["ipa-ssml-v1", phonetic] : [])].join("\n"))
+    .update([PROVIDER_ID, accent, voice, text,
+      ...(phonetic ? ["cmu-ssml-v2", synthesis.textType, synthesis.text] : [])].join("\n"))
     .digest("hex");
 }
 

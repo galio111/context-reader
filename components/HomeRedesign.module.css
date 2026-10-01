@@ -104,7 +104,7 @@
 
 .brandCluster:hover .quickNav,
 .brandCluster:focus-within .quickNav,
-.brandClusterFixed .quickNav { opacity: 1; transform: translateY(0) scale(1); pointer-events: none; }
+.brandClusterFixed .quickNav { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
 .quickNav .quickButton { pointer-events: none; }
 .brandCluster:hover .quickButton,
 .brandCluster:focus-within .quickButton,

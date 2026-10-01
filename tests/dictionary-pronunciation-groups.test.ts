@@ -49,8 +49,8 @@ test("old cached and streamed plead IPA are corrected without confusing pled", (
   }
 });
 
-test("SSML is bounded single-word IPA and cannot contain markup or extra spoken words", () => {
-  assert.equal(pronunciationSynthesisInput("plead", "/pliːd/").text, '<speak><phoneme alphabet="ipa" ph="pliːd">plead</phoneme></speak>');
+test("SSML translates IPA to the supported CMU alphabet and cannot contain extra spoken words", () => {
+  assert.equal(pronunciationSynthesisInput("plead", "/pliːd/").text, '<speak><phoneme alphabet="cmu" ph="P L IY1 D">plead</phoneme></speak>');
   assert.equal(normalizePronunciationPhonetic("/'pli:d/"), "ˈpliːd");
   for (const ipa of ['pli\"/><break/>', "i".repeat(101), "this is not IPA", ""]) assert.equal(normalizePronunciationPhonetic(ipa), "");
   assert.equal(pronunciationSynthesisInput("take in", "/teɪkɪn/").textType, "plain");

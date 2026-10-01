@@ -13,6 +13,7 @@ interface PronunciationButtonsProps {
   accents?: PronunciationAccent[];
   displayText?: string;
   phonetics?: Partial<Record<PronunciationAccent, string>>;
+  allowBrowserFallback?: boolean;
 }
 
 let sharedAudioContext: AudioContext | null = null;
@@ -63,6 +64,7 @@ export const PronunciationButtons = memo(function PronunciationButtons({
   accents = DEFAULT_ACCENTS,
   displayText = text,
   phonetics,
+  allowBrowserFallback = true,
 }: PronunciationButtonsProps) {
   const [playingAccent, setPlayingAccent] = useState<PronunciationAccent | null>(null);
   const [loadingAccent, setLoadingAccent] = useState<PronunciationAccent | null>(null);
@@ -230,7 +232,7 @@ export const PronunciationButtons = memo(function PronunciationButtons({
     } catch (error) {
       if (playbackRequestIdRef.current !== playbackRequestId) return;
       releaseAudio();
-      if (phonetics?.[accent]) {
+      if (!allowBrowserFallback || phonetics?.[accent]) {
         setLoadingAccent(null);
         setPlayingAccent(null);
         setPlaybackError(playbackErrorMessage(error, accent));

@@ -9,7 +9,7 @@ import { normalizePronunciationPhonetic, pronunciationSynthesisInput } from "../
 function harness(options: { readFailures?: number; writeFailure?: boolean; stored?: boolean; providerFailures?: number; providerStatus?: number } = {}) {
   let reads = 0, providers = 0, writes = 0;
   const events: string[] = [];
-  const requests: Array<{ request: { text: string; text_type: string } }> = [];
+  const requests: Array<{ request: { text: string; text_type: string; reqid: string; operation: string } }> = [];
   const audio = new Uint8Array([1, 2, 3]);
   const storage = {
     getBucket: async () => ({ data: {} }),
@@ -38,7 +38,7 @@ function harness(options: { readFailures?: number; writeFailure?: boolean; store
   return { getAudio, events, requests, counts: () => ({ reads, providers, writes }) };
 }
 
-test("noun/verb pronunciation requests use only the word with its IPA, and never share plain or other-IPA audio", async () => {
+test("noun/verb playback uses supported CMU and never reuses the old IPA cache or another reading", async () => {
   const h = harness();
   const plain = await h.getAudio("record", "en-US");
   const noun = await h.getAudio("record", "en-US", "/ˈrekərd/");
@@ -46,12 +46,23 @@ test("noun/verb pronunciation requests use only the word with its IPA, and never
   assert.equal(new Set([plain.filename, noun.filename, verb.filename]).size, 3);
   assert.equal(h.requests[0].request.text_type, "plain");
   assert.equal(h.requests[1].request.text_type, "ssml");
-  assert.equal(h.requests[1].request.text, '<speak><phoneme alphabet="ipa" ph="ˈrekərd">record</phoneme></speak>');
-  assert.equal(h.requests[2].request.text, '<speak><phoneme alphabet="ipa" ph="rɪˈkɔːrd">record</phoneme></speak>');
+  assert.equal(h.requests[1].request.text, '<speak><phoneme alphabet="cmu" ph="R EH1 K AH0 R D">record</phoneme></speak>');
+  assert.equal(h.requests[2].request.text, '<speak><phoneme alphabet="cmu" ph="R IH0 K AO1 R D">record</phoneme></speak>');
+  const oldIdentity = createHash("sha256").update(["volcengine-v1", "en-US", "en_female_amanda_mars_bigtts", "record", "ipa-ssml-v1", "rɪˈkɔːrd"].join("\n")).digest("hex");
+  assert.notEqual(verb.filename, `cr-us-${oldIdentity.slice(0,24)}.mp3`);
   await h.getAudio("record", "en-US", "rɪˈkɔːrd");
   assert.equal(h.counts().providers, 3);
   await h.getAudio("record", "en-GB", "/rɪˈkɔːd/");
   assert.equal(h.counts().providers, 4);
+});
+
+test("equivalent CMU transcriptions share corrected audio and unknown IPA never reaches phoneme markup", async () => {
+  const h = harness();
+  await h.getAudio("tertiary", "en-GB", "/ˈtɜː.ʃəri/");
+  await h.getAudio("tertiary", "en-GB", "/ˈtɜːʃəri/");
+  assert.equal(h.counts().providers, 1);
+  await h.getAudio("tertiary", "en-GB", "/ˈtɜːʃər̩i/");
+  assert.deepEqual(h.requests[1].request, { reqid: h.requests[1].request.reqid, text: "tertiary", text_type: "plain", operation: "query" });
 });
 
 test("concurrent and repeated requests reuse one generated MP3; accents remain distinct", async () => {

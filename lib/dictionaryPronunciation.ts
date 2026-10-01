@@ -66,6 +66,26 @@ export function dictionaryPronunciationRows(group: DictionaryPronunciationGroup)
 // Reviewed lexical corrections apply to old cached results as well as new streams.
 // https://www.oxfordlearnersdictionaries.com/definition/english/plead
 export function reviewedDictionaryPronunciations(query: string): Entry[] | null {
+  // https://dictionary.cambridge.org/us/pronunciation/english/alternate
+  if (query.trim().toLowerCase() === "alternate") return [
+    { accent: "en-US", partOfSpeech: "noun", phonetic: "/ˈɑːltɝːnət/" },
+    { accent: "en-GB", partOfSpeech: "noun", phonetic: "/ˈɒltənət/" },
+    { accent: "en-US", partOfSpeech: "adjective", phonetic: "/ˈɑːltɝːnət/" },
+    { accent: "en-GB", partOfSpeech: "adjective", phonetic: "/ɒlˈtɜːnət/" },
+    { accent: "en-US", partOfSpeech: "verb", phonetic: "/ˈɑːltɚneɪt/" },
+    { accent: "en-GB", partOfSpeech: "verb", phonetic: "/ˈɒltəneɪt/" },
+  ];
+  // https://dictionary.cambridge.org/pronunciation/english/burglary
+  // https://dictionary.cambridge.org/pronunciation/english/tertiary
+  const reviewed: Record<string, { partOfSpeech: Entry["partOfSpeech"]; us: string; uk: string }> = {
+    burglary: { partOfSpeech: "noun", us: "/ˈbɝːɡlɚi/", uk: "/ˈbɜːɡləri/" },
+    tertiary: { partOfSpeech: "adjective", us: "/ˈtɝːʃieri/", uk: "/ˈtɜːʃəri/" },
+  };
+  const item = reviewed[query.trim().toLowerCase()];
+  if (item) return [
+    { accent: "en-US", partOfSpeech: item.partOfSpeech, phonetic: item.us },
+    { accent: "en-GB", partOfSpeech: item.partOfSpeech, phonetic: item.uk },
+  ];
   const ipa = ({ plead: "/pliːd/", pled: "/pled/" } as Record<string, string>)[query.trim().toLowerCase()];
   return ipa ? [
     { accent: "en-US", partOfSpeech: "verb", phonetic: ipa },

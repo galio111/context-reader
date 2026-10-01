@@ -88,7 +88,8 @@ function DictionaryPronunciations({ result }: { result: DictionaryResult }) {
       {dictionaryPronunciationRows(group).map((row, rowIndex) => <div className={styles.pronunciationVariantRow} key={rowIndex}>
         <span>{row.phonetic}</span>
         <PronunciationButtons text={result.query} accents={row.accents}
-          phonetics={requiresCurrentFormPhonetic(result.query) ? row.phonetics : undefined} />
+          allowBrowserFallback={false}
+          phonetics={differsByPart && requiresCurrentFormPhonetic(result.query) ? row.phonetics : undefined} />
       </div>)}
     </div>)}
   </section>;
@@ -208,7 +209,7 @@ function DictionaryResultContent({
                     {(sense.phonetic || (index === 0 && result.phonetic)) && (
                       <span>{sense.phonetic || result.phonetic}</span>
                     )}
-                    <PronunciationButtons text={sense.meaning} preload />
+                    <PronunciationButtons text={sense.meaning} allowBrowserFallback={false} preload />
                   </div>
                 </div>
                 {sense.usageNote && <p className={styles.translationUsage}>{sense.usageNote}</p>}
@@ -258,7 +259,7 @@ function DictionaryResultContent({
           {result.phonetic && !result.pronunciations?.length && (
             <span><small>当前词音标</small>{result.phonetic}</span>
           )}
-          {result.query && !result.pronunciations?.length && <PronunciationButtons text={result.query} preload />}
+          {result.query && !result.pronunciations?.length && <PronunciationButtons text={result.query} allowBrowserFallback={false} preload />}
         </div>
       </header>
 
