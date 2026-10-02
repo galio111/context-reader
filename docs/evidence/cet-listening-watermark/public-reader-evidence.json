@@ -1,0 +1,22 @@
+{
+  "audioRequested": false,
+  "clean24": true,
+  "companyMeaning": true,
+  "correctC": true,
+  "q1": "AMet the computer technician.BTold the man about her trouble.CCall the man's company.DVisit Alpha Maintenance.",
+  "q1SelectedC": "true",
+  "remainingSourceMarks": false,
+  "transcriptGroups": 7,
+  "at": "2026-10-02T12:35:10.112Z",
+  "releaseId": "20261002T202624",
+  "parentReleaseId": "20261002T201050",
+  "sourceRevision": "205c32b7a5d17c51c0126bfbffca9b58b21fb3fc",
+  "realPublicReader": true,
+  "mobileViewport": {
+    "width": 393,
+    "height": 852,
+    "clientWidth": 378,
+    "scrollWidth": 378
+  },
+  "physicalDevice": false
+}
