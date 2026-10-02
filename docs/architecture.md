@@ -373,3 +373,9 @@ HomeClient 管理真实 CET 阅读入口；CetReader 通过 ReaderView 的可选
 ## CET 选区与翻译范围
 
 `cetUnderlineSelection` 将选区裁剪到可划记正文/题目片段，文档级 pointerup 与 selectionchange 覆盖右侧空白松手及手机选区手柄；浮窗取可见末端并限制在视口内。进行中及暂停草稿允许划记，提交/结束快照只读。`CetText` 保留最后分段终点；下划线采用 2.5px text-decoration、.24em 间隔及 skip-ink。`cetTranslationBlocks` 单独投影当前篇正文、词库、题干及选项给 Reader 全文翻译，历史题目优先提交快照；保存文章仍用正文。既有点击启动、缓存、上下文与分批流式请求保持。
+
+## Contextual lookup delivery
+
+Reader keeps transport and display separate: `createTextReveal` feeds only the subscribed explanation panel, revealing received text in 24ms steps and catching a buffered batch up within approximately 720ms under an active browser scheduler. Native streaming and sequential structured fallback share the queue. Cache replay remains immediate; abort disposes timers and settles waiting completion; reduced-motion and hidden pages flush on the next tick. Final cache/vocabulary data continues to come from the complete response, and actions remain gated until the visible queue drains. No generated content is fabricated before provider delivery.
+
+The provider transport no longer awaits the successful first-content health database write before forwarding content. `/api/explain-word-stream` uses no-transform and emits private `lookup_stream_timing` logs containing action id, model, gate/queue/provider times, first/last content times, chunk count, completion/cancellation/timeout state; it never logs the selected word or sentence. `Server-Timing` exposes only phase durations. Stream incompleteness still uses the existing sequential structured repair with the same usage action.

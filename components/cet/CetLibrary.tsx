@@ -4,6 +4,7 @@ import { readCetLibraryView, writeCetLibraryView, type CetLibraryView } from "@/
 import { useAccount } from "@/components/AccountProvider";
 import { readCetAttempts } from "@/lib/cetProgress";
 import { readCetActivities } from "@/lib/cetActivityStorage";
+import { cetHistorySummary, matchesCetHistoryStatus, cetHistoryStatusOptions, type CetHistoryStatus } from "@/lib/cetHistory";
 import { cetHistoryLabel } from "@/lib/cetActivity";
 import { getLearningStorage, initializeLearningStorage } from "@/lib/learningStorage";
 import {
@@ -46,6 +47,7 @@ export function CetLibrary({
     [historyLimit, setHistoryLimit] = useState(30),
     [retry, setRetry] = useState(0);
   const [historyPurpose, setHistoryPurpose] = useState<"" | "practice" | "self_test">("");
+  const [historyStatus, setHistoryStatus] = useState<CetHistoryStatus>("all");
   const catalogue = useRef<{key:string;papers:CetPaper[]}>({key:"",papers:[]});
   const catalogueOwner = account.authenticated ? account.profile?.userId || "authenticated-pending" : "guest";
   const catalogueKey = `${level}:${catalogueOwner}:${year}`;
@@ -98,8 +100,8 @@ export function CetLibrary({
               .map((section) => ({ paper: p, section })),
           ),
     visible = account.authenticated ? rows : rows.slice(0, CET_GUEST_PREVIEW_COUNT);
-  const filteredHistory = history.filter((h) => (!historyPurpose || h.purpose === historyPurpose));
-  const filteredLegacy = legacyHistory.filter((h) => (!historyPurpose || (h.mode === "exam" ? "self_test" : "practice") === historyPurpose));
+  const filteredHistory = history.filter((h) => (!historyPurpose || h.purpose === historyPurpose) && matchesCetHistoryStatus(h, historyStatus));
+  const filteredLegacy = legacyHistory.filter((h) => (!historyPurpose || (h.mode === "exam" ? "self_test" : "practice") === historyPurpose) && matchesCetHistoryStatus(h, historyStatus));
   return (
     <div className={`cet-library ${compact ? "cet-library-compact" : ""}`}>
       <div className="cet-library-controls">
@@ -205,6 +207,7 @@ export function CetLibrary({
           <aside className="cet-recent">
             <h3>最近练习</h3>
             <CetSelect label="练习历史目标" value={historyPurpose} onChange={value=>{setHistoryPurpose(value as typeof historyPurpose);setHistoryLimit(30);}} options={[{key:"",text:"练习与自测"},{key:"practice",text:"练习"},{key:"self_test",text:"自测"}]} />
+            <CetSelect label="提交状态" value={historyStatus} onChange={value=>{setHistoryStatus(value as CetHistoryStatus);setHistoryLimit(30);}} options={cetHistoryStatusOptions} />
             <div
               className="cet-recent-list"
               tabIndex={0}
@@ -227,14 +230,17 @@ export function CetLibrary({
                     </small>
                     <strong>{h.title}</strong>
                     <span>
-                      {cetHistoryLabel(h)} · {Object.values(h.answers).filter((answer) => answer.value).length} 题 · {new Date(h.createdAt).toLocaleDateString("zh-CN")}
+                      {cetHistorySummary(h).score}
+                    </span>
+                    <time dateTime={cetHistorySummary(h).at}>{cetHistorySummary(h).time}</time>
+                    <span>{cetHistoryLabel(h)}
                     </span>
                   </button>
                 ))
               ) : (
-                <p>开始练习后，进度会保存在这里。</p>
+                <p>{history.length || legacyHistory.length ? "没有符合筛选的记录。" : "开始练习后，进度会保存在这里。"}</p>
               )}
-              {filteredLegacy.slice(0, Math.max(0, historyLimit - filteredHistory.length)).map((h) => <button key={`legacy-${h.id}`} onClick={() => onOpen({ paperId: h.paperId, sectionId: h.sectionId, attemptId: h.id })}><small>{h.sectionId ? "单篇" : "整卷"} · 旧版{Object.values(h.answers).some(Boolean) || h.finishedAt ? "记录" : "空白记录"}</small><strong>{h.title}</strong><span>{h.finishedAt ? "回看旧答卷" : "继续旧进度"} · {Object.values(h.answers).filter(Boolean).length} 题</span></button>)}
+              {filteredLegacy.slice(0, Math.max(0, historyLimit - filteredHistory.length)).map((h) => <button key={`legacy-${h.id}`} onClick={() => onOpen({ paperId: h.paperId, sectionId: h.sectionId, attemptId: h.id })}><small>{h.sectionId ? "单篇" : "整卷"} · 旧版{Object.values(h.answers).some(Boolean) || h.finishedAt ? "记录" : "空白记录"}</small><strong>{h.title}</strong><span>{cetHistorySummary(h).score}</span><time dateTime={cetHistorySummary(h).at}>{cetHistorySummary(h).time}</time></button>)}
               {filteredHistory.length + filteredLegacy.length > historyLimit && (
                 <button onClick={() => setHistoryLimit((n) => n + 30)}>
                   加载更多记录

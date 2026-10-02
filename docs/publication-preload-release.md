@@ -44,3 +44,7 @@
 - 公网会员折叠期间记录到 208 个封面资源；展开后前六张新增封面完整，500 篇可见目录最终挂载，无可见缺图。含逐卡布局采样的第一次观察出现 282/66/54 ms 长任务，不能直接认作真实交互开销；后续无布局读取采样另记。
 
 证据： [公网身份](evidence/publication-preload/connectivity.json)、[完整核心响应](evidence/publication-preload/live-core.json)、[模型与计数](evidence/publication-preload/core-ledger.json)、[本地采样](evidence/publication-preload/local-performance.json)。
+
+## 重复展开修正（候选）
+
+首次发布后，重复收起/展开的无布局采样发现一次挂载500张、703/527ms长任务。原因已复现：短列表无需继续分批时提前退出 effect，没有保存新 key，下一次恢复同一完整目录会复用旧500计数。现已让短列表也持久化当前 key；再次展开和清空搜索均从36张重新递增，Reader远处目标仍优先保证。新增真实React重复展开/清空搜索回归通过，待累计当前003600生产改动后的修正发布。

@@ -95,6 +95,18 @@ test("real CET events preserve drafts, freeze one passage and start an independe
     await waitFor(() => assert.ok(ui.getByRole("button",{name:"全部已提交"})));
     assert.deepEqual(Object.keys(readCetActivities()[0].finalizations),batchIds);
     assert.equal(JSON.stringify(Object.values(readCetActivities()[0].finalizations)[0]),existingSnapshot);
+    await user.click(ui.getAllByRole("button", { name: /练习历史/ })[0]);
+    const historyDialog = ui.getByRole("dialog", { name: "练习历史" });
+    assert.ok(historyDialog.querySelector("time[datetime]"));
+    assert.match(historyDialog.textContent || "", /答对 \d+\/\d+ 题/);
+    await user.click(ui.getByRole("button", { name: "提交状态" }));
+    await user.click(ui.getByRole("option", { name: "未提交", exact: true }));
+    assert.ok(ui.getByText("没有符合筛选的记录。"));
+    await user.click(ui.getByRole("button", { name: "提交状态" }));
+    await user.click(ui.getByRole("option", { name: "已提交", exact: true }));
+    assert.match(historyDialog.textContent || "", /答对 \d+\/\d+ 题/);
+    await user.keyboard("{Escape}");
+
     await user.click(ui.getByRole("button", { name: "选词填空 · 已提交" }));
     const { ACCOUNT_DATA_MERGED_EVENT } = await import("../lib/accountEvents");
     await act(async () => { window.dispatchEvent(new CustomEvent(ACCOUNT_DATA_MERGED_EVENT)); });

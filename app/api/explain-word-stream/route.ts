@@ -75,6 +75,11 @@ function parseSseContent(line: string, onUsage?: (usage: ProviderTokenUsage) => 
 }
 
 async function handlePOST(request: Request) {
+  const startedAt = performance.now();
+  let gatedAt = startedAt, slotAt = startedAt;
+  let providerAt: number | undefined;
+  let firstContentMs: number | null = null, lastContentMs: number | null = null, contentChunks = 0;
+  let complete = false;
   let body: unknown;
   let actionId = "";
 
@@ -106,6 +111,7 @@ async function handlePOST(request: Request) {
     return usageErrorResponse(error) ?? NextResponse.json({ error: "用量校验失败。" }, { status: 500 });
   }
 
+  gatedAt = performance.now();
   const apiKey = anyTextKey();
   if (!apiKey) {
     return NextResponse.json({ error: "缺少 DEEPSEEK_API_KEY，请先配置 .env.local。" }, { status: 500 });
@@ -117,6 +123,7 @@ async function handlePOST(request: Request) {
     return NextResponse.json({ error: "AI 服务当前请求较多，请稍后再试。" }, { status: 503, headers: { "Retry-After": "3" } });
   }
 
+  slotAt = performance.now();
   const safeRequest = sanitizeExplanationRequest(body);
   const baseURL = process.env.DEEPSEEK_BASE_URL ?? DEFAULT_BASE_URL;
   const modelCandidates = coreDeepSeekModelCandidates(process.env.DEEPSEEK_LOOKUP_MODEL?.trim() || DEFAULT_MODEL);
@@ -148,6 +155,10 @@ async function handlePOST(request: Request) {
     explicitCancellationController.signal.removeEventListener("abort", abortFromClient);
     unregisterLookup();
     releaseSlot();
+    console.info(JSON.stringify({ event: "lookup_stream_timing", actionId, model: activeModel,
+      gateMs: Math.round(gatedAt - startedAt), queueMs: Math.round(slotAt - gatedAt),
+      providerMs: Math.round((providerAt ?? performance.now()) - slotAt), firstContentMs, lastContentMs, contentChunks,
+      totalMs: Math.round(performance.now() - startedAt), complete, clientAborted, timedOut }));
   };
 
   try {
@@ -193,6 +204,7 @@ async function handlePOST(request: Request) {
     });
     const { response, model } = provider;
     activeModel = model;
+    providerAt = performance.now();
 
     if (!response.ok || !response.body) {
       console.error("[deepseek-stream] Upstream rejected request", {
@@ -213,6 +225,10 @@ async function handlePOST(request: Request) {
         let displayText = "";
         let displayOverflow = false;
         const rememberDisplay = (chunk: string) => {
+          const elapsed = Math.round(performance.now() - startedAt);
+          firstContentMs ??= elapsed;
+          lastContentMs = elapsed;
+          contentChunks++;
           displayOverflow ||= displayText.length + chunk.length > 32_000;
           displayText = (displayText + chunk).slice(0, 32_000);
         };
@@ -247,7 +263,7 @@ async function handlePOST(request: Request) {
           // Transport EOF is not a successful lookup. Use the same completeness
           // check as the Reader; leave incomplete reservations for fallback to
           // finish or refund, instead of prematurely making them non-refundable.
-          const complete = !displayOverflow && Boolean(explanationFromCompletedStream(displayText, safeRequest));
+          complete = !displayOverflow && Boolean(explanationFromCompletedStream(displayText, safeRequest));
           if (complete) controller.enqueue(encoder.encode(EXPLANATION_STREAM_COMPLETE_MARKER));
           await recordUsageExecution({
             actionId,
@@ -286,7 +302,9 @@ async function handlePOST(request: Request) {
 
     return new Response(stream, {
       headers: {
-        "Cache-Control": "no-store",
+        "Cache-Control": "no-store, no-transform",
+        "X-Accel-Buffering": "no",
+        "Server-Timing": `gate;dur=${Math.round(gatedAt-startedAt)}, queue;dur=${Math.round(slotAt-gatedAt)}, provider;dur=${Math.round((providerAt ?? performance.now())-slotAt)}`,
         "Content-Type": "text/plain; charset=utf-8",
       },
     });
