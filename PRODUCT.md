@@ -1,5 +1,7 @@
 # Product
 
+Paid reading support uses one point balance, one-time monthly or discounted annual purchases, and no automatic renewal. Pure reading stays available after exhaustion. Display used/total in Menu → 账号与用量; a 5%-remaining notice lasts about three seconds, links to that Menu and does not keep returning within the same browser session/window/threshold. The pricing dialog preserves the Menu state when closed. [Current billing rules](docs/account-usage-plan.md).
+
 ## Register
 
 product

@@ -78,7 +78,7 @@ Release phases:
 1. Run `docs/account-usage-supabase.sql`, set secrets, and smoke-test phone/password registration and login plus cross-device sync in two browsers.
 2. Invite test: privately issue unique invitation codes, observe redemption, expiry, cost and failure data, and tune plan quotas.
 3. Public test: keep payment disabled; validate guest conversion, cost, storage and abuse.
-4. Billing: add payment webhooks, entitlement expiry, terms/invoices and legally reviewed refund rules only after pricing evidence.
+4. Billing: Native checkout, signed notifications, expiry, point ledger and abnormal-order refund interfaces are implemented. Keep real collection disabled until merchant approval, terms/invoices/refund policy and real-money acceptance; see `wechat-pay-setup.md`.
 
 On a fresh project, apply both `docs/public-articles-supabase.sql` and `docs/account-usage-supabase.sql`.
 
@@ -96,9 +96,9 @@ Routine login restoration, automatic polls, rate-limit waits and recoverable syn
 
 ## Current exhaustion behavior
 
-All authenticated plans, including free and invitation-assigned accounts, retain their own quota identity when an operation is rejected. The UI names the affected pool, shows used/allowed amounts and the reset instant in Beijing time, and links to actual balances on `/account/usage`. Balances are visible independently of commercial plan marketing. Guests are offered login; members are never told they exhausted a guest trial. Zero-allowance features do not promise a reset that cannot grant access. Existing article reading and cached results remain available.
+All authenticated plans, including free and invitation-assigned accounts, retain their own quota identity when an operation is rejected. The UI names the affected pool, shows used/allowed amounts and the reset instant in Beijing time, and opens Menu → 账号与用量. Balances are visible independently of commercial plan marketing. Guests are offered login; members are never told they exhausted a guest trial. Zero-allowance features do not promise a reset that cannot grant access. Existing article reading and cached results remain available.
 
-A streaming quota rejection stops before structured fallback. A stream with incomplete required explanation fields cannot finalize the action as succeeded; its existing reservation remains available for structured recovery or failure refund. Provider attempts and user quota success remain separate records. This application-only correction does not change plan limits, database functions or existing user balances.
+A streaming quota rejection stops before structured fallback. A stream with incomplete required explanation fields cannot finalize the action as succeeded; its existing reservation remains available for structured recovery or failure refund. Provider attempts and user quota success remain separate records. The unified billing migration supersedes historical per-feature member counters; guest/Admin counters retain their prior behavior.
 
 ## Admin reporting surface
 

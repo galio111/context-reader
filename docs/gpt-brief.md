@@ -1,5 +1,14 @@
 # Context Reader GPT 项目上下文包
 
+## Unified points and one-time membership purchases
+
+Signed-in non-Admin accounts use one learning-points balance: Free 300/month, Basic 5,000 at CNY 6/month or 60/year, Plus 15,000 at 15/150, and Max 30,000 at 30/300. Admin → 付费管理 owns public prices and next-cycle points; the public `/pricing` page reads that same configuration. Already issued grants and orders retain snapshots. Guest daily pools and Admin safety counters remain separate.
+
+Lookup costs 1 point; standalone dictionary and sentence follow-up 5; summary 2; full translation 10 per 500 English words rounded up. First delivery of a curated summary/translation costs points even when provider work is cached. Own-result replay is free. Failed work refunds idempotently; partial translation settles completed server-verified blocks. Pure reading/import/save is free for members.
+
+Monthly repurchase/upgrade starts a new cycle with remaining-value credit limited by both time and unused ordinary points. Annual plans issue monthly; unstarted months contribute to upgrade credit. Same-plan annual topups use monthly price and expire after one membership month. Neither term renews automatically. See [billing rules](account-usage-plan.md), [WeChat setup](wechat-pay-setup.md), and [release evidence](unified-billing-release.md). Payment remains disabled until merchant onboarding and real payment/refund acceptance.
+
+
 ## 当前生产（2026-10-02 GitHub听力增补）
 
 当前接受 `20261002T190651`（parent `20261002T183827`，source `2958b1ccce2ee6b563afb21137eaa593b81617c0`），公网/current/state一致；保留首页上浮及既有功能。现有149套中62套听力（四级31/六级31），1550题/465组原文/61份录音，原19套在增补阶段逐字节不改；本次其中6套来源污染定点纠正，原始哈希与可逆证明保留。来源、未接入87套及详细解析/人工/设备限制见[cet-listening-supplement-report.md](cet-listening-supplement-report.md)，正式发布、真实页面/数据/运行证据见[cet-listening-supplement-release.md](cet-listening-supplement-release.md)。

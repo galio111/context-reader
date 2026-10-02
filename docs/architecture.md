@@ -1,5 +1,14 @@
 # Context Reader Architecture
 
+## Unified points and one-time membership purchases
+
+Signed-in non-Admin accounts use one learning-points balance: Free 300/month, Basic 5,000 at CNY 6/month or 60/year, Plus 15,000 at 15/150, and Max 30,000 at 30/300. Admin → 付费管理 owns public prices and next-cycle points; the public `/pricing` page reads that same configuration. Already issued grants and orders retain snapshots. Guest daily pools and Admin safety counters remain separate.
+
+Lookup costs 1 point; standalone dictionary and sentence follow-up 5; summary 2; full translation 10 per 500 English words rounded up. First delivery of a curated summary/translation costs points even when provider work is cached. Own-result replay is free. Failed work refunds idempotently; partial translation settles completed server-verified blocks. Pure reading/import/save is free for members.
+
+Monthly repurchase/upgrade starts a new cycle with remaining-value credit limited by both time and unused ordinary points. Annual plans issue monthly; unstarted months contribute to upgrade credit. Same-plan annual topups use monthly price and expire after one membership month. Neither term renews automatically. See [billing rules](account-usage-plan.md), [WeChat setup](wechat-pay-setup.md), and [release evidence](unified-billing-release.md). Payment remains disabled until merchant onboarding and real payment/refund acceptance.
+
+
 ## Homepage resource handoff
 
 `HomeRedesign` keeps the guest publication-to-import bridge outside both resource branches, so article/CET switching retains the same element and reveal styles. Fresh visits start on articles; same-session Reader returns restore the resource tab. The unselected label is 6px smaller. The guest showcase exit reads cached geometry and schedules frames only near the showcase/header. Its fade follows a smoothstep from bottom=82% to 38% of viewport height with at most 2.5% contraction. The resting title top (header position plus h2.offsetTop, independent of transforms) drives an upward fade from 82% to 54%, capped at 28px; the title and slash move together without horizontal clipping. Header focus exposes the controls immediately. Fixed-body overlays preserve the current handoff state. Reduced motion and disabled recommendation motion restore visible defaults. `CET_GUEST_PREVIEW_COUNT` centrally defines 12 records per level for preview metadata, detail authorization and the UI; public seeds contain neither passage text nor answers. Initial component/catalogue loading renders `CetLibraryPlaceholder`, with visible error recovery retained.
@@ -319,7 +328,7 @@ Structured `pronunciation_*` app logs distinguish memory/storage hits, provider 
 
 ### Quota recovery and provider validation
 
-Quota rejection remains HTTP 429 with `code: quota_exhausted`, and now includes the server-reserved `quota` (metric, used, allowance, remaining, windowEnd and authenticated). Messages name the exhausted pool and format reset times in Asia/Shanghai. A zero allowance is described as unavailable rather than promising a reset. The Reader preserves these messages for members and guests, and stops on a streaming quota rejection without invoking structured fallback. Actual balances are always visible on the account page; commercial plan marketing remains separately gated. Low-balance notices prioritize an exhausted pool over a merely low pool.
+Quota rejection remains HTTP 429 with `code: quota_exhausted`, and now includes the server-reserved `quota` (metric, used, allowance, remaining, windowEnd and authenticated). Messages name the exhausted pool and format reset times in Asia/Shanghai. A zero allowance is described as unavailable rather than promising a reset. The Reader preserves these messages for members and guests, and stops on a streaming quota rejection without invoking structured fallback. Actual balances are always visible on the account page; pricing is visible while real checkout remains gated by server payment readiness. Low-balance notices prioritize an exhausted pool over a merely low pool.
 
 Structured explanations allow 1,200 output tokens and 1,600 on format/field repair. Repairs retain already-valid Chinese/collocation fields and handle current-form IPA plus ownership atomically. Required-field and ownership checks remain mandatory; incomplete data is never cached as success. Final private diagnostics include model/provider, parse stage, initial/final field failures and reasons, repair status, finish reason, truncation flag and output size. They never retain raw article text or model output. Admin renders a Chinese diagnostic summary plus bounded metadata. Error fingerprints and displayed versions use the mainland release identity, and metadata includes its parent.
 

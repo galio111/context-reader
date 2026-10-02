@@ -50,6 +50,14 @@ begin
  assert billing_month('2026-01-31 02:00Z',2)='2026-03-31 02:00Z'::timestamptz,'anchor retained';
  assert not has_function_privilege('anon','billing_settle(uuid,text,integer)','execute'),'anon cannot settle';
  assert not has_table_privilege('authenticated','billing_orders','select'),'orders private';
+ -- Payment amount tampering, duplicate ownership and expired entitlement boundaries.
+ begin perform billing_settle(id,'wrong',1); raise exception 'expected amount mismatch';
+ exception when others then assert SQLERRM='amount mismatch','wrong amount rejected'; end;
+ begin perform billing_consume(a,gen_random_uuid(),'lookup',1); raise exception 'expected account unavailable';
+ exception when others then assert SQLERRM='account unavailable','unknown account rejected'; end;
+ update user_entitlements set ends_at=now()-interval '1 second' where user_id=u;
+ b:=billing_balance(u);assert (select plan_id from billing_grants bg where bg.id=(b->>'periodGrant')::uuid)='free','expired membership falls back to free';
+ assert (select used from billing_grants bg where bg.id=(b->>'periodGrant')::uuid)=2,'reopened free cycle preserves original use';
  raise notice 'PASS: billing ledger, purchase, refund, annual, partial translation, stale quote, permissions';
 end $$;
 rollback;
