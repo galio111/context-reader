@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { createCetActivity, cetFinalize, mergeCetActivity } from "../lib/cetActivity";
+import { createCetActivity, cetPause, cetFinalize, mergeCetActivity } from "../lib/cetActivity";
 import { addCetUnderlines, liveCetUnderlines, updateCetUnderline } from "../lib/cetUnderlines";
 import { normalizeCetActivity } from "../lib/cetActivityStorage";
 import type { CetPaper } from "../types/cet";
@@ -50,4 +50,23 @@ test("self-test question stem, option and word bank marks keep their own positio
   assert.ok(normalizeCetActivity(marked));
   const submitted = cetFinalize(marked, paper, "manual_submit", undefined, "2026-09-28T00:01:00.000Z", "final-2");
   assert.equal(submitted.finalizations["final-2"].underlines?.length, 3);
+});
+
+
+test("paused markings can be added, recolored and deleted without changing timer or final snapshots", () => {
+  const paused = cetPause(start(), "2026-09-28T00:00:10.000Z");
+  const marked = addCetUnderlines(paused, paper, [{sectionId:section.id,paragraphIndex:0,start:0,end:12}], "blue");
+  const mark = liveCetUnderlines(marked.underlines)[0];
+  assert.ok(mark);
+  const recolored = updateCetUnderline(marked, mark.id, "rose");
+  assert.equal(recolored.status, "paused");
+  assert.equal(recolored.runningSince, undefined);
+  assert.equal(recolored.elapsedMs, paused.elapsedMs);
+  const submitted = cetFinalize(recolored, paper, "manual_submit", undefined, "2026-09-28T00:01:00.000Z", "paused-final");
+  assert.equal(submitted.finalizations["paused-final"].underlines?.[0].color, "rose");
+  assert.equal(addCetUnderlines(submitted,paper,[mark],"teal"),submitted);
+  assert.equal(updateCetUnderline(submitted,mark.id,"remove"),submitted);
+  const removed = updateCetUnderline(recolored,mark.id,"remove");
+  assert.equal(liveCetUnderlines(removed.underlines).length,0);
+  assert.equal(removed.status,"paused");
 });

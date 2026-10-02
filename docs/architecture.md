@@ -357,3 +357,8 @@ HomeClient 管理真实 CET 阅读入口；CetReader 通过 ReaderView 的可选
 当前听力62套/1550题/465组原文，61份去重录音。GitHub增补固定commit和文件哈希；原19套增补时保持不变；本次其中6套PDF水印/页脚修复用原始哈希与逐处可逆证明校验，提交历史不重写。新增音频可选attribution进入不可变提交快照并校验HTTPS链接。音频错标只在原试卷题序与全部原文/录音对应均确认时纠正；未知第三套题序不复制。新增逐题展示来源参考答案与完整原文，详细解析沿来源入口查看。
 
 单卷读取先应用data/cet/reading-layout.json与data/cet/listening/<id>.json，再应用开发者覆盖。轻量目录只含题组身份/题号，音频与原文不进入目录；单卷追踪包含listening JSON。Caddy /cet-audio提供只读内容哈希MP3/M4A与Range/immutable缓存，播放器preload=none并在点击后设置src，不转码、不经过Next代理。可变播放检查点按时间/eventId合并，提交快照冻结audio/groups，恢复遵循原固定scope与protocol-2。审计只采用原文件唯一文本匹配及明确页脚依据。
+
+
+## CET 选区与翻译范围
+
+`cetUnderlineSelection` 将选区裁剪到可划记正文/题目片段，文档级 pointerup 与 selectionchange 覆盖右侧空白松手及手机选区手柄；浮窗取可见末端并限制在视口内。进行中及暂停草稿允许划记，提交/结束快照只读。`CetText` 保留最后分段终点；下划线采用 2.5px text-decoration、.24em 间隔及 skip-ink。`cetTranslationBlocks` 单独投影当前篇正文、词库、题干及选项给 Reader 全文翻译，历史题目优先提交快照；保存文章仍用正文。既有点击启动、缓存、上下文与分批流式请求保持。

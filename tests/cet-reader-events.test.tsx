@@ -16,6 +16,8 @@ test("real CET events preserve drafts, freeze one passage and start an independe
   Object.defineProperty(globalThis, "getComputedStyle", { configurable: true, value: dom.window.getComputedStyle.bind(dom.window) });
   dom.window.matchMedia = (query: string) => ({ matches: false, media: query, onchange: null, addListener() {}, removeListener() {}, addEventListener() {}, removeEventListener() {}, dispatchEvent: () => true });
   dom.window.scrollTo = () => {};
+  dom.window.Range.prototype.getClientRects = () => [new dom.window.DOMRect(100, 180, 220, 24)] as unknown as DOMRectList;
+  dom.window.HTMLElement.prototype.getClientRects = () => [new dom.window.DOMRect(100, 180, 220, 24)] as unknown as DOMRectList;
   dom.window.HTMLElement.prototype.scrollIntoView = () => {};
   dom.window.HTMLDialogElement.prototype.showModal = function () { this.setAttribute("open", ""); };
   dom.window.HTMLDialogElement.prototype.close = function () { this.removeAttribute("open"); };
@@ -157,6 +159,22 @@ test("real CET events preserve drafts, freeze one passage and start an independe
     const pausedActivity=readCetActivities().find(a=>a.id===selfTest.id)!;
     assert.equal(pausedActivity.status,'paused');
     assert.equal(pausedActivity.runningSince,undefined);
+    // Release outside the text while paused; marking must not resume time or unlock answers.
+    const pausedPart = ui.container.querySelector<HTMLElement>(".cet-passages [data-cet-part-start]")!;
+    const pausedRange = dom.window.document.createRange(); pausedRange.selectNodeContents(pausedPart);
+    selection.removeAllRanges(); selection.addRange(pausedRange);
+    fireEvent.pointerDown(pausedPart); fireEvent.pointerUp(dom.window.document.body);
+    await waitFor(() => assert.ok(ui.getByRole("toolbar", {name:"为选中原文添加下划线"})));
+    await user.click(ui.getByRole("button", {name:"绿色下划线"}));
+    const pausedMarked = readCetActivities().find(a=>a.id===selfTest.id)!;
+    assert.equal(pausedMarked.status, "paused");
+    assert.equal(pausedMarked.runningSince, undefined);
+    assert.equal(pausedMarked.elapsedMs, pausedActivity.elapsedMs);
+    assert.equal((ui.getByRole("button",{name:"第 26 空，未作答"}) as HTMLButtonElement).disabled,true);
+    await waitFor(() => assert.ok(ui.container.querySelector('.cet-passages [data-cet-underline-id][data-color="teal"]')));
+    fireEvent.click(ui.container.querySelector('.cet-passages [data-cet-underline-id]')!);
+    await waitFor(() => assert.ok(ui.getByRole("toolbar", {name:"编辑自测划记"})));
+    await user.click(ui.getByRole("button", {name:"橙色下划线"}));
     await user.click(ui.getByRole("button",{name:"继续自测计时"}));
     await waitFor(()=>assert.ok(ui.getByRole("button",{name:"第 26 空，未作答"})));
     assert.equal(readCetActivities().filter(a=>a.purpose==='self_test').length,1);

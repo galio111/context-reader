@@ -233,12 +233,11 @@
   min-height: 1lh;
 }
 .cet-underline {
-  background-image: linear-gradient(var(--cet-underline-color), var(--cet-underline-color));
-  background-repeat: repeat-x;
-  background-size: 100% 2px;
-  background-position: left calc(100% - .12em);
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
+  text-decoration-line: underline;
+  text-decoration-color: var(--cet-underline-color);
+  text-decoration-thickness: 2.5px;
+  text-underline-offset: .24em;
+  text-decoration-skip-ink: auto;
   white-space: pre-wrap;
 }
 .cet-underline[data-color="blue"], .cet-underline-colors [data-color="blue"], .cet-underline-index i[data-color="blue"] { --cet-underline-color: #2563eb; }
@@ -273,6 +272,7 @@ html[data-context-theme="night"] .cet-editable-gap { border-color: #9bd8e3; }
   align-items: center;
   gap: 7px;
   max-width: calc(100vw - 16px);
+  flex-wrap: wrap;
   padding: 6px;
   border-radius: 10px;
   background: #1d2b32;

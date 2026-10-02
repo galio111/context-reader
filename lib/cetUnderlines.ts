@@ -13,6 +13,10 @@ export interface CetUnderlineRange {
 const COLORS: CetUnderlineColor[] = ["blue", "teal", "amber", "rose"];
 const MAX_MARKS = 200;
 
+export function canEditCetUnderlines(activity: CetActivity | null | undefined): boolean {
+  return activity?.purpose === "self_test" && (activity.status === "in_progress" || activity.status === "paused");
+}
+
 export function validCetUnderline(value: unknown): value is CetUnderline {
   if (!value || typeof value !== "object") return false;
   const mark = value as CetUnderline;
@@ -67,7 +71,7 @@ function nextTime(previous: CetUnderline | undefined, now: string): string {
 }
 
 export function updateCetUnderline(activity: CetActivity, id: string, color: CetUnderlineColor | "remove", now = new Date().toISOString(), newId = () => crypto.randomUUID()): CetActivity {
-  if (activity.purpose !== "self_test" || activity.status !== "in_progress") return activity;
+  if (!canEditCetUnderlines(activity)) return activity;
   const old = activity.underlines?.[id];
   if (!old || old.deleted || !COLORS.includes(color as CetUnderlineColor) && color !== "remove") return activity;
   if (color !== "remove" && color === old.color) return activity;
@@ -76,7 +80,7 @@ export function updateCetUnderline(activity: CetActivity, id: string, color: Cet
 }
 
 export function addCetUnderlines(activity: CetActivity, paper: CetPaper, ranges: CetUnderlineRange[], color: CetUnderlineColor, now = new Date().toISOString(), newId = () => crypto.randomUUID()): CetActivity {
-  if (activity.purpose !== "self_test" || activity.status !== "in_progress" || !COLORS.includes(color) || !ranges.length || ranges.length > 24) return activity;
+  if (!canEditCetUnderlines(activity) || !COLORS.includes(color) || !ranges.length || ranges.length > 24) return activity;
   if (ranges.some(range => {
     const paragraph = cetUnderlineSource(paper, range);
     return !activity.sectionIds.includes(range.sectionId) || typeof paragraph !== "string" || !Number.isInteger(range.start) || !Number.isInteger(range.end)

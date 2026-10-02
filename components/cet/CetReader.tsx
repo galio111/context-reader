@@ -28,8 +28,11 @@ import { CetText } from "./CetText";
 import { CetListeningPlayer, type CetListeningController } from "./CetListeningPlayer";
 import { listeningDefaultMinutes, listeningVisibleText, recordListeningPlayback } from "@/lib/cetListening";
 import { CetPaperEditor } from "./CetPaperEditor";
-import { addCetUnderlines, cetUnderlineSource, liveCetUnderlines, updateCetUnderline, type CetUnderlineRange } from "@/lib/cetUnderlines";
+import { canEditCetUnderlines, addCetUnderlines, cetUnderlineSource, liveCetUnderlines, updateCetUnderline, type CetUnderlineRange } from "@/lib/cetUnderlines";
 import type { CetActivity, CetPaper, CetQuestion, CetSection, CetUnderline, CetUnderlineColor } from "@/types/cet";
+import { cetTranslationBlocks } from "@/lib/cetTranslationBlocks";
+import { readCetUnderlineSelection, cetUnderlineMenuPosition } from "@/lib/cetUnderlineSelection";
+import { useCetUnderlineSelection } from "./useCetUnderlineSelection";
 import type { WordContext } from "@/types/reader";
 import toolbarStyles from "@/components/ReaderToolbar.module.css";
 import "./cet.css";
@@ -98,6 +101,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   const [legacyHistory, setLegacyHistory] = useState<ReturnType<typeof readCetAttempts>>([]);
   const jumpQuestion = useRef<number | null>(null);
   const [activeToken, setActiveToken] = useState("");
+  const captureUnderlineRef = useCetUnderlineSelection();
   const [underlineMenu, setUnderlineMenu] = useState<UnderlineMenu | null>(null);
   const [underlineColor, setUnderlineColor] = useState<CetUnderlineColor>("blue");
   const passageRoot = useRef<HTMLDivElement>(null);
@@ -535,6 +539,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   const testing = Boolean(activity?.purpose === "self_test" && activity.status === "in_progress");
   const paused = Boolean(activity?.purpose === "self_test" && activity.status === "paused");
   const locked = testing || paused || paperEditorOpen;
+  const marking = canEditCetUnderlines(activity) && !paperEditorOpen;
   const applicableFinalizations = activity ? Object.values(activity.finalizations).filter((item) => activity.purpose === "self_test" ? !item.sectionId : item.sectionId === section.id || item.reason === "ended_for_study" && item.questions.some(q=>q.sectionId===section.id)) : [];
   const result = applicableFinalizations.find((item) => item.id === selectedFinalId) || applicableFinalizations[0];
   if (result?.listeningSections?.[section.id]) section = { ...section, audio: result.listeningSections[section.id].audio, listeningGroups: result.listeningSections[section.id].groups };
@@ -570,48 +575,28 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   };
   const captureUnderlineSelection = (root: HTMLElement | null = passageRoot.current) => {
     const selection = window.getSelection();
-    if (!testing || !root || !selection || selection.isCollapsed || !selection.rangeCount || busy || sheet) return;
+    if (!marking || !root || !selection || selection.isCollapsed || !selection.rangeCount || busy || sheet) return;
     const range = selection.getRangeAt(0);
-    if (!root.contains(range.startContainer) || !root.contains(range.endContainer)) return;
-    const ranges: CetUnderlineRange[] = [];
-    for (const part of root.querySelectorAll<HTMLElement>("[data-cet-part-start]")) {
-      if (!range.intersectsNode(part)) continue;
-      const paragraph = part.closest<HTMLElement>("[data-cet-paragraph]");
-      const questionText = part.closest<HTMLElement>("[data-cet-mark-target]");
-      const paragraphIndex = paragraph ? Number(paragraph.dataset.cetParagraph) : 0;
-      const partStart = Number(part.dataset.cetPartStart);
-      if ((!paragraph && !questionText) || !Number.isInteger(paragraphIndex) || !Number.isInteger(partStart)) continue;
-      const target = questionText?.dataset.cetMarkTarget as CetUnderlineRange["target"];
-      const questionNumber = questionText?.dataset.cetQuestionNumber ? Number(questionText.dataset.cetQuestionNumber) : undefined;
-      const optionKey = questionText?.dataset.cetOptionKey;
-      const partRange = document.createRange(); partRange.selectNodeContents(part);
-      const intersection = range.cloneRange();
-      if (intersection.compareBoundaryPoints(Range.START_TO_START, partRange) < 0) intersection.setStart(part, 0);
-      if (intersection.compareBoundaryPoints(Range.END_TO_END, partRange) > 0) intersection.setEnd(part, part.childNodes.length);
-      if (intersection.collapsed) continue;
-      const before = document.createRange(); before.selectNodeContents(part);
-      before.setEnd(intersection.startContainer, intersection.startOffset);
-      const start = partStart + before.toString().length;
-      const end = start + intersection.toString().length;
-      const candidate: CetUnderlineRange = {sectionId:section.id,target,questionNumber,optionKey,paragraphIndex,start,end};
-      if (end > start && cetUnderlineSource(paper,candidate)?.slice(start,end).trim()) ranges.push(candidate);
-    }
-    if (!ranges.length || ranges.length > 24 || ranges.reduce((length, item) => length + item.end - item.start, 0) > 2000) return;
-    const rect = range.getClientRects?.()[0] || range.getBoundingClientRect?.() || root.getBoundingClientRect();
-    setUnderlineMenu({kind:"selection",ranges,left:Math.max(8,Math.min(window.innerWidth-252,rect.left)),top:rect.top > 70 ? rect.top-56 : rect.bottom+10});
+    const ranges = readCetUnderlineSelection(root, range, paper, section.id);
+    if (!ranges.length) return;
+    const rects = Array.from(range.getClientRects?.() || []);
+    const position = cetUnderlineMenuPosition(rects, window.innerWidth, window.innerHeight,
+      selection.focusNode === range.startContainer && selection.focusOffset === range.startOffset);
+    if (position) setUnderlineMenu({kind:"selection",ranges,...position});
   };
+  captureUnderlineRef.current = captureUnderlineSelection;
   const openExistingUnderline = (event: React.MouseEvent<HTMLElement>) => {
-    if (!testing || !window.getSelection()?.isCollapsed) return;
+    if (!marking || !window.getSelection()?.isCollapsed) return;
     const target = event.target instanceof window.Element ? event.target.closest<HTMLElement>("[data-cet-underline-id]") : null;
     const id = target?.dataset.cetUnderlineId;
     if (!id || !sectionUnderlines.some(mark => mark.id === id)) return;
-    const rect = target.getBoundingClientRect();
-    setUnderlineMenu({kind:"mark",id,left:Math.max(8,Math.min(window.innerWidth-252,rect.left)),top:rect.top > 70 ? rect.top-56 : rect.bottom+10});
+    const position = cetUnderlineMenuPosition(Array.from(target.getClientRects()), window.innerWidth, window.innerHeight);
+    if (position) setUnderlineMenu({kind:"mark",id,...position});
   };
   const applyUnderline = (color: CetUnderlineColor | "remove") => {
     const a = current.current, menu = underlineMenu;
-    if (!a || !menu || !testing || model.mismatch || a.status !== "in_progress" || a.owner !== storageOwner() || busy) return;
-    if (cetRemainingMs(a) <= 0) { void commit("time_expired"); return; }
+    if (!a || !menu || !marking || model.mismatch || !canEditCetUnderlines(a) || a.owner !== storageOwner() || busy) return;
+    if (a.status === "in_progress" && cetRemainingMs(a) <= 0) { void commit("time_expired"); return; }
     const next = menu.kind === "mark" ? updateCetUnderline(a,menu.id,color)
       : color === "remove" ? a : addCetUnderlines(a,paper,menu.ranges,color);
     if (next === a) return;
@@ -807,7 +792,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
 
       {result && activity?.purpose === "self_test" && allUnderlines.length > 0 && <details className="cet-underline-index" open><summary>自测划记 · {allUnderlines.length} 处</summary><p>点击划记跳转到原文或题目，再点单词查词。划记已随本次答卷固定。</p><div>{allUnderlines.map(mark => <button type="button" key={mark.id} onClick={() => jumpToUnderline(mark)}><i data-color={mark.color} aria-hidden="true" /><span>{paper.sections.find(item => item.id === mark.sectionId)?.title || "阅读原文"}{mark.questionNumber ? ` · 第 ${mark.questionNumber} 题` : ""} · {underlineExcerpt(mark)}</span></button>)}</div></details>}
       <p className="cet-directions">{section.type === "listening" ? "听录音，为每道题选择一个最佳答案。" : section.type === "cloze" ? "从词库中选择合适单词填入空格，每词限用一次。" : section.type === "matching" ? "为每个陈述选择对应段落；段落可以被重复选择。" : "阅读文章，并为每道题选择一个最佳答案。"}</p>
-      {testing && <p className="cet-underline-hint">选中原文或题目可添加彩色下划线；提交后划记固定在这次自测中。</p>}
+      {marking && <p className="cet-underline-hint">选中原文或题目可添加彩色下划线；提交后划记固定在这次自测中。</p>}
       <h1>{section.title}</h1>
       {section.type === "listening" && section.audio && <CetListeningPlayer controller={listeningController} key={`${activity?.id}:${section.id}:${Boolean(result)}`} audio={section.audio} testing={Boolean(activity?.purpose==="self_test"&&!result)} blocked={paused||!activity} stopped={!activity||["submitted","ended"].includes(activity.status)||Boolean(sectionResult)} initial={activity?.listeningPlayback?.[section.id]} onRunningChange={setListeningRunning} onCheckpoint={(position,state)=>{const a=current.current;if(a&&a.status==="in_progress"&&a.sectionIds.includes(section.id)&&!cetFinalizedSection(a,section.id))persistDraft(recordListeningPlayback(a,section.id,position,state));}} />}
       {shown && section.type!=="listening" && canEditPaper && !paperEditorOpen && <button type="button" className="cet-edit-paper" disabled={testing || paused} onClick={() => { setNotice(""); setPaperEditorOpen(true); }}>编辑真题排版</button>}
@@ -832,6 +817,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   return <>
     <ReaderView backLabel={testing || paused ? "保存并离开" : "返回首页"} key={`${paper.id}:${section.id}:${view}`} {...base} article={shown ? passageParagraphs.join("\n\n").replace(/\[\[(\d+)\]\]/g, "（第 $1 空）") : ""} importedArticle={shown ? { title: `${paper.title} · ${section.title}`, siteName: "四六级真题", url: paper.source, text: passageParagraphs.join("\n\n"), blocks: passageParagraphs.map((text, index) => ({ id: `${section.id}-${index}`, type: "paragraph" as const, text })) } : null} onBack={() => void leaveTo(onBack)} desktopViewportInsetLeft={132} examSurface={{
       locked,
+      translationBlocks: shown ? cetTranslationBlocks(section, passageParagraphs, result) : [],
       testing: testing || paused,
       startScreen: view === "start",
       lockedMessage: paperEditorOpen ? "正在编辑原文排版，请完成编辑后使用阅读工具。" : !shown ? "选择学习目标后开始阅读。" : undefined,
@@ -849,7 +835,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
         render:lookup=><div className="cet-dock-reading">{renderQuestions('dock',lookup)}{renderActions('dock')}</div>} : undefined,
       render: renderReading,
     }} />
-    {typeof document !== "undefined" && testing && underlineMenu && createPortal(<div className="cet-underline-menu" role="toolbar" aria-label={underlineMenu.kind === "selection" ? "为选中原文添加下划线" : "编辑自测划记"} style={{left:underlineMenu.left,top:underlineMenu.top}} onPointerDown={event => event.preventDefault()}>
+    {typeof document !== "undefined" && marking && underlineMenu && createPortal(<div className="cet-underline-menu" role="toolbar" aria-label={underlineMenu.kind === "selection" ? "为选中原文添加下划线" : "编辑自测划记"} style={{left:underlineMenu.left,top:underlineMenu.top}} onPointerDown={event => event.preventDefault()}>
       {underlineMenu.kind === "selection" && <button type="button" className="cet-underline-apply" onClick={() => applyUnderline(underlineColor)}><u>U</u> 下划线</button>}
       <div className="cet-underline-colors" aria-label="下划线颜色">{underlineColors.map(color => <button type="button" key={color.id} data-color={color.id} aria-label={`${color.label}下划线`} title={`${color.label}下划线`} onClick={() => applyUnderline(color.id)} />)}</div>
       {underlineMenu.kind === "mark" && <button type="button" className="cet-underline-remove" onClick={() => applyUnderline("remove")}>删除</button>}
