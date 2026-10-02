@@ -173,7 +173,7 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
             <h2 className="text-2xl font-semibold">当前为离线访问</h2>
             <p className="mt-3 leading-7">
               {localAccount?.nickname ? `${localAccount.nickname} 的本机文章、生词和已有缓存仍可使用。` : "当前页面与已缓存内容仍可使用。"}
-              {" "}云同步、账号操作和数据导出会在恢复联网后可用。
+              {" "}云同步和账号操作会在恢复联网后可用。
             </p>
           </section>
         ) : !account.authenticated ? (
