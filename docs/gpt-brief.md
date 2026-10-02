@@ -1,5 +1,9 @@
 # Context Reader GPT 项目上下文包
 
+## 外刊预加载与展开性能
+
+本轮外刊性能方案已实现，正在发布验收：默认主推与三行共十张封面由 SSR 提前发出原清晰度预加载，初始封面完成后静默预取全库；登录前、工作台和折叠“显示更多”期间均可准备公开封面。展开列表每批挂载 36 张，保留原出现/离开/再进入、悬停 3D、Reader 开启和返回。没有新增加载提示。极端冷网和任意速度下零灰图、实体设备与用户动效验收仍开放，见 [本轮证据](publication-preload-release.md)。
+
 ## Unified points and one-time membership purchases
 
 Signed-in non-Admin accounts use one learning-points balance: Free 300/month, Basic 5,000 at CNY 6/month or 60/year, Plus 15,000 at 15/150, and Max 30,000 at 30/300. Admin → 付费管理 owns public prices and next-cycle points; the public `/pricing` page reads that same configuration. Already issued grants and orders retain snapshots. Guest daily pools and Admin safety counters remain separate.
