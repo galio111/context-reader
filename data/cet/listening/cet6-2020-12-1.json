@@ -10,23 +10,23 @@
       "options": [
         {
           "key": "A",
-          "text": "Her house has not been repaired in time"
+          "text": "Her house has not been repaired in time."
         },
         {
           "key": "B",
-          "text": "She has failed to reach the manager again"
+          "text": "She has failed to reach the manager again."
         },
         {
           "key": "C",
-          "text": "Her claim has been completely disregarded"
+          "text": "Her claim has been completely disregarded."
         },
         {
           "key": "D",
-          "text": "She has not received any letter from the man"
+          "text": "She has not received any letter from the man."
         }
       ],
       "answer": "C",
-      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+      "explanation": "参考答案为C。可结合下方听力原文核对，原始资料见下方来源。"
     },
     {
       "number": 2,
@@ -34,23 +34,23 @@
       "options": [
         {
           "key": "A",
-          "text": "The ground floor of their cottage was flooded"
+          "text": "The ground floor of their cottage was flooded."
         },
         {
           "key": "B",
-          "text": "Their caravan was washed away by the flood"
+          "text": "Their caravan was washed away by the flood."
         },
         {
           "key": "C",
-          "text": "Their entire house was destroyed by the flood"
+          "text": "Their entire house was destroyed by the flood."
         },
         {
           "key": "D",
-          "text": "The roof of their cottage collapsed in the flood"
+          "text": "The roof of their cottage collapsed in the flood."
         }
       ],
       "answer": "A",
-      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+      "explanation": "参考答案为A。可结合下方听力原文核对，原始资料见下方来源。"
     },
     {
       "number": 3,
@@ -74,7 +74,7 @@
         }
       ],
       "answer": "D",
-      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+      "explanation": "参考答案为D。可结合下方听力原文核对，原始资料见下方来源。"
     },
     {
       "number": 4,
@@ -82,23 +82,23 @@
       "options": [
         {
           "key": "A",
-          "text": "File a lawsuit against the insurance company"
+          "text": "File a lawsuit against the insurance company."
         },
         {
           "key": "B",
-          "text": "Talk to the manager of Safe House Insurance"
+          "text": "Talk to the manager of Safe House Insurance."
         },
         {
           "key": "C",
-          "text": "Consult her lawyer about the insurance policy"
+          "text": "Consult her lawyer about the insurance policy."
         },
         {
           "key": "D",
-          "text": "Revise the terms and conditions of the contract"
+          "text": "Revise the terms and conditions of the contract."
         }
       ],
       "answer": "A",
-      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+      "explanation": "参考答案为A。可结合下方听力原文核对，原始资料见下方来源。"
     },
     {
       "number": 5,
@@ -106,11 +106,11 @@
       "options": [
         {
           "key": "A",
-          "text": "They work in different fields of AI technology"
+          "text": "They work in different fields of AI technology."
         },
         {
           "key": "B",
-          "text": "They disagree about the future of AI technology"
+          "text": "They disagree about the future of AI technology."
         },
         {
           "key": "C",
@@ -118,11 +118,11 @@
         },
         {
           "key": "D",
-          "text": "They are both worried about the negative impact of technology"
+          "text": "They are both worried about the negative impact of technology."
         }
       ],
       "answer": "B",
-      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+      "explanation": "参考答案为B。可结合下方听力原文核对，原始资料见下方来源。"
     },
     {
       "number": 6,
@@ -130,15 +130,15 @@
       "options": [
         {
           "key": "A",
-          "text": "Simply writing AI software"
+          "text": "Simply writing AI software."
         },
         {
           "key": "B",
-          "text": "Stimulating and motivating"
+          "text": "Stimulating and motivating."
         },
         {
           "key": "C",
-          "text": "Less time-consuming and focusing on creation"
+          "text": "Less time-consuming and focusing on creation."
         },
         {
           "key": "D",
@@ -146,7 +146,7 @@
         }
       ],
       "answer": "C",
-      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+      "explanation": "参考答案为C。可结合下方听力原文核对，原始资料见下方来源。"
     },
     {
       "number": 7,
@@ -154,23 +154,23 @@
       "options": [
         {
           "key": "A",
-          "text": "There could be jobs nobody wants to do"
+          "text": "There could be jobs nobody wants to do."
         },
         {
           "key": "B",
-          "text": "Digital life could replace human civilization"
+          "text": "Digital life could replace human civilization."
         },
         {
           "key": "C",
-          "text": "Humans would be tired of communicating with one another"
+          "text": "Humans would be tired of communicating with one another."
         },
         {
           "key": "D",
-          "text": "Old people would be taken care of solely by unfeeling robots"
+          "text": "Old people would be taken care of solely by unfeeling robots."
         }
       ],
       "answer": "B",
-      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+      "explanation": "参考答案为B。可结合下方听力原文核对，原始资料见下方来源。"
     },
     {
       "number": 8,
@@ -178,7 +178,7 @@
       "options": [
         {
           "key": "A",
-          "text": "Life will become like a science fiction film"
+          "text": "Life will become like a science fiction film."
         },
         {
           "key": "B",
@@ -186,15 +186,15 @@
         },
         {
           "key": "C",
-          "text": "Chips will be inserted in human brains"
+          "text": "Chips will be inserted in human brains."
         },
         {
           "key": "D",
-          "text": "It will be smarter than human beings"
+          "text": "It will be smarter than human beings."
         }
       ],
       "answer": "D",
-      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+      "explanation": "参考答案为D。可结合下方听力原文核对，原始资料见下方来源。"
     },
     {
       "number": 9,
@@ -206,19 +206,19 @@
         },
         {
           "key": "B",
-          "text": "Save one-fifth of their net monthly income"
+          "text": "Save one-fifth of their net monthly income."
         },
         {
           "key": "C",
-          "text": "Invest shrewdly in lucrative businesses"
+          "text": "Invest shrewdly in lucrative businesses."
         },
         {
           "key": "D",
-          "text": "Try to earn as much money as possible"
+          "text": "Try to earn as much money as possible."
         }
       ],
       "answer": "B",
-      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+      "explanation": "参考答案为B。可结合下方听力原文核对，原始资料见下方来源。"
     },
     {
       "number": 10,
@@ -226,23 +226,23 @@
       "options": [
         {
           "key": "A",
-          "text": "Start by doing something small"
+          "text": "Start by doing something small."
         },
         {
           "key": "B",
-          "text": "Ask a close friend for advice"
+          "text": "Ask a close friend for advice."
         },
         {
           "key": "C",
-          "text": "Try to stick to their initial plan"
+          "text": "Try to stick to their initial plan."
         },
         {
           "key": "D",
-          "text": "Cut 20% of their daily spending"
+          "text": "Cut 20% of their daily spending."
         }
       ],
       "answer": "A",
-      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+      "explanation": "参考答案为A。可结合下方听力原文核对，原始资料见下方来源。"
     },
     {
       "number": 11,
@@ -250,23 +250,23 @@
       "options": [
         {
           "key": "A",
-          "text": "An optimistic attitude"
+          "text": "An optimistic attitude."
         },
         {
           "key": "B",
-          "text": "An ambitious plan"
+          "text": "An ambitious plan."
         },
         {
           "key": "C",
-          "text": "A proper mindset"
+          "text": "A proper mindset."
         },
         {
           "key": "D",
-          "text": "A keen interest"
+          "text": "A keen interest."
         }
       ],
       "answer": "C",
-      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+      "explanation": "参考答案为C。可结合下方听力原文核对，原始资料见下方来源。"
     },
     {
       "number": 12,
@@ -278,19 +278,19 @@
         },
         {
           "key": "B",
-          "text": "She found her outfit inappropriate"
+          "text": "She found her outfit inappropriate."
         },
         {
           "key": "C",
-          "text": "She was unhappy with fashion trends"
+          "text": "She was unhappy with fashion trends."
         },
         {
           "key": "D",
-          "text": "She often checked herself in a mirror"
+          "text": "She often checked herself in a mirror."
         }
       ],
       "answer": "B",
-      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+      "explanation": "参考答案为B。可结合下方听力原文核对，原始资料见下方来源。"
     },
     {
       "number": 13,
@@ -298,23 +298,23 @@
       "options": [
         {
           "key": "A",
-          "text": "To save the trouble of choosing a unique outfit every day"
+          "text": "To save the trouble of choosing a unique outfit every day."
         },
         {
           "key": "B",
-          "text": "To meet the expectations of fashion-conscious clients"
+          "text": "To meet the expectations of fashion-conscious clients."
         },
         {
           "key": "C",
-          "text": "To keep up with the current trends"
+          "text": "To keep up with the current trends."
         },
         {
           "key": "D",
-          "text": "To save the expenses on clothing"
+          "text": "To save the expenses on clothing."
         }
       ],
       "answer": "A",
-      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+      "explanation": "参考答案为A。可结合下方听力原文核对，原始资料见下方来源。"
     },
     {
       "number": 14,
@@ -326,11 +326,11 @@
         },
         {
           "key": "B",
-          "text": "It helps people succeed in whatever they are doing"
+          "text": "It helps people succeed in whatever they are doing."
         },
         {
           "key": "C",
-          "text": "It matters a lot in jobs involving interaction with others"
+          "text": "It matters a lot in jobs involving interaction with others."
         },
         {
           "key": "D",
@@ -338,7 +338,7 @@
         }
       ],
       "answer": "C",
-      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+      "explanation": "参考答案为C。可结合下方听力原文核对，原始资料见下方来源。"
     },
     {
       "number": 15,
@@ -350,19 +350,19 @@
         },
         {
           "key": "B",
-          "text": "Wear classic pieces to impress their clients"
+          "text": "Wear classic pieces to impress their clients."
         },
         {
           "key": "C",
-          "text": "Fight the ever-changing trends in fashion"
+          "text": "Fight the ever-changing trends in fashion."
         },
         {
           "key": "D",
-          "text": "Do whatever is possible to look smart"
+          "text": "Do whatever is possible to look smart."
         }
       ],
       "answer": "D",
-      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+      "explanation": "参考答案为D。可结合下方听力原文核对，原始资料见下方来源。"
     },
     {
       "number": 16,
@@ -370,23 +370,23 @@
       "options": [
         {
           "key": "A",
-          "text": "Their obsession with consumption"
+          "text": "Their obsession with consumption."
         },
         {
           "key": "B",
-          "text": "Their failure to accumulate wealth"
+          "text": "Their failure to accumulate wealth."
         },
         {
           "key": "C",
-          "text": "The ever-increasing costs of housing"
+          "text": "The ever-increasing costs of housing."
         },
         {
           "key": "D",
-          "text": "The deterioration of the environment"
+          "text": "The deterioration of the environment."
         }
       ],
       "answer": "A",
-      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+      "explanation": "参考答案为A。可结合下方听力原文核对，原始资料见下方来源。"
     },
     {
       "number": 17,
@@ -394,23 +394,23 @@
       "options": [
         {
           "key": "A",
-          "text": "Things that are rare to find"
+          "text": "Things that are rare to find."
         },
         {
           "key": "B",
-          "text": "Things that cost less money"
+          "text": "Things that cost less money."
         },
         {
           "key": "C",
-          "text": "Things that boost efficiency"
+          "text": "Things that boost efficiency."
         },
         {
           "key": "D",
-          "text": "Things that we cherish most"
+          "text": "Things that we cherish most."
         }
       ],
       "answer": "D",
-      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+      "explanation": "参考答案为D。可结合下方听力原文核对，原始资料见下方来源。"
     },
     {
       "number": 18,
@@ -422,19 +422,19 @@
         },
         {
           "key": "B",
-          "text": "They benefit the environment"
+          "text": "They benefit the environment."
         },
         {
           "key": "C",
-          "text": "They are mostly durable"
+          "text": "They are mostly durable."
         },
         {
           "key": "D",
-          "text": "They are easily disposable"
+          "text": "They are easily disposable."
         }
       ],
       "answer": "A",
-      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+      "explanation": "参考答案为A。可结合下方听力原文核对，原始资料见下方来源。"
     },
     {
       "number": 19,
@@ -442,23 +442,23 @@
       "options": [
         {
           "key": "A",
-          "text": "All respondents were afraid of making a high expense claim"
+          "text": "All respondents were afraid of making a high expense claim."
         },
         {
           "key": "B",
-          "text": "A number of respondents gave an average answer of 400 miles"
+          "text": "A number of respondents gave an average answer of 400 miles."
         },
         {
           "key": "C",
-          "text": "Over 10% of the respondents lied about the distance they drove"
+          "text": "Over 10% of the respondents lied about the distance they drove."
         },
         {
           "key": "D",
-          "text": "Most of the respondents got compensated for driving 384 miles"
+          "text": "Most of the respondents got compensated for driving 384 miles."
         }
       ],
       "answer": "C",
-      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+      "explanation": "参考答案为C。可结合下方听力原文核对，原始资料见下方来源。"
     },
     {
       "number": 20,
@@ -474,15 +474,15 @@
         },
         {
           "key": "C",
-          "text": "They wanted to protect their reputation"
+          "text": "They wanted to protect their reputation."
         },
         {
           "key": "D",
-          "text": "They endeavored to actually be honest"
+          "text": "They endeavored to actually be honest."
         }
       ],
       "answer": "C",
-      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+      "explanation": "参考答案为C。可结合下方听力原文核对，原始资料见下方来源。"
     },
     {
       "number": 21,
@@ -490,23 +490,23 @@
       "options": [
         {
           "key": "A",
-          "text": "They seem positive"
+          "text": "They seem positive."
         },
         {
           "key": "B",
-          "text": "They seem intuitive"
+          "text": "They seem intuitive."
         },
         {
           "key": "C",
-          "text": "They are illustrative"
+          "text": "They are illustrative."
         },
         {
           "key": "D",
-          "text": "They are conclusive"
+          "text": "They are conclusive."
         }
       ],
       "answer": "B",
-      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+      "explanation": "参考答案为B。可结合下方听力原文核对，原始资料见下方来源。"
     },
     {
       "number": 22,
@@ -514,11 +514,11 @@
       "options": [
         {
           "key": "A",
-          "text": "Deterioration in the quality of new music"
+          "text": "Deterioration in the quality of new music."
         },
         {
           "key": "B",
-          "text": "Insights into the features of good music"
+          "text": "Insights into the features of good music."
         },
         {
           "key": "C",
@@ -530,7 +530,7 @@
         }
       ],
       "answer": "D",
-      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+      "explanation": "参考答案为D。可结合下方听力原文核对，原始资料见下方来源。"
     },
     {
       "number": 23,
@@ -538,23 +538,23 @@
       "options": [
         {
           "key": "A",
-          "text": "They no longer listen to new music"
+          "text": "They no longer listen to new music."
         },
         {
           "key": "B",
-          "text": "They find all music sounds the same"
+          "text": "They find all music sounds the same."
         },
         {
           "key": "C",
-          "text": "They can make subtle distinctions about music"
+          "text": "They can make subtle distinctions about music."
         },
         {
           "key": "D",
-          "text": "They seldom listen to songs released in their teens"
+          "text": "They seldom listen to songs released in their teens."
         }
       ],
       "answer": "A",
-      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+      "explanation": "参考答案为A。可结合下方听力原文核对，原始资料见下方来源。"
     },
     {
       "number": 24,
@@ -562,23 +562,23 @@
       "options": [
         {
           "key": "A",
-          "text": "The more you are exposed to something, the more familiar it'll be to you"
+          "text": "The more you are exposed to something, the more familiar it'll be to you."
         },
         {
           "key": "B",
-          "text": "The more you are exposed to something, the deeper you'll understand it"
+          "text": "The more you are exposed to something, the deeper you'll understand it."
         },
         {
           "key": "C",
-          "text": "The more you experience something, the longer you'll remember it"
+          "text": "The more you experience something, the longer you'll remember it."
         },
         {
           "key": "D",
-          "text": "The more you experience something, the better you'll appreciate it"
+          "text": "The more you experience something, the better you'll appreciate it."
         }
       ],
       "answer": "D",
-      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+      "explanation": "参考答案为D。可结合下方听力原文核对，原始资料见下方来源。"
     },
     {
       "number": 25,
@@ -594,15 +594,15 @@
         },
         {
           "key": "C",
-          "text": "Teenagers are much more sensitive"
+          "text": "Teenagers are much more sensitive."
         },
         {
           "key": "D",
-          "text": "Teenagers are much more sentimental"
+          "text": "Teenagers are much more sentimental."
         }
       ],
       "answer": "B",
-      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+      "explanation": "参考答案为B。可结合下方听力原文核对，原始资料见下方来源。"
     }
   ],
   "audio": {
