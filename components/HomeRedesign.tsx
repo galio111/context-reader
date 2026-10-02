@@ -13,6 +13,8 @@ import { useArticleSummary } from "@/components/useArticleSummary";
 import { startupMark } from "@/lib/startupPerformance";
 import { updateHomeCoverMotion } from "@/lib/homeCoverMotion";
 import { useArticleReveal } from "@/components/useArticleReveal";
+import { usePublicationMountCount } from "@/components/usePublicationMountCount";
+import { useShowcaseCoversReady } from "@/components/useShowcaseCoversReady";
 import { createPortal } from "react-dom";
 import { ACCOUNT_DATA_MERGED_EVENT, accountDataEventKinds } from "@/lib/accountEvents";
 import { flushLearningStorage } from "@/lib/learningStorage";
@@ -212,6 +214,7 @@ function orderRecommendationArticles(
 
 
 export function HomeRedesign(props: HomeRedesignProps) {
+  const showcaseCoversReady = useShowcaseCoversReady();
   const { account, loading: accountLoading, hasLocalAccountAccess, isOffline, localAccount, openLogin, requireAccount } = useAccount();
   // This is a visual preview only: it never drops the real session or grants guest
   // permissions. Keeping it URL-driven lets the owner compare both home states
@@ -316,7 +319,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
     return () => observer.disconnect();
   }, [memberLibraryAccess, resourceTab, journeyPending, props.catalogueStatus, props.onRequestCatalogue]);
   useEffect(() => {
-    if (journeyPending || !recommendationsRef.current) return;
+    if (journeyPending || !showcaseCoversReady || !recommendationsRef.current) return;
     const observer = new IntersectionObserver(([entry]) => {
       if (!entry.isIntersecting) return;
       void loadCetLibrary();
@@ -325,7 +328,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
     }, {rootMargin:"800px"});
     observer.observe(recommendationsRef.current);
     return () => observer.disconnect();
-  }, [journeyPending]);
+  }, [journeyPending, showcaseCoversReady]);
   const articleGridRef = useRef<HTMLDivElement | null>(null);
   const preferenceControlRef = useRef<HTMLDivElement | null>(null);
   const publicationBridgeRef = useRef<HTMLDivElement | null>(null);
@@ -424,7 +427,11 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const displayArticles = expandedLibraryVisible
     ? libraryArticles
     : homepageShowcaseArticles(personalizedCategoryArticles, showcaseArticleCount);
-  const displayArticleMotionKey = displayArticles.map((article) => article.id).join("\u0000");
+  const catalogueMotionKey = displayArticles.map((article) => article.id).join("\u0000");
+  const restoreIndex = props.restorePublicArticleOrigin ? displayArticles.findIndex(article => article.id === props.restorePublicArticleOrigin?.articleId) + 1 : 0;
+  const mountedArticleCount = usePublicationMountCount(catalogueMotionKey, displayArticles.length, restoreIndex);
+  const renderedArticles = displayArticles.slice(0, mountedArticleCount);
+  const displayArticleMotionKey = renderedArticles.map((article) => article.id).join("\u0000");
   const restoreOrigin = props.restorePublicArticleOrigin;
   const returnArticleVisible = Boolean(restoreOrigin && displayArticles.some((article) => article.id === restoreOrigin.articleId));
   const onReturnRestored = props.onPublicArticleOriginRestored;
@@ -1305,7 +1312,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
           </section>
         )}
 
-        {!memberHome && <FeatureShowcase sectionRef={featureShowcaseRef} prepareEnabled={!journeyPending} enabled={!journeyPending && (guestOpeningComplete || Boolean(props.skipMemberOpening))} onGuide={() => { setMenuStandalonePreview(false); setMenuInitialPreview("guide"); setMenuGuideSection(null); setMenuOpen(true); }} guideOpen={menuOpen} motionEnabled={recommendationMotionEnabled} />}
+        {!memberHome && <FeatureShowcase sectionRef={featureShowcaseRef} prepareEnabled={!journeyPending && showcaseCoversReady} enabled={!journeyPending && (guestOpeningComplete || Boolean(props.skipMemberOpening))} onGuide={() => { setMenuStandalonePreview(false); setMenuInitialPreview("guide"); setMenuGuideSection(null); setMenuOpen(true); }} guideOpen={menuOpen} motionEnabled={recommendationMotionEnabled} />}
 
         <section ref={recommendationsRef} className={styles.recommendations} aria-labelledby="selected-reading-title">
           <div ref={resourceHeadRef} className={styles.sectionHead}>
@@ -1392,7 +1399,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
           {memberLibraryAccess && props.catalogueStatus === "error" && <p role="status">完整外刊目录暂时无法加载，已显示的文章仍可打开。<button type="button" onClick={props.onRequestCatalogue}>重试</button></p>}
           {displayArticles.length ? (
             <div ref={articleGridRef} className={styles.articleGrid} data-switching={categorySwitching || undefined}>
-              {displayArticles.map((item, index) => {
+              {renderedArticles.map((item, index) => {
                 const featured = index === 0;
                 const recommendation = item.recommendation;
                 const selectedToday = props.homepageCuration?.selectedAtById[item.id]
@@ -1413,7 +1420,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
                     onClick={(event) => beginArticleTransition(item, event)}
                     disabled={Boolean(props.openingPublicArticleId || openingArticle)}
                   >
-                  <ArticleCover article={item} featured={featured} motion3dEnabled={recommendationMotionEnabled} />
+                  <ArticleCover article={item} featured={featured} priority={index < HOMEPAGE_RECOMMENDATION_TARGET} motion3dEnabled={recommendationMotionEnabled} />
                     <span className={styles.cardCopy}>
                       <small>{item.sourceName || "Context Reader"}</small>
                       <strong data-summary-title onPointerEnter={event => articleSummary.show(item.id, item.summary || "", event.currentTarget)} onPointerLeave={articleSummary.hide}>{item.title}</strong>
