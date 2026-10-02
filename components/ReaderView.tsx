@@ -97,6 +97,7 @@ import type { DictionaryResult } from "@/types/dictionary";
 import { useAccount } from "@/components/AccountProvider";
 
 export interface ReaderExamSurface {
+  translationBlocks?: ArticleTranslationBlock[];
   testing?: boolean; startScreen?: boolean;
   locked: boolean; lockedMessage?: string; toolbar: ReactNode; rail: ReactNode; timer: ReactNode; menu?: ReactNode;
   questions?: {key:string;available:boolean;title:string;answered:number;total:number;onDismiss:()=>void;render:(lookup:(context:WordContext)=>void)=>ReactNode};
@@ -1395,8 +1396,8 @@ export function ReaderView({
     readerBlockInteractivityStore.reveal(blockIds);
   }, [readerBlockInteractivityStore]);
   const translationBlocks = useMemo<ArticleTranslationBlock[]>(
-    () => createArticleTranslationBlocks(currentArticle, effectiveImportedArticle),
-    [currentArticle, effectiveImportedArticle],
+    () => examSurface?.translationBlocks ?? createArticleTranslationBlocks(currentArticle, effectiveImportedArticle),
+    [currentArticle, effectiveImportedArticle, examSurface?.translationBlocks],
   );
   const translationSourceKey = useMemo(
     () => createArticleTranslationCacheKey(translationBlocks),
