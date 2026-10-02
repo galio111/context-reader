@@ -1,10 +1,11 @@
 "use client";
 import { useEffect, useRef, useState, type PointerEvent } from "react";
 import type { PublicArticle } from "@/types/publicArticle";
-import { prepareCover } from "@/lib/coverMediaQueue";
+import { prepareCover, preparedCover, rememberCover } from "@/lib/coverMediaQueue";
+import { coverSource } from "@/lib/coverSources";
 import styles from "./HomeRedesign.module.css";
 
-export function ArticleCover({ article, featured = false, motion3dEnabled = true }: { article: PublicArticle; featured?: boolean; motion3dEnabled?: boolean }) {
+export function ArticleCover({ article, featured = false, priority = false, motion3dEnabled = true }: { article: PublicArticle; featured?: boolean; priority?: boolean; motion3dEnabled?: boolean }) {
   const surfaceRef = useRef<HTMLSpanElement | null>(null);
   const pointerFrameRef = useRef(0);
   const pointerTargetRef = useRef({ x: 0.5, y: 0.5 });
@@ -12,38 +13,32 @@ export function ArticleCover({ article, featured = false, motion3dEnabled = true
   const coverUrl = article.recommendation?.coverImageUrl?.trim();
   const variants = article.recommendation?.coverVariants;
   const validVariants = variants?.version === 1 && variants.sourceUrl === coverUrl ? variants : undefined;
-  const srcSet = validVariants?.items.map(item => `${item.url} ${item.width}w`).join(", ");
-  const criticalSizes = featured ? "(max-width: 900px) 112vw, (max-width: 1440px) 69vw, 950px" : "50vw";
-  const [prepared, setPrepared] = useState<{ src: string; srcSet?: string; sizes: string; error?: boolean } | null>(null);
+  const source = coverSource(article, featured);
+  const srcSet = source?.srcSet;
+  const sizes = source?.sizes || "100vw";
+  const eager = featured || priority;
+  const [prepared, setPrepared] = useState<{ src: string; srcSet?: string; sizes: string; error?: boolean } | null>(() => source ? preparedCover(source) : null);
   const [failedUrl, setFailedUrl] = useState<string | null>(null);
   const [loadedCoverUrl, setLoadedCoverUrl] = useState<string | null>(null);
-  const [measuredSizes, setMeasuredSizes] = useState<string | null>(null);
   const coverFailed = Boolean(coverUrl && (failedUrl === coverUrl || (prepared?.src === coverUrl && prepared.error)));
   const ready = prepared?.src === coverUrl ? prepared : null;
   useEffect(() => {
     const surface = surfaceRef.current;
-    if (!surface) return;
-    const measure = () => {
-      const ratio = validVariants ? validVariants.width / validVariants.height : 4 / 3;
-      // offset sizes exclude the animated scale(.9); object-fit:cover may need
-      // more source width than the box when the accepted photo is very wide.
-      setMeasuredSizes(`${Math.ceil(Math.max(surface.offsetWidth, surface.offsetHeight * ratio) * 1.06)}px`);
-    };
-    measure();
-    const observer = new ResizeObserver(measure);
-    observer.observe(surface);
-    return () => observer.disconnect();
-  }, [validVariants?.width, validVariants?.height]);
-  useEffect(() => {
-    const surface = surfaceRef.current;
-    if (!surface || featured || !coverUrl || !measuredSizes) return;
+    if (!surface || !coverUrl) return;
+    if (eager) {
+      const image = surface.querySelector("img");
+      if (image?.complete && image.naturalWidth) {
+        rememberCover({ src: coverUrl, srcSet, sizes }, image);
+        setLoadedCoverUrl(coverUrl);
+      }
+      return;
+    }
     return prepareCover(surface, {
       src: coverUrl, srcSet,
-      // Includes the existing 111.112% surface and 106% image overscan.
-      sizes: measuredSizes,
+      sizes,
       done: setPrepared,
     });
-  }, [coverUrl, srcSet, featured, measuredSizes]);
+  }, [coverUrl, srcSet, eager, sizes]);
 
   useEffect(() => () => {
     if (pointerFrameRef.current) window.cancelAnimationFrame(pointerFrameRef.current);
@@ -107,18 +102,19 @@ export function ArticleCover({ article, featured = false, motion3dEnabled = true
       className={`${styles.coverSurface} ${featured ? styles.coverFeatured : ""}`}
       data-image-pending={Boolean(coverUrl && !coverFailed && !coverReady) || undefined}
       data-image-ready={coverReady || undefined}
+      data-image-eager={eager || undefined}
       data-tilt-disabled={!motion3dEnabled || undefined}
       onPointerMove={updatePointer}
       onPointerLeave={resetPointer}
     >
-      {coverUrl && !coverFailed && (featured || ready) ? (
+      {coverUrl && !coverFailed && (eager || ready) ? (
         // Native srcset selects pre-generated immutable files; no visit-time conversion.
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={coverUrl} srcSet={ready?.srcSet || srcSet} sizes={ready?.sizes || measuredSizes || criticalSizes}
+        <img src={coverUrl} srcSet={srcSet} sizes={sizes} data-cover-eager={eager || undefined}
           alt={article.recommendation?.coverImageAlt || article.title}
           width={validVariants?.width || 1920} height={validVariants?.height || 1440}
-          loading="eager" decoding="async" fetchPriority={featured ? "high" : "auto"} draggable={false}
-          onLoad={() => setLoadedCoverUrl(coverUrl)} onError={() => setFailedUrl(coverUrl)} />
+          loading="eager" decoding="async" fetchPriority={eager ? "high" : "auto"} draggable={false}
+          onLoad={event => { if (source) rememberCover(source, event.currentTarget); setLoadedCoverUrl(coverUrl); }} onError={() => setFailedUrl(coverUrl)} />
       ) : !coverUrl ? (
         <span className={styles.coverFallback} aria-label="纯文本外刊封面">
           <i>TEXT EDITION</i>

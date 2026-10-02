@@ -25,7 +25,7 @@ test('native media events: lazy loading, practice pause, self-test interruption 
   assert.equal(node.getAttribute('src'),props.audio.url);
   node.currentTime=17.5;
   act(()=>controller.current!.checkpoint());assert.deepEqual(events.at(-1),[17.5,'playing']);
-  act(()=>fireEvent(dom.window,new dom.window.Event('pagehide')));assert.deepEqual(events.at(-1),[17.5,'paused']);
+  act(()=>fireEvent(dom.window as unknown as Window,new dom.window.Event('pagehide')));assert.deepEqual(events.at(-1),[17.5,'paused']);
   act(()=>fireEvent.click(ui.getByRole('button',{name:'暂停听力'})));assert.deepEqual(events.at(-1),[17.5,'paused']);
   ui.rerender(<CetListeningPlayer {...props} testing/>);
   assert.equal(ui.queryByRole('slider'),null);

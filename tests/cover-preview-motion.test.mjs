@@ -6,6 +6,8 @@ import ts from "typescript";
 import React, { act } from "react";
 import { createRoot } from "react-dom/client";
 import { JSDOM } from "jsdom";
+import { coverSource } from "../lib/coverSources.ts";
+import { renderToStaticMarkup } from "react-dom/server";
 
 test("final clear cover retains pointer tilt, readiness does not remount its motion surface", async () => {
   const source = readFileSync(new URL("../components/ArticleCover.tsx", import.meta.url), "utf8");
@@ -24,6 +26,7 @@ test("final clear cover retains pointer tilt, readiness does not remount its mot
   const context = {
     IntersectionObserver: Observer, ResizeObserver,
     prepareCover: (element, options) => { prepared = options; return () => {}; },
+    preparedCover: () => null, rememberCover: () => {}, coverSource,
     React, useRef: React.useRef, useState: React.useState, useEffect: React.useEffect, window: dom.window,
     styles: { coverSurface: "coverSurface", coverFeatured: "coverFeatured", coverFallback: "coverFallback" },
     Image: ({ unoptimized, fetchPriority, ...props }) => React.createElement("img", props),
@@ -32,6 +35,10 @@ test("final clear cover retains pointer tilt, readiness does not remount its mot
   const host = dom.window.document.getElementById("root"); const root = createRoot(host);
   const article = { title: "Test", recommendation: { coverImageUrl: "https://example.org/full.webp", coverPreviewDataUrl: "data:image/webp;base64,AAAA" } };
   try {
+    const initial = renderToStaticMarkup(React.createElement(context.Cover, { article, priority: true }));
+    assert.match(initial, /data-cover-eager="true"/);
+    assert.match(initial, /fetchPriority="high"/);
+    assert.ok(initial.includes(article.recommendation.coverImageUrl), "the HTML parser can request ordinary showcase covers before hydration");
     await act(async () => root.render(React.createElement(context.Cover, { article })));
     const surface = host.querySelector(".coverSurface");
     assert.equal(surface.querySelectorAll("img").length, 0, "a distant image must not bypass the media queue");
