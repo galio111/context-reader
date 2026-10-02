@@ -1,0 +1,53 @@
+[
+  {
+    "id": "03dcfdce-92e2-4917-9684-9f8d31db2477",
+    "feature": "full_article_translation",
+    "metric_key": "full_article_translation",
+    "quota_units": 29,
+    "status": "succeeded",
+    "executions": [
+      {
+        "route": "/api/translate-article",
+        "provider": "deepseek",
+        "model": "deepseek-flash",
+        "status": "succeeded",
+        "promptTokens": 200,
+        "completionTokens": 58
+      }
+    ]
+  },
+  {
+    "id": "d2ca7dee-49d9-45d1-8e35-f0068bbdde65",
+    "feature": "word_explanation",
+    "metric_key": "lookup_generation",
+    "quota_units": 1,
+    "status": "succeeded",
+    "executions": [
+      {
+        "route": "/api/explain-word-stream",
+        "provider": "deepseek",
+        "model": "deepseek-flash",
+        "status": "succeeded",
+        "promptTokens": 496,
+        "completionTokens": 173
+      }
+    ]
+  },
+  {
+    "id": "ca5e6982-7a9a-4a92-8ac8-ae7fd20760f4",
+    "feature": "standalone_dictionary",
+    "metric_key": "lookup_generation",
+    "quota_units": 1,
+    "status": "succeeded",
+    "executions": [
+      {
+        "route": "/api/dictionary-stream",
+        "provider": "deepseek",
+        "model": "deepseek-flash",
+        "status": "succeeded",
+        "promptTokens": 1273,
+        "completionTokens": 1130
+      }
+    ]
+  }
+]

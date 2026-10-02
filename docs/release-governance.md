@@ -2,7 +2,7 @@
 
 ## Current accepted publication preloading release
 
-Accepted `20261003T002636`, parent `20261003T002000`, source `cfe444cd3ff6996c191da500f0d08ed2809b4558`. The exact 22-file delta cumulatively retains billing, CET and Ballpit lifecycle changes. Public identity reports mainland_internal; stable guard, builds, 89 core/13 media/7 loading/13 targeted regressions, nine contracts, signed-in three-function DeepSeek Flash core, Reader return, Admin/sync boundaries, seven-service health, SHA-verified 23-table backup restore and current/parent images passed. Only app/caddy recreated. Cold rapid scrolling still has measured missing images and long frames; physical-device, Edge and user motion acceptance remain open. [Evidence and limits](publication-preload-release.md). Documentation commits do not change the deployed source identity.
+Accepted `20261003T005114`, parent `20261003T003600`, source `92f93af4fc69663e2c0592498507d0c53f8534bb`. The exact 19-file corrective delta cumulatively retains billing, CET and Ballpit lifecycle changes. Public identity reports mainland_internal; stable guard, builds, 89 core/13 media/7 loading/13 targeted regressions, nine contracts, signed-in three-function DeepSeek Flash core, Reader return, Admin/sync boundaries, seven-service health, SHA-verified 23-table backup restore and current/parent images passed. Only app/caddy recreated. Cold rapid scrolling still has measured missing images and long frames; physical-device, Edge and user motion acceptance remain open. [Evidence and limits](publication-preload-release.md). Documentation commits do not change the deployed source identity.
 
 ## Previous accepted Ballpit lifecycle and blue billing release
 

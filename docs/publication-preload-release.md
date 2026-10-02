@@ -2,7 +2,7 @@
 
 ## 当前状态
 
-已部署，完整体验验收仍开放。接受版本 `20261003T002636`，父版本 `20261003T002000`，源码 `cfe444cd3ff6996c191da500f0d08ed2809b4558`。公网 `/api/connectivity` 确认同一 release/parent 和 `mainland_internal`。本轮从 20261002T225700 起步，累计合入 232000、233200 和 20261003T002000 的已接受改动；首次旧父包被守卫拒绝后重新合并构建，没有覆盖其他任务。22 个精确变更文件由稳定发布入口检查，只重建 app/caddy。
+已部署，完整体验验收仍开放。当前接受版本 `20261003T005114`，父版本 `20261003T003600`，源码 `92f93af4fc69663e2c0592498507d0c53f8534bb`。公网 `/api/connectivity` 确认同一 release/parent 和 `mainland_internal`。首轮 `20261003T002636`（parent `20261003T002000`，source `cfe444cd3ff6996c191da500f0d08ed2809b4558`）提前加载封面并分批展开；本次累计保留 `003600` 真题历史与流式查词修复，再修正重复展开/清空搜索的批量计数。稳定入口检查精确19文件差异，只重建 app/caddy。旧父包曾被守卫拒绝后重新合并构建，没有覆盖其他任务。
 
 ## 目标与实现
 
@@ -36,7 +36,7 @@
 
 待验收：用户原设备体验、真实手机和 Edge、极端冷网快速直达时全程零灰图，以及完整动效逐帧矩阵。保留这些边界，不能描述为所有网络和任意速度下均瞬时显示。
 
-## 公网验收
+## 首轮公网验收（20261003T002636）
 
 - 登录态 API 三项核心均返回完整内容：foresight 语境解释含句译和结束标记、serendipity 独立词典含 done、两段全文翻译含两个对应 id 和 done，并完成任务结算。数据库三条 action 均 succeeded，每条只有一次 provider execution，全部 deepseek/deepseek-flash，token 用量非空。本次现有 Admin 会话采用其安全计数口径，不冒充普通会员点数验收。
 - 登录同步读取 200；匿名同步和 Admin 401。恢复 Admin 的会话、账号、公共文章和推荐自动化读取均 200。七服务健康，最新备份 20261002T152338Z 校验和及隔离恢复 23 表通过，当前和直接父 accepted 镜像均存在；未实际回滚。
@@ -45,6 +45,12 @@
 
 证据： [公网身份](evidence/publication-preload/connectivity.json)、[完整核心响应](evidence/publication-preload/live-core.json)、[模型与计数](evidence/publication-preload/core-ledger.json)、[本地采样](evidence/publication-preload/local-performance.json)。
 
-## 重复展开修正（候选）
+## 重复展开修正（20261003T005114 已部署）
 
-首次发布后，重复收起/展开的无布局采样发现一次挂载500张、703/527ms长任务。原因已复现：短列表无需继续分批时提前退出 effect，没有保存新 key，下一次恢复同一完整目录会复用旧500计数。现已让短列表也持久化当前 key；再次展开和清空搜索均从36张重新递增，Reader远处目标仍优先保证。新增真实React重复展开/清空搜索回归通过，待累计当前003600生产改动后的修正发布。
+首次发布后，重复收起/展开的无布局采样发现一次挂载500张、703/527ms长任务。原因已复现：短列表无需继续分批时提前退出 effect，没有保存新 key，下一次恢复同一完整目录会复用旧500计数。现已让短列表也持久化当前 key；再次展开和清空搜索均从36张重新递增，Reader远处目标仍优先保证。真实React重复展开/清空搜索回归和累计当前生产后的构建通过。
+
+最终公网两次6秒样本均按36、72、108……500递增，首次和再次展开分别约1.984s、1.940s完成，均无超过50ms长任务。搜索缩至1篇再清空也从36张重新递增，约1.860s挂载500篇。首16张封面均完整且有原高清尺寸。它证明重复挂载缺陷修复；不覆盖前文冷网零灰图及所有丢帧场景。
+
+最终版本还复核了登录全文翻译、语境解释与句译、独立词典、同步、真题目录及切回外刊；三条新action均succeeded、各一次deepseek-flash执行且token非空。仍是现有Admin安全计数，不能当作普通会员点数验收。浏览器未记录控制台error。匿名同步和Admin为401，恢复Admin四项读取为200，备份20261002T152338Z校验和与隔离恢复23表通过。七服务健康、当前及直接父accepted镜像存在，未执行真实回滚。发布后健康检查发现磁盘86%，只清理超过一小时、无标签且未使用的Docker构建中间镜像；没有删除源码、发布归档、工作成果、数据卷或回滚镜像，随后磁盘78%且健康检查通过。
+
+最终证据：[公网身份](evidence/publication-preload/connectivity-final.json)、[展开两次](evidence/publication-preload/public-expand-final.json)、[搜索恢复](evidence/publication-preload/public-search-final.json)、[完整核心响应](evidence/publication-preload/live-core-final.json)、[模型与计数](evidence/publication-preload/core-ledger-final.json)、[运行检查](evidence/publication-preload/operations-final.json)。首轮证据保留以便比较。最终文档提交与GitHub同步不改变生产sourceRevision。

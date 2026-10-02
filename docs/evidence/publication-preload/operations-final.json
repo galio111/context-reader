@@ -1,0 +1,26 @@
+{
+  "releaseId": "20261003T005114",
+  "parentReleaseId": "20261003T003600",
+  "healthcheck": "passed after unused build-image cleanup",
+  "diskPercent": 78,
+  "restoredPublicTables": 23,
+  "backup": "20261002T152338Z",
+  "checksum": "passed",
+  "rollbackPerformed": false,
+  "recreatedServices": [
+    "app",
+    "caddy"
+  ],
+  "recoveryAdmin": {
+    "session": 200,
+    "accounts": 200,
+    "publicArticles": 200,
+    "recommendationAutomation": 200
+  },
+  "anonymousSync": 401,
+  "anonymousAdmin": 401,
+  "rollbackImages": [
+    "accepted-20261003T005114",
+    "accepted-20261003T003600"
+  ]
+}
