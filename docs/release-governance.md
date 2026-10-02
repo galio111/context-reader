@@ -1,6 +1,10 @@
 # Production Release Governance
 
-## Current accepted listening source cleanup
+## Current accepted CET marking and translation fix
+
+Accepted `20261002T225700`, parent `20261002T202624`, source `ae4ece526668fa14bc1636445821f98291e500ae`, at 2026-10-02 14:59:16 UTC. Public mainland identity and accepted state agree. Paused annotation edits, margin selection capture, end-of-text rendering, underline spacing and question-inclusive translation are deployed. 95 CET, 89 core tests, nine contracts, local/server builds, public paused menu and complete 32-block translation, account/sync/Admin, seven-service health, 17-table isolated backup restore and current/parent images passed. Only app/caddy recreated. Physical touch, Edge/Safari and user visual acceptance remain open. [Evidence](cet-mark-translation-release.md).
+
+## Previous accepted listening source cleanup
 
 Accepted `20261002T202624`, parent `20261002T201050`, source `205c32b7a5d17c51c0126bfbffca9b58b21fb3fc`, at 2026-10-02 12:30:26 UTC. Public release/parent and mainland backend, current symlink, accepted state and immutable source manifest agree. The cumulative two-step cleanup removes 18 verified source-watermark/footer fields in eight listening papers; the initial 35-file release `20261002T201050` removed fifteen, then this fourteen-file follow-up removes three distorted explanation marks. Original nineteen baseline hashes are retained; six reviewed files reconstruct byte-for-byte on reversing their exact edits, thirteen remain unchanged. Answers, audio, material groups, fixed scopes and submitted historical snapshots are preserved. Ninety CET, eighty-nine core, eight provider/billing regressions, nine protected contracts, egress checks, local/server builds, real public Reader grading/lookup and 393px rendering, full public catalogue/source/61-audio audit, two production sync clients, signed-in default model with one charge, Admin, seven-service health, fresh seventeen-table isolated backup restore and current/parent images passed. Only app/caddy recreated. Full-library human proofreading and physical-device/Edge acceptance remain open. [Evidence and limits](cet-listening-watermark-release.md). Later documentation-only main commits do not change production source identity.
 
