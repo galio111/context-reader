@@ -58,11 +58,11 @@
       "options": [
         {
           "key": "A",
-          "text": "Whether or not to move to the state's mainland."
+          "text": "Whether or not tomoveto the state's mainland."
         },
         {
           "key": "B",
-          "text": "Howtokeepthevillagefrom sinking into the sea."
+          "text": "Howtokeepthevillagefrom sinking intothe sea."
         },
         {
           "key": "C",

@@ -1,0 +1,2006 @@
+[
+  {
+    "paperId": "cet4-2016-06-1",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.06/%E7%9C%9F%E9%A2%98PDF/2016%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%AC%AC1%E5%A5%97%E7%9C%9F%E9%A2%98.pdf",
+    "sha256": "c3bf2d088ac1a020b1830c353e1a63e82f46194795d32bcbf76912032ffed47a",
+    "parsedQuestions": 25,
+    "edits": []
+  },
+  {
+    "paperId": "cet4-2016-06-2",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.06/%E7%9C%9F%E9%A2%98Word/2016%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%AC%AC2%E5%A5%97%E7%9C%9F%E9%A2%98%20.doc",
+    "status": "legacy binary Word"
+  },
+  {
+    "paperId": "cet4-2016-12-1",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.12/%E7%9C%9F%E9%A2%98Word/2016%E5%B9%B412%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC%E4%B8%80%E5%A5%97%EF%BC%89.doc",
+    "status": "legacy binary Word"
+  },
+  {
+    "paperId": "cet4-2016-12-2",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.12/%E7%9C%9F%E9%A2%98Word/2016%E5%B9%B412%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A5%97%EF%BC%89.docx",
+    "sha256": "7e8063565227560d9e7f47eda312d27548e21164834d96ae891ff600035b0356",
+    "parsedQuestions": 25,
+    "edits": [
+      {
+        "number": 14,
+        "option": "B",
+        "before": "A misplaced push chair.",
+        "after": "A misplaced pushchair.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      }
+    ]
+  },
+  {
+    "paperId": "cet4-2017-06-1",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.06/%E7%9C%9F%E9%A2%98Word/2017%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%981.docx",
+    "sha256": "6bca93f61d17a4dc990fa2f00743996725f915a47448c526d5f62b2360ae9b9c",
+    "parsedQuestions": 24,
+    "edits": []
+  },
+  {
+    "paperId": "cet4-2017-06-2",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.06/%E7%9C%9F%E9%A2%98Word/2017%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%982.docx",
+    "sha256": "550071961d4fd1ef02fde9dd369aa545ad517d8bbecb6bf6ccd83f5f925c504d",
+    "parsedQuestions": 20,
+    "edits": []
+  },
+  {
+    "paperId": "cet4-2017-12-1",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.12/%E7%9C%9F%E9%A2%98Word/2017%E5%B9%B412%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E5%8D%B7%E4%B8%80%EF%BC%89.docx",
+    "sha256": "72af8565e0a1f92117985e8689984f2a825c38def073333ae5462c5925539bb2",
+    "parsedQuestions": 25,
+    "edits": [
+      {
+        "number": 4,
+        "option": "D",
+        "before": "They can stand the wear and tear of naturalelements.",
+        "after": "They can stand the wear and tear of natural elements.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 16,
+        "option": "D",
+        "before": "When America's earliest space programstarted.",
+        "after": "When America's earliest space program started.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      }
+    ]
+  },
+  {
+    "paperId": "cet4-2017-12-2",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.12/%E7%9C%9F%E9%A2%98Word/2017%E5%B9%B412%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E5%8D%B7%E4%BA%8C%EF%BC%89.doc",
+    "status": "legacy binary Word"
+  },
+  {
+    "paperId": "cet4-2018-06-1",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.06/%E7%9C%9F%E9%A2%98PDF/2018.06%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97.pdf",
+    "sha256": "516d828b3ebca98aa78b0a60e15dbe23a329e1eaaea0b06b3cc68a522f3f4f4b",
+    "parsedQuestions": 25,
+    "edits": [
+      {
+        "number": 1,
+        "option": "A",
+        "before": "The return of a bottled message to its owner's daughter.",
+        "after": "The return of a bottled message to its owner's daughter.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 1,
+        "option": "B",
+        "before": "A New Hampshire man's joke with friends on his wife.",
+        "after": "A New Hampshire man's joke with friends on his wife.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 1,
+        "option": "C",
+        "before": "A father's message for his daughter.",
+        "after": "A father's message for his daughter.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 1,
+        "option": "D",
+        "before": "The history of a century-old motel.",
+        "after": "The history of a century-old motel.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 2,
+        "option": "A",
+        "before": "She wanted to show gratitude for his kindness.",
+        "after": "She wanted to show gratitude for his kindness.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 2,
+        "option": "B",
+        "before": "She wanted to honor her father's promise.",
+        "after": "She wanted to honor her father's promise.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 2,
+        "option": "C",
+        "before": "She had been asked by her father to do so.",
+        "after": "She had been asked by her father to do so.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 2,
+        "option": "D",
+        "before": "She was excited to see her father's handwriting.",
+        "after": "She was excited to see her father's handwriting.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 3,
+        "option": "A",
+        "before": "People were concerned about the number of bees.",
+        "after": "People were concerned about the number of bees.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 3,
+        "option": "B",
+        "before": "Several cases of Zika disease had been identified.",
+        "after": "Several cases of Zika disease had been identified.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 3,
+        "option": "C",
+        "before": "Two million bees were infected with disease.",
+        "after": "Two million bees were infected with disease.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 3,
+        "option": "D",
+        "before": "Zika virus had destroyed some bee farms.",
+        "after": "Zika virus had destroyed some bee farms.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 4,
+        "option": "A",
+        "before": "It apologized to its customers.",
+        "after": "It apologized to its customers.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 4,
+        "option": "B",
+        "before": "It was forced to kill its bees.",
+        "after": "It was forced to kill its bees.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 4,
+        "option": "C",
+        "before": "It lost a huge stock of bees.",
+        "after": "It lost a huge stock of bees.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 4,
+        "option": "D",
+        "before": "It lost 2.5 million dollars.",
+        "after": "It lost 2.5 million dollars.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 5,
+        "option": "A",
+        "before": "It stayed in the air for about two hours.",
+        "after": "It stayed in the air for about two hours.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 5,
+        "option": "B",
+        "before": "It took off and landed on a football field.",
+        "after": "It took off and landed on a football field.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 5,
+        "option": "C",
+        "before": "It proved to be of high commercial value.",
+        "after": "It proved to be of high commercial value.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 5,
+        "option": "D",
+        "before": "It made a series of sharp turns in the sky.",
+        "after": "It made a series of sharp turns in the sky.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 6,
+        "option": "A",
+        "before": "Engineering problems.",
+        "after": "Engineering problems.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 6,
+        "option": "B",
+        "before": "The air pollution it produced.",
+        "after": "The air pollution it produced.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 6,
+        "option": "C",
+        "before": "Inadequate funding.",
+        "after": "Inadequate funding.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 6,
+        "option": "D",
+        "before": "The opposition from the military.",
+        "after": "The opposition from the military.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 7,
+        "option": "A",
+        "before": "It uses the latest aviation technology.",
+        "after": "It uses the latest aviation technology.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 7,
+        "option": "B",
+        "before": "It flies faster than a commercial jet.",
+        "after": "It flies faster than a commercial jet.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 7,
+        "option": "C",
+        "before": "It is a safer means of transportation.",
+        "after": "It is a safer means of transportation.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 7,
+        "option": "D",
+        "before": "It is more environmentally friendly.",
+        "after": "It is more environmentally friendly.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 8,
+        "option": "A",
+        "before": "It seems a depressing topic.",
+        "after": "It seems a depressing topic.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 8,
+        "option": "B",
+        "before": "It sounds quite alarming.",
+        "after": "It sounds quite alarming.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 8,
+        "option": "C",
+        "before": "It has little impact on our daily life.",
+        "after": "It has little impact on our daily life.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 8,
+        "option": "D",
+        "before": "It is getting more serious these days.",
+        "after": "It is getting more serious these days.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 9,
+        "option": "A",
+        "before": "The man doesn't understand Spanish.",
+        "after": "The man doesn't understand Spanish.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 9,
+        "option": "B",
+        "before": "The woman doesn't really like dancing.",
+        "after": "The woman doesn't really like dancing.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 9,
+        "option": "C",
+        "before": "They don't want something too noisy.",
+        "after": "They don't want something too noisy.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 9,
+        "option": "D",
+        "before": "They can't make it to the theatre in time.",
+        "after": "They can't make it to the theatre in time.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 10,
+        "option": "A",
+        "before": "It would be more fun without Mr. Whitehead hosting.",
+        "after": "It would be more fun without Mr. Whitehead hosting.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 10,
+        "option": "B",
+        "before": "It has too many acts to hold the audience's attention.",
+        "after": "It has too many acts to hold the audience's attention.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 10,
+        "option": "C",
+        "before": "It is the most amusing show he has ever watched.",
+        "after": "It is the most amusing show he has ever watched.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 10,
+        "option": "D",
+        "before": "It is a show inappropriate for a night of charity.",
+        "after": "It is a show inappropriate for a night of charity.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 11,
+        "option": "A",
+        "before": "Watch a comedy.",
+        "after": "Watch a comedy.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 11,
+        "option": "B",
+        "before": "Go and see the dance.",
+        "after": "Go and see the dance.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 11,
+        "option": "C",
+        "before": "Book the tickets online.",
+        "after": "Book the tickets online.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 11,
+        "option": "D",
+        "before": "See a film with the man.",
+        "after": "See a film with the man.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 12,
+        "option": "A",
+        "before": "Most of her schoolmates are younger than she is.",
+        "after": "Most of her schoolmates are younger than she is.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 12,
+        "option": "B",
+        "before": "She simply has no idea what school to transfer to.",
+        "after": "She simply has no idea what school to transfer to.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 12,
+        "option": "C",
+        "before": "There are too many activities for her to cope with.",
+        "after": "There are too many activities for her to cope with.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 12,
+        "option": "D",
+        "before": "She worries she won't fit in as a transfer student.",
+        "after": "She worries she won't fit in as a transfer student.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 13,
+        "option": "A",
+        "before": "Seek advice from senior students.",
+        "after": "Seek advice from senior students.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 13,
+        "option": "B",
+        "before": "Pick up some meaningful hobbies.",
+        "after": "Pick up some meaningful hobbies.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 13,
+        "option": "C",
+        "before": "Participate in after-school activities.",
+        "after": "Participate in after-school activities.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 13,
+        "option": "D",
+        "before": "Look into what the school offers.",
+        "after": "Look into what the school offers.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 14,
+        "option": "A",
+        "before": "Give her help whenever she needs it.",
+        "after": "Give her help whenever she needs it.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 14,
+        "option": "B",
+        "before": "Accept her as a transfer student.",
+        "after": "Accept her as a transfer student.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 14,
+        "option": "C",
+        "before": "Find her accommodation on campus.",
+        "after": "Find her accommodation on campus.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 14,
+        "option": "D",
+        "before": "Introduce her to her roommates.",
+        "after": "Introduce her to her roommates.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 15,
+        "option": "A",
+        "before": "She has interests similar to Mr. Lee's.",
+        "after": "She has interests similar to Mr. Lee's.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 15,
+        "option": "B",
+        "before": "She has become friends with Catherine.",
+        "after": "She has become friends with Catherine.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 15,
+        "option": "C",
+        "before": "She has chosen the major Catherine has.",
+        "after": "She has chosen the major Catherine has.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 15,
+        "option": "D",
+        "before": "She has just transferred to the college.",
+        "after": "She has just transferred to the college.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 16,
+        "option": "A",
+        "before": "To investigate how being overweight impacts on health.",
+        "after": "To investigate how being overweight impacts on health.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 16,
+        "option": "B",
+        "before": "To find out which physical drive is the most powerful.",
+        "after": "To find out which physical drive is the most powerful.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 16,
+        "option": "C",
+        "before": "To discover what most mice like to eat.",
+        "after": "To discover what most mice like to eat.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 16,
+        "option": "D",
+        "before": "To determine what feelings mice have.",
+        "after": "To determine what feelings mice have.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 17,
+        "option": "A",
+        "before": "When they are hungry.",
+        "after": "When they are hungry.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 17,
+        "option": "B",
+        "before": "When they are thirsty.",
+        "after": "When they are thirsty.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 17,
+        "option": "C",
+        "before": "When they smell food.",
+        "after": "When they smell food.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 17,
+        "option": "D",
+        "before": "When they want company.",
+        "after": "When they want company.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 18,
+        "option": "A",
+        "before": "They search for food in groups.",
+        "after": "They search for food in groups.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 18,
+        "option": "B",
+        "before": "They are overweight when food is plenty.",
+        "after": "They are overweight when food is plenty.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 18,
+        "option": "C",
+        "before": "They prefer to be with other mice.",
+        "after": "They prefer to be with other mice.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 18,
+        "option": "D",
+        "before": "They enjoy the company of other animals.",
+        "after": "They enjoy the company of other animals.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 19,
+        "option": "A",
+        "before": "Its construction started before World War I.",
+        "after": "Its construction started before World War I.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 19,
+        "option": "B",
+        "before": "Its construction cost more than $ 40 billion.",
+        "after": "Its construction cost more than $ 40 billion.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 19,
+        "option": "C",
+        "before": "It is efficiently used for transport.",
+        "after": "It is efficiently used for transport.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 19,
+        "option": "D",
+        "before": "It is one of the best in the world.",
+        "after": "It is one of the best in the world.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 20,
+        "option": "A",
+        "before": "To improve transportation in the countryside.",
+        "after": "To improve transportation in the countryside.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 20,
+        "option": "B",
+        "before": "To move troops quickly from place to place.",
+        "after": "To move troops quickly from place to place.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 20,
+        "option": "C",
+        "before": "To enable people to travel at a higher speed.",
+        "after": "To enable people to travel at a higher speed.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 20,
+        "option": "D",
+        "before": "To speed up the transportation of goods.",
+        "after": "To speed up the transportation of goods.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 21,
+        "option": "A",
+        "before": "In the 1970s.",
+        "after": "In the 1970s.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 21,
+        "option": "B",
+        "before": "In the 1960s.",
+        "after": "In the 1960s.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 21,
+        "option": "C",
+        "before": "In the 1950s.",
+        "after": "In the 1950s.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 21,
+        "option": "D",
+        "before": "In the 1940s.",
+        "after": "In the 1940s.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 22,
+        "option": "A",
+        "before": "Chatting while driving.",
+        "after": "Chatting while driving.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 22,
+        "option": "B",
+        "before": "Messaging while driving.",
+        "after": "Messaging while driving.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 22,
+        "option": "C",
+        "before": "Driving under age.",
+        "after": "Driving under age.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 22,
+        "option": "D",
+        "before": "Speeding on highways.",
+        "after": "Speeding on highways.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 23,
+        "option": "A",
+        "before": "A gadget to hold a phone on the steering wheel.",
+        "after": "A gadget to hold a phone on the steering wheel.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 23,
+        "option": "B",
+        "before": "A gadget to charge the phone in a car.",
+        "after": "A gadget to charge the phone in a car.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 23,
+        "option": "C",
+        "before": "A device to control the speed of a vehicle.",
+        "after": "A device to control the speed of a vehicle.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 23,
+        "option": "D",
+        "before": "A device to ensure people drive with both hands.",
+        "after": "A device to ensure people drive with both hands.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 24,
+        "option": "A",
+        "before": "The car keeps flashing its headlights.",
+        "after": "The car keeps flashing its headlights.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 24,
+        "option": "B",
+        "before": "The car slows down gradually to a halt.",
+        "after": "The car slows down gradually to a halt.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 24,
+        "option": "C",
+        "before": "They are alerted with a light and a sound.",
+        "after": "They are alerted with a light and a sound.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 24,
+        "option": "D",
+        "before": "They get a warning on their smart phone.",
+        "after": "They get a warning on their smart phone.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 25,
+        "option": "A",
+        "before": "Installing a camera.",
+        "after": "Installing a camera.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 25,
+        "option": "B",
+        "before": "Using a connected app.",
+        "after": "Using a connected app.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 25,
+        "option": "C",
+        "before": "Checking their emails.",
+        "after": "Checking their emails.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 25,
+        "option": "D",
+        "before": "Keeping a daily record",
+        "after": "Keeping a daily record",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      }
+    ]
+  },
+  {
+    "paperId": "cet4-2018-06-2",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.06/%E7%9C%9F%E9%A2%98PDF/2018.06%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC2%E5%A5%97.pdf",
+    "sha256": "27a97a27b4db4bfbb4c2483807508c31e10470263467943660aac9b7628ea62b",
+    "parsedQuestions": 25,
+    "edits": [
+      {
+        "number": 2,
+        "option": "A",
+        "before": "It crawled over the woman's hands.",
+        "after": "It crawled over the woman's hands.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 2,
+        "option": "B",
+        "before": "It wound up on the steering wheel.",
+        "after": "It wound up on the steering wheel.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 2,
+        "option": "C",
+        "before": "It was killed by the police on the spot.",
+        "after": "It was killed by the police on the spot.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 2,
+        "option": "D",
+        "before": "It was covered with large scales.",
+        "after": "It was covered with large scales.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 3,
+        "option": "A",
+        "before": "A study of the fast-food service.",
+        "after": "A study of the fast-food service.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 3,
+        "option": "B",
+        "before": "Fast food customer satisfaction.",
+        "after": "Fast food customer satisfaction.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 3,
+        "option": "C",
+        "before": "McDonald's new business strategies.",
+        "after": "McDonald's new business strategies.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 3,
+        "option": "D",
+        "before": "Competition in the fast-food industry.",
+        "after": "Competition in the fast-food industry.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 4,
+        "option": "A",
+        "before": "Customers' higher demands.",
+        "after": "Customers' higher demands.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 4,
+        "option": "B",
+        "before": "The inefficiency of employees.",
+        "after": "The inefficiency of employees.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 4,
+        "option": "C",
+        "before": "Increased variety of products.",
+        "after": "Increased variety of products.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 4,
+        "option": "D",
+        "before": "The rising number of customers.",
+        "after": "The rising number of customers.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 5,
+        "option": "A",
+        "before": "International treaties regarding space travel programs.",
+        "after": "International treaties regarding space travel programs.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 5,
+        "option": "B",
+        "before": "Legal issues involved in commercial space exploration.",
+        "after": "Legal issues involved in commercial space exploration.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 5,
+        "option": "C",
+        "before": "U.S. government's approval of private space missions.",
+        "after": "U.S. government's approval of private space missions.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 5,
+        "option": "D",
+        "before": "Competition among public and private space companies.",
+        "after": "Competition among public and private space companies.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 6,
+        "option": "A",
+        "before": "Deliver scientific equipment to the moon.",
+        "after": "Deliver scientific equipment to the moon.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 6,
+        "option": "B",
+        "before": "Approve a new mission to travel into outer space.",
+        "after": "Approve a new mission to travel into outer space.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 6,
+        "option": "C",
+        "before": "Work with federal agencies on space programs.",
+        "after": "Work with federal agencies on space programs.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 6,
+        "option": "D",
+        "before": "Launch a manned spacecraft to Mars.",
+        "after": "Launch a manned spacecraft to Mars.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 7,
+        "option": "A",
+        "before": "It is significant.",
+        "after": "It is significant.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 7,
+        "option": "B",
+        "before": "It is promising.",
+        "after": "It is promising.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 7,
+        "option": "C",
+        "before": "It is unpredictable.",
+        "after": "It is unpredictable.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 7,
+        "option": "D",
+        "before": "It is unprofitable.",
+        "after": "It is unprofitable.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 8,
+        "option": "A",
+        "before": "Visiting her family in Thailand.",
+        "after": "Visiting her family in Thailand.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 8,
+        "option": "B",
+        "before": "Showing friends around Phuket.",
+        "after": "Showing friends around Phuket.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 8,
+        "option": "C",
+        "before": "Swimming around a Thai island.",
+        "after": "Swimming around a Thai island.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 8,
+        "option": "D",
+        "before": "Lying in the sun on a Thai beach.",
+        "after": "Lying in the sun on a Thai beach.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 9,
+        "option": "A",
+        "before": "She visited a Thai orphanage.",
+        "after": "She visited a Thai orphanage.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 9,
+        "option": "B",
+        "before": "She met a Thai girl's parents.",
+        "after": "She met a Thai girl's parents.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 9,
+        "option": "C",
+        "before": "She learned some Thai words.",
+        "after": "She learned some Thai words.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 9,
+        "option": "D",
+        "before": "She sunbathed on a Thai beach.",
+        "after": "She sunbathed on a Thai beach.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 10,
+        "option": "A",
+        "before": "His class will start in a minute.",
+        "after": "His class will start in a minute.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 10,
+        "option": "B",
+        "before": "He has got an incoming phone call.",
+        "after": "He has got an incoming phone call.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 10,
+        "option": "C",
+        "before": "Someone is knocking at his door.",
+        "after": "Someone is knocking at his door.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 10,
+        "option": "D",
+        "before": "His phone is running out of power.",
+        "after": "His phone is running out of power.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 11,
+        "option": "A",
+        "before": "He is interested in Thai artworks.",
+        "after": "He is interested in Thai artworks.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 11,
+        "option": "B",
+        "before": "He is going to open a souvenir shop.",
+        "after": "He is going to open a souvenir shop.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 11,
+        "option": "C",
+        "before": "He collects things from different countries.",
+        "after": "He collects things from different countries.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 11,
+        "option": "D",
+        "before": "He wants to know more about Thai culture.",
+        "after": "He wants to know more about Thai culture.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 12,
+        "option": "A",
+        "before": "Buying some fitness equipment for the new gym.",
+        "after": "Buying some fitness equipment for the new gym.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 12,
+        "option": "B",
+        "before": "Opening a gym and becoming personal trainers.",
+        "after": "Opening a gym and becoming personal trainers.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 12,
+        "option": "C",
+        "before": "Signing up for a weight-loss course.",
+        "after": "Signing up for a weight-loss course.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 12,
+        "option": "D",
+        "before": "Trying out a new gym in town.",
+        "after": "Trying out a new gym in town.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 13,
+        "option": "A",
+        "before": "Professional personal training.",
+        "after": "Professional personal training.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 13,
+        "option": "B",
+        "before": "Free exercise for the first week.",
+        "after": "Free exercise for the first week.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 13,
+        "option": "C",
+        "before": "A discount for a half-year membership.",
+        "after": "A discount for a half-year membership.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 13,
+        "option": "D",
+        "before": "Additional benefits for young couples.",
+        "after": "Additional benefits for young couples.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 14,
+        "option": "A",
+        "before": "The safety of weight-lifting.",
+        "after": "The safety of weight-lifting.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 14,
+        "option": "B",
+        "before": "The high membership fee.",
+        "after": "The high membership fee.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 14,
+        "option": "C",
+        "before": "The renewal of his membership.",
+        "after": "The renewal of his membership.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 14,
+        "option": "D",
+        "before": "The operation of fitness equipment.",
+        "after": "The operation of fitness equipment.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 15,
+        "option": "A",
+        "before": "She wants her invitation renewed.",
+        "after": "She wants her invitation renewed.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 15,
+        "option": "B",
+        "before": "She used to do 200 sit-ups every day.",
+        "after": "She used to do 200 sit-ups every day.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 15,
+        "option": "C",
+        "before": "She knows the basics of weight-lifting.",
+        "after": "She knows the basics of weight-lifting.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 15,
+        "option": "D",
+        "before": "She used to be the gym's personal trainer.",
+        "after": "She used to be the gym's personal trainer.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 16,
+        "option": "A",
+        "before": "They tend to be nervous during interviews.",
+        "after": "They tend to be nervous during interviews.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 16,
+        "option": "B",
+        "before": "They often apply for a number of positions.",
+        "after": "They often apply for a number of positions.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 16,
+        "option": "C",
+        "before": "They worry about the results of their applications.",
+        "after": "They worry about the results of their applications.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 16,
+        "option": "D",
+        "before": "They search extensively for employers' information.",
+        "after": "They search extensively for employers' information.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 17,
+        "option": "A",
+        "before": "Get better organized.",
+        "after": "Get better organized.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 17,
+        "option": "B",
+        "before": "Edit their references.",
+        "after": "Edit their references.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 17,
+        "option": "C",
+        "before": "Find better-paid jobs.",
+        "after": "Find better-paid jobs.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 17,
+        "option": "D",
+        "before": "Analyze the searching process.",
+        "after": "Analyze the searching process.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 18,
+        "option": "A",
+        "before": "Provide their data in detail.",
+        "after": "Provide their data in detail.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 18,
+        "option": "B",
+        "before": "Personalize each application.",
+        "after": "Personalize each application.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 18,
+        "option": "C",
+        "before": "Make use of better search engines.",
+        "after": "Make use of better search engines.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 18,
+        "option": "D",
+        "before": "Apply for more promising positions.",
+        "after": "Apply for more promising positions.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 19,
+        "option": "A",
+        "before": "If kids did not like school, real learning would not take place.",
+        "after": "If kids did not like school, real learning would not take place.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 19,
+        "option": "B",
+        "before": "If not forced to go to school, kids would be out in the streets.",
+        "after": "If not forced to go to school, kids would be out in the streets.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 19,
+        "option": "C",
+        "before": "If schools stayed the way they are, parents were sure to protest.",
+        "after": "If schools stayed the way they are, parents were sure to protest.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 19,
+        "option": "D",
+        "before": "If teaching failed to improve, kids would stay away from school.",
+        "after": "If teaching failed to improve, kids would stay away from school.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 20,
+        "option": "A",
+        "before": "Allow them to play interesting games in class.",
+        "after": "Allow them to play interesting games in class.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 20,
+        "option": "B",
+        "before": "Try to stir up their interest in lab experiments.",
+        "after": "Try to stir up their interest in lab experiments.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 20,
+        "option": "C",
+        "before": "Let them stay home and learn from their parents.",
+        "after": "Let them stay home and learn from their parents.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 20,
+        "option": "D",
+        "before": "Design activities they now enjoy doing on holidays.",
+        "after": "Design activities they now enjoy doing on holidays.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 21,
+        "option": "A",
+        "before": "Allow kids to learn at their own pace.",
+        "after": "Allow kids to learn at their own pace.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 21,
+        "option": "B",
+        "before": "Encourage kids to learn from each other.",
+        "after": "Encourage kids to learn from each other.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 21,
+        "option": "C",
+        "before": "Organize kids into various interest groups.",
+        "after": "Organize kids into various interest groups.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 21,
+        "option": "D",
+        "before": "Take kids out of school to learn at first hand.",
+        "after": "Take kids out of school to learn at first hand.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 22,
+        "option": "A",
+        "before": "It is especially popular in Florida and Alaska.",
+        "after": "It is especially popular in Florida and Alaska.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 22,
+        "option": "B",
+        "before": "It is a major social activity among the young.",
+        "after": "It is a major social activity among the young.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 22,
+        "option": "C",
+        "before": "It is seen almost anywhere and on any occasion.",
+        "after": "It is seen almost anywhere and on any occasion.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 22,
+        "option": "D",
+        "before": "It is even more expressive than the written word.",
+        "after": "It is even more expressive than the written word.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 23,
+        "option": "A",
+        "before": "It is located in a big city in Iowa.",
+        "after": "It is located in a big city in Iowa.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 23,
+        "option": "B",
+        "before": "It is really marvelous to look at.",
+        "after": "It is really marvelous to look at.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 23,
+        "option": "C",
+        "before": "It offers free dance classes to seniors.",
+        "after": "It offers free dance classes to seniors.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 23,
+        "option": "D",
+        "before": "It offers people a chance to socialize.",
+        "after": "It offers people a chance to socialize.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 24,
+        "option": "A",
+        "before": "Their state of mind improved.",
+        "after": "Their state of mind improved.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 24,
+        "option": "B",
+        "before": "They became better dancers.",
+        "after": "They became better dancers.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 24,
+        "option": "C",
+        "before": "They enjoyed better health.",
+        "after": "They enjoyed better health.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 24,
+        "option": "D",
+        "before": "Their relationship strengthened.",
+        "after": "Their relationship strengthened.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 25,
+        "option": "A",
+        "before": "It is fun.",
+        "after": "It is fun.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 25,
+        "option": "B",
+        "before": "It is life.",
+        "after": "It is life.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 25,
+        "option": "C",
+        "before": "It is exhausting.",
+        "after": "It is exhausting.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 25,
+        "option": "D",
+        "before": "It is rhythmical.",
+        "after": "It is rhythmical.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      }
+    ]
+  },
+  {
+    "paperId": "cet4-2018-12-1",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.12/%E7%9C%9F%E9%A2%98Word/2018%E5%B9%B412%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC%E4%B8%80%E5%A5%97.docx",
+    "sha256": "5a389d84718ef079546fa6b8348a400d45fb743fcbabbc189c0a56b455a46753",
+    "parsedQuestions": 25,
+    "edits": []
+  },
+  {
+    "paperId": "cet4-2018-12-2",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.12/%E7%9C%9F%E9%A2%98Word/2018%E5%B9%B412%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC%E4%BA%8C%E5%A5%97.docx",
+    "sha256": "03432d79a29ad6ccba6c2b165304bc0d3cd68b0d18a8e706d4f97b87bc064f65",
+    "parsedQuestions": 25,
+    "edits": []
+  },
+  {
+    "paperId": "cet4-2019-12-1",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.12/%E7%9C%9F%E9%A2%98Word/2019%E5%B9%B412%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97.docx",
+    "sha256": "4012ced2e35217d1c0af15c27c76aa901acffcd10d802b843c346ff09882add5",
+    "parsedQuestions": 25,
+    "edits": []
+  },
+  {
+    "paperId": "cet4-2020-09-1",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.09/%E7%9C%9F%E9%A2%98PDF/cet4_2020_09_1.pdf",
+    "sha256": "76238505bbeb339e881616bd392949355052af8858dbaeb1280e3530ac97114b",
+    "parsedQuestions": 0,
+    "edits": []
+  },
+  {
+    "paperId": "cet4-2020-12-1",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.12/%E7%9C%9F%E9%A2%98PDF/cet4_2020_12_1.pdf",
+    "sha256": "2dfca4d45e090492d65806ab533f3ed86d6532e338977195d7ec758a79904087",
+    "parsedQuestions": 0,
+    "edits": []
+  },
+  {
+    "paperId": "cet4-2020-12-2",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.12/%E7%9C%9F%E9%A2%98PDF/cet4_2020_12_2.pdf",
+    "sha256": "eaa4db0b4a0261ee13e4e37fed27d5acf9ffe63bc57b7e2d5346496b7b1b0246",
+    "parsedQuestions": 0,
+    "edits": []
+  },
+  {
+    "paperId": "cet4-2021-12-1",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2021.12/%E7%9C%9F%E9%A2%98PDF/cet4_2021_12_1.pdf",
+    "sha256": "9bf9deb13cf23f1e4f589012ee4eceeb0dc88beada93c97102e23093d0196163",
+    "parsedQuestions": 0,
+    "edits": []
+  },
+  {
+    "paperId": "cet4-2022-06-1",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.06/%E7%9C%9F%E9%A2%98PDF/cet4_2022_06_1.pdf",
+    "sha256": "98a4aaecf332f9874f8940a802593eb66b2cb44dfaabfaadade4eb4c97b9c585",
+    "parsedQuestions": 0,
+    "edits": []
+  },
+  {
+    "paperId": "cet4-2025-06-2",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.06/%E7%9C%9F%E9%A2%98PDF/cet4_2025_06_2.pdf",
+    "sha256": "71d831b5b27bf3e8701fb772855b593bfe48a269143bc997191dd31b6e9e18cd",
+    "parsedQuestions": 25,
+    "edits": []
+  },
+  {
+    "paperId": "cet4-2025-12-1",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.12/%E7%9C%9F%E9%A2%98PDF/cet4_2025_12_1.pdf",
+    "sha256": "c67cdf8c77f2dfc74f40afd50587ae4d5eb759aaca7ad57ad6388d867cd3dadf",
+    "parsedQuestions": 25,
+    "edits": [
+      {
+        "number": 12,
+        "option": "C",
+        "before": "The part about getting over jet lag.",
+        "after": "The part about getting over jetlag.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 14,
+        "option": "B",
+        "before": "She does not have to worry about jet lag.",
+        "after": "She does not have to worry about jetlag.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 22,
+        "option": "C",
+        "before": "They answered their head teacher's email in an impolite way.",
+        "after": "They answered their headteacher's email in an impolite way.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      }
+    ]
+  },
+  {
+    "paperId": "cet4-2025-12-2",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.12/%E7%9C%9F%E9%A2%98PDF/cet4_2025_12_2.pdf",
+    "sha256": "29da4a4a079809d02aa560782938552f7b85237d047e8a9763e003d767995cfd",
+    "parsedQuestions": 25,
+    "edits": []
+  },
+  {
+    "paperId": "cet6-2016-06-2",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.06/%E7%9C%9F%E9%A2%98Word/2016%E5%B9%B406%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC2%E5%A5%97%EF%BC%89.doc",
+    "status": "legacy binary Word"
+  },
+  {
+    "paperId": "cet6-2017-12-1",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.12/%E7%9C%9F%E9%A2%98Word/2017%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC1%E5%A5%97%EF%BC%89.docx",
+    "sha256": "46f2e9533563151b30878ae9fb6fc8eda20d94c4d914d541f69f2ff1abf0dd09",
+    "parsedQuestions": 25,
+    "edits": []
+  },
+  {
+    "paperId": "cet6-2017-12-2",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.12/%E7%9C%9F%E9%A2%98Word/2017%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC2%E5%A5%97%EF%BC%89.docx",
+    "sha256": "4ddbeaa0f7fa5128f60ea283d7967598ba7bab62fc87cb62afec78d3935479f5",
+    "parsedQuestions": 25,
+    "edits": [
+      {
+        "number": 14,
+        "option": "D",
+        "before": "Asian speaking characters .",
+        "after": "Asian speaking characters.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 15,
+        "option": "C",
+        "before": "They contribute little to the U.S. film industry.",
+        "after": "They contribute little to the U. S. film industry.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 23,
+        "option": "A",
+        "before": "Use some over-the-counter medicine instead .",
+        "after": "Use some over-the-counter medicine instead.",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      }
+    ]
+  },
+  {
+    "paperId": "cet6-2018-06-1",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.06/%E7%9C%9F%E9%A2%98Word/2018.06%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97.doc",
+    "status": "legacy binary Word"
+  },
+  {
+    "paperId": "cet6-2018-06-2",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.06/%E7%9C%9F%E9%A2%98PDF/2018.06%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC2%E5%A5%97.pdf",
+    "sha256": "218f615b5151a7b4892cd8d7f0084546533dccfcf20f24a45c53d0912c0346a0",
+    "parsedQuestions": 28,
+    "edits": []
+  },
+  {
+    "paperId": "cet6-2018-12-1",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.12/%E7%9C%9F%E9%A2%98Word/2018%E5%B9%B412%E6%9C%886%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC%E4%B8%80%E5%A5%97.doc",
+    "status": "legacy binary Word"
+  },
+  {
+    "paperId": "cet6-2018-12-2",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.12/%E7%9C%9F%E9%A2%98Word/2018%E5%B9%B412%E6%9C%886%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC%E4%BA%8C%E5%A5%97.doc",
+    "status": "legacy binary Word"
+  },
+  {
+    "paperId": "cet6-2019-06-1",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.06/%E7%9C%9F%E9%A2%98Word/2019%E5%B9%B406%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC1%E5%A5%97%EF%BC%89.docx",
+    "sha256": "129daedf283acd327e3e74a145ee8b53f239f603cb914e3cfdbef2fbe1e42402",
+    "parsedQuestions": 25,
+    "edits": []
+  },
+  {
+    "paperId": "cet6-2019-12-1",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.12/%E7%9C%9F%E9%A2%98Word/2019%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC1%E5%A5%97%EF%BC%89.docx",
+    "sha256": "e8797f7735c6fc830d9c0648a6d7e739995d0cca161db863fb092191b0fc5791",
+    "parsedQuestions": 25,
+    "edits": []
+  },
+  {
+    "paperId": "cet6-2019-12-2",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.12/%E7%9C%9F%E9%A2%98Word/2019%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC2%E5%A5%97%EF%BC%89.docx",
+    "sha256": "88c03a886f7524840634f94008e3b745f6592c00ea5b1fab0c63080cebb9667b",
+    "parsedQuestions": 25,
+    "edits": []
+  },
+  {
+    "paperId": "cet6-2020-07-1",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.07/%E7%9C%9F%E9%A2%98PDF/2020.07%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E5%85%A81%E5%A5%97%E3%80%90%E5%8F%AF%E5%A4%8D%E5%88%B6%E5%8F%AF%E6%90%9C%E7%B4%A2%EF%BC%8C%E6%89%93%E5%8D%B0%E9%A6%96%E9%80%89%E3%80%91.pdf",
+    "sha256": "27705de9c6dc40056e7d211f67d26f4e2f9f3283bb6cd5e52c5b370bb1c94d86",
+    "parsedQuestions": 25,
+    "edits": []
+  },
+  {
+    "paperId": "cet6-2020-09-1",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.09/%E7%9C%9F%E9%A2%98Word/2020%E5%B9%B409%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC1%E5%A5%97%EF%BC%89.docx",
+    "sha256": "75092501de86a67a1629f67dc75e8e614c8b5a1c0b1eec566f02a0204091279f",
+    "parsedQuestions": 25,
+    "edits": []
+  },
+  {
+    "paperId": "cet6-2020-12-1",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.12/%E7%9C%9F%E9%A2%98PDF/2020.12%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97%E3%80%90%E5%8F%AF%E5%A4%8D%E5%88%B6%E5%8F%AF%E6%90%9C%E7%B4%A2%EF%BC%8C%E6%89%93%E5%8D%B0%E9%A6%96%E9%80%89%E3%80%91.pdf",
+    "sha256": "f07fe10f3572c0f60d20e270d5876942e198ba1288d0f625417296c6ad11b9d6",
+    "parsedQuestions": 25,
+    "edits": []
+  },
+  {
+    "paperId": "cet6-2020-12-2",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.12/%E7%9C%9F%E9%A2%98Word/2020%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC2%E5%A5%97%EF%BC%89.docx",
+    "sha256": "eef6c9b7ec4bf2582192ee05ef5bcfa78a09cf33c6c31fb79b712ca799cafea0",
+    "parsedQuestions": 25,
+    "edits": []
+  },
+  {
+    "paperId": "cet6-2021-06-1",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2021.06/%E7%9C%9F%E9%A2%98Word/2021.06%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97.docx",
+    "sha256": "b0326306d34dfda12fd13f1fdf0a686e0b5f3a4636dd0fb86cf0cb6c6f26cea1",
+    "parsedQuestions": 25,
+    "edits": []
+  },
+  {
+    "paperId": "cet6-2021-06-2",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2021.06/%E7%9C%9F%E9%A2%98Word/2021.06%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC2%E5%A5%97.docx",
+    "sha256": "41deb97bdc2a19d0115a6d7fe1a9025a0d21b8209ac8567bdb7f431cf78d7662",
+    "parsedQuestions": 24,
+    "edits": []
+  },
+  {
+    "paperId": "cet6-2023-12-1",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.12/%E7%9C%9F%E9%A2%98PDF/2023.12%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97%281%29.pdf",
+    "sha256": "7de1670c462ae011f4200ef987e57c51a3b252856722258abb14051c601ad5c5",
+    "parsedQuestions": 25,
+    "edits": []
+  },
+  {
+    "paperId": "cet6-2023-12-2",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.12/%E7%9C%9F%E9%A2%98PDF/2023.12%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC2%E5%A5%97%281%29.pdf",
+    "sha256": "e59d53368892066dedcc7cb61d08662c68b2f8c03acd94211a4a4587f1a09f98",
+    "parsedQuestions": 25,
+    "edits": []
+  },
+  {
+    "paperId": "cet6-2024-06-1",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.06/%E7%9C%9F%E9%A2%98Word/2024%E5%B9%B46%E6%9C%88%E7%AC%AC1%E5%A5%97%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E3%80%90%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8PDF%E7%89%88%E3%80%91.docx",
+    "sha256": "26a0c9c7f3fdec00b8306095ecac6880085a96fe454063cd14bc104dc4759c28",
+    "parsedQuestions": 20,
+    "edits": [
+      {
+        "number": 18,
+        "option": "C",
+        "before": "The shark",
+        "after": "The  shark",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 22,
+        "option": "D",
+        "before": "Human individuality",
+        "after": "Human  individuality",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      }
+    ]
+  },
+  {
+    "paperId": "cet6-2024-06-2",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.06/%E7%9C%9F%E9%A2%98Word/2024%E5%B9%B46%E6%9C%88%E7%AC%AC2%E5%A5%97%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E3%80%90%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8PDF%E7%89%88%E3%80%91.docx",
+    "sha256": "7d0ee01e746ce982456ecff86f17607c01df9803ff56af75de63ba47e68e22a4",
+    "parsedQuestions": 25,
+    "edits": [
+      {
+        "number": 4,
+        "option": "A",
+        "before": "One-tenth of it is sugar",
+        "after": "One-tenth  of  it  is  sugar",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 5,
+        "option": "A",
+        "before": "How he has made himself popular as the mayor of Berkton",
+        "after": "How  hehas  madehimself popular  as  the  mayorof  Berkton",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 10,
+        "option": "C",
+        "before": "It moves from one place to another by memory",
+        "after": "Itmoves from one place to another by memory",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      },
+      {
+        "number": 17,
+        "option": "D",
+        "before": "Their experiences of physical punishment haunted them",
+        "after": "Theirexperiences of physical punishment haunted them",
+        "proof": "exact unchanged non-whitespace characters in original printed question"
+      }
+    ]
+  },
+  {
+    "paperId": "cet6-2025-12-1",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.12/%E7%9C%9F%E9%A2%98PDF/cet6_2025_12_1.pdf",
+    "sha256": "3a8709d16494732407ebaf6da5c9b3993a18a538df24a0e5085802cab915564c",
+    "parsedQuestions": 25,
+    "edits": [
+      {
+        "number": 25,
+        "option": "D",
+        "before": "Opportunities fbr income",
+        "after": "Opportunities for income.",
+        "proof": "original 0609x PDF page 5 visually reviewed; source TXT fbr is an OCR typo"
+      }
+    ]
+  },
+  {
+    "paperId": "cet6-2025-12-2",
+    "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.12/%E7%9C%9F%E9%A2%98PDF/cet6_2025_12_2.pdf",
+    "sha256": "a8c70499558e820310ba6e14ece240ba44be8df6eebda436e751cf404c39d7b0",
+    "parsedQuestions": 25,
+    "edits": []
+  },
+  {
+    "paperId": "cet4-2020-09-1",
+    "independentSource": {
+      "repository": "AayuBal/cet-exams",
+      "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+      "path": "public/cet/papers/cet4/2020-09-1.pdf",
+      "gitBlobSha": "93506c9a192ed8161e2e00dde8be023454fa56e2",
+      "sha256": "76238505bbeb339e881616bd392949355052af8858dbaeb1280e3530ac97114b"
+    },
+    "parsedQuestions": 25,
+    "edits": [
+      {
+        "number": 7,
+        "option": "B",
+        "before": "It was a hard task to remove the spilled substance.",
+        "after": "It was a hard task toremove the spilled substance.",
+        "proof": "exact non-whitespace characters; independent printed PDF/OCR supplies spacing"
+      },
+      {
+        "number": 9,
+        "option": "B",
+        "before": "They find it less difficult to make purchases.",
+        "after": "They find it less difficult tomake purchases.",
+        "proof": "exact non-whitespace characters; independent printed PDF/OCR supplies spacing"
+      },
+      {
+        "number": 15,
+        "option": "C",
+        "before": "Sheapologized to the man oncemore.",
+        "after": "Sheapologized to theman oncemore.",
+        "proof": "exact non-whitespace characters; independent printed PDF/OCR supplies spacing"
+      }
+    ]
+  },
+  {
+    "paperId": "cet4-2020-12-1",
+    "independentSource": {
+      "repository": "AayuBal/cet-exams",
+      "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+      "path": "public/cet/papers/cet4/2020-12-1.pdf",
+      "gitBlobSha": "20f30d614ecae9e6bc57fde7a91d8582a7827e69",
+      "sha256": "2dfca4d45e090492d65806ab533f3ed86d6532e338977195d7ec758a79904087"
+    },
+    "parsedQuestions": 25,
+    "edits": [
+      {
+        "number": 13,
+        "option": "C",
+        "before": "From home design magazines",
+        "after": "From homedesign magazines",
+        "proof": "exact non-whitespace characters; independent printed PDF/OCR supplies spacing"
+      }
+    ]
+  },
+  {
+    "paperId": "cet4-2020-12-2",
+    "independentSource": {
+      "repository": "AayuBal/cet-exams",
+      "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+      "path": "public/cet/papers/cet4/2020-12-2.pdf",
+      "gitBlobSha": "31bcf7cfa2f746a39cc082fa72fae42281fb2f37",
+      "sha256": "eaa4db0b4a0261ee13e4e37fed27d5acf9ffe63bc57b7e2d5346496b7b1b0246"
+    },
+    "parsedQuestions": 24,
+    "edits": [
+      {
+        "number": 3,
+        "option": "A",
+        "before": "Whether or not to move to the state's mainland.",
+        "after": "Whether or not tomoveto the state's mainland.",
+        "proof": "exact non-whitespace characters; independent printed PDF/OCR supplies spacing"
+      },
+      {
+        "number": 3,
+        "option": "B",
+        "before": "Howtokeepthevillagefrom sinking into the sea.",
+        "after": "Howtokeepthevillagefrom sinking intothe sea.",
+        "proof": "exact non-whitespace characters; independent printed PDF/OCR supplies spacing"
+      }
+    ]
+  },
+  {
+    "paperId": "cet4-2021-12-1",
+    "independentSource": {
+      "repository": "AayuBal/cet-exams",
+      "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+      "path": "public/cet/papers/cet4/2021-12-1.pdf",
+      "gitBlobSha": "43707ff3f23e766970194606ce6ddea139deefce",
+      "sha256": "9bf9deb13cf23f1e4f589012ee4eceeb0dc88beada93c97102e23093d0196163"
+    },
+    "parsedQuestions": 25,
+    "edits": [
+      {
+        "number": 16,
+        "option": "A",
+        "before": "To cultivate good habits.",
+        "after": "To cultivategood habits.",
+        "proof": "exact non-whitespace characters; independent printed PDF/OCR supplies spacing"
+      },
+      {
+        "number": 18,
+        "option": "B",
+        "before": "Tackle the most difficult task first.",
+        "after": "Tackle the mostdifficulttask first.",
+        "proof": "exact non-whitespace characters; independent printed PDF/OCR supplies spacing"
+      }
+    ]
+  },
+  {
+    "paperId": "cet4-2022-06-1",
+    "independentSource": {
+      "repository": "AayuBal/cet-exams",
+      "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+      "path": "public/cet/papers/cet4/2022-06-1.pdf",
+      "gitBlobSha": "06ca635d7b453c975be92489d0faf70a226e815f",
+      "sha256": "98a4aaecf332f9874f8940a802593eb66b2cb44dfaabfaadade4eb4c97b9c585"
+    },
+    "parsedQuestions": 25,
+    "edits": [
+      {
+        "number": 17,
+        "option": "C",
+        "before": "Itmay sometimesproduce undesirable outcomes.",
+        "after": "Itmay sometimesproduce undesirableoutcomes.",
+        "proof": "exact non-whitespace characters; independent printed PDF/OCR supplies spacing"
+      },
+      {
+        "number": 19,
+        "option": "B",
+        "before": "They have not seen as much diversity as desired.",
+        "after": "They havenot seen as much diversity as desired.",
+        "proof": "exact non-whitespace characters; independent printed PDF/OCR supplies spacing"
+      },
+      {
+        "number": 20,
+        "option": "A",
+        "before": "Initiativestoachieve diversity in large corporations.",
+        "after": "Initiativestoachieve diversityinlargecorporations.",
+        "proof": "exact non-whitespace characters; independent printed PDF/OCR supplies spacing"
+      },
+      {
+        "number": 22,
+        "option": "D",
+        "before": "Using different forms of communication appropriately.",
+        "after": "Using differentforms of communication appropriately.",
+        "proof": "exact non-whitespace characters; independent printed PDF/OCR supplies spacing"
+      },
+      {
+        "number": 23,
+        "option": "A",
+        "before": "They are regarded as seriously binding.",
+        "after": "They are regarded as seriouslybinding.",
+        "proof": "exact non-whitespace characters; independent printed PDF/OCR supplies spacing"
+      }
+    ]
+  },
+  {
+    "paperId": "cet6-2024-06-1",
+    "independentSource": {
+      "repository": "AayuBal/cet-exams",
+      "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+      "path": "public/cet/papers/cet6/2024-06-1.pdf",
+      "gitBlobSha": "3ff12336dae21a0cb027f6eb7f07d461f45759c7",
+      "sha256": "ef879d945d233082b357ac48a524d9f755b4aa63deffa246c6cb86c32440431f"
+    },
+    "parsedQuestions": 25,
+    "edits": [
+      {
+        "number": 18,
+        "option": "C",
+        "before": "The  shark",
+        "after": "The shark",
+        "proof": "exact non-whitespace characters; independent printed PDF/OCR supplies spacing"
+      },
+      {
+        "number": 22,
+        "option": "D",
+        "before": "Human  individuality",
+        "after": "Human individuality",
+        "proof": "exact non-whitespace characters; independent printed PDF/OCR supplies spacing"
+      }
+    ]
+  },
+  {
+    "paperId": "cet6-2024-06-2",
+    "independentSource": {
+      "repository": "AayuBal/cet-exams",
+      "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+      "path": "public/cet/papers/cet6/2024-06-2.pdf",
+      "gitBlobSha": "e434b351d580e8f7454a100a370c1f278549d4ae",
+      "sha256": "3df3ad48a9094dac4cc62aee9b80c05b6cfd3b140ff1d121986ed2edd670c48c"
+    },
+    "parsedQuestions": 25,
+    "edits": [
+      {
+        "number": 4,
+        "option": "A",
+        "before": "One-tenth  of  it  is  sugar",
+        "after": "One-tenth of it is sugar",
+        "proof": "exact non-whitespace characters; independent printed PDF/OCR supplies spacing"
+      },
+      {
+        "number": 5,
+        "option": "A",
+        "before": "How  hehas  madehimself popular  as  the  mayorof  Berkton",
+        "after": "How he has made himself popular as the mayor of Berkton",
+        "proof": "exact non-whitespace characters; independent printed PDF/OCR supplies spacing"
+      },
+      {
+        "number": 10,
+        "option": "C",
+        "before": "Itmoves from one place to another by memory",
+        "after": "It moves from one place to another by memory",
+        "proof": "exact non-whitespace characters; independent printed PDF/OCR supplies spacing"
+      },
+      {
+        "number": 17,
+        "option": "D",
+        "before": "Theirexperiences of physical punishment haunted them",
+        "after": "Their experiences of physical punishment haunted them",
+        "proof": "exact non-whitespace characters; independent printed PDF/OCR supplies spacing"
+      }
+    ]
+  }
+]

@@ -334,7 +334,7 @@
         },
         {
           "key": "D",
-          "text": "Asian speaking characters ."
+          "text": "Asian speaking characters."
         }
       ],
       "answer": "C",
@@ -354,7 +354,7 @@
         },
         {
           "key": "C",
-          "text": "They contribute little to the U.S. film industry."
+          "text": "They contribute little to the U. S. film industry."
         },
         {
           "key": "D",
@@ -538,7 +538,7 @@
       "options": [
         {
           "key": "A",
-          "text": "Use some over-the-counter medicine instead ."
+          "text": "Use some over-the-counter medicine instead."
         },
         {
           "key": "B",
