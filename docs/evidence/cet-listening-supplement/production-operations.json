@@ -1,0 +1,60 @@
+{
+  "releaseId": "20261002T190651",
+  "parentReleaseId": "20261002T183827",
+  "sourceRevision": "2958b1ccce2ee6b563afb21137eaa593b81617c0",
+  "acceptedAt": "2026-10-02T11:10:50.155761+00:00",
+  "activeSymlink": "/opt/context-reader-releases/20261002T190651",
+  "changedFiles": [
+    "data/cet/listening/cet4-2025-06-2.json",
+    "data/cet/listening/cet6-2017-12-1.json",
+    "data/cet/listening/cet6-2017-12-2.json",
+    "data/cet/listening/cet6-2018-06-2.json",
+    "data/cet/listening/cet6-2019-06-1.json",
+    "data/cet/listening/cet6-2019-12-1.json",
+    "data/cet/listening/cet6-2019-12-2.json",
+    "data/cet/listening/cet6-2020-07-1.json",
+    "data/cet/listening/cet6-2020-09-1.json",
+    "data/cet/listening/cet6-2020-12-1.json",
+    "data/cet/listening/cet6-2020-12-2.json",
+    "data/cet/listening/cet6-2024-06-2.json",
+    "data/cet/listening/cet6-2025-12-1.json",
+    "data/cet/listening/cet6-2025-12-2.json",
+    "docs/cet-listening-supplement-release.md",
+    "docs/cet-listening-supplement-report.md",
+    "docs/evidence/cet-listening-supplement/final-option-formatting-proof.json",
+    "docs/evidence/cet-listening-supplement/targeted-original-corrections.json",
+    "tests/cet-listening.test.ts"
+  ],
+  "archiveSha256": "79550abc00c243bce4a96b80c684f8cb88d54bf54a2d19f00e1c1ba77ed556f0",
+  "stableGuardPassed": true,
+  "onlyAppCaddyRecreated": true,
+  "sevenServicesHealthy": true,
+  "rollbackImages": {
+    "current": "b1190bb4263f",
+    "parent": "b75dd7a10c72"
+  },
+  "backup": {
+    "path": "/var/backups/context-reader/postgres/daily/context-reader-20261001T192539Z.dump",
+    "shaVerifiedInitiallyAndAfterCorrection": true,
+    "isolatedRestoredPublicTables": 17,
+    "noSchemaChanges": true
+  },
+  "tests": {
+    "cet": 88,
+    "critical": 89,
+    "media": 6,
+    "loading": 7,
+    "providerBilling": 8,
+    "protectedContracts": 9,
+    "lintErrors": 0,
+    "preexistingLintWarnings": 44
+  },
+  "buildLocalAndServer": true,
+  "egressGuard": true,
+  "initialSupplementRelease": {
+    "releaseId": "20261002T183827",
+    "parentReleaseId": "20261002T154123",
+    "sourceRevision": "6823891a849ff3378932d9b25b6579834b90af5d",
+    "changedFilesCount": 84
+  }
+}

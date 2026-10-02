@@ -1,0 +1,21 @@
+{
+  "url": "https://context-reader.com/",
+  "at": "2026-10-02T11:04:43.594Z",
+  "paper": "cet6-2025-12-1",
+  "release": "20261002T183827",
+  "mode": "self_test",
+  "observedPlaybackSeconds": 67.621589,
+  "continuousFullRecordingVerified": false,
+  "submittedScope": 55,
+  "correct": 1,
+  "unanswered": 54,
+  "originalGroupsDisplayed": 7,
+  "interruptionRecorded": true,
+  "rightQuestionDock": false,
+  "submittedOptionLookup": {
+    "word": "distinguished",
+    "meaning": "使（自己）出众；表现卓越",
+    "sentenceTranslation": "他在外交工作中表现出色。"
+  },
+  "screenshot": "public-submitted-word-lookup.png"
+}

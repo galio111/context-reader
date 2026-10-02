@@ -1,0 +1,48 @@
+{
+  "usage": [
+    {
+      "feature": "word_explanation",
+      "status": "succeeded",
+      "quota_units": 1,
+      "created_at": "2026-10-02T11:11:30.669793+00:00",
+      "executions": [
+        {
+          "route": "/api/explain-word-stream",
+          "provider": "deepseek",
+          "model": "deepseek-flash",
+          "status": "succeeded"
+        }
+      ]
+    },
+    {
+      "feature": "standalone_dictionary",
+      "status": "succeeded",
+      "quota_units": 1,
+      "created_at": "2026-10-02T11:11:32.117426+00:00",
+      "executions": [
+        {
+          "route": "/api/dictionary-stream",
+          "provider": "deepseek",
+          "model": "deepseek-flash",
+          "status": "succeeded"
+        }
+      ]
+    },
+    {
+      "feature": "full_article_translation",
+      "status": "succeeded",
+      "quota_units": 1,
+      "created_at": "2026-10-02T11:11:37.491315+00:00",
+      "executions": [
+        {
+          "route": "/api/translate-article",
+          "provider": "deepseek",
+          "model": "deepseek-flash",
+          "status": "succeeded"
+        }
+      ]
+    }
+  ],
+  "recoveryAdminSession": true,
+  "recoveryAdminRead": true
+}

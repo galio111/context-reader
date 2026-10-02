@@ -1,5 +1,10 @@
 # Production Release Governance
-## Current accepted homepage title rise release
+
+## Current accepted GitHub listening supplement
+
+Accepted `20261002T190651`, parent `20261002T183827`, source `2958b1ccce2ee6b563afb21137eaa593b81617c0`, at 2026-10-02 11:10:50 UTC. Public release/parent, accepted state and current symlink agree. The 19-file original-format correction follows the 84-file supplement `20261002T183827` (parent `20261002T154123`, source `6823891a849ff3378932d9b25b6579834b90af5d`). Static SHA audio is separate from the archive; 62 papers/1550 questions/465 originals/61 recordings, old nineteen byte hashes and reading scopes remain valid. Stable guard/lock/contracts, builds, real Reader/history/playback, protocol-2 clients, signed-in default model/one charge, Admin, health, verified backup and current/parent images passed. Only app/caddy recreated. Human proofreading/full listening, physical devices and user judgment remain open. [Evidence and limits](cet-listening-supplement-release.md). Later documentation commits do not change the production source identity.
+
+## Previous accepted homepage title rise release
 
 Accepted `20261002T154123`, parent `20261002T152318`, source `e487bf297ce33751e9bb4196203f6fca660a7cb2`, at 2026-10-02 07:45:20 UTC. Public mainland identity, accepted state and current symlink agree. Exact 12-file cumulative delta; only app/caddy recreated. The original-audio listening and source corrections remain included. Guest title rise/fade keyframes, guest/member 6px hierarchy, CET previews/bridge, signed-in reading core with default DeepSeek Flash and one charge, nine contracts, builds, Admin/health, latest SHA-verified 17-table restore and current/parent images passed. Physical-device, Edge and user motion judgment remain open. [Release evidence](home-resource-rise-20261002.md). Later documentation-only merges do not change the deployed source identity.
 

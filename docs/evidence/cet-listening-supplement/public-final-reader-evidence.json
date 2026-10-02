@@ -1,0 +1,50 @@
+{
+  "url": "https://context-reader.com/",
+  "at": "2026-10-02T11:19:31.828Z",
+  "releaseId": "20261002T190651",
+  "paperId": "cet6-2025-12-1",
+  "oldSubmittedSnapshotRetained": true,
+  "oldSnapshotVersionWarningObserved": true,
+  "newPracticeOptionB": "He is his country's ambassador to Winopia.",
+  "audio": {
+    "playedSeconds": 20.815496,
+    "durationSeconds": 1543.93,
+    "readyState": 4,
+    "pausedAfterUserAction": true,
+    "srcBeforePlay": null
+  },
+  "rightQuestionDock": false,
+  "narrowViewport": {
+    "width": 390,
+    "clientWidth": 375,
+    "scrollWidth": 375,
+    "linkHeights": 44,
+    "dayLinkRgb": [
+      82,
+      103,
+      113
+    ],
+    "dayBackgroundRgb": [
+      255,
+      255,
+      255
+    ],
+    "nightLinkRgb": [
+      232,
+      241,
+      243
+    ],
+    "nightBackgroundRgb": [
+      29,
+      50,
+      58
+    ]
+  },
+  "newConsoleErrors": 0,
+  "existingWarnings": [
+    "Rapier deprecated initialization warning at 2026-10-02T10:45:14.517Z"
+  ],
+  "restoredDefaultViewport": true,
+  "restoredDayTheme": true,
+  "physicalDeviceAndFullRecordingListeningVerified": false
+}

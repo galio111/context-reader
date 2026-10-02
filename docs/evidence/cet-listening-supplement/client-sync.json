@@ -1,0 +1,13 @@
+{
+  "protocol": 2,
+  "twoIndependentIndexedDBDevices": true,
+  "listeningPlaybackSeconds": 42.5,
+  "listeningTranscriptSnapshotGroups": 7,
+  "oldReadingScopeQuestions": 30,
+  "v3CountupElapsedMs": 40000,
+  "v2Retained": true,
+  "oldFullV2ClientRoundtrip": true,
+  "articleRetained": true,
+  "noTombstones": true,
+  "writeCount": 5
+}
