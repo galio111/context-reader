@@ -1,0 +1,17 @@
+{
+  "releaseId": "20261002T152318",
+  "parentReleaseId": "20261002T145029",
+  "sourceRevision": "1667d2f8df69a8cdd7b8b2684432e5701d28ace6",
+  "acceptedAt": "2026-10-02T07:27:35.077172+00:00",
+  "backendMode": "mainland_internal",
+  "currentSymlink": "/opt/context-reader-releases/20261002T152318",
+  "changedFiles": 9,
+  "onlyAppAndCaddyRecreated": true,
+  "sevenServicesHealthy": true,
+  "currentImage": "sha256:00a10c9ff3be470529524c08b8d59a94d04c61f05bf016a30aa25d5411b4da75",
+  "parentImage": "sha256:f70582af5ae1cdb0d20b3250b622f730eea3b7104faac7b18431d8596f6509af",
+  "backup": "/var/backups/context-reader/postgres/daily/context-reader-20261001T192539Z.dump",
+  "backupShaVerified": true,
+  "backupIsolatedRestorePublicTables": 17,
+  "actualRollbackPerformed": false
+}

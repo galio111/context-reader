@@ -1,0 +1,276 @@
+{
+  "at": "2026-10-02T07:28:29.022Z",
+  "identity": {
+    "ok": true,
+    "checkedAt": "2026-10-02T07:28:22.719Z",
+    "releaseId": "20261002T152318",
+    "parentReleaseId": "20261002T145029",
+    "backendMode": "mainland_internal"
+  },
+  "catalog": {
+    "papers": 149,
+    "listening": 19,
+    "withoutListening": 130,
+    "guestPerLevel": 12
+  },
+  "questions": 475,
+  "groups": 143,
+  "papers": [
+    {
+      "id": "cet4-2023-06-1",
+      "questions": 25,
+      "groups": 8,
+      "audio": "/cet-audio/3808cc88faa3ab039a66839df17980d0c8273e4465942ba5aefb0122eb155f94.m4a"
+    },
+    {
+      "id": "cet4-2023-06-2",
+      "questions": 25,
+      "groups": 8,
+      "audio": "/cet-audio/cd9a1521a33fa280ebfb23e9a59ab6854609eb489b2bb42d57164df929d2bc2c.m4a"
+    },
+    {
+      "id": "cet4-2023-06-3",
+      "questions": 25,
+      "groups": 8,
+      "audio": "/cet-audio/cd9a1521a33fa280ebfb23e9a59ab6854609eb489b2bb42d57164df929d2bc2c.m4a"
+    },
+    {
+      "id": "cet4-2023-12-1",
+      "questions": 25,
+      "groups": 8,
+      "audio": "/cet-audio/86b9bae2635a81584a3cc60bd3fe21144fbaace9c977fe62bd774aee24ee417e.mp3"
+    },
+    {
+      "id": "cet4-2023-12-2",
+      "questions": 25,
+      "groups": 8,
+      "audio": "/cet-audio/cbda688a0b6e7b7809a64449a2beb42f146ef393d20e7b976f62f281917017a5.mp3"
+    },
+    {
+      "id": "cet4-2024-06-1",
+      "questions": 25,
+      "groups": 8,
+      "audio": "/cet-audio/3138dd4a84c4d9cf6de184efd41f7a5bd4a91d1aec518ccaf5944bdecda8e649.mp3"
+    },
+    {
+      "id": "cet4-2024-06-2",
+      "questions": 25,
+      "groups": 8,
+      "audio": "/cet-audio/1afc96eae88670d98ba389ab3e35283a9a93ae156359e1036fb8e5b22c89e364.mp3"
+    },
+    {
+      "id": "cet4-2024-12-1",
+      "questions": 25,
+      "groups": 8,
+      "audio": "/cet-audio/38ee3cfa972a8781df6ebda33d06267249e15029f7a6f42657d14422fa1e574f.mp3"
+    },
+    {
+      "id": "cet4-2024-12-2",
+      "questions": 25,
+      "groups": 8,
+      "audio": "/cet-audio/9aaa333bac54d826a67355b5a82b8d7453a782013be2dd51941e608b982ebb5b.mp3"
+    },
+    {
+      "id": "cet4-2025-06-1",
+      "questions": 25,
+      "groups": 8,
+      "audio": "/cet-audio/08ffbda6e40a3872e19453eafc34e022f45af0fde12488d4b938155b2f325e8f.mp3"
+    },
+    {
+      "id": "cet6-2022-06-1",
+      "questions": 25,
+      "groups": 7,
+      "audio": "/cet-audio/baf049101a22b4b7077ad0a76c0e0145e4cea2aae9033378ee9da107eb13e1e2.m4a"
+    },
+    {
+      "id": "cet6-2022-09-1",
+      "questions": 25,
+      "groups": 7,
+      "audio": "/cet-audio/4b67329de56971b4edf2b55eacbfe2369e778f15365b49f7717e67814385e4bd.mp3"
+    },
+    {
+      "id": "cet6-2022-12-1",
+      "questions": 25,
+      "groups": 7,
+      "audio": "/cet-audio/3c44ab29e498f31d6fd3fe4161b100b95d4aefbe1058ec746caec61adf2f2fda.m4a"
+    },
+    {
+      "id": "cet6-2022-12-2",
+      "questions": 25,
+      "groups": 7,
+      "audio": "/cet-audio/765025e97ae8a0860713a27b1504394d738722a11ee0e891ea9ccc02a1e07a5a.m4a"
+    },
+    {
+      "id": "cet6-2023-06-1",
+      "questions": 25,
+      "groups": 7,
+      "audio": "/cet-audio/2cf3e68b98488d9f091bbf27aea208ee5567e2c0cbc8e2af0aae2d2e23b6dd48.m4a"
+    },
+    {
+      "id": "cet6-2023-06-2",
+      "questions": 25,
+      "groups": 7,
+      "audio": "/cet-audio/ec04e996cc9f92d13f6803fdc5c236f5c81402b5524ba301f0ca595df8e05b9c.m4a"
+    },
+    {
+      "id": "cet6-2024-12-1",
+      "questions": 25,
+      "groups": 7,
+      "audio": "/cet-audio/fc55a9951fae6b300a077197f0ca403b7fd2f60dd3dbb7eeb0b212af07a29660.mp3"
+    },
+    {
+      "id": "cet6-2024-12-2",
+      "questions": 25,
+      "groups": 7,
+      "audio": "/cet-audio/a1e3b6fc1f5fd2c7cd5dc33cc76d1a222bd896048d537c1f7169b7e333f3d8ad.mp3"
+    },
+    {
+      "id": "cet6-2025-06-1",
+      "questions": 25,
+      "groups": 7,
+      "audio": "/cet-audio/32777b31c58942a0d2a5f24c1e4f1c5d4c8119604b6008e256c10c5f92975f85.mp3"
+    }
+  ],
+  "audio": [
+    {
+      "url": "/cet-audio/3808cc88faa3ab039a66839df17980d0c8273e4465942ba5aefb0122eb155f94.m4a",
+      "status": 206,
+      "contentType": "audio/mp4",
+      "contentRange": "bytes 0-1023/17433846",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "url": "/cet-audio/cd9a1521a33fa280ebfb23e9a59ab6854609eb489b2bb42d57164df929d2bc2c.m4a",
+      "status": 206,
+      "contentType": "audio/mp4",
+      "contentRange": "bytes 0-1023/17366304",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "url": "/cet-audio/86b9bae2635a81584a3cc60bd3fe21144fbaace9c977fe62bd774aee24ee417e.mp3",
+      "status": 206,
+      "contentType": "audio/mpeg",
+      "contentRange": "bytes 0-1023/23778228",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "url": "/cet-audio/cbda688a0b6e7b7809a64449a2beb42f146ef393d20e7b976f62f281917017a5.mp3",
+      "status": 206,
+      "contentType": "audio/mpeg",
+      "contentRange": "bytes 0-1023/59754825",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "url": "/cet-audio/3138dd4a84c4d9cf6de184efd41f7a5bd4a91d1aec518ccaf5944bdecda8e649.mp3",
+      "status": 206,
+      "contentType": "audio/mpeg",
+      "contentRange": "bytes 0-1023/22562096",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "url": "/cet-audio/1afc96eae88670d98ba389ab3e35283a9a93ae156359e1036fb8e5b22c89e364.mp3",
+      "status": 206,
+      "contentType": "audio/mpeg",
+      "contentRange": "bytes 0-1023/22652772",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "url": "/cet-audio/38ee3cfa972a8781df6ebda33d06267249e15029f7a6f42657d14422fa1e574f.mp3",
+      "status": 206,
+      "contentType": "audio/mpeg",
+      "contentRange": "bytes 0-1023/7025520",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "url": "/cet-audio/9aaa333bac54d826a67355b5a82b8d7453a782013be2dd51941e608b982ebb5b.mp3",
+      "status": 206,
+      "contentType": "audio/mpeg",
+      "contentRange": "bytes 0-1023/10819336",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "url": "/cet-audio/08ffbda6e40a3872e19453eafc34e022f45af0fde12488d4b938155b2f325e8f.mp3",
+      "status": 206,
+      "contentType": "audio/mpeg",
+      "contentRange": "bytes 0-1023/15273895",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "url": "/cet-audio/baf049101a22b4b7077ad0a76c0e0145e4cea2aae9033378ee9da107eb13e1e2.m4a",
+      "status": 206,
+      "contentType": "audio/mp4",
+      "contentRange": "bytes 0-1023/13944033",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "url": "/cet-audio/4b67329de56971b4edf2b55eacbfe2369e778f15365b49f7717e67814385e4bd.mp3",
+      "status": 206,
+      "contentType": "audio/mpeg",
+      "contentRange": "bytes 0-1023/69537756",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "url": "/cet-audio/3c44ab29e498f31d6fd3fe4161b100b95d4aefbe1058ec746caec61adf2f2fda.m4a",
+      "status": 206,
+      "contentType": "audio/mp4",
+      "contentRange": "bytes 0-1023/19911175",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "url": "/cet-audio/765025e97ae8a0860713a27b1504394d738722a11ee0e891ea9ccc02a1e07a5a.m4a",
+      "status": 206,
+      "contentType": "audio/mp4",
+      "contentRange": "bytes 0-1023/19307494",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "url": "/cet-audio/2cf3e68b98488d9f091bbf27aea208ee5567e2c0cbc8e2af0aae2d2e23b6dd48.m4a",
+      "status": 206,
+      "contentType": "audio/mp4",
+      "contentRange": "bytes 0-1023/20119016",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "url": "/cet-audio/ec04e996cc9f92d13f6803fdc5c236f5c81402b5524ba301f0ca595df8e05b9c.m4a",
+      "status": 206,
+      "contentType": "audio/mp4",
+      "contentRange": "bytes 0-1023/20119815",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "url": "/cet-audio/fc55a9951fae6b300a077197f0ca403b7fd2f60dd3dbb7eeb0b212af07a29660.mp3",
+      "status": 206,
+      "contentType": "audio/mpeg",
+      "contentRange": "bytes 0-1023/70863497",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "url": "/cet-audio/a1e3b6fc1f5fd2c7cd5dc33cc76d1a222bd896048d537c1f7169b7e333f3d8ad.mp3",
+      "status": 206,
+      "contentType": "audio/mpeg",
+      "contentRange": "bytes 0-1023/27895942",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "url": "/cet-audio/32777b31c58942a0d2a5f24c1e4f1c5d4c8119604b6008e256c10c5f92975f85.mp3",
+      "status": 206,
+      "contentType": "audio/mpeg",
+      "contentRange": "bytes 0-1023/18501013",
+      "cacheControl": "public, max-age=31536000, immutable"
+    }
+  ],
+  "boundaries": [
+    {
+      "path": "/api/account/sync",
+      "anonymousStatus": 401
+    },
+    {
+      "path": "/api/admin/models",
+      "anonymousStatus": 401
+    },
+    {
+      "path": "/api/admin/cet-paper",
+      "anonymousStatus": 403
+    }
+  ]
+}
