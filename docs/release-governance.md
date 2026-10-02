@@ -1,6 +1,9 @@
 # Production Release Governance
+## Current accepted homepage title rise release
 
-## Current accepted CET listening release
+Accepted `20261002T154123`, parent `20261002T152318`, source `e487bf297ce33751e9bb4196203f6fca660a7cb2`, at 2026-10-02 07:45:20 UTC. Public mainland identity, accepted state and current symlink agree. Exact 12-file cumulative delta; only app/caddy recreated. The original-audio listening and source corrections remain included. Guest title rise/fade keyframes, guest/member 6px hierarchy, CET previews/bridge, signed-in reading core with default DeepSeek Flash and one charge, nine contracts, builds, Admin/health, latest SHA-verified 17-table restore and current/parent images passed. Physical-device, Edge and user motion judgment remain open. [Release evidence](home-resource-rise-20261002.md). Later documentation-only merges do not change the deployed source identity.
+
+## Previous accepted CET listening release
 
 Accepted `20261002T152318`, parent `20261002T145029`, source `1667d2f8df69a8cdd7b8b2684432e5701d28ace6`, at 2026-10-02 07:27:35 UTC. Public mainland identity, accepted state and symlink agree. Exact nine-file corrective delta follows the cumulative 70-file listening release `20261002T145029`; only app/caddy recreated. Original audio is SHA-verified in a readonly static mount, independent of the source archive. Native MP3/M4A, real 55-question Reader submit, answer/original lookup, two protocol-2 clients, signed-in core model/billing, Admin/health/17-table isolated restore and current/parent images passed. Human full listening/OCR proofreading and physical-device/browser/user visual gates remain open. [Release evidence](cet-listening-release.md). Later evidence-only main commits do not change the production source identity.
 
