@@ -1,0 +1,155 @@
+{
+  "release": "20261003T002000",
+  "parent": "20261002T233200",
+  "catalog": {
+    "plans": [
+      {
+        "id": "free",
+        "name": "免费账号",
+        "monthlyFen": 0,
+        "annualFen": 0,
+        "points": 300,
+        "active": true
+      },
+      {
+        "id": "basic",
+        "name": "Basic",
+        "monthlyFen": 600,
+        "annualFen": 6000,
+        "points": 5000,
+        "active": true
+      },
+      {
+        "id": "plus",
+        "name": "Plus",
+        "monthlyFen": 1500,
+        "annualFen": 15000,
+        "points": 15000,
+        "active": true
+      },
+      {
+        "id": "max",
+        "name": "Max",
+        "monthlyFen": 3000,
+        "annualFen": 30000,
+        "points": 30000,
+        "active": true
+      }
+    ],
+    "paymentReady": false
+  },
+  "sync": true,
+  "explanation": {
+    "explanation": {
+      "word": "reading",
+      "lemma": "reading",
+      "phonetic": "/ˈriːdɪŋ/",
+      "phoneticFor": "reading",
+      "partOfSpeech": "名词",
+      "basicMeaning": "阅读",
+      "contextMeaning": "阅读（活动）",
+      "sentenceTranslation": "每日阅读帮助学生学会新单词。",
+      "usageNote": "此处 reading 是名词，指“阅读”这一活动，不是动词 read 的现在分词。",
+      "collocation": "daily reading（每日阅读）；extensive reading（泛读）；reading habit（阅读习惯）；reading comprehension（阅读理解）",
+      "exampleEnglish": "Daily reading helps students learn new words.",
+      "exampleChinese": "每日阅读帮助学生学会新单词。",
+      "difficulty": "easy",
+      "shouldAddToVocabulary": true,
+      "anki": {
+        "canMakeCloze": true,
+        "cardMode": "cloze_context",
+        "clozeSentence": "Daily ________ helps students learn new words.",
+        "contextCue": "阅读（活动）",
+        "basicCue": "阅读",
+        "frontPreview": "Daily ________ helps students learn new words.\n\n\n\n阅读（活动）",
+        "backPreview": "",
+        "ankiNoteId": null,
+        "ankiImportedAt": null
+      }
+    }
+  },
+  "executions": [
+    {
+      "action_id": "3d654928-7dfa-42f1-a8b2-ecf320f982dd",
+      "route": "/api/explain-word",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "status": "succeeded"
+    },
+    {
+      "action_id": "647d8680-791a-49f6-bdb8-7eb3534497ae",
+      "route": "/api/dictionary",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "status": "succeeded"
+    },
+    {
+      "action_id": "080f2422-a64d-4da3-b909-460e1f1e38f2",
+      "route": "/api/translate-article",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "status": "succeeded"
+    }
+  ],
+  "actions": [
+    {
+      "id": "080f2422-a64d-4da3-b909-460e1f1e38f2",
+      "feature": "full_article_translation",
+      "metric_key": "learning_points",
+      "quota_units": 10,
+      "status": "succeeded"
+    },
+    {
+      "id": "96e2fdeb-0f93-452e-beba-e1a68feab599",
+      "feature": "article_summary",
+      "metric_key": "learning_points",
+      "quota_units": 2,
+      "status": "cached"
+    },
+    {
+      "id": "647d8680-791a-49f6-bdb8-7eb3534497ae",
+      "feature": "standalone_dictionary",
+      "metric_key": "learning_points",
+      "quota_units": 5,
+      "status": "succeeded"
+    },
+    {
+      "id": "3d654928-7dfa-42f1-a8b2-ecf320f982dd",
+      "feature": "word_explanation",
+      "metric_key": "learning_points",
+      "quota_units": 1,
+      "status": "succeeded"
+    }
+  ],
+  "balance": {
+    "used": 18,
+    "allowance": 300,
+    "metricKey": "learning_points",
+    "remaining": 282,
+    "windowEnd": "2026-10-31T16:00:00+00:00",
+    "periodGrant": "351db478-3007-403c-88d0-31889da7ca37"
+  },
+  "accountId": "8c7e6515-c948-428a-beb4-5ac3941dbbef",
+  "quote": {
+    "kind": "membership",
+    "term": "month",
+    "basis": {
+      "used": 18,
+      "grant": "351db478-3007-403c-88d0-31889da7ca37",
+      "points": 300,
+      "version": null,
+      "membershipOrder": null
+    },
+    "planId": "basic",
+    "points": 5000,
+    "priceFen": 600,
+    "amountFen": 600,
+    "creditFen": 0
+  },
+  "adminBilling": true,
+  "boundaries": {
+    "/api/account/sync?protocol=2": 401,
+    "/api/admin/billing": 401,
+    "/api/billing?account=1": 401
+  }
+}
