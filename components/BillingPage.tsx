@@ -101,6 +101,10 @@ export function BillingPage({ onBack }: { onBack?: () => void }) {
 }
 export function BillingDialog({ onClose }: { onClose: () => void }) {
  const ref=useRef<HTMLDialogElement>(null);
- useEffect(()=>{const d=ref.current;d?.showModal();return ()=>d?.close();},[]);
- return createPortal(<dialog ref={ref} className={s.dialog} onCancel={e=>{e.preventDefault();onClose();}} aria-label="升级账号"><BillingPage onBack={onClose}/></dialog>,document.body);
+ useEffect(()=>{
+  const d=ref.current;const previous=document.activeElement instanceof HTMLElement?document.activeElement:null;
+  d?.showModal();
+  return ()=>{d?.close();queueMicrotask(()=>{if(previous?.isConnected)previous.focus({preventScroll:true});});};
+ },[]);
+ return createPortal(<dialog ref={ref} className={s.dialog} onKeyDown={e=>{e.stopPropagation();if(e.key==="Escape"){e.preventDefault();onClose();}}} onCancel={e=>{e.preventDefault();e.stopPropagation();onClose();}} aria-label="升级账号"><BillingPage onBack={onClose}/></dialog>,document.body);
 }
