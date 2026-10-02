@@ -3952,5 +3952,100 @@
     "before": "lunchtimes",
     "after": "lunch times",
     "proof": "exact unchanged letters; corresponding audio supplies a single unambiguous space pattern; known dictionary words and names retained"
+  },
+  {
+    "paperId": "cet4-2017-12-2",
+    "before": "Ibelieve",
+    "after": "I believe",
+    "proof": "exact unchanged letters; original recording has one unambiguous boundary; previously protected capital-I glue or observed be+a"
+  },
+  {
+    "paperId": "cet4-2018-12-1",
+    "before": "Ijust",
+    "after": "I just",
+    "proof": "exact unchanged letters; original recording has one unambiguous boundary; previously protected capital-I glue or observed be+a"
+  },
+  {
+    "paperId": "cet4-2020-12-1",
+    "before": "Iliked",
+    "after": "I liked",
+    "proof": "exact unchanged letters; original recording has one unambiguous boundary; previously protected capital-I glue or observed be+a"
+  },
+  {
+    "paperId": "cet4-2020-12-1",
+    "before": "Ihad",
+    "after": "I had",
+    "proof": "exact unchanged letters; original recording has one unambiguous boundary; previously protected capital-I glue or observed be+a"
+  },
+  {
+    "paperId": "cet4-2020-12-2",
+    "before": "Imight",
+    "after": "I might",
+    "proof": "exact unchanged letters; original recording has one unambiguous boundary; previously protected capital-I glue or observed be+a"
+  },
+  {
+    "paperId": "cet4-2025-06-2",
+    "before": "Iunderstand",
+    "after": "I understand",
+    "proof": "exact unchanged letters; original recording has one unambiguous boundary; previously protected capital-I glue or observed be+a"
+  },
+  {
+    "paperId": "cet4-2025-06-2",
+    "before": "Ihave",
+    "after": "I have",
+    "proof": "exact unchanged letters; original recording has one unambiguous boundary; previously protected capital-I glue or observed be+a"
+  },
+  {
+    "paperId": "cet4-2025-06-2",
+    "before": "Inan",
+    "after": "In an",
+    "proof": "exact unchanged letters; original recording has one unambiguous boundary; previously protected capital-I glue or observed be+a"
+  },
+  {
+    "paperId": "cet4-2025-12-1",
+    "before": "Itried",
+    "after": "I tried",
+    "proof": "exact unchanged letters; original recording has one unambiguous boundary; previously protected capital-I glue or observed be+a"
+  },
+  {
+    "paperId": "cet4-2025-12-1",
+    "before": "bea",
+    "after": "be a",
+    "proof": "exact unchanged letters; original recording has one unambiguous boundary; previously protected capital-I glue or observed be+a"
+  },
+  {
+    "paperId": "cet4-2025-12-2",
+    "before": "Iknow",
+    "after": "I know",
+    "proof": "exact unchanged letters; original recording has one unambiguous boundary; previously protected capital-I glue or observed be+a"
+  },
+  {
+    "paperId": "cet4-2025-12-2",
+    "before": "Iadmit",
+    "after": "I admit",
+    "proof": "exact unchanged letters; original recording has one unambiguous boundary; previously protected capital-I glue or observed be+a"
+  },
+  {
+    "paperId": "cet4-2025-12-2",
+    "before": "Ifollow",
+    "after": "I follow",
+    "proof": "exact unchanged letters; original recording has one unambiguous boundary; previously protected capital-I glue or observed be+a"
+  },
+  {
+    "paperId": "cet4-2025-12-2",
+    "before": "Ihave",
+    "after": "I have",
+    "proof": "exact unchanged letters; original recording has one unambiguous boundary; previously protected capital-I glue or observed be+a"
+  },
+  {
+    "paperId": "cet6-2016-06-2",
+    "before": "Isee",
+    "after": "I see",
+    "proof": "exact unchanged letters; original recording has one unambiguous boundary; previously protected capital-I glue or observed be+a"
+  },
+  {
+    "rule": "punctuation and in+number / number+time-unit spacing",
+    "changedParagraphs": 313,
+    "proof": "non-whitespace content equal before/after in every modified paragraph; no text deletion or reordering"
   }
 ]
