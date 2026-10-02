@@ -1188,3 +1188,9 @@ html[data-context-theme="night"] .cet-reading .cet-audio-play { background: #243
 
 html[data-context-theme="night"] .cet-listening-group .cet-option > button { color: #dcebed; border-color: #708b94; }
 html[data-context-theme="night"] .cet-listening-group .cet-option[data-chosen="true"] > button { background: #9bd8e3; color: #10272e; border-color: #9bd8e3; }
+
+/* History keeps dates and results readable in both the list and Reader sheet. */
+.cet-history time, .cet-recent-list time, .cet-start-record time { color: #526771; font-size: 12px; font-variant-numeric: tabular-nums; }
+.cet-start-record { flex-wrap: wrap; }
+.cet-history time, .cet-recent-list time { display: block; }
+html[data-context-theme="night"] .cet-history time, html[data-context-theme="night"] .cet-recent-list time, html[data-context-theme="night"] .cet-start-record time { color: #b8ccd5; }

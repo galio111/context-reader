@@ -87,7 +87,8 @@ export async function fetchWithProviderFailover(url: string, init: RequestInit, 
           if (event.choices?.[0]?.delta?.content?.trim()) content = true;
         }
       }
-      await recordModelHealth(model,200,Date.now()-started);
+      // Visible content must not wait for the diagnostic database write.
+      void recordModelHealth(model,200,Date.now()-started).catch(() => undefined);
       clearTimeout(timer);
       const activeReader = reader;
       return new Response(new ReadableStream<Uint8Array>({

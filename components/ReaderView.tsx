@@ -59,6 +59,7 @@ import {
   explanationFromCompletedStream,
   mergeStreamDisplayIntoExplanation,
 } from "@/lib/explanationDisplay";
+import { createTextReveal } from "@/lib/textReveal";
 import { EXPLANATION_STREAM_COMPLETE_MARKER } from "@/lib/explanationStreamProtocol";
 import { beginForegroundLookup, createExplanationStreamStore } from "@/lib/explanationStreamStore";
 import { currentFormPhonetic } from "@/lib/pronunciation";
@@ -2358,6 +2359,11 @@ export function ReaderView({
     setExplanationStreamText("");
     setExplanationStreaming(true);
 
+    const reveal = createTextReveal({
+      write: setExplanationStreamText,
+      signal: controller.signal,
+      immediate: () => document.hidden || window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+    });
     let streamedExplanation: WordExplanation | null = null;
 
     function acceptCompletedStream(completedText: string) {
@@ -2373,8 +2379,7 @@ export function ReaderView({
       setCachedExplanation(cacheKey, completedExplanation);
       setExplanation(completedExplanation);
       if (!examSurface?.locked) examSurface?.onAssistanceShown?.("lookup");
-      setExplanationStreamText(completedText);
-      setExplanationStreaming(false);
+      void reveal.finish(completedText);
       if (options.syncVocabulary && account.authenticated) {
         setVocabularyEntries(replaceMatchingVocabularyEntry(completedExplanation, context, articleSource));
       }
@@ -2385,7 +2390,7 @@ export function ReaderView({
       controller.signal,
       (chunk) => {
         if (!controller.signal.aborted) {
-          setExplanationStreamText((current) => `${current}${chunk}`);
+          reveal.append(chunk);
         }
       },
       acceptCompletedStream,
@@ -2422,7 +2427,8 @@ export function ReaderView({
       setCachedExplanation(cacheKey, nextExplanation);
       setExplanation(nextExplanation);
       if (!examSurface?.locked) examSurface?.onAssistanceShown?.("lookup");
-      setExplanationStreamText(durableDisplayText);
+      await reveal.finish(durableDisplayText);
+      if (controller.signal.aborted) return;
       setExplanationStreaming(false);
       if (options.syncVocabulary) {
         if (account.authenticated) {
@@ -2444,6 +2450,8 @@ export function ReaderView({
         openLogin("游客试用额度已用完，登录后可继续查词并跨设备同步学习数据。");
       }
     } finally {
+      await reveal.finish();
+      reveal.dispose();
       finishForegroundLookup();
       if (abortRef.current === controller) {
         abortRef.current = null;
