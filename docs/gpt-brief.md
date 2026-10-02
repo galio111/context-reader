@@ -11,7 +11,7 @@ Monthly repurchase/upgrade starts a new cycle with remaining-value credit limite
 
 ## 当前生产（2026-10-02 GitHub听力增补）
 
-当前接受 `20261002T190651`（parent `20261002T183827`，source `2958b1ccce2ee6b563afb21137eaa593b81617c0`），公网/current/state一致；保留首页上浮及既有功能。现有149套中62套听力（四级31/六级31），1550题/465组原文/61份录音，原19套在增补阶段逐字节不改；本次其中6套来源污染定点纠正，原始哈希与可逆证明保留。来源、未接入87套及详细解析/人工/设备限制见[cet-listening-supplement-report.md](cet-listening-supplement-report.md)，正式发布、真实页面/数据/运行证据见[cet-listening-supplement-release.md](cet-listening-supplement-release.md)。
+当前接受 `20261002T202624`（parent `20261002T201050`，source `205c32b7a5d17c51c0126bfbffca9b58b21fb3fc`），公网/current/state一致；保留首页上浮及既有功能。现有149套中62套听力（四级31/六级31），1550题/465组原文/61份录音，原19套在增补阶段逐字节不改；本次其中6套来源污染定点纠正，原始哈希与可逆证明保留。来源、未接入87套及详细解析/人工/设备限制见[cet-listening-supplement-report.md](cet-listening-supplement-report.md)，听力增补的历史发布见[cet-listening-supplement-release.md](cet-listening-supplement-release.md)，最新水印/页脚修复18处、真实页面与运行证据见[cet-listening-watermark-release.md](cet-listening-watermark-release.md)。
 
 ## 首页资源标题上浮修订（2026-10-02，已生产，观感待用户接受）
 
@@ -22,7 +22,7 @@ Monthly repurchase/upgrade starts a new cycle with remaining-value credit limite
 
 ## CET 听力增补（已生产，人工与设备验收开放）
 
-当前接受 `20261002T190651`（parent `20261002T183827`，source `2958b1ccce2ee6b563afb21137eaa593b81617c0`），公网/current/state一致；保留首页上浮及既有功能。现有149套中62套听力（四级31/六级31），1550题/465组原文/61份录音，原19套在增补阶段逐字节不改；本次其中6套来源污染定点纠正，原始哈希与可逆证明保留。来源、未接入87套及详细解析/人工/设备限制见[cet-listening-supplement-report.md](cet-listening-supplement-report.md)，正式发布、真实页面/数据/运行证据见[cet-listening-supplement-release.md](cet-listening-supplement-release.md)。
+当前接受 `20261002T202624`（parent `20261002T201050`，source `205c32b7a5d17c51c0126bfbffca9b58b21fb3fc`），公网/current/state一致；保留首页上浮及既有功能。现有149套中62套听力（四级31/六级31），1550题/465组原文/61份录音，原19套在增补阶段逐字节不改；本次其中6套来源污染定点纠正，原始哈希与可逆证明保留。来源、未接入87套及详细解析/人工/设备限制见[cet-listening-supplement-report.md](cet-listening-supplement-report.md)，听力增补的历史发布见[cet-listening-supplement-release.md](cet-listening-supplement-release.md)，最新水印/页脚修复18处、真实页面与运行证据见[cet-listening-watermark-release.md](cet-listening-watermark-release.md)。
 
 ## 首次19套听力的历史证据（当前已由62套增补取代）
 
@@ -189,4 +189,4 @@ DeepSeek 保持首选；查词/划词及全文翻译继续默认 Flash，其他�
 2026-09-23 用户截图证实精选外刊列表快滑时有封面的卡片仍出现灰框；远距离预加载和较小预览均未达到目标。现有 256×192 同图预览、普通卡片免高清请求、目录缓存及返回卡片定位已发布。地址 200、预览字段覆盖率与 304 均不能证明真实登录冷缓存、手机滚动与 Reader 正文图片的主观体验；首次并发目录的 17.68/20.44 秒仍不达用户零等待要求。详情见 [featured-image-scroll-open-issue.md](featured-image-scroll-open-issue.md)。
 
 
-CET 暂停划记/题目翻译修订：暂停仍能新增、改色、删除本次自测划记，已提交只读；长句越界松手与句尾标记渲染已修正。全文翻译覆盖当前篇正文、题干、选项和词库，历史使用冻结题目。下划线2.5px/.24em间距。发布身份和实测边界见 `docs/cet-mark-translation-release.md`。
+CET 暂停划记/题目翻译已生产（20261002T225700，parent 20261002T202624，source ae4ece526668fa14bc1636445821f98291e500ae）：暂停仍能新增、改色、删除本次自测划记，已提交只读；长句越界松手与句尾标记渲染已修正。全文翻译覆盖当前篇正文、题干、选项和词库，历史使用冻结题目。下划线2.5px/.24em间距。发布身份和实测边界见 `docs/cet-mark-translation-release.md`。
