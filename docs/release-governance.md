@@ -1,5 +1,10 @@
 # Production Release Governance
 
+## Current accepted unified billing release
+
+Accepted `20261002T233200`, parent `20261002T232000`, source `38bba496bf233a2d4f6cac0a16b74a3ee1336ec4`, at `2026-10-02T15:36:08Z`. Public identity/current/accepted state agree. The initial 52-file billing release `20261002T232000` (parent `20261002T225700`, source `d2fbd6224c44a26b0481d810a97d5d64270ad9af`) and final three-file keyboard correction retain all CET work. Unified points, dynamic prices/Admin, purchase/credit/annual monthly grants and Native integration are deployed; actual payment is disabled pending merchant setup. Core/billing/CET/media/loading, SQL/concurrency/legacy contracts, build and egress checks passed. Real signed-in 1+5+2+10=18 point ledger, sync, pricing/Menu/Admin, threshold/exhaustion, guest CET returns, seven-service health, 23-table backup restore and current/parent images verified. Real payment/refund, physical-device and final user visual acceptance remain open. [Evidence](unified-billing-release.md).
+
+
 ## Current accepted CET marking and translation fix
 
 Accepted `20261002T225700`, parent `20261002T202624`, source `ae4ece526668fa14bc1636445821f98291e500ae`, at 2026-10-02 14:59:16 UTC. Public mainland identity and accepted state agree. Paused annotation edits, margin selection capture, end-of-text rendering, underline spacing and question-inclusive translation are deployed. 95 CET, 89 core tests, nine contracts, local/server builds, public paused menu and complete 32-block translation, account/sync/Admin, seven-service health, 17-table isolated backup restore and current/parent images passed. Only app/caddy recreated. Physical touch, Edge/Safari and user visual acceptance remain open. [Evidence](cet-mark-translation-release.md).
