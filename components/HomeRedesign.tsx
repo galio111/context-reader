@@ -577,10 +577,14 @@ export function HomeRedesign(props: HomeRedesignProps) {
       let viewport = window.innerHeight;
       const nearby = new Set<Element>();
       const clamp = (value: number) => Math.min(1, Math.max(0, value));
+      const smooth = (value: number) => { const progress = clamp(value); return progress * progress * (3 - 2 * progress); };
       const paint = () => {
         frame = 0;
-        const exit = clamp((viewport * .76 - (bottom - window.scrollY)) / (viewport * .6));
-        const reveal = clamp((viewport * .93 - (headTop - window.scrollY)) / (viewport * .36));
+        if (document.body.style.position === "fixed") return;
+        // Retire the demo first, then settle the resource title near mid-screen.
+        // Both follow ordinary scrolling and reverse without a timed replay.
+        const exit = smooth((viewport * .82 - (bottom - window.scrollY)) / (viewport * .44));
+        const reveal = smooth((viewport * .82 - (headTop - window.scrollY)) / (viewport * .28));
         showcase.style.setProperty("--showcase-exit", exit.toFixed(4));
         head.style.setProperty("--resource-reveal", reveal.toFixed(4));
       };
@@ -589,7 +593,8 @@ export function HomeRedesign(props: HomeRedesignProps) {
         // Cache layout on resize. Scrolling only reads the scroll offset.
         viewport = window.innerHeight;
         bottom = showcase.getBoundingClientRect().bottom + window.scrollY;
-        headTop = head.getBoundingClientRect().top + window.scrollY;
+        // offsetTop is the title's resting position, unaffected by its reveal transform.
+        headTop = head.getBoundingClientRect().top + window.scrollY + (head.querySelector("h2")?.offsetTop || 0);
         paint();
       };
       measure();
