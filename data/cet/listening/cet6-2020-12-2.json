@@ -106,19 +106,19 @@
       "options": [
         {
           "key": "A",
-          "text": "It isn’t so enjoyable as he expected"
+          "text": "It isn’t so enjoyable as he expected."
         },
         {
           "key": "B",
-          "text": "It isn’t so motivating as he believed"
+          "text": "It isn’t so motivating as he believed."
         },
         {
           "key": "C",
-          "text": "It doesn’t enable him to eam as much money as he used to"
+          "text": "It doesn’t enable him to earn as much money as he used to."
         },
         {
           "key": "D",
-          "text": "It doesn’t seem to offer as much freedom as he anticipated"
+          "text": "It doesn’t seem to offer as much freedom as he anticipated."
         }
       ],
       "answer": "D",
@@ -130,11 +130,11 @@
       "options": [
         {
           "key": "A",
-          "text": "Not all of them care about their employees’ behaviors"
+          "text": "Not all of them care about their employees’ behaviors."
         },
         {
           "key": "B",
-          "text": "Few of them are aware of their employees’ feelings"
+          "text": "Few of them are aware of their employees’ feelings."
         },
         {
           "key": "C",
@@ -142,7 +142,7 @@
         },
         {
           "key": "D",
-          "text": "Not all of them lnow how to motivate their employees"
+          "text": "Not all of them know how to motivate their employees."
         }
       ],
       "answer": "D",
@@ -182,7 +182,7 @@
         },
         {
           "key": "B",
-          "text": "The need for getting recommendations from their managers"
+          "text": "The need for getting recommendations from their managers."
         },
         {
           "key": "C",
@@ -190,7 +190,7 @@
         },
         {
           "key": "D",
-          "text": "The way to explore employees’ interests and talents"
+          "text": "The way to explore employees’ interests and talents."
         }
       ],
       "answer": "A",
@@ -206,7 +206,7 @@
         },
         {
           "key": "B",
-          "text": "Good weather triggers consumers’ desire to go shopping"
+          "text": "Good weather triggers consumers’ desire to go shopping."
         },
         {
           "key": "C",
@@ -214,7 +214,7 @@
         },
         {
           "key": "D",
-          "text": "Consumers’ mental states change with the prices of goods"
+          "text": "Consumers’ mental states change with the prices of goods."
         }
       ],
       "answer": "C",
@@ -278,7 +278,7 @@
         },
         {
           "key": "B",
-          "text": "A cool office will boost employees’ productivity"
+          "text": "A cool office will boost employees’ productivity."
         },
         {
           "key": "C",
@@ -298,7 +298,7 @@
       "options": [
         {
           "key": "A",
-          "text": "People in their comfort zone of temperature are more satisfied with their productivity"
+          "text": "People in their comfort zone of temperature are more satisfied with their productivity."
         },
         {
           "key": "B",
@@ -398,7 +398,7 @@
         },
         {
           "key": "B",
-          "text": "Solitude adversely affected the participants’ mental well-being"
+          "text": "Solitude adversely affected the participants’ mental well-being."
         },
         {
           "key": "C",
@@ -454,7 +454,7 @@
         },
         {
           "key": "D",
-          "text": "It consumes almost a quarter of the body’s total energy"
+          "text": "It consumes almost a quarter of the body’s total energy."
         }
       ],
       "answer": "D",
@@ -538,7 +538,7 @@
       "options": [
         {
           "key": "A",
-          "text": "Follow their career coaches’ guidelines"
+          "text": "Follow their career coaches’ guidelines."
         },
         {
           "key": "B",
@@ -598,7 +598,7 @@
         },
         {
           "key": "D",
-          "text": "Tailoring their expectations to the company’s long-term goal"
+          "text": "Tailoring their expectations to the company’s long-term goal."
         }
       ],
       "answer": "B",

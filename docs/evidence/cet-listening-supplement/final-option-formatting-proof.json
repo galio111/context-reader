@@ -1,0 +1,3780 @@
+{
+  "baselineSourceRevision": "6823891a849ff3378932d9b25b6579834b90af5d",
+  "changedOptions": 497,
+  "changedPapers": [
+    "cet4-2025-06-2",
+    "cet6-2017-12-1",
+    "cet6-2017-12-2",
+    "cet6-2018-06-2",
+    "cet6-2019-06-1",
+    "cet6-2019-12-1",
+    "cet6-2019-12-2",
+    "cet6-2020-07-1",
+    "cet6-2020-09-1",
+    "cet6-2020-12-1",
+    "cet6-2020-12-2",
+    "cet6-2024-06-2",
+    "cet6-2025-12-1",
+    "cet6-2025-12-2"
+  ],
+  "unchanged": {
+    "allLettersAndDigits": true,
+    "answerKeys": true,
+    "transcripts": true,
+    "originalNineteenPapers": true,
+    "readingPapers": true
+  },
+  "papers": [
+    {
+      "paperId": "cet4-2016-06-1",
+      "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.06/%E7%9C%9F%E9%A2%98PDF/2016%E5%B9%B46%E6%9C%88%E5%A4%A7%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%AC%AC1%E5%A5%97%E7%9C%9F%E9%A2%98.pdf",
+      "parsedQuestions": 25,
+      "edits": []
+    },
+    {
+      "paperId": "cet4-2016-06-2",
+      "parsedQuestions": 0,
+      "status": "insufficient complete native layout; unchanged",
+      "edits": []
+    },
+    {
+      "paperId": "cet4-2016-12-1",
+      "parsedQuestions": 0,
+      "status": "insufficient complete native layout; unchanged",
+      "edits": []
+    },
+    {
+      "paperId": "cet4-2016-12-2",
+      "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2016.12/%E7%9C%9F%E9%A2%98Word/2016%E5%B9%B412%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A5%97%EF%BC%89.docx",
+      "parsedQuestions": 25,
+      "edits": []
+    },
+    {
+      "paperId": "cet4-2017-06-1",
+      "parsedQuestions": 24,
+      "status": "insufficient complete native layout; unchanged",
+      "edits": []
+    },
+    {
+      "paperId": "cet4-2017-06-2",
+      "parsedQuestions": 20,
+      "status": "insufficient complete native layout; unchanged",
+      "edits": []
+    },
+    {
+      "paperId": "cet4-2017-12-1",
+      "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.12/%E7%9C%9F%E9%A2%98Word/2017%E5%B9%B412%E6%9C%88%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E5%8D%B7%E4%B8%80%EF%BC%89.docx",
+      "parsedQuestions": 25,
+      "edits": []
+    },
+    {
+      "paperId": "cet4-2017-12-2",
+      "parsedQuestions": 0,
+      "status": "insufficient complete native layout; unchanged",
+      "edits": []
+    },
+    {
+      "paperId": "cet4-2018-06-1",
+      "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.06/%E7%9C%9F%E9%A2%98PDF/2018.06%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97.pdf",
+      "parsedQuestions": 25,
+      "edits": []
+    },
+    {
+      "paperId": "cet4-2018-06-2",
+      "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.06/%E7%9C%9F%E9%A2%98PDF/2018.06%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC2%E5%A5%97.pdf",
+      "parsedQuestions": 25,
+      "edits": []
+    },
+    {
+      "paperId": "cet4-2018-12-1",
+      "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.12/%E7%9C%9F%E9%A2%98Word/2018%E5%B9%B412%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC%E4%B8%80%E5%A5%97.docx",
+      "parsedQuestions": 25,
+      "edits": []
+    },
+    {
+      "paperId": "cet4-2018-12-2",
+      "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.12/%E7%9C%9F%E9%A2%98Word/2018%E5%B9%B412%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC%E4%BA%8C%E5%A5%97.docx",
+      "parsedQuestions": 25,
+      "edits": []
+    },
+    {
+      "paperId": "cet4-2019-12-1",
+      "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.12/%E7%9C%9F%E9%A2%98Word/2019%E5%B9%B412%E6%9C%88%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97.docx",
+      "parsedQuestions": 25,
+      "edits": []
+    },
+    {
+      "paperId": "cet4-2020-09-1",
+      "parsedQuestions": 0,
+      "status": "insufficient complete native layout; unchanged",
+      "edits": []
+    },
+    {
+      "paperId": "cet4-2020-12-1",
+      "parsedQuestions": 0,
+      "status": "insufficient complete native layout; unchanged",
+      "edits": []
+    },
+    {
+      "paperId": "cet4-2020-12-2",
+      "parsedQuestions": 0,
+      "status": "insufficient complete native layout; unchanged",
+      "edits": []
+    },
+    {
+      "paperId": "cet4-2021-12-1",
+      "parsedQuestions": 0,
+      "status": "insufficient complete native layout; unchanged",
+      "edits": []
+    },
+    {
+      "paperId": "cet4-2022-06-1",
+      "parsedQuestions": 0,
+      "status": "insufficient complete native layout; unchanged",
+      "edits": []
+    },
+    {
+      "paperId": "cet4-2025-06-2",
+      "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.06/%E7%9C%9F%E9%A2%98PDF/cet4_2025_06_2.pdf",
+      "parsedQuestions": 25,
+      "edits": [
+        {
+          "number": 1,
+          "option": "B",
+          "before": "They won this year's 7 Mile Bridge Run.",
+          "after": "They won this year’s 7 Mile Bridge Run.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 5,
+          "option": "B",
+          "before": "They are brought in by the store's customers.",
+          "after": "They are brought in by the store’s customers.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 11,
+          "option": "A",
+          "before": "Discuss the matter with the woman's mother.",
+          "after": "Discuss the matter with the woman’s mother.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 16,
+          "option": "A",
+          "before": "A display of a variety of products increases consumers' interest.",
+          "after": "A display of a variety of products increases consumers’ interest.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 16,
+          "option": "B",
+          "before": "Too many choices decrease one's desire to buy.",
+          "after": "Too many choices decrease one’s desire to buy.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 20,
+          "option": "A",
+          "before": "By linking it with employees' salary.",
+          "after": "By linking it with employees’ salary.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 22,
+          "option": "C",
+          "before": "It is estimated at 11% of the UK's total food supply.",
+          "after": "It is estimated at 11% of the UK’s total food supply.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 25,
+          "option": "D",
+          "before": "To meet customers' urgent demand.",
+          "after": "To meet customers’ urgent demand.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        }
+      ]
+    },
+    {
+      "paperId": "cet4-2025-12-1",
+      "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.12/%E7%9C%9F%E9%A2%98PDF/cet4_2025_12_1.pdf",
+      "parsedQuestions": 25,
+      "edits": []
+    },
+    {
+      "paperId": "cet4-2025-12-2",
+      "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.12/%E7%9C%9F%E9%A2%98PDF/cet4_2025_12_2.pdf",
+      "parsedQuestions": 25,
+      "edits": []
+    },
+    {
+      "paperId": "cet6-2016-06-2",
+      "parsedQuestions": 0,
+      "status": "insufficient complete native layout; unchanged",
+      "edits": []
+    },
+    {
+      "paperId": "cet6-2017-12-1",
+      "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.12/%E7%9C%9F%E9%A2%98Word/2017%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC1%E5%A5%97%EF%BC%89.docx",
+      "parsedQuestions": 25,
+      "edits": [
+        {
+          "number": 4,
+          "option": "C",
+          "before": "Americans’ habit of buying food in bulk",
+          "after": "American’s habit of buying food in bulk",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 7,
+          "option": "A",
+          "before": "Mail a gift card to her",
+          "after": "Mail a gift card to her.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 7,
+          "option": "D",
+          "before": "Give her some coupons",
+          "after": "Give her some coupons.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2017-12-2",
+      "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.12/%E7%9C%9F%E9%A2%98Word/2017%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC2%E5%A5%97%EF%BC%89.docx",
+      "parsedQuestions": 25,
+      "edits": [
+        {
+          "number": 3,
+          "option": "B",
+          "before": "She had a good knowledge of the town’s history.",
+          "after": "She had a good knowledge of the town's history.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 4,
+          "option": "D",
+          "before": "He was too nervous to speak up.",
+          "after": "He was too nervous to speak up",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 8,
+          "option": "D",
+          "before": "Exporting their motorbikes to Indonesia.",
+          "after": "Exporting their motorbikes to Indonesia",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 9,
+          "option": "D",
+          "before": "It shows that “night owls” work much less efficiently.",
+          "after": "It shows that \"night owls\" work much less efficiently.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 11,
+          "option": "D",
+          "before": "Go to bed earlier.",
+          "after": "Go to bed earlier",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 15,
+          "option": "D",
+          "before": "They account for 8.5% of the U.S. population.",
+          "after": "They account for 8.5% of the U. S. population",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 22,
+          "option": "D",
+          "before": "A negative stereotype sticks while a positive one does not.",
+          "after": "A negative stereotype sticks while a positive one does not",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 24,
+          "option": "C",
+          "before": "It may cause serious harm to one’s liver.",
+          "after": "It may cause serious harm to one's liver.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2018-06-1",
+      "parsedQuestions": 0,
+      "status": "insufficient complete native layout; unchanged",
+      "edits": []
+    },
+    {
+      "paperId": "cet6-2018-06-2",
+      "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2018.06/%E7%9C%9F%E9%A2%98PDF/2018.06%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC2%E5%A5%97.pdf",
+      "parsedQuestions": 25,
+      "edits": [
+        {
+          "number": 1,
+          "option": "A",
+          "before": ". She advocates animal protection",
+          "after": ". She advocates animal protection.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 1,
+          "option": "B",
+          "before": ". She sells a special kind of coffee",
+          "after": ". She sells a special kind of coffee.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 1,
+          "option": "C",
+          "before": ". She is going to start a cafe chain",
+          "after": ". She is going to start a cafe chain.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 1,
+          "option": "D",
+          "before": ". She is the owner of a special cafe",
+          "after": ". She is the owner of a special cafe.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 2,
+          "option": "A",
+          "before": ". They bear a lot of similarities",
+          "after": ". They bear a lot of similarities.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 2,
+          "option": "B",
+          "before": ". They are a profitable business sector",
+          "after": ". They are a profitable business sector.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 2,
+          "option": "C",
+          "before": ". They cater to different customers",
+          "after": ". They cater to different customers.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 2,
+          "option": "D",
+          "before": ". They help take care of customers' pets",
+          "after": ". They help take care of customers' pets.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 3,
+          "option": "A",
+          "before": ". By giving them regular cleaning and injections",
+          "after": ". By giving them regular cleaning and injections.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 3,
+          "option": "B",
+          "before": ". By selecting breeds that are tame and peaceful",
+          "after": ". By selecting breeds that are tame and peaceful.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 3,
+          "option": "C",
+          "before": ". By placing them at a safe distance from customers",
+          "after": ". By placing them at a safe distance from customers.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 3,
+          "option": "D",
+          "before": ". By briefing customers on how to get along with them",
+          "after": ". By briefing customers on how to get along with them.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 4,
+          "option": "A",
+          "before": ". They want to learn about rabbits",
+          "after": ". They want to learn about rabbits.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 4,
+          "option": "B",
+          "before": ". They like to bring in their children",
+          "after": ". They like to bring in their children.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 4,
+          "option": "C",
+          "before": ". They love the animals in her cafe",
+          "after": ". They love the animals in her cafe.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 4,
+          "option": "D",
+          "before": ". They give her cafe favorite reviews",
+          "after": ". They give her cafe favorite reviews.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 5,
+          "option": "A",
+          "before": ". It contains too many additives",
+          "after": ". It contains too many additives.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 5,
+          "option": "B",
+          "before": ". It lacks the essential vitamins",
+          "after": ". It lacks the essential vitamins.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 5,
+          "option": "C",
+          "before": ". It can cause obesity",
+          "after": ". It can cause obesity.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 5,
+          "option": "D",
+          "before": ". It is mostly garbage",
+          "after": ". It is mostly garbage.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 6,
+          "option": "A",
+          "before": ". Its fancy design",
+          "after": ". Its fancy design.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 6,
+          "option": "B",
+          "before": ". TV commercials",
+          "after": ". TV commercials.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 6,
+          "option": "C",
+          "before": ". Its taste and texture",
+          "after": ". Its taste and texture.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 6,
+          "option": "D",
+          "before": ". Peer influence",
+          "after": ". Peer influence.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 7,
+          "option": "A",
+          "before": ". Investing heavily in the production of sweet foods",
+          "after": ". Investing heavily in the production of sweet foods.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 7,
+          "option": "B",
+          "before": ". Marketing their products with ordinary ingredients",
+          "after": ". Marketing their products with ordinary ingredients.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 7,
+          "option": "C",
+          "before": ". Trying to trick children into buying their products",
+          "after": ". Trying to trick children into buying their products.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 7,
+          "option": "D",
+          "before": ". Offering children more variable to choose from",
+          "after": ". Offering children more variable to choose from.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 8,
+          "option": "A",
+          "before": ". They hardly ate vegetables",
+          "after": ". They hardly ate vegetables.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 8,
+          "option": "B",
+          "before": ". They seldom had junk food",
+          "after": ". They seldom had junk food.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 8,
+          "option": "C",
+          "before": ". They favored chocolate-coated sweets",
+          "after": ". They favored chocolate-coated sweets.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 8,
+          "option": "D",
+          "before": ". They like the food advertised on TV",
+          "after": ". They like the food advertised on TV.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 9,
+          "option": "A",
+          "before": ". Stretches of farmland",
+          "after": ". Stretches of farmland.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 9,
+          "option": "B",
+          "before": ". Typical Egyptian animal farms",
+          "after": ". Typical Egyptian animal farms.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 9,
+          "option": "C",
+          "before": ". Tombs of ancient rulers",
+          "after": ". Tombs of ancient rulers.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 9,
+          "option": "D",
+          "before": ". Ruins left by devastating floods",
+          "after": ". Ruins left by devastating floods.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 10,
+          "option": "A",
+          "before": ". It provides habitats for more primitive tribes",
+          "after": ". It provides habitats for more primitive tribes.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 10,
+          "option": "B",
+          "before": ". It is hardly associated with great civilizations",
+          "after": ". It is hardly associated with great civilizations.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 10,
+          "option": "C",
+          "before": ". It has not yet been fully explored and exploited",
+          "after": ". It has not yet been fully explored and exploited.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 10,
+          "option": "D",
+          "before": ". It gathers water from many tropical rain forests",
+          "after": ". It gathers water from many tropical rain forests.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 11,
+          "option": "A",
+          "before": ". It carries about one fifth of the word' fresh water",
+          "after": ". It carries about one fifth of the word' fresh water.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 11,
+          "option": "B",
+          "before": ". It has numerous human settlements along its banks",
+          "after": ". It has numerous human settlements along its banks.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 11,
+          "option": "C",
+          "before": ". It is second only to the Mississippi River in width",
+          "after": ". It is second only to the Mississippi River in width.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 11,
+          "option": "D",
+          "before": ". It is as long as the Nile and the Yangtze combined",
+          "after": ". It is as long as the Nile and the Yangtze combined.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 12,
+          "option": "A",
+          "before": ". Living a life in the fast lane leads to success",
+          "after": ". Living a life in the fast lane leads to success.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 12,
+          "option": "B",
+          "before": ". We are always in a rush to do various things",
+          "after": ". We are always in a rush to do various things.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 12,
+          "option": "C",
+          "before": ". The search for tranquility has become a trend",
+          "after": ". The search for tranquility has become a trend.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 12,
+          "option": "D",
+          "before": ". All of us actually yearn for a slow and calm life",
+          "after": ". All of us actually yearn for a slow and calm life .",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 13,
+          "option": "A",
+          "before": ". She had trouble balancing family and work",
+          "after": ". She had trouble balancing family and work.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 13,
+          "option": "B",
+          "before": ". She enjoyed the various social events",
+          "after": ". She enjoyed the various social events.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 13,
+          "option": "C",
+          "before": ". She was accustomed to tight schedules",
+          "after": ". She was accustomed to tight schedules.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 13,
+          "option": "D",
+          "before": ". She spent all her leisure time writing books",
+          "after": ". She spent all her leisure time writing books.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 14,
+          "option": "A",
+          "before": ". The possibility of ruining her family",
+          "after": ". The possibility of ruining her family.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 14,
+          "option": "B",
+          "before": ". Becoming aware of her declining health",
+          "after": ". Becoming aware of her declining health.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 14,
+          "option": "C",
+          "before": ". The fatigue from living a fast-paced life",
+          "after": ". The fatigue from living a fast-paced life.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 14,
+          "option": "D",
+          "before": ". Reading a book about slowing down",
+          "after": ". Reading a book about slowing down.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 15,
+          "option": "A",
+          "before": ". She started to follow the cultural norms",
+          "after": ". She started to follow the cultural norms.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 15,
+          "option": "B",
+          "before": ". She came to enjoy doing everyday tasks",
+          "after": ". She came to enjoy doing everydaytasks.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 15,
+          "option": "C",
+          "before": ". She learn to use more polite expressions",
+          "after": ". She learn to use more polite expressions.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 15,
+          "option": "D",
+          "before": ". She stopped using to-do lists and calendars",
+          "after": ". She stopped using to-do lists and calendars.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 16,
+          "option": "A",
+          "before": ". They will root out native species altogether",
+          "after": ". They will root out native species altogether.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 16,
+          "option": "B",
+          "before": ". They contribute to a region's biodiversity",
+          "after": ". They contribute to a region's biodiversity.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 16,
+          "option": "C",
+          "before": ". They pose a threat to the local ecosystem",
+          "after": ". They pose a threat to the local ecosystem.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 16,
+          "option": "D",
+          "before": ". They will crossbreed with native species",
+          "after": ". They will crossbreed with native species.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 17,
+          "option": "A",
+          "before": ". Their classifications are meaningful",
+          "after": ". Their classifications are meaningful.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 17,
+          "option": "B",
+          "before": ". Their interactions are hard to define",
+          "after": ". Their interactions are hard to define.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 17,
+          "option": "C",
+          "before": ". Their definitions are changeable",
+          "after": ". Their definitions are changeable.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 17,
+          "option": "D",
+          "before": ". Their distinctions are artificial",
+          "after": ". Their distinctions are artificial.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 18,
+          "option": "C",
+          "before": ". Few of them can survive in their new habitats",
+          "after": ". Few of them can survive in their new habitats.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 18,
+          "option": "D",
+          "before": ". Only 10 percent of them can be naturalized",
+          "after": ". Only 10 percent of them can be naturalized.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 19,
+          "option": "A",
+          "before": ". Respect their traditional culture",
+          "after": ". Respect their traditional culture.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 19,
+          "option": "B",
+          "before": ". Attend their business seminars",
+          "after": ". Attend their business seminars.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 19,
+          "option": "C",
+          "before": ". Research their specific demands",
+          "after": ". Research their specific demands.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 19,
+          "option": "D",
+          "before": ". Adopt the right business strategies",
+          "after": ". Adopt the right business strategies.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 20,
+          "option": "A",
+          "before": ". Showing them your palm",
+          "after": ". Showing them your palm.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 20,
+          "option": "B",
+          "before": ". Giving them gifts of great value",
+          "after": ". Giving them gifts of great value.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 20,
+          "option": "C",
+          "before": ". Drinking alcohol on certain days of a month",
+          "after": ". Drinking alcohol on certain days of a month.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 20,
+          "option": "D",
+          "before": ". Clicking your fingers loudly in their presence",
+          "after": ". Clicking your fingers loudly in their presence.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 21,
+          "option": "A",
+          "before": ". They are very easy to satisfy",
+          "after": ". They are very easy to satisfy.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 21,
+          "option": "B",
+          "before": ". They have a strong sense of worth",
+          "after": ". They have a strong sense of worth.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 21,
+          "option": "C",
+          "before": ". They trend to friendly and enthusiastic",
+          "after": ". They trend to friendly and enthusiastic.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 21,
+          "option": "D",
+          "before": ". They have a break from 2:00 to 5:30 p.m",
+          "after": ". They have a break from 2:00 to 5:30 p.m.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 22,
+          "option": "A",
+          "before": ". He completely changed the company's culture",
+          "after": ". He completely changed the company's culture.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 22,
+          "option": "B",
+          "before": ". He collected paintings by world-famous artists",
+          "after": ". He collected paintings by world-famous artists.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 22,
+          "option": "C",
+          "before": ". He took over the sales department of Reader's Digest",
+          "after": ". He took over the sales department of Reader's Digest.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 22,
+          "option": "D",
+          "before": ". He had the company’s boardroom extensively renovated",
+          "after": ". He had the company’s boardroom extensively renovated.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 23,
+          "option": "A",
+          "before": ". It should be sold at a reasonable price",
+          "after": ". It should be sold at a reasonable price.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 23,
+          "option": "B",
+          "before": ". Its articles should be short and inspiring",
+          "after": ". Its articles should be short and inspiring.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 23,
+          "option": "C",
+          "before": ". It should be published in the world's leading languages",
+          "after": ". It should be published in the world's leading languages.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 23,
+          "option": "D",
+          "before": ". Its articles should entertain blue-and pink-collar workers",
+          "after": ". Its articles should entertain blue-and pink-collar workers.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 24,
+          "option": "A",
+          "before": ". He knew how to make the magazine profitable",
+          "after": ". He knew how to make the magazine profitable.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 24,
+          "option": "B",
+          "before": ". He served as a church minster for many years",
+          "after": ". He served as a church minster for many years.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 24,
+          "option": "C",
+          "before": ". He suffered many setbacks and misfortunes in his life",
+          "after": ". He suffered many setbacks and misfortunes in his life.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 24,
+          "option": "D",
+          "before": ". He treated the employees like members of his family",
+          "after": ". He treated the employees like members of his family.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 25,
+          "option": "A",
+          "before": ". It carried many more advertisements",
+          "after": ". It carried many more advertisements.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 25,
+          "option": "B",
+          "before": ". George Grune joined it as an ad salesman",
+          "after": ". George Grune joined it as an ad salesman.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 25,
+          "option": "C",
+          "before": ". Several hundred of its employees got fired",
+          "after": ". Several hundred of its employees got fired.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 25,
+          "option": "D",
+          "before": ". Its subscriptions increased considerably",
+          "after": ". Its subscriptions increased considerably.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2018-12-1",
+      "parsedQuestions": 0,
+      "status": "insufficient complete native layout; unchanged",
+      "edits": []
+    },
+    {
+      "paperId": "cet6-2018-12-2",
+      "parsedQuestions": 0,
+      "status": "insufficient complete native layout; unchanged",
+      "edits": []
+    },
+    {
+      "paperId": "cet6-2019-06-1",
+      "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.06/%E7%9C%9F%E9%A2%98Word/2019%E5%B9%B406%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC1%E5%A5%97%EF%BC%89.docx",
+      "parsedQuestions": 25,
+      "edits": [
+        {
+          "number": 1,
+          "option": "A",
+          "before": "A six-month-long negotiation.",
+          "after": "A six- month-long negotiation.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 4,
+          "option": "D",
+          "before": "Prepare for the wedding.",
+          "after": "Prepare for the wedding",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 9,
+          "option": "D",
+          "before": "They bring their potential into full play",
+          "after": "They bring their potential into full play.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 11,
+          "option": "D",
+          "before": "He broke three world skiing records in three years.",
+          "after": "He broke three world skiing records in three years",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 17,
+          "option": "C",
+          "before": "They try hard to meet the spectators’ expectations",
+          "after": "They try hard to meet the spectators’ expectations.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 19,
+          "option": "A",
+          "before": "People’s envy of slim models",
+          "after": "People’s envy of slim models.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 19,
+          "option": "B",
+          "before": "People’s craze for good health",
+          "after": "People’s craze for good health.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 21,
+          "option": "D",
+          "before": "Media influence",
+          "after": "Media influence.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 25,
+          "option": "D",
+          "before": "Their pace of evolution began to quicken.",
+          "after": "Their pace of evolution began to quicken",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2019-12-1",
+      "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.12/%E7%9C%9F%E9%A2%98Word/2019%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC1%E5%A5%97%EF%BC%89.docx",
+      "parsedQuestions": 25,
+      "edits": [
+        {
+          "number": 1,
+          "option": "A",
+          "before": "Magazine reporter.",
+          "after": "Magazine reporter",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 1,
+          "option": "B",
+          "before": "Fashion designer.",
+          "after": "Fashion designer",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 1,
+          "option": "C",
+          "before": "Website designer.",
+          "after": "Website designer",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 1,
+          "option": "D",
+          "before": "Features editor.",
+          "after": "Features editor",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 2,
+          "option": "A",
+          "before": "Designing sports clothing.",
+          "after": "Designing sports clothing",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 2,
+          "option": "B",
+          "before": "Consulting fashion experts.",
+          "after": "Consulting fashion experts",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 2,
+          "option": "C",
+          "before": "Answering daily emails.",
+          "after": "Answering daily emails",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 2,
+          "option": "D",
+          "before": "Interviewing job-seekers.",
+          "after": "Interviewing job-seekers",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 4,
+          "option": "A",
+          "before": "Her persistence.",
+          "after": "Her persistence",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 4,
+          "option": "B",
+          "before": "Her experience.",
+          "after": "Her experience",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 4,
+          "option": "C",
+          "before": "Her competence.",
+          "after": "Her competence",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 4,
+          "option": "D",
+          "before": "Her confidence.",
+          "after": "Her confidence",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 6,
+          "option": "C",
+          "before": "Its plots and events reveal a lot about Frankie's actual life.",
+          "after": "Its plots and events reveal a lot about Frankie’s actual life.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 6,
+          "option": "D",
+          "before": "It is written, directed, edited and produced by Frankie himself.",
+          "after": "It is written, directed, edited and produced by Frankie himself",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 10,
+          "option": "A",
+          "before": "They do not have many years to live after retirement",
+          "after": "They do not have many years to live after retirement.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 10,
+          "option": "B",
+          "before": "They tend to live a longer life with early retirement",
+          "after": "They tend to live a longer life with early retirement.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 10,
+          "option": "C",
+          "before": "They do not start enjoying life until full retirement",
+          "after": "They do not start enjoying life until full retirement.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 10,
+          "option": "D",
+          "before": "They keep themselves busy even after retirement",
+          "after": "They keep themselves busy even after retirement.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 11,
+          "option": "A",
+          "before": "It prevents us from worrying",
+          "after": "It prevents us from worrying.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 11,
+          "option": "B",
+          "before": "It slows down our aging process",
+          "after": "It slows down our aging process.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 11,
+          "option": "C",
+          "before": "It enables us to accomplish more in life",
+          "after": "It enables us to accomplish more in life.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 11,
+          "option": "D",
+          "before": "It provides us with more chances to learn",
+          "after": "It provides us with more chances to learn.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 13,
+          "option": "B",
+          "before": "To observe how one's mind affects one's behavior.",
+          "after": "To observe how one’s mind affects one’s behavior.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 14,
+          "option": "D",
+          "before": "It contributes to clear thinking.",
+          "after": "It contributes to clear thinking",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 19,
+          "option": "C",
+          "before": "Adults' influence on children.",
+          "after": "Adults influence on children.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 21,
+          "option": "A",
+          "before": "Infants' facial expressions.",
+          "after": "Infants’ facial expressions.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 21,
+          "option": "B",
+          "before": "Babies' emotions.",
+          "after": "Babies’ emotions.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 21,
+          "option": "D",
+          "before": "Infants' behaviors.",
+          "after": "Infants’ behaviors.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 22,
+          "option": "A",
+          "before": "It may harm the culture of today's workplace.",
+          "after": "It may harm the culture of today’s workplace.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 23,
+          "option": "D",
+          "before": "They may eventually lose their confidence and creativity.",
+          "after": "They may eventually lose their confidence and creativity",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2019-12-2",
+      "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.12/%E7%9C%9F%E9%A2%98Word/2019%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC2%E5%A5%97%EF%BC%89.docx",
+      "parsedQuestions": 25,
+      "edits": [
+        {
+          "number": 3,
+          "option": "D",
+          "before": "Its style has remained largely unchanged.",
+          "after": "Its style has remained largely unchanged",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 6,
+          "option": "A",
+          "before": "Her previous debt hadn't been cleared yet.",
+          "after": "Her previous debt hadn’t been cleared yet.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 6,
+          "option": "D",
+          "before": "She didn't pay her mortgage in time.",
+          "after": "She didn’t pay her mortgage in time.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 7,
+          "option": "A",
+          "before": "Pay a debt long overdue.",
+          "after": "Pay a debt long overdue",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 7,
+          "option": "C",
+          "before": "Start her own business.",
+          "after": "Start her own business",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 10,
+          "option": "A",
+          "before": "Their urge to make farming more enjoyable",
+          "after": "Their urge to make farming more enjoyable.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 10,
+          "option": "B",
+          "before": "Their desire to improve farming equipment",
+          "after": "Their desire to improve farming equipment.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 10,
+          "option": "C",
+          "before": "Their hope to revitalize traditional farming",
+          "after": "Their hope to revitalize traditional farming.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 10,
+          "option": "D",
+          "before": "Their wish to set a new farming standard",
+          "after": "Their wish to set a new farming standard.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 11,
+          "option": "A",
+          "before": "It saves a lot of electricity",
+          "after": "It saves a lot of electricity.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 11,
+          "option": "B",
+          "before": "It needs little maintenance",
+          "after": "It needs little maintenance.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 11,
+          "option": "C",
+          "before": "It causes hardly any pollution",
+          "after": "It causes hardly any pollution.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 11,
+          "option": "D",
+          "before": "It loosens soil while weeding",
+          "after": "It loosens soil while weeding.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 12,
+          "option": "D",
+          "before": "It has joined hands with Sainsbury's to sell pet insects.",
+          "after": "It has joined hands with Sainsbury’s to sell pet insects.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 13,
+          "option": "D",
+          "before": "It made him feel strange",
+          "after": "It made him feel strange.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 20,
+          "option": "D",
+          "before": "Most workers could afford to have house of their own.",
+          "after": "Most workers could afford to have house of their own",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 21,
+          "option": "A",
+          "before": "Loss of workers' personal dignity.",
+          "after": "Loss of workers’ personal dignity.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 21,
+          "option": "B",
+          "before": "Deprivation of workers' creativity.",
+          "after": "Deprivation of workers’ creativity.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 21,
+          "option": "C",
+          "before": "Deterioration of workers' mental health.",
+          "after": "Deterioration of workers’ mental health.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 23,
+          "option": "A",
+          "before": "The city's airports are outdated.",
+          "after": "The city’s airports are outdated.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2020-07-1",
+      "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.07/%E7%9C%9F%E9%A2%98PDF/2020.07%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E5%85%A81%E5%A5%97%E3%80%90%E5%8F%AF%E5%A4%8D%E5%88%B6%E5%8F%AF%E6%90%9C%E7%B4%A2%EF%BC%8C%E6%89%93%E5%8D%B0%E9%A6%96%E9%80%89%E3%80%91.pdf",
+      "parsedQuestions": 25,
+      "edits": [
+        {
+          "number": 1,
+          "option": "A",
+          "before": "She is a great athlete",
+          "after": "She is a great athlete.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 1,
+          "option": "B",
+          "before": "She is a famed speaker",
+          "after": "She is a famed speaker.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 1,
+          "option": "C",
+          "before": "She is a famous scientist",
+          "after": "She is a famous scientist.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 1,
+          "option": "D",
+          "before": "She is a noted inventor",
+          "after": "She is a noted inventor.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 2,
+          "option": "A",
+          "before": "How knowledge of human biochemistry has been evolving",
+          "after": "How knowledge of human biochemistry has been evolving.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 2,
+          "option": "B",
+          "before": "How nutrition helps athletes􀆳 performance in competitions",
+          "after": "How nutrition helps athletes􀆳 performance in competitions.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 2,
+          "option": "C",
+          "before": "How scientific training enables athletes to set new records",
+          "after": "How scientific training enables athletes to set new records.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 2,
+          "option": "D",
+          "before": "How technology has helped athletes to scale new heights",
+          "after": "How technology has helped athletes to scale new heights.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 3,
+          "option": "A",
+          "before": "Our physical structures",
+          "after": "Our physical structures.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 3,
+          "option": "B",
+          "before": "Our scientific knowledge",
+          "after": "Our scientific knowledge.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 3,
+          "option": "C",
+          "before": "Our biochemical process",
+          "after": "Our biochemical process.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 3,
+          "option": "D",
+          "before": "Our concept of nutrition",
+          "after": "Our concept of nutrition.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 4,
+          "option": "A",
+          "before": "It may increase the expenses of sports competitions",
+          "after": "It may increase the expenses of sports competitions.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 4,
+          "option": "B",
+          "before": "It may lead to athletes􀆳 over reliance on equipment",
+          "after": "It may lead to athletes􀆳 over reliance on equipment.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 4,
+          "option": "C",
+          "before": "It may give an unfair advantage to some athletes",
+          "after": "It may give an unfair advantage to some athletes.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 4,
+          "option": "D",
+          "before": "It may change the nature of sports competitions",
+          "after": "It may change the nature of sports competitions.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 5,
+          "option": "A",
+          "before": "Experience",
+          "after": "Experience.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 5,
+          "option": "B",
+          "before": "Flexibility",
+          "after": "Flexibility.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 5,
+          "option": "C",
+          "before": "Family background",
+          "after": "Family background.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 5,
+          "option": "D",
+          "before": "Business connections",
+          "after": "Business connections.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 6,
+          "option": "A",
+          "before": "Buying directly from factories",
+          "after": "Buying directly from factories.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 6,
+          "option": "B",
+          "before": "Shipping goods in bulk by sea",
+          "after": "Shipping goods in bulk by sea.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 6,
+          "option": "C",
+          "before": "Having partners in many parts of the world",
+          "after": "Having partners in many parts of the world.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 6,
+          "option": "D",
+          "before": "Using the same container back and forth",
+          "after": "Using the same container back and forth.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 7,
+          "option": "A",
+          "before": "Warehouses",
+          "after": "Warehouses.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 7,
+          "option": "B",
+          "before": "Factories",
+          "after": "Factories.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 7,
+          "option": "C",
+          "before": "Investors",
+          "after": "Investors.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 7,
+          "option": "D",
+          "before": "Retailers",
+          "after": "Retailers.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 8,
+          "option": "A",
+          "before": "Trendy style",
+          "after": "Trendy style.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 8,
+          "option": "B",
+          "before": "Unique design",
+          "after": "Unique design.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 8,
+          "option": "C",
+          "before": "Lower import duties",
+          "after": "Lower import duties.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 8,
+          "option": "D",
+          "before": "Lower shipping costs",
+          "after": "Lower shipping costs.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 9,
+          "option": "A",
+          "before": "It helps employees to reduce their stress",
+          "after": "It helps employees to reduce their stress.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 9,
+          "option": "B",
+          "before": "It prevents employees from feeling bored",
+          "after": "It prevents employees from feeling bored.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 9,
+          "option": "C",
+          "before": "It strengthens harmony among employees",
+          "after": "It strengthens harmony among employees.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 9,
+          "option": "D",
+          "before": "It helps employees to view things positively",
+          "after": "It helps employees to view things positively.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 10,
+          "option": "A",
+          "before": "Weekends are conducive to reducing stress",
+          "after": "Weekends are conducive to reducing stress.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 10,
+          "option": "B",
+          "before": "Humor is vital to interpersonal relationships",
+          "after": "Humor is vital to interpersonal relationships.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 10,
+          "option": "C",
+          "before": "All workers experience some emotional stress",
+          "after": "All workers experience some emotional stress.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 10,
+          "option": "D",
+          "before": "Humor can help workers excel at routine tasks",
+          "after": "Humor can help workers excel at routine tasks.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 11,
+          "option": "A",
+          "before": "Smash the toys to release their bottled-up resentments",
+          "after": "Smash the toys to release their bottled-up resentments.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 11,
+          "option": "B",
+          "before": "Take the boss doll apart as long as they reassemble it",
+          "after": "Take the boss doll apart as long as they reassemble it.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 11,
+          "option": "C",
+          "before": "Design and install stress-reducing gadgets",
+          "after": "Design and install stress-reducing gadgets.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 11,
+          "option": "D",
+          "before": "Strike at the boss doll as hard as they like",
+          "after": "Strike at the boss doll as hard as they like.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 12,
+          "option": "A",
+          "before": "The recent finding of a changed gene in obese mice",
+          "after": "The recent finding of a changed gene in obese mice.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 12,
+          "option": "B",
+          "before": "A breakthrough in understanding gene modification",
+          "after": "A breakthrough in understanding gene modification.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 12,
+          "option": "C",
+          "before": "A newly discovered way for people to lose weight",
+          "after": "A newly discovered way for people to lose weight.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 12,
+          "option": "D",
+          "before": "The self-repairing ability of a gene in obese mice",
+          "after": "The self-repairing ability of a gene in obese mice.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 13,
+          "option": "B",
+          "before": "It prevents the mice􀆳s fatty tissues from growing",
+          "after": "It prevents the mice􀆳s fatty tissues from growing.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 13,
+          "option": "C",
+          "before": "It helps organisms adapt to environmental changes",
+          "after": "It helps organisms adapt to environmental changes.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 13,
+          "option": "D",
+          "before": "It renders mice unable to sense when to stop eating",
+          "after": "It renders mice unable to sense when to stop eating.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 14,
+          "option": "A",
+          "before": "Human beings have more obesity genes than most mice do",
+          "after": "Human beings have more obesity genes than most mice do.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 14,
+          "option": "B",
+          "before": "Half of a person􀆳s total weight variation can be controlled",
+          "after": "Half of a person􀆳s total weight variation can be controlled.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 14,
+          "option": "C",
+          "before": "People are born with a tendency to have a certain weight",
+          "after": "People are born with a tendency to have a certain weight.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 14,
+          "option": "D",
+          "before": "The function of the obesity genes is yet to be explored",
+          "after": "The function of the obesity genes is yet to be explored.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 15,
+          "option": "A",
+          "before": "The worsening of natural environment",
+          "after": "The worsening of natural environment.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 15,
+          "option": "B",
+          "before": "The abundant provision of rich foods",
+          "after": "The abundant provision of rich foods.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 15,
+          "option": "C",
+          "before": "The accelerated pace of present-day life",
+          "after": "The accelerated pace of present-day life.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 15,
+          "option": "D",
+          "before": "The adverse impact of the food industry",
+          "after": "The adverse impact of the food industry.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 16,
+          "option": "A",
+          "before": "Similarity in interests",
+          "after": "Similarity in interests.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 16,
+          "option": "B",
+          "before": "Mental stimulation",
+          "after": "Mental stimulation.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 16,
+          "option": "C",
+          "before": "Openness",
+          "after": "Openness.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 16,
+          "option": "D",
+          "before": "Compassion",
+          "after": "Compassion.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 17,
+          "option": "A",
+          "before": "The willingness to offer timely help",
+          "after": "The willingness to offer timely help.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 17,
+          "option": "B",
+          "before": "The joy found in each other􀆳s company",
+          "after": "The joy found in each other􀆳s company.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 17,
+          "option": "C",
+          "before": "Personal bonds",
+          "after": "Personal bonds.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 17,
+          "option": "D",
+          "before": "Emotional factors",
+          "after": "Emotional factors.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 18,
+          "option": "A",
+          "before": "Failure to keep a promise",
+          "after": "Failure to keep a promise.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 18,
+          "option": "B",
+          "before": "Lack of frankness",
+          "after": "Lack of frankness.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 18,
+          "option": "C",
+          "before": "Feelings of betrayal",
+          "after": "Feelings of betrayal.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 18,
+          "option": "D",
+          "before": "Loss of contact",
+          "after": "Loss of contact.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 19,
+          "option": "A",
+          "before": "Along the low-lying Colorado River",
+          "after": "Along the low-lying Colorado River.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 19,
+          "option": "B",
+          "before": "At the Dinosaur National Monument",
+          "after": "At the Dinosaur National Monument.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 19,
+          "option": "C",
+          "before": "Along the border of the U.S. and Canada",
+          "after": "Along the border of the U.S. and Canada.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 19,
+          "option": "D",
+          "before": "At museums of natural history in large cities",
+          "after": "At museums of natural history in large cities.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 20,
+          "option": "A",
+          "before": "Volcanic explosions could bring whole animal species to extinction",
+          "after": "Volcanic explosions could bring whole animal species to extinction.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 20,
+          "option": "B",
+          "before": "Some natural disaster killed a whole herd of dinosaurs in the area",
+          "after": "Some natural disaster killed a whole herd of dinosaurs in the area.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 20,
+          "option": "C",
+          "before": "The pit should be carefully preserved for the study of dinosaurs",
+          "after": "The pit should be carefully preserved for the study of dinosaurs.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 20,
+          "option": "D",
+          "before": "The whole region must have been struck by a devastating flood",
+          "after": "The whole region must have been struck by a devastating flood.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 21,
+          "option": "A",
+          "before": "They floated down an eastward flowing river",
+          "after": "They floated down an eastward flowing river.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 21,
+          "option": "B",
+          "before": "They lay buried deep in the sand for millions of years",
+          "after": "They lay buried deep in the sand for millions of years.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 21,
+          "option": "C",
+          "before": "They were skeletons of dinosaurs inhabiting the locality",
+          "after": "They were skeletons of dinosaurs inhabiting the locality.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 21,
+          "option": "D",
+          "before": "They were remains of dinosaurs killed in a volcanic explosion",
+          "after": "They were remains of dinosaurs killed in a volcanic explosion.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 22,
+          "option": "A",
+          "before": "Indulging in seeking leisure and material comfort",
+          "after": "Indulging in seeking leisure and material comfort.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 22,
+          "option": "B",
+          "before": "Attaching too much importance to independence",
+          "after": "Attaching too much importance to independence.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 22,
+          "option": "C",
+          "before": "Failing to care for parents in the traditional way",
+          "after": "Failing to care for parents in the traditional way.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 22,
+          "option": "D",
+          "before": "Leaving their parents on the verge of starvation",
+          "after": "Leaving their parents on the verge of starvation.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 23,
+          "option": "A",
+          "before": "They have great difficulty living by themselves",
+          "after": "They have great difficulty living by themselves.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 23,
+          "option": "B",
+          "before": "They have little hope of getting any family care",
+          "after": "They have little hope of getting any family care.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 23,
+          "option": "C",
+          "before": "They have fond memories of their good old days",
+          "after": "They have fond memories of their good old days.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 23,
+          "option": "D",
+          "before": "They have a sense of independence and autonomy",
+          "after": "They have a sense of independence and autonomy.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 24,
+          "option": "A",
+          "before": "People in many parts of the world preferred small-sized families",
+          "after": "People in many parts of the world preferred small-sized families.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 24,
+          "option": "B",
+          "before": "There have been extended families in most parts of the world",
+          "after": "There have been extended families in most parts of the world.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 24,
+          "option": "C",
+          "before": "Many elderly people were unwilling to take care of their grandchildren",
+          "after": "Many elderly people were unwilling to take care of their grandchildren.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 24,
+          "option": "D",
+          "before": "So many young Americans refused to live together with their parents",
+          "after": "So many young Americans refused to live together with their parents.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 25,
+          "option": "A",
+          "before": "Leave their younger generations alone",
+          "after": "Leave their younger generations alone.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 25,
+          "option": "B",
+          "before": "Avoid being a burden to their children",
+          "after": "Avoid being a burden to their children.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 25,
+          "option": "C",
+          "before": "Stay healthy by engaging in joyful activities",
+          "after": "Stay healthy by engaging in joyful activities.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 25,
+          "option": "D",
+          "before": "View things from their children’ s perspective",
+          "after": "View things from their children’s perspective.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2020-09-1",
+      "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.09/%E7%9C%9F%E9%A2%98Word/2020%E5%B9%B409%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC1%E5%A5%97%EF%BC%89.docx",
+      "parsedQuestions": 25,
+      "edits": [
+        {
+          "number": 7,
+          "option": "A",
+          "before": "They can be affected by people's childhood experiences.",
+          "after": "They can be affected by people’s childhood experiences.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 7,
+          "option": "C",
+          "before": "They usually result from people's unpleasant memories.",
+          "after": "They usually result from people’s unpleasant memories.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 10,
+          "option": "A",
+          "before": "It may be freezing fast beneath the glacier",
+          "after": "It may be freezing fast beneath the glacier.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 10,
+          "option": "B",
+          "before": "It may have micro-organisms living in it",
+          "after": "It may have micro-organisms living in it.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 10,
+          "option": "C",
+          "before": "It may have certain rare minerals in it",
+          "after": "It may have certain rare minerals in it.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 10,
+          "option": "D",
+          "before": "It may be as deep as four kilometers",
+          "after": "It may be as deep as four kilometers.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 11,
+          "option": "A",
+          "before": "Help understand life in freezing conditions",
+          "after": "Help understand life in freezing conditions.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 11,
+          "option": "C",
+          "before": "Provide information about other planets",
+          "after": "Provide information about other planets.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 11,
+          "option": "D",
+          "before": "Shed light on possible life in outer space",
+          "after": "Shed light on possible life in outer space.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 13,
+          "option": "B",
+          "before": "He persuaded the Tarahumaras to accept Copeland's gifts.",
+          "after": "He persuaded the Tarahumaras to accept Copeland’s gifts.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 14,
+          "option": "D",
+          "before": "Tedious",
+          "after": "Tedious.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 17,
+          "option": "B",
+          "before": "One who craves for relentless transformations.",
+          "after": "One who craves for relentless transformations,",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 18,
+          "option": "B",
+          "before": "They disrupted the nation's social stability.",
+          "after": "They disrupted the nation’s social stability.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 21,
+          "option": "B",
+          "before": "They improve people's quality of life.",
+          "after": "They improve people’s quality of life.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2020-12-1",
+      "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.12/%E7%9C%9F%E9%A2%98PDF/2020.12%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97%E3%80%90%E5%8F%AF%E5%A4%8D%E5%88%B6%E5%8F%AF%E6%90%9C%E7%B4%A2%EF%BC%8C%E6%89%93%E5%8D%B0%E9%A6%96%E9%80%89%E3%80%91.pdf",
+      "parsedQuestions": 25,
+      "edits": [
+        {
+          "number": 3,
+          "option": "A",
+          "before": "The woman’s misreading of the insurance company’s letter",
+          "after": "The woman's misreading of the insurance company's letter.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 3,
+          "option": "B",
+          "before": "The woman’s ignorance of the insurance company’s policy",
+          "after": "The woman's ignorance of the insurance company's policy.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 3,
+          "option": "C",
+          "before": "The woman’s inaccurate description of the whole incident",
+          "after": "The woman's inaccurate description of the whole incident.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 3,
+          "option": "D",
+          "before": "The woman’s failure to pay her house insurance in time",
+          "after": "The woman's failure to pay her house insurance in time.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 8,
+          "option": "B",
+          "before": "It will take away humans’ jobs altogether",
+          "after": "It will take away humans' jobs altogether.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 12,
+          "option": "A",
+          "before": "She was uninterested in advertising",
+          "after": "She was uninterested in advertising.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 14,
+          "option": "A",
+          "before": "It enhances people’s ability to work independently",
+          "after": "It enhances people's ability to work independently.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 14,
+          "option": "D",
+          "before": "It boosts one’s confidence when looking for employment",
+          "after": "It boosts one's confidence when looking for employment.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 20,
+          "option": "A",
+          "before": "They responded to colleagues’ suspicion",
+          "after": "They responded to colleagues' suspicion.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 20,
+          "option": "B",
+          "before": "They cared about other people’s claims",
+          "after": "They cared about other people's claims.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 22,
+          "option": "C",
+          "before": "Older people’s changing musical tastes",
+          "after": "Older people's changing musical tastes.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 22,
+          "option": "D",
+          "before": "Older people’s aversion to new music",
+          "after": "Older people's aversion to new music.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 25,
+          "option": "B",
+          "before": "Teenagers’ emotions are more intense",
+          "after": "Teenagers' emotions are more intense.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2020-12-2",
+      "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.12/%E7%9C%9F%E9%A2%98Word/2020%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC2%E5%A5%97%EF%BC%89.docx",
+      "parsedQuestions": 25,
+      "edits": [
+        {
+          "number": 5,
+          "option": "A",
+          "before": "It isn’t so enjoyable as he expected",
+          "after": "It isn’t so enjoyable as he expected.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 5,
+          "option": "B",
+          "before": "It isn’t so motivating as he believed",
+          "after": "It isn’t so motivating as he believed.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 5,
+          "option": "D",
+          "before": "It doesn’t seem to offer as much freedom as he anticipated",
+          "after": "It doesn’t seem to offer as much freedom as he anticipated.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 6,
+          "option": "A",
+          "before": "Not all of them care about their employees’ behaviors",
+          "after": "Not all of them care about their employees’ behaviors.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 6,
+          "option": "B",
+          "before": "Few of them are aware of their employees’ feelings",
+          "after": "Few of them are aware of their employees’ feelings.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 8,
+          "option": "B",
+          "before": "The need for getting recommendations from their managers",
+          "after": "The need for getting recommendations from their managers.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 8,
+          "option": "D",
+          "before": "The way to explore employees’ interests and talents",
+          "after": "The way to explore employees’ interests and talents.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 9,
+          "option": "B",
+          "before": "Good weather triggers consumers’ desire to go shopping",
+          "after": "Good weather triggers consumers’ desire to go shopping.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 9,
+          "option": "D",
+          "before": "Consumers’ mental states change with the prices of goods",
+          "after": "Consumers’ mental states change with the prices of goods.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 12,
+          "option": "B",
+          "before": "A cool office will boost employees’ productivity",
+          "after": "A cool office will boost employees’ productivity.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 13,
+          "option": "A",
+          "before": "People in their comfort zone of temperature are more satisfied with their productivity",
+          "after": "People in their comfort zone of temperature are more satisfied with their productivity.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 17,
+          "option": "B",
+          "before": "Solitude adversely affected the participants’ mental well-being",
+          "after": "Solitude adversely affected the participants’ mental well-being.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 19,
+          "option": "D",
+          "before": "It consumes almost a quarter of the body’s total energy",
+          "after": "It consumes almost a quarter of the body’s total energy.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 23,
+          "option": "A",
+          "before": "Follow their career coaches’ guidelines",
+          "after": "Follow their career coaches’ guidelines.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 25,
+          "option": "D",
+          "before": "Tailoring their expectations to the company’s long-term goal",
+          "after": "Tailoring their expectations to the company’s long-term goal.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2021-06-1",
+      "parsedQuestions": 25,
+      "status": "insufficient complete native layout; unchanged",
+      "edits": []
+    },
+    {
+      "paperId": "cet6-2021-06-2",
+      "parsedQuestions": 24,
+      "status": "insufficient complete native layout; unchanged",
+      "edits": []
+    },
+    {
+      "paperId": "cet6-2023-12-1",
+      "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.12/%E7%9C%9F%E9%A2%98PDF/2023.12%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97%281%29.pdf",
+      "parsedQuestions": 25,
+      "edits": []
+    },
+    {
+      "paperId": "cet6-2023-12-2",
+      "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.12/%E7%9C%9F%E9%A2%98PDF/2023.12%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC2%E5%A5%97%281%29.pdf",
+      "parsedQuestions": 25,
+      "edits": []
+    },
+    {
+      "paperId": "cet6-2024-06-1",
+      "parsedQuestions": 20,
+      "status": "insufficient complete native layout; unchanged",
+      "edits": []
+    },
+    {
+      "paperId": "cet6-2024-06-2",
+      "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.06/%E7%9C%9F%E9%A2%98Word/2024%E5%B9%B46%E6%9C%88%E7%AC%AC2%E5%A5%97%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E3%80%90%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8PDF%E7%89%88%E3%80%91.docx",
+      "parsedQuestions": 25,
+      "edits": [
+        {
+          "number": 2,
+          "option": "A",
+          "before": "Eating any blended food.",
+          "after": "Eating  any  blended  food.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 3,
+          "option": "C",
+          "before": "Eating breakfast punctually every morning.",
+          "after": "Eating  breakfastpunctuallyevery  morning.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 4,
+          "option": "A",
+          "before": "One-tenth of it is sugar",
+          "after": "One-tenth  of  it  is  sugar",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 4,
+          "option": "C",
+          "before": "One’s fancy may be tickled by it",
+          "after": "One's fancy may be tickled by it.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 4,
+          "option": "D",
+          "before": "It contains an assortment of nutrients.",
+          "after": "It contains an assortment ofnutrients.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 5,
+          "option": "A",
+          "before": "How he has made himself popular as the mayor of Berkton",
+          "after": "How  hehas  madehimself popular  as  the  mayorof  Berkton",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 5,
+          "option": "C",
+          "before": "How charming he himself considers the village of Berkton to be.",
+          "after": "How charming he himself considers the village ofBerkton to be.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 5,
+          "option": "D",
+          "before": "How he has led people of Berkton to change the village radically.",
+          "after": "How he has led people of Berkton to change the village radically",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 7,
+          "option": "D",
+          "before": "All the houses in Berkton looked aesthetically similar",
+          "after": "All the houses in Berkton looked aesthetically similar.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 9,
+          "option": "C",
+          "before": "They are the first to build a robot that can bend, crawl, walk, turn and even jump.",
+          "after": "They are the first to build a robot that can bend,crawl,walk,turn and even jump.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 10,
+          "option": "C",
+          "before": "It moves from one place to another by memory",
+          "after": "Itmoves from one place to another by memory",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 14,
+          "option": "B",
+          "before": "Whether it is possible to modify one’s genes",
+          "after": "Whether it is possible to modify one's genes.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 14,
+          "option": "C",
+          "before": "Whether having a baby impacts one’s passion",
+          "after": "Whether having ababy impacts one's passion.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 15,
+          "option": "B",
+          "before": "Babies can severely disrupt their parents’ sleep patterns",
+          "after": "Babies  can  severelydisrupt  their parents'sleep patterns",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 16,
+          "option": "A",
+          "before": "We have poor awareness of how many controversial issues are being debated.",
+          "after": "We have poor awareness of how manycontroversial issues are being debated.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 16,
+          "option": "C",
+          "before": "No one can change your opinions more than those who speak in a convincing tone.",
+          "after": "No one can change youropinions more than those who speak in a convincing tone.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 16,
+          "option": "D",
+          "before": "We are likely to underestimate how much we can be swayed by a convincing article.",
+          "after": "We are likely to underestimate how much we can be swayed by a convincing article",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 17,
+          "option": "D",
+          "before": "Their experiences of physical punishment haunted them",
+          "after": "Theirexperiences of physical punishment haunted them",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 18,
+          "option": "B",
+          "before": "They don’t reflect the changes of view on physical punishment",
+          "after": "They don't reflect the changes of view on physical punishment",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 18,
+          "option": "D",
+          "before": "They are unlikely to alter people’s position without more evidence",
+          "after": "They are unlikely to alter people's position without more evidence",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 25,
+          "option": "B",
+          "before": "The difficulty in understanding what’s actually happening",
+          "after": "The difficulty in understanding what's actually happening.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2025-12-1",
+      "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.12/%E7%9C%9F%E9%A2%98PDF/cet6_2025_12_1.pdf",
+      "parsedQuestions": 25,
+      "edits": [
+        {
+          "number": 1,
+          "option": "A",
+          "before": "He has distinguished himself in foreign service",
+          "after": "He has distinguished himself in foreign service.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 1,
+          "option": "B",
+          "before": "He is his.country's ambassadorto Winopia",
+          "after": "He is his country's ambassador to Winopia.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 1,
+          "option": "C",
+          "before": "He is currently an electrical engineer",
+          "after": "He is currently an electrical engineer.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 1,
+          "option": "D",
+          "before": "He craves attention from the media",
+          "after": "He craves attention from the media.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 2,
+          "option": "A",
+          "before": "A government reshuffle",
+          "after": "A government reshuffle.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 2,
+          "option": "B",
+          "before": "A fundamental reform",
+          "after": "A fundamental reform.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 2,
+          "option": "C",
+          "before": "Some sort of political reorientation",
+          "after": "Some sort of political reorientation.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 2,
+          "option": "D",
+          "before": "Some sort of crisis of legitimacy",
+          "after": "Some sort of crisis of legitimacy.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 3,
+          "option": "A",
+          "before": "All diplomats have more or less similar stories to tell",
+          "after": "All diplomats have more or less similar stories to tell.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 3,
+          "option": "C",
+          "before": "Different people can take different paths",
+          "after": "Different people can take different paths.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 3,
+          "option": "D",
+          "before": "It is a must to first obtain a law degree",
+          "after": "It is a must to first obtain a law degree.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 4,
+          "option": "A",
+          "before": "Key skills required of a diplomat",
+          "after": "Key skills required of a diplomat.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 4,
+          "option": "B",
+          "before": "The making of an expert diplomat",
+          "after": "The making of an expert diplomat.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 4,
+          "option": "C",
+          "before": "Diplomatic discourse and rhetoric",
+          "after": "Diplomatic discourse and rhetoric.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 4,
+          "option": "D",
+          "before": "Contributions by diplomatic envoys",
+          "after": "Contributions by diplomatic envoys.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 5,
+          "option": "A",
+          "before": "They have got their work done",
+          "after": "They have got their work done.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 5,
+          "option": "B",
+          "before": "They both look tired",
+          "after": "They both look tired.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 5,
+          "option": "C",
+          "before": "They can meet again tomorrow anyway",
+          "after": "They can meet again tomorrow anyway.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 5,
+          "option": "D",
+          "before": "They are both anxious to go home",
+          "after": "They are both anxious to go home.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 6,
+          "option": "A",
+          "before": "The board members insufficient support",
+          "after": "The board members' insufficient support.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 6,
+          "option": "B",
+          "before": "Two months devoted to the same contract",
+          "after": "Two months devoted to the same contract.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 6,
+          "option": "C",
+          "before": "Working two months without any progress",
+          "after": "Working two months without any progress.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 6,
+          "option": "D",
+          "before": "The man's long concentration on the project",
+          "after": "The man's long concentration on the project.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 7,
+          "option": "A",
+          "before": "Unprofessional",
+          "after": "Unprofessional.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 7,
+          "option": "B",
+          "before": "Inspirational",
+          "after": "Inspirational.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 7,
+          "option": "C",
+          "before": "Exceptional",
+          "after": "Exceptional.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 7,
+          "option": "D",
+          "before": "Delusional",
+          "after": "Delusional.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 8,
+          "option": "A",
+          "before": "Fewer rectifications of the contract",
+          "after": "Fewer rectifications of the contract.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 8,
+          "option": "B",
+          "before": "More support from the board members",
+          "after": "More support from the board members.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 8,
+          "option": "C",
+          "before": "The early implementation of the project",
+          "after": "The early implementation of the project.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 8,
+          "option": "D",
+          "before": "The alignment of all sections of the contract",
+          "after": "The alignment of all sections of the contract.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 9,
+          "option": "A",
+          "before": "When two employees propose contrary solutions to their dispute",
+          "after": "When two employees propose contrary solutions to their dispute.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 9,
+          "option": "B",
+          "before": "When two employees are directed by their respective manager",
+          "after": "When two employees are directed by their respective manager.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 9,
+          "option": "C",
+          "before": "When two people behave in an apparently clashing manner",
+          "after": "When two people behave in an apparently clashing manner.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 9,
+          "option": "D",
+          "before": "When two people tell different stories of the same event",
+          "after": "When two people tell different stories of the same event.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 10,
+          "option": "B",
+          "before": " How it happened.",
+          "after": "How it happened.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 10,
+          "option": "C",
+          "before": " What it was about.",
+          "after": "What it was about.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 10,
+          "option": "D",
+          "before": " When it was settled.",
+          "after": "When it was settled.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 11,
+          "option": "B",
+          "before": " They tried to ascertain the actual facts of the matter.",
+          "after": "They tried to ascertain the actual facts of the matter.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 11,
+          "option": "C",
+          "before": " They assumed the best about them and moved on.",
+          "after": "They assumed the best about them and moved on.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 11,
+          "option": "D",
+          "before": " They persuaded them to put their conflict aside.",
+          "after": "They persuaded them to put their conflict aside.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 12,
+          "option": "B",
+          "before": " Budget sensibly.",
+          "after": "Budget sensibly.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 12,
+          "option": "C",
+          "before": " Enjoy cooking.",
+          "after": "Enjoy cooking.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 12,
+          "option": "D",
+          "before": " Shop at groceries.",
+          "after": "Shop at groceries.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 13,
+          "option": "B",
+          "before": " Sewing.",
+          "after": "Sewing.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 13,
+          "option": "C",
+          "before": " Entertaining oneself.",
+          "after": "Entertaining oneself.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 13,
+          "option": "D",
+          "before": " Fashion designing.",
+          "after": "Fashion designing.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 14,
+          "option": "B",
+          "before": " Cut down expenses.",
+          "after": "Cut down expenses.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 14,
+          "option": "C",
+          "before": " Eat more healthily.",
+          "after": "Eat more healthily.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 14,
+          "option": "D",
+          "before": " Cultivate new hobbies.",
+          "after": "Cultivate new hobbies.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 15,
+          "option": "B",
+          "before": " People's deteriorating family finances.",
+          "after": "People's deteriorating family finances.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 15,
+          "option": "C",
+          "before": " People's strong aversion to junk foods.",
+          "after": "People's strong aversion to junk foods.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 15,
+          "option": "D",
+          "before": " People's increasing dislike of cooking.",
+          "after": "People's increasing dislike of cooking.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 16,
+          "option": "B",
+          "before": " Airlines cannot find its owner without an ID tag on it.",
+          "after": "Airlines cannot find its owner without an ID tag on it.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 16,
+          "option": "C",
+          "before": " Airline staff have not correctly coded its destination tag.",
+          "after": "Airline staff have not correctly coded its destination tag.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 16,
+          "option": "D",
+          "before": " Its owner has forgot to pick it up from the baggage claim.",
+          "after": "Its owner has forgot to pick it up from the baggage claim.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 17,
+          "option": "B",
+          "before": " Its tag may get stuck in the sorting machine.",
+          "after": "Its tag may get stuck in the sorting machine.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 17,
+          "option": "C",
+          "before": " It may be sent to a wrong destination.",
+          "after": "It may be sent to a wrong destination.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 17,
+          "option": "D",
+          "before": " It may be picked up by someone else.",
+          "after": "It may be picked up by someone else.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 18,
+          "option": "B",
+          "before": " Contact the airport staff to find our missing bag.",
+          "after": "Contact the airport staff to find our missing bag.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 18,
+          "option": "D",
+          "before": " Avoid packing valuable items in our checked baggage.",
+          "after": "Avoid packing valuable items in our checked baggage.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 19,
+          "option": "B",
+          "before": " It can be especially disappointing.",
+          "after": "It can be especially disappointing.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 19,
+          "option": "C",
+          "before": " It can be socially harmful.",
+          "after": "It can be socially harmful.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 19,
+          "option": "D",
+          "before": " It can be really embarrassing.",
+          "after": "It can be really embarrassing.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 20,
+          "option": "B",
+          "before": " They held a negative view towards it.",
+          "after": "They held a negative view towards it.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 20,
+          "option": "C",
+          "before": " They were concerned with its effects.",
+          "after": "They were concerned with its effects.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 20,
+          "option": "D",
+          "before": " They saw it as a sign of social evolution.",
+          "after": "They saw it as a sign of social evolution.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 21,
+          "option": "B",
+          "before": " Ill effects on one's sense of pride.",
+          "after": "Ill effects on one's sense of pride.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 21,
+          "option": "C",
+          "before": " Poor relationships with others.",
+          "after": "Poor relationships with others.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 21,
+          "option": "D",
+          "before": " Vicious cycles of detachment.",
+          "after": "Vicious cycles of detachment.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 22,
+          "option": "B",
+          "before": " The nonprofessional business they see.",
+          "after": "The nonprofessional business they see.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 22,
+          "option": "C",
+          "before": " The impersonal accommodations.",
+          "after": "The impersonal accommodations.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 22,
+          "option": "D",
+          "before": " The many adventures on their way.",
+          "after": "The many adventures on their way.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 23,
+          "option": "B",
+          "before": " They attract tourists with location and decoration.",
+          "after": "They attract tourists with location and decoration.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 23,
+          "option": "C",
+          "before": " They have long been competing with chain hotels.",
+          "after": "They have long been competing with chain hotels.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 23,
+          "option": "D",
+          "before": " They are in fact a completely new idea in America.",
+          "after": "They are in fact a completely new idea in America.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 24,
+          "option": "B",
+          "before": " Your family's consent.",
+          "after": "Your family's consent.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 24,
+          "option": "C",
+          "before": " Your property.",
+          "after": "Your property.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 24,
+          "option": "D",
+          "before": " Your personality.",
+          "after": "Your personality.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 25,
+          "option": "B",
+          "before": " The number of guests to receive.",
+          "after": "The number of guests to receive.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 25,
+          "option": "C",
+          "before": " The facilities to provide.",
+          "after": "The facilities to provide.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2025-12-2",
+      "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.12/%E7%9C%9F%E9%A2%98PDF/cet6_2025_12_2.pdf",
+      "parsedQuestions": 25,
+      "edits": [
+        {
+          "number": 1,
+          "option": "A",
+          "before": "It is absurdly expensive",
+          "after": "It is absurdly expensive.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 1,
+          "option": "B",
+          "before": "It is appropriately priced",
+          "after": "It is appropriately priced.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 1,
+          "option": "C",
+          "before": "It brings shame on the university",
+          "after": "It brings shame on the university.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 1,
+          "option": "D",
+          "before": "It caters to students and teachers",
+          "after": "It caters to students and teachers.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 2,
+          "option": "A",
+          "before": "They never really appeal to her",
+          "after": "They never really appeal to her.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 2,
+          "option": "B",
+          "before": "They are never actually good value",
+          "after": "They are never actually good value.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 2,
+          "option": "D",
+          "before": "They always come at a high speed",
+          "after": "They always come at a high speed.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 3,
+          "option": "A",
+          "before": "The food",
+          "after": "The food.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 3,
+          "option": "B",
+          "before": "The space",
+          "after": "The space.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 3,
+          "option": "C",
+          "before": "The speed",
+          "after": "The speed.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 3,
+          "option": "D",
+          "before": "The environment",
+          "after": "The environment.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 4,
+          "option": "A",
+          "before": "A complete refurnishing",
+          "after": "A complete refurnishing.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 4,
+          "option": "B",
+          "before": "A ruinous burning down",
+          "after": "A ruinous burning down.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 4,
+          "option": "C",
+          "before": "A substantial expansion",
+          "after": "A substantial expansion.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 4,
+          "option": "D",
+          "before": "A massive renovation",
+          "after": "A massive renovation.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 5,
+          "option": "A",
+          "before": "They have a poor work ethic",
+          "after": "They have a poor work ethic.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 5,
+          "option": "B",
+          "before": "They don't get along with managers",
+          "after": "They don’t get along with managers.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 5,
+          "option": "C",
+          "before": "They are struggling in the workplace",
+          "after": "They are struggling in the workplace.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 5,
+          "option": "D",
+          "before": "They aren't as varied as their predecessors",
+          "after": "They aren’t as varied as their predecessors.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 6,
+          "option": "A",
+          "before": "Learning about the way they adhere to their own values",
+          "after": "Learning about the way they adhere to their own values.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 6,
+          "option": "B",
+          "before": "Recognizing how they try to strike a work-life balance",
+          "after": "Recognizing how they try to strike a work-life balance.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 6,
+          "option": "C",
+          "before": "Knowing how they struggle to connect with managers",
+          "after": "Knowing how they struggle to connect with managers.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 6,
+          "option": "D",
+          "before": "Understanding the way they seek career advancement",
+          "after": "Understanding the way they seek career advancement.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 7,
+          "option": "A",
+          "before": "In terms of the number of hours spent",
+          "after": "In terms of the number of hours spent.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 7,
+          "option": "B",
+          "before": "By the amount of work they perform",
+          "after": "By the amount of work they perform.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 7,
+          "option": "C",
+          "before": "In terms of the work done in 8 hours",
+          "after": "In terms of the work done in 8 hours.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 7,
+          "option": "D",
+          "before": "By the quality of the work they do",
+          "after": "By the quality of the work they do.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 8,
+          "option": "A",
+          "before": "Those whose culture facilitates their advancement",
+          "after": "Those whose culture facilitates their advancement.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 8,
+          "option": "B",
+          "before": "Those allowing them to do projects of their choice",
+          "after": "Those allowing them to do projects of their choice.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 8,
+          "option": "C",
+          "before": "Those whose values align with their own",
+          "after": "Those whose values align with their own.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 8,
+          "option": "D",
+          "before": "Those refraining from discrediting their perspectives",
+          "after": "Those refraining from discrediting their perspectives.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 9,
+          "option": "A",
+          "before": "They may unconsciously help customers choose greener dishes",
+          "after": "They may unconsciously help customers choose greener dishes.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 9,
+          "option": "B",
+          "before": "They may unintentionally encourage customers to eat meat",
+          "after": "They may unintentionally encourage customers to eat meat.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 9,
+          "option": "C",
+          "before": "They raise customers' environmental awareness",
+          "after": "They raise customers' environmental awareness.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 9,
+          "option": "D",
+          "before": "They enable customers to eat in a healthy way",
+          "after": "They enable customers to eat in a healthy way.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 10,
+          "option": "B",
+          "before": " By observing the eating behaviour of strict vegetarians.",
+          "after": "By observing the eating behaviour of strict vegetarians.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 10,
+          "option": "C",
+          "before": " By comparing participants eating vegetarian food frequently with those doing so rarely.",
+          "after": "By comparing participants eating vegetarian food frequently with those doing so rarely.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 10,
+          "option": "D",
+          "before": " By requiring participants to choose a meal as if they were feasting at a family gathering.",
+          "after": "By requiring participants to choose a meal as if they were feasting at a family gathering.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 11,
+          "option": "B",
+          "before": " They find vegetarian dishes become more appealing.",
+          "after": "They find vegetarian dishes become more appealing.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 11,
+          "option": "C",
+          "before": " They tend to consume larger portions of unhealthy food.",
+          "after": "They tend to consume larger portions of unhealthy food.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 11,
+          "option": "D",
+          "before": " They are less likely to choose dishes recommended by chefs.",
+          "after": "They are less likely to choose dishes recommended by chefs.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 12,
+          "option": "B",
+          "before": "They have managed to freeze polluting particles to around -18℃",
+          "after": "They have managed to freeze polluting particles to around -18°",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 12,
+          "option": "C",
+          "before": "They have been seeking a way to prevent pollutants from penetrating indoors",
+          "after": "They have been seeking a way to prevent pollutants from penetrating indoors.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 12,
+          "option": "D",
+          "before": "They have been cooperating closely on developing a new type of air-conditioner",
+          "after": "They have been cooperating closely on developing a new type of air-conditioner.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 13,
+          "option": "D",
+          "before": " They can save over 40,000 lives each year.",
+          "after": "They can save over 40,000 lives each year.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 14,
+          "option": "D",
+          "before": " They try various ways to purify indoor air.",
+          "after": "They try various ways to purify indoor air.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 15,
+          "option": "B",
+          "before": " It may change the way of future environmental research.",
+          "after": "It may change the way of future environmental research.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 15,
+          "option": "C",
+          "before": " It demonstrates the fruitful cooperation between UK and Chinese scientists.",
+          "after": "It demonstrates the fruitful cooperation between UK and Chinese scientists.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 15,
+          "option": "D",
+          "before": " It may make household appliances serve an additional air cleaner function.",
+          "after": "It may make household appliances serve an additional air cleaner function.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 16,
+          "option": "B",
+          "before": " It reflects distinct traits in animal behaviour.",
+          "after": "It reflects distinct traits in animal behaviour.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 16,
+          "option": "D",
+          "before": " It gauges the level of intelligence of various animal species.",
+          "after": "It gauges the level of intelligence of various animal species.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 17,
+          "option": "B",
+          "before": " It behaves similarly to animals capable of self-recognition.",
+          "after": "It behaves similarly to animals capable of self-recognition.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 17,
+          "option": "C",
+          "before": " It removes marks from itself to show self-awareness.",
+          "after": "It removes marks from itself to show self-awareness.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 17,
+          "option": "D",
+          "before": " It matches children over 18 months in intelligence.",
+          "after": "It matches children over 18 months in intelligence.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 18,
+          "option": "B",
+          "before": " They have advanced the concept of self-awareness to a higher level.",
+          "after": "They have advanced the concept of self-awareness to a higher level.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 18,
+          "option": "C",
+          "before": " They incorporate more perspectives than one.",
+          "after": "They incorporate more perspectives than one.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 18,
+          "option": "D",
+          "before": " They raise more questions than answers.",
+          "after": "They raise more questions than answers.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 19,
+          "option": "B",
+          "before": " Both parents and children preferred to read electronic books.",
+          "after": "Both parents and children preferred to read electronic books.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 19,
+          "option": "C",
+          "before": " Parents differed from children in reading behavior.",
+          "after": "Parents differed from children in reading behavior.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 19,
+          "option": "D",
+          "before": " Children reading electronic books learned more.",
+          "after": "Children reading electronic books learned more.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 20,
+          "option": "B",
+          "before": " They were based on small samples.",
+          "after": "They were based on small samples.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 20,
+          "option": "C",
+          "before": " They yielded unanticipated findings.",
+          "after": "They yielded unanticipated findings.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 20,
+          "option": "D",
+          "before": " They were focused on younger kids.",
+          "after": "They were focused on younger kids.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 21,
+          "option": "B",
+          "before": " Those that produce both audio and visual effects on them.",
+          "after": "Those that produce both audio and visual effects on them.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 21,
+          "option": "C",
+          "before": " Those that draw their attention to the educational content.",
+          "after": "Those that draw their attention to the educational content.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 21,
+          "option": "D",
+          "before": " Those that contribute to their increased interest in reading.",
+          "after": "Those that contribute to their increased interest in reading.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 22,
+          "option": "B",
+          "before": " Think how different we could have made them.",
+          "after": "Think how different we could have made them.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 22,
+          "option": "C",
+          "before": " Keep ourselves from regretting them.",
+          "after": "Keep ourselves from regretting them.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 22,
+          "option": "D",
+          "before": " Live with them for the time being.",
+          "after": "Live with them for the time being.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 23,
+          "option": "B",
+          "before": " It has been made with a lot of thinking.",
+          "after": "It has been made with a lot of thinking.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 23,
+          "option": "C",
+          "before": " It stems from our valuable knowledge.",
+          "after": "It stems from our valuable knowledge.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 23,
+          "option": "D",
+          "before": " It benefits us greatly one way or another.",
+          "after": "It benefits us greatly one way or another.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 24,
+          "option": "B",
+          "before": " Beautiful things to share.",
+          "after": "Beautiful things to share.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 24,
+          "option": "C",
+          "before": " Choices to make.",
+          "after": "Choices to make.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 24,
+          "option": "D",
+          "before": " Lessons to learn.",
+          "after": "Lessons to learn.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 25,
+          "option": "B",
+          "before": " Making proper use of the lessons learned.",
+          "after": "Making proper use of the lessons learned.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 25,
+          "option": "C",
+          "before": " Perfecting the decision-making strategies.",
+          "after": "Perfecting the decision-making strategies.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        },
+        {
+          "number": 25,
+          "option": "D",
+          "before": " Seeing them as obstacles to moving forward.",
+          "after": "Seeing them as obstacles to moving forward.",
+          "proof": "Canonical native PDF/DOCX layout; all ASCII letters and digits identical in order and case; spacing and punctuation only."
+        }
+      ]
+    }
+  ]
+}

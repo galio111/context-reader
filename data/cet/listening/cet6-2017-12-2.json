@@ -62,7 +62,7 @@
         },
         {
           "key": "B",
-          "text": "She had a good knowledge of the town’s history."
+          "text": "She had a good knowledge of the town's history."
         },
         {
           "key": "C",
@@ -94,7 +94,7 @@
         },
         {
           "key": "D",
-          "text": "He was too nervous to speak up."
+          "text": "He was too nervous to speak up"
         }
       ],
       "answer": "C",
@@ -190,7 +190,7 @@
         },
         {
           "key": "D",
-          "text": "Exporting their motorbikes to Indonesia."
+          "text": "Exporting their motorbikes to Indonesia"
         }
       ],
       "answer": "D",
@@ -214,7 +214,7 @@
         },
         {
           "key": "D",
-          "text": "It shows that “night owls” work much less efficiently."
+          "text": "It shows that \"night owls\" work much less efficiently."
         }
       ],
       "answer": "B",
@@ -262,7 +262,7 @@
         },
         {
           "key": "D",
-          "text": "Go to bed earlier."
+          "text": "Go to bed earlier"
         }
       ],
       "answer": "D",
@@ -358,7 +358,7 @@
         },
         {
           "key": "D",
-          "text": "They account for 8.5% of the U.S. population."
+          "text": "They account for 8.5% of the U. S. population"
         }
       ],
       "answer": "B",
@@ -526,7 +526,7 @@
         },
         {
           "key": "D",
-          "text": "A negative stereotype sticks while a positive one does not."
+          "text": "A negative stereotype sticks while a positive one does not"
         }
       ],
       "answer": "C",
@@ -570,7 +570,7 @@
         },
         {
           "key": "C",
-          "text": "It may cause serious harm to one’s liver."
+          "text": "It may cause serious harm to one's liver."
         },
         {
           "key": "D",

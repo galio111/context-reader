@@ -1,0 +1,152 @@
+{
+  "optionCorrections": [
+    {
+      "paperId": "cet6-2017-12-1",
+      "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2017.12/%E7%9C%9F%E9%A2%98Word/2017%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC1%E5%A5%97%EF%BC%89.docx",
+      "edits": [
+        {
+          "number": 8,
+          "option": "A",
+          "before": "Refunding for goods retumed",
+          "after": "refunding for goods returned",
+          "proof": "Canonical native DOCX paragraph or visually inspected PDF question; targeted OCR correction; option order and answer key retained."
+        },
+        {
+          "number": 23,
+          "option": "A",
+          "before": "It is one of the world’s most healthy d",
+          "after": "it is one of the world's most healthy diets.",
+          "proof": "Canonical native DOCX paragraph or visually inspected PDF question; targeted OCR correction; option order and answer key retained."
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2019-12-2",
+      "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2019.12/%E7%9C%9F%E9%A2%98Word/2019%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC2%E5%A5%97%EF%BC%89.docx",
+      "edits": [
+        {
+          "number": 24,
+          "option": "B",
+          "before": "The construction finn breached the contract.",
+          "after": "The construction firm breached the contract.",
+          "proof": "Canonical native DOCX paragraph or visually inspected PDF question; targeted OCR correction; option order and answer key retained."
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2020-09-1",
+      "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.09/%E7%9C%9F%E9%A2%98Word/2020%E5%B9%B409%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC1%E5%A5%97%EF%BC%89.docx",
+      "edits": [
+        {
+          "number": 11,
+          "option": "B",
+          "before": "Help fmd new sources of fresh water",
+          "after": "Help find new sources of fresh water.",
+          "proof": "Canonical native DOCX paragraph or visually inspected PDF question; targeted OCR correction; option order and answer key retained."
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2020-12-2",
+      "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.12/%E7%9C%9F%E9%A2%98Word/2020%E5%B9%B412%E6%9C%88%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%EF%BC%88%E7%AC%AC2%E5%A5%97%EF%BC%89.docx",
+      "edits": [
+        {
+          "number": 5,
+          "option": "C",
+          "before": "It doesn’t enable him to eam as much money as he used to",
+          "after": "It doesn’t enable him to earn as much money as he used to.",
+          "proof": "Canonical native DOCX paragraph or visually inspected PDF question; targeted OCR correction; option order and answer key retained."
+        },
+        {
+          "number": 6,
+          "option": "D",
+          "before": "Not all of them lnow how to motivate their employees",
+          "after": "Not all of them know how to motivate their employees.",
+          "proof": "Canonical native DOCX paragraph or visually inspected PDF question; targeted OCR correction; option order and answer key retained."
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2024-06-2",
+      "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2024.06/%E7%9C%9F%E9%A2%98Word/2024%E5%B9%B46%E6%9C%88%E7%AC%AC2%E5%A5%97%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E3%80%90%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8PDF%E7%89%88%E3%80%91.docx",
+      "edits": [
+        {
+          "number": 23,
+          "option": "A",
+          "before": "NASA did experiments in sealed containers resembling the super-insulated offices",
+          "after": "NASA did experiments insealed containers resembling the super-insulated offices of1970s.",
+          "proof": "Canonical native DOCX paragraph or visually inspected PDF question; targeted OCR correction; option order and answer key retained."
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2025-12-1",
+      "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.12/%E7%9C%9F%E9%A2%98PDF/cet6_2025_12_1.pdf",
+      "edits": [
+        {
+          "number": 15,
+          "option": "A",
+          "before": "People's intense fbcus on convenience",
+          "after": "People's intense focus on convenience.",
+          "proof": "Canonical native DOCX paragraph or visually inspected PDF question; targeted OCR correction; option order and answer key retained."
+        },
+        {
+          "number": 17,
+          "option": "A",
+          "before": "Its tag may get tom off on the conveyor be",
+          "after": "Its tag may get torn off on the conveyor belt.",
+          "proof": "Canonical native DOCX paragraph or visually inspected PDF question; targeted OCR correction; option order and answer key retained."
+        },
+        {
+          "number": 18,
+          "option": "C",
+          "before": "Get the airline agenfs phone number before boarding",
+          "after": "Get the airline agent's phone number before boarding.",
+          "proof": "Canonical native DOCX paragraph or visually inspected PDF question; targeted OCR correction; option order and answer key retained."
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2025-12-2",
+      "source": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.12/%E7%9C%9F%E9%A2%98PDF/cet6_2025_12_2.pdf",
+      "edits": [
+        {
+          "number": 2,
+          "option": "C",
+          "before": "They are within students5 budgets",
+          "after": "They are within students' budgets.",
+          "proof": "Canonical native DOCX paragraph or visually inspected PDF question; targeted OCR correction; option order and answer key retained."
+        },
+        {
+          "number": 16,
+          "option": "C",
+          "before": "It demonstrates animals5 ability to recognise themselves",
+          "after": "It demonstrates animals' ability to recognise themselves.",
+          "proof": "Canonical native DOCX paragraph or visually inspected PDF question; targeted OCR correction; option order and answer key retained."
+        },
+        {
+          "number": 21,
+          "option": "A",
+          "before": "Those that prove simple enough fbr them to comprehend",
+          "after": "Those that prove simple enough for them to comprehend.",
+          "proof": "Canonical native DOCX paragraph or visually inspected PDF question; targeted OCR correction; option order and answer key retained."
+        }
+      ]
+    }
+  ],
+  "percentageFormatting": [
+    {
+      "paperId": "cet6-2025-12-1",
+      "edits": [
+        {
+          "groupId": "cet6-2025-12-1-listening-4",
+          "paragraph": 0,
+          "before": "For some Americans, going out to dinner is a treat, planned and budgeted for. For others, it's just a daily occurrence. And that second group of people is becoming the majority, as the number of Americans who enjoy cooking is declining. In the early 2000s, researcher Eddie Yoon conducted a survey to ascertain Americans' attitudes to cooking. The survey found that $15\\%$ of Americans loved to cook, $50\\%$ said they hated to cook and $35\\%$ reported mixed feelings. When Yoon conducted the same survey 15 years later, only $10\\%$ of respondents reported a love of cooking, $45\\%$ said they hated it, and $45\\%$ had mixed feelings. Yoon asserts cooking is akin to sewing. As recently as the early 20th century, many Americans sewed their own clothing. Today, the vast majority of Americans buy clothing; only a tiny minority still sew and they do it mainly as a hobby. Yoon believes the number of home cooks will diminish in a similar fashion. Currently, the average American household spends over $3,000 per year on dining out. However, what people save in convenience, they lose in cash. Take buying lunch on work days, for example. People spend on average $10 per meal when they buy lunch. Making your own lunch, meanwhile, will cost less. One survey found people only spend on average $6.30 when they bring lunch prepared at home. Americans' growing aversion to spending time in the kitchen signifies a host of challenges for the grocery industry. It's likely to detrimentally impact family finances as well.",
+          "after": "For some Americans, going out to dinner is a treat, planned and budgeted for. For others, it's just a daily occurrence. And that second group of people is becoming the majority, as the number of Americans who enjoy cooking is declining. In the early 2000s, researcher Eddie Yoon conducted a survey to ascertain Americans' attitudes to cooking. The survey found that 15% of Americans loved to cook, 50% said they hated to cook and 35% reported mixed feelings. When Yoon conducted the same survey 15 years later, only 10% of respondents reported a love of cooking, 45% said they hated it, and 45% had mixed feelings. Yoon asserts cooking is akin to sewing. As recently as the early 20th century, many Americans sewed their own clothing. Today, the vast majority of Americans buy clothing; only a tiny minority still sew and they do it mainly as a hobby. Yoon believes the number of home cooks will diminish in a similar fashion. Currently, the average American household spends over $3,000 per year on dining out. However, what people save in convenience, they lose in cash. Take buying lunch on work days, for example. People spend on average $10 per meal when they buy lunch. Making your own lunch, meanwhile, will cost less. One survey found people only spend on average $6.30 when they bring lunch prepared at home. Americans' growing aversion to spending time in the kitchen signifies a host of challenges for the grocery industry. It's likely to detrimentally impact family finances as well.",
+          "proof": "Remove only literal TeX math wrappers around numeric percentages; numeric values and all prose remain identical."
+        }
+      ]
+    }
+  ],
+  "variantPolicy": "Different option order or substantive source variants are never overwritten from a different key sheet. Existing native source question order and its verified answer sheet remain paired."
+}

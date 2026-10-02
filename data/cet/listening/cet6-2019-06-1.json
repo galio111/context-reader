@@ -10,7 +10,7 @@
       "options": [
         {
           "key": "A",
-          "text": "A six-month-long negotiation."
+          "text": "A six- month-long negotiation."
         },
         {
           "key": "B",
@@ -94,7 +94,7 @@
         },
         {
           "key": "D",
-          "text": "Prepare for the wedding."
+          "text": "Prepare for the wedding"
         }
       ],
       "answer": "A",
@@ -214,7 +214,7 @@
         },
         {
           "key": "D",
-          "text": "They bring their potential into full play"
+          "text": "They bring their potential into full play."
         }
       ],
       "answer": "A",
@@ -262,7 +262,7 @@
         },
         {
           "key": "D",
-          "text": "He broke three world skiing records in three years."
+          "text": "He broke three world skiing records in three years"
         }
       ],
       "answer": "C",
@@ -402,7 +402,7 @@
         },
         {
           "key": "C",
-          "text": "They try hard to meet the spectators’ expectations"
+          "text": "They try hard to meet the spectators’ expectations."
         },
         {
           "key": "D",
@@ -442,11 +442,11 @@
       "options": [
         {
           "key": "A",
-          "text": "People’s envy of slim models"
+          "text": "People’s envy of slim models."
         },
         {
           "key": "B",
-          "text": "People’s craze for good health"
+          "text": "People’s craze for good health."
         },
         {
           "key": "C",
@@ -502,7 +502,7 @@
         },
         {
           "key": "D",
-          "text": "Media influence"
+          "text": "Media influence."
         }
       ],
       "answer": "A",
@@ -598,7 +598,7 @@
         },
         {
           "key": "D",
-          "text": "Their pace of evolution began to quicken."
+          "text": "Their pace of evolution began to quicken"
         }
       ],
       "answer": "A",

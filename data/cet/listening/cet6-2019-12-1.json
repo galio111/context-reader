@@ -10,19 +10,19 @@
       "options": [
         {
           "key": "A",
-          "text": "Magazine reporter."
+          "text": "Magazine reporter"
         },
         {
           "key": "B",
-          "text": "Fashion designer."
+          "text": "Fashion designer"
         },
         {
           "key": "C",
-          "text": "Website designer."
+          "text": "Website designer"
         },
         {
           "key": "D",
-          "text": "Features editor."
+          "text": "Features editor"
         }
       ],
       "answer": "D",
@@ -34,19 +34,19 @@
       "options": [
         {
           "key": "A",
-          "text": "Designing sports clothing."
+          "text": "Designing sports clothing"
         },
         {
           "key": "B",
-          "text": "Consulting fashion experts."
+          "text": "Consulting fashion experts"
         },
         {
           "key": "C",
-          "text": "Answering daily emails."
+          "text": "Answering daily emails"
         },
         {
           "key": "D",
-          "text": "Interviewing job-seekers."
+          "text": "Interviewing job-seekers"
         }
       ],
       "answer": "C",
@@ -82,19 +82,19 @@
       "options": [
         {
           "key": "A",
-          "text": "Her persistence."
+          "text": "Her persistence"
         },
         {
           "key": "B",
-          "text": "Her experience."
+          "text": "Her experience"
         },
         {
           "key": "C",
-          "text": "Her competence."
+          "text": "Her competence"
         },
         {
           "key": "D",
-          "text": "Her confidence."
+          "text": "Her confidence"
         }
       ],
       "answer": "A",
@@ -138,11 +138,11 @@
         },
         {
           "key": "C",
-          "text": "Its plots and events reveal a lot about Frankie's actual life."
+          "text": "Its plots and events reveal a lot about Frankie’s actual life."
         },
         {
           "key": "D",
-          "text": "It is written, directed, edited and produced by Frankie himself."
+          "text": "It is written, directed, edited and produced by Frankie himself"
         }
       ],
       "answer": "D",
@@ -226,19 +226,19 @@
       "options": [
         {
           "key": "A",
-          "text": "They do not have many years to live after retirement"
+          "text": "They do not have many years to live after retirement."
         },
         {
           "key": "B",
-          "text": "They tend to live a longer life with early retirement"
+          "text": "They tend to live a longer life with early retirement."
         },
         {
           "key": "C",
-          "text": "They do not start enjoying life until full retirement"
+          "text": "They do not start enjoying life until full retirement."
         },
         {
           "key": "D",
-          "text": "They keep themselves busy even after retirement"
+          "text": "They keep themselves busy even after retirement."
         }
       ],
       "answer": "A",
@@ -250,19 +250,19 @@
       "options": [
         {
           "key": "A",
-          "text": "It prevents us from worrying"
+          "text": "It prevents us from worrying."
         },
         {
           "key": "B",
-          "text": "It slows down our aging process"
+          "text": "It slows down our aging process."
         },
         {
           "key": "C",
-          "text": "It enables us to accomplish more in life"
+          "text": "It enables us to accomplish more in life."
         },
         {
           "key": "D",
-          "text": "It provides us with more chances to learn"
+          "text": "It provides us with more chances to learn."
         }
       ],
       "answer": "A",
@@ -302,7 +302,7 @@
         },
         {
           "key": "B",
-          "text": "To observe how one's mind affects one's behavior."
+          "text": "To observe how one’s mind affects one’s behavior."
         },
         {
           "key": "C",
@@ -334,7 +334,7 @@
         },
         {
           "key": "D",
-          "text": "It contributes to clear thinking."
+          "text": "It contributes to clear thinking"
         }
       ],
       "answer": "C",
@@ -450,7 +450,7 @@
         },
         {
           "key": "C",
-          "text": "Adults' influence on children."
+          "text": "Adults influence on children."
         },
         {
           "key": "D",
@@ -490,11 +490,11 @@
       "options": [
         {
           "key": "A",
-          "text": "Infants' facial expressions."
+          "text": "Infants’ facial expressions."
         },
         {
           "key": "B",
-          "text": "Babies' emotions."
+          "text": "Babies’ emotions."
         },
         {
           "key": "C",
@@ -502,7 +502,7 @@
         },
         {
           "key": "D",
-          "text": "Infants' behaviors."
+          "text": "Infants’ behaviors."
         }
       ],
       "answer": "B",
@@ -514,7 +514,7 @@
       "options": [
         {
           "key": "A",
-          "text": "It may harm the culture of today's workplace."
+          "text": "It may harm the culture of today’s workplace."
         },
         {
           "key": "B",
@@ -550,7 +550,7 @@
         },
         {
           "key": "D",
-          "text": "They may eventually lose their confidence and creativity."
+          "text": "They may eventually lose their confidence and creativity"
         }
       ],
       "answer": "C",

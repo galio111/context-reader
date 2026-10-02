@@ -76,6 +76,26 @@ test('adding audio cannot expand an existing reading-only answer sheet or alter 
  assert.equal(submitted.finalizations.f.questions.length,30);
  assert.equal(submitted.finalizations.f.listeningSections,undefined);
 });
+test('native-source corrections preserve original choices while fixing OCR and percentage notation',()=>{
+ const load=(id:string)=>JSON.parse(readFileSync(new URL(`../data/cet/listening/${id}.json`,import.meta.url),'utf8')) as CetSection;
+ const option=(s:CetSection,n:number,key:string)=>s.questions.find(q=>q.number===n)!.options.find(o=>o.key===key)!.text;
+ const first=load('cet6-2025-12-1');
+ assert.equal(option(first,1,'B'),"He is his country's ambassador to Winopia.");
+ assert.equal(option(first,17,'A'),'Its tag may get torn off on the conveyor belt.');
+ assert.equal(option(first,18,'C'),"Get the airline agent's phone number before boarding.");
+ assert.ok(first.listeningGroups!.some(g=>g.transcript.some(t=>t.includes('15% of Americans'))));
+ assert.ok(!JSON.stringify(first.listeningGroups).includes('\\%'));
+ const second=load('cet6-2025-12-2');
+ assert.equal(option(second,2,'C'),"They are within students' budgets.");
+ // The original supplied question/key sheet has a different B/C order from
+ // another printed edition. Formatting must not silently reorder choices.
+ assert.equal(option(second,13,'B'),'They are constantly being perfected');
+ assert.equal(option(second,13,'C'),'They are by-products of health research');
+ for(const s of [first,second])for(const q of s.questions){
+  const source=supplement.imported.find((e:{paperId:string})=>e.paperId+'-listening'===s.id)!;
+  assert.equal(q.answer,source.answerEvidence[String(q.number)].answer);
+ }
+});
 test('listening uses the original drafts and immutable submit package, including its transcript',()=>{
  let a=createCetActivity({paper,purpose:'practice',sectionId:listening.id,owner:'guest',now});
  a=cetAnswer(a,`${listening.id}:1`,'A','2026-10-02T00:00:02.000Z','a');

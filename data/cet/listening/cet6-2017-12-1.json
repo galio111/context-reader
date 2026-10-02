@@ -90,7 +90,7 @@
         },
         {
           "key": "C",
-          "text": "Americans’ habit of buying food in bulk"
+          "text": "American’s habit of buying food in bulk"
         },
         {
           "key": "D",
@@ -154,7 +154,7 @@
       "options": [
         {
           "key": "A",
-          "text": "Mail a gift card to her"
+          "text": "Mail a gift card to her."
         },
         {
           "key": "B",
@@ -166,7 +166,7 @@
         },
         {
           "key": "D",
-          "text": "Give her some coupons"
+          "text": "Give her some coupons."
         }
       ],
       "answer": "C",
@@ -178,7 +178,7 @@
       "options": [
         {
           "key": "A",
-          "text": "Refunding for goods retumed"
+          "text": "refunding for goods returned"
         },
         {
           "key": "B",
@@ -538,7 +538,7 @@
       "options": [
         {
           "key": "A",
-          "text": "It is one of the world’s most healthy d"
+          "text": "it is one of the world's most healthy diets."
         },
         {
           "key": "B",

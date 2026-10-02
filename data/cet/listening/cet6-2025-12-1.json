@@ -10,19 +10,19 @@
       "options": [
         {
           "key": "A",
-          "text": "He has distinguished himself in foreign service"
+          "text": "He has distinguished himself in foreign service."
         },
         {
           "key": "B",
-          "text": "He is his.country's ambassadorto Winopia"
+          "text": "He is his country's ambassador to Winopia."
         },
         {
           "key": "C",
-          "text": "He is currently an electrical engineer"
+          "text": "He is currently an electrical engineer."
         },
         {
           "key": "D",
-          "text": "He craves attention from the media"
+          "text": "He craves attention from the media."
         }
       ],
       "answer": "A",
@@ -34,19 +34,19 @@
       "options": [
         {
           "key": "A",
-          "text": "A government reshuffle"
+          "text": "A government reshuffle."
         },
         {
           "key": "B",
-          "text": "A fundamental reform"
+          "text": "A fundamental reform."
         },
         {
           "key": "C",
-          "text": "Some sort of political reorientation"
+          "text": "Some sort of political reorientation."
         },
         {
           "key": "D",
-          "text": "Some sort of crisis of legitimacy"
+          "text": "Some sort of crisis of legitimacy."
         }
       ],
       "answer": "D",
@@ -58,7 +58,7 @@
       "options": [
         {
           "key": "A",
-          "text": "All diplomats have more or less similar stories to tell"
+          "text": "All diplomats have more or less similar stories to tell."
         },
         {
           "key": "B",
@@ -66,11 +66,11 @@
         },
         {
           "key": "C",
-          "text": "Different people can take different paths"
+          "text": "Different people can take different paths."
         },
         {
           "key": "D",
-          "text": "It is a must to first obtain a law degree"
+          "text": "It is a must to first obtain a law degree."
         }
       ],
       "answer": "C",
@@ -82,19 +82,19 @@
       "options": [
         {
           "key": "A",
-          "text": "Key skills required of a diplomat"
+          "text": "Key skills required of a diplomat."
         },
         {
           "key": "B",
-          "text": "The making of an expert diplomat"
+          "text": "The making of an expert diplomat."
         },
         {
           "key": "C",
-          "text": "Diplomatic discourse and rhetoric"
+          "text": "Diplomatic discourse and rhetoric."
         },
         {
           "key": "D",
-          "text": "Contributions by diplomatic envoys"
+          "text": "Contributions by diplomatic envoys."
         }
       ],
       "answer": "A",
@@ -106,19 +106,19 @@
       "options": [
         {
           "key": "A",
-          "text": "They have got their work done"
+          "text": "They have got their work done."
         },
         {
           "key": "B",
-          "text": "They both look tired"
+          "text": "They both look tired."
         },
         {
           "key": "C",
-          "text": "They can meet again tomorrow anyway"
+          "text": "They can meet again tomorrow anyway."
         },
         {
           "key": "D",
-          "text": "They are both anxious to go home"
+          "text": "They are both anxious to go home."
         }
       ],
       "answer": "B",
@@ -130,19 +130,19 @@
       "options": [
         {
           "key": "A",
-          "text": "The board members insufficient support"
+          "text": "The board members' insufficient support."
         },
         {
           "key": "B",
-          "text": "Two months devoted to the same contract"
+          "text": "Two months devoted to the same contract."
         },
         {
           "key": "C",
-          "text": "Working two months without any progress"
+          "text": "Working two months without any progress."
         },
         {
           "key": "D",
-          "text": "The man's long concentration on the project"
+          "text": "The man's long concentration on the project."
         }
       ],
       "answer": "B",
@@ -154,19 +154,19 @@
       "options": [
         {
           "key": "A",
-          "text": "Unprofessional"
+          "text": "Unprofessional."
         },
         {
           "key": "B",
-          "text": "Inspirational"
+          "text": "Inspirational."
         },
         {
           "key": "C",
-          "text": "Exceptional"
+          "text": "Exceptional."
         },
         {
           "key": "D",
-          "text": "Delusional"
+          "text": "Delusional."
         }
       ],
       "answer": "D",
@@ -178,19 +178,19 @@
       "options": [
         {
           "key": "A",
-          "text": "Fewer rectifications of the contract"
+          "text": "Fewer rectifications of the contract."
         },
         {
           "key": "B",
-          "text": "More support from the board members"
+          "text": "More support from the board members."
         },
         {
           "key": "C",
-          "text": "The early implementation of the project"
+          "text": "The early implementation of the project."
         },
         {
           "key": "D",
-          "text": "The alignment of all sections of the contract"
+          "text": "The alignment of all sections of the contract."
         }
       ],
       "answer": "C",
@@ -202,19 +202,19 @@
       "options": [
         {
           "key": "A",
-          "text": "When two employees propose contrary solutions to their dispute"
+          "text": "When two employees propose contrary solutions to their dispute."
         },
         {
           "key": "B",
-          "text": "When two employees are directed by their respective manager"
+          "text": "When two employees are directed by their respective manager."
         },
         {
           "key": "C",
-          "text": "When two people behave in an apparently clashing manner"
+          "text": "When two people behave in an apparently clashing manner."
         },
         {
           "key": "D",
-          "text": "When two people tell different stories of the same event"
+          "text": "When two people tell different stories of the same event."
         }
       ],
       "answer": "D",
@@ -230,15 +230,15 @@
         },
         {
           "key": "B",
-          "text": " How it happened."
+          "text": "How it happened."
         },
         {
           "key": "C",
-          "text": " What it was about."
+          "text": "What it was about."
         },
         {
           "key": "D",
-          "text": " When it was settled."
+          "text": "When it was settled."
         }
       ],
       "answer": "A",
@@ -254,15 +254,15 @@
         },
         {
           "key": "B",
-          "text": " They tried to ascertain the actual facts of the matter."
+          "text": "They tried to ascertain the actual facts of the matter."
         },
         {
           "key": "C",
-          "text": " They assumed the best about them and moved on."
+          "text": "They assumed the best about them and moved on."
         },
         {
           "key": "D",
-          "text": " They persuaded them to put their conflict aside."
+          "text": "They persuaded them to put their conflict aside."
         }
       ],
       "answer": "C",
@@ -278,15 +278,15 @@
         },
         {
           "key": "B",
-          "text": " Budget sensibly."
+          "text": "Budget sensibly."
         },
         {
           "key": "C",
-          "text": " Enjoy cooking."
+          "text": "Enjoy cooking."
         },
         {
           "key": "D",
-          "text": " Shop at groceries."
+          "text": "Shop at groceries."
         }
       ],
       "answer": "A",
@@ -302,15 +302,15 @@
         },
         {
           "key": "B",
-          "text": " Sewing."
+          "text": "Sewing."
         },
         {
           "key": "C",
-          "text": " Entertaining oneself."
+          "text": "Entertaining oneself."
         },
         {
           "key": "D",
-          "text": " Fashion designing."
+          "text": "Fashion designing."
         }
       ],
       "answer": "B",
@@ -326,15 +326,15 @@
         },
         {
           "key": "B",
-          "text": " Cut down expenses."
+          "text": "Cut down expenses."
         },
         {
           "key": "C",
-          "text": " Eat more healthily."
+          "text": "Eat more healthily."
         },
         {
           "key": "D",
-          "text": " Cultivate new hobbies."
+          "text": "Cultivate new hobbies."
         }
       ],
       "answer": "B",
@@ -346,19 +346,19 @@
       "options": [
         {
           "key": "A",
-          "text": "People's intense fbcus on convenience"
+          "text": "People's intense focus on convenience."
         },
         {
           "key": "B",
-          "text": " People's deteriorating family finances."
+          "text": "People's deteriorating family finances."
         },
         {
           "key": "C",
-          "text": " People's strong aversion to junk foods."
+          "text": "People's strong aversion to junk foods."
         },
         {
           "key": "D",
-          "text": " People's increasing dislike of cooking."
+          "text": "People's increasing dislike of cooking."
         }
       ],
       "answer": "D",
@@ -374,15 +374,15 @@
         },
         {
           "key": "B",
-          "text": " Airlines cannot find its owner without an ID tag on it."
+          "text": "Airlines cannot find its owner without an ID tag on it."
         },
         {
           "key": "C",
-          "text": " Airline staff have not correctly coded its destination tag."
+          "text": "Airline staff have not correctly coded its destination tag."
         },
         {
           "key": "D",
-          "text": " Its owner has forgot to pick it up from the baggage claim."
+          "text": "Its owner has forgot to pick it up from the baggage claim."
         }
       ],
       "answer": "B",
@@ -394,19 +394,19 @@
       "options": [
         {
           "key": "A",
-          "text": "Its tag may get tom off on the conveyor be"
+          "text": "Its tag may get torn off on the conveyor belt."
         },
         {
           "key": "B",
-          "text": " Its tag may get stuck in the sorting machine."
+          "text": "Its tag may get stuck in the sorting machine."
         },
         {
           "key": "C",
-          "text": " It may be sent to a wrong destination."
+          "text": "It may be sent to a wrong destination."
         },
         {
           "key": "D",
-          "text": " It may be picked up by someone else."
+          "text": "It may be picked up by someone else."
         }
       ],
       "answer": "A",
@@ -422,15 +422,15 @@
         },
         {
           "key": "B",
-          "text": " Contact the airport staff to find our missing bag."
+          "text": "Contact the airport staff to find our missing bag."
         },
         {
           "key": "C",
-          "text": "Get the airline agenfs phone number before boarding"
+          "text": "Get the airline agent's phone number before boarding."
         },
         {
           "key": "D",
-          "text": " Avoid packing valuable items in our checked baggage."
+          "text": "Avoid packing valuable items in our checked baggage."
         }
       ],
       "answer": "D",
@@ -446,15 +446,15 @@
         },
         {
           "key": "B",
-          "text": " It can be especially disappointing."
+          "text": "It can be especially disappointing."
         },
         {
           "key": "C",
-          "text": " It can be socially harmful."
+          "text": "It can be socially harmful."
         },
         {
           "key": "D",
-          "text": " It can be really embarrassing."
+          "text": "It can be really embarrassing."
         }
       ],
       "answer": "C",
@@ -470,15 +470,15 @@
         },
         {
           "key": "B",
-          "text": " They held a negative view towards it."
+          "text": "They held a negative view towards it."
         },
         {
           "key": "C",
-          "text": " They were concerned with its effects."
+          "text": "They were concerned with its effects."
         },
         {
           "key": "D",
-          "text": " They saw it as a sign of social evolution."
+          "text": "They saw it as a sign of social evolution."
         }
       ],
       "answer": "B",
@@ -494,15 +494,15 @@
         },
         {
           "key": "B",
-          "text": " Ill effects on one's sense of pride."
+          "text": "Ill effects on one's sense of pride."
         },
         {
           "key": "C",
-          "text": " Poor relationships with others."
+          "text": "Poor relationships with others."
         },
         {
           "key": "D",
-          "text": " Vicious cycles of detachment."
+          "text": "Vicious cycles of detachment."
         }
       ],
       "answer": "D",
@@ -518,15 +518,15 @@
         },
         {
           "key": "B",
-          "text": " The nonprofessional business they see."
+          "text": "The nonprofessional business they see."
         },
         {
           "key": "C",
-          "text": " The impersonal accommodations."
+          "text": "The impersonal accommodations."
         },
         {
           "key": "D",
-          "text": " The many adventures on their way."
+          "text": "The many adventures on their way."
         }
       ],
       "answer": "C",
@@ -542,15 +542,15 @@
         },
         {
           "key": "B",
-          "text": " They attract tourists with location and decoration."
+          "text": "They attract tourists with location and decoration."
         },
         {
           "key": "C",
-          "text": " They have long been competing with chain hotels."
+          "text": "They have long been competing with chain hotels."
         },
         {
           "key": "D",
-          "text": " They are in fact a completely new idea in America."
+          "text": "They are in fact a completely new idea in America."
         }
       ],
       "answer": "A",
@@ -566,15 +566,15 @@
         },
         {
           "key": "B",
-          "text": " Your family's consent."
+          "text": "Your family's consent."
         },
         {
           "key": "C",
-          "text": " Your property."
+          "text": "Your property."
         },
         {
           "key": "D",
-          "text": " Your personality."
+          "text": "Your personality."
         }
       ],
       "answer": "C",
@@ -590,11 +590,11 @@
         },
         {
           "key": "B",
-          "text": " The number of guests to receive."
+          "text": "The number of guests to receive."
         },
         {
           "key": "C",
-          "text": " The facilities to provide."
+          "text": "The facilities to provide."
         },
         {
           "key": "D",
@@ -695,7 +695,7 @@
         15
       ],
       "transcript": [
-        "For some Americans, going out to dinner is a treat, planned and budgeted for. For others, it's just a daily occurrence. And that second group of people is becoming the majority, as the number of Americans who enjoy cooking is declining. In the early 2000s, researcher Eddie Yoon conducted a survey to ascertain Americans' attitudes to cooking. The survey found that $15\\%$ of Americans loved to cook, $50\\%$ said they hated to cook and $35\\%$ reported mixed feelings. When Yoon conducted the same survey 15 years later, only $10\\%$ of respondents reported a love of cooking, $45\\%$ said they hated it, and $45\\%$ had mixed feelings. Yoon asserts cooking is akin to sewing. As recently as the early 20th century, many Americans sewed their own clothing. Today, the vast majority of Americans buy clothing; only a tiny minority still sew and they do it mainly as a hobby. Yoon believes the number of home cooks will diminish in a similar fashion. Currently, the average American household spends over $3,000 per year on dining out. However, what people save in convenience, they lose in cash. Take buying lunch on work days, for example. People spend on average $10 per meal when they buy lunch. Making your own lunch, meanwhile, will cost less. One survey found people only spend on average $6.30 when they bring lunch prepared at home. Americans' growing aversion to spending time in the kitchen signifies a host of challenges for the grocery industry. It's likely to detrimentally impact family finances as well."
+        "For some Americans, going out to dinner is a treat, planned and budgeted for. For others, it's just a daily occurrence. And that second group of people is becoming the majority, as the number of Americans who enjoy cooking is declining. In the early 2000s, researcher Eddie Yoon conducted a survey to ascertain Americans' attitudes to cooking. The survey found that 15% of Americans loved to cook, 50% said they hated to cook and 35% reported mixed feelings. When Yoon conducted the same survey 15 years later, only 10% of respondents reported a love of cooking, 45% said they hated it, and 45% had mixed feelings. Yoon asserts cooking is akin to sewing. As recently as the early 20th century, many Americans sewed their own clothing. Today, the vast majority of Americans buy clothing; only a tiny minority still sew and they do it mainly as a hobby. Yoon believes the number of home cooks will diminish in a similar fashion. Currently, the average American household spends over $3,000 per year on dining out. However, what people save in convenience, they lose in cash. Take buying lunch on work days, for example. People spend on average $10 per meal when they buy lunch. Making your own lunch, meanwhile, will cost less. One survey found people only spend on average $6.30 when they bring lunch prepared at home. Americans' growing aversion to spending time in the kitchen signifies a host of challenges for the grocery industry. It's likely to detrimentally impact family finances as well."
       ]
     },
     {

@@ -34,7 +34,7 @@
       "options": [
         {
           "key": "A",
-          "text": "Eating any blended food."
+          "text": "Eating  any  blended  food."
         },
         {
           "key": "B",
@@ -66,7 +66,7 @@
         },
         {
           "key": "C",
-          "text": "Eating breakfast punctually every morning."
+          "text": "Eating  breakfastpunctuallyevery  morning."
         },
         {
           "key": "D",
@@ -82,7 +82,7 @@
       "options": [
         {
           "key": "A",
-          "text": "One-tenth of it is sugar"
+          "text": "One-tenth  of  it  is  sugar"
         },
         {
           "key": "B",
@@ -90,11 +90,11 @@
         },
         {
           "key": "C",
-          "text": "One’s fancy may be tickled by it"
+          "text": "One's fancy may be tickled by it."
         },
         {
           "key": "D",
-          "text": "It contains an assortment of nutrients."
+          "text": "It contains an assortment ofnutrients."
         }
       ],
       "answer": "A",
@@ -106,7 +106,7 @@
       "options": [
         {
           "key": "A",
-          "text": "How he has made himself popular as the mayor of Berkton"
+          "text": "How  hehas  madehimself popular  as  the  mayorof  Berkton"
         },
         {
           "key": "B",
@@ -114,11 +114,11 @@
         },
         {
           "key": "C",
-          "text": "How charming he himself considers the village of Berkton to be."
+          "text": "How charming he himself considers the village ofBerkton to be."
         },
         {
           "key": "D",
-          "text": "How he has led people of Berkton to change the village radically."
+          "text": "How he has led people of Berkton to change the village radically"
         }
       ],
       "answer": "D",
@@ -166,7 +166,7 @@
         },
         {
           "key": "D",
-          "text": "All the houses in Berkton looked aesthetically similar"
+          "text": "All the houses in Berkton looked aesthetically similar."
         }
       ],
       "answer": "D",
@@ -210,7 +210,7 @@
         },
         {
           "key": "C",
-          "text": "They are the first to build a robot that can bend, crawl, walk, turn and even jump."
+          "text": "They are the first to build a robot that can bend,crawl,walk,turn and even jump."
         },
         {
           "key": "D",
@@ -234,7 +234,7 @@
         },
         {
           "key": "C",
-          "text": "It moves from one place to another by memory"
+          "text": "Itmoves from one place to another by memory"
         },
         {
           "key": "D",
@@ -326,11 +326,11 @@
         },
         {
           "key": "B",
-          "text": "Whether it is possible to modify one’s genes"
+          "text": "Whether it is possible to modify one's genes."
         },
         {
           "key": "C",
-          "text": "Whether having a baby impacts one’s passion"
+          "text": "Whether having ababy impacts one's passion."
         },
         {
           "key": "D",
@@ -350,7 +350,7 @@
         },
         {
           "key": "B",
-          "text": "Babies can severely disrupt their parents’ sleep patterns"
+          "text": "Babies  can  severelydisrupt  their parents'sleep patterns"
         },
         {
           "key": "C",
@@ -370,7 +370,7 @@
       "options": [
         {
           "key": "A",
-          "text": "We have poor awareness of how many controversial issues are being debated."
+          "text": "We have poor awareness of how manycontroversial issues are being debated."
         },
         {
           "key": "B",
@@ -378,11 +378,11 @@
         },
         {
           "key": "C",
-          "text": "No one can change your opinions more than those who speak in a convincing tone."
+          "text": "No one can change youropinions more than those who speak in a convincing tone."
         },
         {
           "key": "D",
-          "text": "We are likely to underestimate how much we can be swayed by a convincing article."
+          "text": "We are likely to underestimate how much we can be swayed by a convincing article"
         }
       ],
       "answer": "D",
@@ -406,7 +406,7 @@
         },
         {
           "key": "D",
-          "text": "Their experiences of physical punishment haunted them"
+          "text": "Theirexperiences of physical punishment haunted them"
         }
       ],
       "answer": "A",
@@ -422,7 +422,7 @@
         },
         {
           "key": "B",
-          "text": "They don’t reflect the changes of view on physical punishment"
+          "text": "They don't reflect the changes of view on physical punishment"
         },
         {
           "key": "C",
@@ -430,7 +430,7 @@
         },
         {
           "key": "D",
-          "text": "They are unlikely to alter people’s position without more evidence"
+          "text": "They are unlikely to alter people's position without more evidence"
         }
       ],
       "answer": "C",
@@ -538,7 +538,7 @@
       "options": [
         {
           "key": "A",
-          "text": "NASA did experiments in sealed containers resembling the super-insulated offices"
+          "text": "NASA did experiments insealed containers resembling the super-insulated offices of1970s."
         },
         {
           "key": "B",
@@ -590,7 +590,7 @@
         },
         {
           "key": "B",
-          "text": "The difficulty in understanding what’s actually happening"
+          "text": "The difficulty in understanding what's actually happening."
         },
         {
           "key": "C",

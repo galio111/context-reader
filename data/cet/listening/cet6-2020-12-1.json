@@ -58,19 +58,19 @@
       "options": [
         {
           "key": "A",
-          "text": "The woman’s misreading of the insurance company’s letter"
+          "text": "The woman's misreading of the insurance company's letter."
         },
         {
           "key": "B",
-          "text": "The woman’s ignorance of the insurance company’s policy"
+          "text": "The woman's ignorance of the insurance company's policy."
         },
         {
           "key": "C",
-          "text": "The woman’s inaccurate description of the whole incident"
+          "text": "The woman's inaccurate description of the whole incident."
         },
         {
           "key": "D",
-          "text": "The woman’s failure to pay her house insurance in time"
+          "text": "The woman's failure to pay her house insurance in time."
         }
       ],
       "answer": "D",
@@ -182,7 +182,7 @@
         },
         {
           "key": "B",
-          "text": "It will take away humans’ jobs altogether"
+          "text": "It will take away humans' jobs altogether."
         },
         {
           "key": "C",
@@ -274,7 +274,7 @@
       "options": [
         {
           "key": "A",
-          "text": "She was uninterested in advertising"
+          "text": "She was uninterested in advertising."
         },
         {
           "key": "B",
@@ -322,7 +322,7 @@
       "options": [
         {
           "key": "A",
-          "text": "It enhances people’s ability to work independently"
+          "text": "It enhances people's ability to work independently."
         },
         {
           "key": "B",
@@ -334,7 +334,7 @@
         },
         {
           "key": "D",
-          "text": "It boosts one’s confidence when looking for employment"
+          "text": "It boosts one's confidence when looking for employment."
         }
       ],
       "answer": "C",
@@ -466,11 +466,11 @@
       "options": [
         {
           "key": "A",
-          "text": "They responded to colleagues’ suspicion"
+          "text": "They responded to colleagues' suspicion."
         },
         {
           "key": "B",
-          "text": "They cared about other people’s claims"
+          "text": "They cared about other people's claims."
         },
         {
           "key": "C",
@@ -522,11 +522,11 @@
         },
         {
           "key": "C",
-          "text": "Older people’s changing musical tastes"
+          "text": "Older people's changing musical tastes."
         },
         {
           "key": "D",
-          "text": "Older people’s aversion to new music"
+          "text": "Older people's aversion to new music."
         }
       ],
       "answer": "D",
@@ -590,7 +590,7 @@
         },
         {
           "key": "B",
-          "text": "Teenagers’ emotions are more intense"
+          "text": "Teenagers' emotions are more intense."
         },
         {
           "key": "C",
