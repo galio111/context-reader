@@ -542,7 +542,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   const showAnswers = Boolean(result) || activity?.status === "ended";
   const displayAnswer = model.answer;
   const answered = model.answered;
-  const activeSectionIndex = scope.indexOf(section);
+  const activeSectionIndex = scope.findIndex(item => item.id === section.id);
   const routeKey:CetTrailKey={owner:owner.current,level:paper.level,type:section.type,purpose:activity?.purpose||'practice'};
   const routeUnits=listAccessibleUnits(routePapers,paper.level,section.type);
   const routeProjection=projectViewedTrail(trailEvents,routeKey,routeUnits);

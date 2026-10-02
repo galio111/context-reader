@@ -96,4 +96,6 @@
 
 来源哈希、排版依据、音频对齐与文字空格修复明细见 [验收证据](evidence/cet-listening-20261002/source-manifest.json)。
 
+真实公网验收另发现第23题提取程序跨过“排除A”误取A，已按2025年6月四级第1套原解析PDF第9页修正为C；题库与目录版本同步更新。475题全部通过明确答案表述的一致性审计。该PDF第2/9页还确认修复Tariq、He knew、3500 B.C.、1110 as与for 600的五处OCR/空格错误。[定点依据](evidence/cet-listening-20261002/source-correction-proof.json)；[只读审计](evidence/cet-listening-20261002/answer-consistency-audit.json)。已有提交快照保持当时版本，后续新练习采用修正版。
+
 复跑保守排版审计：`python scripts/audit-cet-reading-layout.py --source <原始下载目录> --output <证据目录>`。仅产生提案与依据，不覆盖运行题库。需要 PyMuPDF；运行时无需该依赖。

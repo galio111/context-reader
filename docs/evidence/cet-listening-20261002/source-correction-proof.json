@@ -1,0 +1,48 @@
+{
+  "answerCorrection": {
+    "paperId": "cet4-2025-06-1",
+    "number": 23,
+    "before": "A",
+    "after": "C",
+    "sourcePage": 9,
+    "reason": "Original PDF explicitly excludes A and supports C; source transcript says held by royalty."
+  },
+  "verifiedTranscriptRepairs": [
+    {
+      "paperId": "cet4-2025-06-1",
+      "group": 1,
+      "sourcePage": 2,
+      "before": "Tarig",
+      "after": "Tariq"
+    },
+    {
+      "paperId": "cet4-2025-06-1",
+      "group": 1,
+      "sourcePage": 2,
+      "before": "Heknew",
+      "after": "He knew"
+    },
+    {
+      "paperId": "cet4-2025-06-1",
+      "group": 8,
+      "sourcePage": 9,
+      "before": "around350oB.C.,containing",
+      "after": "around 3500 B.C., containing"
+    },
+    {
+      "paperId": "cet4-2025-06-1",
+      "group": 8,
+      "sourcePage": 9,
+      "before": "1110as",
+      "after": "1110 as"
+    },
+    {
+      "paperId": "cet4-2025-06-1",
+      "group": 8,
+      "sourcePage": 9,
+      "before": "for600",
+      "after": "for 600"
+    }
+  ],
+  "sourcePdfSha256": "df3d97fbc9908eb2aa044a9dfa1f89eaa8350f4c8eca8ff3a15c086891131bf7"
+}

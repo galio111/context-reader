@@ -6,10 +6,21 @@ import {cetViewModel} from '../lib/cetViewModel';
 import {normalizeCetActivity} from '../lib/cetActivityStorage';
 import {listeningVisibleText,recordListeningPlayback,listeningDefaultMinutes} from '../lib/cetListening';
 import type {CetPaper,CetSection} from '../types/cet';
+import {auditListeningAnswers, explicitAnswerReferences} from '../scripts/audit-cet-listening-answers.mjs';
 const original=JSON.parse(readFileSync(new URL('../data/cet/cet4-2025-06-1.json',import.meta.url),'utf8')) as CetPaper;
 const listening=JSON.parse(readFileSync(new URL('../data/cet/listening/cet4-2025-06-1.json',import.meta.url),'utf8')) as CetSection;
 const paper={...original,sections:[listening,...original.sections]};
 const now='2026-10-02T00:00:00.000Z';
+
+test('source-positive answer evidence cannot select a previously excluded option',()=>{
+ assert.deepEqual(explicitAnswerReferences('由此可排除选项A，选项C与文章内容一致，因此为正确答案。'),['C']);
+ assert.deepEqual(explicitAnswerReferences('故选项C为正确答案。故选项D可排除。'),['C']);
+ assert.deepEqual(explicitAnswerReferences('D)多读参考书。解析：所以答案为A项。'),['A']);
+ assert.equal(listening.questions.find(q=>q.number===23)?.answer,'C');
+ const audited=auditListeningAnswers(new URL('../data/cet/listening',import.meta.url));
+ assert.equal(audited.questions,475);assert.equal(audited.explicitReferences,475);
+ assert.deepEqual(audited.flags,[]);assert.deepEqual(audited.unresolved,[]);
+});
 
 test('all 19 listening additions have 25 verified choices, exhaustive material groups and first-party immutable audio',()=>{
  const catalog=JSON.parse(readFileSync(new URL('../data/cet/listening/catalog.json',import.meta.url),'utf8'));
