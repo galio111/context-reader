@@ -370,12 +370,17 @@
 
 .sectionHead { position: relative; z-index: 30; width: min(1320px, 100%); margin: 0 auto 44px; }
 .resourceSwitch { display: flex; align-items: baseline; flex-wrap: wrap; gap: 18px; }
-.resourceSwitch button { font: inherit; font-size: calc(1em - 3px); letter-spacing: inherit; color: #71818a; cursor: pointer; transition: font-size 240ms var(--ease), color 240ms ease; }
+.resourceSwitch button { font: inherit; font-size: calc(1em - 6px); letter-spacing: inherit; color: #71818a; cursor: pointer; transition: font-size 240ms var(--ease), color 240ms ease; }
 .resourceSwitch button[aria-pressed="true"] { font-size: 1em; color: inherit; }
 .resourceLabel { display: block; }
-.sectionHead[data-handoff-motion] > p,
-.sectionHead[data-handoff-motion] .resourceLabel { clip-path: inset(0 calc((1 - var(--resource-reveal, 1)) * 100%) 0 0); }
-.sectionHead[data-handoff-motion] .resourceSwitch > span { opacity: var(--resource-reveal, 1); }
+.sectionHead[data-handoff-motion] > p { opacity: var(--resource-reveal, 1); transform: translateY(calc((1 - var(--resource-reveal, 1)) * 14px)); }
+.sectionHead[data-handoff-motion] .resourceSwitch { opacity: var(--resource-reveal, 1); transform: translateY(calc((1 - var(--resource-reveal, 1)) * clamp(18px, 2.8vh, 28px))); }
+.sectionHead[data-handoff-motion] .preferenceBar,
+.sectionHead[data-handoff-motion] > nav { opacity: var(--resource-reveal, 1); }
+.sectionHead[data-handoff-motion]:focus-within > p,
+.sectionHead[data-handoff-motion]:focus-within .resourceSwitch,
+.sectionHead[data-handoff-motion]:focus-within .preferenceBar,
+.sectionHead[data-handoff-motion]:focus-within > nav { opacity: 1; transform: none; }
 .resourceSwitch > span { font-size: .65em; color: #9aafb7; }
 .resourceSwitch button:focus-visible { outline: 2px solid currentColor; outline-offset: 6px; }
 .sectionHead h2,
@@ -1035,8 +1040,9 @@
 @media (prefers-reduced-motion: reduce) {
   .resourceSwitch button { transition: none; }
   .sectionHead[data-handoff-motion] > p,
-  .sectionHead[data-handoff-motion] .resourceLabel { clip-path: none; }
-  .sectionHead[data-handoff-motion] .resourceSwitch > span { opacity: 1; }
+  .sectionHead[data-handoff-motion] .resourceSwitch,
+  .sectionHead[data-handoff-motion] .preferenceBar,
+  .sectionHead[data-handoff-motion] > nav { opacity: 1; transform: none; }
   .coverSurface,
   .coverSurface > img,
   .openingImage,

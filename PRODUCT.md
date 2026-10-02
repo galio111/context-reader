@@ -24,7 +24,7 @@ Guests can read immediately and receive a small daily lookup trial. Login is req
 
 ## Brand Personality
 
-The resource switch starts on curated publications on fresh visits and restores the chosen resource when returning from Reader. Guest CET previews show twelve records per level. The unselected resource label is slightly smaller and lighter; guest showcase departure contracts and fades while resource titles reveal horizontally. Both resources retain the same guest bridge into personal article import.
+The resource switch starts on curated publications on fresh visits and restores the chosen resource when returning from Reader. Guest CET previews show twelve records per level. The unselected resource label is 6px smaller and lighter. The guest showcase gently contracts and fades before resource titles rise together by at most 28px, beginning around 82% of viewport height and settling by 54%; ordinary reverse scrolling restores both sections. Both resources retain the same guest bridge into personal article import.
 
 Quiet, focused, practical, with one memorable brand surface rather than continuous spectacle.
 
