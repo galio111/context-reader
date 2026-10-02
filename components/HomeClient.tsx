@@ -10,6 +10,11 @@ const ReaderView = dynamic(() => import("@/components/ReaderView").then(module =
   loading: () => <div role="status" className="min-h-screen bg-white p-8 text-center text-slate-600">正在打开文章…</div>,
 });
 import { fetchJson } from "@/lib/apiClient";
+import { coverSource, type CoverSource } from "@/lib/coverSources";
+import { warmCovers } from "@/lib/coverMediaQueue";
+import { orderHomepageRecommendations } from "@/lib/homepageRecommendations";
+import { emptyRecommendationPreferences } from "@/lib/recommendationPreferencesShared";
+import { shanghaiDay } from "@/lib/discoveryPolicy";
 import { ACCOUNT_DATA_MERGED_EVENT, accountDataEventKinds } from "@/lib/accountEvents";
 import {
   deleteSavedArticle,
@@ -198,21 +203,65 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
   const [initialPublicArticles, setPublicArticles] = useState(bootstrapArticles);
   const [catalogueStatus, setCatalogueStatus] = useState<"idle" | "loading" | "ready" | "error">(initialCatalogueComplete ? "ready" : "idle");
   const catalogueRef = useRef({ articles: bootstrapArticles, complete: initialCatalogueComplete, pending: null as Promise<PublicArticle[]> | null });
-  const ensurePublicCatalogue = useCallback((forSourceLookup = false): Promise<PublicArticle[]> => {
+  const loadPublicCatalogue = useCallback((): Promise<PublicArticle[]> => {
     const current = catalogueRef.current;
-    if (!account.authenticated || isOffline || (forceGuestPreview && !forSourceLookup)) return Promise.resolve(current.articles);
     if (current.complete) return Promise.resolve(current.articles);
     if (current.pending) return current.pending;
-    setCatalogueStatus("loading");
     current.pending = fetchJson<{ articles?: PublicArticle[] }>("/api/public-articles?format=metadata-v2", {}, "完整外刊目录暂时无法加载，请重试。").then(({ response, data }) => {
       if (!response.ok || !Array.isArray(data?.articles)) throw new Error("完整外刊目录暂时无法加载，请重试。");
       current.articles = data.articles; current.complete = true;
-      setPublicArticles(data.articles); setCatalogueStatus("ready");
       return data.articles;
-    }).catch(error => { setCatalogueStatus("error"); throw error; }).finally(() => { current.pending = null; });
+    }).finally(() => { current.pending = null; });
     return current.pending;
-  }, [account.authenticated, isOffline, forceGuestPreview]);
+  }, []);
+  const ensurePublicCatalogue = useCallback((forSourceLookup = false): Promise<PublicArticle[]> => {
+    if (!account.authenticated || isOffline || (forceGuestPreview && !forSourceLookup)) return Promise.resolve(catalogueRef.current.articles);
+    if (!catalogueRef.current.complete) setCatalogueStatus("loading");
+    return loadPublicCatalogue().then(articles => {
+      setPublicArticles(articles); setCatalogueStatus("ready"); return articles;
+    }).catch(error => { setCatalogueStatus("error"); throw error; });
+  }, [account.authenticated, isOffline, forceGuestPreview, loadPublicCatalogue]);
   const requestPublicCatalogue = useCallback(() => { void ensurePublicCatalogue().catch(() => {}); }, [ensurePublicCatalogue]);
+
+  useEffect(() => {
+    if (isOffline) return;
+    let cancelled = false;
+    let stopWarmup = () => {};
+    let idle = 0;
+    let timer = 0;
+    const run = () => {
+      if (cancelled) return;
+      // Guest warmup reads only the already-public metadata/images. It neither
+      // exposes member controls nor changes the current curated article order.
+      void loadPublicCatalogue().then(articles => {
+        if (cancelled) return;
+        const ordered = orderHomepageRecommendations(articles, initialHomepageCuration, emptyRecommendationPreferences(), shanghaiDay(new Date().toISOString()));
+        const seen = new Set(ordered.map(article => article.id));
+        const sources = [...ordered, ...articles.filter(article => !seen.has(article.id))]
+          .map((article, index) => coverSource(article, index === 0)).filter((source): source is CoverSource => Boolean(source));
+        stopWarmup = warmCovers(sources);
+        // Resolve the member catalogue during the workbench/opening, before
+        // scrolling into the resource section can trigger its React update.
+        if (account.authenticated && !forceGuestPreview) void ensurePublicCatalogue().catch(() => {});
+      }).catch(() => {});
+    };
+    const start = () => {
+      if ([...document.querySelectorAll<HTMLImageElement>("img[data-cover-eager]")].some(image => !image.complete)) return;
+      document.removeEventListener("load", start, true);
+      document.removeEventListener("error", start, true);
+      if (typeof window.requestIdleCallback === "function") idle = window.requestIdleCallback(run, { timeout: 1200 });
+      else timer = window.setTimeout(run, 100);
+    };
+    document.addEventListener("load", start, true);
+    document.addEventListener("error", start, true);
+    start();
+    return () => {
+      cancelled = true; stopWarmup(); window.clearTimeout(timer);
+      if (idle) window.cancelIdleCallback(idle);
+      document.removeEventListener("load", start, true);
+      document.removeEventListener("error", start, true);
+    };
+  }, [account.authenticated, ensurePublicCatalogue, forceGuestPreview, initialHomepageCuration, isOffline, loadPublicCatalogue]);
 
   const [article, setArticle] = useState("");
   const [articleUrl, setArticleUrl] = useState("");

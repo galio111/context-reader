@@ -7,7 +7,9 @@ import {cetViewModel} from '../lib/cetViewModel';
 import {normalizeCetActivity} from '../lib/cetActivityStorage';
 import {listeningVisibleText,recordListeningPlayback,listeningDefaultMinutes,validListeningSnapshots} from '../lib/cetListening';
 import type {CetPaper,CetSection} from '../types/cet';
+// @ts-expect-error The audit CLI is a JavaScript module without a declaration file.
 import {auditListeningAnswers, explicitAnswerReferences} from '../scripts/audit-cet-listening-answers.mjs';
+// @ts-expect-error The audit CLI is a JavaScript module without a declaration file.
 import {auditListeningContent, listeningContentFlags} from '../scripts/audit-cet-listening-content.mjs';
 const original=JSON.parse(readFileSync(new URL('../data/cet/cet4-2025-06-1.json',import.meta.url),'utf8')) as CetPaper;
 const listening=JSON.parse(readFileSync(new URL('../data/cet/listening/cet4-2025-06-1.json',import.meta.url),'utf8')) as CetSection;

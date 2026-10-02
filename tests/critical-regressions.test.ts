@@ -880,7 +880,7 @@ test("published placement can remove recommendation membership and move category
 
 test("recommendation motion rebinds when preference ordering swaps article ids without changing length", () => {
   const source = readFileSync(new URL("../components/HomeRedesign.tsx", import.meta.url), "utf8");
-  assert.match(source, /const displayArticleMotionKey = displayArticles\.map\(\(article\) => article\.id\)/);
+  assert.match(source, /const displayArticleMotionKey = renderedArticles\.map\(\(article\) => article\.id\)/);
   assert.match(source, /useArticleReveal\(articleGridRef, styles\.articleCard, resourceTab, `\$\{activeCategory\}.*\$\{displayArticleMotionKey\}`\)/);
   assert.match(source, /Math\.max\(2, Math\.ceil\(words \/ 120\)\)/);
 });
