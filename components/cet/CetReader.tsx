@@ -824,6 +824,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
       }) : <span data-cet-part-start={0}>{lookupText(text, lookup, undefined, 0, sectionUnderlines.filter(mark => (!mark.target || mark.target === "passage") && mark.paragraphIndex === index))}</span>}</p>)}</div>}
       {activity?.conditions.includes("legacy_draft_conflict") && <p role="status">旧设备有不同草稿，已保留在本机备份中，当前答卷和已提交结果未被替换。</p>}
       {renderQuestions("inline",lookup)}
+      {section.type === "listening" && section.audio?.attribution?.length ? <details className="cet-source-info"><summary>听力资料与详细解析来源</summary>{section.audio.attribution.map(source=><p key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title}</a>{source.license && <> · {source.licenseUrl ? <a href={source.licenseUrl} target="_blank" rel="noopener noreferrer">{source.license}</a> : source.license}</>}</p>)}</details> : null}
       {!paperEditorOpen && renderActions("inline")}
     </div>;
   };
