@@ -1,0 +1,58 @@
+{
+  "realPublicReader": true,
+  "releaseId": "20261002T152318",
+  "wholeScope": 55,
+  "submitAll": {
+    "correct": 2,
+    "unanswered": 53,
+    "sections": 5,
+    "transcriptGroups": 8,
+    "question23": "C correct"
+  },
+  "submittedNavigation": [
+    1,
+    2,
+    1
+  ],
+  "firstPreviousDisabled": true,
+  "practiceNativeMP3": {
+    "readyState": 4,
+    "duration": 954.3575,
+    "canPause": true
+  },
+  "nativeM4A": {
+    "readyState": 4,
+    "currentTime": 14.370457,
+    "duration": 1432.137007,
+    "error": null
+  },
+  "selfTest": {
+    "questionScope": 25,
+    "pauseDisabled": true,
+    "seekSliders": 0,
+    "beforeSubmitTranscripts": 0,
+    "underlineColor": "teal",
+    "underlineText": "She is th",
+    "reopenDisplay": "03:11 / 14:38",
+    "resumeSeconds": 191.369962,
+    "earlySubmitStopsAudio": true,
+    "recordsInterruptedAndNotCompleted": true,
+    "afterSubmitTranscriptGroups": 8
+  },
+  "mobileViewport": [
+    390,
+    844
+  ],
+  "mobileClientWidth": 375,
+  "mobileScrollWidth": 375,
+  "desktopViewport": [
+    1440,
+    900
+  ],
+  "dayAndNightScreenshots": true,
+  "nightUnselectedLetterColor": "rgb(220, 235, 237)",
+  "optionLookup": "slapping usable Chinese and sentence translation",
+  "transcriptLookup": "nourishment usable Chinese and sentence translation",
+  "newConsoleErrorsAfterFinalAcceptance": [],
+  "physicalDeviceAudioAcceptance": false
+}
