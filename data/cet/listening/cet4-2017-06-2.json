@@ -1,0 +1,753 @@
+{
+  "id": "cet4-2017-06-2-listening",
+  "type": "listening",
+  "title": "听力",
+  "paragraphs": [],
+  "questions": [
+    {
+      "number": 1,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "The majority of drivers prefer to drive and park themselves."
+        },
+        {
+          "key": "B",
+          "text": "Human drivers become easily distracted or tired while driving."
+        },
+        {
+          "key": "C",
+          "text": "Most drivers feel uncertain about the safety of self-driving cars."
+        },
+        {
+          "key": "D",
+          "text": "Most drivers have test driven cars with automatic braking features."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 2,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Their drivers would feel safe after getting used to the automatic devices."
+        },
+        {
+          "key": "B",
+          "text": "They would be unpopular with drivers who only trust their own skills."
+        },
+        {
+          "key": "C",
+          "text": "Their increased comfort levels have boosted their sales."
+        },
+        {
+          "key": "D",
+          "text": "They are not actually as safe as automakers advertise."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 3,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Thefts of snowmobile dogs in Alaska."
+        },
+        {
+          "key": "B",
+          "text": "A series of injuries to snowmobile drivers."
+        },
+        {
+          "key": "C",
+          "text": "Attacks on some Iditarod Race competitors."
+        },
+        {
+          "key": "D",
+          "text": "A serious accident in the Alaska sports event."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 4,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He stayed behind to look after his injured dogs."
+        },
+        {
+          "key": "B",
+          "text": "He has won the Alaska Iditarod Race four times."
+        },
+        {
+          "key": "C",
+          "text": "He received a minor injury in the Iditarod Race."
+        },
+        {
+          "key": "D",
+          "text": "He has quit the competition in Alaska for good."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 5,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It sank into the sea due to overloading."
+        },
+        {
+          "key": "B",
+          "text": "It ran into Nicaragua’s Big Corn Island."
+        },
+        {
+          "key": "C",
+          "text": "It disappeared between two large islands."
+        },
+        {
+          "key": "D",
+          "text": "It turned over because of strong winds."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 6,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "13."
+        },
+        {
+          "key": "B",
+          "text": "25."
+        },
+        {
+          "key": "C",
+          "text": "30."
+        },
+        {
+          "key": "D",
+          "text": "32."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 7,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He has helped with the rescue effort."
+        },
+        {
+          "key": "B",
+          "text": "He is being investigated by the police."
+        },
+        {
+          "key": "C",
+          "text": "He was drowned with the passengers."
+        },
+        {
+          "key": "D",
+          "text": "He is among those people missing."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 8,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "At a shopping centre."
+        },
+        {
+          "key": "B",
+          "text": "At a community college."
+        },
+        {
+          "key": "C",
+          "text": "At an accountancy firm."
+        },
+        {
+          "key": "D",
+          "text": "At an IT company."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 9,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Helping out with data input."
+        },
+        {
+          "key": "B",
+          "text": "Arranging interviews."
+        },
+        {
+          "key": "C",
+          "text": "Sorting application forms."
+        },
+        {
+          "key": "D",
+          "text": "Making phone calls."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 10,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He enjoys using computers."
+        },
+        {
+          "key": "B",
+          "text": "He needs the money badly."
+        },
+        {
+          "key": "C",
+          "text": "He wants to work in the city centre."
+        },
+        {
+          "key": "D",
+          "text": "He has relevant working experience."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 11,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Purchase some business suits."
+        },
+        {
+          "key": "B",
+          "text": "Learn some computer language."
+        },
+        {
+          "key": "C",
+          "text": "Improve his programming skills."
+        },
+        {
+          "key": "D",
+          "text": "Review some accountancy terms."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 12,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They are keen on high technology."
+        },
+        {
+          "key": "B",
+          "text": "They are poor at technology skills."
+        },
+        {
+          "key": "C",
+          "text": "They often listen to National Public Radio."
+        },
+        {
+          "key": "D",
+          "text": "They feel superior in science and technology."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 13,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Japanese."
+        },
+        {
+          "key": "B",
+          "text": "Germans."
+        },
+        {
+          "key": "C",
+          "text": "Poles."
+        },
+        {
+          "key": "D",
+          "text": "Americans."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 14,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Emailing."
+        },
+        {
+          "key": "B",
+          "text": "Texting."
+        },
+        {
+          "key": "C",
+          "text": "Science."
+        },
+        {
+          "key": "D",
+          "text": "Literacy."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 15,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It is undergoing a drastic reform."
+        },
+        {
+          "key": "B",
+          "text": "It lays emphasis on creative thinking."
+        },
+        {
+          "key": "C",
+          "text": "It has much room for improvement."
+        },
+        {
+          "key": "D",
+          "text": "It prioritizes training of practical skills."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 16,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They have small roots."
+        },
+        {
+          "key": "B",
+          "text": "They grow white flowers."
+        },
+        {
+          "key": "C",
+          "text": "They taste like apples."
+        },
+        {
+          "key": "D",
+          "text": "They come from Central Africa."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 17,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They turned from white to purple in color."
+        },
+        {
+          "key": "B",
+          "text": "They became popular on the world market."
+        },
+        {
+          "key": "C",
+          "text": "They became an important food for humans."
+        },
+        {
+          "key": "D",
+          "text": "They began to look like modern-day carrots."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 18,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They were found quite nutritious."
+        },
+        {
+          "key": "B",
+          "text": "There were serious food shortages."
+        },
+        {
+          "key": "C",
+          "text": "People discovered their medicinal value."
+        },
+        {
+          "key": "D",
+          "text": "Farm machines helped lower their prices."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 19,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "She could update her family any time she liked."
+        },
+        {
+          "key": "B",
+          "text": "She could call up her family whenever she liked"
+        },
+        {
+          "key": "C",
+          "text": "She could locate her friends wherever they were."
+        },
+        {
+          "key": "D",
+          "text": "She could download as many pictures as she liked."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 20,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "She liked to inform her friends about her success."
+        },
+        {
+          "key": "B",
+          "text": "She enjoyed reading her friends’ status updates."
+        },
+        {
+          "key": "C",
+          "text": "She felt quite popular among them."
+        },
+        {
+          "key": "D",
+          "text": "She felt she was a teenager again."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 21,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "She could barely respond to all her 500 Facebook friends."
+        },
+        {
+          "key": "B",
+          "text": "She spent more time updating her friends than her family."
+        },
+        {
+          "key": "C",
+          "text": "She could barely balance Facebook updates and her work."
+        },
+        {
+          "key": "D",
+          "text": "She didn’t seem to be doing as well as her Facebook friends."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 22,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They have strong muscles."
+        },
+        {
+          "key": "B",
+          "text": "They live a longer life than horses."
+        },
+        {
+          "key": "C",
+          "text": "They eat much less in winter."
+        },
+        {
+          "key": "D",
+          "text": "They can work longer than donkeys."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 23,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It was a pet of a Spanish king."
+        },
+        {
+          "key": "B",
+          "text": "It was bought by George Washington."
+        },
+        {
+          "key": "C",
+          "text": "It was brought over from Spain."
+        },
+        {
+          "key": "D",
+          "text": "It was donated by a U.S. Ambassador."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 24,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They met and exchanged ideas on animal breeding."
+        },
+        {
+          "key": "B",
+          "text": "They participated in a mule-driving competition."
+        },
+        {
+          "key": "C",
+          "text": "They showed and traded animals in the market."
+        },
+        {
+          "key": "D",
+          "text": "They fed mules with the best food they could find."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 25,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "The wider use of horses."
+        },
+        {
+          "key": "B",
+          "text": "The arrival of tractors."
+        },
+        {
+          "key": "C",
+          "text": "A shrinking animal trade."
+        },
+        {
+          "key": "D",
+          "text": "A growing donkey population."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    }
+  ],
+  "audio": {
+    "url": "/cet-audio/d00c9c5fe800f2daca8cf8fa6e5f0cbfa9e2f8f47515a511679d4e34da43bb23.mp3",
+    "sha256": "d00c9c5fe800f2daca8cf8fa6e5f0cbfa9e2f8f47515a511679d4e34da43bb23",
+    "bytes": 23704128,
+    "mimeType": "audio/mpeg",
+    "durationSeconds": 1481.508,
+    "attribution": [
+      {
+        "title": "DieDiDi/CET4-6-past-exam-paper",
+        "url": "https://github.com/DieDiDi/CET4-6-past-exam-paper/tree/97266755c1d95b13b86ce3e0570390b5f7a89225"
+      },
+      {
+        "title": "0609x/CET46-Resources",
+        "url": "https://github.com/0609x/CET46-Resources/tree/4a24a1abf752e27de88a5e8bf930595c4ccffcec"
+      }
+    ]
+  },
+  "listeningGroups": [
+    {
+      "id": "cet4-2017-06-2-listening-1",
+      "title": "短篇新闻一",
+      "questionNumbers": [
+        1,
+        2
+      ],
+      "transcript": [
+        "Automakers and tech companies are working hard to offer the first true self-driving car.  But 75% of drivers say they wouldn't feel safe in such a vehicle. Still, 60% of drivers would like to get some kind of self- driving feature, such as automatic braking or self-parking, the next time they buy a new car. The attitudes are published in a new AAA survey of 1,800 drivers. Advocates of self-driving cars argue they would be safer than in cars driven by humans because they wouldn't get distracted or drive when tired. But those surveyed by AAA say they trust their own driving skills. Many feel the technology is too new and unproven. John Nielsen, AAA's managing director of automotive engineering and repair, said tests suggest drivers may be overestimating their own abilities. He also believes they will be more likely to trust self-driving cars as they become more familiar with features such as automatic braking or parking. He estimated that the \" comfort level\" will increase considerably in five to ten years."
+      ]
+    },
+    {
+      "id": "cet4-2017-06-2-listening-2",
+      "title": "短篇新闻二",
+      "questionNumbers": [
+        3,
+        4
+      ],
+      "transcript": [
+        "One dog has been killed and multiple dogs have been injured by a snowmobile driver in what appears to be an intentional attack on competitors in the Iditarod Race in Alaska. Aliy Zirkle was the first to report an attack. A snowmobile driver had repeatedly attempted to harm her and her team, and one of Zirkle's dogs had received a non-life-threatening injury. Zirkle reported the attack when she arrived in Nulato, Alaska, in the early hours of the morning. Then Jeff King, a four-time champion, reported a similar attack. His team was hit by a snowmobile driver, injuring several dogs and klling a 3-year-old male dog. Reporter Zachariah Hughes says that neither King nor Zirkle was injured. Although this incident very much alters the race of the two participants competing for a win, both are going to continue on their way toward the finishing line. Alaska State Troopers released a statement saying they've arrested Armold Demoski, 26. He faces trial on several charges."
+      ]
+    },
+    {
+      "id": "cet4-2017-06-2-listening-3",
+      "title": "短篇新闻三",
+      "questionNumbers": [
+        5,
+        6,
+        7
+      ],
+      "transcript": [
+        "A tour boat turned over off the coast of Nicaragua, killing at least 13 people and leaving more passengers missing, official said. The boat was carrying 32 people—25 Costa Ricans, four Americans and three Nicaraguans. The 13 dead were all Costa Rican, the Foreign Ministry said. The boat, traveling between Nicaragua's Big Corn Island and Little Corn Island, turned over Saturday near the larger island. Some passengers remain missing, the Costa Rican Foreign Ministry said, but did not specify how many. A local radio said an unspecified number of people were rescued, including the tour boat's owner, Hilario Blandon.",
+        "Nicaraguan naval authorities had banned sea travel in the area because of bad weather and strong winds, but the tour boat proceeded anyway.",
+        "Blandon, the boat's owner, has been arrested by Nicaraguan authorities, the state-run news agency said. Both he and a crew member are being investigated for unintentional murder and exposing people to danger, according to police."
+      ]
+    },
+    {
+      "id": "cet4-2017-06-2-listening-4",
+      "title": "长对话一",
+      "questionNumbers": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "transcript": [
+        "M: Hi, Susan, you're looking very smart today.",
+        "W: I always look smart, James. Actually, I'm on my way to a job interview.",
+        "M: What job? Oh, you mean, for the summer holidays?",
+        "W: Yeah. There's only two weeks to go.  I've got a second interview with that big foreign accountancy firm in the city center. You know the one.",
+        "M: That's fantastic.",
+        "W:  The work is just helping out with data input, you know, but the pay isn't too bad. It might suit you too. I know they have at least two temporary positions available. And I don't think they have anyone else yet.",
+        "M: Hmm...If they take you on, tell them you know a friend who'd be really good too.  I really need the money and the experience would look good on my resume. Maybe we'll be working together. The dream team.",
+        "W: OK. We'll do. If the boss likes me, Ill mention it. It'll be good to have someone around who I know. I'll phone you afterwards. But perhaps you should put in an application anyway.",
+        "M: Thanks, Susan. That's great. Listen, do you want a lift to the city? I have my dad's car today, and nothing else to do this morning.",
+        "W: Sure. Thanks, James.",
+        "M: Let's go then. The car's over there.",
+        "W: By the way, how's your knowledge of accountancy? The interviewer may ask you about it.",
+        "M: No problem. I think I can survive.  I might just have to review a few accountancy terms. Maybe you can give me a practice interview first.",
+        "W: Of course. Let's go then. Don't want to be late."
+      ]
+    },
+    {
+      "id": "cet4-2017-06-2-listening-5",
+      "title": "长对话二",
+      "questionNumbers": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "transcript": [
+        "W: There's new data out today that confirms that many Americans are not good at math, and when it comes to everyday technology skills, we are dead last when compared to other developed countries. Here's Gabrielle Emanuel of National Public Radio.",
+        "M:  Let's start with the bad news that Americans are terrible at technology skills, using email, naming a file on a computer, using a link on a webpage, or just texting someone.",
+        "W: No country scored below the U. S. ?",
+        "M: Only one country. Poland performed as poorly as we did.  Who came out the first? Japan did the best and then Finland. If you look at data about reading and math, you'll notice something interesting. Younger adults who went to college or graduate school were doing pretty well.  In literacy, they were actually doing better than their peers in other countries.",
+        "W: So that's a bit of good news.",
+        "M:  But when you look at Americans who have a high school diploma, they look a lot like other countries' high school dropouts. We have a lot of work to do. That is especially true when it comes to math. You go to the store and there's a sale. Buy one, get the second one half off. You decide to buy two. How much do you pay?",
+        "W: You mean high school graduates can't do this task in general?",
+        "M: You're right. What does that tell us about our education system? Well, it tells us that we need to think about the preparedness of our students as they are leaving high school.",
+        "W: Right. And schools, employers, in fact we all need to do something about it. Thank you, Gabrielle."
+      ]
+    },
+    {
+      "id": "cet4-2017-06-2-listening-6",
+      "title": "短文一",
+      "questionNumbers": [
+        16,
+        17,
+        18
+      ],
+      "transcript": [
+        "Wild carrots probably evolved with the other flowering plants about 360 million years ago. Like apples, carrots are native to Central Asia. That's why horses, which also come from Central Asia, like both apples and carrots so much.",
+        "With wild carrots, the roots are white, small and skinny, so you'd have to pick a lot of wild carrots to get enough to eat. Doctors used carrot seeds and roots as medicine, on the theory that foods that taste bad must be good for you. Around 800 AD, people in Central Asia managed to develop a new kind of carrota purple carrot that attracted more interest from intermational traders.  Then, in the late 1500s, food scientists in the Netherlands cultivated large, straight, sweet, red carrots like the ones we eat today. But people still mostly fed carrots to horses, donkeys and pigs, and didn't eat them themselves. In the 1600s, people in China used carrots as medicine, but they also ate carots boiled in soup. The red color was popular for Chinese New Year celebrations. ( 18) But carrots got their biggest boost during the two world wars, when food shortages forced people to eat them, and governments told everyone how healthy carrots were. Today, cooler countries grow most of the world's carrots. Machines do most of the planting and picking, and carrots are easy to store and ship, so they are cheap almost everywhere."
+      ]
+    },
+    {
+      "id": "cet4-2017-06-2-listening-7",
+      "title": "短文二",
+      "questionNumbers": [
+        19,
+        20,
+        21
+      ],
+      "transcript": [
+        "Katherine loved Facebook. With Facebook, she could stay connected with her family no matter how far away they were. She could see their photos and read their status updates. With Facebook, she could keep her relatives up-to-date on what she was doing.  Another thing Katherine loved about Facebook was that she didn't have to think about time zones when updating family. Whenever she called her parents or other relatives, she always had to think about the time difference so that she wouldn't wake someone up or call when she knew they were at church. Facebook was so convenient.",
+        "When Katherine joined Facebook, some of her classmates at high school started to add her as a friend. At first, this didn't bother her.  She loved learning about the success of people she knew when she was just a teenager. She loved finding out people were getting married, having babies, and traveling.",
+        "Soon, however, Katherine found herself comparing herself with the people she was reading about on Facebook. It began to make her feel bad that some people seemed to be doing so much better than she was. She was also spending a lot of time on Facebook. It took a lot of time and energy to keep up with everyone's status updates. Katherine started to think. She looked at the list of over 500 friends she had on Facebook and realized some of them were not really friends at all."
+      ]
+    },
+    {
+      "id": "cet4-2017-06-2-listening-8",
+      "title": "短文三",
+      "questionNumbers": [
+        22,
+        23,
+        24,
+        25
+      ],
+      "transcript": [
+        "Do you know where a mule comes from? It is the child of a donkey and a horse.  Mules have strong muscles like horses, but they eat less, can work longer, and are gentler, like donkeys.",
+        "George Washington was the first person in the United States to own mules. He had heard that mules made good farm animals and he contacted the U. S. ambassador in Spain to ask about them.  In 1785, King Charles II of Spain sent Washington a male donkey as a gift. That male donkey became the father of the mule industry in the U. S. Every April, Maury County holds a Mule Day celebration. Held in Columbia, Tennessee, Mule Day had its beginnings as \"Breeder's Day\" in the 1840s.  Farmers and farm animal breeders would bring their animals to market every April to show, buy, and trade. This was an important business before the days of tractors, when many families made a living from farming and mules were used as work animals.  Eventually, tractors began to replace mules, making them less in demand. A parade was added to Mule Day in 1934 to attract more people. Over the years other activities have been added, and today more than 20o,o00 people show up each year to watch and participate. If you visit during Mule Day celebrations, you might see mule-driving contests, square dances, horse shows or even tree-cutting competitions."
+      ]
+    }
+  ],
+  "materialId": "96856d9da951e62445b3",
+  "questionSetId": "9824b185b56fe9f808fa"
+}

@@ -1,8 +1,8 @@
 # Context Reader GPT 项目上下文包
 
-## CET 听力（2026-10-02，已生产）
+## CET 听力（2026-10-02）
 
-当前接受 `20261002T152318`（parent `20261002T145029`，source `1667d2f8df69a8cdd7b8b2684432e5701d28ace6`）；公网mainland_internal与服务器current/state一致。现有149套中19套接入475题/143组听力原文、18份去重原始录音；127套源仓库缺音频、3套缺可靠原文不加听力。练习暂停/拖动、自测连续播放、提交后按材料显示原文并可查词；播放位置/原文/划记固定在原活动与同步/提交体系，旧30题范围保留。475题明确答案一致性审计、85CET/89核心/8计费及媒体/加载回归、九保护契约、本机/服务器构建、真实公网Reader/MP3/M4A/55题提交、两客户端同步、AI默认模型每次计费、Admin、七服务、17表隔离恢复、当前/父镜像通过。逐材料切片未做；完整人工听验、逐字OCR校订、物理手机/Safari/Edge及用户视觉接受仍开放。身份、截图和完整缺失清单见[cet-listening-release.md](cet-listening-release.md)。后续文档main提交不改变生产sourceRevision。
+当前接受 `20261002T152318`（parent `20261002T145029`，source `1667d2f8df69a8cdd7b8b2684432e5701d28ace6`）；公网mainland_internal与服务器current/state一致。原生产19套已保留；GitHub补充新增43套，当前源代码含62套/1550题/465组原文/61份去重录音。新增来源有完整文件指纹、答案依据与逐组录音核对，原19套JSON不变；剩余87套按未找到录音、错标、共用题序及材料待核对分别列出。补充发布证据见[cet-listening-supplement-release.md](cet-listening-supplement-release.md)，缺项见[cet-listening-supplement-report.md](cet-listening-supplement-report.md)。练习暂停/拖动、自测连续播放、提交后按材料显示原文并可查词；播放位置/原文/划记固定在原活动与同步/提交体系，旧30题范围保留。475题明确答案一致性审计、85CET/89核心/8计费及媒体/加载回归、九保护契约、本机/服务器构建、真实公网Reader/MP3/M4A/55题提交、两客户端同步、AI默认模型每次计费、Admin、七服务、17表隔离恢复、当前/父镜像通过。逐材料切片未做；完整人工听验、逐字OCR校订、物理手机/Safari/Edge及用户视觉接受仍开放。身份、截图和完整缺失清单见[cet-listening-release.md](cet-listening-release.md)。后续文档main提交不改变生产sourceRevision。
 
 ## 首页资源标题上浮修订（2026-10-02，本轮待发布验收）
 

@@ -1,0 +1,754 @@
+{
+  "id": "cet6-2016-06-2-listening",
+  "type": "listening",
+  "title": "听力",
+  "paragraphs": [],
+  "questions": [
+    {
+      "number": 1,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "The project the man managed at CucinTech."
+        },
+        {
+          "key": "B",
+          "text": "The updating of technology at CucinTech."
+        },
+        {
+          "key": "C",
+          "text": "The man's switch to a new career."
+        },
+        {
+          "key": "D",
+          "text": "The restructuring of her company."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 2,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Talented personnel."
+        },
+        {
+          "key": "B",
+          "text": "Strategic innovation."
+        },
+        {
+          "key": "C",
+          "text": "Competitive products."
+        },
+        {
+          "key": "D",
+          "text": "Effective promotion."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 3,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Expand the market."
+        },
+        {
+          "key": "B",
+          "text": "Recruit more talents."
+        },
+        {
+          "key": "C",
+          "text": "Innovate constantly."
+        },
+        {
+          "key": "D",
+          "text": "Watch out for his competitors."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 4,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Possible bankruptcy."
+        },
+        {
+          "key": "B",
+          "text": "Unforeseen difficulties."
+        },
+        {
+          "key": "C",
+          "text": "Conflicts within the company."
+        },
+        {
+          "key": "D",
+          "text": "Imitation by one's competitors."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 5,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "The job of an interpreter."
+        },
+        {
+          "key": "B",
+          "text": "The stress felt by professionals."
+        },
+        {
+          "key": "C",
+          "text": "The importance of language proficiency"
+        },
+        {
+          "key": "D",
+          "text": "The best way to effective communication."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 6,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Promising."
+        },
+        {
+          "key": "B",
+          "text": "Admirable."
+        },
+        {
+          "key": "C",
+          "text": "Rewarding."
+        },
+        {
+          "key": "D",
+          "text": "Meaningful."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 7,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They all have a strong interest in language."
+        },
+        {
+          "key": "B",
+          "text": "They all have professional qualifications."
+        },
+        {
+          "key": "C",
+          "text": "They have all passed language proficiency tests."
+        },
+        {
+          "key": "D",
+          "text": "They have all studied cross-cultural differences."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 8,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It requires a much larger vocabulary."
+        },
+        {
+          "key": "B",
+          "text": "It attaches more importance to accuracy."
+        },
+        {
+          "key": "C",
+          "text": "It is more stressful than simultaneous interpreting."
+        },
+        {
+          "key": "D",
+          "text": "It puts one's long-term memory under more stress."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 9,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It might affect mothers' health."
+        },
+        {
+          "key": "B",
+          "text": "It might disturb infants, sleep."
+        },
+        {
+          "key": "C",
+          "text": "It might increase the risk of infants' death."
+        },
+        {
+          "key": "D",
+          "text": "It might increase mothers' mental distress."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 10,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Mothers who breast-feed their babies have a harder time falling asleep."
+        },
+        {
+          "key": "B",
+          "text": "Mothers who sleep with their babies need a little more sleep each night."
+        },
+        {
+          "key": "C",
+          "text": "Sleeping patterns of mothers greatly affect their newborn babies' health."
+        },
+        {
+          "key": "D",
+          "text": "Sleeping with infants in the same room has a negative impact on mothers."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 11,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Change their sleep patterns to adapt to their newborn babies5."
+        },
+        {
+          "key": "B",
+          "text": "Sleep in the same room but not in the same bed as their babies."
+        },
+        {
+          "key": "C",
+          "text": "Sleep in the same house but not in the same room as their babies."
+        },
+        {
+          "key": "D",
+          "text": "Take precautions to reduce the risk of sudden infant death syndrome."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 12,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "A lot of native languages have already died out in the US."
+        },
+        {
+          "key": "B",
+          "text": "The US ranks first in the number of endangered languages."
+        },
+        {
+          "key": "C",
+          "text": "The efforts to preserve Indian languages have proved fruitless."
+        },
+        {
+          "key": "D",
+          "text": "More money is needed to record the native languages in the US."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 13,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "To set up more language schools."
+        },
+        {
+          "key": "B",
+          "text": "To document endangered languages."
+        },
+        {
+          "key": "C",
+          "text": "To educate native American children."
+        },
+        {
+          "key": "D",
+          "text": "To revitalise America's native languages."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 14,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "The US governments policy of Americanising Indian children."
+        },
+        {
+          "key": "B",
+          "text": "The failure of American Indian languages to gain an official status."
+        },
+        {
+          "key": "C",
+          "text": "The US governments unwillingness to spend money educating Indians."
+        },
+        {
+          "key": "D",
+          "text": "The long-time isolation of American Indians from the outside world."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 15,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It is being utilised to teach native languages."
+        },
+        {
+          "key": "B",
+          "text": "It tells traditional stories during family time."
+        },
+        {
+          "key": "C",
+          "text": "It speeds up the extinction of native languages."
+        },
+        {
+          "key": "D",
+          "text": "It is widely used in language immersion schools."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 16,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It pays them up to half of their previous wages while they look for work."
+        },
+        {
+          "key": "B",
+          "text": "It covers their mortgage payments and medical expenses for 99 weeks."
+        },
+        {
+          "key": "C",
+          "text": "It pays their living expenses until they find employment again."
+        },
+        {
+          "key": "D",
+          "text": "It provides them with the basic necessities of everyday life."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 17,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Creating jobs for the huge army of unemployed workers."
+        },
+        {
+          "key": "B",
+          "text": "Providing training and guidance for unemployed workers."
+        },
+        {
+          "key": "C",
+          "text": "Convincing local lawmakers to extend unemployment benefits."
+        },
+        {
+          "key": "D",
+          "text": "Raising funds to help those having no unemployment insurance."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 18,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "To offer them loans they need to start their own businesses."
+        },
+        {
+          "key": "B",
+          "text": "To allow them to postpone their monthly mortgage payments."
+        },
+        {
+          "key": "C",
+          "text": "To create more jobs by encouraging private investments in local companies."
+        },
+        {
+          "key": "D",
+          "text": "To encourage big businesses to hire back workers with government subsidies."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 19,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They measured the depths of sea water."
+        },
+        {
+          "key": "B",
+          "text": "They analyzed the water content."
+        },
+        {
+          "key": "C",
+          "text": "They explored the ocean floor."
+        },
+        {
+          "key": "D",
+          "text": "They investigated the ice."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 20,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Eighty percent of the ice disappears in summer time."
+        },
+        {
+          "key": "B",
+          "text": "Most of the ice was accumulated over the past centuries."
+        },
+        {
+          "key": "C",
+          "text": "The ice ensures the survival of many endangered species."
+        },
+        {
+          "key": "D",
+          "text": "The ice decrease is more evident than previously thought."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 21,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Arctic ice is a major source of the world's fresh water."
+        },
+        {
+          "key": "B",
+          "text": "The melting Arctic ice has drowned many coastal cities."
+        },
+        {
+          "key": "C",
+          "text": "The decline of Arctic ice is irreversible."
+        },
+        {
+          "key": "D",
+          "text": "Arctic ice is essential to human survival."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 22,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It will do a lot of harm to mankind."
+        },
+        {
+          "key": "B",
+          "text": "There is no easy way to understand it."
+        },
+        {
+          "key": "C",
+          "text": "It will advance nuclear technology."
+        },
+        {
+          "key": "D",
+          "text": "There is no easy technological solution to it."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 23,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "The reason why New Zealand children seem to have better self-control."
+        },
+        {
+          "key": "B",
+          "text": "The relation between children's self-control and their future success."
+        },
+        {
+          "key": "C",
+          "text": "The health problems of children raised by a single parent."
+        },
+        {
+          "key": "D",
+          "text": "The deciding factor in children's academic performance."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 24,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Children raised by single parents will have a hard time in their thirties."
+        },
+        {
+          "key": "B",
+          "text": "Those with a criminal record mostly come from single parent families."
+        },
+        {
+          "key": "C",
+          "text": "Parents must learn to exercise self control in front of their children."
+        },
+        {
+          "key": "D",
+          "text": "Lack of self-control in parents is a disadvantage for their children."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 25,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Self-control can be improved through education."
+        },
+        {
+          "key": "B",
+          "text": "Self-control can improve one's financial situation."
+        },
+        {
+          "key": "C",
+          "text": "Self-control problems may be detected early in children."
+        },
+        {
+          "key": "D",
+          "text": "Self-control problems will diminish as one grows up."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    }
+  ],
+  "audio": {
+    "url": "/cet-audio/f3ba0a79d21fb05c8e9ad3ea7c8da9eb0b8bc6330fbaed7adf916e269d13244f.mp3",
+    "sha256": "f3ba0a79d21fb05c8e9ad3ea7c8da9eb0b8bc6330fbaed7adf916e269d13244f",
+    "bytes": 20263824,
+    "mimeType": "audio/mpeg",
+    "durationSeconds": 1688.544,
+    "attribution": [
+      {
+        "title": "ecator/cet6-youdaoxuetang-whole",
+        "url": "https://github.com/ecator/cet6-youdaoxuetang-whole/tree/49338db61e3d315cd24766de83a7e7b0fcd0cd78"
+      },
+      {
+        "title": "DieDiDi/CET4-6-past-exam-paper",
+        "url": "https://github.com/DieDiDi/CET4-6-past-exam-paper/tree/97266755c1d95b13b86ce3e0570390b5f7a89225"
+      },
+      {
+        "title": "0609x/CET46-Resources",
+        "url": "https://github.com/0609x/CET46-Resources/tree/4a24a1abf752e27de88a5e8bf930595c4ccffcec"
+      }
+    ]
+  },
+  "listeningGroups": [
+    {
+      "id": "cet6-2016-06-2-listening-1",
+      "title": "长对话一",
+      "questionNumbers": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "transcript": [
+        "'W: So, Mike,  you managed the innovation project at CucinTech. : M: I did, indeed. : W: Well, then. First, congratulations!  It seems to have been very successful. : M: Thanks. Yes. I really helped things turn around at CucinTech. : W:  Was the revival in their fortunes entirely due to strategic innovation? : M:  Yes, yes. I think it was. CucinTech was a company who were very much following the pack, doing -what everyone else was doing, and getting rapidly left behind.I could see there was a lot of talent there, and : some great potential, particularly in their product development. I just had to harness that somehow. :W: Was innovation at the core of the project? : M: Absolutely.If it doesn't sound like too much of a cliche, our world is constantly changing and it's changing :",
+        "quickly.  We need to be innovating constantly to keep up with this. Stand still, and you're lost. : W: No stopping to sniff the roses? : M: Well, Pil do that in my personal life. Sure.  But as a business strategy, I'm afraid there is no stopping. : W: What exactly is strategic innovation then? : M:Strategic innovation is the process of managing innovation, of making sure it takes place at all levels of the",
+        "company and that is related to the company's overall strategy. : W: Isee.",
+        "M:So, instead of innovation for innovation's sake and new products being created simply because the technology is there, the company culture must switch from these point-in-time innovations to a continuous pipeline of: innovations from everywhere and everyone. : W: How did you align strategies throughout the company? : M: I soon became aware that campaigning is useless. People take no notice. Simply, it came about through good : practice trickling down. This built consent. People could see it was the best way to work. : W: Does innovation on this scale really give a competitive advantage? : M: I'm certain of it, absolutely, especially if it's difficult for a competitor to copy.  The risk is of course that; innovation may frequently lead to imitation.",
+        "W: But not if it's strategic? : M: Precisely. : W: Thanks for talking to us. :M: Sure. What seems to have been very successful according to the woman speaker? What did the company lack before the man's scheme was implemented? : 3.What does the man say he should do in his business? : 4.What does the man say is the risk of innovation? A",
+        "project the man managed, a new career)。",
+        "B",
+        "c",
+        "D"
+      ]
+    },
+    {
+      "id": "cet6-2016-06-2-listening-2",
+      "title": "长对话二",
+      "questionNumbers": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "transcript": [
+        ": M: [5j Today my guest is Dana Ivanovich, who has worked for the last 20 years as an interpreter. Dana,",
+        "welcome. : W: Thank you. : M:Now, I'd like to begin by saying that I have on occasions used an interpreter myself as a foreign:",
+        "correspondent.  So I'm full of admiration for what you do. But I think your profession is sometimes : underrated and many people think anyone who speaks more than one language can do it. : W:  There aren't any interpreters I know who don't have professional qualifications and training. You :",
+        "only really get profession after many years in the job.",
+        "M:And am Iright in saying you can divide what you do into two distinct methods: simultaneous and consecutive interpreting? : W: That's right. The techniques you use are different. And a lot of interpreters will say one is easier than the other, : less stressful. : M: Simultaneous interpreting, putting someone's words into another language more or less as they speak, sounds : to me like the more difficult. : W: Well, actually no.  Most people in the business would agree that consecutive interpreting is the more : stressful. You have to wait for the speaker to deliver quite a chunk of language before you then put it into the : second language, which puts your short-term memory under intense stress. : M: You make notes, I presume? :W:Absolutely.Anything like numbers, names,places have to be noted down,but the rest is never translated word : for word. You have to find a way of summarizing it, so that the message is there. Turning every single word : into the target language would put too much strain on the interpreter and slow down the whole process too much. : M: But with simultaneous interpreting, you 'start translating almost as soon as the other person starts speaking. You must have some preparation beforehand. : w: Well, hopefully, the speakers will let you have an outline of the topic a day or two in advance. You have a : little time to do research,prepare technical expressions and so on. What are the speakers mainly talking about?"
+      ]
+    },
+    {
+      "id": "cet6-2016-06-2-listening-3",
+      "title": "短文一",
+      "questionNumbers": [
+        9,
+        10,
+        11
+      ],
+      "transcript": [
+        "Mothers have been warned for years that sleeping with their newborn infant is a bad idea, because it increases the risk that the baby might die unexpectedly during the night. [1o] But now Israeli researchers are reporting that even sleeping in the same room can have negative consequences, not for the child, but for the mother. Mothers who slept in the same room as their infants, whether in the same bed or just the same room, had poorer sleep than mothers whose baby slept elsewhere in the house. They woke up more frequently,were awake approximately 20 minutes longer per night, and had shorter periods of uninterrupted sleep. These results held true even taking into account that many of the women in the study were breast-feeding their babies. Infants, on the other hand, didn't appear to have worse sleep whether they slept in the same or different room from their mothers. The researchers acknowledge that since the families they studied were all middle-class Israelis, it's possible the results would be different in different cultures. Lead author Lyati Sotski wrote in an email that the research team also didn't measure fathers'sleep,so it's possible that their sleep patterns could also be causing the sleep disruptions for mums.  Right now, to reduce the risk of sudden infant death syndrome, the American Academy of Pediatrics recommends that mothers not sleep in the same bed as their babies, but sleep in the same room. The Israeli study suggests that doing so may be best for the baby, but may take a toll on mum."
+      ]
+    },
+    {
+      "id": "cet6-2016-06-2-listening-4",
+      "title": "短文二",
+      "questionNumbers": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "transcript": [
+        "The US has already lost more than a third of the native languages that existed before European colonization and the remaining 192 are classed by UNESCO as ranging between unsafe and extinct. \"We need more funding and more effort to return these languages to everyday use,\"” says Fred Nawusky of the National Museum of the American Indian. “We are making progress, but money needs to be spent on revitalizing languages, not just documenting them.\" Some 40 languages mainly in California and Oklahoma where thousands of Indians were forced to relocate in the 19th century have fewer than 10 native speakers. Part of the issue is that tribal groups themselves don't always believe their languages are endangered until they are down to the last handful of speakers.“But progress is being made through emerging schools, because if you teach children when they are young, it will stay with them as adults and that's the future,\" says Mr. Nawusky, a Comanche Indian. Such schools have become a model in Hawai, but the islanders' local language is still classed by UNESCO as critically endangered because only 1,000 people speak it.  The decline in American Indian languages has its historical roots. In the mid-19th century, the US government adopted a policy of Americanizing Indian children by removing them from their homes and culture. Within a few generations, most had forgotten their native tongues. Another challenge to language survival is television.  It has brought English into homes, and pushed out traditional storytelling and family time together, accelerating the extinction of native languages."
+      ]
+    },
+    {
+      "id": "cet6-2016-06-2-listening-5",
+      "title": "讲座一",
+      "questionNumbers": [
+        16,
+        17,
+        18
+      ],
+      "transcript": [
+        "W: Greg Rosen lost his job as a sales manager nearly three years ago and is still unemployed.",
+        "M:“It literally is like something in a dream to remember what it's like to actually be able to go out and put in a day's work and receive a day's pay.\"",
+        "W: At first Rosen bought groceries and made house payments with the help from unemployment insurance. It pays laid-off workers up to half of their previous wages while they look for work. But now, that insurance has run out for him and he has to make tough choices. He's cut back on medications and he no longer helps support his disabled mother. It is a devastating experience. New research says the US recession is now over. But many people remain unemployed and unemployed workers face difficult odds. There is literally only one job opening for every five unemployed workers, so four out of five unemployed workers have actually no chance of finding a new job. Businesses have downsized or shut down across America, leading fewer job opportunities for those in search of work.Experts who monitor unemployment statistics here in Bucks County,Pennsylvania say about 28,o00 people are unemployed and many of them are jobless due to no fault of their own. That's where the Bucks County Careerlink comes in.",
+        "W:  Local director Elizabeth Walsh says they provide training and guidance to help unemployed workers find local job opportunities.“So here's the job opening. Here's the job seeker. Match them together under one roof,” she says. But the lack of work opportunities in Bucks County limits how much she can help. Rosen says he hopes Congress will take action. This month, he launched the Ninety-Niners Union, an umbrella organization of eighteen Internet-based grass roots groups of Ninety-Niners. Their goal is to convince lawmakers to extend unemployment benefits. But Pennsylvania State representative Scott Petri says governments simply do not have enough money to extend unemployment insurance.  He thinks the best way to help the long-term unemployed is to allow private citizens to invest in local companies that can create more jobs. But the boost in investor confidence needed for the plan to work will take time-time that Rosen says still requires him to buy food and make monthly mortgage payments. Rosen says he'll use the last of his savings to try to hang onto the home he worked for more than twenty years to buy. But once that money is gone, he says he doesn't know what he'll do."
+      ]
+    },
+    {
+      "id": "cet6-2016-06-2-listening-6",
+      "title": "讲座二",
+      "questionNumbers": [
+        19,
+        20,
+        21,
+        22
+      ],
+      "transcript": [
+        "W:  Earlier this year, British explorer Pen Hadow and his team trekked for three months across the frozen Arctic Ocean, taking measurements and recording observations about the ice.",
+        "M:\"Well, we've been led to believe that we would encounter a good proportion of this older, thicker, technically multi-year ice that's been around for a few years and just get thicker and thicker. We actually found there wasn't any multi-year ice at all.\"",
+        "W: Satellite observations and submarine service over the past few years had shown less ice in the polar region. [20 ] But the recent measurements show the lost is more pronounced than previously thought.",
+        "M:\"We are looking at roughly 80 percent loss of ice cover on the Arctic ocean in ten years,roughly ten years and 100 percent loss in nearly twenty years.\"",
+        "W: [21j Cambridge scientist Peter Wadhams, who's been measuring and monitoring the Arctic since 1971, says the decline is irreversible.",
+        "M:“The more you lose, the more open water is created, the more warming goes on in that open water during the summer, the less ice forms in the winter, the more melt there is the following summer. It becomes a breakdown process where everything ends up accelerating until it's all gone.\"",
+        "W: Martin Summercorn runs the Arctic program for the environmental charity the World Wildlife Fund.",
+        "M: “The Arctic sea ice holds a central position in the earth's climate system and it's deteriorating faster than expected. Actually, it has to translate into more urgency to deal with the climate change problem and reduce emissions.\"",
+        "W: Summercorn says a plan to reduce greenhouse gas emissions blamed for global warming needs to come out of the Copenhagen Climate Change Summit in December.",
+        "M:\"We have to basically achieve there the commitment to deal with the problem now. That's the minimum. We have to do that equitably, and we have to find a commitment that is quick.\"”",
+        "W: Wadhams echoes the need for urgency.",
+        "M:“The carbon that we've put into the atmosphere keeps having a warming effect for 100 years. So we have to cut back rapidly now. Because it would take a long time to work its way through into our response by the atmosphere. We can't switch off global warming just by being good in future. We have to'start being good now.\"",
+        "W:  Wadhams says there is no easy technological fix to climate change. He and other scientists say there are basically two options to replacing fossil fuels, generating energy with renewables or embracing nuclear power."
+      ]
+    },
+    {
+      "id": "cet6-2016-06-2-listening-7",
+      "title": "讲座三",
+      "questionNumbers": [
+        23,
+        24,
+        25
+      ],
+      "transcript": [
+        "M: From a very early age, some children exhibit better self-control than others. Now, a new study that began with about 1,000 children in New Zealand has tracked  how a child's low self-control can predict poor health, money troubles and even a criminal record in their adult years. Researchers have been studying this group of children for decades now. Some of their earliest observations have to do with the level of self- control the youngsters displayed. Parents, teachers, even the kids themselves, scored the youngsters on measures like“acting before thinking\" and “persistence in reaching goals\". The children of the study are now adults in their thirties. Terrie Moffitt of Duke University and her research colleagues found that kids with self- control issues tended to grow up to become adults with a far more troubling set of issues to deal with.",
+        "W:“The children who had the lowest self-control when they were age 3 to 10, later on had the most health problems in their thirties, and they had the worst financial situation. And they were more likely to have a criminal record and to be raising a child as a single parent on a very low income.\"",
+        "M: Speaking from New Zealand via Skype, Moffitt explained that self-control problems were widely observed and weren't just a feature of a small group of misbehaving kids.",
+        "W:“Even the children who had above-average self-control as pre-schoolers, could have benefited from more self- control training. They could have improved their financial situation and their physical and mental health situation 30 years later.\"",
+        "M: So, children with minor self-control problems were likely as adults to have minor health problems, and so on. Moffitt said it's still unclear why some children have better self-control than others, though she says other researchers have found that it's mostly a learned behavior, with relatively little genetic influence. But good self-control can be set to run in families in that children who have good self-control are more likely to grow up to be healthy and prosperous parents.",
+        "W:“Whereas some of the low self-control study members are more likely to be single parents with a very low income and the parent is in poor health and likely to be a heavy substance abuser. So that's not a good atmosphere for a child.  So it looks as though self-control is something that in one generation can disadvantage the next generation.\"",
+        "M:  But the good news is that Moffitt says self-control can be taught by parents, and through school curricula that have proved to be effective. Terrie Moffit's paper “On the Link Between Childhood Self- control and Adults' Status Decades Later\" is published in the Proceedings of the National Academy of Sciences."
+      ]
+    }
+  ],
+  "materialId": "f01ea17183fdaad8beb5",
+  "questionSetId": "05aa385b6dc5f607d146"
+}

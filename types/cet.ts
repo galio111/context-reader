@@ -14,6 +14,7 @@ export interface CetListeningAudio {
   durationSeconds: number;
   mimeType: "audio/mpeg" | "audio/mp4";
   bytes: number;
+  attribution?: { title: string; url: string; license?: string; licenseUrl?: string }[];
 }
 export interface CetListeningPlayback {
   position: number;

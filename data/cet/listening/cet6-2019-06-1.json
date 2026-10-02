@@ -1,0 +1,768 @@
+{
+  "id": "cet6-2019-06-1-listening",
+  "type": "listening",
+  "title": "听力",
+  "paragraphs": [],
+  "questions": [
+    {
+      "number": 1,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "A six-month-long negotiation"
+        },
+        {
+          "key": "B",
+          "text": "Preparations for the party"
+        },
+        {
+          "key": "C",
+          "text": "A project with a troublesome client"
+        },
+        {
+          "key": "D",
+          "text": "Gift wrapping for the colleagues"
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 2,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Take wedding photos"
+        },
+        {
+          "key": "B",
+          "text": "Advertise her company"
+        },
+        {
+          "key": "C",
+          "text": "Start a small business"
+        },
+        {
+          "key": "D",
+          "text": "Throw a celebration party"
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 3,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Hesitant"
+        },
+        {
+          "key": "B",
+          "text": "Nervous"
+        },
+        {
+          "key": "C",
+          "text": "Flattered"
+        },
+        {
+          "key": "D",
+          "text": "Surprised"
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 4,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Start her own bakery"
+        },
+        {
+          "key": "B",
+          "text": "Improve her baking skill"
+        },
+        {
+          "key": "C",
+          "text": "Share her cooking experience"
+        },
+        {
+          "key": "D",
+          "text": "Prepare for the wedding"
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 5,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They have to spend more time studying"
+        },
+        {
+          "key": "B",
+          "text": "They have to participate in club activities"
+        },
+        {
+          "key": "C",
+          "text": "They have to be more responsible for what they do"
+        },
+        {
+          "key": "D",
+          "text": "They have to choose a specific academic discipline"
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 6,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Get ready for a career"
+        },
+        {
+          "key": "B",
+          "text": "Make a lot of friends"
+        },
+        {
+          "key": "C",
+          "text": "Set a long-term goal"
+        },
+        {
+          "key": "D",
+          "text": "Behave like adults"
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 7,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Those who share her academic interests"
+        },
+        {
+          "key": "B",
+          "text": "Those who respect her student commitments"
+        },
+        {
+          "key": "C",
+          "text": "Those who can help her when she is in need"
+        },
+        {
+          "key": "D",
+          "text": "Those who go to the same clubs as she does"
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 8,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Those helpful for tapping their potential"
+        },
+        {
+          "key": "B",
+          "text": "Those conducive to improving their social skills"
+        },
+        {
+          "key": "C",
+          "text": "Those helpful for cultivating individual interests"
+        },
+        {
+          "key": "D",
+          "text": "Those conducive to their academic studies"
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 9,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They break away from traditional ways of thinking"
+        },
+        {
+          "key": "B",
+          "text": "They are prepared to work harder than anyone else"
+        },
+        {
+          "key": "C",
+          "text": "They are good at refining old formulas"
+        },
+        {
+          "key": "D",
+          "text": "They bring their potential into full play"
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 10,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They contributed to the popularity of skiing worldwide"
+        },
+        {
+          "key": "B",
+          "text": "They resulted in a brand-new style of skiing technique"
+        },
+        {
+          "key": "C",
+          "text": "They promoted the scientific use of skiing poles"
+        },
+        {
+          "key": "D",
+          "text": "They made explosive news in the sports world"
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 11,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He was recognized as a genius in the world of sports"
+        },
+        {
+          "key": "B",
+          "text": "He competed in all major skiing events in the world"
+        },
+        {
+          "key": "C",
+          "text": "He won three gold medals in one Winter Olympics"
+        },
+        {
+          "key": "D",
+          "text": "He broke three world skiing records in three years"
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 12,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They appear restless"
+        },
+        {
+          "key": "B",
+          "text": "They lose consciousness"
+        },
+        {
+          "key": "C",
+          "text": "They become upset"
+        },
+        {
+          "key": "D",
+          "text": "They die almost instantly"
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 13,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It has an instant effect on your body chemistry"
+        },
+        {
+          "key": "B",
+          "text": "It keeps returning to you every now and then"
+        },
+        {
+          "key": "C",
+          "text": "It leaves you with a long lasting impression"
+        },
+        {
+          "key": "D",
+          "text": "It contributes to the shaping of your mind"
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 14,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "To succeed while feeling irritated"
+        },
+        {
+          "key": "B",
+          "text": "To feel happy without good health"
+        },
+        {
+          "key": "C",
+          "text": "To be free from frustration and failure"
+        },
+        {
+          "key": "D",
+          "text": "To enjoy good health while in dark moods"
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 15,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They are closely connected"
+        },
+        {
+          "key": "B",
+          "text": "They function in a similar way"
+        },
+        {
+          "key": "C",
+          "text": "They are too complex to understand"
+        },
+        {
+          "key": "D",
+          "text": "They reinforce each other constantly"
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 16,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They differ in their appreciation of music"
+        },
+        {
+          "key": "B",
+          "text": "They focus their attention on different things"
+        },
+        {
+          "key": "C",
+          "text": "They finger the piano keys in different ways"
+        },
+        {
+          "key": "D",
+          "text": "They choose different pieces of music to play"
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 17,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They manage to cooperate well with their teammates"
+        },
+        {
+          "key": "B",
+          "text": "They use effective tactics to defeat their competitors"
+        },
+        {
+          "key": "C",
+          "text": "They try hard to meet the spectators’ expectations"
+        },
+        {
+          "key": "D",
+          "text": "They attach great importance to high performance"
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 18,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It marks a breakthrough in behavioral science"
+        },
+        {
+          "key": "B",
+          "text": "It adopts a conventional approach to research"
+        },
+        {
+          "key": "C",
+          "text": "It supports a piece of conventional wisdom"
+        },
+        {
+          "key": "D",
+          "text": "It gives rise to controversy among experts"
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 19,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "People’s envy of slim models"
+        },
+        {
+          "key": "B",
+          "text": "People’s craze for good health"
+        },
+        {
+          "key": "C",
+          "text": "The increasing range of fancy products"
+        },
+        {
+          "key": "D",
+          "text": "The great variety of slimming products"
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 20,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They appear vigorous"
+        },
+        {
+          "key": "B",
+          "text": "They appear strange"
+        },
+        {
+          "key": "C",
+          "text": "They look charming"
+        },
+        {
+          "key": "D",
+          "text": "They look unhealthy"
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 21,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Culture and upbringing"
+        },
+        {
+          "key": "B",
+          "text": "Wealth and social status"
+        },
+        {
+          "key": "C",
+          "text": "Peer pressure"
+        },
+        {
+          "key": "D",
+          "text": "Media influence"
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 22,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "The relation between hair and skin"
+        },
+        {
+          "key": "B",
+          "text": "The growing interest in skin studies"
+        },
+        {
+          "key": "C",
+          "text": "The color of human skin"
+        },
+        {
+          "key": "D",
+          "text": "The need of skin protection"
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 23,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "The necessity to save energy"
+        },
+        {
+          "key": "B",
+          "text": "Adaptation to the hot environment"
+        },
+        {
+          "key": "C",
+          "text": "The need to breathe with ease"
+        },
+        {
+          "key": "D",
+          "text": "Dramatic climate changes on earth"
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 24,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Leaves and grass"
+        },
+        {
+          "key": "B",
+          "text": "Man-made shelter"
+        },
+        {
+          "key": "C",
+          "text": "Their skin coloring"
+        },
+        {
+          "key": "D",
+          "text": "Hair on their skin"
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 25,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Their genetic makeup began to change"
+        },
+        {
+          "key": "B",
+          "text": "Their communities began to grow steadily"
+        },
+        {
+          "key": "C",
+          "text": "Their children began to mix with each other"
+        },
+        {
+          "key": "D",
+          "text": "Their pace of evolution began to quicken"
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    }
+  ],
+  "audio": {
+    "url": "/cet-audio/f74b7c31190797718e457076c8e488c91942749e8b3e8d267f5edae8e49d7c69.m4a",
+    "sha256": "f74b7c31190797718e457076c8e488c91942749e8b3e8d267f5edae8e49d7c69",
+    "bytes": 20126238,
+    "mimeType": "audio/mp4",
+    "durationSeconds": 1653.362,
+    "attribution": [
+      {
+        "title": "Ysoseri1224/CET-6-Listening-10-Years-Resources-and-Analysis",
+        "url": "https://github.com/Ysoseri1224/CET-6-Listening-10-Years-Resources-and-Analysis/tree/42fc6658e0b4a3dbae06755ba105d79169820576",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      {
+        "title": "AayuBal/cet-exams",
+        "url": "https://github.com/AayuBal/cet-exams/tree/fcec49b83372539c92831989acbc2bd1b06aaac0"
+      }
+    ]
+  },
+  "listeningGroups": [
+    {
+      "id": "cet6-2019-06-1-listening-1",
+      "title": "长对话一",
+      "questionNumbers": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "transcript": [
+        "W: Hi, my name's Cathy. Nice to meet you!",
+        "M: Nice to meet you too, Cathy. My name's John. I'm a university friend of the bride. What about you? Who do you know at this party?",
+        "W: I am a colleague of Brenda. I was a little surprised to be invited, to be honest. We've only been working together the last six months, but we quickly became good friends. We just wrapped up a project with a difficult client last week. I bet Brenda is glad it's done with and she can focus on wedding preparations.",
+        "M: Oh, yes, so you're Cathy from the office. Actually I've heard a lot about you, and that project. The client sounded like a real nightmare.",
+        "W: Oh, he was. I mean we deal with all kinds of people on a regular basis. It's part of the job, but he was especially particular. Enough about that. What line of work are you in?",
+        "M: Well, right out of college, I worked in advertising for a while. Recently though, I turned my photography hobby into a small business. I'll actually be taking photos during the big event as a wedding gift.",
+        "W: That sounds wonderful, and very thoughtful of you. I bake just as a hobby, but Brenda has asked me to do the cake for the wedding. I was a bit nervous saying yes, because I'm far from a professional.",
+        "M: Did you bake the cookies here at the party tonight?",
+        "W: Yes, I got the idea from a magazine.",
+        "M: They're delicious. You've got nothing to worry about. You're a natural.",
+        "W: You really think so?",
+        "M: If you hadn't told me that, I would have guessed they were baked by the restaurant. You know, with your event planning experience, you could very well open your own shop.",
+        "W: One step at a time. First I'll see how baking the wedding cake goes. If it's not a disaster, maybe I'll give it some more thought."
+      ]
+    },
+    {
+      "id": "cet6-2019-06-1-listening-2",
+      "title": "长对话二",
+      "questionNumbers": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "transcript": [
+        "M: You are heading for a completely different world now that you are about to graduate from high school.",
+        "W: I know it's the end of high school, but many of my classmates are going on to the same university and we are still required to study hard, so what's the difference?",
+        "M: Many aspects are different here at university. The most important one is that you have to take more individual responsibility for your actions. It's up to your own self-discipline how much effort you put into study. Living in college dormitories, there are no parents to tell you to study harder or stop wasting time. Lecturers have hundreds of students and they are not going to follow you up or question you if you miss their lectures.",
+        "W: Nobody cares, you mean?",
+        "M: It's not that nobody is concerned about you. It's just that suddenly at university you are expected to behave like an adult, that means concentrating on the direction of your life in general and your own academic performance specifically.",
+        "W: For example?",
+        "M: Well, like you need to manage your daily, weekly and monthly schedules so that you will study regularly. Be sure to attend all classes and leave enough time to finish assignments and prepare well for examinations.",
+        "W: Okay, and what else is different?",
+        "M: Well, in college there are lots of distractions and you need to control yourself. You will make interesting friends, but you need only keep the friends who respect your student commitments. Also, there are a lot of wonderful clubs, but you shouldn't allocate too much time to club activities, unless they are directly related to your study. It's also your choice if you want to go out at night, but you will be foolish to let that affect your class performance during the day.",
+        "W: Well, I'm determined to do well at university and I guess I am going to have to grow up fast."
+      ]
+    },
+    {
+      "id": "cet6-2019-06-1-listening-3",
+      "title": "短文一",
+      "questionNumbers": [
+        9,
+        10,
+        11
+      ],
+      "transcript": [
+        "Most successful people are unorthodox persons whose minds wander outside traditional ways of thinking. Instead of trying to refine old formulas, they invent new ones.",
+        "When Jean-Claude Killy made the French national ski team in the early 1960s, he was prepared to work harder than anyone else to be the best. At the crack of dawn he would run up the slopes with his skis on, an unbelievably backbreaking activity. In the evening he would do weight lifting and running. But the other team members were working as hard and long as he was. He realized instinctively that simply training harder would never be enough.",
+        "Killy then began challenging the basic theories of racing technique. Each week he would try something different to see if he could find a better, faster way down the mountain. His experiments resulted in a new style that was almost exactly opposite the accepted technique of the time. It involved skiing with his legs apart for better balance and sitting back on the skis when he came to a turn. He also used ski poles in an unorthodox way — to propel himself as he skied. The explosive new style helped cut Killy's racing time dramatically. In 1966 and 1967 he captured virtually every major skiing trophy. The next year he won three gold medals in the Winter Olympics, a record in ski racing that has never been topped.",
+        "Killy learned an important secret shared by many creative people: innovations don't require genius, just a willingness to question the way things have always been done."
+      ]
+    },
+    {
+      "id": "cet6-2019-06-1-listening-4",
+      "title": "短文二",
+      "questionNumbers": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "transcript": [
+        "Scientific experiments have demonstrated incredible ways to kill a guinea pig, a small furry animal. Emotional upsets generate powerful and deadly toxic substances. Blood samples taken from persons experiencing intense fear or anger when injected into guinea pigs have killed them in less than two minutes. Imagine what these poisonous substances can do to your own body.",
+        "Every thought that you have affects your body chemistry within a split second. Remember how you feel when you're speeding down the highway and a big truck suddenly brakes twenty meters in front of you. A shock wave shoots through your whole system. Your mind produces instant reactions in your body.",
+        "The toxic substances that fear, anger, frustration, and stress produce not only kill guinea pigs but kill us off in a similar manner. It is impossible to be fearful, anxious, irritated, and healthy at the same time. It is not just difficult, it is impossible.",
+        "Simply put, your body's health is a reflection of your mental health. Sickness will often then be a result of unresolved inner conflicts which in time show up in the body.",
+        "It is also fascinating how our subconscious mind shapes our health. Do you recall falling sick on a day when you didn't want to go to school? Headaches brought on by fear?",
+        "The mind-body connection is such that if, for example, we want to avoid something, very often our subconscious mind will arrange it. Once we recognize that these things happen to us, we are halfway to doing something about them."
+      ]
+    },
+    {
+      "id": "cet6-2019-06-1-listening-5",
+      "title": "讲座一",
+      "questionNumbers": [
+        16,
+        17,
+        18
+      ],
+      "transcript": [
+        "Teachers and students alike have experienced the curious paradox that beginners, as a rule, tend to think too little about what they are doing because they think too much about what they are doing. Take, for example, people who are learning to play basketball or the piano. They have to give so much thought and attention to the low-level mechanics of handling the ball or fingering the keys or reading the music, that they are unable to give any thought to the thing that matters — the game, or the music, respectively.",
+        "With experts, it's just the other way around. They're open to the tactical possibilities and the musical challenges precisely because they're freed, through skill, from the need to pay attention to the low-level details of how to play. Indeed, when the expert pays attention to the mechanics, this is liable to disrupt performance.",
+        "This has led some to say that the expert operates in a zone \"beyond thought,\" in a state of flow. But this is misleading. Expert performance is not beyond thought.",
+        "Smart basketball players or skilled musicians need to pay close attention to the demands of high performance, to the challenges to be overcome. What they don't need to do — what would be a distraction — is to have to think about where their fingers are, or how to control the ball while running. It's not mechanics, but the play itself, that absorbs the expert's intelligence.",
+        "A nice video published online last month sheds light on expertise and the conscious mind. The video reports a new study using an eye-tracking device.",
+        "It turns out that the less skilled pianist spends more time looking at her fingers than does the expert who, in contrast, is more likely to be looking at the sheet of music, or looking ahead at keys he's not yet playing. In general, the expert's gaze was calmer and more stable.",
+        "This is not a surprising finding. It supports what we might almost think of as conventional wisdom.",
+        "But it's remarkable for all that nonetheless. The eye tracker gives expert and learning performers a glimpse into what they do without thinking about it.",
+        "The topic of the nature of skill and the differences between beginners and experts has been one of considerable discussion in cognitive science and philosophy."
+      ]
+    },
+    {
+      "id": "cet6-2019-06-1-listening-6",
+      "title": "讲座二",
+      "questionNumbers": [
+        19,
+        20,
+        21
+      ],
+      "transcript": [
+        "Every summer when I top up my selection of summer outfits from the department stores, my eyes would nearly pop out of my head. I'm overwhelmed with a wide range of different slimming products each year. And more shockingly, these products are often advocated by very slim models.",
+        "Having lived in Asia for almost 10 years now, I've seen various dieting tips come and go. I remember in Japan, people heading directly to the fruit section in the supermarket, when the banana diet was at its peak. Then there was the black tea and oolong tea diet, followed by the soybean diet and the tomato juice diet. The list goes on and on.",
+        "Apart from what people eat, I've also seen many interesting slimming products. In Hong Kong, I've seen girls wrapping their whole body or both legs up with a special type of slimming tape which is supposed to help make them thinner. But it just reminded me of the roasted ham my mother usually puts on the dinner table at Christmas. Then there were the face slimming rollers that were said to improve your blood circulation and make your face smaller.",
+        "Personally, I do not believe in any of these slimming gadgets and I think I have a very different perspective when it comes to the definition of what is beautiful. Asian women prefer to avoid the sun, because being pale or white is considered beautiful, whereas a tanned complexion is considered much more beautiful and sexy in the West. It is most certainly shaped by a person's culture as well as how they were raised in their childhood.",
+        "As each summer season approaches, there's no escape from it. But it's not only women who are affected by this pressure to look good. Men aspired to be able to show off their 6-packs, or their v-shaped backs, and there's a growing market of slimming pills aimed at men too.",
+        "I think no matter what diets we follow or what slimming products we obsess ourselves with, at the end of the day there's no magic trick to shape up for the summer. Eat in a balanced way and incorporate the right level of physical activity. For me, this still seems to be the best plan."
+      ]
+    },
+    {
+      "id": "cet6-2019-06-1-listening-7",
+      "title": "讲座三",
+      "questionNumbers": [
+        22,
+        23,
+        24,
+        25
+      ],
+      "transcript": [
+        "Skin may seem like a superficial human attribute, but it's the first thing we notice about anyone we meet. As a zoologist focusing on the studies of apes and monkeys, I've been studying why humans evolved to become the naked ape, and why skin comes in so many different shades around the world.",
+        "We can make a very good estimate from the fossil record that humans probably evolved naked skin around a million and a half years ago, and meanwhile they mostly lost their coat of fur. Today we have a few patches of hair remaining on various parts of our bodies, but compared with apes and monkeys, we have very little. Basically, we turned our skin darker to serve as a natural sun protector in the place of the hair we lost.",
+        "We think we lost this hair because of the need to keep ourselves cool when we were moving around vigorously in a hot environment. We can't really lose heat by breathing quickly and loudly like dogs. We have to do it by sweating. So we evolved the ability to sweat plentifully and lost most of our fur.",
+        "Most animals protect themselves from the sun with fur. What we did in our ancestry was to produce more permanent natural coloring in our skin cells.",
+        "This was really an important revolution in human history because it allowed us to continue to evolve in equatorial environments. It really made it possible for us to continue along the path toward modern humans in Africa.",
+        "For most of human history, we all had dark skin. What we see today is the product of evolutionary events resulting from the dispersal of a few human populations out of Africa.",
+        "Our species originated around 200,000 years ago and underwent tremendous diversification — culturally, technologically, linguistically, artistically — for 130,000 years. After that, a few small populations left Africa to populate the rest of the world. These early ancestors of modern Eurasians dispersed into parts of the world that had more seasonal sunshine and much lower levels of sun radiation. It's in these populations that we begin to see real changes in the genetic makeup of natural coloring.",
+        "Today, skin color is evolving via new mixtures of people coming together and having children with new mixtures of skin color genes. We can see this in almost every large city worldwide. Not only the coloring genes, but lots of other genes are getting mixed up, too."
+      ]
+    }
+  ],
+  "materialId": "383b8ecbaf3337c3564f",
+  "questionSetId": "fac4666e47e5b1ce92da"
+}

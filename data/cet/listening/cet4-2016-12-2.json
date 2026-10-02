@@ -1,0 +1,776 @@
+{
+  "id": "cet4-2016-12-2-listening",
+  "type": "listening",
+  "title": "听力",
+  "paragraphs": [],
+  "questions": [
+    {
+      "number": 1,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "To satisfy the curiosity of tourists."
+        },
+        {
+          "key": "B",
+          "text": "To replace two old stone bridges."
+        },
+        {
+          "key": "C",
+          "text": "To enable tourists to visit Goat Island."
+        },
+        {
+          "key": "D",
+          "text": "To improve utility services in the state."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 2,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Countless tree limbs."
+        },
+        {
+          "key": "B",
+          "text": "A few skeletons."
+        },
+        {
+          "key": "C",
+          "text": "Lots of wrecked boats and ships."
+        },
+        {
+          "key": "D",
+          "text": "Millions of coins on the bottom."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 3,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It suspended diplomatic relations with Libya."
+        },
+        {
+          "key": "B",
+          "text": "It urged tourists to leave Tunisia immediately."
+        },
+        {
+          "key": "C",
+          "text": "It shut down two border crossings with Libya."
+        },
+        {
+          "key": "D",
+          "text": "It launched a fierce attack against Islamic State."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 4,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Advise Tunisian civilians on how to take safety precautions."
+        },
+        {
+          "key": "B",
+          "text": "Track down the organization responsible for the terrorist attack."
+        },
+        {
+          "key": "C",
+          "text": "Train qualified security personnel for the Tunisian government."
+        },
+        {
+          "key": "D",
+          "text": "Devise a monitoring system on the Tunisian border with Libya."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 5,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "An environment-friendly battery."
+        },
+        {
+          "key": "B",
+          "text": "An energy-saving mobile phone."
+        },
+        {
+          "key": "C",
+          "text": "A plant-powered mobile phone charger."
+        },
+        {
+          "key": "D",
+          "text": "A device to help plants absorb sunlight."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 6,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "While sitting in their school's courtyard."
+        },
+        {
+          "key": "B",
+          "text": "While playing games on their phones."
+        },
+        {
+          "key": "C",
+          "text": "While solving a mathematical problem."
+        },
+        {
+          "key": "D",
+          "text": "While doing a chemical experiment."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 7,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It increases the applications of mobile phones."
+        },
+        {
+          "key": "B",
+          "text": "It speeds up the process of photosynthesis."
+        },
+        {
+          "key": "C",
+          "text": "It improves the reception of mobile phones."
+        },
+        {
+          "key": "D",
+          "text": "It collects the energy released by plants."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 8,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He visited the workshops in the Grimsby plant."
+        },
+        {
+          "key": "B",
+          "text": "He called the woman and left her a message."
+        },
+        {
+          "key": "C",
+          "text": "He used stand-ins as replacements on all lines."
+        },
+        {
+          "key": "D",
+          "text": "He asked a technician to fix the broken production line."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 9,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It is the most modern production line."
+        },
+        {
+          "key": "B",
+          "text": "It assembles super-intelligent robots."
+        },
+        {
+          "key": "C",
+          "text": "It has stopped working completely."
+        },
+        {
+          "key": "D",
+          "text": "It is going to be upgraded soon."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 10,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "To seek her permission."
+        },
+        {
+          "key": "B",
+          "text": "To place an order for robots."
+        },
+        {
+          "key": "C",
+          "text": "To request her to return at once."
+        },
+        {
+          "key": "D",
+          "text": "To ask for Tom's phone number."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 11,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "She is on duty."
+        },
+        {
+          "key": "B",
+          "text": "She is having her day off."
+        },
+        {
+          "key": "C",
+          "text": "She is on sick leave."
+        },
+        {
+          "key": "D",
+          "text": "She is abroad on business."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 12,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He saved a baby boy's life."
+        },
+        {
+          "key": "B",
+          "text": "He wanted to be a superhero."
+        },
+        {
+          "key": "C",
+          "text": "He prevented a train crash."
+        },
+        {
+          "key": "D",
+          "text": "He was a witness to an accident."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 13,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He has a 9-month-old boy."
+        },
+        {
+          "key": "B",
+          "text": "He is currently unemployed."
+        },
+        {
+          "key": "C",
+          "text": "He enjoys the interview."
+        },
+        {
+          "key": "D",
+          "text": "He commutes by subway."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 14,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "A rock on the tracks."
+        },
+        {
+          "key": "B",
+          "text": "A misplaced push chair."
+        },
+        {
+          "key": "C",
+          "text": "A strong wind."
+        },
+        {
+          "key": "D",
+          "text": "A speeding car."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 15,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "She stood motionless in shock."
+        },
+        {
+          "key": "B",
+          "text": "She cried bitterly."
+        },
+        {
+          "key": "C",
+          "text": "She called the police at once."
+        },
+        {
+          "key": "D",
+          "text": "She shouted for help."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 16,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "She inherited her family ice-cream business in Billings."
+        },
+        {
+          "key": "B",
+          "text": "She loved the ice-cream business more than teaching primary school."
+        },
+        {
+          "key": "C",
+          "text": "She started an ice-cream business to finance her daughter's education."
+        },
+        {
+          "key": "D",
+          "text": "She wanted to have an ice-cream truck when she was a little girl."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 17,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "To preserve a tradition."
+        },
+        {
+          "key": "B",
+          "text": "To amuse her daughter."
+        },
+        {
+          "key": "C",
+          "text": "To help local education."
+        },
+        {
+          "key": "D",
+          "text": "To make some extra money."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 18,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "To raise money for business expansion."
+        },
+        {
+          "key": "B",
+          "text": "To make her truck attractive to children."
+        },
+        {
+          "key": "C",
+          "text": "To allow poor kids to have ice-cream too."
+        },
+        {
+          "key": "D",
+          "text": "To teach kids the value of mutual support."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 19,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "The reasons for imposing taxes."
+        },
+        {
+          "key": "B",
+          "text": "The various services money can buy."
+        },
+        {
+          "key": "C",
+          "text": "The various burdens on ordinary citizens."
+        },
+        {
+          "key": "D",
+          "text": "The function of money in the modem world."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 20,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Educating and training citizens."
+        },
+        {
+          "key": "B",
+          "text": "Improving public transportation."
+        },
+        {
+          "key": "C",
+          "text": "Protecting people's life and property."
+        },
+        {
+          "key": "D",
+          "text": "Building hospitals and public libraries."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 21,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "By asking for donations."
+        },
+        {
+          "key": "B",
+          "text": "By selling public lands."
+        },
+        {
+          "key": "C",
+          "text": "By selling government bonds."
+        },
+        {
+          "key": "D",
+          "text": "By exploiting natural resources."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 22,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It is located at the center of the European continent."
+        },
+        {
+          "key": "B",
+          "text": "It relies on tourism as its chief source of revenues."
+        },
+        {
+          "key": "C",
+          "text": "It contains less than a square mile of land."
+        },
+        {
+          "key": "D",
+          "text": "It is surrounded by France on three sides."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 23,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Its beauty is frequently mentioned in American media."
+        },
+        {
+          "key": "B",
+          "text": "Its ruler Prince Rainier married an American actress."
+        },
+        {
+          "key": "C",
+          "text": "It is where many American movies are shot."
+        },
+        {
+          "key": "D",
+          "text": "It is a favorite place Americans like to visit."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 24,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Tobacco."
+        },
+        {
+          "key": "B",
+          "text": "Potatoes."
+        },
+        {
+          "key": "C",
+          "text": "Machinery."
+        },
+        {
+          "key": "D",
+          "text": "Clothing."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 25,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "European history."
+        },
+        {
+          "key": "B",
+          "text": "European geography."
+        },
+        {
+          "key": "C",
+          "text": "Small countries in Europe."
+        },
+        {
+          "key": "D",
+          "text": "Tourist attractions in Europe."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    }
+  ],
+  "audio": {
+    "url": "/cet-audio/e3b1ba36b68abfe90840c019ee915c7d31095d2fa233c23ab36123241c95ebd9.mp3",
+    "sha256": "e3b1ba36b68abfe90840c019ee915c7d31095d2fa233c23ab36123241c95ebd9",
+    "bytes": 16431120,
+    "mimeType": "audio/mpeg",
+    "durationSeconds": 1369.182,
+    "attribution": [
+      {
+        "title": "DieDiDi/CET4-6-past-exam-paper",
+        "url": "https://github.com/DieDiDi/CET4-6-past-exam-paper/tree/97266755c1d95b13b86ce3e0570390b5f7a89225"
+      },
+      {
+        "title": "0609x/CET46-Resources",
+        "url": "https://github.com/0609x/CET46-Resources/tree/4a24a1abf752e27de88a5e8bf930595c4ccffcec"
+      }
+    ]
+  },
+  "listeningGroups": [
+    {
+      "id": "cet4-2016-12-2-listening-1",
+      "title": "短篇新闻一",
+      "questionNumbers": [
+        1,
+        2
+      ],
+      "transcript": [
+        "New York State plans to shut off the thundering waters of Niagara Fallsgain. At least, the American side of the falls. This“\"once in a lifetime\" event actually may take place twice in some folks'lives. LiJThe New York State parks system wants to turn off the falls on the American side sometime in the next two to three years to replace two 115-year-old stone bridges that allow pedestrians, park vehicles and utilities access to Goat Island.",
+        "[2The American side of the falls were shut off in1969 to study the buildup of rock at the base of the falls. When that happened, people came from all over the world to see the falls turned off.",
+        "People are curious by nature. They want to see what's underneath. In fact, those who first came to have a look did see something. [2JThey found millions of coins on the bottom."
+      ]
+    },
+    {
+      "id": "cet4-2016-12-2-listening-2",
+      "title": "短篇新闻二",
+      "questionNumbers": [
+        3,
+        4
+      ],
+      "transcript": [
+        "The Tunisian government said Monday that 45 people have been killed after gunmen attacked a town near the border with Libya.",
+        "[3JThe Interior and Defense ministries said that the Tunisian government has closed its two border crossings with Libya because of the attack.",
+        "The Tunisian military has sent reinforcements and helicopters to the area, and authorities have been hunting several attackers who were still at large.",
+        "The violence came amid increasing international concern about Islamic State extremists in Libya. Officials of the Tunisian government are especially worried after dozens of tourists were killed in the attacks in Tunisia last year.",
+        "[4JDefense Minister Farhat Horchani said last week that German and American security experts were expected to come to help Tunisia devise a new electronic video supervision system on its border with Libya.",
+        "Tunisia was targeted last year by three attacks that left 70 people dead and were claimed by Islamic State."
+      ]
+    },
+    {
+      "id": "cet4-2016-12-2-listening-3",
+      "title": "短篇新闻三",
+      "questionNumbers": [
+        5,
+        6,
+        7
+      ],
+      "transcript": [
+        "[5JThree university students in Santiago, Chile, have developed a plant-powered device to charge their mobile phones.",
+        "[6JThe three engineering students got the idea for the device while sitting in their school's courtyard. Their invention is a small biological circuit they call E-Kaia. [7JIt captures the energy which plants produce during photosynthesisa process of converting sunlight into energy.",
+        "A plant uses only a small part of the energy produced by that process. The rest goes into the soil. E-Kaia collects that energy. The device plugs into the ground and then into a mobile phone.",
+        "The E-Kaia solved two problems for the engineering students. They needed an idea for a class project. They also needed an outlet to plug in their phones.",
+        "One of the student inventors, Camila Rupcich, says the device changes the energy released from the plant into low-level power to charge phones.",
+        "The E-Kaia is able to fully recharge a mobile phone in less than two hours."
+      ]
+    },
+    {
+      "id": "cet4-2016-12-2-listening-4",
+      "title": "长对话一",
+      "questionNumbers": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "transcript": [
+        "M: Good morning. What can I do for you?",
+        "W: Good morning. Could I talk to Jeffry Harding please?",
+        "M:Speaking.",
+        "W:Hello, Jeff. It's Helen.[8JI got your message on the answering machine. What's the problem?",
+        "M: Oh, Helen. Well, it's the Grimsby plant again, I'm afraid. [9JThe robots on Line 3 have gone wrong. And the line is at a standstill.",
+        "W: Can't you replace them with the stand-ins?",
+        "M: I'm afraid not. The stand-ins are already in use on Line 6. And the ones from Line 6 are being serviced.",
+        "W:When did this happen, Jeff?",
+        "M:Well, they've been making a low continuous sound for a day or two.But they finally went dead at 2:30 this afternoon.",
+        "W: I see. What did you do? Have you tried the whole plant?",
+        "M: Not yet, Helen. [ioJI thought I'd better get your OK first.",
+        "W: OK. Get on the phone to Tom, and try to get their stand-ins over tonight. We have to be back at full capacity tomorrow morning. Is it a major job to repair our robots?",
+        "M:About a week. That's what the maintenance engineer says.",
+        "W: Right. Well, if you can get the ones from Tom, please ask Tom to inform Sheffield that he may need their stand-ins in case of emergency during the next week.",
+        "M:OK.Thankyouverymuch,Helen.",
+        "W:You aremost welcome.",
+        "M:[ljSorryto spoil your day off.",
+        "W: It doesn't matter."
+      ]
+    },
+    {
+      "id": "cet4-2016-12-2-listening-5",
+      "title": "长对话二",
+      "questionNumbers": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "transcript": [
+        "W:This isKerryBurke from New York Daily News.I'm speaking to Delroy Simmonds,[13J an unemployed Brooklyn man who missed a job interview Tuesday for the best of reasons: [12jHe was saving the life of a 9-month-old boy who was blown into the path of an oncoming subway train by a high wind.",
+        "M:Everybody is making me out to be some sort of superhero. I'm just an ordinary person, and a father of two. Anybody in that situation would have done what I did.",
+        "W: You were going to an interview when the incident occurred, right?",
+        "M: Yes, I was on my way to apply for a maintenance position.[13JI've been looking for a job for a year and more. I'm looking for something to support my family.",
+        "W: Tell us what happened at the station.",
+        "M: [14JThere was a strong wind. It had to be 30 to 40 miles an hour. There was a woman with four kids. One was in a push chair. The wind blew the baby onto the tracks.",
+        "W:[15JWitnesses said people were looking on in horror as the child's mother,identified by sources as Maria Zamara, stood frozen in shock. In the distance, people could see the train rounding a bend, headed into the station. I guess you were not aware of any of these, right?",
+        "M: No. I just jumped down and grabbed the baby.The train was coming around the corner as I lifted the baby from the tracks.I really wasn't thinking.",
+        "W: What an amazing story. Thank you very much."
+      ]
+    },
+    {
+      "id": "cet4-2016-12-2-listening-6",
+      "title": "短文一",
+      "questionNumbers": [
+        16,
+        17,
+        18
+      ],
+      "transcript": [
+        "There's one sound that gets a big reaction from kids on a hot day, the sound of an ice- cream truck.",
+        "Maria McCartney has been in the mobile ice-cream business since 2005. [16J\"When I was a little girl,I saw an ice-cream truck and knew I wanted to have one someday,\" McCartney said.",
+        "During the hot days of summer, Maria and her daughter drive an ice-cream truck through neighborhoods and parks in Billings.",
+        "It's not about making money for this former elementary school teacher. [17JRather, she wants to preserve the tradition of the neighborhood ice-cream truck.",
+        "“Truly my favorite part is to see the kids jumping up and down and they just get so excited. It's great to build a memory for them too. There's not a lot of these ice-cream trucks around anymore. The parents come out barefoot and screaming, ready to buy ice-cream; they remember when they were kids and they saw a truck,\" she said.",
+        "While the treats may be ice cold, Maria has a warm heart for little faces. [i8jHer truck features a donation bucket for kids who don't have money for ice-cream.",
+        "\"When there are three kids and only two of them have money, I always make sure the third one gets something because I can't drive away and have that third one not have something,\" she said."
+      ]
+    },
+    {
+      "id": "cet4-2016-12-2-listening-7",
+      "title": "短文二",
+      "questionNumbers": [
+        19,
+        20,
+        21
+      ],
+      "transcript": [
+        "Weknowwehave to pay for what we get.If we buy food,we have to pay for it.If a doctor treats us, we know there will be a bill to pay. These are private bills. But there are also public bills to be paid. They are paid by the government. In turn we get the needed services.[i9JWe pay for these services through taxes.",
+        "What would happen if everyone stopped paying taxes?Thewater supply would stop;the streets might not be cleaned; schools would be closed. We would not want to live in such a city. [2ojThe chief duty of every government is to protect persons and property.More than three- fourths of government expenses are used for this purpose. The next largest amount of public money goes to teach and train our citizens. Billions of dollars each year are spent on schools and libraries. Also, a large amount of public funds is spent on roads.",
+        "Most of the needed funds is raised by taxes.The law orders us to pay taxes.We have no choice in the matter.",
+        "[21JYears ago the government made money by selling public lands. But most of the best public lands have now been sold. There are still some public lands that contain oil, coal and other natural resources. They could be sold, but we want to save them for future years. So, we all must pay our share for the services that make our lives comfortable."
+      ]
+    },
+    {
+      "id": "cet4-2016-12-2-listening-8",
+      "title": "短文三",
+      "questionNumbers": [
+        22,
+        23,
+        24,
+        25
+      ],
+      "transcript": [
+        "[25JDid you know that,besides larger places like France and Germany,Europe is home to several extremely tiny countries? One of these countries contains less than a square mile of land. Another is surrounded on all sides by Italy.Yet each is an independent land, with its own government,trade,and customs.",
+        "[22JOne of the best known of these small countries is Monaco.It is situated on the Mediterranean Sea and surrounded by France on three sides.[23JMonaco became familiar to Americans when its ruler, Prince Rainier, married the American actress Grace Kelly. Rainier's family has ruled Monaco almost continuously since 1297.The land has been independent for over three hundred years.",
+        "[24JAndorra, with an area of some 200 square miles, is considerably larger than Monaco. This country is located in the Pyrenees Mountains, with France on one side and Spain on the other. Potatoes and tobacco are grown in Andorra's steep mountain valleys. E24JOne of the products it exports is clothing. Andorra is also known for its excellent skiing locations.",
+        "Within the Alps in Central Europe is Liechtenstein,a tiny country of about 3o,ooo people who speak mostly German. Liechtenstein uses the same money as its neighbor Switzerland, but it has been an independent country since the 186os. Taxes are low, so many businesses have their headquarters here. The country makes and exports a lot of machinery.",
+        "[25JOther small,independent states in Europe are SanMarinoandLuxembourg.Each of these has unique qualities as well."
+      ]
+    }
+  ],
+  "materialId": "db480aa54cbc0c9301a1",
+  "questionSetId": "c2ad927cbb579b246e17"
+}

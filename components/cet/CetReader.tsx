@@ -756,7 +756,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
         {!records.length && <p className="cet-muted">尚无记录</p>}{records.length>3 && <button onClick={()=>{setHistoryScope("current_material");setHistoryLevel("all");setHistoryPurpose(purpose);setHistoryLimit(30);setSheet('练习历史');}}>更多{purpose==='practice'?'练习':'自测'}记录</button>}
       </section>;
     })}</div>
-    <details className="cet-source-info"><summary>资料信息</summary><p>真题来源：{paper.source}</p></details>
+    <details className="cet-source-info"><summary>资料信息</summary><p>真题来源：{paper.source}</p>{paper.sections.find(s=>s.type==='listening')?.audio?.attribution?.map(source=><p key={source.url}>听力资料：<a href={source.url} target="_blank" rel="noopener noreferrer">{source.title}</a>{source.license && <> · {source.licenseUrl ? <a href={source.licenseUrl} target="_blank" rel="noopener noreferrer">{source.license}</a> : source.license}</>}</p>)}</details>
   </div>;
 
   const submitPolicy = cetSubmitPolicy({ purpose: activity?.purpose || "practice", status: activity?.status || "in_progress", sectionId: activity ? activity.sectionId : entry.sectionId, sectionIds: scopeIds, activeSectionId: section.id, finalized: Boolean(sectionResult), mismatch: model.mismatch });

@@ -1,0 +1,748 @@
+{
+  "id": "cet6-2020-09-1-listening",
+  "type": "listening",
+  "title": "听力",
+  "paragraphs": [],
+  "questions": [
+    {
+      "number": 1,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "She can devote all her life to pursuing her passion"
+        },
+        {
+          "key": "B",
+          "text": "Her accumulated expertise helps her to achieve her goals"
+        },
+        {
+          "key": "C",
+          "text": "She can spread her academic ideas on a weekly TV show"
+        },
+        {
+          "key": "D",
+          "text": "Her research findings are widely acclaimed in the world"
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 2,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Provision of guidance for nuclear labs in Europe"
+        },
+        {
+          "key": "B",
+          "text": "Touring the globe to attend science TV shows"
+        },
+        {
+          "key": "C",
+          "text": "Overseeing two research groups at Oxford"
+        },
+        {
+          "key": "D",
+          "text": "Science education and scientific research"
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 3,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "A better understanding of a subject"
+        },
+        {
+          "key": "B",
+          "text": "A stronger will to meet challenges"
+        },
+        {
+          "key": "C",
+          "text": "A broader knowledge of related fields"
+        },
+        {
+          "key": "D",
+          "text": "A closer relationship with young people"
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 4,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "By applying the latest research methods"
+        },
+        {
+          "key": "B",
+          "text": "By making full use of the existing data"
+        },
+        {
+          "key": "C",
+          "text": "By building upon previous discoveries"
+        },
+        {
+          "key": "D",
+          "text": "By utilizing more powerful computers"
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 5,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They can predict future events"
+        },
+        {
+          "key": "B",
+          "text": "They have no special meanings"
+        },
+        {
+          "key": "C",
+          "text": "They have cultural connotations"
+        },
+        {
+          "key": "D",
+          "text": "They cannot be easily explained"
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 6,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It was canceled due to bad weather"
+        },
+        {
+          "key": "B",
+          "text": "She overslept and missed the flight"
+        },
+        {
+          "key": "C",
+          "text": "She dreamed of a plane crash"
+        },
+        {
+          "key": "D",
+          "text": "It was postponed to the following day"
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 7,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They can be affected by people's childhood experiences"
+        },
+        {
+          "key": "B",
+          "text": "They may sometimes seem ridiculous to a rational mind"
+        },
+        {
+          "key": "C",
+          "text": "They usually result from people's unpleasant memories"
+        },
+        {
+          "key": "D",
+          "text": "They can have an impact as great as rational thinking"
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 8,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They call for scientific methods to interpret"
+        },
+        {
+          "key": "B",
+          "text": "They mirror their long-cherished wishes"
+        },
+        {
+          "key": "C",
+          "text": "They reflect their complicated emotions"
+        },
+        {
+          "key": "D",
+          "text": "They are often related to irrational feelings"
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 9,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Radio waves"
+        },
+        {
+          "key": "B",
+          "text": "Sound waves"
+        },
+        {
+          "key": "C",
+          "text": "Robots"
+        },
+        {
+          "key": "D",
+          "text": "Satellites"
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 10,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It may be freezing fast beneath the glacier"
+        },
+        {
+          "key": "B",
+          "text": "It may have micro-organisms living in it"
+        },
+        {
+          "key": "C",
+          "text": "It may have certain rare minerals in it"
+        },
+        {
+          "key": "D",
+          "text": "It may be as deep as four kilometers"
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 11,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Help understand life in freezing conditions"
+        },
+        {
+          "key": "B",
+          "text": "Help fmd new sources of fresh water"
+        },
+        {
+          "key": "C",
+          "text": "Provide information about other planets"
+        },
+        {
+          "key": "D",
+          "text": "Shed light on possible life in outer space"
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 12,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He found there had been little research on their language"
+        },
+        {
+          "key": "B",
+          "text": "He was trying to preserve the languages of the Indian tribes"
+        },
+        {
+          "key": "C",
+          "text": "His contact with a social worker had greatly aroused his interest in the tribe"
+        },
+        {
+          "key": "D",
+          "text": "His meeting with Gonzalez had made him eager to learn more about the tribe"
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 13,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He taught Copeland to speak the Tarahumaras language"
+        },
+        {
+          "key": "B",
+          "text": "He persuaded the Tarahumaras to accept Copeland's gifts"
+        },
+        {
+          "key": "C",
+          "text": "He recommended one of his best friends as an interpreter"
+        },
+        {
+          "key": "D",
+          "text": "He acted as an intermediary between Copeland and the villagers"
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 14,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Unpredictable"
+        },
+        {
+          "key": "B",
+          "text": "Unjustifiable"
+        },
+        {
+          "key": "C",
+          "text": "Laborious"
+        },
+        {
+          "key": "D",
+          "text": "Tedious"
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 15,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Their appreciation of help from the outsiders"
+        },
+        {
+          "key": "B",
+          "text": "Their sense of sharing and caring"
+        },
+        {
+          "key": "C",
+          "text": "Their readiness to adapt to technology"
+        },
+        {
+          "key": "D",
+          "text": "Their belief in creating wealth for themselves"
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 16,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They tend to be silenced into submission"
+        },
+        {
+          "key": "B",
+          "text": "They find it hard to defend themselves"
+        },
+        {
+          "key": "C",
+          "text": "They will feel proud of being pioneers"
+        },
+        {
+          "key": "D",
+          "text": "They will feel somewhat encouraged"
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 17,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "One who advocates violence in effecting change"
+        },
+        {
+          "key": "B",
+          "text": "One who craves for relentless transformations"
+        },
+        {
+          "key": "C",
+          "text": "One who acts in the interests of the oppressed"
+        },
+        {
+          "key": "D",
+          "text": "One who rebels against the existing social order"
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 18,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They tried to effect social change by force"
+        },
+        {
+          "key": "B",
+          "text": "They disrupted the nation's social stability"
+        },
+        {
+          "key": "C",
+          "text": "They served as a driving force for progress"
+        },
+        {
+          "key": "D",
+          "text": "They did more harm than good to humanity"
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 19,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Few of us can ignore changes in our immediate environment"
+        },
+        {
+          "key": "B",
+          "text": "It is impossible for us to be immune from outside influence"
+        },
+        {
+          "key": "C",
+          "text": "Few of us can remain unaware of what happens around us"
+        },
+        {
+          "key": "D",
+          "text": "It is important for us to keep in touch with our own world"
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 20,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Make up his mind to start all over again"
+        },
+        {
+          "key": "B",
+          "text": "Stop making unfair judgments of others"
+        },
+        {
+          "key": "C",
+          "text": "Try to find a more exciting job somewhere else"
+        },
+        {
+          "key": "D",
+          "text": "Recognise the negative impact of his coworkers"
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 21,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They are quite susceptible to suicide"
+        },
+        {
+          "key": "B",
+          "text": "They improve people's quality of life"
+        },
+        {
+          "key": "C",
+          "text": "They suffer a great deal from ill health"
+        },
+        {
+          "key": "D",
+          "text": "They help people solve mental problems"
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 22,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Few people can identify its texture"
+        },
+        {
+          "key": "B",
+          "text": "Few people can describe it precisely"
+        },
+        {
+          "key": "C",
+          "text": "Its real value is open to interpretation"
+        },
+        {
+          "key": "D",
+          "text": "Its importance is often over-estimated"
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 23,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It has never seen any change"
+        },
+        {
+          "key": "B",
+          "text": "It has much to do with color"
+        },
+        {
+          "key": "C",
+          "text": "It is a well-protected government secret"
+        },
+        {
+          "key": "D",
+          "text": "It is a subject of study by many forgers"
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 24,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "People had little faith in paper money"
+        },
+        {
+          "key": "B",
+          "text": "They could last longer in circulation"
+        },
+        {
+          "key": "C",
+          "text": "It predicted their value would increase"
+        },
+        {
+          "key": "D",
+          "text": "They were more difficult to counterfeit"
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 25,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "The stabilization of the dollar value"
+        },
+        {
+          "key": "B",
+          "text": "The issuing of government securities"
+        },
+        {
+          "key": "C",
+          "text": "A gold standard for American currency"
+        },
+        {
+          "key": "D",
+          "text": "A steady appreciation of the U.S. dollar"
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    }
+  ],
+  "audio": {
+    "url": "/cet-audio/c55aea511014bde591347b5a24f528c82633ca81ce6108d392f5c49092db5607.mp3",
+    "sha256": "c55aea511014bde591347b5a24f528c82633ca81ce6108d392f5c49092db5607",
+    "bytes": 18886049,
+    "mimeType": "audio/mpeg",
+    "durationSeconds": 1573.799,
+    "attribution": [
+      {
+        "title": "YoYo-CheckNow/YoYo-CheckNow.github.io",
+        "url": "https://github.com/YoYo-CheckNow/YoYo-CheckNow.github.io/tree/e3dd29cf86ea4c2227309fd3e1a4450431ffb50d"
+      },
+      {
+        "title": "Ysoseri1224/CET-6-Listening-10-Years-Resources-and-Analysis",
+        "url": "https://github.com/Ysoseri1224/CET-6-Listening-10-Years-Resources-and-Analysis/tree/42fc6658e0b4a3dbae06755ba105d79169820576",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      {
+        "title": "0609x/CET46-Resources",
+        "url": "https://github.com/0609x/CET46-Resources/tree/4a24a1abf752e27de88a5e8bf930595c4ccffcec"
+      }
+    ]
+  },
+  "listeningGroups": [
+    {
+      "id": "cet6-2020-09-1-listening-1",
+      "title": "长对话一",
+      "questionNumbers": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "transcript": [
+        "M: You are a professor of physics at the University of Oxford. You're a senior advisor at the European Organization for Nuclear Research. You also seem to tour the globe tirelessly, giving talks. And, in addition, you have your own weekly TV show on science. Where do you get the energy?",
+        "W: Oh, well, I just love what I do. I'm extremely fortunate to have this life, doing what I love doing.",
+        "M: Professor, what exactly is your goal? Why do you do all of this?",
+        "W: Well, as you said, I do have different things going on. But these, I think, can be divided into two groups, the education of science and the further understanding of science.",
+        "M: Don't these two things get in the way of each other? What I mean is, doesn't giving lectures take time away from the lab?",
+        "W: Not really, no. I love teaching, and I don't mind spending more time doing that now than in the past. Also, what I will say is that teaching a subject helps me comprehend it better myself. I find that it furthers my own knowledge when I have to explain something clearly, when I have to aid others in understanding it, and when I have to answer questions about it. Teaching at a high level can be very stimulating for anyone, no matter how much expertise they may already have in the field they are instructing.",
+        "M: Are there any scientific breakthroughs that you see on the near horizon, a significant discovery or invention we can expect soon?",
+        "W: The world is always conducting science, and there are constantly new things being discovered. In fact, right now we have too much data sitting in computers. For example, we have thousands of photos of planet Mars taken by telescopes that nobody has ever seen. We have them, but nobody has had time to look at them with their own eyes, let alone analyze them."
+      ]
+    },
+    {
+      "id": "cet6-2020-09-1-listening-2",
+      "title": "长对话二",
+      "questionNumbers": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "transcript": [
+        "M: Do you think dreams have special meanings?",
+        "W: No, I don't think they do.",
+        "M: I don't either, but some people do. I would say people who believe that dreams have special meanings are superstitious, especially nowadays. In the past, during the times of ancient Egypt, Greece, or China, people used to believe that dreams could foresee the future. But today, with all the scientific knowledge that we have, I think it's much harder to believe in these sorts of things.",
+        "W: My grandmother is superstitious, and she thinks dreams can predict the future. Once she dreamed that the flight she was due to take the following day crashed. Can you guess what she did? She didn't take that flight. She didn't even bother to go to the airport the following day. Instead, she took the same flight, but a week later. And everything was fine, of course. No plane ever crashed.",
+        "M: How funny. Did you know that flying is actually safer than any other mode of transport? It's been statistically proven. People can be so irrational sometimes.",
+        "W: Yes, absolutely. But even if we think they are ridiculous, emotions can be just as powerful as rational thinking.",
+        "M: Exactly. People do all sorts of crazy things because of their irrational feelings. But in fact, some psychologists believe that our dreams are the result of our emotions and memories from that day. I think it was Sigmund Freud who said that children's dreams were usually simple representations of their wishes, things they wish would happen. But in adults, dreams are much more complicated reflections of their more sophisticated sentiments.",
+        "W: Isn't it interesting how psychologists try to understand, using the scientific method, something as bizarre as dreams? Psychology is like the rational study of irrational feelings."
+      ]
+    },
+    {
+      "id": "cet6-2020-09-1-listening-3",
+      "title": "短文一",
+      "questionNumbers": [
+        9,
+        10,
+        11
+      ],
+      "transcript": [
+        "While some scientists explore the surface of Antarctica, others are learning more about a giant body of water four kilometers beneath the ice pack. Scientists first discovered Lake Vostok in the 1970s by using radio waves that penetrate the ice. Since then, they have used sound waves and even satellites to map this massive body of water. How does the water in Lake Vostok remain liquid beneath an ice sheet? The thick glacier above acts like an insulating blanket and keeps the water from freezing, says Martin Siegert, a glaciologist from the University of Wales. In addition, geothermal heat from deep within the Earth may warm the hidden lake.",
+        "The scientists suspect that microorganisms may be living in Lake Vostok, closed off from the outside world for more than two million years. Anything down there will be totally alien to what's on the surface of the Earth, says Siegert. Scientists are trying to find a way to drill into the ice and draw water samples without causing contamination. Again, robots might be the solution. If all goes as planned, a drill-shaped robot will melt through the surface ice. When it reaches the lake, it will release another robot that can swim in the lake, take pictures, and look for signs of life. The scientists hope their discoveries will shed light on life in outer space, which might exist in similar dark and emerging conditions. Recently, close-up pictures of Jupiter's moon Europa showed signs of water beneath its icy surface. Once tested in Antarctica, robots could be sent to Europa to search for life there, too."
+      ]
+    },
+    {
+      "id": "cet6-2020-09-1-listening-4",
+      "title": "短文二",
+      "questionNumbers": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "transcript": [
+        "The idea to study the American Indian tribe Tarahumaras came to James Copeland in 1984 when he discovered that very little research had been done on their language. He contacted a tribe member through a social worker who worked with the tribesmen in Mexico. At first, the tribe member, named Gonzalez, was very reluctant to cooperate. He told Copeland that no amount of money could buy his language. But after Copeland explained to him what he intended to do with his research and how it would benefit the Tarahumaras, Gonzalez agreed to help. He took Copeland to his village and served as an intermediary.",
+        "Entering the world of the Tarahumaras has been a laborious project for Copeland. To reach their homeland, he must drive two and a half days from Houston, Texas. He loads up his vehicle with goods that the tribesmen can't easily get and gives the goods to them as a gesture of friendship. The Tarahumaras, who don't believe in accumulating wealth, take the food and share it among themselves. For Copeland, the experience has not only been academically satisfying, it also has enriched his life in several ways. I see people rejecting technology and living a very hard, traditional life, which offers me another notion about the meaning of progress in the Western tradition, he says. I experience the simplicity of living in nature that I would otherwise only be able to read about. I see a lot of beauty in their sense of sharing and concern for each other."
+      ]
+    },
+    {
+      "id": "cet6-2020-09-1-listening-5",
+      "title": "讲座一",
+      "questionNumbers": [
+        16,
+        17,
+        18
+      ],
+      "transcript": [
+        "What is a radical? It seems today that people are terrified of the term, particularly of having the label attached to them. Accusing individuals or groups of being radical often serves to silence them into submission, thereby maintaining the existing state of affairs and, more important, preserving the power of a select minority, who are mostly wealthy white males in Western society.",
+        "Feminism is a perfect example of this phenomenon. The women's movement has been plagued by stereotypes, misrepresentations by the media, and accusations of man-hating and radicalism, when the basic foundation of feminism is simply that women deserve equal rights in all facets of life. When faced with the threat of being labeled radical, women back down from their worthy cause and consequently participate in their own oppression. It has gotten to the point that many women are afraid to call themselves feminists because of the stigma attached to the word. If people refuse to be controlled and intimidated by stigmas, the stigmas lose all their power. Without fear on which to feed, such stigmas can only die.",
+        "To me, a radical is simply someone who rebels against the norm or advocates a change in the existing state of affairs. On closer inspection, it becomes clear that the norm is constantly evolving and therefore is not a constant entity. So why, then, is deviation from the present situation such a threat when the state of affairs itself is unstable and subject to relentless transformation? It all goes back to maintaining the power of those who have it and preventing the rise of those who don't.",
+        "In fact, when we look at the word radical in a historical context, nearly every figure we now hold up as a hero was considered a radical in his or her time. Radicals are people who affect change. They are the people about whom history is written. Abolitionists were radicals. Civil rights activists were radicals. Even the founders of our country in their fight to win independence from England were radicals. Their presence in history has changed the way our society functions, mainly by shifting the balance of power that previously existed. Of course, there are some radicals who have made a negative impact on humanity, but undeniably, there would simply be no progress without radicals. That being said, next time someone calls me a radical, I will accept that label with pride."
+      ]
+    },
+    {
+      "id": "cet6-2020-09-1-listening-6",
+      "title": "讲座二",
+      "questionNumbers": [
+        19,
+        20,
+        21
+      ],
+      "transcript": [
+        "We are very susceptible to the influence of the people around us. For instance, you may have known somebody who has gone overseas for a year or so and has returned with an accent perhaps. We become part of our immediate environment. None of us are immune to the influences of our own world and let us not kid ourselves that we are untouched by the things and the people in our life.",
+        "Fred goes off to his new job at a factory. Fred takes a 10-minute coffee break, but the other workers take a half an hour. Fred says, what's the matter with you guys? Weeks later, Fred is taking 20-minute breaks. A month later, Fred takes his half hour. Fred is saying, if you can't beat them, join them. Why should I work any harder than the next guy? The fascinating thing about being human is that generally, we are unaware that there are changes taking place in our mentality. It is like returning to the city smog after some weeks in the fresh air. Only then do we realize that we have become accustomed to the nasty smells.",
+        "Mix with critical people and we learn to criticize. Mix with happy people and we learn about happiness. What this means is that we need to decide what we want from life and then choose our company accordingly. You may well say, that is going to take some effort. It may not be comfortable. I may offend some of my present company. Right, but it is your life. Fred may say, I'm always broke, frequently depressed, I'm going nowhere, and I never do anything exciting. Then we discover that Fred's best friends are always broke, frequently depressed, going nowhere, and wishing that life was more exciting. This is not coincidence, nor is it our business to stand in judgment of Fred. However, if Fred ever wants to improve his quality of life, the first thing he'll need to do is recognize what has been going on all these years.",
+        "It's no surprise that doctors, as a profession, suffer a lot of ill health because they spend their lives around sick people. Psychiatrists have a higher incidence of suicide in their profession, for related reasons. Traditionally, 9 out of 10 children whose parents smoke, smoke themselves. Obesity is in part an environmental problem. Successful people have successful friends, and so the story goes on."
+      ]
+    },
+    {
+      "id": "cet6-2020-09-1-listening-7",
+      "title": "讲座三",
+      "questionNumbers": [
+        22,
+        23,
+        24,
+        25
+      ],
+      "transcript": [
+        "Virtually every American can recognize a dollar bill at a mere glance. Many can identify it by its sound or texture. But few people, indeed, can accurately describe the world's most powerful, important currency. The American dollar bill is colored with black ink on one side and green on the other. The exact composition of the paper and ink is a closely guarded government secret. Despite its weighty importance, the dollar bill actually weighs little. It requires nearly 500 bills to tip the scales at a pound. Not only is the dollar bill lightweight, but it also has a brief lifespan. Few dollar bills survive longer than 18 months.",
+        "The word dollar is taken from the German word Tala, the name for the world's most important currency in the 16th century. The Tala was a silver coin first minted in 1518 under the reign of Charles V, Emperor of Germany. The concept of paper money is a relatively recent innovation in the history of American currency. When the Constitution was signed, people had little regard for paper money because of its steadily decreasing value during the colonial era. Because of this lack of faith, the new American government minted many coins for common currency. Interest-bearing banknotes were issued at the same time, but their purpose was limited to providing money for urgent government crises, such as American involvement in the War of 1812.",
+        "The first non-interest-bearing paper currency was authorized by Congress in 1862 at the height of the Civil War. At this point, citizens' old fears of devalued paper currency had calmed, and the dollar bill was born. The new green-colored paper money quickly earned the name Greenback. Today, the American dollar bill is a product of the Federal Reserve and is issued from the 12 Federal Reserve banks around the United States. The government keeps a steady supply of approximately 2 billion bills in circulation at all times.",
+        "Controversy continues to surround the true value of the dollar bill. American history has seen generations of politicians argue in favor of a gold standard for American currency. However, for the present, the American dollar bill holds the value that is printed on it, and little more. The only other guarantee on the bill is a Federal Reserve pledge as a confirmation in the form of government securities."
+      ]
+    }
+  ],
+  "materialId": "c2962aae1c49bd0a78e8",
+  "questionSetId": "783bb197de49ffb3ffde"
+}

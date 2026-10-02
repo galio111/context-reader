@@ -1,0 +1,758 @@
+{
+  "id": "cet4-2016-12-1-listening",
+  "type": "listening",
+  "title": "听力",
+  "paragraphs": [],
+  "questions": [
+    {
+      "number": 1,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It was dangerous to live in"
+        },
+        {
+          "key": "B",
+          "text": "It was going to be renovated."
+        },
+        {
+          "key": "C",
+          "text": "He could no longer pay the rent."
+        },
+        {
+          "key": "D",
+          "text": "He had sold it to the royal family."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 2,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "A strike."
+        },
+        {
+          "key": "B",
+          "text": "A storm."
+        },
+        {
+          "key": "C",
+          "text": "A forest fire."
+        },
+        {
+          "key": "D",
+          "text": "A terrorist attack."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 3,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They lost contact with the emergency department."
+        },
+        {
+          "key": "B",
+          "text": "They were trapped in an underground elevator."
+        },
+        {
+          "key": "C",
+          "text": "They were injured by suddenly falling rocks."
+        },
+        {
+          "key": "D",
+          "text": "They sent calls for help via a portable radio."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 4,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They tried hard to repair the elevator."
+        },
+        {
+          "key": "B",
+          "text": "They released the details of the accident."
+        },
+        {
+          "key": "C",
+          "text": "They sent supplies to keep the miners warm."
+        },
+        {
+          "key": "D",
+          "text": "They provided the miners with food and water."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 5,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Raise postage rates."
+        },
+        {
+          "key": "B",
+          "text": "Improve its services."
+        },
+        {
+          "key": "C",
+          "text": "Redesign delivery routes."
+        },
+        {
+          "key": "D",
+          "text": "Close some of its post offices."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 6,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Shortening business hours."
+        },
+        {
+          "key": "B",
+          "text": "Closing offices on holidays."
+        },
+        {
+          "key": "C",
+          "text": "Stopping mail delivery on Saturdays."
+        },
+        {
+          "key": "D",
+          "text": "Computerizing mail sorting processes."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 7,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Many post office staff will lose their jobs."
+        },
+        {
+          "key": "B",
+          "text": "Many people will begin to complain."
+        },
+        {
+          "key": "C",
+          "text": "Taxpayers will be very pleased."
+        },
+        {
+          "key": "D",
+          "text": "A lot of controversy will arise."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 8,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He will be kept from promotion."
+        },
+        {
+          "key": "B",
+          "text": "He will go through retraining."
+        },
+        {
+          "key": "C",
+          "text": "He will be given a warning."
+        },
+        {
+          "key": "D",
+          "text": "He will lose part of his pay."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 9,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He is always on time."
+        },
+        {
+          "key": "B",
+          "text": "He is a trustworthy guy."
+        },
+        {
+          "key": "C",
+          "text": "He is an experienced press operator."
+        },
+        {
+          "key": "D",
+          "text": "He is on good terms with his workmates."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 10,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "She is a trade union representative."
+        },
+        {
+          "key": "B",
+          "text": "She is in charge of public relations."
+        },
+        {
+          "key": "C",
+          "text": "She is a senior manager of the shop."
+        },
+        {
+          "key": "D",
+          "text": "She is better at handling such matters."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 11,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He is skilled and experienced."
+        },
+        {
+          "key": "B",
+          "text": "He is very close to the manager."
+        },
+        {
+          "key": "C",
+          "text": "He is always trying to stir up trouble."
+        },
+        {
+          "key": "D",
+          "text": "He is always complaining about low wages."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 12,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Open."
+        },
+        {
+          "key": "B",
+          "text": "Friendly."
+        },
+        {
+          "key": "C",
+          "text": "Selfish."
+        },
+        {
+          "key": "D",
+          "text": "Reserved."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 13,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They stay quiet."
+        },
+        {
+          "key": "B",
+          "text": "They read a book."
+        },
+        {
+          "key": "C",
+          "text": "They talk about the weather."
+        },
+        {
+          "key": "D",
+          "text": "They chat with fellow passengers."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 14,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "She was always treated as a foreigner."
+        },
+        {
+          "key": "B",
+          "text": "She was eager to visit an English castle."
+        },
+        {
+          "key": "C",
+          "text": "She was never invited to a colleague's home."
+        },
+        {
+          "key": "D",
+          "text": "She was unwilling to make friends with workmates."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 15,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Houses are much more quiet."
+        },
+        {
+          "key": "B",
+          "text": "Houses provide more privacy."
+        },
+        {
+          "key": "C",
+          "text": "They want to have more space."
+        },
+        {
+          "key": "D",
+          "text": "They want a garden of their own."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 16,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They don't have much choice of jobs."
+        },
+        {
+          "key": "B",
+          "text": "They are likely to get much higher pay."
+        },
+        {
+          "key": "C",
+          "text": "They don't have to go through job interviews."
+        },
+        {
+          "key": "D",
+          "text": "They will automatically be given hiring priority."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 17,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Ask their professors for help."
+        },
+        {
+          "key": "B",
+          "text": "Look at school bulletin boards."
+        },
+        {
+          "key": "C",
+          "text": "Visit the school careers service."
+        },
+        {
+          "key": "D",
+          "text": "Go through campus newspapers."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 18,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Helping students find the books and journals they need."
+        },
+        {
+          "key": "B",
+          "text": "Supervising study spaces to ensure a quiet atmosphere."
+        },
+        {
+          "key": "C",
+          "text": "Helping students arrange appointments with librarians."
+        },
+        {
+          "key": "D",
+          "text": "Providing students with information about the library."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 19,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It tastes better."
+        },
+        {
+          "key": "B",
+          "text": "It is easier to grow."
+        },
+        {
+          "key": "C",
+          "text": "It may be sold at a higher price."
+        },
+        {
+          "key": "D",
+          "text": "It can better survive extreme weathers."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 20,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It is healthier than green tea."
+        },
+        {
+          "key": "B",
+          "text": "It can grow in drier soil."
+        },
+        {
+          "key": "C",
+          "text": "It will replace green tea one day."
+        },
+        {
+          "key": "D",
+          "text": "It is immune to various diseases."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 21,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It has been well received by many tea drinkers."
+        },
+        {
+          "key": "B",
+          "text": "It does not bring the promised health benefits."
+        },
+        {
+          "key": "C",
+          "text": "It has made tea farmers' life easier."
+        },
+        {
+          "key": "D",
+          "text": "It does not have a stable market."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 22,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They need decorations to show their status."
+        },
+        {
+          "key": "B",
+          "text": "They prefer unique objects of high quality."
+        },
+        {
+          "key": "C",
+          "text": "They decorate their homes themselves."
+        },
+        {
+          "key": "D",
+          "text": "They care more about environment."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 23,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They were proud of their creations."
+        },
+        {
+          "key": "B",
+          "text": "They could only try to create at night."
+        },
+        {
+          "key": "C",
+          "text": "They made great contributions to society."
+        },
+        {
+          "key": "D",
+          "text": "They focused on the quality of their products."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 24,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Make wise choices."
+        },
+        {
+          "key": "B",
+          "text": "Identify fake crafts."
+        },
+        {
+          "key": "C",
+          "text": "Design handicrafts themselves."
+        },
+        {
+          "key": "D",
+          "text": "Learn the importance of creation."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 25,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "To boost the local economy."
+        },
+        {
+          "key": "B",
+          "text": "To attract foreign investments."
+        },
+        {
+          "key": "C",
+          "text": "To arouse public interest in crafts."
+        },
+        {
+          "key": "D",
+          "text": "To preserve the traditional culture."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    }
+  ],
+  "audio": {
+    "url": "/cet-audio/423c7ad649b1506aadd17c4c4ddd504d0056539c07b671541d5ea46444067a01.mp3",
+    "sha256": "423c7ad649b1506aadd17c4c4ddd504d0056539c07b671541d5ea46444067a01",
+    "bytes": 16422048,
+    "mimeType": "audio/mpeg",
+    "durationSeconds": 1368.425,
+    "attribution": [
+      {
+        "title": "DieDiDi/CET4-6-past-exam-paper",
+        "url": "https://github.com/DieDiDi/CET4-6-past-exam-paper/tree/97266755c1d95b13b86ce3e0570390b5f7a89225"
+      },
+      {
+        "title": "0609x/CET46-Resources",
+        "url": "https://github.com/0609x/CET46-Resources/tree/4a24a1abf752e27de88a5e8bf930595c4ccffcec"
+      }
+    ]
+  },
+  "listeningGroups": [
+    {
+      "id": "cet4-2016-12-1-listening-1",
+      "title": "短篇新闻一",
+      "questionNumbers": [
+        1,
+        2
+      ],
+      "transcript": [
+        "[iJA16th century castle in Scotland is close to collapsing after lumps of soil were washed away by floods, threatening its foundations. On Sunday,the castle's owner John Gordon,76, was forced to move out of his property after the River Dee swept away about 60 feet of land, leaving the castle dangerously close to the river, according to the Scottish Daily Record.",
+        "Abergeldie Castle,located in Aberdeenshire,Scotland,was built by Sir Alexander Gordon of Midmar who later became the Earl of Huntly.The castle, which is located on ll,7oo acres, was leased to members of the royal family between1848and1970,includingKingEdwardV1I and George V.The Scottish Environment Protection Agencyhas issued more than35flood warnings covering several regions,[2Jas Scotland continues to clean up after Storm Frank hit the country last Wednesday.“This means that rivers will rise more slowly, but then stay high for much longer,\"the environmental agency said."
+      ]
+    },
+    {
+      "id": "cet4-2016-12-1-listening-2",
+      "title": "短篇新闻二",
+      "questionNumbers": [
+        3,
+        4
+      ],
+      "transcript": [
+        "[3jRescue efforts were underway Thursday morning for 17 miners who were stuck in an elevator below ground at Cargill rock salt mine near Lansing,New York, according to Marcia Lynch, public information officer with Tompkins County's emergency response department. Emergency workers have made contact with the miners via a radio, and they all appear to be uninjured, said Jessica Verfuss, the emergency department's assistant director.",
+        "[4JCrews have managed to provide heat packs and blankets to the miners so that they can keep warm during the rescue operation,Verfuss said. Details about what led to the workers being trapped in the elevator weren't immediately available. The mine, along New York's Cayuga Lake, processes salt used for road treatment. It produces about 2 million tons of salt that is shipped to more than 1,5o0 places in the northeastern United States.The rock salt mine is one of three operated by Cargill with the other two in Louisiana and Ohio."
+      ]
+    },
+    {
+      "id": "cet4-2016-12-1-listening-3",
+      "title": "短篇新闻三",
+      "questionNumbers": [
+        5,
+        6,
+        7
+      ],
+      "transcript": [
+        "[5JThe U.S. Postal Service announced today that it is considering closing about 3,700 post offices over the next year because of falling revenues.",
+        "Facing an $8.3 billion budget deficit this year, closing post offices is one of several proposals the Postal Service has put forth recently to cut costs. Last week, for example, Postmaster General Pat Donahoe announced plans to stop mail delivery on Saturdays,a move he says could save $ 3 billion annually.\"We are losing revenue as we speak,\" Donahoe said. \"We do not want taxpayer money. We want to be self-sufficient. So like any other business, you have to make choices.\"",
+        "Dean Granholm, the vice president for delivery and post office operations,said the first wave of closings would begin this fall:[7JHe estimated that about 3,000 postmasters, 500 station managers and between 500 and 1,000 postal clerks could lose their jobs."
+      ]
+    },
+    {
+      "id": "cet4-2016-12-1-listening-4",
+      "title": "长对话一",
+      "questionNumbers": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "transcript": [
+        "M: Mrs. Hampton, we've got trouble in the press room this morning.",
+        "W:Ohdear,what about?",
+        "M: [8JOne of the press operators arrived an hour and a half late.",
+        "W: But that's a straightforward affair. [8JHe will simply lose part of his pay. That's why we have a clock in system.",
+        "M:But the point is the man was clocked in at 8 o'clock. We have John standing by the time clock, and he swears he saw nothing irregular.",
+        "W:[9JIs John reliable?",
+        "M:[9JYes,he is.That's why we chose him for the job.",
+        "W:Haveyou spoken to the man who was late?",
+        "M: Not yet. I thought I'd have a word with you first. He's a difficult man, and I think there's been some trouble on the shop floor. I've got a feeling that trade union representative is behind this. The manager told me that Jack Green's been very active around the shop the last few days. W. Well, what do you want me to do?",
+        "M:I was wondering if you'd see Smith-the man who was late-[1oJbecause you are so much better at handling things like this.",
+        "W: Oh, alright. I'll see him. I must say I agree with you about there being bad feelings in the works. [11JI've had the idea for some time that Jack Green's been busy stirring things up in connection with the latest wage claim. He's always trying to make trouble. Well, I'll get the manager to send Smith up here."
+      ]
+    },
+    {
+      "id": "cet4-2016-12-1-listening-5",
+      "title": "长对话二",
+      "questionNumbers": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "transcript": [
+        "W: Our topic today is about something that foreigners nearly always say when they visit Britain. It's “Why are the British so cold?\" And they're talking about the British personalitythe famous British “reserve\". It means that we aren't very friendly..\" we aren't very open.",
+        "M: So do you think it's true?",
+        "W:It's a difficult one. So many people who visit Britain say it's difficult to make friends with British people. They say we're cold, reserved, unfriendly...",
+        "M:I think it's true. Look at Americans or Australians. They speak the same language, but they're much more open.And you see it when you travel.PeopleI mean strangersspeak to you on the street or on the train. [13JBritish people seldom speak on the train, or the bus.Not in London,anyway.",
+        "W:\"Not in London\". That's it. Capital cities are full of tourists and are never friendly. People are different in other parts of the country.",
+        "M:Not completely.[14JI met a woman once,an Italian.She's been working in Manchester for two years, and no onenot one of her colleagueshad ever invited her to their home. They were friendly to her at work, but nothing else. She couldn't believe it. She said that would never happen in Italy.",
+        "W: You know what they say-\"an Englishman's home is his castle\". It's really difficult to get inside.",
+        "M:Yeah.[15JIt's about being private. You go home to your house and your garden and you close the door.It's your place.",
+        "W: That's why the British don't like flats. They prefer to live in houses.",
+        "M: That's true."
+      ]
+    },
+    {
+      "id": "cet4-2016-12-1-listening-6",
+      "title": "短文一",
+      "questionNumbers": [
+        16,
+        17,
+        18
+      ],
+      "transcript": [
+        "In college,time is scarce,and consequently,very precious.At the same time, expenses in college pile'up surprisingly quickly. A part-time job is a good way to balance costs while ensuring there is enough time left over for both academic subjects and after-class activities.",
+        "If you are a college student looking for a part-time job,the best place to start your job search is right on campus.[16JThere are tons of on-campus job opportunities,and as a student, you'll automatically be given hiring priority. Plus, on-campus jobs eliminate commuting time, and could be a great way to connect with academic and professional resources at your university. [17JCheck with your school's careers service or employment office for help to find a campus job. Of course, there are opportunities for part-time work off-campus, too. If you spend a little time digging for the right part-time jobs, you'll save yourself time when you find a job that leaves you with enough time to get your school work done, too.",
+        "If you are a college student looking for work but worried you won't have enough time to devote to academic subjects, consider working as a study hall or a library monitor. Responsibilities generally include supervising study spaces to ensure that a quiet atmosphere is maintained. It's a pretty easy job, but one with lots of downtime which means you'll have plenty of time to catch up on reading, do homework or study for an exam."
+      ]
+    },
+    {
+      "id": "cet4-2016-12-1-listening-7",
+      "title": "短文二",
+      "questionNumbers": [
+        19,
+        20,
+        21
+      ],
+      "transcript": [
+        "Agricultural workers in green tea fields near Mount Kenya are gathering the tea leaves. It is beautiful to see. The rows of tea bushes are straight. All appears to be well. But the farmers who planted the bushes are worried.",
+        "Nelson Kibara is one of them. He has been growing tea in the Kerugoya area for 4o years. [19JHe says the prices this year have been so low that he has made almost no profit. He says he must grow different kinds of tea if he is to survive.",
+        "Mr.Kibara and hundreds of other farmers have been removing some of their tea bushes and planting a new kind of tea developed by the Tea Research Foundation of Kenya. Its leaves are purple and brown. When the tea is boiled, the drink has a purple color.",
+        "[19J&[2oJMedical researchers have studied the health benefits of the new tea,Theysay it is healthier than green tea and could be sold for a price that is three to four times higher than the price of green tea.",
+        "But Mr. Kibara says he has not received a higher price for his purple tea crop. [21jHe says the market for the tea is unstable And he is often forced to sell his purple tea for the same price as green tea leaves. He says there are not enough buyers willing to pay more for the purple tea."
+      ]
+    },
+    {
+      "id": "cet4-2016-12-1-listening-8",
+      "title": "短文三",
+      "questionNumbers": [
+        22,
+        23,
+        24,
+        25
+      ],
+      "transcript": [
+        "[22JToday's consumers want beautiful handcrafted objects to wear and to have for their home environment. They prefer something unique and they demand quality. Craftsmen today are meeting this demand. People and homes are showing great change as more and more unique handcrafted items become available.",
+        "Handicrafts are big business. [23JNo longer does a good craftsman have to work in a job he dislikes all day, and then try to create at night. He has earned his professional status.He is now a respected member of society. Part of the fun of being a craftsman is meeting other craftsmen. They love to share their ideas and materials and help others find markets for their work.",
+        "[24JCraftsmen have helped educate consumers to make wise choices.They help them become aware of design and technique. They help them relate their choice to its intended use. They often involve consumers in trying the craft themselves.",
+        "When a group of craftsmen expands to include more members, a small craft organization is formed.Suchan organization does a lot in training workshops in special media, craftmarketing techniques, craft fairs and sales, festivals, TV appearances and demonstrations. [25JState art councils help sponsor local arts and crafts festivals which draw crowds of tourist consumers. This boosts the local economy considerably because tourists not only buy crafts,but they also use the restaurants and hotels and other services of the area."
+      ]
+    }
+  ],
+  "materialId": "89e7928de3edb636605c",
+  "questionSetId": "76d046347522c6e0d2ab"
+}

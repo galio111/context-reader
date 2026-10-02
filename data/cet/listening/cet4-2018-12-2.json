@@ -1,0 +1,748 @@
+{
+  "id": "cet4-2018-12-2-listening",
+  "type": "listening",
+  "title": "听力",
+  "paragraphs": [],
+  "questions": [
+    {
+      "number": 1,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "A man was pulled to safety after a building collapse."
+        },
+        {
+          "key": "B",
+          "text": "A beam about ten feet long collapsed to the ground."
+        },
+        {
+          "key": "C",
+          "text": "A rescue worker got trapped in the basement."
+        },
+        {
+          "key": "D",
+          "text": "A deserted 100-year-old building caught fire."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 2,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He suffered a fatal injury in an accident."
+        },
+        {
+          "key": "B",
+          "text": "He once served in a fire department."
+        },
+        {
+          "key": "C",
+          "text": "He was collecting building materials."
+        },
+        {
+          "key": "D",
+          "text": "He moved into his neighbor’s old house."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 3,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Improve the maths skills of high school teachers."
+        },
+        {
+          "key": "B",
+          "text": "Change British people’s negative view of maths."
+        },
+        {
+          "key": "C",
+          "text": "Help British people understand their paychecks."
+        },
+        {
+          "key": "D",
+          "text": "Launch a campaign to promote maths teaching."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 4,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Children take maths courses at an earlier age."
+        },
+        {
+          "key": "B",
+          "text": "The public sees the value of maths in their life."
+        },
+        {
+          "key": "C",
+          "text": "British people know how to do elementary calculations."
+        },
+        {
+          "key": "D",
+          "text": "Primary school teachers understand basic maths concepts."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 5,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He owns a fleet of aircraft."
+        },
+        {
+          "key": "B",
+          "text": "He is learning to be a pilot."
+        },
+        {
+          "key": "C",
+          "text": "He regards his royal duties as a burden."
+        },
+        {
+          "key": "D",
+          "text": "He held a part-time job for over 20 years."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 6,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He can demonstrate his superior piloting skills."
+        },
+        {
+          "key": "B",
+          "text": "He can change his focus of attention and relax."
+        },
+        {
+          "key": "C",
+          "text": "He can show his difference from other royalty."
+        },
+        {
+          "key": "D",
+          "text": "He can come into closer contact with his people."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 7,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They enjoyed his company."
+        },
+        {
+          "key": "B",
+          "text": "They liked him in his uniform."
+        },
+        {
+          "key": "C",
+          "text": "They rarely recognised him."
+        },
+        {
+          "key": "D",
+          "text": "They were surprised to see him."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 8,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They were skilled carpenters themselves."
+        },
+        {
+          "key": "B",
+          "text": "It didn’t need much capital to start with."
+        },
+        {
+          "key": "C",
+          "text": "Wood supply was plentiful in Romania."
+        },
+        {
+          "key": "D",
+          "text": "They saw a business opportunity there."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 9,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Provide quality furniture at affordable prices."
+        },
+        {
+          "key": "B",
+          "text": "Attract foreign investment to expand business."
+        },
+        {
+          "key": "C",
+          "text": "Enlarge their company by hiring more workers."
+        },
+        {
+          "key": "D",
+          "text": "Open some more branch companies in Germany."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 10,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They are from her hometown."
+        },
+        {
+          "key": "B",
+          "text": "They are imported from Germany."
+        },
+        {
+          "key": "C",
+          "text": "They all come from Romania."
+        },
+        {
+          "key": "D",
+          "text": "They come from all over the continent."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 11,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "All across Europe."
+        },
+        {
+          "key": "B",
+          "text": "Throughout the world."
+        },
+        {
+          "key": "C",
+          "text": "Mostly in Bucharest."
+        },
+        {
+          "key": "D",
+          "text": "In Romania only."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 12,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Go to a concert with him and his girlfriend."
+        },
+        {
+          "key": "B",
+          "text": "Try out a new restaurant together in town."
+        },
+        {
+          "key": "C",
+          "text": "Go with him to choose a pearl for Susan."
+        },
+        {
+          "key": "D",
+          "text": "Attend the opening of a local restaurant."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 13,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It is sponsored by local restaurants."
+        },
+        {
+          "key": "B",
+          "text": "It specializes in food advertizing."
+        },
+        {
+          "key": "C",
+          "text": "It is especially popular with the young."
+        },
+        {
+          "key": "D",
+          "text": "It provides information on local events."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 14,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They design a special set of menus for themselves."
+        },
+        {
+          "key": "B",
+          "text": "They treat themselves to various entertainments."
+        },
+        {
+          "key": "C",
+          "text": "They go to eat at different stylish restaurants."
+        },
+        {
+          "key": "D",
+          "text": "They participate in a variety of social events."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 15,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "More restaurants will join Restaurant Week."
+        },
+        {
+          "key": "B",
+          "text": "This year’s Restaurant Week will start soon."
+        },
+        {
+          "key": "C",
+          "text": "Bigger discounts will be offered this Restaurant Week."
+        },
+        {
+          "key": "D",
+          "text": "More types of food will be served this Restaurant Week."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 16,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Rewarding them for eating vegetables."
+        },
+        {
+          "key": "B",
+          "text": "Exposing them to vegetables repeatedly."
+        },
+        {
+          "key": "C",
+          "text": "Improving the taste of vegetable dishes for them."
+        },
+        {
+          "key": "D",
+          "text": "Explaining the benefits of eating vegetables to them."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 17,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They were disliked most by children."
+        },
+        {
+          "key": "B",
+          "text": "They were considered most nutritious."
+        },
+        {
+          "key": "C",
+          "text": "They were least used in Belgian cooking."
+        },
+        {
+          "key": "D",
+          "text": "They were essential to children’s health."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 18,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Vegetables differ in their nutritional value."
+        },
+        {
+          "key": "B",
+          "text": "Children’s eating habits can be changed."
+        },
+        {
+          "key": "C",
+          "text": "Parents watch closely what children eat."
+        },
+        {
+          "key": "D",
+          "text": "Children’s choices of food vary greatly."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 19,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Space exploration has serous consequences."
+        },
+        {
+          "key": "B",
+          "text": "India has many space exploration programs."
+        },
+        {
+          "key": "C",
+          "text": "There is quite a lot to learn about the moon."
+        },
+        {
+          "key": "D",
+          "text": "A lot of garbage has been left on the moon."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 20,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It is costly to bring back."
+        },
+        {
+          "key": "B",
+          "text": "It is risky to destroy."
+        },
+        {
+          "key": "C",
+          "text": "It is of no use on Earth."
+        },
+        {
+          "key": "D",
+          "text": "It is damaged by radiation."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 21,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Record details of space exploration."
+        },
+        {
+          "key": "B",
+          "text": "Monitor the change of lunar weather."
+        },
+        {
+          "key": "C",
+          "text": "Study the effect of radiation and vacuum on its materials."
+        },
+        {
+          "key": "D",
+          "text": "Explore the possibility of human settlement on the moon."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 22,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It is likely to remain a means of business communication."
+        },
+        {
+          "key": "B",
+          "text": "It is likely to be a competitor of various messaging apps."
+        },
+        {
+          "key": "C",
+          "text": "It will gradually be replaced by social media."
+        },
+        {
+          "key": "D",
+          "text": "It will have to be governed by specific rules."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 23,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Save the message in their file."
+        },
+        {
+          "key": "B",
+          "text": "Make a timely response."
+        },
+        {
+          "key": "C",
+          "text": "Examine the information carefully."
+        },
+        {
+          "key": "D",
+          "text": "See is any action needs to be taken."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 24,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It is to be passed on."
+        },
+        {
+          "key": "B",
+          "text": "It is mostly junk."
+        },
+        {
+          "key": "C",
+          "text": "It requires no reply."
+        },
+        {
+          "key": "D",
+          "text": "It causes no concern."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 25,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Make it as short as possible."
+        },
+        {
+          "key": "B",
+          "text": "Use simple and clear language."
+        },
+        {
+          "key": "C",
+          "text": "Adopt an informal style of writing."
+        },
+        {
+          "key": "D",
+          "text": "Avoid using capitals for emphasis."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    }
+  ],
+  "audio": {
+    "url": "/cet-audio/b12fd1b15d482f1c002e89d669bd260180090cb277b01ea50c712a5e53029d51.mp3",
+    "sha256": "b12fd1b15d482f1c002e89d669bd260180090cb277b01ea50c712a5e53029d51",
+    "bytes": 22828095,
+    "mimeType": "audio/mpeg",
+    "durationSeconds": 1426.756,
+    "attribution": [
+      {
+        "title": "DieDiDi/CET4-6-past-exam-paper",
+        "url": "https://github.com/DieDiDi/CET4-6-past-exam-paper/tree/97266755c1d95b13b86ce3e0570390b5f7a89225"
+      },
+      {
+        "title": "0609x/CET46-Resources",
+        "url": "https://github.com/0609x/CET46-Resources/tree/4a24a1abf752e27de88a5e8bf930595c4ccffcec"
+      }
+    ]
+  },
+  "listeningGroups": [
+    {
+      "id": "cet4-2018-12-2-listening-1",
+      "title": "短篇新闻一",
+      "questionNumbers": [
+        1,
+        2
+      ],
+      "transcript": [
+        "Rescue crews pulled a man to safety after a collapse at a construction site in Brooklyn on Tuesday. The incident happened on the 400 block of Rutland Road just after 12 :30 p. m. The Fire Department of New York says the vacant 100-year-old building being pulled down partially collapsed. A man described as a \"non- worker civilian\" was buried up to his waist in the basement.  The man was collecting buiding materials when the frst floor collapsed underneath him. He was trapped under a beam about 10 feet below the surface for nearly an hour and a half. The man was then taken to hospital. Officials said he is in stable condition with non-life threatening injuries. The building was reportedly purchased by.a neighboring church in 2011, It was the site of a 2006 fire and has remained vacant ever since..u (s-"
+      ]
+    },
+    {
+      "id": "cet4-2018-12-2-listening-2",
+      "title": "短篇新闻二",
+      "questionNumbers": [
+        3,
+        4
+      ],
+      "transcript": [
+        "Miios opeaestugglingderstandthaychckaulate meyinshmpai have said.  Being badatmasshoudnerbesbaeofhonowgene subject. Chris Humphries, chairman of the group, said that poor maths skills can affect an individual's life, leaving them at a higher risk of being excluded from school or out of work. “Figures from a govermment survey, published last year, show that 17 million adults in England have basic maths skills that are, at best, the same as an 1l-year-old,\" he said. Speaking at the lounge of National Numeracy, Mr. Humphries said, \"That's a scary figure, because what it means is they often can't calculate or give change.\" Mike Ellicock, chief executive of National Numeracy, said: \"We want to challenge this 'I can't do maths' attitude that is prevalent in the UK,\" adding that  it was vital that all primary school teachers understand key maths concepts, as young children who fail to learn the basics will suffer later on."
+      ]
+    },
+    {
+      "id": "cet4-2018-12-2-listening-3",
+      "title": "短篇新闻三",
+      "questionNumbers": [
+        5,
+        6,
+        7
+      ],
+      "transcript": [
+        "The Dutch king has revealed that for more than two decades, he has held down a part-time second job alongside his royal duties. King Willem-Alexander of the Netherlands said that he recently ended his role as a regular \"guest pilot\" after 21 years with the national airline's fleet of now-outdated aircraft. As a guest flier, the king worked about twice a monith, always as co-pilot. He will now retrain to fly the bigger Boeing 737s as the old planes are being phased out of service. The 50-year-old father of three and king to 17 million Dutch citizens calls flying a “hobby. \"  It lets him leave his royal duties on the ground and fully focus on something else. \"You have an aircraft, passengers and crew. You have responsibility for them,\" the king said.  \"You can't take your problems from the ground into the skies. You can completely change focus and concentrate on something else. That, for me, is the most relaxing part of flying.\"  Willem-Alexander said he is rarely recognised by passengers. Very few people pay attention to him as he walks through the airport in his airline uniform and cap."
+      ]
+    },
+    {
+      "id": "cet4-2018-12-2-listening-4",
+      "title": "长对话一",
+      "questionNumbers": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "transcript": [
+        "M: Morning, Miss Semenov. Welcome to our studio.",
+        "W:Thanks.'My pleasure.",
+        "M: OK then. Let me start by asking you how old your company is.",
+        "W: My grandparents started the company in 1955.",
+        "M: Why did they decide to open a furniture plant in Bucharest?",
+        "W:  At that time there was a construction boom. There was a great need for furniture and my grandparents saw a business opportunity. Their aim was to provide quality yet affordable wooden furniture. And this goal has never changed.",
+        "M: Do you still only work with wood?",
+        "W: That's right. It's what we kmow and what we do best. If we started trying different materials, our quality would probably suffer.",
+        "M: And all the wood is local?",
+        "W:Correct.Ahundredpercent of our raw material comes from Romania.",
+        "M: Could you please outline how the company has grown over time? What have been the main challenges and opportunities that you have faced?",
+        "W: Well, back in the '50s and '60s, Romania was a lot poorer than it is today. My grandfather and father did not have much capital, and our customers didn't have much money either. So that limited growth. The big change was in 2007 when Romania joined the European Union. Suddenly, our market exploded in size and we could now sell our products all across the continent. There was also more financial investment. And, as a result, we went from having 20 employees to 200.",
+        "M: Which countries are your biggest market?",
+        "W: Besides Romania, our biggest market is Germany. There is strong demand there for our traditional style of furniture."
+      ]
+    },
+    {
+      "id": "cet4-2018-12-2-listening-5",
+      "title": "长对话二",
+      "questionNumbers": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "transcript": [
+        "M:  Have you heard about the new restaurant, the Pearl? Susan and I are going to try it out this weekend. We have a reservation on Saturday at 7 o'clock. I can call to add two more to the table if you'd like.",
+        "W: That sounds great. We'd love to join you. You always seem to kmow the best places to go. Where do you hear about these things?",
+        "M: I have a habit'of reading (614) Magazine.  It has all the information on local events within the (614) column code area.",
+        "W: That was a clever name for the magazine then. Does it only focus on new restaurant openings?",
+        "M: They have other information too. Things like concerts, festivals and small shops. I think the restaurant information and reviews are the most exciting though. Each year they also sponsor a local event called Restaurant Week.",
+        "W: Restaurant Week?What's that?",
+        "M: Oh, it's wonderful. All the stylish restaurants participate. They have special set menus for the week, usually in spring, at a number of different price points.  Susan and I go to at least three different places during the event. It's a great opportunity to try some of the more expensive restaurants at a discounted price and try something new.That's how we found the Pearl, actually.",
+        "W: Wow, that's an event I would be interested in. When will it be happening this year?",
+        "M:You are in luck. Restaurant Week starts in just a few days, the first Sunday in May.Let's make sure they set a double date during the event. Just let me know what type of food you would like to try.",
+        "W: Okay, I will."
+      ]
+    },
+    {
+      "id": "cet4-2018-12-2-listening-6",
+      "title": "短文一",
+      "questionNumbers": [
+        16,
+        17,
+        18
+      ],
+      "transcript": [
+        "All parents kmow it is difficult to get children to eat their vegetables. Some of them offer rewards or treats for children finishing their share. But researchers have discovered that youngsters who are not praised for trying vegetables are more likely to eat them eventually.  The study found that the best way to get children to eat food they do not like is simply to give them repeated exposure to it. Psychologists from Ghent University in Belgium studied 98 children. They gave them five kinds of vegetables to eat-mushrooms, peas, eggplants, carrots and cabbages.  The taste tests revealed that carrots were the least-liked vegetable among youngsters. The children were then given a bowl of boiled carrots and told to choose how much to eat. After 8 minutes, they were asked to rate the dish as \" delicious,\" \"just OK\"” or “ disgusting.\" The trial went on twice a week for a month, with a follow-up taste test after 8 weeks. Children were split into three groups, with one group asked to try the bowl of carots repeatedly with no further encouragement. The other two groups were given rewards of a toy or verbal praise.  After the trial, 81% of children who simply tried the carrots consistently liked them. Thisis in contrast to 68% for the group given a toy and 75% for the group given verbal praise."
+      ]
+    },
+    {
+      "id": "cet4-2018-12-2-listening-7",
+      "title": "短文二",
+      "questionNumbers": [
+        19,
+        20,
+        21
+      ],
+      "transcript": [
+        "One thing about the moon many people don't know is that it has a lot of garbage on its surface, leftover from human space exploration. But how much garbage exactly have humans left on the moon? It's hard to be accurate, but the trash likely weighs more than 181,o00 kilograms on Earth. Much of it was left by American astronauts who landed on the lunar surface between 1969 and 1972 during NASA's Apollo missions. The other rubbish comes from missions that did not have human crews. These missions were conducted by various space exploring agencies, including those from the Us, Russia, Japan, India, and Europe. Many of the older pieces are equipment sent to learn about the moon. The equipment stayed there after its missions ended. The moon is also home to lunar orbiters that mapped the moon before they crashed into its surface, adding to the garbage heap. The objects left by the Apollo astronauts included equipment that was no longer needed.  Bringing back unneeded equipment would' have used up precious resources such as fuel. But, as the saying goes, one person's trash is another's treasure.  Researchers can study the garbage left on the moon to see how its materials weathered the radiation and vacuum of space over time. Moreover, some of the objects on the moon are still being used, including a laser-range reflector left by the Apollo 11. crew."
+      ]
+    },
+    {
+      "id": "cet4-2018-12-2-listening-8",
+      "title": "短文三",
+      "questionNumbers": [
+        22,
+        23,
+        24,
+        25
+      ],
+      "transcript": [
+        "In my line of work, I receive a lot of emails.I also send a lot of emails.Though social media and messaging apps have taken over some of the roles from'email as a form of communication,email is likely to retain an important role for business communication in the future.Surprisingly,though,a lot of companies and organizations lack formal guidelines for emailing.As most of you will soon be entering the workforce,I would like to share with you my own rules for emailing.If someone sends you an email,reply to them ackmowledging the email. A simple “thank you\" let the sender kmow that their email has arrived safely, that it has not been lost among what could be 50 other emails that have arrived in your email inbox that day.It's not necessary to reply to a mass email sent to numerous recipients.These emails are often informative rather than personalized correspondence requiring a response or action.But it's common politeness to respond to a personal message, preferably within 24 hours of receiving it. It's also important to use proper English. Just because emails are a quick form of communication, doesn't mean emails,especially business emails, should be written using informal shortened forms of words.Think of an email as a letter.Spelling,grammar and punctuation should not be overlooked. And never use capitals to emphasize a word or words in an email. It's the same as yelling."
+      ]
+    }
+  ],
+  "materialId": "29aa30b9bdd191a6514e",
+  "questionSetId": "e6342952b53285ba6590"
+}

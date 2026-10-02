@@ -1,0 +1,744 @@
+{
+  "id": "cet4-2018-06-2-listening",
+  "type": "listening",
+  "title": "听力",
+  "paragraphs": [],
+  "questions": [
+    {
+      "number": 1,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Annoyed."
+        },
+        {
+          "key": "B",
+          "text": "Scared."
+        },
+        {
+          "key": "C",
+          "text": "Confused."
+        },
+        {
+          "key": "D",
+          "text": "Offended."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 2,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It crawled over the woman's hands."
+        },
+        {
+          "key": "B",
+          "text": "It wound up on the steering wheel."
+        },
+        {
+          "key": "C",
+          "text": "It was killed by the police on the spot."
+        },
+        {
+          "key": "D",
+          "text": "It was covered with large scales."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 3,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "A study of the fast-food service."
+        },
+        {
+          "key": "B",
+          "text": "Fast food customer satisfaction."
+        },
+        {
+          "key": "C",
+          "text": "McDonald's new business strategies."
+        },
+        {
+          "key": "D",
+          "text": "Competition in the fast-food industry."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 4,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Customers' higher demands."
+        },
+        {
+          "key": "B",
+          "text": "The inefficiency of employees."
+        },
+        {
+          "key": "C",
+          "text": "Increased variety of products."
+        },
+        {
+          "key": "D",
+          "text": "The rising number of customers."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 5,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "International treaties regarding space travel programs."
+        },
+        {
+          "key": "B",
+          "text": "Legal issues involved in commercial space exploration."
+        },
+        {
+          "key": "C",
+          "text": "U.S. government's approval of private space missions."
+        },
+        {
+          "key": "D",
+          "text": "Competition among public and private space companies."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 6,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Deliver scientific equipment to the moon."
+        },
+        {
+          "key": "B",
+          "text": "Approve a new mission to travel into outer space."
+        },
+        {
+          "key": "C",
+          "text": "Work with federal agencies on space programs."
+        },
+        {
+          "key": "D",
+          "text": "Launch a manned spacecraft to Mars."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 7,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It is significant."
+        },
+        {
+          "key": "B",
+          "text": "It is promising."
+        },
+        {
+          "key": "C",
+          "text": "It is unpredictable."
+        },
+        {
+          "key": "D",
+          "text": "It is unprofitable."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 8,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Visiting her family in Thailand."
+        },
+        {
+          "key": "B",
+          "text": "Showing friends around Phuket."
+        },
+        {
+          "key": "C",
+          "text": "Swimming around a Thai island."
+        },
+        {
+          "key": "D",
+          "text": "Lying in the sun on a Thai beach."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 9,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "She visited a Thai orphanage."
+        },
+        {
+          "key": "B",
+          "text": "She met a Thai girl's parents."
+        },
+        {
+          "key": "C",
+          "text": "She learned some Thai words."
+        },
+        {
+          "key": "D",
+          "text": "She sunbathed on a Thai beach."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 10,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "His class will start in a minute."
+        },
+        {
+          "key": "B",
+          "text": "He has got an incoming phone call."
+        },
+        {
+          "key": "C",
+          "text": "Someone is knocking at his door."
+        },
+        {
+          "key": "D",
+          "text": "His phone is running out of power."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 11,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He is interested in Thai artworks."
+        },
+        {
+          "key": "B",
+          "text": "He is going to open a souvenir shop."
+        },
+        {
+          "key": "C",
+          "text": "He collects things from different countries."
+        },
+        {
+          "key": "D",
+          "text": "He wants to know more about Thai culture."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 12,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Buying some fitness equipment for the new gym."
+        },
+        {
+          "key": "B",
+          "text": "Opening a gym and becoming personal trainers."
+        },
+        {
+          "key": "C",
+          "text": "Signing up for a weight-loss course."
+        },
+        {
+          "key": "D",
+          "text": "Trying out a new gym in town."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 13,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Professional personal training."
+        },
+        {
+          "key": "B",
+          "text": "Free exercise for the first week."
+        },
+        {
+          "key": "C",
+          "text": "A discount for a half-year membership."
+        },
+        {
+          "key": "D",
+          "text": "Additional benefits for young couples."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 14,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "The safety of weight-lifting."
+        },
+        {
+          "key": "B",
+          "text": "The high membership fee."
+        },
+        {
+          "key": "C",
+          "text": "The renewal of his membership."
+        },
+        {
+          "key": "D",
+          "text": "The operation of fitness equipment."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 15,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "She wants her invitation renewed."
+        },
+        {
+          "key": "B",
+          "text": "She used to do 200 sit-ups every day."
+        },
+        {
+          "key": "C",
+          "text": "She knows the basics of weight-lifting."
+        },
+        {
+          "key": "D",
+          "text": "She used to be the gym's personal trainer."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 16,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They tend to be nervous during interviews."
+        },
+        {
+          "key": "B",
+          "text": "They often apply for a number of positions."
+        },
+        {
+          "key": "C",
+          "text": "They worry about the results of their applications."
+        },
+        {
+          "key": "D",
+          "text": "They search extensively for employers' information."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 17,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Get better organized."
+        },
+        {
+          "key": "B",
+          "text": "Edit their references."
+        },
+        {
+          "key": "C",
+          "text": "Find better-paid jobs."
+        },
+        {
+          "key": "D",
+          "text": "Analyze the searching process."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 18,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Provide their data in detail."
+        },
+        {
+          "key": "B",
+          "text": "Personalize each application."
+        },
+        {
+          "key": "C",
+          "text": "Make use of better search engines."
+        },
+        {
+          "key": "D",
+          "text": "Apply for more promising positions."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 19,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "If kids did not like school, real learning would not take place."
+        },
+        {
+          "key": "B",
+          "text": "If not forced to go to school, kids would be out in the streets."
+        },
+        {
+          "key": "C",
+          "text": "If schools stayed the way they are, parents were sure to protest."
+        },
+        {
+          "key": "D",
+          "text": "If teaching failed to improve, kids would stay away from school."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 20,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Allow them to play interesting games in class."
+        },
+        {
+          "key": "B",
+          "text": "Try to stir up their interest in lab experiments."
+        },
+        {
+          "key": "C",
+          "text": "Let them stay home and learn from their parents."
+        },
+        {
+          "key": "D",
+          "text": "Design activities they now enjoy doing on holidays."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 21,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Allow kids to learn at their own pace."
+        },
+        {
+          "key": "B",
+          "text": "Encourage kids to learn from each other."
+        },
+        {
+          "key": "C",
+          "text": "Organize kids into various interest groups."
+        },
+        {
+          "key": "D",
+          "text": "Take kids out of school to learn at first hand."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 22,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It is especially popular in Florida and Alaska."
+        },
+        {
+          "key": "B",
+          "text": "It is a major social activity among the young."
+        },
+        {
+          "key": "C",
+          "text": "It is seen almost anywhere and on any occasion."
+        },
+        {
+          "key": "D",
+          "text": "It is even more expressive than the written word."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 23,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It is located in a big city in Iowa."
+        },
+        {
+          "key": "B",
+          "text": "It is really marvelous to look at."
+        },
+        {
+          "key": "C",
+          "text": "It offers free dance classes to seniors."
+        },
+        {
+          "key": "D",
+          "text": "It offers people a chance to socialize."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 24,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Their state of mind improved."
+        },
+        {
+          "key": "B",
+          "text": "They became better dancers."
+        },
+        {
+          "key": "C",
+          "text": "They enjoyed better health."
+        },
+        {
+          "key": "D",
+          "text": "Their relationship strengthened."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 25,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It is fun."
+        },
+        {
+          "key": "B",
+          "text": "It is life."
+        },
+        {
+          "key": "C",
+          "text": "It is exhausting."
+        },
+        {
+          "key": "D",
+          "text": "It is rhythmical."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    }
+  ],
+  "audio": {
+    "url": "/cet-audio/6d215d1d2b8fc8669e743d2a8966f30f316516ae98c35d0e93e77703122b5d07.mp3",
+    "sha256": "6d215d1d2b8fc8669e743d2a8966f30f316516ae98c35d0e93e77703122b5d07",
+    "bytes": 22877568,
+    "mimeType": "audio/mpeg",
+    "durationSeconds": 1429.848,
+    "attribution": [
+      {
+        "title": "DieDiDi/CET4-6-past-exam-paper",
+        "url": "https://github.com/DieDiDi/CET4-6-past-exam-paper/tree/97266755c1d95b13b86ce3e0570390b5f7a89225"
+      },
+      {
+        "title": "0609x/CET46-Resources",
+        "url": "https://github.com/0609x/CET46-Resources/tree/4a24a1abf752e27de88a5e8bf930595c4ccffcec"
+      }
+    ]
+  },
+  "listeningGroups": [
+    {
+      "id": "cet4-2018-06-2-listening-1",
+      "title": "短篇新闻一",
+      "questionNumbers": [
+        1,
+        2
+      ],
+      "transcript": [
+        "Kelly Swisher, an Arkansas woman, escaped injury and managed to safely stop her car after a 4-foot-long rat snake came out from under her car seat and slid across her feet as she was driving down the highway. Rat snakes aren't poisonous or a threat to people generally. But the woman says the snake she encountered Thursday terrified her out of her wits. \"It was rough, with big scales, \" said Swisher. who was on her way to pick up her friend at the airport when it happened. “I don't know whether I had my hands on the steering wheel or not. I am not the most flexible person in the world, but I can guarantee my knees were up next to my ears.\" She said the snake first slid back under the seat, and she hoped it would stay there until she was able to get off the high way and stop. \"That didn't work out,\" she said. \"Here he comes, and he wound up in my back seat before I could finally get off the road, stop and get out of the car.\" She called for help. And Washington County animal control officers came and captured the snake."
+      ]
+    },
+    {
+      "id": "cet4-2018-06-2-listening-2",
+      "title": "短篇新闻二",
+      "questionNumbers": [
+        3,
+        4
+      ],
+      "transcript": [
+        "Fast food, it turns out, isn't quite as fast as it used to be. A new study finds that MacDonald's posted its slowest drives-through times since this survey was first conducted fifteen years ago. As MacDonald's, customers will spend on average three minutes and nine seconds from the time they placed their orders until they received their food. That's about ten seconds more than the industry average--and a lot slower than a decade ago, according to the study, which was commissioned by QSR, an industry trade publication. And MacDonald's wasn't alone in slowing down: Other chains also saw their drive-through performance slow down. Among the reasons for the slower service, today there are more choices on the menu, and the products themselves are more complex and take longer to prepare. Speed, of course, is essential to the drive-through experience. And drive-throughs are hugely important to chains, such as MacDonald's, Burger King and Taco Bell. \"Usually the drive-through accounts for sixty to seventy percent of all business that goes through a fast-food restaurant,\" notes Sam Ochers, editor of QR. Of course, consumers also want their orders prepared correctly and on that score, Ochers says,accuracy is still really high.\""
+      ]
+    },
+    {
+      "id": "cet4-2018-06-2-listening-3",
+      "title": "短篇新闻三",
+      "questionNumbers": [
+        5,
+        6,
+        7
+      ],
+      "transcript": [
+        "The first private mission outside of Earth's orbit is closed to many of our think. U.S. government officials are set to approve a mission by privately-held space company Moon Express to travel outside of Earth's orbit in late 2017.  Moon Express's mission involves plans to land a suitcase-sized package of scientific equipment on the moon for ongoing exploration and commercial development.The decision involved months of lobbying and coordinated conversations between a number of factual agencies. Under international treaties, the U.S. is responsible for the cargo of both public and private spacecraft. This makes commercial space travel a complex legal issue not just domestically, but abroad. A Moon Express representative declined to comment on the story but noted that the company is very optimistic about its proposal. Moon Express is not the only company seeking for the rights to travel to outer space. Elon Musk's space X aims to send an unmanned aircraft to Mars by 2018."
+      ]
+    },
+    {
+      "id": "cet4-2018-06-2-listening-4",
+      "title": "长对话一",
+      "questionNumbers": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "transcript": [
+        "M:Hey, Sophia, how are you doing?",
+        "W: Hi, Bob. I'm good, thanks. Actually, I'm on holiday with my family in Thailand at the moment, although I wish it were with my friends instead.",
+        "M: Really? You never said you are going to Thailand. How I envy you !",
+        "W: I've only been in here a week. But you know, Thailand is an amazing place. I'm having a great time here. In fact, I am now lying on the beach in Phuket. I've been in the sun for around fifteen minutes only and I'm already getting sunburnt.Haveyoubeenherebefore?",
+        "M: No, I wish I had. What else have you been doing in Thailand besides enjoying the sun?",
+        "W: Well. I met a guy from Germany yesterday. He showed me around the orphanage he works at. Then, I met many volunteer teachers who are mainly young people from Europe.",
+        "M: Ah, that's interesting.",
+        "W: Yes. I also made a new little friend, Sarah. She was so cute. I was so sad that we were to leave at the end of the day. If I ever come back to Thailand, I'd definitely visit this place again as a volunteer.",
+        "M: (1O)Well, you can tell me all about it when you get back. My phone battery is almost dead now. Remember to get me something from the souvenir shops. I like to collect bits and pieces from different parts of the world. Bye now. Enjoy yourself Sophia.",
+        "W: Bye."
+      ]
+    },
+    {
+      "id": "cet4-2018-06-2-listening-5",
+      "title": "长对话二",
+      "questionNumbers": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "transcript": [
+        "W: Hi, David. There's a new gym opening in town today. Would you like to go with me this afternoon?",
+        "M: Yes, more than glad to. I haven't been to a gym for ages. I need to do some exercise to tone up.",
+        "W: Then this is a good chance. They sent me an invitation with a note saying I could take a friend for free on the first day. Also, if we both sign up before Friday, we can get a discount on a six-month membership.",
+        "M: Great. Count me in. I really want to lose some of these belly fat and turn it into muscle. But I'm not sure which of the gym equipment with best help.",
+        "W: Well, I know expert of that, but I think you can try lifting weights and do at least 200 sit-ups twice a day.",
+        "M: I've never tried weight-lifting before. Is it dangerous?",
+        "W: No, not at all, if you know some of the basics. Don't worry. I'll show you the rules. I used to practice this at another gym before my membership ended. I'll be your personal trainer.",
+        "M: Thank you. What other equipment do they have?",
+        "W: Well, like all gyms, they have all sorts of things to help build up muscles in different parts of the body, like applied bicycles, chest stretching machines, and running machines. You could use any of these to suit your purpose. Now the gym opens at noon. So can we meet up in town at 1:30 p.m.?",
+        "M: Perfect. See you there, coach."
+      ]
+    },
+    {
+      "id": "cet4-2018-06-2-listening-6",
+      "title": "短文一",
+      "questionNumbers": [
+        16,
+        17,
+        18
+      ],
+      "transcript": [
+        "In today's job market, it's now common for job seekers to send applications for many positions. That involves lots of time and lots of work to organize. Certainly,you can't wait to waste your precious hours on following the developments in a disorderly fashion and miss important deadlines, confuse interview times, or forget to follow up a result. Accordingly, managing your job search properly is just as important as identifying job opportunities and submitting your applications. If you are familiar with Microsoft Excel or a similar program, creating a table is a simple and effective way to keep track of your job applications. If Excel isn't quite your cup of tea,don't worry, you can create a table in Microsoft Word or a similar word processor. Google is another tool to help you get organize effectively. If you have a Gmail account, you can create, safe and send tables in addition to written document like your cover letter and resume. You can also link up with Google calendar to make sure you stay on top of important dates. Clearly, there are plenty of ways to keep track of your job search and making the effort to simplify your job search will paid off. Nevertheless, .you should always focus on quality, not quantity. Only apply for position you are qualified for, and make each application count, personalizing each cover letters _and updating and editing your resume."
+      ]
+    },
+    {
+      "id": "cet4-2018-06-2-listening-7",
+      "title": "短文二",
+      "questionNumbers": [
+        19,
+        20,
+        21
+      ],
+      "transcript": [
+        "Some people say. if kids didn't happen to go to school, they'd all be out in the streets. My reply is \"No, they wouldn't.\" First, even if schools stay just what they are, children would spend at least some time there, because that's where they'd be likely to find their friends. Second, schools wouldn't stay the way they are. They'd get better, because we would have to start making them what they ought to be right now. Last, (2o)if we stirred up our brains and gave children a little help, those who did not want to go to school could find other things to dothings many children now do during their holidays. There's something easier we could do. We need to get kids out of the school buildings, give them a chance to learn about the world at first hand. In Philadelphia and Portland, Oregon, plans are being drawn up for public schools that won't have any school buildings at all. That will take the students out into the city and help them to use it and its people as a resource. In others words, students perhaps in groups, perhaps independently, will go to libraries, museums, exhibitions, courtrooms, radios and TV stations, meetings, businesses, and laboratories to learn about their world and society at first hand. A small private school in Washington is already doing this. It makes sense. We need more of it."
+      ]
+    },
+    {
+      "id": "cet4-2018-06-2-listening-8",
+      "title": "短文三",
+      "questionNumbers": [
+        22,
+        23,
+        24,
+        25
+      ],
+      "transcript": [
+        "Before there was the written word, there was the language of dance. Dance expresses love and hate, joy and sorrow, life and death, and everything else in between, Dance in America is everywhere. We dance from Florida to Alaska, from horizon to horizon, and coast to coast. We dance at weddings, birthdays, office parties, or just to fill the time.“ I can't imagine doing anything else with my life ,\" Bridges runs dance classes for all ages. “\"Teaching dance is wonderful. My older students say it makes them feel young. It's marvelous to watch them.  For many of them, it's a way of meeting people and having a social life. So why do we dance?I can tell you about one young couple, \"says Bridges.  “ They arrive at the class in a bad mood, and they leave with a smile. Dancing seems to change their mood completely.\"_So do we dance in order to make ourselves feel better, calmer, healthier? Andrea Hillier, a dance teacher says.“\" Dance, like the rhythm of a beating heart, is life. Even after all these years, I want to get better and better. I keep practicing even when I'm exhausted. I find it hard to stop. Dancing reminds me I'm alive.\""
+      ]
+    }
+  ],
+  "materialId": "f18e4dde4bb5dbf0c686",
+  "questionSetId": "0ae1ca139236b74dc8c0"
+}

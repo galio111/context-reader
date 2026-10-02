@@ -1,0 +1,745 @@
+{
+  "id": "cet6-2018-06-1-listening",
+  "type": "listening",
+  "title": "听力",
+  "paragraphs": [],
+  "questions": [
+    {
+      "number": 1,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It is a typical salad"
+        },
+        {
+          "key": "B",
+          "text": "It is a Spanish soup"
+        },
+        {
+          "key": "C",
+          "text": "It is a weird vegetable"
+        },
+        {
+          "key": "D",
+          "text": "It is a kind of spicy food"
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 2,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "To make it thicker"
+        },
+        {
+          "key": "B",
+          "text": "To make it more nutritious"
+        },
+        {
+          "key": "C",
+          "text": "To add to its appeal"
+        },
+        {
+          "key": "D",
+          "text": "To replace an ingredient"
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 3,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It contains very little fat"
+        },
+        {
+          "key": "B",
+          "text": "It uses olive oil in cooking"
+        },
+        {
+          "key": "C",
+          "text": "It uses no artificial additives"
+        },
+        {
+          "key": "D",
+          "text": "It is mainly made of vegetables"
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 4,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It does not go stale for two years"
+        },
+        {
+          "key": "B",
+          "text": "It takes no special skill to prepare"
+        },
+        {
+          "key": "C",
+          "text": "It comes from a special kind of pig"
+        },
+        {
+          "key": "D",
+          "text": "It is a delicacy blended with bread"
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 5,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They come in a great variety"
+        },
+        {
+          "key": "B",
+          "text": "They do not make decent gifts"
+        },
+        {
+          "key": "C",
+          "text": "They do not vary much in price"
+        },
+        {
+          "key": "D",
+          "text": "They go well with Italian food"
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 6,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "$30-$40"
+        },
+        {
+          "key": "B",
+          "text": "$40-$50"
+        },
+        {
+          "key": "C",
+          "text": "$50-$60"
+        },
+        {
+          "key": "D",
+          "text": "Around $150"
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 7,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They are a healthy choice for elderly people"
+        },
+        {
+          "key": "B",
+          "text": "They are especially popular among Italians"
+        },
+        {
+          "key": "C",
+          "text": "They symbolize good health and longevity"
+        },
+        {
+          "key": "D",
+          "text": "They go well with different kinds of food"
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 8,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It is wine imported from California"
+        },
+        {
+          "key": "B",
+          "text": "It is less spicy than all other red wines"
+        },
+        {
+          "key": "C",
+          "text": "It is far more expensive than he expected"
+        },
+        {
+          "key": "D",
+          "text": "It is Italy’s most famous type of red wine"
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 9,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Learning others’ secrets"
+        },
+        {
+          "key": "B",
+          "text": "Searching for information"
+        },
+        {
+          "key": "C",
+          "text": "Decoding secret messages"
+        },
+        {
+          "key": "D",
+          "text": "Spreading sensational news"
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 10,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They helped the U.S. army in World War Ⅱ"
+        },
+        {
+          "key": "B",
+          "text": "They could write down spoken codes promptly"
+        },
+        {
+          "key": "C",
+          "text": "They were assigned to decode enemy messages"
+        },
+        {
+          "key": "D",
+          "text": "They were good at breaking enemy secret codes"
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 11,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Important battles fought in the Pacific War"
+        },
+        {
+          "key": "B",
+          "text": "Decoding of secret messages in war times"
+        },
+        {
+          "key": "C",
+          "text": "A military code that was never broken"
+        },
+        {
+          "key": "D",
+          "text": "Navajo Indians’ contribution to code breaking"
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 12,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "All services will be personalized"
+        },
+        {
+          "key": "B",
+          "text": "A lot of knowledge-intensive jobs will be replaced"
+        },
+        {
+          "key": "C",
+          "text": "Technology will revolutionize all sectors of industry"
+        },
+        {
+          "key": "D",
+          "text": "More information will be available"
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 13,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "In the robotics industry"
+        },
+        {
+          "key": "B",
+          "text": "In the information service"
+        },
+        {
+          "key": "C",
+          "text": "In the personal care sector"
+        },
+        {
+          "key": "D",
+          "text": "In high-end manufacturing"
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 14,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They charge high prices"
+        },
+        {
+          "key": "B",
+          "text": "They need lots of training"
+        },
+        {
+          "key": "C",
+          "text": "They cater to the needs of young people"
+        },
+        {
+          "key": "D",
+          "text": "They focus on customers’ specific needs"
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 15,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "The rising demand in education and healthcare in the next 20 years"
+        },
+        {
+          "key": "B",
+          "text": "The disruption caused by technology in traditionally well-paid jobs"
+        },
+        {
+          "key": "C",
+          "text": "The tremendous changes new technology will bring to people’s lives"
+        },
+        {
+          "key": "D",
+          "text": "The amazing amount of personal attention people would like to have"
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 16,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It was the longest road in ancient Egypt"
+        },
+        {
+          "key": "B",
+          "text": "It was constructed some 500 years ago"
+        },
+        {
+          "key": "C",
+          "text": "It lay 8 miles from the monument sites"
+        },
+        {
+          "key": "D",
+          "text": "It linked a stone pit to some waterways"
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 17,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Saws used for cutting stone"
+        },
+        {
+          "key": "B",
+          "text": "Traces left by early explorers"
+        },
+        {
+          "key": "C",
+          "text": "An ancient geographical map"
+        },
+        {
+          "key": "D",
+          "text": "Some stone tool segments"
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 18,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "To transport stones to block floods"
+        },
+        {
+          "key": "B",
+          "text": "To provide services for the stone pit"
+        },
+        {
+          "key": "C",
+          "text": "To link the various monument sites"
+        },
+        {
+          "key": "D",
+          "text": "To connect the villages along the Nile"
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 19,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Dr. Gong didn’t give him any conventional tests"
+        },
+        {
+          "key": "B",
+          "text": "Dr. Gong marked his office with a hand-painted sign"
+        },
+        {
+          "key": "C",
+          "text": "Dr. Gong didn’t ask him any questions about his pain"
+        },
+        {
+          "key": "D",
+          "text": "Dr. Gong slipped in needles where he felt no pain"
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 20,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He had heard of the wonders acupuncture could work"
+        },
+        {
+          "key": "B",
+          "text": "Dr. Gong was very famous in New York’s Chinatown"
+        },
+        {
+          "key": "C",
+          "text": "Previous medical treatments failed to relieve his pain"
+        },
+        {
+          "key": "D",
+          "text": "He found the expensive medical tests unaffordable"
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 21,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "More and more patients ask for the treatment"
+        },
+        {
+          "key": "B",
+          "text": "Acupuncture techniques have been perfected"
+        },
+        {
+          "key": "C",
+          "text": "It doesn’t need the conventional medical tests"
+        },
+        {
+          "key": "D",
+          "text": "It does not have any negative side effects"
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 22,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They were on the verge of breaking up"
+        },
+        {
+          "key": "B",
+          "text": "They were compatible despite differences"
+        },
+        {
+          "key": "C",
+          "text": "They quarreled a lot and never resolved their arguments"
+        },
+        {
+          "key": "D",
+          "text": "They argued persistently about whether to have children"
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 23,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Neither of them has any brothers or sisters"
+        },
+        {
+          "key": "B",
+          "text": "Neither of them won their parents’ favor"
+        },
+        {
+          "key": "C",
+          "text": "They weren’t spoiled in their childhood"
+        },
+        {
+          "key": "D",
+          "text": "They didn’t like to be the apple of their parents’ eyes"
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 24,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They are usually good at making friends"
+        },
+        {
+          "key": "B",
+          "text": "They tend to be adventurous and creative"
+        },
+        {
+          "key": "C",
+          "text": "They are often content with what they have"
+        },
+        {
+          "key": "D",
+          "text": "They tend to be self-assured and responsible"
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 25,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They enjoy making friends"
+        },
+        {
+          "key": "B",
+          "text": "They tend to be well adjusted"
+        },
+        {
+          "key": "C",
+          "text": "They are least likely to take initiative"
+        },
+        {
+          "key": "D",
+          "text": "They usually have successful marriages"
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    }
+  ],
+  "audio": {
+    "url": "/cet-audio/b5508db99a027a26e1681d992853fb166b798dce136ee4c858770fa47ff815dd.mp3",
+    "sha256": "b5508db99a027a26e1681d992853fb166b798dce136ee4c858770fa47ff815dd",
+    "bytes": 19808668,
+    "mimeType": "audio/mpeg",
+    "durationSeconds": 1650.722,
+    "attribution": [
+      {
+        "title": "Ysoseri1224/CET-6-Listening-10-Years-Resources-and-Analysis",
+        "url": "https://github.com/Ysoseri1224/CET-6-Listening-10-Years-Resources-and-Analysis/tree/42fc6658e0b4a3dbae06755ba105d79169820576",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      {
+        "title": "0609x/CET46-Resources",
+        "url": "https://github.com/0609x/CET46-Resources/tree/4a24a1abf752e27de88a5e8bf930595c4ccffcec"
+      }
+    ]
+  },
+  "listeningGroups": [
+    {
+      "id": "cet6-2018-06-1-listening-1",
+      "title": "长对话一",
+      "questionNumbers": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "transcript": [
+        "M: What's all that? Are you going to make a salad?",
+        "W: No, I'm going to make a gazpacho.",
+        "M: What's that?",
+        "W: Gazpacho is a cold soup from Spain. It's mostly vegetables. I guess you could call it a liquid salad.",
+        "M: Cold soup? Sounds weird.",
+        "W: It's delicious, trust me. I tried it for the first time during my summer vacation in Spain. You see, in the south of Spain, it gets very hot in the summer, up to 40 degrees Celsius, so a cold gazpacho is very refreshing. The main ingredients are tomato, cucumber, bell peppers, olive oil and stale bread.",
+        "M: Stale bread? Surely you mean bread for dipping into the soup.",
+        "W: No, bread is crushed and blended in like everything else. It adds texture and thickness to the soup.",
+        "M: Hmm. And is it healthy?",
+        "W: Sure. As I said earlier, it's mostly vegetables. You can also add different things if you like, such as hard-boiled egg or cured ham.",
+        "M: Cured ham? What's that?",
+        "W: That's another Spanish delicacy. Have you never heard of it? It's quite famous.",
+        "M: No. Is it good, too?",
+        "W: Oh, yeah, definitely. It's amazing. It's a little dry and salty, and it's very expensive because it comes from a special type of pig that only eats a special type of food. The ham is covered in salt to dry and preserve it and left to hang for up to two years. It has a very distinct flavor.",
+        "M: Hmm. Sounds interesting. Where can I find some?",
+        "W: It used to be difficult to get Spanish produce here, but it's now a lot more common. Most large supermarket chains have cured ham in little packets, but in Spain you can buy a whole leg.",
+        "M: A whole pig leg? Why would anybody want so much ham?",
+        "W: In Spain, many people buy a whole leg for special group events such as Christmas. They cut it themselves into very thin slices with a long flat knife."
+      ]
+    },
+    {
+      "id": "cet6-2018-06-1-listening-2",
+      "title": "长对话二",
+      "questionNumbers": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "transcript": [
+        "M: Hello. I wish to buy a bottle of wine.",
+        "W: Hi. Yes. What kind of wine would you like?",
+        "M: I don't know. Sorry. I don't know much about wine.",
+        "W: That's no problem at all. What's the occasion and how much would you like to spend?",
+        "M: It's for my boss. It's his birthday. I know he likes wine, but I don't know what type. I also do not want anything too expensive. Maybe mid-range.",
+        "W: How much would you say is a mid-range bottle of wine, approximately?",
+        "M: Well, it varies greatly. Our lowest prices are around six dollars a bottle, but those are table wines. They are not very special, and I would not suggest them as a gift. On the other end, our most expensive bottles are over 150 dollars. If you are looking for something priced in the middle, I would say anything between 30 dollars and 60 dollars would make a decent gift. How does that sound?",
+        "M: Hmm. Yeah. I guess something in the vicinity of 30 or 40 would be good. Which type would you recommend?",
+        "W: I would say the safest option is always a red wine. They are generally more popular than whites and can usually be paired with food more easily. Our specialty here are Italian wines, and these tend to be fruity with medium acidity. This one here is a Chianti, which is perhaps Italy's most famous type of red wine. Alternatively, you may wish to try and surprise your boss with something less common, such as this Zinfandel. The grapes are originally native to Croatia, but this winery is in eastern Italy, and it has a more spicy and peppery flavor. So, to summarize, the Chianti is more classical, and the Zinfandel more exciting. Both are similarly priced at just under 40 dollars.",
+        "M: I will go with Chianti then. Thanks."
+      ]
+    },
+    {
+      "id": "cet6-2018-06-1-listening-3",
+      "title": "短文一",
+      "questionNumbers": [
+        9,
+        10,
+        11
+      ],
+      "transcript": [
+        "Many people enjoy secret codes. The harder the code, the more some people will try to figure it out. In wartime, codes are especially important. They help armies send news about battles and the size of enemy forces. Neither side wants its code broken by the other. One very important code was never broken. It was used during World War II by the Americans. It was a spoken code, never written down. And it was developed and used by Navajo Indians. They were called the Navajo Code Talkers. The Navajos created the code in their own language. Navajo is hard to learn, and only a few people know it. So it was pretty certain that the enemy would not be able to understand the Code Talkers. In addition, the Talkers used code words. They called a submarine an iron fish and a small bomb thrown by hand a potato. If they wanted to spell something, they used code words for letters of the alphabet. For instance, the letter A was ant or apple or axe. The Code Talkers worked mostly in the islands in the Pacific. One or two would be assigned to a group of soldiers. They would send messages by field telephone to the Code Talker in the next group. And he would relay the information to his commander. The Code Talkers played an important part in several battles. They helped troops coordinate their movements and attacks. After the war, the U.S. government honored them for what they had accomplished. Theirs was the most successful wartime code ever used."
+      ]
+    },
+    {
+      "id": "cet6-2018-06-1-listening-4",
+      "title": "短文二",
+      "questionNumbers": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "transcript": [
+        "If you are young and thinking about your career, you'll want to know where you can make a living. Well, there's going to be a technological replacement of a lot of knowledge-intensive jobs in the next 20 years, particularly in the two largest sectors of the labor force with professional skills. One is teaching and the other healthcare. You have so many applications and software and platforms that are going to come in and provide information and service in these two fields, which means a lot of healthcare and education sectors will be radically changed and a lot of jobs will be lost. Now, where will the new jobs be found? Well, the one sector of the economy that can't be easily duplicated by even smart technologies is the caring sector, the personal care sector. That is, you can't really get a robot to do a great massage or physical therapy, or you can't get the kind of personal attention you need with regard to therapy or any other personal service. There could be very high-end personal services. Therapists do charge a lot of money. I think there's no limit to the amount of personal attention and personal care people would like if they could afford it. But the real question in the future is how can people afford these things if they don't have money, because they can't get a job that pays enough? That's why I wrote this book, which is about how to reorganize the economy for the future when technology brings about disruptive changes to what we used to consider high-income work."
+      ]
+    },
+    {
+      "id": "cet6-2018-06-1-listening-5",
+      "title": "讲座一",
+      "questionNumbers": [
+        16,
+        17,
+        18
+      ],
+      "transcript": [
+        "American researchers have discovered the world's oldest paved road, a 4,600-year-old highway. It linked a stone pit in the Egyptian desert to waterways that carried blocks to monument sites along the Nile. The eight-mile road is at least 500 years older than any previously discovered road. It is the only paved road discovered in ancient Egypt, said geologist Thomas Bowne of the United States Geological Survey. He reported the discovery on Friday. The road probably doesn't rank with the pyramids as a construction feat, but it is a major engineering achievement, said his colleague, geologist James Harrell of the University of Toledo. Not only is the road earlier than we thought possible, we didn't even think they built roads. The researchers also made a discovery in the stone pit at the northern end of the road, the first evidence that the Egyptians used rock saws. This is the oldest example of saws being used for cutting stone, said Bowne's colleague James Hoffmeyer of Wheaton College in Illinois. That's two technologies we didn't know they had, Harrell said, and we don't know why they were both abandoned. The road was discovered in the Fayum Depression, about 45 miles southwest of Cairo. Short segments of the road had been observed by earlier explorers, Bowne said, but they failed to realise its significance or follow up on their observations. Bowne and his colleague stumbled across it while they were doing geological mapping in the region. The road was clearly built to provide services for the newly discovered stone pit. Bowne and Harrell have found the camp that housed workers at the stone pit. The road appears today to go nowhere, ending in the middle of the desert. When it was built, its terminal was a dock on the shore of Lake Moiris, which had an elevation of about 66 feet above sea level, the same as the dock. Lake Moiris received its water from the annual floods of the Nile. At the time of the floods, the river and lake were at the same level and connected through a gap in the hills, near the modern villages of El Lajun and Hawara. Harrell and Bowne believe that blocks were loaded onto barges during the dry season, then floated over to the Nile during the floods to be shipped off to the monument sites at Giza and Saqqara."
+      ]
+    },
+    {
+      "id": "cet6-2018-06-1-listening-6",
+      "title": "讲座二",
+      "questionNumbers": [
+        19,
+        20,
+        21
+      ],
+      "transcript": [
+        "The thin, extremely sharp needles didn't hurt at all going in. Dr. Gong pierced them into my left arm, around the elbow that had been bothering me. Other needles were slipped into my left wrist and, strangely, into my right arm, and then into both my closed eyelids. There wasn't any discomfort, just a mild warming sensation. However, I did begin to wonder what had driven me here, to the office of Dr. James Gong in New York's Chinatown. Then I remembered the torturing pain in that left elbow. Several trips to a hospital and two expensive, uncomfortable medical tests had failed to produce even a diagnosis. Maybe you lean on your left arm too much, the doctor concluded, suggesting I see a bone doctor. During the hours spent waiting in vain to see a bone doctor, I decided to take another track and try acupuncture. A Chinese-American friend recommended Dr. Gong. I took the subway to Gong's second-floor office, marked with a hand-painted sign. Dr. Gong speaks English, but not often. Most of my questions to him were greeted with a friendly laugh, but I managed to let him know where my arm hurt. He asked me to go into a room, had me lie down on a bed, and went to work. In the next room, I learned a woman dancer was also getting a treatment. As I lay there a while, I drifted into a dreamlike state and fantasized about what she looked like. Acupuncturists today are as likely to be found on Park Avenue as on Mott Street. In all, there are an estimated 10,000 acupuncturists in the country. Nowadays, a lot of medical doctors have learned acupuncture techniques. So have a number of dentists. Reason? Patient demand. Few, though, can adequately explain how acupuncture works. Acupuncturists may say that the body has more than 800 acupuncture points. A life force called Qi circulates through the body. Points on the skin are energetically connected to specific organs, body structures, and systems. Acupuncture points are stimulated to balance the circulation of Qi. The truth is, though, acupuncture is at least 2,200 years old. Nobody really knows what's happening, says Paul Zemewski, a Ph.D. in Chinese studies who practices acupuncture in Philadelphia. After five treatments, there has been dramatic improvement in my arm, and the pain is a fraction of what it was. The mainly silent Dr. Gong finally even offered a diagnosis for what troubled me. Pinched nerve, he said."
+      ]
+    },
+    {
+      "id": "cet6-2018-06-1-listening-7",
+      "title": "讲座三",
+      "questionNumbers": [
+        22,
+        23,
+        24,
+        25
+      ],
+      "transcript": [
+        "Two people who have been married for two decades consider themselves a happy couple, but in the early years of their marriage, both were disturbed by persistent arguments that seemed to fade away without ever being truly resolved. They uncovered clues to what was going wrong by researching a fascinating subject, how birth order affects not only your personality, but also how compatible you are with your mate. Both are only children, and onlys grow up accustomed to being the apple of their parents' eyes. Match two onlys, and you have partners who subconsciously expect each other to continue fulfilling this expectation, while neither has much experience in the giving end. Here's a list of common birth order characteristics, and some thoughts on the best, and worst, marital matches for each. The oldest tends to be self-assured, responsible, a high achiever, and relatively serious and reserved. He may be slow to make friends, perhaps content with only one companion. The best matches are with a youngest, an only, or a mate raised in a large family. The worst match is with another oldest, since the two will be too sovereign to share a household comfortably. The youngest child of the family thrives on attention, and tends to be outgoing, adventurous, optimistic, creative, and less ambitious than others in the family. He may lack self-discipline, and have difficulty making decisions on his own. A youngest brother of brothers, often unpredictable and romantic, will match best with an oldest sister of brothers. The youngest sister of brothers is best matched with an oldest brother of sisters, who will happily indulge these traits. The middle child is influenced by many variables, however, but middles are less likely to take initiative, and more anxious and self-critical than others. Middles often successfully marry other middles, since both are strong on tact, not so strong on aggressiveness, and tend to crave affection. The only child is often most comfortable when alone, but since an only tends to be a well-adjusted individual, she'll eventually learn to relate to any chosen spouse. The male only child expects his wife to make life easier without getting much in return. He is sometimes best matched with a younger sister of brothers. The female only child, who tends to be slightly more flexible, is well matched with an older man, who will indulge her tendency to test his love. Her worst match? Another only, of course."
+      ]
+    }
+  ],
+  "materialId": "c9cb435c048e3f9755f0",
+  "questionSetId": "2f5da4479b6d094bc1a4"
+}

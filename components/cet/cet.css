@@ -1053,6 +1053,9 @@ html[data-context-theme="night"] .cet-answer-card button[data-result="unanswered
 
 .cet-library-compact .cet-resource-grid { grid-template-columns: minmax(0,1fr); }
 .cet-source-info { margin-top: 32px; font-size: 12px; color: #526771; overflow-wrap: anywhere; }
+.cet-source-info a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.cet-source-info a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+@media (pointer: coarse) { .cet-source-info a { display: inline-flex; align-items: center; min-height: 44px; } }
 html[data-context-theme="night"] .cet-locked-panel { background: #17272e; color: #b9d0d6; border-color: #48646d; }
 html[data-context-theme="night"] .cet-source-info { color: #b9d0d6; }
 .cet-disabled-menu:focus-visible { outline: 2px solid #27778c; outline-offset: 3px; border-radius: 999px; }

@@ -1,0 +1,747 @@
+{
+  "id": "cet4-2017-06-1-listening",
+  "type": "listening",
+  "title": "听力",
+  "paragraphs": [],
+  "questions": [
+    {
+      "number": 1,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "The man in the car was absent-minded."
+        },
+        {
+          "key": "B",
+          "text": "The test driver made a wrong judgement."
+        },
+        {
+          "key": "C",
+          "text": "The self-driving system was faulty."
+        },
+        {
+          "key": "D",
+          "text": "The car was moving at a fast speed."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 2,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They have done better than conventional cars."
+        },
+        {
+          "key": "B",
+          "text": "They have caused several severe crashes."
+        },
+        {
+          "key": "C",
+          "text": "They have posed a threat to other drivers."
+        },
+        {
+          "key": "D",
+          "text": "They have generally done quite well."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 3,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He works at a national park."
+        },
+        {
+          "key": "B",
+          "text": "He is a queen been specialist."
+        },
+        {
+          "key": "C",
+          "text": "He removed the beyond from the boot."
+        },
+        {
+          "key": "D",
+          "text": "He drove the bees away from his car."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 4,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They were looking after the queen."
+        },
+        {
+          "key": "B",
+          "text": "They were making a lot of noise."
+        },
+        {
+          "key": "C",
+          "text": "They were looking for a new box to live in."
+        },
+        {
+          "key": "D",
+          "text": "They were dancing in a unique way."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 5,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "The discovery of a new species of snake."
+        },
+        {
+          "key": "B",
+          "text": "The second trip to a small remote island."
+        },
+        {
+          "key": "C",
+          "text": "The finding of 2 new species of frog."
+        },
+        {
+          "key": "D",
+          "text": "The latest test on rare animal species."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 6,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "A poisonous snake attacked him on his field trip."
+        },
+        {
+          "key": "B",
+          "text": "He discovered a rare fog on a deserted."
+        },
+        {
+          "key": "C",
+          "text": "A snake crawled onto his head in his sleep."
+        },
+        {
+          "key": "D",
+          "text": "He fell from a tall palm tree by accident."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 7,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "From its genes."
+        },
+        {
+          "key": "B",
+          "text": "From its length."
+        },
+        {
+          "key": "C",
+          "text": "From its origin."
+        },
+        {
+          "key": "D",
+          "text": "From its colour."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 8,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "The security check takes time."
+        },
+        {
+          "key": "B",
+          "text": "He has to check a lot of luggage."
+        },
+        {
+          "key": "C",
+          "text": "His flight is leaving in less than 2 hours."
+        },
+        {
+          "key": "D",
+          "text": "The airport is a long way from the hotel."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 9,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "In cash."
+        },
+        {
+          "key": "B",
+          "text": "By credit card."
+        },
+        {
+          "key": "C",
+          "text": "With a traveler’s check."
+        },
+        {
+          "key": "D",
+          "text": "With his smart phone."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 10,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Give him a receipt."
+        },
+        {
+          "key": "B",
+          "text": "Confirm his flight."
+        },
+        {
+          "key": "C",
+          "text": "Look after his luggage."
+        },
+        {
+          "key": "D",
+          "text": "Find a porter for him."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 11,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Signing up for membership of S Hotel."
+        },
+        {
+          "key": "B",
+          "text": "Staying in the same hotel next time he comes."
+        },
+        {
+          "key": "C",
+          "text": "Loading her luggage onto the airport shuttle."
+        },
+        {
+          "key": "D",
+          "text": "Posting a comment on the hotel’s webpage."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 12,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He is the only boy in his family."
+        },
+        {
+          "key": "B",
+          "text": "He becomes tearful in wind."
+        },
+        {
+          "key": "C",
+          "text": "He has stopped making terrible faces."
+        },
+        {
+          "key": "D",
+          "text": "He is his teacher's favorite student."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 13,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Tell him to play in her backyard."
+        },
+        {
+          "key": "B",
+          "text": "Do something funny to amuse him."
+        },
+        {
+          "key": "C",
+          "text": "Give him some cherry stones to play with."
+        },
+        {
+          "key": "D",
+          "text": "Warn him of danger by making up a story."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 14,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They could break pp's legs."
+        },
+        {
+          "key": "B",
+          "text": "They could sometimes terrify adults."
+        },
+        {
+          "key": "C",
+          "text": "They could fly against a strong wind."
+        },
+        {
+          "key": "D",
+          "text": "They could knock pp unconscious."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 15,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "One would get a spot on their tongues if they told a lie deliberately."
+        },
+        {
+          "key": "B",
+          "text": "One would have to shave their head to remove a bat in their hair."
+        },
+        {
+          "key": "C",
+          "text": "One would go to prison if they put a stamp on upside down."
+        },
+        {
+          "key": "D",
+          "text": "One would have curly hair if they ate too much stale bread."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 16,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Everything seemed to be changing."
+        },
+        {
+          "key": "B",
+          "text": "People were formal and disciplined."
+        },
+        {
+          "key": "C",
+          "text": "People were excited to go travelling overseas."
+        },
+        {
+          "key": "D",
+          "text": "Things from the Victorian era came back alive."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 17,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Watching TV at home."
+        },
+        {
+          "key": "B",
+          "text": "Meeting people."
+        },
+        {
+          "key": "C",
+          "text": "Drinking coffee."
+        },
+        {
+          "key": "D",
+          "text": "Trying new foods."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 18,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He was interested in stylish dresses."
+        },
+        {
+          "key": "B",
+          "text": "He was able to take a lot of money."
+        },
+        {
+          "key": "C",
+          "text": "He was a student in the 1960s."
+        },
+        {
+          "key": "D",
+          "text": "He was a man full of imagination."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 19,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They avoid looking at them."
+        },
+        {
+          "key": "B",
+          "text": "They run away immediately."
+        },
+        {
+          "key": "C",
+          "text": "They show anger on their faces."
+        },
+        {
+          "key": "D",
+          "text": "They make threatening sounds."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 20,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It turns to its owner for help."
+        },
+        {
+          "key": "B",
+          "text": "It turns away to avoid conflict."
+        },
+        {
+          "key": "C",
+          "text": "It looks away and gets angry, too."
+        },
+        {
+          "key": "D",
+          "text": "It focuses its eyes on their mouths."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 21,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "By observing their facial features carefully."
+        },
+        {
+          "key": "B",
+          "text": "By focusing on a particular body movement."
+        },
+        {
+          "key": "C",
+          "text": "By taking in their facial expressions as a whole."
+        },
+        {
+          "key": "D",
+          "text": "By interpreting different emotions in different ways."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 22,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They have to look for food and shelter underground."
+        },
+        {
+          "key": "B",
+          "text": "They take little notice of the changes in temperature."
+        },
+        {
+          "key": "C",
+          "text": "They resort to different means to survive the bitter cold."
+        },
+        {
+          "key": "D",
+          "text": "They have difficulty adapting to the changed environment."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 23,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They have their weight reduced to minimum."
+        },
+        {
+          "key": "B",
+          "text": "They consume the energy stored before the long sleep."
+        },
+        {
+          "key": "C",
+          "text": "They can maintain their heart beat at the normal rate."
+        },
+        {
+          "key": "D",
+          "text": "They can keep their body temperature warm and stable."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 24,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "By staying in hiding places and eating very little."
+        },
+        {
+          "key": "B",
+          "text": "By seeking food and shelter in people’s houses."
+        },
+        {
+          "key": "C",
+          "text": "By growing thicker hair to stay warm."
+        },
+        {
+          "key": "D",
+          "text": "By storing enough food beforehand."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 25,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "To stay safe."
+        },
+        {
+          "key": "B",
+          "text": "To save energy."
+        },
+        {
+          "key": "C",
+          "text": "To keep company."
+        },
+        {
+          "key": "D",
+          "text": "To protect the young."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    }
+  ],
+  "audio": {
+    "url": "/cet-audio/a319a7a0d71e5c764916e70e1310d13771e2c22603e90e6c6bd04ea8d5bd75fd.mp3",
+    "sha256": "a319a7a0d71e5c764916e70e1310d13771e2c22603e90e6c6bd04ea8d5bd75fd",
+    "bytes": 16776255,
+    "mimeType": "audio/mpeg",
+    "durationSeconds": 1398.021,
+    "attribution": [
+      {
+        "title": "DieDiDi/CET4-6-past-exam-paper",
+        "url": "https://github.com/DieDiDi/CET4-6-past-exam-paper/tree/97266755c1d95b13b86ce3e0570390b5f7a89225"
+      },
+      {
+        "title": "0609x/CET46-Resources",
+        "url": "https://github.com/0609x/CET46-Resources/tree/4a24a1abf752e27de88a5e8bf930595c4ccffcec"
+      }
+    ]
+  },
+  "listeningGroups": [
+    {
+      "id": "cet4-2017-06-1-listening-1",
+      "title": "短篇新闻一",
+      "questionNumbers": [
+        1,
+        2
+      ],
+      "transcript": [
+        "One of Google's self-driving cars crashed into a bus in California last month. There were no injuries. It is not the first time one of Google's famed self-driving cars has been involved in a crash, but it may be the first time it has caused one. On February 14th the self-driving car, traveling at 2 mph, pulled out in front of a public bus going 15 mph.  The man in the Google vehicle reported that he assumed the bus would slow down to let the car out, and so he did not switch to the manual mode. In a statement, Google said, \"We clearly bear some responsibility, because if our car hadn't moved, there wouldn't have been a crash. That said, our test driver believed the bus was going to slow or stop to allow us to merge into the traffic, and that there would be sufficient space to do that. \"  The company's self-driving cars have done well over a million miles across various states in the US, and until now have only reported minor accidents."
+      ]
+    },
+    {
+      "id": "cet4-2017-06-1-listening-2",
+      "title": "短篇新闻二",
+      "questionNumbers": [
+        3,
+        4
+      ],
+      "transcript": [
+        "Thousands of bees left a town after landing on the back of a car when their queen got stuck in its boot. Tom Moses, who works at a nearby national park, noticed a \"brown patch\" on the back of the car after the owner parked it to do some shopping. When he looked closer, he realized it was a huge group of bees. Moses said, \"I've never seen that many bees in one spot. It was very unusual.  They were very close together and there was a lot of noise and movement. It was interesting to see such a strange sight, but there were a lot of people around and I was a bit worried about the bees and the people stopping to look. I thought that someone might do something stupid. * Moses called two local bee specialists who helped remove the bees by attracting them into a box. Moses spent three hours looking after the bees and was stung five times. He said, \"my stings are a bit painful but I'm pleased it all worked out and I could help. People need to realize that bees are valuable and they should be looked after. *"
+      ]
+    },
+    {
+      "id": "cet4-2017-06-1-listening-3",
+      "title": "短篇新闻三",
+      "questionNumbers": [
+        5,
+        6,
+        7
+      ],
+      "transcript": [
+        "A new species of snake has been discovered on a remote island in the Bahamas. Scientists identified 2o of the one-meter-long snakes during two trips to the Caribbean islands. The second trip was made in October last year.  One of the creatures made a dramatic appearance by moving onto the head of the team leader as he slept.  The snake has been named Silver Boa because it is metal-colored and the first specimen found was climbing a silver palm tree. The team was led by Dr. Graham Reynolds from Harvard University. The scientist confirmed the snake was a previously unknown species after conducting a genetic analysis of tissue samples. Commenting on the find, snake expert Robert Henderson, from the Milwaukee Museum of Natural History, said: \" Worldwide, new species of frogs are being discovered and described quite regularly. New species of snakes, however, are much rarer. \""
+      ]
+    },
+    {
+      "id": "cet4-2017-06-1-listening-4",
+      "title": "长对话一",
+      "questionNumbers": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "transcript": [
+        "W: Did you enjoy your stay with us, Mr. Brown?",
+        "M: Yes, very much. I had a wonderful time here. Now I'm going to the airport.  My flight leaves in less than two hours, so could you tell me what's the quickest way to get there?",
+        "W: Well, we can call a taxi for you. We also have a free airport shuttle service.",
+        "M: That sounds great. But will the shuttle get me to the airport in time?",
+        "W: Yes, it should. The next shuttle leaves in 15 minutes, and it takes some 25 minutes to get to the airport.",
+        "M: Fantastic! I'll just wait in the lobby. Will you please let me know when it's leaving?",
+        "W: Of course, sir.",
+        "M: Now I would like to settle my mini-bar bill. How much is that?",
+        "W: Let's see. It comes to $ 37. 50. How would you like to pay for it?",
+        "M:  I'll pay with my credit card. Thanks.  But I'll need a receipt so I can charge it to my company.",
+        "W: Absolutely! Here you are, sir. If you like, you can leave your bags with the porter and he can load them onto the shuttle for you when it arrives.",
+        "M: That would be great. Thank you.",
+        "W:  Would you like to leave a comment on our webpage when you have time?",
+        "M: Sure. I had a really good stay here and Id like to recommend your hotel to my friends and colleagues.",
+        "W: That's very kind of you. Thank you again for staying at Sheraton Hotel."
+      ]
+    },
+    {
+      "id": "cet4-2017-06-1-listening-5",
+      "title": "长对话二",
+      "questionNumbers": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "transcript": [
+        "M:  You know, Ben's given up making those terrible faces he used to make. The other day, he came home from school almost in tears. His teacher said if he went on like that, his face would get stuck when the winds changed.",
+        "W: And he believed her?",
+        "M: Yeah, he is only a little boy. Don't you remember all those things we used to believe when we were little? I remember my aunt Mary used to say if you swallow a cherry stone, a tree will grow out of your mouth. And I'm still terrified today, sort of subconsciously, you know, if I swallow one by mistake.",
+        "W: Yeah, I suppose you're right.  The one that used to get me was that swans could break your leg with a blow of the wing.",
+        "M : They can, can't they? I always thought they could.",
+        "W: No, they are not that strong. But there is another one even more terrifying. That is if you put a postage stamp on upside down, you'll go to prison.",
+        "M: No, never heard of that, but my grandmother was a terror for that kind of thing. For example, she would say you'll get a spot on your tongue if you tell a lie. If you eat stale bread, your hair will curl. And here is one more. We went on a camping trip once in Italy and my wife spent the whole time worrying about bats getting into her hair.  She said her grandmother reckoned you had to shave your head to get it out. My wife was really terrified.",
+        "W: Silly, isn't it? But that's how some parents try to keep their kids from doing the wrong thing or getting into trouble."
+      ]
+    },
+    {
+      "id": "cet4-2017-06-1-listening-6",
+      "title": "短文一",
+      "questionNumbers": [
+        16,
+        17,
+        18
+      ],
+      "transcript": [
+        "If I could go back in history and live when I liked, I wouldn't go back very far.  In fact, Id like to relive a period I've already livedthe 1960s. I was in my twenties and everything was being renewed. People were coming out of a formal and almost Victorian attitude, and you really felt anything was possible. Meeting people was the thing, and you went to coffee bars where you met friends and spent the evening. The cinema, the theater...all that was very exciting with new things coming out. In fact, we seemed to be out all the time.  I don't really remember workingof course I was a student—or sitting around at home very much. That just wasn't where the scene was, even eating. It was the first time ordinary people started going out to eat. We were beginning to be adventurous about food, but we were more interested in meeting people than in eating or drinking. And dress, yes, that was the revolution. I mean girls went around in really short skirts and wore flowers in their hair. And men were in jeans, and could wear their hair long too. It was a wonderful period. It was like living in an age you could never have imagined, and that never has come back. We didn't have much money but it didn't matter, and there was plenty of opportunity to do whatever you felt like doing."
+      ]
+    },
+    {
+      "id": "cet4-2017-06-1-listening-7",
+      "title": "短文二",
+      "questionNumbers": [
+        19,
+        20,
+        21
+      ],
+      "transcript": [
+        "Dogs, man's best friends, have a clear strategy for dealing with angry owners-they look away. New research shows that dogs limit their eye contact with angry humans. The scientists suggest this may be an attempt to calm humans down. This behavior may have evolved as dogs gradually learned they could benefit from avoiding conflicts with humans. To conduct the tests, the University of Helsinki researchers trained 31 dogs to rest in front of a video screen. Facial photos of dogs and humans were displayed on the screen for 1. 5 seconds. They showed threatening, pleasant and neutral expressions. Nearby cameras tracked the dogs' eye movements. Dogs in the study looked most at the eyes of humans and other dogs to sense their emotions.  When dogs looked at the expressions of angry dogs, their eyes rested more on the mouth, perhaps to interpret the threatening expressions. And when looking at angry humans, they tended to turn away their gaze. Dogs may have learned to detect threat signs from humans and respond by trying to make peace, according to researcher Sanni Somppi. Avoiding conflicts may have helped dogs develop better bonds with humans.  The researchers also note that dogs scan faces as a whole to sense how people are feeling. instead of focusing on a given feature. They suggest this indicates that dogs aren't sensing emotions from a single feature, but piecing together information from all facial features just as humans do."
+      ]
+    },
+    {
+      "id": "cet4-2017-06-1-listening-8",
+      "title": "短文三",
+      "questionNumbers": [
+        22,
+        23,
+        24,
+        25
+      ],
+      "transcript": [
+        "Winter in many places is very cold. There is lots of snow around and the ground freezes, which can make life difficult for animals. People in cold places live in warm houses and have learned to adapt. What do animals do?  There are three main ways that animals survive the cold in winter: sleep, adapt or migrate. Some animals such as bears, frogs and snakes, sleep all winter. They sleep very deeply, and need little or no food. While sleeping, their body temperature drops and their heart beat slows down.  To prepare for this before winter, these animals eat extra food to become fat which gives them the energy they need while they sleep. Other animals adapt, for example by staying active in winter.  It is often hard for them to find food, so some animals such as mice collect extra food before winter and hide it. When winter comes, they return to the hiding places to eat the food. Some animals grow thicker fur, or live in tree holes or underground to stay warm. Some birds migrate by flying to a warmer place for the winter, where they can find more food. Some fly very long distances, including one kind of bird that flies from the remote north of the world all the way to the distant south.  Some birds fly in groups for safety, while others fly alone."
+      ]
+    }
+  ],
+  "materialId": "8fe1741e71ce1e2fed14",
+  "questionSetId": "be70b24091aa78c08622"
+}

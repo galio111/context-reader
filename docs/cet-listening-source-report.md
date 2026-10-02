@@ -1,3 +1,5 @@
+> 本文件保留首次0609x仓库扫描的证据。当前62套及87套缺项请见[增补来源报告](cet-listening-supplement-report.md)。
+
 # 已导入真题的听力来源清单
 
 来源：[CET46-Resources](https://github.com/0609x/CET46-Resources)，固定版本 `4a24a1abf752e27de88a5e8bf930595c4ccffcec`。核对现有149套阅读，非网上所有来源。未按相邻套次推测或复制音频。

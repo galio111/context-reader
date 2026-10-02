@@ -226,7 +226,7 @@ export function cetFinalize(activity: CetActivity, paper: CetPaper, reason: CetF
     scoreable,
     unanswered,
     unreliable: questions.length - scoreable,
-    ...(paper.sections.some(s => sectionIds.includes(s.id) && s.type === "listening") ? { listeningSections: Object.fromEntries(paper.sections.filter(s => sectionIds.includes(s.id) && s.audio && s.listeningGroups).map(s => [s.id, { audio: { ...s.audio! }, groups: s.listeningGroups!.map(g => ({ ...g, questionNumbers: [...g.questionNumbers], transcript: [...g.transcript] })) }])) } : {}),
+    ...(paper.sections.some(s => sectionIds.includes(s.id) && s.type === "listening") ? { listeningSections: Object.fromEntries(paper.sections.filter(s => sectionIds.includes(s.id) && s.audio && s.listeningGroups).map(s => [s.id, { audio: { ...s.audio!, ...(s.audio!.attribution ? {attribution:s.audio!.attribution.map(a=>({...a}))} : {}) }, groups: s.listeningGroups!.map(g => ({ ...g, questionNumbers: [...g.questionNumbers], transcript: [...g.transcript] })) }])) } : {}),
     elapsedMs,
     everPaused: activity.everPaused,
     conditions: [...new Set([...activity.conditions, ...(activity.knownPriorSectionIds.length ? ["prior_material"] : []), ...(cetTimingAnomaly(activity, Date.parse(now)) ? ["timing_anomaly"] : []), ...(activity.purpose === "self_test" && paper.sections.some(s => sectionIds.includes(s.id) && s.type === "listening" && activity.listeningPlayback?.[s.id]?.state !== "ended") ? ["listening_not_completed"] : [])])],

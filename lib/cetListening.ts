@@ -9,6 +9,7 @@ export function validListeningSnapshots(value: CetFinalization["listeningSection
     &&['audio/mpeg','audio/mp4'].includes(s.audio.mimeType)
     &&Number.isFinite(s.audio.durationSeconds)&&s.audio.durationSeconds>0&&s.audio.durationSeconds<=7200
     &&Number.isFinite(s.audio.bytes)&&s.audio.bytes>=1000&&s.audio.bytes<=104857600
+    &&(s.audio.attribution===undefined||(Array.isArray(s.audio.attribution)&&s.audio.attribution.length<=6&&s.audio.attribution.every(a=>a&&typeof a.title==='string'&&a.title.length<=200&&typeof a.url==='string'&&/^https:\/\/[^\s]{1,500}$/.test(a.url)&&(a.license===undefined||(typeof a.license==='string'&&a.license.length<=100))&&(a.licenseUrl===undefined||(typeof a.licenseUrl==='string'&&/^https:\/\/[^\s]{1,500}$/.test(a.licenseUrl))))))
     &&Array.isArray(s.groups)&&s.groups.length>0&&s.groups.length<=10
     &&s.groups.every(g=>g&&typeof g.id==='string'&&typeof g.title==='string'
       &&Array.isArray(g.questionNumbers)&&g.questionNumbers.length>0&&g.questionNumbers.every(n=>Number.isInteger(n)&&n>=1&&n<=25)

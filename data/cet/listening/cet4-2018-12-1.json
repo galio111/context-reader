@@ -1,0 +1,746 @@
+{
+  "id": "cet4-2018-12-1-listening",
+  "type": "listening",
+  "title": "听力",
+  "paragraphs": [],
+  "questions": [
+    {
+      "number": 1,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Land a space vehicle on the moon in 2019."
+        },
+        {
+          "key": "B",
+          "text": "Design a new generation of mobile phones."
+        },
+        {
+          "key": "C",
+          "text": "Set up a mobile phone network on the moon."
+        },
+        {
+          "key": "D",
+          "text": "Gather data from the moon with a tiny device."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 2,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It is stable."
+        },
+        {
+          "key": "B",
+          "text": "It is durable."
+        },
+        {
+          "key": "C",
+          "text": "It is inexpensive."
+        },
+        {
+          "key": "D",
+          "text": "It is sophisticated."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 3,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It lasted more than six hours."
+        },
+        {
+          "key": "B",
+          "text": "No injuries were yet reported."
+        },
+        {
+          "key": "C",
+          "text": "Nobody was in the building when it broke out."
+        },
+        {
+          "key": "D",
+          "text": "It had burned for 45 minutes by the time firefighters arrived."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 4,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Recruit and train more firefighters."
+        },
+        {
+          "key": "B",
+          "text": "Pull down the deserted shopping mall."
+        },
+        {
+          "key": "C",
+          "text": "Turn the shopping mall into an amusement park."
+        },
+        {
+          "key": "D",
+          "text": "Find money to renovate the local neighborhood."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 5,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Shrinking potato farming."
+        },
+        {
+          "key": "B",
+          "text": "Heavy reliance on import."
+        },
+        {
+          "key": "C",
+          "text": "Widespread plant disease."
+        },
+        {
+          "key": "D",
+          "text": "Insufficient potato supply."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 6,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It intends to keep its traditional diet."
+        },
+        {
+          "key": "B",
+          "text": "It wants to expand its own farming."
+        },
+        {
+          "key": "C",
+          "text": "It is afraid of the spread of disease."
+        },
+        {
+          "key": "D",
+          "text": "It is worried about unfair competition."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 7,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Global warming."
+        },
+        {
+          "key": "B",
+          "text": "Ever-rising prices."
+        },
+        {
+          "key": "C",
+          "text": "Government regulation."
+        },
+        {
+          "key": "D",
+          "text": "Diminishing investment."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 8,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Informative."
+        },
+        {
+          "key": "B",
+          "text": "Inspiring."
+        },
+        {
+          "key": "C",
+          "text": "Dull."
+        },
+        {
+          "key": "D",
+          "text": "Shallow."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 9,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "She types on a keyboard."
+        },
+        {
+          "key": "B",
+          "text": "She does recording."
+        },
+        {
+          "key": "C",
+          "text": "She takes photos."
+        },
+        {
+          "key": "D",
+          "text": "She takes notes."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 10,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It keeps her mind active."
+        },
+        {
+          "key": "B",
+          "text": "It makes her stay awake."
+        },
+        {
+          "key": "C",
+          "text": "It enables her to think hard."
+        },
+        {
+          "key": "D",
+          "text": "It helps her kill time."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 11,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It enables her to improve her pronunciation."
+        },
+        {
+          "key": "B",
+          "text": "It helps her better remember what she learns."
+        },
+        {
+          "key": "C",
+          "text": "It turns out to be an enjoyable way of learning."
+        },
+        {
+          "key": "D",
+          "text": "It proves to be far more effective than writing."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 12,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "To spend her honeymoon."
+        },
+        {
+          "key": "B",
+          "text": "To try authentic Indian food."
+        },
+        {
+          "key": "C",
+          "text": "To take photos of the Taj Mahal."
+        },
+        {
+          "key": "D",
+          "text": "To trace the origin of a love story."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 13,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "In memory of a princess."
+        },
+        {
+          "key": "B",
+          "text": "In honor of a great emperor."
+        },
+        {
+          "key": "C",
+          "text": "To mark the death of an emperor of the 1600s."
+        },
+        {
+          "key": "D",
+          "text": "To celebrate the birth of a princess’s 14th child."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 14,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It looks older than expected."
+        },
+        {
+          "key": "B",
+          "text": "It is built of wood and bricks."
+        },
+        {
+          "key": "C",
+          "text": "It stores lots of priceless antiques."
+        },
+        {
+          "key": "D",
+          "text": "It has walls decorated with jewels."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 15,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Their streets are narrow."
+        },
+        {
+          "key": "B",
+          "text": "They are mostly crowded."
+        },
+        {
+          "key": "C",
+          "text": "Each one has a unique character."
+        },
+        {
+          "key": "D",
+          "text": "Life can be tedious in some places."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 16,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They help spread the latest technology."
+        },
+        {
+          "key": "B",
+          "text": "They greatly enrich people’s leisure life."
+        },
+        {
+          "key": "C",
+          "text": "They provide residents with the resources needed."
+        },
+        {
+          "key": "D",
+          "text": "They allow free access to digital books and videos."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 17,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "By helping them find jobs."
+        },
+        {
+          "key": "B",
+          "text": "By inspiring their creativity."
+        },
+        {
+          "key": "C",
+          "text": "By keeping them off the streets."
+        },
+        {
+          "key": "D",
+          "text": "By providing a place of relaxation."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 18,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Their interaction with teenagers proved fruitful."
+        },
+        {
+          "key": "B",
+          "text": "They used libraries less often than teenagers."
+        },
+        {
+          "key": "C",
+          "text": "They tended to visit libraries regularly."
+        },
+        {
+          "key": "D",
+          "text": "Their number increased modestly."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 19,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It is the cleverest cat in the world."
+        },
+        {
+          "key": "B",
+          "text": "It is the largest cat in Africa."
+        },
+        {
+          "key": "C",
+          "text": "It is an unusual cross breed."
+        },
+        {
+          "key": "D",
+          "text": "It is a large-sized wild cat."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 20,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They are as loyal as dogs."
+        },
+        {
+          "key": "B",
+          "text": "They have unusually long tails."
+        },
+        {
+          "key": "C",
+          "text": "They are fond of sleeping in cabinets."
+        },
+        {
+          "key": "D",
+          "text": "They know how to please their owners."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 21,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They shake their front paws."
+        },
+        {
+          "key": "B",
+          "text": "They teach them to dive."
+        },
+        {
+          "key": "C",
+          "text": "They shower with them."
+        },
+        {
+          "key": "D",
+          "text": "They shout at them."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 22,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Anxious and depressed."
+        },
+        {
+          "key": "B",
+          "text": "Contented and relieved."
+        },
+        {
+          "key": "C",
+          "text": "Excited but somewhat sad."
+        },
+        {
+          "key": "D",
+          "text": "Proud but a bit nervous."
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 23,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It is becoming parents’ biggest concern."
+        },
+        {
+          "key": "B",
+          "text": "It is gaining increasing public attention."
+        },
+        {
+          "key": "C",
+          "text": "It is depends on their parents for success."
+        },
+        {
+          "key": "D",
+          "text": "It starts the moment they are born."
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 24,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Set a good example for them to follow."
+        },
+        {
+          "key": "B",
+          "text": "Read books and magazines to them."
+        },
+        {
+          "key": "C",
+          "text": "Help them to learn by themselves."
+        },
+        {
+          "key": "D",
+          "text": "Choose the right school for them."
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 25,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Their intelligence."
+        },
+        {
+          "key": "B",
+          "text": "Their home life."
+        },
+        {
+          "key": "C",
+          "text": "The effort they put in learning."
+        },
+        {
+          "key": "D",
+          "text": "The quality of their school."
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    }
+  ],
+  "audio": {
+    "url": "/cet-audio/ffa22532f800bc9bd9f2db0d04baf2b4784f8273840bc96821a5b619991be799.mp3",
+    "sha256": "ffa22532f800bc9bd9f2db0d04baf2b4784f8273840bc96821a5b619991be799",
+    "bytes": 16973337,
+    "mimeType": "audio/mpeg",
+    "durationSeconds": 1414.445,
+    "attribution": [
+      {
+        "title": "DieDiDi/CET4-6-past-exam-paper",
+        "url": "https://github.com/DieDiDi/CET4-6-past-exam-paper/tree/97266755c1d95b13b86ce3e0570390b5f7a89225"
+      },
+      {
+        "title": "0609x/CET46-Resources",
+        "url": "https://github.com/0609x/CET46-Resources/tree/4a24a1abf752e27de88a5e8bf930595c4ccffcec"
+      }
+    ]
+  },
+  "listeningGroups": [
+    {
+      "id": "cet4-2018-12-1-listening-1",
+      "title": "短篇新闻一",
+      "questionNumbers": [
+        1,
+        2
+      ],
+      "transcript": [
+        "A device that weighs less than one kilogram is part of a mission that will allow scientists to deliver fourth generation or 4G mobile coverage to the moon in 2019. If successful, the tiny device will provide the moon with its first ever mobile phone network. The lunar network will support high-definition streaming of video and data between the moon and Earth. The network is part of Mission to the Moon. This is a project with the goal of landing the first privately paid for mission to the moon. The 4G mission is set to launch from Cape Canaveral in the United States on a Spacex Falcon 9 rocket in 2019. Mission to the Moon intends to establish and test the first elements of a communications network on the moon.  The scientists working on the project opted to build a 4G, rather than a fifth generation or 5G network. This is because fifth generation networks are still in testing and trial phases. This means that a 5G network may not yet be stable enough to work on the moon's surface."
+      ]
+    },
+    {
+      "id": "cet4-2018-12-1-listening-2",
+      "title": "短篇新闻二",
+      "questionNumbers": [
+        3,
+        4
+      ],
+      "transcript": [
+        "Firefighters responded to a fre Wednesday night at an abandoned mall in Hayward. The fire was reported at 9:26 p.m. at an old shopping center on Mission Avenue near Saint Mary's church. Sixfire engines, two trucks and.two chiefs responded to.the scene. Crews had the fre under control.in about.45minutes and managed to contain the fire to its point of origin. There were some people inside the building when the fre broke out,  but there were no reports of any injuries. Fire investigators have responded to the scene but have not yet determined the cause of the fire. Firefighters wil remain on the scene untilater this morming to ensure that the fire doesn't start up again. The shopping mall had not been in use since 2002.  In 2014, City Hall developed a plan to kmock down the building and replace it with affordable housing. However, the plan was dropped due to lack of funds."
+      ]
+    },
+    {
+      "id": "cet4-2018-12-1-listening-3",
+      "title": "短篇新闻三",
+      "questionNumbers": [
+        5,
+        6,
+        7
+      ],
+      "transcript": [
+        "Potato chips in Japan are being sold for 6 times their normal price. This is after the country's main manufacturer stopped sales due to a potato shortage. Storms and'floods in its main potato-growing region last year caused the worst harvest in more than 3 decades. Local media reports suggest Calbee and its main rival Koike-Ya are halting almost 50 products. “ We don't kmow when we'll be able to restart,\" a company spokesman said. Snack lovers are panic buying, and many supermarket shelves are bare.  Japanese laws limit the amount of imported potatoes' that can be used in Japanese-made products. Japan says fear of disease is its main reason to block fresh imports. It stll only allows potatoes from selected US states. This is only at certain times and on condition that they are processed at factories based near Japanese ports.  But global warming has raised the possibility that domestic produce could be seriously affected by rare weather events more often."
+      ]
+    },
+    {
+      "id": "cet4-2018-12-1-listening-4",
+      "title": "长对话一",
+      "questionNumbers": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "transcript": [
+        "M:  Mr. Brown's lectures are so boring.",
+        "W: Yes, he is not a very exciting speaker. But the subject is interesting.? gou bi: inQ gp?",
+        "M: During every one of his lectures, I try to listen. I really try, but after about ten minutes, my mind begin ggj: to wander and I lose concentration. But I see that you seem to be OK. How do you stay focused througl the entire hour? O",
+        "W:Well,  what I do is keep my pen moving.",
+        "M: What do you mean?",
+        "W: It's a method of active concentration I read about.  One of the most effective ways to concentrate is to write things down. But it has to be done by hand, not typing on a keyboard. You see, writing by hand forces you to actually engage with what you are learning in a more physical way.",
+        "M: Do you review your notes afterwards then?",
+        "W: Sometimes, but that's not important. My notes may or may not be useful. But the point is that by writing down what Mr.Brown says, I can follow his line of thinking more easily. In fact, sometimes I draw a little too.",
+        "M: You draw in class? And that helps you pay attention?",
+        "W:  Yes, honestly, it works for me. Ijust draw little lines and nonsense really. It was also in that article I read. It can keep the mind active, prevent getting bored and help to concentrate. Again, the point is to listen hard while keeping the pen moving.  If I'm at home and I need to study, what I do is read out loud. It has a similar effect to writing by hand. It helps memorize information in a physical way."
+      ]
+    },
+    {
+      "id": "cet4-2018-12-1-listening-5",
+      "title": "长对话二",
+      "questionNumbers": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "transcript": [
+        "M: And where is this?",
+        "W: These photos are from the Taj Mahal in India.  We went there about ten years ago for our honeymoon.",
+        "M: Was it romantic?",
+        "W: Yeah, the Taj Mahal was a very romantic place. The guide told us there is a famous love story behind this building that all Indians learn in school.  I think it was during the 1600s and the princess at that time died while giving birth to her 14th child. The emperor loved the princess so much and was so sad when she died that he ordered the palace to be built in her honor.",
+        "M: Wow, that sounds very romantic. It looks amazing.",
+        "W: Yes, it's gorgeous. It's also larger in real life than it looks in the photos. The building is very tall and there are gardens and a wall around it all. It's all built in this white stone.  And some walls of the building are decorated with jewels.",
+        "M: It must have been very crowded when you were there.",
+        "W: Yes, it's a very famous tourist destination, so there are thousands of visitors every day.",
+        "M: Was the rest of India crowded?",
+        "W:  Yes, very crowded in many cities. It was sometimes so crowded that it was difficult to walk along the streets, especially through busy markets. And there are so many cars. Traffic was terible. But the people are friendly. The culture is amazing. And we had a great time.",
+        "M: What about the food?",
+        "W: Indian food is great. There are lots of different dishes to try, and every region has its own special food."
+      ]
+    },
+    {
+      "id": "cet4-2018-12-1-listening-6",
+      "title": "短文一",
+      "questionNumbers": [
+        16,
+        17,
+        18
+      ],
+      "transcript": [
+        "A Pew Research Center survey of more than 1, 000 Americans conducted in April, 2016, finds that Americans continue to express largely positive views about the current state of their local public libraries. For instance, around three quarters say that public libraries provide them with the resources they need. And 66% say the closing of their local public library would have a major impact on their community although notably, just 33% say this would have a major impact on them personally or on their family. A majority of Americans feel libraries are doing a good job of providing a safe place for people to hang out or spend time as well as opening up educational opportunities for people of ll ages.  And roughly half think that libraries contribute \"a lot\" to their communities in terms of helping spark creativity among young people and providing a trusted place for people to learn about new technologies. As in past Pew Research Center surveys of library use, the Apri 2016 survey also measured Americans' usage of and engagement with libraries. Overll, 53% of Americans, age 16 and older, have had some interaction with a public libray in the past yeareither through an in-person visit or using a library website,  Some 48% of aduts specifically visited a library in the past 12 months, a modest increase from the 44% who said that in late 2015."
+      ]
+    },
+    {
+      "id": "cet4-2018-12-1-listening-7",
+      "title": "短文二",
+      "questionNumbers": [
+        19,
+        20,
+        21
+      ],
+      "transcript": [
+        "A Savannah cat is a cross breed between the domestic cat and a medium-sized wild African cat called the Serval. The unusual cross became popular among breeders at the end of the 1990s, and in 2001 the International Cat Association accepted it as a new registered breed. The Savannahs are tall and slim and can weigh up to 9.1 kilograms, making them one of the largest breeds of cats that people can own. They have a spotted coat similar to that of many types of wild cats and their ears are very large.  They are also commonly compared to dogs in their loyalty, and can be trained to walk on a lead and to fetch. An often- noted characteristic of the Savannah is its jumping ability. They are kmown to jump on top of doors and high cabinets. Some can leap about 2. 5 meters high from a standing position. Cats are typically known for being very inquisitive and so are the Savannahs. They often learn how to open doors and cupboards. Many Savannah cats do not fear water and will play with or even dive into water.  Some owners even shower with their Savannah cats. Presenting a water bowl to a Savannah may also prove a challenge, as some will promptly begin to bat all the water out of the bowl until it is empty using their front paws."
+      ]
+    },
+    {
+      "id": "cet4-2018-12-1-listening-8",
+      "title": "短文三",
+      "questionNumbers": [
+        22,
+        23,
+        24,
+        25
+      ],
+      "transcript": [
+        "When children start school for the very first time, parents often feel a sense of excitement coupled with a touch of sadness at the end of an era. This is the start of a new adventure for children: playing and interacting with new friends, sharing, taking turns and settling into a new routine.  But of course, this is not the start of your child's education which in fact began at birth. Back then, you would have been your child's most influential teachers. During this time at home, your child would have learned more than at any othererodintheirlifeuringyourchild's first yearinshoo,much time wilbespent ieaing to read and they need to kmow that this is fun and worthwhile.  Yourchld will naturaly copy you, so it is imporant that you are seen reading and enioyng booksnewspapersandmagazines rather than just abobed nematelllenteucatonsudarshwns ad teaer child's year splits fairly neatly into thirds: a third at school, a third asleep and a third awake at home oron holiday.  Irrespective of the qualty of a school,a child's home life is of key importance. Itisthe deterining factoroftheiracademicsuccesYourchildmay have started on a new joumey but your wokis far from finished."
+      ]
+    }
+  ],
+  "materialId": "ecbcf0fde601bdc0a045",
+  "questionSetId": "46ce3d0a25288c19a6cf"
+}

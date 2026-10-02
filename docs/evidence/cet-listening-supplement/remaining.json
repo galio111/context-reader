@@ -1,0 +1,1506 @@
+{
+  "total": 87,
+  "categories": {
+    "有录音，旧题型待接入": 18,
+    "共用录音，题序待核对": 19,
+    "有候选录音，材料待核对": 12,
+    "未找到可定位的录音": 30,
+    "候选录音错标": 8
+  },
+  "papers": [
+    {
+      "paperId": "cet4-2014-06-1",
+      "title": "2014 年 6 月四级 · 第 1 套",
+      "category": "有录音，旧题型待接入",
+      "reason": "2016 年改革前还包含复合式听写；不把只有部分选择题的材料冒充完整听力。",
+      "extractionIssues": [
+        "尚未完成来源材料提取"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "ecator/cet4-spark",
+          "revision": "b132006e89921cc40931d085a2f1a1e1695eff64",
+          "path": "12套真题音频/2014年6月四级真题（一）.mp3",
+          "sha256": "a6bed539278b38e814f6cd9eaf7582084991ac2e07856f5c2a2b4716c40ae8cb",
+          "matchedPaper": null
+        }
+      ]
+    },
+    {
+      "paperId": "cet4-2014-06-2",
+      "title": "2014 年 6 月四级 · 第 2 套",
+      "category": "有录音，旧题型待接入",
+      "reason": "2016 年改革前还包含复合式听写；不把只有部分选择题的材料冒充完整听力。",
+      "extractionIssues": [
+        "尚未完成来源材料提取"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "ecator/cet4-spark",
+          "revision": "b132006e89921cc40931d085a2f1a1e1695eff64",
+          "path": "12套真题音频/2014年6月四级真题（二）.mp3",
+          "sha256": "9ee9f7d0c489c2363e1605e09ff79f1e9c9719c3eb3467c07c435fadfa107682",
+          "matchedPaper": null
+        }
+      ]
+    },
+    {
+      "paperId": "cet4-2014-06-3",
+      "title": "2014 年 6 月四级 · 第 3 套",
+      "category": "有录音，旧题型待接入",
+      "reason": "2016 年改革前还包含复合式听写；不把只有部分选择题的材料冒充完整听力。",
+      "extractionIssues": [
+        "尚未完成来源材料提取"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "ecator/cet4-spark",
+          "revision": "b132006e89921cc40931d085a2f1a1e1695eff64",
+          "path": "12套真题音频/2014年6月四级真题（三）.mp3",
+          "sha256": "5f2f721c5a7e63d5b37511ca97704ed9f5f495b84a4090f6a5aefd5fb1a6868d",
+          "matchedPaper": null
+        }
+      ]
+    },
+    {
+      "paperId": "cet4-2014-12-1",
+      "title": "2014 年 12 月四级 · 第 1 套",
+      "category": "有录音，旧题型待接入",
+      "reason": "2016 年改革前还包含复合式听写；不把只有部分选择题的材料冒充完整听力。",
+      "extractionIssues": [
+        "尚未完成来源材料提取"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "ecator/cet4-spark",
+          "revision": "b132006e89921cc40931d085a2f1a1e1695eff64",
+          "path": "12套真题音频/2014年12月四级真题（一）.mp3",
+          "sha256": "de5d3ec485b0a9021be2829e787c058ee38e2ba0aa1ba789214232e57a6e6301",
+          "matchedPaper": null
+        }
+      ]
+    },
+    {
+      "paperId": "cet4-2014-12-2",
+      "title": "2014 年 12 月四级 · 第 2 套",
+      "category": "有录音，旧题型待接入",
+      "reason": "2016 年改革前还包含复合式听写；不把只有部分选择题的材料冒充完整听力。",
+      "extractionIssues": [
+        "尚未完成来源材料提取"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "ecator/cet4-spark",
+          "revision": "b132006e89921cc40931d085a2f1a1e1695eff64",
+          "path": "12套真题音频/2014年12月四级真题（二）.mp3",
+          "sha256": "2694ee14d79393ed9249bf8a68d971cd2a1e19c2233b3c323aece57682f417b2",
+          "matchedPaper": null
+        }
+      ]
+    },
+    {
+      "paperId": "cet4-2014-12-3",
+      "title": "2014 年 12 月四级 · 第 3 套",
+      "category": "有录音，旧题型待接入",
+      "reason": "2016 年改革前还包含复合式听写；不把只有部分选择题的材料冒充完整听力。",
+      "extractionIssues": [
+        "尚未完成来源材料提取"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "ecator/cet4-spark",
+          "revision": "b132006e89921cc40931d085a2f1a1e1695eff64",
+          "path": "12套真题音频/2014年12月四级真题（三）.mp3",
+          "sha256": "bcc2eb55b110cac75127cc00d06f9ec118f8d3654ef504af51544e55e68cf50d",
+          "matchedPaper": null
+        }
+      ]
+    },
+    {
+      "paperId": "cet4-2015-06-1",
+      "title": "2015 年 6 月四级 · 第 1 套",
+      "category": "有录音，旧题型待接入",
+      "reason": "2016 年改革前还包含复合式听写；不把只有部分选择题的材料冒充完整听力。",
+      "extractionIssues": [
+        "尚未完成来源材料提取"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "ecator/cet4-spark",
+          "revision": "b132006e89921cc40931d085a2f1a1e1695eff64",
+          "path": "12套真题音频/2015年6月四级真题（一）.mp3",
+          "sha256": "986790701f5687fa2c806bc9b51239ba7f62497200ce8abef7a01a5312097dcf",
+          "matchedPaper": null
+        }
+      ]
+    },
+    {
+      "paperId": "cet4-2015-06-2",
+      "title": "2015 年 6 月四级 · 第 2 套",
+      "category": "有录音，旧题型待接入",
+      "reason": "2016 年改革前还包含复合式听写；不把只有部分选择题的材料冒充完整听力。",
+      "extractionIssues": [
+        "尚未完成来源材料提取"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "ecator/cet4-spark",
+          "revision": "b132006e89921cc40931d085a2f1a1e1695eff64",
+          "path": "12套真题音频/2015年6月四级真题（二）.mp3",
+          "sha256": "fd8b5615e66afe9e03fc2328e3ef30613ec7178a11b6e5277a9ec417ed7e0d7b",
+          "matchedPaper": null
+        }
+      ]
+    },
+    {
+      "paperId": "cet4-2015-06-3",
+      "title": "2015 年 6 月四级 · 第 3 套",
+      "category": "有录音，旧题型待接入",
+      "reason": "2016 年改革前还包含复合式听写；不把只有部分选择题的材料冒充完整听力。",
+      "extractionIssues": [
+        "尚未完成来源材料提取"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "ecator/cet4-spark",
+          "revision": "b132006e89921cc40931d085a2f1a1e1695eff64",
+          "path": "12套真题音频/2015年6月四级真题（三）.mp3",
+          "sha256": "1099d948d680b9a329ac90251d20961f337dab027429f88226efb0238e219ebf",
+          "matchedPaper": null
+        }
+      ]
+    },
+    {
+      "paperId": "cet4-2015-12-1",
+      "title": "2015 年 12 月四级 · 第 1 套",
+      "category": "有录音，旧题型待接入",
+      "reason": "2016 年改革前还包含复合式听写；不把只有部分选择题的材料冒充完整听力。",
+      "extractionIssues": [
+        "尚未完成来源材料提取"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "ecator/cet4-spark",
+          "revision": "b132006e89921cc40931d085a2f1a1e1695eff64",
+          "path": "12套真题音频/2015年12月四级真题（一）.mp3",
+          "sha256": "b70844bd5252c8be6a70e217f9ecb1e8cebe01c2415399f4b901018893857584",
+          "matchedPaper": null
+        }
+      ]
+    },
+    {
+      "paperId": "cet4-2015-12-2",
+      "title": "2015 年 12 月四级 · 第 2 套",
+      "category": "有录音，旧题型待接入",
+      "reason": "2016 年改革前还包含复合式听写；不把只有部分选择题的材料冒充完整听力。",
+      "extractionIssues": [
+        "尚未完成来源材料提取"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "ecator/cet4-spark",
+          "revision": "b132006e89921cc40931d085a2f1a1e1695eff64",
+          "path": "12套真题音频/2015年12月四级真题（二）.MP3",
+          "sha256": "307dd2415b57f6dd3732730c30a5450bd51422268e274e0881cc7d0fe28c923c",
+          "matchedPaper": null
+        }
+      ]
+    },
+    {
+      "paperId": "cet4-2015-12-3",
+      "title": "2015 年 12 月四级 · 第 3 套",
+      "category": "有录音，旧题型待接入",
+      "reason": "2016 年改革前还包含复合式听写；不把只有部分选择题的材料冒充完整听力。",
+      "extractionIssues": [
+        "尚未完成来源材料提取"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "ecator/cet4-spark",
+          "revision": "b132006e89921cc40931d085a2f1a1e1695eff64",
+          "path": "12套真题音频/2015年12月四级真题（三）.mp3",
+          "sha256": "7f684faed1a8d1daba5a9a0698aa7fc037ef31a516f1239aae0aaebb734faff2",
+          "matchedPaper": null
+        }
+      ]
+    },
+    {
+      "paperId": "cet4-2016-06-3",
+      "title": "2016 年 6 月四级 · 第 3 套",
+      "category": "共用录音，题序待核对",
+      "reason": "原套省略重复听力；录音可对应同次另一套，缺少本套具体题序与选项的可靠对应。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 1",
+        "material ranges"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "DieDiDi/CET4-6-past-exam-paper",
+          "revision": "97266755c1d95b13b86ce3e0570390b5f7a89225",
+          "path": "四六级历年真题汇总/2016年6月英语四六级/2016年6月英语四级真题及答案/2016年6月大学英语四级第3套听力.mp3",
+          "sha256": "ecb0708cfe9da1fb588a7caca1f7f66d65d13c300406a2be334c515660b183a3",
+          "matchedPaper": "cet4-2016-06-2"
+        }
+      ]
+    },
+    {
+      "paperId": "cet4-2016-12-3",
+      "title": "2016 年 12 月四级 · 第 3 套",
+      "category": "有候选录音，材料待核对",
+      "reason": "候选存在，但题目、答案、完整原文或逐组匹配尚未满足导入要求。",
+      "extractionIssues": [
+        "question numbers []",
+        "groups 6",
+        "material ranges"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "DieDiDi/CET4-6-past-exam-paper",
+          "revision": "97266755c1d95b13b86ce3e0570390b5f7a89225",
+          "path": "四六级历年真题汇总/2016年12月英语四六级/2016年12月英语四级真题及答案/2016-12-3.mp3",
+          "sha256": "efa6aae617311a305b9fabe91eb0c3d282b5b382fc845891445857e5ff8e1441",
+          "matchedPaper": null
+        }
+      ]
+    },
+    {
+      "paperId": "cet4-2017-06-3",
+      "title": "2017 年 6 月四级 · 第 3 套",
+      "category": "未找到可定位的录音",
+      "reason": "已检查的 GitHub 来源中未找到可定位到本套的可下载音频；不等于全网不存在。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 1",
+        "material ranges"
+      ],
+      "audioCandidates": []
+    },
+    {
+      "paperId": "cet4-2017-12-3",
+      "title": "2017 年 12 月四级 · 第 3 套",
+      "category": "未找到可定位的录音",
+      "reason": "已检查的 GitHub 来源中未找到可定位到本套的可下载音频；不等于全网不存在。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 3",
+        "material ranges"
+      ],
+      "audioCandidates": []
+    },
+    {
+      "paperId": "cet4-2018-06-3",
+      "title": "2018 年 6 月四级 · 第 3 套",
+      "category": "未找到可定位的录音",
+      "reason": "已检查的 GitHub 来源中未找到可定位到本套的可下载音频；不等于全网不存在。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 2",
+        "material ranges"
+      ],
+      "audioCandidates": []
+    },
+    {
+      "paperId": "cet4-2018-12-3",
+      "title": "2018 年 12 月四级 · 第 3 套",
+      "category": "共用录音，题序待核对",
+      "reason": "原套省略重复听力；录音可对应同次另一套，缺少本套具体题序与选项的可靠对应。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [1, 2, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 1",
+        "material ranges"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "DieDiDi/CET4-6-past-exam-paper",
+          "revision": "97266755c1d95b13b86ce3e0570390b5f7a89225",
+          "path": "四六级历年真题汇总/2018年12月英语四六级/2018年12月英语四级真题及答案/听力第二、第三套.mp3",
+          "sha256": "b12fd1b15d482f1c002e89d669bd260180090cb277b01ea50c712a5e53029d51",
+          "matchedPaper": "cet4-2018-12-2"
+        }
+      ]
+    },
+    {
+      "paperId": "cet4-2019-06-1",
+      "title": "2019 年 6 月四级 · 第 1 套",
+      "category": "未找到可定位的录音",
+      "reason": "已检查的 GitHub 来源中未找到可定位到本套的可下载音频；不等于全网不存在。",
+      "extractionIssues": [
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 0",
+        "material ranges"
+      ],
+      "audioCandidates": []
+    },
+    {
+      "paperId": "cet4-2019-06-2",
+      "title": "2019 年 6 月四级 · 第 2 套",
+      "category": "未找到可定位的录音",
+      "reason": "已检查的 GitHub 来源中未找到可定位到本套的可下载音频；不等于全网不存在。",
+      "extractionIssues": [
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 0",
+        "material ranges"
+      ],
+      "audioCandidates": []
+    },
+    {
+      "paperId": "cet4-2019-06-3",
+      "title": "2019 年 6 月四级 · 第 3 套",
+      "category": "未找到可定位的录音",
+      "reason": "已检查的 GitHub 来源中未找到可定位到本套的可下载音频；不等于全网不存在。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 1",
+        "material ranges"
+      ],
+      "audioCandidates": []
+    },
+    {
+      "paperId": "cet4-2019-12-2",
+      "title": "2019 年 12 月四级 · 第 2 套",
+      "category": "有候选录音，材料待核对",
+      "reason": "候选存在，但题目、答案、完整原文或逐组匹配尚未满足导入要求。",
+      "extractionIssues": [],
+      "audioCandidates": [
+        {
+          "repository": "DieDiDi/CET4-6-past-exam-paper",
+          "revision": "97266755c1d95b13b86ce3e0570390b5f7a89225",
+          "path": "四六级历年真题汇总/2019年12月英语四六级/2019年12月英语四级真题及答案/2019年12月四级第二套.mp3",
+          "sha256": "2e831e085f59a2df76bce1d9b2b4e45f7a728592ff12050b9ab2289df9e0d804",
+          "matchedPaper": null
+        }
+      ]
+    },
+    {
+      "paperId": "cet4-2019-12-3",
+      "title": "2019 年 12 月四级 · 第 3 套",
+      "category": "未找到可定位的录音",
+      "reason": "已检查的 GitHub 来源中未找到可定位到本套的可下载音频；不等于全网不存在。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 1",
+        "material ranges"
+      ],
+      "audioCandidates": []
+    },
+    {
+      "paperId": "cet4-2020-07-1",
+      "title": "2020 年 7 月四级 · 第 1 套",
+      "category": "未找到可定位的录音",
+      "reason": "已检查的 GitHub 来源中未找到可定位到本套的可下载音频；不等于全网不存在。",
+      "extractionIssues": [
+        "question numbers []"
+      ],
+      "audioCandidates": []
+    },
+    {
+      "paperId": "cet4-2020-09-2",
+      "title": "2020 年 9 月四级 · 第 2 套",
+      "category": "共用录音，题序待核对",
+      "reason": "原套省略重复听力；录音可对应同次另一套，缺少本套具体题序与选项的可靠对应。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 1",
+        "material ranges"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "AayuBal/cet-exams",
+          "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+          "path": "public/cet/audio/cet4/2020-09-2.mp3",
+          "sha256": "81401d8a8e4b7fd38ec4bf602cc938f7d4f021da7921d42584f3bbce94e30966",
+          "matchedPaper": "cet4-2020-09-1"
+        }
+      ]
+    },
+    {
+      "paperId": "cet4-2020-12-3",
+      "title": "2020 年 12 月四级 · 第 3 套",
+      "category": "共用录音，题序待核对",
+      "reason": "原套省略重复听力；录音可对应同次另一套，缺少本套具体题序与选项的可靠对应。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 1",
+        "material ranges"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "AayuBal/cet-exams",
+          "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+          "path": "public/cet/audio/cet4/2020-12-3.mp3",
+          "sha256": "ee271e24d3b9c45a17102638ab6616fe7a2c94347bf7f58c70f4b3b8afe1cdb3",
+          "matchedPaper": "cet4-2020-12-2"
+        }
+      ]
+    },
+    {
+      "paperId": "cet4-2021-06-1",
+      "title": "2021 年 6 月四级 · 第 1 套",
+      "category": "有候选录音，材料待核对",
+      "reason": "候选存在，但题目、答案、完整原文或逐组匹配尚未满足导入要求。",
+      "extractionIssues": [
+        "missing answers [4, 15]"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "AayuBal/cet-exams",
+          "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+          "path": "public/cet/audio/cet4/2021-06-1.mp3",
+          "sha256": "e8af68f2fd4f247f7a5ee484a67f557e30c78b08561eb72b1bff4ede47cdc7b0",
+          "matchedPaper": "cet4-2021-06-1"
+        },
+        {
+          "repository": "YoYo-CheckNow/YoYo-CheckNow.github.io",
+          "revision": "e3dd29cf86ea4c2227309fd3e1a4450431ffb50d",
+          "path": "2021年06月四级真题(第1套).mp3",
+          "sha256": "03ba9d3635df3899d6fcd604959f59fb83a8377f05c6e0ff67fa64bf62d1dbc8",
+          "matchedPaper": "cet4-2021-06-1"
+        },
+        {
+          "repository": "DieDiDi/CET4-6-past-exam-paper",
+          "revision": "97266755c1d95b13b86ce3e0570390b5f7a89225",
+          "path": "四六级历年真题汇总/2021年6月英语四六级/2021年6月英语四级真题和答案/2021年6月大学英语四级听力真题（第一套）.mp3",
+          "sha256": "93b04e465910ffaa44e20f46c9a5d48347a3567c2563476903a9569803386e63",
+          "matchedPaper": "cet4-2021-06-1"
+        }
+      ]
+    },
+    {
+      "paperId": "cet4-2021-06-2",
+      "title": "2021 年 6 月四级 · 第 2 套",
+      "category": "有候选录音，材料待核对",
+      "reason": "候选存在，但题目、答案、完整原文或逐组匹配尚未满足导入要求。",
+      "extractionIssues": [
+        "question numbers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 25]",
+        "missing answers [13]"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "AayuBal/cet-exams",
+          "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+          "path": "public/cet/audio/cet4/2021-06-2.mp3",
+          "sha256": "c16b4175cbd41bb583b5fdda7b53586f1c1751ecd28b4028135524d7cc9a428c",
+          "matchedPaper": "cet6-2021-06-2"
+        },
+        {
+          "repository": "DieDiDi/CET4-6-past-exam-paper",
+          "revision": "97266755c1d95b13b86ce3e0570390b5f7a89225",
+          "path": "四六级历年真题汇总/2021年6月英语四六级/2021年6月英语四级真题和答案/2021年6月大学英语四级听力真题（第二套）.mp3",
+          "sha256": "4915425c48e1591f22ed2b8fccdec0f178be9757b7559aafff791a6657644ecc",
+          "matchedPaper": "cet4-2021-06-2"
+        }
+      ]
+    },
+    {
+      "paperId": "cet4-2021-06-3",
+      "title": "2021 年 6 月四级 · 第 3 套",
+      "category": "共用录音，题序待核对",
+      "reason": "原套省略重复听力；录音可对应同次另一套，缺少本套具体题序与选项的可靠对应。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 1",
+        "material ranges"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "AayuBal/cet-exams",
+          "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+          "path": "public/cet/audio/cet4/2021-06-3.mp3",
+          "sha256": "e8af68f2fd4f247f7a5ee484a67f557e30c78b08561eb72b1bff4ede47cdc7b0",
+          "matchedPaper": "cet4-2021-06-1"
+        }
+      ]
+    },
+    {
+      "paperId": "cet4-2021-12-2",
+      "title": "2021 年 12 月四级 · 第 2 套",
+      "category": "有候选录音，材料待核对",
+      "reason": "候选存在，但题目、答案、完整原文或逐组匹配尚未满足导入要求。",
+      "extractionIssues": [],
+      "audioCandidates": [
+        {
+          "repository": "AayuBal/cet-exams",
+          "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+          "path": "public/cet/audio/cet4/2021-12-2.mp3",
+          "sha256": "43ffb10a190957c9a113429ae6e9ccf270007f775e956f43dab45e25aa6fe0c1",
+          "matchedPaper": null
+        }
+      ]
+    },
+    {
+      "paperId": "cet4-2021-12-3",
+      "title": "2021 年 12 月四级 · 第 3 套",
+      "category": "有候选录音，材料待核对",
+      "reason": "候选存在，但题目、答案、完整原文或逐组匹配尚未满足导入要求。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 1",
+        "material ranges"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "AayuBal/cet-exams",
+          "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+          "path": "public/cet/audio/cet4/2021-12-3.mp3",
+          "sha256": "43ffb10a190957c9a113429ae6e9ccf270007f775e956f43dab45e25aa6fe0c1",
+          "matchedPaper": null
+        }
+      ]
+    },
+    {
+      "paperId": "cet4-2022-06-2",
+      "title": "2022 年 6 月四级 · 第 2 套",
+      "category": "共用录音，题序待核对",
+      "reason": "原套省略重复听力；录音可对应同次另一套，缺少本套具体题序与选项的可靠对应。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 1",
+        "material ranges"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "AayuBal/cet-exams",
+          "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+          "path": "public/cet/audio/cet4/2022-06-2.mp3",
+          "sha256": "84a9eeb6b254861012ad2d8df2daf482170d9f0874a8d4bd0c3515affec43429",
+          "matchedPaper": "cet4-2022-06-1"
+        }
+      ]
+    },
+    {
+      "paperId": "cet4-2022-09-1",
+      "title": "2022 年 9 月四级 · 第 1 套",
+      "category": "未找到可定位的录音",
+      "reason": "已检查的 GitHub 来源中未找到可定位到本套的可下载音频；不等于全网不存在。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 0",
+        "material ranges"
+      ],
+      "audioCandidates": []
+    },
+    {
+      "paperId": "cet4-2022-12-1",
+      "title": "2022 年 12 月四级 · 第 1 套",
+      "category": "未找到可定位的录音",
+      "reason": "已检查的 GitHub 来源中未找到可定位到本套的可下载音频；不等于全网不存在。",
+      "extractionIssues": [],
+      "audioCandidates": []
+    },
+    {
+      "paperId": "cet4-2022-12-2",
+      "title": "2022 年 12 月四级 · 第 2 套",
+      "category": "未找到可定位的录音",
+      "reason": "已检查的 GitHub 来源中未找到可定位到本套的可下载音频；不等于全网不存在。",
+      "extractionIssues": [],
+      "audioCandidates": []
+    },
+    {
+      "paperId": "cet4-2022-12-3",
+      "title": "2022 年 12 月四级 · 第 3 套",
+      "category": "未找到可定位的录音",
+      "reason": "已检查的 GitHub 来源中未找到可定位到本套的可下载音频；不等于全网不存在。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 0",
+        "material ranges"
+      ],
+      "audioCandidates": []
+    },
+    {
+      "paperId": "cet4-2023-03-1",
+      "title": "2023 年 3 月四级 · 第 1 套",
+      "category": "有候选录音，材料待核对",
+      "reason": "候选存在，但题目、答案、完整原文或逐组匹配尚未满足导入要求。",
+      "extractionIssues": [
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 6",
+        "material ranges"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "AayuBal/cet-exams",
+          "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+          "path": "public/cet/audio/cet4/2023-03-1.mp3",
+          "sha256": "2fd80e430f9046f465da3538c459a39983e591378bc40d47b1cedad6ef7f96eb",
+          "matchedPaper": null
+        }
+      ]
+    },
+    {
+      "paperId": "cet4-2023-12-3",
+      "title": "2023 年 12 月四级 · 第 3 套",
+      "category": "共用录音，题序待核对",
+      "reason": "原套省略重复听力；录音可对应同次另一套，缺少本套具体题序与选项的可靠对应。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 0",
+        "material ranges"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "AayuBal/cet-exams",
+          "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+          "path": "public/cet/audio/cet4/2023-12-3.mp3",
+          "sha256": "b496718d01a2a977148fc56f31ea3fd1006de9f5e8ab3d72a5977d35e53956ae",
+          "matchedPaper": "cet4-2023-12-1"
+        }
+      ]
+    },
+    {
+      "paperId": "cet4-2024-06-3",
+      "title": "2024 年 6 月四级 · 第 3 套",
+      "category": "共用录音，题序待核对",
+      "reason": "原套省略重复听力；录音可对应同次另一套，缺少本套具体题序与选项的可靠对应。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 0",
+        "material ranges"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "AayuBal/cet-exams",
+          "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+          "path": "public/cet/audio/cet4/2024-06-3.mp3",
+          "sha256": "74e08e88ebee07ffda245c47ebc1b772855376ff4a5bb6243bf1d7bdcb1c1a00",
+          "matchedPaper": "cet4-2024-06-2"
+        }
+      ]
+    },
+    {
+      "paperId": "cet4-2024-12-3",
+      "title": "2024 年 12 月四级 · 第 3 套",
+      "category": "共用录音，题序待核对",
+      "reason": "原套省略重复听力；录音可对应同次另一套，缺少本套具体题序与选项的可靠对应。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 0",
+        "material ranges"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "AayuBal/cet-exams",
+          "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+          "path": "public/cet/audio/cet4/2024-12-3.mp3",
+          "sha256": "bcb241f260a6fdebb19886cf78979a984b74569e3dd70e275fe12b5653fd1d67",
+          "matchedPaper": "cet4-2024-12-1"
+        }
+      ]
+    },
+    {
+      "paperId": "cet4-2025-06-3",
+      "title": "2025 年 6 月四级 · 第 3 套",
+      "category": "共用录音，题序待核对",
+      "reason": "原套省略重复听力；录音可对应同次另一套，缺少本套具体题序与选项的可靠对应。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 0",
+        "material ranges"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "AayuBal/cet-exams",
+          "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+          "path": "public/cet/audio/cet4/2025-06-3.mp3",
+          "sha256": "1edc7ec8c6a32f105708bc3509532e30d606f9292218fe42ebc3e06e14bb5c28",
+          "matchedPaper": "cet4-2025-06-1"
+        }
+      ]
+    },
+    {
+      "paperId": "cet4-2025-12-3",
+      "title": "2025 年 12 月四级 · 第 3 套",
+      "category": "未找到可定位的录音",
+      "reason": "已检查的 GitHub 来源中未找到可定位到本套的可下载音频；不等于全网不存在。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 0",
+        "material ranges"
+      ],
+      "audioCandidates": []
+    },
+    {
+      "paperId": "cet6-2013-06-1",
+      "title": "2013 年 6 月六级 · 第 1 套",
+      "category": "未找到可定位的录音",
+      "reason": "已检查的 GitHub 来源中未找到可定位到本套的可下载音频；不等于全网不存在。",
+      "extractionIssues": [
+        "尚未完成来源材料提取"
+      ],
+      "audioCandidates": []
+    },
+    {
+      "paperId": "cet6-2013-06-2",
+      "title": "2013 年 6 月六级 · 第 2 套",
+      "category": "未找到可定位的录音",
+      "reason": "已检查的 GitHub 来源中未找到可定位到本套的可下载音频；不等于全网不存在。",
+      "extractionIssues": [
+        "尚未完成来源材料提取"
+      ],
+      "audioCandidates": []
+    },
+    {
+      "paperId": "cet6-2013-06-3",
+      "title": "2013 年 6 月六级 · 第 3 套",
+      "category": "未找到可定位的录音",
+      "reason": "已检查的 GitHub 来源中未找到可定位到本套的可下载音频；不等于全网不存在。",
+      "extractionIssues": [
+        "尚未完成来源材料提取"
+      ],
+      "audioCandidates": []
+    },
+    {
+      "paperId": "cet6-2013-12-1",
+      "title": "2013 年 12 月六级 · 第 1 套",
+      "category": "未找到可定位的录音",
+      "reason": "已检查的 GitHub 来源中未找到可定位到本套的可下载音频；不等于全网不存在。",
+      "extractionIssues": [
+        "尚未完成来源材料提取"
+      ],
+      "audioCandidates": []
+    },
+    {
+      "paperId": "cet6-2013-12-2",
+      "title": "2013 年 12 月六级 · 第 2 套",
+      "category": "未找到可定位的录音",
+      "reason": "已检查的 GitHub 来源中未找到可定位到本套的可下载音频；不等于全网不存在。",
+      "extractionIssues": [
+        "尚未完成来源材料提取"
+      ],
+      "audioCandidates": []
+    },
+    {
+      "paperId": "cet6-2013-12-3",
+      "title": "2013 年 12 月六级 · 第 3 套",
+      "category": "未找到可定位的录音",
+      "reason": "已检查的 GitHub 来源中未找到可定位到本套的可下载音频；不等于全网不存在。",
+      "extractionIssues": [
+        "尚未完成来源材料提取"
+      ],
+      "audioCandidates": []
+    },
+    {
+      "paperId": "cet6-2014-06-1",
+      "title": "2014 年 6 月六级 · 第 1 套",
+      "category": "未找到可定位的录音",
+      "reason": "已检查的 GitHub 来源中未找到可定位到本套的可下载音频；不等于全网不存在。",
+      "extractionIssues": [
+        "尚未完成来源材料提取"
+      ],
+      "audioCandidates": []
+    },
+    {
+      "paperId": "cet6-2014-06-2",
+      "title": "2014 年 6 月六级 · 第 2 套",
+      "category": "未找到可定位的录音",
+      "reason": "已检查的 GitHub 来源中未找到可定位到本套的可下载音频；不等于全网不存在。",
+      "extractionIssues": [
+        "尚未完成来源材料提取"
+      ],
+      "audioCandidates": []
+    },
+    {
+      "paperId": "cet6-2014-06-3",
+      "title": "2014 年 6 月六级 · 第 3 套",
+      "category": "未找到可定位的录音",
+      "reason": "已检查的 GitHub 来源中未找到可定位到本套的可下载音频；不等于全网不存在。",
+      "extractionIssues": [
+        "尚未完成来源材料提取"
+      ],
+      "audioCandidates": []
+    },
+    {
+      "paperId": "cet6-2015-06-1",
+      "title": "2015 年 6 月六级 · 第 1 套",
+      "category": "有录音，旧题型待接入",
+      "reason": "2016 年改革前还包含复合式听写；不把只有部分选择题的材料冒充完整听力。",
+      "extractionIssues": [
+        "尚未完成来源材料提取"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "ecator/cet6-youdaoxuetang-whole",
+          "revision": "49338db61e3d315cd24766de83a7e7b0fcd0cd78",
+          "path": "六级真题听力音频/2015年6月六级真题（一）.mp3",
+          "sha256": "47aecb140360e734578ed8842d472650d15b123808f4c1ca0684379ca38ef452",
+          "matchedPaper": null
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2015-06-2",
+      "title": "2015 年 6 月六级 · 第 2 套",
+      "category": "有录音，旧题型待接入",
+      "reason": "2016 年改革前还包含复合式听写；不把只有部分选择题的材料冒充完整听力。",
+      "extractionIssues": [
+        "尚未完成来源材料提取"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "ecator/cet6-youdaoxuetang-whole",
+          "revision": "49338db61e3d315cd24766de83a7e7b0fcd0cd78",
+          "path": "六级真题听力音频/2015年6月六级真题（二）.MP3",
+          "sha256": "830f2b2565225318bcf4ad26afbe6bb90e678f2659ea878b584dd7ac64eaa8de",
+          "matchedPaper": null
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2015-06-3",
+      "title": "2015 年 6 月六级 · 第 3 套",
+      "category": "有录音，旧题型待接入",
+      "reason": "2016 年改革前还包含复合式听写；不把只有部分选择题的材料冒充完整听力。",
+      "extractionIssues": [
+        "尚未完成来源材料提取"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "ecator/cet6-youdaoxuetang-whole",
+          "revision": "49338db61e3d315cd24766de83a7e7b0fcd0cd78",
+          "path": "六级真题听力音频/2015年6月六级真题（三）.mp3",
+          "sha256": "48c76c5443fd628a5156fed83c8f8326aab99a4a14b95a85b9ca06f2d825e3ae",
+          "matchedPaper": null
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2015-12-1",
+      "title": "2015 年 12 月六级 · 第 1 套",
+      "category": "有录音，旧题型待接入",
+      "reason": "2016 年改革前还包含复合式听写；不把只有部分选择题的材料冒充完整听力。",
+      "extractionIssues": [
+        "尚未完成来源材料提取"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "ecator/cet6-youdaoxuetang-whole",
+          "revision": "49338db61e3d315cd24766de83a7e7b0fcd0cd78",
+          "path": "六级真题听力音频/2015年12月六级真题（一）.mp3",
+          "sha256": "a7fd4b3d5320f4efddcb93668ee4ab73c91e71961f21e5b36002304904a76974",
+          "matchedPaper": null
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2015-12-2",
+      "title": "2015 年 12 月六级 · 第 2 套",
+      "category": "有录音，旧题型待接入",
+      "reason": "2016 年改革前还包含复合式听写；不把只有部分选择题的材料冒充完整听力。",
+      "extractionIssues": [
+        "尚未完成来源材料提取"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "ecator/cet6-youdaoxuetang-whole",
+          "revision": "49338db61e3d315cd24766de83a7e7b0fcd0cd78",
+          "path": "六级真题听力音频/2015年12月六级真题（二）.MP3",
+          "sha256": "3dc58db8aac889442999481d9aaad52bcdd4d2c2b8adbf32de3fcca763a07db5",
+          "matchedPaper": null
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2015-12-3",
+      "title": "2015 年 12 月六级 · 第 3 套",
+      "category": "有录音，旧题型待接入",
+      "reason": "2016 年改革前还包含复合式听写；不把只有部分选择题的材料冒充完整听力。",
+      "extractionIssues": [
+        "尚未完成来源材料提取"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "ecator/cet6-youdaoxuetang-whole",
+          "revision": "49338db61e3d315cd24766de83a7e7b0fcd0cd78",
+          "path": "六级真题听力音频/2015年12月六级真题（三）.MP3",
+          "sha256": "ed83f0d9fd5bfd758a5c78adc88b15a4283667894673dd0ddad19d77d430cabb",
+          "matchedPaper": null
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2016-06-1",
+      "title": "2016 年 6 月六级 · 第 1 套",
+      "category": "有候选录音，材料待核对",
+      "reason": "候选存在，但题目、答案、完整原文或逐组匹配尚未满足导入要求。",
+      "extractionIssues": [],
+      "audioCandidates": [
+        {
+          "repository": "ecator/cet6-youdaoxuetang-whole",
+          "revision": "49338db61e3d315cd24766de83a7e7b0fcd0cd78",
+          "path": "六级真题听力音频/2016年6月六级真题（一）.mp3",
+          "sha256": "ea3bfb84c46eb4595bfa6d781d05c9390f79f69b9b89747a8734bb14f8db055a",
+          "matchedPaper": null
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2016-06-3",
+      "title": "2016 年 6 月六级 · 第 3 套",
+      "category": "未找到可定位的录音",
+      "reason": "已检查的 GitHub 来源中未找到可定位到本套的可下载音频；不等于全网不存在。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 0",
+        "material ranges"
+      ],
+      "audioCandidates": []
+    },
+    {
+      "paperId": "cet6-2016-12-1",
+      "title": "2016 年 12 月六级 · 第 1 套",
+      "category": "候选录音错标",
+      "reason": "候选文件内容对应另一年份、年级或考试场次，未发现符合本套的可靠替代。",
+      "extractionIssues": [],
+      "audioCandidates": [
+        {
+          "repository": "Ysoseri1224/CET-6-Listening-10-Years-Resources-and-Analysis",
+          "revision": "42fc6658e0b4a3dbae06755ba105d79169820576",
+          "path": "CET6_2016.12/CET6_2016.12_set1_listening.mp3",
+          "sha256": "423c7ad649b1506aadd17c4c4ddd504d0056539c07b671541d5ea46444067a01",
+          "matchedPaper": "cet4-2016-12-1"
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2016-12-2",
+      "title": "2016 年 12 月六级 · 第 2 套",
+      "category": "候选录音错标",
+      "reason": "候选文件内容对应另一年份、年级或考试场次，未发现符合本套的可靠替代。",
+      "extractionIssues": [],
+      "audioCandidates": [
+        {
+          "repository": "Ysoseri1224/CET-6-Listening-10-Years-Resources-and-Analysis",
+          "revision": "42fc6658e0b4a3dbae06755ba105d79169820576",
+          "path": "CET6_2016.12/CET6_2016.12_set2_listening.mp3",
+          "sha256": "e3b1ba36b68abfe90840c019ee915c7d31095d2fa233c23ab36123241c95ebd9",
+          "matchedPaper": "cet4-2016-12-2"
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2016-12-3",
+      "title": "2016 年 12 月六级 · 第 3 套",
+      "category": "未找到可定位的录音",
+      "reason": "已检查的 GitHub 来源中未找到可定位到本套的可下载音频；不等于全网不存在。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 4",
+        "material ranges"
+      ],
+      "audioCandidates": []
+    },
+    {
+      "paperId": "cet6-2017-06-1",
+      "title": "2017 年 6 月六级 · 第 1 套",
+      "category": "候选录音错标",
+      "reason": "候选文件内容对应另一年份、年级或考试场次，未发现符合本套的可靠替代。",
+      "extractionIssues": [],
+      "audioCandidates": [
+        {
+          "repository": "Ysoseri1224/CET-6-Listening-10-Years-Resources-and-Analysis",
+          "revision": "42fc6658e0b4a3dbae06755ba105d79169820576",
+          "path": "CET6_2017.06/CET6_2017.06_set1_listening.mp3",
+          "sha256": "576eb0e14692051f5fe2506af484f099cf38c5bad584cd8028792e69f1cb8972",
+          "matchedPaper": "cet6-2017-12-1"
+        },
+        {
+          "repository": "DieDiDi/CET4-6-past-exam-paper",
+          "revision": "97266755c1d95b13b86ce3e0570390b5f7a89225",
+          "path": "四六级历年真题汇总/2017年6月英语四六级/2017年6月英语六级真题及答案/第一套听力.mp3",
+          "sha256": "576eb0e14692051f5fe2506af484f099cf38c5bad584cd8028792e69f1cb8972",
+          "matchedPaper": "cet6-2017-12-1"
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2017-06-2",
+      "title": "2017 年 6 月六级 · 第 2 套",
+      "category": "候选录音错标",
+      "reason": "候选文件内容对应另一年份、年级或考试场次，未发现符合本套的可靠替代。",
+      "extractionIssues": [],
+      "audioCandidates": [
+        {
+          "repository": "Ysoseri1224/CET-6-Listening-10-Years-Resources-and-Analysis",
+          "revision": "42fc6658e0b4a3dbae06755ba105d79169820576",
+          "path": "CET6_2017.06/CET6_2017.06_set2_listening.mp3",
+          "sha256": "e148f82889c8442a765bbc62febcc0b7409cd4b6d1753664a0061ca13f93f2eb",
+          "matchedPaper": "cet6-2017-12-2"
+        },
+        {
+          "repository": "DieDiDi/CET4-6-past-exam-paper",
+          "revision": "97266755c1d95b13b86ce3e0570390b5f7a89225",
+          "path": "四六级历年真题汇总/2017年6月英语四六级/2017年6月英语六级真题及答案/第二套听力.mp3",
+          "sha256": "e148f82889c8442a765bbc62febcc0b7409cd4b6d1753664a0061ca13f93f2eb",
+          "matchedPaper": "cet6-2017-12-2"
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2017-06-3",
+      "title": "2017 年 6 月六级 · 第 3 套",
+      "category": "未找到可定位的录音",
+      "reason": "已检查的 GitHub 来源中未找到可定位到本套的可下载音频；不等于全网不存在。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 2",
+        "material ranges"
+      ],
+      "audioCandidates": []
+    },
+    {
+      "paperId": "cet6-2017-12-3",
+      "title": "2017 年 12 月六级 · 第 3 套",
+      "category": "未找到可定位的录音",
+      "reason": "已检查的 GitHub 来源中未找到可定位到本套的可下载音频；不等于全网不存在。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 5",
+        "material ranges"
+      ],
+      "audioCandidates": []
+    },
+    {
+      "paperId": "cet6-2018-06-3",
+      "title": "2018 年 6 月六级 · 第 3 套",
+      "category": "未找到可定位的录音",
+      "reason": "已检查的 GitHub 来源中未找到可定位到本套的可下载音频；不等于全网不存在。",
+      "extractionIssues": [
+        "question numbers [26, 46, 51]",
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 3",
+        "material ranges"
+      ],
+      "audioCandidates": []
+    },
+    {
+      "paperId": "cet6-2018-12-3",
+      "title": "2018 年 12 月六级 · 第 3 套",
+      "category": "共用录音，题序待核对",
+      "reason": "原套省略重复听力；录音可对应同次另一套，缺少本套具体题序与选项的可靠对应。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 1",
+        "material ranges"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "DieDiDi/CET4-6-past-exam-paper",
+          "revision": "97266755c1d95b13b86ce3e0570390b5f7a89225",
+          "path": "四六级历年真题汇总/2018年12月英语四六级/2018年12月英语六级真题及答案/2018年12月英语6级第二、三套听力.mp3",
+          "sha256": "23637f16290789ec3040df168ae74a534b330b5e53811a2aa9fc9453a3768d90",
+          "matchedPaper": "cet6-2018-12-2"
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2019-06-2",
+      "title": "2019 年 6 月六级 · 第 2 套",
+      "category": "有候选录音，材料待核对",
+      "reason": "候选存在，但题目、答案、完整原文或逐组匹配尚未满足导入要求。",
+      "extractionIssues": [],
+      "audioCandidates": [
+        {
+          "repository": "AayuBal/cet-exams",
+          "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+          "path": "public/cet/audio/cet6/2019-06-2.mp3",
+          "sha256": "eaa1be5f7d5aa64e914a3ea4b1947bfb5bc8634e56465657ae37fe1b13fd75a4",
+          "matchedPaper": "cet6-2016-06-2"
+        },
+        {
+          "repository": "Ysoseri1224/CET-6-Listening-10-Years-Resources-and-Analysis",
+          "revision": "42fc6658e0b4a3dbae06755ba105d79169820576",
+          "path": "CET6_2019.06/CET6_2019.06_set2_listening.m4a",
+          "sha256": "6233c4752a0fdd7aa7d4a3bfb7226946af2b4d09f6c9c18708c9a7072b5a1c6f",
+          "matchedPaper": null
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2019-06-3",
+      "title": "2019 年 6 月六级 · 第 3 套",
+      "category": "候选录音错标",
+      "reason": "候选文件内容对应另一年份、年级或考试场次，未发现符合本套的可靠替代。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 0",
+        "material ranges"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "AayuBal/cet-exams",
+          "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+          "path": "public/cet/audio/cet6/2019-06-3.mp3",
+          "sha256": "eaa1be5f7d5aa64e914a3ea4b1947bfb5bc8634e56465657ae37fe1b13fd75a4",
+          "matchedPaper": "cet6-2016-06-2"
+        },
+        {
+          "repository": "DieDiDi/CET4-6-past-exam-paper",
+          "revision": "97266755c1d95b13b86ce3e0570390b5f7a89225",
+          "path": "四六级历年真题汇总/2019年6月英语四六级/2019年6月英语六级真题及答案/2019.6六级第三套.mp3",
+          "sha256": "92ea26e181b1cb619648f055b2fc7f720a5ab6de6fe15e50f4f20e0844ab71fd",
+          "matchedPaper": "cet6-2016-06-2"
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2019-12-3",
+      "title": "2019 年 12 月六级 · 第 3 套",
+      "category": "共用录音，题序待核对",
+      "reason": "原套省略重复听力；录音可对应同次另一套，缺少本套具体题序与选项的可靠对应。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "AayuBal/cet-exams",
+          "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+          "path": "public/cet/audio/cet6/2019-12-3.mp3",
+          "sha256": "cb378909041f1d91d3896eda82b734b573fd3f5c5c27f3be2a202229eee8cb5d",
+          "matchedPaper": "cet6-2019-12-3"
+        },
+        {
+          "repository": "Ysoseri1224/CET-6-Listening-10-Years-Resources-and-Analysis",
+          "revision": "42fc6658e0b4a3dbae06755ba105d79169820576",
+          "path": "CET6_2019.12/CET6_2019.12_set3_listening.mp3",
+          "sha256": "ba0065f4a019d2bc3aa0770231f92a019fc785d1daa7f89cd52a2176b6718ed9",
+          "matchedPaper": "cet6-2019-12-3"
+        },
+        {
+          "repository": "DieDiDi/CET4-6-past-exam-paper",
+          "revision": "97266755c1d95b13b86ce3e0570390b5f7a89225",
+          "path": "四六级历年真题汇总/2019年12月英语四六级/2019年12月英语六级真题及答案/2019.12六级音频三.mp3",
+          "sha256": "ba0065f4a019d2bc3aa0770231f92a019fc785d1daa7f89cd52a2176b6718ed9",
+          "matchedPaper": "cet6-2019-12-3"
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2020-09-2",
+      "title": "2020 年 9 月六级 · 第 2 套",
+      "category": "候选录音错标",
+      "reason": "候选文件内容对应另一年份、年级或考试场次，未发现符合本套的可靠替代。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 2",
+        "material ranges"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "AayuBal/cet-exams",
+          "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+          "path": "public/cet/audio/cet6/2020-09-2.mp3",
+          "sha256": "81401d8a8e4b7fd38ec4bf602cc938f7d4f021da7921d42584f3bbce94e30966",
+          "matchedPaper": "cet4-2020-09-1"
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2020-12-3",
+      "title": "2020 年 12 月六级 · 第 3 套",
+      "category": "候选录音错标",
+      "reason": "候选文件内容对应另一年份、年级或考试场次，未发现符合本套的可靠替代。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 2",
+        "material ranges"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "AayuBal/cet-exams",
+          "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+          "path": "public/cet/audio/cet6/2020-12-3.mp3",
+          "sha256": "ee271e24d3b9c45a17102638ab6616fe7a2c94347bf7f58c70f4b3b8afe1cdb3",
+          "matchedPaper": "cet4-2020-12-2"
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2021-06-3",
+      "title": "2021 年 6 月六级 · 第 3 套",
+      "category": "候选录音错标",
+      "reason": "候选文件内容对应另一年份、年级或考试场次，未发现符合本套的可靠替代。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 1",
+        "material ranges"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "AayuBal/cet-exams",
+          "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+          "path": "public/cet/audio/cet6/2021-06-3.mp3",
+          "sha256": "e8af68f2fd4f247f7a5ee484a67f557e30c78b08561eb72b1bff4ede47cdc7b0",
+          "matchedPaper": "cet4-2021-06-1"
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2022-06-2",
+      "title": "2022 年 6 月六级 · 第 2 套",
+      "category": "共用录音，题序待核对",
+      "reason": "原套省略重复听力；录音可对应同次另一套，缺少本套具体题序与选项的可靠对应。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 1",
+        "material ranges"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "AayuBal/cet-exams",
+          "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+          "path": "public/cet/audio/cet6/2022-06-2.mp3",
+          "sha256": "86cf5d7a5bb12c7e41d73b43cbcdc2c5cb8d3d4756bccfecbb7c1dbd8ee634e4",
+          "matchedPaper": "cet6-2022-06-1"
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2022-09-2",
+      "title": "2022 年 9 月六级 · 第 2 套",
+      "category": "有候选录音，材料待核对",
+      "reason": "候选存在，但题目、答案、完整原文或逐组匹配尚未满足导入要求。",
+      "extractionIssues": [
+        "invalid options [23]",
+        "missing answers [24, 25]"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "AayuBal/cet-exams",
+          "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+          "path": "public/cet/audio/cet6/2022-09-2.mp3",
+          "sha256": "b173d84d8debbb7eef534737b276d1b88e30a9fef66deababeb2fe028cbee37f",
+          "matchedPaper": "cet6-2022-09-3"
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2022-09-3",
+      "title": "2022 年 9 月六级 · 第 3 套",
+      "category": "有候选录音，材料待核对",
+      "reason": "候选存在，但题目、答案、完整原文或逐组匹配尚未满足导入要求。",
+      "extractionIssues": [
+        "invalid options [23]",
+        "missing answers [24, 25]"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "AayuBal/cet-exams",
+          "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+          "path": "public/cet/audio/cet6/2022-09-3.mp3",
+          "sha256": "b173d84d8debbb7eef534737b276d1b88e30a9fef66deababeb2fe028cbee37f",
+          "matchedPaper": "cet6-2022-09-3"
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2022-12-3",
+      "title": "2022 年 12 月六级 · 第 3 套",
+      "category": "共用录音，题序待核对",
+      "reason": "原套省略重复听力；录音可对应同次另一套，缺少本套具体题序与选项的可靠对应。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 0",
+        "material ranges"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "AayuBal/cet-exams",
+          "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+          "path": "public/cet/audio/cet6/2022-12-3.mp3",
+          "sha256": "f9c405a7b880deb934d9fa7da4f60c7c304bf190c8f5c04690304c4ad9931a26",
+          "matchedPaper": "cet6-2022-12-2"
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2023-06-3",
+      "title": "2023 年 6 月六级 · 第 3 套",
+      "category": "共用录音，题序待核对",
+      "reason": "原套省略重复听力；录音可对应同次另一套，缺少本套具体题序与选项的可靠对应。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 0",
+        "material ranges"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "AayuBal/cet-exams",
+          "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+          "path": "public/cet/audio/cet6/2023-06-3.mp3",
+          "sha256": "767a325ec5418805a7d97fbbb67732702be15a5e7f9b4b0a6c99d0a8b4542fb6",
+          "matchedPaper": "cet6-2023-06-2"
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2024-06-3",
+      "title": "2024 年 6 月六级 · 第 3 套",
+      "category": "共用录音，题序待核对",
+      "reason": "原套省略重复听力；录音可对应同次另一套，缺少本套具体题序与选项的可靠对应。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 0",
+        "material ranges"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "AayuBal/cet-exams",
+          "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+          "path": "public/cet/audio/cet6/2024-06-3.mp3",
+          "sha256": "10c620a21241ad5ab895b34035f52c419e28c4e4331d7c9ef9609e44692e83ab",
+          "matchedPaper": "cet6-2024-06-1"
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2024-12-3",
+      "title": "2024 年 12 月六级 · 第 3 套",
+      "category": "共用录音，题序待核对",
+      "reason": "原套省略重复听力；录音可对应同次另一套，缺少本套具体题序与选项的可靠对应。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 0",
+        "material ranges"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "AayuBal/cet-exams",
+          "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+          "path": "public/cet/audio/cet6/2024-12-3.mp3",
+          "sha256": "41a69249acfa84086aac30e34fa1e0a94bd2e505d00f1316aada4fabe6f4ea5f",
+          "matchedPaper": "cet6-2024-12-1"
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2025-06-2",
+      "title": "2025 年 6 月六级 · 第 2 套",
+      "category": "有候选录音，材料待核对",
+      "reason": "候选存在，但题目、答案、完整原文或逐组匹配尚未满足导入要求。",
+      "extractionIssues": [],
+      "audioCandidates": [
+        {
+          "repository": "AayuBal/cet-exams",
+          "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+          "path": "public/cet/audio/cet6/2025-06-2.mp3",
+          "sha256": "201f6aee973049ec0adf87d571c5e7fb30b34d6640f5c6cc619a4e13af208c13",
+          "matchedPaper": "cet6-2025-06-1"
+        },
+        {
+          "repository": "Ysoseri1224/CET-6-Listening-10-Years-Resources-and-Analysis",
+          "revision": "42fc6658e0b4a3dbae06755ba105d79169820576",
+          "path": "CET6_2025.06/CET6_2025.06_set2_listening.mp3",
+          "sha256": "4b0318d3b1cc65782cf7afa9dd528eb47a0bc4f86e35efd79003dbfd52831550",
+          "matchedPaper": "cet6-2025-06-1"
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2025-06-3",
+      "title": "2025 年 6 月六级 · 第 3 套",
+      "category": "共用录音，题序待核对",
+      "reason": "原套省略重复听力；录音可对应同次另一套，缺少本套具体题序与选项的可靠对应。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 0",
+        "material ranges"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "AayuBal/cet-exams",
+          "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+          "path": "public/cet/audio/cet6/2025-06-3.mp3",
+          "sha256": "201f6aee973049ec0adf87d571c5e7fb30b34d6640f5c6cc619a4e13af208c13",
+          "matchedPaper": "cet6-2025-06-1"
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2025-12-3",
+      "title": "2025 年 12 月六级 · 第 3 套",
+      "category": "共用录音，题序待核对",
+      "reason": "原套省略重复听力；录音可对应同次另一套，缺少本套具体题序与选项的可靠对应。",
+      "extractionIssues": [
+        "question numbers []",
+        "missing answers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]",
+        "groups 0",
+        "material ranges"
+      ],
+      "audioCandidates": [
+        {
+          "repository": "AayuBal/cet-exams",
+          "revision": "fcec49b83372539c92831989acbc2bd1b06aaac0",
+          "path": "public/cet/audio/cet6/2025-12-3.mp3",
+          "sha256": "eb72bc26dbfb86d4ef345586c68fe29c046c77f856c86524b7f0498cc419ab8e",
+          "matchedPaper": "cet6-2025-12-1"
+        }
+      ]
+    },
+    {
+      "paperId": "cet6-2026-06-1",
+      "title": "2026 年 6 月六级 · 第 1 套",
+      "category": "未找到可定位的录音",
+      "reason": "已检查的 GitHub 来源中未找到可定位到本套的可下载音频；不等于全网不存在。",
+      "extractionIssues": [
+        "尚未完成来源材料提取"
+      ],
+      "audioCandidates": []
+    },
+    {
+      "paperId": "cet6-2026-06-2",
+      "title": "2026 年 6 月六级 · 第 2 套",
+      "category": "未找到可定位的录音",
+      "reason": "已检查的 GitHub 来源中未找到可定位到本套的可下载音频；不等于全网不存在。",
+      "extractionIssues": [
+        "尚未完成来源材料提取"
+      ],
+      "audioCandidates": []
+    },
+    {
+      "paperId": "cet6-2026-06-3",
+      "title": "2026 年 6 月六级 · 第 3 套",
+      "category": "未找到可定位的录音",
+      "reason": "已检查的 GitHub 来源中未找到可定位到本套的可下载音频；不等于全网不存在。",
+      "extractionIssues": [
+        "尚未完成来源材料提取"
+      ],
+      "audioCandidates": []
+    }
+  ]
+}

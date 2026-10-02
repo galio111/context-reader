@@ -1,0 +1,748 @@
+{
+  "id": "cet6-2020-07-1-listening",
+  "type": "listening",
+  "title": "听力",
+  "paragraphs": [],
+  "questions": [
+    {
+      "number": 1,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "She is a great athlete"
+        },
+        {
+          "key": "B",
+          "text": "She is a famed speaker"
+        },
+        {
+          "key": "C",
+          "text": "She is a famous scientist"
+        },
+        {
+          "key": "D",
+          "text": "She is a noted inventor"
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 2,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "How knowledge of human biochemistry has been evolving"
+        },
+        {
+          "key": "B",
+          "text": "How nutrition helps athletes􀆳 performance in competitions"
+        },
+        {
+          "key": "C",
+          "text": "How scientific training enables athletes to set new records"
+        },
+        {
+          "key": "D",
+          "text": "How technology has helped athletes to scale new heights"
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 3,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Our physical structures"
+        },
+        {
+          "key": "B",
+          "text": "Our scientific knowledge"
+        },
+        {
+          "key": "C",
+          "text": "Our biochemical process"
+        },
+        {
+          "key": "D",
+          "text": "Our concept of nutrition"
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 4,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It may increase the expenses of sports competitions"
+        },
+        {
+          "key": "B",
+          "text": "It may lead to athletes􀆳 over reliance on equipment"
+        },
+        {
+          "key": "C",
+          "text": "It may give an unfair advantage to some athletes"
+        },
+        {
+          "key": "D",
+          "text": "It may change the nature of sports competitions"
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 5,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Experience"
+        },
+        {
+          "key": "B",
+          "text": "Flexibility"
+        },
+        {
+          "key": "C",
+          "text": "Family background"
+        },
+        {
+          "key": "D",
+          "text": "Business connections"
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 6,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Buying directly from factories"
+        },
+        {
+          "key": "B",
+          "text": "Shipping goods in bulk by sea"
+        },
+        {
+          "key": "C",
+          "text": "Having partners in many parts of the world"
+        },
+        {
+          "key": "D",
+          "text": "Using the same container back and forth"
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 7,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Warehouses"
+        },
+        {
+          "key": "B",
+          "text": "Factories"
+        },
+        {
+          "key": "C",
+          "text": "Investors"
+        },
+        {
+          "key": "D",
+          "text": "Retailers"
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 8,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Trendy style"
+        },
+        {
+          "key": "B",
+          "text": "Unique design"
+        },
+        {
+          "key": "C",
+          "text": "Lower import duties"
+        },
+        {
+          "key": "D",
+          "text": "Lower shipping costs"
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 9,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It helps employees to reduce their stress"
+        },
+        {
+          "key": "B",
+          "text": "It prevents employees from feeling bored"
+        },
+        {
+          "key": "C",
+          "text": "It strengthens harmony among employees"
+        },
+        {
+          "key": "D",
+          "text": "It helps employees to view things positively"
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 10,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Weekends are conducive to reducing stress"
+        },
+        {
+          "key": "B",
+          "text": "Humor is vital to interpersonal relationships"
+        },
+        {
+          "key": "C",
+          "text": "All workers experience some emotional stress"
+        },
+        {
+          "key": "D",
+          "text": "Humor can help workers excel at routine tasks"
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 11,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Smash the toys to release their bottled-up resentments"
+        },
+        {
+          "key": "B",
+          "text": "Take the boss doll apart as long as they reassemble it"
+        },
+        {
+          "key": "C",
+          "text": "Design and install stress-reducing gadgets"
+        },
+        {
+          "key": "D",
+          "text": "Strike at the boss doll as hard as they like"
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 12,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "The recent finding of a changed gene in obese mice"
+        },
+        {
+          "key": "B",
+          "text": "A breakthrough in understanding gene modification"
+        },
+        {
+          "key": "C",
+          "text": "A newly discovered way for people to lose weight"
+        },
+        {
+          "key": "D",
+          "text": "The self-repairing ability of a gene in obese mice"
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 13,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It renders an organism unable to fight diseases"
+        },
+        {
+          "key": "B",
+          "text": "It prevents the mice􀆳s fatty tissues from growing"
+        },
+        {
+          "key": "C",
+          "text": "It helps organisms adapt to environmental changes"
+        },
+        {
+          "key": "D",
+          "text": "It renders mice unable to sense when to stop eating"
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 14,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Human beings have more obesity genes than most mice do"
+        },
+        {
+          "key": "B",
+          "text": "Half of a person􀆳s total weight variation can be controlled"
+        },
+        {
+          "key": "C",
+          "text": "People are born with a tendency to have a certain weight"
+        },
+        {
+          "key": "D",
+          "text": "The function of the obesity genes is yet to be explored"
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 15,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "The worsening of natural environment"
+        },
+        {
+          "key": "B",
+          "text": "The abundant provision of rich foods"
+        },
+        {
+          "key": "C",
+          "text": "The accelerated pace of present-day life"
+        },
+        {
+          "key": "D",
+          "text": "The adverse impact of the food industry"
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 16,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Similarity in interests"
+        },
+        {
+          "key": "B",
+          "text": "Mental stimulation"
+        },
+        {
+          "key": "C",
+          "text": "Openness"
+        },
+        {
+          "key": "D",
+          "text": "Compassion"
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 17,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "The willingness to offer timely help"
+        },
+        {
+          "key": "B",
+          "text": "The joy found in each other􀆳s company"
+        },
+        {
+          "key": "C",
+          "text": "Personal bonds"
+        },
+        {
+          "key": "D",
+          "text": "Emotional factors"
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 18,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Failure to keep a promise"
+        },
+        {
+          "key": "B",
+          "text": "Lack of frankness"
+        },
+        {
+          "key": "C",
+          "text": "Feelings of betrayal"
+        },
+        {
+          "key": "D",
+          "text": "Loss of contact"
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 19,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Along the low-lying Colorado River"
+        },
+        {
+          "key": "B",
+          "text": "At the Dinosaur National Monument"
+        },
+        {
+          "key": "C",
+          "text": "Along the border of the U.S. and Canada"
+        },
+        {
+          "key": "D",
+          "text": "At museums of natural history in large cities"
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 20,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Volcanic explosions could bring whole animal species to extinction"
+        },
+        {
+          "key": "B",
+          "text": "Some natural disaster killed a whole herd of dinosaurs in the area"
+        },
+        {
+          "key": "C",
+          "text": "The pit should be carefully preserved for the study of dinosaurs"
+        },
+        {
+          "key": "D",
+          "text": "The whole region must have been struck by a devastating flood"
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 21,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They floated down an eastward flowing river"
+        },
+        {
+          "key": "B",
+          "text": "They lay buried deep in the sand for millions of years"
+        },
+        {
+          "key": "C",
+          "text": "They were skeletons of dinosaurs inhabiting the locality"
+        },
+        {
+          "key": "D",
+          "text": "They were remains of dinosaurs killed in a volcanic explosion"
+        }
+      ],
+      "answer": "A",
+      "explanation": "参考答案为A。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 22,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Indulging in seeking leisure and material comfort"
+        },
+        {
+          "key": "B",
+          "text": "Attaching too much importance to independence"
+        },
+        {
+          "key": "C",
+          "text": "Failing to care for parents in the traditional way"
+        },
+        {
+          "key": "D",
+          "text": "Leaving their parents on the verge of starvation"
+        }
+      ],
+      "answer": "C",
+      "explanation": "参考答案为C。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 23,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They have great difficulty living by themselves"
+        },
+        {
+          "key": "B",
+          "text": "They have little hope of getting any family care"
+        },
+        {
+          "key": "C",
+          "text": "They have fond memories of their good old days"
+        },
+        {
+          "key": "D",
+          "text": "They have a sense of independence and autonomy"
+        }
+      ],
+      "answer": "D",
+      "explanation": "参考答案为D。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 24,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "People in many parts of the world preferred small-sized families"
+        },
+        {
+          "key": "B",
+          "text": "There have been extended families in most parts of the world"
+        },
+        {
+          "key": "C",
+          "text": "Many elderly people were unwilling to take care of their grandchildren"
+        },
+        {
+          "key": "D",
+          "text": "So many young Americans refused to live together with their parents"
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    },
+    {
+      "number": 25,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Leave their younger generations alone"
+        },
+        {
+          "key": "B",
+          "text": "Avoid being a burden to their children"
+        },
+        {
+          "key": "C",
+          "text": "Stay healthy by engaging in joyful activities"
+        },
+        {
+          "key": "D",
+          "text": "View things from their children’ s perspective"
+        }
+      ],
+      "answer": "B",
+      "explanation": "参考答案为B。可结合下方听力原文核对，逐题详解请查看资料来源。"
+    }
+  ],
+  "audio": {
+    "url": "/cet-audio/641591f803a01bb9c72effb1540c90d3153045d2a6eda55eb22112ad87f6c1b3.m4a",
+    "sha256": "641591f803a01bb9c72effb1540c90d3153045d2a6eda55eb22112ad87f6c1b3",
+    "bytes": 31192670,
+    "mimeType": "audio/mp4",
+    "durationSeconds": 1665.344,
+    "attribution": [
+      {
+        "title": "Ysoseri1224/CET-6-Listening-10-Years-Resources-and-Analysis",
+        "url": "https://github.com/Ysoseri1224/CET-6-Listening-10-Years-Resources-and-Analysis/tree/42fc6658e0b4a3dbae06755ba105d79169820576",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      {
+        "title": "0609x/CET46-Resources",
+        "url": "https://github.com/0609x/CET46-Resources/tree/4a24a1abf752e27de88a5e8bf930595c4ccffcec"
+      }
+    ]
+  },
+  "listeningGroups": [
+    {
+      "id": "cet6-2020-07-1-listening-1",
+      "title": "长对话一",
+      "questionNumbers": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "transcript": [
+        "M: Tonight, we have a very special guest. Mrs. Anna Sanchez is a three-time Olympic champion and author of the new book, To the Edge. Mrs. Sanchez, thank you for joining us.",
+        "W: Thank you for having me.",
+        "M: Let's start with your book. What does the title, To the Edge, mean? What are you referring to?",
+        "W: The book is about how science and technology has helped push humans to the edge of their physical abilities. I argue that in the past 20 years, we have had the best athletes the world has ever seen.",
+        "M: But is this a fair comparison? How do you know how, say, a football player from 50 years ago would compare to one today?",
+        "W: Well, you are right. That comparison would be perhaps impossible to make. But the point is more about our knowledge today of human biochemistry, nutrition, and mechanics. I believe that, while our bodies have not changed in thousands of years, what has changed is the scientific knowledge. This has allowed athletes to push the limits of what was previously thought possible.",
+        "M: That's interesting. Please tell us more about these perceived limits.",
+        "W: The world is seeing sports records being broken that could only be broken with the aid of technology, whether this be the speed of a tennis serve or the fastest time in a 100-meter dash or a 200-meter swimming race.",
+        "M: Is there any concern that technology is giving some athletes an unfair advantage over others?",
+        "W: That is an interesting question and one that has to be considered very carefully. Skis, for example, went from being made of wood to a metal alloy, which allows for better control and faster speed. There is no stopping technological progress, but, as I said, each situation should be considered carefully on a case-by-case basis."
+      ]
+    },
+    {
+      "id": "cet6-2020-07-1-listening-2",
+      "title": "长对话二",
+      "questionNumbers": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "transcript": [
+        "W: I've worked in international trade all my life. My father did so, too, before me, so I guess you could say it runs in the family.",
+        "M: What products have you worked with?",
+        "W: All sorts, really. I've imported textiles, machinery, toys, solar panels, all kinds of things over the years. Trends and demand come and go, so one needs to be very flexible to succeed in this industry.",
+        "M: I see. What goods are you trading now?",
+        "W: I now import furniture from China into Italy, and foods from Italy into China. I even use the same container. It's a very efficient way of conducting trade.",
+        "M: The same container? You mean you own a 40-foot cargo container?",
+        "W: Yeah, that's right. I have a warehouse in Genova, Italy, and another in Shanghai. I source mid-century modern furniture from different factories in China. It's very good value for money. I collect it all in my warehouse and then dispatch it to my other warehouse in Italy. Over there, I do the same, but with Italian foods instead of furniture. Things like pasta, cheese, wine, chocolates. And I send all that to my warehouse in China, in the same freight container I use for the furniture.",
+        "M: So I presume you sell both lines of products wholesale in each respective country?",
+        "W: Of course. I possess a network of clients and partners in both countries. That's the main benefit of having done this for so long. I've made great business contacts over time.",
+        "M: How many times do you ship?",
+        "W: I did 12 shipments last year, 18 this year, and I hope to grow to around 25 next year. That's both ways, there and back again. Demand for authentic Italian food in China is growing rapidly. And similarly, sales of affordable yet stylish wooden furniture are also increasing in Italy. Furniture is marginally more profitable, mostly because it enjoys lower customs duties."
+      ]
+    },
+    {
+      "id": "cet6-2020-07-1-listening-3",
+      "title": "短文一",
+      "questionNumbers": [
+        9,
+        10,
+        11
+      ],
+      "transcript": [
+        "Too many people view their jobs as a five-day prison from which they are paroled every Friday, says Joel Goodman, founder of The Humor Project, a humor consulting group in Saratoga Springs, New York. Humor unlocks the office prison because it lets adults bring some of their childlike spirit to the job. According to Howard Polio, professor of psychology at the University of Tennessee, Knoxville, an office with humor breaks is an office with satisfied and productive employees. Polio conducted a study that proved humor can help workers excel at routine production tasks. Employees perform better when they have fun.",
+        "In large corporations with a hierarchy of power, there is often no outlet for stress. Every company needs underground ways of poking fun at the organization, says Lynn M. Mark, a speaker on workplace humor for St. Mary's Health Center in St. Louis. Kodak's Rochester, New York branch discovered a way for its 20,000 employees to uncork their bottled-up resentments. Their 1,000-square-foot humor room features a toy store. Among the room's many stress-reducing gadgets, the main attraction is a boss doll. With detachable arms and legs, employees can take the doll apart as long as they put its arms and legs back in place. Sandy Cohen, owner of a graphic print production business, created the Quote Board to document the bizarre phrases people say when under strict deadlines. When you're under stress, you say stupid things, says Cohen. Now we just look at each other and say, that's one for the Quote Board."
+      ]
+    },
+    {
+      "id": "cet6-2020-07-1-listening-4",
+      "title": "短文二",
+      "questionNumbers": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "transcript": [
+        "Public interest was aroused by the latest discovery of a changed gene in obese mice. The news was made known by Rockefeller University geneticist Jeffrey Friedman. The researchers believe this gene influences development of a hormone that tells the organism how fat or full it is. Those with the changed gene may not sense when they have eaten enough or if they have sufficient fatty tissue and thus can't tell when to stop eating. The researchers also reported finding a gene nearly identical to the mouse obesity gene in humans. The operation of this gene in humans has not yet been demonstrated, however.",
+        "Still, professionals like University of Vermont psychologist Esther Rothblum reacted enthusiastically. This research indicates that people really are born with a tendency to have a certain weight, just as they are to have a particular skin color or height. Actually, behavioral geneticists believe that less than half of the total weight variation is programmed in the genes, while height is almost entirely genetically determined.",
+        "Whatever role genes play, Americans are getting fatter. A survey by the Center for Disease Control found that obesity has increased greatly over the last 10 years. Such rapid change underlines the role of environmental factors, like the abundance of rich foods, in Americans' overeating. The Center for Disease Control has also found that teens are far less physically active than they were even a decade ago. Accepting that weight is predetermined can relieve guilt for overweight people, but people's belief that they cannot control their weight can itself contribute to obesity."
+      ]
+    },
+    {
+      "id": "cet6-2020-07-1-listening-5",
+      "title": "讲座一",
+      "questionNumbers": [
+        16,
+        17,
+        18
+      ],
+      "transcript": [
+        "Qualities of a relationship such as openness, compassion, and mental stimulation are of concern to most of us, regardless of sex. But, judging from the questionnaire response, they are more important to women than to men. Asked to consider the ingredients of close friendship, women rated these qualities above all others. Men assigned a lower priority to them, in favor of similarity in interests, selected by 77% of men, and responsiveness in a crisis, chosen by 61% of male respondents. Mental stimulation, ranked third in popularity by men as well as women, was the only area of overlap. Among men, only 28% named openness as an important quality. Considering was picked by just 23%.",
+        "It is evident by their selections that when women speak of close friendships, they are referring to emotional factors, while men emphasize the pleasure they find in a friend's company. That is, when a man speaks of a friend, he is likely to be talking about someone he does things with, a teammate, a fellow hobbyist, a drinking buddy. These activities are the fabric of the friendship. It is a doing relationship, in which similarity in interests is the key bond. This factor was a consideration of less than 11% of women. Women opt for a warm, emotional atmosphere where communication flows freely. Activity is mere background.",
+        "Lastly, men, as we have seen, have serious questions about each other's loyalty. Perhaps this is why they placed such strong emphasis on responsiveness in a crisis. Someone I can call on for help. Women, as their testimonies indicate, are generally more secure with each other and consequently are more likely to treat this issue lightly. In follow-up interviews, this was confirmed numerous times, as woman after woman indicated that being there when needed was taken for granted. As for the hazards of friendship, more than a few relationships have been shattered because of cutthroat competition and feelings of betrayal. This applies to both men and women, but unequally. In comparison, nearly twice as many men complained about these issues as women. Further, while competition and betrayal are the main thorns to female friendship, men are plagued in almost equal amounts by two additional issues: lack of frankness and a fear of appearing unmanly. Obviously, for a man, a good friendship is hard to find."
+      ]
+    },
+    {
+      "id": "cet6-2020-07-1-listening-6",
+      "title": "讲座二",
+      "questionNumbers": [
+        19,
+        20,
+        21
+      ],
+      "transcript": [
+        "The partial skeletons of more than 20 dinosaurs and the scattered bones of about 300 more have been discovered in Utah and Colorado at what is now the Dinosaur National Monument. Many of the best specimens may be seen today at museums of natural history in the larger cities of the United States and Canada. This dinosaur pit is the largest and best preserved deposit of dinosaurs known today.",
+        "Many people get the idea from the mass of bones in the pit wall that some disaster such as a volcanic explosion or a sudden flood killed a whole herd of dinosaurs in this area. This could have happened, but it probably did not. The main reasons for thinking otherwise are the scattered bones and the thickness of the deposit. In other deposits where the animals were thought to have died together, the skeletons were usually complete and often all the bones were in their proper places. Rounded pieces of fossil bone have been found here. These fragments got their smooth round shape by rolling along the stream bottom. In a mass killing, the bones would have been left on the stream or lake bottom together at the same level. But in this deposit, the bones occur throughout a zone of sandstone about 12 feet thick. The mixture of swamp dwellers and dry land types also seems to indicate that the deposit is a mixture from different places.",
+        "The pit area is a large dinosaur graveyard, not a place where they died. Most of the remains probably floated down an eastward flowing river until they were left on a shallow sandbar. Some of them may have come from far away dry land areas to the west. Perhaps they drowned trying to cross a small stream or were washed away during floods. Some of the swamp dwellers may have got stuck in the very sandbar that became their grave. Others may have floated for miles before being stranded. Even today, similar events take place. When floods come in the spring, sheep, cattle and deer are often trapped by rising waters and often drown. Their dead bodies float downstream until the flood recedes and leaves them stranded on a bar or shore where they lie, half buried in the sand, until they decay. Early travelers on the Missouri River reported that shores and bars were often lined with the decaying bodies of buffalo that had died during spring floods."
+      ]
+    },
+    {
+      "id": "cet6-2020-07-1-listening-7",
+      "title": "讲座三",
+      "questionNumbers": [
+        22,
+        23,
+        24,
+        25
+      ],
+      "transcript": [
+        "I would like particularly to talk about the need to develop a new style of aging in our own society. Young people in this country have been accused of not caring for their parents the way they would have in the old country. And this is true. But it is also true that old people have been influenced by an American ideal of independence and autonomy. So we live alone, perhaps on the verge of starvation, in time without friends. But we are independent. This standard American style has been forced on every ethnic group, although there are many groups for whom the ideal is not practical. It is a poor ideal, and pursuing it does a great deal of harm.",
+        "This ideal of independence also contains a tremendous amount of unselfishness. In talking to today's young mothers, I have asked them what kind of grandmothers they think they are going to be. I hear devoted, loving mothers say that when they are through raising their children, they have no intention of becoming grandmothers. They are astonished to hear that in most of the world, throughout most of its history, families have been three- or four-generation families, living under the same roof.",
+        "We have overemphasized the small family unit — father, mother, small children. We think it is wonderful if grandma and grandpa, if they're still alive, can live alone. We have reached the point where we think the only thing we can do for our children is to stay out of their way, and the only thing we can do for our daughter-in-law is to see as little of her as possible. Old people's nursing homes, even the best run, are filled with older people who believe the only thing they can do for their children is to look cheerful when they come to visit. So in the end, older people have to devote all their energies to not being a burden.",
+        "We are beginning to see what a tremendous price we've paid for our emphasis on independence and autonomy. We've isolated old people, and we've cut off the children from their grandparents. One of the reasons we have as bad a generation gap today as we do is that grandparents have stepped out. Young people are being deprived of the thing they need most — perspective, to know why their parents behave so peculiarly, and why their grandparents say the things they do."
+      ]
+    }
+  ],
+  "materialId": "826b494725aff56a0698",
+  "questionSetId": "db9586bc37f0187f5ee4"
+}
