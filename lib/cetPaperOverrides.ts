@@ -4,6 +4,8 @@ import path from "node:path";
 import { accountFetch } from "@/lib/accountStore";
 import { validateCetParagraphEdit } from "@/lib/cetPaperFormatting";
 import type { CetPaper } from "@/types/cet";
+import { cetListeningMetadata } from "./cetListeningCatalog";
+import readingLayout from "@/data/cet/reading-layout.json";
 
 interface CetPaperOverrideRow {
   paper_id: string;
@@ -13,7 +15,14 @@ interface CetPaperOverrideRow {
 
 export async function readBaseCetPaper(id: string): Promise<CetPaper> {
   if (!/^cet[46]-\d{4}-\d{2}-[1-3]$/.test(id)) throw new Error("Invalid CET paper id.");
-  return JSON.parse(await readFile(path.join(process.cwd(), "data", "cet", `${id}.json`), "utf8")) as CetPaper;
+  const paper = JSON.parse(await readFile(path.join(process.cwd(), "data", "cet", `${id}.json`), "utf8")) as CetPaper;
+  const layout = (readingLayout as Record<string, Record<string, string[]>>)[id];
+  if (layout) paper.sections = paper.sections.map(section => layout[section.id] ? { ...section, paragraphs: layout[section.id] } : section);
+  if (cetListeningMetadata.some(item => item.paperId === id)) {
+    const section = JSON.parse(await readFile(path.join(process.cwd(), "data", "cet", "listening", `${id}.json`), "utf8"));
+    paper.sections = [section, ...paper.sections];
+  }
+  return paper;
 }
 
 export async function readCetPaperOverride(id: string): Promise<CetPaperOverrideRow | null> {

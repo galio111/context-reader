@@ -15,6 +15,14 @@
     reverse_proxy storage:5000
   }
 
+  # Reviewed original audio is immutable and read-only. Caddy serves byte
+  # ranges without routing large media through the Next.js application.
+  handle_path /cet-audio/* {
+    root * /srv/cet-audio
+    header Cache-Control "public, max-age=31536000, immutable"
+    file_server
+  }
+
   handle {
     reverse_proxy app:3000 {
       # The app limiter consumes X-Real-IP; overwrite untrusted client input.

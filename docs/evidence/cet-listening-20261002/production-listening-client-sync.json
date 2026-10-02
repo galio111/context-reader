@@ -1,0 +1,18 @@
+{
+  "accountId": "297f0233-83e8-4807-be8d-6841200e48e2",
+  "protocol": 2,
+  "twoIndependentIndexedDBDevices": true,
+  "listeningPlaybackSeconds": 42.5,
+  "listeningTranscriptSnapshotGroups": 8,
+  "oldReadingScopeQuestions": 30,
+  "v3CountupElapsedMs": 40000,
+  "v2Retained": true,
+  "oldFullV2ClientRoundtrip": true,
+  "articleRetained": true,
+  "noTombstones": true,
+  "writeCount": 5,
+  "activityIds": [
+    "9596c189-e21e-44fb-92be-ec23a59c1eeb",
+    "5c9d0522-0615-4310-94d4-72e8ec55eb44"
+  ]
+}

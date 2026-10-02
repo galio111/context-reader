@@ -1,0 +1,745 @@
+{
+  "id": "cet4-2024-12-1-listening",
+  "type": "listening",
+  "title": "听力",
+  "paragraphs": [],
+  "questions": [
+    {
+      "number": 1,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "She is making a special effort to be recognized."
+        },
+        {
+          "key": "B",
+          "text": "She has been living in Fayetteville for 25 years."
+        },
+        {
+          "key": "C",
+          "text": "She has been driving a school bus ever since 2009."
+        },
+        {
+          "key": "D",
+          "text": "She is the longest-serving bus driver in Fayetteville."
+        }
+      ],
+      "answer": "D",
+      "explanation": "1.WhatdowelearnaboutSherryChristian?我们了解到关于谢丽·克里斯蒂安的什么信息？ A)她格外努力以获得认可。 C)她从2009年开始开校车。 B)她已经在费耶特维尔生活了25年。 D)她是费耶特维尔服务时间最长的公交司机。 解新闻开头提到，费耶特维尔市在“公交司机感恩日”到来之前，特意组织了一场公交司机表彰活动。作为 析 活动的一部分，该市将表彰在职时间最长的司机。这位司机是谢丽·克里斯蒂安。由此可知，选项D为正 确答案。新闻中提到，谢丽·克里斯蒂安已经当了25年的司机，是本地人，但并没有提到她在费耶特维尔 生活了多少年，故排除选项B。选项c是利用新闻细节信息asfarbackas2009设置的干扰项，新闻说的是早 在2009年，全国各地就开始庆祝“公交司机感恩日”，而非谢丽·克里斯蒂安从2009年开始开校车，故排 除选项C。选项A新闻中未提及，可排除。"
+    },
+    {
+      "number": 2,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "The importance of their service to the city."
+        },
+        {
+          "key": "B",
+          "text": "The number of riders they serve in the city."
+        },
+        {
+          "key": "C",
+          "text": "The new proclamation issued early this week."
+        },
+        {
+          "key": "D",
+          "text": "The significance of the event to take place March 18."
+        }
+      ],
+      "answer": "A",
+      "explanation": "2. What did city officials of Fayetteville want bus drivers to be aware of? 费耶特维尔市的官员希望公交司机知道什么？ A)他们的服务对城市的重要性。 C)本周初发布的新公告。 B)他们在该市服务的乘客数量。 D)3月18日活动的意义。 解新闻最后一句提到，费耶特维尔市的官员们表示，他们希望公交车司机知道他们对费耶特维尔有多么重 析 要，这些司机每年为近160万名乘客提供服务。由此可知，选项A为正确答案。其余三项均是利用新闻细 节信息设置的干扰项，与题干不符，均排除。"
+    },
+    {
+      "number": 3,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Budgeted $56.7 million for the coming school year."
+        },
+        {
+          "key": "B",
+          "text": "Requested to raise teachers’ salaries by 3 percent."
+        },
+        {
+          "key": "C",
+          "text": "Proposed a spending increase by 5.99 percent."
+        },
+        {
+          "key": "D",
+          "text": "Kept raising funds for at least 8 budget cycles."
+        }
+      ],
+      "answer": "C",
+      "explanation": "3.WhatdoesthenewsreportsaytheWiltonSchoolBoardhasdone?新闻报道中提到威尔顿学校董事做了什么？ A)为下一学年编制了5670万美元的预算。 C)提议增加5.99%的开支。 B)要求将教师工资提高3%。 D)为至少8个预算周期持续筹集资金。 解新闻开头就提到，威尔顿学校董事会提议增加5.99%的开支，故选项C正确。新闻中表示威尔顿学校本学年 析 的预算金额为5670万美元，而非下一学年，故排除选项A。其余两个选项在新闻中没有依据，可排除。"
+    },
+    {
+      "number": 4,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Decrease in salaries for school administrators."
+        },
+        {
+          "key": "B",
+          "text": "Reduction in federal and state funding."
+        },
+        {
+          "key": "C",
+          "text": "Firing of less qualified faculty members."
+        },
+        {
+          "key": "D",
+          "text": "Closing down of some less competitive schools."
+        }
+      ],
+      "answer": "B",
+      "explanation": "4.Whatwilladeclineinthetotalenrollmentleadto?总入学人数的减少将导致什么？ A)学校行政人员的工资减少。 C)解雇资质较差的教职员工。 B)联邦拨款和州拨款减少。 D)关闭一些竞争力较弱的学校。 解新闻最后一句提到，学生人数的减少意味着联邦拨款和州拨款的减少，故选项B为正确答案。其余三个选项在新闻中均未提及，可排除。"
+    },
+    {
+      "number": 5,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They often take place in the Scottish Highlands."
+        },
+        {
+          "key": "B",
+          "text": "They usually happen in the middle of the night."
+        },
+        {
+          "key": "C",
+          "text": "Their damage can be as serious as that of bombs."
+        },
+        {
+          "key": "D",
+          "text": "Their loud claps can be confused with explosions."
+        }
+      ],
+      "answer": "D",
+      "explanation": "5.Whatdowelearnaboutthundersnowsfromthereport?关于雷雪，我们从新闻报道中了解到什么？ A)它们通常发生在苏格兰高地。 C)它们造成的破坏会和炸弹一样严重。 B)它们通常发生在半夜。 D）它们的巨响可能与爆炸声相混淆。 解新闻开头提到，苏格兰发生了罕见的雷雪事件。惊慌失措的当地人以为听到了炸弹的爆炸声，于是报警 析 了。当雷电与暴风雪交织在一起时，就会发生这种现象，有时会产生巨大的响声，让人误以为是爆炸声。 由此可知，D为正确答案。新闻中虽提及雷雪产生的巨响威力足以让建筑物动，并触发汽车警报，但这 并不等于它造成的破坏跟炸弹一样严重，故排除选项C。其余两项新闻中并未提及，可排除。"
+    },
+    {
+      "number": 6,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They sent out a message to calm them down."
+        },
+        {
+          "key": "B",
+          "text": "They promised to stop the construction work."
+        },
+        {
+          "key": "C",
+          "text": "They told them the military exercise was over."
+        },
+        {
+          "key": "D",
+          "text": "They set off to inspect the site of the plane crash."
+        }
+      ],
+      "answer": "A",
+      "explanation": "6. What did the police do when they received the local residents'phone calls? 警方接到当地居民的电话后做了什么？ A）他们发公告让民众冷静下来。 C)他们告诉民众军事演习结束了。 B)他们答应阻止施工。 D)他们出发去检查飞机失事现场。 解新闻中提到，许多民众在听到巨响后报警，警方发出公告，让人们保持冷静，并向民众保证，这只是雷电 析 现象，而不是什么军事演习，由此可知，选项A为正确答案，同时可排除选项C。其余两项新闻中并未提 及，可排除。"
+    },
+    {
+      "number": 7,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Keep warm."
+        },
+        {
+          "key": "B",
+          "text": "Take caution."
+        },
+        {
+          "key": "C",
+          "text": "Avoid driving."
+        },
+        {
+          "key": "D",
+          "text": "Use rail service."
+        }
+      ],
+      "answer": "B",
+      "explanation": "7.Whatwerepeopleadvisedtodowhentravelingoutside?人们外出时被建议做什么？ A)注意保暖。 C)不要开车。 B)注意安全。 D)乘坐火车。 解新闻最后提到，雷雪天气，气温极低，相关部门警告人们外出时要当心，故选项B为正确答案。选项C和选项D是利用新闻细节信息设置的干扰项，与新闻描述不符，故排除。选项A在新闻中并未提及，可排除。 Section"
+    },
+    {
+      "number": 8,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Why the man is so anxious to buy a new phone."
+        },
+        {
+          "key": "B",
+          "text": "How the man could possibly afford a new phone."
+        },
+        {
+          "key": "C",
+          "text": "How the man got into the habit of being wasteful."
+        },
+        {
+          "key": "D",
+          "text": "Why the man is so fond of using his credit card."
+        }
+      ],
+      "answer": "B",
+      "explanation": "8.Whatdoesthewomansayshewasactuallywonderingabout?女士说她实际上在好奇什么？ A)为何男士如此急切地想买一部新手机。 C)男士如何养成了浪费的习惯。 B）男士怎么可能买得起一部新手机。 D)为何男士如此喜欢使用他的信用卡。 解，在对话开头，男士以为女士要说他不应该这么快换手机，但是女士说自己实际上在想他怎么可能买得起一 析 部新手机，所以答案是B项。其他三项与对话内容不符，故均排除。"
+    },
+    {
+      "number": 9,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It is not in fashion any more."
+        },
+        {
+          "key": "B",
+          "text": "It goes out of order frequently."
+        },
+        {
+          "key": "C",
+          "text": "It is not as fancy as his colleagues’."
+        },
+        {
+          "key": "D",
+          "text": "It lacks functions office work requires."
+        }
+      ],
+      "answer": "C",
+      "explanation": "9. Why is the man a little embarrassed by the phone he's using now? 为什么男士对自己现在用的手机有点难为情？ A)它已经不再流行了。 C)它不像同事们的手机那样贵。 B)它经常出故障。 D）它缺少办公所需的功能。 解在对话中，男士提到办公室里每个人都有一部很不错、价格昂贵的手机，他对自己的手机有点难为情。 析 由此可知，男士认为自已的手机比不上同事们的手机，没有同事们的手机那么好、那么贵，所以答案是C 项。A、B、D三项在对话中没有相关信息，故均排除。"
+    },
+    {
+      "number": 10,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It enables him to buy a new phone at a more favorable price."
+        },
+        {
+          "key": "B",
+          "text": "It is a special offer to recent college graduates working in offices."
+        },
+        {
+          "key": "C",
+          "text": "It is available to office workers who have a good enough credit score."
+        },
+        {
+          "key": "D",
+          "text": "It allows him to borrow money without paying interest for six months."
+        }
+      ],
+      "answer": "D",
+      "explanation": "1o.Whatdoesthemansayaboutthecreditcardhejustgot?关于他刚办的信用卡，男士说了什么？ A)它能让他以更优惠的价格买到一部新手机。 B)它是针对在办公室工作的应届大学毕业生的一项特别优惠。 C)它适用于信用评分足够好的办公室职员。 D）它允许他在六个月内借钱不用支付利息。 解，在对话中，男士提到刚办的这张信用卡有个很不错的优惠活动，六个月内不用付利息，所以答案是D项。 析 对话中并没有提及这张信用卡能够让他在买新手机时享受更优惠的价格，故排除A项；B项拼凑了对话中 的几处信息，不符合对话内容，故排除；C项在原文中没有相关信息，也排除。"
+    },
+    {
+      "number": 11,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "She borrowed money to pay her debt."
+        },
+        {
+          "key": "B",
+          "text": "She developed a habit of overspending."
+        },
+        {
+          "key": "C",
+          "text": "She enjoys buying a lot of fancy things."
+        },
+        {
+          "key": "D",
+          "text": "She regrets ignoring the woman’s advice."
+        }
+      ],
+      "answer": "B",
+      "explanation": "1l.Whatdowelearnaboutoneofthewoman'scolleagues？关于女士的一位同事，我们了解到什么？ A)她借钱来偿还债务。 C)她喜欢买很多昂贵的东西。 B)她养成了过度消费的习惯。 D)她后悔忽视了女士的建议。 解在对话最后，女士提到她的一个同事在工作第一年用信用卡买了很多东西，结果就养成了坏习惯，累积了 析 很多债务，故选B。A项在对话中没有相关信息，故排除。女士提到她的同事买了很多东西，但并没有说 是昂贵的东西，故排除C项；对话中男士提及女士的那位女同事肯定后悔了，但这只是男士的猜测，而且 对话并未提女士是否给那位女同事提建议，故D项也排除。"
+    },
+    {
+      "number": 12,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Blog writing and natural resources saving."
+        },
+        {
+          "key": "B",
+          "text": "Joint efforts to improve the local community."
+        },
+        {
+          "key": "C",
+          "text": "Audience participation in The Morning Show."
+        },
+        {
+          "key": "D",
+          "text": "Home ownership and environmental protection."
+        }
+      ],
+      "answer": "D",
+      "explanation": "12.Whatdoesthetinyhomemovementmainlyadvocate?小户型住宅运动主要侣导什么？ A)博客写作与节约自然资源。 C)观众参与《早间秀》。 B)共同努力改善当地社区。 D）自有住房率以及环境保护。 解在对话开头，女士告诉男士很多人不了解小户型住宅运动，所以请他告知观众这项运动是关于什么的，男 析 土回答说这项运动主要是关于增加自有住房率以及环境保护的，所以答案是D项。A、B两项对话中没有提 到，故排除；C项是利用对话细节设置的干扰项，故也排除。"
+    },
+    {
+      "number": 13,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Not a realistic size for families."
+        },
+        {
+          "key": "B",
+          "text": "Not welcomed by most Americans."
+        },
+        {
+          "key": "C",
+          "text": "Only fit for families of four or less."
+        },
+        {
+          "key": "D",
+          "text": "Only suitable for renting to the poor."
+        }
+      ],
+      "answer": "A",
+      "explanation": "13.What does the woman say about houses as small as 20 square meters? 关于面积小至20平方米的房子，女士说了什么？ A)对很多家庭来说面积不太现实。 C)只适合四口或四口以下的家庭。 B)不受大多数美国人欢迎。 D)只适合租给穷人。 解在对话中，女士提到她看过男士的博客，他所写的那些房子面积小到只有20平方米，然后她评价道，对于 析 很多家庭来说，这样的面积并不现实，所以答案是A项。虽然对话中女士提到大多数人想要宽的房子， 但不能由此推出面积小至20平方米的房子不受大多数美国人欢迎，B项过度推断，故排除；对话中男士提 到很多四口之家住在不到30平方米的房子里也过得很开心，但是女士对此并没有作任何评价，故排除C 项；D项对话中没有相关信息，故排除。"
+    },
+    {
+      "number": 14,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It should be changed."
+        },
+        {
+          "key": "B",
+          "text": "It isn’t easy to realize."
+        },
+        {
+          "key": "C",
+          "text": "It will come true sooner or later."
+        },
+        {
+          "key": "D",
+          "text": "It doesn’t appeal to average families."
+        }
+      ],
+      "answer": "A",
+      "explanation": "14.What does theman think about thedream of owning a 150-square-meter house? 男士对拥有150平方米房子的梦想有什么看法？ A)它应该被改变。 C)它迟早会实现。 B)它不容易实现。 D)它对普通家庭没有吸引力。 解在对话中，女士提到150平方米的房子才是人们梦想拥有的房子，男士对此的评价是，考虑到住房成本， 析 这个梦想需要改变了，所以答案是A项。其他三项对话中没有相关信息，故均排除。"
+    },
+    {
+      "number": 15,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They help to lower housing prices."
+        },
+        {
+          "key": "B",
+          "text": "They help to save up for larger houses."
+        },
+        {
+          "key": "C",
+          "text": "They are a good choice for many people."
+        },
+        {
+          "key": "D",
+          "text": "They are vital to reducing waste worldwide."
+        }
+      ],
+      "answer": "C",
+      "explanation": "15.Whatdoesthemansayabouttinyhomes？关于小户型住宅，男士说了什么？ A）它们有助于降低房价。 C）它们对很多人来说是个不错的选择。 B)它们有助于为购买更大的房子存钱。 D)它们对减少全球浪费至关重要。 解在对话中，男士总结道小户型住宅可能并不适合所有人，但对很多人来说是个不错的选择，所以答案是C项。虽然男士提到小户型住宅对环境有益处，即建造时使用更少的土地和资源，但并没有强调其对减少全球 浪费至关重要，对此没有相关的明确表述，故排除D项；A、B两项对话中没有相关信息，故均排除。 Section"
+    },
+    {
+      "number": 16,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Play outdoors and enjoy themselves."
+        },
+        {
+          "key": "B",
+          "text": "Beat challenges and take risks."
+        },
+        {
+          "key": "C",
+          "text": "Take care of their well-being."
+        },
+        {
+          "key": "D",
+          "text": "Grow up strong and healthy."
+        }
+      ],
+      "answer": "B",
+      "explanation": "16.Whatdochildrenseemtohaveanaturaldesiretodo?孩子们似乎天生就渴望做什么？ A)在户外玩要，尽情享受。 C)照顾好自己的健康。 B)战胜挑战，勇于冒险。 D)苗壮成长，身体健康。 解文章中提到，首先，孩子们似乎天生就有克服挑战、冒险的欲望。B项与文章内容一致，故为答案。其余 薪「三项的内容是否是孩子们天生就渴望做的事，文章中未提及，故排除。"
+    },
+    {
+      "number": 17,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Enable them to develop their motor skills."
+        },
+        {
+          "key": "B",
+          "text": "Help them to conceal their frustration."
+        },
+        {
+          "key": "C",
+          "text": "Reduce their stress and depression."
+        },
+        {
+          "key": "D",
+          "text": "Prevent them from feeling lonely."
+        }
+      ],
+      "answer": "C",
+      "explanation": "17. According to the American Psychological Association, what does regular physical activity do to children? 根据美国心理协会的说法，规律的体育活动对孩子们有什么作用？ A)使他们能够发展运动技能。 C)减轻他们的压力和抑郁情绪。 B)帮助他们掩饰沮丧情绪。 D)防止他们感到孤独。 解文章中提到，根据美国心理协会的研究，经常进行体育活动（尤其是户外活动）能够减轻孩子们的压力 析 和抑郁情绪。C项与文章内容一致，故为答案。A项文中虽提及，但未提及是美国心理协会的说法，故排 除。文中并未提及掩饰情绪和防止儿童感到孤独的内容，故排除B、D。"
+    },
+    {
+      "number": 18,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It begins early."
+        },
+        {
+          "key": "B",
+          "text": "It proves demanding."
+        },
+        {
+          "key": "C",
+          "text": "It calls for lifelong efforts."
+        },
+        {
+          "key": "D",
+          "text": "It lies in nature experiences."
+        }
+      ],
+      "answer": "A",
+      "explanation": "18.What does the passage say about cultivating the habit of physical activity? 关于培养体育活动的习惯，文章说了什么？ A)它开始得很早。 C)它需要终身努力。 B)它被证明要求很高。 D)它在于亲近自然的体验。 解文章中提到，我们都知道体育活动对我们的身心健康十分重要，而培养体育活动的习惯开始得很早。孩子 析 们更有可能从频繁的积极早期体验中养成终身热爱体育活动的习惯。A项与文章内容一致，故为答案。B项 文中未提及，故排除。文中并未提及终身努力的内容，故排除C。D项中亲近自然的体验文中虽提及，但这 说的是当孩子们不喜欢竞技运动或球类游戏时可以选择的其他活动之一，故排除。"
+    },
+    {
+      "number": 19,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "When companies share their information online."
+        },
+        {
+          "key": "B",
+          "text": "When their job search criteria are met fully."
+        },
+        {
+          "key": "C",
+          "text": "When companies embrace greater diversity"
+        },
+        {
+          "key": "D",
+          "text": "When they find job postings visually attractive."
+        }
+      ],
+      "answer": "C",
+      "explanation": "19. When are job seekers willing to explore jobs with lower salaries, according to a new study? 根据一项新的研究，求职者在什么时候愿意去考虑薪资较低的工作？ A)当公司在网上分享它们的信息时。 C）当公司接纳更高程度的多元化时。 B)当他们的求职标准完全得到满足时。 D)当他们觉得招聘信息具有视觉吸引力时。 解文章开头就提到，一项新研究发现，当企业更加多元化时，求职者甚至愿意考虑薪资较低的工作。C项与 文章内容一致，故为正确答案。"
+    },
+    {
+      "number": 20,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Emails in the normal format."
+        },
+        {
+          "key": "B",
+          "text": "Major companies in one location."
+        },
+        {
+          "key": "C",
+          "text": "All companies in the same sector"
+        },
+        {
+          "key": "D",
+          "text": "Various aspects of a company’s workforce."
+        }
+      ],
+      "answer": "A",
+      "explanation": "2o.What didparticipants seein the baseline conditionof the study? 在这项研究的基准条件组中，参与者看到了什么？ A）常规格式的电子邮件。 C)同一行业的所有公司。 B)同一地点的大公司。 D)公司员工的各个方面。 解文章中提到，在基准条件组中，参与者看到的是常规格式的邮件，邮件中没有关于多元化的信息。A项与 文章内容一致，故为正确答案。"
+    },
+    {
+      "number": 21,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Job security"
+        },
+        {
+          "key": "B",
+          "text": "Potential pay raises."
+        },
+        {
+          "key": "C",
+          "text": "Minimum base salary."
+        },
+        {
+          "key": "D",
+          "text": "Information about diversity."
+        }
+      ],
+      "answer": "D",
+      "explanation": "21.Whatdoesthepassagesayparticipantsseemtobepayingattentionto?文章中提到参与者似乎在关注什么呢？ A)工作保障。 C)最低基本工资。 B)潜在涨薪。 D)关于多元化的信息。 解文章中提到，参与者似乎更关注多元化方面的信息，并以此决定是否点击招聘信息。D项与文章内容一致，故为正确答案。"
+    },
+    {
+      "number": 22,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Positive."
+        },
+        {
+          "key": "B",
+          "text": "Original."
+        },
+        {
+          "key": "C",
+          "text": "Important."
+        },
+        {
+          "key": "D",
+          "text": "Surprising."
+        }
+      ],
+      "answer": "C",
+      "explanation": "22. What does the passage say about the findings of a new study from Oregon State University? 文章怎么评价俄勒冈州立大学一项新研究的发现？ A)积极的。 B)新颖的。 C)重要的。 D)令人惊诉的。 解文章开头提到，俄勒冈州立大学的一项新研究发现，狗往往会使其行为与家中孩子的行为相匹配。这些发 析 现很重要。C项与文章内容一致，故为正确答案。"
+    },
+    {
+      "number": 23,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Dogs match their behavior with kids as much as with adults."
+        },
+        {
+          "key": "B",
+          "text": "Kids and adults alike find in dogs a source of attachment."
+        },
+        {
+          "key": "C",
+          "text": "Kids’ attitude to dogs is influenced by adults."
+        },
+        {
+          "key": "D",
+          "text": "Dogs can help kids in many ways."
+        }
+      ],
+      "answer": "D",
+      "explanation": "23.Whatdoesagrowingbodyof evidenceshowaccordingtothepassage? 根据文章内容，越来越多的证据表明了什么？ A)狗与孩子的行为匹配频次和与成年人的行为匹配频次是一样的。 B)孩子和成人都把狗当作情感寄托的来源。 C)孩子对狗的态度受成人影响。 D）狗能在诸多方面帮助孩子。 解文章中提到，越来越多的证据表明，狗能在诸多方面帮助孩子，包括助力社交发展、增加身体活动量、缓 析 解焦虑，或是在家庭结构发生变化时成为情感寄托的对象。D项与文章内容一致，故为正确答案。文中研究 人员提到，我们观察到的一个有趣的现象是，虽然狗会配合孩子的行为，但相较于狗与成年人之间的互动 情况，这种配合的频率更低一些。由此可知，A项错误。文中虽然明确提到狗会在家庭结构发生变化时成为 孩子情感寄托的对象，然而并没有信息提及这同样适用于成人，故排除B项。C项文章中未提及，故排除。"
+    },
+    {
+      "number": 24,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Dogs pay much attention to the kids they live with."
+        },
+        {
+          "key": "B",
+          "text": "Dogs view both adults and kids as social companions."
+        },
+        {
+          "key": "C",
+          "text": "Kids differ from adults in their behavior towards dogs."
+        },
+        {
+          "key": "D",
+          "text": "Kids need to be aware of the risks in playing with dogs."
+        }
+      ],
+      "answer": "A",
+      "explanation": "24.WhatdidMoniqueUdellsaytheirstudysuggests？莫妮克·乌德尔说他们的研究表明了什么？ A）狗非常关注和它们一起生活的孩子。 C)孩子对待狗的行为与成人不同。 B)狗把成人和孩子都视为社交伙伴。 D)孩子需要意识到和狗玩要时存在的风险。 解文章中提到，莫妮克·乌德尔说这项研究表明狗会非常关注和它们一起生活的孩子。A项与文章内容一致，故为正确答案。文中仅提及狗可能将孩子视为社交伙伴，B项的表述超出了原文所给信息，存在过度 推断的问题，故排除。C项和D项文章中未提及，故排除。"
+    },
+    {
+      "number": 25,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Understanding dogs."
+        },
+        {
+          "key": "B",
+          "text": "Training dogs."
+        },
+        {
+          "key": "C",
+          "text": "Taking care of dogs."
+        },
+        {
+          "key": "D",
+          "text": "Associating with dogs."
+        }
+      ],
+      "answer": "B",
+      "explanation": "25.Whatdoesresearchshowkidsareverycapableofdoing？研究显示孩子们非常有能力做什么？ A)了解狗。 C)照顾狗。 B)训练狗。 D)与狗相处。 解文章最后提到，研究确实表明，孩子非常有能力训练狗。B项与文章内容一致，故为正确答案。 析1 Part I1I"
+    }
+  ],
+  "audio": {
+    "durationSeconds": 878.184375,
+    "mimeType": "audio/mpeg",
+    "bytes": 7025520,
+    "sha256": "38ee3cfa972a8781df6ebda33d06267249e15029f7a6f42657d14422fa1e574f",
+    "url": "/cet-audio/38ee3cfa972a8781df6ebda33d06267249e15029f7a6f42657d14422fa1e574f.mp3"
+  },
+  "listeningGroups": [
+    {
+      "id": "cet4-2024-12-1-listening-1",
+      "title": "短篇新闻一",
+      "questionNumbers": [
+        1,
+        2
+      ],
+      "transcript": [
+        "The City of Fayettevilleis making a special effort to recognize its bus drivers ahead of the newly proclaimed Transit Driver Appreciation Day happening Saturday. As part of the event, the city is celebrating its longest-serving driver on the force.",
+        "That driver is Sherry Christian.Christian has been a driver for 25 years.The Fayetteville native believes driving a school bus allows her to give back to her community. She says that the best part of the job is watching the children who ride her bus grow up.",
+        "Transit Driver Appreciation Day has been celebrated across the country as far back as 2009.However,this week, the Cityof Fayetteville issued a proclamation for the day to take place March 18th. Officials said they want bus drivers to know how important they are to Fayetteville, serving almost 1.6 million riders a year."
+      ]
+    },
+    {
+      "id": "cet4-2024-12-1-listening-2",
+      "title": "短篇新闻二",
+      "questionNumbers": [
+        3,
+        4
+      ],
+      "transcript": [
+        "The Wilton School Board has proposed a5.99% spending increase.Ifapproved,it would be the largest jump in at least eight budget cycles.The 5.99% request more than doubles the highest previous year-over-year increase in the last eight years, which was 2.99%for the 2021-2022 school year.The biggest driver of the $91.8million proposed budget remains teacher salaries.These accountfor64%of the total request at $59 million.The $59million is up from theS56.7million budgeted for the current school year.",
+        "There are some factors that could affect the budget moving forward.One of those is total enrollment.The district will have a total enrollment of 3,742 students.Almost all of these students will be in kindergarten through high school, but 66 will be in prekindergarten and other programs. This represents 47 fewer students than the current year. Fewerstudentsmeanlessfederal and state funding."
+      ]
+    },
+    {
+      "id": "cet4-2024-12-1-listening-3",
+      "title": "短篇新闻三",
+      "questionNumbers": [
+        5,
+        6,
+        7
+      ],
+      "transcript": [
+        "Arare thunder snow event has taken place in Scotland.And alarmed locals contacted police, thinking they had heard bombs going off.The phenomenon happens when thunder and lightning mix with a heavy snowstorm sometimes causing loud claps that can be confused with explosions.",
+        "One person described it as a loud boom, similar to a plane crash.Another person was woken up in the middle of the night by what he thought was early construction work starting.The noise was powerful enough to shake buildings and set off car alarms. The police were flooded with many calls from the public.  And they sent out a message asking people to remain calm.The police assured everyone that it was just thunder and lightning rather than some military exercise.The weather was the coldest it had been for the season, so people were warned to be careful when traveling outside.In particular,dangerous conditions such as icy roads or wet ground could cause difficulty for drivers. The rail service also announced potential disruptions to trains due to the deep snow.Some roads were also closed because of the severe weather."
+      ]
+    },
+    {
+      "id": "cet4-2024-12-1-listening-4",
+      "title": "长对话一",
+      "questionNumbers": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "transcript": [
+        "M: I'm going to the city centre to buy a new phone today.",
+        "W:Didn't you buy a new phone just two months ago?",
+        "M: It was three months ago, and I already know what you're going to say. You're thinking I shouldn't replace my phone this soon.",
+        "W:No, actually,I was wondering how you could possibly afford a new phone.But now that you mention it, I do think getting another phone so soon is wasteful, regardless of the cost.",
+        "M: Maybe you're right,  but the thing is, everyone at the office has a nice, expensive phone, and I'm a little embarrassed by mine.I just got a credit card, soI thought Imight as well buy a new phone.",
+        "W: I don't think buying a phone on credit is a good idea. Look, you've only been working for five months now. People understand that you are a recent graduate,and I doubt anyone cares about your phone other than yourself.",
+        "M:Maybe you're right,  but the credit card has a very good special offer, where I don't pay any interest for six months.I'll be able to pay for the phone well before that period is over.",
+        "W: I still think it's a bad idea to use a credit card for something you don't need.  One of my colleagues bought a lot of things on credit during her first year of work,and it became a bad habit,and she accumulated a lot of debt.",
+        "M:Well,I can see how that might happen to someone,and I'm sure she regrets it, butI know it won't happen to me."
+      ]
+    },
+    {
+      "id": "cet4-2024-12-1-listening-5",
+      "title": "长对话二",
+      "questionNumbers": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "transcript": [
+        "W:Welcome to The Morning Show.Our guest today is a popular blog writer and a major figure in the tiny home community.Welcome,Bob Jones.",
+        "M: Hi, Mary.",
+        "W:Hi, Bob.You're an advocate of the tiny home movement.Alot of people don't know about this movement. Can you tell our audience what it's about?",
+        "M:  Well, it's mainly about increasing home ownership and protecting the environment.",
+        "W:Of course,those are great goals.But I've seen your blog,and you write about houses that are as small as 20 square meters.  That's not a realistic size for families.",
+        "M:I do talk about very small homes,but there's no set definition of a tiny home.And other people include homes that are much larger,say,60 square meters.And you'd be surprisedmanyfamilies offour arehappyliving in houses that are under30 square meters.",
+        "W: ButI think most of us want spacious homes. The average new house in this area is 150 square meters.And that's what people dream of owning.",
+        "M: Yes,  but I think that dream needs to change, considering the cost of housing.",
+        "W:Housing costs are high,but do people really save that much by having a smaller home?",
+        "M:Absolutely.Many people who can only afford to renta large home are able to buy a tiny home.In this city,the average home costs $200000,and a tiny home costs justs50,000.",
+        "W: Those are huge savings.",
+        "M:  So, tiny homes might not be for everyone, but they're a good option for many.",
+        "W: You mentioned the environment earlier.How does this benefit the planet?",
+        "M:Well,if people have smaller homes,they use less land and fewer resources to build them."
+      ]
+    },
+    {
+      "id": "cet4-2024-12-1-listening-6",
+      "title": "短文一",
+      "questionNumbers": [
+        16,
+        17,
+        18
+      ],
+      "transcript": [
+        "Kids need time every day to run, jump, stretch and play.These experiences have been shown to build children's confidence and pleasure in physical activities,develop their motor skills,and even improve emotional well-being",
+        "To begin with, children seem to have a natural desire to overcome challenges and take risks. Taking healthy risks through physical movement builds children's confidence and ability to solve problems and persist through frustration.Secondly,movement activities build children's big body skills such as coordination and balance,as well as the fine motor skills they need for tasks like writing,tying their shoes, or throwing and catching a ball.  Thirdly, according to the American Psychological Association,regular physical activity (and especially outdoor activity)reduces children's stress and depression, and improves their ability to focus and learn.Regular exercise can significantly improve self-regulation and decrease disciplinary consequences for negative behavior.Physical activity provides a positive outlet for frustration, anxiety, or anger and can become a healthy coping skill throughout life. Finally, we know that physical activity is important for our physical and mental health,and cultivating the habit of physical activity starts early.Children are more likely to develop a lifelong love of physical activity from frequent positive early experiences. Not every child enjoys competitive sports or playing with balls and that's OK.There are plenty of other options such as imaginative play,non-competitive games, and gardening or nature experiences."
+      ]
+    },
+    {
+      "id": "cet4-2024-12-1-listening-7",
+      "title": "短文二",
+      "questionNumbers": [
+        19,
+        20,
+        21
+      ],
+      "transcript": [
+        "Anew study finds that job seekers are even willing to explore jobs with lower salaries when companies are more diverse.It finds that sharing information about diversity makes job postings more attractive to job seekers, even when pay is lower.",
+        "To conduct the study,the team partnered with an online job listings platform which emails postings relevant to individuals and their job search criteria.For the course of the ll-week study,the platform emailed job listings to some 180,000users placed in one of two conditions.In the baseline condition,participants saw emails in the normal format, with no information on diversityin the diversity condition,participants saw a diversity score for each listing:information about the race,gender,education,and language skills of a company's workforce compared to others in the same sector and location.Information was then gathered on whether the email was opened,and which job listings were clicked on by each user. Participants in the diversity condition tended to click on job listings from companies with slightly higher diversity scores than those in the baseline condition: that is, participants seemed tobe paying attention to information about diversity,and using this when deciding whether to click on the listing.And the team also found that participants were willing to look at listings with lower salaries if they came from companies with a higher diversity score."
+      ]
+    },
+    {
+      "id": "cet4-2024-12-1-listening-8",
+      "title": "短文三",
+      "questionNumbers": [
+        22,
+        23,
+        24,
+        25
+      ],
+      "transcript": [
+        "Anew study from Oregon State University found that dogs tend to match their behavior with the children in their family.Thefindings are important because there is a growing body of evidence that dogs can help children in many ways. These include helping with social development, increasing physical activity,managing anxiety or serving asa source of attachment in the face of changing family structures.",
+        "Yet, very little research has focused on how dogs perceive and socially engage with children.  “The great news is that this study suggests dogs are paying a lot of attention to the kids that they live with,said Monique Udell, the lead author of the study.“One interesting thing we have observed is that dogs are matching children's behavior,but less frequently than what we have seen between dogs and adults. This suggests that while dogs may view children as social companions,there are also some differences that we need to understand better.\"",
+        "Whileresearch has found dogs can have a lot of positive impacts on a child's life, there are also risks associated with the dog-child relationship.For example, other studies have found dogs are more likely to bite children versus adults.\"We still have a lot to learn about the dog-child relationship,Udell said.  \"But research does show that kids are very capable of training dogs.\""
+      ]
+    }
+  ],
+  "materialId": "9207b09c0c8573985f4b",
+  "questionSetId": "d4bbdad612095480377b"
+}

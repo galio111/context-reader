@@ -1,0 +1,52 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {JSDOM} from 'jsdom';
+import * as React from 'react';
+import {CetListeningPlayer, type CetListeningController} from '../components/cet/CetListeningPlayer';
+
+test('native media events: lazy loading, practice pause, self-test interruption and ended replay',async()=>{
+ const dom=new JSDOM('<!doctype html><body></body>',{url:'https://context-reader.com'});
+ for(const [key,value] of Object.entries({window:dom.window,document:dom.window.document,navigator:dom.window.navigator,HTMLElement:dom.window.HTMLElement,React,IS_REACT_ACT_ENVIRONMENT:true}))Object.defineProperty(globalThis,key,{value,configurable:true,writable:true});
+ const {render,fireEvent,act,cleanup}=await import('@testing-library/react');
+ let playing=false,ended=false;
+ Object.defineProperty(dom.window.HTMLMediaElement.prototype,'paused',{get:()=>!playing,configurable:true});
+ Object.defineProperty(dom.window.HTMLMediaElement.prototype,'ended',{get:()=>ended,configurable:true});
+ Object.defineProperty(dom.window.HTMLMediaElement.prototype,'currentSrc',{get(){return this.getAttribute('src')||'';},configurable:true});
+ dom.window.HTMLMediaElement.prototype.load=function(){};
+ dom.window.HTMLMediaElement.prototype.play=async function(){playing=true;fireEvent.loadedMetadata(this);fireEvent.playing(this);};
+ dom.window.HTMLMediaElement.prototype.pause=function(){playing=false;fireEvent.pause(this);};
+ const events:Array<[number,string]>=[],controller=React.createRef<CetListeningController>();
+ const props={audio:{url:'/cet-audio/source.mp3',sha256:'a'.repeat(64),durationSeconds:120,bytes:10000,mimeType:'audio/mpeg' as const},testing:false,stopped:false,controller,onCheckpoint:(p:number,s:string)=>events.push([p,s]),onRunningChange:()=>{}};
+ const ui=render(<CetListeningPlayer {...props}/>);
+ try{
+  const node=ui.container.querySelector('audio')!;
+  assert.equal(node.getAttribute('src'),null);
+  await act(async()=>fireEvent.click(ui.getByRole('button',{name:'播放听力'})));
+  assert.equal(node.getAttribute('src'),props.audio.url);
+  node.currentTime=17.5;
+  act(()=>controller.current!.checkpoint());assert.deepEqual(events.at(-1),[17.5,'playing']);
+  act(()=>fireEvent(dom.window,new dom.window.Event('pagehide')));assert.deepEqual(events.at(-1),[17.5,'paused']);
+  act(()=>fireEvent.click(ui.getByRole('button',{name:'暂停听力'})));assert.deepEqual(events.at(-1),[17.5,'paused']);
+  ui.rerender(<CetListeningPlayer {...props} testing/>);
+  assert.equal(ui.queryByRole('slider'),null);
+  await act(async()=>fireEvent.click(ui.getByRole('button',{name:'播放听力'})));
+  assert.equal((ui.getByRole('button') as HTMLButtonElement).disabled,true);
+  node.currentTime=51;
+  act(()=>node.pause());assert.deepEqual(events.at(-1),[51,'interrupted']);
+  assert.ok(ui.getByText(/被设备中断/));
+  await act(async()=>fireEvent.click(ui.getByRole('button',{name:'播放听力'})));
+  ended=true;node.currentTime=120;playing=false;act(()=>fireEvent.ended(node));
+  assert.deepEqual(events.at(-1),[120,'ended']);
+  act(()=>fireEvent.timeUpdate(node));assert.equal(events.at(-1)![1],'ended');
+  ui.rerender(<CetListeningPlayer {...props} testing stopped/>);
+  assert.equal((ui.getByRole('button') as HTMLButtonElement).disabled,true);
+  ui.rerender(<CetListeningPlayer {...props} stopped/>);
+  await act(async()=>fireEvent.click(ui.getByRole('button')));
+  assert.equal(node.currentTime,0);
+  ui.rerender(<CetListeningPlayer key="restored-paused-test" {...props} testing blocked initial={{position:51,state:'interrupted',at:new Date().toISOString(),eventId:'pause'}}/>);
+  assert.ok(ui.getByText('00:51 / 02:00'));
+  assert.equal(ui.queryByRole('slider'),null);
+  assert.equal(ui.container.querySelector('audio')!.getAttribute('src'),null);
+  assert.equal((ui.getByRole('button') as HTMLButtonElement).disabled,true);
+ }finally{cleanup();dom.window.close();}
+});

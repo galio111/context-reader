@@ -5,6 +5,7 @@ import { mergeCetActivity } from "@/lib/cetActivity";
 import { getLearningStorage, isLearningStorage } from "@/lib/learningStorage";
 import { notifyAccountDataChanged } from "@/lib/accountEvents";
 import { validCetUnderline } from "@/lib/cetUnderlines";
+import { validListeningPlayback, validListeningSnapshots } from "./cetListening";
 
 export const CET_ACTIVITIES_KEY = "context-reader:cet-activities:v2";
 export const CET_FINALIZATIONS_KEY = "context-reader:cet-finalizations:v2";
@@ -43,8 +44,10 @@ export function normalizeCetActivity(value: unknown): CetActivity | null {
   if (a.schemaVersion === 2 && a.purpose === "self_test" && !a.legacy && (!Number.isFinite(a.budgetMs) || !Number.isFinite(a.remainingMs))) return null;
   if (Object.values(a.answers).some((r) => !r || typeof r.value !== "string" || !r.eventId || !Number.isFinite(Date.parse(r.at)))) return null;
   if (a.underlines !== undefined && (typeof a.underlines !== "object" || Array.isArray(a.underlines) || Object.entries(a.underlines).some(([id, mark]) => id !== mark?.id || !validCetUnderline(mark)))) return null;
+  if (a.listeningPlayback !== undefined && (typeof a.listeningPlayback !== "object" || Array.isArray(a.listeningPlayback) || Object.entries(a.listeningPlayback).some(([id,p]) => !a.sectionIds.includes(id) || !validListeningPlayback(p)))) return null;
   if (Object.entries(a.finalizations).some(([id, f]) => !f || f.id !== id || !Number.isFinite(Date.parse(f.at)) || !Array.isArray(f.questions))) return null;
   if (Object.values(a.finalizations).some(f => f.underlines !== undefined && (!Array.isArray(f.underlines) || f.underlines.some(mark => !validCetUnderline(mark))))) return null;
+  if (Object.values(a.finalizations).some(f => !validListeningSnapshots(f.listeningSections))) return null;
   return a;
 }
 
@@ -53,7 +56,7 @@ export interface CetCommitPackage { schemaVersion?: 2 | 3 | 4; id?: string; atte
 export function readCetCommitPackages(storage: Storage = getLearningStorage()): CetCommitPackage[] {
   try {
     const raw = [CET_FINALIZATIONS_KEY, CET_FINALIZATIONS_V3_KEY, CET_FINALIZATIONS_V4_KEY].flatMap((key) => { try { const rows = JSON.parse(storage.getItem(key) || "[]"); return Array.isArray(rows) ? rows : []; } catch { return []; } });
-    return Array.isArray(raw) ? raw.filter((p): p is CetCommitPackage => Boolean(p?.attemptId && p.finalization?.id && Array.isArray(p.finalization.questions))) : [];
+    return Array.isArray(raw) ? raw.filter((p): p is CetCommitPackage => Boolean(p?.attemptId && p.finalization?.id && Array.isArray(p.finalization.questions) && validListeningSnapshots(p.finalization.listeningSections))) : [];
   } catch {
     return [];
   }

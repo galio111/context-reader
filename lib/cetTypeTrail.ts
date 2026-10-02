@@ -30,7 +30,7 @@ export function listAccessibleUnits(papers: CetPaper[], level:4|6,type:CetType):
 export function mergeTrailEvents(...sets:CetTrailEvent[][]):CetTrailEvent[]{
  const events=new Map<string,CetTrailEvent>();
  for(const e of sets.flat()){
-  if(!e || typeof e.id!=='string'||typeof e.owner!=='string'||![4,6].includes(e.level)||!['cloze','matching','detail'].includes(e.type)
+  if(!e || typeof e.id!=='string'||typeof e.owner!=='string'||![4,6].includes(e.level)||!['cloze','matching','detail','listening'].includes(e.type)
    ||!['practice','self_test'].includes(e.purpose)||!['view','answer','assistance_shown','finalized','restart','round'].includes(e.reason)
    ||typeof e.paperId!=='string'||typeof e.sectionId!=='string'||typeof e.round!=='string'||typeof e.activityId!=='string'||!Number.isFinite(Date.parse(e.at)))continue;
   const old=events.get(e.id);if(!old||JSON.stringify(e)>JSON.stringify(old))events.set(e.id,e);

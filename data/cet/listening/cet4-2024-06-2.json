@@ -1,0 +1,738 @@
+{
+  "id": "cet4-2024-06-2-listening",
+  "type": "listening",
+  "title": "听力",
+  "paragraphs": [],
+  "questions": [
+    {
+      "number": 1,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It hit a bird shortly after takeoff."
+        },
+        {
+          "key": "B",
+          "text": "Its crew members went on strike."
+        },
+        {
+          "key": "C",
+          "text": "It narrowly escaped a plane crash when turning around."
+        },
+        {
+          "key": "D",
+          "text": "Its captain got slightly injured during the forced landing."
+        }
+      ],
+      "answer": "A",
+      "explanation": "1.Whatdo we learn about the JetBlue Airlines flight from the news report? 从新闻报道中，我们了解到关于捷蓝航空公司航班的什么信息？ A）飞机起飞后不久就撞上了一只鸟。 C）飞机在掉头时险些坠毁。 B）机组人员罢工。 D）机长在迫降时受了轻伤。 解新闻开头提到，周日上午，捷蓝航空公司一架从西棕榈滩飞往纽约的飞机在撞上一只鸟后被迫掉头降落。 由此可知，选项A为正确答案。其余选项新闻中均未提及，故排除。"
+    },
+    {
+      "number": 2,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Panic."
+        },
+        {
+          "key": "B",
+          "text": "Nervous."
+        },
+        {
+          "key": "C",
+          "text": "Relieved."
+        },
+        {
+          "key": "D",
+          "text": "Contented."
+        }
+      ],
+      "answer": "C",
+      "explanation": "2.How did the passengersfeel when theplane came to a stop,according to Brian Healy? 据布菜恩·希利称，当飞机停稳后，乘客们有什么感受？ A)恐慌。 C)如释重负。 B)紧张。 D)满足。 解新闻末尾部分引述乘客布莱恩·希利的话提到：“那就像一瞬间的恐慌……造成飞机上乘客的紧张反应。 析 人们完全安静了下来，当飞机停稳后才松了一口气。”由此可知，选项C为正确答案。题目问的是飞机停 稳后乘客的反应，恐慌、紧张是发生事故后乘客的第一反应，选项A、B答非所问，故排除。D选项新闻中 未提及，故排除。"
+    },
+    {
+      "number": 3,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He is now kept in a secure area."
+        },
+        {
+          "key": "B",
+          "text": "He has escaped the zoo once again."
+        },
+        {
+          "key": "C",
+          "text": "He has been caught a second time."
+        },
+        {
+          "key": "D",
+          "text": "He finally disappeared six days ago."
+        }
+      ],
+      "answer": "B",
+      "explanation": "3.What do welearn about the deadly snake from the news report? 从新闻报道中，我们了解到这条致命的蛇的什么信息？ A）它现在被关在一个安全的地方。 C)它再次被捉。 B）它又一次逃出了动物园。 D)他最终在六天前失踪了。 解新闻开头部分提到，一条致命的蛇在逃离动物园后终于被找到，但它又第二次溜走了。新闻接下来详细描 述这条蛇两次逃离的细节：第一次逃跑后，这条蛇经过工作人员六天的拼命搜寻后终于被找到，并被安置 在一个据说安全的区域，但是它再一次出逃。直到新闻最后都没有提及这条蛇是否再次被找到，所以选项 B为正确答案，同时排除选项C。选项A错误，新闻中提到，这条毒蛇第一次逃跑并被找到后，被安置在一 个安全的地方，而这并不是当下这条蛇的境况，故排除。选项D错误，新闻中提到，这条毒蛇第一次逃跑 后，动物园经过六天的搜寻终于找到了它，而根据新闻所述，这条蛇被安置后又再次出逃，可见D项的说 法不准确，故排除。"
+    },
+    {
+      "number": 4,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Squeezed."
+        },
+        {
+          "key": "B",
+          "text": "Threatened."
+        },
+        {
+          "key": "C",
+          "text": "Disappointed."
+        },
+        {
+          "key": "D",
+          "text": "Frustrated."
+        }
+      ],
+      "answer": "D",
+      "explanation": "4.Howhavethezoostaffbeenfeelingaboutthesnake?对于这条蛇，动物园的工作人员有什么感受？ A)受挤压的。 C)失望的。 B)受到威胁的。 D)受挫的。 解新闻后面提到，这条蛇对动物园来说是新来者，但它已经让动物园的工作人员感到挫败了，故选项D为正确答案。A项Squeezed是新闻中提到的一个词，描述的是工作人员猜测它再次出逃是通过挤进新安装的 节能灯泡周围的缝隙实现逃脱的，不是工作人员对这条蛇的感受，故排除。其余两项新闻中均未提及，也 排除。"
+    },
+    {
+      "number": 5,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It is condemned as a crazy idea."
+        },
+        {
+          "key": "B",
+          "text": "It is enriching the city’s night life."
+        },
+        {
+          "key": "C",
+          "text": "It is questioned by local residents."
+        },
+        {
+          "key": "D",
+          "text": "It is giving rise to safety concerns."
+        }
+      ],
+      "answer": "D",
+      "explanation": "5.What do we learn from the news report about the introduction of electric bikes into Jacksonville? 关于杰克逊维尔市引入电动自行车的新闻报道，我们从中可以了解到什么？ A)它被指责是一个疯狂的想法。 C)它受到了当地居民的质疑。 B)它丰富了城市的夜生活。 D)它引发了安全担忧。 解新闻开头提到，自杰克逊维尔市中心推出为期一年的电动自行车试点项目以来，电动自行车在市中心掀起 了一股热潮，但它们也引发了安全担忧。由此可知，选项D为正确答案。根据新闻报道，电动自行车引发 了安全担优，即人们担心会出现安全问题，但并未提及当地居民质疑引入电动自行车这一举措，故排除选 项C。其余两项新闻中均未提及，故排除。"
+    },
+    {
+      "number": 6,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Avoid entering one-way streets."
+        },
+        {
+          "key": "B",
+          "text": "Ensure the safety of pedestrians."
+        },
+        {
+          "key": "C",
+          "text": "Follow all the traffic rules drivers do."
+        },
+        {
+          "key": "D",
+          "text": "Give way to automobiles at all times."
+        }
+      ],
+      "answer": "C",
+      "explanation": "6.Whatareelectricbikeriderssupposedtodo?电动自行车骑行者应当做什么？ A)避免进入单行道。 C）遵守驾驶员遵循的所有交通规则。 B）确保行人安全。 D）任何时候都给汽车让路。 解新闻中提到，电动自行车骑行者必须遵守和开车一样的规则。这意味着不能闯红灯，也不能在单行道上逆 行。由此可知，选项C为正确答案。新闻中提到，电动自行车不能在单行道上逆行，并非不让其进入单行 道，故排除选项A。其余两项新闻中均未提及，故排除。"
+    },
+    {
+      "number": 7,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "To ease the city’s busy traffic."
+        },
+        {
+          "key": "B",
+          "text": "To bring new life into the city."
+        },
+        {
+          "key": "C",
+          "text": "To add a new means of transport."
+        },
+        {
+          "key": "D",
+          "text": "To reduce the city’s air pollution."
+        }
+      ],
+      "answer": "B",
+      "explanation": "7.Why did City Council member Anna Cumber advocate the introduction of electric bikes into Jacksonville? 为什么市议员安娜·坎伯提倡将电动自行车引入杰克逊维尔市？ A)缓解城市繁忙的交通。 C)增加一种新的交通工具。 B）为城市带来新的活力。 D)减少城市空气污染。 解新闻末尾部分提到，市议员安娜·坎伯在将电动自行车引入杰克逊维尔，为市中心带来新的活力方面发挥 OT 了重要作用。由此可知，选项B为正确答案。其余选项新闻中均未提及，故排除。 SectionB"
+    },
+    {
+      "number": 8,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Take it seriously."
+        },
+        {
+          "key": "B",
+          "text": "Discuss it regularly."
+        },
+        {
+          "key": "C",
+          "text": "Make it sound scary."
+        },
+        {
+          "key": "D",
+          "text": "Talk about it openly."
+        }
+      ],
+      "answer": "B",
+      "explanation": "8.What shouldwe do with the topic ofmoney,according to the woman? 根据女士的观点，我们应该如何对待“钱”这个话题？ A)认真对待它。 C)让它听起来很吓人。 B)经常讨论它。 D)公开谈论它。 解对话一开始，男士询问女士教孩子们如何存钱和消费的最佳方法是什么，女士建议男士应该把钱作为一个 析 经常讨论的话题，所以答案是B项。A项在对话中找不到相关信息，故排除；女士说最好从孩子们很小的 时候就开始经常讨论这个话题，这样这个话题就不会成为一个可怕的话题，据此可排除C项；男士提到在 他们家，他们经常公开讨论一些有关钱的问题，但这不是女士的观点，所以排除D项。"
+    },
+    {
+      "number": 9,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "By shopping around for the best deals."
+        },
+        {
+          "key": "B",
+          "text": "By making abstract sums relevant."
+        },
+        {
+          "key": "C",
+          "text": "By citing concrete examples."
+        },
+        {
+          "key": "D",
+          "text": "By visiting discount stores."
+        }
+      ],
+      "answer": "C",
+      "explanation": "9.Howdoesthewomansaymoneycanbemaderealforchildren？女士说如何让孩子们真正了解钱？ A）通过货比三家以获得最佳优惠。 C)通过列举具体的例子。 B）通过让抽象的金额变得有意义。 D）通过逛折扣店。 解在对话中，女士提到，通过实际例子让孩子们真正了解钱也很重要，然后她举了算出使用披萨折扣券能省 多少钱的例子，所以答案为C项。男士提到他们家会公开讨论如何货比三家以获得最佳优惠，这不是女 士的观点和做法，故排除A项；B项曲解了女士所举的例子，故排除；D项在对话中找不到相关信息，故 排除。"
+    },
+    {
+      "number": 10,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Paying their kids to help with housework."
+        },
+        {
+          "key": "B",
+          "text": "Setting kids a good example by sharing chores."
+        },
+        {
+          "key": "C",
+          "text": "Giving kids pocket money according to their needs."
+        },
+        {
+          "key": "D",
+          "text": "Urging kids to deposit some of their gift money."
+        }
+      ],
+      "answer": "A",
+      "explanation": "10.Whatisthecommonpracticebetweenthemanandthewoman？男士和女士之间的共同做法是什么？ A）付钱让孩子们帮忙做家务。 C)根据孩子们的需求给他们零花钱。 B）通过分担家务为孩子们树立好榜样。 D）敦促孩子们存一些红包钱。 解在对话中，男士提到他们也会给孩子们零花钱，而且孩子们得到的零花钱数额与家务劳动挂钩，女士说他 析 们也是这么做的，而且是根据孩子们的年龄支付的。也就是说，女士家也给孩子们零花钱，以让孩子们帮 忙做家务，所以答案为A项。B项在对话中找不到相关信息，故排除；C项的“根据孩子们的需求”与对话 内容不符，故排除；D项提到的做法是男士家里的做法，女士说自已还没考过这么做，故排除D项。"
+    },
+    {
+      "number": 11,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "The importance of cutting down family expenses."
+        },
+        {
+          "key": "B",
+          "text": "The need to learn important lessons from her elders."
+        },
+        {
+          "key": "C",
+          "text": "The delight in seeing their savings grow."
+        },
+        {
+          "key": "D",
+          "text": "The necessity of saving into a pension."
+        }
+      ],
+      "answer": "D",
+      "explanation": "11. Whatisthewomanalwaystalkingabouttoherelderdaughter？女士总是和她的大女儿谈论什么？ A）减少家庭开支的重要性。 C)看到存款增长的喜悦。 B）向长辈汲取宝贵经验的必要性。 D)储蓄养老金的必要性。 解+在对话最后，女士提到她经常跟她的大女儿谈论储蓄养老金的重要性，所以答案是D项。A、B两项在对 析 话中没有相关信息，故排除；C项的“存款增长”在对话中提到了，但这并非女士经常和大女儿谈论的话 题，故排除。"
+    },
+    {
+      "number": 12,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He is a successful businessman."
+        },
+        {
+          "key": "B",
+          "text": "He reviews books on political affairs."
+        },
+        {
+          "key": "C",
+          "text": "He has published a new bestseller."
+        },
+        {
+          "key": "D",
+          "text": "He has worked in several banks."
+        }
+      ],
+      "answer": "C",
+      "explanation": "12.Whatdowelearnabouttheman?关于男士，我们了解到什么？ A)他是一名成功的商人。 C)他出版了一本新的畅销书。 B)他评论有关政治事务的书籍。 D）他曾在几家银行工作过。 解在对话一开始，女士介绍男士时提到，男士是畅销新书《奖励成功》的作者，所以答案为C项。根据对话 析 中对男士的背景介绍可知，男士并不是一名商人，故排除A项；男士提到自己在过去的10年里，一直在做 政治顾问，就国家问题向国家层面的政治家提供建议，据此排除B项；D项是根据男士的名字中的Banks 设置的干扰项，故排除。"
+    },
+    {
+      "number": 13,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "The man’s ideas about education."
+        },
+        {
+          "key": "B",
+          "text": "The man’s academic background."
+        },
+        {
+          "key": "C",
+          "text": "The man’s attempts at drawing public attention."
+        },
+        {
+          "key": "D",
+          "text": "The man’s proposals to solve economic problems."
+        }
+      ],
+      "answer": "A",
+      "explanation": "13.Whatdoesthewomansayisthemostcontroversial?女士说什么是最有争议的？ A)男士关于教育的观点。 C)男士试图引起公众注意。 B)男士的学术背景。 D)男士提出的解决经济问题的建议。 解在对话中，女士提到男士在书中讨论的三个问题，即改善公共教育、减轻国家医疗负担和增加个人储蓄， 但是他关于教育的观点是最有争议的，所以答案是A项。其他三个选项据此可以直接排除。"
+    },
+    {
+      "number": 14,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "To reduce students’ financial burden."
+        },
+        {
+          "key": "B",
+          "text": "To motivate all students to be successful."
+        },
+        {
+          "key": "C",
+          "text": "To give students incentive to excel in economics."
+        },
+        {
+          "key": "D",
+          "text": "To provide remedies for students’ poor performance."
+        }
+      ],
+      "answer": "B",
+      "explanation": "14.Whatdoesthemansayishisrealgoal?男士说他的真正目标是什么？ A)减轻学生的经济负担。 C)激励学生在经济学方面取得优异成绩。 B）激励所有学生取得成功。 D）为学生的糟糕成绩提供补救措施。 解在对话中，男士提到很多人认为他在试图惩罚成绩不好的学生，而实际上他的目标是给所有学生更多成功 的动力，所以答案是B项。其他三个选项据此直接排除。"
+    },
+    {
+      "number": 15,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Improving school budgeting."
+        },
+        {
+          "key": "B",
+          "text": "Increasing tuition fees."
+        },
+        {
+          "key": "C",
+          "text": "Seeking donations."
+        },
+        {
+          "key": "D",
+          "text": "Raising taxes."
+        }
+      ],
+      "answer": "D",
+      "explanation": "15.What will be one option for funding the proposed rewards according to the man? 根据男士的说法，为提议的奖励提供资金的一种选择是什么？ A)改进学校预算。 C)寻求捐助。 B)增加学费。 D)增加税收。 解在对话结尾，女士问男士如何为奖励提供资金，男士提到通过增加税收或将预算中其他方面的资金转入教 斤 育，D项的“增加税收”是其中一个方法，故选D。其他选项在对话中均未提及，故排除。 Section"
+    },
+    {
+      "number": 16,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "To show his sympathy towards people always being busy."
+        },
+        {
+          "key": "B",
+          "text": "To prevent people from complaining about being “busy”."
+        },
+        {
+          "key": "C",
+          "text": "To call on busy people to take care of themselves."
+        },
+        {
+          "key": "D",
+          "text": "To help busy people to sort out their priorities."
+        }
+      ],
+      "answer": "B",
+      "explanation": "16.Whyisthespeakerlaunchingacampaign?为什么说话者要发起一场运动？ A)对总是很忙的人表示同情。 C)呼吁忙碌的人们照顾好自己。 B)防止人们抱想“忙碌”。 D）帮助忙碌的人们理清事情的轻重缓急。 解在录音中，说话者提到自己发起了一场运动，让人们停止抱怨“忙碌”。由此可知，选项B与此一致，故 析 为正确答案。说话者提及，大家都很忙，所以忙碌的人并没有让他人产生任何同情心，故排除选项A。说 话者最后提到，没有人真的太忙一一只是事情的轻重缓急而已，但这并不是说要帮助忙碌的人们理清事情 的轻重缓急，故排除选项D。选项C录音中未提及，故排除。"
+    },
+    {
+      "number": 17,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Avoid saying we are busy."
+        },
+        {
+          "key": "B",
+          "text": "Reflect on their true purpose."
+        },
+        {
+          "key": "C",
+          "text": "Describe our schedule in detail."
+        },
+        {
+          "key": "D",
+          "text": "Respond as most busy people do."
+        }
+      ],
+      "answer": "A",
+      "explanation": "17.What does the speaker advise us to do next time someone asks how we are? 下次有人问起我们的近况时，说话者建议我们怎么做？ A）避免说我们很忙。 C)详细描述我们的日程安排。 B)反思他们的真正目的。 D）像大多数忙碌的人一样回应。 解说话者在开头提到，每当自己问别人“你好吗？”得到的回答都一模一样一 一“我很忙”，而且大多数人 都会这样回答。说话者最后提到，下次有人问你过得怎么样时，也许可以换一种方式回答，即避免说“我 很忙”。综合两处信息可知，选项A与说话者讲述的内容一致，因此为正确答案。选项B、C和D均与讲话 内容不符，故排除。"
+    },
+    {
+      "number": 18,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "To show their achievements resulted from great efforts."
+        },
+        {
+          "key": "B",
+          "text": "To prove they stand out as accomplished professionals."
+        },
+        {
+          "key": "C",
+          "text": "To cover up their failure to achieve some purpose."
+        },
+        {
+          "key": "D",
+          "text": "To tell others a complete lie about their inability."
+        }
+      ],
+      "answer": "C",
+      "explanation": "18.Why do many people make the“'m busy\"response according to the speaker? 根据说话者的看法，为什么很多人会给出“我很忙”的回答？ A)表明他们的成就是巨大努力的结果。 C）为了掩饰自己未能实现某些目标。 B）证明他们作为有成就的专业人士脱颖而出。D就自已的无能对他人撒一个弥天大谎。 解说话者最后提到，根据自己的经验，“我很忙”这个回答其实是在掩盖一个事实，那就是他们并没有实现 析 自己真正的目标。选项C与此内容一致，因此为正确答案。说话者提到，“忙碌”是他们对自己说的一个 谎言，用来解释为什么他们无法实现目标，而不是针对他人的，故排除D项。选项A和B讲话中未提及，故 排除。"
+    },
+    {
+      "number": 19,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They will help one reduce fear."
+        },
+        {
+          "key": "B",
+          "text": "They should become so popular."
+        },
+        {
+          "key": "C",
+          "text": "They will be less challenging after a time."
+        },
+        {
+          "key": "D",
+          "text": "They should cover so many different types."
+        }
+      ],
+      "answer": "A",
+      "explanation": "19.Whatmaysoundstrangetosayaboutextremesports?谈及极限运动，有什么听起来很奇怪的吗？ A）它们会帮助人们减少恐惧。 C）一段时间后，它们的挑战性会降低。 B）它们应该大受欢迎。 D）它们应该涵盖许多不同的类型。 解文章中提到，极限运动可能优于其他任何运动的一点就是帮助你消除恐惧。说它们的主要功能是减少恐 T 惧，听起来可能有些奇怪。选项A与文章内容一致，因此为正确答案。文章开头就提到，极限运动目前变 得很受欢迎，故排除选项B。极限运动的确涵盖许多不同的类型，如滑雪板运动、滑板运动、山地自行车 等，这听起来并不奇怪，故排除选项D。选项C文章中并未提及，可排除。"
+    },
+    {
+      "number": 20,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "To break one’s ultimate limits."
+        },
+        {
+          "key": "B",
+          "text": "To stop being extremely afraid."
+        },
+        {
+          "key": "C",
+          "text": "To avoid dangerous mistakes."
+        },
+        {
+          "key": "D",
+          "text": "To enjoy the sports to the full."
+        }
+      ],
+      "answer": "C",
+      "explanation": "20.Why should one be highlyfocused when doing extreme sports? 为什么人们在进行极限运动时注意力要高度集中？ A）打破自己的极限。 C）避免危险的错误。 B）不再极度恐惧。 D)充分享受运动的乐趣。 解文章中提到，在进行极限运动时，你必须变得更加专注。你会被推到极限，如果你不集中注意力，你就会 T 犯下危险的错误。选项C与文章内容一致，因此为正确答案。选项A、B和D均不是文章中提及的进行极限 运动时要高度集中注意力的原因，故排除。"
+    },
+    {
+      "number": 21,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "By allowing our motivation to be at an all-time high."
+        },
+        {
+          "key": "B",
+          "text": "By stopping us hurting the same muscles repeatedly."
+        },
+        {
+          "key": "C",
+          "text": "By burning as many as 300 calories per hour."
+        },
+        {
+          "key": "D",
+          "text": "By enabling us to get an all-over workout."
+        }
+      ],
+      "answer": "D",
+      "explanation": "21.How can extreme sports benefit us more than standard exercise routines and sports? 相较于常规的锻炼方式和体育运动，极限运动如何能给我们带来更多好处？ A)让我们的积极性达到前所未有的高峰。 C）每小时燃烧多达300卡路里的热量。 B）阻止我们重复损伤同一块肌肉。 D）让我们得到全面锻炼。 解文章中提到，保持身体健康固然很好，但常规的锻炼方式和体育运动只是反复锻炼同一块肌肉。而在极限 折T 运动中，你会锻炼到完全不同的肌肉，这意味着你将得到全面的锻炼。选项D与文章内容一致，因此为正 确答案。根据文章内容，当我们可以克服极限运动中的身体或心理挑战时，我们的自信心也会达到前所未 有的高度，这不是说我们的积极性达到前所未有的高峰，故排除选项A。由文章可知，常规的锻炼方式和 体育运动只是反复锻炼同一块肌肉，并未提及反复锻炼同一块肌肉是否会对其造成损伤，更未提及极限运 动是否会阻止我们重复损伤同一块肌肉，故排除选项B。文章提及篮球运动每小时可消耗约300卡路里， 但它并不是极限运动，故排除选项C。"
+    },
+    {
+      "number": 22,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It is natural."
+        },
+        {
+          "key": "B",
+          "text": "It is instrumental."
+        },
+        {
+          "key": "C",
+          "text": "It is personal."
+        },
+        {
+          "key": "D",
+          "text": "It is vital."
+        }
+      ],
+      "answer": "A",
+      "explanation": "22.Whatdoesthepassagesayaboutconflictinorganizations？关于组织中的冲突，这篇文章说了什么？ A）它是正常的。 C)它是个人的。 B)它是起到重要作用的。 D)它是至关重要的。 解，文章开头提到，我们中的大多数人都曾在团队或组织中，围绕我们正在讨论的想法或决策，与一起工作的 析 人发生过冲突。冲突是正常的。选项A与文章内容一致，因此为正确答案。根据文章内容可知，富有成效 的冲突是那些想要推进和做更多事情的团队和组织的重要组成部分，这并不是指所有的冲突都发挥着重要 的作用、具有至关重要性，故排除选项B和D。选项C文章未提及，故排除。"
+    },
+    {
+      "number": 23,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "To guard against being perceived negatively."
+        },
+        {
+          "key": "B",
+          "text": "To prevent themselves from being isolated."
+        },
+        {
+          "key": "C",
+          "text": "To conceal personality preferences."
+        },
+        {
+          "key": "D",
+          "text": "To maintain workplace harmony."
+        }
+      ],
+      "answer": "D",
+      "explanation": "23.Whydosomepeoplewanttoavoidconflictatall costs?为什么有些人想要不惜一切代价避免冲突？ A）防止别人对自己产生负面看法。 C)隐藏个性偏好。 B）防止自己被孤立。 D）保持工作场所的和谐。 解，文章中提到，我们往往会陷入这样一种境地，即我们认为冲突是不好的一一我们想要避免冲突，以保持工作 析 场所的和谐。这可能是因为有些人想要不惜一切代价避免冲突，毕竞他们还要一起工作。选项D与文章内容 一致，因此为正确答案。选项A、C是根据文中词汇杜撰的信息，选项B文章未提及，故三者均可排除。"
+    },
+    {
+      "number": 24,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It helps to enhance team spirit."
+        },
+        {
+          "key": "B",
+          "text": "It stimulates innovative ideas."
+        },
+        {
+          "key": "C",
+          "text": "It helps to resolve problems."
+        },
+        {
+          "key": "D",
+          "text": "It facilitates policy-making."
+        }
+      ],
+      "answer": "B",
+      "explanation": "24.Why is productive conflict importantfor teams and organizations? 为什么富有成效的冲突对团队和组织很重要？ A)它有助于增强团队精神。 C）它有助于解决问题。 B）它可以激发创新想法。 D)它有利于决策。 解文章中提到，富有成效的冲突是那些想要推进和做更多事情的团队和组织的一个重要组成部分。没有冲 析 突，团队就会陷人这种人为的和谐之中，人们因为害怕与他人发生冲突而不敢表达潜在的创新想法。由此 可知，富有成效的冲突之所以重要是因为它有利于激发创新想法，选项B与文章内容一致，因此为正确答 案。选项A、C和D文章中未提及，故排除。"
+    },
+    {
+      "number": 25,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "An innovative mind."
+        },
+        {
+          "key": "B",
+          "text": "Corporate culture."
+        },
+        {
+          "key": "C",
+          "text": "Mutual trust."
+        },
+        {
+          "key": "D",
+          "text": "A healthy mentality."
+        }
+      ],
+      "answer": "C",
+      "explanation": "25.Whatdoesproductiveconflictneedasabasis?富有成效的冲突需要什么作为基础？ A)创新意识。 C）相互信任。 B)企业文化。 D)健康的心态。 解+文章最后提到，如果你处于一个有信任基础的地方，冲突可以非常富有成效。选项C与文章内容一致，因 析 此为正确答案。根据文章内容，富有成效的冲突可以提高团队的创新能力和信任度，但这并不是说创新意 识是其基础，故排除选项A。选项B和D文章中均未提及，故排除。 Part II"
+    }
+  ],
+  "audio": {
+    "durationSeconds": 1415.53125,
+    "mimeType": "audio/mpeg",
+    "bytes": 22652772,
+    "sha256": "1afc96eae88670d98ba389ab3e35283a9a93ae156359e1036fb8e5b22c89e364",
+    "url": "/cet-audio/1afc96eae88670d98ba389ab3e35283a9a93ae156359e1036fb8e5b22c89e364.mp3"
+  },
+  "listeningGroups": [
+    {
+      "id": "cet4-2024-06-2-listening-1",
+      "title": "短篇新闻一",
+      "questionNumbers": [
+        1,
+        2
+      ],
+      "transcript": [
+        "A Jet Blue Airlines flight from West Palm Beach to New York City was forced to turn around and land Sunday morning after the plane struck a bird.Theflightfrom Palm Beach International Airport to LaGuardia Airport turned around just minutes after takeoff following the strike. No injuries were reported on the plane,and the flight took off once again7.5hours after the first attempt.\"It was like a split second of panic..that resulted in this nervous reaction on the plane,\"said passenger Brian Healy. \"There was total quiet,and then there was relief when the plane came to a stop.\"An email from Jet Blue read,\"Our team is working to accommodate customers on later flights.\""
+      ]
+    },
+    {
+      "id": "cet4-2024-06-2-listening-2",
+      "title": "短篇新闻二",
+      "questionNumbers": [
+        3,
+        4
+      ],
+      "transcript": [
+        "Adeadlysnake,which had finally been tracked down after escaping a zoo,has slipped away for the second time. The poisonous snake forced the closure of the attraction last week when staff noticed the disappearance. After six days of desperate searching,he was eventually found and placed in a supposedly secure area. But it seems the animal is no fan of the zoo,because yet again he is out on the loose.The snake is a relative newcomer to the zoo but has already been frustrating its staff.The staff believe he squeezed himself out of a gap located around new energy-saving bulbs installed inside the snake house.Hewas only found the first time around because staff brought in a special machine to trace him inside a wall opening. Thiskindofsnake is one of the most deadly and poisonous in the wild,and they can range from3to5meters in length."
+      ]
+    },
+    {
+      "id": "cet4-2024-06-2-listening-3",
+      "title": "短篇新闻三",
+      "questionNumbers": [
+        5,
+        6,
+        7
+      ],
+      "transcript": [
+        "Electric bikes have been the craze in downtown Jacksonville since they were first introduced earlier this month as a one-year pilot program. But theyre leading to safety concerns,mainly at night when some riders don't follow the rules of the road. As the night goes on,groups of riders are often seen traveling in just about every direction in the streets and on pedestrian paths.That is increasing the probability of dangerous accidents. Electric bike riders have to follow all the same rules as you would if you were in an automobile.Thatmeans no running red lights or traveling in the opposite direction of traffic on one-way streets. City Council Member Anna Cumber was instrumental in introducing the electric bikes to Jacksonville as a way to bring new life into downtown.And she's aware of the concems.Cumber said,People can have fun, but both drivers and riders are responsible for paying attention while on the road.Andneverassumethedriveris going to stop or see you.\""
+      ]
+    },
+    {
+      "id": "cet4-2024-06-2-listening-4",
+      "title": "长对话一",
+      "questionNumbers": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "transcript": [
+        "M:What'sthebest way to teach children how to save and spend their money?",
+        "W: You should make money a regular topic of discussion.It's best to start young,so it's instinctive rather than a scary subject.",
+        "M:In our family,we talk openly about things like the budget for holidays,how taxes reduce your income,and how to shop around for the best deals.",
+        "W:Indeed. It's also essential to make money real for children through practical examples.Working out how much we save using discount pizza coupons,for example,is much more relevant than abstract sums.",
+        "M:[1o] We also give our kids pocket money,and the amount they get is linked to chores, such as putting the bins out and emptying the dishwasher.",
+        "W:[1o] We do that too,and it's paid according to their age.Two pounds for each year so they can see some progression.",
+        "M:Teaching them to save is important.We opened a savings account when they were young.After birthdays and Christmas, they would go to the branch and deposit their gift money.",
+        "W:Oh,Ihadn't considered doing that.In our house,we have transparent money boxes for them to put small change in, so they can see their savings grow.",
+        "M:When the time is right, I'll start talking to our children about investing and show them how the money saved for their further education has grown.",
+        "W: Iam always talking to my elder daughter about the importance of saving into a pension,She's just started a",
+        "M:Yes,it'ssuchan important lesson to learn."
+      ]
+    },
+    {
+      "id": "cet4-2024-06-2-listening-5",
+      "title": "长对话二",
+      "questionNumbers": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "transcript": [
+        "W:Welcome to Books in Review. Our guest today is John Banks, the author of the best selling new book, Rewarding Success.",
+        "M: Glad to be here, Jane.",
+        "W:Your book has sold 2million copies,but before we discuss why it's getting so much attention, let's talk about your background.You're an economist and spent two decades teaching at universities?",
+        "M:I spent 25 years as a professor,actually.And then,for the last 10 years, I've worked as a political consultant, advising politicians at the national level about problems in our country.",
+        "W:You discuss three of those problems in the book,improving public education,reducing our nation's healthcare burden,and increasing personal savings. But your ideas about education are the most controversial.",
+        "M:Absolutely.Alot of people think I'm trying to punish students who aren't doing well,  when actuallymy goal is to give all students more incentive to succeed.",
+        "W:I'm not sure I agree with you.Your proposal to pay cash rewards to students who get good grades is a particular problem.What about students who don't get good grades? It seems like you're blaming them for not succeeding, when poor performance in school isn't a child's fault.",
+        "M:Butmyproposal is not just to reward students with good grades,but also students who show improvements.",
+        "W:Okay,another criticism of the plan is the cash rewards themselves.Wherewillthemoney come from?",
+        "M:If students do better,we'll spend less on schooling.So,in the end,the rewards will pay for themselves.",
+        "W:Whataboutnow?Howwillwefundtherewards in the meantime?",
+        "M:Well,  by increasing taxes or moving money from other areas of the budget into education."
+      ]
+    },
+    {
+      "id": "cet4-2024-06-2-listening-6",
+      "title": "短文一",
+      "questionNumbers": [
+        16,
+        17,
+        18
+      ],
+      "transcript": [
+        "Imetthreedifferent people today,and each time, when I asked,\"Howare you?\"Thereply was exactly the same. \"I'm busy\".Honestly,I hear the same answer from the vast majority of people Imeet.So I started to think:\"Guess what?Everybody's busy!\"I'm busy,you're busy,everybody's busy.So you being busy doesn't make me sympathetic at all.Because\"busy\"is the state of the world. SoI'm launching a campaign to stop people complaining about being\"busy.\"It may sound harsh, but the truth is, nobody cares. In a busy world, \"being busy\"doesn't stand out, nor does it mean productive, creative, accomplished,or professional. Steve Maraboli once said,\"When someone tells you they are too“busy,it's not a reflection of their schedule; it's a reflection of YOUR spot on their schedule.\"Donna Lynn Hopehas also remarked,\"Busydoesn't mean better.I've never envied a busypersontheone who likes to point out their busy lives to others.\" Thereality is,nobody is too busy-it's just about priorities. So the next time someone asks you how you are, maybe respond differently. In my experience, the\"I'm busy\"response is really covering up the fact that they're not actually accomplishing their real purpose.And“being busy\"is the lie they tell themselves about why they can't achieve it."
+      ]
+    },
+    {
+      "id": "cet4-2024-06-2-listening-7",
+      "title": "短文二",
+      "questionNumbers": [
+        19,
+        20,
+        21
+      ],
+      "transcript": [
+        "Moreand more people are taking up extreme sports,like snowboarding,skateboarding,mountain biking,and many more.Why are these sports becoming so popular?",
+        "Onething that extreme sports do better than perhaps anything else is to help you stop being afraid. Itmay sound strange to say that their main function istoreducefear.Butafteratime,your fear response to other things in life will be dramatically reduced.Afterall,if you can jump out of a plane or off abridge,then you can face anything else easily. When doing extreme sports,you have to become more focused.You'll be pushed to your limits,and if you aren't focused you'll make dangerous mistakes.Learning to be this focused when enjoying extreme sports will help you to be focused at work,keeping you more productive and ultimately more successful. It's great to stay fit and healthy,but standard exercise routines and sports only work the same muscles repeatedly. [2i] Withextreme sports,you'll be working entirely different muscles,and that means you get an all-over workout. Extreme sports also burn a lot more calories than other sports.Skateboarding,for example,can burn as many as 500 calories per hour.Basketball burns around300 in the same time. When you find that you can overcome the physical or mental challenges involved in extreme sports,you'll feel superhuman and your self-confidence will be at an all-time high."
+      ]
+    },
+    {
+      "id": "cet4-2024-06-2-listening-8",
+      "title": "短文三",
+      "questionNumbers": [
+        22,
+        23,
+        24,
+        25
+      ],
+      "transcript": [
+        "Most ofus have been in teams or organizations where we've had conflict with the people that we'reworking with around the ideas or decisions that we're discussing.Conflict is natural.We all bring different life and work experiences to the table.We all have different personality preferences and tendencies.We're not all going to have the same ideas on how to approach policies,programs or problems. Buttoo often we get caught in this place where conflict is perceived to be negative-something we want to avoid so that we can maintain the harmony of our workplace.Thiscouldbebecause some people want to avoid conflict at all costs,after all they still have to work together.But this kind of artificial harmony isn't the answer. Productive conflict is avital part of teams and organizations that want to push forward and do more.Without conflict,we're often stuck in this artificial harmony where people don't express potentially innovative ideas for fear that they may start conflict with others. But if you're in a place where you have a basis of trust, conflict can be extremely productive.It can lead to increased innovation and greater trust on teams.Itmaybe an uncomfortable process,but good leaders and healthy teams recognize that productive and healthy conflict is an important part of how they function."
+      ]
+    }
+  ],
+  "materialId": "236326bae98f3207ab4c",
+  "questionSetId": "9d54207117b8f8d19e76"
+}

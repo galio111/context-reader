@@ -1,4 +1,26 @@
-export type CetType = "cloze" | "matching" | "detail";
+export type CetType = "cloze" | "matching" | "detail" | "listening";
+export interface CetListeningGroup {
+  id: string;
+  title: string;
+  questionNumbers: number[];
+  transcript: string[];
+  // Only source-verified time boundaries may enable segment replay.
+  startSeconds?: number;
+  endSeconds?: number;
+}
+export interface CetListeningAudio {
+  url: string;
+  sha256: string;
+  durationSeconds: number;
+  mimeType: "audio/mpeg" | "audio/mp4";
+  bytes: number;
+}
+export interface CetListeningPlayback {
+  position: number;
+  state: "ready" | "playing" | "paused" | "ended" | "interrupted";
+  at: string;
+  eventId: string;
+}
 export interface CetQuestion {
   number: number;
   stem: string;
@@ -15,6 +37,8 @@ export interface CetSection {
   paragraphs: string[];
   questions: CetQuestion[];
   bank?: { key: string; text: string }[];
+  audio?: CetListeningAudio;
+  listeningGroups?: CetListeningGroup[];
 }
 export interface CetPaper {
   id: string;
@@ -98,6 +122,7 @@ export interface CetFinalization {
   elapsedMs: number;
   everPaused: boolean;
   conditions: string[];
+  listeningSections?: Record<string, { audio: CetListeningAudio; groups: CetListeningGroup[] }>;
   underlines?: CetUnderline[];
   underlinedParagraphs?: Record<string, string[]>;
 }
@@ -122,6 +147,7 @@ export interface CetActivity {
   status: CetActivityStatus;
   answers: Record<string, CetAnswerRevision>;
   underlines?: Record<string, CetUnderline>;
+  listeningPlayback?: Record<string, CetListeningPlayback>;
   finalizations: Record<string, CetFinalization>;
   createdAt: string;
   startedAt: string;

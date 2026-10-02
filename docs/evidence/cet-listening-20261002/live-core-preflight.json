@@ -1,0 +1,28 @@
+{
+  "at": "2026-10-02T06:11:21.339Z",
+  "signedIn": true,
+  "results": [
+    {
+      "route": "/api/explain-word-stream",
+      "status": 200,
+      "bytes": 747,
+      "durationMs": 1105,
+      "completed": true
+    },
+    {
+      "route": "/api/dictionary-stream",
+      "status": 200,
+      "bytes": 4682,
+      "durationMs": 4799,
+      "completed": true
+    },
+    {
+      "route": "/api/translate-article",
+      "status": 200,
+      "bytes": 226,
+      "durationMs": 960,
+      "completed": true
+    }
+  ],
+  "accountId": "297f0233-83e8-4807-be8d-6841200e48e2"
+}

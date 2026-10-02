@@ -2,8 +2,10 @@ import { NextResponse } from "next/server";
 import { createHash } from "node:crypto";
 import catalogue from "@/data/cet/catalog.json";
 import { CET_GUEST_PREVIEW_COUNT } from "@/lib/cetGuestPreview";
+import { withCetListeningMetadata } from "@/lib/cetListeningCatalog";
+import type { CetPaper } from "@/types/cet";
 
-const papers = [4, 6].flatMap(level => catalogue.filter(p => p.level === level)
+const papers = [4, 6].flatMap(level => withCetListeningMetadata(catalogue as CetPaper[]).filter(p => p.level === level)
   .sort((a, b) => b.year - a.year || b.month - a.month || a.set - b.set).slice(0, CET_GUEST_PREVIEW_COUNT)
   .map(p => ({id:p.id, level:p.level, year:p.year, month:p.month, set:p.set, title:p.title,
     source:p.source, status:p.status, sections:p.sections.map(s => ({id:s.id,type:s.type,title:s.title,

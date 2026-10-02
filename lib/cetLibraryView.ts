@@ -1,7 +1,7 @@
 export interface CetLibraryView {
   level: 4 | 6;
   view: "paper" | "type";
-  type: "cloze" | "matching" | "detail";
+  type: "cloze" | "matching" | "detail" | "listening";
   year: string;
   page: number;
 }
@@ -11,7 +11,7 @@ export function normalizeCetLibraryView(value: unknown): CetLibraryView {
   return {
     level: x?.level === 6 ? 6 : 4,
     view: x?.view === "type" ? "type" : "paper",
-    type: x?.type === "matching" || x?.type === "detail" ? x.type : "cloze",
+    type: x?.type === "matching" || x?.type === "detail" || x?.type === "listening" ? x.type : "cloze",
     year: typeof x?.year === "string" && /^20\d{2}$/.test(x.year) ? x.year : "recent",
     page: 0, // Legacy page values never skip the beginning of the continuous directory.
   };

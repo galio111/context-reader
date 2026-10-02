@@ -1,0 +1,754 @@
+{
+  "id": "cet4-2023-06-2-listening",
+  "type": "listening",
+  "title": "听力",
+  "paragraphs": [],
+  "questions": [
+    {
+      "number": 1,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "A man was bitten by a snake."
+        },
+        {
+          "key": "B",
+          "text": "A man was taken to a hospital."
+        },
+        {
+          "key": "C",
+          "text": "A man kept a 4-foot snake as a pet."
+        },
+        {
+          "key": "D",
+          "text": "A man fell off his toilet seat."
+        }
+      ],
+      "answer": "A",
+      "explanation": "1. What do we learn from the police report? A)【精析】细节辨认题。新闻开头指出，警方报告称， 周日上午一名男子在提起马桶座圈时被一条4英 尺长的蛇咬伤。由于蛇没有毒，男子未去医院。因 此，答案为A)。"
+    },
+    {
+      "number": 2,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Where the snake had been taken."
+        },
+        {
+          "key": "B",
+          "text": "Whether the snake was infected."
+        },
+        {
+          "key": "C",
+          "text": "How the snake was captured."
+        },
+        {
+          "key": "D",
+          "text": "Who owned the snake."
+        }
+      ],
+      "answer": "D",
+      "explanation": "2.What does the report say was still unclear? D)【精析】细节辨认题。新闻中警方提到蛇并非男子 所有，尚不清楚它是如何进入公寓的，下文进一步 指出尚不清楚蛇的所有者是谁。因此，答案为D)。"
+    },
+    {
+      "number": 3,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Taking her trash out in fancy dresses."
+        },
+        {
+          "key": "B",
+          "text": "Amusing herself by going to ball parties."
+        },
+        {
+          "key": "C",
+          "text": "Sharing her photos with famous movie stars."
+        },
+        {
+          "key": "D",
+          "text": "Posting her daughter's photos on social media."
+        }
+      ],
+      "answer": "A",
+      "explanation": "3.What has Andrea Belcher been doing since last April? A)【精析】细节推断题。新闻开头指出，自去年4月以 来，安德里亚·贝尔彻每周都会在倒垃圾时做一些 稍微不寻常和有趣的事情。接下来具体说明电影 明星穿舞会礼服倒垃圾的照片激发了她的灵感，于 是她晚上倒垃圾时会盛装打扮成不同的角色和名 人并拍摄下来。由此可知，首句中不寻常和有趣的 事指的就是盛装倒垃圾。因此，答案为A)。"
+    },
+    {
+      "number": 4,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "To make herself popular."
+        },
+        {
+          "key": "B",
+          "text": "To amuse people."
+        },
+        {
+          "key": "C",
+          "text": "To please her daughter."
+        },
+        {
+          "key": "D",
+          "text": "To record her achievements."
+        }
+      ],
+      "answer": "B",
+      "explanation": "4.Why has Andrea Belcher kept up her videos? B)【精析】细节推断题。新闻最后安德里亚解释了她 为什么一直拍这些视频，她说能有一点乐趣和疯狂 让人们微笑是很美好的事情。由此可知，她拍视频 分享的原因是为了逗人们开心，因此答案为B)。"
+    },
+    {
+      "number": 5,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Eat as much as they want for $10."
+        },
+        {
+          "key": "B",
+          "text": "Have a chance of winning a $100 prize."
+        },
+        {
+          "key": "C",
+          "text": "Have a meal even if they have no money."
+        },
+        {
+          "key": "D",
+          "text": "Get a free meal after answering some questions."
+        }
+      ],
+      "answer": "C",
+      "explanation": "5. What can people do at Frank's restaurant? C)【精析】细节推断题。新闻开头提出，当顾客遇到没 有钱却还饿的问题时欢迎光临弗兰克餐厅，这里的 顾客正在付餐费，并在黑板上留下收据。任何饿了 想吃东西的人都可以拿一个，不用过问，然后把它 交给工作人员就能换取食物。由此可知，在弗兰克 餐厅即使没有钱也能吃顿饭。因此，答案为C)。"
+    },
+    {
+      "number": 6,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It was brought up by two staffers."
+        },
+        {
+          "key": "B",
+          "text": "It helped to popularize her restaurant."
+        },
+        {
+          "key": "C",
+          "text": "It originated from a donation to her staff."
+        },
+        {
+          "key": "D",
+          "text": "It was suggested by some of her customers."
+        }
+      ],
+      "answer": "C",
+      "explanation": "6. What does the owner of the restaurant say about the idea for the board of free meals? C)【精析】细节辨认题。新闻中提到据餐厅老板 塔拉·莫里斯说，设立免费餐告示板的想法是在一 位捐赠者为店里每位员工提供100美元后开始的， Section B 在两名员工退回他们的份额后，还剩下700美元， 所以他们决定通过设立告示板来做更多的事情。 由此可知，设立免费餐告示板源于捐献者对其员工 的捐赠。因此，答案为C)。"
+    },
+    {
+      "number": 7,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Fifty customers have offered donations."
+        },
+        {
+          "key": "B",
+          "text": "More people have been giving than taking."
+        },
+        {
+          "key": "C",
+          "text": "Many people have come to eat at the restaurant."
+        },
+        {
+          "key": "D",
+          "text": "Most staffers have received messages of kindness."
+        }
+      ],
+      "answer": "B",
+      "explanation": "7.What has happened at Frank's restaurant since the board of free meals was created? B)【精析】细节推断题。新闻最后提到，免费餐告示板 行动已经进行了两周，但是只有不到50名顾客免 费用餐。目前还没有发现任何人利用这种情况占 便宜。事实上，送收据的人比拿收据的人多得多， 人们都乐于帮助别人。由此可知，给予的人比索取 的人多。因此，答案为B)。"
+    },
+    {
+      "number": 8,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He is a psychologist."
+        },
+        {
+          "key": "B",
+          "text": "He is a famous writer."
+        },
+        {
+          "key": "C",
+          "text": "He is a host for a TV program."
+        },
+        {
+          "key": "D",
+          "text": "He is a primary school teacher."
+        }
+      ],
+      "answer": "A",
+      "explanation": "8.What do we learn about the man? A)【精析】细节辨认题。对话一开始，女士便介绍了男 士，指出男士是今天节目的嘉宾，麦吉尔大学的心 第3页,共14页 理学家史蒂夫·平克。由此可知，答案为A)。"
+    },
+    {
+      "number": 9,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Why social media accounts vanish without a trace."
+        },
+        {
+          "key": "B",
+          "text": "Why parents raise their children in different ways."
+        },
+        {
+          "key": "C",
+          "text": "Why people fail to respond to emails promptly."
+        },
+        {
+          "key": "D",
+          "text": "Why friends break off contact all of a sudden."
+        }
+      ],
+      "answer": "D",
+      "explanation": "9.What are the speakers mainly talking about? D)【精析】细节辨认题。对话中女士向嘉宾介绍今天 节目的话题是讨论为什么朋友会突然消失。男士 下文回答道这可能和依恋风格有关，并展开了讨 论。在对话的最后，女士提到这也解释了为什么朋 友会突然消失。由此可知，两人就为什么朋友会突 然消失这一话题展开讨论，因此答案为D)。"
+    },
+    {
+      "number": 10,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They simply shut themselves down."
+        },
+        {
+          "key": "B",
+          "text": "They avoid showing their emotions."
+        },
+        {
+          "key": "C",
+          "text": "They scream to get their parents back."
+        },
+        {
+          "key": "D",
+          "text": "They attempt to ignore the whole situation."
+        }
+      ],
+      "answer": "C",
+      "explanation": "10.How do children with an anxious attachment style react to a breakdown in their relationship with parents? C)【精析】细节辨认题。男士提到，儿童与父母的关系 有两种不同的依恋类型：焦虑型依恋和回避型依恋。 当与父母的关系破裂时，焦虑型依恋的孩子们会以尖 叫和哭泣的方式让父母回来。因此，答案为C)。"
+    },
+    {
+      "number": 11,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They may regard any difference as the end of a relationship."
+        },
+        {
+          "key": "B",
+          "text": "They are on better terms with friends and romantic partners."
+        },
+        {
+          "key": "C",
+          "text": "They try to express their feelings and thoughts effectively."
+        },
+        {
+          "key": "D",
+          "text": "They attach more value to their relationships with others."
+        }
+      ],
+      "answer": "A",
+      "explanation": "11.What does the man say about insecurely attached people? A)【精析】细节辨认题。对话中男士提到，缺乏安全感 的人要么攻击你来保护自己，要么就会从你的生活中 消失。对他们来说，无论在你眼里看起来多小的变 化，都预示着这段关系的结束。因此，答案为A)。"
+    },
+    {
+      "number": 12,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Their price."
+        },
+        {
+          "key": "B",
+          "text": "Their color."
+        },
+        {
+          "key": "C",
+          "text": "Their quality."
+        },
+        {
+          "key": "D",
+          "text": "Their design."
+        }
+      ],
+      "answer": "C",
+      "explanation": "12.What makes the man choose to buy jeans made in Japan? C)【精析】细节辨认题。男士得知女士要去日本，请 女士帮忙买条牛仔裤，并解释说，他喜欢好的牛仔 裤，而日本恰好是世界上做得最好的。因此，答案 为C)“它们的质量”。"
+    },
+    {
+      "number": 13,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Jeans are a typical American garment."
+        },
+        {
+          "key": "B",
+          "text": "America makes the best-known brands of jeans."
+        },
+        {
+          "key": "C",
+          "text": "America has the best weaving tools in the world."
+        },
+        {
+          "key": "D",
+          "text": "Jeans are available in a greater variety in America."
+        }
+      ],
+      "answer": "A",
+      "explanation": "13.Why is the woman puzzled by the man's request? A)【精析】细节辨认题。对话中女士表示她不知道日 本生产牛仔裤。她本来以为美国制造的牛仔裤是 最好的，因为它是典型的美国服装。由此可知，答 案为A)。 Section C"
+    },
+    {
+      "number": 14,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They are artificial."
+        },
+        {
+          "key": "B",
+          "text": "They are natural."
+        },
+        {
+          "key": "C",
+          "text": "They are unique."
+        },
+        {
+          "key": "D",
+          "text": "They are special."
+        }
+      ],
+      "answer": "B",
+      "explanation": "14.What does the man say about the dyes of Japanese jeans? B)【精析】细节辨认题。男士认为日本生产的牛仔裤 使用的面料质量更好，染料也是天然的。由此可 知，答案为B)。"
+    },
+    {
+      "number": 15,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They are for casual wearing."
+        },
+        {
+          "key": "B",
+          "text": "They are popular with boys."
+        },
+        {
+          "key": "C",
+          "text": "They are much too pricey."
+        },
+        {
+          "key": "D",
+          "text": "They are worth the price."
+        }
+      ],
+      "answer": "D",
+      "explanation": "15.What does the man say about Japanese jeans at the end of the conversation? D)【精析】细节辨认题。对话最后女士提到用500美 元买一条牛仔裤太贵了，男士承认日本生产的牛仔 裤价格高，但考虑到耐穿时尚，这个价格是值得的。 因此，答案为D)。"
+    },
+    {
+      "number": 16,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He desires more in life."
+        },
+        {
+          "key": "B",
+          "text": "He wants to see it again."
+        },
+        {
+          "key": "C",
+          "text": "He feels as inspired as other audience members."
+        },
+        {
+          "key": "D",
+          "text": "He longs to become a superstar himself."
+        }
+      ],
+      "answer": "A",
+      "explanation": "16.How does the speaker feel every time he walks out of a superhero movie? A)【精析】细节辨认题。短文开头提到，每次“我”看 完一部超级英雄电影，都有同样的感受：“我”体会 到一种渴望，意识到生活中应该有更多。由此可 知，答案为A)。"
+    },
+    {
+      "number": 17,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It is rather unrealistic."
+        },
+        {
+          "key": "B",
+          "text": "It is extremely artistic."
+        },
+        {
+          "key": "C",
+          "text": "It is somewhat complicated."
+        },
+        {
+          "key": "D",
+          "text": "It is relatively predictable."
+        }
+      ],
+      "answer": "D",
+      "explanation": "17.What does the passage say about the plot of all superhero movies? D)【精析】细节辨认题。短文中提到，每一部超级英 雄电影的情节都变得相对可预测：世界处于危险 之中，世界需要一位英雄，英雄危在旦夕，英雄化解 了危险，英雄拯救了世界。因此，答案为D)。"
+    },
+    {
+      "number": 18,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They are biased against women."
+        },
+        {
+          "key": "B",
+          "text": "They are basically misleading."
+        },
+        {
+          "key": "C",
+          "text": "They are full of shootings."
+        },
+        {
+          "key": "D",
+          "text": "They are too simple."
+        }
+      ],
+      "answer": "D",
+      "explanation": "18.What do the elites of American society think of superhero movies? D)【精析】事实细节题。短文中提到，美国社会的精 英们已经拒绝看超级英雄电影，他们说这些电影 缺乏任何形式的艺术性，这些电影被批评过于简 单。因此，答案为D)。"
+    },
+    {
+      "number": 19,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It can highlight leadership."
+        },
+        {
+          "key": "B",
+          "text": "It can help connect people."
+        },
+        {
+          "key": "C",
+          "text": "It is a means to inspire creative thinking."
+        },
+        {
+          "key": "D",
+          "text": "It is an intuitive way to solidify friendship. 第2页,共8页"
+        }
+      ],
+      "answer": "B",
+      "explanation": "19.What does the passage say about storytelling? B)【精析】细节辨认题。短文开头提到，讲故事能建 立人与人之间的联系。下文又提到，好的故事不仅 能创造联系感，还能建立熟悉感和信任感。因此， 答案为B)。"
+    },
+    {
+      "number": 20,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Allow them to recite data points."
+        },
+        {
+          "key": "B",
+          "text": "Make them more open to learning."
+        },
+        {
+          "key": "C",
+          "text": "Enable them to remember the main idea."
+        },
+        {
+          "key": "D",
+          "text": "Stimulate them to engage in discussions."
+        }
+      ],
+      "answer": "B",
+      "explanation": "20.What can good stories do to listeners according to the passage? B)【精析】细节辨认题。短文中提到，好的故事允许 听众进入到故事中去，使他们更愿意学习。因此， 答案为B)。"
+    },
+    {
+      "number": 21,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Inspire listeners'imagination."
+        },
+        {
+          "key": "B",
+          "text": "Enrich their own experience."
+        },
+        {
+          "key": "C",
+          "text": "Convey fundamental values."
+        },
+        {
+          "key": "D",
+          "text": "Explain insightful ideas."
+        }
+      ],
+      "answer": "C",
+      "explanation": "21.What can leaders do with a simple personal story? C)【精析】细节推断题。短文末尾提到，对领导者来 说还有额外的好处，通过一个简单的个人故事，他 们可以传达基本的价值观。因此，答案为C)。"
+    },
+    {
+      "number": 22,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Immigrants outnumber U.S.-born Americans."
+        },
+        {
+          "key": "B",
+          "text": "Immigrants have been contributing to the U.S."
+        },
+        {
+          "key": "C",
+          "text": "Another wave of immigrants is hitting the U.S."
+        },
+        {
+          "key": "D",
+          "text": "The number of immigrants to the U.S. is declining."
+        }
+      ],
+      "answer": "B",
+      "explanation": "22.What does the passage say statistics prove? B)【精析】事实细节题。短文开头提到，美国是由一 波接一波的移民建立起来的，统计数据证明，移民 至今仍在为美国做出贡献。因此，答案为B)。"
+    },
+    {
+      "number": 23,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "More of them expect their children to succeed in business."
+        },
+        {
+          "key": "B",
+          "text": "They have fewer chances to be hired by U.S. companies."
+        },
+        {
+          "key": "C",
+          "text": "They have founded most Fortune 500 companies."
+        },
+        {
+          "key": "D",
+          "text": "More of them are successful business people."
+        }
+      ],
+      "answer": "D",
+      "explanation": "23.What do we learn about immigrants in the U.S., compared with native-born Americans? D)【精析】细节推断题。短文中提到，在衡量财务表 现的两个关键指标上，移民的表现优于土生土长的 美国人。首先，他们更有可能成为企业家，从1996 年到2016年，移民创业的速度是美国出生的人的 两倍。除了频繁成为企业家，他们往往是成功的。 因此，答案为D)。"
+    },
+    {
+      "number": 24,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They have higher installment loan debt than native-born Americans."
+        },
+        {
+          "key": "B",
+          "text": "Nineteen percent of them borrow money from friends and family."
+        },
+        {
+          "key": "C",
+          "text": "Their level of debt is lower than that of native-born Americans."
+        },
+        {
+          "key": "D",
+          "text": "Thirty-four percent of them use credit for their daily purchases."
+        }
+      ],
+      "answer": "C",
+      "explanation": "24.What does the passage say about immigrants in Part Ⅲ the U.S., in terms of financial strength? C)【精析】细节辨认题。短文中提到，衡量财务实力 的另一个关键指标是债务水平。移民在这方面也 做得更好。移民较少将信贷用于购买汽车、住房或 创业。这导致债务水平明显低于土生土长的美国 人。因此，答案为C)。"
+    },
+    {
+      "number": 25,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Keep their traditional values and old habits."
+        },
+        {
+          "key": "B",
+          "text": "Find employment in competitive businesses."
+        },
+        {
+          "key": "C",
+          "text": "Borrow money from financial institutions."
+        },
+        {
+          "key": "D",
+          "text": "Collaborate with native-born Americans."
+        }
+      ],
+      "answer": "A",
+      "explanation": "25.What do immigrants do to achieve their goals in the U.S.? A)【精析】细节推断题。短文最后解释了移民做得这 么好的原因，他们从自己的祖国带来的价值观和习 惯有助于解释这些成功。也就是说，移民为了在美 国实现自己的目标，他们保留了自己传统的价值观 和习惯。因此，答案为A)。"
+    }
+  ],
+  "audio": {
+    "durationSeconds": 1426.6195011337868,
+    "mimeType": "audio/mp4",
+    "bytes": 17366304,
+    "sha256": "cd9a1521a33fa280ebfb23e9a59ab6854609eb489b2bb42d57164df929d2bc2c",
+    "url": "/cet-audio/cd9a1521a33fa280ebfb23e9a59ab6854609eb489b2bb42d57164df929d2bc2c.m4a"
+  },
+  "listeningGroups": [
+    {
+      "id": "cet4-2023-06-2-listening-1",
+      "title": "短篇新闻一",
+      "questionNumbers": [
+        1,
+        2
+      ],
+      "transcript": [
+        "Police have reported a man being bitten by a 4-foot snake when he lifted his toilet seat on Sunday morning: The snake was not poisonous, so the man did not have to go to the hospital, but his arm was medically treated at the scene.",
+        "The police officer interviewed told news reporters the snake didn't belong to the man and it was unclear how it got into the apartment. The snake was eventually captured by the local animal handlers and taken to an animal hospital afterward. It was being treated for an outer skin infection.It was unclear who the owner was. The snake may be taken to a local zoo for care if the owner does not come forward.",
+        "Over the years, other creatures like frogs and fish have found their way into toilets. But this was the first instance of a snake in recent years."
+      ]
+    },
+    {
+      "id": "cet4-2023-06-2-listening-2",
+      "title": "短篇新闻二",
+      "questionNumbers": [
+        3,
+        4
+      ],
+      "transcript": [
+        "Every week since last April, Andrea Belcher has been doing something slightly unusual and amusing when she takes out her trash. It all started off when a movie star shared a photo of herself putting her trash bins out in a ball gown. This inspired Andrea to get dressed up to take out the trash. She was too embarrassed to do it during the day. So one dark evening, she put on her black off-the-shoulder gown and put her trash bin out. Her daughter filmed it and the whole family laughed, but it seemed to go down well.",
+        "The following weeks, she found other outfits in her dressing-up box, and dressed up as different characters and famous people, sharing her exploits on social media. Before long,people started offering up their own fancy dresses for her to wear. And before she knew it, she had done 20 weeks.",
+        "Explaining why she has kept up the videos, Andrea explained how nice it was to have a little bit of fun and craziness that made people smile. Besides, it also helps to remind people in the community to put out their trash bins each week."
+      ]
+    },
+    {
+      "id": "cet4-2023-06-2-listening-3",
+      "title": "短篇新闻三",
+      "questionNumbers": [
+        5,
+        6,
+        7
+      ],
+      "transcript": [
+        "No money but still hungry? No problem! Welcome to Frank's restaurant where customers are paying for meals and leaving receipts on a board. Anyone who is hungry and wants something to eat can take one, no questions asked and hand it to the staff for some food.",
+        "The idea for the board of free meals started after a donor came in with $100 for each member of its staff. After two staffers returned to their share, there was $700 leftover according to Tarah Morris, the owner of the restaurant, so they decided to do something more by creating the board. The board of free meals inside the restaurant shows a host of potential meals already paid for by customers, each costing about $10.The board has messages of kindness like,\"If you want more kindness in the world, put it here.\"",
+        "The drive has been going on for two weeks and Morris said just under 50 customers have picked up a free meal. There have been no reports of anyone taking advantage of the situation. In fact, there are a lot more people giving tickets than receiving. It seems people want to help and are driven by helping others."
+      ]
+    },
+    {
+      "id": "cet4-2023-06-2-listening-4",
+      "title": "长对话一",
+      "questionNumbers": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "transcript": [
+        "W:Welcome to our program, Friends and Relationships.Our guest today is psychologist Steve Pinker from McGill University.",
+        "M:Glad to be here, Jane.",
+        "W:Hi, Steve.Our question today is why friends suddenly disappear. They may block us on their social media accounts and stop responding to our emails. They simply vanish without a trace.",
+        "M:The answer may lie in childhood, the way the person related to their mom and dad. It's related to their attachment styles.",
+        "W:Attachment styles?",
+        "M:Yeah. There are two different attachment styles: an anxious attachment style and an avoidant attachment style.When there is a relationship breakdown with their parents, children with an anxious attachment style scream and cry to get their parents to come back. But other children simply shut down and try to deal with their emotions by ignoring the situation. And these attachment styles carry on into adulthood.",
+        "W:Does avoidance reduce their stress levels?",
+        "M:Not really. Their stress levels are actually the same as those experienced by the children who yell and scream.",
+        "W:And I assume both might be termed insecure.",
+        "M:Exactly. And it's a very insecure attachment.",
+        "W:How does an insecure attachment affect relationships between friends, co-workers and romantic relationships?",
+        "M:It's the same as conflicts. So if you have a disagreement with a securely attached person, they're not going to panic. They're able to hear what the other person is saying and express their own feelings and thoughts effectively.However,an insecurely attached person won't. They might either attack you, get defensive, or just disappear from your life. To them, a difference, no matter how small in your eyes, signals the end of the relationship",
+        "W:That explains why they suddenly disappear."
+      ]
+    },
+    {
+      "id": "cet4-2023-06-2-listening-5",
+      "title": "长对话二",
+      "questionNumbers": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "transcript": [
+        "M:I hear you're going to Japan soon.",
+        "W:Yes, that's right.",
+        "M:Could I ask you a favor?",
+        "W:Sure. What is it?",
+        "M:I was wondering if you could get me some jeans while you're there. I'll pay you back, of course.",
+        "W:A pair of jeans? Okay. I don't see why not. But what's wrong with jeans here?",
+        "M:Well,I just love good jeans and Japan happens to make the best in the world. My friend brought me a pair from there five years ago, and they still look new. W;Really? I had no idea Japan made jeans.I would have thought America made the best jeans because it's a typical American garment.",
+        "M:Yeah, I thought so too. But it turns out Japan still has some very old mills with the traditional weaving tools used to make jeans the original way. It's a slower process of making clothing. But the end result is surely superior.Also, the fabric they use is of a higher quality and the dyes are natural. They have a denser weave,and are more durable than any other jeans in the world.",
+        "W:That sounds cool. What size do you want and how much are they?",
+        "M: I have a 34 waist and size 30 or 32 in length. Either is fine. They should be around $ 500.But make double certain they are made in Japan.",
+        "W:$500? Boy, that's expensive. Do you typically spend that much on a pair of casual trousers?",
+        "M:They are a little pricey, yes. But they are very special.Bear in mind, they will last me several years and they're very fashionable too. I think they're totally worth it."
+      ]
+    },
+    {
+      "id": "cet4-2023-06-2-listening-6",
+      "title": "短文一",
+      "questionNumbers": [
+        16,
+        17,
+        18
+      ],
+      "transcript": [
+        "Every time I walk out of a superhero movie, I feel the same way. I experience a sense of longing, realizing that there should be more in life. The desire for adventure is a human one. Superhero films capture this desire perfectly.",
+        "The plot of each superhero film has become relatively predictable; the world is in peril, the world needs a hero, the hero is in peril, the hero resolves the peril, the hero saves the world. Each film has an attractive lead, several expensive explosions, a few jokes to lighten the mood, and numerous punches that land unrealistically well. Even though we basically know what will happen, we keep coming back for more.",
+        "The elites of our society have rejected superhero films. They say the films lack any form of artistry. These movies are criticized as being too simple. But they give the fans what they want—entertainment.",
+        "No matter the form in which they reveal themselves, hero stories will always be present in life. It's not just about being entertained, but also being inspired. One author has mentioned that women desire to play an ireplaceable role in a great adventure.\"Most young women want to be a part of something grand, something important.\" It seems clear that this principle applies to men, as well. So next time you see your favorite superhero film, be entertained, but also be inspired. Let that small longing you feel motivate you to make a difference."
+      ]
+    },
+    {
+      "id": "cet4-2023-06-2-listening-7",
+      "title": "短文二",
+      "questionNumbers": [
+        19,
+        20,
+        21
+      ],
+      "transcript": [
+        "Telling stories is one of the most powerful means leaders have to influence, teach and inspire. Storytelling forges connections among people. When it comes to our countries, our communities, and our families, we understand instinctively that the stories we hold in common are an important part of the ties that bind.",
+        "This understanding also holds true in the business world, where an organization's stories, and the stories its leaders tell, help solidify relationships in a way that factual statements don't.",
+        "Good stories do more than create a sense of connection. They build familiarity and trust.They allow the listener to enter the story, making them more open to learning. Good stories can contain multiple meanings, so they're surprisingly economical in conveying complex ideas in graspable ways. And stories are more engaging than the recital of data points or a discussion of abstract ideas.",
+        "Stories about professional mistakes and what leaders learned from them are another great avenue for learning. Because people identify so closely with stories, they can imagine how they would have acted in similar circumstances. They're able to work through situations in a way that's risk free. There are extra benefits for leaders;with a simple personal story, they can convey fundamental values. They can offer insight into the evolution of their own experience and knowledge, presenting themselves as more approachable and then they are more likely to inspire others to want to know more."
+      ]
+    },
+    {
+      "id": "cet4-2023-06-2-listening-8",
+      "title": "短文三",
+      "questionNumbers": [
+        22,
+        23,
+        24,
+        25
+      ],
+      "transcript": [
+        "The U.S. was founded by successive waves of immigrants, and immigrants are still contributing to America today—statistics prove it. On two key measures of financial performance, immigrants outperform native-born Americans. First,they are more likely to be entrepreneurs. From 1996 to 2016, the pace at which immigrants started businesses was double that of U.S.-born individuals. Immigrants aren't just becoming entrepreneurs more frequently.They're often succeeding. Over 40of Fortune 500 companies had a founder who was either an immigrant or the child of one.",
+        "Another key measure of financial strength is debt level. Immigrants do better in this area too. Immigrants use credit less often for purchasing cars, homes or starting businesses. This results in significantly lower levels of debt than native-born Americans. For example, 34of Americans born in Latin America report no credit card or installment loan debt. This can be compared to just 19of the general population.",
+        "Why are immigrants doing so well? The values and habits they bring from their own homelands help explain some of the success.",
+        "Unemployment tends to be higher in developing countries. That means more people must become entrepreneurs. Credit is also scarcer in most developing countries. This means individuals must save more in order to achieve their goals, or they borrow money from friends and family rather than a bank. That means less debt and potentially better credit outcomes when they reach the U.S."
+      ]
+    }
+  ],
+  "materialId": "62dc1904d5ba6eed03eb",
+  "questionSetId": "d0bc87b456fd73a03313"
+}

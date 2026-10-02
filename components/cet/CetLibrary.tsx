@@ -134,7 +134,7 @@ export function CetLibrary({
       </div>
       <div className="cet-filter-line">
         {view === "type" && (
-          <CetSelect label="选择题型" value={type} onChange={value=>setType(value as CetLibraryView["type"])} options={[{key:"cloze",text:"选词填空"},{key:"matching",text:"长篇匹配"},{key:"detail",text:"仔细阅读"}]} />
+          <CetSelect label="选择题型" value={type} onChange={value=>setType(value as CetLibraryView["type"])} options={[{key:"listening",text:"听力"},{key:"cloze",text:"选词填空"},{key:"matching",text:"长篇匹配"},{key:"detail",text:"仔细阅读"}]} />
         )}
         {account.authenticated && (
           <CetSelect label="选择年份" value={year} onChange={value=>{setYear(value);}} options={[{key:"recent",text:"最近年份"}, ...years.map(y=>({key:String(y),text:String(y)}))]} />
@@ -175,7 +175,7 @@ export function CetLibrary({
                   <span>
                     {s
                       ? `${s.questions[0]?.number}–${s.questions.at(-1)?.number} 题`
-                      : "选词填空 · 长篇匹配 · 仔细阅读"}
+                      : `${p.sections.some(s=>s.type==='listening')?'听力 · ':''}选词填空 · 长篇匹配 · 仔细阅读`}
                   </span>
                 </span>
                 <span className="cet-row-arrow" aria-hidden="true">
@@ -204,7 +204,7 @@ export function CetLibrary({
         {account.authenticated && !compact && (
           <aside className="cet-recent">
             <h3>最近练习</h3>
-            <CetSelect label="练习历史目标" value={historyPurpose} onChange={value=>{setHistoryPurpose(value as typeof historyPurpose);setHistoryLimit(30);}} options={[{key:"",text:"练习与自测"},{key:"practice",text:"阅读练习"},{key:"self_test",text:"自测"}]} />
+            <CetSelect label="练习历史目标" value={historyPurpose} onChange={value=>{setHistoryPurpose(value as typeof historyPurpose);setHistoryLimit(30);}} options={[{key:"",text:"练习与自测"},{key:"practice",text:"练习"},{key:"self_test",text:"自测"}]} />
             <div
               className="cet-recent-list"
               tabIndex={0}
@@ -223,7 +223,7 @@ export function CetLibrary({
                     }
                   >
                     <small>
-                      {h.sectionId ? "单篇" : "整卷"} · {h.purpose === "practice" ? "阅读练习" : `自测 · ${h.timerMode === "countup" ? "正计时" : "倒计时"}`}
+                      {h.sectionId ? "单篇" : "整卷"} · {h.purpose === "practice" ? h.sectionId?.endsWith("-listening") ? "听力练习" : "阅读练习" : `自测 · ${h.timerMode === "countup" ? "正计时" : "倒计时"}`}
                     </small>
                     <strong>{h.title}</strong>
                     <span>

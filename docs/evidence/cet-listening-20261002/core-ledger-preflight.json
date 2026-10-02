@@ -1,0 +1,49 @@
+{
+  "accountId": "297f0233-83e8-4807-be8d-6841200e48e2",
+  "usage": [
+    {
+      "id": "88c64c69-74a2-473d-b530-4532ac0e1b81",
+      "feature": "word_explanation",
+      "status": "succeeded",
+      "quota_units": 1,
+      "executions": [
+        {
+          "route": "/api/explain-word-stream",
+          "provider": "deepseek",
+          "model": "deepseek-flash",
+          "status": "succeeded"
+        }
+      ]
+    },
+    {
+      "id": "c7520256-8e0c-4c44-b075-ad51869f036d",
+      "feature": "standalone_dictionary",
+      "status": "succeeded",
+      "quota_units": 1,
+      "executions": [
+        {
+          "route": "/api/dictionary-stream",
+          "provider": "deepseek",
+          "model": "deepseek-flash",
+          "status": "succeeded"
+        }
+      ]
+    },
+    {
+      "id": "4e0521f8-0bbb-4c80-b77c-39d6b5fbf7e6",
+      "feature": "full_article_translation",
+      "status": "succeeded",
+      "quota_units": 1,
+      "executions": [
+        {
+          "route": "/api/translate-article",
+          "provider": "deepseek",
+          "model": "deepseek-flash",
+          "status": "succeeded"
+        }
+      ]
+    }
+  ],
+  "recoveryAdminSession": true,
+  "recoveryAdminRead": true
+}

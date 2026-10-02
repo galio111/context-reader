@@ -1,0 +1,758 @@
+{
+  "papersAudited": 149,
+  "sectionsAudited": 596,
+  "sourceWordPapers": 55,
+  "changes": [
+    {
+      "paperId": "cet4-2015-12-1",
+      "sectionId": "cet4-2015-12-1-c1",
+      "paragraph": 0,
+      "parts": 6,
+      "source": "四级真题/2015.12/真题Word/2015年12月英语四级考试真题（第1套）.docx",
+      "sha256": "b11a533716c5dca16cdc025d0d9dc720a754169cc4a301daa841864be704bf37",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet4-2015-12-1",
+      "sectionId": "cet4-2015-12-1-c2",
+      "paragraph": 0,
+      "parts": 9,
+      "source": "四级真题/2015.12/真题Word/2015年12月英语四级考试真题（第1套）.docx",
+      "sha256": "b11a533716c5dca16cdc025d0d9dc720a754169cc4a301daa841864be704bf37",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet4-2015-12-2",
+      "sectionId": "cet4-2015-12-2-c1",
+      "paragraph": 0,
+      "parts": 3,
+      "source": "四级真题/2015.12/真题Word/2015年12月英语四级考试真题（第2套）.docx",
+      "sha256": "338daa1a3f5fd0cf1d4d2d5b90c38bb5214de58335ad2df8deb0a63317931695",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet4-2015-12-3",
+      "sectionId": "cet4-2015-12-3-c2",
+      "paragraph": 0,
+      "parts": 7,
+      "source": "四级真题/2015.12/真题Word/2015年12月英语四级考试真题（第3套）.docx",
+      "sha256": "4e6797f50a17386d98138b2a76b965e7c6dc0ae935098328b50683602e2c1eb0",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet4-2016-12-2",
+      "sectionId": "cet4-2016-12-2-c1",
+      "paragraph": 0,
+      "parts": 7,
+      "source": "四级真题/2016.12/真题Word/2016年12月四级真题（第二套）.docx",
+      "sha256": "7e8063565227560d9e7f47eda312d27548e21164834d96ae891ff600035b0356",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet4-2017-06-3",
+      "sectionId": "cet4-2017-06-3-c2",
+      "paragraph": 0,
+      "parts": 9,
+      "source": "四级真题/2017.06/真题Word/2017年6月大学英语四级真题3.docx",
+      "sha256": "0201a844c8975fb094b54b25f5114d7abe29cc8436b0f57d8a21be031612f67c",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet4-2017-12-1",
+      "sectionId": "cet4-2017-12-1-c1",
+      "paragraph": 0,
+      "parts": 3,
+      "source": "四级真题/2017.12/真题Word/2017年12月英语四级真题（卷一）.docx",
+      "sha256": "72af8565e0a1f92117985e8689984f2a825c38def073333ae5462c5925539bb2",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet4-2017-12-1",
+      "sectionId": "cet4-2017-12-1-c2",
+      "paragraph": 0,
+      "parts": 6,
+      "source": "四级真题/2017.12/真题Word/2017年12月英语四级真题（卷一）.docx",
+      "sha256": "72af8565e0a1f92117985e8689984f2a825c38def073333ae5462c5925539bb2",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet4-2017-12-3",
+      "sectionId": "cet4-2017-12-3-c1",
+      "paragraph": 0,
+      "parts": 9,
+      "source": "四级真题/2017.12/真题Word/2017年12月英语四级真题（卷三）.docx",
+      "sha256": "18df0fe97240e88d2aac464ade42b04c31f1898e8886856dd16bc9c6a61e8143",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet4-2017-12-3",
+      "sectionId": "cet4-2017-12-3-c2",
+      "paragraph": 0,
+      "parts": 6,
+      "source": "四级真题/2017.12/真题Word/2017年12月英语四级真题（卷三）.docx",
+      "sha256": "18df0fe97240e88d2aac464ade42b04c31f1898e8886856dd16bc9c6a61e8143",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet4-2018-12-1",
+      "sectionId": "cet4-2018-12-1-c1",
+      "paragraph": 0,
+      "parts": 4,
+      "source": "四级真题/2018.12/真题Word/2018年12月四级真题第一套.docx",
+      "sha256": "5a389d84718ef079546fa6b8348a400d45fb743fcbabbc189c0a56b455a46753",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet4-2019-06-1",
+      "sectionId": "cet4-2019-06-1-c2",
+      "paragraph": 0,
+      "parts": 6,
+      "source": "四级真题/2019.06/真题Word/2019年6月四级真题第一套.docx",
+      "sha256": "acd51cdb29ebf573512e1d536de8096d92b3f86b99acdebf49affdc511b9df61",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet4-2019-06-2",
+      "sectionId": "cet4-2019-06-2-c1",
+      "paragraph": 0,
+      "parts": 5,
+      "source": "四级真题/2019.06/真题Word/2019年6月四级真题第二套.docx",
+      "sha256": "cf257f0f7fdb88b414f87cccb4a347ca106884ff846129ae0b8e2e0021ba4378",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet4-2019-06-3",
+      "sectionId": "cet4-2019-06-3-c1",
+      "paragraph": 0,
+      "parts": 7,
+      "source": "四级真题/2019.06/真题Word/2019年6月四级真题第三套.docx",
+      "sha256": "78fad02b82eb8a5629d84504b8ec539f7a56a520d94d83f419bbaed81e668f70",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet4-2019-06-3",
+      "sectionId": "cet4-2019-06-3-c2",
+      "paragraph": 0,
+      "parts": 7,
+      "source": "四级真题/2019.06/真题Word/2019年6月四级真题第三套.docx",
+      "sha256": "78fad02b82eb8a5629d84504b8ec539f7a56a520d94d83f419bbaed81e668f70",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet4-2019-12-1",
+      "sectionId": "cet4-2019-12-1-c1",
+      "paragraph": 0,
+      "parts": 4,
+      "source": "四级真题/2019.12/真题Word/2019年12月四级真题第1套.docx",
+      "sha256": "4012ced2e35217d1c0af15c27c76aa901acffcd10d802b843c346ff09882add5",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet4-2019-12-1",
+      "sectionId": "cet4-2019-12-1-c2",
+      "paragraph": 0,
+      "parts": 5,
+      "source": "四级真题/2019.12/真题Word/2019年12月四级真题第1套.docx",
+      "sha256": "4012ced2e35217d1c0af15c27c76aa901acffcd10d802b843c346ff09882add5",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet4-2019-12-3",
+      "sectionId": "cet4-2019-12-3-c2",
+      "paragraph": 0,
+      "parts": 3,
+      "source": "四级真题/2019.12/真题Word/2019年12月四级真题第3套.docx",
+      "sha256": "e46e38240bc26dbc7629033ea25d552b3b953f443f0827f45e847ca641e37347",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2015-06-3",
+      "sectionId": "cet6-2015-06-3-c1",
+      "paragraph": 0,
+      "parts": 7,
+      "source": "六级真题/2015.06/真题Word/2015年06月六级真题（第3套）.docx",
+      "sha256": "0f3a1be30f0cece1802699d954b47c735fb7b71b78b80bb56617155cc465505c",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2015-06-3",
+      "sectionId": "cet6-2015-06-3-c2",
+      "paragraph": 0,
+      "parts": 8,
+      "source": "六级真题/2015.06/真题Word/2015年06月六级真题（第3套）.docx",
+      "sha256": "0f3a1be30f0cece1802699d954b47c735fb7b71b78b80bb56617155cc465505c",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2015-12-3",
+      "sectionId": "cet6-2015-12-3-c1",
+      "paragraph": 0,
+      "parts": 4,
+      "source": "六级真题/2015.12/真题Word/2015年12月六级真题（第3套）.docx",
+      "sha256": "f886664eec5801911ffcb820ddf0d7ad50cf6ac2155e970b2f385b59c416486c",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2015-12-3",
+      "sectionId": "cet6-2015-12-3-c2",
+      "paragraph": 0,
+      "parts": 6,
+      "source": "六级真题/2015.12/真题Word/2015年12月六级真题（第3套）.docx",
+      "sha256": "f886664eec5801911ffcb820ddf0d7ad50cf6ac2155e970b2f385b59c416486c",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2016-12-1",
+      "sectionId": "cet6-2016-12-1-c2",
+      "paragraph": 0,
+      "parts": 9,
+      "source": "六级真题/2016.12/真题Word/2016年12月六级真题（第1套）.docx",
+      "sha256": "de35200bf69bfc959244b43bf6030d33757a29b36ef1fce264e082a4d5f3eaac",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2016-12-2",
+      "sectionId": "cet6-2016-12-2-c1",
+      "paragraph": 0,
+      "parts": 8,
+      "source": "六级真题/2016.12/真题Word/2016年12月六级真题（第2套）.docx",
+      "sha256": "7e60282fffd4f6212af140ff4ccc16feffef287b3e9d39bc6bb9a3687baddd4a",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2016-12-2",
+      "sectionId": "cet6-2016-12-2-c2",
+      "paragraph": 0,
+      "parts": 6,
+      "source": "六级真题/2016.12/真题Word/2016年12月六级真题（第2套）.docx",
+      "sha256": "7e60282fffd4f6212af140ff4ccc16feffef287b3e9d39bc6bb9a3687baddd4a",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2016-12-3",
+      "sectionId": "cet6-2016-12-3-c1",
+      "paragraph": 0,
+      "parts": 6,
+      "source": "六级真题/2016.12/真题Word/2016年12月六级真题（第3套）.docx",
+      "sha256": "076c8fa624e21df88a052c814bfc555ff1cb55cbd1f1c25ffd66ba32505a8352",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2017-06-1",
+      "sectionId": "cet6-2017-06-1-c1",
+      "paragraph": 0,
+      "parts": 5,
+      "source": "六级真题/2017.06/真题Word/2017年06月六级真题（第1套）.docx",
+      "sha256": "292197336c1efce626783819e7fd7cffee85c7cea24fc6a9a212fee12e86fa98",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2017-06-1",
+      "sectionId": "cet6-2017-06-1-c2",
+      "paragraph": 0,
+      "parts": 6,
+      "source": "六级真题/2017.06/真题Word/2017年06月六级真题（第1套）.docx",
+      "sha256": "292197336c1efce626783819e7fd7cffee85c7cea24fc6a9a212fee12e86fa98",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2017-06-2",
+      "sectionId": "cet6-2017-06-2-c1",
+      "paragraph": 0,
+      "parts": 4,
+      "source": "六级真题/2017.06/真题Word/2017年06月六级真题（第2套）.docx",
+      "sha256": "85f7f88bfc74d9cd75e84953ad8684d4afc77a1a2f7d023292371f7c76b063c7",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2017-06-2",
+      "sectionId": "cet6-2017-06-2-c2",
+      "paragraph": 0,
+      "parts": 7,
+      "source": "六级真题/2017.06/真题Word/2017年06月六级真题（第2套）.docx",
+      "sha256": "85f7f88bfc74d9cd75e84953ad8684d4afc77a1a2f7d023292371f7c76b063c7",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2017-06-3",
+      "sectionId": "cet6-2017-06-3-c1",
+      "paragraph": 0,
+      "parts": 8,
+      "source": "六级真题/2017.06/真题Word/2017年06月六级真题（第3套）.docx",
+      "sha256": "f67235d661938f769546b934f6fa96bcca9e45fb7f878305ac0e4bd60d5af5f5",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2017-06-3",
+      "sectionId": "cet6-2017-06-3-c2",
+      "paragraph": 0,
+      "parts": 3,
+      "source": "六级真题/2017.06/真题Word/2017年06月六级真题（第3套）.docx",
+      "sha256": "f67235d661938f769546b934f6fa96bcca9e45fb7f878305ac0e4bd60d5af5f5",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2017-12-1",
+      "sectionId": "cet6-2017-12-1-c1",
+      "paragraph": 0,
+      "parts": 7,
+      "source": "六级真题/2017.12/真题Word/2017年12月六级真题（第1套）.docx",
+      "sha256": "46f2e9533563151b30878ae9fb6fc8eda20d94c4d914d541f69f2ff1abf0dd09",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2017-12-1",
+      "sectionId": "cet6-2017-12-1-c2",
+      "paragraph": 0,
+      "parts": 5,
+      "source": "六级真题/2017.12/真题Word/2017年12月六级真题（第1套）.docx",
+      "sha256": "46f2e9533563151b30878ae9fb6fc8eda20d94c4d914d541f69f2ff1abf0dd09",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2017-12-2",
+      "sectionId": "cet6-2017-12-2-c1",
+      "paragraph": 0,
+      "parts": 5,
+      "source": "六级真题/2017.12/真题Word/2017年12月六级真题（第2套）.docx",
+      "sha256": "4ddbeaa0f7fa5128f60ea283d7967598ba7bab62fc87cb62afec78d3935479f5",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2017-12-2",
+      "sectionId": "cet6-2017-12-2-c2",
+      "paragraph": 0,
+      "parts": 9,
+      "source": "六级真题/2017.12/真题Word/2017年12月六级真题（第2套）.docx",
+      "sha256": "4ddbeaa0f7fa5128f60ea283d7967598ba7bab62fc87cb62afec78d3935479f5",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2017-12-3",
+      "sectionId": "cet6-2017-12-3-c2",
+      "paragraph": 0,
+      "parts": 6,
+      "source": "六级真题/2017.12/真题Word/2017年12月六级真题（第3套）.docx",
+      "sha256": "f0c7a33fd9fcaffda58bd27bfe0eb52b4a5fceeb4b63a409e7549f947526d2f3",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2018-06-3",
+      "sectionId": "cet6-2018-06-3-c2",
+      "paragraph": 0,
+      "parts": 7,
+      "source": "六级真题/2018.06/真题Word/2018.06真题第3套.docx",
+      "sha256": "1f9f9767645670444cf16071e08dccedebf995ddb4aa3dcfe43ad53479fbee85",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2019-06-1",
+      "sectionId": "cet6-2019-06-1-c1",
+      "paragraph": 0,
+      "parts": 6,
+      "source": "六级真题/2019.06/真题Word/2019年06月六级真题（第1套）.docx",
+      "sha256": "129daedf283acd327e3e74a145ee8b53f239f603cb914e3cfdbef2fbe1e42402",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2019-06-2",
+      "sectionId": "cet6-2019-06-2-c1",
+      "paragraph": 0,
+      "parts": 8,
+      "source": "六级真题/2019.06/真题Word/2019年06月六级真题（第2套）.docx",
+      "sha256": "84ba3200ba50eec7cffd265fec1eb9d367a6b4511482edaf6d8450dfa36f78d5",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2019-06-2",
+      "sectionId": "cet6-2019-06-2-c2",
+      "paragraph": 0,
+      "parts": 6,
+      "source": "六级真题/2019.06/真题Word/2019年06月六级真题（第2套）.docx",
+      "sha256": "84ba3200ba50eec7cffd265fec1eb9d367a6b4511482edaf6d8450dfa36f78d5",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2019-06-3",
+      "sectionId": "cet6-2019-06-3-c1",
+      "paragraph": 0,
+      "parts": 7,
+      "source": "六级真题/2019.06/真题Word/2019年06月六级真题（第3套）.docx",
+      "sha256": "f907e85488f359f63c12456c9e902c04239d3ad1336b08d47eadc2acf4d9b471",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2019-06-3",
+      "sectionId": "cet6-2019-06-3-c2",
+      "paragraph": 0,
+      "parts": 4,
+      "source": "六级真题/2019.06/真题Word/2019年06月六级真题（第3套）.docx",
+      "sha256": "f907e85488f359f63c12456c9e902c04239d3ad1336b08d47eadc2acf4d9b471",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2019-12-1",
+      "sectionId": "cet6-2019-12-1-c1",
+      "paragraph": 0,
+      "parts": 4,
+      "source": "六级真题/2019.12/真题Word/2019年12月六级真题（第1套）.docx",
+      "sha256": "e8797f7735c6fc830d9c0648a6d7e739995d0cca161db863fb092191b0fc5791",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2019-12-1",
+      "sectionId": "cet6-2019-12-1-c2",
+      "paragraph": 0,
+      "parts": 7,
+      "source": "六级真题/2019.12/真题Word/2019年12月六级真题（第1套）.docx",
+      "sha256": "e8797f7735c6fc830d9c0648a6d7e739995d0cca161db863fb092191b0fc5791",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2019-12-2",
+      "sectionId": "cet6-2019-12-2-c1",
+      "paragraph": 0,
+      "parts": 5,
+      "source": "六级真题/2019.12/真题Word/2019年12月六级真题（第2套）.docx",
+      "sha256": "88c03a886f7524840634f94008e3b745f6592c00ea5b1fab0c63080cebb9667b",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2019-12-2",
+      "sectionId": "cet6-2019-12-2-c2",
+      "paragraph": 0,
+      "parts": 8,
+      "source": "六级真题/2019.12/真题Word/2019年12月六级真题（第2套）.docx",
+      "sha256": "88c03a886f7524840634f94008e3b745f6592c00ea5b1fab0c63080cebb9667b",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2019-12-3",
+      "sectionId": "cet6-2019-12-3-c1",
+      "paragraph": 0,
+      "parts": 5,
+      "source": "六级真题/2019.12/真题Word/2019年12月六级真题（第3套）.docx",
+      "sha256": "b96f2b85f8d73c7ac8b1c245b2be7624b14af4d018eecabdf3d7e57e65d9e2ad",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2019-12-3",
+      "sectionId": "cet6-2019-12-3-c2",
+      "paragraph": 0,
+      "parts": 4,
+      "source": "六级真题/2019.12/真题Word/2019年12月六级真题（第3套）.docx",
+      "sha256": "b96f2b85f8d73c7ac8b1c245b2be7624b14af4d018eecabdf3d7e57e65d9e2ad",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2020-09-1",
+      "sectionId": "cet6-2020-09-1-c1",
+      "paragraph": 0,
+      "parts": 5,
+      "source": "六级真题/2020.09/真题Word/2020年09月六级真题（第1套）.docx",
+      "sha256": "75092501de86a67a1629f67dc75e8e614c8b5a1c0b1eec566f02a0204091279f",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2020-09-2",
+      "sectionId": "cet6-2020-09-2-c1",
+      "paragraph": 0,
+      "parts": 9,
+      "source": "六级真题/2020.09/真题Word/2020年09月六级真题（第2套）.docx",
+      "sha256": "028bcf7833a2d7d296716684b8a50d7023b4d8a018f1000f25d7eb65a6e623e7",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2020-09-2",
+      "sectionId": "cet6-2020-09-2-c2",
+      "paragraph": 0,
+      "parts": 9,
+      "source": "六级真题/2020.09/真题Word/2020年09月六级真题（第2套）.docx",
+      "sha256": "028bcf7833a2d7d296716684b8a50d7023b4d8a018f1000f25d7eb65a6e623e7",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2020-12-2",
+      "sectionId": "cet6-2020-12-2-c1",
+      "paragraph": 0,
+      "parts": 11,
+      "source": "六级真题/2020.12/真题Word/2020年12月六级真题（第2套）.docx",
+      "sha256": "eef6c9b7ec4bf2582192ee05ef5bcfa78a09cf33c6c31fb79b712ca799cafea0",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2020-12-3",
+      "sectionId": "cet6-2020-12-3-c1",
+      "paragraph": 0,
+      "parts": 7,
+      "source": "六级真题/2020.12/真题Word/2020年12月六级真题（第3套）.docx",
+      "sha256": "85488b02ca7d7dacae8feec8b5c9b56bb0f13c337a8247ee2c2bcd7add59d945",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2021-06-1",
+      "sectionId": "cet6-2021-06-1-c2",
+      "paragraph": 0,
+      "parts": 8,
+      "source": "六级真题/2021.06/真题Word/2021.06六级真题第1套.docx",
+      "sha256": "b0326306d34dfda12fd13f1fdf0a686e0b5f3a4636dd0fb86cf0cb6c6f26cea1",
+      "proof": "complete text exact match ignoring whitespace; source Word paragraph boundaries only"
+    },
+    {
+      "paperId": "cet6-2018-06-2",
+      "sectionId": "cet6-2018-06-2-a",
+      "paragraph": 2,
+      "removed": "第3 页",
+      "proof": "exact allowlisted footer in original PDF below 85 percent page height"
+    },
+    {
+      "paperId": "cet6-2018-06-2",
+      "sectionId": "cet6-2018-06-2-b",
+      "paragraph": 3,
+      "removed": "第4 页",
+      "proof": "exact allowlisted footer in original PDF below 85 percent page height"
+    },
+    {
+      "paperId": "cet6-2018-06-2",
+      "sectionId": "cet6-2018-06-2-b",
+      "paragraph": 10,
+      "removed": "第5 页",
+      "proof": "exact allowlisted footer in original PDF below 85 percent page height"
+    },
+    {
+      "paperId": "cet6-2018-06-2",
+      "sectionId": "cet6-2018-06-2-c1",
+      "paragraph": 6,
+      "removed": "第6 页",
+      "proof": "exact allowlisted footer in original PDF below 85 percent page height"
+    },
+    {
+      "paperId": "cet6-2018-06-2",
+      "sectionId": "cet6-2018-06-2-c2",
+      "paragraph": 0,
+      "removed": "第7 页",
+      "proof": "exact allowlisted footer in original PDF below 85 percent page height"
+    }
+  ],
+  "unconfirmed": [
+    {
+      "paperId": "cet4-2016-12-3",
+      "sectionId": "cet4-2016-12-3-c1",
+      "paragraph": 0,
+      "reason": "no unique exact source match"
+    },
+    {
+      "paperId": "cet4-2016-12-3",
+      "sectionId": "cet4-2016-12-3-c2",
+      "paragraph": 0,
+      "reason": "no unique exact source match"
+    },
+    {
+      "paperId": "cet4-2017-06-2",
+      "sectionId": "cet4-2017-06-2-c1",
+      "paragraph": 0,
+      "reason": "no unique exact source match"
+    },
+    {
+      "paperId": "cet4-2017-06-2",
+      "sectionId": "cet4-2017-06-2-c2",
+      "paragraph": 0,
+      "reason": "no unique exact source match"
+    },
+    {
+      "paperId": "cet4-2017-06-3",
+      "sectionId": "cet4-2017-06-3-c1",
+      "paragraph": 0,
+      "reason": "no unique exact source match"
+    },
+    {
+      "paperId": "cet4-2018-12-2",
+      "sectionId": "cet4-2018-12-2-c1",
+      "paragraph": 0,
+      "reason": "no unique exact source match"
+    },
+    {
+      "paperId": "cet4-2018-12-2",
+      "sectionId": "cet4-2018-12-2-c2",
+      "paragraph": 0,
+      "reason": "no unique exact source match"
+    },
+    {
+      "paperId": "cet4-2018-12-3",
+      "sectionId": "cet4-2018-12-3-c1",
+      "paragraph": 0,
+      "reason": "no unique exact source match"
+    },
+    {
+      "paperId": "cet4-2018-12-3",
+      "sectionId": "cet4-2018-12-3-c2",
+      "paragraph": 0,
+      "reason": "no unique exact source match"
+    },
+    {
+      "paperId": "cet4-2019-06-1",
+      "sectionId": "cet4-2019-06-1-c1",
+      "paragraph": 0,
+      "reason": "no unique exact source match"
+    },
+    {
+      "paperId": "cet4-2019-06-2",
+      "sectionId": "cet4-2019-06-2-c2",
+      "paragraph": 0,
+      "reason": "no unique exact source match"
+    },
+    {
+      "paperId": "cet4-2019-12-2",
+      "sectionId": "cet4-2019-12-2-c1",
+      "paragraph": 0,
+      "reason": "no unique exact source match"
+    },
+    {
+      "paperId": "cet4-2019-12-2",
+      "sectionId": "cet4-2019-12-2-c2",
+      "paragraph": 0,
+      "reason": "no unique exact source match"
+    },
+    {
+      "paperId": "cet4-2019-12-3",
+      "sectionId": "cet4-2019-12-3-c1",
+      "paragraph": 0,
+      "reason": "no unique exact source match"
+    },
+    {
+      "paperId": "cet6-2014-06-1",
+      "sectionId": "cet6-2014-06-1-c1",
+      "paragraph": 0,
+      "reason": "no unique exact source match"
+    },
+    {
+      "paperId": "cet6-2014-06-1",
+      "sectionId": "cet6-2014-06-1-c2",
+      "paragraph": 0,
+      "reason": "no unique exact source match"
+    },
+    {
+      "paperId": "cet6-2014-06-2",
+      "sectionId": "cet6-2014-06-2-c1",
+      "paragraph": 0,
+      "reason": "no unique exact source match"
+    },
+    {
+      "paperId": "cet6-2014-06-2",
+      "sectionId": "cet6-2014-06-2-c2",
+      "paragraph": 0,
+      "reason": "no unique exact source match"
+    },
+    {
+      "paperId": "cet6-2015-06-1",
+      "sectionId": "cet6-2015-06-1-c1",
+      "paragraph": 0,
+      "reason": "no unique exact source match"
+    },
+    {
+      "paperId": "cet6-2015-06-1",
+      "sectionId": "cet6-2015-06-1-c2",
+      "paragraph": 0,
+      "reason": "no unique exact source match"
+    },
+    {
+      "paperId": "cet6-2015-12-2",
+      "sectionId": "cet6-2015-12-2-c2",
+      "paragraph": 0,
+      "reason": "no unique exact source match"
+    },
+    {
+      "paperId": "cet6-2016-12-1",
+      "sectionId": "cet6-2016-12-1-c1",
+      "paragraph": 0,
+      "reason": "no unique exact source match"
+    },
+    {
+      "paperId": "cet6-2016-12-3",
+      "sectionId": "cet6-2016-12-3-c2",
+      "paragraph": 0,
+      "reason": "no unique exact source match"
+    },
+    {
+      "paperId": "cet6-2017-12-3",
+      "sectionId": "cet6-2017-12-3-c1",
+      "paragraph": 0,
+      "reason": "no unique exact source match"
+    },
+    {
+      "paperId": "cet6-2018-06-3",
+      "sectionId": "cet6-2018-06-3-c1",
+      "paragraph": 0,
+      "reason": "no unique exact source match"
+    },
+    {
+      "paperId": "cet6-2020-09-1",
+      "sectionId": "cet6-2020-09-1-c2",
+      "paragraph": 0,
+      "reason": "no unique exact source match"
+    },
+    {
+      "paperId": "cet6-2020-12-2",
+      "sectionId": "cet6-2020-12-2-c2",
+      "paragraph": 0,
+      "reason": "no unique exact source match"
+    },
+    {
+      "paperId": "cet6-2020-12-3",
+      "sectionId": "cet6-2020-12-3-c2",
+      "paragraph": 0,
+      "reason": "no unique exact source match"
+    },
+    {
+      "paperId": "cet6-2021-06-1",
+      "sectionId": "cet6-2021-06-1-c1",
+      "paragraph": 0,
+      "reason": "no unique exact source match"
+    },
+    {
+      "paperId": "cet6-2021-06-2",
+      "sectionId": "cet6-2021-06-2-c1",
+      "paragraph": 0,
+      "reason": "no unique exact source match"
+    },
+    {
+      "paperId": "cet6-2021-06-2",
+      "sectionId": "cet6-2021-06-2-c2",
+      "paragraph": 0,
+      "reason": "no unique exact source match"
+    },
+    {
+      "paperId": "cet6-2021-06-3",
+      "sectionId": "cet6-2021-06-3-c1",
+      "paragraph": 0,
+      "reason": "no unique exact source match"
+    }
+  ],
+  "footerProof": [
+    {
+      "text": "第3 页",
+      "page": 3,
+      "y": 0.9445008954237759
+    },
+    {
+      "text": "第4 页",
+      "page": 4,
+      "y": 0.9445008954237759
+    },
+    {
+      "text": "第5 页",
+      "page": 5,
+      "y": 0.9445008954237759
+    },
+    {
+      "text": "第6 页",
+      "page": 6,
+      "y": 0.9445008954237759
+    },
+    {
+      "text": "第7 页",
+      "page": 7,
+      "y": 0.9445008954237759
+    }
+  ]
+}

@@ -4,10 +4,11 @@ import papersData from "@/data/cet/catalog.json";
 import { readCetPaperWithOverrides } from "@/lib/cetPaperOverrides";
 import type { CetPaper } from "@/types/cet";
 import { CET_GUEST_PREVIEW_COUNT } from "@/lib/cetGuestPreview";
+import { withCetListeningMetadata } from "@/lib/cetListeningCatalog";
 export async function GET(request: Request) {
   const params = new URL(request.url).searchParams;
   const user = await getAuthenticatedUser().catch(() => null);
-  const all = (papersData as CetPaper[])
+  const all = withCetListeningMetadata(papersData as CetPaper[])
     .slice()
     .sort((a, b) => b.year - a.year || b.month - a.month || a.set - b.set);
   const visible = user

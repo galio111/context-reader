@@ -34,7 +34,7 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
-  outputFileTracingIncludes: { "/api/cet": ["./data/cet/*.json"] },
+  outputFileTracingIncludes: { "/api/cet": ["./data/cet/*.json", "./data/cet/listening/*.json"], "/api/admin/cet-paper": ["./data/cet/*.json", "./data/cet/listening/*.json"] },
   output: "standalone",
   images: {
     remotePatterns: [{ protocol: "https", hostname: "context-reader.com", pathname: "/storage/v1/object/public/public-article-covers/**" }],
@@ -47,6 +47,11 @@ const nextConfig: NextConfig = {
   // localhost session by replacing the dev server's CSS and chunk manifests.
   distDir: isDevelopment ? ".next-dev" : ".next",
   poweredByHeader: false,
+  async rewrites() {
+    // Production serves immutable audio directly through Caddy. Local
+    // development proxies only this public media path, retaining same-origin CSP.
+    return isDevelopment ? [{ source: "/cet-audio/:file", destination: "https://context-reader.com/cet-audio/:file" }] : [];
+  },
   experimental: {
     cpus: 1,
   },

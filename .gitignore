@@ -1,4 +1,5 @@
 node_modules
+/public/cet-audio/
 .next
 .next-dev
 .npm-cache

@@ -1,0 +1,1836 @@
+{
+  "imported": [
+    {
+      "paperId": "cet4-2023-06-1",
+      "audio": {
+        "durationSeconds": 1432.18358276644,
+        "mimeType": "audio/mp4",
+        "bytes": 17433846,
+        "sha256": "3808cc88faa3ab039a66839df17980d0c8273e4465942ba5aefb0122eb155f94",
+        "url": "/cet-audio/3808cc88faa3ab039a66839df17980d0c8273e4465942ba5aefb0122eb155f94.m4a"
+      },
+      "sources": {
+        "questions": "cet4-2023-06-1-questions.pdf",
+        "answers": "cet4-2023-06-1-answers.pdf"
+      },
+      "materialId": "7417106e7980b6f6e17c",
+      "questionSetId": "f1a652497cbf726c3716",
+      "sourceFiles": [
+        {
+          "id": "cet4-2023-06-1",
+          "kind": "audio",
+          "path": "四级真题/2023.06/听力音频/2023年6月第1套英语四级真题听力音频.mp3",
+          "gitBlobSha": "7e7738ee62f8b75eb3aa7616da403ab7751fd7db",
+          "sha256": "3808cc88faa3ab039a66839df17980d0c8273e4465942ba5aefb0122eb155f94",
+          "bytes": 17433846
+        },
+        {
+          "id": "cet4-2023-06-1",
+          "kind": "questions",
+          "path": "四级真题/2023.06/真题PDF/2023年6月第1套英语四级真题.pdf",
+          "gitBlobSha": "292e985fb634e49117ee2d246bc56ca137ff701c",
+          "sha256": "aaa54dab278ffc147bd5ccdad008f9ee9691892941adcf2026248959b2a1fcb8",
+          "bytes": 2933516
+        },
+        {
+          "id": "cet4-2023-06-1",
+          "kind": "answers",
+          "path": "四级真题/2023.06/答案解析/2023年6月第1套英语四级真题解析.pdf",
+          "gitBlobSha": "de382c5639a1bb3147d5533272da5a332e1fb121",
+          "sha256": "cb78efaa7ae6f12ecb1f6c98ffc7b88cf4a5fbad983aa585073fc108e047e905",
+          "bytes": 7056193
+        }
+      ],
+      "sourceAudio": {
+        "path": "四级真题/2023.06/听力音频/2023年6月第1套英语四级真题听力音频.mp3",
+        "sha": "7e7738ee62f8b75eb3aa7616da403ab7751fd7db",
+        "size": 17433846
+      }
+    },
+    {
+      "paperId": "cet4-2023-06-2",
+      "audio": {
+        "durationSeconds": 1426.6195011337868,
+        "mimeType": "audio/mp4",
+        "bytes": 17366304,
+        "sha256": "cd9a1521a33fa280ebfb23e9a59ab6854609eb489b2bb42d57164df929d2bc2c",
+        "url": "/cet-audio/cd9a1521a33fa280ebfb23e9a59ab6854609eb489b2bb42d57164df929d2bc2c.m4a"
+      },
+      "sources": {
+        "questions": "cet4-2023-06-2-questions.pdf",
+        "answers": "cet4-2023-06-2-answers.pdf"
+      },
+      "materialId": "62dc1904d5ba6eed03eb",
+      "questionSetId": "d0bc87b456fd73a03313",
+      "sourceFiles": [
+        {
+          "id": "cet4-2023-06-2",
+          "kind": "audio",
+          "path": "四级真题/2023.06/听力音频/2023年6月第2套英语四级真题听力音频.mp3",
+          "gitBlobSha": "b8594402493493eb7fdaabd4a6cd99e591df274c",
+          "sha256": "cd9a1521a33fa280ebfb23e9a59ab6854609eb489b2bb42d57164df929d2bc2c",
+          "bytes": 17366304
+        },
+        {
+          "id": "cet4-2023-06-2",
+          "kind": "questions",
+          "path": "四级真题/2023.06/真题PDF/2023年6月第2套英语四级真题.pdf",
+          "gitBlobSha": "bb68473e4c6ada2bb1ad54418edb32c434b6efed",
+          "sha256": "62c21e075ae4f5cdea0ce51486dca569a80617242899224171a96db805b9c00c",
+          "bytes": 2880591
+        },
+        {
+          "id": "cet4-2023-06-2",
+          "kind": "answers",
+          "path": "四级真题/2023.06/答案解析/2023年6月第2套英语四级真题解析.pdf",
+          "gitBlobSha": "534b56f057fe3a5dc650b1c350572a181bc4cde7",
+          "sha256": "2bc8612f564d9922f98c3975c26773254c02f8ddd8f35b4d18ef323d38a5e65d",
+          "bytes": 7329034
+        }
+      ],
+      "sourceAudio": {
+        "path": "四级真题/2023.06/听力音频/2023年6月第2套英语四级真题听力音频.mp3",
+        "sha": "b8594402493493eb7fdaabd4a6cd99e591df274c",
+        "size": 17366304
+      }
+    },
+    {
+      "paperId": "cet4-2023-06-3",
+      "audio": {
+        "durationSeconds": 1426.6195011337868,
+        "mimeType": "audio/mp4",
+        "bytes": 17366304,
+        "sha256": "cd9a1521a33fa280ebfb23e9a59ab6854609eb489b2bb42d57164df929d2bc2c",
+        "url": "/cet-audio/cd9a1521a33fa280ebfb23e9a59ab6854609eb489b2bb42d57164df929d2bc2c.m4a"
+      },
+      "sources": {
+        "questions": "cet4-2023-06-2-questions.pdf",
+        "answers": "cet4-2023-06-2-answers.pdf",
+        "sharedFrom": "cet4-2023-06-2"
+      },
+      "materialId": "62dc1904d5ba6eed03eb",
+      "questionSetId": "d0bc87b456fd73a03313",
+      "sourceFiles": [
+        {
+          "id": "cet4-2023-06-2",
+          "kind": "audio",
+          "path": "四级真题/2023.06/听力音频/2023年6月第2套英语四级真题听力音频.mp3",
+          "gitBlobSha": "b8594402493493eb7fdaabd4a6cd99e591df274c",
+          "sha256": "cd9a1521a33fa280ebfb23e9a59ab6854609eb489b2bb42d57164df929d2bc2c",
+          "bytes": 17366304
+        },
+        {
+          "id": "cet4-2023-06-2",
+          "kind": "questions",
+          "path": "四级真题/2023.06/真题PDF/2023年6月第2套英语四级真题.pdf",
+          "gitBlobSha": "bb68473e4c6ada2bb1ad54418edb32c434b6efed",
+          "sha256": "62c21e075ae4f5cdea0ce51486dca569a80617242899224171a96db805b9c00c",
+          "bytes": 2880591
+        },
+        {
+          "id": "cet4-2023-06-2",
+          "kind": "answers",
+          "path": "四级真题/2023.06/答案解析/2023年6月第2套英语四级真题解析.pdf",
+          "gitBlobSha": "534b56f057fe3a5dc650b1c350572a181bc4cde7",
+          "sha256": "2bc8612f564d9922f98c3975c26773254c02f8ddd8f35b4d18ef323d38a5e65d",
+          "bytes": 7329034
+        }
+      ],
+      "sourceAudio": {
+        "path": "四级真题/2023.06/听力音频/2023年6月第3套英语四级真题听力音频.mp3",
+        "sha": "b8594402493493eb7fdaabd4a6cd99e591df274c",
+        "size": 17366304
+      }
+    },
+    {
+      "paperId": "cet4-2023-12-1",
+      "audio": {
+        "durationSeconds": 1485.88325,
+        "mimeType": "audio/mpeg",
+        "bytes": 23778228,
+        "sha256": "86b9bae2635a81584a3cc60bd3fe21144fbaace9c977fe62bd774aee24ee417e",
+        "url": "/cet-audio/86b9bae2635a81584a3cc60bd3fe21144fbaace9c977fe62bd774aee24ee417e.mp3"
+      },
+      "sources": {
+        "questions": "cet4-2023-12-1-questions.pdf",
+        "answers": "cet4-2023-12-1-answers.pdf"
+      },
+      "materialId": "4b7dc8ee8c07d69d4446",
+      "questionSetId": "c8dfd7269d645a2dc26b",
+      "sourceFiles": [
+        {
+          "id": "cet4-2023-12-1",
+          "kind": "audio",
+          "path": "四级真题/2023.12/听力音频/2023年12月四级听力音频第1套.mp3",
+          "gitBlobSha": "4166d4ad7f35808a04e131a30bf5e2a175e3a719",
+          "sha256": "86b9bae2635a81584a3cc60bd3fe21144fbaace9c977fe62bd774aee24ee417e",
+          "bytes": 23778228
+        },
+        {
+          "id": "cet4-2023-12-1",
+          "kind": "questions",
+          "path": "四级真题/2023.12/真题PDF/2023.12四级真题第1套【可复制可检索】.pdf",
+          "gitBlobSha": "7f30bf21656d68e89d8b4896cc714d7fccfb885a",
+          "sha256": "a9785341c9a8a22bda153e34e8eef2be30d0790b6af128c26cdbecc41beaf13b",
+          "bytes": 13147157
+        },
+        {
+          "id": "cet4-2023-12-1",
+          "kind": "answers",
+          "path": "四级真题/2023.12/答案解析/2023.12英语四级解析第1套.pdf",
+          "gitBlobSha": "d0b032c3d293620c0db4929f9fb443411eb19f70",
+          "sha256": "126d747fc41e14145f0ba2e7b019b5c9dc0c204102c04e3d2b88bd7b1e133c8d",
+          "bytes": 35545440
+        }
+      ],
+      "sourceAudio": {
+        "path": "四级真题/2023.12/听力音频/2023年12月四级听力音频第1套.mp3",
+        "sha": "4166d4ad7f35808a04e131a30bf5e2a175e3a719",
+        "size": 23778228
+      }
+    },
+    {
+      "paperId": "cet4-2023-12-2",
+      "audio": {
+        "durationSeconds": 1493.7632,
+        "mimeType": "audio/mpeg",
+        "bytes": 59754825,
+        "sha256": "cbda688a0b6e7b7809a64449a2beb42f146ef393d20e7b976f62f281917017a5",
+        "url": "/cet-audio/cbda688a0b6e7b7809a64449a2beb42f146ef393d20e7b976f62f281917017a5.mp3"
+      },
+      "sources": {
+        "questions": "cet4-2023-12-2-questions.pdf",
+        "answers": "cet4-2023-12-2-answers.pdf"
+      },
+      "materialId": "6b4584d7ee96019d4d06",
+      "questionSetId": "c2d2cb69d6485020adad",
+      "sourceFiles": [
+        {
+          "id": "cet4-2023-12-2",
+          "kind": "audio",
+          "path": "四级真题/2023.12/听力音频/2023年12月四级听力音频第2套.mp3",
+          "gitBlobSha": "f2844004747edef528c7624aeb227497754e511a",
+          "sha256": "cbda688a0b6e7b7809a64449a2beb42f146ef393d20e7b976f62f281917017a5",
+          "bytes": 59754825
+        },
+        {
+          "id": "cet4-2023-12-2",
+          "kind": "questions",
+          "path": "四级真题/2023.12/真题PDF/2023.12四级真题第2套【可复制可检索】.pdf",
+          "gitBlobSha": "da7ab17a4743a93dc593247eb339286162629358",
+          "sha256": "0f6a77a3eb174b495dff4a8ef90777b0d3b1c7d7547b0546fb83236bdf4d42ec",
+          "bytes": 11741593
+        },
+        {
+          "id": "cet4-2023-12-2",
+          "kind": "answers",
+          "path": "四级真题/2023.12/答案解析/2023.12英语四级解析第2套.pdf",
+          "gitBlobSha": "7462372847211b2a66a951b25f2bbb2fda2fa490",
+          "sha256": "1a100c744ab5c9065be6b1f90035e694329a7a5de2e18337a8d804f729ab96f3",
+          "bytes": 34054743
+        }
+      ],
+      "sourceAudio": {
+        "path": "四级真题/2023.12/听力音频/2023年12月四级听力音频第2套.mp3",
+        "sha": "f2844004747edef528c7624aeb227497754e511a",
+        "size": 59754825
+      }
+    },
+    {
+      "paperId": "cet4-2024-06-1",
+      "audio": {
+        "durationSeconds": 1409.864,
+        "mimeType": "audio/mpeg",
+        "bytes": 22562096,
+        "sha256": "3138dd4a84c4d9cf6de184efd41f7a5bd4a91d1aec518ccaf5944bdecda8e649",
+        "url": "/cet-audio/3138dd4a84c4d9cf6de184efd41f7a5bd4a91d1aec518ccaf5944bdecda8e649.mp3"
+      },
+      "sources": {
+        "questions": "cet4-2024-06-1-questions.pdf",
+        "answers": "cet4-2024-06-1-answers-alt.pdf"
+      },
+      "materialId": "c7386a8762e26028b2c0",
+      "questionSetId": "c3bc53a6f12a2ed0523a",
+      "sourceFiles": [
+        {
+          "id": "cet4-2024-06-1",
+          "kind": "audio",
+          "path": "四级真题/2024.06/听力音频/2024年6月四级真题（第1套）.mp3",
+          "gitBlobSha": "c84f9ec85425592e0f364c4bb0607061f29443fb",
+          "sha256": "3138dd4a84c4d9cf6de184efd41f7a5bd4a91d1aec518ccaf5944bdecda8e649",
+          "bytes": 22562096
+        },
+        {
+          "id": "cet4-2024-06-1",
+          "kind": "questions",
+          "path": "四级真题/2024.06/真题PDF/2024年06月大学英语四级考试真题（第1套）.pdf",
+          "gitBlobSha": "8b9238c89428fe7edb5de61fa53c9bf87cb524ff",
+          "sha256": "677814c95d9c30c88e9770973be8d7a9bfa341f4ce41188ad211f8206da47576",
+          "bytes": 633546
+        },
+        {
+          "id": "cet4-2024-06-1",
+          "kind": "answers",
+          "path": "四级真题/2024.06/答案解析/2024年06月四级考试真题答案速查（第1套）.pdf",
+          "gitBlobSha": "1f872f05d27b78ec1883a074ffbbd74683155cd0",
+          "sha256": "def49ca368a7826b93ccb66df35666881471b576eb15026ec628e90753c015f4",
+          "bytes": 343962
+        },
+        {
+          "id": "cet4-2024-06-1",
+          "kind": "answers-alt",
+          "path": "四级真题/2024.06/答案解析/cet4_2024_06_1_ans.pdf",
+          "gitBlobSha": "9536d630f5074a786d580b796e592364bb2d0b36",
+          "sha256": "f0013c91edf1a2e2280601a3fc944b51e17259802ae7d4394c3d2fcb45357117",
+          "bytes": 3213851
+        }
+      ],
+      "sourceAudio": {
+        "path": "四级真题/2024.06/听力音频/2024年6月四级真题（第1套）.mp3",
+        "sha": "c84f9ec85425592e0f364c4bb0607061f29443fb",
+        "size": 22562096
+      }
+    },
+    {
+      "paperId": "cet4-2024-06-2",
+      "audio": {
+        "durationSeconds": 1415.53125,
+        "mimeType": "audio/mpeg",
+        "bytes": 22652772,
+        "sha256": "1afc96eae88670d98ba389ab3e35283a9a93ae156359e1036fb8e5b22c89e364",
+        "url": "/cet-audio/1afc96eae88670d98ba389ab3e35283a9a93ae156359e1036fb8e5b22c89e364.mp3"
+      },
+      "sources": {
+        "questions": "cet4-2024-06-2-questions.pdf",
+        "answers": "cet4-2024-06-2-answers-alt.pdf"
+      },
+      "materialId": "236326bae98f3207ab4c",
+      "questionSetId": "9d54207117b8f8d19e76",
+      "sourceFiles": [
+        {
+          "id": "cet4-2024-06-2",
+          "kind": "audio",
+          "path": "四级真题/2024.06/听力音频/2024年6月四级真题（第2套）.mp3",
+          "gitBlobSha": "1e15b0202054d796cec53c9cb115b7c075f7804e",
+          "sha256": "1afc96eae88670d98ba389ab3e35283a9a93ae156359e1036fb8e5b22c89e364",
+          "bytes": 22652772
+        },
+        {
+          "id": "cet4-2024-06-2",
+          "kind": "questions",
+          "path": "四级真题/2024.06/真题PDF/2024年06月大学英语四级考试真题（第2套）.pdf",
+          "gitBlobSha": "69052447e8b729eefbc75109c9d012e3c631575f",
+          "sha256": "13f75ae1b8845e1e1d3206fba350e20c6061b5853ac89eccacb88b924fd7925c",
+          "bytes": 636105
+        },
+        {
+          "id": "cet4-2024-06-2",
+          "kind": "answers",
+          "path": "四级真题/2024.06/答案解析/2024年06月四级考试真题答案速查（第2套）.pdf",
+          "gitBlobSha": "934f86b3ac231ea2539a02cfdaed804d24aac0b2",
+          "sha256": "05252826d9513ac7585e81eec35ec7cd17843d581e29f7e07a330426b0431ed4",
+          "bytes": 341885
+        },
+        {
+          "id": "cet4-2024-06-2",
+          "kind": "answers-alt",
+          "path": "四级真题/2024.06/答案解析/cet4_2024_06_2_ans.pdf",
+          "gitBlobSha": "d3f382256c05ada386d1505440f255794f2d9217",
+          "sha256": "8e1ab6ee16f90d47e624d45ac5fc233feeaa415244c2263e39b54f4cb54165f4",
+          "bytes": 3042257
+        }
+      ],
+      "sourceAudio": {
+        "path": "四级真题/2024.06/听力音频/2024年6月四级真题（第2套）.mp3",
+        "sha": "1e15b0202054d796cec53c9cb115b7c075f7804e",
+        "size": 22652772
+      }
+    },
+    {
+      "paperId": "cet4-2024-12-1",
+      "audio": {
+        "durationSeconds": 878.184375,
+        "mimeType": "audio/mpeg",
+        "bytes": 7025520,
+        "sha256": "38ee3cfa972a8781df6ebda33d06267249e15029f7a6f42657d14422fa1e574f",
+        "url": "/cet-audio/38ee3cfa972a8781df6ebda33d06267249e15029f7a6f42657d14422fa1e574f.mp3"
+      },
+      "sources": {
+        "questions": "cet4-2024-12-1-questions.pdf",
+        "answers": "cet4-2024-12-1-answers-alt.pdf"
+      },
+      "materialId": "9207b09c0c8573985f4b",
+      "questionSetId": "d4bbdad612095480377b",
+      "sourceFiles": [
+        {
+          "id": "cet4-2024-12-1",
+          "kind": "audio",
+          "path": "四级真题/2024.12/听力音频/2024年12月英语四级听力（第一套）.mp3",
+          "gitBlobSha": "9a71561e1a89dc2fc9bc247c1c432e7f75a4a4c3",
+          "sha256": "38ee3cfa972a8781df6ebda33d06267249e15029f7a6f42657d14422fa1e574f",
+          "bytes": 7025520
+        },
+        {
+          "id": "cet4-2024-12-1",
+          "kind": "questions",
+          "path": "四级真题/2024.12/真题PDF/cet4_2024_12_1.pdf",
+          "gitBlobSha": "5aed29cc006f8fdcf1e61411808f4c24453eb3c4",
+          "sha256": "451a0a9470c043cd6e5449d3fc265877283e31153aaa2647167f1bde4a706216",
+          "bytes": 368437
+        },
+        {
+          "id": "cet4-2024-12-1",
+          "kind": "answers",
+          "path": "四级真题/2024.12/答案解析/2024年12月四级真题原卷及答案（第1套）.pdf",
+          "gitBlobSha": "bc0b69f0dab5b9549ce4839018c9bfac9208bf62",
+          "sha256": "58796541395ca1566508cf93578671d9f408aa5b95746dc6b66390a85c85febe",
+          "bytes": 6268031
+        },
+        {
+          "id": "cet4-2024-12-1",
+          "kind": "answers-alt",
+          "path": "四级真题/2024.12/答案解析/cet4_2024_12_1_ans.pdf",
+          "gitBlobSha": "61361e8e4634a104431471d94ccf218fc06f8d38",
+          "sha256": "f7bb689ec7f373f756a0ff86eea577bf427ee755794c7d0fa9a86a10b3e990e9",
+          "bytes": 4333246
+        }
+      ],
+      "sourceAudio": {
+        "path": "四级真题/2024.12/听力音频/2024年12月英语四级听力（第一套）.mp3",
+        "sha": "9a71561e1a89dc2fc9bc247c1c432e7f75a4a4c3",
+        "size": 7025520
+      }
+    },
+    {
+      "paperId": "cet4-2024-12-2",
+      "audio": {
+        "durationSeconds": 1352.411375,
+        "mimeType": "audio/mpeg",
+        "bytes": 10819336,
+        "sha256": "9aaa333bac54d826a67355b5a82b8d7453a782013be2dd51941e608b982ebb5b",
+        "url": "/cet-audio/9aaa333bac54d826a67355b5a82b8d7453a782013be2dd51941e608b982ebb5b.mp3"
+      },
+      "sources": {
+        "questions": "cet4-2024-12-2-questions.pdf",
+        "answers": "cet4-2024-12-2-answers-alt.pdf"
+      },
+      "materialId": "08839a6e48a045356978",
+      "questionSetId": "152bfb1e479d6bda3f8e",
+      "sourceFiles": [
+        {
+          "id": "cet4-2024-12-2",
+          "kind": "audio",
+          "path": "四级真题/2024.12/听力音频/2024年12月英语四级听力（第二套）.mp3",
+          "gitBlobSha": "aeb6092d6bf8edb2c5e11ec02958f295d7f50449",
+          "sha256": "9aaa333bac54d826a67355b5a82b8d7453a782013be2dd51941e608b982ebb5b",
+          "bytes": 10819336
+        },
+        {
+          "id": "cet4-2024-12-2",
+          "kind": "questions",
+          "path": "四级真题/2024.12/真题PDF/cet4_2024_12_2.pdf",
+          "gitBlobSha": "58a32fb2ab460b3c875ef47e06919feae991444f",
+          "sha256": "982a486689a7dc6196fe41e7e687ab6b28846523f14f53cdd5e64e3172cdc603",
+          "bytes": 342476
+        },
+        {
+          "id": "cet4-2024-12-2",
+          "kind": "answers",
+          "path": "四级真题/2024.12/答案解析/2024年12月四级真题原卷及答案（第2套）.pdf",
+          "gitBlobSha": "7a525b86c3b79cf27eb234f2f6fb9f193d1b5270",
+          "sha256": "0cc1908e5441ffac4700952bb0a7a56f1201a4d61ff51c8631eeeee6406c840d",
+          "bytes": 6681639
+        },
+        {
+          "id": "cet4-2024-12-2",
+          "kind": "answers-alt",
+          "path": "四级真题/2024.12/答案解析/cet4_2024_12_2_ans.pdf",
+          "gitBlobSha": "bcd7f946932eed4c3c1884a1c540ffeec282890b",
+          "sha256": "de0abe924fc05550bb9259391abaf0a122621380951f28f3a6e46e816a3c672e",
+          "bytes": 4598420
+        }
+      ],
+      "sourceAudio": {
+        "path": "四级真题/2024.12/听力音频/2024年12月英语四级听力（第二套）.mp3",
+        "sha": "aeb6092d6bf8edb2c5e11ec02958f295d7f50449",
+        "size": 10819336
+      }
+    },
+    {
+      "paperId": "cet4-2025-06-1",
+      "audio": {
+        "durationSeconds": 954.3575,
+        "mimeType": "audio/mpeg",
+        "bytes": 15273895,
+        "sha256": "08ffbda6e40a3872e19453eafc34e022f45af0fde12488d4b938155b2f325e8f",
+        "url": "/cet-audio/08ffbda6e40a3872e19453eafc34e022f45af0fde12488d4b938155b2f325e8f.mp3"
+      },
+      "sources": {
+        "questions": "cet4-2025-06-1-questions.pdf",
+        "answers": "cet4-2025-06-1-answers-alt.pdf"
+      },
+      "materialId": "3c2f88c97bf03af34d21",
+      "questionSetId": "247313c41485aafda37d",
+      "sourceFiles": [
+        {
+          "id": "cet4-2025-06-1",
+          "kind": "audio",
+          "path": "四级真题/2025.06/听力音频/2025年6月四级音频1.MP3",
+          "gitBlobSha": "c25fa0e4a2a574f8c7c224c8a8986553d14b0bb7",
+          "sha256": "08ffbda6e40a3872e19453eafc34e022f45af0fde12488d4b938155b2f325e8f",
+          "bytes": 15273895
+        },
+        {
+          "id": "cet4-2025-06-1",
+          "kind": "questions",
+          "path": "四级真题/2025.06/真题PDF/2025.06四级真题第1套.pdf",
+          "gitBlobSha": "2acc5858679306e1f21f5302b9d83bcaedf1abfd",
+          "sha256": "2443c86c894f08d7bbd0bb79c9b455ecfed6d79478fb9221c28b664932bca6a1",
+          "bytes": 23069767
+        },
+        {
+          "id": "cet4-2025-06-1",
+          "kind": "answers",
+          "path": "四级真题/2025.06/答案解析/2025.06英语四级解析第1套.pdf",
+          "gitBlobSha": "525561c2da19e284c4474d7d277613bfb90b4f6c",
+          "sha256": "df3d97fbc9908eb2aa044a9dfa1f89eaa8350f4c8eca8ff3a15c086891131bf7",
+          "bytes": 15583087
+        },
+        {
+          "id": "cet4-2025-06-1",
+          "kind": "answers-alt",
+          "path": "四级真题/2025.06/答案解析/cet4_2025_06_1_ans.pdf",
+          "gitBlobSha": "d8a12b763cf503e69dd524749bd748833090263d",
+          "sha256": "1021d97c5326909346907c137e98d9a3ed7538b614117bcfb03c8b2d0db232f4",
+          "bytes": 4459701
+        }
+      ],
+      "sourceAudio": {
+        "path": "四级真题/2025.06/听力音频/2025年6月四级音频1.MP3",
+        "sha": "c25fa0e4a2a574f8c7c224c8a8986553d14b0bb7",
+        "size": 15273895
+      }
+    },
+    {
+      "paperId": "cet6-2022-06-1",
+      "audio": {
+        "durationSeconds": 1722.4780498866214,
+        "mimeType": "audio/mp4",
+        "bytes": 13944033,
+        "sha256": "baf049101a22b4b7077ad0a76c0e0145e4cea2aae9033378ee9da107eb13e1e2",
+        "url": "/cet-audio/baf049101a22b4b7077ad0a76c0e0145e4cea2aae9033378ee9da107eb13e1e2.m4a"
+      },
+      "sources": {
+        "questions": "cet6-2022-06-1-questions.pdf",
+        "answers": "cet6-2022-06-1-answers.pdf"
+      },
+      "materialId": "7841cbe40d50fb33e706",
+      "questionSetId": "a6fffa3d845d5b247cda",
+      "sourceFiles": [
+        {
+          "id": "cet6-2022-06-1",
+          "kind": "audio",
+          "path": "六级真题/2022.06/听力音频/2022年06月六级真题（全1套）.mp3",
+          "gitBlobSha": "f9c3b7c92f91a07b6ed786d3533da6c4fc05f4a3",
+          "sha256": "baf049101a22b4b7077ad0a76c0e0145e4cea2aae9033378ee9da107eb13e1e2",
+          "bytes": 13944033
+        },
+        {
+          "id": "cet6-2022-06-1",
+          "kind": "questions",
+          "path": "六级真题/2022.06/真题PDF/2022.06六级真题第1套【可复制可搜索，打印首选】.pdf",
+          "gitBlobSha": "3c172c5dcbe50ff20d13e99e35f7d00040be14ec",
+          "sha256": "8fafd4783cd84a76fff3080a84a6af4bf13dc32239e22e8aa04704383ef991f0",
+          "bytes": 33810706
+        },
+        {
+          "id": "cet6-2022-06-1",
+          "kind": "answers",
+          "path": "六级真题/2022.06/答案解析/2022.06英语六级考试第1套解析.pdf",
+          "gitBlobSha": "ee465361ea17667b5796c881927dab3e42772563",
+          "sha256": "0f5baaa606bc5259a797117731da85b8e6c120edc6002ec9d8d123fe367a5314",
+          "bytes": 2953639
+        }
+      ],
+      "sourceAudio": {
+        "path": "六级真题/2022.06/听力音频/2022年06月六级真题（全1套）.mp3",
+        "sha": "f9c3b7c92f91a07b6ed786d3533da6c4fc05f4a3",
+        "size": 13944033
+      }
+    },
+    {
+      "paperId": "cet6-2022-09-1",
+      "audio": {
+        "durationSeconds": 1738.3415,
+        "mimeType": "audio/mpeg",
+        "bytes": 69537756,
+        "sha256": "4b67329de56971b4edf2b55eacbfe2369e778f15365b49f7717e67814385e4bd",
+        "url": "/cet-audio/4b67329de56971b4edf2b55eacbfe2369e778f15365b49f7717e67814385e4bd.mp3"
+      },
+      "sources": {
+        "questions": "cet6-2022-09-1-questions.pdf",
+        "answers": "cet6-2022-09-1-answers.pdf"
+      },
+      "materialId": "a655f5a016c405b65b5c",
+      "questionSetId": "ae493660c9eff79b84cf",
+      "sourceFiles": [
+        {
+          "id": "cet6-2022-09-1",
+          "kind": "audio",
+          "path": "六级真题/2022.09/听力音频/2022年09月六级真题（全1套）.mp3",
+          "gitBlobSha": "2ce9edcd33c24ee3798e65333466a4dd872db6e9",
+          "sha256": "4b67329de56971b4edf2b55eacbfe2369e778f15365b49f7717e67814385e4bd",
+          "bytes": 69537756
+        },
+        {
+          "id": "cet6-2022-09-1",
+          "kind": "questions",
+          "path": "六级真题/2022.09/真题PDF/2022年09月六级真题全3套.pdf",
+          "gitBlobSha": "c4fe128c6fbf17f35ce07727dfe8d9714ad8014e",
+          "sha256": "d6929cafd3bef3458c353bc86c8841959430b6d99b5777486dd1e4045af03031",
+          "bytes": 11820903
+        },
+        {
+          "id": "cet6-2022-09-1",
+          "kind": "answers",
+          "path": "六级真题/2022.09/答案解析/2022.09英语六级解析全3套.pdf",
+          "gitBlobSha": "7302fc96de0a8599879e314c4e5a045b55e16dfe",
+          "sha256": "8702c905176c8f2ae78832fb3002a1deb0fa7fb382b0ab0e5368d6bc6708ad5e",
+          "bytes": 5957558
+        }
+      ],
+      "sourceAudio": {
+        "path": "六级真题/2022.09/听力音频/2022年09月六级真题（全1套）.mp3",
+        "sha": "2ce9edcd33c24ee3798e65333466a4dd872db6e9",
+        "size": 69537756
+      }
+    },
+    {
+      "paperId": "cet6-2022-12-1",
+      "audio": {
+        "durationSeconds": 1635.6774603174604,
+        "mimeType": "audio/mp4",
+        "bytes": 19911175,
+        "sha256": "3c44ab29e498f31d6fd3fe4161b100b95d4aefbe1058ec746caec61adf2f2fda",
+        "url": "/cet-audio/3c44ab29e498f31d6fd3fe4161b100b95d4aefbe1058ec746caec61adf2f2fda.m4a"
+      },
+      "sources": {
+        "questions": "cet6-2022-12-1-questions.pdf",
+        "answers": "cet6-2022-12-1-answers.pdf"
+      },
+      "materialId": "4137c72afc0493b2a2c0",
+      "questionSetId": "d071b93fd8498fe2797d",
+      "sourceFiles": [
+        {
+          "id": "cet6-2022-12-1",
+          "kind": "audio",
+          "path": "六级真题/2022.12/听力音频/2022.12六级真题第1套听力.mp3",
+          "gitBlobSha": "41c123e2b2c8e9281b40322a2090a9c04b478076",
+          "sha256": "3c44ab29e498f31d6fd3fe4161b100b95d4aefbe1058ec746caec61adf2f2fda",
+          "bytes": 19911175
+        },
+        {
+          "id": "cet6-2022-12-1",
+          "kind": "questions",
+          "path": "六级真题/2022.12/真题PDF/2022.12六级真题第1套.pdf",
+          "gitBlobSha": "7dd76e25b9fc835a6ac7dc20b45d89d602b4ab07",
+          "sha256": "6b2ab9a7fe004ffa359d5bdc4b66dae98d4c395c7070812fc28231620e806aff",
+          "bytes": 11999480
+        },
+        {
+          "id": "cet6-2022-12-1",
+          "kind": "answers",
+          "path": "六级真题/2022.12/答案解析/2022.12六级真题第1套答案及详解.pdf",
+          "gitBlobSha": "27961cdc32fa8cc3842adbc425bf2fbebfd89cc5",
+          "sha256": "1826ed706ea64d51c6f71de8fac6ff0ae6adc9ad608632cf747081015a39cfd7",
+          "bytes": 13272099
+        }
+      ],
+      "sourceAudio": {
+        "path": "六级真题/2022.12/听力音频/2022.12六级真题第1套听力.mp3",
+        "sha": "41c123e2b2c8e9281b40322a2090a9c04b478076",
+        "size": 19911175
+      }
+    },
+    {
+      "paperId": "cet6-2022-12-2",
+      "audio": {
+        "durationSeconds": 1586.0709297052153,
+        "mimeType": "audio/mp4",
+        "bytes": 19307494,
+        "sha256": "765025e97ae8a0860713a27b1504394d738722a11ee0e891ea9ccc02a1e07a5a",
+        "url": "/cet-audio/765025e97ae8a0860713a27b1504394d738722a11ee0e891ea9ccc02a1e07a5a.m4a"
+      },
+      "sources": {
+        "questions": "cet6-2022-12-2-questions.pdf",
+        "answers": "cet6-2022-12-2-answers.pdf"
+      },
+      "materialId": "f6e18b28ba848742b240",
+      "questionSetId": "a72bdb688096bbcec836",
+      "sourceFiles": [
+        {
+          "id": "cet6-2022-12-2",
+          "kind": "audio",
+          "path": "六级真题/2022.12/听力音频/2022.12六级真题第2套听力.mp3",
+          "gitBlobSha": "37d79a555ed4d1c3f5cca2bc30f421a399e78ed5",
+          "sha256": "765025e97ae8a0860713a27b1504394d738722a11ee0e891ea9ccc02a1e07a5a",
+          "bytes": 19307494
+        },
+        {
+          "id": "cet6-2022-12-2",
+          "kind": "questions",
+          "path": "六级真题/2022.12/真题PDF/2022.12六级真题第2套.pdf",
+          "gitBlobSha": "ab695fba6516a73dafda38fc9cfd6a92d6342678",
+          "sha256": "47b92aa92c0de67f0e8f47d4a554b6a89f1dde8b4ac5636a9a859bf43f9bd07b",
+          "bytes": 12150927
+        },
+        {
+          "id": "cet6-2022-12-2",
+          "kind": "answers",
+          "path": "六级真题/2022.12/答案解析/2022.12六级真题第2套答案及详解.pdf",
+          "gitBlobSha": "dafde754cc19b198157b53656eb26dbf39a0d00e",
+          "sha256": "fe5311354639fedef298ceae307d4c289ea72727b49792b87e644c36c98a888e",
+          "bytes": 23805386
+        }
+      ],
+      "sourceAudio": {
+        "path": "六级真题/2022.12/听力音频/2022.12六级真题第2套听力.mp3",
+        "sha": "37d79a555ed4d1c3f5cca2bc30f421a399e78ed5",
+        "size": 19307494
+      }
+    },
+    {
+      "paperId": "cet6-2023-06-1",
+      "audio": {
+        "durationSeconds": 1652.7615419501133,
+        "mimeType": "audio/mp4",
+        "bytes": 20119016,
+        "sha256": "2cf3e68b98488d9f091bbf27aea208ee5567e2c0cbc8e2af0aae2d2e23b6dd48",
+        "url": "/cet-audio/2cf3e68b98488d9f091bbf27aea208ee5567e2c0cbc8e2af0aae2d2e23b6dd48.m4a"
+      },
+      "sources": {
+        "questions": "cet6-2023-06-1-questions.pdf",
+        "answers": "cet6-2023-06-1-answers.pdf"
+      },
+      "materialId": "c6f3ea62daceb12226e2",
+      "questionSetId": "52b7c961777981f9c2f0",
+      "sourceFiles": [
+        {
+          "id": "cet6-2023-06-1",
+          "kind": "audio",
+          "path": "六级真题/2023.06/听力音频/2023.06六级真题第1套听力音频.mp3",
+          "gitBlobSha": "49ab62fb6a7cb2e794849d1a140a3bf15226c3a8",
+          "sha256": "2cf3e68b98488d9f091bbf27aea208ee5567e2c0cbc8e2af0aae2d2e23b6dd48",
+          "bytes": 20119016
+        },
+        {
+          "id": "cet6-2023-06-1",
+          "kind": "questions",
+          "path": "六级真题/2023.06/真题PDF/2023.06六级真题第1套.pdf",
+          "gitBlobSha": "6f2605febf789beab1e851ba1b6629f4cf1418df",
+          "sha256": "08e8b936e2a1a754ac704bb7b9a88f45e008877d8015a2867f26dde0285ee941",
+          "bytes": 5265740
+        },
+        {
+          "id": "cet6-2023-06-1",
+          "kind": "answers",
+          "path": "六级真题/2023.06/答案解析/2023.06六级真题第1套详解.pdf",
+          "gitBlobSha": "35b0bc2fbe39725f4c620098b7fa4fcb9dc59642",
+          "sha256": "497d330ecbedfbba426c7c39bfeca173be8cee2f3140d8470610e4f102d8da49",
+          "bytes": 11502462
+        }
+      ],
+      "sourceAudio": {
+        "path": "六级真题/2023.06/听力音频/2023.06六级真题第1套听力音频.mp3",
+        "sha": "49ab62fb6a7cb2e794849d1a140a3bf15226c3a8",
+        "size": 20119016
+      }
+    },
+    {
+      "paperId": "cet6-2023-06-2",
+      "audio": {
+        "durationSeconds": 1652.8137868480726,
+        "mimeType": "audio/mp4",
+        "bytes": 20119815,
+        "sha256": "ec04e996cc9f92d13f6803fdc5c236f5c81402b5524ba301f0ca595df8e05b9c",
+        "url": "/cet-audio/ec04e996cc9f92d13f6803fdc5c236f5c81402b5524ba301f0ca595df8e05b9c.m4a"
+      },
+      "sources": {
+        "questions": "cet6-2023-06-2-questions.pdf",
+        "answers": "cet6-2023-06-2-answers.pdf"
+      },
+      "materialId": "d6cd36c064ae629823bc",
+      "questionSetId": "935b5655dcd9e09ee425",
+      "sourceFiles": [
+        {
+          "id": "cet6-2023-06-2",
+          "kind": "audio",
+          "path": "六级真题/2023.06/听力音频/2023.06六级真题第2套听力音频.mp3",
+          "gitBlobSha": "63297df1f584a0cf4af2fadfef7f064fbda39f56",
+          "sha256": "ec04e996cc9f92d13f6803fdc5c236f5c81402b5524ba301f0ca595df8e05b9c",
+          "bytes": 20119815
+        },
+        {
+          "id": "cet6-2023-06-2",
+          "kind": "questions",
+          "path": "六级真题/2023.06/真题PDF/2023.06六级真题第2套.pdf",
+          "gitBlobSha": "da08b85f89896b7951d4d3452fac82df9cff0020",
+          "sha256": "05901e4b4c2ae786875fd01f52b8fb54807ea4c00f8b04c65792c09a27df5afd",
+          "bytes": 5357945
+        },
+        {
+          "id": "cet6-2023-06-2",
+          "kind": "answers",
+          "path": "六级真题/2023.06/答案解析/2023.06六级真题第2套详解.pdf",
+          "gitBlobSha": "918724e346d1804845ece65b223ef0e4a8f73443",
+          "sha256": "4af2df44c8f211a8d4396b6f417ed6470d93e4184191071d03dac760144169e3",
+          "bytes": 11827896
+        }
+      ],
+      "sourceAudio": {
+        "path": "六级真题/2023.06/听力音频/2023.06六级真题第2套听力音频.mp3",
+        "sha": "63297df1f584a0cf4af2fadfef7f064fbda39f56",
+        "size": 20119815
+      }
+    },
+    {
+      "paperId": "cet6-2024-12-1",
+      "audio": {
+        "durationSeconds": 1771.366475,
+        "mimeType": "audio/mpeg",
+        "bytes": 70863497,
+        "sha256": "fc55a9951fae6b300a077197f0ca403b7fd2f60dd3dbb7eeb0b212af07a29660",
+        "url": "/cet-audio/fc55a9951fae6b300a077197f0ca403b7fd2f60dd3dbb7eeb0b212af07a29660.mp3"
+      },
+      "sources": {
+        "questions": "cet6-2024-12-1-questions.pdf",
+        "answers": "cet6-2024-12-1-answers.pdf"
+      },
+      "materialId": "3e589e7c3eba7e389262",
+      "questionSetId": "347f9ae683b8c3f15d3d",
+      "sourceFiles": [
+        {
+          "id": "cet6-2024-12-1",
+          "kind": "audio",
+          "path": "六级真题/2024.12/听力音频/2024年12月六级听力音频第1套.mp3",
+          "gitBlobSha": "dd4324a30fa2843189347c91620805079818c76c",
+          "sha256": "fc55a9951fae6b300a077197f0ca403b7fd2f60dd3dbb7eeb0b212af07a29660",
+          "bytes": 70863497
+        },
+        {
+          "id": "cet6-2024-12-1",
+          "kind": "questions",
+          "path": "六级真题/2024.12/真题PDF/2024.12六级真题第1套.pdf",
+          "gitBlobSha": "36f1008dd916e65aed7dd8ad05cdd7416468662d",
+          "sha256": "089e635dfb40797a158e9cde513507cee1b1907e716cdbf20a8438bdace8623f",
+          "bytes": 1057885
+        },
+        {
+          "id": "cet6-2024-12-1",
+          "kind": "answers",
+          "path": "六级真题/2024.12/答案解析/2024.12英语六级解析第1套.pdf",
+          "gitBlobSha": "8280e9f39c1f167287e87d4b0a6f6d0530b09fd9",
+          "sha256": "3ef129446bae134207887a82bacd09c091349320772b810aa0f4eb6645a96fac",
+          "bytes": 37651307
+        }
+      ],
+      "sourceAudio": {
+        "path": "六级真题/2024.12/听力音频/2024年12月六级听力音频第1套.mp3",
+        "sha": "dd4324a30fa2843189347c91620805079818c76c",
+        "size": 70863497
+      }
+    },
+    {
+      "paperId": "cet6-2024-12-2",
+      "audio": {
+        "durationSeconds": 1743.224375,
+        "mimeType": "audio/mpeg",
+        "bytes": 27895942,
+        "sha256": "a1e3b6fc1f5fd2c7cd5dc33cc76d1a222bd896048d537c1f7169b7e333f3d8ad",
+        "url": "/cet-audio/a1e3b6fc1f5fd2c7cd5dc33cc76d1a222bd896048d537c1f7169b7e333f3d8ad.mp3"
+      },
+      "sources": {
+        "questions": "cet6-2024-12-2-questions.pdf",
+        "answers": "cet6-2024-12-2-answers.pdf"
+      },
+      "materialId": "e78ae4a0f5709e74346b",
+      "questionSetId": "75f0561f61a2d8a7107c",
+      "sourceFiles": [
+        {
+          "id": "cet6-2024-12-2",
+          "kind": "audio",
+          "path": "六级真题/2024.12/听力音频/2024年12月六级听力音频第2套.mp3",
+          "gitBlobSha": "31da51c0d7324cf12e034dce60a45f5b8ceec419",
+          "sha256": "a1e3b6fc1f5fd2c7cd5dc33cc76d1a222bd896048d537c1f7169b7e333f3d8ad",
+          "bytes": 27895942
+        },
+        {
+          "id": "cet6-2024-12-2",
+          "kind": "questions",
+          "path": "六级真题/2024.12/真题PDF/2024.12六级真题第2套.pdf",
+          "gitBlobSha": "542efee098efc8e6d9114f4f9b5342f41c4656ee",
+          "sha256": "8f92a3530cdb47948105b283b1c70c5c738aa318e29ef6e82a73658fd3d47298",
+          "bytes": 1040345
+        },
+        {
+          "id": "cet6-2024-12-2",
+          "kind": "answers",
+          "path": "六级真题/2024.12/答案解析/2024.12英语六级解析第2套.pdf",
+          "gitBlobSha": "8367fdc7b99f8f501ed1978ceba6467f7d401568",
+          "sha256": "7f83bc156ee56d87281f1d4b479e5fbfe8101d74954b2273f0a25744b281af2a",
+          "bytes": 37222607
+        }
+      ],
+      "sourceAudio": {
+        "path": "六级真题/2024.12/听力音频/2024年12月六级听力音频第2套.mp3",
+        "sha": "31da51c0d7324cf12e034dce60a45f5b8ceec419",
+        "size": 27895942
+      }
+    },
+    {
+      "paperId": "cet6-2025-06-1",
+      "audio": {
+        "durationSeconds": 1156.3101875,
+        "mimeType": "audio/mpeg",
+        "bytes": 18501013,
+        "sha256": "32777b31c58942a0d2a5f24c1e4f1c5d4c8119604b6008e256c10c5f92975f85",
+        "url": "/cet-audio/32777b31c58942a0d2a5f24c1e4f1c5d4c8119604b6008e256c10c5f92975f85.mp3"
+      },
+      "sources": {
+        "questions": "cet6-2025-06-1-questions.pdf",
+        "answers": "cet6-2025-06-1-answers.pdf"
+      },
+      "materialId": "ac27e2cf6d769fb768d3",
+      "questionSetId": "9734f688a93716b3f246",
+      "sourceFiles": [
+        {
+          "id": "cet6-2025-06-1",
+          "kind": "audio",
+          "path": "六级真题/2025.06/听力音频/2025年6月六级音频1.MP3",
+          "gitBlobSha": "72ad0a1524bc7229167c2c1cc22eb96cf1019992",
+          "sha256": "32777b31c58942a0d2a5f24c1e4f1c5d4c8119604b6008e256c10c5f92975f85",
+          "bytes": 18501013
+        },
+        {
+          "id": "cet6-2025-06-1",
+          "kind": "questions",
+          "path": "六级真题/2025.06/真题PDF/2025.06六级真题第1套.pdf",
+          "gitBlobSha": "86a2bcf81d6f48ffb663c94a0ca2058db98f4108",
+          "sha256": "0ea92cd19ce64d6857a9e33469a950a3bfe43ebb1f03908e1e507e84c28c4160",
+          "bytes": 35202278
+        },
+        {
+          "id": "cet6-2025-06-1",
+          "kind": "answers",
+          "path": "六级真题/2025.06/答案解析/2025.06英语六级解析第1套.pdf",
+          "gitBlobSha": "8935ad324ec1fe5382aa427185d9cc91ec3e0694",
+          "sha256": "150073a4232bf3a63711a6826b6c740bced4f4b1701912a754861429ed2fe7ce",
+          "bytes": 44835252
+        }
+      ],
+      "sourceAudio": {
+        "path": "六级真题/2025.06/听力音频/2025年6月六级音频1.MP3",
+        "sha": "72ad0a1524bc7229167c2c1cc22eb96cf1019992",
+        "size": 18501013
+      }
+    }
+  ],
+  "excluded": {
+    "cet6-2025-12-1": "解析明确注明录音缺失、依选项推测，缺少可核对听力原文。",
+    "cet6-2025-12-2": "解析明确注明录音缺失、依选项推测，缺少可核对听力原文。",
+    "cet6-2026-06-1": "现有答案解析未提供可核对的听力原文。"
+  },
+  "sourceRevision": "4a24a1abf752e27de88a5e8bf930595c4ccffcec",
+  "baseReadingPapers": 149,
+  "missingAudio": [
+    {
+      "id": "cet4-2014-06-1",
+      "level": 4,
+      "year": 2014,
+      "month": 6,
+      "set": 1
+    },
+    {
+      "id": "cet4-2014-06-2",
+      "level": 4,
+      "year": 2014,
+      "month": 6,
+      "set": 2
+    },
+    {
+      "id": "cet4-2014-06-3",
+      "level": 4,
+      "year": 2014,
+      "month": 6,
+      "set": 3
+    },
+    {
+      "id": "cet4-2014-12-1",
+      "level": 4,
+      "year": 2014,
+      "month": 12,
+      "set": 1
+    },
+    {
+      "id": "cet4-2014-12-2",
+      "level": 4,
+      "year": 2014,
+      "month": 12,
+      "set": 2
+    },
+    {
+      "id": "cet4-2014-12-3",
+      "level": 4,
+      "year": 2014,
+      "month": 12,
+      "set": 3
+    },
+    {
+      "id": "cet4-2015-06-1",
+      "level": 4,
+      "year": 2015,
+      "month": 6,
+      "set": 1
+    },
+    {
+      "id": "cet4-2015-06-2",
+      "level": 4,
+      "year": 2015,
+      "month": 6,
+      "set": 2
+    },
+    {
+      "id": "cet4-2015-06-3",
+      "level": 4,
+      "year": 2015,
+      "month": 6,
+      "set": 3
+    },
+    {
+      "id": "cet4-2015-12-1",
+      "level": 4,
+      "year": 2015,
+      "month": 12,
+      "set": 1
+    },
+    {
+      "id": "cet4-2015-12-2",
+      "level": 4,
+      "year": 2015,
+      "month": 12,
+      "set": 2
+    },
+    {
+      "id": "cet4-2015-12-3",
+      "level": 4,
+      "year": 2015,
+      "month": 12,
+      "set": 3
+    },
+    {
+      "id": "cet4-2016-06-1",
+      "level": 4,
+      "year": 2016,
+      "month": 6,
+      "set": 1
+    },
+    {
+      "id": "cet4-2016-06-2",
+      "level": 4,
+      "year": 2016,
+      "month": 6,
+      "set": 2
+    },
+    {
+      "id": "cet4-2016-06-3",
+      "level": 4,
+      "year": 2016,
+      "month": 6,
+      "set": 3
+    },
+    {
+      "id": "cet4-2016-12-1",
+      "level": 4,
+      "year": 2016,
+      "month": 12,
+      "set": 1
+    },
+    {
+      "id": "cet4-2016-12-2",
+      "level": 4,
+      "year": 2016,
+      "month": 12,
+      "set": 2
+    },
+    {
+      "id": "cet4-2016-12-3",
+      "level": 4,
+      "year": 2016,
+      "month": 12,
+      "set": 3
+    },
+    {
+      "id": "cet4-2017-06-1",
+      "level": 4,
+      "year": 2017,
+      "month": 6,
+      "set": 1
+    },
+    {
+      "id": "cet4-2017-06-2",
+      "level": 4,
+      "year": 2017,
+      "month": 6,
+      "set": 2
+    },
+    {
+      "id": "cet4-2017-06-3",
+      "level": 4,
+      "year": 2017,
+      "month": 6,
+      "set": 3
+    },
+    {
+      "id": "cet4-2017-12-1",
+      "level": 4,
+      "year": 2017,
+      "month": 12,
+      "set": 1
+    },
+    {
+      "id": "cet4-2017-12-2",
+      "level": 4,
+      "year": 2017,
+      "month": 12,
+      "set": 2
+    },
+    {
+      "id": "cet4-2017-12-3",
+      "level": 4,
+      "year": 2017,
+      "month": 12,
+      "set": 3
+    },
+    {
+      "id": "cet4-2018-06-1",
+      "level": 4,
+      "year": 2018,
+      "month": 6,
+      "set": 1
+    },
+    {
+      "id": "cet4-2018-06-2",
+      "level": 4,
+      "year": 2018,
+      "month": 6,
+      "set": 2
+    },
+    {
+      "id": "cet4-2018-06-3",
+      "level": 4,
+      "year": 2018,
+      "month": 6,
+      "set": 3
+    },
+    {
+      "id": "cet4-2018-12-1",
+      "level": 4,
+      "year": 2018,
+      "month": 12,
+      "set": 1
+    },
+    {
+      "id": "cet4-2018-12-2",
+      "level": 4,
+      "year": 2018,
+      "month": 12,
+      "set": 2
+    },
+    {
+      "id": "cet4-2018-12-3",
+      "level": 4,
+      "year": 2018,
+      "month": 12,
+      "set": 3
+    },
+    {
+      "id": "cet4-2019-06-1",
+      "level": 4,
+      "year": 2019,
+      "month": 6,
+      "set": 1
+    },
+    {
+      "id": "cet4-2019-06-2",
+      "level": 4,
+      "year": 2019,
+      "month": 6,
+      "set": 2
+    },
+    {
+      "id": "cet4-2019-06-3",
+      "level": 4,
+      "year": 2019,
+      "month": 6,
+      "set": 3
+    },
+    {
+      "id": "cet4-2019-12-1",
+      "level": 4,
+      "year": 2019,
+      "month": 12,
+      "set": 1
+    },
+    {
+      "id": "cet4-2019-12-2",
+      "level": 4,
+      "year": 2019,
+      "month": 12,
+      "set": 2
+    },
+    {
+      "id": "cet4-2019-12-3",
+      "level": 4,
+      "year": 2019,
+      "month": 12,
+      "set": 3
+    },
+    {
+      "id": "cet4-2020-07-1",
+      "level": 4,
+      "year": 2020,
+      "month": 7,
+      "set": 1
+    },
+    {
+      "id": "cet4-2020-09-1",
+      "level": 4,
+      "year": 2020,
+      "month": 9,
+      "set": 1
+    },
+    {
+      "id": "cet4-2020-09-2",
+      "level": 4,
+      "year": 2020,
+      "month": 9,
+      "set": 2
+    },
+    {
+      "id": "cet4-2020-12-1",
+      "level": 4,
+      "year": 2020,
+      "month": 12,
+      "set": 1
+    },
+    {
+      "id": "cet4-2020-12-2",
+      "level": 4,
+      "year": 2020,
+      "month": 12,
+      "set": 2
+    },
+    {
+      "id": "cet4-2020-12-3",
+      "level": 4,
+      "year": 2020,
+      "month": 12,
+      "set": 3
+    },
+    {
+      "id": "cet4-2021-06-1",
+      "level": 4,
+      "year": 2021,
+      "month": 6,
+      "set": 1
+    },
+    {
+      "id": "cet4-2021-06-2",
+      "level": 4,
+      "year": 2021,
+      "month": 6,
+      "set": 2
+    },
+    {
+      "id": "cet4-2021-06-3",
+      "level": 4,
+      "year": 2021,
+      "month": 6,
+      "set": 3
+    },
+    {
+      "id": "cet4-2021-12-1",
+      "level": 4,
+      "year": 2021,
+      "month": 12,
+      "set": 1
+    },
+    {
+      "id": "cet4-2021-12-2",
+      "level": 4,
+      "year": 2021,
+      "month": 12,
+      "set": 2
+    },
+    {
+      "id": "cet4-2021-12-3",
+      "level": 4,
+      "year": 2021,
+      "month": 12,
+      "set": 3
+    },
+    {
+      "id": "cet4-2022-06-1",
+      "level": 4,
+      "year": 2022,
+      "month": 6,
+      "set": 1
+    },
+    {
+      "id": "cet4-2022-06-2",
+      "level": 4,
+      "year": 2022,
+      "month": 6,
+      "set": 2
+    },
+    {
+      "id": "cet4-2022-09-1",
+      "level": 4,
+      "year": 2022,
+      "month": 9,
+      "set": 1
+    },
+    {
+      "id": "cet4-2022-12-1",
+      "level": 4,
+      "year": 2022,
+      "month": 12,
+      "set": 1
+    },
+    {
+      "id": "cet4-2022-12-2",
+      "level": 4,
+      "year": 2022,
+      "month": 12,
+      "set": 2
+    },
+    {
+      "id": "cet4-2022-12-3",
+      "level": 4,
+      "year": 2022,
+      "month": 12,
+      "set": 3
+    },
+    {
+      "id": "cet4-2023-03-1",
+      "level": 4,
+      "year": 2023,
+      "month": 3,
+      "set": 1
+    },
+    {
+      "id": "cet4-2023-12-3",
+      "level": 4,
+      "year": 2023,
+      "month": 12,
+      "set": 3
+    },
+    {
+      "id": "cet4-2024-06-3",
+      "level": 4,
+      "year": 2024,
+      "month": 6,
+      "set": 3
+    },
+    {
+      "id": "cet4-2024-12-3",
+      "level": 4,
+      "year": 2024,
+      "month": 12,
+      "set": 3
+    },
+    {
+      "id": "cet4-2025-06-2",
+      "level": 4,
+      "year": 2025,
+      "month": 6,
+      "set": 2
+    },
+    {
+      "id": "cet4-2025-06-3",
+      "level": 4,
+      "year": 2025,
+      "month": 6,
+      "set": 3
+    },
+    {
+      "id": "cet4-2025-12-1",
+      "level": 4,
+      "year": 2025,
+      "month": 12,
+      "set": 1
+    },
+    {
+      "id": "cet4-2025-12-2",
+      "level": 4,
+      "year": 2025,
+      "month": 12,
+      "set": 2
+    },
+    {
+      "id": "cet4-2025-12-3",
+      "level": 4,
+      "year": 2025,
+      "month": 12,
+      "set": 3
+    },
+    {
+      "id": "cet6-2013-06-1",
+      "level": 6,
+      "year": 2013,
+      "month": 6,
+      "set": 1
+    },
+    {
+      "id": "cet6-2013-06-2",
+      "level": 6,
+      "year": 2013,
+      "month": 6,
+      "set": 2
+    },
+    {
+      "id": "cet6-2013-06-3",
+      "level": 6,
+      "year": 2013,
+      "month": 6,
+      "set": 3
+    },
+    {
+      "id": "cet6-2013-12-1",
+      "level": 6,
+      "year": 2013,
+      "month": 12,
+      "set": 1
+    },
+    {
+      "id": "cet6-2013-12-2",
+      "level": 6,
+      "year": 2013,
+      "month": 12,
+      "set": 2
+    },
+    {
+      "id": "cet6-2013-12-3",
+      "level": 6,
+      "year": 2013,
+      "month": 12,
+      "set": 3
+    },
+    {
+      "id": "cet6-2014-06-1",
+      "level": 6,
+      "year": 2014,
+      "month": 6,
+      "set": 1
+    },
+    {
+      "id": "cet6-2014-06-2",
+      "level": 6,
+      "year": 2014,
+      "month": 6,
+      "set": 2
+    },
+    {
+      "id": "cet6-2014-06-3",
+      "level": 6,
+      "year": 2014,
+      "month": 6,
+      "set": 3
+    },
+    {
+      "id": "cet6-2015-06-1",
+      "level": 6,
+      "year": 2015,
+      "month": 6,
+      "set": 1
+    },
+    {
+      "id": "cet6-2015-06-2",
+      "level": 6,
+      "year": 2015,
+      "month": 6,
+      "set": 2
+    },
+    {
+      "id": "cet6-2015-06-3",
+      "level": 6,
+      "year": 2015,
+      "month": 6,
+      "set": 3
+    },
+    {
+      "id": "cet6-2015-12-1",
+      "level": 6,
+      "year": 2015,
+      "month": 12,
+      "set": 1
+    },
+    {
+      "id": "cet6-2015-12-2",
+      "level": 6,
+      "year": 2015,
+      "month": 12,
+      "set": 2
+    },
+    {
+      "id": "cet6-2015-12-3",
+      "level": 6,
+      "year": 2015,
+      "month": 12,
+      "set": 3
+    },
+    {
+      "id": "cet6-2016-06-1",
+      "level": 6,
+      "year": 2016,
+      "month": 6,
+      "set": 1
+    },
+    {
+      "id": "cet6-2016-06-2",
+      "level": 6,
+      "year": 2016,
+      "month": 6,
+      "set": 2
+    },
+    {
+      "id": "cet6-2016-06-3",
+      "level": 6,
+      "year": 2016,
+      "month": 6,
+      "set": 3
+    },
+    {
+      "id": "cet6-2016-12-1",
+      "level": 6,
+      "year": 2016,
+      "month": 12,
+      "set": 1
+    },
+    {
+      "id": "cet6-2016-12-2",
+      "level": 6,
+      "year": 2016,
+      "month": 12,
+      "set": 2
+    },
+    {
+      "id": "cet6-2016-12-3",
+      "level": 6,
+      "year": 2016,
+      "month": 12,
+      "set": 3
+    },
+    {
+      "id": "cet6-2017-06-1",
+      "level": 6,
+      "year": 2017,
+      "month": 6,
+      "set": 1
+    },
+    {
+      "id": "cet6-2017-06-2",
+      "level": 6,
+      "year": 2017,
+      "month": 6,
+      "set": 2
+    },
+    {
+      "id": "cet6-2017-06-3",
+      "level": 6,
+      "year": 2017,
+      "month": 6,
+      "set": 3
+    },
+    {
+      "id": "cet6-2017-12-1",
+      "level": 6,
+      "year": 2017,
+      "month": 12,
+      "set": 1
+    },
+    {
+      "id": "cet6-2017-12-2",
+      "level": 6,
+      "year": 2017,
+      "month": 12,
+      "set": 2
+    },
+    {
+      "id": "cet6-2017-12-3",
+      "level": 6,
+      "year": 2017,
+      "month": 12,
+      "set": 3
+    },
+    {
+      "id": "cet6-2018-06-1",
+      "level": 6,
+      "year": 2018,
+      "month": 6,
+      "set": 1
+    },
+    {
+      "id": "cet6-2018-06-2",
+      "level": 6,
+      "year": 2018,
+      "month": 6,
+      "set": 2
+    },
+    {
+      "id": "cet6-2018-06-3",
+      "level": 6,
+      "year": 2018,
+      "month": 6,
+      "set": 3
+    },
+    {
+      "id": "cet6-2018-12-1",
+      "level": 6,
+      "year": 2018,
+      "month": 12,
+      "set": 1
+    },
+    {
+      "id": "cet6-2018-12-2",
+      "level": 6,
+      "year": 2018,
+      "month": 12,
+      "set": 2
+    },
+    {
+      "id": "cet6-2018-12-3",
+      "level": 6,
+      "year": 2018,
+      "month": 12,
+      "set": 3
+    },
+    {
+      "id": "cet6-2019-06-1",
+      "level": 6,
+      "year": 2019,
+      "month": 6,
+      "set": 1
+    },
+    {
+      "id": "cet6-2019-06-2",
+      "level": 6,
+      "year": 2019,
+      "month": 6,
+      "set": 2
+    },
+    {
+      "id": "cet6-2019-06-3",
+      "level": 6,
+      "year": 2019,
+      "month": 6,
+      "set": 3
+    },
+    {
+      "id": "cet6-2019-12-1",
+      "level": 6,
+      "year": 2019,
+      "month": 12,
+      "set": 1
+    },
+    {
+      "id": "cet6-2019-12-2",
+      "level": 6,
+      "year": 2019,
+      "month": 12,
+      "set": 2
+    },
+    {
+      "id": "cet6-2019-12-3",
+      "level": 6,
+      "year": 2019,
+      "month": 12,
+      "set": 3
+    },
+    {
+      "id": "cet6-2020-07-1",
+      "level": 6,
+      "year": 2020,
+      "month": 7,
+      "set": 1
+    },
+    {
+      "id": "cet6-2020-09-1",
+      "level": 6,
+      "year": 2020,
+      "month": 9,
+      "set": 1
+    },
+    {
+      "id": "cet6-2020-09-2",
+      "level": 6,
+      "year": 2020,
+      "month": 9,
+      "set": 2
+    },
+    {
+      "id": "cet6-2020-12-1",
+      "level": 6,
+      "year": 2020,
+      "month": 12,
+      "set": 1
+    },
+    {
+      "id": "cet6-2020-12-2",
+      "level": 6,
+      "year": 2020,
+      "month": 12,
+      "set": 2
+    },
+    {
+      "id": "cet6-2020-12-3",
+      "level": 6,
+      "year": 2020,
+      "month": 12,
+      "set": 3
+    },
+    {
+      "id": "cet6-2021-06-1",
+      "level": 6,
+      "year": 2021,
+      "month": 6,
+      "set": 1
+    },
+    {
+      "id": "cet6-2021-06-2",
+      "level": 6,
+      "year": 2021,
+      "month": 6,
+      "set": 2
+    },
+    {
+      "id": "cet6-2021-06-3",
+      "level": 6,
+      "year": 2021,
+      "month": 6,
+      "set": 3
+    },
+    {
+      "id": "cet6-2022-06-2",
+      "level": 6,
+      "year": 2022,
+      "month": 6,
+      "set": 2
+    },
+    {
+      "id": "cet6-2022-09-2",
+      "level": 6,
+      "year": 2022,
+      "month": 9,
+      "set": 2
+    },
+    {
+      "id": "cet6-2022-09-3",
+      "level": 6,
+      "year": 2022,
+      "month": 9,
+      "set": 3
+    },
+    {
+      "id": "cet6-2022-12-3",
+      "level": 6,
+      "year": 2022,
+      "month": 12,
+      "set": 3
+    },
+    {
+      "id": "cet6-2023-06-3",
+      "level": 6,
+      "year": 2023,
+      "month": 6,
+      "set": 3
+    },
+    {
+      "id": "cet6-2023-12-1",
+      "level": 6,
+      "year": 2023,
+      "month": 12,
+      "set": 1
+    },
+    {
+      "id": "cet6-2023-12-2",
+      "level": 6,
+      "year": 2023,
+      "month": 12,
+      "set": 2
+    },
+    {
+      "id": "cet6-2024-06-1",
+      "level": 6,
+      "year": 2024,
+      "month": 6,
+      "set": 1
+    },
+    {
+      "id": "cet6-2024-06-2",
+      "level": 6,
+      "year": 2024,
+      "month": 6,
+      "set": 2
+    },
+    {
+      "id": "cet6-2024-06-3",
+      "level": 6,
+      "year": 2024,
+      "month": 6,
+      "set": 3
+    },
+    {
+      "id": "cet6-2024-12-3",
+      "level": 6,
+      "year": 2024,
+      "month": 12,
+      "set": 3
+    },
+    {
+      "id": "cet6-2025-06-2",
+      "level": 6,
+      "year": 2025,
+      "month": 6,
+      "set": 2
+    },
+    {
+      "id": "cet6-2025-06-3",
+      "level": 6,
+      "year": 2025,
+      "month": 6,
+      "set": 3
+    },
+    {
+      "id": "cet6-2025-12-3",
+      "level": 6,
+      "year": 2025,
+      "month": 12,
+      "set": 3
+    },
+    {
+      "id": "cet6-2026-06-2",
+      "level": 6,
+      "year": 2026,
+      "month": 6,
+      "set": 2
+    },
+    {
+      "id": "cet6-2026-06-3",
+      "level": 6,
+      "year": 2026,
+      "month": 6,
+      "set": 3
+    }
+  ]
+}

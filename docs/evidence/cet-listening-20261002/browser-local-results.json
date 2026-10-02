@@ -1,0 +1,40 @@
+{
+  "realReader": true,
+  "productionBuildScreenshots": [
+    "desktop-day.jpg",
+    "mobile-day.jpg",
+    "mobile-night.jpg",
+    "desktop-night.jpg"
+  ],
+  "desktop": [
+    1440,
+    900
+  ],
+  "mobile": [
+    390,
+    844
+  ],
+  "mobileHorizontalOverflow": false,
+  "playerContrast": {
+    "day": [
+      11.75,
+      16.83
+    ],
+    "night": [
+      10.37,
+      11.66
+    ]
+  },
+  "practicePause": true,
+  "submitTranscriptGroups": 8,
+  "selfTestUnderlineColor": "teal",
+  "selfTestCannotPauseOrSeek": true,
+  "resumePositionSeconds": 58.299718,
+  "pausedPlaybackDisplayRetained": true,
+  "earlySubmitStopsAudioAndRecordsConditions": true,
+  "wholeNewScope": 55,
+  "noQuestionDock": true,
+  "physicalAudioAndDeviceAcceptance": false,
+  "nightOptionLettersForeground": "rgb(220,235,237)",
+  "nightOptionLettersVisible": true
+}

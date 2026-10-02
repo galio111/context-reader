@@ -1,0 +1,738 @@
+{
+  "id": "cet6-2023-06-2-listening",
+  "type": "listening",
+  "title": "听力",
+  "paragraphs": [],
+  "questions": [
+    {
+      "number": 1,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "She is attracted to the beauty of modern buildings."
+        },
+        {
+          "key": "B",
+          "text": "She is preoccupied with her dream to be an architect."
+        },
+        {
+          "key": "C",
+          "text": "She is influenced by her father who teaches architecture."
+        },
+        {
+          "key": "D",
+          "text": "She is drawn to its integration of design and engineering."
+        }
+      ],
+      "answer": "D",
+      "explanation": "1.Why does the woman wish to study architecture? D）【精析】细节辨认题。男士问女士为什么选择学习 建筑，女士在句(1)中回答说，建筑特别吸引她的地 方就在于设计与工程的紧密结合。因此答案为 D)。选项中的integration是录音中marriage的 同义转述。"
+    },
+    {
+      "number": 2,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Through hard work."
+        },
+        {
+          "key": "B",
+          "text": "With the professor's help."
+        },
+        {
+          "key": "C",
+          "text": "By studying the subject online."
+        },
+        {
+          "key": "D",
+          "text": "By taking prerequisite courses."
+        }
+      ],
+      "answer": "A",
+      "explanation": "2.Howdoes the woman say shewill overcomethe difficulty in learning mathematics? A）【精析】细节辨认题。句(2)中，女士承认数学对她 来说是所有学科中最难的科目，但她会努力，她相 信努力就会有收获。由此可知，女士打算通过自己 的刻苦努力来解决数学学习中所遇到的困难。因 此答案为A)。"
+    },
+    {
+      "number": 3,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It is groundbreaking."
+        },
+        {
+          "key": "B",
+          "text": "It is long-lasting."
+        },
+        {
+          "key": "C",
+          "text": "It is immaterial."
+        },
+        {
+          "key": "D",
+          "text": "It is immortal."
+        }
+      ],
+      "answer": "B",
+      "explanation": "3. What does the man say about architects\" contributionto a city? B）【精析】细节推断题。男士告诉女士，进人建筑领 域，她可以很清晰地见证自已对城市的贡献。根据 句(3)可知，建筑的寿命比人的寿命要长得多。由 此可知，建筑是长久的，可以成为人们留给后人的 遗产。因此答案为B)。D)项的干扰性比较强，但 immortal意为“永存的，永生不灭的”，建筑可能会 留存很长时间，但却不可能永远存在，故排除。"
+    },
+    {
+      "number": 4,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Economics."
+        },
+        {
+          "key": "B",
+          "text": "Philosophy."
+        },
+        {
+          "key": "C",
+          "text": "Computer science."
+        },
+        {
+          "key": "D",
+          "text": "Western art."
+        }
+      ],
+      "answer": "C",
+      "explanation": "4. What subject does the man suggest the woman start with? C)【精析】细节辨认题。句(4)中，男士明确建议女士 从计算机科学着手进行学习。因此答案为C)。"
+    },
+    {
+      "number": 5,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He has occasionally been harassed by his fans."
+        },
+        {
+          "key": "B",
+          "text": "He has been guarded by a discreet assistant."
+        },
+        {
+          "key": "C",
+          "text": "He is well known to the public."
+        },
+        {
+          "key": "D",
+          "text": "He is a famous football coach."
+        }
+      ],
+      "answer": "C",
+      "explanation": "5.Whatdowelearnfromtheconversationabout Mr.Sanchez? C）【精析】细节辨认题。根据句(5)可知，桑切斯先生 是皇家马德里队的一位著名足球运动员，在公众中 的知名度非常高。因此答案为C)。选项中的well known是录音中highprofile的同义转述。"
+    },
+    {
+      "number": 6,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Serve as a personal assistant."
+        },
+        {
+          "key": "B",
+          "text": "Play a key role in Real Madrid."
+        },
+        {
+          "key": "C",
+          "text": "Run common daily chores for the woman."
+        },
+        {
+          "key": "D",
+          "text": "Help promote Mr. Sanchez's public profile."
+        }
+      ],
+      "answer": "A",
+      "explanation": "6.What will the man do if he gets the job? A）【精析】细节辨认题。根据句(6)可知，男士将会成 为桑切斯先生的私人助理，替桑切斯先生做一些日 常琐事。因此答案为A)。"
+    },
+    {
+      "number": 7,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He is honest and always tells the truth."
+        },
+        {
+          "key": "B",
+          "text": "He once worked part-time in university."
+        },
+        {
+          "key": "C",
+          "text": "He cares little about his working hours."
+        },
+        {
+          "key": "D",
+          "text": "He has little previous work experience."
+        }
+      ],
+      "answer": "D",
+      "explanation": "7.What does the man say about himself? Section B D)【精析】细节辨认题。句(7)中，男士告诉女士，这 是他大学毕业后的第一份工作，所以，他此前是没 有多少工作经验的。因此答案为D)。"
+    },
+    {
+      "number": 8,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He has a strong ability to connect with people."
+        },
+        {
+          "key": "B",
+          "text": "He has a high proficiency in several languages."
+        },
+        {
+          "key": "C",
+          "text": "He has a sound knowledge of sports consultancy."
+        },
+        {
+          "key": "D",
+          "text": "He has a natural capacity to cooperate with others."
+        }
+      ],
+      "answer": "B",
+      "explanation": "8. Why does the man think he is a very competitive candidate? B【精析】细节辨认题。当女士问男士他认为自己为 什么能够胜任这份工作时，男士提到了两点：第一， 热爱足球；第二，他对公司在体育咨询方面的工作 非常酷，他的语言技能在将来会很有用。根据句 (8)可知，男士精通英语、西班牙语和法语。因此答 案为B)。"
+    },
+    {
+      "number": 9,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They bring more benefits to young people."
+        },
+        {
+          "key": "B",
+          "text": "They require less supervision and training."
+        },
+        {
+          "key": "C",
+          "text": "They are more suitable to young people."
+        },
+        {
+          "key": "D",
+          "text": "They have fewer rules and pressures."
+        }
+      ],
+      "answer": "D",
+      "explanation": "9. Why do extreme sports appeal to many kids? D)【精析】细节辨认题。根据句(9)可知，与传统的团 队运动相比，冒险运动没有那么多的规则和压力， 却能带来户外体育活动的所有益处。因此答案 为D)。"
+    },
+    {
+      "number": 10,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They prevent kids from enjoying adventure sports."
+        },
+        {
+          "key": "B",
+          "text": "They help kids guard against any possible injuries."
+        },
+        {
+          "key": "C",
+          "text": "They rob kids of the chance to cultivate their courage."
+        },
+        {
+          "key": "D",
+          "text": "They deprive kids of the opportunity to develop team spirit."
+        }
+      ],
+      "answer": "C",
+      "explanation": "10.What does the speaker say about risk-free activities? C)【精析】细节推断题。句(10)中，讲话者提到，没有 风险的活动剥夺了孩子们考验自己以及克服恐惧 的机会。从某种角度上来说，克服恐惧的过程也是 培养勇气的过程。因此答案为C)。"
+    },
+    {
+      "number": 11,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Help them take up these sports when they are more mature."
+        },
+        {
+          "key": "B",
+          "text": "Let them participate in some less risky outdoor activities."
+        },
+        {
+          "key": "C",
+          "text": "Ask them to try some forms of indoor sports."
+        },
+        {
+          "key": "D",
+          "text": "Introduce them to these sports step by step."
+        }
+      ],
+      "answer": "B",
+      "explanation": "11. What should parents do if they decide adventure sports are a bit too much for their kids? B)【精析】细节推断题。句(11)中提到，如果父母认 为冒险运动有点太过了，那就应该让孩子们有机会 接触一些其他形式的户外冒险运动。也就是说，让 孩子参加一些不那么危险的户外冒险运动。因此 答案为B)。"
+    },
+    {
+      "number": 12,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Consumers often have a craving for the latest model."
+        },
+        {
+          "key": "B",
+          "text": "Such products tend to comprise parts that are irreplaceable."
+        },
+        {
+          "key": "C",
+          "text": "Tech firms intentionally design products to have short lifespans."
+        },
+        {
+          "key": "D",
+          "text": "Manufacturers use effective strategies to promote fancier products."
+        }
+      ],
+      "answer": "C",
+      "explanation": "12.Why did newproducts soon become waste? C）【精析】细节辨认题。短文开头就说，今天明明还 是很新的东西第二天就会变成废品，也就是说，很 多东西的使用寿命很短，很快就会被淘汰掉。根 据句(12)可知，这是因为科技公司故意设计使用 寿命不长且无法维修的产品，从而让消费者不得 不花钱买一个新的。因此答案为C)。"
+    },
+    {
+      "number": 13,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Indicate the competitiveness of their products."
+        },
+        {
+          "key": "B",
+          "text": "List a repairability score of their products."
+        },
+        {
+          "key": "C",
+          "text": "Specify the major parts of their products."
+        },
+        {
+          "key": "D",
+          "text": "Detail the life cycle of their products."
+        }
+      ],
+      "answer": "B",
+      "explanation": "13. What did the French government require tech companiestodotohelp consumers makebetter choices? B）【精析】细节辨认题。句(13)中明确提到，今年，法 国政府开始要求科技产品制造商列出可修复性评 分。因此答案为B)。 Section C"
+    },
+    {
+      "number": 14,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Take the initiative to reduce electronic waste."
+        },
+        {
+          "key": "B",
+          "text": "Take due caution in upgrading their products."
+        },
+        {
+          "key": "C",
+          "text": "Invest in constructing more recycling facilities."
+        },
+        {
+          "key": "D",
+          "text": "Substitute all toxic substances with non-toxic ones."
+        }
+      ],
+      "answer": "A",
+      "explanation": "14.What should tech companies doto help ensure environmental sustainability? A）【精析】细节辨认题。短文中提到了电子垃圾对环 境造成的危害。句(14)中明确提到，我们需要科 技公司带头来解决这一问题。因此答案为A)。 选项中的taketheinitiative是录音中takethe lead的同义转述。"
+    },
+    {
+      "number": 15,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It can be solved."
+        },
+        {
+          "key": "B",
+          "text": "It is certain to worsen."
+        },
+        {
+          "key": "C",
+          "text": "It will be fixed by tech companies."
+        },
+        {
+          "key": "D",
+          "text": "It is unavoidable in the long run."
+        }
+      ],
+      "answer": "A",
+      "explanation": "15.What does the speaker think of the problem of waste? A）【精析】细节辨认题。根据句(15)可知，讲话者认 为，世界上的东西都会损坏，但我们不应该就让它 们坏着，既然是我们的创造所导致问题，那这一定 是可以解决的问题。因此答案为A)。"
+    },
+    {
+      "number": 16,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "How internet monitoring can be implemented."
+        },
+        {
+          "key": "B",
+          "text": "How to encourage productive internet surfing."
+        },
+        {
+          "key": "C",
+          "text": "How cyberloafing affects overall productivity."
+        },
+        {
+          "key": "D",
+          "text": "How to prevent employees from cyberloafing."
+        }
+      ],
+      "answer": "D",
+      "explanation": "16.What doesmost cyberloafingresearchfocuson? D）【精析】细节辨认题。句(16)中提到，大多数关于 网络偷懒的研究都集中在通过互联网监控和计算 机使用政策等干预措施来防止员工进行这种行为 的方法上。也就是说，以往的大多数研究重点都 在如何防止员工网络偷懒上。因此答案为D)。"
+    },
+    {
+      "number": 17,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Cyberloafing is a sign of workers'laziness."
+        },
+        {
+          "key": "B",
+          "text": "Cyberloafing may relieve employees of stress."
+        },
+        {
+          "key": "C",
+          "text": "Employee engagement is closely related to job satisfaction."
+        },
+        {
+          "key": "D",
+          "text": "Overuse of social media may lead to decline in productivity."
+        }
+      ],
+      "answer": "B",
+      "explanation": "17.What wasthehypothesis ofthespeakers research team? B）【精析】细节推断题。句(17)中，讲话者提到，他们 团队的假设就是，网络偷懒可能是一种短暂的休 息，让员工有机会从紧张的工作环境中恢复过来。 也就是说，他们认为网络偷懒可能有助于员工减 轻压力。因此答案为B)。"
+    },
+    {
+      "number": 18,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Taking mini-breaks means better job performance."
+        },
+        {
+          "key": "B",
+          "text": "Cyberloafing generally does more harm than good."
+        },
+        {
+          "key": "C",
+          "text": "Worker turnover is linked to the time allowed for cyberloafing."
+        },
+        {
+          "key": "D",
+          "text": "Employees who indulge in internet surfing are most likely to quit."
+        }
+      ],
+      "answer": "A",
+      "explanation": "18.On what point do the results of the speaker's study agree with other recent research? A）【精析】细节推断题。句（18)中，讲话者提到，他所 进行的研究与近期的其他研究结果相吻合，都表 明短暂的休息与更高水平的日常工作表现有关。 也就是说，稍事休息可以让员工的工作表现更好。 因此答案为A)。"
+    },
+    {
+      "number": 19,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "There were no wooden buildings."
+        },
+        {
+          "key": "B",
+          "text": "There were environmental problems."
+        },
+        {
+          "key": "C",
+          "text": "There were no trees."
+        },
+        {
+          "key": "D",
+          "text": "There were few settlers."
+        }
+      ],
+      "answer": "C",
+      "explanation": "19.What does the speaker say about Nebraska City in1854when Julius Mortonmoved there? C）【精析】细节辨认题。句(19)中，讲话者明确提到， 1854年，当莫顿搬到内布拉斯加市时，他面临着该 地区许多定居者共同面临的问题：那是一片没有 树木的平原。因此答案为C)。"
+    },
+    {
+      "number": 20,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He served as chairman of the Nebraska State Board of Agriculture."
+        },
+        {
+          "key": "B",
+          "text": "He urged the state to start the Nebraska State Gardening Society."
+        },
+        {
+          "key": "C",
+          "text": "He engaged himself in a large number of aesthetic projects."
+        },
+        {
+          "key": "D",
+          "text": "He founded a newspaper and used it to promote his ideas."
+        }
+      ],
+      "answer": "D",
+      "explanation": "20.WhatdidJuliusMortondothatincreasedhis influenceinNebraska City? D）【精析】细节辨认题。根据句(20)可知，莫顿在内 布拉斯加的影响力增长，主要原因在于他创办了 该州的第一家报纸《内布拉斯加城市新闻》，他还 经常在该报纸上撰写关于植树的实用和美学效益 的社论。因此答案为D)。"
+    },
+    {
+      "number": 21,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "A special prize was awarded to Julius Morton."
+        },
+        {
+          "key": "B",
+          "text": "One million trees were planted throughout Nebraska."
+        },
+        {
+          "key": "C",
+          "text": "The state government declared it the official Arbor Day."
+        },
+        {
+          "key": "D",
+          "text": "Nebraska earned the nickname“the Tree Planters State\"”."
+        }
+      ],
+      "answer": "B",
+      "explanation": "21. What does the speaker say happened on April 10,1872? B）【精析】细节辨认题。句(21)中，讲话者提到，1872 年4月10日，内布拉斯加各地庆祝了第一个非官 方的植树节。庆祝活动包括向植树最多的县市和 个人颁发奖励。而就在那一天，内布拉斯加州居 然种植了一百万棵树。因此答案为B)。"
+    },
+    {
+      "number": 22,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They spread across Europe and Asia in a few decades."
+        },
+        {
+          "key": "B",
+          "text": "They lived mostly in Africa for about 200,000 years."
+        },
+        {
+          "key": "C",
+          "text": "They preferred to live in Europe rather than in Asia."
+        },
+        {
+          "key": "D",
+          "text": "They moved out of Africa about 60,000 years ago."
+        }
+      ],
+      "answer": "D",
+      "explanation": "22.Whatdowelearnaboutmodernhumans accordingtothehypothesis commonlyaccepted in the 1990s? D）【精析】细节辨认题。根据句(22)可知，在20世纪 90年代受到普遍认可的假设是“走出非洲”理论， 即认为大约20万年前，现代人类出现在非洲，他 们在大约6万年前走出非洲，进人欧洲和亚洲。 因此答案为D)。"
+    },
+    {
+      "number": 23,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "The discovery of two modern human teeth in China."
+        },
+        {
+          "key": "B",
+          "text": "The traces of human migration out of Africa to Asia."
+        },
+        {
+          "key": "C",
+          "text": "The human fossils discovered most recently in Africa."
+        },
+        {
+          "key": "D",
+          "text": "The Luna cave in Guangxi Zhuang Autonomous Region."
+        }
+      ],
+      "answer": "A",
+      "explanation": "23.What has called into question the“Out of Africa\" model? A）【精析】细节辨认题。句（23)中，讲话者讲述了最 近在中国广西壮族自治区月神洞发现的两颗现代 人类牙齿的事件。根据讲话者团队的研究，确定 这两颗牙齿距今已有7万多年。但是，根据“走出 非洲”理论，现代人类是在6万年前才离开非洲 的，那么在亚洲发现距今7万多年的现代人类牙 齿就成了一件不可能的事情。所以，在中国发现 的现代人类的牙齿使人们质疑“走出非洲”理论。 因此答案为A)。"
+    },
+    {
+      "number": 24,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "There must have been some reason for human migration."
+        },
+        {
+          "key": "B",
+          "text": "There have been changes in animals' living conditions."
+        },
+        {
+          "key": "C",
+          "text": "Humans adapted themselves to the environment there."
+        },
+        {
+          "key": "D",
+          "text": "Humans had access to abundant food sources there."
+        }
+      ],
+      "answer": "A",
+      "explanation": "24.What doesthe speakerwanttoshowwiththe exampleof somemonkeys inAfrica? A）【精析】细节归纳题。根据句(24)可知，讲话者对 人类离开非洲的原因提出了疑问，他以非洲的一 种猴子为例，说明如果不是因为特殊情况，物种不 会进行迁徒，那些猴子的牙齿在数百万年间一直 没有变化，是因为它们没有变化的理由。也就是 说，讲话者希望通过猴子的例子说明人类的迁徒 应该是有原因的。因此答案为A)。"
+    },
+    {
+      "number": 25,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "How humans settled down on the Arabian Peninsula."
+        },
+        {
+          "key": "B",
+          "text": "When modern humans started to disperse out of Africa."
+        },
+        {
+          "key": "C",
+          "text": "What path modern humans took to migrate out of Africa."
+        },
+        {
+          "key": "D",
+          "text": "Why fresh water is so important for human survival."
+        }
+      ],
+      "answer": "C",
+      "explanation": "25. What question does the speaker raise close to the end of the talk? C）【精析】细节辨认题。句(25)中明确提到，讲话者 提出的另一个问题是：人类是沿着哪条路线走出 非洲的？因此答案为C)。 Part II"
+    }
+  ],
+  "audio": {
+    "durationSeconds": 1652.8137868480726,
+    "mimeType": "audio/mp4",
+    "bytes": 20119815,
+    "sha256": "ec04e996cc9f92d13f6803fdc5c236f5c81402b5524ba301f0ca595df8e05b9c",
+    "url": "/cet-audio/ec04e996cc9f92d13f6803fdc5c236f5c81402b5524ba301f0ca595df8e05b9c.m4a"
+  },
+  "listeningGroups": [
+    {
+      "id": "cet6-2023-06-2-listening-1",
+      "title": "长对话一",
+      "questionNumbers": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "transcript": [
+        "M: Have you decided what you wish to study?",
+        "W: Yes,professor. I wish to study architecture.",
+        "M:Ah,that's a wonderful profession.Why did you choose it?",
+        "W: I gave a lot of thought to things you said during our last discussion, and I decided architecture made the most sense for me. In particular, I'm attracted to the marriage of design and engineering.",
+        "M:That's great,but I seem to remember you were preoccupied with all the lofty mathematics. You no longer think this aspect will be too hard for you?",
+        "W: No. I was doing some online research and I think I should be able to manage.  Math might be the toughest subject I encounter in the curriculum, but I'll simply put in the work required. I'm certain the fruits of my labor will pay off.",
+        "M: I'm sure that's true. Due to its material nature, architecture is one field where you will be able to clearly witness the contribution you make to a city.And the legacies you build will last much longer than any of us mortals.",
+        "W:Yeah, I guess that's true too. So what subjects do you think I should start brushing up on in preparation? I have the whole summer.",
+        "M: These days, architecture is a very diverse and dynamic degree. Most universities will encourage you to learn different things from fields as wide-ranging as philosophy and economics. Nevertheless,I would suggest you start with computer science because there will be many intricate visuals you will have to produce as part of your projects.",
+        "W: Any software in particular you think I should start with?",
+        "M: Photoshop is a good place. If you aren't yet, try to become as proficient as you can with it. And another thing that I would recommend you learn as much as you can is fine arts,in particular,the history of Western art."
+      ]
+    },
+    {
+      "id": "cet6-2023-06-2-listening-2",
+      "title": "长对话二",
+      "questionNumbers": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "transcript": [
+        "W: So as I mentioned over the phone,we are looking for someone who is very discreet. I can't stress this enough.",
+        "M: I fully understand.",
+        "W:As we all know,being such a famous football player at Real Madrid,Mr.Sanchez has a very high public profile. This means he cannot leave the house without being recognized and harassed.",
+        "M:Yes,I completely understand how imperative it would be to respect Mr.Sanchez's private life.",
+        "W:Good.As his personal assistant，you would be required to run common everyday chores for Mr. Sanchez, things he cannot do himself due to his fame, like going to the supermarket or post office. So,well,at first sight it may appear that working for a celebrity is very glamorous.Nothing could be further from the truth. I'm telling you this so that you don't get any false expectations of what the job has to offer you.",
+        "M: Thanks. I understand this too. This is my first job after graduating from university. So frankly,I don't have much prior working experience.I am,however,very excited about the prospect of joining this company and very keen to start from the bottom in whatever capacity I may be of use.",
+        "W: That's good to hear.You sound very energetic. Tell me why do you think you are well suited for this job?",
+        "M: Well, firstly, I love football. I'm a lifelong Real Madrid supporter and go to their games every weekend I can.I would simply love to have a job where I'm involved in some capacity with Real Madrid,regardless of the position and salary.And secondly,I think what this company does in sports consultancy is very cool. And I think my language skills could prove very useful down the road.",
+        "W: Please tell me more about your language skills.",
+        "M: I am fully fluent in English and Spanish and have a working proficiency in French."
+      ]
+    },
+    {
+      "id": "cet6-2023-06-2-listening-3",
+      "title": "短文一",
+      "questionNumbers": [
+        9,
+        10,
+        11
+      ],
+      "transcript": [
+        "Adventure sports are undeniably attractive to many energetic and thrill-seeking kids. Sports like rock climbing,surfing,sking,and mountain biking,thus have lots of appeal.They don't have many of the rules and pressures of traditional team sports,but they still have all the benefits of outdoor physical activity.",
+        "When properly supervised, extreme sports can be a part of a healthy, balanced life. Some adventure sports may be associated with higher risks of injury, so it's important for kids to figure out when to take risks, and when not to. Risk-free activities deprive kids of the opportunity to test themselves and overcome their fears.But to some,these very risks are what makes these sports a bad choice.They say that extreme sports can often lead to devastating injuries,especially as young thrill-seekers may attempt feats that are too advanced for them.",
+        "But let's be real. Most kids do all kinds of dangerous stuff whether you want them to or not. Adventure sports have many of the same risks and dangers,but they have an additional sense of adventure,courage and autonomy that is important to foster in young children.As always,it's up to parents to decide what's best for their kids. But if you do decide that adventure sports are a bit too much, do try to introduce other forms of outdoor adventures into their lives.Camping under the stars,fishing,stargazing or even just playing in the woods can help a lot in building the same sense of self-confidence and risk-taking as in adventure sports."
+      ]
+    },
+    {
+      "id": "cet6-2023-06-2-listening-4",
+      "title": "短文二",
+      "questionNumbers": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "transcript": [
+        "The shiny gadgets of today will be waste tomorrow. Manufacturers don't talk much about this when they announce the big new thing that will replace your mostly just as good old thing. In fact, technology firms often purposely design devices that will not last long and cannot be repaired so that consumers will have to spend their money on a new one.",
+        "This year,the French government began requiring tech manufacturers to list a repairability score.If a device can be repaired, then its life can be extended, saving consumers money and the planet the burden of so many trashed gadgets.Equipped with this knowledge,consumers can make better choices about which products to buy.",
+        "Some 59million tons of old TVs,computers, screens,smartphones,washers and other electronics are discarded every year. This waste is dangerous. Batteries explode in recycling facilities. Toxic substances like mercury leak into soil and groundwater and disperse in the air.Manufacturing flat screens adds greenhouse gases to the atmosphere.  We need tech companies to take the lead to solve this problem. If they won't, governments must make them do so.",
+        "Although tech companies will often speak of environmental sustainability,many lobby against repair legislation,fearful it will eat into their profits.Sustainabilitymatters,but marketable design appears to matter more to these companies.Consumers should support right-to-repair legislation.In this world,damage is a certainty.But we cannot leave things broken:A problem of our creation is a problem that can be fixed."
+      ]
+    },
+    {
+      "id": "cet6-2023-06-2-listening-5",
+      "title": "讲座一",
+      "questionNumbers": [
+        16,
+        17,
+        18
+      ],
+      "transcript": [
+        "On average,Us workers spend about 10% of their workday surfing the internet,emailing friends or shopping online.This behavior,called cyberloafing,is believed to cost employers up to s85billion a year in lost productivity.",
+        "The majority of cyberloafing research focuses on ways to prevent employees from engaging in this behavior through interventions such as internet monitoring and computer use policies.But it turns out, such behaviors may not be a sign that a worker is lazy or just wasting time. Social media use at work has been linked to higher levels of employee engagement and job satisfaction. New research suggests cyberloafing can help workers cope with an exceptionally stressful work environment. But is cyberloafing actually effective at reducing employee stress levels? That's the question my research team wanted to answer in our new study.Our hypothesis was that cyberloafing may serve as a mini-break, giving employees an opportunity to recover from stressful work situations.Totest this,we asked workers to complete an online survey and rank how much time they spent cyberloafing,checking non-work emails and shopping.We also asked them to rank job satisfaction,their desire to quit,and how often they've experienced mistreatment at work,such as being bullied,threatened or yelled at.As you might expect,we found that overall,more mistreatment at work was correlated with lower levels of job satisfaction and a greater desire to quit.More interestingly,we found that cyberloafing effectively buffered this connection.That is,mistreated workers who spent more time surfing the web and checking emails reported higher job satisfaction and were less likely to want to quit than similar participants who didn't cyberloaf as much.This suggests that cyberloafing acts as a sort of relief valve for workers,helping them recover from stressful experiences.",
+        "While we did not directly assess how cyberloafing affects worker performance,we believe by relieving stress it may not only reduce worker turnover,but also ultimately bolster productivity.This fits with other recent research that suggests taking short breaks is associated with higher levels of daily job.performance. That isn't to say cyberloafing is always good.Too much time spent on non-work activities likely causes performance to suffer.All in all,managers should be more lenient with employees.We believe a bit of online shopping or surfing the internet at work could make workers more productive in the long run."
+      ]
+    },
+    {
+      "id": "cet6-2023-06-2-listening-6",
+      "title": "讲座二",
+      "questionNumbers": [
+        19,
+        20,
+        21
+      ],
+      "transcript": [
+        "When Julius Morton moved to Nebraska City in1854,he faced a problem shared by many settlers in the territory:It was a treeless plain.That meant no trees for building materials,or for fuel.But Morton was one of the world's first conservationists,stating,“Forprosperity,we ought to plant as many forests as we have exhausted and consumed\".Sohe started planting trees,beginning with his own land.By1860 Morton possessed a forest of more than 300 trees.Afew years later,he had more than 1,000.",
+        "As the forest grew,so did Morton's influence in Nebraska.This was largely because Morton founded the Nebraska City News,the state's first newspaper,in which he frequently wrote editorials about the practical and aesthetic benefits of tree planting.He also organized the Nebraska State Gardening Society and served on the Nebraska State Board of Agriculture.",
+        "While serving on the Board, Morton came up with an idea to spread his belief in tree planting statewide. On January4,1872,Morton drafted a resolution that April 10 be designated day for the planting of trees in the Stateof Nebraska and urged people togo out and plant trees themselves. Morton called the special event Arbor Day as“arbor\" is Latin for “tree\". The state government agreed. And on April 10,1872,the first unofficial Arbor Day was celebrated throughout Nebraska.Prizes were awarded to counties,cities,and individuals who planted the largest number of trees.That day,an astounding onemillion trees were planted in Nebraskaan average of more than six for everyman,woman and child in the state.Since 1885,Nebraska has planted more than 700,000 acres of treesearning it the nickname“the Tree Planters State\". Arbor Day became a legal, civic holiday in the state in 1885. It was held on April 22-Julius Morton's birthday.In addition to a parade in Nebraska City, Morton introduced what has since become a long-standing Arbor Day tradition: Schoolchildren went outside and planted trees together.",
+        "In 1970,nearly a century after Arbor Day was first celebrated, President Richard Nixon declared the last Friday of every April to be observed as National Arbor Day.All 50 states recognize the April observance, although many hold an additional state Arbor Day in a month more suited to local tree planting."
+      ]
+    },
+    {
+      "id": "cet6-2023-06-2-listening-7",
+      "title": "讲座三",
+      "questionNumbers": [
+        22,
+        23,
+        24,
+        25
+      ],
+      "transcript": [
+        "Modern humans arose in Africa about 200,000 years ago.They then spread across Europe and Asia sometime after 60,000 years ago.This is the“Out of Africa\"”model, as it's commonly known.In the1990s, the hypothesis found widespread acceptance.But this popular idea is in need of revision,particularly given the number of important findings across Asiaoverthepastfewdecades.",
+        "For instance,many new human fossils found,particularly in China, are now dated as older than 60,o00 years. This calls into question the idea that modern humans migrated out of Africa only 60,000 years ago. Take the recent discovery of two modern human teeth found in the Luna cave in China's Guangxi Zhuang Autonomous Region.Whenmy research team and I dated these teeth,we found they were more than 70,o00 years olda situation clearly impossible if modern humans moved out of Africa only 60,000 years ago.",
+        "So with such findings,what happened exactly?Where does the most current data suggest we came from? The first question we should ask is why did modern humans leave Africa to begin with? If a population is perfectly adapted to a particular environment and has access to an abundance of resources,then there really is no reason to move or change.For instance,some monkeys in Africa have a set of teeth that has hardly changed over the course of millions of years, indicating that they found a place that has worked for them. So what happened with humans? Some researchers have suggested that population density increased to the point where smaller human groups were forced to explore new lands. Other researchers have suggested that due to major environmental events in East Africa,humans were prompted to find greener pastures.Yet another explanation could simply be that early modern human hunters were following the large animals that they relied on,and so they moved out of Africa without realizing that they were actually moving from one continent to another. Humans need daily access to reliable fresh water, which appears to be absent from many coastal areas. This brings us to another question:by which route did modern humans move out of Africa? No clear routes across the Mediterranean from North Africa appear tobe present,so the earlier dispersals out of Africa and into Europe and Asia might have been across the Arabian Peninsula."
+      ]
+    }
+  ],
+  "materialId": "d6cd36c064ae629823bc",
+  "questionSetId": "935b5655dcd9e09ee425"
+}

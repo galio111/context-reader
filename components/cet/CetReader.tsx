@@ -25,6 +25,8 @@ import {readCetTrail,saveCetTrail} from "@/lib/cetTypeTrailStorage";
 import { CetQuestionSurface, CetQuestionActions, type QuestionSurface, type QuestionAction } from "./CetQuestionSurface";
 import {readCetViewport,saveCetViewport} from "@/lib/cetLocalViewport";
 import { CetText } from "./CetText";
+import { CetListeningPlayer, type CetListeningController } from "./CetListeningPlayer";
+import { listeningDefaultMinutes, listeningVisibleText, recordListeningPlayback } from "@/lib/cetListening";
 import { CetPaperEditor } from "./CetPaperEditor";
 import { addCetUnderlines, cetUnderlineSource, liveCetUnderlines, updateCetUnderline, type CetUnderlineRange } from "@/lib/cetUnderlines";
 import type { CetActivity, CetPaper, CetQuestion, CetSection, CetUnderline, CetUnderlineColor } from "@/types/cet";
@@ -32,7 +34,7 @@ import type { WordContext } from "@/types/reader";
 import toolbarStyles from "@/components/ReaderToolbar.module.css";
 import "./cet.css";
 
-const names = { cloze: "选词填空", matching: "长篇匹配", detail: "仔细阅读" };
+const names = { listening: "听力", cloze: "选词填空", matching: "长篇匹配", detail: "仔细阅读" };
 const formatTime = (ms: number) => `${Math.floor(Math.max(0, ms) / 60000).toString().padStart(2, "0")}:${Math.floor((Math.max(0, ms) / 1000) % 60).toString().padStart(2, "0")}`;
 type BaseProps = Pick<ComponentProps<typeof ReaderView>, "savedArticles" | "onArticleSaved" | "onOpenSavedArticle" | "onRenameSavedArticle" | "onDeleteSavedArticle" | "onOpenImportedArticle">;
 type DialogName = "选择真题" | "练习历史" | "答题卡" | "提交本篇" | "提交全部" | "提交自测" | "结束自测并精读" | "重新练习" | "开始新自测" | "保存失败" | "计时归零" | "设置倒计时" | "";
@@ -107,6 +109,8 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   const [choice, setChoice] = useState<{ question: CetQuestion; section: CetSection; activityId: string; surface: QuestionSurface; anchor: HTMLElement } | null>(null);
   const [historyLimit, setHistoryLimit] = useState(30);
   const [busy, setBusy] = useState(false);
+  const [listeningRunning, setListeningRunning] = useState(false);
+  const listeningController = useRef<CetListeningController|null>(null);
   const [timerAnchor,setTimerAnchor]=useState<HTMLElement|null>(null);
   const timerTarget=useRef<CetTimerTarget|null>(null);
   const pendingTimer=useRef<CetActivity|null>(null);
@@ -196,6 +200,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
       const selected = entry.attemptId ? records.find((a) => a.id === entry.attemptId || a.sourceAttemptId === entry.attemptId) : undefined;
       const old = entry.attemptId && !selected ? readCetAttempts().find((a) => a.id === entry.attemptId) : undefined;
       setPaper(loaded);
+      setMinutes(String(listeningDefaultMinutes(loaded,entry.sectionId)));
       setHistory(records.filter(a => a.owner === owner.current));setLegacyHistory(readCetAttempts());
       if (selected && selected.paperId === loaded.id && selected.owner === owner.current) {
         current.current = selected;
@@ -383,6 +388,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   }, [paper, entry.sectionId, minutes, timerMode, refreshHistory, storageOwner, touchTrail]);
 
   const commit = useCallback(async (reason: "submit_all" | "passage_submit" | "manual_submit" | "time_expired" | "ended_for_study", sectionId?: string) => {
+    listeningController.current?.checkpoint();
     const a = current.current;
     if (!paper || !a || submitting.current) return;
     if(cetViewModel(paper,a).mismatch){setNotice("题目范围与当前题库不一致，原记录已保留，暂不能提交。");return;}
@@ -420,6 +426,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
 
   const leaveTo = useCallback(async (target: () => void) => {
     if (paperEditorOpen) { setNotice("请先完成原文编辑，再离开阅读。"); return; }
+    listeningController.current?.checkpoint();
     const a = current.current;
     const expectedOwner = owner.current;
     if (expectedOwner !== storageOwner()) { setNotice("账号已切换，请重新打开这份阅读。"); return; }
@@ -479,6 +486,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   },[activity,checkpointPractice,persistDraft]);
 
   const navigateTypeUnit = async (target:CetTypeUnit, retryNext = false) => {
+    if(listeningRunning&&current.current?.purpose==="self_test"){setNotice("请听完当前音频后再切换题目。");return;}
     if (paperEditorOpen) { setNotice("请先完成原文编辑，再切换题目。"); return; }
     const a=current.current,loaded=paper,expectedOwner=owner.current;
     if(!a?.sectionId||!loaded||routeNavigating.current||submitting.current||expectedOwner!==storageOwner())return;
@@ -521,7 +529,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   const scopeIds = activity?.sectionIds || (entry.sectionId ? [entry.sectionId] : paper.sections.map((s) => s.id));
   const model = cetViewModel(paper, activity, entry.sectionId, selectedFinalId);
   const scope = model.sections;
-  const section = scope.find((s) => s.id === (activity?.activeSection || directSectionId)) || scope[0];
+  let section = scope.find((s) => s.id === (activity?.activeSection || directSectionId)) || scope[0];
   if (!section) return <div className="cet-load" role="alert">阅读部分暂不可用。</div>;
   const shown = view !== "start";
   const testing = Boolean(activity?.purpose === "self_test" && activity.status === "in_progress");
@@ -529,6 +537,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   const locked = testing || paused || paperEditorOpen;
   const applicableFinalizations = activity ? Object.values(activity.finalizations).filter((item) => activity.purpose === "self_test" ? !item.sectionId : item.sectionId === section.id || item.reason === "ended_for_study" && item.questions.some(q=>q.sectionId===section.id)) : [];
   const result = applicableFinalizations.find((item) => item.id === selectedFinalId) || applicableFinalizations[0];
+  if (result?.listeningSections?.[section.id]) section = { ...section, audio: result.listeningSections[section.id].audio, listeningGroups: result.listeningSections[section.id].groups };
   const sectionResult = activity?.purpose === "practice" ? result : undefined;
   const showAnswers = Boolean(result) || activity?.status === "ended";
   const displayAnswer = model.answer;
@@ -546,7 +555,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
     : []).filter(mark => mark.target && mark.target !== "passage" || !editedParagraphs[mark.sectionId]
       || JSON.stringify(editedParagraphs[mark.sectionId]) === JSON.stringify(result?.underlinedParagraphs?.[mark.sectionId]));
   const sectionUnderlines = allUnderlines.filter(mark => mark.sectionId === section.id);
-  const passageParagraphs = editedParagraphs[section.id] || result?.underlinedParagraphs?.[section.id] || section.paragraphs;
+  const passageParagraphs = section.type === "listening" ? listeningVisibleText(section,number=>Boolean(result?.questions.some(q=>q.number===number))) : editedParagraphs[section.id] || result?.underlinedParagraphs?.[section.id] || section.paragraphs;
   const underlineExcerpt = (mark: CetUnderline) => {
     if (mark.target && mark.target !== "passage") {
       const question = result?.questions.find(item => item.sectionId === mark.sectionId && item.number === mark.questionNumber);
@@ -638,6 +647,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   };
   const toggleTimer = async () => {
     const a = current.current; if (!a || busy || a.status === "submitted" || a.status === "ended") return;
+    if(listeningRunning&&testing){setNotice("自测音频播放中，无法暂停计时。可保存并离开，记录会标记中断。");return;}
     if (a.purpose === "practice") {
       checkpointPractice(true); const latest = current.current!;
       const next = {...latest, practiceTimerPaused: !a.practiceTimerPaused, timerRevision: `${new Date().toISOString()}:${crypto.randomUUID()}`, updatedAt: new Date().toISOString()};
@@ -656,6 +666,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   const timerPaused = paused || Boolean(activity?.practiceTimerPaused) || !foreground && activity?.purpose === "practice";
   const timerLabel = timerStopped ? "用时" : activity?.legacy ? "旧版计时" : activity?.purpose === "practice" ? (activity&&currentCetEpoch(activity,section.id)?.mode==='countdown'?"倒计时":"学习用时") : activity?.timerMode === "countup" ? "正计时" : "倒计时";
   const openTimerMenu=(anchor:HTMLElement)=>{
+    if(listeningRunning&&testing){setNotice("自测音频播放中，计时设置暂不可调整。");return;}
     const a=current.current;if(!a||a.legacy||timerStopped||busy)return;
     timerTarget.current={owner:a.owner,activityId:a.id,sectionId:section.id,revision:a.timerRevision};pendingTimer.current=null;
     setTimerAnchor(anchor);
@@ -685,6 +696,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   };
   const changeSection = (id: string, scroll = false) => {
     if (paperEditorOpen) { setNotice("请先完成原文编辑，再切换阅读部分。"); return; }
+    if(listeningRunning&&testing){setNotice("请听完当前音频后再切换题目。");return;}
     pendingScroll.current = scroll ? 0 : window.scrollY;
     setChoice(null); setActiveToken("");
     checkpointPractice(true);
@@ -729,14 +741,14 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   const startSurface = <div className="cet-start">
     {!sheet && notice && <p className="cet-notice" role="alert">{notice}</p>}
     <div className="cet-mobile-actions"><button type="button" onClick={()=>setSheet("选择真题")}>选择真题</button></div>
-    <span className="cet-start-kicker">{entry.sectionId ? "单篇题组" : "阅读套卷"} · CET {paper.level}</span>
+    <span className="cet-start-kicker">{entry.sectionId ? "单篇题组" : scope.some(s=>s.type==="listening") ? "听力与阅读套卷" : "阅读套卷"} · CET {paper.level}</span>
     <h1>{entry.sectionId ? `${paper.title} · ${section.title}` : paper.title}</h1>
-    <p>{entry.sectionId ? names[section.type] : "选词填空 · 长篇匹配 · 仔细阅读"} · 共 {model.total} 题</p>
+    <p>{entry.sectionId ? names[section.type] : scope.some(s=>s.type==="listening") ? "听力 · 选词填空 · 长篇匹配 · 仔细阅读" : "选词填空 · 长篇匹配 · 仔细阅读"} · 共 {model.total} 题</p>
     {legacyPreview && <div className="cet-legacy-preview"><strong>旧版{legacyPreview.purpose === "self_test" ? "自测" : "练习"}记录</strong><p>{legacyPreview.status === "submitted" ? "可回看旧答案与用时。" : legacyPreview.purpose === "self_test" ? "可继续原答案，保留旧版手动计时口径；曾提前查看的答案不会被清除。" : "已即时反馈的题目会保持原答案，不会变成新的未揭晓练习。"}</p><button type="button" onClick={() => { try { const saved = saveCetActivity(legacyPreview); current.current = saved; setActivity(saved); setView("reading"); setLegacyPreview(null); } catch { setNotice("旧版记录迁移未能保存，请重试。"); } }}>{legacyPreview.status === "submitted" ? "回看旧答卷" : "继续旧版进度"}</button></div>}
     <div className="cet-start-goals">{(["practice", "self_test"] as const).map(purpose => {
       const records = scopedHistory.filter(r=>r.purpose===purpose);
       const ongoing = records.find(r=>r.status==='in_progress'||r.status==='paused');
-      return <section key={purpose}><h2>{purpose==='practice' ? '阅读练习' : entry.sectionId ? '单篇自测' : '套卷自测'}</h2>
+      return <section key={purpose}><h2>{purpose==='practice' ? !entry.sectionId&&scope.some(s=>s.type==='listening')?'听力与阅读练习':section.type==='listening'?'听力练习':'阅读练习' : entry.sectionId ? '单篇自测' : '套卷自测'}</h2>
         <p>{purpose==='practice' ? '可以查词和翻译；每篇提交后查看答案与解析。' : '提交前不提供查词和翻译；提交后统一查看答案与解析。开始前可选择正计时或倒计时。'}</p>
         <div className="cet-start-actions"><button className="cet-primary" disabled={busy} onClick={()=>{forceNew.current=records.length>0;if(purpose==='practice')void start('practice');else{setTimerMode("countdown");setNotice("");setSheet('开始新自测');}}}>{purpose==='practice' ? records.length ? '开始新练习' : '开始练习' : `开始${entry.sectionId ? '单篇' : '套卷'}自测`}</button>
         {ongoing && <button onClick={()=>openRecord(ongoing)}>继续上次{purpose==='practice'?'练习':'自测'}</button>}</div>
@@ -781,29 +793,30 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   const renderReading = (lookup: (context: WordContext) => void) => {
     if (view === "start") return startSurface;
     return <div className="cet-reading">
-      {practiceTotals && activity?.status === "submitted" && <div className="cet-practice-total" role="status">{practiceTotals.conflict ? "存在不同提交结果，请分别查看，暂不合成总分。" : `答对 ${practiceTotals.correct}/${practiceTotals.scoreable} · 未答 ${practiceTotals.unanswered} · 已完成 ${practiceTotals.completed}/${scope.length} 篇 · 学习用时 ${formatTime(practiceTotals.elapsedMs)}${practiceTotals.unreliable ? ` · ${practiceTotals.unreliable} 题答案待核对，不计分` : ""}`}</div>}
-      <div className="cet-reading-meta"><span>{paper.title} · {activity?.purpose === "self_test" ? activity.sectionId ? "单篇自测" : "阅读套卷自测" : "阅读练习"}</span><span>{activity?.purpose === "practice" ? `已完成 ${submittedCount}/${scope.length} 篇` : locked ? `${paused ? "已暂停 · " : ""}已答 ${answered}/${model.total} 题` : activity?.status === "ended" ? "未完成结束" : activity?.status === "submitted" ? "已提交" : ""}</span></div>
+      {practiceTotals && activity?.status === "submitted" && <div className="cet-practice-total" role="status">{practiceTotals.conflict ? "存在不同提交结果，请分别查看，暂不合成总分。" : `答对 ${practiceTotals.correct}/${practiceTotals.scoreable} · 未答 ${practiceTotals.unanswered} · 已完成 ${practiceTotals.completed}/${scope.length} ${scope.some(s=>s.type==="listening")?"组":"篇"} · 学习用时 ${formatTime(practiceTotals.elapsedMs)}${practiceTotals.unreliable ? ` · ${practiceTotals.unreliable} 题答案待核对，不计分` : ""}`}</div>}
+      <div className="cet-reading-meta"><span>{paper.title} · {activity?.purpose === "self_test" ? activity.sectionId ? section.type === "listening" ? "听力自测" : "单篇自测" : scope.some(s=>s.type === "listening") ? "听力与阅读套卷自测" : "阅读套卷自测" : section.type === "listening" ? "听力练习" : "阅读练习"}</span><span>{activity?.purpose === "practice" ? `已完成 ${submittedCount}/${scope.length} ${scope.some(s=>s.type==="listening")?"组":"篇"}` : locked ? `${paused ? "已暂停 · " : ""}已答 ${answered}/${model.total} 题` : activity?.status === "ended" ? "未完成结束" : activity?.status === "submitted" ? "已提交" : ""}</span></div>
       <div className="cet-mobile-actions"><button onClick={() => setSheet("选择真题")}>选择真题</button><button onClick={openGlobalHistory}>练习历史</button><button onClick={() => setSheet("答题卡")}>答题卡</button></div>
-      <nav className="cet-sections" aria-label="阅读部分">{scope.map((item) => <button key={item.id} aria-current={item.id === section.id ? "page" : undefined} onClick={() => changeSection(item.id)}>{item.type === "detail" ? item.title : names[item.type]}{activity?.purpose === "practice" && cetFinalizedSection(activity, item.id) ? " · 已提交" : ""}</button>)}</nav>
+      <nav className="cet-sections" aria-label="试卷部分">{scope.map((item) => <button key={item.id} aria-current={item.id === section.id ? "page" : undefined} onClick={() => changeSection(item.id)}>{item.type === "detail" ? item.title : names[item.type]}{activity?.purpose === "practice" && cetFinalizedSection(activity, item.id) ? " · 已提交" : ""}</button>)}</nav>
       {model.mismatch && <p className="cet-notice" role="alert">此记录的题目范围与当前题库不一致。原记录已保留，请查看历史答卷；暂不能继续提交。</p>}{notice && <p className="cet-notice" role="alert">{notice}</p>}
       {isOffline && activity && <p className="cet-notice" role="status">已保存到本机，待网络恢复后同步。</p>}
       {activity?.legacy && activity.conditions.includes("legacy_early_reveal") && <p className="cet-notice">旧版记录曾提前查看答案；该事实保留。</p>}
       {result?.reason === "time_expired" && <p className="cet-notice" role="status">时间已结束，已固定本次答卷。</p>}
       {result?.unreliable ? <p className="cet-notice">另有 {result.unreliable} 题缺少可靠参考答案，不计入结果分母。</p> : null}
       {applicableFinalizations.length > 1 && <div className="cet-conflicts"><p>这次活动在不同设备产生了 {applicableFinalizations.length} 份提交快照。原答案分别保留，暂不纳入默认自测统计。</p><div>{applicableFinalizations.map((item, index) => <button type="button" key={item.id} aria-pressed={result?.id === item.id} onClick={() => setSelectedFinalId(item.id)}>答卷 {index + 1} · {new Date(item.at).toLocaleString("zh-CN")}</button>)}</div></div>}
-      {result && <div className="cet-result" role="status"><strong>{result.reason === "ended_for_study" ? "未完成结束" : activity?.purpose === "self_test" ? "自测结果" : "本篇结果"}</strong><span>{result.reason === "ended_for_study" ? `已答 ${result.questions.length - result.unanswered} 题 · 不计入完成成绩` : result.scoreable ? `答对 ${result.correct}/${result.scoreable} 题 · 未答 ${result.unanswered} 题` : "暂无可计分结果"}</span><span>{activity?.legacy ? "旧版计时" : activity?.purpose === "self_test" ? "自测用时" : "学习用时"} {formatTime(result.elapsedMs)}{result.everPaused ? " · 曾中断" : ""}</span>{contentChanged && <small>当前题库与作答时版本不同，此处按当时快照展示。</small>}{activity?.purpose === "self_test" && cetEligibility(activity, observedConditions) === "repeat_test" && <small>重复材料自测</small>}</div>}
+      {result && <div className="cet-result" role="status"><strong>{result.reason === "ended_for_study" ? "未完成结束" : activity?.purpose === "self_test" ? "自测结果" : "本篇结果"}</strong><span>{result.reason === "ended_for_study" ? `已答 ${result.questions.length - result.unanswered} 题 · 不计入完成成绩` : result.scoreable ? `答对 ${result.correct}/${result.scoreable} 题 · 未答 ${result.unanswered} 题` : "暂无可计分结果"}</span><span>{activity?.legacy ? "旧版计时" : activity?.purpose === "self_test" ? "自测用时" : "学习用时"} {formatTime(result.elapsedMs)}{result.everPaused ? " · 曾中断" : ""}</span>{result.conditions.includes("listening_not_completed")&&<small>听力未播放完毕</small>}{result.conditions.includes("listening_interrupted")&&<small>听力播放曾中断</small>}{contentChanged && <small>当前题库与作答时版本不同，此处按当时快照展示。</small>}{activity?.purpose === "self_test" && cetEligibility(activity, observedConditions) === "repeat_test" && <small>重复材料自测</small>}</div>}
 
       {result && activity?.purpose === "self_test" && allUnderlines.length > 0 && <details className="cet-underline-index" open><summary>自测划记 · {allUnderlines.length} 处</summary><p>点击划记跳转到原文或题目，再点单词查词。划记已随本次答卷固定。</p><div>{allUnderlines.map(mark => <button type="button" key={mark.id} onClick={() => jumpToUnderline(mark)}><i data-color={mark.color} aria-hidden="true" /><span>{paper.sections.find(item => item.id === mark.sectionId)?.title || "阅读原文"}{mark.questionNumber ? ` · 第 ${mark.questionNumber} 题` : ""} · {underlineExcerpt(mark)}</span></button>)}</div></details>}
-      <p className="cet-directions">{section.type === "cloze" ? "从词库中选择合适单词填入空格，每词限用一次。" : section.type === "matching" ? "为每个陈述选择对应段落；段落可以被重复选择。" : "阅读文章，并为每道题选择一个最佳答案。"}</p>
+      <p className="cet-directions">{section.type === "listening" ? "听录音，为每道题选择一个最佳答案。" : section.type === "cloze" ? "从词库中选择合适单词填入空格，每词限用一次。" : section.type === "matching" ? "为每个陈述选择对应段落；段落可以被重复选择。" : "阅读文章，并为每道题选择一个最佳答案。"}</p>
       {testing && <p className="cet-underline-hint">选中原文或题目可添加彩色下划线；提交后划记固定在这次自测中。</p>}
       <h1>{section.title}</h1>
-      {shown && canEditPaper && !paperEditorOpen && <button type="button" className="cet-edit-paper" disabled={testing || paused} onClick={() => { setNotice(""); setPaperEditorOpen(true); }}>编辑真题排版</button>}
+      {section.type === "listening" && section.audio && <CetListeningPlayer controller={listeningController} key={`${activity?.id}:${section.id}:${Boolean(result)}`} audio={section.audio} testing={Boolean(activity?.purpose==="self_test"&&!result)} blocked={paused||!activity} stopped={!activity||["submitted","ended"].includes(activity.status)||Boolean(sectionResult)} initial={activity?.listeningPlayback?.[section.id]} onRunningChange={setListeningRunning} onCheckpoint={(position,state)=>{const a=current.current;if(a&&a.status==="in_progress"&&a.sectionIds.includes(section.id)&&!cetFinalizedSection(a,section.id))persistDraft(recordListeningPlayback(a,section.id,position,state));}} />}
+      {shown && section.type!=="listening" && canEditPaper && !paperEditorOpen && <button type="button" className="cet-edit-paper" disabled={testing || paused} onClick={() => { setNotice(""); setPaperEditorOpen(true); }}>编辑真题排版</button>}
       {result && editedParagraphs[section.id] && <p className="cet-directions">当前显示已保存排版；历史答卷保留提交时的内容。</p>}
       {section.bank && <div className="cet-word-bank cet-markable-questions" data-native-selection="blue" onMouseUpCapture={event=>{const root=event.currentTarget;requestAnimationFrame(()=>captureUnderlineSelection(root));}} onKeyUpCapture={event=>{const root=event.currentTarget;requestAnimationFrame(()=>captureUnderlineSelection(root));}} onTouchEndCapture={event=>{const root=event.currentTarget;window.setTimeout(()=>captureUnderlineSelection(root),80);}} onClickCapture={openExistingUnderline}>{section.bank.map((option) => <span key={option.key} data-used={section.questions.some(q=>answerFor(q)===option.key) || undefined}><b>{option.key}</b> <span data-cet-mark-target="bank" data-cet-option-key={option.key}><span data-cet-part-start={0}>{lookupText(option.text, lookup, undefined, 0, sectionUnderlines.filter(mark=>mark.target==="bank"&&mark.optionKey===option.key))}</span></span>{section.questions.some(q=>answerFor(q)===option.key) && <small>已用</small>}</span>)}</div>}
       {paperEditorOpen && canEditPaper ? <CetPaperEditor key={`${paper.id}:${section.id}`} paperId={paper.id} section={paper.sections.find(item => item.id === section.id)!} onClose={() => setPaperEditorOpen(false)} onSaved={paragraphs => {
         setPaper(current => current && { ...current, sections: current.sections.map(item => item.id === section.id ? { ...item, paragraphs } : item) });
         setEditedParagraphs(previous => ({ ...previous, [section.id]: paragraphs }));
-      }} /> : <div ref={passageRoot} className="cet-passages" data-native-selection="blue" onMouseUpCapture={() => requestAnimationFrame(() => captureUnderlineSelection())} onKeyUpCapture={() => requestAnimationFrame(() => captureUnderlineSelection())} onTouchEndCapture={() => window.setTimeout(() => captureUnderlineSelection(), 80)} onClickCapture={openExistingUnderline}>{passageParagraphs.map((text, index) => <p key={index} data-cet-paragraph={index}>{section.type === "cloze" ? text.split(/(\[\[\d+\]\])/g).map((part, partIndex, parts) => {
+      }} /> : section.type === "listening" ? null : <div ref={passageRoot} className="cet-passages" data-native-selection="blue" onMouseUpCapture={() => requestAnimationFrame(() => captureUnderlineSelection())} onKeyUpCapture={() => requestAnimationFrame(() => captureUnderlineSelection())} onTouchEndCapture={() => window.setTimeout(() => captureUnderlineSelection(), 80)} onClickCapture={openExistingUnderline}>{passageParagraphs.map((text, index) => <p key={index} data-cet-paragraph={index}>{section.type === "cloze" ? text.split(/(\[\[\d+\]\])/g).map((part, partIndex, parts) => {
         const number = Number(part.match(/\[\[(\d+)\]\]/)?.[1]);
         const question = section.questions.find((item) => item.number === number);
         const offset = parts.slice(0, partIndex).join("").length;
@@ -827,10 +840,10 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
         try { saveCetExposure(exposureFor(section, paper.id, owner.current, "assist", `assist:${activity?.id || directSessionId.current}:${section.id}`, activity?.id)); } catch { /* Reading tools remain usable if exposure persistence is temporarily unavailable. */ }
       },
       toolbar: <>{shown && <PillNavAction className={toolbarStyles.action} label={`答题卡 ${answered}/${model.total}`} onClick={() => setSheet("答题卡")} />}{(testing || paused) && <PillNavAction className={toolbarStyles.action} label="提交自测" onClick={() => setSheet("提交自测")} />}{shown && activity?.purpose === "practice" && !activity.legacy && <PillNavAction className={toolbarStyles.action} label={submitPolicy.toolbar.label} disabled={busy || submitPolicy.toolbar.disabled} onClick={() => invokeSubmit(submitPolicy.toolbar.command)} />}</>,
-      rail: <div className={`${toolbarStyles.railActions} cet-rail`}><button disabled={paperEditorOpen} onClick={() => setSheet("选择真题")}><span>选择真题</span><small>按试卷或题型选择</small></button><button disabled={paperEditorOpen} onClick={openGlobalHistory}><span>练习历史</span><small>继续或回看</small></button>{shown && <button disabled={paperEditorOpen} onClick={() => setSheet("重新练习")}><span>重新练习</span><small>保留本轮记录</small></button>}{canEditPaper && <button disabled={paperEditorOpen || testing || paused} onClick={() => { setNotice(""); setView("reading"); setPaperEditorOpen(true); }}><span>编辑真题排版</span><small>开发者专用</small></button>}</div>,
+      rail: <div className={`${toolbarStyles.railActions} cet-rail`}><button disabled={paperEditorOpen} onClick={() => setSheet("选择真题")}><span>选择真题</span><small>按试卷或题型选择</small></button><button disabled={paperEditorOpen} onClick={openGlobalHistory}><span>练习历史</span><small>继续或回看</small></button>{shown && <button disabled={paperEditorOpen} onClick={() => setSheet("重新练习")}><span>重新练习</span><small>保留本轮记录</small></button>}{canEditPaper && section.type!=="listening" && <button disabled={paperEditorOpen || testing || paused} onClick={() => { setNotice(""); setView("reading"); setPaperEditorOpen(true); }}><span>编辑真题排版</span><small>开发者专用</small></button>}</div>,
       timer,
 
-      questions: shown && !paperEditorOpen && section.type!=="cloze" ? {key:`${owner.current}:${activity?.id||directSessionId.current}:${section.id}`, available:true, title:section.title, answered:sectionAnswered,total:section.questions.length,
+      questions: shown && !paperEditorOpen && section.type!=="cloze" && section.type!=="listening" ? {key:`${owner.current}:${activity?.id||directSessionId.current}:${section.id}`, available:true, title:section.title, answered:sectionAnswered,total:section.questions.length,
         onDismiss:()=>setChoice(prior=>prior?.surface==='dock'?null:prior),
         render:lookup=><div className="cet-dock-reading">{renderQuestions('dock',lookup)}{renderActions('dock')}</div>} : undefined,
       render: renderReading,
@@ -847,13 +860,13 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
         <p>{sheet==='计时归零' ? activity&&projectCetTimer(activity,section.id).mode==='countdown'?'将重新从本轮设置时长倒计时，答案保留。':'仅重置当前计时，已选答案和原始累计用时保留。':'从新时长开始倒计时，已选答案和原始累计用时保留。'}</p>
         {sheet==='设置倒计时'&&<CetDurationInput label="倒计时分钟数" value={minutes} onChange={setMinutes} />}
         {notice&&<p role="alert">{notice}</p>}<div className="cet-dialog-actions"><button onClick={()=>setSheet('')}>取消</button><button disabled={busy||timerStopped} onClick={()=>{if(sheet==='设置倒计时'&&(!/^\d+$/.test(minutes)||Number(minutes)<1||Number(minutes)>180)){setNotice('请输入1–180的整数分钟。');return;}void applyTimerAdjustment(sheet==='计时归零'?'reset':'countdown');}}>确认调整</button></div>
-      </div> : sheet === "开始新自测" ? <div className="cet-test-settings"><p>本次：{entry.sectionId ? '单篇题组' : '阅读套卷'} · 共 {model.total} 题</p><div className="cet-timer-mode">{(['countup','countdown'] as const).map(mode=><button key={mode} aria-pressed={timerMode===mode} onClick={()=>setTimerMode(mode)}>{mode==='countup'?'正计时':'倒计时'}</button>)}</div><p>{timerMode==='countup'?'从 00:00 开始累计，用时由你掌握。':'设置时长，到时结束并保存本次答卷。'}</p>{timerMode==='countdown' && <CetDurationInput label="自测分钟数" value={minutes} onChange={setMinutes} />}<p>提交前不提供查词和翻译；提交后查看答案与解析。点击阅读页上的计时胶囊可暂停或继续。</p>{notice && <p role="alert">{notice}</p>}<div className="cet-dialog-actions"><button onClick={()=>setSheet('')}>返回</button><button disabled={busy} onClick={()=>{if(timerMode==='countdown' && (!/^\d+$/.test(minutes)||Number(minutes)<1||Number(minutes)>180)){setNotice('请输入 1–180 的整数分钟。');return;}void start('self_test');}}>开始自测</button></div></div> : sheet === "选择真题" ? <CetLibrary compact onOpen={(selected) => void leaveTo(() => { setSheet(""); onOpen(selected); })} /> : sheet === "练习历史" ? <div className="cet-history"><p>{historyScope === "all_cet" ? "全部真题历史" : "本套记录"}</p><CetSelect label="历史级别" value={historyLevel} options={[{key:"all",text:"全部级别"},{key:"4",text:"四级"},{key:"6",text:"六级"}]} onChange={setHistoryLevel} /><CetSelect label="历史目标" value={historyPurpose} options={[{key:"all",text:"全部目标"},{key:"practice",text:"阅读练习"},{key:"self_test",text:"自测"}]} onChange={v=>setHistoryPurpose(v as typeof historyPurpose)} />{visibleHistory.slice(0, historyLimit).map((record) => <button key={record.id} onClick={() => void leaveTo(() => { setSheet(""); onOpen({ paperId: record.paperId, sectionId: record.sectionId, attemptId: record.id }); })}><small>{record.sectionId ? "单篇" : "整卷"} · {record.purpose === "practice" ? "阅读练习" : record.timerMode === "countup" ? "正计时自测" : "倒计时自测"}</small><strong>{record.title}</strong><span>{record.status === "submitted" ? record.purpose === "self_test" ? "已提交" : "查看结果" : record.status === "ended" ? "未完成结束" : record.status === "paused" ? "继续已暂停自测" : "继续"} · {record.answerCount} 题</span></button>)}{visibleHistory.length > historyLimit && <button onClick={() => setHistoryLimit((n) => n + 30)}>加载更多记录</button>}{!visibleHistory.length && <p>开始练习后，进度会保存在这里。</p>}</div> : sheet === "答题卡" ? <div className="cet-answer-card"><p>已答 {model.answered}/{model.total} 题</p>{scope.map((item) => <section key={item.id}><h3>{item.type==='detail' ? item.title : names[item.type]}</h3>{item.questions.map((question) => {
+      </div> : sheet === "开始新自测" ? <div className="cet-test-settings"><p>本次：{entry.sectionId ? section.type==='listening'?'听力题组':'单篇题组' : scope.some(s=>s.type==='listening')?'听力与阅读套卷':'阅读套卷'} · 共 {model.total} 题</p><div className="cet-timer-mode">{(['countup','countdown'] as const).map(mode=><button key={mode} aria-pressed={timerMode===mode} onClick={()=>setTimerMode(mode)}>{mode==='countup'?'正计时':'倒计时'}</button>)}</div><p>{timerMode==='countup'?'从 00:00 开始累计，用时由你掌握。':'设置时长，到时结束并保存本次答卷。'}</p>{timerMode==='countdown' && <CetDurationInput label="自测分钟数" value={minutes} onChange={setMinutes} />}<p>提交前不提供查词和翻译；提交后查看答案与解析。{scope.some(s=>s.type==="listening")?"音频播放期间无法暂停或切换题目；保存离开会记录中断。":"点击阅读页上的计时胶囊可暂停或继续。"}</p>{notice && <p role="alert">{notice}</p>}<div className="cet-dialog-actions"><button onClick={()=>setSheet('')}>返回</button><button disabled={busy} onClick={()=>{if(timerMode==='countdown' && (!/^\d+$/.test(minutes)||Number(minutes)<1||Number(minutes)>180)){setNotice('请输入 1–180 的整数分钟。');return;}void start('self_test');}}>开始自测</button></div></div> : sheet === "选择真题" ? <CetLibrary compact onOpen={(selected) => void leaveTo(() => { setSheet(""); onOpen(selected); })} /> : sheet === "练习历史" ? <div className="cet-history"><p>{historyScope === "all_cet" ? "全部真题历史" : "本套记录"}</p><CetSelect label="历史级别" value={historyLevel} options={[{key:"all",text:"全部级别"},{key:"4",text:"四级"},{key:"6",text:"六级"}]} onChange={setHistoryLevel} /><CetSelect label="历史目标" value={historyPurpose} options={[{key:"all",text:"全部目标"},{key:"practice",text:"练习"},{key:"self_test",text:"自测"}]} onChange={v=>setHistoryPurpose(v as typeof historyPurpose)} />{visibleHistory.slice(0, historyLimit).map((record) => <button key={record.id} onClick={() => void leaveTo(() => { setSheet(""); onOpen({ paperId: record.paperId, sectionId: record.sectionId, attemptId: record.id }); })}><small>{record.sectionId ? "单篇" : "整卷"} · {record.purpose === "practice" ? record.sectionId?.endsWith("-listening") ? "听力练习" : "阅读练习" : record.timerMode === "countup" ? "正计时自测" : "倒计时自测"}</small><strong>{record.title}</strong><span>{record.status === "submitted" ? record.purpose === "self_test" ? "已提交" : "查看结果" : record.status === "ended" ? "未完成结束" : record.status === "paused" ? "继续已暂停自测" : "继续"} · {record.answerCount} 题</span></button>)}{visibleHistory.length > historyLimit && <button onClick={() => setHistoryLimit((n) => n + 30)}>加载更多记录</button>}{!visibleHistory.length && <p>开始练习后，进度会保存在这里。</p>}</div> : sheet === "答题卡" ? <div className="cet-answer-card"><p>已答 {model.answered}/{model.total} 题</p>{scope.map((item) => <section key={item.id}><h3>{item.type==='detail' ? item.title : names[item.type]}</h3>{item.questions.map((question) => {
         const key=cetQuestionKey(item.id,question.number), value=model.answer(item.id,key), state=model.state(item.id,key);
         const marks={correct:'✓',incorrect:'×',unanswered:'—',unverified:'待核对',answered:'',draft:''};
         const labels={correct:'正确',incorrect:'错误',unanswered:'未答',unverified:'待核对',answered:'已答',draft:'未作答'};
         return <button type="button" key={question.number} data-result={state} data-answered={Boolean(value)} aria-label={`第 ${question.number} 题，${labels[state]}${value ? `，选择 ${value}` : ''}`} onClick={()=>{jumpQuestion.current=question.number;changeSection(item.id);setSheet('');}}>{question.number}{value && ` · ${value}`}<span>{marks[state]}</span></button>;
-      })}</section>)}</div> : <div className="cet-confirm">
-        <p>{sheet === "提交全部" ? `还有 ${practiceUnanswered} 题未答，提交后将检查本次练习全部 ${scope.length} 篇。已提交结果保持不变。` : sheet === "提交本篇" ? remaining ? `本篇还有 ${remaining} 题未作答。提交后答案固定并显示解析。` : "提交后答案固定并显示解析。" : sheet === "提交自测" ? remaining ? `还有 ${remaining} 题未作答。提交后本次自测结束，答案与用时固定。` : "提交后本次自测结束，答案与用时固定。" : sheet === "结束自测并精读" ? "当前答案和用时会保留，本次自测将标记为“未完成结束”。进入精读后可以查词和查看解析；这份答卷不能继续作为原自测作答。之后可以重新开始一份空白自测。" : sheet === "保存失败" ? "结果尚未可靠保存，答案不会揭晓。请重试本机保存。" : "旧记录会保留，开始新一轮不会覆盖原答案。"}</p>
+      })}</section>)}</div> : <div className="cet-confirm">{listeningRunning&&testing&&<p>提交将结束当前音频播放；未听完会在这次记录中标明。</p>}
+        <p>{sheet === "提交全部" ? `还有 ${practiceUnanswered} 题未答，提交后将检查本次练习全部 ${scope.length} ${scope.some(s=>s.type==="listening")?"组":"篇"}。已提交结果保持不变。` : sheet === "提交本篇" ? remaining ? `本篇还有 ${remaining} 题未作答。提交后答案固定并显示解析。` : "提交后答案固定并显示解析。" : sheet === "提交自测" ? remaining ? `还有 ${remaining} 题未作答。提交后本次自测结束，答案与用时固定。` : "提交后本次自测结束，答案与用时固定。" : sheet === "结束自测并精读" ? "当前答案和用时会保留，本次自测将标记为“未完成结束”。进入精读后可以查词和查看解析；这份答卷不能继续作为原自测作答。之后可以重新开始一份空白自测。" : sheet === "保存失败" ? "结果尚未可靠保存，答案不会揭晓。请重试本机保存。" : "旧记录会保留，开始新一轮不会覆盖原答案。"}</p>
         {sheet === "提交自测" && <button className="cet-end" onClick={()=>setSheet("结束自测并精读")}>结束并精读（不计完成成绩）</button>}<div className="cet-dialog-actions"><button onClick={() => setSheet("")}>{sheet === "结束自测并精读" ? "继续自测" : "返回继续"}</button><button disabled={busy} onClick={() => { if (sheet === "提交全部") void commit("submit_all"); else if (sheet === "提交本篇") void commit("passage_submit", section.id); else if (sheet === "提交自测") void commit("manual_submit"); else if (sheet === "结束自测并精读") void commit("ended_for_study"); else if (sheet === "保存失败" && pendingFinal.current) void commit(pendingFinal.current.finalizations[Object.keys(pendingFinal.current.finalizations).at(-1)!]?.reason as "manual_submit"); else if (sheet === "重新练习") startNew("practice");  }}>{sheet === "提交全部" ? "提交全部并查看结果" : sheet === "提交本篇" ? "提交并查看解析" : sheet === "提交自测" ? "提交自测" : sheet === "结束自测并精读" ? "结束并精读" : sheet === "保存失败" ? "重试保存" : "开始新一轮"}</button></div>
       </div>}
     </Sheet>}

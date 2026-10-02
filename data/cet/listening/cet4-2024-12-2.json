@@ -1,0 +1,741 @@
+{
+  "id": "cet4-2024-12-2-listening",
+  "type": "listening",
+  "title": "听力",
+  "paragraphs": [],
+  "questions": [
+    {
+      "number": 1,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They will see a 27% higher price to buy natural gas."
+        },
+        {
+          "key": "B",
+          "text": "They will have insufficient heating oil to keep warm."
+        },
+        {
+          "key": "C",
+          "text": "They will have a costly bill to pay to heat their homes."
+        },
+        {
+          "key": "D",
+          "text": "They will experience the coldest winter in four decades."
+        }
+      ],
+      "answer": "C",
+      "explanation": "1. Why are families across the U.S.looking to this winter with fear? 为什么美国各地的家庭怀着恐惧迎接这个冬天？ A)他们购买天然气的价格将上涨27%。 C)他们将支付高昂的账单来为家里供暖。 B)他们将没有足够的取暖用油供暖。 D）他们将经历40年来最寒冷的冬天。 解新闻开头提到，随着能源成本的飙升，美国各地的家庭正怀着恐惧迎接这个冬天。接下来的内容具体阐述 析 了今冬取暖费用的上涨情况。新闻提到，能源部预估，对于那些依赖天然气取暖的家庭来说，今年冬天的 取暖费将上涨28%。取暖用油的费用预计将高出27%，电费预计将高出10%。这些数据都表明美国家庭担 优的是取暖费用大幅增加，要支付高昂的取暖账单，故选C。选项A表述错误，新闻中提到，依赖天然气 取暖的家庭今年冬天的取暖费将上涨28%，可推测天然气价格将上涨28%，而非27%。新闻中虽提到取暖 用油的费用预计上涨27%，但依赖取暖用油供暖只是部分美国家庭的情况，故排除B。新闻中只提到消费 者价格上涨6.6%，是40年来最快涨幅，并未提及美国家庭将经历40年来最寒冷的冬天，故排除D。"
+    },
+    {
+      "number": 2,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Provided additional funding to Low Income Home Energy Assistance Program."
+        },
+        {
+          "key": "B",
+          "text": "Assured U.S. citizens of an increase in energy supplies by the end of this year."
+        },
+        {
+          "key": "C",
+          "text": "Predicted a 10% jump in heating bills for most U.S. households this winter."
+        },
+        {
+          "key": "D",
+          "text": "Decided on this year’s energy assistance package of $8 billion in total."
+        }
+      ],
+      "answer": "A",
+      "explanation": "2.Whatdidthefederalgovernmentdolastmonth?联邦政府上个月做了什么？ A为低收人家庭能源援助计划提供了额外资金。 C)预测今冬大多数美国家庭的取暖费将上涨10%。 B)向美国公民保证在今年年底前增加能源供应。D)决定今年的能源援助计划总额为80亿美元。 解+新闻末尾提到，上个月，联邦政府为低收人家庭能源援助计划增加了1o亿美元（addeds1billion）的资 析 金，使该计划的总金额达到48亿美元，故选项A为正确答案，选项中的additional funding对应新闻中的 addedS1billion，同时据此排除选项D。新闻中，联邦政府并未预测今年冬天大多数美国家庭的取暖费上 涨幅度，而新闻前半部分提及，能源部对此进行过预估，使用天然气取暖的家庭取暖费涨幅为28%，使 用取暖用油供暖的家庭取暖费涨幅为27%，使用电取暖的家庭取暖费涨幅为10%，取暖方式不同，涨幅不 同，故排除选项C。选项B新闻并未提及，可排除。"
+    },
+    {
+      "number": 3,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They care less about their diet now than before."
+        },
+        {
+          "key": "B",
+          "text": "They may lack adequate knowledge of healthy food."
+        },
+        {
+          "key": "C",
+          "text": "They may hold too optimistic a view about their diet."
+        },
+        {
+          "key": "D",
+          "text": "They pay insufficient attention to their choice of food."
+        }
+      ],
+      "answer": "C",
+      "explanation": "3.What is the main finding of a new study about many Americans? 关于许多美国人的一项新研究的主要发现是什么？ A)他们现在不如以前那样关心自己的饮食了。C)他们可能对自己的饮食持过于乐观的看法。 B)他们可能对健康食品缺乏足够的了解。 D)他们对食物的选择不够重视。 解新闻开头就提到，许多美国人认为他们做出了健康的饮食选择，但他们可能对自己的饮食过于乐观了。 析 这是位于密西西比州斯通维尔的美国农业部研究人员一项新研究的主要发现。由此可知，选项C为正确答 案。其余三项新闻中均未提及，可排除。"
+    },
+    {
+      "number": 4,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Those who finished 24-hour food questionnaires."
+        },
+        {
+          "key": "B",
+          "text": "Those who fully understood the rating scale."
+        },
+        {
+          "key": "C",
+          "text": "Those who cared about food quality."
+        },
+        {
+          "key": "D",
+          "text": "Those who rated their diet as poor."
+        }
+      ],
+      "answer": "D",
+      "explanation": "4. Who tended to rate their diet more accurately in the survey? 在调查中，谁往往能更准确地对自己的饮食进行评级？ A）那些完成了24小时饮食问卷调查的人。 C)那些关心食品质量的人。 B)那些完全理解评级标准的人。 D)那些将自己的饮食评为“差”的人。 解+新闻末尾提到，这项新研究发现，在调查的9700多人中，大约85%的人在评估自己饮食的品质时是完全错 析 误的，几乎所有人都高估了自己饮食的健康程度。那些将自己饮食评为“差”的人往往准确得多。由此可 知，选项D为正确答案。"
+    },
+    {
+      "number": 5,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They experienced a heartbreaking moment."
+        },
+        {
+          "key": "B",
+          "text": "They gathered together to rescue an elephant."
+        },
+        {
+          "key": "C",
+          "text": "They heard a noise from the bottom of a well."
+        },
+        {
+          "key": "D",
+          "text": "They found an elephant wandering around a well."
+        }
+      ],
+      "answer": "B",
+      "explanation": "5.WhatdoesthereportsaydozensofIndiansdidlastweek?报道中说数十名印度人在上周做了什么？ A)他们经历了令人心碎的时刻。 C)他们听到井底有响声。 B）他们聚集在一起营一头大象。 D)他们发现一头大象在井边间。 解新闻开头就提到，数十名印度救援人员齐心协力，用起重机来营救一头困在二十英尺深井底部的大象。由此 析 可知，B为正确答案。根据新闻所述，是一个军营的军官们先听到井里大象发出的声音，因此呼叫林业部门 寻求帮助，而非这数十名印度救援人员听到井底有响声，故排除C。其余两项新闻中未提及，可排除。"
+    },
+    {
+      "number": 6,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "To borrow their crane."
+        },
+        {
+          "key": "B",
+          "text": "To ask them for help."
+        },
+        {
+          "key": "C",
+          "text": "To report the strange noise."
+        },
+        {
+          "key": "D",
+          "text": "To get food for the elephant."
+        }
+      ],
+      "answer": "B",
+      "explanation": "6.Whydidthearmyofficerscallthelocalforestdepartment?为什么军官们呼叫当地林业部门？ A)借用他们的起重机。 C)报告奇怪的声音。 B)向他们求助。 D)为大象寻找食物。 解新闻中提到，军营的军官们听到了井里传出来的声音，意识到一头大象被困在了井底，因此呼叫了当地林 析 业部门寻求帮助。由此可知，B为正确答案。新闻中提到，救援队在对大象进行救援时使用了起重机，而 非军官们借用起重机，故排除A。新闻中提到，军官们在发现大象后，向井里投喂了一些食物，并没有说 食物是从当地林业部那里寻来的，故排除D。选项C新闻中未提及，可排除。"
+    },
+    {
+      "number": 7,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "The elephant was able to return to the jungle."
+        },
+        {
+          "key": "B",
+          "text": "The army officers were examined for injuries."
+        },
+        {
+          "key": "C",
+          "text": "The army officers were rewarded for their rescue efforts."
+        },
+        {
+          "key": "D",
+          "text": "The elephant was given medical treatment for many days."
+        }
+      ],
+      "answer": "A",
+      "explanation": "7.Whatdoesthenewsreportsayhappenedfinally?新闻报道说最后发生了什么？ A）大象得以返回丛林。 C)军官们因营救工作受到奖励。 B)军官们接受了伤势检查。 D)大象接受了多日的医疗救治。 解新闻末尾提到，大象在被密切监护了几天后，最终被成功放归野外。由此可知，A为正确答案。根据新闻 析 所述，接受伤势检查的是大象，而非军官们，故排除B。新闻末尾提到，大象被密切监护了几天，而不是 接受了多日的医疗救治，故排除D。选项C新闻中未提及，可排除。 SectionB"
+    },
+    {
+      "number": 8,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He found it had caused him much inconvenience."
+        },
+        {
+          "key": "B",
+          "text": "It led him to spend more money than necessary."
+        },
+        {
+          "key": "C",
+          "text": "It was much less secure than paying with cash."
+        },
+        {
+          "key": "D",
+          "text": "He wanted to be less dependent on his phone."
+        }
+      ],
+      "answer": "B",
+      "explanation": "8.Whyhasthemanstoppedpayingonlineforthelastthreemonths?男士过去三个月为什么停止使用在线支付？ A)他发现它给自己带来了诸多不便。 C)它远不如用现金支付安全。 B)它导致他花了不必要的钱。 D)他想要减少对手机的依赖。 解在对话开头部分，男士告诉女士他已经有三个月没用在线支付了。女士以为男士停用在线支付的原因是他担 析 心在线支付不安全，但是男士否定了女士的看法。他说自己停用在线支付的原因是它太方便了，导致他在不 需要的东西上花了太多钱，所以答案是B项，同时排除A项和C项。D项在对话中没有相关信息，故排除。"
+    },
+    {
+      "number": 9,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Living beyond her means."
+        },
+        {
+          "key": "B",
+          "text": "Lack of budgeting strategies."
+        },
+        {
+          "key": "C",
+          "text": "Fashion addiction."
+        },
+        {
+          "key": "D",
+          "text": "Impulse purchasing."
+        }
+      ],
+      "answer": "D",
+      "explanation": "9.Whatproblemdoesthewomansayshemayalsohave?女士说她可能也有什么问题？ A)人不敷出。 C)对时尚上瘾。 B)缺乏预算策略。 D)冲动消费。 解在对话中，当男士提到自己在不需要的东西上花了太多钱，女士紧接着说冲动消费对她来说也是个问题， 析 所以答案是D项。A、B两项在对话中没有相关信息，故均排除；虽然女士提到自己因为打折买过不需要的 衣服和鞋子，但是C项“对时尚上瘾”的说法与此并不一致，故排除。"
+    },
+    {
+      "number": 10,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Eat healthier food with less money."
+        },
+        {
+          "key": "B",
+          "text": "Order food like burgers and chips."
+        },
+        {
+          "key": "C",
+          "text": "Avoid getting addicted to junk food."
+        },
+        {
+          "key": "D",
+          "text": "Pay either in cash or with his phone."
+        }
+      ],
+      "answer": "A",
+      "explanation": "10.Whatdoesthemansayhecoulddoatthecanteen?男士说他在食堂可以做什么？ A)用更少的钱吃更健康的食物。 C)避免对垃圾食品上瘾。 B)点像汉堡和薯条之类的食物。 D)用现金或者手机支付。 解在对话中，男士提到如果他去食堂，他就可以在那里用一半的价钱吃到更健康的饭菜，所以答案是A项。 析 男士提到自己又累又饿的时候，就会用手机点食物，比如汉堡和其他垃圾食品，所以他不是在食堂点像汉 堡和薯条之类的食物，故排除B项；对话中也没有提到他在食堂吃饭可以避免对垃圾食品上瘾，故排除C 项；D项在对话中没有相关信息，故也排除。"
+    },
+    {
+      "number": 11,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Making a shopping list."
+        },
+        {
+          "key": "B",
+          "text": "Sticking to his budget."
+        },
+        {
+          "key": "C",
+          "text": "Withdrawing cash only once a month."
+        },
+        {
+          "key": "D",
+          "text": "Thinking twice before buying something."
+        }
+      ],
+      "answer": "B",
+      "explanation": "1l.Whatisnowjustahabitfortheman？男士现在养成了什么习惯？ A)列购物清单。 C)每月只取一次现金。 B)严格执行预算。 D)买东西前再三考虑。 解在对话结尾，男士说自己养成了拒绝超预算支出的习惯，所以答案是B项。男士提到自己每周去一次银行 析 取现金，所以C项错误，故排除；A项和D项在对话中都没有相关信息，故均排除。"
+    },
+    {
+      "number": 12,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He does not enjoy any ball games."
+        },
+        {
+          "key": "B",
+          "text": "He has to prepare for the future."
+        },
+        {
+          "key": "C",
+          "text": "He has breathing problems."
+        },
+        {
+          "key": "D",
+          "text": "He is not up to anything challenging."
+        }
+      ],
+      "answer": "C",
+      "explanation": "12.Whyisthewomanopposedtotheir son joininga sportlikesoccer? 为什么女士反对他们的儿子参加像足球这样的运动？ A)他不喜欢任何球类运动。 C)他有呼吸方面的问题。 B)他必须为将来做准备。 D)他做不了任何有挑战性的事。 解在对话开头，男士提到他不想让儿子把下午的时间花在讨厌的事情上，所以他提议让他参加一项运动，比 析 如足球。女士考虑到儿子有呼吸方面的问题，因此她认为他不应该参加像足球这类有挑战性的运动，所以 答案是C项。A项张冠李戴，男士提议让儿子踢足球，目的是替换儿子可能讨厌的其他事，由此可知踢足 球并非儿子讨厌之事，故排除；B项过度推断，男士只是提及不想让儿子把时间花在可能对未来有帮助但 他却讨厌的事上，这一表述并不能合理推断出女士认为儿子必须为将来做准备，故排除；D项曲解信息， 女士反对的出发点是儿子的呼吸问题，认为他不适合参与足球这类有挑战性的运动，并非意味着儿子做不 了任何有挑战性的事，该项对女士的意思进行了错误解读，故也排除。"
+    },
+    {
+      "number": 13,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Soccer"
+        },
+        {
+          "key": "B",
+          "text": "Badminton."
+        },
+        {
+          "key": "C",
+          "text": "Volleyball."
+        },
+        {
+          "key": "D",
+          "text": "Basketball."
+        }
+      ],
+      "answer": "D",
+      "explanation": "13. What does the man suggest their son try in order to understand team spirit? 男士建议他们的儿子尝试什么来理解团队精神？ A)足球。 C)排球。 B)羽毛球。 D)篮球。 解在对话中，男士指出团队运动对儿子来说是最好的选择，然后他提出了让儿子打篮球的建议，并说明原 析 因，其中一个就是篮球这项运动能够帮助儿子在与他人合作时理解团队精神，所以答案是D项。其他三个 选项虽然都在对话中出现了，但不符合本题题意，故均排除。"
+    },
+    {
+      "number": 14,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "The possibilities of joining the school sports team."
+        },
+        {
+          "key": "B",
+          "text": "The opportunities of winning some championships."
+        },
+        {
+          "key": "C",
+          "text": "The chances of getting an athletic scholarship later on."
+        },
+        {
+          "key": "D",
+          "text": "The odds of becoming a professional sportsman someday."
+        }
+      ],
+      "answer": "C",
+      "explanation": "14. What is one of the woman's considerations in choosing a sport for her son? 女士在为儿子选择运动时考虑的因素之一是什么？ A)加人学校运动队的可能性。 C）日后获得体育奖学金的机会。 B)赢得一些冠军的机会。 D)将来某一天成为职业运动员的几率。 解在对话中，女士明确表示排球不像一些运动那么受欢迎，所以儿子将来获得体育奖学金的机会更大，这体 析 现了女士在为儿子选择运动时考虑到了日后获得体育奖学金的机会这个因素，所以答案是C项。男士提到 过让儿子加人学校篮球队，但女士为儿子选择运动时未提及此点，故排除A项；男士提到过可以作为团队 的一员去实现赢得比赛甚至冠军的目标，但女士在为儿子选择运动时未提及此因素，故排除B项；对话中 并未提及女士考虑让儿子成为职业运动员的相关信息，故排除D项。"
+    },
+    {
+      "number": 15,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It differs entirely from indoor volleyball."
+        },
+        {
+          "key": "B",
+          "text": "It appeals to both schoolgirls and schoolboys."
+        },
+        {
+          "key": "C",
+          "text": "It is less popular than indoor sports in the country."
+        },
+        {
+          "key": "D",
+          "text": "It is completely different from other outdoor games."
+        }
+      ],
+      "answer": "A",
+      "explanation": "15.Whatdoesthemansayaboutbeachvolleyball？关于沙滩排球，这位男士说了什么？ A）它与室内排球完全不同。 C)在该国它不如室内运动受欢迎。 B)它对女学生和男学生都有吸引力。 D)它与其他户外运动完全不同。 解在对话结尾，男士明确表示沙滩排球和室内排球完全不同，所以此题选A项。男士强调的是沙滩排球和室内排 析 球的不同，并非沙滩排球与其他户外运动的不同，故排除D项。B、C两项在对话中均没有提到，故排除。 Section"
+    },
+    {
+      "number": 16,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It usually requires years of preparations."
+        },
+        {
+          "key": "B",
+          "text": "It does a lot of harm to the environment"
+        },
+        {
+          "key": "C",
+          "text": "It often burns over three hundred tonnes of refined fuel."
+        },
+        {
+          "key": "D",
+          "text": "It proves to be the most complicated stage of space missions."
+        }
+      ],
+      "answer": "B",
+      "explanation": "16.What dowelearn fromthepassage aboutthe lift-off of spacecraft? 关于航天器的发射，我们从文章中了解到什么？ A)它通常需要多年的准备工作。 C)它经常要消耗三百多吨精炼燃料。 B)它对环境造成诸多危害。 D)它被证明是太空任务中最复杂的阶段。 解文章开头提到，发射阶段通常是任何太空任务中对环境危害最大的阶段，大量燃料在几分钟内就会燃烧 析 尽。除了温室气体之外，火箭发动机还会排放破坏臭氧层的微粒。由此可知，航天器在发射升空时，既会 产生大量温室气体，又会对臭氧层造成损害，选项B与文章内容一致，因此为正确答案。文中提及太空探 索技术公司的“猎鹰9号”火箭消耗112吨精炼燃料并排放约336吨二氧化碳这一具体实例，而选项C正是依 据此例中的特定数据信息所设置的干扰项，但其不能代表所有航天器发射升空时的普遍情况，且选项中的 数据与这一实例也不相符，故排除。根据文章内容，航天器的发射阶段是太空任务中对环境危害最大的阶 段，而非最复杂的阶段，故排除选项D。"
+    },
+    {
+      "number": 17,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They are burnt up in outer space."
+        },
+        {
+          "key": "B",
+          "text": "They are guided back to Earth."
+        },
+        {
+          "key": "C",
+          "text": "They are reused up to 100 times."
+        },
+        {
+          "key": "D",
+          "text": "They are treated as expendable."
+        }
+      ],
+      "answer": "D",
+      "explanation": "17.What happens traditionally to boosters,fuel tanks and other components in spaceflight? 在航天飞行中，助推器、燃料箱和其他部件传统上是如何处理的？ A)它们在外太空被烧毁。 C)它们可以被重复使用多达100次。 B)它们被引导回地球。 D)它们被当作消耗品。 解文章中提到，传统上，助推器、燃料箱和其他部件都被视作消耗品。选项D与文章内容一致，因此为正确答案。选项A文章中未提及，故排除。选项B和C描述的情况均是针对“猎鹰9号”的部件而言的处理方式， 并非题目所指的传统航天飞行中对这些部件的处理方法，所以这两个选项也不符合题意，故排除。"
+    },
+    {
+      "number": 18,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "New technologies for bringing back space vehicles for recycling."
+        },
+        {
+          "key": "B",
+          "text": "The technology for meeting the needs of commercial space travel."
+        },
+        {
+          "key": "C",
+          "text": "Many of the technologies to limit the impact of space travel on Earth."
+        },
+        {
+          "key": "D",
+          "text": "The technology for effectively protecting ozone from being destroyed."
+        }
+      ],
+      "answer": "C",
+      "explanation": "18. What does the passage say we already have regarding spaceflight? 这篇文章提到在航天飞行方面我们已经拥有什么（技术）？ A)带回太空飞行器用于回收利用的新技术。C)许多可以限制太空旅行对地球影响的技术。 B)满足商业太空旅行需求的技术。 D)有效保护臭氧层免遭破坏的技术。 解文章最后提到，我们已经拥有了许多必要的技术，可用于开始限制太空旅行对地球的影响。选项C与文章 析 内容一致，因此为正确答案。选项A、B和D文章中均未提及，故排除。"
+    },
+    {
+      "number": 19,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It can help unskilled readers feel more secure."
+        },
+        {
+          "key": "B",
+          "text": "It can encourage reluctant readers to read aloud."
+        },
+        {
+          "key": "C",
+          "text": "It can strengthen children’s confidence in others."
+        },
+        {
+          "key": "D",
+          "text": "It can boost children’s interest in communication."
+        }
+      ],
+      "answer": "B",
+      "explanation": "19. What does research show about reading to a loyal and nonjudgmental companion? 关于给忠诚且不做评判的伙伴读书，研究表明了什么？ A)它能帮助阅读能力欠佳的读者感到更安全。C)它能增强孩子们对他人的信任。 B)它能鼓励不太愿意朗读的读者大声朗读。D)它能提升孩子们对交流的兴趣。 解文章开头提到，研究表明，给狗或猫这样忠诚且不做评判的伙伴读书，能够鼓励那些不太愿意朗读的读者 析 大声朗读。选项B与文章内容一致，因此为正确答案。文中指出有个可以倾诉感受的伙伴，有助于孩子们 获得安全感，而非提升阅读能力欠佳的读者的安全感，故排除选项A。文中说的是给狗或猫读书可以增强 自信心，而不是增强对他人的信任，故排除选项C。选项D在文章中未提及，故排除。"
+    },
+    {
+      "number": 20,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "By motivating children to find out about their favourite pets."
+        },
+        {
+          "key": "B",
+          "text": "By taking children to the library to borrow books on animals."
+        },
+        {
+          "key": "C",
+          "text": "By allowing children to surf the internet about pets by themselves."
+        },
+        {
+          "key": "D",
+          "text": "By showing children how to acquire knowledge about healthy pets."
+        }
+      ],
+      "answer": "A",
+      "explanation": "20. How can parents make pets a fantastic subject for their children's research and learning? 家长如何能让宠物成为孩子们研究和学习的绝佳主题呢？ A)通过激励孩子们去了解他们最喜欢的宠物。C)通过让孩子们自行上网搜索与宠物相关的信息。 B通过带孩子们去图书馆借阅有关动物的书籍。D）通过向孩子们展示如何获取有关健康宠物的知识。 解，文章中提到，宠物也为研究和学习提供了一个绝佳主题。家长可以鼓励孩子去图书馆或在有监管的网络搜 析 索中研究他们最喜欢的宠物。选项A与文章内容一致，因此为正确答案。选项B提到“带孩子们去图书馆 借阅有关动物的书籍”，但原文强调的是“鼓励孩子去图书馆”“研究他们最喜欢的宠物”，故排除。选 项C表述为“让孩子们自行上网搜索”，而文中明确指出的是“在有监管的网络搜索中.”，该选项忽 略了原文中的关键限定条件，故排除。选项D在文章中未提及，也排除。"
+    },
+    {
+      "number": 21,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "By learning that raising pets can do much good."
+        },
+        {
+          "key": "B",
+          "text": "By watching how healthy pets are brought up."
+        },
+        {
+          "key": "C",
+          "text": "By hearing about their peers’ passion for pets."
+        },
+        {
+          "key": "D",
+          "text": "By visiting friends who have household pets."
+        }
+      ],
+      "answer": "D",
+      "explanation": "21.How can children still benefit even when their family doesn't have a pet? 即便家里没养宠物，孩子们如何仍能从中受益呢？ A)通过了解饲养宠物有诸多益处。 C)通过听闻同龄人对宠物的热爱之情。 B)通过观察如何养育健康的宠物。 D)通过拜访家中养宠物的朋友。 解文章最后提到，如果孩子自家没养宠物，在拜访养宠物的朋友时，他们同样可以从上述所有方面受益。选项D与文章内容一致，因此为正确答案。选项A、B和C在文章中均未提及，故排除。"
+    },
+    {
+      "number": 22,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Send would-be students a packet of information."
+        },
+        {
+          "key": "B",
+          "text": "Update regularly all information on their websites."
+        },
+        {
+          "key": "C",
+          "text": "Inform prospective students of their yearly enrollment."
+        },
+        {
+          "key": "D",
+          "text": "Answer questions raised by applicants and their parents."
+        }
+      ],
+      "answer": "A",
+      "explanation": "22. What would the new bill in the Ohio legislature require public colleges and universities to do? 俄亥俄州立法机构的这项新法案将要求公立学院和大学做什么？ A)向潜在的学生发送一套信息资料。 C)将每年的招生情况告知潜在的学生。 B)定期更新其网站上的所有信息。 D)回答申请者及其家长提出的问题。 解文章开头提到，俄亥俄州立法机构的一项新法案将要求该州的公立学院和大学向潜在的学生发送一套信息 析 资料。选项A与文章内容一致，因此为正确答案。选项B、C和D文章中均未提及，故排除。"
+    },
+    {
+      "number": 23,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Oversee private institutions directly."
+        },
+        {
+          "key": "B",
+          "text": "Follow other states’ example."
+        },
+        {
+          "key": "C",
+          "text": "Supervise all schools consistently."
+        },
+        {
+          "key": "D",
+          "text": "Regulate public institutions by law."
+        }
+      ],
+      "answer": "D",
+      "explanation": "23.WhatcanthestateonlydoaccordingtoAdamMathews?根据亚当·马修斯的说法，该州只能做什么？ A)直接监管私立院校。 C)始终如一地监管所有学校。 B)效仿其他州的做法。 D)依法对公立院校进行监管。 解文章中提到，亚当·马修斯指出，该州只能以这种方式对公立院校进行监管，但他希望俄亥俄州的私立院 析 校能效仿州里的做法，发布类似信息。再结合前文提到的该州立法机构发布了新法案，可知选项D为正确 答案。反观选项A，文中表明该州对于私立院校无法直接进行监管，而是希望其效仿公立院校的做法，故 排除。同样，选项C中提到的“监管所有学校”也不符合原文所阐述的情况，因为对于私立院校，该州无 法直接监管，故排除。选项B文章中未提及，故排除。"
+    },
+    {
+      "number": 24,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They are resourceful."
+        },
+        {
+          "key": "B",
+          "text": "They are competitive."
+        },
+        {
+          "key": "C",
+          "text": "They provide the best opportunity to realize one’s dream."
+        },
+        {
+          "key": "D",
+          "text": "They appeal most to students from other states in the U.S."
+        }
+      ],
+      "answer": "B",
+      "explanation": "24.Whatdowelearn about Ohio's schoolsfromthepassage? 从文章中我们了解到俄亥俄州的学校有哪些情况？ A)它们资源丰富。 C)它们为实现个人梦想提供了最佳机会。 B）它们颇具竞争力。 D）它们对美国其他州的学生最具吸引力。 解文章中提到，俄亥俄州的院校已经颇具竞争力。选项B与文章内容一致，因此为正确答案。选项A、C和D 析 文章中均未提及，故排除。"
+    },
+    {
+      "number": 25,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Some students waste much time surfing the net."
+        },
+        {
+          "key": "B",
+          "text": "Students may need to visit too many websites."
+        },
+        {
+          "key": "C",
+          "text": "Students have to search for the information."
+        },
+        {
+          "key": "D",
+          "text": "Some students may lack adequate access."
+        }
+      ],
+      "answer": "C",
+      "explanation": "25.What is the problemwith schools providing information on theirwebsites? 一些学校在其网站上提供信息存在什么问题？ A)一些学生浪费大量时间上网。 C)学生必须自行查找信息。 B)学生可能需要访问太多网站。 D)一些学生可能缺乏足够的访问权限。 解文章中提到，许多学院和大学目前已在其网站上提供了类似信息，包括学费、杂费、毕业率等等。但学生 析 需要自行查找这些信息。选项C与文章内容一致，因此为正确答案。选项A、B和D文章中均未提及，故 排除。"
+    }
+  ],
+  "audio": {
+    "durationSeconds": 1352.411375,
+    "mimeType": "audio/mpeg",
+    "bytes": 10819336,
+    "sha256": "9aaa333bac54d826a67355b5a82b8d7453a782013be2dd51941e608b982ebb5b",
+    "url": "/cet-audio/9aaa333bac54d826a67355b5a82b8d7453a782013be2dd51941e608b982ebb5b.mp3"
+  },
+  "listeningGroups": [
+    {
+      "id": "cet4-2024-12-2-listening-1",
+      "title": "短篇新闻一",
+      "questionNumbers": [
+        1,
+        2
+      ],
+      "transcript": [
+        "Across the U.S., families are looking to the winter with fear as energy costs soar.A number of factors are creating a bad situation: Global energy consumption is up, but supplies have been reduced.  The Energy Department projects heating bills will jump28%this winterfor those who rely on natural gas.Natural gas is used by nearly half of U.S.households for heat. Heating oil is projected to be 27%higher and electricity 10% higher.That comes against inflation rates that accelerated last month with consumer prices growing 6.6%.That's the fastest pace in four decades.",
+        "The pain will be especially acute in parts of the country that heavily rely on heating oil to keep homes warm. It's projected to cost more than S2,300 to heat a typical home with heating oil this winter. Last month, the federal government added s1 billion in funding to Low Income Home Energy Assistance Program, bringing the total to S4.8 billion. But that represents a reduction from last year's energy assistance package of over s8 billion."
+      ]
+    },
+    {
+      "id": "cet4-2024-12-2-listening-2",
+      "title": "短篇新闻二",
+      "questionNumbers": [
+        3,
+        4
+      ],
+      "transcript": [
+        "Many Americans think they make healthy food choices, but they may be viewing their diet too optimistically. That's the main finding of a new study by researchers at the U.S.Department of Agriculture in Stoneville, Mississippi.",
+        "The study aimed to identify disconnects between how healthily Americans think they eat and how they actually do.For the study,the researchers asked participants to rate their diet as excellent, very good,good,fair or poor.Folks also completed 24-hour food questionnaires.Then,the researchers compared answers to see how well responses to the two exercises matched up.",
+        "Ofmore than 9,700 people,roughly85percent were off base when asked to rate the quality of their diet, and almost all overestimated how healthy it was. Those who rated their diet as poor tended to be far more accurate. Theirratingmatchthatof the researchers more thannine times out of ten."
+      ]
+    },
+    {
+      "id": "cet4-2024-12-2-listening-3",
+      "title": "短篇新闻三",
+      "questionNumbers": [
+        5,
+        6,
+        7
+      ],
+      "transcript": [
+        "It was a heartwarming moment that dozens of Indian rescuers rallied together to use a crane in order to save an elephant trapped at the bottom of a 20-foot well.The massive rescue effort took place last week close to an army camp.Theelephant wandered out of the jungle and fell into the well.The army officers heard a noise coming from the well and realized an elephant was trapped deep inside. The officers then threw in some food for the creature and called the local forest department for help.Video of the rescue operation shows how the team used a crane to lift up the huge animal out of the well and onto the back of a truck.It was then taken to an examining room for evaluation of any injuries.Theelephant was kept under close supervision for a few days before it was successfully released back into the wild."
+      ]
+    },
+    {
+      "id": "cet4-2024-12-2-listening-4",
+      "title": "长对话一",
+      "questionNumbers": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "transcript": [
+        "M:Ineedto stop at the bank to withdraw some cash.",
+        "W: Why not just pay with your phone?",
+        "M: Well, actually, I've stopped using online payments for the past three months now.",
+        "W:Stopped paying online?Oh, you must be worried that online payments aren't secure.",
+        "M:No, they are safe.  But paying online is too convenient and I spent too much money on things I didn't need.",
+        "W:  Oh, impulse purchases can be an issue for me, too. I've definitely bought clothes and shoes I didn't need because they were on sale, and paying with my phone was so easy.But I've found that ifI review my spending every night, that keeps me from spending too much.",
+        "M: Itried that strategy, but it just didn't work, because I'd be busy studying all day. Then, when I was tired and hungry, P'd use my phone to order food, like burgers and other junk,  instead of going to the canteen, where I could get a healthier meal for half the price.",
+        "W:Well, what do you do now then? It seems like you'd have the same problems with cash.",
+        "M: I go to the bank once a week, and the rest of the time I keep my bank card at home, so I can't get more cash out. And I also have a notebook where I record my expenses.",
+        "W:But what prevents you from just going to the bank and getting more money, if you want to buy something?",
+        "M:The first month I did withdraw extra cash twice,butI felt guilty about it.And after that I refused to spend more than what I had budgeted, and by now it's just a habit."
+      ]
+    },
+    {
+      "id": "cet4-2024-12-2-listening-5",
+      "title": "长对话二",
+      "questionNumbers": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "transcript": [
+        "M:Pleasehear me out.I don't want our son to spend his afternoons doing something he hates,even if it might prepare him for the future.What about getting him to join a sport,like soccer?From all the running and training,he could become quite athletic.Not to mention the great physical benefits from exercising outside every day.",
+        "W:  Um, I don't think he should be doing something so challenging with all his breathing issues. What about playing an indoor sport,like badminton? The environment is easier to control, and he can still get a good workout, in addition to improving his hand-eye coordination.Besides,I could teach him some of the basics from my time as a badminton player.",
+        "M: Um, I'm thinking team sports should be the way to go.There's nothing like playing as part of a unit to accomplish a goal like winning a game or even a championship. He could try basketball since many of the courts are indoors now and it's a sport that could help him understand team spirit while cooperating with others.Maybe he could even join the school basketball team when he's ready.",
+        "W:Oh,oh, what about volleyball? It's a team sport and they often have mixed-gender teams so he could socialize with both girls and boys. It's not as popular as some sports, which means he has better odds of possibly getting an athletic scholarship in the future.Ialso believe you were a beach volleyball athlete yourself not so long ago.",
+        "M:As I've said many times before,  beach volleyball and indoor volleyball are completely different."
+      ]
+    },
+    {
+      "id": "cet4-2024-12-2-listening-6",
+      "title": "短文一",
+      "questionNumbers": [
+        16,
+        17,
+        18
+      ],
+      "transcript": [
+        "Lift-off is usually the most environmentally harmful stage of any space mission, with vast quantities of fuel burnt up in a matter of minutes.For instance, SpaceX's Falcon 9gets through112 tonnes of refined fuel, emitting about 336 tonnes of CO2.This is the equivalent produced by your average car driving almost 70 times around the world. As well as greenhouse gases,rocket engines emit particles that destroy ozone.These issues are growing more pressing with the emergence of commercial spaceflight. There were 114 space launches in 2020, but there maybe up to 1,000 per year in future.",
+        "Sustainable fuels are the top priority to enable greener space travel.Current spacecraft use a variety of fuels,but most are based on fossil fuels.One potentially greener option is liquid hydrogen and oxygen.Hydrogen can be obtained sustainably by using solar power to break water down into oxygen and hydrogen.",
+        "Reusablerocketscan cut down on some of the waste associated with spaceflight.Traditionally,boosters,fuel tanks and other components are treated as expendable.But guiding them back to Earth in a controlled manner opens new possibilities-most components from the Falcon9can be reused up to100times.",
+        "Truly environmentally friendly space travel is still some way off.  But we already have many of the technologies needed to start limiting its impact on our planet."
+      ]
+    },
+    {
+      "id": "cet4-2024-12-2-listening-7",
+      "title": "短文二",
+      "questionNumbers": [
+        19,
+        20,
+        21
+      ],
+      "transcript": [
+        "Helping to look after a pet can facilitate numerous aspects of a child's emotional development.  Research shows that reading to a loyal and nonjudgmental companion, such as a dog or cat, can encourage reluctant readers to read aloud,which will in turn boost their self-confidence.Having a companion to talk to about their feelings can also help children feel secure and develop communication skills.",
+        "Ahousehold pet can also cultivate a child's sense of responsibility as their parent explains the necessary processes of keeping their pet happy and healthy.As a child matures,they can then take on more of the daily responsibilities, boosting their sense of independence.",
+        "Pets also provide a fantastic subject for research and learning.Parents can encourage their child to research theirfavourite pets at the library or during a supervised internet search.Taking children along to the pet shop to buy food and supplies will support their cognitive development as their passion for learning flourishes.",
+        "A child's physical development can benefit greatly from taking pets for walks in the fresh air.Even their fine- motor skills can be utilised in taking care of a beloved animal.",
+        "When responsibilities are well paced and communicated, a child can benefit greatly from involvement in bringing up a happy and healthy pet.  And of course, ifa child doesn't have a pet in their own household, they can still benefit from all of the above when visiting a friend who does."
+      ]
+    },
+    {
+      "id": "cet4-2024-12-2-listening-8",
+      "title": "短文三",
+      "questionNumbers": [
+        22,
+        23,
+        24,
+        25
+      ],
+      "transcript": [
+        "Anew bill in the Ohio legislature would require state public colleges and universities to send prospective students a packet of information.This would include costs of college,grants and scholarships. It would also include expected monthly loan payments and projected salary after college. State Representative Adam Mathews is one of the two legislators who proposed the bill.He said it would give prospective students more information about what to expect once they graduate.\"Putting that information in front of them will give them the best opportunity to match their skills and their dreams to what our schools can provide,said Mathews.  He notes that the state can only regulate public institutions in this way,but he hopes private institutions in Ohio follow the lead of the state and post similar information.He believes giving out this information will help Ohio's colleges and universities to be more competitive.The information will highlight what a great value they have for their very reasonable cost.",
+        "Ohio's schools are already competitive.The state attracts more undergraduate students than it sends to colleges out of state.  Many colleges and universities currently provide similar information on their websites. This includes tuition, fees,graduation rates and more.But students need to search for the information.This bill would requiretheuniversities and colleges to send a packet directly to students."
+      ]
+    }
+  ],
+  "materialId": "08839a6e48a045356978",
+  "questionSetId": "152bfb1e479d6bda3f8e"
+}

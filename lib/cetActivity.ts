@@ -9,6 +9,7 @@ import type {
   CetPurpose,
 } from "@/types/cet";
 import { liveCetUnderlines, mergeCetUnderlines } from "./cetUnderlines";
+import { mergeListeningPlayback } from "./cetListening";
 
 export const CET_SELF_TEST_MINUTES = { paper: 40, section: 10 } as const;
 export const CET_SELF_TEST_MIN_RANGE = 1;
@@ -163,6 +164,8 @@ export function cetAnswer(activity: CetActivity, key: string, value: string, now
 
 export function cetPause(activity: CetActivity, now = new Date().toISOString(), eventId = crypto.randomUUID()): CetActivity {
   if (activity.purpose !== "self_test" || activity.status !== "in_progress") return activity;
+  const interrupted = Object.values(activity.listeningPlayback || {}).some(p => p.state === "playing");
+  const listeningPlayback = activity.listeningPlayback && Object.fromEntries(Object.entries(activity.listeningPlayback).map(([id,p]) => [id,p.state === "playing" ? {...p,state:"interrupted" as const,at:new Date(Math.max(Date.parse(now),Date.parse(p.at)+1)).toISOString(),eventId} : p]));
   return {
     ...activity,
     status: "paused",
@@ -171,7 +174,8 @@ export function cetPause(activity: CetActivity, now = new Date().toISOString(), 
     runningSince: undefined,
     timerRevision: `${now}:${eventId}`,
     everPaused: true,
-    conditions: cetTimingAnomaly(activity, Date.parse(now)) ? [...new Set([...activity.conditions, "timing_anomaly"])] : activity.conditions,
+    ...(listeningPlayback ? {listeningPlayback} : {}),
+    conditions: [...new Set([...activity.conditions, ...(cetTimingAnomaly(activity, Date.parse(now)) ? ["timing_anomaly"] : []), ...(interrupted ? ["listening_interrupted"] : [])])],
     updatedAt: now,
   };
 }
@@ -222,9 +226,10 @@ export function cetFinalize(activity: CetActivity, paper: CetPaper, reason: CetF
     scoreable,
     unanswered,
     unreliable: questions.length - scoreable,
+    ...(paper.sections.some(s => sectionIds.includes(s.id) && s.type === "listening") ? { listeningSections: Object.fromEntries(paper.sections.filter(s => sectionIds.includes(s.id) && s.audio && s.listeningGroups).map(s => [s.id, { audio: { ...s.audio! }, groups: s.listeningGroups!.map(g => ({ ...g, questionNumbers: [...g.questionNumbers], transcript: [...g.transcript] })) }])) } : {}),
     elapsedMs,
     everPaused: activity.everPaused,
-    conditions: [...new Set([...activity.conditions, ...(activity.knownPriorSectionIds.length ? ["prior_material"] : []), ...(cetTimingAnomaly(activity, Date.parse(now)) ? ["timing_anomaly"] : [])])],
+    conditions: [...new Set([...activity.conditions, ...(activity.knownPriorSectionIds.length ? ["prior_material"] : []), ...(cetTimingAnomaly(activity, Date.parse(now)) ? ["timing_anomaly"] : []), ...(activity.purpose === "self_test" && paper.sections.some(s => sectionIds.includes(s.id) && s.type === "listening" && activity.listeningPlayback?.[s.id]?.state !== "ended") ? ["listening_not_completed"] : [])])],
     ...(activity.purpose === "self_test" ? {
       underlines: liveCetUnderlines(activity.underlines),
       underlinedParagraphs: Object.fromEntries(sectionIds.filter(id => liveCetUnderlines(activity.underlines).some(mark => mark.sectionId === id)).map(id => [id, [...(paper.sections.find(section => section.id === id)?.paragraphs || [])]])),
@@ -294,6 +299,7 @@ export function mergeCetActivity(a: CetActivity | undefined, b: CetActivity): Ce
   const merged: CetActivity = {
     ...latest,
     answers,
+    ...(a.listeningPlayback || b.listeningPlayback ? { listeningPlayback: mergeListeningPlayback(a.listeningPlayback, b.listeningPlayback) } : {}),
     ...(a.underlines || b.underlines ? { underlines: mergeCetUnderlines(a.underlines, b.underlines) } : {}),
     finalizations,
     status,
@@ -320,6 +326,6 @@ export function mergeCetActivity(a: CetActivity | undefined, b: CetActivity): Ce
 
 export function cetEligibility(activity: CetActivity, observedConditions: string[] = []): "first_site_test" | "repeat_test" | "conditions_incomplete" | "not_comparable" {
   if (activity.purpose !== "self_test" || activity.status !== "submitted") return "not_comparable";
-  if (activity.legacy || activity.conditions.includes("submission_conflict") || activity.conditions.includes("timing_anomaly") || activity.conditions.includes("timer_adjusted") || activity.everPaused || activity.conditions.includes("assistance_during_test") || observedConditions.includes("assistance_during_test") || observedConditions.includes("answer_view_during_test")) return "conditions_incomplete";
+  if (activity.legacy || activity.conditions.includes("submission_conflict") || activity.conditions.includes("timing_anomaly") || activity.conditions.includes("timer_adjusted") || activity.conditions.includes("listening_interrupted") || activity.conditions.includes("listening_not_completed") || activity.everPaused || activity.conditions.includes("assistance_during_test") || observedConditions.includes("assistance_during_test") || observedConditions.includes("answer_view_during_test")) return "conditions_incomplete";
   return activity.knownPriorSectionIds.length ? "repeat_test" : "first_site_test";
 }

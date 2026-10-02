@@ -1,0 +1,747 @@
+{
+  "id": "cet4-2023-12-2-listening",
+  "type": "listening",
+  "title": "听力",
+  "paragraphs": [],
+  "questions": [
+    {
+      "number": 1,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He noticed the driver was too young to drive."
+        },
+        {
+          "key": "B",
+          "text": "He found there was no one sitting at the wheel."
+        },
+        {
+          "key": "C",
+          "text": "He thought something must be wrong with the driver."
+        },
+        {
+          "key": "D",
+          "text": "He saw the driver changing lanes much too frequently."
+        }
+      ],
+      "answer": "C",
+      "explanation": "1.WhydidthepoliceofficerstoptheSUVcar?警察为什么拦下了那辆SUV？ A)他注意到司机太年轻，不能开车。 C)他认为司机一定出了问题。 B)他发现方向盘上没有人。 D)他看到司机频繁地变换车道。 解新闻开头提到，警官拦下了一辆大型SUV，这辆汽车行驶速度非常慢，而且在公路上横穿车道。他本以为会 发现司机要么喝得酪酊大醉，要么需要急救，故C项为正确答案。其余三个选项在新闻中均未提及，可排除。"
+    },
+    {
+      "number": 2,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Buy a sports car."
+        },
+        {
+          "key": "B",
+          "text": "Drive across town."
+        },
+        {
+          "key": "C",
+          "text": "Leave California."
+        },
+        {
+          "key": "D",
+          "text": "Visit his sister."
+        }
+      ],
+      "answer": "A",
+      "explanation": "2.Whatdidtheboytellthepoliceofficershewasplanningtodo?那个男孩告诉警察们他打算做什么？ A)买一辆跑车。 C)离开加利福尼亚。 B)开车穿过小镇。 D)去看望他的姐姐。 解新闻末尾提到，男孩告诉困惑的警官，他打算去加利福尼亚买一辆兰博基尼跑车，故A项为正确答案。新 闻提及小男孩开车穿行小镇三公里后上了公路，但开车穿过小镇不是他的目的，故排除B；C项与新闻内 容正好相反，男孩私自开车是要去加利福尼亚，而非离开加利福尼亚，故排除C；新闻提及他趁十几岁的 姐姐打瞌睡时拿走了车钥匙，他并非要去看望姐姐，故排除D。"
+    },
+    {
+      "number": 3,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "How they change the way we shop."
+        },
+        {
+          "key": "B",
+          "text": "How they alter human skeletons."
+        },
+        {
+          "key": "C",
+          "text": "How they cause increased headaches."
+        },
+        {
+          "key": "D",
+          "text": "How they affect our communication."
+        }
+      ],
+      "answer": "B",
+      "explanation": "3. What does the report say we have not yet understood about mobile phones? 报道称，我们还不了解关于手机的什么事情？ A)它们如何改变我们的购物方式。 C)它们如何导致头痛加剧。 B）它们如何改变人类的骨骼。 D）它们如何影响我们的交流。 解，新闻开头提到，手机改变了人类的很多方面，但是我们尚不了解的是，眼前的这些小机器是如何改变我们 汀 的骨骼的，故B项为正确答案。新闻中提到，手机改变了我们阅读、工作、交流和购物的方式，这些都是 我们已知的，故A、D两项错误。C项在新闻中未提及，可排除。"
+    },
+    {
+      "number": 4,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It loosens."
+        },
+        {
+          "key": "B",
+          "text": "It brightens."
+        },
+        {
+          "key": "C",
+          "text": "It hardens."
+        },
+        {
+          "key": "D",
+          "text": "It softens."
+        }
+      ],
+      "answer": "C",
+      "explanation": "4.Whathappenstotheskinwhenrubbedorpressedconstantly?皮肤在经过持续摩擦或压力下会发生什么？ A)它会变松。 C)它会变硬。 B)它会变明亮。 D)它会变软。 解，新闻末尾提到，人们长期使用手机时低头的方式会导致后脑勺长出额外的骨头块儿，这一过程可以比作皮 析 肤在持续摩擦或压力下变硬的过程。由此可知，皮肤在持续摩擦或压力下会变硬，故C项为正确答案。其 余三项新闻中均未提及，可排除。"
+    },
+    {
+      "number": 5,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Create Internet pages for him."
+        },
+        {
+          "key": "B",
+          "text": "Ask a local pet shop to adopt him."
+        },
+        {
+          "key": "C",
+          "text": "Name an orange tree after him."
+        },
+        {
+          "key": "D",
+          "text": "Hold a birthday party for him."
+        }
+      ],
+      "answer": "D",
+      "explanation": "5. What does the report say the village is going to do for the cat Wilbur? 报道中说，村里要为名叫威尔伯的猫做什么？ A)为他创建网页。 C)用他的名字命名一棵橘子树。 B)请当地一家宠物店收养他。 D)为他举办生日派对。 解，新闻开头提到，一个村庄要为一只名叫威尔伯的橘猫举办生日派对，故D项为正确答案。新闻中只提到这 析 只猫有了自已的网页，但并未说这是整个村庄为他做的，故排除A项；其余两项在新闻中均未提及，可 排除。"
+    },
+    {
+      "number": 6,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He is a bold and aggressive pet."
+        },
+        {
+          "key": "B",
+          "text": "He pays regular visits to village shops."
+        },
+        {
+          "key": "C",
+          "text": "He once bit a doctor's receptionist."
+        },
+        {
+          "key": "D",
+          "text": "He likes to sit on the hairdresser's chair."
+        }
+      ],
+      "answer": "B",
+      "explanation": "6.Whatdowelearnfromthereportaboutthecat?关于这只猫，我们从报道中可以了解什么？ A)他是一只大胆而好斗的宠物。 C)他曾经咬过一位医生的接待员。 B)他经常光顾村里的商店。 D)他喜欢坐在理发师的椅子上。 解新闻中提到，这只猫大部分时间都待在村周边的商店和企业里。他自己会去任何一个商店，任何地方，故 析 B项为正确答案。新闻中提到，这只猫既大胆又友好，而非好斗，A项错误；新闻中提到，有一次医生的 接待员回来时发现这只猫坐在了她的椅子上，而并未提及这只猫是否咬过该接待员，也未提及他是否喜欢 坐在理发师的椅子上，故排除C、D两项。"
+    },
+    {
+      "number": 7,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He is fond of luxury cat food."
+        },
+        {
+          "key": "B",
+          "text": "He likes to stay in villagers5 6 7houses."
+        },
+        {
+          "key": "C",
+          "text": "He knows everybody in the village."
+        },
+        {
+          "key": "D",
+          "text": "He often seeks food around her pub."
+        }
+      ],
+      "answer": "A",
+      "explanation": "7.Whatdoesthepubowner,LesleyHarper,sayaboutthecat?关于这只猫，酒吧老板菜斯利·哈珀说了什么？ A）他喜欢吃奢侈的猫粮。 C)他认识村里的每一个人。 B)他喜欢住在村民家里。 D)他经常在她的酒吧附近觅食。 解新闻结尾部分提到，一家酒吧的老板莱斯利·哈珀说这只猫口味奢侈，喜欢高价猫粮，故A项为正确答案。新闻并未提及他喜欢住在村民家中，也未提及他认识村子里的每个人，没有提到他经常在莱斯利·哈 珀的酒店周围觅食，可排除其他选项。 SectionB"
+    },
+    {
+      "number": 8,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Who to order the food."
+        },
+        {
+          "key": "B",
+          "text": "Whether to have sandwiches."
+        },
+        {
+          "key": "C",
+          "text": "When to go for their meal."
+        },
+        {
+          "key": "D",
+          "text": "Where to have their lunch."
+        }
+      ],
+      "answer": "D",
+      "explanation": "8.Whatarethespeakerstalkingaboutinthisconversation？在对话中，谈话者在谈论什么？ A)谁去点菜。 C)什么时候去吃饭。 B)要不要吃三明治。 D）去哪儿吃午饭。 解在对话开头，男士询问女士想去哪儿吃午饭，然后对话围绕着他们中午吃什么以及去哪家餐馆吃饭展开， 所以答案是D项。B项是对话的部分内容，故排除；A、C两项在对话中找不到相关信息，故均排除。"
+    },
+    {
+      "number": 9,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "In the shopping center nearby."
+        },
+        {
+          "key": "B",
+          "text": "In the expensive Italian style diner."
+        },
+        {
+          "key": "C",
+          "text": "At the Sandwich Place on Camden Street."
+        },
+        {
+          "key": "D",
+          "text": "At the American restaurant they frequent."
+        }
+      ],
+      "answer": "C",
+      "explanation": "9. Where did the speakers see Brigette Clark, the famous movie star? 谈话者在哪里看到了著名影星布里奇特·克拉克？ A)在附近的购物中心。 C)在卡姆登街的三明治店。 B)在昂贵的意式餐厅里。 D)在他们经常光顾的美式餐厅。 解，在对话中，男士询问女士要不要去卡姆登街的三明治店，女士回答说不想吃三明治，然后男士提到他们在 那里看到了著名影星布里奇特·克拉克，所以答案为C项。"
+    },
+    {
+      "number": 10,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "There is to be a conference call."
+        },
+        {
+          "key": "B",
+          "text": "She has to meet with her boss then."
+        },
+        {
+          "key": "C",
+          "text": "There will be crowds of people waiting for her."
+        },
+        {
+          "key": "D",
+          "text": "She will have a photo taken with Brigette Clark."
+        }
+      ],
+      "answer": "A",
+      "explanation": "10.Whydoesthewomansaysheneedstogetbackby2:30?为什么女士说她需要在2:30之前回来？ A）她有个电话会议。 C)会有很多人等她。 B)她那时得去见老板。 D)她将和布里奇特·克拉克合影。 解在对话中，女士评价一家美式餐厅时提到，那里的薯片很好吃，但是上菜时间太久了，她得在2:30之前回 来参加一个电话会议，所以答案为A项。其他选项在对话中都没有相关信息，故均排除。"
+    },
+    {
+      "number": 11,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "She doesn't deem homemade soup tasty."
+        },
+        {
+          "key": "B",
+          "text": "She doesn't think his wife cooks well."
+        },
+        {
+          "key": "C",
+          "text": "She feels Jeremy would rather dine out."
+        },
+        {
+          "key": "D",
+          "text": "She has found the soup smells terrible."
+        }
+      ],
+      "answer": "B",
+      "explanation": "11. Why does the woman say Jeremy should throw his soup in the bin? 为什么女士说杰里米应该把他的汤扔进垃圾桶？ A)她认为家里煮的汤不好喝。 C)她觉得杰里米更愿意外出吃饭。 B）她觉得他妻子做饭不好吃。 D)她发现汤的味道很难闻。 解，在对话结尾部分，男士提到杰里米的妻子给杰里米煮了汤，女士接着说道，杰里米的妻子的厨艺太糟糕 析 了，他应该把汤扔进垃圾桶，也就是说，她认为杰里米的妻子做饭不好吃，所以答案为B项。A项的“家 里煮的汤（homemade soup）”是相对于外面餐厅的汤而言的，并不是特指杰里米的妻子做的汤，所以A 项错误，故排除。C、D两项在对话中找不到相关信息，故均排除。"
+    },
+    {
+      "number": 12,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "A landlady."
+        },
+        {
+          "key": "B",
+          "text": "A waitress."
+        },
+        {
+          "key": "C",
+          "text": "A receptionist."
+        },
+        {
+          "key": "D",
+          "text": "A saleswoman."
+        }
+      ],
+      "answer": "C",
+      "explanation": "12.Who isthemantalkingtointheconversation?对话中的男士在和谁说话？ A)房东太太。 C)接待员。 B)女服务员。 D)女售货员。 解在对话开头，女士向男士打过招呼后，询问他是否已经预订，男士回答说他们前一天早上在网站上预订了 所 三晚的房间，由此可以推测，女士是酒店的前台接待员，所以答案为C项。对话结尾处女士提出需要复印 男士及其家人的护照并为他们办理入住，这一信息也可佐证女士是酒店前台接待员。"
+    },
+    {
+      "number": 13,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He was involved in a terrible car accident last April."
+        },
+        {
+          "key": "B",
+          "text": "He has much difficulty getting up and down stairs."
+        },
+        {
+          "key": "C",
+          "text": "He is expected to undergo a knee operation."
+        },
+        {
+          "key": "D",
+          "text": "He prefers to stay next door to the children."
+        }
+      ],
+      "answer": "B",
+      "explanation": "13. What do we learn about the man's father-in-law from the conversation? 从对话中，我们了解到男士的岳父的什么信息？ A)去年四月，他遭遇了一场严重的车祸。 C)预计他要做膝关节手术。 B)他上下楼梯非常困难。 D)他喜欢住在孩子们的隔壁。 解在对话中，男士提到自已的岳父在去年四月做了膝关节手术后，上下楼梯就成了大问题，所以答案是B 项。据此信息，可以直接排除C项；对话中并未提及男士的岳父去年四月是否遭遇严重车祸，故排除A 项；对话中，女士根据男士留言提到的岳父母爬楼梯不方便的情况，为男士及其家人安排了一楼相邻的两 个房间，所以并非男士的岳父喜欢住在孩子们的隔壁，故排除D项。"
+    },
+    {
+      "number": 14,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "To please his parents-in-law."
+        },
+        {
+          "key": "B",
+          "text": "To find the best trip fbr his kids."
+        },
+        {
+          "key": "C",
+          "text": "To satisfy his curiosity."
+        },
+        {
+          "key": "D",
+          "text": "To compare prices."
+        }
+      ],
+      "answer": "D",
+      "explanation": "14. Why does the man say they will explore all the options available? 为什么男士说他们会探索所有的可选方案？ A)为了取悦其岳父母。 C)为了满足他的好奇心。 B)为了给孩子们找到最好的旅行。 D）为了比价。 解在对话中，女士提到如果男士需要他们帮忙安排交通出行，她可以推荐，对此男士说他们本来一直考虑租 析 车，但是肯定愿意探索所有的可选方案，因为这样有助于比价，所以答案是D项。"
+    },
+    {
+      "number": 15,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Visit a local art gallery."
+        },
+        {
+          "key": "B",
+          "text": "Go on a boat trip."
+        },
+        {
+          "key": "C",
+          "text": "Take some photos of the islands."
+        },
+        {
+          "key": "D",
+          "text": "Try her hand-made clothing."
+        }
+      ],
+      "answer": "B",
+      "explanation": "15.What does the woman suggest the man and his family do close to the end of the conversation? 在对话即将结束时，女士建议男士及其家人做什么？ A)参观一家当地的美术馆。 C)拍一些岛屿的照片。 B)乘船出游。 D)试穿她手工制作的服装。 解在对话中，男士向女士咨询有哪些旅行项目和一日游项目，女士建议男士一家人乘船出游，然后解释说 析 孩子们会喜欢乘船游览，而且男士一家还可以去探索岛屿，逛夜市，所以答案为B项。女士介绍乘船出游 时，提到男士一家可以探索附近的很多岛屿，C选项的“拍照片”与此信息不一致，故排除；女士还提到 男士一家可以逛一个夜市，那里有出售纪念品、当地手工制作的珠宝和服装的小店，D选项“试穿她手工 制作的服装”与此信息不一致，故排除；A选项在对话中没有相关信息，故也排除。 Section"
+    },
+    {
+      "number": 16,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They are more intelligent than many of us."
+        },
+        {
+          "key": "B",
+          "text": "They have already become our new friends."
+        },
+        {
+          "key": "C",
+          "text": "They have begun to affect our social behavior."
+        },
+        {
+          "key": "D",
+          "text": "They play increasingly more important roles."
+        }
+      ],
+      "answer": "D",
+      "explanation": "16. What does the passage say about artificial intelligence agents? 关于人工智能代理，这篇文章说了什么？ A)它们比我们中的许多人都聪明。 C)它们已经开始影响我们的社交行为。 B)它们已经成为我们的新朋友了。 D）它们发挥着越来越重要的作用。 解，文章开头提到，人工智能代理在我们的生活中扮演着比以往任何时候都更有影响力的角色。由此可知，人 析 工智能代理发挥着越来越重要的作用。选项D与文章内容一致，因此为正确答案。文章中提到，人工智能 代理会为我们推荐新朋友，并不是说人工智能代理已经成为我们的新朋友了，故排除选项B。选项A和C文 章中均未提及，故排除。"
+    },
+    {
+      "number": 17,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Whether it might have any effect on the way we negotiate."
+        },
+        {
+          "key": "B",
+          "text": "Whether it might actually outperform human negotiators."
+        },
+        {
+          "key": "C",
+          "text": "Whether it can facilitate business transactions."
+        },
+        {
+          "key": "D",
+          "text": "Whether it can speed up legal procedures."
+        }
+      ],
+      "answer": "A",
+      "explanation": "17. What does the new study want to find out about using an artificial intelligence agent? 关于使用人工智能代理，这项新研究想要发现什么？ A)它是否可能对我们的谈判方式产生任何影响。C)它是否能为商业交易提供便利。 B)它是否真的可能胜过人类谈判者。 D)它是否可以加快法律程序。 解文章中提到，了解使用人工智能代理是否会影响我们的谈判方式是很重要的。接下来详细介绍了这项新研 析 究的发现。选项A与文章内容一致，因此为正确答案。选项B、C和D文章中均未提及，故排除。"
+    },
+    {
+      "number": 18,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Choose to be tough."
+        },
+        {
+          "key": "B",
+          "text": "Sympathize with their opponent."
+        },
+        {
+          "key": "C",
+          "text": "Use deceptive strategies."
+        },
+        {
+          "key": "D",
+          "text": "Appear to be pleasant."
+        }
+      ],
+      "answer": "C",
+      "explanation": "18. What did participants tend to do when assigned an AI agent to negotiate on their behalf? 当参与者被指派一名人工智能代理代表他们进行谈判时，他们倾向于做什么？ A)选择强硬。 C使用迷惑性策略。 B)同情他们的对手。 D)显得友善。 解文章最后提到，当被指派代理人代表他们进行谈判时，参与者更愿意采用迷惑性策略。选项C与文章内容 薪二致，因此为正确答案。选项A、B和D均为根据文章内容设置的干扰项，故排除。"
+    },
+    {
+      "number": 19,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They were perceived differently by some academics."
+        },
+        {
+          "key": "B",
+          "text": "They still existed six months after the course ended."
+        },
+        {
+          "key": "C",
+          "text": "They varied greatly among the course participants."
+        },
+        {
+          "key": "D",
+          "text": "They were only measurable within seven weeks."
+        }
+      ],
+      "answer": "B",
+      "explanation": "19. What do we learn about the benefits the participants gained from the healthy cooking course? 关于参与者从健康烹饪课程中获得的好处，我们了解到什么？ A)一些学者对它们的看法不同。 C)它们在课程参与者之间的差异很大。 B）课程结束六个月后，它们仍然存在。 D)它们只能在七周内测量出来。 解，文章中提到，这些好处在课程结束后六个月仍然存在。选项B与文章内容一致，因此为正确答案。文章中 斤 未提及其余三项，故排除。"
+    },
+    {
+      "number": 20,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They can be easily seen among participants in a healthy weight range."
+        },
+        {
+          "key": "B",
+          "text": "They should be attributed to participants5 change in diet behaviors."
+        },
+        {
+          "key": "C",
+          "text": "They are linked to cooking confidence and cooking satisfaction."
+        },
+        {
+          "key": "D",
+          "text": "They actually result from eating more fruits and vegetables."
+        }
+      ],
+      "answer": "C",
+      "explanation": "2o. What do the new research findings suggest about mental health benefits? 关于心理健康的益处，新的研究结果表明了什么？ A)在健康体重范围内的参与者身上可以很容易看到它们。C)它们与烹饪信心和烹饪满意度有关。 B)它们应该归因于参与者饮食行为的变化。 D)它们实际上是因为吃了更多的水果和蔬菜。 解文章中提到，在超重或肥胖的参与者和健康体重范围内的参与者中，心理健康方面的益处是相同的，这表 明烹饪自信、烹饪满意度和心理健康益处之间存在联系。选项C与文章内容一致，因此为正确答案。即使 参与者报告的饮食在完成该课程后没有改变，但是他们的心理健康状况也有所改善，故排除选项B。研究 人员此前发现，多吃水果和蔬菜与改善长期心理健康之间存在联系，不过这是此前的研究发现，故排除选 项D。选项A文章中未提及，故排除。"
+    },
+    {
+      "number": 21,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Gender."
+        },
+        {
+          "key": "B",
+          "text": "Confidence."
+        },
+        {
+          "key": "C",
+          "text": "Health."
+        },
+        {
+          "key": "D",
+          "text": "Practice."
+        }
+      ],
+      "answer": "A",
+      "explanation": "21.What plays a role in determining who benefits most from learning to cook? 什么因素决定了谁从学习烹饪中获益最多？ A)性别。 C)健康。 B)信心。 D)实践。 解文章中提到，谁从学习烹饪中获益最多呢？性别起了一定的作用。选项A与文章内容一致，因此为正确答案。选项B和C是根据文章中出现的cookingconfidence和mentalhealth设置的干扰项，D项文章中未提及， 故均排除。"
+    },
+    {
+      "number": 22,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It keeps others away."
+        },
+        {
+          "key": "B",
+          "text": "It causes discomfort."
+        },
+        {
+          "key": "C",
+          "text": "It remains visible."
+        },
+        {
+          "key": "D",
+          "text": "It varies in size."
+        }
+      ],
+      "answer": "D",
+      "explanation": "22.What does research show about ourpersonal space? 关于我们的个人空间，研究表明了什么？ A)它让其他人远离。 C)它仍然可见。 B)它会引起不适。 D）它的大小各不相同。 解，文章开头提到，我们通常认为个人空间是我们周围的一个无形的空间泡泡，其他人无法进人，也不会引起 不适，然而，研究表明，我们实际上有不同大小的泡泡。选项D与文章内容一致，因此为正确答案。"
+    },
+    {
+      "number": 23,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It makes us feel uncomfortable."
+        },
+        {
+          "key": "B",
+          "text": "It renders the acquaintance a stranger."
+        },
+        {
+          "key": "C",
+          "text": "It brings the acquaintance closer to us."
+        },
+        {
+          "key": "D",
+          "text": "It causes the bubble around us to vanish."
+        }
+      ],
+      "answer": "A",
+      "explanation": "23.What happens if a mere acquaintance enters our intimate space? 如果仅仅是相识之人进入我们的亲密空间，会发生什么？ A)这让我们感到不舒服。 C)它拉近了熟人与我们的距离。 B)它使相识之人变成了陌生人。 D)它导致我们周围的泡泡消失。 解文章中提到，最小的区域，被称为“亲密空间”，从我们的身体向外各个方向延伸18英寸。只有家人、宠 析1 物和最亲密的朋友才能进入。仅仅是相识之人进人我们的亲密空间会让我们感到不舒服。选项A与文章内 容一致，因此为正确答案。"
+    },
+    {
+      "number": 24,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "In personal space."
+        },
+        {
+          "key": "B",
+          "text": "In social space."
+        },
+        {
+          "key": "C",
+          "text": "Within a distance of 18 inches."
+        },
+        {
+          "key": "D",
+          "text": "Over 2 feet away from one another."
+        }
+      ],
+      "answer": "B",
+      "explanation": "24. Where do people feel comfortable interacting with new acquaintances or strangers? 人们在哪里与新认识的人或陌生人互动会感到舒适？ A)在个人空间。 C)在18英寸的距离内。 B)在社交空间。 D)彼此相距超过2英尺。 解文章中提到，4到12英尺的距离是“社交空间”，在这里，人们与新认识的人或完全陌生的人进行日常社 析 交活动，会感到自在。选项B与文章内容一致，因此为正确答案。"
+    },
+    {
+      "number": 25,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "When we begin to feel fear."
+        },
+        {
+          "key": "B",
+          "text": "When we develop a sense of space."
+        },
+        {
+          "key": "C",
+          "text": "When we are 3 or 4 years old."
+        },
+        {
+          "key": "D",
+          "text": "When we enter our teens."
+        }
+      ],
+      "answer": "D",
+      "explanation": "25.Whenarethesizesofourbubblesfixed?我们泡泡的大小是在什么时候固定下来的？ A）当我们开始感到恐惧的时候。 C)当我们三四岁的时候。 B)当我们培养出一种空间意识。 D）当我们进入青少年时期。 解文章最后提到，我们泡泡的大小是在青少年时期固定的。选项D与文章内容一致，因此为正确答案。根据 析石 研究，我们在3岁或4岁左右开始发展个人空间意识，因此排除选项B和C。选项A文章中未提及，故排除。 Part III"
+    }
+  ],
+  "audio": {
+    "durationSeconds": 1493.7632,
+    "mimeType": "audio/mpeg",
+    "bytes": 59754825,
+    "sha256": "cbda688a0b6e7b7809a64449a2beb42f146ef393d20e7b976f62f281917017a5",
+    "url": "/cet-audio/cbda688a0b6e7b7809a64449a2beb42f146ef393d20e7b976f62f281917017a5.mp3"
+  },
+  "listeningGroups": [
+    {
+      "id": "cet4-2023-12-2-listening-1",
+      "title": "短篇新闻一",
+      "questionNumbers": [
+        1,
+        2
+      ],
+      "transcript": [
+        "A police officer in the U.S. stopped a large SUV car that was going very slowly and drifting across lanes on a highway.  He expected to find a driver who was either very drunk or having a medical emergency. Instead, the officer discovered a five-year-old boy sat on the edge of the driver's seat. His feet could barely reach the brake, and his head was only just high enough to see out of the windows. The child had taken the keys to the family car while his teenage sister was napping. He then drove three kilometers across town before getting on the highway.  The boy later told confused officers that he was planning to travel to California and buy a Lamborghini sports car. Although he only had three dollars in his wallet, at least he was driving in the right direction."
+      ]
+    },
+    {
+      "id": "cet4-2023-12-2-listening-2",
+      "title": "短篇新闻二",
+      "questionNumbers": [
+        3,
+        4
+      ],
+      "transcript": [
+        "Mobile phones have changed the way we live, how we read, work, communicate, and shop. But we already know this.  What we have not yet understood is the way the tiny machines in front of us are changing our skeletons, possibly altering not just the way we behave but even the very shape of our bodies.",
+        "New scientific research at the University of the Sunshine Coast in Queensland, Australia, suggests that young people are developing extra pieces of bone at the backs of their heads. These pieces of bone are caused by the way people bend their heads when they use the phone. This shifts weight onto the muscles at the back of the head and causes the bone to grow in a way that is not normal.  This process can be compared to the way the skin hardens in response to constant rubbing or pressure. The result is a piece of bone like a horm that sticks out from the head by the neck."
+      ]
+    },
+    {
+      "id": "cet4-2023-12-2-listening-3",
+      "title": "短篇新闻三",
+      "questionNumbers": [
+        5,
+        6,
+        7
+      ],
+      "transcript": [
+        "A village is going to throw a birthday party for an orange cat named Wilbur, who has become famous for making a regular appearance at local shops.",
+        "Wilbur has his own Internet pages as he approaches his 1oth birthday on July, 7. Wilbur is both bold and friendly. He spends most of his time in shops and businesses around the village. He'll just take himself into any shop, anywhere. There was one time when the doctor's receptionist came back and he was sitting on her chair. Among his favorite haunts are a local hairdresser, two pubs, and the Nottingham Primary School.",
+        "Lesley Harper, who runs one of the pubs, said the cat has been a big hit with their customers.“He's been a regular visitor for most of this year,”she told the Press Association.“He's a very relaxed cat, happy for customers and villagers young and old to come in and say hello.\"  She also said he is a cat of expensive tastes who likes his high priced cat food.",
+        "Sarah Godfrey, who is organizing Wilbur's party, told the local newspaper, “Wilbur is part of our lives, as he is for everyone who lives in the village.\""
+      ]
+    },
+    {
+      "id": "cet4-2023-12-2-listening-4",
+      "title": "长对话一",
+      "questionNumbers": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "transcript": [
+        "M: So,  where do you want to go for lunch?",
+        "W: I don't know. Do you have anything in mind?",
+        "M:  What about the Sandwich Place on Camden Street?",
+        "W: Hmm... No, sorry. I don't feel like sandwiches today. It's a great place, but I think we go there too often.",
+        "M: That's true.  Remember that's where we saw Brigette Clark, the famous movie star.",
+        "W: Of course. How could I ever forget? There were crowds of people around her asking for a photo with her.",
+        "M: What about hamburgers, then? There's that American style diner on the way to the mall.",
+        "W: Ilike that place. Their chips are great, but their service takes a long time.  And Ineed to get back by 2:30 for a conference call. How about trying something new? We could try Mario's, the new Italian restaurant on the corner. It looks all right. Have you been there?",
+        "M: No, I haven't, but I've noticed that it has great reviews on the Internet. It's supposed to be one of the best Italian's in town. I think Jeremy has been there and said it was amazing. I'm up for that.",
+        "W: Cool.Have you asked Jeremy if he would like to come with us?",
+        "M: I already have. He says he can't. He has brought his own lunch today, so he will stay in. I think his wife made him soup.",
+        "W: Poor Jeremy.  His wife is a terrible cook. He should throw that soup in the bin and join us."
+      ]
+    },
+    {
+      "id": "cet4-2023-12-2-listening-5",
+      "title": "长对话二",
+      "questionNumbers": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "transcript": [
+        "W: Hi, there. How are you today?  Do you have a reservation with us already?",
+        "M: Good afternoon.  Yes, we reserved our rooms yesterday morning on your website for three nights. The name's Patterson.",
+        "W: Okay. Let me have a look. Yes, we have it here. You brought the whole family with you, I see.",
+        "M: Yes, the two kids, my wife and I, and her parents too.",
+        "W: Great. So we have a family room for you and your wife and the kids, and another double room for your parents- in-law. They are right next to each other on the ground floor, since you mentioned in your message that they have trouble with stairs.",
+        "M: That's wonderful.  My father-in-law has had terrible problems getting up and down stairs since his knee operation last April.",
+        "W: I'm sorry to hear that. And if you need any help to find transportation for the whole family, we can definitely recommend someone for you.",
+        "M: We were thinking of renting a car, but we will explore all the options available for sure.  So, yes, that would be very helpful in comparing prices. We're also wondering what tours and day trips are available.",
+        "W: We have bunches of brochures here.  I would recommend getting out on a boat trip. The kids will love it and there are so many islands nearby to explore. There's also a great night market further into town that has all kinds of food and cool little shops selling souvenirs and local jewelry and clothing made by hand.",
+        "M: That all sounds marvelous.",
+        "W:  Now, all I need is to photocopy your passports and then I can get you all checked in and show you to your rooms."
+      ]
+    },
+    {
+      "id": "cet4-2023-12-2-listening-6",
+      "title": "短文一",
+      "questionNumbers": [
+        16,
+        17,
+        18
+      ],
+      "transcript": [
+        "Artificial intelligence agents play ever more influential roles in our lives. They do everything from suggesting new friends to recommending purchases. They're even beginning to drive our cars. Another role that they are expected to take over is negotiating on our behalf in commercial transactions or legal disputes.  So, it's important to know whether using an artificial intelligence agent might affect how we negotiate. Research indicates that it does. In a new study, participants were told to imagine that they were negotiating for something important to them, like a house. Next, they were told either that they would negotiate for themselves, or they would program an artificial intelligence agent to negotiate for them. Participants then completed a survey indicating how tough, deceptive and pleasant or otherwise they wanted to be, or wanted their agent to be, in the negotiations. For example, participants could choose to be tough by making an opening demand far greater than what they'd be willing to accept. They could also choose to express sympathy with their opponent to appear pleasant. But they could also indicate that they—or their agent—would strategically express anger toward the opponent to gain advantage, or they could opt to convey dissatisfaction with the encounter so that the other party would think they were losing interest. These are both examples of deceptive strategies. Participants were more willing to employ deceptive strategies when assigned an agent to negotiate on their behalf."
+      ]
+    },
+    {
+      "id": "cet4-2023-12-2-listening-7",
+      "title": "短文二",
+      "questionNumbers": [
+        19,
+        20,
+        21
+      ],
+      "transcript": [
+        "New research has studied the effects of a seven-week healthy cooking course. Academics measured the program's effect on cooking confidence and self-perceived mental health. Researchers also measured participants'overall satisfaction around cooking and diet-related behaviors.",
+        "What were the findings? Course participants saw significant improvements in general health. They also reported improved mental health and subjective vitality immediately after the program.  These benefits remained six months after the completion of the course.",
+        "What caused these improvements? Researchers have previously found a link between eating more fruits and vegetables, and improved longer term mental health. This would imply that the participants in the current study may have felt better due to improved diet.",
+        "However, the study showed participants'mental health improved even if their reported diet did not change after completing the program. Also, the mental health benefits were equal among participants who were overweight or obese, and those in a healthy weight range.  This suggests a link between cooking confidence and satisfaction around cooking, and mental health benefits.",
+        "Who benefits most from learning to cook? Gender plays a part. At the start of the program, 77 per cent of female participants were confident about cooking, but just 23 per cent of males were confident. At the end of the program, cooking confidence and skills were equal across both counterparts. This change in confidence could lead to a gender balance in home cooking. This in turn could reduce consumption of unhealthy, high-calorie processed meals."
+      ]
+    },
+    {
+      "id": "cet4-2023-12-2-listening-8",
+      "title": "短文三",
+      "questionNumbers": [
+        22,
+        23,
+        24,
+        25
+      ],
+      "transcript": [
+        "What is personal space? We often think ofit as an invisible bubble of space surrounding us that others can't enter, without causing discomfort.Research shows, however, that we actually have bubbles of different sizes. Each of these bubbles applies to a different set of people.",
+        "The smallest zone, called\"intimate space\", extends outward from our bodies 18 inches in every direction. Onlyfamily,pets and one's closest friends may enter it. Amereacquaintance entering our intimate space makes us uncomfortable.Next is the bubble called“personal space\", extending from 1.5 feet to 4 feet away. Friends and acquaintances can comfortably occupy this zone,especially during informal conversations, but strangers are forbidden. Extending from 4 to 12 feet away from us is“\"social space\".Here people feel comfortable conducting routine social interactions with new acquaintances or total strangers.",
+        "Those are the average sizes of American's personal bubbles, anyway. It is important to keep in mind that personal space varies depending on culture and context. Furthermore, there are significant individual differences. As we all know,cultural or individual differences in personal bubblediameters are all too often the cause of discomfort. How did these personal bubbles arise? According to research, we begin to develop our individual sense of personal space around age 3 or 4.  The sizes of our bubbles are fixed by our teens. These bubbles are constructed and monitored by the brain region involved in fear."
+      ]
+    }
+  ],
+  "materialId": "6b4584d7ee96019d4d06",
+  "questionSetId": "c2d2cb69d6485020adad"
+}

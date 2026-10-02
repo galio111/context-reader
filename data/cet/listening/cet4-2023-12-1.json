@@ -1,0 +1,752 @@
+{
+  "id": "cet4-2023-12-1-listening",
+  "type": "listening",
+  "title": "听力",
+  "paragraphs": [],
+  "questions": [
+    {
+      "number": 1,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Their brains work in harmony."
+        },
+        {
+          "key": "B",
+          "text": "They are generally the same age."
+        },
+        {
+          "key": "C",
+          "text": "Their interests are quite similar."
+        },
+        {
+          "key": "D",
+          "text": "They have the same ethnic background."
+        }
+      ],
+      "answer": "A",
+      "explanation": "1. What may be the reason that friends are similar to each other according to the recent research? 根据最新研究，朋友之间彼此相似的原因可能是什么？ A）他们的大脑运作协调一致。 C)他们的兴趣非常相似。 B)他们的年纪通常一样大。 D)他们有相同的种族背景。 解，新闻开头提到，我们与自己的朋友非常相似。紧接着说了原因：这可能是因为我们与朋友的大脑运作协调 析 一致，故A项为正确答案。新闻中提到，朋友之间更可能在年龄、性别和种族背景方面相似，但新闻并未 提到这就是我们与朋友相似的原因，故排除B项和D项。C项新闻并未提及，可排除。"
+    },
+    {
+      "number": 2,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It can be touching."
+        },
+        {
+          "key": "B",
+          "text": "It is hard to predict."
+        },
+        {
+          "key": "C",
+          "text": "It can work both ways."
+        },
+        {
+          "key": "D",
+          "text": "It resembles family ties."
+        }
+      ],
+      "answer": "C",
+      "explanation": "2. What does the news report say about the relationship between friends? 关于朋友间的关系，新闻报道说了什么？ A)它可能是感人的。 C)它可能是双向的。 B)它是很难预测的。 D)它类似于家庭关系。 解新闻末尾部分提到，朋友关系可能是双向的。与我们想法相似的人会吸引我们，然后我们也会影响朋友的 想法，故C项为正确答案。新闻后面提到，朋友间的大脑活动更为相似，这种相似性非常强大，足以用来 预测两个人是否已经成为朋友，因此可排除B项。其余两项新闻并未提及，可排除。"
+    },
+    {
+      "number": 3,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Search fbr their half-brothers."
+        },
+        {
+          "key": "B",
+          "text": "Identify their biological fathers."
+        },
+        {
+          "key": "C",
+          "text": "Find out more about their ancestry."
+        },
+        {
+          "key": "D",
+          "text": "See whether they are actually related."
+        }
+      ],
+      "answer": "C",
+      "explanation": "3. What did both Alan Robinson and Walter MacDonald attempt to do on DNA matching websites? 艾伦·罗宾逊和沃尔特·麦克唐纳两个人在DNA匹配网站都尝试做了什么？ A)寻找他们同母异父或同父异母的兄弟。 C）寻找更多关于他们家世的信息。 B)确认他们的生父。 D)弄清他们实际上是否有关系。 解新闻中提到，艾伦·罗宾逊和沃尔特·麦克唐纳最近分别在DNA匹配网站上做了匹配，希望能发现更多 关于他们家世的信息，故C项为正确答案。其余三个选项新闻并未提及，可排除。"
+    },
+    {
+      "number": 4,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They were both given up fbr adoption."
+        },
+        {
+          "key": "B",
+          "text": "They were bom to the same mother."
+        },
+        {
+          "key": "C",
+          "text": "They flew 737 airplanes as pilots."
+        },
+        {
+          "key": "D",
+          "text": "They were both 60 years of age."
+        }
+      ],
+      "answer": "B",
+      "explanation": "4. What did the news report say about Alan Robinson and Walter MacDonald? 关于艾伦·罗宾逊和沃尔特·麦克唐纳，新闻报道说了什么？ A)他们都是被送人收养的。 C)他们都是737飞机的飞行员。 B）他们是同一个母亲所生。 D)他们都是60岁。 解，新闻末尾提到，艾伦·罗宾逊和沃尔特·麦克唐纳是同一个母亲所生，年龄相差15个月，故B项为正确答案。新闻中提到，艾伦出生后不久就被送人收养，并没有提到沃尔特也是被送人收养，故A项错误。新闻 中提到，艾伦曾是737飞机的飞行员，并没有说艾伦和沃尔特都是该飞机的飞行员，故C项错误。新闻开 头提到，艾伦·罗宾逊和沃尔特·麦克唐纳在上六年级时认识并成为好朋友，相交60年，并不是说他们俩 的年龄是60岁，故D项错误。"
+    },
+    {
+      "number": 5,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "One of his friends was caught littering."
+        },
+        {
+          "key": "B",
+          "text": "Other tourists refused to join in the cleanup."
+        },
+        {
+          "key": "C",
+          "text": "The beautiful beach was spoiled with lots of trash."
+        },
+        {
+          "key": "D",
+          "text": "The kilometer-long beach was practically deserted."
+        }
+      ],
+      "answer": "C",
+      "explanation": "5.Whydid oneofthemaletouristsfeel sad?为什么其中一位男游客感到难过？ A)他的一个朋友被发现乱扔垃圾。 C)许多垃圾破坏了美丽的海滩。 B)其他游客拒绝参加清理工作。 D)一公里长的海滩几乎空无一人。 解新闻中提到，一位来自澳大利亚的男游客评论说，虽然海滩上有很多垃圾，但没有人管。海滩失去了它应 析 有的美丽。看到如此美丽的地方到处都是垃圾，他感到非常难过，故C项为正确答案。其余三个选项新闻 均未提及，可排除。"
+    },
+    {
+      "number": 6,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "A passerby."
+        },
+        {
+          "key": "B",
+          "text": "A local woman."
+        },
+        {
+          "key": "C",
+          "text": "The beach authorities."
+        },
+        {
+          "key": "D",
+          "text": "One of the five tourists."
+        }
+      ],
+      "answer": "A",
+      "explanation": "6.Whoputthegooddeedvideo ontheinternet?是谁把这段善举视频发布到了网上？ A）一位路人。 C)海滩管理部门。 B)一位当地的女士。 D)五名游客之一。 解新闻中提到，一名路过的男子把游客在海滩捡垃圾的善举录下来并发布到网上，故A项为正确答案。新闻 9T 中提到，一位当地女士对善举视频发表了自已的评论，而非她把视频发布到网上，故B项错误。其余两项 新闻均未提及，可排除。"
+    },
+    {
+      "number": 7,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "The tourists9 good deed was not noticed by the locals."
+        },
+        {
+          "key": "B",
+          "text": "Some natives were selling poor-quality food to tourists."
+        },
+        {
+          "key": "C",
+          "text": "The number of tourists to the beach is on a steady decline."
+        },
+        {
+          "key": "D",
+          "text": "It was tourists not natives who were cleaning up the beach."
+        }
+      ],
+      "answer": "D",
+      "explanation": "7.Whydidonelocalwomansayshewasembarrassed?为什么一位当地女士说自己感到难堪？ A)当地人没有注意到游客的善举。 C)去海滩的游客数量在持续下降。 B)一些当地人向游客出售劣质食品。 D）清理海滩的是游客，而不是当地人。 解新闻中提到，海滩到处都是垃圾，但没有人管，因此那几位游客决定把海滩上的垃圾清理干净。对此，一 位当地女士表示很难堪，因为清理海滩垃圾的是游客，而不是当地人，故D项为正确答案。新闻中明确提 到，一个路人将那几位游客的善举录下来并发布到网上，故A项表述错误。其余两个选项新闻均未提及， 可排除。 Section"
+    },
+    {
+      "number": 8,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He has to play football with workmates."
+        },
+        {
+          "key": "B",
+          "text": "He has got some books to read."
+        },
+        {
+          "key": "C",
+          "text": "He is going to visit a friend."
+        },
+        {
+          "key": "D",
+          "text": "He is physically unfit fbr it."
+        }
+      ],
+      "answer": "D",
+      "explanation": "8.Whycan'tthemangoforarunSaturdaymorning?为什么男士周六早上不能去跑步？ A)他必须和同事踢足球。 C)他要去拜访一位朋友。 B)他有几本书要读。 D)他的身体状况不适合。 解在对话一开始，女士询问男士是否愿意周六早上和他们一起沿着运河跑步，男士说他很想去，但是他在上 析 周末和同事踢足球时伤到了脚踝，所以他的身体状况不适合去跑步，故答案是D项。男士上周末和同事踢 了足球，没有说周六早上也要踢足球，故排除A项；在对话末尾，男士提到自己脚受伤后一直在读书，但 是这并非他周六早上不能去跑步的直接原因，故排除B项；C项对话中没有提到，故排除。"
+    },
+    {
+      "number": 9,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "To teach kids about animal protection."
+        },
+        {
+          "key": "B",
+          "text": "To learn how popular zoos could be."
+        },
+        {
+          "key": "C",
+          "text": "To see some rare animals in cages."
+        },
+        {
+          "key": "D",
+          "text": "To give her little nephew a treat."
+        }
+      ],
+      "answer": "D",
+      "explanation": "9.Whyisthewoman'swholefamilygoingtothezoonextSaturday?为什么女士全家下周六都要去动物园？ A)教孩子们保护动物。 C)看看笼子里的珍稀动物。 B）了解动物园有多受欢迎。 D)带她的小侄子去玩。 解在对话中，女士提到下周六她要去动物园，因为她的小侄子很喜欢动物园，所以她全家都要陪他去，故答案为D项。女士提到现在的动物园远不如他们小时候那么受欢迎了，但她全家去动物园并非是为了了解动 物园有多受欢迎，故排除B项；女士提到她个人很同情那些被关在笼子里的可怜动物，C项“看看笼子里 的珍稀动物”的“珍稀动物”与此不一致，也不是她去动物园的目的，故排除；A项在对话中没有相关信 息，故也排除。"
+    },
+    {
+      "number": 10,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "He enjoys excellent health."
+        },
+        {
+          "key": "B",
+          "text": "He is keen on extreme sports."
+        },
+        {
+          "key": "C",
+          "text": "He coaches tennis players every week."
+        },
+        {
+          "key": "D",
+          "text": "He spends most of his time in the gym."
+        }
+      ],
+      "answer": "A",
+      "explanation": "10.WhatdowelearnaboutDanfromtheman'sdescription?从男士的描述中，我们对丹有什么了解？ A)他身体非常健康。 C)他每周都训练网球运动员。 B)他热衷于极限运动。 D)他把大部分时间都花在健身房里。 解对话中男士和女士都对丹有一些评价，其中男士提到，丹的身体非常强健，所以答案为A项。女士提到， 析 丹总是热衷于体育活动，B项的“极限运动”与此信息不一致，故排除；男士提到，丹每周还打两三次网 球，C项的“训练网球运动员”与此信息不一致，故排除；男士提到，丹大多数日子（mostdays）都去健 身房，这和D项“他把大部分时间都花在健身房里”语义有差别，mostdays表示大多数日子，指去的次数 频繁，但他在健身房待的时间长短未知，mostof histime（他的大部分时间）则表示他几乎每天都花大量 的时间在健身房，故排除D项。"
+    },
+    {
+      "number": 11,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Tending to his swollen ankle."
+        },
+        {
+          "key": "B",
+          "text": "Concentrating on reading."
+        },
+        {
+          "key": "C",
+          "text": "Writing three book reports."
+        },
+        {
+          "key": "D",
+          "text": "Planning Christmas celebrations."
+        }
+      ],
+      "answer": "B",
+      "explanation": "1l.Whathasthemanbeendoingsincelastweekend?从上周末开始，男士一直在做什么？ A)护理他肿胀的脚踝。 C)写三份读书报告。 B)专心读书。 D)计划圣诞节庆祝活动。 解在对话一开始，男士提到自已上个周末和同事踢足球的时候伤到了脚踝，在对话最后，女士问男士他脚踝 析 肿了后都在忙什么，男士回答道他一直忙着读一些书，综合两处信息可知，从上周末伤了脚踝后，男士一 直都在专心读书，故选B项。男士提到自已一直在读圣诞节期间收到的三本书，但并没有提到自己在写三 |份读书报告，故排除C项；A项和D项对话中都没有相关信息，故均排除。"
+    },
+    {
+      "number": 12,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It is being debated by hundreds of retirees."
+        },
+        {
+          "key": "B",
+          "text": "It is attracting many people's attention."
+        },
+        {
+          "key": "C",
+          "text": "It partly records his own experience."
+        },
+        {
+          "key": "D",
+          "text": "It argues fbr postponing retirement."
+        }
+      ],
+      "answer": "B",
+      "explanation": "12.Whatdowelearnabouttheman'sbookpublishedrecently?关于男士最近出版的书，我们了解到什么？ A)数百位退休人员正在讨论它。 C)它部分记录了他自己的经历。 B)它吸引了许多人的关注。 D)它主张延迟退休。 解在访谈一开始，女士提到男士的书当下受到很多人的关注，所以答案为B项。访谈中男士提到在为这本书 析 做调研时，他采访了数百位在40岁之前退休的人，A项与此信息不符，故排除；女士提到男士的书中写道 大多数人都可以在40岁之前退休，所以书中主张的是提前退休，而不是延迟退休，故排除D项；C项在访 谈中没有相关信息，故也排除。"
+    },
+    {
+      "number": 13,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "One should foresee a financial crisis."
+        },
+        {
+          "key": "B",
+          "text": "One should trust financial planners, figures."
+        },
+        {
+          "key": "C",
+          "text": "One should have one million dollars to retire."
+        },
+        {
+          "key": "D",
+          "text": "One should start saving as early as possible."
+        }
+      ],
+      "answer": "C",
+      "explanation": "13.Whatdothearticlesthewomanreadrecommend?女士读过的文章提供了什么建议？ A)人们应该预见到金融危机。 C人们应该有一百万美元才能退休。 B)人们应该相信理财规划师的数据。 D)人们应该尽早开始储蓄。 解，在访谈中，女士提了一个问题，即一个人需要多少钱才能退休，然后她说自已读过一些文章，建议将 析 一百万美元作为退休的理想数字，也就是说，一个人应该有一百万美元才能退休，所以正确答案是C项。 虽然访谈中男士提到大多数理财规划师都会给出数字，即退休储备金额，但女士读的文章并没有建议应该 相信理财规划师的数据，故排除B项；虽然女士提到人们应该有额外的现金以备不时之需，但没有提到尽 早开始储蓄，这也不是女士读的文章提供的建议，故排除D项；选项A在访谈中没有相关信息，故也排除。"
+    },
+    {
+      "number": 14,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "It doesn't need to be permanent."
+        },
+        {
+          "key": "B",
+          "text": "It shouldn't be considered risky."
+        },
+        {
+          "key": "C",
+          "text": "It helps to reduce travel expenses."
+        },
+        {
+          "key": "D",
+          "text": "It is the way to quit a job one hates."
+        }
+      ],
+      "answer": "A",
+      "explanation": "14.Whatdoesthemansayaboutretirement?关于退休，男士说了什么？ A）它无需是永久性的。 C)它有助于减少旅行支出。 B)不应该认为它是有风险的。 D)它是辞去讨厌的工作的方式。 解，在访谈中，男士提到有太多人因为害怕而终其一生都在从事自已讨厌的工作，所以他建议人们去冒险，而 折 且他补充说退休不一定是永久性的，如果人们需要，他们可以回去工作，所以正确答案是A项。男士提到 他建议人们去冒险，即辞去工作，早点退休，但男士并未提及退休是否有风险，故排除B项；男士提到有 太多人因为害怕而终其一生都在从事自已讨厌的工作，但并非是说，退休是辞去讨厌的工作的方式，故排 除D项；C项在访谈中没有相关信息，故也排除。"
+    },
+    {
+      "number": 15,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "By keeping close contact with one's employers."
+        },
+        {
+          "key": "B",
+          "text": "By retiring when one reaches sixty years old."
+        },
+        {
+          "key": "C",
+          "text": "By investing half of one's monthly income."
+        },
+        {
+          "key": "D",
+          "text": "By following the counsel of financial planners."
+        }
+      ],
+      "answer": "C",
+      "explanation": "15. How does the man say his proposal about retirement can be carried out? 关于男士提出的退休的建议，他说如何实施？ A)通过与雇主保持密切联系。 C)通过将每月收入的一半用于投资。 B)通过到六十岁时再退休。 D)通过听从理财规划师的建议。 解在访谈最后，女士提出问题，即如何在40岁之前就存够钱退休呢？男士提供的方法包括减少住房、食物和 折 交通开支，并把每月收入的一半用来投资，C项与此信息一致，故为正确答案。其他选项在访谈中都没有 提到，均排除。 Section"
+    },
+    {
+      "number": 16,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "They tended to be easily anticipated by those belonging to their own race."
+        },
+        {
+          "key": "B",
+          "text": "They tended to be arbitrarily judged by individuals of opposing groups."
+        },
+        {
+          "key": "C",
+          "text": "They were readily shared among members of the same social or racial group."
+        },
+        {
+          "key": "D",
+          "text": "They were influenced by the presence of someone from an outsider group."
+        }
+      ],
+      "answer": "D",
+      "explanation": "16. What was the finding of the new research from America about consumers'food choices? 美国关于消费者食物选择的新研究发现了什么？ A)它们往往很容易被自已种族的人预测到。C)它们很容易在同一社会或种族群体的成员之间共享。 B)它们往往会被对立群体的个人任意评判。D)它们受到了来自外部群体的人的影响。 解，文章中提到，这项研究发现，与来自同种族的观察者在场时相比，大学生更有可能在与自己不同种族的观察 析 者在场的情况下选择健康食品。比起与同大学的人在一起时，当他们与来自不同大学的人在一起时，也是如 此。研究人员表示，这是因为参与者预测外部群体会做出更多的负面评判。由此可知，消费者食物选择受到了 来自外部群体的人的影响。选项D与文章内容一致，因此为正确答案。选项A、B和C文章中均未提及，故排除。"
+    },
+    {
+      "number": 17,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "When they tried to make a positive impression on the researchers."
+        },
+        {
+          "key": "B",
+          "text": "When an unknown student from another university was present."
+        },
+        {
+          "key": "C",
+          "text": "When an experimenter from the research team took notice."
+        },
+        {
+          "key": "D",
+          "text": "When they were offered both candy and fruit as a snack."
+        }
+      ],
+      "answer": "B",
+      "explanation": "17. When did 31 per cent of students in the experiment select the healthier option? 实验中31%的学生什么时候选择了更健康的食物？ A）当他们试图给研究人员留下一个积极的印象时。。 C)当研究小组的实验者注意到的时候。 B）当一个来自另一所大学的陌生学生在场时。 D)当他们得到糖果和水果作为零食的时候。 解文章中提到，当有一个来自自已大学的陌生学生在场时，只有12%的学生选择了更健康的食物。然而，当 折 有一个来自另一所大学的陌生学生在场时，这一数字为31%。选项B与文章内容一致，因此为正确答案。 选项A、C和D文章中均未提及，故排除。"
+    },
+    {
+      "number": 18,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "By advertising its social benefits."
+        },
+        {
+          "key": "B",
+          "text": "By teaching consumers diet strategies."
+        },
+        {
+          "key": "C",
+          "text": "By supporting struggling consumers."
+        },
+        {
+          "key": "D",
+          "text": "By maintaining its positive image."
+        }
+      ],
+      "answer": "A",
+      "explanation": "18. How could a healthy diet be promoted according to the findings of the new research? 根据这项新研究的发现，如何促进健康饮食？ A）通过宣传其社会效益。 C)通过支持苦苦挣扎的消费者。 B)通过向消费者传授饮食策略。 D)通过维持其正面形象。 解，文章最后提到，这项研究发现，促进健康饮食的一种方法可能是宣传健康选择的社会效益。选项A与文章 斤 内容一致，因此为正确答案。选项B、C和D文章中均未提及，故排除。"
+    },
+    {
+      "number": 19,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "The academic and learning issues struggling students encounter."
+        },
+        {
+          "key": "B",
+          "text": "The risk students face due to a history of mental health problems."
+        },
+        {
+          "key": "C",
+          "text": "The effect of interacting with therapy dogs on students under pressure."
+        },
+        {
+          "key": "D",
+          "text": "The work universities are doing to help students succeed academically."
+        }
+      ],
+      "answer": "C",
+      "explanation": "19. What does the recent study led by Patricia Pendry aim to examine? 帕特里夏·彭德里最近主导的这项研究旨在调查什么？ A)陷人困境的学生遇到的学术和学业问题。 C)与治疗犬互动对承受压力的学生的影响。 B)学生因有精神健康问题史而面临的风险。.D)大学为帮助学生在学业上取得成功所做的工作。 解文章开头提到，最近的一项研究发现，对于承受压力的大学生来说，狗可能是最好的减压帮手。随后主导 析 这项研究的帕特里夏·彭德里说道：这项研究表明，与专注于提供跟治疗犬互动机会的项目相比，传统的 压力管理方法对这人群并没有那么有效。由此可知，这项研究旨在调查与治疗犬互动对承受压力的学生的 影响。选项C与文章内容一致，因此为正确答案。A、B、D三项在文中均有提及，但都不是这项研究的调 查目的，故排除。"
+    },
+    {
+      "number": 20,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Their communicative skills."
+        },
+        {
+          "key": "B",
+          "text": "Their executive functioning."
+        },
+        {
+          "key": "C",
+          "text": "Their academic networking."
+        },
+        {
+          "key": "D",
+          "text": "Their leadership capacities."
+        }
+      ],
+      "answer": "B",
+      "explanation": "20.Whatdidthenewstudymeasureintheparticipants?这项新研究评估了参与者的什么？ A)他们的沟通技巧。 C)他们的学术网络。 B）他们的执行功能。 D)他们的领导能力。 解文章中提到，研究人员评估了参与研究的学生的执行功能。选项B与文章内容一致，因此为正确答案。选 项A、C和D文章中均未提及，故排除。"
+    },
+    {
+      "number": 21,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Rid students of their anxiety."
+        },
+        {
+          "key": "B",
+          "text": "Add to some students' stress."
+        },
+        {
+          "key": "C",
+          "text": "Contribute little to typical students5 success."
+        },
+        {
+          "key": "D",
+          "text": "Help students with mental issues pull through."
+        }
+      ],
+      "answer": "B",
+      "explanation": "21. What does Patricia Pendry think traditional stress management programs may do? 帕特里夏·彭德里认为传统的压力管理课程可能有什么影响？ A)消除学生的焦虑。 C)对典型学生的成功帮助甚微。 B)增加一些学生的压力。 D)帮助有心理问题的学生渡过难关。 解，文章最后提到，彭德里承认这些研讨会帮助典型的学生取得成功。但它们对陷入困境的学生帮助甚微。彭 析 德里认为，这些学生可能会把这些课程当成另一种形式的讲座，并感到更有压力。也就是说，这些课程会 给陷人困境的学生增加压力，选项B与文章内容一致，因此为正确答案。这些研讨会帮助典型的学生取得 成功，而对陷入困境的学生帮助甚微，选项A以偏概全，选项C和D表述与文章内容相，故均排除。"
+    },
+    {
+      "number": 22,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Work hard and plan carefully."
+        },
+        {
+          "key": "B",
+          "text": "Attempt to succeed at any cost."
+        },
+        {
+          "key": "C",
+          "text": "Aim high and expect great results."
+        },
+        {
+          "key": "D",
+          "text": "Remain optimistic even in difficulty."
+        }
+      ],
+      "answer": "A",
+      "explanation": "22. What do entrepreneurs have to do when taking risks according to the passage? 根据文章，企业家在承担风险时需要做什么？ A）努力工作，悉心规划。 C）志存高远，期望取得好的成果。 B)不惜任何代价取得成功。 D)即使在困难中也要保持乐观。 解，文章开头提到，在商业中承担风险并不意味着盲目地创业，然后期望取得好的成果。相反，在创业中承 析 担风险需要悉心规划和努力工作。选项A与文章内容一致，因此为正确答案。选项B、C和D文章中均未提 及，故排除。"
+    },
+    {
+      "number": 23,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Regarding failure as something inevitable."
+        },
+        {
+          "key": "B",
+          "text": "Trying out innovative marketing strategies."
+        },
+        {
+          "key": "C",
+          "text": "Venturing into sectors never explored before."
+        },
+        {
+          "key": "D",
+          "text": "Being willing to experiment with novel ideas."
+        }
+      ],
+      "answer": "D",
+      "explanation": "23.Whatdoesthepassagesayiskeytobusinessgrowth?文章认为企业发展的关键是什么？ A)认为失败是不可避免的事情。 C)涉足从未探索过的领域。 B)尝试创新的营销策略。 D)愿意尝试新颖的想法。 解文章中提到，愿意尝试新想法是企业发展的关键。选项D与文章内容一致，因此为正确答案。选项A、B和 析 C文章中均未提及，故排除。"
+    },
+    {
+      "number": 24,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Expect future success so as to move forward."
+        },
+        {
+          "key": "B",
+          "text": "Learn from our failure and forge ahead."
+        },
+        {
+          "key": "C",
+          "text": "Distinguish between good and bad risks."
+        },
+        {
+          "key": "D",
+          "text": "Examine our strategies and find out weaknesses."
+        }
+      ],
+      "answer": "B",
+      "explanation": "24.Whatareweadvisedtodowhenwefail?失败时，建议我们做什么？ A)期待未来的成功，以便继续前进。 C)区分好的风险和不良风险。 B）从失败中吸取教训，勇往直前。 D)检查我们的策略并找出弱点。 解文章中提到，失败时，要从中吸取教训，继续前进。选项B与文章内容一致，因此为正确答案。文章中提 析 到并非所有的风险都是好的，但这并不是建议我们区分好的风险和不良风险，故排除选项C。选项A和D文 章中均未提及，故排除。"
+    },
+    {
+      "number": 25,
+      "stem": "",
+      "options": [
+        {
+          "key": "A",
+          "text": "Fresher offers."
+        },
+        {
+          "key": "B",
+          "text": "Safer operation."
+        },
+        {
+          "key": "C",
+          "text": "More challenges."
+        },
+        {
+          "key": "D",
+          "text": "Less competition."
+        }
+      ],
+      "answer": "D",
+      "explanation": "25. What does it mean to risk-taking businesses when most people tend to avoid risk? 当大多数人都倾向于规避风险时，这对于承担风险的企业来说意味着什么？ A)更新的提议。 C)更多的挑战。 B)更安全的运作。 D)更少的竞争。 解文章中提到，由于大多数人都倾向于规避风险，因此勇于承担风险的企业已经具有竞争优势。简单地说， 析 当大多数人远离风险时，就意味着风险承担者的竞争会减少。选项D与文章内容一致，因此为正确答案。 文章提及，勇于承担风险的企业是用新的想法、新的提议和大胆的发明来树立标准，选项A是根据文章中 出现的freshoffers而设置的干扰项，故排除。选项B和C文章中均未提及，故排除。"
+    }
+  ],
+  "audio": {
+    "durationSeconds": 1485.88325,
+    "mimeType": "audio/mpeg",
+    "bytes": 23778228,
+    "sha256": "86b9bae2635a81584a3cc60bd3fe21144fbaace9c977fe62bd774aee24ee417e",
+    "url": "/cet-audio/86b9bae2635a81584a3cc60bd3fe21144fbaace9c977fe62bd774aee24ee417e.mp3"
+  },
+  "listeningGroups": [
+    {
+      "id": "cet4-2023-12-1-listening-1",
+      "title": "短篇新闻一",
+      "questionNumbers": [
+        1,
+        2
+      ],
+      "transcript": [
+        "Have you noticed how similar you are to your friends?  It may be because your brains operate in harmony with each other. We know that friends are more likely to be the same age, gender and ethnic background as each other. Now it seems their brains are alike, too.",
+        "Researchers at the University of California scanned the brains of 42 classmates while they watched videos intended to provoke varying responses. Some people might find a romantic scene touching,for instance, while others would feel it was embarrassing.The activity of friends'brains was more similar than that of people who didn't know each other, particularly in regions involved in attention, emotion and language.This similarity was strong enough that it could be used to predict whether two people were already friends or not.  The relationship probably goes two ways. We are drawn to people who think like us; we then influence their thoughts over time, which may push their brain activity into more closely resembling our own."
+      ]
+    },
+    {
+      "id": "cet4-2023-12-1-listening-2",
+      "title": "短篇新闻二",
+      "questionNumbers": [
+        3,
+        4
+      ],
+      "transcript": [
+        "Two men who have been best friends for 60 years have just realized they are actually brothers. It's reported that Alan Robinson and Walter MacDonald met in the 6th grade at a school in Hawai.They have been best friends ever since.Alan was given away for adoption soon after he was born, and Walter never knew his father.  So recently, they made separate attempts on DNA matching websites to discover more about their ancestry.Walter was astonished to find that he matched with website user Robi737. He knew immediately that this was his best friend Alan, whose friends call him Robi and flew 737 airplanes when he was a pilot.  The pair were born to the same mother 15 months apart."
+      ]
+    },
+    {
+      "id": "cet4-2023-12-1-listening-3",
+      "title": "短篇新闻三",
+      "questionNumbers": [
+        5,
+        6,
+        7
+      ],
+      "transcript": [
+        "Amid all the election drama, air pollution problems and disease outbreaks,five tourists'good work is being spread online. Yesterday two male and three female tourists were spotted walking the kilometer-long beach, picking up trash. One of the male tourists from Australia commented that although there was a lot of trash,nobody was doing anything. The beach was not as nice or beautiful as it should be.  He felt so sad to see such a gorgeous place littered with so much trash. Thus, he and his friends decided to grab a few trash bags and clean it all up.",
+        "A man passing by decided to video their good deed and put it on the internet. It was unclear where the rest of the group was from, but they were most likely traveling together.  One local woman commented on being embarrassed that tourists were cleaning up their beach.Another mentioned that it was actually the natives who brought food and drinks then left trash all along the island."
+      ]
+    },
+    {
+      "id": "cet4-2023-12-1-listening-4",
+      "title": "长对话一",
+      "questionNumbers": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "transcript": [
+        "W: Hello Benjamin, Dan and I will be going for a run along the canal Saturday morning. Would you like to join us?",
+        "M: I'd love to, [11I but I hurt my ankle last weekend playing football with work colleagues.",
+        "W: Oh dear, is it serious?",
+        "M: No, not at all. Ilanded badly during a fall and twisted it a little, but it's no big deal. It's just a lttle swollen andI should be fine for next Saturday if you still want to go for a jog then.",
+        "W: I won't be here next Saturday. I'm going to the zoo.",
+        "M: The zoo?",
+        "W: Yeah.  My litle nephew turns six, and he loves the zoo, so the whole family is going.",
+        "M: Oh, okay then. I haven't been to a zoo since I was a kid.",
+        "W: They are nowhere near as popular as they used to be when we were children. I personally feel sorry for the poor animals stuck in cages, but there's no denying they are fun and educational for children.",
+        "M: Do you know if Dan will be around next Saturday?",
+        "W: Yeah, I think he will. Just send him a text message. He's always keen on physical activities.",
+        "M: That's true.  Dan is extremely fit and healthy. He goes to the gym most days, plus tennis two or three times a week.",
+        "W: So, what have you been doing to stay busy while you've had that swollen ankle?",
+        "M:  I've been catching up on some reading. I was given three books over Christmas, and I'm only now getting around to reading them."
+      ]
+    },
+    {
+      "id": "cet4-2023-12-1-listening-5",
+      "title": "长对话二",
+      "questionNumbers": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "transcript": [
+        "W: Our guest on today's Book Talk is John Black, the author of the new bestseller, Retire Early.",
+        "M: Thanks for having me on the show, Lisa.",
+        "W:  John, your book is getting a lot of attention, partly because you write that most people can retire by 40. Is that realistic?",
+        "M: Definitely. When researching this book, I interviewed hundreds of people who retired by 40.",
+        "W: Okay,but how much money does a person need to retire?  I've read articles recommending one million dollars as a good figure for retirement.",
+        "M:While most financial planners do give numbers,I don't think that's useful, as people are living in different areas with different costs of living, and have different needs and wants, which is why I suggest that people aim for financial independence.",
+        "W: What do you mean by financial independence?",
+        "M: Having investment income that's greater than monthly expenses.",
+        "W: That sounds risky to me. What if an accident happens or you get ill and need medical treatment? Shouldn't people have extra cash for emergencies?",
+        "M: Too many people spend their lives working on jobs they hate because they're afraid, so I counsel pcople to take risks.  Retirement doesn't have to be permanent, and if people need to, they can go back to work.",
+        "W: But it's not always easy to get back into the workforce after an extended absence.",
+        "M: True, but if you keep current with your skills, you will be attracted to employers.",
+        "W: Maybe, but how can anyone save enough to retire by 40 when most people can't retire at 60?",
+        "M: Simple, by cutting housing, food, and transport expenses,  and investing half your monthly income.",
+        "W: That sounds impossible.",
+        "M: I admit it's difficult, but it has worked for thousands."
+      ]
+    },
+    {
+      "id": "cet4-2023-12-1-listening-6",
+      "title": "短文一",
+      "questionNumbers": [
+        16,
+        17,
+        18
+      ],
+      "transcript": [
+        "New research from America studies the role that the presence of individuals from different social or racial groups has in influencing consumersfood choices.  This research found college students were more likely to choose healthy food in the presence ofan observer of a different race, as opposed to an observer from their own race. The same was true when they were with someone from a different university, compared to someone from their own. Researchers say this was because participants anticipated more negative judgment from an outsider group.In contrast, they felt less judged by members of their own group.",
+        "In one experiment, participants were offered the choice between candy and fruit as a snack. When in the presence of an unknown student from their own university, only 12 per cent of students selected the healthier option. However, this number was 31 per cent when in the presence of an unknown student from another university. Other experiments showed similar results based on racial group.",
+        "What's the reason for this pattern? The study found that people feel judged to a larger extent by members of other groups. Because of this, they strategically use healthy food choices to make a positive impression.There have been many attempts to help consumers make healthier choices, but consumers often struggle to maintain a healthy diet.  This research finds that one way to promote a healthy diet could be to advertise the social benefits of healthy choices."
+      ]
+    },
+    {
+      "id": "cet4-2023-12-1-listening-7",
+      "title": "短文二",
+      "questionNumbers": [
+        19,
+        20,
+        21
+      ],
+      "transcript": [
+        "For college students under pressure, a dog may be the best stress fighter around, according to the finding of a recent study.“It's a really powerful finding,\" said Patricia Pendry, who led the study. “Universities are doing a lot of great work trying to help students succeed academically, especially those who may be at risk due to a history of mental health issues or academic and learning issues.  This study shows that traditional stress management approaches aren't as effective for this population compared with programs that focus on providing opportunities to interact with therapy dogs.\"",
+        "The researchers measured executive functioning in the students involved in the study, Executive function is a term for the skills one needs to plan, organize, motivate, concentrate and memorize.These are skills students need to succeed in college. The researchers found that students who were most at risk had the most improvements in executive functioning after interacting with therapy dogs. These results remained when researchers followed up six weeks later.",
+        "Many universities provide academic stress management programs and workshops. These are traditionally very similar to college classes. They often talk about ways to get more sleep, set goals, or manage stress or anxiety. Pendry acknowledges that these are really important topics and these workshops help typical students succeed. But they're less helpful for struggling students. Pendry believes those students may experience the programs as another lecture and feel even more stressed."
+      ]
+    },
+    {
+      "id": "cet4-2023-12-1-listening-8",
+      "title": "短文三",
+      "questionNumbers": [
+        22,
+        23,
+        24,
+        25
+      ],
+      "transcript": [
+        "Taking risks in business does not mean going into business blindly and then expecting great results. On the contrary, taking risks in entrepreneurship involves careful planning and hard work. Nobody can really be sure if risks will be met with success, no matter how calculated they may be. But this should not stop you from taking risks, as risks are necessary if you want your business to succeed.",
+        "Some risks may not work out, but an optimistic risk-taker will always look at failure as an opportunity to learn. The willingness to experiment with new ideas is key to business growth. As the old saying goes, \"Nothing ventured, nothing gained.\" Failure will teach you how to think and plan strategically.  But just remember that not all risks are good ones, and when you fail, learn from it and move forward.",
+        "Since most people tend to avoid risk, businesses that are brave enough to take risks already have a competitive advantage.They are the ones setting the standard with new ideas, fresh offers and bold inventions. Risk- takers are best at adapting in difficult times.  Simply put, when most individuals stay away from risk, it means less competition for risk-takers. We don't know if you'll achieve what these risk-takers have achieved. But for as long as you want to stay safe, and for as long as you are content with where your business is right now, you will never find out."
+      ]
+    }
+  ],
+  "materialId": "4b7dc8ee8c07d69d4446",
+  "questionSetId": "c8dfd7269d645a2dc26b"
+}

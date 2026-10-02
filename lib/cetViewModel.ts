@@ -16,7 +16,8 @@ export function cetViewModel(paper: CetPaper, activity: CetActivity | null, entr
     const section=paper.sections.find(s=>s.id===id); if(!section)return [];
     const snapshot=snapshotFor(id);
     const questions=snapshot ? snapshot.questions.filter(q=>q.sectionId===id).map(q=>({...q})) : section.questions.filter(q=>keySet.has(cetQuestionKey(id,q.number)));
-    return [{...section,questions}];
+    const listening = snapshot?.listeningSections?.[id];
+    return [{...section,questions,...(listening ? {audio:listening.audio,listeningGroups:listening.groups} : {})}];
   });
   const answer = (sectionId:string,key:string) => {const snapshot=snapshotFor(sectionId);return snapshot ? snapshot.answers[key] || "" : activity?.answers[key]?.value || "";};
   const state = (sectionId:string,key:string) => {
