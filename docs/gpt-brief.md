@@ -4,6 +4,18 @@
 
 本轮外刊性能方案已实现，正在发布验收：默认主推与三行共十张封面由 SSR 提前发出原清晰度预加载，初始封面完成后静默预取全库；登录前、工作台和折叠“显示更多”期间均可准备公开封面。展开列表每批挂载 36 张，保留原出现/离开/再进入、悬停 3D、Reader 开启和返回。没有新增加载提示。极端冷网和任意速度下零灰图、实体设备与用户动效验收仍开放，见 [本轮证据](publication-preload-release.md)。
 
+## 2026-10-03 球体场景恢复与蓝色付费页
+
+用户再次报告球体覆盖下方桥接文字和导入区，前一轮只修默认 prop 的修复不能视为完整验收。正式站复现另一路径：从窄屏页面下方打开 Menu 后切回桌面，body 锁滚动使 scrollY 为零，旧代码跳过几何校准，重建的桌面场景使用旧的零进度。现在锁定状态也根据 stage/showcase 的视口坐标同步；场景首次绘制、滚动、尺寸/布局改变、解锁、页面恢复共用同一校准逻辑。画布父层增加默认关闭的 opacity 门，场景自己的 visibility 无法越过；保留球体物理、逐颗离场和反向恢复，手机仍在 hero 内显示。付费页按用户要求改为蓝色系，价格/点数/抵扣规则不变。
+
+构建、4 个新增场景回归、89 核心和7媒体测试及9发布契约通过；本地已确认锁滚动时重建场景的外层 opacity 为0，回顶部恢复为1。部署后还需正式站重复真题返回、菜单与尺寸切换、付费页及账号/服务验收；物理手机和用户视觉接受不由这些自动验证替代。详见 [本轮证据](ballpit-scroll-lifecycle-release.md)。
+
+
+## Current accepted unified billing release
+
+Accepted `20261002T233200`, parent `20261002T232000`, source `38bba496bf233a2d4f6cac0a16b74a3ee1336ec4`, at `2026-10-02T15:36:08Z`. Public identity/current/accepted state agree. The initial 52-file billing release `20261002T232000` (parent `20261002T225700`, source `d2fbd6224c44a26b0481d810a97d5d64270ad9af`) and final three-file keyboard correction retain all CET work. Unified points, dynamic prices/Admin, purchase/credit/annual monthly grants and Native integration are deployed; actual payment is disabled pending merchant setup. Core/billing/CET/media/loading, SQL/concurrency/legacy contracts, build and egress checks passed. Real signed-in 1+5+2+10=18 point ledger, sync, pricing/Menu/Admin, threshold/exhaustion, guest CET returns, seven-service health, 23-table backup restore and current/parent images verified. Real payment/refund, physical-device and final user visual acceptance remain open. [Evidence](unified-billing-release.md).
+
+
 ## Unified points and one-time membership purchases
 
 Signed-in non-Admin accounts use one learning-points balance: Free 300/month, Basic 5,000 at CNY 6/month or 60/year, Plus 15,000 at 15/150, and Max 30,000 at 30/300. Admin → 付费管理 owns public prices and next-cycle points; the public `/pricing` page reads that same configuration. Already issued grants and orders retain snapshots. Guest daily pools and Admin safety counters remain separate.
@@ -15,7 +27,7 @@ Monthly repurchase/upgrade starts a new cycle with remaining-value credit limite
 
 ## 当前生产（2026-10-02 GitHub听力增补）
 
-当前接受 `20261002T190651`（parent `20261002T183827`，source `2958b1ccce2ee6b563afb21137eaa593b81617c0`），公网/current/state一致；保留首页上浮及既有功能。现有149套中62套听力（四级31/六级31），1550题/465组原文/61份录音，原19套在增补阶段逐字节不改；本次其中6套来源污染定点纠正，原始哈希与可逆证明保留。来源、未接入87套及详细解析/人工/设备限制见[cet-listening-supplement-report.md](cet-listening-supplement-report.md)，正式发布、真实页面/数据/运行证据见[cet-listening-supplement-release.md](cet-listening-supplement-release.md)。
+当前接受 `20261002T202624`（parent `20261002T201050`，source `205c32b7a5d17c51c0126bfbffca9b58b21fb3fc`），公网/current/state一致；保留首页上浮及既有功能。现有149套中62套听力（四级31/六级31），1550题/465组原文/61份录音，原19套在增补阶段逐字节不改；本次其中6套来源污染定点纠正，原始哈希与可逆证明保留。来源、未接入87套及详细解析/人工/设备限制见[cet-listening-supplement-report.md](cet-listening-supplement-report.md)，听力增补的历史发布见[cet-listening-supplement-release.md](cet-listening-supplement-release.md)，最新水印/页脚修复18处、真实页面与运行证据见[cet-listening-watermark-release.md](cet-listening-watermark-release.md)。
 
 ## 首页资源标题上浮修订（2026-10-02，已生产，观感待用户接受）
 
@@ -26,7 +38,7 @@ Monthly repurchase/upgrade starts a new cycle with remaining-value credit limite
 
 ## CET 听力增补（已生产，人工与设备验收开放）
 
-当前接受 `20261002T190651`（parent `20261002T183827`，source `2958b1ccce2ee6b563afb21137eaa593b81617c0`），公网/current/state一致；保留首页上浮及既有功能。现有149套中62套听力（四级31/六级31），1550题/465组原文/61份录音，原19套在增补阶段逐字节不改；本次其中6套来源污染定点纠正，原始哈希与可逆证明保留。来源、未接入87套及详细解析/人工/设备限制见[cet-listening-supplement-report.md](cet-listening-supplement-report.md)，正式发布、真实页面/数据/运行证据见[cet-listening-supplement-release.md](cet-listening-supplement-release.md)。
+当前接受 `20261002T202624`（parent `20261002T201050`，source `205c32b7a5d17c51c0126bfbffca9b58b21fb3fc`），公网/current/state一致；保留首页上浮及既有功能。现有149套中62套听力（四级31/六级31），1550题/465组原文/61份录音，原19套在增补阶段逐字节不改；本次其中6套来源污染定点纠正，原始哈希与可逆证明保留。来源、未接入87套及详细解析/人工/设备限制见[cet-listening-supplement-report.md](cet-listening-supplement-report.md)，听力增补的历史发布见[cet-listening-supplement-release.md](cet-listening-supplement-release.md)，最新水印/页脚修复18处、真实页面与运行证据见[cet-listening-watermark-release.md](cet-listening-watermark-release.md)。
 
 ## 首次19套听力的历史证据（当前已由62套增补取代）
 
@@ -193,4 +205,4 @@ DeepSeek 保持首选；查词/划词及全文翻译继续默认 Flash，其他�
 2026-09-23 用户截图证实精选外刊列表快滑时有封面的卡片仍出现灰框；远距离预加载和较小预览均未达到目标。现有 256×192 同图预览、普通卡片免高清请求、目录缓存及返回卡片定位已发布。地址 200、预览字段覆盖率与 304 均不能证明真实登录冷缓存、手机滚动与 Reader 正文图片的主观体验；首次并发目录的 17.68/20.44 秒仍不达用户零等待要求。详情见 [featured-image-scroll-open-issue.md](featured-image-scroll-open-issue.md)。
 
 
-CET 暂停划记/题目翻译修订：暂停仍能新增、改色、删除本次自测划记，已提交只读；长句越界松手与句尾标记渲染已修正。全文翻译覆盖当前篇正文、题干、选项和词库，历史使用冻结题目。下划线2.5px/.24em间距。发布身份和实测边界见 `docs/cet-mark-translation-release.md`。
+CET 暂停划记/题目翻译已生产（20261002T225700，parent 20261002T202624，source ae4ece526668fa14bc1636445821f98291e500ae）：暂停仍能新增、改色、删除本次自测划记，已提交只读；长句越界松手与句尾标记渲染已修正。全文翻译覆盖当前篇正文、题干、选项和词库，历史使用冻结题目。下划线2.5px/.24em间距。发布身份和实测边界见 `docs/cet-mark-translation-release.md`。

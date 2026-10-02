@@ -1,0 +1,98 @@
+{
+  "release": "20261002T232000",
+  "parent": "20261002T225700",
+  "catalog": {
+    "plans": [
+      {
+        "id": "free",
+        "name": "免费账号",
+        "monthlyFen": 0,
+        "annualFen": 0,
+        "points": 300,
+        "active": true
+      },
+      {
+        "id": "basic",
+        "name": "Basic",
+        "monthlyFen": 600,
+        "annualFen": 6000,
+        "points": 5000,
+        "active": true
+      },
+      {
+        "id": "plus",
+        "name": "Plus",
+        "monthlyFen": 1500,
+        "annualFen": 15000,
+        "points": 15000,
+        "active": true
+      },
+      {
+        "id": "max",
+        "name": "Max",
+        "monthlyFen": 3000,
+        "annualFen": 30000,
+        "points": 30000,
+        "active": true
+      }
+    ],
+    "paymentReady": false
+  },
+  "sync": true,
+  "actions": [
+    {
+      "id": "ce0b75da-430d-4efd-a2a1-0d56c0e91721",
+      "feature": "full_article_translation",
+      "metric_key": "learning_points",
+      "quota_units": 10,
+      "status": "succeeded"
+    },
+    {
+      "id": "fabcbb15-0c03-4f9a-b2c0-1cdc7f7f28fd",
+      "feature": "article_summary",
+      "metric_key": "learning_points",
+      "quota_units": 2,
+      "status": "cached"
+    },
+    {
+      "id": "888b202e-719e-475e-9df7-51ee95df440f",
+      "feature": "standalone_dictionary",
+      "metric_key": "learning_points",
+      "quota_units": 5,
+      "status": "succeeded"
+    },
+    {
+      "id": "d252fa62-6f11-4f0b-bc65-c35ae25e16ea",
+      "feature": "word_explanation",
+      "metric_key": "learning_points",
+      "quota_units": 1,
+      "status": "succeeded"
+    }
+  ],
+  "balance": {
+    "used": 18,
+    "allowance": 300,
+    "metricKey": "learning_points",
+    "remaining": 282,
+    "windowEnd": "2026-10-31T16:00:00+00:00",
+    "periodGrant": "9f331813-0752-4c99-90ff-4cf1a28c4018"
+  },
+  "accountId": "faae3f0f-b1d9-4da6-9532-6849ce3f2193",
+  "quote": {
+    "kind": "membership",
+    "term": "month",
+    "basis": {
+      "used": 18,
+      "grant": "9f331813-0752-4c99-90ff-4cf1a28c4018",
+      "points": 300,
+      "version": null,
+      "membershipOrder": null
+    },
+    "planId": "basic",
+    "points": 5000,
+    "priceFen": 600,
+    "amountFen": 600,
+    "creditFen": 0
+  },
+  "adminBilling": true
+}

@@ -6,11 +6,12 @@ import { prepareCetPreview } from "@/lib/cetCatalogueClient";
 import { CetLibraryPlaceholder } from "@/components/cet/CetLibraryPlaceholder";
 const loadCetLibrary = () => import("@/components/cet/CetLibrary");
 const CetLibrary = dynamicCet(() => loadCetLibrary().then(m => m.CetLibrary), { loading: () => <CetLibraryPlaceholder /> });
-import { useEffect, useMemo, useRef, useState, type CSSProperties, type MouseEvent as ReactMouseEvent, type PointerEvent } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, type MouseEvent as ReactMouseEvent, type PointerEvent } from "react";
 import { ArticleCover } from "@/components/ArticleCover";
 import { useDailyPublicationNotice } from "@/components/useDailyPublicationNotice";
 import { useArticleSummary } from "@/components/useArticleSummary";
 import { startupMark } from "@/lib/startupPerformance";
+import { updateHomeCoverMotion } from "@/lib/homeCoverMotion";
 import { useArticleReveal } from "@/components/useArticleReveal";
 import { usePublicationMountCount } from "@/components/usePublicationMountCount";
 import { useShowcaseCoversReady } from "@/components/useShowcaseCoversReady";
@@ -684,52 +685,44 @@ export function HomeRedesign(props: HomeRedesignProps) {
     if (categorySwitchTimerRef.current !== null) window.clearTimeout(categorySwitchTimerRef.current);
   }, []);
 
+  const syncCoverProgress = useCallback(() => {
+    coverProgressRef.current = updateHomeCoverMotion(
+      flowRef.current, coverStageRef.current, featureShowcaseRef.current,
+      (progress) => ballpitControllerRef.current?.setDepartureProgress(progress),
+    );
+  }, []);
+
   useEffect(() => {
-    if (memberHome || compactViewport) return;
+    if (memberHome || journeyPending) return;
     let frame = 0;
-    let stageTop = 0;
-    let distance = 1;
-    const measureCover = () => {
-      const stage = coverStageRef.current;
-      const recommendation = featureShowcaseRef.current;
-      if (!stage || !recommendation) return;
-      stageTop = stage.getBoundingClientRect().top + window.scrollY;
-      const recommendationTop = recommendation.getBoundingClientRect().top + window.scrollY;
-      distance = Math.max(1, recommendationTop - stageTop);
+    const schedule = () => {
+      if (!frame) frame = window.requestAnimationFrame(() => {
+        frame = 0;
+        syncCoverProgress();
+      });
     };
-    const updateCoverProgress = () => {
-      frame = 0;
-      // Document scroll locking fixes the body in place and temporarily reports
-      // window.scrollY as zero. Keep the already-rendered cover/background state
-      // while Menu, saved articles, or vocabulary are open over the current page.
-      if (document.body.style.position === "fixed") return;
-      const raw = Math.min(1, Math.max(0, (window.scrollY - stageTop) / distance));
-      coverProgressRef.current = raw;
-      flowRef.current?.style.setProperty("--cover-progress", raw.toFixed(4));
-      flowRef.current?.style.setProperty("--hero-opacity", Math.max(0, 1 - raw * 2.7).toFixed(4));
-      flowRef.current?.style.setProperty("--hero-shift", `${(raw * -34).toFixed(2)}px`);
-      flowRef.current?.style.setProperty("--cover-surface-opacity", Math.min(1, Math.max(0, (1 - raw) / 0.18)).toFixed(4));
-      flowRef.current?.style.setProperty("--hero-pointer", raw > 0.94 ? "none" : "auto");
-      const departureInput = Math.min(1, Math.max(0, (raw - 0.04) / 0.96));
-      ballpitControllerRef.current?.setDepartureProgress(departureInput);
-    };
-    const requestUpdate = () => {
-      if (!frame) frame = window.requestAnimationFrame(updateCoverProgress);
-    };
-    const requestMeasure = () => {
-      measureCover();
-      requestUpdate();
-    };
-    measureCover();
-    updateCoverProgress();
-    window.addEventListener("scroll", requestUpdate, { passive: true });
-    window.addEventListener("resize", requestMeasure, { passive: true });
+    syncCoverProgress();
+    // Also track responsive layout, document locks and bfcache restoration: none
+    // of those is guaranteed to produce a scroll event before a new scene paints.
+    const resize = new ResizeObserver(schedule);
+    if (coverStageRef.current) resize.observe(coverStageRef.current);
+    if (featureShowcaseRef.current) resize.observe(featureShowcaseRef.current);
+    const locks = new MutationObserver(schedule);
+    locks.observe(document.body, { attributes: true, attributeFilter: ["style"] });
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule, { passive: true });
+    window.addEventListener("pageshow", schedule);
+    document.addEventListener("visibilitychange", schedule);
     return () => {
-      window.removeEventListener("scroll", requestUpdate);
-      window.removeEventListener("resize", requestMeasure);
+      resize.disconnect();
+      locks.disconnect();
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
+      window.removeEventListener("pageshow", schedule);
+      document.removeEventListener("visibilitychange", schedule);
       if (frame) window.cancelAnimationFrame(frame);
     };
-  }, [compactViewport, memberHome]);
+  }, [compactViewport, journeyPending, memberHome, syncCoverProgress]);
 
   useEffect(() => {
     if (memberHome || !compactViewport) return;
@@ -1276,16 +1269,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
             showCursorBall={false}
             initialLayout="right"
             controllerRef={ballpitControllerRef}
-            onReady={() => {
-              // Deferred modules must use the current geometry before the first paint.
-              if (document.body.style.position !== "fixed") {
-                const stage = coverStageRef.current?.getBoundingClientRect();
-                const showcase = featureShowcaseRef.current?.getBoundingClientRect();
-                if (stage && showcase) coverProgressRef.current = Math.min(1, Math.max(0, -stage.top / Math.max(1, showcase.top - stage.top)));
-              }
-              const departureInput = Math.min(1, Math.max(0, (coverProgressRef.current - 0.04) / 0.96));
-              ballpitControllerRef.current?.setDepartureProgress(departureInput);
-            }}
+            onReady={syncCoverProgress}
           />
         </div>}
 

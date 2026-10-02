@@ -289,6 +289,7 @@
 .coverAction:focus-visible i { transform: translateY(5px); }
 
 .ballField {
+  opacity: var(--cover-balls-visible, 0);
   position: fixed;
   z-index: 4;
   inset: 0;
