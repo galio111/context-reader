@@ -312,7 +312,7 @@ export async function startArticleTranslationJob(
     const start = await startTranslationUsage(
       actionId,
       key,
-      allBlocks,
+      options.publicCache ? allBlocks : blocks,
       options.publicCache ? "public_cache" : "generated",
       options.publicCache?.articleId ?? options.publicArticleId,
     );

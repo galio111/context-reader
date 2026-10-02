@@ -12,7 +12,7 @@ import AdminInvitationCodesPanel from "@/components/AdminInvitationCodesPanel";
 
 type ManagedPlanId = "guest" | "free" | "basic" | "plus" | "max";
 type UserPlanId = "free" | "basic" | "plus" | "max" | "admin";
-type ManagedMetric = "guest_article_lookup" | "guest_dictionary_lookup" | "guest_text_import" | "guest_url_import" | "lookup_generation" | "article_summary" | "full_article_translation";
+type ManagedMetric = "learning_points" | "guest_article_lookup" | "guest_dictionary_lookup" | "guest_text_import" | "guest_url_import" | "lookup_generation" | "article_summary" | "full_article_translation";
 
 interface DashboardData {
   todayFeatures: Array<{ key: string; label: string; executions: number; failed: number; promptTokens: number; completionTokens: number; estimatedCostCny: number }>;
@@ -43,6 +43,7 @@ interface DashboardData {
       userId: string;
       metricKey: "article_summary" | "full_article_translation";
       quotaUnits: number;
+      quotaMetric?: string;
       status: string;
       cacheHit: boolean;
       source: string;
@@ -134,9 +135,7 @@ const PLAN_RULES: PlanRule[] = [
     name: "免费账号",
     description: "注册后的默认套餐",
     metrics: [
-      { key: "lookup_generation", label: "AI 查词与追问", unit: "次 / 天", windowType: "day" },
-      { key: "article_summary", label: "文章摘要", unit: "次 / 月", windowType: "month" },
-      { key: "full_article_translation", label: "全文翻译", unit: "次 / 月", windowType: "month" },
+      { key: "learning_points", label: "统一学习点数", unit: "点 / 月", windowType: "month" },
     ],
   },
   {
@@ -144,9 +143,7 @@ const PLAN_RULES: PlanRule[] = [
     name: "Basic",
     description: "轻量使用",
     metrics: [
-      { key: "lookup_generation", label: "AI 查词与追问", unit: "次 / 天", windowType: "day" },
-      { key: "article_summary", label: "文章摘要", unit: "次 / 月", windowType: "month" },
-      { key: "full_article_translation", label: "全文翻译", unit: "次 / 月", windowType: "month" },
+      { key: "learning_points", label: "统一学习点数", unit: "点 / 月", windowType: "month" },
     ],
   },
   {
@@ -154,9 +151,7 @@ const PLAN_RULES: PlanRule[] = [
     name: "Plus",
     description: "高频阅读",
     metrics: [
-      { key: "lookup_generation", label: "AI 查词与追问", unit: "次 / 天", windowType: "day" },
-      { key: "article_summary", label: "文章摘要", unit: "次 / 月", windowType: "month" },
-      { key: "full_article_translation", label: "全文翻译", unit: "次 / 月", windowType: "month" },
+      { key: "learning_points", label: "统一学习点数", unit: "点 / 月", windowType: "month" },
     ],
   },
   {
@@ -164,9 +159,7 @@ const PLAN_RULES: PlanRule[] = [
     name: "Max",
     description: "重度使用",
     metrics: [
-      { key: "lookup_generation", label: "AI 查词与追问", unit: "次 / 天", windowType: "day" },
-      { key: "article_summary", label: "文章摘要", unit: "次 / 月", windowType: "month" },
-      { key: "full_article_translation", label: "全文翻译", unit: "次 / 月", windowType: "month" },
+      { key: "learning_points", label: "统一学习点数", unit: "点 / 月", windowType: "month" },
     ],
   },
 ];
@@ -344,11 +337,11 @@ export default function AdminAccountsPanel() {
           <div hidden={section !== "plans"}>
           <section id="account-plans" className="mt-6 scroll-mt-24 overflow-hidden rounded-2xl bg-white">
             <div className="border-b border-[#e1e5e9] px-5 py-5">
-              <h3 className="text-[21px] font-semibold">套餐额度规则</h3>
+              <h3 className="text-[21px] font-semibold">套餐点数规则</h3>
               <div className="mt-3 max-w-3xl rounded-xl bg-[#edf5fb] px-4 py-3 text-sm leading-6 text-[#174d73]">
-                <p><strong>AI 查词与追问：</strong>注册用户只有新生成解释或句子追问会扣次数，缓存命中免费；游客无论缓存或新生成都计入每日试用。</p>
-                <p className="mt-1"><strong>文章摘要：</strong>首次保存且没有有效摘要时生成并扣 1 次；保存后的摘要直接复用。</p>
-                <p className="mt-1"><strong>全文翻译：</strong>点击开始一次新翻译扣 1 次，重看已有结果免费；重新生成再扣 1 次。精选缓存首次点击同样扣 1 次，但不调用模型。</p>
+                <p><strong>AI 查词与追问：</strong>登录账号：划词 1 点、单独查词 5 点、句子追问 5 点；游客继续使用独立每日试用额度。</p>
+                <p className="mt-1"><strong>文章摘要：</strong>生成或首次领取精选摘要扣 2 点；重看自己的摘要免费。</p>
+                <p className="mt-1"><strong>全文翻译：</strong>每 500 个英文词 10 点，向上取整；首次领取精选译文同价，重看已有结果免费。</p>
               </div>
             </div>
             <div className="divide-y divide-[#e1e5e9]">
@@ -411,11 +404,9 @@ export default function AdminAccountsPanel() {
 
                         <details className="mt-4 rounded-xl bg-[#f3f5f7] px-4 py-3">
                           <summary className="cursor-pointer text-sm font-medium text-[#4d535a]">更多账号操作</summary>
-                          <p className="mt-3 text-xs leading-5 text-[#68717a]">额外额度会在用户每个周期都叠加到套餐额度上，只有特殊邀请或补偿时才需要设置。</p>
+                          <p className="mt-3 text-xs leading-5 text-[#68717a]">额外额度会在用户每个周期都叠加到套餐额度上，下一个新周期生效；价格请在付费管理中设置。</p>
                           <div className="mt-3 grid gap-3 md:grid-cols-2">
-                            <BonusControl label="每周期额外查词次数" userId={userId} metric="lookup_generation" value={Number(bonuses.lookup_generation || 0)} saving={saving} onSave={patchAccount} />
-                            <BonusControl label="每月额外摘要次数" userId={userId} metric="article_summary" value={Number(bonuses.article_summary || 0)} saving={saving} onSave={patchAccount} />
-                            <BonusControl label="每月额外全文翻译次数" userId={userId} metric="full_article_translation" value={Number(bonuses.full_article_translation || 0)} saving={saving} onSave={patchAccount} />
+                            <BonusControl label="每个新周期额外点数" userId={userId} metric="learning_points" value={Number(bonuses.learning_points || 0)} saving={saving} onSave={patchAccount} />
                           </div>
                           <div className="mt-3 flex flex-wrap gap-2">
                             <button className="min-h-9 rounded-full border border-[#b8c7d5] bg-white px-3 text-sm text-[#175a8d] hover:bg-[#edf5fb]" type="button" disabled={saving === `reset-${userId}`} onClick={() => void patchAccount({ action: "reset_usage", userId }, `reset-${userId}`)}>{saving === `reset-${userId}` ? "清零中..." : "清零当前周期用量"}</button>
@@ -462,7 +453,7 @@ export default function AdminAccountsPanel() {
                   <tbody className="divide-y divide-[#e1e5e9]">{data.quotaUsage.details.map((detail) => {
                     const profile = profileByUser.get(detail.userId);
                     const totalTokens = detail.promptTokens + detail.completionTokens;
-                    return <tr key={detail.id} className="align-top"><td className="px-5 py-4"><time className="block whitespace-nowrap">{new Date(detail.createdAt).toLocaleString("zh-CN", { timeZone: "Asia/Shanghai", month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit" })}</time><span className="mt-1 block text-xs text-[#68717a]">{profile ? profileName(profile) : "账号已删除"}</span></td><td className="max-w-xs px-3 py-4"><strong className="block truncate text-[#27333d]" title={detail.articleLabel}>{detail.articleLabel}</strong><span className="mt-1 block font-mono text-[11px] text-[#7b858d]">{detail.articleKey.slice(0, 12) || "无版本号"}</span></td><td className="px-3 py-4">{detail.metricKey === "article_summary" ? "摘要" : detail.source === "public_cache" ? "精选缓存" : "全文翻译"}</td><td className="px-3 py-4">{detail.quotaUnits > 0 ? `${detail.quotaUnits} 次` : "0 次"}</td><td className="px-3 py-4">{detail.providerExecutions} 次调用</td><td className="px-3 py-4">{totalTokens.toLocaleString("zh-CN")}<span className="mt-1 block text-xs text-[#68717a]">￥{detail.estimatedCostCny.toFixed(6)}{detail.unknownCost > 0 ? ` + ${detail.unknownCost} 次待核算` : ""}</span></td><td className="px-5 py-4"><span className={`rounded-full px-2.5 py-1 text-xs font-medium ${detail.status === "succeeded" || detail.status === "cached" ? "bg-[#e9f5ee] text-[#17613b]" : "bg-red-50 text-red-700"}`}>{detail.status === "cached" ? "缓存命中" : detail.status === "succeeded" ? "成功" : detail.status === "reserved" ? "进行中" : "失败/取消"}</span></td></tr>;
+                    return <tr key={detail.id} className="align-top"><td className="px-5 py-4"><time className="block whitespace-nowrap">{new Date(detail.createdAt).toLocaleString("zh-CN", { timeZone: "Asia/Shanghai", month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit" })}</time><span className="mt-1 block text-xs text-[#68717a]">{profile ? profileName(profile) : "账号已删除"}</span></td><td className="max-w-xs px-3 py-4"><strong className="block truncate text-[#27333d]" title={detail.articleLabel}>{detail.articleLabel}</strong><span className="mt-1 block font-mono text-[11px] text-[#7b858d]">{detail.articleKey.slice(0, 12) || "无版本号"}</span></td><td className="px-3 py-4">{detail.metricKey === "article_summary" ? "摘要" : detail.source === "public_cache" ? "精选缓存" : "全文翻译"}</td><td className="px-3 py-4">{detail.quotaUnits > 0 ? `${detail.quotaUnits} ${detail.quotaMetric === "learning_points" ? "点" : "次（旧制）"}` : "0"}</td><td className="px-3 py-4">{detail.providerExecutions} 次调用</td><td className="px-3 py-4">{totalTokens.toLocaleString("zh-CN")}<span className="mt-1 block text-xs text-[#68717a]">￥{detail.estimatedCostCny.toFixed(6)}{detail.unknownCost > 0 ? ` + ${detail.unknownCost} 次待核算` : ""}</span></td><td className="px-5 py-4"><span className={`rounded-full px-2.5 py-1 text-xs font-medium ${detail.status === "succeeded" || detail.status === "cached" ? "bg-[#e9f5ee] text-[#17613b]" : "bg-red-50 text-red-700"}`}>{detail.status === "cached" ? "缓存命中" : detail.status === "succeeded" ? "成功" : detail.status === "reserved" ? "进行中" : "失败/取消"}</span></td></tr>;
                   })}</tbody>
                 </table>
               </div>
@@ -496,7 +487,7 @@ function BonusControl({
 }: {
   label: string;
   userId: string;
-  metric: "lookup_generation" | "article_summary" | "full_article_translation";
+  metric: "learning_points";
   value: number;
   saving: string;
   onSave: (body: Record<string, unknown>, key: string) => Promise<unknown>;
@@ -523,7 +514,7 @@ function QuotaUsageRow({ label, usage, articleUnit }: { label: string; usage: Qu
     <article className="grid gap-3 px-5 py-4 lg:grid-cols-[150px_minmax(0,1fr)] lg:gap-5">
       <div><strong className="text-sm">{label}</strong><p className="mt-1 text-[11px] text-[#68717a]">成功 {usage.succeededActions} · 失败 {usage.failedActions}</p></div>
       <dl className="grid grid-cols-2 gap-y-4 divide-x divide-[#e1e5e9] sm:grid-cols-5">
-        <MetricCell label="用户扣量" value={`${usage.chargedActions.toLocaleString("zh-CN")} 次`} />
+        <MetricCell label="扣量操作数" value={`${usage.chargedActions.toLocaleString("zh-CN")} 次`} />
         <MetricCell label={articleUnit} value={`${usage.generatedArticles.toLocaleString("zh-CN")} 篇`} />
         <MetricCell label="AI 请求" value={`${usage.providerExecutions.toLocaleString("zh-CN")} 次`} />
         <MetricCell label="Tokens" value={(usage.promptTokens + usage.completionTokens).toLocaleString("zh-CN")} />

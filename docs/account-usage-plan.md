@@ -7,9 +7,9 @@ Status: application code, production environment variables, and Auth are configu
 1. Reading comes first. Opening the homepage, entering an article, switching articles, editing, and an in-progress stream are never interrupted by account prompts.
 2. Ask at the restricted action. Login appears only when a guest exhausts lookup trial or tries to save, use vocabulary/Anki, request private full translation, or generate a summary.
 3. One user action is one visible charge. The stream-first request and any structured fallback share an idempotent action id; backend executions still record their real token usage separately.
-4. Never charge guests or registered users for ordinary cache hits, failures, timeouts, or timely cancellations. The deliberate exception is a published curated full-translation cache: the member's first click for that exact article body version consumes one full-translation action while recording zero DeepSeek cost; later replay is free. Guest article lookup, standalone dictionary, pasted-text import and URL import use separate server-managed pools.
+4. Ordinary own-result replay, failed work and timely cancellation are free. First delivery of a curated summary or full translation is charged at the normal points rate even when an existing public cache avoids provider work. Translation reserves points up front and settles completed English words on interruption; unfinished work is refunded. Guest trial pools remain separate.
 5. The cloud is authoritative after login, but migration never silently discards local data. Version conflicts are refetched and merged. Article conflicts collapse into one canonical article and discarded ids become tombstones, so visible recovery copies must not remain; vocabulary is normalized and deduplicated by word plus source sentence, while a genuinely ambiguous same-id vocabulary conflict is retained in a separate local recovery store instead of appearing as another notebook entry.
-6. Quotas are product configuration, not UI constants. Ordinary-user allowances are editable from the “用户与额度 → 套餐与额度” section of `/admin`; raw metric keys, fixed period internals, developer safety allowances, and unconnected price experiments are hidden from the daily management UI. Payment is deliberately not connected. The public account page replaces plan names with “公开测试中” and hides every price/purchase/upgrade surface unless the owner later enables `NEXT_PUBLIC_COMMERCIAL_UI=enabled` and rebuilds. All signed-in accounts see actual usage balances and reset times independently of the legacy `NEXT_PUBLIC_USAGE_DETAILS_UI` flag; enforcement remains on the server. An active invitation grant is the exception: its real plan, allowances and expiry are always shown so the tester knows what was redeemed.
+6. Signed-in non-Admin accounts share `learning_points`. Admin edits monthly points and monthly/annual prices; the public `/pricing` page reads the same server configuration. Issued grants and orders retain their snapshots; new orders and future membership months use current settings. Menu → 账号与用量 shows the real plan and used/total points, with upgrade/order entry. WeChat Native checkout is implemented but disabled until credentials, merchant permissions and operational acceptance are complete.
 7. Collect the minimum. Analytics stores identity, entitlement, quota actions, route/model, provider tokens, estimated cost, status and error code—not full private article text.
 
 ## User state matrix
@@ -17,22 +17,28 @@ Status: application code, production environment variables, and Auth are configu
 | Capability | Guest | Free account | Paid / invite | Admin |
 |---|---:|---:|---:|---:|
 | Paste, URL import, read public recommendations | Yes | Yes | Yes | Yes |
-| Word/phrase explanation | 10/day | 30/day | Plan allowance | High safety allowance |
+| Word/phrase explanation | 10/day | Shared points | Shared points | High safety allowance |
 | Cached word explanation | Free | Free | Free | Free |
 | Save article / vocabulary / Anki | Login prompt | Synced | Synced | Synced |
-| Private translation / summary | Login prompt | Separate monthly actions | Separate monthly actions | High allowance |
-| Admin-prepublished translation | Login prompt | First click counts once | First click counts once | High allowance |
+| Private translation / summary | Login prompt | Shared monthly points | Shared monthly points | High allowance |
+| Admin-prepublished translation | Login prompt | First delivery spends points | First delivery spends points | High allowance |
 | Cross-device sync | No | Yes | Yes | Yes |
 
 ## Quota model
 
-- `guest_lookup`: one generated article lookup, including explicit regeneration; ordinary cache replay is free. Standalone dictionary uses its separate guest pool.
-- `lookup_generation`: one generated lookup or sentence follow-up. A stream and any structured fallback share one quota action; provider executions are recorded separately.
-- `article_summary`: one monthly action when the first save generates a summary. Saving itself never depends on this allowance: bodies longer than 50,000 characters skip automatic summary generation, and an exhausted summary allowance leaves the article saved without a summary. Re-saving the same article version reuses the saved summary; there is no user-facing summary-regeneration action.
-- `full_article_translation`: one monthly action for each user-started whole-article translation job, independent of the number of streaming provider batches. Reopening the same account's cached result is free; explicit regeneration charges a new action. A first curated-cache click charges one action but creates no provider execution. Normal articles use one upstream streaming batch with the article context sent once; only oversized articles need a small number of bounded batches.
-- Defaults: guest pools remain 10 article lookups, 5 dictionary lookups, 2 text imports and 2 URL imports per Shanghai day. Registered defaults are Free 30 lookups/day + 10 summaries/month + 1 full translation/month; Basic 80 + 75 + 5; Plus 200 + 250 + 20; Max 600 + 1,000 + 60. Every allowance may be set to zero in Admin.
-- `deep_reading` remains only as a legacy compatibility metric for old clients and dormant OCR code; new summary and full-translation work never consumes it.
-- Prices are internal hypotheses. Online payment and refunds are not active; admins may assign quota levels during testing, but public users do not see price cards or paid-plan names.
+| Account | Points per month | Monthly CNY | Annual CNY |
+|---|---:|---:|---:|
+| Free | 300 | 0 | 0 |
+| Basic | 5,000 | 6 | 60 |
+| Plus | 15,000 | 15 | 150 |
+| Max | 30,000 | 30 | 300 |
+
+- Context lookup 1 point, standalone dictionary 5, sentence follow-up 5, short summary 2, whole-article translation 10 per 500 English words rounded up. Pure reading, imports and saving without summary delivery are free for signed-in users.
+- Guest: 10 contextual lookups, 5 dictionary lookups, 2 pasted imports and 2 URL imports per Shanghai day; Admin keeps safety allowances. Their legacy `consume_usage` RPC remains intact.
+- Free uses Shanghai calendar months. Paid/invited plans use anchored membership months with month-end clamping. Annual payment grants one month at a time; ordinary unused points expire. Active topups retain their own expiry and spend earliest-expiring first.
+- Monthly repurchase/upgrade starts a new full cycle. Credit is original paid entitlement value times the smaller remaining-time/ordinary-points fraction. Annual credit also includes unstarted months. Annual-to-monthly and downgrades wait until expiry. Annual same-plan topup buys one monthly allotment at monthly list price, valid one membership month, without moving the annual schedule.
+- Orders contain immutable price/points/basis snapshots. Verified payment with stale membership/discount basis is recorded as `review` without granting rights and is eligible for an Admin original-route full refund. No automatic renewal/debit.
+- Migrate with `billing-migration.sql` after the existing account schema. The migration is additive; old action rows/counters remain for audit and rollback. On initial rollout, non-Admin accounts receive the new current-month grant; old per-feature usage is retained historically, not converted or double-charged.
 
 ## Data model
 
@@ -41,7 +47,7 @@ Status: application code, production environment variables, and Auth are configu
 - `invitation_codes`: SHA-256 code hash, non-secret hint, granted plan, post-redemption duration, optional redemption deadline, private note, redemption owner/time and grant expiry. Plaintext is returned only in the Admin creation response.
 - `quota_plans`, `quota_plan_limits`, `account_settings`: editable global configuration.
 - `guest_identities`: signed anonymous cookie identity, hashed last IP and status.
-- `usage_actions`, `usage_counters`: idempotent visible charge, body-version metadata and atomic counter.
+- `usage_actions` remains the action ledger; `usage_counters` serves guest/Admin and historical usage. `billing_grants`, `billing_allocations`, `billing_translation_blocks` provide atomic points allocation/refund and bounded per-block translation retries. `billing_memberships`, `billing_orders`, `billing_plans` store payment periods, auditable orders and editable prices.
 - `usage_executions`: every upstream call, tokens, estimated micro-USD and outcome.
 - `account_activity_days`: one service-only Shanghai-day presence row per account or guest identity, used for real DAU, seven-day WAU and rolling 30-day MAU.
 - `user_data_objects`: versioned article, vocabulary and cache objects.
@@ -54,9 +60,9 @@ Status: application code, production environment variables, and Auth are configu
 - Durable local changes schedule an upload after about 800 ms. While a signed-in page is visible, remote changes are checked about every 15 seconds and immediately on focus or visibility return; a suspended or offline browser catches up when it becomes active again.
 - Vocabulary sync keeps one canonical entry per normalized word and source sentence, merges the most complete generated fields and Anki import record, and sends tombstones for redundant cloud recovery ids.
 - Explicit logout first requires a successful sync, then clears account-associated local caches. A sync failure stops logout instead of risking data loss.
-- `/account/usage` shows simple remaining allowances. The Menu also exposes invitation redemption. The “账号与用量” section of `/admin` has a sticky section directory, true DAU/WAU/30-day MAU, editable guest/free/Basic/Plus/Max limits, invitation codes, account controls and per-user/per-article action details. Its cost view deliberately separates summary actions, full-translation actions and curated-cache hits: user charges and generated articles are action counts, while DeepSeek requests, tokens, failures and estimated CNY cost come from the execution ledger. Curated cache reports hit count, distinct articles, avoided calls and actual model cost zero. Estimates use DeepSeek's direct CNY rates, including all-weekend off-peak billing from 2026-08-23, while the provider console remains the authority for actual account deductions.
+- `/account/usage` remains compatible; normal 查看用量 actions open Menu → 账号与用量. The view shows used/total points. A 5%-remaining notice disappears after 3 seconds and is shown once per account/window/threshold in the browser session. The exhausted tool panel keeps an explicit 查看用量 action. `/pricing` and the full-screen pricing dialog share one component; closing the dialog preserves the underlying Menu state and focus. The Menu also exposes invitation redemption. The “账号与用量” section of `/admin` has a sticky section directory, true DAU/WAU/30-day MAU, editable guest/free/Basic/Plus/Max limits, invitation codes, account controls and per-user/per-article action details. Its cost view deliberately separates summary actions, full-translation actions and curated-cache hits: user charges and generated articles are action counts, while DeepSeek requests, tokens, failures and estimated CNY cost come from the execution ledger. Curated cache reports hit count, distinct articles, avoided calls and actual model cost zero. Estimates use DeepSeek's direct CNY rates, including all-weekend off-peak billing from 2026-08-23, while the provider console remains the authority for actual account deductions.
 - Invitation redemption is login-only and transactionally locks the hashed code before updating `user_entitlements`. A code can be redeemed once. An account with a still-active invitation or another active non-Free entitlement cannot replace it; after expiry the entitlement resolves to Free and a new code may be redeemed.
-- `public.consume_usage` serves every quota metric, including legacy article lookup and standalone dictionary. A replacement migration must be proven on a verified isolated backup restore with `ops/mainland/verify-usage-contracts.sql`, which invokes every configured metric and repeats an action id; a new-feature-only migration check is not sufficient.
+- `public.consume_usage` remains the guest/Admin compatibility contract; signed-in non-Admin routes use service-only `billing_consume` and `billing_finish`. A replacement migration must be proven on a verified isolated backup restore with `ops/mainland/verify-usage-contracts.sql`, which invokes every configured metric and repeats an action id; a new-feature-only migration check is not sufficient.
 
 ## Risks and phased release
 

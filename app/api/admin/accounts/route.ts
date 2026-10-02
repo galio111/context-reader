@@ -17,13 +17,13 @@ import {
 import type { AccountPlanId, UsageMetricKey } from "@/types/account";
 
 const PLANS = new Set<AccountPlanId>(["guest", "free", "basic", "plus", "max", "admin"]);
-const METRICS = new Set<UsageMetricKey>(["guest_lookup", "guest_article_lookup", "guest_dictionary_lookup", "guest_text_import", "guest_url_import", "lookup_generation", "deep_reading", "article_summary", "full_article_translation"]);
+const METRICS = new Set<UsageMetricKey>(["learning_points","guest_lookup", "guest_article_lookup", "guest_dictionary_lookup", "guest_text_import", "guest_url_import", "lookup_generation", "deep_reading", "article_summary", "full_article_translation"]);
 const MANAGED_PLAN_METRICS: Partial<Record<AccountPlanId, UsageMetricKey[]>> = {
   guest: ["guest_article_lookup", "guest_dictionary_lookup", "guest_text_import", "guest_url_import"],
-  free: ["lookup_generation", "article_summary", "full_article_translation"],
-  basic: ["lookup_generation", "article_summary", "full_article_translation"],
-  plus: ["lookup_generation", "article_summary", "full_article_translation"],
-  max: ["lookup_generation", "article_summary", "full_article_translation"],
+  free: ["learning_points"],
+  basic: ["learning_points"],
+  plus: ["learning_points"],
+  max: ["learning_points"],
 };
 
 interface UsageExecutionRow extends Record<string, unknown>, UsageExecutionSummaryRow {}
@@ -96,7 +96,7 @@ export async function GET() {
     return { estimatedCostCny: microcnyToCny(costs.reduce<number>((sum, cost) => sum + (cost ?? 0), 0)), unknownCost: costs.filter(cost => cost === null).length };
   };
   const summarizeActions = (metricKey: "article_summary" | "full_article_translation") => {
-    const metricActions = actions.filter((action) => action.metric_key === metricKey);
+    const metricActions = actions.filter((action) => action.feature === metricKey);
     const providerExecutions = metricActions.flatMap((action) => executionsByAction.get(action.id) ?? []);
     const promptTokens = providerExecutions.reduce((sum, execution) => sum + Number(execution.prompt_tokens || 0), 0);
     const completionTokens = providerExecutions.reduce((sum, execution) => sum + Number(execution.completion_tokens || 0), 0);
@@ -118,7 +118,7 @@ export async function GET() {
   };
   const summaryUsage = summarizeActions("article_summary");
   const translationUsage = summarizeActions("full_article_translation");
-  const publicCacheActions = actions.filter((action) => action.metric_key === "full_article_translation" && action.metadata?.source === "public_cache" && action.status === "cached");
+  const publicCacheActions = actions.filter((action) => action.feature === "full_article_translation" && action.metadata?.source === "public_cache" && action.status === "cached");
   const publicCacheUsage = {
     hits: publicCacheActions.length,
     articles: new Set(publicCacheActions.map((action) => String(action.metadata?.publicArticleId || action.metadata?.articleKey || "")).filter(Boolean)).size,
@@ -126,7 +126,7 @@ export async function GET() {
     actualModelCostCny: 0,
   };
   const actionDetails = actions
-    .filter((action) => action.metric_key === "article_summary" || action.metric_key === "full_article_translation")
+    .filter((action) => action.feature === "article_summary" || action.feature === "full_article_translation")
     .slice(0, 500)
     .map((action) => {
       const providerExecutions = executionsByAction.get(action.id) ?? [];
@@ -136,8 +136,9 @@ export async function GET() {
       return {
         id: action.id,
         userId: action.user_id || "",
-        metricKey: action.metric_key,
+        metricKey: action.feature,
         quotaUnits: Number(action.quota_units || 0),
+        quotaMetric: action.metric_key,
         status: action.status || "",
         cacheHit: Boolean(action.cache_hit),
         source: String(action.metadata?.source || "generated"),
@@ -250,17 +251,18 @@ export async function PATCH(request: Request) {
         plan_id: planId,
         metric_key: limit.metricKey,
         allowance: Number(limit.allowance),
-        window_type: limit.metricKey === "article_summary" || limit.metricKey === "full_article_translation" ? "month" : "day",
+        window_type: limit.metricKey === "learning_points" || limit.metricKey === "article_summary" || limit.metricKey === "full_article_translation" ? "month" : "day",
         updated_at: new Date().toISOString(),
       }))),
     });
   } else if (body.action === "reset_usage" && typeof body.userId === "string") {
-    await accountFetch(`usage_counters?owner_key=eq.${encodeURIComponent(`user:${body.userId}`)}`, { method: "DELETE", headers: { Prefer: "return=minimal" } });
+    await accountFetch("rpc/billing_reset_usage", { method: "POST", body: JSON.stringify({ p_user: body.userId }) });
   } else if (body.action === "set_bonus" && typeof body.userId === "string" && typeof body.metricKey === "string" && METRICS.has(body.metricKey as UsageMetricKey) && Number.isFinite(body.allowance)) {
     const rows = await accountFetch<Array<{ bonus_limits: Record<string, number> }>>(`user_entitlements?user_id=eq.${encodeURIComponent(body.userId)}&select=bonus_limits&limit=1`);
     const bonusLimits = { ...(rows[0]?.bonus_limits ?? {}), [body.metricKey]: Math.max(0, Math.floor(Number(body.allowance))) };
     await accountFetch(`user_entitlements?user_id=eq.${encodeURIComponent(body.userId)}`, { method: "PATCH", headers: { Prefer: "return=minimal" }, body: JSON.stringify({ bonus_limits: bonusLimits }) });
   } else if (body.action === "set_plan_config" && typeof body.planId === "string" && PLANS.has(body.planId as AccountPlanId) && Number.isFinite(body.priceCny)) {
+    if (["free", "basic", "plus", "max"].includes(body.planId)) return NextResponse.json({ error: "请在付费管理中统一设置月价、年价和点数。" }, { status: 409 });
     await accountFetch(`quota_plans?id=eq.${encodeURIComponent(body.planId)}`, { method: "PATCH", headers: { Prefer: "return=minimal" }, body: JSON.stringify({ price_cny: Math.max(0, Math.floor(Number(body.priceCny))), active: body.active !== false }) });
   } else if (body.action === "reset_pin" && typeof body.userId === "string") {
     try {

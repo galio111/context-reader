@@ -1,3 +1,4 @@
+import { billingRpc } from "@/lib/billingStore";
 import { NextResponse } from "next/server";
 import { finishUsage, getUsageAction, refundUsage } from "@/lib/accountStore";
 import { readJsonBody } from "@/lib/limitedBody";
@@ -19,10 +20,11 @@ export async function POST(request: Request) {
       !action
       || action.ownerKey !== identity.ownerKey
       || action.feature !== "full_article_translation"
-      || action.metricKey !== "full_article_translation"
+      || !["full_article_translation", "learning_points"].includes(action.metricKey)
     ) {
       return NextResponse.json({ error: "全文翻译任务不存在。" }, { status: 404 });
     }
+    if (action.metricKey === "learning_points") { await billingRpc("translation_finish", { p_action: actionId }); return NextResponse.json({ ok: true }); }
     if (status === "succeeded") await finishUsage(actionId, "succeeded");
     else await refundUsage(actionId, status, status === "cancelled" ? "translation_cancelled" : "translation_incomplete");
     return NextResponse.json({ ok: true });

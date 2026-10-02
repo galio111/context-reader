@@ -3,6 +3,20 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import vm from "node:vm";
 import ts from "typescript";
+test("component mount preserves onReady departure restoration unless a controlled prop is supplied", () => {
+ const source=readFileSync(new URL("../components/Ballpit.tsx",import.meta.url),"utf8");
+ const component=source.slice(source.indexOf("export default function Ballpit"));
+ function mount(controlled) {
+  const effects=[], calls=[], refs=[]; const canvas={style:{}};
+  class Scene {setDepartureProgress(n){calls.push(n);}setGatherProgress(){}activate(){}dispose(){}}
+  const ctx={DEFAULT_CONFIG:{materialParams:{}},BallpitScene:Scene,useRef(v){const ref={current:refs.length===0?canvas:v};refs.push(ref);return ref;},useEffect(fn){effects.push(fn);},window:{matchMedia:()=>({matches:false,addEventListener(){},removeEventListener(){}})},console,React:{createElement:()=>null}};
+  vm.runInNewContext(ts.transpileModule(component.replace("export default ","")+"\nglobalThis.Subject=Ballpit;",{compilerOptions:{target:ts.ScriptTarget.ES2020,jsx:ts.JsxEmit.React}}).outputText,ctx);
+  const controller={current:null};ctx.Subject({controllerRef:controller,onReady:()=>controller.current.setDepartureProgress(1),...(controlled===undefined?{}:{departureProgress:controlled})});
+  effects.forEach(fn=>fn());return calls;
+ }
+ assert.deepEqual(mount(undefined),[0,1]);
+ assert.deepEqual(mount(.5),[.5,1,.5]);
+});
 
 test("real scene lifecycle applies departure before its first renderer call and pauses departed scenes", () => {
   const source = readFileSync(new URL("../components/Ballpit.tsx", import.meta.url), "utf8");

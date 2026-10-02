@@ -785,13 +785,13 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
     }
   }
 
-  function settleImageStatus(message: string) {
+  function settleImageStatus(message: string, duration = 4800) {
     setArticleImageStatus(message);
     if (imageStatusTimerRef.current !== null) window.clearTimeout(imageStatusTimerRef.current);
     imageStatusTimerRef.current = window.setTimeout(() => {
       imageStatusTimerRef.current = null;
       setArticleImageStatus("");
-    }, 4_800);
+    }, duration);
   }
 
   async function requestFreshImportedArticleImageLocalization(
@@ -866,7 +866,7 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
     if (freshImageLocalizationRequestRef.current !== requestId) return;
     freshImageLocalizationSourceRef.current = sourceArticle;
     setArticleImagesLocalizing(true);
-    setArticleImageStatus("图片正在保存中。受原网址稳定性影响，部分图片可能保存失败；不影响正文阅读。");
+    settleImageStatus("图片正在保存中。受原网址稳定性影响，部分图片可能保存失败；不影响正文阅读。", 2000);
     void pending.then((result) => {
       if (freshImageLocalizationRequestRef.current !== requestId) return;
       const nextArticle = result.article;

@@ -1,4 +1,5 @@
 "use client";
+import { openAccountUsage, isQuotaMessage } from "@/lib/accountUsageNavigation";
 
 import type { Ref } from "react";
 import type { ArticleTranslationBlock, ArticleTranslationItem } from "@/types/reader";
@@ -80,7 +81,7 @@ export function ArticleTranslationPanel({
 
       {error && !loading && (
         <div className="mt-4 rounded-[14px] border border-red-200 bg-red-50 p-3 text-sm leading-6 text-red-700">
-          <div className="flex items-start justify-between gap-3"><p className="min-w-0">{error}</p><button type="button" className="cr-translation-retry flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-red-300 bg-white text-base leading-none text-red-700 transition hover:bg-red-100 active:scale-95" onClick={onGenerate} aria-label="继续未完成的全文翻译" title="继续未完成的全文翻译">↻</button></div>
+          <div className="flex items-start justify-between gap-3"><div><p className="min-w-0">{error}</p>{isQuotaMessage(error) && <button type="button" className="mt-2 font-semibold underline underline-offset-4" onClick={openAccountUsage}>查看用量</button>}</div><button type="button" className="cr-translation-retry flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-red-300 bg-white text-base leading-none text-red-700 transition hover:bg-red-100 active:scale-95" onClick={onGenerate} aria-label="继续未完成的全文翻译" title="继续未完成的全文翻译">↻</button></div>
           {adminMode && <p className="mt-3 border-t border-red-200 pt-3 text-xs leading-5">本次生成失败，请重试。</p>}
         </div>
       )}

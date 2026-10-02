@@ -1,4 +1,5 @@
 "use client";
+import { openAccountUsage, isQuotaMessage } from "@/lib/accountUsageNavigation";
 
 import { useCallback, useEffect, useId, useMemo, useRef, useState, type FormEvent } from "react";
 import { PronunciationButtons } from "@/components/PronunciationButtons";
@@ -768,7 +769,7 @@ export function BookDictionary({
             ))}
           </div>
         )}
-        {error && <p className={styles.error} role="alert">{error}</p>}
+        {error && <p className={styles.error} role="alert">{error}{isQuotaMessage(error) && <button type="button" className="ml-3 font-semibold underline" onClick={openAccountUsage}>查看用量</button>}</p>}
         {pendingHistorySave && <button type="button" onClick={() => {
           const owner = dictionaryHistoryOwner();
           void flushLearningStorage().then(()=>{if(owner===dictionaryHistoryOwner()){setPendingHistorySave(false);setError("");}})

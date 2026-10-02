@@ -1014,13 +1014,13 @@ test("saved articles use backward-compatible compressed browser storage", () => 
 test("long articles and exhausted summary quotas remain saved without a summary request failure", () => {
   const reader = readFileSync(new URL("../components/ReaderView.tsx", import.meta.url), "utf8");
   const sync = readFileSync(new URL("../lib/accountSyncClient.ts", import.meta.url), "utf8");
-  const usage = readFileSync(new URL("../components/AccountUsagePageContent.tsx", import.meta.url), "utf8");
+  const usage = readFileSync(new URL("../components/BillingPage.tsx", import.meta.url), "utf8");
   assert.match(reader, /AUTO_SUMMARY_MAX_ARTICLE_CHARS = 50_000/);
   assert.match(reader, /currentArticle\.length > AUTO_SUMMARY_MAX_ARTICLE_CHARS[\s\S]*?文章已保存；正文较长，本次不生成摘要/);
   assert.match(reader, /data\?\.code === "quota_exhausted"[\s\S]*?文章已保存；\$\{data\.error/);
   assert.match(sync, /readStoredArticles\(storage\)/);
   assert.match(sync, /writeStoredArticles\(storage, mergedArticles\.articles\)/);
-  assert.match(usage, /保存文章不消耗摘要额度[\s\S]*?摘要额度用完后仍可保存文章/);
+  assert.match(usage, /单纯保存文章不扣点；生成或领取摘要另计/);
 });
 
 test("saved article menu supports prefilled rename and delete without changing the long-article summary rule", () => {

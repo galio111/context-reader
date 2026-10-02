@@ -1,4 +1,5 @@
 "use client";
+import { OPEN_ACCOUNT_USAGE_EVENT } from "@/lib/accountUsageNavigation";
 
 import dynamicCet from "next/dynamic";
 import { prepareCetPreview } from "@/lib/cetCatalogueClient";
@@ -232,6 +233,12 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const [menuInitialPreview, setMenuInitialPreview] = useState<PreviewKind | null>(null);
   const [menuGuideSection, setMenuGuideSection] = useState<GuideSection | null>(null);
   const [menuStandalonePreview, setMenuStandalonePreview] = useState(false);
+  useEffect(() => {
+    const open = () => { setMenuStandalonePreview(false); setMenuInitialPreview("account"); setMenuOpen(true); };
+    window.addEventListener(OPEN_ACCOUNT_USAGE_EVENT, open);
+    if (new URLSearchParams(window.location.search).get("menu") === "account") { open(); const u = new URL(window.location.href); u.searchParams.delete("menu"); window.history.replaceState(window.history.state, "", u); }
+    return () => window.removeEventListener(OPEN_ACCOUNT_USAGE_EVENT, open);
+  }, []);
   const dictionaryWindowRef = useRef<HTMLElement | null>(null);
   function startDictionaryDrag(event: PointerEvent<HTMLElement>) {
     if (window.matchMedia("(max-width: 900px)").matches || event.button !== 0 || (event.target as HTMLElement).closest("button")) return;

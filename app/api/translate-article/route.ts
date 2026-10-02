@@ -1,3 +1,6 @@
+import { billingRpc } from "@/lib/billingStore";
+import { translationBlockCharge } from "@/lib/translationBilling";
+import { englishWordCount } from "@/lib/billingPolicy";
 import {anyTextKey} from '@/lib/modelSettings';
 import {withModelContext} from '@/lib/modelSettings';
 import { fetchWithProviderFailover, responseModel, providerName } from "@/lib/providerFailover";
@@ -7,7 +10,7 @@ import type { ArticleTranslationBlock, ArticleTranslationResult } from "@/types/
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
 import { acquireAiSlot } from "@/lib/costConcurrency";
 import { finishUsage, getUsageAction, recordUsageExecution, refundUsage } from "@/lib/accountStore";
-import { deepReadingUnits, gateUsage, usageErrorResponse } from "@/lib/usageGate";
+import { gateUsage, usageErrorResponse } from "@/lib/usageGate";
 import { resolveUsageIdentity } from "@/lib/usageIdentity";
 import { estimateDeepSeekCostMicrousd, type ProviderTokenUsage } from "@/lib/usageCost";
 import { recordServerError, reportReference } from "@/lib/serverErrorReporting";
@@ -16,7 +19,7 @@ import { extractArticleTranslationText, IncrementalJsonObjectParser } from "@/li
 const DEFAULT_BASE_URL = "https://api.deepseek.com";
 const MAX_TARGET_BLOCKS = 80;
 const MAX_CONTEXT_BLOCKS = 240;
-const MAX_BLOCK_CHARS = 900;
+const MAX_BLOCK_CHARS = 32_000;
 const MAX_TARGET_TOTAL_CHARS = 32_000;
 const MAX_CONTEXT_TOTAL_CHARS = 64_000;
 const REQUEST_TIMEOUT_MS = 120000;
@@ -124,6 +127,7 @@ async function handlePOST(request: Request) {
   let usageSucceeded = false;
   let providerUserId = "";
   let managedTranslationAction = false;
+  let pointsTranslation = false;
   let localOnlyAction = false;
   let input: TranslationRequestBody;
   try {
@@ -171,11 +175,12 @@ async function handlePOST(request: Request) {
           !action
           || action.ownerKey !== identity.ownerKey
           || action.feature !== "full_article_translation"
-          || action.metricKey !== "full_article_translation"
+          || !["full_article_translation", "learning_points"].includes(action.metricKey)
           || action.status !== "reserved"
         ) {
           return NextResponse.json({ error: "全文翻译任务已失效，请重新开始。" }, { status: 409 });
         }
+        pointsTranslation = action.metricKey === "learning_points";
       }
       actionId = managedActionId;
       managedTranslationAction = true;
@@ -188,7 +193,7 @@ async function handlePOST(request: Request) {
       const usageGate = await gateUsage(request, {
         feature: "full_article_translation",
         metricKey: "deep_reading",
-        units: deepReadingUnits(blocks.reduce((sum, block) => sum + block.text.length, 0)),
+        units: englishWordCount(blocks.map(b => b.text).join(" ")),
         loginRequired: true,
       });
       actionId = usageGate.actionId;
@@ -238,6 +243,13 @@ async function handlePOST(request: Request) {
     );
   }
 
+  if (pointsTranslation) {
+    try { await billingRpc("translation_claim", { p_action: actionId, p_blocks: blocks.map(translationBlockCharge) }); }
+    catch { releaseSlot(); return NextResponse.json({ error: "这些段落已在处理中、已完成或不属于当前任务，请刷新后继续。" }, { status: 409 }); }
+  }
+  const saveBlockResult = async (success: boolean, ids = blocks.map(b => b.id)) => {
+    if (pointsTranslation) await billingRpc("translation_result", { p_action: actionId, p_ids: ids, p_success: success });
+  };
   const baseUrl = (process.env.DEEPSEEK_BASE_URL || DEFAULT_BASE_URL).replace(/\/$/, "");
   let model = process.env.DEEPSEEK_TRANSLATION_MODEL || "deepseek-flash";
   const controller = new AbortController();
@@ -296,6 +308,7 @@ async function handlePOST(request: Request) {
       await recordFailedProviderExecution(timedOut ? "provider_timeout" : "provider_connection_failed");
       clearTimeout(timeout);
       request.signal.removeEventListener("abort", abortFromClient);
+      await saveBlockResult(false).catch(() => undefined);
       releaseSlot();
       return NextResponse.json(
         { error: timedOut ? "AI 服务响应较慢，全文翻译会自动继续。" : "AI 服务连接短暂中断，全文翻译会自动继续。", code: "provider_temporary" },
@@ -310,6 +323,7 @@ async function handlePOST(request: Request) {
       await recordFailedProviderExecution(classified.code, data.usage);
       clearTimeout(timeout);
       request.signal.removeEventListener("abort", abortFromClient);
+      await saveBlockResult(false).catch(() => undefined);
       releaseSlot();
       return NextResponse.json(
         { error: classified.error, code: classified.code },
@@ -402,6 +416,7 @@ async function handlePOST(request: Request) {
               : "AI 生成中断，本次未生成可用译文。";
             output.enqueue(encoder.encode(`${JSON.stringify({ type: "error", error, code: "provider_temporary" })}\n`));
           } else {
+            await saveBlockResult(true);
             usageSucceeded = true;
             if (!localOnlyAction) {
               await recordUsageExecution({ actionId, route: "/api/translate-article", provider: providerName(model), model, promptTokens: usage.prompt_tokens, promptCacheHitTokens: usage.prompt_cache_hit_tokens, promptCacheMissTokens: usage.prompt_cache_miss_tokens, completionTokens: usage.completion_tokens, estimatedCostMicrousd: estimateDeepSeekCostMicrousd(model, usage), status: "succeeded" }).catch(() => undefined);
@@ -417,6 +432,8 @@ async function handlePOST(request: Request) {
             : "本次未生成可用译文。";
           output.enqueue(encoder.encode(`${JSON.stringify({ type: "error", error: `${timedOut ? "AI 服务响应超时" : "AI 服务连接中断"}，${progress}`, code: "provider_temporary" })}\n`));
         } finally {
+          if (!usageSucceeded && completedIds.size) await saveBlockResult(true, [...completedIds]).catch(() => undefined);
+          if (!usageSucceeded) await saveBlockResult(false).catch(() => undefined);
           if (!usageSucceeded && !managedTranslationAction) await refundUsage(actionId, "failed", streamErrorCode || "translation_failed").catch(() => undefined);
           clearTimeout(timeout);
           request.signal.removeEventListener("abort", abortFromClient);
@@ -559,6 +576,7 @@ async function handlePOST(request: Request) {
       );
     }
 
+    await saveBlockResult(true);
     usageSucceeded = true;
     if (!localOnlyAction) {
       await recordUsageExecution({ actionId, route: "/api/translate-article", provider: providerName(model), model, promptTokens: data.usage?.prompt_tokens, promptCacheHitTokens: data.usage?.prompt_cache_hit_tokens, promptCacheMissTokens: data.usage?.prompt_cache_miss_tokens, completionTokens: data.usage?.completion_tokens, estimatedCostMicrousd: estimateDeepSeekCostMicrousd(model, data.usage ?? {}), status: "succeeded" }).catch(() => undefined);
@@ -586,6 +604,7 @@ async function handlePOST(request: Request) {
       { status: 503, headers: { "Retry-After": "5" } },
     );
   } finally {
+    if (!usageSucceeded) await saveBlockResult(false).catch(() => undefined);
     if (!usageSucceeded && !managedTranslationAction) {
       await refundUsage(actionId, "failed", "translation_failed").catch(() => undefined);
     }

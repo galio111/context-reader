@@ -1,23 +1,16 @@
 "use client";
 
-import { downloadLearningBackup, getLearningStorage, isLearningStorage, LEARNING_STORAGE_EVENT, type LearningStorageStatus } from "@/lib/learningStorage";
+import { getLearningStorage, isLearningStorage, LEARNING_STORAGE_EVENT, type LearningStorageStatus } from "@/lib/learningStorage";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useAccount } from "@/components/AccountProvider";
 import { SiteBackdrop } from "@/components/SiteBackdrop";
 import type { AccountSyncProgress, AccountSyncResult } from "@/lib/accountSyncClient";
-import { PUBLIC_COMMERCIAL_UI_ENABLED } from "@/lib/commercialUi";
+import { BillingDialog } from "@/components/BillingPage";
 import { accountPasswordRequirement, isStrongAccountPassword } from "@/lib/passwordPolicy";
 import { usageMetricLabels, usageResetLabel } from "@/lib/usagePresentation";
 import type { UsageMetricKey } from "@/types/account";
 
-
-const plans = [
-  ["免费", "¥0", "每天 30 次查词 · 每月 10 次摘要 · 1 次全文翻译"],
-  ["基础", "¥5 / 月", "每天 80 次查词 · 每月 75 次摘要 · 5 次全文翻译"],
-  ["Plus", "¥10 / 月", "每天 200 次查词 · 每月 250 次摘要 · 20 次全文翻译"],
-  ["Max", "¥30 / 月", "每天 600 次查词 · 每月 1,000 次摘要 · 60 次全文翻译"],
-] as const;
 
 const entitlementExpiryFormatter = new Intl.DateTimeFormat("zh-CN", {
   timeZone: "Asia/Shanghai",
@@ -38,14 +31,14 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
     try { const storage = getLearningStorage(); if (isLearningStorage(storage)) { setLocalStorageStatus(storage.status); void storage.estimate(); } } catch {}
     return () => window.removeEventListener(LEARNING_STORAGE_EVENT, changed);
   }, []);
-  const [localExport, setLocalExport] = useState(false);
+  const [billingOpen, setBillingOpen] = useState(false);
   const [loggingOut, setLoggingOut] = useState(false);
   const [logoutError, setLogoutError] = useState("");
   const [syncStatus, setSyncStatus] = useState<"idle" | "working" | "success" | "error">("idle");
   const [syncError, setSyncError] = useState("");
   const [syncProgress, setSyncProgress] = useState<AccountSyncProgress | null>(null);
   const [lastSyncResult, setLastSyncResult] = useState<AccountSyncResult | null>(null);
-  const [exportStatus, setExportStatus] = useState<"idle" | "working" | "success" | "error">("idle");
+
   const [accountDetailsEditing, setAccountDetailsEditing] = useState(false);
   const [accountDetailsSaving, setAccountDetailsSaving] = useState(false);
   const [nicknameDraft, setNicknameDraft] = useState("");
@@ -106,27 +99,6 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
       setAccountDetailsMessage(error instanceof Error ? error.message : "账号资料暂时无法保存。");
     } finally {
       setAccountDetailsSaving(false);
-    }
-  }
-
-  async function exportData() {
-    if (exportStatus === "working") return;
-    setExportStatus("working");
-    setLocalExport(false);
-    try {
-      await syncNow();
-      const response = await fetch("/api/account/export", { cache: "no-store" });
-      if (!response.ok) throw new Error("export failed");
-      const blob = await response.blob();
-      const url = URL.createObjectURL(blob);
-      const anchor = document.createElement("a");
-      anchor.href = url;
-      anchor.download = `context-reader-data-${new Date().toISOString().slice(0, 10)}.json`;
-      anchor.click();
-      URL.revokeObjectURL(url);
-      setExportStatus("success");
-    } catch {
-      try { await downloadLearningBackup(); setLocalExport(true); setExportStatus("success"); } catch { setExportStatus("error"); }
     }
   }
 
@@ -192,8 +164,8 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
         </header>
 
         <section className="cr-account-intro mt-14 max-w-2xl">
-          <h1 className="cr-account-title text-4xl font-semibold tracking-[-.04em] sm:text-5xl">账号与数据</h1>
-          {<p className="mt-5 text-base leading-7 text-[#536675]">查词、文章摘要和全文翻译分别计算。保存文章不消耗摘要额度；仅在首次保存、正文不超过 6,000 字符且没有有效摘要时，生成摘要并扣 1 次。摘要额度用完后仍可保存文章。全文翻译每次新任务扣 1 次，重看已有结果免费，主动重新生成再扣 1 次。两项月额度都按上海自然月重置。</p>}
+          <h1 className="cr-account-title text-4xl font-semibold tracking-[-.04em] sm:text-5xl">账号与用量</h1>
+          <p className="mt-4 text-sm text-[#657582]">把时间留给阅读。</p>
         </section>
 
         {loading ? <p className="cr-account-state mt-12 text-[#657582]">正在读取账号…</p> : isOffline ? (
@@ -217,7 +189,7 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
               <div className="flex flex-wrap items-start justify-between gap-5">
                 <div><p className="text-sm text-[#5f6d79]">当前账号</p><h2 className="mt-1 text-2xl font-semibold">{account.profile?.nickname || accountIdentifier}</h2><p className="mt-2 text-sm text-[#5f6d79]">{accountIdentifier}</p>{!account.localOnly && <button className="mt-3 text-xs font-medium text-[#567080] underline decoration-[#9aadb7] underline-offset-4" type="button" onClick={() => { setAccountDetailsEditing((value) => !value); setAccountDetailsMessage(""); }}>{accountDetailsEditing ? "收起账号资料" : "修改账号资料"}</button>}</div>
                 <span className="rounded-full bg-[#dce9f3] px-4 py-2 text-sm font-semibold text-[#285a7c]">
-                  {activeInvite ? `${account.plan?.displayName || "内测"} 内测` : PUBLIC_COMMERCIAL_UI_ENABLED ? account.plan?.displayName || "免费用户" : "公开测试中"}
+                  {activeInvite ? `${account.plan?.displayName || "内测"} 内测` : account.plan?.displayName || "免费账号"}
                 </span>
               </div>
               {accountDetailsEditing && !account.localOnly && (
@@ -242,18 +214,18 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
               ) : (
                 <>
                   {account.localDirect && <p className="mt-7 max-w-2xl text-sm leading-6 text-[#526b5a]">当前 localhost 已固定连接到真实的 galio 开发者账号。保存文章、生词本、阅读进度和缓存会继续与 Supabase 云端同步；本地开发不会访问或部署到 Vercel。</p>}
-                  {<div className="mt-8 grid gap-5 sm:grid-cols-2">{visibleUsage.map((usage) => <UsageBar key={usage.metricKey} usage={usage} />)}</div>}
+                  {<div className="mt-8 grid gap-5">{visibleUsage.map((usage) => <UsageBar key={usage.metricKey} usage={usage} />)}</div>}
+                  {account.plan?.id !== "admin" && <div className="mt-6"><button type="button" className="rounded-full bg-[#273b32] px-6 py-3 text-sm font-semibold text-white" onClick={() => setBillingOpen(true)}>升级账号</button><button type="button" className="ml-4 text-sm text-[#536f80] underline underline-offset-4" onClick={() => setBillingOpen(true)}>套餐与订单</button></div>}
+                  {account.entitlement?.source === "payment" && account.entitlement.endsAt && <p className="mt-4 text-sm text-[#657582]">会员有效期至 {entitlementExpiryFormatter.format(new Date(account.entitlement.endsAt))} · 不自动续费</p>}
                   <div className="mt-8 flex flex-wrap items-center gap-3">
                     <button className="rounded-full border border-black/15 bg-white px-5 py-2.5 text-sm font-semibold transition-[transform,background-color,opacity] hover:bg-[#edf5fb] active:scale-[.97] disabled:cursor-wait disabled:opacity-55" type="button" onClick={() => void handleSync()} disabled={syncStatus === "working"} aria-busy={syncStatus === "working"}>{syncButtonLabel}</button>
-                    <button className="rounded-full border border-black/15 bg-white px-5 py-2.5 text-sm font-semibold transition-[transform,background-color,opacity] hover:bg-[#edf5fb] active:scale-[.97] disabled:cursor-wait disabled:opacity-55" type="button" onClick={() => void exportData()} disabled={exportStatus === "working"} aria-busy={exportStatus === "working"}>{exportStatus === "working" ? "正在准备数据…" : exportStatus === "success" ? "已开始下载" : "导出个人数据"}</button>
+
                     {!account.localDirect && <button className="rounded-full border border-[#9b5353]/25 bg-transparent px-5 py-2.5 text-sm font-semibold text-[#854343] disabled:cursor-wait disabled:opacity-55" type="button" disabled={loggingOut} onClick={() => void handleLogout()}>{loggingOut ? "正在同步并退出…" : "退出登录"}</button>}
                   </div>
                   {syncResultText && <p className="mt-4 text-sm font-medium text-[#35634a]" role="status" aria-live="polite">{syncResultText}</p>}
                   {syncStatus === "error" && <p className="mt-4 text-sm text-[#963f3f]" role="alert">{syncError}</p>}
-                  {localExport && exportStatus === "success" && <p className="mt-2 text-sm text-[#526b5a]">已导出本机备份，包含尚未同步的内容；云端导出本次未完成。</p>}
                   {localStorageStatus?.usage !== undefined && <p className="mt-3 text-xs text-[#526b5a]">本机网站数据约 {(localStorageStatus.usage / 1024 / 1024).toFixed(1)} MB，文章和生词会保留，历史释义缓存按上限管理。</p>}
-                  {Boolean(localStorageStatus?.quota && localStorageStatus.usage && localStorageStatus.usage / localStorageStatus.quota > 0.8) && <p className="mt-2 text-sm text-[#963f3f]">本机网站空间接近上限，请先导出个人数据备份。</p>}
-                  {exportStatus === "error" && <p className="mt-2 text-sm text-[#963f3f]" role="alert">数据导出没有完成，请检查网络后重试。</p>}
+                  {Boolean(localStorageStatus?.quota && localStorageStatus.usage && localStorageStatus.usage / localStorageStatus.quota > 0.8) && <p className="mt-2 text-sm text-[#963f3f]">本机网站空间接近上限，请在离线恢复工具中备份数据。</p>}
                   {logoutError && <p className="mt-4 text-sm text-[#963f3f]" role="alert">{logoutError}</p>}
                 </>
               )}
@@ -261,13 +233,7 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
           </>
         )}
 
-        {PUBLIC_COMMERCIAL_UI_ENABLED && (
-          <section className="mt-14">
-            <div className="flex flex-wrap items-end justify-between gap-4"><div><p className="text-xs font-semibold uppercase tracking-[.18em] text-[#5f6d79]">Plans</p><h2 className="mt-2 text-3xl font-semibold">待验证套餐</h2></div><span className="rounded-full bg-[#edf2f6] px-4 py-2 text-sm text-[#5d6872]">暂不开放在线支付</span></div>
-            <p className="mt-3 max-w-2xl text-sm leading-6 text-[#657582]">价格与额度均由后台配置。公开测试期由管理员手动分配套餐，积累真实成本和阅读频率后再接支付。</p>
-            <div className="mt-7 grid gap-4 md:grid-cols-2">{plans.map(([name, price, detail]) => <article key={name} className="rounded-[16px] bg-[#fbfcfe] p-6 shadow-[0_3px_8px_rgb(43_61_77_/_9%)]"><div className="flex items-center justify-between"><h3 className="text-xl font-semibold">{name}</h3><strong>{price}</strong></div><p className="mt-5 text-sm leading-6 text-[#60717f]">{detail}</p></article>)}</div>
-          </section>
-        )}
+        {billingOpen && <BillingDialog onClose={() => setBillingOpen(false)} />}
       </div>
     </main>
   );
@@ -275,5 +241,5 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
 
 function UsageBar({ usage }: { usage: { metricKey: UsageMetricKey; used: number; allowance: number; remaining: number; windowEnd: string } }) {
   const ratio = usage.allowance > 0 ? Math.min(100, Math.round((usage.used / usage.allowance) * 100)) : 0;
-  return <div className="mt-6 first:mt-0"><div className="flex items-center justify-between text-sm"><span className="font-medium">{usageMetricLabels[usage.metricKey] || "其他功能"}</span><span className="text-[#60717f]">剩余 {usage.remaining} / {usage.allowance}</span></div><div className="mt-3 h-2 overflow-hidden rounded-full bg-[#dce5ec]"><div className="h-full rounded-full bg-[#2b6eaa]" style={{ width: `${ratio}%` }} /></div>{usage.windowEnd && <p className="mt-2 text-xs text-[#738391]">{usageResetLabel(usage.windowEnd)} 重置</p>}</div>;
+  return <div className="mt-6 first:mt-0"><div className="flex items-center justify-between text-sm"><span className="font-medium">{usageMetricLabels[usage.metricKey] || "其他功能"}</span><span className="text-[#60717f]">已用 {usage.used.toLocaleString()} / {usage.allowance.toLocaleString()}</span></div><div className="mt-3 h-2 overflow-hidden rounded-full bg-[#dce5ec]"><div className="h-full rounded-full bg-[#2b6eaa]" style={{ width: `${ratio}%` }} /></div>{usage.windowEnd && <p className="mt-2 text-xs text-[#738391]">{usageResetLabel(usage.windowEnd)} 更新额度</p>}</div>;
 }

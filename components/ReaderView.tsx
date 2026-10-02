@@ -1,4 +1,5 @@
 "use client";
+import { OPEN_ACCOUNT_USAGE_EVENT } from "@/lib/accountUsageNavigation";
 
 import dynamic from "next/dynamic";
 import type { CetEntry } from "@/components/cet/CetLibrary";
@@ -1455,6 +1456,11 @@ export function ReaderView({
   const [readerMenuInitialPreview, setReaderMenuInitialPreview] = useState<PreviewKind | null>(null);
   const [readerMenuPlacement, setReaderMenuPlacement] = useState<"left" | "right">("right");
   const [readerMenuStandalonePreview, setReaderMenuStandalonePreview] = useState(false);
+  useEffect(() => {
+    const open = () => { setReaderMenuStandalonePreview(false); setReaderMenuInitialPreview("account"); setReaderMenuOpen(true); };
+    window.addEventListener(OPEN_ACCOUNT_USAGE_EVENT, open);
+    return () => window.removeEventListener(OPEN_ACCOUNT_USAGE_EVENT, open);
+  }, []);
   const [readerTheme, setReaderTheme] = useState<"day" | "night">("day");
   const [vocabularyEntries, setVocabularyEntries] = useState<VocabularyEntry[]>([]);
   const [ankiSettings, setAnkiSettings] = useState<AnkiSettings>(defaultAnkiSettings());
