@@ -237,9 +237,48 @@
             "visualVerification": true,
             "note": "Separate faint watermark, not question/explanation content."
           }
+        },
+        {
+          "number": 7,
+          "field": "explanation",
+          "before": "7.为什么这位男士说，只要有可能，通常最好在法庭之外解决纠纷？ A)法庭旨在解决重大的法律纠纷。 C)法庭可能会令人沮丧且费用高昂。相说 B)法庭变得过于官僚化而无法正常运作。 D)法庭可能会令人恐惧且专制武断。 ［设题要点］原因解释处（Youneedtorememberthatcourts...）。 [答案精析]C。第9段中男士明确提到法庭像所有的官像机构一样，可能会非常混乱、令人沮丧且费用 高昂（verymessy，frustratingandexpensive）。因此，他建议尽可能在法庭之外解决问题，故C项正确。A项 将第8段女士总结男士的主要工作内容（fixpeople'slegalissues)与常识结合形成干扰，但男士并未提及法院 设立的初衷或职能。B项对第9段中出现的likeallbureaucracies断章取义，原文男士类比官像机构旨在论证 法庭可能存在的情况一—“混乱、令人沮丧且费用高昂”，并未提及法庭“过于官像化而无法正常运作”。D项 干扰源自第9段的frustrating和第7段的arbitrate，利用形近词诱导考生产生错误联想。",
+          "after": "7.为什么这位男士说，只要有可能，通常最好在法庭之外解决纠纷？ A)法庭旨在解决重大的法律纠纷。 C)法庭可能会令人沮丧且费用高昂。 B)法庭变得过于官僚化而无法正常运作。 D)法庭可能会令人恐惧且专制武断。 ［设题要点］原因解释处（Youneedtorememberthatcourts...）。 [答案精析]C。第9段中男士明确提到法庭像所有的官像机构一样，可能会非常混乱、令人沮丧且费用 高昂（verymessy，frustratingandexpensive）。因此，他建议尽可能在法庭之外解决问题，故C项正确。A项 将第8段女士总结男士的主要工作内容（fixpeople'slegalissues)与常识结合形成干扰，但男士并未提及法院 设立的初衷或职能。B项对第9段中出现的likeallbureaucracies断章取义，原文男士类比官像机构旨在论证 法庭可能存在的情况一—“混乱、令人沮丧且费用高昂”，并未提及法庭“过于官像化而无法正常运作”。D项 干扰源自第9段的frustrating和第7段的arbitrate，利用形近词诱导考生产生错误联想。",
+          "source": {
+            "url": "https://github.com/0609x/CET46-Resources/blob/4a24a1abf752e27de88a5e8bf930595c4ccffcec/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2025.06%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%A7%A3%E6%9E%90%E7%AC%AC1%E5%A5%97.pdf",
+            "sha256": "150073a4232bf3a63711a6826b6c740bced4f4b1701912a754861429ed2fe7ce",
+            "page": 9,
+            "visualVerification": true,
+            "note": "Faint watermark fragment verified on actual PDF image, outside Chinese option content."
+          }
+        },
+        {
+          "number": 16,
+          "field": "explanation",
+          "before": "16.说话者称，甚至我们个人对于努力的看法能够产生何种影响？ A)影响我们对新任务的态度。 C)在重要性上超过智商。听领相说 B)使我们在社会世界中脱颖而出。 D)影响学业成就。 [设题要点］研究发现介绍处（Even ourpersonal beliefs about effort can...）。 [答案精析］D。题干十D项契合I段②句所述研究发现“甚至我们个人对于努力的看法也会影响学业成 果”，选项中的Impact和achievements分别同义改写原文中的affect和outcomes。A项利用I段②句的 affect及末段的novel task捏造而来，将影响对象由“学业成果”偷换为“我们对新任务的态度”；B项利用录音 两次出现的outperform及Ⅲ段①句的thesocialworld设置千扰，将影响范围由“学业表现”夸大至“我们在整 个社会世界中的表现”；C项利用I段①句的IQ设置扰，将文意由“自制力和毅力同智商一样，也能提升学 业成果”篡改为“个人对努力的看法在重要性上超过智商”。",
+          "after": "16.说话者称，甚至我们个人对于努力的看法能够产生何种影响？ A)影响我们对新任务的态度。 C)在重要性上超过智商。 B)使我们在社会世界中脱颖而出。 D)影响学业成就。 [设题要点］研究发现介绍处（Even ourpersonal beliefs about effort can...）。 [答案精析］D。题干十D项契合I段②句所述研究发现“甚至我们个人对于努力的看法也会影响学业成 果”，选项中的Impact和achievements分别同义改写原文中的affect和outcomes。A项利用I段②句的 affect及末段的novel task捏造而来，将影响对象由“学业成果”偷换为“我们对新任务的态度”；B项利用录音 两次出现的outperform及Ⅲ段①句的thesocialworld设置千扰，将影响范围由“学业表现”夸大至“我们在整 个社会世界中的表现”；C项利用I段①句的IQ设置扰，将文意由“自制力和毅力同智商一样，也能提升学 业成果”篡改为“个人对努力的看法在重要性上超过智商”。",
+          "source": {
+            "url": "https://github.com/0609x/CET46-Resources/blob/4a24a1abf752e27de88a5e8bf930595c4ccffcec/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2025.06%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%A7%A3%E6%9E%90%E7%AC%AC1%E5%A5%97.pdf",
+            "sha256": "150073a4232bf3a63711a6826b6c740bced4f4b1701912a754861429ed2fe7ce",
+            "page": 20,
+            "visualVerification": true,
+            "note": "Faint watermark fragment verified on actual PDF image, outside Chinese option content."
+          }
+        },
+        {
+          "number": 24,
+          "field": "explanation",
+          "before": "24.托马斯·奥康纳对“陌生人之间相互问候”这一观念怎么看？ A)它是波士顿开城元勋们的做法。 C)它被波士顿上流社会所采纳所颖想说 B)它在“正统波士顿人”看来并不稀奇。 D)它不属于波士顿的当地文化。 ［设题要点］观点表达处（Theideaofastrangergreetingissimplynot...）。 [答案精析］D。IV段整段介绍托马斯·奥康纳对“波士顿人匆忙且略带无礼”这一形象的看法，并于③句 明确指出“陌生人之间互相问候”这种观念并不属于波士顿当地文化，题干十D项与此契合，故正确。A项利 用Ⅲ段③句美国前众议院切斯特·阿特金斯观点内所涉人物信息PuritanFoundingFathers设置干扰，B、C 项则利用V段①②句拉尔夫·怀特海德教授观点内所涉人物信息Boston'supperclass、ProperBostonians捏 造干扰，但前者仅指出“开城元勋们没耐心、没时间以礼待人”，后者仅指出“波士顿上流社会曾靠礼仪来划分 阶层，这些以礼仪居高自傲的“正统波士顿人'使得其他民众对礼仪产生部夷心理”，两者均用以说明“波士顿 人勿忙且略显无礼”的形象，而非“陌生人之间互相问候”这一观念。",
+          "after": "24.托马斯·奥康纳对“陌生人之间相互问候”这一观念怎么看？ A)它是波士顿开城元勋们的做法。 C)它被波士顿上流社会所采纳。 B)它在“正统波士顿人”看来并不稀奇。 D)它不属于波士顿的当地文化。 ［设题要点］观点表达处（Theideaofastrangergreetingissimplynot...）。 [答案精析］D。IV段整段介绍托马斯·奥康纳对“波士顿人匆忙且略带无礼”这一形象的看法，并于③句 明确指出“陌生人之间互相问候”这种观念并不属于波士顿当地文化，题干十D项与此契合，故正确。A项利 用Ⅲ段③句美国前众议院切斯特·阿特金斯观点内所涉人物信息PuritanFoundingFathers设置干扰，B、C 项则利用V段①②句拉尔夫·怀特海德教授观点内所涉人物信息Boston'supperclass、ProperBostonians捏 造干扰，但前者仅指出“开城元勋们没耐心、没时间以礼待人”，后者仅指出“波士顿上流社会曾靠礼仪来划分 阶层，这些以礼仪居高自傲的“正统波士顿人'使得其他民众对礼仪产生部夷心理”，两者均用以说明“波士顿 人勿忙且略显无礼”的形象，而非“陌生人之间互相问候”这一观念。",
+          "source": {
+            "url": "https://github.com/0609x/CET46-Resources/blob/4a24a1abf752e27de88a5e8bf930595c4ccffcec/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2025.06%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%A7%A3%E6%9E%90%E7%AC%AC1%E5%A5%97.pdf",
+            "sha256": "150073a4232bf3a63711a6826b6c740bced4f4b1701912a754861429ed2fe7ce",
+            "page": 28,
+            "visualVerification": true,
+            "note": "Faint watermark fragment verified on actual PDF image, outside Chinese option content."
+          }
         }
       ],
-      "afterSha256": "ea51c909024c03942360887019bbafa858e1615ee720e645b1e4bcc8c162309d"
+      "afterSha256": "f9244ce2a63ac10ab5cdee33f9f09c403bf0055e3297028978c701efbe38b934"
     },
     {
       "paperId": "cet6-2022-12-2",
@@ -262,5 +301,7 @@
       ],
       "afterSha256": "64d311232c4cdb90c11f65a344a47d19d7c64e3971b72e0175dbbe44991a588f"
     }
-  ]
+  ],
+  "followupParentReleaseId": "20261002T201050",
+  "followupParentSourceRevision": "26a8aa574e34e03d3f4f753562c3eaa09dae6205"
 }

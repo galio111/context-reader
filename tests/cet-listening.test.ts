@@ -28,11 +28,16 @@ test('all listening English surfaces are free of source marks and Chinese explan
  fixture.questions[0].options[0].text='Cultivate better citizens.';
  fixture.questions[0].explanation='选项C正确。公众亏【语听颖想说】';
  assert.equal(listeningContentFlags(fixture).length,1);
+ for(const text of ['C)费用高昂。相说 B)其他选项。','C)超过智商。听领相说 B)其他选项。','C)被社会所采纳所颖想说 B)其他选项。']){
+  fixture.questions[0].explanation=text;assert.equal(listeningContentFlags(fixture).length,1);
+ }
+ fixture.questions[0].explanation='讲话者想说的是新颖的方案，能够让人脱颖而出。';
+ assert.deepEqual(listeningContentFlags(fixture),[]);
 });
 
 test('reviewed watermark cleanup changes only exact source-backed fields and preserves answer/audio/snapshots',()=>{
  assert.equal(cleanup.files.length,8);
- assert.equal(cleanup.files.reduce((n:number,f:{changes:unknown[]})=>n+f.changes.length,0),15);
+ assert.equal(cleanup.files.reduce((n:number,f:{changes:unknown[]})=>n+f.changes.length,0),18);
  for(const entry of cleanup.files){
   const bytes=readFileSync(new URL(`../${entry.path}`,import.meta.url));
   assert.equal(sha256(bytes),entry.afterSha256);

@@ -3,7 +3,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 // Read-only import audit: a flag requires source review, never automatic deletion.
-const sourceMark = /公[众眾](?:号|號|亏)|语听颖想说|微信(?:公众号|号)|扫码|第\s*\d+\s*页\s*[,，/、]?\s*共\s*\d+\s*页|(?:CET[46]|[四六]级)\s*\d{4}[-年]/i;
+const sourceMark = /公[众眾](?:号|號|亏)|颖想说|听领相说|[。.!?]\s*相说(?=\s|[ABCD][)）])|微信(?:公众号|号)|扫码|第\s*\d+\s*页\s*[,，/、]?\s*共\s*\d+\s*页|(?:CET[46]|[四六]级)\s*\d{4}[-年]/i;
 export function listeningContentFlags(section) {
   const flags = [];
   const check = (field, text, english) => {
