@@ -32,3 +32,7 @@ The user explicitly approved a one-time 18 GB worktree creation threshold; the r
 [Blue pricing](evidence/ballpit-scroll-lifecycle/production-blue-pricing.png) · [Mobile](evidence/ballpit-scroll-lifecycle/production-blue-mobile.png) · [Clear lower page](evidence/ballpit-scroll-lifecycle/production-import-clear.png) · [CET return](evidence/ballpit-scroll-lifecycle/production-cet-return.png) · [Locked resize](evidence/ballpit-scroll-lifecycle/production-lock-resize.json) · [Core/API ledger](evidence/ballpit-scroll-lifecycle/ballpit-acceptance.json)
 
 Visual/device limit: the reproducible fixed-body remount defect is repaired and observed flows pass, but the exact timing of the user's lingering bare-page screenshot was not deterministically reproduced. Physical phone, Edge/Safari and final user visual acceptance remain open. These are not represented as complete by the build or viewport checks.
+
+### 2026-10-03 累积版本复核
+
+当前正式站已由并行的外刊预加载发布推进到 `20261003T002636`，父版 `20261003T002000`，源码 `cfe444cd3ff6996c191da500f0d08ed2809b4558`，接受时间 `2026-10-02T16:31:59.494374Z`。已检查合并差异：球体校准函数、父层隐藏门和蓝色付费样式完整保留，后两份独立文件与本轮发布 SHA256 一致。当前版本重新验证了桥接/导入区、锁滚动时窄屏切桌面以及付费页蓝色按钮；累积源码 13 媒体、7 加载测试和9契约通过。本轮原始发布身份及核心/服务验收仍保留在下文。

@@ -1,6 +1,11 @@
 # Production Release Governance
 
-## Current accepted Ballpit lifecycle and blue billing release
+## Current accepted cumulative source
+
+当前正式站已由并行的外刊预加载发布推进到 `20261003T002636`，父版 `20261003T002000`，源码 `cfe444cd3ff6996c191da500f0d08ed2809b4558`，接受时间 `2026-10-02T16:31:59.494374Z`。已检查合并差异：球体校准函数、父层隐藏门和蓝色付费样式完整保留，后两份独立文件与本轮发布 SHA256 一致。当前版本重新验证了桥接/导入区、锁滚动时窄屏切桌面以及付费页蓝色按钮；累积源码 13 媒体、7 加载测试和9契约通过。本轮原始发布身份及核心/服务验收仍保留在下文。
+
+
+## Previous accepted Ballpit lifecycle and blue billing release
 
 Accepted `20261003T002000`, parent `20261002T233200`, source `9ca86e4a77d94d2ea8c3322b7db4ecf1d84dc655`, at `2026-10-02T16:20:57.769093Z`. Public connectivity, server accepted state and current release agree with `mainland_internal`. The 40-file delta includes 33 previously accepted documentation/evidence updates; runtime changes are confined to home cover synchronization and billing colors. Only app/caddy recreated. The earlier candidate `20261003T001500` was interrupted by an SSH reset during build, never accepted; its directory was preserved, and a newly packaged candidate used the unchanged accepted parent and stable guarded entrypoint through a transient systemd unit.
 
