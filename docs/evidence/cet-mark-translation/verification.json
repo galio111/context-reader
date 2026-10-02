@@ -1,0 +1,65 @@
+{
+  "identity": {
+    "ok": true,
+    "checkedAt": "2026-10-02T15:06:37.397Z",
+    "releaseId": "20261002T225700",
+    "parentReleaseId": "20261002T202624",
+    "backendMode": "mainland_internal"
+  },
+  "sourceRevision": "ae4ece526668fa14bc1636445821f98291e500ae",
+  "acceptedAt": "2026-10-02T14:59:16.429311+00:00",
+  "tests": {
+    "cet": 95,
+    "critical": 89,
+    "releaseContracts": 9,
+    "productionBuild": "passed"
+  },
+  "browser": {
+    "productionPausedSelectionCharacters": 444,
+    "pausedClock": "00:08",
+    "menuVisible": true,
+    "localNarrowViewport": [
+      390,
+      844
+    ],
+    "localNarrowMenuBounds": [
+      8,
+      262
+    ],
+    "localPausedAddRecolorSubmit": "passed",
+    "translation": {
+      "retainedPassageBlocks": 6,
+      "totalCompletedBlocks": 32,
+      "questionNumbers": [
+        46,
+        47,
+        48,
+        49,
+        50
+      ],
+      "allOptionsTranslated": true
+    },
+    "newConsoleErrors": []
+  },
+  "operations": {
+    "health": "passed",
+    "adminRecovery": "passed",
+    "accountRegistrationLoginAndProtocol2WriteRead": "passed with current alphanumeric policy",
+    "backup": "context-reader-20261001T192539Z.dump",
+    "isolatedRestoreTables": 17,
+    "images": {
+      "current": "5f6d8560a2ed",
+      "parent": "eb2184b4025f"
+    },
+    "diskAfterGuardedImageRetention": "55%",
+    "recreatedServices": [
+      "app",
+      "caddy"
+    ]
+  },
+  "open": [
+    "physical touch selection handles",
+    "Edge/Safari",
+    "user visual acceptance"
+  ]
+}

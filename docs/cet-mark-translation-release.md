@@ -18,4 +18,10 @@
 
 ## 发布状态
 
-当前为待发布候选，父版本 `20261002T202624`，父源码 `205c32b7a5d17c51c0126bfbffca9b58b21fb3fc`。生产接受后补充精确身份与公网验证。物理手机、Edge/Safari及用户间距视觉确认仍开放。
+已生产部署 `20261002T225700`，parent `20261002T202624`，source `ae4ece526668fa14bc1636445821f98291e500ae`；2026-10-02 22:59:16（上海）接受。公网 connectivity、服务器接受状态和镜像一致。19文件累计包从父源码 `205c32b7a5d17c51c0126bfbffca9b58b21fb3fc` 出发，稳定入口仅重建 app/caddy。后续文档集成不改变生产 sourceRevision。
+
+公网暂停记录选择444字符至正文右侧，菜单出现，原00:08计时保持；未改该真实记录的答案和划记。已提交练习全文翻译保留原6段缓存，点击继续后32段完成，第46–50题和20个选项都有实际译文；无新增console error。[公网菜单](evidence/cet-mark-translation/public-paused-menu.jpg) · [题目译文](evidence/cet-mark-translation/public-question-translation.jpg) · [结构化核验](evidence/cet-mark-translation/verification.json)。
+
+签入账号注册/登录/会话和protocol-2写入回读、匿名权限、恢复Admin、七服务健康、最新备份SHA及17表隔离恢复通过。旧acceptance-shadow脚本使用6位PIN，按现行8–72位字母数字规则更新此次临时验证脚本后通过，未改生产密码策略。发布镜像令磁盘短暂达到85%健康阈值，执行现有带发布锁且保留当前/父镜像的清理脚本后为55%，健康复验通过；当前5f6d8560a2ed、回滚父eb2184b4025f保留。
+
+物理手机、Edge/Safari及用户间距视觉确认仍开放。
