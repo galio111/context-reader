@@ -1,0 +1,119 @@
+{
+  "observations": [
+    {
+      "label": "local-desktop-night",
+      "background": "rgb(29, 50, 58)",
+      "foreground": "rgb(232, 241, 243)",
+      "height": 720,
+      "links": [
+        {
+          "height": 15,
+          "title": "Ysoseri1224/CET-6-Listening-10-Years-Resources-and-Analysis",
+          "width": 359.171875
+        },
+        {
+          "height": 15,
+          "title": "CC BY 4.0",
+          "width": 54.140625
+        },
+        {
+          "height": 15,
+          "title": "AayuBal/cet-exams",
+          "width": 109.40625
+        }
+      ],
+      "overflow": false,
+      "theme": "night",
+      "width": 1280,
+      "contrastRatio": 11.66
+    },
+    {
+      "label": "local-mobile-night",
+      "background": "rgb(29, 50, 58)",
+      "foreground": "rgb(232, 241, 243)",
+      "height": 844,
+      "links": [
+        {
+          "height": 44,
+          "title": "Ysoseri1224/CET-6-Listening-10-Years-Resources-and-Analysis",
+          "width": 343
+        },
+        {
+          "height": 44,
+          "title": "CC BY 4.0",
+          "width": 54.140625
+        },
+        {
+          "height": 44,
+          "title": "AayuBal/cet-exams",
+          "width": 109.40625
+        }
+      ],
+      "overflow": false,
+      "theme": "night",
+      "width": 390,
+      "contrastRatio": 11.66
+    },
+    {
+      "label": "local-mobile-day",
+      "background": "rgb(255, 255, 255)",
+      "foreground": "rgb(82, 103, 113)",
+      "height": 844,
+      "links": [
+        {
+          "height": 44,
+          "title": "Ysoseri1224/CET-6-Listening-10-Years-Resources-and-Analysis",
+          "width": 343
+        },
+        {
+          "height": 44,
+          "title": "CC BY 4.0",
+          "width": 54.140625
+        },
+        {
+          "height": 44,
+          "title": "AayuBal/cet-exams",
+          "width": 109.40625
+        }
+      ],
+      "overflow": false,
+      "theme": null,
+      "width": 390,
+      "contrastRatio": 5.94
+    },
+    {
+      "label": "local-desktop-day",
+      "background": "rgb(255, 255, 255)",
+      "foreground": "rgb(82, 103, 113)",
+      "height": 720,
+      "links": [
+        {
+          "height": 15,
+          "title": "Ysoseri1224/CET-6-Listening-10-Years-Resources-and-Analysis",
+          "width": 359.171875
+        },
+        {
+          "height": 15,
+          "title": "CC BY 4.0",
+          "width": 54.140625
+        },
+        {
+          "height": 15,
+          "title": "AayuBal/cet-exams",
+          "width": 109.40625
+        }
+      ],
+      "overflow": false,
+      "theme": null,
+      "width": 1280,
+      "contrastRatio": 5.94
+    }
+  ],
+  "actualReader": true,
+  "practicePlaybackSeconds": 91.614583,
+  "practicePaused": true,
+  "actualPassageSubmit": true,
+  "submittedTranscriptGroups": 8,
+  "sourceLinksKeyboardReachable": true,
+  "touch44px": true
+}
