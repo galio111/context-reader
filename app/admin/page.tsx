@@ -1,4 +1,5 @@
 "use client";
+import { AdminBillingPanel } from "@/components/AdminBillingPanel";
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import AdminModelsPanel from "@/components/AdminModelsPanel";
@@ -105,7 +106,7 @@ export default function AdminPage() {
   const [checkingSession, setCheckingSession] = useState(true);
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [activeSection, setActiveSection] = useState<"articles" | "accounts" | "feedback" | "errors" | "models">("articles");
+  const [activeSection, setActiveSection] = useState<"articles" | "accounts" | "feedback" | "errors" | "models" | "billing">("articles");
   const [loginError, setLoginError] = useState("");
   const [articles, setArticles] = useState<SavedArticle[]>([]);
   const [publishingId, setPublishingId] = useState("");
@@ -151,6 +152,7 @@ export default function AdminPage() {
 
   useEffect(() => {
     const section = new URLSearchParams(window.location.search).get("section");
+    if (section === "billing") setActiveSection("billing");
     if (section === "models") setActiveSection("models");
     if (section === "accounts") setActiveSection("accounts");
     if (section === "feedback") setActiveSection("feedback");
@@ -172,7 +174,7 @@ export default function AdminPage() {
     void checkSession();
   }, []);
 
-  function selectSection(section: "articles" | "accounts" | "feedback" | "errors" | "models") {
+  function selectSection(section: "articles" | "accounts" | "feedback" | "errors" | "models" | "billing") {
     setActiveSection(section);
     const url = section === "articles" ? "/admin" : `/admin?section=${section}`;
     window.history.replaceState(null, "", url);
@@ -944,7 +946,7 @@ export default function AdminPage() {
             onClick={() => selectSection("accounts")}
           >
             用户与额度
-          </button>
+          </button><button type="button" className={`rounded-full px-5 py-2.5 text-sm ${activeSection === "billing" ? "bg-[#0066cc] text-white" : "text-[#333]"}`} onClick={() => selectSection("billing")}>付费管理</button>
           <button
             className={`min-h-11 flex-1 whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors sm:flex-none sm:px-5 ${
               activeSection === "feedback" ? "bg-[#0066cc] text-white" : "text-[#333333] hover:bg-[#f5f5f7]"
@@ -975,6 +977,7 @@ export default function AdminPage() {
           <div className="mt-6">
             <AdminFeedbackPanel />
           </div>
+        ) : activeSection === "billing" ? (<div className="mt-6"><AdminBillingPanel /></div>
         ) : activeSection === "accounts" ? (
           <div className="mt-6">
             <AdminAccountsPanel />

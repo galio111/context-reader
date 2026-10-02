@@ -1,6 +1,7 @@
 import type { UsageBalance } from "@/types/account";
 
 export const usageMetricLabels: Record<string, string> = {
+  learning_points: "学习点数",
   guest_lookup: "游客查词",
   guest_article_lookup: "文章查词",
   guest_dictionary_lookup: "单独查词",
@@ -29,22 +30,22 @@ export function quotaExhaustedMessage(quota: QuotaDetails): string {
   const label = usageMetricLabels[quota.metricKey] || "当前功能";
   const reset = usageResetLabel(quota.windowEnd);
   const balance = quota.remaining > 0
-    ? `${label}剩余 ${quota.remaining} 次，不足以完成本次操作。`
+    ? `${label}剩余 ${quota.remaining} ${quota.metricKey === "learning_points" ? "点" : "次"}，不足以完成本次操作。`
     : quota.allowance === 0
       ? `当前${quota.authenticated ? "账号" : "游客"}没有${label}额度。`
       : `${label}额度已用完（${quota.used} / ${quota.allowance}）。`;
   const recovery = reset && quota.allowance > 0 ? `${reset}重置。` : "";
   return balance + recovery + (quota.authenticated
-    ? "可在用量页查看；仍可阅读文章和已有结果。"
+    ? "可在 Menu → 账号与用量查看；仍可阅读文章和已有结果。"
     : "登录后可使用账号额度。");
 }
 
 export function lowUsageNotice(usage: UsageBalance[]): string {
-  const eligible = usage.filter((item) => item.allowance > 0 && item.remaining / item.allowance <= 0.2);
+  const eligible = usage.filter((item) => item.allowance > 0 && item.remaining / item.allowance <= 0.05);
   const low = eligible.find((item) => item.remaining === 0) || eligible[0];
   if (!low) return "";
   if (low.remaining === 0) return quotaExhaustedMessage({ ...low, authenticated: true });
-  return `${usageMetricLabels[low.metricKey] || "当前功能"}剩余 ${low.remaining} / ${low.allowance}，已不超过 20%。`;
+  return `${usageMetricLabels[low.metricKey] || "当前功能"}剩余 ${low.remaining} / ${low.allowance}，已不超过 5%。`;
 }
 
 export class LookupQuotaError extends Error {

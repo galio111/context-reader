@@ -1,4 +1,5 @@
 "use client";
+import { openAccountUsage, isQuotaMessage } from "@/lib/accountUsageNavigation";
 
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { ExplanationStreamStore } from "@/lib/explanationStreamStore";
@@ -311,7 +312,7 @@ export function ExplanationPanel({
       {error && !loading && !displayStream && (
         <div className="rounded-[18px] border border-red-200 bg-red-50 p-3 text-sm leading-6 text-red-700">
           <div className="flex items-start justify-between gap-3">
-            <p className="min-w-0">{error}</p>
+            <div><p className="min-w-0">{error}</p>{isQuotaMessage(error) && <button type="button" className="mt-2 font-semibold underline underline-offset-4" onClick={openAccountUsage}>查看用量</button>}</div>
             {onRegenerate && selectedContext && (
               <button
                 type="button"

@@ -955,7 +955,7 @@ export default function Ballpit({
   thermalMotion = DEFAULT_CONFIG.thermalMotion,
   followCursor = DEFAULT_CONFIG.followCursor,
   showCursorBall = DEFAULT_CONFIG.showCursorBall,
-  departureProgress = 0,
+  departureProgress,
   initialLayout = DEFAULT_CONFIG.initialLayout,
   controllerRef,
   onReady,
@@ -1008,7 +1008,7 @@ export default function Ballpit({
           showCursorBall,
           initialLayout,
         });
-        ballpitScene.setDepartureProgress(departureProgress);
+        ballpitScene.setDepartureProgress(departureProgress ?? 0);
         sceneRef.current = ballpitScene;
         if (controllerRef) {
           controllerRef.current = {
@@ -1075,7 +1075,9 @@ export default function Ballpit({
   ]);
 
   useEffect(() => {
-    sceneRef.current?.setDepartureProgress(departureProgress);
+    // Imperative homepage restoration owns departure when no controlled prop is supplied.
+    // Do not overwrite onReady restoration with a default zero after mounting.
+    if (departureProgress !== undefined) sceneRef.current?.setDepartureProgress(departureProgress);
   }, [departureProgress]);
 
   return (

@@ -1,5 +1,7 @@
 # Context Reader
 
+Unified points and one-time monthly/annual plans are available at `/pricing`; Admin → 付费管理 controls prices and points. WeChat Native checkout stays disabled until merchant setup. See [billing rules](docs/account-usage-plan.md), [WeChat onboarding](docs/wechat-pay-setup.md) and [release evidence](docs/unified-billing-release.md).
+
 四六级阅读支持自测原文与题目四色下划线、提交后只读划记定位与查词，以及练习/自测分别保存的同题型浏览顺序与当前位置。自测暂停时原文和题目保持可见。生产身份、验证与开放项见 [发布治理](docs/release-governance.md) 和 [产品历程](docs/product-journey.md)。
 
 Context Reader is a Next.js reading tool for importing real English articles and understanding them with Chinese context-aware explanations, full-article translation, vocabulary capture and Anki export.

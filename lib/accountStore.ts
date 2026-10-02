@@ -12,6 +12,7 @@ import type {
   UsageReservation,
 } from "@/types/account";
 import { phoneFromUser } from "@/lib/userAuth";
+import { learningPoints, PLAN_NAMES } from "@/lib/billingPolicy";
 
 interface ProfileRow {
   user_id: string;
@@ -164,10 +165,10 @@ export async function getAccountPlan(planId: AccountPlanId): Promise<AccountPlan
   }
   return {
     id: row.id,
-    displayName: row.id === "admin" ? "开发者账号" : row.display_name,
+    displayName: PLAN_NAMES[row.id] || row.display_name,
     priceCny: row.price_cny,
     active: row.active,
-    limits: limitRows.map((limit) => ({
+    limits: limitRows.filter((limit) => row.id === "guest" || row.id === "admin" || limit.metric_key === "learning_points").map((limit) => ({
       metricKey: limit.metric_key,
       allowance: Number(limit.allowance),
       windowType: limit.window_type,
@@ -229,6 +230,10 @@ function profileFromRow(row: ProfileRow, user: User): AccountProfile {
 export async function getUsageBalances(ownerKey: string, plan: AccountPlan): Promise<UsageBalance[]> {
   const now = new Date().toISOString();
   const userId = ownerKey.startsWith("user:") ? ownerKey.slice(5) : "";
+  if (userId && plan.id !== "admin") {
+    await accountFetch("rpc/billing_recover", { method: "POST", body: JSON.stringify({ p_user: userId }) });
+    return [await accountFetch<UsageBalance>("rpc/billing_balance", { method: "POST", body: JSON.stringify({ p_user: userId }) })];
+  }
   const [rows, bonusRows] = await Promise.all([
     accountFetch<CounterRow[]>(`usage_counters?owner_key=eq.${encodeURIComponent(ownerKey)}&window_end=gt.${encodeURIComponent(now)}&select=metric_key,used_units,window_end`),
     userId ? accountFetch<Array<{ bonus_limits: Record<string, number> }>>(`user_entitlements?user_id=eq.${encodeURIComponent(userId)}&select=bonus_limits&limit=1`) : Promise.resolve([]),
@@ -283,6 +288,12 @@ export async function reserveUsage(args: {
   metricKey: UsageMetricKey;
   units: number;
 }): Promise<UsageReservation> {
+  if (args.userId && args.planId !== "admin") {
+    const result = await accountFetch<UsageBalance & { allowed: boolean; duplicate: boolean }>("rpc/billing_consume", {
+      method: "POST", body: JSON.stringify({ p_action: args.actionId, p_user: args.userId, p_feature: args.feature, p_units: learningPoints(args.feature, args.units) }),
+    });
+    return { ...result, actionId: args.actionId, metricKey: "learning_points" };
+  }
   const rows = await accountFetch<Array<{
     allowed: boolean;
     used_units: number;
@@ -321,6 +332,10 @@ export async function finishUsage(
   cacheHit = false,
   refundCacheHit = true,
 ): Promise<void> {
+  if ((await getUsageAction(actionId))?.metricKey === "learning_points") {
+    await accountFetch("rpc/billing_finish", { method: "POST", body: JSON.stringify({ p_action: actionId, p_status: status, p_cache: cacheHit, p_refund: cacheHit && refundCacheHit }) });
+    return;
+  }
   await accountFetch("rpc/finalize_usage", {
     method: "POST",
     body: JSON.stringify({
@@ -334,6 +349,10 @@ export async function finishUsage(
 }
 
 export async function refundUsage(actionId: string, status: "failed" | "cancelled", errorCode: string): Promise<void> {
+  if ((await getUsageAction(actionId))?.metricKey === "learning_points") {
+    await accountFetch("rpc/billing_finish", { method: "POST", body: JSON.stringify({ p_action: actionId, p_status: status, p_refund: true }) });
+    return;
+  }
   await accountFetch("rpc/refund_usage", {
     method: "POST",
     body: JSON.stringify({ p_action_id: actionId, p_status: status, p_error_code: errorCode.slice(0, 120) }),

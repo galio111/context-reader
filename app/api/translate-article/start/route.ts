@@ -1,3 +1,7 @@
+import { billingRpc } from "@/lib/billingStore";
+import { translationBlockCharge } from "@/lib/translationBilling";
+import { createArticleTranslationBlocks } from "@/lib/articleTranslationBlocks";
+import { englishWordCount } from "@/lib/billingPolicy";
 import { createHash } from "crypto";
 import { NextResponse } from "next/server";
 import {
@@ -13,6 +17,7 @@ import { resolveUsageIdentity } from "@/lib/usageIdentity";
 const UUID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
 interface StartBody {
+  blocks?: unknown;
   actionId?: unknown;
   cacheKey?: unknown;
   publicArticleId?: unknown;
@@ -30,7 +35,7 @@ function stableUuid(value: string): string {
 }
 
 export async function POST(request: Request) {
-  const body = await readJsonBody<StartBody>(request, 64 * 1024).catch(() => null);
+  const body = await readJsonBody<StartBody>(request, 512 * 1024).catch(() => null);
   const cacheKey = typeof body?.cacheKey === "string" ? body.cacheKey.trim() : "";
   const source = body?.source === "public_cache" ? "public_cache" : "generated";
   if (!cacheKey || cacheKey.length > 64) return NextResponse.json({ error: "全文翻译任务缺少文章版本。" }, { status: 400 });
@@ -45,6 +50,9 @@ export async function POST(request: Request) {
       return NextResponse.json({ actionId, charged: false, localOnly: true, source });
     }
 
+    const inputBlocks = Array.isArray(body?.blocks) ? body.blocks : [];
+    if (source === "generated" && (!inputBlocks.length || inputBlocks.length > 2000 || !inputBlocks.every(b => b && typeof b.id === "string" && b.id.length <= 160 && typeof b.text === "string" && b.text.length <= 32000) || new Set(inputBlocks.map(b => b.id)).size !== inputBlocks.length)) return NextResponse.json({ error: "文章段落无效，请刷新后重试。" }, { status: 400 });
+    let chargedBlocks = inputBlocks as Array<{id: string; text: string}>;
     let actionId = typeof body?.actionId === "string" && UUID_PATTERN.test(body.actionId) ? body.actionId : "";
     let metadata: Record<string, unknown> = {
       source,
@@ -58,6 +66,7 @@ export async function POST(request: Request) {
       const publicArticleId = typeof body?.publicArticleId === "string" ? body.publicArticleId : "";
       publicTranslation = publicArticleId ? await getPublishedArticleTranslation(publicArticleId, cacheKey) : null;
       if (!publicTranslation) return NextResponse.json({ error: "这篇精选文章的预发布译文已失效，请刷新后重试。" }, { status: 409 });
+      chargedBlocks = createArticleTranslationBlocks(publicTranslation.article.body, publicTranslation.article.importedArticle);
       actionId = stableUuid(`public-translation:${identity.userId}:${publicArticleId}:${cacheKey}`);
       metadata = {
         ...metadata,
@@ -81,13 +90,13 @@ export async function POST(request: Request) {
       planId: identity.planId,
       feature: "full_article_translation",
       metricKey: "full_article_translation",
-      units: 1,
+      units: chargedBlocks.reduce((n, b) => n + englishWordCount(b.text), 0),
     });
-    if (!reservation.allowed) return NextResponse.json({ error: "本月全文翻译次数已用完，可在用量页查看详情。", code: "quota_exhausted" }, { status: 429 });
+    if (!reservation.allowed) return NextResponse.json({ error: "学习点数不足以完成本次全文翻译，请查看用量。", code: "quota_exhausted" }, { status: 429 });
 
     const existing = reservation.duplicate ? await getUsageAction(actionId) : null;
-    if (!existing || existing.ownerKey === identity.ownerKey) {
-      await setUsageActionMetadata(actionId, metadata).catch(() => undefined);
+    if (!existing) {
+      await setUsageActionMetadata(actionId, metadata);
     }
 
     if (source === "public_cache" && publicTranslation) {
@@ -100,6 +109,7 @@ export async function POST(request: Request) {
       });
     }
 
+    if (reservation.metricKey === "learning_points") await billingRpc("translation_start", { p_action: actionId, p_blocks: chargedBlocks.map(translationBlockCharge) });
     return NextResponse.json({ actionId, charged: !reservation.duplicate, source });
   } catch {
     return NextResponse.json({ error: "全文翻译用量服务暂时不可用，请稍后重试。", code: "account_unavailable" }, { status: 503 });

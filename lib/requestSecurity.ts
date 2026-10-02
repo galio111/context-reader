@@ -32,6 +32,8 @@ const MINUTE = 60_000;
 const DAY = 24 * 60 * MINUTE;
 
 const COSTLY_ROUTE_RULES: Array<[RegExp, RateRule[]]> = [
+  [/^\/api\/billing$/, [{ bucket: "billing", limit: 30, windowMs: MINUTE }]],
+  [/^\/api\/translate-article\/start$/, [{ bucket: "translation-start", limit: 10, windowMs: MINUTE }]],
   [/^\/api\/admin\/login$/, [{ bucket: "admin-login", limit: 5, windowMs: 15 * MINUTE }]],
   [/^\/api\/auth\/request-otp$/, [{ bucket: "auth-otp", limit: 5, windowMs: 15 * MINUTE }]],
   [/^\/api\/auth\/verify-otp$/, [{ bucket: "auth-verify", limit: 10, windowMs: 15 * MINUTE }]],
@@ -119,6 +121,7 @@ function maxRequestBytes(pathname: string): number {
   if (pathname === "/api/account/sync") {
     return 8 * 1024 * 1024;
   }
+  if (pathname === "/api/translate-article/start") return 512 * 1024;
   if (pathname === "/api/translate-article") {
     return 512 * 1024;
   }

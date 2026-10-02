@@ -1,5 +1,6 @@
 "use client";
 
+import { openAccountUsage } from "@/lib/accountUsageNavigation";
 import { lowUsageNotice } from "@/lib/usagePresentation";
 
 import { startupMark } from "@/lib/startupPerformance";
@@ -133,6 +134,8 @@ export function AccountProvider({ children }: { children: ReactNode }) {
   const [submitting, setSubmitting] = useState(false);
   const [syncingLogin, setSyncingLogin] = useState(false);
   const [usageNotice, setUsageNotice] = useState("");
+  const shownUsageNotices = useRef(new Set<string>());
+  useEffect(() => { if (!usageNotice) return; const timer = window.setTimeout(() => setUsageNotice(""), 3000); return () => window.clearTimeout(timer); }, [usageNotice]);
   const syncTimer = useRef<number | null>(null);
   const connectivityCheckingRef = useRef(false);
   const connectivityToastTimer = useRef<number | null>(null);
@@ -173,7 +176,15 @@ export function AccountProvider({ children }: { children: ReactNode }) {
         if ((nextAccount.localOnly || nextAccount.localDirect) && nextAccount.profile?.userId) {
           await prepareLocalAccountForUser(nextAccount.profile.userId, { preserveExistingData: true });
         }
-        setUsageNotice(lowUsageNotice(nextAccount.usage));
+        const notice = lowUsageNotice(nextAccount.usage);
+        const key = nextAccount.profile?.userId + ":" + nextAccount.usage.map(u => u.metricKey + u.windowEnd + (u.remaining === 0 ? ":empty" : ":low")).join(";");
+        let seen = shownUsageNotices.current.has(key);
+        try { seen ||= sessionStorage.getItem("usage-notice:" + key) === "1"; } catch {}
+        if (notice && !seen) {
+          shownUsageNotices.current.add(key);
+          try { sessionStorage.setItem("usage-notice:" + key, "1"); } catch {}
+          setUsageNotice(notice);
+        }
       } else {
         clearLocalAccountSession();
         setLocalAccount(null);
@@ -687,7 +698,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
           {connectivityToast}
         </div>
       )}
-      {usageNotice && !loginOpen && <div role="status" aria-live="polite" className="fixed bottom-4 left-1/2 z-[150] flex w-[min(92vw,520px)] -translate-x-1/2 items-center justify-between gap-4 rounded-2xl border border-black/10 bg-[#fbfcfe] px-4 py-3 text-sm text-[#344d5e] shadow-xl"><span>{usageNotice} <Link className="font-semibold text-[#2868ad]" href="/account/usage">查看用量</Link></span><button className="min-h-11 min-w-11 shrink-0 rounded-full px-2 py-1 text-xs hover:bg-black/5" type="button" onClick={() => setUsageNotice("")}>关闭</button></div>}
+      {usageNotice && !loginOpen && <div role="status" aria-live="polite" className="fixed bottom-4 left-1/2 z-[150] flex w-[min(92vw,520px)] -translate-x-1/2 items-center justify-between gap-4 rounded-2xl border border-black/10 bg-[#fbfcfe] px-4 py-3 text-sm text-[#344d5e] shadow-xl"><span>{usageNotice} <button type="button" className="font-semibold text-[#2868ad]" onClick={() => { setUsageNotice(""); openAccountUsage(); }}>查看用量</button></span><button className="min-h-11 min-w-11 shrink-0 rounded-full px-2 py-1 text-xs hover:bg-black/5" type="button" onClick={() => setUsageNotice("")}>关闭</button></div>}
       {loginOpen && (
         <div className="fixed inset-0 z-[200] grid place-items-center bg-[#172d3b]/35 px-4 backdrop-blur-sm" role="presentation">
           <section className="max-h-[calc(100dvh-2rem)] w-full max-w-[430px] overflow-y-auto rounded-[16px] bg-[#fbfcfe] p-7 text-[#17212b] shadow-2xl" role="dialog" aria-modal="true" aria-labelledby="account-login-title">
