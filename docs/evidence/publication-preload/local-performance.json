@@ -1,0 +1,168 @@
+{
+  "environment": "Chrome local production build with public 955-article fixture, 80 ms latency, 375000 B/s, disabled cache and SW",
+  "results": {
+    "guest": {
+      "startMs": 1063.3999999985099,
+      "clickAfterStartMs": null,
+      "visibleMissingSamples": 0,
+      "firstVisibleMissing": null,
+      "lastVisibleMissing": null,
+      "longTasks": [],
+      "mountCounts": [],
+      "frameP95Ms": 12.200000000000273,
+      "frameMaxMs": 515.2000000000003
+    },
+    "member": {
+      "startMs": 802.3999999985099,
+      "clickAfterStartMs": 841.70000000149,
+      "visibleMissingSamples": 4794,
+      "firstVisibleMissing": {
+        "t": 884,
+        "id": "ca130ad2-bd44-4e2d-9036-886ed62480a1"
+      },
+      "lastVisibleMissing": {
+        "t": 6702,
+        "id": "667a6b5b-8b70-475e-819d-c40bb955054a"
+      },
+      "longTasks": [
+        {
+          "start": 1649.6999999955297,
+          "duration": 66
+        },
+        {
+          "start": 13833.79999999702,
+          "duration": 64
+        },
+        {
+          "start": 45137.69999999553,
+          "duration": 270
+        },
+        {
+          "start": 415542,
+          "duration": 4421
+        },
+        {
+          "start": 420063.299999997,
+          "duration": 848
+        },
+        {
+          "start": 421011.5,
+          "duration": 71
+        },
+        {
+          "start": 421953.3999999985,
+          "duration": 333
+        },
+        {
+          "start": 424848.19999999553,
+          "duration": 138
+        },
+        {
+          "start": 433339.09999999404,
+          "duration": 70
+        },
+        {
+          "start": 436815.09999999404,
+          "duration": 151
+        },
+        {
+          "start": 439282,
+          "duration": 64
+        },
+        {
+          "start": 465511.09999999404,
+          "duration": 150
+        },
+        {
+          "start": 476587.799999997,
+          "duration": 52
+        },
+        {
+          "start": 477557.5,
+          "duration": 250
+        },
+        {
+          "start": 479692.3999999985,
+          "duration": 297
+        },
+        {
+          "start": 479993.59999999404,
+          "duration": 104
+        },
+        {
+          "start": 480836.8999999985,
+          "duration": 2491
+        },
+        {
+          "start": 483329.19999999553,
+          "duration": 57
+        },
+        {
+          "start": 483426.299999997,
+          "duration": 107
+        },
+        {
+          "start": 483534.8999999985,
+          "duration": 60
+        },
+        {
+          "start": 483783.09999999404,
+          "duration": 186
+        },
+        {
+          "start": 484019.799999997,
+          "duration": 175
+        },
+        {
+          "start": 484434.5,
+          "duration": 67
+        },
+        {
+          "start": 484600.59999999404,
+          "duration": 67
+        },
+        {
+          "start": 485131.8999999985,
+          "duration": 95
+        },
+        {
+          "start": 485606.59999999404,
+          "duration": 153
+        },
+        {
+          "start": 485901.5,
+          "duration": 78
+        },
+        {
+          "start": 485979.5,
+          "duration": 219
+        },
+        {
+          "start": 486373.69999999553,
+          "duration": 484
+        },
+        {
+          "start": 486891.3999999985,
+          "duration": 1045
+        }
+      ],
+      "mountCounts": [
+        {
+          "t": -0.5999999985099294,
+          "n": 10
+        },
+        {
+          "t": 884.0000000014902,
+          "n": 36
+        },
+        {
+          "t": 968.8000000014902,
+          "n": 43
+        }
+      ],
+      "frameP95Ms": null,
+      "frameMaxMs": null
+    }
+  },
+  "limits": "Timing samples are not a universal zero-gray or zero-stutter guarantee. Member sample is an immediate scripted jump-and-expand."
+}

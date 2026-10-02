@@ -25,7 +25,14 @@ test("full catalogue mounts in bounded commits and restores distant Reader origi
     for(let i=0;i<20&&idle.size;i++)await act(async()=>{const batch=[...idle.values()];idle.clear();batch.forEach(run=>run());});
     assert.equal(counts.at(-1),500);
     assert.ok(counts.every((n,i)=>i===0||n-counts[i-1]<=36),"each commit stays bounded");
+    await act(async()=>root.render(<List query="collapsed showcase" total={10}/>));
+    assert.equal(counts.at(-1),10);
+    await act(async()=>root.render(<List/>));
+    assert.equal(counts.at(-1),36,"reopening must not reuse the previous 500-card mount");
+    await act(async()=>{const batch=[...idle.values()];idle.clear();batch.forEach(run=>run());});
+    assert.equal(counts.at(-1),72,"repeated expansion still advances in bounded chunks");
     await act(async()=>root.render(<List query="tail article" total={1}/>));assert.equal(counts.at(-1),1,"search considers the full catalogue");
+    await act(async()=>root.render(<List/>));assert.equal(counts.at(-1),36,"clearing a search also restarts bounded mounting");
     await act(async()=>root.render(<List query="restored" origin={461}/>));assert.equal(counts.at(-1),461,"the target exists before Reader scroll restoration");
     await act(async()=>root.unmount());assert.equal(idle.size,0);
   }finally{dom.window.close();for(const[key,descriptor]of saved){if(descriptor)Object.defineProperty(globalThis,key,descriptor);else Reflect.deleteProperty(globalThis,key);}}
