@@ -8,11 +8,53 @@ import {normalizeCetActivity} from '../lib/cetActivityStorage';
 import {listeningVisibleText,recordListeningPlayback,listeningDefaultMinutes,validListeningSnapshots} from '../lib/cetListening';
 import type {CetPaper,CetSection} from '../types/cet';
 import {auditListeningAnswers, explicitAnswerReferences} from '../scripts/audit-cet-listening-answers.mjs';
+import {auditListeningContent, listeningContentFlags} from '../scripts/audit-cet-listening-content.mjs';
 const original=JSON.parse(readFileSync(new URL('../data/cet/cet4-2025-06-1.json',import.meta.url),'utf8')) as CetPaper;
 const listening=JSON.parse(readFileSync(new URL('../data/cet/listening/cet4-2025-06-1.json',import.meta.url),'utf8')) as CetSection;
 const paper={...original,sections:[listening,...original.sections]};
 const now='2026-10-02T00:00:00.000Z';
 const supplement=JSON.parse(readFileSync(new URL('../docs/evidence/cet-listening-supplement/source-manifest.json',import.meta.url),'utf8'));
+const cleanup=JSON.parse(readFileSync(new URL('../docs/evidence/cet-listening-watermark/cleanup-proof.json',import.meta.url),'utf8'));
+const sha256=(bytes:Buffer|string)=>createHash('sha256').update(bytes).digest('hex');
+
+test('all listening English surfaces are free of source marks and Chinese explanations remain valid',()=>{
+ assert.deepEqual(auditListeningContent(new URL('../data/cet/listening',import.meta.url)),{papers:62,questions:1550,options:6200,groups:465,flags:[]});
+ const fixture={questions:[{number:1,stem:'',options:[{key:'C',text:"Call the man's company. 公众号【语听颖想说】"}],explanation:'选项C正确。这是对话中的细节信息。'}],listeningGroups:[]};
+ assert.equal(listeningContentFlags(fixture).length,1);
+ fixture.questions[0].options[0].text='Call the man\'s company.';
+ assert.deepEqual(listeningContentFlags(fixture),[]);
+ fixture.questions[0].options[0].text='Cultivate better citizens. 第1页/共8页';
+ assert.equal(listeningContentFlags(fixture).length,1);
+ fixture.questions[0].options[0].text='Cultivate better citizens.';
+ fixture.questions[0].explanation='选项C正确。公众亏【语听颖想说】';
+ assert.equal(listeningContentFlags(fixture).length,1);
+});
+
+test('reviewed watermark cleanup changes only exact source-backed fields and preserves answer/audio/snapshots',()=>{
+ assert.equal(cleanup.files.length,8);
+ assert.equal(cleanup.files.reduce((n:number,f:{changes:unknown[]})=>n+f.changes.length,0),15);
+ for(const entry of cleanup.files){
+  const bytes=readFileSync(new URL(`../${entry.path}`,import.meta.url));
+  assert.equal(sha256(bytes),entry.afterSha256);
+  let reversed=bytes.toString('utf8');
+  for(const edit of entry.changes){
+   assert.equal(edit.source.visualVerification,true);assert.match(edit.source.sha256,/^[a-f0-9]{64}$/);
+   assert.match(edit.source.url,/^https:\/\/github.com\/0609x\/CET46-Resources\/blob\/[a-f0-9]{40}\//);
+   const token=JSON.stringify(edit.after);assert.equal(reversed.split(token).length,2);
+   reversed=reversed.replace(token,JSON.stringify(edit.before));
+  }
+  assert.equal(sha256(reversed),entry.beforeSha256);
+  const before=JSON.parse(reversed),after=JSON.parse(bytes.toString('utf8'));
+  assert.deepEqual(before.audio,after.audio);assert.deepEqual(before.listeningGroups,after.listeningGroups);
+  assert.deepEqual(before.questions.map((q:{number:number;answer:string})=>[q.number,q.answer]),after.questions.map((q:{number:number;answer:string})=>[q.number,q.answer]));
+  const oldPaper={...original,id:entry.paperId,sections:[before]};
+  const submitted=cetFinalize(createCetActivity({paper:oldPaper,purpose:'practice',sectionId:before.id,owner:'guest',now}),oldPaper,'passage_submit',before.id,now,'before-cleanup');
+  assert.deepEqual(submitted.finalizations['before-cleanup'].questions.map(q=>q.options),before.questions.map((q:{options:unknown[]})=>q.options));
+ }
+ const load=(id:string)=>JSON.parse(readFileSync(new URL(`../data/cet/listening/${id}.json`,import.meta.url),'utf8')) as CetSection;
+ const q=load('cet6-2025-06-1').questions[0];assert.equal(q.options[2].text,"Call the man's company.");assert.equal(q.answer,'C');
+ assert.equal(load('cet4-2021-12-1').questions[18].options[1].text,'Workers who can lose 30 pounds in a year.');
+});
 
 test('source attribution is immutable in submitted listening and unsafe snapshot links are rejected',()=>{
  const changed=structuredClone(paper);
@@ -51,9 +93,14 @@ test('all listening additions have 25 choices, exhaustive material groups and fi
  }
  assert.equal(urls.size,61);assert.equal(urls.size,supplement.summary.uniqueAudio);
 });
-test('supplement preserves all original listening bytes and exposes only complete source-backed additions',()=>{
+test('supplement preserves the original baseline except explicit reversible source corrections',()=>{
  assert.equal(Object.keys(supplement.preserved).length,19);
- for(const [id,hash] of Object.entries(supplement.preserved))assert.equal(createHash('sha256').update(readFileSync(new URL(`../data/cet/listening/${id}.json`,import.meta.url))).digest('hex'),hash);
+ for(const [id,hash] of Object.entries(supplement.preserved)){
+  const entry=cleanup.files.find((f:{paperId:string})=>f.paperId===id);
+  const bytes=readFileSync(new URL(`../data/cet/listening/${id}.json`,import.meta.url));
+  if(entry){assert.equal(entry.beforeSha256,hash);assert.equal(sha256(bytes),entry.afterSha256);}
+  else assert.equal(sha256(bytes),hash);
+ }
  assert.equal(supplement.imported.length,43);
  for(const entry of supplement.imported){
   const s=JSON.parse(readFileSync(new URL(`../data/cet/listening/${entry.paperId}.json`,import.meta.url),'utf8')) as CetSection;

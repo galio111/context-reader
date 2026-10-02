@@ -2,7 +2,7 @@
 
 ## CET 听力（2026-10-02，已生产）
 
-当前接受 `20261002T190651`（parent `20261002T183827`，source `2958b1ccce2ee6b563afb21137eaa593b81617c0`），公网/current/state一致；保留首页上浮及既有功能。现有149套中62套听力（四级31/六级31），1550题/465组原文/61份录音，原19套逐字节不改。来源、未接入87套及详细解析/人工/设备限制见[cet-listening-supplement-report.md](cet-listening-supplement-report.md)，正式发布、真实页面/数据/运行证据见[cet-listening-supplement-release.md](cet-listening-supplement-release.md)。
+当前接受 `20261002T190651`（parent `20261002T183827`，source `2958b1ccce2ee6b563afb21137eaa593b81617c0`），公网/current/state一致；保留首页上浮及既有功能。现有149套中62套听力（四级31/六级31），1550题/465组原文/61份录音，原19套在增补阶段逐字节不改；本次其中6套来源污染定点纠正，原始哈希与可逆证明保留。来源、未接入87套及详细解析/人工/设备限制见[cet-listening-supplement-report.md](cet-listening-supplement-report.md)，正式发布、真实页面/数据/运行证据见[cet-listening-supplement-release.md](cet-listening-supplement-release.md)。
 
 
 ## 第四轮授权修复（2026-09-26，已生产）

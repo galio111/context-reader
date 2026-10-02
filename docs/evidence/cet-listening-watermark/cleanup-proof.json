@@ -1,0 +1,266 @@
+{
+  "parentReleaseId": "20261002T190651",
+  "baselineSourceRevision": "2958b1ccce2ee6b563afb21137eaa593b81617c0",
+  "policy": "Exact source-verified string replacements; reversible byte proof; no renderer filter or generic Chinese deletion; submitted snapshots unchanged.",
+  "files": [
+    {
+      "paperId": "cet4-2020-12-2",
+      "path": "data/cet/listening/cet4-2020-12-2.json",
+      "beforeSha256": "a26ee9fc85e781319354e25fa863434976129100a9ee7a54ca01840f10f3b37a",
+      "changes": [
+        {
+          "number": 7,
+          "field": "options.D.text",
+          "before": "People are ungrateful when in a bad mood. 四级2020年12月24",
+          "after": "People are ungrateful when in a bad mood.",
+          "source": {
+            "url": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2020.12/%E7%9C%9F%E9%A2%98PDF/cet4_2020_12_2.pdf",
+            "sha256": "eaa4db0b4a0261ee13e4e37fed27d5acf9ffe63bc57b7e2d5346496b7b1b0246",
+            "page": 1,
+            "visualVerification": true,
+            "note": "Separate bottom-of-page footer."
+          }
+        }
+      ],
+      "afterSha256": "6f6489b98b8f1a6be57864b59e418a3633e6a795c917713d3ed8ed59d389ae71"
+    },
+    {
+      "paperId": "cet4-2021-12-1",
+      "path": "data/cet/listening/cet4-2021-12-1.json",
+      "beforeSha256": "4df04088a6eb8c8e04e4df2d95fe21fb908ed9d699a09fc9b9d9874a8adf37a2",
+      "changes": [
+        {
+          "number": 19,
+          "field": "options.B.text",
+          "before": "Workers who can lose 3O pounds in a year. 2021-12-CET4(第1套)-2",
+          "after": "Workers who can lose 30 pounds in a year.",
+          "source": {
+            "url": "https://github.com/0609x/CET46-Resources/blob/b81fbcc710dcb737988e9dea2b087bb461f58069/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2021.12/%E7%9C%9F%E9%A2%98PDF/cet4_2021_12_1.pdf",
+            "sha256": "9bf9deb13cf23f1e4f589012ee4eceeb0dc88beada93c97102e23093d0196163",
+            "page": 2,
+            "visualVerification": true,
+            "note": "Printed option contains 30 (digit zero); separate page footer."
+          }
+        }
+      ],
+      "afterSha256": "932fa7d1c9b2d0853ce016d6e527a50fbce120dd3c10ad9a8d7cc1be1d7c2a85"
+    },
+    {
+      "paperId": "cet4-2023-06-1",
+      "path": "data/cet/listening/cet4-2023-06-1.json",
+      "beforeSha256": "b6989c01b5238785ad0c8044395cbee174410fbecdb00540113fba6c68288dcd",
+      "changes": [
+        {
+          "number": 16,
+          "field": "options.D.text",
+          "before": "Promote Internet-ready phones. 第2页,共8页",
+          "after": "Promote Internet-ready phones.",
+          "source": {
+            "url": "https://github.com/0609x/CET46-Resources/blob/4a24a1abf752e27de88a5e8bf930595c4ccffcec/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.06/%E7%9C%9F%E9%A2%98PDF/2023%E5%B9%B46%E6%9C%88%E7%AC%AC1%E5%A5%97%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98.pdf",
+            "sha256": "aaa54dab278ffc147bd5ccdad008f9ee9691892941adcf2026248959b2a1fcb8",
+            "page": 2,
+            "visualVerification": true,
+            "note": "Separate bottom-of-page footer."
+          }
+        },
+        {
+          "number": 3,
+          "field": "explanation",
+          "before": "3.What does NASA require the paid volunteers B)【精析】细节辨认题。新闻开头指出，美国国家航空 to do? 航天局于周五开始接受申请，挑选四人在火星模拟 第2页,共15页 栖息地阿尔法火星山丘生活一年，这些有偿志愿者 将在类似火星的环境中工作。因此，答案为B)。",
+          "after": "3.What does NASA require the paid volunteers B)【精析】细节辨认题。新闻开头指出，美国国家航空 to do? 航天局于周五开始接受申请，挑选四人在火星模拟 栖息地阿尔法火星山丘生活一年，这些有偿志愿者 将在类似火星的环境中工作。因此，答案为B)。",
+          "source": {
+            "url": "https://github.com/0609x/CET46-Resources/blob/4a24a1abf752e27de88a5e8bf930595c4ccffcec/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2023%E5%B9%B46%E6%9C%88%E7%AC%AC1%E5%A5%97%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E8%A7%A3%E6%9E%90.pdf",
+            "sha256": "cb78efaa7ae6f12ecb1f6c98ffc7b88cf4a5fbad983aa585073fc108e047e905",
+            "page": 2,
+            "visualVerification": true,
+            "note": "Separate printed bottom-of-page footer; Chinese explanatory content preserved."
+          }
+        },
+        {
+          "number": 12,
+          "field": "explanation",
+          "before": "12.What question were both speakers fed up with when they were kids? A)【精析】细节辨认题。对话开头，女士询问男士小 时候是否知道自己长大后想做什么工作。男士回 答不知道，同时抱怨每当成年人问他长大后想干 什么的时候，他都会很讨厌。女士对此深表赞同。 由此可知，对话双方都讨厌别人问他们长大后想 第4页,共15页 干什么的问题。因此，答案为A)。题干中的fed up意为“厌烦的，不满的”。",
+          "after": "12.What question were both speakers fed up with when they were kids? A)【精析】细节辨认题。对话开头，女士询问男士小 时候是否知道自己长大后想做什么工作。男士回 答不知道，同时抱怨每当成年人问他长大后想干 什么的时候，他都会很讨厌。女士对此深表赞同。 由此可知，对话双方都讨厌别人问他们长大后想 干什么的问题。因此，答案为A)。题干中的fed up意为“厌烦的，不满的”。",
+          "source": {
+            "url": "https://github.com/0609x/CET46-Resources/blob/4a24a1abf752e27de88a5e8bf930595c4ccffcec/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2023%E5%B9%B46%E6%9C%88%E7%AC%AC1%E5%A5%97%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E8%A7%A3%E6%9E%90.pdf",
+            "sha256": "cb78efaa7ae6f12ecb1f6c98ffc7b88cf4a5fbad983aa585073fc108e047e905",
+            "page": 4,
+            "visualVerification": true,
+            "note": "Separate printed bottom-of-page footer; Chinese explanatory content preserved."
+          }
+        },
+        {
+          "number": 22,
+          "field": "explanation",
+          "before": "22.What do we learn about the Dreamery, a business in Manhattan? B)【精析】细节辨认题。短文开头提到，在曼哈顿的 Dreamery商店，小憩是可以出售的。在一个黑暗 的空间里，安静地休息45分钟，费用是25美元。 需要明确的是，这里并不是酒店。这是一个休憩 驿站。因此，答案为B)。 第6页,共15页",
+          "after": "22.What do we learn about the Dreamery, a business in Manhattan? B)【精析】细节辨认题。短文开头提到，在曼哈顿的 Dreamery商店，小憩是可以出售的。在一个黑暗 的空间里，安静地休息45分钟，费用是25美元。 需要明确的是，这里并不是酒店。这是一个休憩 驿站。因此，答案为B)。",
+          "source": {
+            "url": "https://github.com/0609x/CET46-Resources/blob/4a24a1abf752e27de88a5e8bf930595c4ccffcec/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2023%E5%B9%B46%E6%9C%88%E7%AC%AC1%E5%A5%97%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E8%A7%A3%E6%9E%90.pdf",
+            "sha256": "cb78efaa7ae6f12ecb1f6c98ffc7b88cf4a5fbad983aa585073fc108e047e905",
+            "page": 6,
+            "visualVerification": true,
+            "note": "Separate printed bottom-of-page footer; Chinese explanatory content preserved."
+          }
+        }
+      ],
+      "afterSha256": "22095ef98bda7fe8c4fedd3ef44728ef1a7c7c8363d019d647c16bd2dc46b462"
+    },
+    {
+      "paperId": "cet4-2023-06-2",
+      "path": "data/cet/listening/cet4-2023-06-2.json",
+      "beforeSha256": "45b41b014111796b8dbf4fbb4c13b7e3e564af85a6a005d12bace5508cb31406",
+      "changes": [
+        {
+          "number": 19,
+          "field": "options.D.text",
+          "before": "It is an intuitive way to solidify friendship. 第2页,共8页",
+          "after": "It is an intuitive way to solidify friendship.",
+          "source": {
+            "url": "https://github.com/0609x/CET46-Resources/blob/4a24a1abf752e27de88a5e8bf930595c4ccffcec/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.06/%E7%9C%9F%E9%A2%98PDF/2023%E5%B9%B46%E6%9C%88%E7%AC%AC2%E5%A5%97%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98.pdf",
+            "sha256": "62c21e075ae4f5cdea0ce51486dca569a80617242899224171a96db805b9c00c",
+            "page": 2,
+            "visualVerification": true,
+            "note": "Separate bottom-of-page footer."
+          }
+        },
+        {
+          "number": 8,
+          "field": "explanation",
+          "before": "8.What do we learn about the man? A)【精析】细节辨认题。对话一开始，女士便介绍了男 士，指出男士是今天节目的嘉宾，麦吉尔大学的心 第3页,共14页 理学家史蒂夫·平克。由此可知，答案为A)。",
+          "after": "8.What do we learn about the man? A)【精析】细节辨认题。对话一开始，女士便介绍了男 士，指出男士是今天节目的嘉宾，麦吉尔大学的心 理学家史蒂夫·平克。由此可知，答案为A)。",
+          "source": {
+            "url": "https://github.com/0609x/CET46-Resources/blob/4a24a1abf752e27de88a5e8bf930595c4ccffcec/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2023%E5%B9%B46%E6%9C%88%E7%AC%AC2%E5%A5%97%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E8%A7%A3%E6%9E%90.pdf",
+            "sha256": "2bc8612f564d9922f98c3975c26773254c02f8ddd8f35b4d18ef323d38a5e65d",
+            "page": 3,
+            "visualVerification": true,
+            "note": "Separate printed bottom-of-page footer; Chinese explanatory content preserved."
+          }
+        }
+      ],
+      "afterSha256": "21c0e9f69f8638fe2e778463ece260a8f1cc37c8dfc3cb8022c9f52206ff90d1"
+    },
+    {
+      "paperId": "cet4-2023-06-3",
+      "path": "data/cet/listening/cet4-2023-06-3.json",
+      "beforeSha256": "2129de230cb7ff57735f399ef9d35c1111d8739380b610732f661deb49a25bcc",
+      "changes": [
+        {
+          "number": 19,
+          "field": "options.D.text",
+          "before": "It is an intuitive way to solidify friendship. 第2页,共8页",
+          "after": "It is an intuitive way to solidify friendship.",
+          "source": {
+            "url": "https://github.com/0609x/CET46-Resources/blob/4a24a1abf752e27de88a5e8bf930595c4ccffcec/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.06/%E7%9C%9F%E9%A2%98PDF/2023%E5%B9%B46%E6%9C%88%E7%AC%AC2%E5%A5%97%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98.pdf",
+            "sha256": "62c21e075ae4f5cdea0ce51486dca569a80617242899224171a96db805b9c00c",
+            "page": 2,
+            "visualVerification": true,
+            "note": "Set 3 explicitly shares set 2 listening; source set 2 page 2 footer."
+          }
+        },
+        {
+          "number": 8,
+          "field": "explanation",
+          "before": "8.What do we learn about the man? A)【精析】细节辨认题。对话一开始，女士便介绍了男 士，指出男士是今天节目的嘉宾，麦吉尔大学的心 第3页,共14页 理学家史蒂夫·平克。由此可知，答案为A)。",
+          "after": "8.What do we learn about the man? A)【精析】细节辨认题。对话一开始，女士便介绍了男 士，指出男士是今天节目的嘉宾，麦吉尔大学的心 理学家史蒂夫·平克。由此可知，答案为A)。",
+          "source": {
+            "url": "https://github.com/0609x/CET46-Resources/blob/4a24a1abf752e27de88a5e8bf930595c4ccffcec/%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2023%E5%B9%B46%E6%9C%88%E7%AC%AC2%E5%A5%97%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7%E7%9C%9F%E9%A2%98%E8%A7%A3%E6%9E%90.pdf",
+            "sha256": "2bc8612f564d9922f98c3975c26773254c02f8ddd8f35b4d18ef323d38a5e65d",
+            "page": 3,
+            "visualVerification": true,
+            "note": "Separate printed bottom-of-page footer; Chinese explanatory content preserved."
+          }
+        }
+      ],
+      "afterSha256": "b9774694e0b9da7f2a9ae52546749a6c37cbe2ac6279f5565aec30d3caf098f7"
+    },
+    {
+      "paperId": "cet6-2023-06-1",
+      "path": "data/cet/listening/cet6-2023-06-1.json",
+      "beforeSha256": "59d8df196bd7bcbdc2cf756ee9196b97f48b4506560a3def94e75063134254ac",
+      "changes": [
+        {
+          "number": 8,
+          "field": "options.D.text",
+          "before": "Cultivate better citizens. 第1页/共8页",
+          "after": "Cultivate better citizens.",
+          "source": {
+            "url": "https://github.com/0609x/CET46-Resources/blob/4a24a1abf752e27de88a5e8bf930595c4ccffcec/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2023.06/%E7%9C%9F%E9%A2%98PDF/2023.06%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97.pdf",
+            "sha256": "08e8b936e2a1a754ac704bb7b9a88f45e008877d8015a2867f26dde0285ee941",
+            "page": 1,
+            "visualVerification": true,
+            "note": "Separate bottom-of-page footer."
+          }
+        }
+      ],
+      "afterSha256": "7b6f428f87a5c2524b9e7dfeaaddca2c361c578ed726c3c4bf4dc11eaaf15436"
+    },
+    {
+      "paperId": "cet6-2025-06-1",
+      "path": "data/cet/listening/cet6-2025-06-1.json",
+      "beforeSha256": "e0241d0b62586f7c1867ef20a90fa50cb99d382a5f1a2e9309d19864cca3ec5d",
+      "changes": [
+        {
+          "number": 1,
+          "field": "options.C.text",
+          "before": "Call the man's company. 公众号【语听颖想说】",
+          "after": "Call the man's company.",
+          "source": {
+            "url": "https://github.com/0609x/CET46-Resources/blob/4a24a1abf752e27de88a5e8bf930595c4ccffcec/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.06/%E7%9C%9F%E9%A2%98PDF/2025.06%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97.pdf",
+            "sha256": "0ea92cd19ce64d6857a9e33469a950a3bfe43ebb1f03908e1e507e84c28c4160",
+            "page": 2,
+            "visualVerification": true,
+            "note": "Separate faint watermark, not question/explanation content."
+          }
+        },
+        {
+          "number": 16,
+          "field": "options.C.text",
+          "before": "Outweigh IQ in importance想说",
+          "after": "Outweigh IQ in importance.",
+          "source": {
+            "url": "https://github.com/0609x/CET46-Resources/blob/4a24a1abf752e27de88a5e8bf930595c4ccffcec/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.06/%E7%9C%9F%E9%A2%98PDF/2025.06%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC1%E5%A5%97.pdf",
+            "sha256": "0ea92cd19ce64d6857a9e33469a950a3bfe43ebb1f03908e1e507e84c28c4160",
+            "page": 4,
+            "visualVerification": true,
+            "note": "Separate faint watermark, not question/explanation content."
+          }
+        },
+        {
+          "number": 20,
+          "field": "explanation",
+          "before": "20.如果晨起对你来说是件难事，你应该怎么做？ 公众亏【语听颖想说】 A)早餐弄简单些。 C)黎明前就准备好。 B)认真对待闹铃。 D)前一晚就做好准备。 [设题要点］建议提出处（Ifmorningsarea struggleforyou...forthenextday)。 ［答案精析］D。第四段③句针对“晨起困难”提出具体建议：尽量在前一晚多做准备（doasmuchasyou cantoreadyyourselfthenightbefore），D项与此一致，故正确。A项利用常识“简化早餐能够腾出更多时间以 避免迟到”设置干扰，但这一建议在录音中未被提及。B项利用第三段句中的takethealarmsseriously设 置干扰，但题干所问是针对“晨起困难”的相关建议，该项答非所问。C项通过窜改第四段③句中的时间状语 thenightbefore为intheearlydawn来设置干扰，与原文信息不符。",
+          "after": "20.如果晨起对你来说是件难事，你应该怎么做？ A)早餐弄简单些。 C)黎明前就准备好。 B)认真对待闹铃。 D)前一晚就做好准备。 [设题要点］建议提出处（Ifmorningsarea struggleforyou...forthenextday)。 ［答案精析］D。第四段③句针对“晨起困难”提出具体建议：尽量在前一晚多做准备（doasmuchasyou cantoreadyyourselfthenightbefore），D项与此一致，故正确。A项利用常识“简化早餐能够腾出更多时间以 避免迟到”设置干扰，但这一建议在录音中未被提及。B项利用第三段句中的takethealarmsseriously设 置干扰，但题干所问是针对“晨起困难”的相关建议，该项答非所问。C项通过窜改第四段③句中的时间状语 thenightbefore为intheearlydawn来设置干扰，与原文信息不符。",
+          "source": {
+            "url": "https://github.com/0609x/CET46-Resources/blob/4a24a1abf752e27de88a5e8bf930595c4ccffcec/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2025.06/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2025.06%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%A7%A3%E6%9E%90%E7%AC%AC1%E5%A5%97.pdf",
+            "sha256": "150073a4232bf3a63711a6826b6c740bced4f4b1701912a754861429ed2fe7ce",
+            "page": 24,
+            "visualVerification": true,
+            "note": "Separate faint watermark, not question/explanation content."
+          }
+        }
+      ],
+      "afterSha256": "ea51c909024c03942360887019bbafa858e1615ee720e645b1e4bcc8c162309d"
+    },
+    {
+      "paperId": "cet6-2022-12-2",
+      "path": "data/cet/listening/cet6-2022-12-2.json",
+      "beforeSha256": "bf90602e10de550d6893f2f65bdfd548f3f20a513ac03a91444f6c3280ac1949",
+      "changes": [
+        {
+          "number": 23,
+          "field": "explanation",
+          "before": "23.What did the speaker once think of teenage friendships? A）【精析】细节推断题。根据句(23），讲话者说，很多 22年12月六级第2套详解第6页，共15页 人在十几岁的时候都认为那时候形成的友谊可以 持续一生，但其实，慢慢地，工作、家庭、悲剧事件 会让人们逐渐疏远，友谊也不复存在。虽然原文 中没有提到时间的推移，但其他三个选项都无法 从原文中找到依据，所以只有A)选项与讲座中的 这段话意思相近。因此答案为A)。",
+          "after": "23.What did the speaker once think of teenage friendships? A）【精析】细节推断题。根据句(23），讲话者说，很多 人在十几岁的时候都认为那时候形成的友谊可以 持续一生，但其实，慢慢地，工作、家庭、悲剧事件 会让人们逐渐疏远，友谊也不复存在。虽然原文 中没有提到时间的推移，但其他三个选项都无法 从原文中找到依据，所以只有A)选项与讲座中的 这段话意思相近。因此答案为A)。",
+          "source": {
+            "url": "https://github.com/0609x/CET46-Resources/blob/4a24a1abf752e27de88a5e8bf930595c4ccffcec/%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98/2022.12/%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90/2022.12%E5%85%AD%E7%BA%A7%E7%9C%9F%E9%A2%98%E7%AC%AC2%E5%A5%97%E7%AD%94%E6%A1%88%E5%8F%8A%E8%AF%A6%E8%A7%A3.pdf",
+            "sha256": "fe5311354639fedef298ceae307d4c289ea72727b49792b87e644c36c98a888e",
+            "page": 6,
+            "visualVerification": true,
+            "note": "Separate printed bottom-of-page footer; Chinese explanatory content preserved."
+          }
+        }
+      ],
+      "afterSha256": "64d311232c4cdb90c11f65a344a47d19d7c64e3971b72e0175dbbe44991a588f"
+    }
+  ]
+}
