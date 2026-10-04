@@ -12,6 +12,8 @@ import { estimateDeepSeekCostMicrousd, type ProviderTokenUsage } from "@/lib/usa
 import { recordServerError, reportReference } from "@/lib/serverErrorReporting";
 import { classifyStreamTermination } from "@/lib/requestCancellation";
 import { registerActiveLookupRequest } from "@/lib/activeLookupRequests";
+import { parseDictionaryStream } from "@/lib/dictionaryStream";
+import { persistDictionaryResult } from "@/lib/dictionaryResultServer";
 import { coreDeepSeekModelCandidates, fetchWithDeepSeekModelFailover } from "@/lib/deepseekModelFailover";
 
 export const maxDuration = 60;
@@ -40,6 +42,7 @@ function parseSseContent(line: string, onUsage: (usage: ProviderTokenUsage) => v
 async function handlePOST(request: Request) {
   let body: unknown;
   let actionId = "";
+  let resultOwner = "";
   try {
     body = await readJsonBody(request, 4 * 1024);
   } catch (error) {
@@ -66,6 +69,7 @@ async function handlePOST(request: Request) {
       units: 1,
     });
     actionId = usage.actionId;
+    if (!usage.identity.localOnly) resultOwner = usage.identity.userId || "";
   } catch (error) {
     return usageErrorResponse(error) ?? NextResponse.json({ error: "用量校验失败。" }, { status: 500 });
   }
@@ -215,8 +219,10 @@ async function handlePOST(request: Request) {
         // DictionaryProviderStreamNormalizer applies normalizeDictionaryStreamLine
         // only after a complete provider JSON object has closed.
         const normalizer = new DictionaryProviderStreamNormalizer(query);
+        let snapshotText = "";
         const enqueueModelContent = (content: string) => {
           for (const normalized of normalizer.push(content)) {
+            snapshotText += normalized + "\n";
             if ((JSON.parse(normalized) as { type?: string }).type === "done") sawDone = true;
             controller.enqueue(encoder.encode(`${normalized}\n`));
           }
@@ -265,6 +271,15 @@ async function handlePOST(request: Request) {
             });
             controller.close();
             return;
+          }
+          if (resultOwner) {
+            await persistDictionaryResult(resultOwner, parseDictionaryStream(snapshotText, query).result).catch(async (error) => {
+              await recordServerError(request, {
+                category: "service", severity: "warning", operation: "dictionary_snapshot_save",
+                endpoint: "/api/dictionary-stream", code: "dictionary_snapshot_save_failed", httpStatus: 503,
+                userMessage: "查询完成，云端历史结果尚未保存；本机结果会继续保留。",
+              }, error);
+            });
           }
           await recordUsageExecution({
             actionId,

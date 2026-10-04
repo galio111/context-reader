@@ -4,6 +4,7 @@ import { createHash, randomUUID } from "node:crypto";
 import { createClient } from "@supabase/supabase-js";
 import type { PronunciationAccent } from "@/lib/pronunciation";
 import { normalizePronunciationText } from "@/lib/pronunciation";
+import { reviewedPronunciationAudioPhonetic } from "./dictionaryPronunciation";
 
 import { normalizePronunciationPhonetic, pronunciationSynthesisInput } from "./pronunciationSsml";
 
@@ -113,7 +114,7 @@ function cacheIdentity(text: string, accent: PronunciationAccent, voice: string,
   const synthesis = pronunciationSynthesisInput(text, phonetic);
   return createHash("sha256")
     .update([PROVIDER_ID, accent, voice, text,
-      ...(phonetic ? ["cmu-ssml-v2", synthesis.textType, synthesis.text] : [])].join("\n"))
+      ...(synthesis.textType === "ssml" ? ["cmu-ssml-v2", synthesis.textType, synthesis.text] : [])].join("\n"))
     .digest("hex");
 }
 
@@ -284,20 +285,23 @@ async function createPronunciation(
 
   const bytes = await requestVolcengineAudio(normalizedText, accent, voice, phonetic);
   auditAudio("provider_success", identity, accent, normalizedText.length);
-  // Keep the successful MP3 even if durable storage fails. The existing
-  // in-flight promise still serializes callers until persistence completes.
-  rememberAudio(identity, { bytes, filename, cacheStatus: "unavailable", voice });
+  // Keep the successful MP3 even if durable storage fails. The in-flight
+  // promise serializes synthesis; persistence continues independently.
+  const result: PronunciationResult = { bytes, filename, cacheStatus: "unavailable", voice };
+  rememberAudio(identity, result);
   if (client) {
-    try {
-      await ensurePronunciationBucket(client);
-      await writeCachedAudio(client, path, bytes);
-      return { bytes, filename, cacheStatus: "miss", voice };
-    } catch (error) {
+    persistenceInFlight.add(identity);
+    persistenceRetries.set(identity, Date.now());
+    // Playback can start as soon as synthesis succeeds. Storage does not sit
+    // on the click-to-play critical path; failures retain the hot MP3 for repair.
+    void ensurePronunciationBucket(client).then(() => writeCachedAudio(client, path, bytes)).then(() => {
+      result.cacheStatus = "miss";
+    }).catch((error) => {
       console.error("Pronunciation cache write failed", error);
       auditAudio("storage_write_failed", identity, accent, normalizedText.length);
-    }
+    }).finally(() => persistenceInFlight.delete(identity));
   }
-  return { bytes, filename, cacheStatus: "unavailable", voice };
+  return result;
 }
 
 export function getPronunciationAudio(
@@ -305,6 +309,7 @@ export function getPronunciationAudio(
   accent: PronunciationAccent,
   phonetic = "",
 ): Promise<PronunciationResult> {
+  phonetic = reviewedPronunciationAudioPhonetic(text, accent) || phonetic;
   const voice = configuredVoice(accent);
   const normalizedText = normalizePronunciationText(text);
   const key = cacheIdentity(normalizedText.toLowerCase(), accent, voice, normalizePronunciationPhonetic(phonetic));

@@ -4,6 +4,7 @@ import { getLearningStorage, flushLearningStorage } from "@/lib/learningStorage"
 
 import LZString from "lz-string";
 import { notifyAccountDataChanged, notifyAccountObjectsDeleted } from "@/lib/accountEvents";
+import { normalizeDictionaryQuery } from "./dictionaryResultSnapshot";
 
 export const STANDALONE_DICTIONARY_HISTORY_KEY = "context-reader:standalone-dictionary-history:v1";
 export const STANDALONE_DICTIONARY_HISTORY_OBJECT_PREFIX = "standalone-dictionary-history:";
@@ -66,7 +67,7 @@ export interface StandaloneDictionaryHistoryItem {
 }
 
 export function normalizeStandaloneDictionaryQuery(query: string): string {
-  return query.trim().replace(/\s+/g, " ").normalize("NFKC").toLocaleLowerCase("en");
+  return normalizeDictionaryQuery(query);
 }
 
 export function normalizeStandaloneDictionaryHistoryItem(

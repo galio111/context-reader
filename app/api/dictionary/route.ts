@@ -11,12 +11,14 @@ import {
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
 import { gateUsage, usageErrorResponse } from "@/lib/usageGate";
 import { estimateDeepSeekCostMicrousd } from "@/lib/usageCost";
+import { persistDictionaryResult } from "@/lib/dictionaryResultServer";
 
 export const maxDuration = 60;
 
 async function handlePOST(request: Request) {
   let body: unknown;
   let actionId = "";
+  let resultOwner = "";
   try {
     body = await readJsonBody(request, 4 * 1024);
   } catch (error) {
@@ -41,6 +43,7 @@ async function handlePOST(request: Request) {
       units: 1,
     });
     actionId = usage.actionId;
+    if (!usage.identity.localOnly) resultOwner = usage.identity.userId || "";
   } catch (error) {
     return usageErrorResponse(error) ?? NextResponse.json({ error: "用量校验失败。" }, { status: 500 });
   }
@@ -53,6 +56,9 @@ async function handlePOST(request: Request) {
 
   try {
     const result = await lookupDictionaryWithDeepSeek(query);
+    if (resultOwner) await persistDictionaryResult(resultOwner, result.dictionary).catch(error => {
+      console.error("Dictionary snapshot save failed", error);
+    });
     await recordUsageExecution({
       actionId,
       route: "/api/dictionary",

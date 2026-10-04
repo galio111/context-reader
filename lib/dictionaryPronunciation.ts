@@ -78,6 +78,8 @@ export function reviewedDictionaryPronunciations(query: string): Entry[] | null 
   // https://dictionary.cambridge.org/pronunciation/english/burglary
   // https://dictionary.cambridge.org/pronunciation/english/tertiary
   const reviewed: Record<string, { partOfSpeech: Entry["partOfSpeech"]; us: string; uk: string }> = {
+    // https://dictionary.cambridge.org/pronunciation/english/contemplate
+    contemplate: { partOfSpeech: "verb", us: "/ˈkɑːntəmpleɪt/", uk: "/ˈkɒntəmpleɪt/" },
     burglary: { partOfSpeech: "noun", us: "/ˈbɝːɡlɚi/", uk: "/ˈbɜːɡləri/" },
     tertiary: { partOfSpeech: "adjective", us: "/ˈtɝːʃieri/", uk: "/ˈtɜːʃəri/" },
   };
@@ -91,4 +93,11 @@ export function reviewedDictionaryPronunciations(query: string): Entry[] | null 
     { accent: "en-US", partOfSpeech: "verb", phonetic: ipa },
     { accent: "en-GB", partOfSpeech: "verb", phonetic: ipa },
   ] : null;
+}
+
+// A reviewed correction to the provider's default word reading. Keep it
+// centralized so dictionary, contextual lookup and Anki share one identity.
+export function reviewedPronunciationAudioPhonetic(text: string, accent: PronunciationAccent): string {
+  return text.trim().toLowerCase() === "contemplate" && accent === "en-US"
+    ? "/ˈkɑːntəmpleɪt/" : "";
 }

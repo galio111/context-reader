@@ -5,8 +5,9 @@ import { runInNewContext } from "node:vm";
 import test from "node:test";
 import ts from "typescript";
 import { normalizePronunciationPhonetic, pronunciationSynthesisInput } from "../lib/pronunciationSsml";
+import { reviewedPronunciationAudioPhonetic } from "../lib/dictionaryPronunciation";
 
-function harness(options: { readFailures?: number; writeFailure?: boolean; stored?: boolean; providerFailures?: number; providerStatus?: number } = {}) {
+function harness(options: { readFailures?: number; writeFailure?: boolean; writeGate?: Promise<void>; now?: number; stored?: boolean; providerFailures?: number; providerStatus?: number } = {}) {
   let reads = 0, providers = 0, writes = 0;
   const events: string[] = [];
   const requests: Array<{ request: { text: string; text_type: string; reqid: string; operation: string } }> = [];
@@ -20,7 +21,7 @@ function harness(options: { readFailures?: number; writeFailure?: boolean; store
         if (reads <= (options.readFailures ?? 0)) return { error: new Error("storage unavailable") };
         return options.stored ? { data: new Blob([audio]) } : { error: new Error("not found") };
       },
-      upload: async () => { writes++; return { error: options.writeFailure ? new Error("storage unavailable") : null }; },
+      upload: async () => { writes++; await options.writeGate; return { error: options.writeFailure ? new Error("storage unavailable") : null }; },
     }),
   };
   const source = readFileSync(new URL("../lib/pronunciationServer.ts", import.meta.url), "utf8")
@@ -29,9 +30,9 @@ function harness(options: { readFailures?: number; writeFailure?: boolean; store
   const context = {
     createHash, randomUUID, createClient: () => ({ storage }),
     normalizePronunciationText: (value: string) => value.trim().replace(/\s+/g, " "),
-    normalizePronunciationPhonetic, pronunciationSynthesisInput,
+    normalizePronunciationPhonetic, pronunciationSynthesisInput, reviewedPronunciationAudioPhonetic,
     process: { env: { SUPABASE_URL: "mock", SUPABASE_SERVICE_ROLE_KEY: "mock", VOLCENGINE_TTS_APP_ID: "mock", VOLCENGINE_TTS_ACCESS_TOKEN: "mock" } },
-    Buffer, Uint8Array, AbortSignal, Error, TypeError, console: { info: (value: string) => events.push(value), error: () => {} },
+    Buffer, Uint8Array, AbortSignal, Error, TypeError, Date: class extends Date {static now(){return options.now ?? Date.now();}}, console: { info: (value: string) => events.push(value), error: () => {} },
     fetch: async (_url: string, init: { body: string }) => { requests.push(JSON.parse(init.body)); providers++; if (providers <= (options.providerFailures ?? 0)) { if (options.providerStatus) return new Response("rejected", { status: options.providerStatus }); throw Object.assign(new Error("timeout"), { name: "TimeoutError" }); } return new Response(JSON.stringify({ data: Buffer.from(audio).toString("base64") })); },
   };
   const getAudio = runInNewContext(js + "\ngetPronunciationAudio", context) as (text: string, accent: string, phonetic?: string) => Promise<{ bytes: Uint8Array; cacheStatus: string; filename: string }>;
@@ -103,16 +104,38 @@ test("hot cache evicts least-recently-used entries at its fixed entry limit", as
 });
 
 test("a failed write is repaired in the background without another synthesis", async () => {
-  const options = { writeFailure: true };
+  const options = { writeFailure: true, now: Date.now() };
   const h = harness(options);
   await h.getAudio("hello", "en-US");
+  await new Promise(resolve => setImmediate(resolve));
   options.writeFailure = false;
+  options.now += 60_001;
   await h.getAudio("hello", "en-US");
   await new Promise(resolve => setImmediate(resolve));
   assert.equal(h.counts().writes, 2);
   await h.getAudio("hello", "en-US");
   assert.equal(h.counts().providers, 1);
   assert.equal(h.counts().writes, 2);
+});
+
+test("a slow Storage write never delays the first successful playback or its concurrent replay", async () => {
+  let finish!: () => void;
+  const h = harness({ writeGate: new Promise<void>(resolve => {finish=resolve;}) });
+  const first = await Promise.race([h.getAudio("hello","en-US"), new Promise<never>((_, reject)=>setTimeout(()=>reject(Error("playback waited for storage")),100))]);
+  const second = await h.getAudio("hello","en-US");
+  assert.deepEqual([...first.bytes],[...second.bytes]);
+  assert.equal(h.counts().providers,1);
+  finish();await new Promise(resolve=>setImmediate(resolve));
+});
+
+test("contemplate uses reviewed US phones and shares the correction across plain and dictionary requests", async () => {
+  const h = harness();
+  await h.getAudio("contemplate", "en-US");
+  await h.getAudio("contemplate", "en-US", "/ˈkɑːntəmpleɪt/");
+  assert.equal(h.counts().providers, 1);
+  assert.equal(h.requests[0].request.text, '<speak><phoneme alphabet="cmu" ph="K AA1 N T AH0 M P L EY0 T">contemplate</phoneme></speak>');
+  await h.getAudio("contemplate", "en-GB");
+  assert.equal(h.requests[1].request.text_type, "plain");
 });
 
 

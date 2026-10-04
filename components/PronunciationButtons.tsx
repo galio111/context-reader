@@ -202,7 +202,8 @@ export const PronunciationButtons = memo(function PronunciationButtons({
   async function playPronunciation(accent: PronunciationAccent) {
     const spokenText = text.trim();
     if (!spokenText) return;
-    if (playingAccent === accent || loadingAccent === accent) {
+    if (loadingAccent === accent) return;
+    if (playingAccent === accent) {
       stopPlayback();
       return;
     }

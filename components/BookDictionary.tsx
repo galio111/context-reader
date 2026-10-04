@@ -17,7 +17,7 @@ import { normalizeDictionarySpelling } from "@/lib/dictionarySpelling";
 import { notifyLookupCancellation } from "@/lib/lookupCancellationClient";
 import {
   migrateStandaloneDictionarySessionCache,
-  readStandaloneDictionaryCache,
+  findStandaloneDictionaryCache,
   recordStandaloneDictionaryCache,
   STANDALONE_DICTIONARY_CACHE_KEY,
 } from "@/lib/standaloneDictionaryCache";
@@ -32,8 +32,9 @@ import {
   type StandaloneDictionaryHistoryItem,
 } from "@/lib/standaloneDictionaryHistory";
 import type { DictionaryResult } from "@/types/dictionary";
+import { normalizeStandaloneDictionaryCacheItem } from "@/lib/dictionaryResultSnapshot";
 import styles from "./BookDictionary.module.css";
-import { groupDictionaryPronunciations, dictionaryPronunciationRows } from "@/lib/dictionaryPronunciation";
+import { groupDictionaryPronunciations, dictionaryPronunciationRows, phoneticComparisonKey } from "@/lib/dictionaryPronunciation";
 import { requiresCurrentFormPhonetic } from "@/lib/pronunciation";
 
 const SESSION_KEY = "context-reader:standalone-dictionary:session:v3";
@@ -48,7 +49,7 @@ interface DictionarySession {
 }
 
 function cacheKey(query: string): string {
-  return query.trim().toLowerCase().replace(/\s+/g, " ");
+  return normalizeStandaloneDictionaryQuery(query);
 }
 
 const partOfSpeechLabels: Record<string, string> = {
@@ -89,8 +90,13 @@ function DictionaryPronunciations({ result }: { result: DictionaryResult }) {
       {dictionaryPronunciationRows(group).map((row, rowIndex) => <div className={styles.pronunciationVariantRow} key={rowIndex}>
         <span>{row.phonetic}</span>
         <PronunciationButtons text={result.query} accents={row.accents}
+          preload
           allowBrowserFallback={false}
-          phonetics={differsByPart && requiresCurrentFormPhonetic(result.query) ? row.phonetics : undefined} />
+          phonetics={requiresCurrentFormPhonetic(result.query) ? Object.fromEntries(
+            row.accents.filter(accent => new Set(groups.flatMap(item => item.entries)
+              .filter(item => item.accent === accent).map(item => phoneticComparisonKey(item.phonetic))).size > 1)
+              .map(accent => [accent, row.phonetics[accent]])
+          ) : undefined} />
       </div>)}
     </div>)}
   </section>;
@@ -125,7 +131,9 @@ function readSession(owner: string): DictionarySession {
 function writeSession(session: DictionarySession) {
   try {
     const owner = dictionaryHistoryOwner();
-    window.sessionStorage.setItem(`${SESSION_KEY}:${owner}`, JSON.stringify({...session, owner, historyVersion: 1}));
+    window.sessionStorage.setItem(`${SESSION_KEY}:${owner}`, JSON.stringify({
+      ...session, cache: {}, owner, historyVersion: 1,
+    }));
   } catch {
     // Session persistence must never block lookup.
   }
@@ -372,7 +380,6 @@ export function BookDictionary({
   const accountState = useAccount();
   const accountOwner = accountState.account.profile?.userId ?? accountState.localAccount?.userId ?? "guest";
   const ownerRef = useRef("");
-  const cacheRef = useRef<Record<string, DictionaryResult>>({});
   const abortRef = useRef<AbortController | null>(null);
   const activeActionIdRef = useRef("");
   const historyRowRef = useRef<HTMLDivElement | null>(null);
@@ -395,20 +402,19 @@ export function BookDictionary({
     if (accountState.loading) return;
     let cancelled = false;
     abortActiveDictionaryRequest();
-    setPendingHistorySave(false); setLoading(false); setQuery(""); setResult(null); setStreamText(""); setHistory([]); cacheRef.current = {};
+    setPendingHistorySave(false); setLoading(false); setQuery(""); setResult(null); setStreamText(""); setHistory([]);
     void (async () => {
       await initializeLearningStorage();
       const owner = dictionaryHistoryOwner();
       if (cancelled) return;
       ownerRef.current = owner;
       const session = readSession(owner);
-      const legacy = Object.values(session.cache).map(cached=>normalizeDictionarySpelling(cached))
+      const legacy = [...Object.values(session.cache), ...(session.result ? [session.result] : [])].map(cached=>normalizeDictionarySpelling(cached))
         .filter(cached=>cached.inputStatus !== "misspelled");
-      const migratedCache = migrateStandaloneDictionarySessionCache(legacy);
+      migrateStandaloneDictionarySessionCache(legacy);
       const history = session.historyVersion === 1 ? readStandaloneDictionaryHistory()
         : await migrateStandaloneDictionarySessionHistory(legacy.map(c=>c.query), session.owner);
       if (cancelled || owner !== dictionaryHistoryOwner()) return;
-      cacheRef.current = {...Object.fromEntries(migratedCache.map(item=>[item.normalizedQuery,item.result])),...session.cache};
       setQuery(session.query); setResult(session.result); setHistory(history);
     })().catch(()=>{if(!cancelled)setError("历史记录暂未可靠保存，请稍后重试；原数据已保留。");});
     return ()=>{cancelled = true; abortActiveDictionaryRequest();};
@@ -462,12 +468,6 @@ export function BookDictionary({
       ) return;
       if (ownerRef.current !== dictionaryHistoryOwner()) return;
       setHistory(readStandaloneDictionaryHistory());
-      cacheRef.current = {
-        ...cacheRef.current,
-        ...Object.fromEntries(
-          readStandaloneDictionaryCache().map((item) => [item.normalizedQuery, item.result]),
-        ),
-      };
     };
     window.addEventListener(ACCOUNT_DATA_CHANGED_EVENT, refreshAccountDictionaryData);
     window.addEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshAccountDictionaryData);
@@ -487,7 +487,7 @@ export function BookDictionary({
     } catch { setError("查询成功，但历史尚未可靠保存，请稍后重试。"); }
   }
 
-  async function lookup(nextQuery = query, options: { force?: boolean } = {}) {
+  async function lookup(nextQuery = query, options: { force?: boolean; history?: boolean } = {}) {
     const normalized = nextQuery.trim().replace(/\s+/g, " ");
     if (!normalized || loading || accountState.loading || ownerRef.current !== dictionaryHistoryOwner()) return;
     setHistorySearchOpen(false);
@@ -502,15 +502,50 @@ export function BookDictionary({
       return;
     }
     const intent = beginDictionaryQuery(normalized);
-    const cached = options.force ? null : cacheRef.current[cacheKey(normalized)] ?? null;
+    const cached = options.force ? null : findStandaloneDictionaryCache(normalized);
     if (cached) {
       setResult(cached);
-      writeSession({ query: normalized, result: cached, cache: cacheRef.current });
+      writeSession({ query: normalized, result: cached, cache: {} });
       if (cached.inputStatus === "misspelled") {
         void deleteHistory(normalized);
       } else {
-        recordStandaloneDictionaryCache(cached);
-        rememberLookup(normalized, intent);
+        if (!options.history) rememberLookup(normalized, intent);
+      }
+      return;
+    }
+    if (options.history) {
+      // A historical name never silently starts another paid generation.
+      setResult(null);
+      if (offline || accountOwner === "guest") {
+        setError("这条旧历史未保存完整结果。可点击深度查询重新生成；新查询会保存完整结果。");
+        return;
+      }
+      const controller = new AbortController();
+      abortRef.current = controller;
+      setLoading(true);
+      try {
+        const response = await fetch(`/api/dictionary-history?query=${encodeURIComponent(normalized)}`, {
+          headers: { "X-Context-Account": accountOwner }, signal: controller.signal,
+        });
+        const data = await response.json();
+        if (controller.signal.aborted || intent.owner !== dictionaryHistoryOwner()) return;
+        const snapshot = normalizeStandaloneDictionaryCacheItem({
+          schemaVersion: 2, query: normalized, result: data.dictionary, updatedAt: new Date().toISOString(),
+        });
+        if (!response.ok || !snapshot) {
+          setError(response.status === 404
+            ? "这条旧历史未保存完整结果。可点击深度查询重新生成；新查询会保存完整结果。"
+            : "历史结果暂时无法读取，请稍后重试。");
+          return;
+        }
+        setResult(snapshot.result);
+        writeSession({ query: normalized, result: snapshot.result, cache: {} });
+        recordStandaloneDictionaryCache(snapshot.result);
+        await flushLearningStorage();
+      } catch {
+        if (!controller.signal.aborted && intent.owner === dictionaryHistoryOwner()) setError("历史结果暂时无法读取，请稍后重试。");
+      } finally {
+        if (abortRef.current === controller) { abortRef.current = null; setLoading(false); }
       }
       return;
     }
@@ -546,20 +581,12 @@ export function BookDictionary({
       const reader = response.body.getReader();
       const decoder = new TextDecoder();
       let current = "";
-      let historyRecorded = false;
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
         if (controller.signal.aborted || intent.owner !== dictionaryHistoryOwner()) return;
         current += decoder.decode(value, { stream: true });
         setStreamText(current);
-        if (!historyRecorded) {
-          const partial = parseDictionaryStream(current, normalized);
-          if (partial.result.inputStatus !== "misspelled" && partial.result.senses.length > 0) {
-            rememberLookup(normalized, intent);
-            historyRecorded = true;
-          }
-        }
       }
       current += decoder.decode();
       setStreamText(current);
@@ -571,16 +598,13 @@ export function BookDictionary({
       }
       const dictionary = parsed.result;
       setResult(dictionary);
-      cacheRef.current = Object.fromEntries([
-        ...Object.entries(cacheRef.current),
-        [cacheKey(dictionary.query), dictionary],
-      ].slice(-80));
-      writeSession({ query: normalized, result: dictionary, cache: cacheRef.current });
+      writeSession({ query: normalized, result: dictionary, cache: {} });
       if (dictionary.inputStatus === "misspelled") {
         void deleteHistory(normalized);
       } else {
         recordStandaloneDictionaryCache(dictionary);
-        if (!historyRecorded) rememberLookup(normalized, intent);
+        rememberLookup(normalized, intent);
+        await flushLearningStorage();
       }
     } catch (lookupError) {
       if (controller.signal.aborted || intent.owner !== dictionaryHistoryOwner()) return;
@@ -606,7 +630,7 @@ export function BookDictionary({
 
   function selectHistory(queryToLookup: string) {
     setHistoryExpanded(false);
-    void lookup(queryToLookup);
+    void lookup(queryToLookup, { history: true });
   }
 
   async function deleteHistory(queryToDelete: string) {

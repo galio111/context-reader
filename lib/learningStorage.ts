@@ -102,6 +102,9 @@ export class LearningStorage implements Storage {
     const row = this.buckets.get(bucket)?.rows.get(id);
     return row ? JSON.parse(row.json) : undefined;
   }
+  getRecords(bucket: string): unknown[] {
+    return [...(this.buckets.get(bucket)?.rows.values() || [])].map(row => JSON.parse(row.json));
+  }
   setRecord(key: string, id: string, value: unknown): void {
     let bucket = this.buckets.get(key);
     const descriptor = bucket ? undefined : { key, format: "map" as const };
