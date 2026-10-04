@@ -1,0 +1,33 @@
+{
+  "release": {
+    "ok": true,
+    "checkedAt": "2026-10-04T13:38:47.015Z",
+    "releaseId": "20261004T212050",
+    "parentReleaseId": "20261004T164800",
+    "backendMode": "mainland_internal"
+  },
+  "login": true,
+  "serverStoredWithoutClientSync": true,
+  "fullResultReplay": true,
+  "replayMs": [
+    191,
+    186,
+    194
+  ],
+  "generationMs": 5461,
+  "quotaBeforeGeneration": {
+    "learning_points": 15
+  },
+  "quotaAfterGeneration": {
+    "learning_points": 20
+  },
+  "generationPoints": 5,
+  "quotaUnchangedAfterThreeReplays": true,
+  "boundaries": {
+    "/api/dictionary-history?query=reticence": 401,
+    "/api/account/sync": 401,
+    "/api/admin/accounts": 401
+  },
+  "wrongOwner": 409,
+  "missingCache": 404
+}

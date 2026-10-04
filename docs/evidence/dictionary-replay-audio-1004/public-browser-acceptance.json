@@ -1,0 +1,10 @@
+{
+  "release": "20261004T212050",
+  "freshQuery": "alternate",
+  "historyQuery": "contemplate",
+  "localTwoHistoryClicksMs": 615,
+  "historyAfterRefresh": true,
+  "dictionaryRequestsAfterRefresh": 0,
+  "phonetic": "\n        - generic: /ˈkɑːntəmpleɪt/\n        - group \"发音选项\":\n          - button \"播放 contemplate 的美式发音\":\n            - generic: ▶\n            - generic: 美音\n        - generic: /ˈkɒntəmpleɪt/\n        - group \"发音选项\":\n          - button \"播放 contemplate 的英式发音\":\n            - generic: ▶\n            - generic: 英音\n      ",
+  "consoleErrors": []
+}
