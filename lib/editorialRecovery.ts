@@ -42,7 +42,7 @@ export async function publishApprovedCandidates(ids: string[], origin: string) {
     for(const id of ids) {
       const key=`recommendation_editorial_backlog_${today}_${id}`;
       const old=await readDiscoverySetting<{id:string;status:string;reason?:string}|null>(key,null);
-      if(old){outcomes.push(old);continue;}
+      if(old && !(old.status==="kept" && /缺少可靠发布日期/.test(old.reason || "") && !(old as {datePolicyVersion?:number}).datePolicyVersion)){outcomes.push(old);continue;}
       let row=rows.find(a=>a.id===id);
       let result:{id:string;status:string;reason?:string};
       try {
@@ -57,7 +57,7 @@ export async function publishApprovedCandidates(ids: string[], origin: string) {
           if(!row || !eligibleEditorialCandidate(row))throw new Error(refresh.skipped[0]?.reason || row?.recommendation?.editorialReview?.reasons.join("；") || "重新核验未通过，保留候选。");
         }
         if(!hasRoom(row))throw new Error("复核后的板块今日已达 17 篇，保留候选供后续日期使用。");
-        const published=await publishArticleCandidate(id,{expectedEditorialHash:row.recommendation!.editorialReview!.contentHash,expectedUpdatedAt:row.updatedAt});
+        const published=await publishArticleCandidate(id,{expectedEditorialHash:row.recommendation!.editorialReview!.contentHash,expectedUpdatedAt:row.updatedAt,autoPublishedAt:new Date().toISOString()});
         publishedToday.push(published);
         await writeDiscoverySetting(key,{id,status:"published",curationPending:true,at:new Date().toISOString()});
         await curateEditorialArticle(published,today);
@@ -69,7 +69,7 @@ export async function publishApprovedCandidates(ids: string[], origin: string) {
         result={id,status:isolatedPublishFailure(error) && /相同公开文章/.test(String(error))?"duplicate":"kept",reason:String(error).slice(0,500)};
         }
       }
-      await writeDiscoverySetting(key,{...result,at:new Date().toISOString()});
+      await writeDiscoverySetting(key,{...result,datePolicyVersion:1,at:new Date().toISOString()});
       outcomes.push(result);
     }
     return {day:today,outcomes};

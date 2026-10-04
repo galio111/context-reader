@@ -175,7 +175,7 @@ export async function getRecommendationAutomationStatus(now = new Date()): Promi
     config.maxNewArticles=60;
     const {readDiscoverySetting}=await import("@/lib/discoveryStore");
     const today=shanghaiParts(now).dateKey;
-    const reports=await Promise.all(["complete","shortfall"].map(kind=>readDiscoverySetting<{status?:string;error?:string;at?:number}>(`recommendation_editorial_email_${today}_60_${kind}`,{})));
+    const reports=await Promise.all(["complete","shortfall","complete_recovery","shortfall_recovery"].map(kind=>readDiscoverySetting<{status?:string;error?:string;at?:number}>(`recommendation_editorial_email_${today}_60_${kind}`,{})));
     const latest=reports.sort((a,b)=>(b.at || 0)-(a.at || 0))[0];
     state.lastEmailStatus=latest?.status==="sent"?"sent":latest?.status==="failed"?"failed":latest?.status==="not_configured"?"not_configured":"not_requested";
     state.lastEmailError=latest?.error || "";

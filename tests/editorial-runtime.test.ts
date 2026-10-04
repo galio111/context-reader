@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { listPublicArticleSummaries, publishArticleCandidate } from "../lib/publicArticles";
 import { invalidatePublicReadCache } from "../lib/publicReadCache";
-import { runEditorialBatch } from "../lib/editorialRunner";
+import { reportEditorialRecovery, runEditorialBatch } from "../lib/editorialRunner";
 import { getRecommendationAutomationStatus } from "../lib/recommendationAutomation";
 import { shanghaiDay } from "../lib/discoveryPolicy";
 
@@ -66,4 +66,37 @@ test("unexpected batch failure closes today's ledger and requests today's report
     assert.ok(values.has(`recommendation_editorial_email_${today}_60_shortfall`));
     assert.notEqual(result.status.state.lastEmailStatus,"sent");
   } finally {restore();}
+});
+
+
+test("final recovery report includes approved backlog selections and preserves sent-report idempotency",async()=>{
+  const today=shanghaiDay(),at=new Date().toISOString();
+  const articles=Array.from({length:85},(_,i)=>({id:String(i),title:"Article "+i,summary:"Summary",body:"Reading",source_url:"https://example.org/"+i,source_name:"Example",created_at:at,updated_at:at,recommendation:{topics:["社会生活"],difficulty:"CET-6 / 考研",homepageCategory:i<43?"时事":i<59?"科技":i<72?"文化":"商业"}}));
+  const values=new Map<string,unknown>([
+    ["homepage_publication_curation",{selectedAtById:Object.fromEntries(articles.map(a=>[a.id,at]))}],
+    ["recommendation_automation_config",{enabled:true,runTime:"06:00",maxNewArticles:60}],
+    ["recommendation_automation_state",{status:"succeeded",lastCreatedCount:77,lastEmailStatus:"sent"}],
+    ["recommendation_editorial_config_v1",{enabled:true,dailyReviewLimit:240,dailyBudgetCny:1.5}],
+    ["recommendation_discovery_sites_v2",[]],
+    [`recommendation_editorial_day_${today}`,{finished:true,attempts:130}],
+    [`recommendation_editorial_email_${today}_60_complete`,{status:"sent",at:1,count:77}],
+  ]);
+  const smtpNames=["SITE_SMTP_HOST","ERROR_ALERT_SMTP_HOST","SITE_SMTP_USER","ERROR_ALERT_SMTP_USER","SITE_NOTIFICATION_EMAIL_TO"];
+  const saved=Object.fromEntries(smtpNames.map(k=>[k,process.env[k]]));smtpNames.forEach(k=>delete process.env[k]);
+  const restore=context(async(input,init)=>{
+    const u=new URL(String(input));
+    if(u.pathname.endsWith("/public_articles"))return Response.json(articles);
+    assert.ok(u.pathname.endsWith("/account_settings"));
+    if(init?.method==="POST"){for(const row of JSON.parse(String(init.body)))values.set(row.key,row.value);return new Response(null,{status:204});}
+    const filter=u.searchParams.get("key") || "";const keys=filter.startsWith("eq.")?[filter.slice(3)]:filter.slice(4,-1).split(",");
+    return Response.json(keys.filter(k=>values.has(k)).map(key=>({key,value:values.get(key),updated_at:at})));
+  });
+  try {
+    const first=await reportEditorialRecovery();assert.equal(first.count,85);assert.equal(first.complete,true);assert.equal(first.counts["商业"],13);
+    assert.equal((values.get("recommendation_automation_state") as {lastCreatedCount:number}).lastCreatedCount,85);
+    const key=`recommendation_editorial_email_${today}_60_complete_recovery`;
+    assert.equal((values.get(key) as {count:number}).count,85);
+    const delivered={status:"sent",at:Date.now(),count:85};values.set(key,delivered);
+    assert.equal((await reportEditorialRecovery()).email?.status,"sent");assert.equal(values.get(key),delivered);
+  } finally {restore();for(const k of smtpNames){if(saved[k]===undefined)delete process.env[k];else process.env[k]=saved[k];}}
 });

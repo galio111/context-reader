@@ -95,8 +95,8 @@ export function eligibleEditorialCandidate(article: PublicArticle): boolean {
 }
 
 /** Called under the discovery lease; accepted SMTP deliveries are not resent. */
-async function notifyDailyResult(today: string, articles: PublicArticle[], attempts: number, complete: boolean, config: EditorialConfig) {
-  const key = `recommendation_editorial_email_${today}_${DAILY_DISCOVERY_TARGET}_${complete ? "complete" : "shortfall"}`;
+async function notifyDailyResult(today: string, articles: PublicArticle[], attempts: number, complete: boolean, config: EditorialConfig, recovery=false) {
+  const key = `recommendation_editorial_email_${today}_${DAILY_DISCOVERY_TARGET}_${complete ? "complete" : "shortfall"}${recovery?"_recovery":""}`;
   const previous = await readDiscoverySetting<{ status?: string; at?: number }>(key, {});
   if (previous.status === "sent") return { status: "sent" as const, error: "" };
   if (previous.at && Date.now() - previous.at < 15 * 60_000) return null;
@@ -105,6 +105,23 @@ async function notifyDailyResult(today: string, articles: PublicArticle[], attem
   const result = await sendSiteNotificationEmail(report.subject, report.text);
   await writeDiscoverySetting(key, { ...result, at: Date.now(), count: articles.length });
   return result;
+}
+
+/** Explicit recovery report reconciles the final day after approved backlog releases. */
+export async function reportEditorialRecovery() {
+  const today=shanghaiDay();
+  const ledger=await readDiscoverySetting<{finished?:boolean;attempts?:number}>(`recommendation_editorial_day_${today}`,{});
+  if(!ledger.finished)throw new Error("当日自动任务尚未完成，请先等待收尾。");
+  const articles=await listPublicArticles();
+  await repairEditorialCurationDates(articles);
+  const curation=await readDiscoverySetting<{selectedAtById?:Record<string,string>}>("homepage_publication_curation",{});
+  const rows=articles.filter(a=>shanghaiDay(curation.selectedAtById?.[a.id] || a.recommendation?.autoPublishedAt || "")===today);
+  const counts=Object.fromEntries(DAILY_CATEGORIES.map(k=>[k,rows.filter(a=>editorialCategoryForArticle(a)===k).length]));
+  const complete=distributionSatisfied(counts);
+  const email=await notifyDailyResult(today,rows,ledger.attempts || 0,complete,await import("@/lib/editorialReview").then(m=>m.getEditorialConfig()),true);
+  const status=await getRecommendationAutomationStatus();
+  await writeDiscoverySetting("recommendation_automation_state",{...status.state,lastCreatedCount:rows.length,status:complete?"succeeded":"failed",...(email?{lastEmailStatus:email.status,lastEmailError:email.error}:{})});
+  return {day:today,count:rows.length,counts,complete,email};
 }
 
 /** Caller holds the cross-instance discovery lease. One source per bounded batch. */

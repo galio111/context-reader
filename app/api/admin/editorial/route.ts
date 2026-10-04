@@ -6,6 +6,7 @@ import { readJsonBody } from "@/lib/limitedBody";
 import { getEditorialConfig, EDITORIAL_CONFIG_KEY } from "@/lib/editorialReview";
 import { withDiscoveryLease, writeDiscoverySetting } from "@/lib/discoveryStore";
 import {anyTextKey} from '@/lib/modelSettings';
+import { reportEditorialRecovery } from "@/lib/editorialRunner";
 import { publishApprovedCandidates, resumeEditorialDay } from "@/lib/editorialRecovery";
 export const maxDuration = 900;
 
@@ -13,10 +14,10 @@ export async function POST(request: Request) {
   if (!await isAdminRequest()) return NextResponse.json({error:"需要管理员权限。"},{status:401});
   if(request.headers.get("origin")!==requestExternalOrigin(request))return NextResponse.json({error:"请从本站后台操作。"},{status:403});
   const body=await readJsonBody<{action?:string;ids?:string[]}>(request,2048).catch(()=>null);
-  if(!body || !["resume_today","publish_approved"].includes(body.action || ""))return NextResponse.json({error:"请选择有效操作。"},{status:400});
+  if(!body || !["resume_today","publish_approved","report_recovery"].includes(body.action || ""))return NextResponse.json({error:"请选择有效操作。"},{status:400});
   if(body.action==="publish_approved" && (!Array.isArray(body.ids) || body.ids.length<1 || body.ids.length>3 || body.ids.some(id=>typeof id!=="string" || !/^[0-9a-f-]{36}$/.test(id))))return NextResponse.json({error:"每批选择 1 至 3 篇有效候选。"},{status:400});
   try {
-    return NextResponse.json(await withDiscoveryLease<unknown>(()=>body.action==="resume_today"?resumeEditorialDay():publishApprovedCandidates([...new Set(body.ids!)],requestExternalOrigin(request))),{headers:{"Cache-Control":"no-store"}});
+    return NextResponse.json(await withDiscoveryLease<unknown>(()=>body.action==="report_recovery"?reportEditorialRecovery():body.action==="resume_today"?resumeEditorialDay():publishApprovedCandidates([...new Set(body.ids!)],requestExternalOrigin(request))),{headers:{"Cache-Control":"no-store"}});
   } catch {return NextResponse.json({error:"操作暂未完成，请稍后重试；详细记录保留在后台。"},{status:409});}
 }
 

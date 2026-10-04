@@ -20,8 +20,15 @@ export function candidateOrder(articles: PublicArticle[], order: string[], now =
     return Date.parse(b.createdAt) - Date.parse(a.createdAt) || a.id.localeCompare(b.id);
   });
 }
+/** Recognize the publisher's display clock without discarding its original source string. */
+export function parsePublicationDate(value:string):number {
+  const direct=Date.parse(value);
+  if(Number.isFinite(direct))return direct;
+  if(!/^[A-Za-z]+\s+\d{1,2},\s+\d{4}\s+\d{1,2}:\d{2}\s+[ap]\.m\.$/i.test(value.trim()))return NaN;
+  return Date.parse(value.replace(/\b([ap])\.m\./i,'$1M'));
+}
 export function freshnessFailure(dates: string[], timeSensitive: boolean, now = Date.now()): string {
-  const parsed = dates.filter(Boolean).map(Date.parse).filter(Number.isFinite);
+  const parsed = dates.filter(Boolean).map(parsePublicationDate).filter(Number.isFinite);
   if (parsed.some((date) => date > now + 3600_000)) return "发布日期在未来，需要核实";
   if (!timeSensitive) return "";
   if (!parsed.length) return "时事或商业文章缺少可靠发布日期";

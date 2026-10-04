@@ -1,0 +1,59 @@
+{
+  "identity": {
+    "ok": true,
+    "checkedAt": "2026-10-04T07:42:13.433Z",
+    "releaseId": "20261004T153500",
+    "parentReleaseId": "20261003T005114",
+    "backendMode": "mainland_internal"
+  },
+  "account": true,
+  "sync": true,
+  "normalUserAdminDenied": true,
+  "wordAndSentenceTranslation": true,
+  "dictionary": true,
+  "fullArticleTranslation": true,
+  "oneActionEach": [
+    {
+      "feature": "full_article_translation",
+      "status": "succeeded",
+      "quota_units": 10
+    },
+    {
+      "feature": "standalone_dictionary",
+      "status": "succeeded",
+      "quota_units": 5
+    },
+    {
+      "feature": "word_explanation",
+      "status": "succeeded",
+      "quota_units": 1
+    }
+  ],
+  "executions": [
+    {
+      "route": "/api/explain-word",
+      "model": "deepseek-flash",
+      "status": "succeeded"
+    },
+    {
+      "route": "/api/dictionary",
+      "model": "deepseek-flash",
+      "status": "succeeded"
+    },
+    {
+      "route": "/api/translate-article",
+      "model": "deepseek-flash",
+      "status": "succeeded"
+    }
+  ],
+  "anonymousAdminDenied": true,
+  "catalogueRows": 1080,
+  "oldArticleRestored": true,
+  "daily": {
+    "day": "2026-10-04",
+    "count": 70
+  },
+  "testUserId": "7e893056-6299-4f50-a4b1-f90db94e6ad0",
+  "testAccountsRemoved": true,
+  "initialQATestCorrection": "Initial harness used a wrong translation action header; corrected before final replay. Both isolated QA users removed after scoped billing cleanup."
+}

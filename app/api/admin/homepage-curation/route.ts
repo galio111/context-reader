@@ -19,7 +19,7 @@ export async function GET() {
 export async function PUT(request: Request) {
   if (!(await isAdminRequest())) return NextResponse.json({ error: "需要管理员权限。" }, { status: 401 });
   if (request.headers.get("origin") !== requestExternalOrigin(request)) return NextResponse.json({ error: "请从本站后台操作。" }, { status: 403 });
-  const body = await readJsonBody<Record<string, unknown>>(request, 64 * 1024).catch(() => null);
+  const body = await readJsonBody<Record<string, unknown>>(request, 1024 * 1024).catch(() => null);
   if (!body) return NextResponse.json({ error: "首页编排格式无效。" }, { status: 400 });
   try {
     const curation = await saveHomepageCuration(body.curation);

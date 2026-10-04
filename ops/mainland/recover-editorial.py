@@ -11,7 +11,7 @@ from importlib.machinery import SourceFileLoader
 parser=argparse.ArgumentParser()
 parser.add_argument("--env",required=True,type=Path)
 parser.add_argument("--base-url",default="https://context-reader.com")
-parser.add_argument("--action",choices=["status","resume","day","backlog"],required=True)
+parser.add_argument("--action",choices=["status","resume","day","backlog","report"],required=True)
 args=parser.parse_args()
 base=args.base_url.rstrip("/")
 env=SourceFileLoader("editorial_admin",str(Path(__file__).with_name("acceptance-admin.py"))).load_module().read_env(args.env)
@@ -29,6 +29,8 @@ if args.action=="status":
     print(json.dumps({"release":identity.get("releaseId"),"automation":crawler.get("automation")},ensure_ascii=False),flush=True)
 elif args.action=="resume":
     print(json.dumps(call("/api/admin/editorial",{"action":"resume_today"}),ensure_ascii=False),flush=True)
+elif args.action=="report":
+    print(json.dumps(call("/api/admin/editorial",{"action":"report_recovery"}),ensure_ascii=False),flush=True)
 elif args.action=="day":
     for batch in range(240):
         result=call("/api/cron/recommendations",cron=True)

@@ -1,6 +1,10 @@
 # Production Release Governance
 
-## Current accepted publication preloading release
+## Current accepted editorial recovery release
+
+Accepted `20261004T153500`, parent `20261003T005114`, source `28b8f28af684a88e2c7a61158c58f4b70bf30247`. Exact 32-file delta via the stable locked entrypoint; public/current/state match mainland_internal. Builds, 89 core, editorial inventory/date/failure-email/distribution/source/audit regressions, nine contracts, forced independent fallback with one charge, signed-in three-function DeepSeek Flash/1+5+10 points, account/protocol-2/Admin boundaries, seven-service health, SHA-verified 23-table isolated restore and current/parent rollback images passed. Only app/caddy recreated. Automatic recovery produced 77 with all category minimums and completion SMTP acceptance; backlog processing and final candidate counts are tracked in [recovery evidence](editorial-recovery-20261004.md). Prior physical-device/visual acceptance gaps remain. Documentation commits do not change deployed source identity.
+
+## Previous accepted publication preloading release
 
 Accepted `20261003T005114`, parent `20261003T003600`, source `92f93af4fc69663e2c0592498507d0c53f8534bb`. The exact 19-file corrective delta cumulatively retains billing, CET and Ballpit lifecycle changes. Public identity reports mainland_internal; stable guard, builds, 89 core/13 media/7 loading/13 targeted regressions, nine contracts, signed-in three-function DeepSeek Flash core, Reader return, Admin/sync boundaries, seven-service health, SHA-verified 23-table backup restore and current/parent images passed. Only app/caddy recreated. Cold rapid scrolling still has measured missing images and long frames; physical-device, Edge and user motion acceptance remain open. [Evidence and limits](publication-preload-release.md). Documentation commits do not change the deployed source identity.
 
