@@ -1,7 +1,7 @@
-import { DAILY_CATEGORIES, DAILY_CATEGORY_MAX, DAILY_CATEGORY_MIN } from "./editorialDistribution";
+import { DAILY_CATEGORIES, categoryHasCapacity, DAILY_CATEGORY_MIN } from "./editorialDistribution";
 
 type Category = (typeof DAILY_CATEGORIES)[number];
-type Site = { id: string; topics: string[]; levelHint?: string; enabled: boolean; verification?: { ok: boolean } };
+type Site = { id: string; topics: string[]; feeds?: string[]; levelHint?: string; enabled: boolean; verification?: { ok: boolean } };
 type Visit = { visits: number; empty?: number };
 export type SourceCategoryYield = { total: number; categories: Partial<Record<Category, number>> };
 
@@ -18,7 +18,8 @@ export function rankEditorialSources<T extends Site>(
   observed: Record<string, SourceCategoryYield> = {},
 ): T[] {
   const available = sites.filter(s => s.enabled && s.verification?.ok && s.levelHint !== "lower"
-    && (visits[s.id]?.visits || 0) < 6 && (visits[s.id]?.empty || 0) < 2);
+    && (visits[s.id]?.visits || 0) < 6 && ((visits[s.id]?.empty || 0) < 2
+      || s.feeds?.some(url => /\/feed(?:\/rss)?\/?$/.test(new URL(url).pathname))));
   const deficits = DAILY_CATEGORIES.filter(category => (counts[category] || 0) < DAILY_CATEGORY_MIN);
   const canFill = (site: T) => {
     if (!site.topics.some(topic => deficits.includes(sourceCategory(topic)))) return false;
@@ -30,16 +31,17 @@ export function rankEditorialSources<T extends Site>(
   let pool: T[];
   if (deficits.length) {
     const primary = available.filter(s => canFill(s) && deficits.includes(sourceCategory(s.topics[0])));
-    pool = primary.length ? primary : available.filter(canFill);
+    const provenSecondary=available.filter(s => canFill(s) && (observed[s.id]?.total || 0)>=3
+      && deficits.some(category=>(observed[s.id].categories[category] || 0)>0));
+    pool = primary.length ? [...new Map([...primary,...provenSecondary].map(s=>[s.id,s])).values()] : available.filter(canFill);
   } else {
-    pool = available.filter(s => (counts[sourceCategory(s.topics[0])] || 0) < DAILY_CATEGORY_MAX);
+    pool = available.filter(s => categoryHasCapacity(sourceCategory(s.topics[0]), counts[sourceCategory(s.topics[0])] || 0));
   }
   return pool.sort((a, b) => {
     const score = (s: T) => {
-      const category = sourceCategory(s.topics[0]);
-      const need = Math.max(0, DAILY_CATEGORY_MIN - (counts[category] || 0));
+      const need = Math.max(0,...s.topics.map(topic=>DAILY_CATEGORY_MIN-(counts[sourceCategory(topic)] || 0)));
       const seen = observed[s.id];
-      const relevant = deficits.length ? deficits : DAILY_CATEGORIES.filter(k => (counts[k] || 0) < DAILY_CATEGORY_MAX);
+      const relevant = deficits.length ? deficits : DAILY_CATEGORIES.filter(k => categoryHasCapacity(k, counts[k] || 0));
       const observedYield = seen && seen.total >= 3
         ? 120 * relevant.reduce((n, category) => n + (seen.categories[category] || 0), 0) / seen.total
         : 0;

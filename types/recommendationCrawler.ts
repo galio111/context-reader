@@ -53,6 +53,8 @@ export interface RecommendationAutomationStatus {
 }
 
 export interface RecommendationCrawlerRunInput {
+  /** Server-only recovery: re-import and audit this existing candidate in place. */
+  refreshCandidateId?: string;
   editorial?: import("@/lib/editorialReview").EditorialConfig;
   sourceId?: string;
   excludedUrls?: string[];

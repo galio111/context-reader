@@ -171,7 +171,15 @@ export async function getRecommendationAutomationStatus(now = new Date()): Promi
   const { getDiscoverySites } = await import("@/lib/discoveryStore");
   config.maxNewArticles = (await getDiscoverySites()).filter((site) => site.enabled).reduce((n, site) => n + site.dailyTarget, 0);
   const {getEditorialConfig}=await import("@/lib/editorialReview");
-  if((await getEditorialConfig()).enabled)config.maxNewArticles=60;
+  if((await getEditorialConfig()).enabled) {
+    config.maxNewArticles=60;
+    const {readDiscoverySetting}=await import("@/lib/discoveryStore");
+    const today=shanghaiParts(now).dateKey;
+    const reports=await Promise.all(["complete","shortfall"].map(kind=>readDiscoverySetting<{status?:string;error?:string;at?:number}>(`recommendation_editorial_email_${today}_60_${kind}`,{})));
+    const latest=reports.sort((a,b)=>(b.at || 0)-(a.at || 0))[0];
+    state.lastEmailStatus=latest?.status==="sent"?"sent":latest?.status==="failed"?"failed":latest?.status==="not_configured"?"not_configured":"not_requested";
+    state.lastEmailError=latest?.error || "";
+  }
   const email = siteNotificationEmailStatus();
   return {
     config,

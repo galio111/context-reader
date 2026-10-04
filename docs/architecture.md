@@ -27,9 +27,9 @@ Production builds retain immutable Brotli JS/CSS sidecars. The public catalogue 
 2026-09-22 已部署（20260922T072500）：统一功能/套餐主备模型、MiMo 直连、约 60 篇且各板块 13–17 篇的策略，¥1.50 硬上限。MiMo 真实及线上连接通过；Jev 无有效密钥，关闭。见 [模型控制说明](model-control.md)。
 
 
-自动精选目标约 60，合格范围 55–68、四板块各 13–17，预算不足报告缺口。默认 Flash 综合审核，Jev 关闭；新后台允许按功能和套餐切换主备模型。质量门槛、手动候选和高中标签保留。完整规则见 automated-editorial.md。
+自动精选参考目标约 60，至少 55；时事至少 13 且无上限，科学、文化、商业各 13–17，总数无硬上限，预算不足报告缺口。默认 Flash 综合审核，Jev 关闭；新后台允许按功能和套餐切换主备模型。质量门槛、手动候选和高中标签保留。完整规则见 automated-editorial.md。
 
-2026-09-29 自动精选在某板块不足 13 篇时只轮询有机会补该板块的已验证来源，优先单主题来源，再用兼含主题来源；近 72 小时的实际审核分类会调整优先级，至少八篇审核输出却没有缺口板块产出的来源暂不继续消耗该板块的尝试次数。综合审核的 HTTP 200 响应必须有非空内容与完整 token usage，否则记录为供应商失败并按已配置路由尝试备用，同时保留未知费用预留。当前生产文字/图片审核为 DeepSeek Flash 主用、MiMo 备用，商业来源扩为 The Conversation AU/US/UK Business 与 CNBC Business/Economy，¥1.50 硬预算及 401 词、已存储正文图片、审核哈希等发布门槛不变。三日日账与未验证的下一日收益见 [供给审计](editorial-supply-20260929.md)。Reader 图片快速下滑时的灰色占位及短暂停顿仍待修复，见 [Reader 图片滚动问题](featured-image-scroll-open-issue.md)。
+2026-09-29 自动精选在某板块不足 13 篇时只轮询有机会补该板块的已验证来源，优先缺口来源，同时保留已证明能补位的兼含主题来源；近 72 小时的实际审核分类会调整优先级，至少八篇审核输出却没有缺口板块产出的来源暂不继续消耗该板块的尝试次数。综合审核的 HTTP 200 响应必须有非空内容与完整 token usage，否则记录为供应商失败并按已配置路由尝试备用，同时保留未知费用预留。当前生产文字/图片审核为 DeepSeek Flash 主用、MiMo 备用，商业来源扩为 The Conversation AU/US/UK Business 与 CNBC Business/Economy，¥1.50 硬预算及 401 词、已存储正文图片、审核哈希等发布门槛不变。三日日账与未验证的下一日收益见 [供给审计](editorial-supply-20260929.md)。Reader 图片快速下滑时的灰色占位及短暂停顿仍待修复，见 [Reader 图片滚动问题](featured-image-scroll-open-issue.md)。
 
 ## System map
 
@@ -379,3 +379,5 @@ HomeClient 管理真实 CET 阅读入口；CetReader 通过 ReaderView 的可选
 Reader keeps transport and display separate: `createTextReveal` feeds only the subscribed explanation panel, revealing received text in 24ms steps and catching a buffered batch up within approximately 720ms under an active browser scheduler. Native streaming and sequential structured fallback share the queue. Cache replay remains immediate; abort disposes timers and settles waiting completion; reduced-motion and hidden pages flush on the next tick. Final cache/vocabulary data continues to come from the complete response, and actions remain gated until the visible queue drains. No generated content is fabricated before provider delivery.
 
 The provider transport no longer awaits the successful first-content health database write before forwarding content. `/api/explain-word-stream` uses no-transform and emits private `lookup_stream_timing` logs containing action id, model, gate/queue/provider times, first/last content times, chunk count, completion/cancellation/timeout state; it never logs the selected word or sentence. `Server-Timing` exposes only phase durations. Stream incompleteness still uses the existing sequential structured repair with the same usage action.
+
+自动精选库存使用稳定 200 行分页；精选日期按活跃与时间排序保留最多 10000 条，缺失日期从原 autoPublishedAt 恢复。单条重复/过期失败隔离，致命异常关闭当日并请求未达标邮件；邮件状态只读取当天记录。旧通过候选按当前完整性、图片、哈希与时效门槛重新导入复审，优先补缺口板块。恢复入口与预算/次数/时限约束见 automated-editorial.md。

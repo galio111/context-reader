@@ -22,7 +22,7 @@ export default function AdminEditorialSettings() {
   }
   return <div className={styles.root}>
     <h3>自动精选</h3>
-    <p>审核通过后直接发布，每日目标约 60 篇，成功需 55–68 篇且每板块 13–17 篇。高中及以下暂停更新，原标签和手动候选流程保留。无法确认的文章留在候选区。</p>
+    <p>审核通过后直接发布，每日参考目标约 60 篇，成功需至少 55 篇；时事至少 13 篇且不设上限，科学、文化、商业各 13–17 篇，总数不设硬上限。高中及以下暂停更新，原标签和手动候选流程保留。无法确认的文章留在候选区。</p>
     {config ? <form onSubmit={(e) => { e.preventDefault(); void save(); }}>
       <label className={styles.check}><input type="checkbox" checked={config.enabled} disabled={busy} onChange={(e) => setConfig({ ...config, enabled: e.target.checked })} />审核通过后自动发布</label>
       <div className={styles.fields}>

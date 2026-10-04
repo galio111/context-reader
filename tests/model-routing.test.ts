@@ -36,12 +36,12 @@ test('Jev independent only at confidence boundaries; invalid data is not clean',
  answers.incomplete.noul=.99;assert.equal(parseJevAnswers({answers}).incomplete,true);
  answers.promotional.noul=NaN;assert.throws(()=>parseJevAnswers({answers}));
 });
-test('quantity cannot conceal a missing category; per-category maxima cap total at 68',()=>{
+test('quantity cannot conceal a missing category while current affairs may exceed the old ceiling',()=>{
  assert.equal(distributionSatisfied({'时事':15,'科技':15,'文化':15,'商业':15}),true);
  assert.equal(distributionSatisfied({'时事':17,'科技':17,'文化':14,'商业':12}),false);
  assert.equal(distributionSatisfied({'时事':13,'科技':13,'文化':13,'商业':13}),false);
  assert.equal(distributionSatisfied({'时事':13,'科技':13,'文化':13,'商业':16}),true);
- assert.equal(distributionSatisfied({'时事':17,'科技':17,'文化':17,'商业':17}),true);
+ assert.equal(distributionSatisfied({'时事':100,'科技':17,'文化':17,'商业':17}),true);
 });
 test('MiMo cached tokens and output use its own RMB rates, not DeepSeek time-of-day prices',()=>{
  assert.equal(estimateDeepSeekCostMicrocny('mimo-v2.6-flash',{prompt_tokens:1000,prompt_tokens_details:{cached_tokens:500},completion_tokens:100}),710);

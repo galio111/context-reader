@@ -1,4 +1,4 @@
-import {DAILY_TOTAL_MAX,DAILY_CATEGORY_MAX,DAILY_CATEGORIES,distributionSatisfied} from './editorialDistribution';
+import {categoryHasCapacity,DAILY_CATEGORIES,distributionSatisfied} from './editorialDistribution';
 import {rankEditorialSources, type SourceCategoryYield} from './editorialSourcePriority';
 import {isFirstPartyArticleImageUrl} from './articleImageUrls';
 import {countArticleEnglishWords} from './articleWordCount';
@@ -12,10 +12,12 @@ import { accountFetch } from "@/lib/accountStore";
 import { getDiscoverySites, readDiscoverySetting, writeDiscoverySetting } from "@/lib/discoveryStore";
 import { shanghaiDay, freshnessFailure } from "@/lib/discoveryPolicy";
 import { runRecommendationCrawler } from "@/lib/recommendationCrawler";
-import { listArticleCandidates, listPublicArticles, publishArticleCandidate } from "@/lib/publicArticles";
+import { listArticleCandidates, listPublicArticles, publishArticleCandidate, setArticleCandidateRejected } from "@/lib/publicArticles";
 import { editorialContentHash, type EditorialConfig } from "@/lib/editorialReview";
 import { EDITORIAL_DIFFICULTIES, EDITORIAL_POLICY_VERSION } from "@/lib/editorialReviewPolicy";
 import { normalizeHomepageCuration } from "@/lib/homepageCurationShared";
+import { invalidateHomepageCuration } from "@/lib/homepageCuration";
+import { approvedRefreshPool, isolatedPublishFailure } from "@/lib/editorialRecoveryPolicy";
 import { editorialCategoryForArticle } from "@/lib/editorialCuration";
 import { getRecommendationAutomationStatus, type RecommendationAutomationRunResponse } from "@/lib/recommendationAutomation";
 import type { PublicArticle } from "@/types/publicArticle";
@@ -35,7 +37,7 @@ export async function editorialDayClosed(day:string, read=readDiscoverySetting):
 }
 
 /** CAS preserves simultaneous Admin placement edits; the journal repairs a publish/curation crash. */
-async function curate(article: PublicArticle, today: string): Promise<void> {
+export async function curateEditorialArticle(article: PublicArticle, today: string): Promise<void> {
   const key = "homepage_publication_curation";
   for (let attempt = 0; attempt < 4; attempt++) {
     const rows = await accountFetch<Array<{ value: unknown; updated_at: string }>>(`account_settings?key=eq.${key}&select=value,updated_at`);
@@ -53,7 +55,26 @@ async function curate(article: PublicArticle, today: string): Promise<void> {
     if (shanghaiDay(value.selectedAtById[value.recommendationFeaturedId]) !== today || randomInt(Math.max(1, todayIds.length)) === 0) value.recommendationFeaturedId = article.id;
     value.updatedAt = new Date().toISOString();
     const changed = await accountFetch<unknown[]>(`account_settings?key=eq.${key}&updated_at=eq.${encodeURIComponent(rows[0].updated_at)}`, { method: "PATCH", headers: { Prefer: "return=representation" }, body: JSON.stringify({ value, updated_at: value.updatedAt }) });
-    if (changed.length) { revalidatePath("/"); return; }
+    if (changed.length) { invalidateHomepageCuration(); revalidatePath("/"); return; }
+  }
+  throw new Error("首页精选同时发生变更，下批自动重试。");
+}
+
+export async function repairEditorialCurationDates(articles: PublicArticle[]): Promise<void> {
+  const key = "homepage_publication_curation";
+  for (let attempt=0;attempt<4;attempt++) {
+    const rows=await accountFetch<Array<{value:unknown;updated_at:string}>>(`account_settings?key=eq.${key}&select=value,updated_at`);
+    if(!rows[0])return;
+    const value=normalizeHomepageCuration(rows[0].value);
+    let changed=false;
+    for(const article of articles) {
+      const at=article.recommendation?.autoPublishedAt;
+      if(at && !value.selectedAtById[article.id]) {value.selectedAtById[article.id]=at;changed=true;}
+    }
+    if(!changed)return;
+    value.updatedAt=new Date().toISOString();
+    const saved=await accountFetch<unknown[]>(`account_settings?key=eq.${key}&updated_at=eq.${encodeURIComponent(rows[0].updated_at)}`,{method:"PATCH",headers:{Prefer:"return=representation"},body:JSON.stringify({value,updated_at:value.updatedAt})});
+    if(saved.length){invalidateHomepageCuration();revalidatePath("/");return;}
   }
   throw new Error("首页精选同时发生变更，下批自动重试。");
 }
@@ -91,20 +112,34 @@ export async function runEditorialBatch(origin: string, trigger: "scheduled" | "
   if(await editorialDayClosed(shanghaiDay(now)))return {skipped:"already_ran_today",status:await getRecommendationAutomationStatus(now)};
   // No trial escape hatch: all automatic editorial runs share the finite daily cap.
   const effectiveConfig: EditorialConfig = {...config, provider:"deepseek", jevAutoAdopt:false, approvedJevChecks:[], budgetTrial:null, dailyBudgetCny:Math.min(1.5,config.dailyBudgetCny ?? 1.5)};
-  return withEditorialBudget(shanghaiDay(now), effectiveConfig.dailyBudgetCny!, () => runBudgetedBatch(origin, trigger, effectiveConfig, now));
+  try {
+    return await withEditorialBudget(shanghaiDay(now), effectiveConfig.dailyBudgetCny!, () => runBudgetedBatch(origin, trigger, effectiveConfig, now));
+  } catch(error) {
+    const today=shanghaiDay(now);
+    const ledger=await readDiscoverySetting<Record<string,unknown>>(`recommendation_editorial_day_${today}`,{});
+    const articles=(await listPublicArticles()).filter(a=>shanghaiDay(a.recommendation?.autoPublishedAt || "")===today);
+    const detail=String(error).slice(0,500);
+    await writeDiscoverySetting(`recommendation_editorial_fault_${today}_${Date.now()}`,{at:new Date().toISOString(),error:detail});
+    await writeDiscoverySetting(`recommendation_editorial_day_${today}`,{...ledger,finished:true,stopReason:"发布或运行异常"});
+    const initial=await getRecommendationAutomationStatus();
+    const email=await notifyDailyResult(today,articles,Number(ledger.attempts)||0,false,effectiveConfig);
+    await writeDiscoverySetting("recommendation_automation_state",{...initial.state,status:"failed",lastScheduledDate:today,lastCreatedCount:articles.length,lastFinishedAt:new Date().toISOString(),lastError:"自动精选遇到异常，已停止并保留后台明细。",...(email?{lastEmailStatus:email.status,lastEmailError:email.error}:{})});
+    return {status:await getRecommendationAutomationStatus()};
+  }
 }
 async function runBudgetedBatch(origin: string, trigger: "scheduled" | "manual", config: EditorialConfig, now: Date): Promise<RecommendationAutomationRunResponse> {
   const today = shanghaiDay(now);
   const published = await listPublicArticles();
+  await repairEditorialCurationDates(published);
   const pending = await readDiscoverySetting<string[]>(PENDING_KEY, []);
   for (const id of pending) {
     const article = published.find((a) => a.id === id);
-    if (article) await curate(article, today);
+    if (article) await curateEditorialArticle(article, today);
   }
   await writeDiscoverySetting(PENDING_KEY, []);
   const initial = await getRecommendationAutomationStatus(now);
   const dayKey = `recommendation_editorial_day_${today}`;
-  type Ledger = {attempts:number; startedAt?:string; noProgress?:number; finished?:boolean; suspended?:boolean; failureStreak?:number; sites:Record<string,{visits:number;urls:string[];empty?:number}>};
+  type Ledger = {attempts:number; startedAt?:string; deadlineAt?:string; refreshedIds?:string[]; publishFailures?:Record<string,{revision:string;reason:string}>; noProgress?:number; finished?:boolean; suspended?:boolean; failureStreak?:number; sites:Record<string,{visits:number;urls:string[];empty?:number}>};
   const ledger = await readDiscoverySetting<Ledger>(dayKey,{attempts:0,sites:{}});
   ledger.startedAt ||= now.toISOString();
   const todays = () => published.filter(a=>shanghaiDay(a.recommendation?.autoPublishedAt||"")===today);
@@ -126,21 +161,49 @@ async function runBudgetedBatch(origin: string, trigger: "scheduled" | "manual",
   const counts=()=>Object.fromEntries(DAILY_CATEGORIES.map(k=>[k,todays().filter(a=>editorialCategoryForArticle(a)===k).length]));
   const targetSatisfied=()=>todays().length>=EDITORIAL_TARGET&&distributionSatisfied(counts());
   const publishPool = async () => {
-    const pool=candidates.filter(eligibleEditorialCandidate).filter(a=>!published.some(b=>b.id===a.id));
-    while(pool.length && todays().length<DAILY_TOTAL_MAX && !targetSatisfied()) {
+    const pool=candidates.filter(eligibleEditorialCandidate).filter(a=>!published.some(b=>b.id===a.id) && ledger.publishFailures?.[a.id]?.revision!==a.updatedAt);
+    while(pool.length) {
       pool.sort((a,b)=>score(b)-score(a)); const candidate=pool.shift()!;
-      if((counts()[editorialCategoryForArticle(candidate)]||0)>=DAILY_CATEGORY_MAX)continue;
+      if(!categoryHasCapacity(editorialCategoryForArticle(candidate),counts()[editorialCategoryForArticle(candidate)]||0))continue;
       // Balance ranks eligible items, never discards them or creates a paid retry.
       await writeDiscoverySetting(PENDING_KEY,[candidate.id]);
-      const article=await publishArticleCandidate(candidate.id,{expectedEditorialHash:candidate.recommendation!.editorialReview!.contentHash,autoPublishedAt:new Date().toISOString()});
-      await curate(article,today); await writeDiscoverySetting(PENDING_KEY,[]); published.push(article);
+      try {
+        const article=await publishArticleCandidate(candidate.id,{expectedEditorialHash:candidate.recommendation!.editorialReview!.contentHash,autoPublishedAt:new Date().toISOString()});
+        // Retain an accepted publication even if the following curation write needs repair.
+        published.push(article);
+        await curateEditorialArticle(article,today); await writeDiscoverySetting(PENDING_KEY,[]);
+      } catch(error) {
+        if(!isolatedPublishFailure(error))throw error;
+        if(/相同公开文章/.test(String(error)))await setArticleCandidateRejected(candidate.id,true,"与已有文章相似",candidate.updatedAt);
+        (ledger.publishFailures ||= {})[candidate.id]={revision:candidate.updatedAt,reason:String(error).slice(0,300)};
+        await writeDiscoverySetting(dayKey,ledger);
+        await writeDiscoverySetting(PENDING_KEY,[]);
+      }
     }
   };
   await publishPool(); // Reuse already-paid valid candidates before spending on discovery.
   const spend=await getEditorialSpend(today);
   const maySpend=!spend.blocked && spend.actualMicrocny+spend.reservedMicrocny<(config.dailyBudgetCny??1.5)*1e6;
   const softBudgetReached=distributionSatisfied(counts()) && spend.actualMicrocny+spend.reservedMicrocny>=1e6;
-  const expired=Date.now()-Date.parse(ledger.startedAt)>120*60_000;
+  const expired=Date.now()>Date.parse(ledger.deadlineAt || new Date(Date.parse(ledger.startedAt)+120*60_000).toISOString());
+  const refresh=approvedRefreshPool(candidates.filter(a=>!eligibleEditorialCandidate(a)),counts(),ledger.refreshedIds)[0];
+  const canWork=!targetSatisfied() && maySpend && !softBudgetReached && !expired && ledger.attempts<config.dailyReviewLimit && (ledger.failureStreak||0)<3;
+  let refreshResult:RecommendationAutomationRunResponse["result"];
+  let refreshError="";
+  if(canWork && refresh) {
+    (ledger.refreshedIds ||= []).push(refresh.id);
+    ledger.attempts++;
+    await writeDiscoverySetting(dayKey,ledger);
+    try {
+      refreshResult=await runRecommendationCrawler({topic:refresh.recommendation!.topics[0],difficulty:"any",targetInventory:0,ignoreInventoryTarget:true,inventoryScope:"candidates",refreshCandidateId:refresh.id,maxNewArticles:1,maxAttempts:1,editorial:config},origin);
+      const revised=refreshResult.created[0];
+      if(revised){const index=candidates.findIndex(a=>a.id===revised.id);candidates[index]=revised;}
+      await publishPool();
+    } catch(error) {
+      refreshError=String(error).slice(0,500);
+    }
+    await writeDiscoverySetting(`recommendation_editorial_refresh_${today}_${refresh.id}`,{at:new Date().toISOString(),created:refreshResult?.created.map(a=>a.id)||[],skipped:refreshResult?.skipped||[],error:refreshError});
+  }
   const observed:Record<string,SourceCategoryYield>={};
   for(const article of new Map([...published,...candidates].map(article=>[article.id,article])).values()){
     const source=article.recommendation?.discoverySourceId;
@@ -152,13 +215,13 @@ async function runBudgetedBatch(origin: string, trigger: "scheduled" | "manual",
   }
   const sites=rankEditorialSources(await getDiscoverySites(),counts(),ledger.sites,observed);
   const site=sites[0];
-  let result:RecommendationAutomationRunResponse["result"];
+  let result:RecommendationAutomationRunResponse["result"]=refreshResult;
   const before=todays().length;
-  if (!targetSatisfied() && before<DAILY_TOTAL_MAX && maySpend && !softBudgetReached && !expired && site && ledger.attempts<config.dailyReviewLimit && (ledger.failureStreak||0)<3) {
+  if (!refresh && !targetSatisfied() && maySpend && !softBudgetReached && !expired && site && ledger.attempts<config.dailyReviewLimit && (ledger.failureStreak||0)<3) {
     const entry=ledger.sites[site.id] ||= {visits:0,urls:[],empty:0};
     entry.visits++; const attempts=Math.min(3,config.dailyReviewLimit-ledger.attempts); ledger.attempts+=attempts;
     await writeDiscoverySetting(dayKey,ledger);
-    result=await runRecommendationCrawler({topic:site.topics[0],difficulty:"any",targetInventory:0,ignoreInventoryTarget:true,inventoryScope:"candidates",sourceId:site.id,maxNewArticles:Math.min(3,DAILY_TOTAL_MAX-before),maxAttempts:attempts,feedPage:Math.min(3,entry.visits),excludedUrls:entry.urls,editorial:config},origin);
+    result=await runRecommendationCrawler({topic:site.topics[0],difficulty:"any",targetInventory:0,ignoreInventoryTarget:true,inventoryScope:"candidates",sourceId:site.id,maxNewArticles:3,maxAttempts:attempts,feedPage:Math.min(6,entry.visits),excludedUrls:entry.urls,editorial:config},origin);
     ledger.attempts-=Math.max(0,attempts-result.attempted);
     entry.urls=[...new Set([...entry.urls,...result.skipped.map(s=>s.url),...result.created.map(a=>a.sourceUrl)])];
     entry.empty=result.created.length?0:(entry.empty||0)+1;
@@ -170,7 +233,8 @@ async function runBudgetedBatch(origin: string, trigger: "scheduled" | "manual",
   }
   ledger.noProgress=todays().length>before?0:(ledger.noProgress||0)+1;
   const afterSpend=await getEditorialSpend(today);
-  const stopped=targetSatisfied() || todays().length>=DAILY_TOTAL_MAX || !maySpend || afterSpend.blocked || softBudgetReached || expired || !site || ledger.attempts>=config.dailyReviewLimit || (ledger.failureStreak||0)>=3;
+  const remainingRefresh=approvedRefreshPool(candidates.filter(a=>!eligibleEditorialCandidate(a)),counts(),ledger.refreshedIds).length;
+  const stopped=targetSatisfied() || !maySpend || afterSpend.blocked || softBudgetReached || expired || (!site && !remainingRefresh) || ledger.attempts>=config.dailyReviewLimit || (ledger.failureStreak||0)>=3;
   const complete=stopped && distributionSatisfied(counts());
   ledger.finished=stopped; await writeDiscoverySetting(dayKey,ledger);
   const email=stopped?await notifyDailyResult(today,todays(),ledger.attempts,complete,config):null;

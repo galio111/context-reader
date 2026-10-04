@@ -132,7 +132,9 @@ export async function runRecommendationCrawler(
     listArticleCandidates(),
     listArticleCandidates({ includeRejected: true }),
   ]);
-  const allArticles = [...published, ...allCandidates];
+  const refresh = input.refreshCandidateId ? allCandidates.find(a => a.id === input.refreshCandidateId) : undefined;
+  if (input.refreshCandidateId && (!input.editorial?.enabled || !refresh || refresh.recommendation?.rejectedAt)) throw new Error("候选已变化，无法重新核验。");
+  const allArticles = [...published, ...allCandidates.filter(a => a.id !== refresh?.id)];
   const candidates = activeCandidates;
   const inventoryArticles = input.inventoryScope === "candidates" ? candidates : allArticles;
   const inventoryBefore = inventoryArticles.filter((article) => inventoryMatches(article, input)).length;
@@ -156,14 +158,16 @@ export async function runRecommendationCrawler(
     return { ...resultBase, inventoryAfter: inventoryBefore, finishedAt: new Date().toISOString() };
   }
 
-  const configured = (await getDiscoverySites()).filter((site) => site.enabled && (input.sourceId ? site.id === input.sourceId : site.topics.includes(input.topic)));
+  const configured = (await getDiscoverySites()).filter((site) => refresh
+    ? site.id === refresh.recommendation?.discoverySourceId && site.verification?.ok
+    : site.enabled && (input.sourceId ? site.id === input.sourceId : site.topics.includes(input.topic)));
   const sources = configured.flatMap((site) => site.feeds.map((feedUrl) => {
     const url = new URL(feedUrl);
     // Only bounded WordPress feed pagination. Robots and host checks still run for each URL.
-    if (input.editorial?.enabled && input.feedPage && input.feedPage > 1 && /\/feed\/?$/.test(url.pathname)) url.searchParams.set("paged", String(Math.min(3, Math.floor(input.feedPage))));
+    if (input.editorial?.enabled && input.feedPage && input.feedPage > 1 && /\/feed(?:\/rss)?\/?$/.test(url.pathname)) url.searchParams.set("paged", String(Math.min(6, Math.floor(input.feedPage))));
     return { ...site, feedUrl: url.href };
   }));
-  const feedResults = await Promise.allSettled(sources.map((source) => readSourceFeed(source, input.topic)));
+  const feedResults = await Promise.allSettled(refresh ? [] : sources.map((source) => readSourceFeed(source, input.topic)));
   const discoveredItems: FeedItem[] = [];
   feedResults.forEach((feedResult, index) => {
     if (feedResult.status === "fulfilled") {
@@ -175,6 +179,13 @@ export async function runRecommendationCrawler(
       });
     }
   });
+  if (refresh) {
+    if (!configured[0]) throw new Error("候选来源尚未验证，留待人工核实。");
+    const dateFailure = freshnessFailure([refresh.importedArticle?.publishedTime || ""], refresh.recommendation?.timeliness === "time-sensitive");
+    if (dateFailure) throw new Error(dateFailure);
+    if (refresh.recommendation?.manualFields?.length) throw new Error("候选包含人工修改的分类，留待人工核实。");
+    discoveredItems.push({title:refresh.title,url:refresh.sourceUrl,description:"",publishedAt:refresh.importedArticle?.publishedTime || "",source:configured[0],relevance:0});
+  }
   if (input.sourceId && !input.editorial?.enabled && !hasRecentPublishingCadence(discoveredItems.map((item) => item.publishedAt))) {
     return { ...resultBase, targetNewArticles: maxNewArticles, targetAchieved: false, shortfall: maxNewArticles, inventoryAfter: inventoryBefore, finishedAt: new Date().toISOString(), sourceErrors: [...resultBase.sourceErrors, { sourceName: configured[0]?.name || "来源", message: "未确认近期持续更新，本批不使用存档文章凑数。" }] };
   }
@@ -263,6 +274,7 @@ export async function runRecommendationCrawler(
         continue;
       }
       const prepared = await withRemoteImageDeadline(70_000,()=>localizePublicArticleInputCover(crawlerCandidateInput(item, imported, classification), { strictImages: input.editorial?.enabled }));
+      if (refresh) { prepared.id = refresh.id; prepared.expectedUpdatedAt = refresh.updatedAt; }
       if (!articleHasHomepageImage({ ...prepared, importedArticle: prepared.importedArticle || undefined })) throw new Error("图片无法安全保存，未收录无图文章");
       if (input.editorial?.enabled && prepared.importedArticle && prepared.recommendation) {
         prepared.importedArticle = sanitizeImportedArticleContent(prepared.importedArticle);
@@ -306,7 +318,7 @@ export async function runRecommendationCrawler(
     ...resultBase,
     targetAchieved: shortfall === 0,
     shortfall,
-    inventoryAfter: inventoryBefore + resultBase.created.length,
+    inventoryAfter: inventoryBefore + (refresh ? 0 : resultBase.created.length),
     finishedAt: new Date().toISOString(),
   };
 }

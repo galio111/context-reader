@@ -100,10 +100,10 @@ test("real CET events preserve drafts, freeze one passage and start an independe
     assert.ok(historyDialog.querySelector("time[datetime]"));
     assert.match(historyDialog.textContent || "", /答对 \d+\/\d+ 题/);
     await user.click(ui.getByRole("button", { name: "提交状态" }));
-    await user.click(ui.getByRole("option", { name: "未提交", exact: true }));
+    await user.click(ui.getByRole("option", { name: /^未提交$/ }));
     assert.ok(ui.getByText("没有符合筛选的记录。"));
     await user.click(ui.getByRole("button", { name: "提交状态" }));
-    await user.click(ui.getByRole("option", { name: "已提交", exact: true }));
+    await user.click(ui.getByRole("option", { name: /^已提交$/ }));
     assert.match(historyDialog.textContent || "", /答对 \d+\/\d+ 题/);
     await user.keyboard("{Escape}");
 

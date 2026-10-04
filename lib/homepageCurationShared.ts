@@ -26,9 +26,14 @@ export function normalizeHomepageCuration(value: unknown): HomepageCuration {
   const rawSelectedAtById = input.selectedAtById && typeof input.selectedAtById === "object" && !Array.isArray(input.selectedAtById)
     ? input.selectedAtById as Record<string, unknown>
     : {};
+  const active = new Set(Object.values(categories).flat());
   const selectedAtById = Object.fromEntries(Object.entries(rawSelectedAtById)
     .filter(([id, selectedAt]) => id.length <= 100 && typeof selectedAt === "string" && Number.isFinite(Date.parse(selectedAt)))
-    .slice(0, 1_000)) as Record<string, string>;
+    .sort(([a, at], [b, bt]) => {
+      return Number(active.has(b)) - Number(active.has(a))
+        || Date.parse(bt as string) - Date.parse(at as string) || a.localeCompare(b);
+    })
+    .slice(0, 10_000)) as Record<string, string>;
   const explicitRecommendationFeaturedId = typeof input.recommendationFeaturedId === "string"
     && input.recommendationFeaturedId.length <= 100
     ? input.recommendationFeaturedId

@@ -1,4 +1,5 @@
 import { publicArticleSummary } from "@/lib/publicArticleSummary";
+import { readAllArticleRows } from "@/lib/publicArticlePagination";
 import type { ImportedArticle, ImportedArticleBlock } from "@/types/article";
 import { publicReadCache, invalidatePublicReadCache } from "@/lib/publicReadCache";
 import { revalidatePath, revalidateTag } from "next/cache";
@@ -415,10 +416,11 @@ async function findDuplicateArticleRow(input: PublicArticleInput, published: boo
 }
 
 export async function listPublicArticles(options: { includeImportedArticle?: boolean } = {}): Promise<PublicArticle[]> {
-  const rows = await supabaseFetch<SupabaseArticleRow[]>(
+  const rows = await readAllArticleRows<SupabaseArticleRow>(
     options.includeImportedArticle
-      ? "public_articles?select=id,title,summary,body,source_url,source_name,imported_article,created_at,updated_at&published=eq.true&order=updated_at.desc"
-      : "public_articles?select=id,title,summary,body,source_url,source_name,recommendation:imported_article->recommendation,created_at,updated_at&published=eq.true&order=updated_at.desc",
+      ? "public_articles?select=id,title,summary,body,source_url,source_name,imported_article,created_at,updated_at&published=eq.true&order=updated_at.desc,id.desc"
+      : "public_articles?select=id,title,summary,body,source_url,source_name,recommendation:imported_article->recommendation,created_at,updated_at&published=eq.true&order=updated_at.desc,id.desc",
+    path => supabaseFetch<SupabaseArticleRow[]>(path),
   );
   return rows.map((row) => mapArticle(row));
 }
@@ -433,9 +435,9 @@ export async function listPublicArticleSummaries(): Promise<PublicArticle[]> {
   return publicReadCache.summaries.get("catalogue", async () => {
   const fields = ["coverImageUrl", "coverVariants", "coverImageAlt", "coverImageCredit", "coverImageSourceUrl", "difficulty", "cefr", "audienceStages", "topics", "homepageCategory", "wordCount", "timeliness", "sourceKind", "classificationSource", "manualFields"] as const;
   const projection = fields.map(field => `${field}:imported_article->recommendation->${field}`).join(",");
-  const rows = await supabaseFetch<Array<SupabaseArticleRow & Partial<ArticleRecommendationMetadata> & { editorialVersion?: number }>>(
-    `public_articles?select=id,title,summary,source_url,source_name,created_at,updated_at,${projection},editorialVersion:imported_article->recommendation->editorialReview->version&published=eq.true&order=updated_at.desc`,
-    { next: { revalidate: 300, tags: ["public-article-summaries"] } },
+  const rows = await readAllArticleRows<SupabaseArticleRow & Partial<ArticleRecommendationMetadata> & { editorialVersion?: number }>(
+    `public_articles?select=id,title,summary,source_url,source_name,created_at,updated_at,${projection},editorialVersion:imported_article->recommendation->editorialReview->version&published=eq.true&order=updated_at.desc,id.desc`,
+    path => supabaseFetch(path, { next: { revalidate: 300, tags: ["public-article-summaries"] } }),
   );
   return rows.map(row => {
     const recommendation = Object.fromEntries(fields.filter(field => row[field] != null).map(field => [field, row[field]])) as unknown as ArticleRecommendationMetadata;
@@ -464,8 +466,9 @@ export async function getPublicArticle(id: string): Promise<PublicArticle | null
 }
 
 export async function listArticleCandidates(options: { includeRejected?: boolean } = {}): Promise<PublicArticle[]> {
-  const rows = await supabaseFetch<SupabaseArticleRow[]>(
-    "public_articles?select=id,title,summary,body,source_url,source_name,imported_article,published,created_at,updated_at&published=eq.false&order=updated_at.desc",
+  const rows = await readAllArticleRows<SupabaseArticleRow>(
+    "public_articles?select=id,title,summary,body,source_url,source_name,imported_article,published,created_at,updated_at&published=eq.false&order=updated_at.desc,id.desc",
+    path => supabaseFetch<SupabaseArticleRow[]>(path),
   );
   const articles = rows.map((row) => mapArticle(row));
   const visible = options.includeRejected ? articles : articles.filter((article) => !article.recommendation?.rejectedAt);
@@ -529,6 +532,13 @@ export async function publishArticleCandidate(id: string, options: { expectedEdi
   if (options.expectedEditorialHash) {
     const { eligibleEditorialCandidate } = await import("@/lib/editorialRunner");
     if (!eligibleEditorialCandidate(mapArticle(candidate))) throw new Error("候选状态或审核已变化，自动发布已停止。");
+  }
+  // Reject known duplicates before cover generation/storage work.
+  if (guarded) {
+    const duplicate = await findDuplicateArticleRow({
+      title: candidate.title, summary: candidate.summary, body: candidate.body || "", sourceUrl: candidate.source_url || "",
+    }, true);
+    if (duplicate && duplicate.id !== candidate.id) throw new Error("已有相同公开文章，不重复自动精选。");
   }
   const importedArticle = isRemoteImportedArticle(candidate.imported_article)
     ? sanitizeImportedArticleContent(candidate.imported_article)
@@ -608,18 +618,20 @@ export async function deleteArticleCandidate(id: string, expectedUpdatedAt?: str
   if (expectedUpdatedAt && !deleted?.length) throw new Error("候选已变化，未删除。");
 }
 
-export async function setArticleCandidateRejected(id: string, rejected: boolean, reason?: string): Promise<PublicArticle> {
+export async function setArticleCandidateRejected(id: string, rejected: boolean, reason?: string, expectedUpdatedAt?: string): Promise<PublicArticle> {
   if (reason && !REJECTION_REASONS.some((value) => value === reason)) throw new Error("请选择有效的不精选原因。");
   const rows = await supabaseFetch<SupabaseArticleRow[]>(
     `public_articles?select=id,title,summary,body,source_url,source_name,imported_article,published,created_at,updated_at&id=eq.${encodeURIComponent(id)}&published=eq.false&limit=1`,
   );
   const row = rows[0];
   if (!row) throw new Error("候选文章不存在或已经发布。");
+  if(expectedUpdatedAt && row.updated_at!==expectedUpdatedAt)throw new Error("候选已变化，请重新审核。");
   const article = mapArticle(row);
   const recommendation = article.recommendation ?? article.importedArticle?.recommendation;
   if (!recommendation) throw new Error("候选文章缺少推荐资料。");
   return saveArticleCandidate({
     id: article.id,
+    expectedUpdatedAt: row.updated_at,
     title: article.title,
     summary: article.summary,
     body: article.body,
