@@ -1,0 +1,39 @@
+{
+  "releaseId": "20261004T164800",
+  "curation": {
+    "status": "passed",
+    "bytes": 143342,
+    "sameOriginPut": 200,
+    "wrongOriginPut": 403,
+    "above1MiB": 413,
+    "placementsAndDatesPreserved": true
+  },
+  "timer": {
+    "active": true,
+    "enabled": true,
+    "timeZone": "Asia/Shanghai",
+    "runTime": "06:00",
+    "nextScheduledRunAt": "2026-10-04T22:00:00.000Z",
+    "closedDayProbe": {
+      "status": "succeeded",
+      "published": 100,
+      "attempts": 130,
+      "email": "sent",
+      "skipped": "already_ran_today"
+    },
+    "dailyModelCallsUnchanged": 156
+  },
+  "finalEmail": {
+    "status": "sent",
+    "count": 100,
+    "at": 1791103230647,
+    "repeatedReportTimestampUnchanged": true
+  },
+  "covers": {
+    "sampled": 2,
+    "httpStatus": 200,
+    "contentType": "image/webp"
+  },
+  "qaAccountRemaining": 0,
+  "qaUsageRemaining": 0
+}
