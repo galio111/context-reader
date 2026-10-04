@@ -1,9 +1,9 @@
 {
   "identity": {
     "ok": true,
-    "checkedAt": "2026-10-04T08:12:01.217Z",
-    "releaseId": "20261004T160500",
-    "parentReleaseId": "20261004T153500",
+    "checkedAt": "2026-10-04T08:51:58.024Z",
+    "releaseId": "20261004T164800",
+    "parentReleaseId": "20261004T160500",
     "backendMode": "mainland_internal"
   },
   "account": true,
@@ -47,12 +47,12 @@
     }
   ],
   "anonymousAdminDenied": true,
-  "catalogueRows": 1098,
+  "catalogueRows": 1110,
   "oldArticleRestored": true,
   "daily": {
     "day": "2026-10-04",
-    "count": 88
+    "count": 100
   },
-  "testUserId": "12a4fc42-a668-4be9-a410-63ee25250aca",
+  "testUserId": "bc151f30-20a9-4348-8b28-5bcd0af1c8dd",
   "testAccountsRemoved": true
 }

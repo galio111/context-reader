@@ -1,13 +1,16 @@
 {
-  "releaseId": "20261004T160500",
-  "parentReleaseId": "20261004T153500",
-  "sourceRevision": "5e1ffd2c435c2be96451c0fb0d1a3c75191f6064",
-  "acceptedAt": "2026-10-04T08:09:47.169235+00:00",
+  "releaseId": "20261004T164800",
+  "parentReleaseId": "20261004T160500",
+  "sourceRevision": "efff93b47848ff055dc4e7b7d8f8519260e485ed",
+  "acceptedAt": "2026-10-04T08:51:15.916476+00:00",
   "backendMode": "mainland_internal",
   "publicIdentityMatchesAcceptedState": true,
-  "reviewedArchiveDeltaFiles": 40,
+  "reviewedArchiveDeltaFiles": 13,
   "stableLockedDeployEntrypoint": true,
-  "recreatedServices": ["app", "caddy"],
+  "recreatedServices": [
+    "app",
+    "caddy"
+  ],
   "databaseAuthRestStorageGatewayStartTimesUnchanged": true,
   "healthcheck": "passed",
   "backup": {
@@ -16,7 +19,10 @@
     "isolatedRestore": "passed",
     "publicTables": 23
   },
-  "rollbackImages": ["20261004T160500", "20261004T153500"],
+  "rollbackImages": [
+    "20261004T164800",
+    "20261004T160500"
+  ],
   "rollbackImageReadinessVerified": true,
   "actualRollbackExecuted": false,
   "adminAcceptance": {
@@ -28,11 +34,14 @@
   "validation": {
     "criticalTests": 89,
     "releaseContracts": 9,
-    "discoveryDateRuntimeDistributionTests": 25,
     "productionBuild": "passed",
     "typescript": "passed",
     "egressAudit": "passed",
-    "forcedIndependentZhipuFallbackAndSingleCharge": "passed"
+    "forcedIndependentZhipuFallbackAndSingleCharge": "passed",
+    "curationBodyTests": 3,
+    "providerFailoverTests": 7,
+    "providerBillingTests": 1,
+    "inheritedDiscoveryDateRuntimeDistributionTests": 25
   },
   "limits": [
     "SMTP accepted status does not verify inbox reading.",
