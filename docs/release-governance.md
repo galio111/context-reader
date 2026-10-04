@@ -2,7 +2,14 @@
 
 ## Current accepted publication preloading release
 
-Accepted `20261003T002636`, parent `20261003T002000`, source `cfe444cd3ff6996c191da500f0d08ed2809b4558`. The exact 22-file delta cumulatively retains billing, CET and Ballpit lifecycle changes. Public identity reports mainland_internal; stable guard, builds, 89 core/13 media/7 loading/13 targeted regressions, nine contracts, signed-in three-function DeepSeek Flash core, Reader return, Admin/sync boundaries, seven-service health, SHA-verified 23-table backup restore and current/parent images passed. Only app/caddy recreated. Cold rapid scrolling still has measured missing images and long frames; physical-device, Edge and user motion acceptance remain open. [Evidence and limits](publication-preload-release.md). Documentation commits do not change the deployed source identity.
+Accepted `20261003T005114`, parent `20261003T003600`, source `92f93af4fc69663e2c0592498507d0c53f8534bb`. The exact 19-file corrective delta cumulatively retains billing, CET and Ballpit lifecycle changes. Public identity reports mainland_internal; stable guard, builds, 89 core/13 media/7 loading/13 targeted regressions, nine contracts, signed-in three-function DeepSeek Flash core, Reader return, Admin/sync boundaries, seven-service health, SHA-verified 23-table backup restore and current/parent images passed. Only app/caddy recreated. Cold rapid scrolling still has measured missing images and long frames; physical-device, Edge and user motion acceptance remain open. [Evidence and limits](publication-preload-release.md). Documentation commits do not change the deployed source identity.
+
+## Previous accepted Ballpit lifecycle and blue billing release
+
+Accepted `20261003T002000`, parent `20261002T233200`, source `9ca86e4a77d94d2ea8c3322b7db4ecf1d84dc655`, at `2026-10-02T16:20:57.769093Z`. Public connectivity, server accepted state and current release agree with `mainland_internal`. The 40-file delta includes 33 previously accepted documentation/evidence updates; runtime changes are confined to home cover synchronization and billing colors. Only app/caddy recreated. The earlier candidate `20261003T001500` was interrupted by an SSH reset during build, never accepted; its directory was preserved, and a newly packaged candidate used the unchanged accepted parent and stable guarded entrypoint through a transient systemd unit.
+
+Public repeat-flow/core/account/Admin/health/23-table backup restore and rollback-image evidence passed with the network and visual limits documented in [release evidence](ballpit-scroll-lifecycle-release.md). No backend or billing-rule migration.
+
 
 ## Previous accepted unified billing release
 
