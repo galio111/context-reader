@@ -1,0 +1,42 @@
+{
+  "releaseId": "20261004T160500",
+  "parentReleaseId": "20261004T153500",
+  "sourceRevision": "5e1ffd2c435c2be96451c0fb0d1a3c75191f6064",
+  "acceptedAt": "2026-10-04T08:09:47.169235+00:00",
+  "backendMode": "mainland_internal",
+  "publicIdentityMatchesAcceptedState": true,
+  "reviewedArchiveDeltaFiles": 40,
+  "stableLockedDeployEntrypoint": true,
+  "recreatedServices": ["app", "caddy"],
+  "databaseAuthRestStorageGatewayStartTimesUnchanged": true,
+  "healthcheck": "passed",
+  "backup": {
+    "id": "20261003T192051Z",
+    "shaVerified": true,
+    "isolatedRestore": "passed",
+    "publicTables": 23
+  },
+  "rollbackImages": ["20261004T160500", "20261004T153500"],
+  "rollbackImageReadinessVerified": true,
+  "actualRollbackExecuted": false,
+  "adminAcceptance": {
+    "session": 200,
+    "accounts": 200,
+    "public_articles": 200,
+    "recommendation_automation": 200
+  },
+  "validation": {
+    "criticalTests": 89,
+    "releaseContracts": 9,
+    "discoveryDateRuntimeDistributionTests": 25,
+    "productionBuild": "passed",
+    "typescript": "passed",
+    "egressAudit": "passed",
+    "forcedIndependentZhipuFallbackAndSingleCharge": "passed"
+  },
+  "limits": [
+    "SMTP accepted status does not verify inbox reading.",
+    "Daily supply stability requires subsequent real scheduled days.",
+    "Existing physical-device and visual acceptance gaps remain open."
+  ]
+}

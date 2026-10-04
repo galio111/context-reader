@@ -11,7 +11,7 @@ Monthly repurchase/upgrade starts a new cycle with remaining-value credit limite
 
 Homepage delivery uses a server-rendered union of the original category showcases (at most 50 summaries) and full category counts, followed by the complete `GET /api/public-articles?cover=256` catalogue near the reading section or on user intent. The API still returns all published summaries and article-detail endpoints retain the full reader/preload payload. A summary's optional `recommendation.coverPreviewDataUrl` is a bounded 256×192 inline WebP of its stored cover, generated at publication or published edit. This is only a temporary preview. All cards load the original stored cover within 2400px of the viewport or on pointer entry; the first featured card loads immediately. Preview and full image share the existing img transform rules; the full image overlays the preview after its load event. The service worker caches the public catalogue locally for 60 seconds, then sends `If-None-Match`; unchanged content returns 304 with no body, including when Next.js supplied a `-gzip` ETag. Failed catalogue reads return 503, with a bounded offline fallback to a previously cached catalogue. Public article details continue network-first; account/Admin data never use this cache. `GET /api/static-asset/[...path]` serves validated immutable build-time Brotli JS/CSS sidecars when negotiated by middleware; clients without Brotli retain standard Next.js assets. See [featured-image-scroll-open-issue.md](featured-image-scroll-open-issue.md) for the measured cold-transfer limit and visual acceptance boundary.
 
-2026-09-22 已部署（20260922T072500）：统一功能/套餐主备模型、MiMo 直连、约 60 篇且各板块 13–17 篇的策略，¥1.50 硬上限。MiMo 真实及线上连接通过；Jev 无有效密钥，关闭。见 [模型控制说明](model-control.md)。
+统一功能/套餐主备模型与 MiMo 直连已生产。自动精选当前数量规则见 automated-editorial.md，¥1.50 共享硬预算保留。MiMo 真实及线上连接通过；Jev 无有效密钥，关闭。见 [模型控制说明](model-control.md)。
 
 
 自动精选与 DeepSeek/Jev 接口准备、质量门槛、成本及验收边界见 [automated-editorial.md](automated-editorial.md)。该模式需显式开启；单站手动导入继续使用候选流程。
@@ -285,7 +285,7 @@ Routine login restoration, automatic polls, rate-limit waits and recoverable syn
 
 ### 候选与解释恢复约定
 
-2026-09-21 自动精选新约定：目标约 30、至少 25 篇，约 ¥1 软目标、¥1.50 硬上限；均衡改为排序补位，取消 18/18 硬配额。仅 Flash 合并全文分类/难度/图文审核，Jev 与自动 Pro 升级关闭。按 v3 原网页完整性、图片安全保存、正文哈希和时效校验发布；连续处理批次，90 分钟或预算/连续失败边界停止并发邮件。手动候选与高中标签保留。实测与恢复状态见 automated-editorial.md、product-journey.md。
+自动精选当前合同：60 为参考目标、总数至少55且无硬上限；时事至少13、不设上限，科学/文化/商业各13–17。先补缺口板块，达标后停止新增付费发现，已有合格时事继续发布。仅 Flash 合并全文分类/难度/图文审核，Jev 与自动 Pro 升级关闭。v3完整性、图片入桶、正文哈希、48小时审核及新闻7日时效仍必需；240自动尝试、120分钟、¥1.50共享硬预算与失败收尾/当前日邮件保留。手动候选和高中标签不变；规则见 automated-editorial.md，恢复证据见 editorial-recovery-20261004.md。
 
 ### Pronunciation quota diagnostics
 
@@ -303,7 +303,7 @@ The contextual stream uses the same completed-explanation validator as the Reade
 
 Admin account operations includes a dedicated 智谱备用调用 section: 30 Shanghai-day totals for recorded Zhipu executions, success/failure, input/output tokens, estimated cost and latest 100 matching records with time, feature and model. Matching uses provider or GLM model for historical compatibility and runs over the entire bounded 50,000-row result, not only the latest 200 general executions. The existing server-side Admin gate protects all records; no credentials or prompt content are exposed. Refresh uses the existing Admin refresh action. Calls that fail before the route writes a correctly attributed execution are not claimed as complete provider-attempt telemetry.
 
-2026-09-21 自动精选新约定：目标约 30、至少 25 篇，约 ¥1 软目标、¥1.50 硬上限；均衡改为排序补位，取消 18/18 硬配额。仅 Flash 合并全文分类/难度/图文审核，Jev 与自动 Pro 升级关闭。按 v3 原网页完整性、图片安全保存、正文哈希和时效校验发布；连续处理批次，90 分钟或预算/连续失败边界停止并发邮件。手动候选与高中标签保留。实测与恢复状态见 automated-editorial.md、product-journey.md。
+自动精选当前合同：60 为参考目标、总数至少55且无硬上限；时事至少13、不设上限，科学/文化/商业各13–17。先补缺口板块，达标后停止新增付费发现，已有合格时事继续发布。仅 Flash 合并全文分类/难度/图文审核，Jev 与自动 Pro 升级关闭。v3完整性、图片入桶、正文哈希、48小时审核及新闻7日时效仍必需；240自动尝试、120分钟、¥1.50共享硬预算与失败收尾/当前日邮件保留。手动候选和高中标签不变；规则见 automated-editorial.md，恢复证据见 editorial-recovery-20261004.md。
 
 Admin editorial PATCH accepts optional budgetTrial (day in Shanghai YYYY-MM-DD; cny number 0–10 exclusive of zero, or null for explicitly uncapped date) and jevAutoAdopt boolean. Omitted fields preserve existing values; budgetTrial: null removes the exception. The base dailyBudgetCny never inherits the trial value. Calibration and adoption records remain private account_settings, including per-provider ledger reservations; adoption is gated by completed sample day and policy versions. No API key is returned by these APIs.
 

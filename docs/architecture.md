@@ -24,7 +24,7 @@ The homepage paints original-resolution responsive covers without inline blurry 
 
 Production builds retain immutable Brotli JS/CSS sidecars. The public catalogue keeps its service-worker cache and compressed-ETag revalidation; details remain network-first. Returning from an article restores the card-relative viewport position. Original image layout, Ballpit physics, opening and Reader transitions remain protected. Stable release guards still render the real homepage before cutover. Final release evidence and measured cold-network limits are tracked in [publication-preload-release.md](publication-preload-release.md); physical devices and user visual acceptance remain open.
 
-2026-09-22 已部署（20260922T072500）：统一功能/套餐主备模型、MiMo 直连、约 60 篇且各板块 13–17 篇的策略，¥1.50 硬上限。MiMo 真实及线上连接通过；Jev 无有效密钥，关闭。见 [模型控制说明](model-control.md)。
+统一功能/套餐主备模型与 MiMo 直连已生产。自动精选当前数量规则见 automated-editorial.md，¥1.50 共享硬预算保留。MiMo 真实及线上连接通过；Jev 无有效密钥，关闭。见 [模型控制说明](model-control.md)。
 
 
 自动精选参考目标约 60，至少 55；时事至少 13 且无上限，科学、文化、商业各 13–17，总数无硬上限，预算不足报告缺口。默认 Flash 综合审核，Jev 关闭；新后台允许按功能和套餐切换主备模型。质量门槛、手动候选和高中标签保留。完整规则见 automated-editorial.md。
@@ -317,7 +317,7 @@ Reader 切换文章建立独立阅读会话，清空来源词高亮与旧翻译�
 
 语境形容词的 -ed/-ing 词目保留实际形容词形式，前端流式合并和 Anki 导出同步规范；旧 Anki 已导入笔记不会自动改写。解释服务先有限重试损坏 JSON，最终失败仍按原分类保留私有错误报告。
 
-2026-09-21 自动精选新约定：目标约 30、至少 25 篇，约 ¥1 软目标、¥1.50 硬上限；均衡改为排序补位，取消 18/18 硬配额。仅 Flash 合并全文分类/难度/图文审核，Jev 与自动 Pro 升级关闭。按 v3 原网页完整性、图片安全保存、正文哈希和时效校验发布；连续处理批次，90 分钟或预算/连续失败边界停止并发邮件。手动候选与高中标签保留。实测与恢复状态见 automated-editorial.md、product-journey.md。
+自动精选当前合同：60 为参考目标、总数至少55且无硬上限；时事至少13、不设上限，科学/文化/商业各13–17。先补缺口板块，达标后停止新增付费发现，已有合格时事继续发布。仅 Flash 合并全文分类/难度/图文审核，Jev 与自动 Pro 升级关闭。v3完整性、图片入桶、正文哈希、48小时审核及新闻7日时效仍必需；240自动尝试、120分钟、¥1.50共享硬预算与失败收尾/当前日邮件保留。手动候选和高中标签不变；规则见 automated-editorial.md，恢复证据见 editorial-recovery-20261004.md。
 
 Standalone dictionary synonym, word-family, collocation and Chinese-to-English expression headings share a small arrow button that queries the exact displayed English word or phrase through the existing lookup callback. Cached replay, history, quota and offline handling remain shared with typed queries. Buttons are disabled during streaming and expose a word-specific accessible label; coarse pointers receive a 44 px target. The query input also filters the complete stored lookup history by normalized, case-insensitive prefix while focused. Its inline scrollable combobox lists every match in existing recent-first order, supports ArrowUp/ArrowDown, Enter and Escape, and closes on blur or lookup. Filtering never calls an API or consumes quota; selecting a match reuses normal cached lookup and history handling. Empty input hides the list and unmatched input remains available for a new deep query.
 
@@ -349,7 +349,7 @@ Production release `20260919T223000`, parent `20260919T221000`, source `10862dfd
 
 Zhipu is included in the unified per-model report alongside DeepSeek and MiMo. The old dedicated Zhipu panel is no longer mounted in the accounts UI; its legacy API response remains compatible. All records remain Admin-only.
 
-2026-09-21 自动精选新约定：目标约 30、至少 25 篇，约 ¥1 软目标、¥1.50 硬上限；均衡改为排序补位，取消 18/18 硬配额。仅 Flash 合并全文分类/难度/图文审核，Jev 与自动 Pro 升级关闭。按 v3 原网页完整性、图片安全保存、正文哈希和时效校验发布；连续处理批次，90 分钟或预算/连续失败边界停止并发邮件。手动候选与高中标签保留。实测与恢复状态见 automated-editorial.md、product-journey.md。
+自动精选当前合同：60 为参考目标、总数至少55且无硬上限；时事至少13、不设上限，科学/文化/商业各13–17。先补缺口板块，达标后停止新增付费发现，已有合格时事继续发布。仅 Flash 合并全文分类/难度/图文审核，Jev 与自动 Pro 升级关闭。v3完整性、图片入桶、正文哈希、48小时审核及新闻7日时效仍必需；240自动尝试、120分钟、¥1.50共享硬预算与失败收尾/当前日邮件保留。手动候选和高中标签不变；规则见 automated-editorial.md，恢复证据见 editorial-recovery-20261004.md。
 
 ## Accented lookup and homepage media
 

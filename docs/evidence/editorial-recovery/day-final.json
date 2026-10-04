@@ -1,0 +1,83 @@
+{
+  "day": "2026-10-04",
+  "counts": {
+    "时事": 51,
+    "科学": 17,
+    "文化": 15,
+    "商业": 17
+  },
+  "total": 100,
+  "automaticRecovery": 77,
+  "backlog": {
+    "reviewed": 114,
+    "published": 23,
+    "retained": 91,
+    "retentionGroups": {
+      "staleNews": 61,
+      "categoryFull": 20,
+      "contentOrFetchFailure": 10
+    },
+    "unprocessedApproved": 0
+  },
+  "publicCatalogue": 1110,
+  "candidates": {
+    "active": 171,
+    "previouslyPassed": 85,
+    "held": 71,
+    "unaudited": 15,
+    "rejectedSeparate": 75
+  },
+  "spend": {
+    "calls": 156,
+    "stages": {
+      "分类与审核": {
+        "calls": 156,
+        "microcny": 555424
+      }
+    },
+    "blocked": false,
+    "providers": {
+      "deepseek": {
+        "calls": 156,
+        "microcny": 555424,
+        "microusd": 83318,
+        "inputTokens": 534836,
+        "outputTokens": 28893,
+        "settledCalls": 156,
+        "reservedMicrocny": 0
+      }
+    },
+    "inputTokens": 534836,
+    "outputTokens": 28893,
+    "actualMicrocny": 555424,
+    "actualMicrousd": 83318,
+    "reservedMicrocny": 0
+  },
+  "quality": {
+    "todayCount": 100,
+    "reviewVersion3": 100,
+    "reviewPassed": 100,
+    "sourceCompletenessVerified": 100,
+    "completed": 100,
+    "minimumEnglishWords": 404,
+    "oldestReview": "2026-10-01T22:35:26.999Z",
+    "selectedDateEntries": 1099,
+    "publicationWithinReviewWindow": 100,
+    "coverStored": 100,
+    "bodyImagePresent": 100
+  },
+  "emails": [
+    {
+      "key": "recommendation_editorial_email_2026-10-04_60_complete_recovery",
+      "status": "sent",
+      "count": 100,
+      "sent_at": 1791103230647
+    },
+    {
+      "key": "recommendation_editorial_email_2026-10-04_60_complete",
+      "status": "sent",
+      "count": 77,
+      "sent_at": 1791100105309
+    }
+  ]
+}
