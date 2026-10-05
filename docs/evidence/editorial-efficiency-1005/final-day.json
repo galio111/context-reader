@@ -1,0 +1,60 @@
+{
+  "spending": {
+    "day": "2026-10-05",
+    "spend": {
+      "calls": 103,
+      "stages": {
+        "分类与审核": {
+          "calls": 103,
+          "microcny": 470085
+        }
+      },
+      "blocked": false,
+      "providers": {
+        "deepseek": {
+          "calls": 103,
+          "microcny": 470085,
+          "microusd": 70513,
+          "inputTokens": 448192,
+          "outputTokens": 19152,
+          "settledCalls": 103,
+          "reservedMicrocny": 0
+        }
+      },
+      "inputTokens": 448192,
+      "outputTokens": 19152,
+      "actualMicrocny": 470085,
+      "actualMicrousd": 70513,
+      "reservedMicrocny": 0
+    }
+  },
+  "delivery": {
+    "mail": {
+      "at": 1791176972485,
+      "count": 61,
+      "error": "",
+      "status": "sent"
+    },
+    "attempts": 212,
+    "finished": true,
+    "processingMs": 4491270,
+    "supplyRetryAt": null
+  },
+  "distribution": {
+    "selected": 61,
+    "categories": {
+      "商业": 13,
+      "文化": 15,
+      "时事": 16,
+      "科技": 17
+    }
+  },
+  "extraRecovery": {
+    "calls": 3,
+    "cny": 0.006604
+  },
+  "repeatVerification": {
+    "callsUnchanged": 103,
+    "mailAtUnchanged": 1791176972485
+  }
+}

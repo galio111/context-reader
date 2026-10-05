@@ -1,6 +1,6 @@
 # Editorial supply and cost repair, 5 October 2026
 
-Status: implementation under verification; deployment and recovered distribution are recorded after acceptance.
+Status: accepted production; 已接受20261005T131000，parent 20261005T124000，source 570bdbb13dd4d7876ed0ac231bee42fa99af9a74；公网mainland_internal身份一致。今日58补齐61篇（时事16/科学17/文化15/商业13），新增3次审核¥0.006604，全日103次/¥0.470085，无未知预留。SMTP接受完成邮件，count61，timestamp1791176972485；不等于收件箱送达证明。明日6日06:00运行，实际结果仍待观察。152回归、本地/服务器构建、九契约、出口审计、真实登录核心Flash/协议2/Admin边界/三文章回放及图片200、健康/23表备份隔离恢复/父镜像通过；仅app/caddy重建，后台服务启动时间未变。QA身份及账单按精确条件清理。重复cron和定时器未增加费用或重发邮件。
 
 Production audit at 12:32 Shanghai found 58 selected-today publications: current affairs 14, science 17, culture 15, business 12. The scheduled run stopped at 07:14 after 209 attempts because the business source pool was exhausted, not because the 120-minute or CNY 1.50 limits were reached. Estimated AI spending was CNY 0.463481 across 100 DeepSeek Flash requests, 442000 input and 18610 output tokens; all usage settled, unknown reserve zero.
 
@@ -18,6 +18,12 @@ A source-exhausted shortfall can receive one later supply check, at least one ho
 
 Quantity contract remains: reference 60, overall minimum 55, current affairs minimum 13 and no upper limit, science/culture/business each 13–17, no hard overall maximum. Limits remain 240 attempts, 120 minutes, CNY 1.50 including unknown reservations. Future source supply remains a live observation; no quality gate is relaxed to guarantee a number.
 
-Validation: focused efficiency, full critical and provider fallback/billing tests; production build and nine protected release contracts. Live release identity, signed-in reading core, Admin publishing, source verification, timer, recovered category distribution and operations evidence must also pass before this repair is called shipped.
+Validation: 152 regressions, including forced independent Zhipu fallback with one charge; local/server build, nine protected contracts and egress guard passed. Actual signed-in word/sentence translation, standalone dictionary and full-article translation used DeepSeek Flash and one successful action each (1/5/10 points). Production Admin, public article replay, health, backup, rollback and timer evidence passed; see evidence/editorial-efficiency-1005/.
 
 Pricing checked against [official DeepSeek pricing](https://api-docs.deepseek.com/quick_start/pricing/): Flash off-peak USD 0.003 cached input, 0.15 uncached input and 0.60 output per million tokens. Every scheduled request audited here ran in an off-peak window. Longer inputs and unused/repeated audits, rather than a switch to Pro, explain the ledger increase.
+
+## Recovered distribution and next day
+
+已接受20261005T131000，parent 20261005T124000，source 570bdbb13dd4d7876ed0ac231bee42fa99af9a74；公网mainland_internal身份一致。今日58补齐61篇（时事16/科学17/文化15/商业13），新增3次审核¥0.006604，全日103次/¥0.470085，无未知预留。SMTP接受完成邮件，count61，timestamp1791176972485；不等于收件箱送达证明。明日6日06:00运行，实际结果仍待观察。152回归、本地/服务器构建、九契约、出口审计、真实登录核心Flash/协议2/Admin边界/三文章回放及图片200、健康/23表备份隔离恢复/父镜像通过；仅app/caddy重建，后台服务启动时间未变。QA身份及账单按精确条件清理。重复cron和定时器未增加费用或重发邮件。
+
+Guardian Business/Economics/Companies/Markets/Money source verification passed and the recovered batch reported no source errors. The Conversation fresh samples passed (861 words/two images; 907 words/one image). Only these two repaired sources had their empty flags cleared after verification; visits, excluded URLs, 212 attempts and costs remained preserved in a durable source-repair journal. Three new Guardian articles (one business and two current affairs) passed full review and were publicly published. Cumulative processing used 4491270 milliseconds; budget and processing time were not renewed. Earlier CNY 0.463481 spending cannot be recovered by later optimization. Final tokens: 448192 input, 19152 output. The next day is not yet observed; no fixed CNY 0.10 or guaranteed supply claim is made, and quality gates are retained.

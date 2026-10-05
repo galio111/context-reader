@@ -1,0 +1,25 @@
+{
+  "releaseId": "20261005T131000",
+  "parentReleaseId": "20261005T124000",
+  "sourceRevision": "570bdbb13dd4d7876ed0ac231bee42fa99af9a74",
+  "acceptedAt": "2026-10-05T05:04:55.253386+00:00",
+  "backendMode": "mainland_internal",
+  "reviewedDeltaFiles": 25,
+  "testsPassed": 152,
+  "protectedContractsPassed": 9,
+  "localAndServerBuilds": "passed",
+  "egressAudit": "passed",
+  "health": "passed",
+  "backupRestoredTables": 23,
+  "parentRollbackImage": "retained",
+  "backendServicesRestarted": false,
+  "timer": {
+    "enabled": true,
+    "active": true,
+    "nextEditorialDay": "2026-10-06T06:00:00+08:00"
+  },
+  "publicReplayAndCovers": {
+    "newArticles": 3,
+    "allHttp200": true
+  }
+}

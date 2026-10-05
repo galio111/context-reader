@@ -1,0 +1,12 @@
+{
+  "observedDay": "2026-10-05",
+  "initialRelease": "20261004T212050",
+  "selectedToday": 58,
+  "categories": {"currentAffairs":14,"science":17,"culture":15,"business":12},
+  "stop": {"shanghaiTime":"07:14","reason":"deficient category source exhaustion","attempts":209},
+  "estimatedAiSpend": {"cny":0.463481,"calls":100,"inputTokens":442000,"outputTokens":18610,"unknownReservedCny":0,"providers":["deepseek-flash"]},
+  "heldContamination": {"insideClimateNews":{"calls":15,"cny":0.073207},"nieman":{"calls":8,"cny":0.041523}},
+  "previousDayFinal": {"day":"2026-10-04","selected":100,"categories":{"currentAffairs":51,"science":17,"culture":15,"business":17},"estimatedCny":0.555424,"calls":156},
+  "previousDayCostByObservedTime": {"scheduled":{"calls":60,"cny":0.195678},"resumedAutomatic":{"calls":13,"cny":0.051033},"requestedBacklog":{"calls":83,"cny":0.308713}},
+  "imageProbe": {"publisher":"The Conversation","oldOuterDeadlineMs":20000,"oldDirectTimeoutMs":25000,"existingFallback":{"httpStatus":200,"contentType":"image/webp","bytes":141104,"seconds":1.2}}
+}
