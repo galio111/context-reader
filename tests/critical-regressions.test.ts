@@ -59,6 +59,7 @@ import {
 } from "../lib/readingProgressPolicy";
 import type { PublicArticle } from "../types/publicArticle";
 import { createArticleTranslationCacheKey } from "../lib/articleTranslationIdentity";
+import { getArticleTranslationJobSnapshot, startArticleTranslationJob } from "../lib/articleTranslationJobs";
 import { cursorAnchoredImageZoom } from "../lib/imageZoom";
 import { createReaderBlockInteractivityStore } from "../lib/readerBlockInteractivity";
 import { createSourceSentenceIndex, findBestSourceSentenceMatchInIndex } from "../lib/sourceMatching";
@@ -1427,6 +1428,58 @@ test("URL extraction keeps linked editorial figures instead of treating them as 
   const images = extracted?.article.blocks.filter((block) => block.type === "image") ?? [];
   assert.equal(images.length, 1);
   assert.equal(images[0]?.src, "https://example.com/gallery-photo.jpg");
+});
+
+test("translation start sends target text for new jobs, resume and regeneration while retaining full context", async () => {
+  const originalFetch = globalThis.fetch;
+  const allBlocks = [
+    { id: "intro", type: "paragraph" as const, text: "Researchers follow the changing seasons." },
+    { id: "result", type: "paragraph" as const, text: "Their results help protect local wildlife." },
+  ];
+  const retained = { id: "intro", translation: "研究人员观察季节的变化。" };
+  try {
+    for (const mode of ["new", "resume", "regenerate"] as const) {
+      const targets = mode === "new" ? allBlocks : allBlocks.slice(1);
+      const key = `translation-start-${mode}`;
+      const calls: string[] = [];
+      globalThis.fetch = (async (input: RequestInfo | URL, init?: RequestInit) => {
+        const endpoint = String(input);
+        const body = JSON.parse(String(init?.body));
+        calls.push(endpoint);
+        if (endpoint === "/api/translate-article/start") {
+          assert.deepEqual(body.blocks, targets, `${mode} must reserve the exact text being translated`);
+          assert.equal(body.blockCount, targets.length);
+          assert.equal(body.articleCharacters, targets.reduce((sum, block) => sum + block.text.length, 0));
+          return Response.json({ actionId: body.actionId, source: "generated" });
+        }
+        if (endpoint === "/api/translate-article") {
+          assert.deepEqual(body.contextBlocks, allBlocks);
+          assert.ok(body.blocks.every((block: { id: string }) => targets.some(target => target.id === block.id)));
+          return new Response(body.blocks.map((block: { id: string }) => JSON.stringify({
+            type: "translation", translation: { id: block.id, translation: "新的中文译文。" },
+          })).join("\n") + "\n", { headers: { "Content-Type": "application/x-ndjson" } });
+        }
+        assert.equal(endpoint, "/api/translate-article/finish");
+        assert.equal(body.status, "succeeded");
+        return Response.json({ ok: true });
+      }) as typeof fetch;
+      await startArticleTranslationJob(key, targets, {
+        allBlocks,
+        force: mode === "regenerate",
+        initialTranslations: mode === "new" ? [] : [retained],
+      });
+      const snapshot = getArticleTranslationJobSnapshot(key);
+      assert.equal(snapshot?.error, "", `${mode} translation must complete`);
+      assert.equal(snapshot?.loading, false);
+      assert.equal(snapshot?.completedTargetBlocks, targets.length);
+      assert.deepEqual(snapshot?.translations.map(item => item.id), allBlocks.map(block => block.id));
+      if (mode !== "new") assert.deepEqual(snapshot?.translations[0], retained);
+      assert.equal(calls[0], "/api/translate-article/start");
+      assert.equal(calls.at(-1), "/api/translate-article/finish");
+    }
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
 });
 
 test("URL extraction retains a credible metadata hero when the selected body has no image", () => {
