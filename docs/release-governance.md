@@ -1,6 +1,10 @@
 # Production Release Governance
 
-## Current accepted editorial recovery release
+## Current accepted dictionary replay and pronunciation release
+
+Accepted `20261004T212050`, parent `20261004T164800`, source `9c77b1694b257ad0aa1492424f8842a0bcea0b3f`, at `2026-10-04T13:31:05.535125Z`. Exact reviewed 28-file cumulative delta through the stable locked entrypoint; public identity/current/accepted state agree with mainland_internal. Builds, 89 critical and 44 targeted tests, release contracts, public history replay after refresh with zero generation calls, complete server snapshots without client upload, three same-result account replays without additional points, protocol-2/Admin/ownership boundaries, seven-service health, SHA-verified 23-table isolated backup restore and accepted parent rollback image passed. Only app/caddy recreated; backend uptimes remain unchanged. The disposable QA account and billing references were removed by exact identity, while provider cost audit remains. Auditory correctness/speed, physical-device and cross-browser acceptance remain open. [Evidence and limits](dictionary-replay-and-pronunciation.md). Documentation commits do not change deployed source identity.
+
+## Previous accepted editorial recovery release
 
 Accepted `20261004T164800`, parent `20261004T160500`, source `efff93b47848ff055dc4e7b7d8f8519260e485ed`. Exact 13-file cumulative delta via the stable locked entrypoint; public/current/state match mainland_internal. Builds, 89 core, three curation body tests plus inherited discovery/date/runtime/distribution coverage, nine contracts, forced independent fallback with one charge, signed-in three-function DeepSeek Flash/1+5+10 points, account/protocol-2/Admin boundaries, seven-service health, SHA-verified 23-table isolated restore and current/parent rollback images passed. Only app/caddy recreated; database/Auth/REST/Storage/gateway start times are unchanged. Automatic recovery plus 23 backlog releases produced 100 (51/17/15/17), final SMTP count 100; the actual 143342-byte curation save and foreign-origin/oversize bounds passed, and the timer is active/enabled. Final outcomes are tracked in [recovery evidence](editorial-recovery-20261004.md). Prior physical-device/visual acceptance gaps remain. Documentation commits do not change deployed source identity.
 
