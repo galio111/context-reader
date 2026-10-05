@@ -32,6 +32,8 @@ const MINUTE = 60_000;
 const DAY = 24 * 60 * MINUTE;
 
 const COSTLY_ROUTE_RULES: Array<[RegExp, RateRule[]]> = [
+  [/^\/api\/study\/profile$/, [{ bucket: "study-profile", limit: 4, windowMs: MINUTE }]],
+  [/^\/api\/study\/reading$/, [{ bucket: "study-reading", limit: 20, windowMs: MINUTE }]],
   [/^\/api\/billing$/, [{ bucket: "billing", limit: 30, windowMs: MINUTE }]],
   [/^\/api\/translate-article\/start$/, [{ bucket: "translation-start", limit: 10, windowMs: MINUTE }]],
   [/^\/api\/admin\/login$/, [{ bucket: "admin-login", limit: 5, windowMs: 15 * MINUTE }]],

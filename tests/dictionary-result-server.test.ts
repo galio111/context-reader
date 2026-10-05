@@ -10,7 +10,7 @@ import type {AccountSyncObject} from "../types/account";
 test("cloud result recovery is scoped to the verified user and writes use the existing CAS; invalid results cannot persist",async()=>{
   const paths:string[]=[],writes:AccountSyncObject[][]=[];
   const result={query:"contemplate",lemma:"contemplate",direction:"en_to_cn",inputStatus:"valid",
-    senses:[{meaning:"思考"}],collocations:[],wordFamily:[],synonyms:[],commonMistakes:[]} as DictionaryResult;
+    senses:[{meaning:"思考"}],collocations:[],wordFamily:[],synonyms:[],commonMistakes:[]} as unknown as DictionaryResult;
   const payload={schemaVersion:2,query:"contemplate",result,updatedAt:new Date().toISOString()};
   const source=readFileSync(new URL("../lib/dictionaryResultServer.ts",import.meta.url),"utf8");
   const js=ts.transpileModule(source,{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.CommonJS}}).outputText;

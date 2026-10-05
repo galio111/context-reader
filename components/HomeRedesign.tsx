@@ -29,6 +29,7 @@ const BookDictionary = dynamic(() => import("@/components/BookDictionary").then(
   loading: () => <p role="status">正在打开词典…</p>,
 });
 import { PillNavAction } from "@/components/PillNavAction";
+import { StudyEntry } from "@/components/StudyEntry";
 import { MOBILE_READER_SHEET_HEIGHT, useMobileBottomSheet } from "@/components/useMobileBottomSheet";
 import { useDocumentScrollLock } from "@/components/useDocumentScrollLock";
 import { FeedbackPanel } from "@/components/FeedbackPanel";
@@ -1277,6 +1278,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
 
         {memberHome && (
           <section ref={importRef} className={styles.memberWorkbench} aria-label="阅读工作台">
+            <StudyEntry reminder />
             <div className={styles.memberWorkbenchGrid} data-empty={!hasReadingHistory || undefined}>
               {hasReadingHistory && (
                 <button

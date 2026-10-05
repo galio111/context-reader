@@ -55,6 +55,7 @@ import {
   type TemporaryReading,
 } from "@/lib/temporaryReading";
 import type { HomepageCuration } from "@/lib/homepageCurationShared";
+import { STUDY_SOURCE_EVENT, STUDY_SOURCE_RESULT_EVENT } from "@/lib/studyNavigation";
 
 interface HomeClientProps {
   initialPublicArticles: PublicArticle[];
@@ -1363,6 +1364,18 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
     }
     return null;
   }
+
+  useEffect(() => {
+    const jump = async (event: Event) => {
+      const entry = (event as CustomEvent<VocabularyEntry>).detail;
+      let ok = false;
+      try { ok = await handleJumpToVocabularySource(entry); } finally {
+        window.dispatchEvent(new CustomEvent(STUDY_SOURCE_RESULT_EVENT, { detail: ok }));
+      }
+    };
+    window.addEventListener(STUDY_SOURCE_EVENT, jump);
+    return () => window.removeEventListener(STUDY_SOURCE_EVENT, jump);
+  });
 
   async function handleJumpToVocabularySource(entry: VocabularyEntry): Promise<boolean> {
     const currentArticleMatchedSentence = containsSourceSentence(article, entry.sourceSentence)

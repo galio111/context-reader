@@ -1,0 +1,18 @@
+{
+  "ok": true,
+  "viewportTests": [
+    1440,
+    390
+  ],
+  "checks": [
+    "real component prompt/reveal",
+    "uncertain correct",
+    "assisted source round trip",
+    "undo",
+    "pause/resume",
+    "mobile overflow",
+    "Escape and reduced motion"
+  ],
+  "backend": "isolated mocked HTTP; FSRS library real",
+  "errors": []
+}

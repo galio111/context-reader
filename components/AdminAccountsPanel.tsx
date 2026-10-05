@@ -9,6 +9,7 @@ import ClearableField from "@/components/ClearableField";
 
 import { useEffect, useMemo, useState } from "react";
 import AdminInvitationCodesPanel from "@/components/AdminInvitationCodesPanel";
+import { AdminStudyPanel } from "@/components/AdminStudyPanel";
 
 type ManagedPlanId = "guest" | "free" | "basic" | "plus" | "max";
 type UserPlanId = "free" | "basic" | "plus" | "max" | "admin";
@@ -331,6 +332,7 @@ export default function AdminAccountsPanel() {
           <div hidden={section !== "invitations"}>
           <div id="account-invitations" className="scroll-mt-24">
             <AdminInvitationCodesPanel profiles={data.profiles} />
+            <AdminStudyPanel />
           </div>
 
           </div>

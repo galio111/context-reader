@@ -1,5 +1,10 @@
 # Context Reader
 
+
+## 站内背单词（开发验证中）
+
+2026-10-05 用户已授权完整站内复习系统，并确认新词每日奖励、连续额度/会员奖励、画像 60 分钟 + 50 查词后主动生成 5 点；固定先复习后学新词。实现使用真实 FSRS-6，账号隔离保存、有效计时、暂停与原文往返，入口连接根首页工作台、Menu 和生词本。Anki 功能与数据全部保留，个人参数训练和 Anki 历史迁移尚未执行。规则、边界及验收状态以[站内背单词说明](docs/vocabulary-study.md)为准。本段暂不表示已经生产发布。
+
 Unified points and one-time monthly/annual plans are available at `/pricing`; Admin → 付费管理 controls prices and points. WeChat Native checkout stays disabled until merchant setup. See [billing rules](docs/account-usage-plan.md), [WeChat onboarding](docs/wechat-pay-setup.md) and [release evidence](docs/unified-billing-release.md).
 
 四六级阅读支持自测原文与题目四色下划线、提交后只读划记定位与查词，以及练习/自测分别保存的同题型浏览顺序与当前位置。自测暂停时原文和题目保持可见。生产身份、验证与开放项见 [发布治理](docs/release-governance.md) 和 [产品历程](docs/product-journey.md)。

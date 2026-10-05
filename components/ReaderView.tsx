@@ -96,6 +96,7 @@ import type { ArticleTranslationBlock, ArticleTranslationItem, ReaderToken, Read
 import type { VocabularyEntry, VocabularySourceArticle } from "@/types/vocabulary";
 import type { DictionaryResult } from "@/types/dictionary";
 import { useAccount } from "@/components/AccountProvider";
+import { useReadingEvidence } from "@/components/useReadingEvidence";
 
 export interface ReaderExamSurface {
   translationBlocks?: ArticleTranslationBlock[];
@@ -1448,6 +1449,7 @@ export function ReaderView({
   const [dragCurrentToken, setDragCurrentToken] = useState<ReaderToken | null>(null);
   const [selectedContext, setSelectedContext] = useState<WordContext | null>(null);
   const [explanation, setExplanation] = useState<WordExplanation | null>(null);
+  useReadingEvidence(account.authenticated && !isOffline ? account.profile?.userId ?? "" : "", articleSource?.id || currentArticle.slice(0, 160), explanation?.word ?? "");
   const [explanationStream] = useState(createExplanationStreamStore);
   const setExplanationStreamText = explanationStream.setText;
   const [explanationStreaming, setExplanationStreaming] = useState(false);

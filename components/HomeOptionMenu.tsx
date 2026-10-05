@@ -51,6 +51,7 @@ import type { SavedArticle } from "@/types/article";
 import type { VocabularyEntry } from "@/types/vocabulary";
 import styles from "./HomeOptionMenu.module.css";
 import { useAccount } from "./AccountProvider";
+import { openStudy } from "@/lib/studyNavigation";
 
 interface HomeOptionMenuProps {
   open: boolean;
@@ -108,7 +109,7 @@ export interface HomeMenuVocabularyTools {
 
 export type PreviewKind = "guide" | "vocabulary" | "saved" | "account" | "invite" | "feedback" | "settings";
 export type GuideSection = "anki" | "updates";
-type MenuAction = "import" | "dictionary";
+type MenuAction = "import" | "dictionary" | "study";
 interface MenuItem {
   label: string;
   preview?: PreviewKind;
@@ -122,6 +123,7 @@ const MAX_FEEDBACK_IMAGES = 3;
 const MAX_FEEDBACK_IMAGE_BYTES = 5 * 1024 * 1024;
 
 const menuItems: MenuItem[] = [
+  { label: "背单词", action: "study" },
   { label: "账号与用量", preview: "account" },
   { label: "兑换邀请码", preview: "invite" },
   { label: "使用说明", preview: "guide" },
@@ -611,6 +613,7 @@ export function HomeOptionMenu({
       // otherwise scrollIntoView is undone and Reader work layers stay covered.
       window.setTimeout(() => {
         if (item.action === "import") onOpenImport?.();
+        else if (item.action === "study") openStudy();
         else onOpenDictionary?.();
       }, 380);
       return;
@@ -843,6 +846,7 @@ export function HomeOptionMenu({
           <div>
             <h3>生词本</h3>
             <p>最近收录的词语与语境</p>
+            <button type="button" onClick={() => { onClose(); window.setTimeout(openStudy, 380); }}>开始复习 →</button>
           </div>
           <div className={styles.savedHeaderActions}>
             <span>{vocabularyEntries.length} 条</span>

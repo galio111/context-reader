@@ -1,5 +1,10 @@
 # Account, Sync, and Usage Plan
 
+
+## 站内背单词（开发验证中）
+
+2026-10-05 用户已授权完整站内复习系统，并确认新词每日奖励、连续额度/会员奖励、画像 60 分钟 + 50 查词后主动生成 5 点；固定先复习后学新词。实现使用真实 FSRS-6，账号隔离保存、有效计时、暂停与原文往返，入口连接根首页工作台、Menu 和生词本。Anki 功能与数据全部保留，个人参数训练和 Anki 历史迁移尚未执行。规则、边界及验收状态以[站内背单词说明](vocabulary-study.md)为准。本段暂不表示已经生产发布。
+
 Status: application code, production environment variables, and Auth are configured on the mainland self-hosted Supabase-compatible backend. The managed Supabase project remains intact for rollback. The visible beta flow uses an unverified mainland-China phone identifier plus nickname and password, with no SMS or email required. New registration and voluntary password changes require 8–72 printable ASCII characters with at least one letter and one digit; existing six-digit numeric passwords remain accepted for legacy login. Email OTP remains hidden and still requires custom SMTP before it can be offered publicly.
 
 ## Product principles

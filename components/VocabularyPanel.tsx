@@ -3,6 +3,7 @@
 import { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 import { useVirtualizer } from "@tanstack/react-virtual";
 import { AnkiPreviewModal } from "@/components/AnkiPreviewModal";
+import { openStudy } from "@/lib/studyNavigation";
 import ClearableField from "@/components/ClearableField";
 import { PronunciationButtons } from "@/components/PronunciationButtons";
 import { useDocumentScrollLock } from "@/components/useDocumentScrollLock";
@@ -241,6 +242,7 @@ export function VocabularyPanel({
         </header>
 
         <div className="grid gap-3 border-b border-[#e0e0e0] px-5 py-3">
+          <button type="button" className="rounded-lg bg-emerald-50 px-4 py-3 text-left text-emerald-900" onClick={() => { onClose(); window.setTimeout(openStudy, 380); }}>开始复习这些词 →</button>
           <label className="block">
             <span className="sr-only">检索生词</span>
             <ClearableField value={searchQuery} onClear={() => setSearchQuery("")} label="清空生词检索">

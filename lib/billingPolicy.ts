@@ -6,6 +6,7 @@ export function englishWordCount(text: string): number {
   return (text.match(/[A-Za-z]+(?:['’-][A-Za-z]+)*/g) ?? []).length;
 }
 export function learningPoints(feature: string, units = 1): number {
+  if (feature === "vocabulary_profile") return Math.max(1, Math.min(100, Math.floor(units)));
   if (feature === "standalone_dictionary") return 5;
   if (feature === "article_summary") return 2;
   if (feature === "full_article_translation") return Math.max(10, Math.ceil(units / 500) * 10);
