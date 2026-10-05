@@ -1,0 +1,129 @@
+{
+  "release": {
+    "schemaVersion": 1,
+    "releaseId": "20261006T000033",
+    "parentReleaseId": "20261005T131000",
+    "sourceRevision": "704a0b776d218fe397e8501e986db928419cd0cd",
+    "guardVersion": 1,
+    "requiredContracts": [
+      "release-lineage-v1",
+      "phonetic-current-form-v1",
+      "article-image-localization-v1"
+    ],
+    "changedFiles": [
+      "PRODUCT.md",
+      "README.md",
+      "app/api/account/export/route.ts",
+      "app/api/admin/study/route.ts",
+      "app/api/study/profile/route.ts",
+      "app/api/study/reading/route.ts",
+      "app/api/study/route.ts",
+      "app/layout.tsx",
+      "app/study/page.tsx",
+      "components/AdminAccountsPanel.tsx",
+      "components/AdminStudyPanel.tsx",
+      "components/HomeClient.tsx",
+      "components/HomeOptionMenu.tsx",
+      "components/HomeRedesign.tsx",
+      "components/ReaderView.tsx",
+      "components/StudyEntry.tsx",
+      "components/StudyHost.tsx",
+      "components/StudyPanel.module.css",
+      "components/StudyPanel.tsx",
+      "components/StudyRewards.tsx",
+      "components/VocabularyPanel.tsx",
+      "components/useReadingEvidence.ts",
+      "components/useStudyTimer.ts",
+      "docs/account-usage-plan.md",
+      "docs/architecture.md",
+      "docs/automated-editorial.md",
+      "docs/editorial-efficiency-20261005.md",
+      "docs/evidence/editorial-efficiency-1005/before.json",
+      "docs/evidence/editorial-efficiency-1005/final-day.json",
+      "docs/evidence/editorial-efficiency-1005/live-core.json",
+      "docs/evidence/editorial-efficiency-1005/release-and-operations.json",
+      "docs/evidence/editorial-efficiency-1005/source-verification.json",
+      "docs/evidence/study-1005/desktop-answer.png",
+      "docs/evidence/study-1005/local-browser.json",
+      "docs/evidence/study-1005/mobile-settings.png",
+      "docs/gpt-brief.md",
+      "docs/home-redesign-current-decisions.md",
+      "docs/home-redesign-interview-archive.md",
+      "docs/home-v2-implementation-contract.md",
+      "docs/integration-guide.md",
+      "docs/product-journey.md",
+      "docs/release-governance.md",
+      "docs/study-migration.sql",
+      "docs/vocabulary-study.md",
+      "lib/billingPolicy.ts",
+      "lib/requestSecurity.ts",
+      "lib/studyAuth.ts",
+      "lib/studyNavigation.ts",
+      "lib/studyPolicy.ts",
+      "lib/studyScheduler.ts",
+      "lib/studyStore.ts",
+      "package-lock.json",
+      "package.json",
+      "scripts/study-browser-smoke.mjs",
+      "scripts/study-isolated-setup.py",
+      "tests/dictionary-result-server.test.ts",
+      "tests/study-concurrency.py",
+      "tests/study-ledger.sql",
+      "tests/study-profile.test.ts",
+      "tests/study-rewards.sql",
+      "tests/study-scheduler.test.ts",
+      "types/study.ts"
+    ]
+  },
+  "services": {
+    "context-reader-app-1": {
+      "started": "2026-10-05T16:07:50.49797702Z",
+      "status": "running",
+      "health": "healthy"
+    },
+    "context-reader-caddy-1": {
+      "started": "2026-10-05T16:07:56.121498935Z",
+      "status": "running",
+      "health": null
+    },
+    "context-reader-postgres-1": {
+      "started": "2026-08-09T01:54:42.95392548Z",
+      "status": "running",
+      "health": "healthy"
+    },
+    "context-reader-auth-1": {
+      "started": "2026-08-08T16:51:10.394275861Z",
+      "status": "running",
+      "health": "healthy"
+    },
+    "context-reader-rest-1": {
+      "started": "2026-08-24T07:06:41.323937668Z",
+      "status": "running",
+      "health": "healthy"
+    },
+    "context-reader-storage-1": {
+      "started": "2026-08-08T16:51:21.011694637Z",
+      "status": "running",
+      "health": "healthy"
+    },
+    "context-reader-supabase-api-1": {
+      "started": "2026-08-09T01:54:54.572677208Z",
+      "status": "running",
+      "health": "healthy"
+    }
+  },
+  "onlyAppCaddyRecreated": true,
+  "rollbackImages": {
+    "20261006T000033": "sha256:44def41dedc1570f3c5da4dc3ea2ae2badfb55bb2c27193236e610e75534e02d",
+    "20261005T131000": "sha256:1f4ff2bcbc5d79f7f3475456ee1bb2e2defa5e3f9bc3c1f4c7c6d0f72c3fa570"
+  },
+  "migrationTables": 11,
+  "backupBeforeMigration": "context-reader-20261005T160044Z.dump",
+  "preMigrationRestoreTables": 23,
+  "postMigrationBackup": {
+    "isolatedRestorePassed": true,
+    "sha256Verified": true,
+    "publicTables": 34,
+    "file": "context-reader-20261005T162102Z.dump"
+  }
+}

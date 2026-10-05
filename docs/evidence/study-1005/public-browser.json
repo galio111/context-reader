@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "realPublicAPI": true,
+  "sourceReader": true,
+  "returnsSameCard": true,
+  "pauseDialog": true,
+  "mobileViewport": 390,
+  "closeHitTarget": true,
+  "reducedMotion": true,
+  "errors": []
+}

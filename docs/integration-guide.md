@@ -1,9 +1,9 @@
 # Context Reader Integration Guide
 
 
-## 站内背单词（开发验证中）
+## 站内背单词（已生产，2026-10-06）
 
-2026-10-05 用户已授权完整站内复习系统，并确认新词每日奖励、连续额度/会员奖励、画像 60 分钟 + 50 查词后主动生成 5 点；固定先复习后学新词。实现使用真实 FSRS-6，账号隔离保存、有效计时、暂停与原文往返，入口连接根首页工作台、Menu 和生词本。Anki 功能与数据全部保留，个人参数训练和 Anki 历史迁移尚未执行。规则、边界及验收状态以[站内背单词说明](vocabulary-study.md)为准。本段暂不表示已经生产发布。
+`/api/study` 提供在线学习、设置、暂停与结算；`/api/study/reading` 收集有效阅读证据；`/api/study/profile` 支持免费重看与显式收费生成；`/api/admin/study` 仅允许服务器验证的 Admin 修改规则。新环境需执行增量 `docs/study-migration.sql`，表及 RPC 仅 service_role 可访问。算法依赖固定为 `ts-fsrs@5.4.2`，Anki 接口与原数据保留。详见[规则与边界](vocabulary-study.md)及[发布证据](vocabulary-study-release.md)。
 
 ## Unified points and one-time membership purchases
 

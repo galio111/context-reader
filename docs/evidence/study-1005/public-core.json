@@ -1,0 +1,21 @@
+{
+  "release": {
+    "ok": true,
+    "checkedAt": "2026-10-05T16:10:13.404Z",
+    "releaseId": "20261006T000033",
+    "parentReleaseId": "20261005T131000",
+    "backendMode": "mainland_internal"
+  },
+  "account": true,
+  "wordAndSentenceTranslation": true,
+  "dictionary": true,
+  "fullTranslation": true,
+  "points": 16,
+  "actions": [
+    "4ef75d7e-522d-4a8f-8ada-811036234ff3",
+    "467845fd-e421-4183-ac19-f9472cfd954f",
+    "68111047-de4d-44fd-9e00-2390973850a2"
+  ],
+  "sync": true,
+  "normalAdminDenied": true
+}

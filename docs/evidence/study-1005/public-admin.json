@@ -1,0 +1,63 @@
+{
+  "release": {
+    "ok": true,
+    "checkedAt": "2026-10-05T16:19:20.378Z",
+    "releaseId": "20261006T000033",
+    "parentReleaseId": "20261005T131000",
+    "backendMode": "mainland_internal"
+  },
+  "account": true,
+  "policyRead": true,
+  "samePolicyWrite": true,
+  "foreignWriteRejected": 403,
+  "milestones": [
+    {
+      "days": 2,
+      "plan": null,
+      "months": 0,
+      "points": 50
+    },
+    {
+      "days": 3,
+      "plan": null,
+      "months": 0,
+      "points": 100
+    },
+    {
+      "days": 7,
+      "plan": null,
+      "months": 0,
+      "points": 500
+    },
+    {
+      "days": 21,
+      "plan": null,
+      "months": 0,
+      "points": 1000
+    },
+    {
+      "days": 30,
+      "plan": "basic",
+      "months": 1,
+      "points": 0
+    },
+    {
+      "days": 60,
+      "plan": "plus",
+      "months": 2,
+      "points": 0
+    },
+    {
+      "days": 180,
+      "plan": "plus",
+      "months": 6,
+      "points": 0
+    },
+    {
+      "days": 365,
+      "plan": "max",
+      "months": 12,
+      "points": 0
+    }
+  ]
+}
