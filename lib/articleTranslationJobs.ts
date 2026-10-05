@@ -234,6 +234,7 @@ async function startTranslationUsage(
       cacheKey,
       source,
       publicArticleId,
+      blocks,
       articleCharacters: blocks.reduce((sum, block) => sum + block.text.length, 0),
       blockCount: blocks.length,
     }),
