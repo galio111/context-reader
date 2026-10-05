@@ -3,11 +3,23 @@ import assert from 'node:assert/strict';
 import {cleanEditorialFurniture,flashArticlePayload,parseFlashAudit,reusableFlashAudit} from '../lib/editorialFlash';
 import {rankEditorialSources} from '../lib/editorialSourcePriority';
 import type {ImportedArticle} from '../types/article';
+import {supplyRetryDue,supplyRetryTime} from '../lib/editorialSupplyRetry';
 
 const prose='Economic evidence explains the borrowing costs faced by households and companies. '.repeat(45);
 const article:ImportedArticle={title:'The cost of borrowing',url:'https://insideclimatenews.org/news/example',siteName:'ICN',text:prose,blocks:[{id:'a',type:'paragraph',text:prose},{id:'b',type:'paragraph',text:'The evidence also has important limitations.'},{id:'img',type:'image',src:'https://example.com/photo.webp',alt:'Factories',caption:'A factory near the river.'}]};
 const now=Date.parse('2026-10-05T00:00:00Z');
 const result={category:3,topic:4,level:1,cefr:'B2',summary:'借贷成本的解释',evidence:[0,1],rationale:'讨论融资机制，语言 B2',confidence:'high',timely:false,eligible:true,specialist:false,imagesRelevant:true,uncertain:false,checks:{incomplete:false,contamination:false,orphanCaption:false,mediaDependent:false,promotional:false},reason:'clean'};
+test('one later supply check stays within the same day and unused processing allowance',()=>{
+ const early=Date.parse('2026-10-05T07:15:00+08:00');
+ const retry=supplyRetryTime('2026-10-05',early,75*60_000);
+ assert.equal(retry,'2026-10-05T02:00:00.000Z');
+ const ledger={finished:true,nextSupplyRetryAt:retry};
+ assert.equal(supplyRetryDue(ledger,early),false);assert.equal(supplyRetryDue(ledger,Date.parse(retry!)),true);
+ assert.equal(supplyRetryDue({...ledger,suspended:true},Date.parse(retry!)),false);
+ assert.equal(supplyRetryDue({...ledger,supplyRetryCount:1},Date.parse(retry!)),false);
+ assert.equal(supplyRetryTime('2026-10-05',early,120*60_000),undefined);
+ assert.equal(supplyRetryTime('2026-10-05',Date.parse('2026-10-05T17:30:00+08:00'),75*60_000),undefined);
+});
 test('exact approvals survive a 24h boundary but never the 48h publication boundary',()=>{
  const old=parseFlashAudit(article,result);old.review.checkedAt=new Date(now-25*3600_000).toISOString();
  assert.equal(reusableFlashAudit(article,old,now),old);

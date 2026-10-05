@@ -14,6 +14,32 @@ function context(handler: typeof fetch) {
   return ()=>{globalThis.fetch=previous;invalidatePublicReadCache();if(url===undefined)delete process.env.SUPABASE_URL;else process.env.SUPABASE_URL=url;if(key===undefined)delete process.env.SUPABASE_SERVICE_ROLE_KEY;else process.env.SUPABASE_SERVICE_ROLE_KEY=key;};
 }
 
+test('later supply retry retains spend, attempts and excluded URLs and cannot schedule a second retry',async()=>{
+ const today=shanghaiDay(),at=new Date().toISOString(),dayKey=`recommendation_editorial_day_${today}`;
+ const articles=Array.from({length:58},(_,i)=>({id:'retry-'+i,title:'Reported article '+i,body:'An authentic article.',published:true,created_at:at,updated_at:at,imported_article:{title:'Reported article '+i,text:'An authentic article.',url:'https://example.org/'+i,blocks:[],recommendation:{autoPublishedAt:at,homepageCategory:i<14?'时事':i<31?'科技':i<46?'文化':'商业'}}}));
+ const ledger={finished:true,attempts:209,startedAt:at,processingMs:75*60_000,nextSupplyRetryAt:new Date(Date.now()-1000).toISOString(),sites:{source:{visits:6,empty:2,urls:['https://example.org/attempted']}}};
+ const spent={calls:100,actualMicrocny:463481,actualMicrousd:69523,reservedMicrocny:0,inputTokens:442000,outputTokens:18610,blocked:false,stages:{}};
+ const values=new Map<string,unknown>([[dayKey,ledger],[`recommendation_editorial_spend_${today}`,spent],['homepage_publication_curation',{selectedAtById:Object.fromEntries(articles.map(a=>[a.id,at]))}],['recommendation_discovery_sites_v2',[]],['recommendation_automation_config',{enabled:true,runTime:'06:00',maxNewArticles:60}],['recommendation_automation_state',{lastStartedAt:at,status:'failed'}],[`recommendation_editorial_email_${today}_60_shortfall`,{status:'sent',at:1,count:58}]]);
+ const restore=context(async(input,init)=>{
+  const u=new URL(String(input));
+  if(u.pathname.endsWith('/public_articles'))return Response.json(u.searchParams.get('published')==='eq.false'?[]:articles);
+  assert.ok(u.pathname.endsWith('/account_settings'));
+  if(init?.method==='POST'){for(const row of JSON.parse(String(init.body)))values.set(row.key,row.value);return new Response(null,{status:204});}
+  const filter=u.searchParams.get('key')||'',keys=filter.startsWith('eq.')?[filter.slice(3)]:filter.slice(4,-1).split(',');
+  return Response.json(keys.filter(k=>values.has(k)).map(key=>({key,value:values.get(key),updated_at:at})));
+ });
+ try {
+  const result=await runEditorialBatch('https://context-reader.com','scheduled',{enabled:true,provider:'deepseek',jevMonthlyBudgetUsd:4,dailyReviewLimit:240,dailyBudgetCny:1.5},new Date());
+  assert.equal(result.status.state.lastCreatedCount,58);
+  const revised=values.get(dayKey) as typeof ledger & {supplyRetryCount:number};
+  assert.equal(revised.attempts,209);assert.equal(revised.supplyRetryCount,1);assert.equal(revised.nextSupplyRetryAt,undefined);
+  assert.deepEqual(revised.sites.source.urls,ledger.sites.source.urls);assert.ok(revised.processingMs>=75*60_000 && revised.processingMs<76*60_000);
+  assert.equal(values.get(`recommendation_editorial_spend_${today}`),spent);
+  const closed=await runEditorialBatch('https://context-reader.com','scheduled',{enabled:true,provider:'deepseek',jevMonthlyBudgetUsd:4,dailyReviewLimit:240,dailyBudgetCny:1.5},new Date());
+  assert.equal(closed.skipped,'already_ran_today');assert.equal(values.get(dayKey),revised);
+ } finally {restore();}
+});
+
 test("real public summary reads page through 1058 rows without requesting bodies",async()=>{
   const all=Array.from({length:1058},(_,i)=>({id:String(i),title:"Article "+i,summary:"Summary",source_url:"https://example.org/"+i,source_name:"Example",created_at:"2026-10-04T00:00:00Z",updated_at:"2026-10-04T00:00:00Z"}));
   let reads=0;

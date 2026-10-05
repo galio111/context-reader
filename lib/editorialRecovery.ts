@@ -17,13 +17,13 @@ export async function resumeEditorialDay() {
   const key=`recommendation_editorial_day_${today}`;
   const ledger=await readDiscoverySetting<Record<string,unknown>>(key,{attempts:0,sites:{}});
   const state=await readDiscoverySetting<RecommendationAutomationState>("recommendation_automation_state",{} as RecommendationAutomationState);
-  const consumed=Math.max(0,Date.parse(state.lastFinishedAt || "")-Date.parse(String(ledger.startedAt || ""))) || 0;
+  const consumed=Number(ledger.processingMs) || Math.max(0,Date.parse(state.lastFinishedAt || "")-Date.parse(String(ledger.startedAt || ""))) || 0;
   const remaining=Math.max(0,120*60_000-Math.min(120*60_000,consumed));
   if(!remaining)throw new Error("今日有效处理时间已达 120 分钟，不能继续自动抓取。");
   await repairEditorialCurationDates(await listPublicArticles());
   const at=new Date().toISOString();
   await writeDiscoverySetting(`recommendation_editorial_recovery_${today}_${Date.now()}`,{at,previous:ledger,remainingProcessingMs:remaining,reason:"管理员恢复异常中断的日任务"});
-  await writeDiscoverySetting(key,{...ledger,finished:false,suspended:false,recoveryAt:at,deadlineAt:new Date(Date.now()+remaining).toISOString()});
+  await writeDiscoverySetting(key,{...ledger,finished:false,suspended:false,recoveryAt:at,processingMs:consumed,processingStartedAt:at,nextSupplyRetryAt:undefined,deadlineAt:new Date(Date.now()+remaining).toISOString()});
   await writeDiscoverySetting("recommendation_automation_state",{...state,status:"running",lastScheduledDate:"",lastEmailStatus:"not_requested",lastEmailError:"",lastError:"修复后继续补齐缺口板块。"});
   return {day:today,remainingProcessingMs:remaining};
 }

@@ -383,3 +383,6 @@ Reader keeps transport and display separate: `createTextReveal` feeds only the s
 The provider transport no longer awaits the successful first-content health database write before forwarding content. `/api/explain-word-stream` uses no-transform and emits private `lookup_stream_timing` logs containing action id, model, gate/queue/provider times, first/last content times, chunk count, completion/cancellation/timeout state; it never logs the selected word or sentence. `Server-Timing` exposes only phase durations. Stream incompleteness still uses the existing sequential structured repair with the same usage action.
 
 自动精选库存使用稳定 200 行分页；精选日期按活跃与时间排序保留最多 10000 条，缺失日期从原 autoPublishedAt 恢复。单条重复/过期失败隔离，致命异常关闭当日并请求未达标邮件；邮件状态只读取当天记录。旧通过候选按当前完整性、图片、哈希与时效门槛重新导入复审，优先补缺口板块。恢复入口与预算/次数/时限约束见 automated-editorial.md。
+
+
+自动精选成本与供给修复：同内容通过缓存不足48小时，未通过同内容保留七天；缓存时效证据在再次付费前拦截过期新闻。ICN/Nieman确定性页面模块清理仍需完整性核验；图片可读性先5秒直连、后12秒备用，原图入桶质量不变。仅来源耗尽且仍有预算/次数/处理时间的未达标日，上午可有一次后续新供给检查；暂停与其他硬边界不重跑。请求及邮件区分日常任务、缺口补齐、历史候选批处理，仍共享预算。见 [5日修复](editorial-efficiency-20261005.md)。

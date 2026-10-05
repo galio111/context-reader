@@ -329,3 +329,6 @@ The editorial recovery POST also accepts `report_recovery` after the day closes;
 ### Dictionary history replay
 
 `GET /api/dictionary-history?query=...` returns a saved complete dictionary result for the server-verified session owner, optionally checked against `X-Context-Account`. It has no generation or quota path: missing results return 404, unauthenticated requests 401, mismatched account headers 409 and read failures 503. Both dictionary generation routes preserve complete signed-in snapshots as protocol-2 preferences objects. Browser replay uses one IndexedDB record and no 80-result cap; history is added only after completion. Regenerate remains a deliberate paid lookup. Dictionary audio now preloads displayed rows, ignores repeated loading clicks, persists fresh MP3s in the background and applies the centralized reviewed contemplate US phones. See [implementation and validation](dictionary-replay-and-pronunciation.md).
+
+
+自动精选逐请求可选 phase 为 scheduled/recovery/backlog，邮件按已知流程拆费用，旧记录不回写。日账本 processingMs 为累计已用处理时间；nextSupplyRetryAt/supplyRetryCount 限定来源耗尽后的单次新供给补位，继承当天240次/120分钟/¥1.50硬边界与已尝试URL。图片可读性探测为5秒首路、12秒备用，实际图片保存边界不变。见 editorial-efficiency-20261005.md。

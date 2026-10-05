@@ -14,6 +14,8 @@ Exact-content passed audit cache lasts strictly less than 48 hours, matching the
 
 New paid requests record daily scheduled work, current-day recovery or backlog processing separately; emails show these costs separately while maintaining one shared hard budget and retaining unlabelled historical records. Historical ledgers are not rewritten.
 
+A source-exhausted shortfall can receive one later supply check, at least one hour later and no earlier than 10:00 Shanghai, before 18:00. It preserves daily spending, unknown reserves, total attempts, refreshed candidate ids and attempted URLs. Only unused processing time is available; the inactive wait does not consume or renew that allowance. Feed visits are bounded to six per wave and batch keys remain monotonic. Complete, suspended, budget/time/attempt/provider-boundary days do not schedule this check. Unchanged attempted URLs are excluded and closed completed days remain inexpensive setting reads.
+
 Quantity contract remains: reference 60, overall minimum 55, current affairs minimum 13 and no upper limit, science/culture/business each 13–17, no hard overall maximum. Limits remain 240 attempts, 120 minutes, CNY 1.50 including unknown reservations. Future source supply remains a live observation; no quality gate is relaxed to guarantee a number.
 
 Validation: focused efficiency, full critical and provider fallback/billing tests; production build and nine protected release contracts. Live release identity, signed-in reading core, Admin publishing, source verification, timer, recovered category distribution and operations evidence must also pass before this repair is called shipped.
