@@ -27,8 +27,11 @@ test("hash binds title, full text and images but not mutable recommendation meta
   assert.equal(editorialContentHash(article), editorialContentHash({ ...article, recommendation: {} as never }));
 });
 test("post-review edits and rejected candidates cannot auto-publish", () => {
-  const meta = { sourceKind: "crawler", difficulty: "CET-6 / 考研", editorialReview: { version: EDITORIAL_POLICY_VERSION, completed: true, sourceCompletenessVerified: true, status: "passed", checkedAt: new Date().toISOString(), contentHash: editorialContentHash(article) } };
-  const row = { importedArticle: article, recommendation: meta } as PublicArticle;
+  const cover='https://context-reader.com/storage/v1/object/public/public-article-covers/article-images/test.webp';
+  const body='This authentic article explains economic evidence and practical limitations for ordinary readers. '.repeat(40);
+  const publishable={...article,text:body,blocks:[{id:'p1',type:'paragraph' as const,text:body},{...article.blocks[1],src:cover}]};
+  const meta = { sourceKind: "crawler", difficulty: "CET-6 / 考研",coverImageUrl:cover, editorialReview: { version: EDITORIAL_POLICY_VERSION, completed: true, sourceCompletenessVerified: true, status: "passed", checkedAt: new Date().toISOString(), contentHash: editorialContentHash(publishable) } };
+  const row = { importedArticle: publishable, recommendation: meta } as PublicArticle;
   assert.equal(eligibleEditorialCandidate(row), true);
   assert.equal(eligibleEditorialCandidate({ ...row, importedArticle: { ...article, text: "Changed" } }), false);
   assert.equal(eligibleEditorialCandidate({ ...row, recommendation: { ...row.recommendation!, rejectedAt: new Date().toISOString() } }), false);

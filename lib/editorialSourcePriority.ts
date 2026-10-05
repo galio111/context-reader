@@ -22,8 +22,9 @@ export function rankEditorialSources<T extends Site>(
       || s.feeds?.some(url => /\/feed(?:\/rss)?\/?$/.test(new URL(url).pathname))));
   const deficits = DAILY_CATEGORIES.filter(category => (counts[category] || 0) < DAILY_CATEGORY_MIN);
   const canFill = (site: T) => {
-    if (!site.topics.some(topic => deficits.includes(sourceCategory(topic)))) return false;
     const yieldRecord = observed[site.id];
+    const proven=yieldRecord && yieldRecord.total>=3 && deficits.some(category=>(yieldRecord.categories[category] || 0)>0);
+    if (!proven && !site.topics.some(topic => deficits.includes(sourceCategory(topic)))) return false;
     // A source's declared topics are only hints. Stop retrying it for a missing
     // category after repeated real classifications produce none of that category.
     return !yieldRecord || yieldRecord.total < 8 || deficits.some(category => (yieldRecord.categories[category] || 0) > 0);

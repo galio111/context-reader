@@ -53,6 +53,6 @@ test('paid invalid output retains article attribution, cached tokens and settled
  await withEditorialBudget('test',1.5,async()=>{
   await withEditorialArticle(article.url,'hash',()=>editorialPaidRequest('integrated','deepseek-flash','body',650,0,async()=>Response.json({usage:{prompt_tokens:900,prompt_cache_hit_tokens:100,prompt_cache_miss_tokens:800,completion_tokens:200},choices:[{message:{content:'broken'}}]})));
   await markEditorialOutcome('hash','invalid_result_paid');
-  const spent=await getEditorialSpend('test');assert.ok(spent.actualMicrocny>0);assert.equal(spent.reservedMicrocny,0);assert.equal(spent.requests?.[0].status,'invalid_result_paid');assert.equal(spent.requests?.[0].article,article.url);assert.equal(spent.requests?.[0].usage?.prompt_cache_hit_tokens,100);
- },store);
+  const spent=await getEditorialSpend('test');assert.ok(spent.actualMicrocny>0);assert.equal(spent.reservedMicrocny,0);assert.equal(spent.requests?.[0].status,'invalid_result_paid');assert.equal(spent.requests?.[0].phase,'backlog');assert.equal(spent.requests?.[0].article,article.url);assert.equal(spent.requests?.[0].usage?.prompt_cache_hit_tokens,100);
+ },store,'backlog');
 });

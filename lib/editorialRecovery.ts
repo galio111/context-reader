@@ -23,7 +23,7 @@ export async function resumeEditorialDay() {
   await repairEditorialCurationDates(await listPublicArticles());
   const at=new Date().toISOString();
   await writeDiscoverySetting(`recommendation_editorial_recovery_${today}_${Date.now()}`,{at,previous:ledger,remainingProcessingMs:remaining,reason:"管理员恢复异常中断的日任务"});
-  await writeDiscoverySetting(key,{...ledger,finished:false,suspended:false,deadlineAt:new Date(Date.now()+remaining).toISOString()});
+  await writeDiscoverySetting(key,{...ledger,finished:false,suspended:false,recoveryAt:at,deadlineAt:new Date(Date.now()+remaining).toISOString()});
   await writeDiscoverySetting("recommendation_automation_state",{...state,status:"running",lastScheduledDate:"",lastEmailStatus:"not_requested",lastEmailError:"",lastError:"修复后继续补齐缺口板块。"});
   return {day:today,remainingProcessingMs:remaining};
 }
@@ -73,5 +73,5 @@ export async function publishApprovedCandidates(ids: string[], origin: string) {
       outcomes.push(result);
     }
     return {day:today,outcomes};
-  });
+  },undefined,'backlog');
 }

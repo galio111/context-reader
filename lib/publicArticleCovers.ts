@@ -190,15 +190,17 @@ export function remotePublicImageFetchCandidates(value: string): RemoteImageFetc
     : [direct, ingestionFallback];
 }
 
-async function fetchRemotePublicImage(value: string, headers: HeadersInit): Promise<Response> {
+async function fetchRemotePublicImage(value: string, headers: HeadersInit, probe = false): Promise<Response> {
   await assertSafeRemoteUrl(sourceImageUrl(value));
   let lastFailure = "远程图片读取失败。";
-  for (const candidate of remotePublicImageFetchCandidates(value)) {
+  for (const [index,candidate] of remotePublicImageFetchCandidates(value).entries()) {
     imageDeadline.getStore()?.throwIfAborted();
     try {
       const response = await safeRemoteFetch(candidate.url, {
         headers,
-        signal: imageDeadline.getStore() ? AbortSignal.any([imageDeadline.getStore()!,AbortSignal.timeout(candidate.timeoutMs)]) : AbortSignal.timeout(candidate.timeoutMs),
+        // Readability has a 20s outer deadline. Leave time for the ingestion
+        // fallback instead of allowing its direct attempt to consume all of it.
+        signal: AbortSignal.any([...(imageDeadline.getStore() ? [imageDeadline.getStore()!] : []),AbortSignal.timeout(probe ? (index===0?5_000:12_000) : candidate.timeoutMs)]),
       }, { maxRedirects: 4 });
       if (response.ok) return response;
       lastFailure = `远程图片读取失败（HTTP ${response.status}）。`;
@@ -219,7 +221,7 @@ export async function remotePublicImageDimensions(
     Accept: "image/avif,image/webp,image/png,image/jpeg,image/*;q=0.8",
     "User-Agent": "Mozilla/5.0 (compatible; ContextReaderDiscoveryVerifier/1.0)",
     ...(referer ? { Referer: referer } : {}),
-  });
+  }, true);
   const metadata = await sharp(
     await readResponseBytes(response, MAX_REMOTE_COVER_BYTES),
     { failOn: "error", limitInputPixels: 50_000_000 },

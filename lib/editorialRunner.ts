@@ -130,7 +130,8 @@ export async function runEditorialBatch(origin: string, trigger: "scheduled" | "
   // No trial escape hatch: all automatic editorial runs share the finite daily cap.
   const effectiveConfig: EditorialConfig = {...config, provider:"deepseek", jevAutoAdopt:false, approvedJevChecks:[], budgetTrial:null, dailyBudgetCny:Math.min(1.5,config.dailyBudgetCny ?? 1.5)};
   try {
-    return await withEditorialBudget(shanghaiDay(now), effectiveConfig.dailyBudgetCny!, () => runBudgetedBatch(origin, trigger, effectiveConfig, now));
+    const ledger=await readDiscoverySetting<{recoveryAt?:string}>(`recommendation_editorial_day_${shanghaiDay(now)}`,{});
+    return await withEditorialBudget(shanghaiDay(now), effectiveConfig.dailyBudgetCny!, () => runBudgetedBatch(origin, trigger, effectiveConfig, now),undefined,ledger.recoveryAt?'recovery':'scheduled');
   } catch(error) {
     const today=shanghaiDay(now);
     const ledger=await readDiscoverySetting<Record<string,unknown>>(`recommendation_editorial_day_${today}`,{});
@@ -228,7 +229,7 @@ async function runBudgetedBatch(origin: string, trigger: "scheduled" | "manual",
     if(!source || !Number.isFinite(checkedAt) || checkedAt<Date.now()-3*24*3600_000)continue;
     const row=observed[source] ||= {total:0,categories:{}};row.total++;
     const category=editorialCategoryForArticle(article);
-    row.categories[category]=(row.categories[category]||0)+1;
+    if(article.recommendation?.editorialReview?.status==='passed')row.categories[category]=(row.categories[category]||0)+1;
   }
   const sites=rankEditorialSources(await getDiscoverySites(),counts(),ledger.sites,observed);
   const site=sites[0];

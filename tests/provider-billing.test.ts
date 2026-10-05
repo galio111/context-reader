@@ -11,7 +11,7 @@ test("dictionary route keeps one usage reservation when retryable primary fails 
     restore.push(() => { if (prior) require.cache[id] = prior; else delete require.cache[id]; });
   };
   const reservations: unknown[] = [], finishes: unknown[] = [], refunds: unknown[] = [], executions: Array<{model: string}> = [];
-  mock("../lib/usageGate", { gateUsage: async (_request: Request, input: unknown) => { reservations.push(input); return {actionId: "one-action"}; }, usageErrorResponse: () => null });
+  mock("../lib/usageGate", { gateUsage: async (_request: Request, input: unknown) => { reservations.push(input); return {actionId: "one-action", identity:{localOnly:true}}; }, usageErrorResponse: () => null });
   mock("../lib/accountStore", { finishUsage: async (...args: unknown[]) => { finishes.push(args); }, refundUsage: async (...args: unknown[]) => { refunds.push(args); }, recordUsageExecution: async (value: {model: string}) => { executions.push(value); } });
   const env = {...process.env}, originalFetch = globalThis.fetch;
   process.env.DEEPSEEK_API_KEY = "test-primary"; process.env.ZHIPU_API_KEY = "test-backup";

@@ -1,0 +1,21 @@
+# Editorial supply and cost repair, 5 October 2026
+
+Status: implementation under verification; deployment and recovered distribution are recorded after acceptance.
+
+Production audit at 12:32 Shanghai found 58 selected-today publications: current affairs 14, science 17, culture 15, business 12. The scheduled run stopped at 07:14 after 209 attempts because the business source pool was exhausted, not because the 120-minute or CNY 1.50 limits were reached. Estimated AI spending was CNY 0.463481 across 100 DeepSeek Flash requests, 442000 input and 18610 output tokens; all usage settled, unknown reserve zero.
+
+The final 4 October recovery was already qualified: 100 selected articles, 51/17/15/17 in the same category order. Its CNY 0.555424 includes the initial scheduled run (60 calls, CNY 0.195678), resumed automatic work (13 calls, CNY 0.051033), and explicitly requested backlog processing (83 calls, CNY 0.308713). It is not the cost of an ordinary 60-article run. The 2 October 60-article ledger was CNY 0.360179; 3 October was CNY 0.206480 for 55. These are token-based estimates, not provider invoice evidence. The recent ledgers do not support a fixed CNY 0.10 per 60 articles.
+
+On 5 October, 15 held ICN and 8 held Nieman requests cost CNY 0.114730. Inspected original extraction included ICN's paired fundraiser within the body and its publisher donation footer; the newer Nieman layout included a dated tags block, latest-articles module and Foundation donation footer. Narrow host-scoped rules remove only these inspected modules, require paired footer evidence, preserve subsequent reporting, quotes, captions and images, and retain the 401-word minimum. Other defects still require review. Full original-page completeness remains mandatory.
+
+The Conversation produced no candidates because its images failed the 20-second outer readability probe. A direct image attempt previously allowed 25 seconds, consuming the entire deadline before fallback. The same original image returned a valid 141104-byte WebP through the existing ingestion fallback in about 1.2 seconds. Readability probes now bound first/fallback attempts at 5/12 seconds. Download/storage limits, dimensions, first-party storage and image quality remain unchanged.
+
+Exact-content passed audit cache lasts strictly less than 48 hours, matching the publication approval ceiling. Exact-content held decisions remain held for seven days; edited content or a changed audit policy cannot reuse them. Cached timeliness evidence rejects expired news before another paid audit, including expired cache entries. All original-page and image checks still run. Compact ordered block tuples preserve every complete text/table/inline/image field while reducing redundant per-paragraph JSON keys; this is not body truncation. Source ranking can use actual approved category output even when a declared feed hint omits that category; held outputs do not count as productive yield.
+
+New paid requests record daily scheduled work, current-day recovery or backlog processing separately; emails show these costs separately while maintaining one shared hard budget and retaining unlabelled historical records. Historical ledgers are not rewritten.
+
+Quantity contract remains: reference 60, overall minimum 55, current affairs minimum 13 and no upper limit, science/culture/business each 13–17, no hard overall maximum. Limits remain 240 attempts, 120 minutes, CNY 1.50 including unknown reservations. Future source supply remains a live observation; no quality gate is relaxed to guarantee a number.
+
+Validation: focused efficiency, full critical and provider fallback/billing tests; production build and nine protected release contracts. Live release identity, signed-in reading core, Admin publishing, source verification, timer, recovered category distribution and operations evidence must also pass before this repair is called shipped.
+
+Pricing checked against [official DeepSeek pricing](https://api-docs.deepseek.com/quick_start/pricing/): Flash off-peak USD 0.003 cached input, 0.15 uncached input and 0.60 output per million tokens. Every scheduled request audited here ran in an off-peak window. Longer inputs and unused/repeated audits, rather than a switch to Pro, explain the ledger increase.

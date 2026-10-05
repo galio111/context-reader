@@ -1,7 +1,7 @@
 import { AsyncLocalStorage } from "node:async_hooks";
 import { randomUUID } from "node:crypto";
 
-export interface EditorialRequestRecord { id:string; article?:string; hash?:string; stage:string; model:string; at:string; durationMs?:number; status:string; httpStatus?:number; usage?:ProviderTokenUsage; microcny?:number; microusd?:number; reservedMicrocny:number }
+export interface EditorialRequestRecord { id:string; phase?:'scheduled'|'recovery'|'backlog'; article?:string; hash?:string; stage:string; model:string; at:string; durationMs?:number; status:string; httpStatus?:number; usage?:ProviderTokenUsage; microcny?:number; microusd?:number; reservedMicrocny:number }
 const articleContext = new AsyncLocalStorage<{article:string;hash:string}>();
 export const withEditorialArticle = <T>(article:string,hash:string,work:()=>Promise<T>) => articleContext.run({article,hash},work);
 import { readDiscoverySetting, writeDiscoverySetting } from "@/lib/discoveryStore";
@@ -16,10 +16,10 @@ export interface EditorialSpend {
 }
 const empty = (): EditorialSpend => ({ actualMicrocny: 0, actualMicrousd: 0, reservedMicrocny: 0, calls: 0, inputTokens: 0, outputTokens: 0, blocked: false, stages: {} });
 type Store = { read: (key: string) => Promise<EditorialSpend>; write: (key: string, value: EditorialSpend) => Promise<void> };
-const context = new AsyncLocalStorage<{ day: string; limit: number; store?: Store }>();
+const context = new AsyncLocalStorage<{ day: string; limit: number; store?: Store; phase?:EditorialRequestRecord['phase'] }>();
 export const editorialBudgetActive = () => !!context.getStore();
 export const editorialBudgetDay = () => context.getStore()?.day;
-export const withEditorialBudget = <T>(day: string, cny: number, work: () => Promise<T>, store?: Store) => context.run({ day, limit: Math.floor(cny * 1e6), store }, work);
+export const withEditorialBudget = <T>(day: string, cny: number, work: () => Promise<T>, store?: Store, phase?:EditorialRequestRecord['phase']) => context.run({ day, limit: Math.floor(cny * 1e6), store,phase }, work);
 export const getEditorialSpend = (day: string) => context.getStore()?.store?.read(`recommendation_editorial_spend_${day}`) ?? readDiscoverySetting<EditorialSpend>(`recommendation_editorial_spend_${day}`, empty());
 
 /** Reservation is durable before dispatch; caller owns the cross-instance discovery lease.
@@ -48,7 +48,7 @@ export async function editorialPaidRequest(stage: string, model: string, prompt:
   providerSpend.calls++;
   providerSpend.reservedMicrocny += reserve;
   const started=Date.now();
-  const record:EditorialRequestRecord={id:randomUUID(),...articleContext.getStore(),stage,model,at:new Date().toISOString(),status:"reserved",reservedMicrocny:reserve};
+  const record:EditorialRequestRecord={id:randomUUID(),phase:scope.phase,...articleContext.getStore(),stage,model,at:new Date().toISOString(),status:"reserved",reservedMicrocny:reserve};
   (spent.requests ||= []).push(record);
   await save(key, spent);
   let response:Response;
