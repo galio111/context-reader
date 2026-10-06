@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
 import { isAdminRequest } from "@/lib/adminAuth";
 import { readJsonBody } from "@/lib/limitedBody";
-import { DAY_KEY, SITE_KEY, getDiscoverySites, readDiscoverySetting, writeDiscoverySetting, validateSite, withDiscoveryLease, type DiscoverySite } from "@/lib/discoveryStore";
+import { DAY_KEY, SITE_KEY, getDiscoverySites, readDiscoverySetting, writeDiscoverySetting, validateSite, withDiscoveryLease, type DiscoverySite, type DiscoveryDay } from "@/lib/discoveryStore";
 import { importArticleThroughApi } from "@/lib/recommendationCrawler";
-import { listArticleCandidates } from "@/lib/publicArticles";
+import { listArticleCandidates, listPublicArticleSummaries } from "@/lib/publicArticles";
 import { readSourceFeed } from "@/lib/recommendationFeed";
 import { requestExternalOrigin } from "@/lib/requestSecurity";
 import { shanghaiDay, hasRecentPublishingCadence, minimumDiscoveryWords } from "@/lib/discoveryPolicy";
@@ -13,9 +13,18 @@ export const maxDuration = 900;
 export async function GET() {
   if (!await isAdminRequest()) return NextResponse.json({ error: "需要管理员权限。" }, { status: 401 });
   const sites = await getDiscoverySites();
-  const empty = { day: shanghaiDay(), sites: {} };
-  const day = await readDiscoverySetting(DAY_KEY, empty);
-  const rejected = (await listArticleCandidates({ includeRejected: true })).filter((a) => a.recommendation?.rejectedAt && a.recommendation.rejectionReason);
+  const empty: DiscoveryDay = { day: shanghaiDay(), sites: {} };
+  const saved = await readDiscoverySetting(DAY_KEY, empty);
+  const day = saved.day === empty.day ? saved : empty;
+  const [candidates, published] = await Promise.all([listArticleCandidates({ includeRejected: true }), listPublicArticleSummaries()]);
+  // Editorial and recovery runs have separate journals. Derive imports from actual rows,
+  // so stale manual-crawler counters cannot hide their newly imported articles.
+  const importedToday = [...new Map([...candidates, ...published].map(a => [a.id, a])).values()].filter(a => shanghaiDay(a.createdAt) === empty.day);
+  for (const site of sites) {
+    const entry = day.sites[site.id] ?? { created: 0, attempts: 0, visits: 0, lastAt: "", issues: [], attemptedUrls: [] };
+    day.sites[site.id] = { ...entry, created: importedToday.filter(a => a.recommendation?.discoverySourceId === site.id || (() => { try { return site.articleHosts.includes(new URL(a.sourceUrl).hostname.replace(/^www\./, "")); } catch { return false; } })()).length };
+  }
+  const rejected = candidates.filter((a) => a.recommendation?.rejectedAt && a.recommendation.rejectionReason);
   const feedback = Object.fromEntries(sites.map((site) => [site.id, rejected.filter((a) => a.recommendation?.discoverySourceId === site.id || (() => { try { return new URL(a.sourceUrl).hostname.replace(/^www\./, "") === site.articleHosts[0]; } catch { return false; } })()).slice(0, 10).map((a) => ({ title: a.title, reason: a.recommendation!.rejectionReason! }))]));
   return NextResponse.json({ sites, day: day.day === empty.day ? day : empty, feedback }, { headers: { "Cache-Control": "no-store" } });
 }
@@ -72,8 +81,8 @@ export async function POST(request: Request) {
               continue;
             }
             const imageCount = article.blocks.filter((block) => block.type === "image").length;
-            if (imageCount > 8) {
-              sampleFailures.push(`正文含 ${imageCount} 张图片，疑似图库`);
+            if (imageCount > 24) {
+              sampleFailures.push(`正文含 ${imageCount} 张图片，超过当前完整审核容量，需单独检查`);
               continue;
             }
             const image = article.blocks.find((block) => block.type === "image" && block.src && !/logo|icon|avatar|banner/i.test(block.src));

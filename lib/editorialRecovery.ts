@@ -21,8 +21,8 @@ export async function resumeEditorialDay() {
   await repairEditorialCurationDates(await listPublicArticles());
   const at=new Date().toISOString();
   await writeDiscoverySetting(`recommendation_editorial_recovery_${today}_${Date.now()}`,{at,previous:ledger,remainingProcessingMs:remaining,reason:"管理员恢复异常中断的日任务"});
-  await writeDiscoverySetting(key,{...ledger,finished:false,suspended:false,recoveryAt:at,processingMs:consumed,processingStartedAt:at,nextSupplyRetryAt:undefined,deadlineAt:new Date(Date.now()+remaining).toISOString()});
-  await writeDiscoverySetting("recommendation_automation_state",{...state,status:"running",lastScheduledDate:"",lastEmailStatus:"not_requested",lastEmailError:"",lastError:"修复后继续补齐缺口板块。"});
+  await writeDiscoverySetting(key,{...ledger,finished:false,suspended:false,stopReason:undefined,recoveryAt:at,processingMs:consumed,processingStartedAt:at,nextSupplyRetryAt:undefined,deadlineAt:new Date(Date.now()+remaining).toISOString()});
+  await writeDiscoverySetting("recommendation_automation_state",{...state,status:"running",lastScheduledDate:"",lastEmailStatus:"not_requested",lastEmailError:"",lastError:"修复后继续审核未完成文章；数量达标后仍继续处理。"});
   return {day:today,remainingProcessingMs:remaining};
 }
 
