@@ -1,6 +1,6 @@
 # Automatic editorial publication — current contract
 
-已接受20261005T131000，parent 20261005T124000，source 570bdbb13dd4d7876ed0ac231bee42fa99af9a74；公网mainland_internal身份一致。今日58补齐61篇（时事16/科学17/文化15/商业13），新增3次审核¥0.006604，全日103次/¥0.470085，无未知预留。SMTP接受完成邮件，count61，timestamp1791176972485；不等于收件箱送达证明。明日6日06:00运行，实际结果仍待观察。152回归、本地/服务器构建、九契约、出口审计、真实登录核心Flash/协议2/Admin边界/三文章回放及图片200、健康/23表备份隔离恢复/父镜像通过；仅app/caddy重建，后台服务启动时间未变。QA身份及账单按精确条件清理。重复cron和定时器未增加费用或重发邮件。 Current evidence: [5 October supply/cost repair](editorial-efficiency-20261005.md); dated [4 October recovery](editorial-recovery-20261004.md). Runtime remains 240 attempts, 120 processing minutes and CNY1.50, Flash/MiMo routes, Jev disabled.
+当前接受 20261006T110400，parent 20261006T104800，source 929237b34cd22a659c46d276a553689d5f9db267；公网 mainland_internal 身份一致。a16z News 已通过近期更新、正文和图片验证并持久启用，参与每天 06:00 上海时间开始的来源轮询；下一轮 2026-10-07 06:00。本轮两篇候选完整复核，一篇制造业分析通过并发布，一篇投资推广拒绝。新条目发现/去重、真实抓取/审核/发布/公开 Reader 均已测试，未来每天各来源实际供给仍取决于栏目、预算和质量。当前来源证据见 [a16z 接入](substack-a16z-import.md)。运行边界仍为 240 次尝试、120 分钟、CNY 1.50，Flash/MiMo 路由、Jev 关闭。先前数量、成本和积压恢复的历史证据见 [5 October supply/cost repair](editorial-efficiency-20261005.md) 与 [4 October recovery](editorial-recovery-20261004.md)。
 
 ## Quantity, balance and budget
 

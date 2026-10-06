@@ -1,0 +1,370 @@
+{
+  "release": {
+    "ok": true,
+    "checkedAt": "2026-10-06T03:07:56.287Z",
+    "releaseId": "20261006T110400",
+    "parentReleaseId": "20261006T104800",
+    "backendMode": "mainland_internal",
+    "sourceRevision": "929237b34cd22a659c46d276a553689d5f9db267"
+  },
+  "originalImport": {
+    "url": "https://www.a16z.news/p/top-100-consumer-ai-apps-seventh",
+    "characters": 18151,
+    "blocks": 79,
+    "images": 22,
+    "sections": 5,
+    "completeness": {
+      "referenceKind": "article-body",
+      "missingTextBlocks": 0,
+      "missingImages": 0
+    }
+  },
+  "sampleComparisons": [
+    {
+      "url": "https://www.a16z.news/p/top-100-consumer-ai-apps-seventh",
+      "title": "Top 100 Consumer AI Apps - Seventh Edition",
+      "beforeChars": 97,
+      "afterChars": 18151,
+      "words": 2937,
+      "images": 22,
+      "published": "2026-10-05T14:01:42+00:00",
+      "missing": [],
+      "blocks": 79
+    },
+    {
+      "url": "https://www.a16z.news/p/investing-in-armadin",
+      "title": "Investing in Armadin",
+      "beforeChars": 210,
+      "afterChars": 4149,
+      "words": 711,
+      "images": 1,
+      "published": "2026-10-01T10:02:55+00:00",
+      "missing": [],
+      "blocks": 12
+    },
+    {
+      "url": "https://www.a16z.news/p/investing-in-doxxnet",
+      "title": "Investing in doxxnet",
+      "beforeChars": 210,
+      "afterChars": 3579,
+      "words": 590,
+      "images": 1,
+      "published": "2026-10-01T16:00:56+00:00",
+      "missing": [],
+      "blocks": 8
+    },
+    {
+      "url": "https://www.paulgraham.com/read.html",
+      "title": "The Need to Read",
+      "beforeChars": 2023,
+      "afterChars": 2023,
+      "words": 381,
+      "images": 0,
+      "missing": [],
+      "blocks": 2
+    },
+    {
+      "url": "https://www.a16z.news/p/state-of-markets-ii",
+      "title": "State of Markets II",
+      "beforeChars": 209,
+      "afterChars": 7310,
+      "words": 1242,
+      "images": 10,
+      "published": "2026-09-30T12:03:43+00:00",
+      "missing": [],
+      "blocks": 48
+    },
+    {
+      "url": "https://www.oneusefulthing.org/p/the-dot-and-the-swarm",
+      "title": "The Dot and the Swarm",
+      "beforeChars": 200,
+      "afterChars": 10730,
+      "words": 1879,
+      "images": 3,
+      "published": "2026-10-01T10:54:12+00:00",
+      "missing": [],
+      "blocks": 30
+    },
+    {
+      "url": "https://www.oneusefulthing.org/p/the-overhang",
+      "title": "The Overhang",
+      "beforeChars": 200,
+      "afterChars": 11394,
+      "words": 2103,
+      "images": 5,
+      "published": "2026-09-18T17:54:32+00:00",
+      "missing": [],
+      "blocks": 27
+    },
+    {
+      "url": "https://www.a16z.news/p/the-case-for-the-american-manufacturing",
+      "title": "The Case for the American Manufacturing Asset Class",
+      "beforeChars": 106,
+      "afterChars": 22161,
+      "words": 3361,
+      "images": 5,
+      "published": "2026-10-02T14:02:34+00:00",
+      "missing": [],
+      "blocks": 78
+    },
+    {
+      "url": "https://www.a16z.news/p/who-gets-paid-when-ai-does-the-shopping",
+      "title": "Who Gets Paid When AI Does the Shopping?",
+      "beforeChars": 95,
+      "afterChars": 9811,
+      "words": 1560,
+      "images": 3,
+      "published": "2026-09-29T16:53:12+00:00",
+      "missing": [],
+      "blocks": 30
+    }
+  ],
+  "source": {
+    "id": "a16z-news",
+    "name": "a16z News",
+    "note": "Substack 正文与图片已适配；定期读取公开 RSS。保留全文、图片、时效和推广内容审核；榜单及投资宣传不直接精选。",
+    "feeds": [
+      "https://www.a16z.news/feed"
+    ],
+    "topics": [
+      "商业经济",
+      "科技科学"
+    ],
+    "enabled": true,
+    "feedUrl": "https://www.a16z.news/feed",
+    "discovery": "feed",
+    "levelHint": "advanced",
+    "dailyTarget": 2,
+    "articleHosts": [
+      "a16z.news"
+    ],
+    "verification": {
+      "at": "2026-10-06T02:54:29.684Z",
+      "ok": true,
+      "message": "近期通常 1–3 天更新、最近 3 天有新作；两篇正文与图片可读取。启用前请检查下方正文样本。",
+      "samples": [
+        {
+          "url": "https://www.a16z.news/p/the-case-for-the-american-manufacturing",
+          "title": "The Case for the American Manufacturing Asset Class",
+          "words": 3370,
+          "images": 5
+        },
+        {
+          "url": "https://www.a16z.news/p/investing-in-doxxnet",
+          "title": "Investing in doxxnet",
+          "words": 606,
+          "images": 1
+        }
+      ]
+    },
+    "feedPagination": "none"
+  },
+  "automation": {
+    "config": {
+      "enabled": true,
+      "runTime": "06:00",
+      "maxNewArticles": 60
+    },
+    "nextRunAt": "2026-10-06T22:00:00.000Z",
+    "timeZone": "Asia/Shanghai"
+  },
+  "editorialConfig": {
+    "jevAutoAdopt": false,
+    "approvedJevChecks": [],
+    "budgetTrial": null,
+    "dailyBudgetCny": 1.5,
+    "enabled": true,
+    "provider": "deepseek",
+    "jevMonthlyBudgetUsd": 4,
+    "dailyReviewLimit": 240
+  },
+  "driver": {
+    "unit": "context-reader-recommendations.timer",
+    "enabled": true,
+    "active": true,
+    "lastExitCode": 0
+  },
+  "repeatSourceRun": {
+    "skipped": "already_ran_today",
+    "result": {},
+    "created": []
+  },
+  "editorialAudit": {
+    "event": "complete",
+    "at": "2026-10-06T03:09:51.210Z",
+    "day": "2026-10-06",
+    "phase": "backlog",
+    "outcomes": [
+      {
+        "id": "c481838d-5b14-4a72-985e-1cefd0185658",
+        "title": "The Case for the American Manufacturing Asset Class",
+        "attempted": 1,
+        "created": 1,
+        "skipped": [],
+        "sourceErrors": [],
+        "review": {
+          "checks": {
+            "incomplete": false,
+            "promotional": false,
+            "contamination": false,
+            "orphanCaption": false,
+            "mediaDependent": false
+          },
+          "status": "passed",
+          "reasons": [],
+          "version": 3,
+          "provider": "deepseek-flash",
+          "checkedAt": "2026-10-06T03:09:43.002Z",
+          "completed": true,
+          "imageCount": 5,
+          "contentHash": "88355b676e9a08d049192a22c95937a7089e4ecb1ca16826e1fc77562e611a4d",
+          "inputTokens": 8192,
+          "costMicrousd": 2465,
+          "outputTokens": 163,
+          "confirmedDefects": [],
+          "sourceCompletenessVerified": true
+        }
+      },
+      {
+        "id": "5253ce39-fc62-4b7d-b419-f63808200232",
+        "title": "Investing in doxxnet",
+        "attempted": 1,
+        "created": 0,
+        "skipped": [
+          {
+            "title": "Investing in doxxnet",
+            "url": "https://www.a16z.news/p/investing-in-doxxnet",
+            "reason": "全文为投资机构对doxxnet的推介与融资公告，核心目的是宣传该公司及其产品，属promotional内容；配图为品牌logo，非编辑性插图。"
+          }
+        ],
+        "sourceErrors": []
+      }
+    ],
+    "calls": 2,
+    "costCny": 0.020686,
+    "reserveDeltaCny": 0
+  },
+  "publication": [
+    {
+      "day": "2026-10-06",
+      "outcomes": [
+        {
+          "id": "c481838d-5b14-4a72-985e-1cefd0185658",
+          "status": "published"
+        }
+      ]
+    },
+    {
+      "id": "5253ce39-fc62-4b7d-b419-f63808200232",
+      "title": "Investing in doxxnet",
+      "rejectedAt": "2026-10-06T03:10:53.809Z",
+      "reason": "广告或软文"
+    }
+  ],
+  "publishedReplay": {
+    "id": "c481838d-5b14-4a72-985e-1cefd0185658",
+    "published": true,
+    "blocks": 78,
+    "images": 5,
+    "homepageCardOpenedReader": true
+  },
+  "imageAccessibility": {
+    "importedImages": 22,
+    "publishedImages": 5,
+    "allFirstParty": true,
+    "allAccessible": true
+  },
+  "core": {
+    "identity": {
+      "ok": true,
+      "checkedAt": "2026-10-06T03:07:56.287Z",
+      "releaseId": "20261006T110400",
+      "parentReleaseId": "20261006T104800",
+      "backendMode": "mainland_internal"
+    },
+    "account": true,
+    "sync": true,
+    "normalUserAdminDenied": true,
+    "wordAndSentenceTranslation": true,
+    "dictionary": true,
+    "fullArticleTranslation": true,
+    "oneActionEach": [
+      {
+        "feature": "full_article_translation",
+        "status": "succeeded",
+        "quota_units": 10
+      },
+      {
+        "feature": "standalone_dictionary",
+        "status": "succeeded",
+        "quota_units": 5
+      },
+      {
+        "feature": "word_explanation",
+        "status": "succeeded",
+        "quota_units": 1
+      }
+    ],
+    "executions": [
+      {
+        "route": "/api/dictionary",
+        "model": "deepseek-flash",
+        "status": "succeeded"
+      },
+      {
+        "route": "/api/explain-word",
+        "model": "deepseek-flash",
+        "status": "succeeded"
+      },
+      {
+        "route": "/api/translate-article",
+        "model": "deepseek-flash",
+        "status": "succeeded"
+      }
+    ],
+    "anonymousAdminDenied": true,
+    "catalogueRows": 1231,
+    "oldArticleRestored": true,
+    "daily": {
+      "day": "2026-10-06",
+      "count": 60
+    },
+    "testUserDeleted": true
+  },
+  "tests": {
+    "critical": 90,
+    "finalExtractionDiscoverySourcePriority": 30,
+    "previousEditorialProviderFetch": 49,
+    "protectedContracts": 9,
+    "localProductionBuild": true,
+    "serverProductionBuild": true,
+    "forcedZhipuFallbackOneCharge": true,
+    "futureRssNewEntryAndDuplicateFixture": true
+  },
+  "operations": {
+    "health": "passed",
+    "admin": {
+      "session": 200,
+      "accounts": 200,
+      "public_articles": 200,
+      "recommendation_automation": 200
+    },
+    "backupSha": "passed",
+    "isolatedRestoredTables": 34,
+    "parentAcceptedImage": "sha256:0df76d8015aee93b1f161a0a638b0fd2277780bb122ad2ce963b576a1dfe11a4",
+    "backendStartTimesUnchanged": true,
+    "onlyAppAndCaddyRecreated": true,
+    "syntheticUsersRemoved": 2,
+    "providerExecutionAuditRetained": true
+  },
+  "browser": {
+    "desktop": true,
+    "mobileWidth": 390,
+    "mobileViewportHeight": 844,
+    "horizontalOverflow": false,
+    "completeEnding": true,
+    "relatedCardAbsent": true,
+    "capturedConsoleErrors": 0,
+    "physicalDeviceAndUserAcceptance": "open"
+  }
+}
