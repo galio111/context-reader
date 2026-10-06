@@ -1,9 +1,9 @@
 # Product
 
 
-## 站内背单词（开发验证中）
+## 站内背单词（已生产，2026-10-06）
 
-2026-10-05 用户已授权完整站内复习系统，并确认新词每日奖励、连续额度/会员奖励、画像 60 分钟 + 50 查词后主动生成 5 点；固定先复习后学新词。实现使用真实 FSRS-6，账号隔离保存、有效计时、暂停与原文往返，入口连接根首页工作台、Menu 和生词本。Anki 功能与数据全部保留，个人参数训练和 Anki 历史迁移尚未执行。规则、边界及验收状态以[站内背单词说明](docs/vocabulary-study.md)为准。本段暂不表示已经生产发布。
+站内背单词已上线，阅读 → 保存生词 → 复习 → 返回阅读形成站内闭环。使用 FSRS-6 默认参数，固定先复习再学新词；奖励按实际完成的学习任务结算，后台可调整。入口在登录工作台、Menu 和生词本；已有 Anki 功能与数据全部保留。个人参数训练与 Anki 历史迁移尚未执行，界面仍待用户体验后调整。详见[产品规则](docs/vocabulary-study.md)。
 
 Paid reading support uses one point balance, one-time monthly or discounted annual purchases, and no automatic renewal. Pure reading stays available after exhaustion. Display used/total in Menu → 账号与用量; a 5%-remaining notice lasts about three seconds, links to that Menu and does not keep returning within the same browser session/window/threshold. The pricing dialog preserves the Menu state when closed. [Current billing rules](docs/account-usage-plan.md).
 

@@ -1,0 +1,36 @@
+{
+  "release": {
+    "ok": true,
+    "checkedAt": "2026-10-05T16:11:15.112Z",
+    "releaseId": "20261006T000033",
+    "parentReleaseId": "20261005T131000",
+    "backendMode": "mainland_internal"
+  },
+  "account": true,
+  "save": true,
+  "FSRS": {
+    "due": "2026-10-05T16:12:30.909Z",
+    "reps": 1,
+    "state": 1,
+    "lapses": 0,
+    "stability": 0.212,
+    "difficulty": 6.4133,
+    "last_review": "2026-10-05T16:11:30.909Z",
+    "elapsed_days": 0,
+    "learning_steps": 0,
+    "scheduled_days": 0
+  },
+  "idempotency": true,
+  "staleDevice": 409,
+  "undo": true,
+  "pauseResume": true,
+  "freeReview": true,
+  "crossAccount": 409,
+  "foreignOrigin": 403,
+  "anonymous": 401,
+  "exportHistory": true,
+  "entryId": "study-qa-d20c7c75e329401985339df6021026f2",
+  "cardId": "e2bc99ecf8e948a02de0a33919b8e6176f92ff8f",
+  "sourceArticleId": "7f2f0049-1d5c-4c22-b996-784d40cb5a13",
+  "word": "Conservatives"
+}

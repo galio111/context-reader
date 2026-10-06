@@ -1,0 +1,20 @@
+{
+  "release": {
+    "ok": true,
+    "checkedAt": "2026-10-05T16:14:09.460Z",
+    "releaseId": "20261006T000033",
+    "parentReleaseId": "20261005T131000",
+    "backendMode": "mainland_internal"
+  },
+  "account": true,
+  "completed": true,
+  "realPointReward": 1,
+  "retryNoDuplicate": true,
+  "settledUndoBlocked": true,
+  "streak": {
+    "current": 0,
+    "best": 0,
+    "last_day": null
+  },
+  "fixture": "Only the synthetic QA card was seeded at a due final-learning step; public API performed final FSRS grade and reward transaction."
+}

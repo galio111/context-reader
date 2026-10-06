@@ -1,6 +1,10 @@
 # Production Release Governance
 
-## Current accepted dictionary replay and pronunciation release
+## Current accepted native FSRS study release
+
+Accepted `20261006T000033`, parent `20261005T131000`, source `704a0b776d218fe397e8501e986db928419cd0cd`. Exact 62-file cumulative delta passed the stable locked entrypoint, clean-source/parent/contracts checks and local/server builds. Public connectivity and accepted identity agree with `mainland_internal`. Ninety critical tests, FSRS/profile/provider/billing regressions, isolated restored SQL and eight-request reward concurrency passed. Real signed-in Flash reading core, protocol-2, native study save/retry/pause/source return, real one-point reward, five-point profile/replay, Admin save/boundaries, seven-service health, SHA-verified 34-table restore and current/parent images passed. Only app/caddy recreated. Test identity and grants removed; anonymized provider-cost audit retained. Anki preserved; history migration, personal weight training, physical-device and final user visual acceptance remain open. [Evidence and limits](vocabulary-study-release.md). Later documentation commits do not change production source identity.
+
+## Previous accepted dictionary replay and pronunciation release
 
 Accepted `20261004T212050`, parent `20261004T164800`, source `9c77b1694b257ad0aa1492424f8842a0bcea0b3f`, at `2026-10-04T13:31:05.535125Z`. Exact reviewed 28-file cumulative delta through the stable locked entrypoint; public identity/current/accepted state agree with mainland_internal. Builds, 89 critical and 44 targeted tests, release contracts, public history replay after refresh with zero generation calls, complete server snapshots without client upload, three same-result account replays without additional points, protocol-2/Admin/ownership boundaries, seven-service health, SHA-verified 23-table isolated backup restore and accepted parent rollback image passed. Only app/caddy recreated; backend uptimes remain unchanged. The disposable QA account and billing references were removed by exact identity, while provider cost audit remains. Auditory correctness/speed, physical-device and cross-browser acceptance remain open. [Evidence and limits](dictionary-replay-and-pronunciation.md). Documentation commits do not change deployed source identity.
 
