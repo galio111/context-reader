@@ -692,9 +692,16 @@ export function extractImportedArticleFromHtml(html: string, baseUrl: string): E
   const normalizedHtml = unwrapEscapedEntityAmpersands(html);
   const dom = new JSDOM(normalizedHtml, { url: baseUrl, contentType: "text/html" });
   const document = dom.window.document;
+  const substackPost = document.querySelector("article.newsletter-post");
+  const substackBody = substackPost?.querySelector(".available-content .body.markup");
+  // A known publisher shell must not fall back to discussion/footer content
+  // when its public body is absent or a later template change hides/removes it.
+  if (substackPost && !substackBody) return null;
   const intakeWarnings = publisherIntakeWarnings(document, baseUrl);
   const metadataTitle = metaContent(document, "og:title") || metaContent(document, "twitter:title") || singleLineText(document.title);
   const metadataDescription = metaContent(document, "og:description") || metaContent(document, "description") || metaContent(document, "twitter:description");
+  // Capture JSON-LD/time metadata before scripts and publisher chrome are removed.
+  const metadataPublishedTime = extractPublishedTime(document, "");
   const metadataSiteName = metaContent(document, "og:site_name") || new URL(baseUrl).hostname.replace(/^www\./, "");
   const metaCoverCandidates = uniqueUrls([
     metaContent(document, "og:image"),
@@ -725,7 +732,9 @@ export function extractImportedArticleFromHtml(html: string, baseUrl: string): E
       if (candidate) candidates.push(candidate);
     }
   }
-  const selected = chooseCandidate(candidates);
+  const selected = substackPost
+    ? candidates.find((candidate) => candidate.root === substackBody)
+    : chooseCandidate(candidates);
   if (!selected) return null;
   const selectedBlocks = retainMetadataHeroWhenBodyHasNoImage(
     selected.blocks,
@@ -742,7 +751,7 @@ export function extractImportedArticleFromHtml(html: string, baseUrl: string): E
   const missingTextBlocks = reference?.blocks.filter((block) => block.type !== "image" && (block.text?.length || 0) > 160
     && !normalizedSelected.includes((block.text || "").toLowerCase().replace(/\s+/g, " ").trim())).length || 0;
   const missingImages = reference?.blocks.filter((block) => block.type === "image" && block.src && !imageSources.includes(block.src)).length || 0;
-  const publishedTime = extractPublishedTime(document, readable?.publishedTime || "");
+  const publishedTime = singleLineText(readable?.publishedTime || "") || metadataPublishedTime;
   const language = singleLineText(readable?.lang || document.documentElement.lang || "")
     .replace(/^["']+|["']+$/g, "")
     .trim();

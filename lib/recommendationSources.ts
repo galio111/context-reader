@@ -4,9 +4,19 @@ import type { RecommendationCrawlerSourceInfo } from "@/types/recommendationCraw
 export interface RecommendationCrawlerSource extends RecommendationCrawlerSourceInfo {
   feedUrl: string;
   articleHosts: string[];
+  feedPagination?: "none";
 }
 
 export const RECOMMENDATION_CRAWLER_SOURCES: RecommendationCrawlerSource[] = [
+  {
+    id: "a16z-news",
+    name: "a16z News",
+    feedUrl: "https://www.a16z.news/feed",
+    feedPagination: "none",
+    articleHosts: ["a16z.news"],
+    topics: ["商业经济", "科技科学"],
+    levelHint: "advanced",
+  },
   {
     id: "nasa",
     name: "NASA",

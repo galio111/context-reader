@@ -164,7 +164,7 @@ export async function runRecommendationCrawler(
   const sources = configured.flatMap((site) => site.feeds.map((feedUrl) => {
     const url = new URL(feedUrl);
     // Only bounded WordPress feed pagination. Robots and host checks still run for each URL.
-    if (input.editorial?.enabled && input.feedPage && input.feedPage > 1 && /\/feed(?:\/rss)?\/?$/.test(url.pathname)) url.searchParams.set("paged", String(Math.min(6, Math.floor(input.feedPage))));
+    if (site.feedPagination !== "none" && input.editorial?.enabled && input.feedPage && input.feedPage > 1 && /\/feed(?:\/rss)?\/?$/.test(url.pathname)) url.searchParams.set("paged", String(Math.min(6, Math.floor(input.feedPage))));
     return { ...site, feedUrl: url.href };
   }));
   const feedResults = await Promise.allSettled(refresh ? [] : sources.map((source) => readSourceFeed(source, input.topic)));

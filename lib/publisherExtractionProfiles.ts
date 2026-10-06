@@ -57,6 +57,25 @@ export function publisherIntakeWarnings(document: Document, baseUrl = ""): strin
 }
 export function applyPublisherProfile(document: Document, baseUrl: string): void {
   const host = new URL(baseUrl).hostname.replace(/^www\./, "");
+  // Substack uses "newsletter-post" for the article itself, including on
+  // custom domains. Match its delivered body structure before removing only
+  // that misleading token; hidden/paywall ancestors still pass through the
+  // shared sanitizer. Give the public body an explicit extraction boundary.
+  for (const post of document.querySelectorAll("article.newsletter-post")) {
+    const body = post.querySelector(".available-content .body.markup");
+    if (!body) continue;
+    post.classList.remove("newsletter-post");
+    body.setAttribute("data-article-body", "");
+    body.querySelectorAll(".subscribe-widget, .post-embed, .image-link-expand").forEach((node) => node.remove());
+    if (host === "a16z.news") {
+      // Inspected newsletter footer, not a quotation or article discussion of
+      // investing. Require both disclosure links and its exact opening.
+      const last = body.lastElementChild;
+      if (last?.matches("p") && /^This newsletter is provided for informational purposes only,/.test(last.textContent?.trim() || "")
+        && last.querySelector('a[href="https://a16z.com/investment-list/"]')
+        && last.querySelector('a[href="http://a16z.com/disclosures"], a[href="https://a16z.com/disclosures"]')) last.remove();
+    }
+  }
   if (host === "nautil.us") {
     document.querySelectorAll("[class*='PrimisVideoAdBlock_']").forEach((node) => node.remove());
     document.querySelectorAll("p,h2,h3,div").forEach((node) => {

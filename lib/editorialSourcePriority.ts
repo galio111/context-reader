@@ -1,7 +1,7 @@
 import { DAILY_CATEGORIES, categoryHasCapacity, DAILY_CATEGORY_MIN } from "./editorialDistribution";
 
 type Category = (typeof DAILY_CATEGORIES)[number];
-type Site = { id: string; topics: string[]; feeds?: string[]; levelHint?: string; enabled: boolean; verification?: { ok: boolean } };
+type Site = { id: string; topics: string[]; feeds?: string[]; feedPagination?: "none"; levelHint?: string; enabled: boolean; verification?: { ok: boolean } };
 type Visit = { visits: number; empty?: number };
 export type SourceCategoryYield = { total: number; categories: Partial<Record<Category, number>> };
 
@@ -19,7 +19,7 @@ export function rankEditorialSources<T extends Site>(
 ): T[] {
   const available = sites.filter(s => s.enabled && s.verification?.ok && s.levelHint !== "lower"
     && (visits[s.id]?.visits || 0) < 6 && ((visits[s.id]?.empty || 0) < 2
-      || s.feeds?.some(url => /\/feed(?:\/rss)?\/?$/.test(new URL(url).pathname))));
+      || (s.feedPagination !== "none" && s.feeds?.some(url => /\/feed(?:\/rss)?\/?$/.test(new URL(url).pathname)))));
   const deficits = DAILY_CATEGORIES.filter(category => (counts[category] || 0) < DAILY_CATEGORY_MIN);
   const canFill = (site: T) => {
     const yieldRecord = observed[site.id];
