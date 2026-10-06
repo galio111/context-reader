@@ -35,7 +35,7 @@ test("failed repair preserves original and never supplies an approval", async ()
 test("email reports exact published counts, zero categories, primary topics and difficulties", () => {
   const rows = [{ title: "One", sourceUrl: "https://example.org/a", recommendation: { difficulty: "CET-6 / 考研", topics: ["商业经济", "社会生活"] } }] as PublicArticle[];
   const report = editorialDailyReport("2026-09-20", rows, 3, false);
-  assert.match(report.subject, /未达标 1 篇（参考目标 60 篇）/);
+  assert.match(report.subject, /未达标 1 篇（每板块至少 14 篇，不设上限）/);
   assert.match(report.text, /商业：1 篇/); assert.match(report.text, /科学：0 篇/);
   assert.match(report.text, /商业经济：1 篇/); assert.match(report.text, /社会生活：0 篇/);
   assert.match(report.text, /CET-6 \/ 考研：1 篇/);

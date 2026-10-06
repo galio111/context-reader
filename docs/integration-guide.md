@@ -292,7 +292,7 @@ Routine login restoration, automatic polls, rate-limit waits and recoverable syn
 
 ### 候选与解释恢复约定
 
-自动精选当前合同：60 为参考目标、总数至少55且无硬上限；时事至少13、不设上限，科学/文化/商业各13–17。先补缺口板块，达标后停止新增付费发现，已有合格时事继续发布。仅 Flash 合并全文分类/难度/图文审核，Jev 与自动 Pro 升级关闭。v3完整性、图片入桶、正文哈希、48小时审核及新闻7日时效仍必需；240自动尝试、120分钟、¥1.50共享硬预算与失败收尾/当前日邮件保留。手动候选和高中标签不变；规则见 automated-editorial.md，恢复证据见 editorial-recovery-20261004.md。
+自动精选当前合同：时事、科学、文化、商业每天各至少 14 篇，四板块和总数均不设上限。缺口影响优先级，不排除其他来源；达标后继续发现、审核与发布。每小时分批保存所有已启用且已验证来源的 RSS 链接；06:00 开始付费审核。未处理及技术失败跨日持久保留，技术重试/需要检查与内容拒绝分开记录。v3完整性、图片入桶、正文哈希、48小时审核及新闻7日时效仍必需；240次尝试、120分钟、¥1.50共享硬预算保留，去掉达标后 ¥1 软停止。手动候选和高中标签不变；规则与限制见 automated-editorial.md。
 
 ### Pronunciation quota diagnostics
 
@@ -310,7 +310,7 @@ The contextual stream uses the same completed-explanation validator as the Reade
 
 Admin account operations includes a dedicated 智谱备用调用 section: 30 Shanghai-day totals for recorded Zhipu executions, success/failure, input/output tokens, estimated cost and latest 100 matching records with time, feature and model. Matching uses provider or GLM model for historical compatibility and runs over the entire bounded 50,000-row result, not only the latest 200 general executions. The existing server-side Admin gate protects all records; no credentials or prompt content are exposed. Refresh uses the existing Admin refresh action. Calls that fail before the route writes a correctly attributed execution are not claimed as complete provider-attempt telemetry.
 
-自动精选当前合同：60 为参考目标、总数至少55且无硬上限；时事至少13、不设上限，科学/文化/商业各13–17。先补缺口板块，达标后停止新增付费发现，已有合格时事继续发布。仅 Flash 合并全文分类/难度/图文审核，Jev 与自动 Pro 升级关闭。v3完整性、图片入桶、正文哈希、48小时审核及新闻7日时效仍必需；240自动尝试、120分钟、¥1.50共享硬预算与失败收尾/当前日邮件保留。手动候选和高中标签不变；规则见 automated-editorial.md，恢复证据见 editorial-recovery-20261004.md。
+自动精选当前合同：时事、科学、文化、商业每天各至少 14 篇，四板块和总数均不设上限。缺口影响优先级，不排除其他来源；达标后继续发现、审核与发布。每小时分批保存所有已启用且已验证来源的 RSS 链接；06:00 开始付费审核。未处理及技术失败跨日持久保留，技术重试/需要检查与内容拒绝分开记录。v3完整性、图片入桶、正文哈希、48小时审核及新闻7日时效仍必需；240次尝试、120分钟、¥1.50共享硬预算保留，去掉达标后 ¥1 软停止。手动候选和高中标签不变；规则与限制见 automated-editorial.md。
 
 Admin editorial PATCH accepts optional budgetTrial (day in Shanghai YYYY-MM-DD; cny number 0–10 exclusive of zero, or null for explicitly uncapped date) and jevAutoAdopt boolean. Omitted fields preserve existing values; budgetTrial: null removes the exception. The base dailyBudgetCny never inherits the trial value. Calibration and adoption records remain private account_settings, including per-provider ledger reservations; adoption is gated by completed sample day and policy versions. No API key is returned by these APIs.
 
@@ -329,7 +329,7 @@ Admin editorial PATCH accepts optional budgetTrial (day in Shanghai YYYY-MM-DD; 
 
 ## Editorial incident recovery API
 
-Server-verified Admin and same-origin POST `/api/admin/editorial`: `resume_today` restores only unused processing time while retaining the day cost/attempt/source journal; `publish_approved` takes 1–3 UUIDs, revalidates or fully reimports old approvals, and returns published/duplicate/kept outcomes. Shared discovery lease and daily CNY 1.50 budget remain mandatory. Time-sensitive source age, exact body hash, v3 completeness, stored body image and reviewed first-party cover gates remain. Current affairs has no upper cap; science/culture/business retain 17 per day including recovery releases. Public inventories page in 200-row responses to avoid the 1000-row REST ceiling. Current-day email status comes from its own durable report record.
+Server-verified Admin and same-origin POST `/api/admin/editorial`: `resume_today` restores only unused processing time while retaining the day cost/attempt/source journal; `publish_approved` takes 1–3 UUIDs, revalidates or fully reimports old approvals, and returns published/duplicate/kept outcomes. Shared discovery lease and daily CNY 1.50 budget remain mandatory. Time-sensitive source age, exact body hash, v3 completeness, stored body image and reviewed first-party cover gates remain. All four categories require at least 14 daily and have no upper limit, including recovery releases. Public inventories page in 200-row responses to avoid the 1000-row REST ceiling. Current-day email status comes from its own durable report record.
 
 The editorial recovery POST also accepts `report_recovery` after the day closes; it reconciles all selected-today rows and records one final completion/shortfall SMTP report without redoing paid work. Publisher a.m./p.m. display-date punctuation is recognized while retaining stale/future rejection. Homepage-curation PUT stays same-origin and bounded at 1MiB to hold the expanded date map and complete category selections.
 
@@ -339,3 +339,7 @@ The editorial recovery POST also accepts `report_recovery` after the day closes;
 
 
 自动精选逐请求可选 phase 为 scheduled/recovery/backlog，邮件按已知流程拆费用，旧记录不回写。日账本 processingMs 为累计已用处理时间；nextSupplyRetryAt/supplyRetryCount 限定来源耗尽后的单次新供给补位，继承当天240次/120分钟/¥1.50硬边界与已尝试URL。图片可读性探测为5秒首路、12秒备用，实际图片保存边界不变。见 editorial-efficiency-20261005.md。
+
+## Durable editorial intake
+
+Admin-only GET `/api/admin/editorial` returns `intake` per enabled source: last scan/success, feed faults, cumulative waiting/retry/attention/rejected/skipped/candidate counts, recent technical items and recent content rejections. Same-origin POST `retry_intake` takes an existing `sourceId` and `url`; only retry/attention records can reopen. It preserves prior evidence and uses the discovery lease. It does not bypass budget, robots, freshness, SSRF or publication review. Private `recommendation_editorial_intake_v1_<source>` settings retain unresolved links across RSS rotation; `recommendation_editorial_feed_poll_v1` stores a bounded hourly sweep cursor. The cron driver collects up to three sources per tick even before review time or after paid work closes; disabling automation stops collection. No schema migration or browser service key is needed.

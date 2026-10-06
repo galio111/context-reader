@@ -17,6 +17,7 @@ export interface EditorialReview {
   version: number;
   status: "passed" | "held";
   completed?: boolean;
+  uncertain?: boolean;
   confirmedDefects?: string[];
   checkedAt: string;
   contentHash: string;
@@ -79,5 +80,5 @@ export function editorialBalanceScore(topic: ArticleTopic, difficulty: ArticleDi
 }
 
 export function confirmedEditorialRejection(review: EditorialReview): boolean {
-  return review.status === "held" && review.completed === true && !!review.confirmedDefects?.length;
+  return review.status === "held" && review.completed === true && !!review.confirmedDefects?.some(defect => ['promotional', 'mediaDependent', 'irrelevantImage'].includes(defect));
 }

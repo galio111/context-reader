@@ -72,6 +72,8 @@ export interface RecommendationCrawlerSkippedItem {
   title: string;
   url: string;
   reason: string;
+  kind?: import('@/lib/editorialIntakePolicy').IntakeOutcome;
+  stage?: import('@/lib/editorialIntakePolicy').IntakeStage;
 }
 
 export interface RecommendationCrawlerSourceError {

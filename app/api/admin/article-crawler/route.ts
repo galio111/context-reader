@@ -8,6 +8,7 @@ import {
   updateRecommendationAutomationConfig,
 } from "@/lib/recommendationAutomation";
 import { getDiscoverySites } from "@/lib/discoveryStore";
+import { getEditorialConfig } from '@/lib/editorialReview';
 import { requestExternalOrigin } from "@/lib/requestSecurity";
 import { sendSiteNotificationEmail } from "@/lib/siteNotificationEmail";
 import type { RecommendationCrawlerRunInput } from "@/types/recommendationCrawler";
@@ -19,10 +20,11 @@ export async function GET() {
     return NextResponse.json({ error: "需要管理员权限。" }, { status: 401 });
   }
   const automation = await getRecommendationAutomationStatus();
+  const editorial = await getEditorialConfig();
   return NextResponse.json({
     scheduled: Boolean(process.env.CRON_SECRET?.trim()) && automation.config.enabled,
     scheduleLabel: automation.config.enabled
-      ? `每天约 ${automation.config.runTime}（北京时间）开始分批抓取，各站合计目标 ${automation.config.maxNewArticles} 篇`
+      ? `每天约 ${automation.config.runTime}（北京时间）开始分批抓取，${editorial.enabled ? '每个板块至少 14 篇，每板块及总数均不设上限' : `各站合计目标 ${automation.config.maxNewArticles} 篇`}`
       : "定时自动补充已关闭",
     maxNewArticlesPerRun: automation.config.maxNewArticles,
     automation,

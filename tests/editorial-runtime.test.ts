@@ -97,7 +97,7 @@ test("unexpected batch failure closes today's ledger and requests today's report
 
 test("final recovery report includes approved backlog selections and preserves sent-report idempotency",async()=>{
   const today=shanghaiDay(),at=new Date().toISOString();
-  const articles=Array.from({length:85},(_,i)=>({id:String(i),title:"Article "+i,summary:"Summary",body:"Reading",source_url:"https://example.org/"+i,source_name:"Example",created_at:at,updated_at:at,recommendation:{topics:["社会生活"],difficulty:"CET-6 / 考研",homepageCategory:i<43?"时事":i<59?"科技":i<72?"文化":"商业"}}));
+  const articles=Array.from({length:85},(_,i)=>({id:String(i),title:"Article "+i,summary:"Summary",body:"Reading",source_url:"https://example.org/"+i,source_name:"Example",created_at:at,updated_at:at,recommendation:{topics:["社会生活"],difficulty:"CET-6 / 考研",homepageCategory:i<35?"时事":i<50?"科技":i<65?"文化":"商业"}}));
   const values=new Map<string,unknown>([
     ["homepage_publication_curation",{selectedAtById:Object.fromEntries(articles.map(a=>[a.id,at]))}],
     ["recommendation_automation_config",{enabled:true,runTime:"06:00",maxNewArticles:60}],
@@ -118,7 +118,7 @@ test("final recovery report includes approved backlog selections and preserves s
     return Response.json(keys.filter(k=>values.has(k)).map(key=>({key,value:values.get(key),updated_at:at})));
   });
   try {
-    const first=await reportEditorialRecovery();assert.equal(first.count,85);assert.equal(first.complete,true);assert.equal(first.counts["商业"],13);
+    const first=await reportEditorialRecovery();assert.equal(first.count,85);assert.equal(first.complete,true);assert.equal(first.counts["商业"],20);
     assert.equal((values.get("recommendation_automation_state") as {lastCreatedCount:number}).lastCreatedCount,85);
     const key=`recommendation_editorial_email_${today}_60_complete_recovery`;
     assert.equal((values.get(key) as {count:number}).count,85);

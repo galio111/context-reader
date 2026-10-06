@@ -57,5 +57,5 @@ test('real approved business output can fill the deficit even if the feed lacks 
  const site={id:'climate',topics:['自然环境','社会生活'],enabled:true,verification:{ok:true},levelHint:'mixed'};
  const counts={'时事':14,'科技':17,'文化':15,'商业':12};
  assert.equal(rankEditorialSources([site],counts,{}, {climate:{total:10,categories:{'商业':2}}}).length,1);
- assert.equal(rankEditorialSources([site],counts,{}, {climate:{total:10,categories:{'时事':10}}}).length,0);
+ assert.equal(rankEditorialSources([site],counts,{}, {climate:{total:10,categories:{'时事':10}}}).length,1);
 });

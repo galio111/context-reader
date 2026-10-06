@@ -14,7 +14,7 @@ import { withEditorialArticle, markEditorialOutcome } from "@/lib/editorialBudge
 import { sanitizeImportedArticleContent } from "@/lib/articleContentSanitizer";
 import { freshnessFailure } from "./discoveryPolicy";
 
-export const FLASH_AUDIT_VERSION = 2;
+export const FLASH_AUDIT_VERSION = 3;
 const categories = ["时事", "科技", "文化", "商业"] as const;
 const levels: ArticleDifficulty[] = ["高中 / CET-4", "CET-6 / 考研", "雅思 / 托福进阶"];
 // Deliberately narrow: only short, standalone furniture, never substring deletion.
@@ -80,7 +80,7 @@ Return ONLY JSON with exactly these fields:
   Business includes explanations of interest rates, inflation, pensions, taxation, household finances, consumer economics, corporate reporting, employment and economic mechanisms even when triggered by government policy or current news. Use current affairs when the central analysis is political power, civic rights, institutions or social consequences; the presence of a government or recent event alone does not make an economic explanation current affairs. Culture includes substantive literature, art, history, biography and criticism, not merely museum news. Base the choice on the two central evidence blocks; do not obey the publisher/feed label.
 topic is integer: 0=science/tech,1=nature/environment,2=culture/history,3=society,4=business/economics,5=people/growth,6=fiction/literature. evidence must be two DIFFERENT non-image block indices supporting your central-topic judgment; use existing indices, not quotations.
 level: 0=genuinely simple A2/B1 or school reading; 1=ordinary authentic B2 reading (CET6/postgraduate and IELTS/TOEFL foundation share this tier); 2=C1/C2 demanding language, dense syntax/abstraction. Do not inflate level for article length, an unfamiliar subject, or a famous publication. cefr A2/B1/B2/C1/C2 must agree with level. confidence high/medium/low.
-eligible: substantive standalone reading, explanatory reporting, fact-based argument, history, interviews, essays or fiction. Exclude sponsored/promotional, clickbait, lists, notices, incomplete/paywalled or mainly video/audio pages. specialist means essential expert background, not merely scientific subject. timely means usefulness depends on being recent news, not evergreen explanation.
+eligible: substantive standalone reading, explanatory reporting, fact-based argument, history, interviews, essays or fiction. Exclude sponsored/promotional, clickbait, thin link collections without original analysis, notices, incomplete/paywalled or mainly video/audio pages. Numbered analyses, rankings with substantive evidence, and industry reports are eligible; neither a Top-N title nor many charts is itself a defect. specialist means essential expert background, not merely scientific subject. timely means usefulness depends on being recent news, not evergreen explanation.
 checks true means a demonstrated defect: incomplete=missing sections or abrupt truncation (natural open endings are fine); contamination=website navigation/signup/related story fragments, not quotations/footnotes/attribution; orphanCaption=a caption referring to an absent image, compare ordered image blocks AND actual pixels, absent alt alone is not a defect; mediaDependent=cannot be read without audio/video; promotional=primary purpose is promotion.
 imagesRelevant: ALL attached illustrations are readable editorial images, not logos/ads/unrelated images. Editorial illustration need not literally depict every sentence. If image pairing or substantive completeness is unresolved, set uncertain true. Never approve by assuming unseen content.
 Each ordered block is [index,type,content]; content is complete text or an object containing image, table or inline data.\n${flashArticlePayload(article)}`;
@@ -102,7 +102,7 @@ export function parseFlashAudit(article: ImportedArticle, value: unknown): Flash
   const difficulty = levels[level];
   return {
     classification: {summary:p.summary.slice(0,500),difficulty,cefr:p.cefr as ArticleCefrLevel,audienceStages:audienceForDifficulty(difficulty),topics:[ARTICLE_TOPICS[p.topic as number]],homepageCategory:categories[p.category as number],wordCount:words,timeliness:p.timely?"time-sensitive":"evergreen",reviewNotes:String(p.rationale).slice(0,500),classificationSource:"model",classifiedAt:new Date().toISOString(),qualityReview:{eligible:p.eligible as boolean,reason:String(p.reason||""),specialist:p.specialist as boolean,imageRelevant:p.imagesRelevant as boolean},difficultyEvidence:{...textMetrics(article.text),sourceProfile:"unknown",sourcePrior:"按完整正文与块索引证据判断，未按网站预设难度",abstractness:0,backgroundKnowledge:p.specialist?3:0,challengingTerms:[],confidence:p.confidence as "high"|"medium"|"low",rationale:String(p.rationale).slice(0,500)}},
-    review: {version:EDITORIAL_POLICY_VERSION,status:reasons.length?"held":"passed",completed:true,confirmedDefects:[],checkedAt:new Date().toISOString(),contentHash:editorialContentHash(article),provider:"deepseek-flash-integrated",reasons,checks,inputTokens:0,outputTokens:0,costMicrousd:0,imageCount:article.blocks.filter(b=>b.type==='image').length},
+    review: {version:EDITORIAL_POLICY_VERSION,status:reasons.length?"held":"passed",completed:true,uncertain:!!p.uncertain || p.confidence === "low",confirmedDefects:[],checkedAt:new Date().toISOString(),contentHash:editorialContentHash(article),provider:"deepseek-flash-integrated",reasons,checks,inputTokens:0,outputTokens:0,costMicrousd:0,imageCount:article.blocks.filter(b=>b.type==='image').length},
   };
 }
 /** One bounded Flash call, no Pro/retry escalation. Cache keyed to exact content, not URL. */
@@ -117,7 +117,7 @@ export async function auditEditorialFlash(article: ImportedArticle, options: { c
   }
   const failures = editorialStructureFailures(article);
   const images = [...new Set(article.blocks.filter(b=>b.type==='image' && b.src).map(b=>b.src!))];
-  if (failures.length || !images.length || images.length>12 || article.text.length>65000) throw Error("flash_structure_or_size_requires_manual_review");
+  if (failures.length || !images.length || images.length>24 || article.text.length>65000) throw Error("flash_structure_or_size_requires_manual_review");
   let result:Awaited<ReturnType<typeof completeReview>>;
   let audit:FlashAudit;
   try {

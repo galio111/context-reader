@@ -7,16 +7,18 @@ import { sendSiteNotificationEmail } from "@/lib/siteNotificationEmail";
 import type { RecommendationAutomationState } from "@/types/recommendationCrawler";
 import { getEditorialConfig } from "@/lib/editorialReview";
 import { runEditorialBatch } from "@/lib/editorialRunner";
+import { pollEditorialFeeds } from '@/lib/editorialIntake';
 
 export async function runDiscoveryBatch(origin: string, trigger: "scheduled" | "manual", now = new Date(), sourceId?: string): Promise<RecommendationAutomationRunResponse> {
   return withDiscoveryLease(async () => {
     const initial = await getRecommendationAutomationStatus(now);
     const today = shanghaiDay(now);
+    const editorial = await getEditorialConfig();
     if (trigger === "scheduled") {
       if (!initial.config.enabled) return { skipped: "disabled", status: initial };
+      if (editorial.enabled && !sourceId) await pollEditorialFeeds(await getDiscoverySites(), now.getTime());
       if (now < new Date(`${today}T${initial.config.runTime}:00+08:00`)) return { skipped: "not_due", status: initial };
     }
-    const editorial = await getEditorialConfig();
     if (editorial.enabled && !sourceId) return runEditorialBatch(origin, trigger, editorial, now);
     const savedDay = await readDiscoverySetting<DiscoveryDay>(DAY_KEY, { day: today, sites: {} });
     const ledger: DiscoveryDay = savedDay.day === today ? savedDay : { day: today, sites: {} };

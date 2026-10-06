@@ -1,4 +1,3 @@
-import { DAILY_CATEGORY_MIN } from "./editorialDistribution";
 import { editorialCategoryForArticle } from "./editorialCuration";
 import { freshnessFailure } from "./discoveryPolicy";
 import type { PublicArticle } from "../types/publicArticle";
@@ -7,7 +6,7 @@ export function approvedRefreshPool(articles: PublicArticle[], counts: Record<st
   const seen = new Set(attempted);
   return articles.filter(a => a.importedArticle && a.recommendation?.sourceKind === "crawler"
     && !a.recommendation.rejectedAt && a.recommendation.editorialReview?.status === "passed"
-    && !seen.has(a.id) && (counts[editorialCategoryForArticle(a)] || 0) < DAILY_CATEGORY_MIN
+    && !seen.has(a.id)
     && !freshnessFailure([a.importedArticle.publishedTime || ""], a.recommendation.timeliness === "time-sensitive"))
     .sort((a,b) => (counts[editorialCategoryForArticle(a)] || 0) - (counts[editorialCategoryForArticle(b)] || 0)
       || Date.parse(b.createdAt) - Date.parse(a.createdAt));

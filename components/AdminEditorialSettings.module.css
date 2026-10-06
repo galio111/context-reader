@@ -13,5 +13,13 @@
 .root :is(button,input,select):focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .root :disabled { opacity: .65; cursor: wait; }
 .root p[data-error="true"] { color: var(--error); }
+.root a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.root a:focus-visible, .root summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.intake { margin-top: 28px; border-top: 1px solid var(--line); padding-top: 20px; }
+.intake details { border-bottom: 1px solid var(--line); padding: 10px 0; }
+.intake summary { cursor: pointer; min-height: 44px; padding: 6px 0; font-size: 15px; line-height: 1.7; }
+.intake summary:hover { color: var(--accent); }
+.intake summary span { display: block; color: var(--muted); font-size: 14px; }
+.issue { padding: 14px 0; border-top: 1px solid var(--line); overflow-wrap: anywhere; }
 :global(html[data-context-theme="night"]) .root { --surface: #17222d; --ink: #edf2f6; --muted: #bac9d6; --line: #8198ac; --field: #0e1720; --hover: #293e51; --accent: #8ecbff; --error: #ffb1b1; }
 @media (max-width: 480px) { .root { padding: 14px; } .fields label { flex-basis: 100%; } }

@@ -1,4 +1,5 @@
-import {categoryHasCapacity,DAILY_CATEGORIES,distributionSatisfied} from './editorialDistribution';
+import {DAILY_CATEGORIES,DAILY_TOTAL_MIN,distributionSatisfied} from './editorialDistribution';
+import { captureEditorialRound, editorialIntakeStatus } from './editorialIntake';
 import {supplyRetryDue,supplyRetryTime,type SupplyRetryLedger} from './editorialSupplyRetry';
 import {rankEditorialSources, type SourceCategoryYield} from './editorialSourcePriority';
 import {isFirstPartyArticleImageUrl} from './articleImageUrls';
@@ -23,9 +24,9 @@ import { editorialCategoryForArticle } from "@/lib/editorialCuration";
 import { getRecommendationAutomationStatus, type RecommendationAutomationRunResponse } from "@/lib/recommendationAutomation";
 import type { PublicArticle } from "@/types/publicArticle";
 
-export const EDITORIAL_TARGET = 60;
-export const EDITORIAL_MINIMUM = 55;
-const DAILY_DISCOVERY_TARGET = EDITORIAL_TARGET;
+// Preserve existing report identities to avoid resending accepted SMTP deliveries.
+const DAILY_DISCOVERY_TARGET = 60;
+export const EDITORIAL_MINIMUM = DAILY_TOTAL_MIN;
 const PENDING_KEY = "recommendation_editorial_pending_curation_v1";
 
 /** Completed days use only tiny settings reads; yesterday's email state cannot suppress today's report. */
@@ -34,7 +35,7 @@ export async function editorialDayClosed(day:string, read=readDiscoverySetting):
   if(!ledger.finished)return false;
   if(ledger.suspended)return true;
   if(supplyRetryDue(ledger))return false;
-  const reports=await Promise.all([EDITORIAL_TARGET,30].flatMap(target=>["complete","shortfall"].map(kind=>read<{status?:string}>(`recommendation_editorial_email_${day}_${target}_${kind}`,{}))));
+  const reports=await Promise.all([DAILY_DISCOVERY_TARGET,30].flatMap(target=>["complete","shortfall"].map(kind=>read<{status?:string}>(`recommendation_editorial_email_${day}_${target}_${kind}`,{}))));
   return reports.some(report=>report.status==="sent");
 }
 
@@ -103,6 +104,9 @@ async function notifyDailyResult(today: string, articles: PublicArticle[], attem
   if (previous.status === "sent") return { status: "sent" as const, error: "" };
   if (previous.at && Date.now() - previous.at < 15 * 60_000) return null;
   const report = editorialDailyReport(today, articles, attempts, complete, await getEditorialSpend(today), undefined, config.dailyBudgetCny);
+  const intake = await editorialIntakeStatus(await getDiscoverySites());
+  report.text += '\n\n来源与待处理记录（累计）：\n' + intake.map(s => `${s.name}：等待审核 ${s.counts.waiting}；技术重试 ${s.counts.retry}；需要检查 ${s.counts.attention}；内容未入选 ${s.counts.rejected}；规则跳过 ${s.counts.skipped}。${s.feedErrors.length ? '订阅读取异常，保留已发现文章。' : ''}`).join('\n');
+  report.text += '\n达到篇数门槛不表示所有来源读取正常或所有文章已审完。技术失败不是内容不合格；后台保留原因与重试入口。';
   await writeDiscoverySetting(key, { status: "sending", at: Date.now(), count: articles.length });
   const result = await sendSiteNotificationEmail(report.subject, report.text);
   await writeDiscoverySetting(key, { ...result, at: Date.now(), count: articles.length });
@@ -190,12 +194,10 @@ async function runBudgetedBatch(origin: string, trigger: "scheduled" | "manual",
     return -(category*4+difficulty*3+source*2);
   };
   const counts=()=>Object.fromEntries(DAILY_CATEGORIES.map(k=>[k,todays().filter(a=>editorialCategoryForArticle(a)===k).length]));
-  const targetSatisfied=()=>todays().length>=EDITORIAL_TARGET&&distributionSatisfied(counts());
   const publishPool = async () => {
     const pool=candidates.filter(eligibleEditorialCandidate).filter(a=>!published.some(b=>b.id===a.id) && ledger.publishFailures?.[a.id]?.revision!==a.updatedAt);
     while(pool.length) {
       pool.sort((a,b)=>score(b)-score(a)); const candidate=pool.shift()!;
-      if(!categoryHasCapacity(editorialCategoryForArticle(candidate),counts()[editorialCategoryForArticle(candidate)]||0))continue;
       // Balance ranks eligible items, never discards them or creates a paid retry.
       await writeDiscoverySetting(PENDING_KEY,[candidate.id]);
       try {
@@ -213,12 +215,13 @@ async function runBudgetedBatch(origin: string, trigger: "scheduled" | "manual",
     }
   };
   await publishPool(); // Reuse already-paid valid candidates before spending on discovery.
+  const sourceSites = await getDiscoverySites();
+  const scanComplete = await captureEditorialRound(sourceSites, ledger.recoveryAt);
   const spend=await getEditorialSpend(today);
   const maySpend=!spend.blocked && spend.actualMicrocny+spend.reservedMicrocny<(config.dailyBudgetCny??1.5)*1e6;
-  const softBudgetReached=distributionSatisfied(counts()) && spend.actualMicrocny+spend.reservedMicrocny>=1e6;
   const expired=Date.now()>Date.parse(ledger.deadlineAt || new Date(Date.parse(ledger.startedAt)+120*60_000).toISOString());
   const refresh=approvedRefreshPool(candidates.filter(a=>!eligibleEditorialCandidate(a)),counts(),ledger.refreshedIds)[0];
-  const canWork=!targetSatisfied() && maySpend && !softBudgetReached && !expired && ledger.attempts<config.dailyReviewLimit && (ledger.failureStreak||0)<3;
+  const canWork=maySpend && !expired && ledger.attempts<config.dailyReviewLimit && (ledger.failureStreak||0)<3;
   let refreshResult:RecommendationAutomationRunResponse["result"];
   let refreshError="";
   if(canWork && refresh) {
@@ -245,19 +248,20 @@ async function runBudgetedBatch(origin: string, trigger: "scheduled" | "manual",
     if(article.recommendation?.editorialReview?.status==='passed')row.categories[category]=(row.categories[category]||0)+1;
   }
   const waveVisits=Object.fromEntries(Object.entries(ledger.sites).map(([id,entry])=>[id,{...entry,visits:entry.waveVisits ?? entry.visits}]));
-  const sites=rankEditorialSources(await getDiscoverySites(),counts(),waveVisits,observed);
+  const intakeStatus = await editorialIntakeStatus(sourceSites);
+  const sites=rankEditorialSources(sourceSites.map(s=>({...s,pendingCount:intakeStatus.find(q=>q.id===s.id)?.due || 0})),counts(),waveVisits,observed);
   const site=sites[0];
   let result:RecommendationAutomationRunResponse["result"]=refreshResult;
   const before=todays().length;
-  if (!refresh && !targetSatisfied() && maySpend && !softBudgetReached && !expired && site && ledger.attempts<config.dailyReviewLimit && (ledger.failureStreak||0)<3) {
+  if (!refresh && canWork && site) {
     const entry=ledger.sites[site.id] ||= {visits:0,urls:[],empty:0};
     entry.visits++;if(entry.waveVisits!==undefined)entry.waveVisits++; const attempts=Math.min(3,config.dailyReviewLimit-ledger.attempts); ledger.attempts+=attempts;
     await writeDiscoverySetting(dayKey,ledger);
-    result=await runRecommendationCrawler({topic:site.topics[0],difficulty:"any",targetInventory:0,ignoreInventoryTarget:true,inventoryScope:"candidates",sourceId:site.id,maxNewArticles:3,maxAttempts:attempts,feedPage:Math.min(6,entry.waveVisits ?? entry.visits),excludedUrls:entry.urls,editorial:config},origin);
+    result=await runRecommendationCrawler({topic:site.topics[0],difficulty:"any",targetInventory:0,ignoreInventoryTarget:true,inventoryScope:"candidates",sourceId:site.id,maxNewArticles:3,maxAttempts:attempts,feedPage:site.pendingCount?1:Math.min(6,entry.waveVisits ?? entry.visits),excludedUrls:entry.urls,editorial:config},origin);
     ledger.attempts-=Math.max(0,attempts-result.attempted);
-    entry.urls=[...new Set([...entry.urls,...result.skipped.map(s=>s.url),...result.created.map(a=>a.sourceUrl)])];
+    entry.urls=[...new Set([...entry.urls,...result.skipped.filter(s=>s.kind!=='technical_pending').map(s=>s.url),...result.created.map(a=>a.sourceUrl)])];
     entry.empty=result.created.length?0:(entry.empty||0)+1;
-    const faults=result.skipped.filter(s=>/flash_invalid|flash_missing|flash_inconsistent|editorial_provider|fetch failed|timeout|JSON/i.test(s.reason)).length;
+    const faults=result.skipped.filter(s=>s.kind==='technical_pending' && s.stage==='review' && /flash_invalid|flash_missing|flash_inconsistent|editorial_provider|fetch failed|timeout|JSON/i.test(s.reason)).length;
     ledger.failureStreak=result.created.length?0:faults?(ledger.failureStreak||0)+faults:0;
     // Append-only batch detail: historical failures must not be overwritten.
     await writeDiscoverySetting(`recommendation_editorial_batch_${today}_${site.id}_${entry.visits}`,{at:new Date().toISOString(),attempted:result.attempted,created:result.created.map(a=>a.id),skipped:result.skipped,sourceErrors:result.sourceErrors});
@@ -266,13 +270,13 @@ async function runBudgetedBatch(origin: string, trigger: "scheduled" | "manual",
   ledger.noProgress=todays().length>before?0:(ledger.noProgress||0)+1;
   const afterSpend=await getEditorialSpend(today);
   const remainingRefresh=approvedRefreshPool(candidates.filter(a=>!eligibleEditorialCandidate(a)),counts(),ledger.refreshedIds).length;
-  const stopped=targetSatisfied() || !maySpend || afterSpend.blocked || softBudgetReached || expired || (!site && !remainingRefresh) || ledger.attempts>=config.dailyReviewLimit || (ledger.failureStreak||0)>=3;
+  const stopped=scanComplete && (!maySpend || afterSpend.blocked || expired || (!site && !remainingRefresh) || ledger.attempts>=config.dailyReviewLimit || (ledger.failureStreak||0)>=3);
   const complete=stopped && distributionSatisfied(counts());
-  const stopReason=afterSpend.blocked||!maySpend?"预算达到边界":expired?"120 分钟时限":!site?"缺口板块来源耗尽":ledger.attempts>=config.dailyReviewLimit?`尝试次数达到 ${config.dailyReviewLimit}`:(ledger.failureStreak||0)>=3?"连续模型失败":"数量或分类边界";
+  const stopReason=afterSpend.blocked||!maySpend?"预算达到边界，未审核文章保留":expired?"120 分钟时限，未审核文章保留":!site?"本轮可处理来源耗尽，技术问题保留":ledger.attempts>=config.dailyReviewLimit?`尝试次数达到 ${config.dailyReviewLimit}，未审核文章保留`:(ledger.failureStreak||0)>=3?"连续模型失败，保留待重试":"继续处理";
   ledger.finished=stopped;ledger.stopReason=stopReason;
   if(stopped) {
     ledger.processingMs=Math.min(120*60_000,(ledger.processingMs||0)+Math.max(0,Date.now()-Date.parse(ledger.processingStartedAt || ledger.startedAt)));
-    ledger.nextSupplyRetryAt=!complete && !site && !remainingRefresh && maySpend && !afterSpend.blocked && !expired && ledger.attempts<config.dailyReviewLimit && (ledger.failureStreak||0)<3 && !ledger.supplyRetryCount ? supplyRetryTime(today,Date.now(),ledger.processingMs) : undefined;
+    ledger.nextSupplyRetryAt=!site && !remainingRefresh && maySpend && !afterSpend.blocked && !expired && ledger.attempts<config.dailyReviewLimit && (ledger.failureStreak||0)<3 && !ledger.supplyRetryCount ? supplyRetryTime(today,Date.now(),ledger.processingMs) : undefined;
   }
   await writeDiscoverySetting(dayKey,ledger);
   const email=stopped?await notifyDailyResult(today,todays(),ledger.attempts,complete,config):null;

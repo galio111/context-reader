@@ -192,5 +192,5 @@ test("only completed confirmed defects leave the active candidate queue", async 
   assert.equal(confirmedEditorialRejection(base), false);
   assert.equal(confirmedEditorialRejection({ ...base, status: "held", confirmedDefects: [] }), false);
   assert.equal(confirmedEditorialRejection({ ...base, status: "held", completed: false, confirmedDefects: ["contamination"] }), false);
-  assert.equal(confirmedEditorialRejection({ ...base, status: "held", completed: true, confirmedDefects: ["contamination"] }), true);
+  assert.equal(confirmedEditorialRejection({ ...base, status: "held", completed: true, confirmedDefects: ["contamination"] }), false);
 });

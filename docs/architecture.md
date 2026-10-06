@@ -32,7 +32,7 @@ Production builds retain immutable Brotli JS/CSS sidecars. The public catalogue 
 统一功能/套餐主备模型与 MiMo 直连已生产。自动精选当前数量规则见 automated-editorial.md，¥1.50 共享硬预算保留。MiMo 真实及线上连接通过；Jev 无有效密钥，关闭。见 [模型控制说明](model-control.md)。
 
 
-自动精选参考目标约 60，至少 55；时事至少 13 且无上限，科学、文化、商业各 13–17，总数无硬上限，预算不足报告缺口。默认 Flash 综合审核，Jev 关闭；新后台允许按功能和套餐切换主备模型。质量门槛、手动候选和高中标签保留。完整规则见 automated-editorial.md。
+自动精选当前合同：时事、科学、文化、商业每天各至少 14 篇，四板块和总数均不设上限。缺口影响优先级，不排除其他来源；达标后继续发现、审核与发布。每小时分批保存所有已启用且已验证来源的 RSS 链接；06:00 开始付费审核。未处理及技术失败跨日持久保留，技术重试/需要检查与内容拒绝分开记录。v3完整性、图片入桶、正文哈希、48小时审核及新闻7日时效仍必需；240次尝试、120分钟、¥1.50共享硬预算保留，去掉达标后 ¥1 软停止。手动候选和高中标签不变；规则与限制见 automated-editorial.md。
 
 2026-09-29 自动精选在某板块不足 13 篇时只轮询有机会补该板块的已验证来源，优先缺口来源，同时保留已证明能补位的兼含主题来源；近 72 小时的实际审核分类会调整优先级，至少八篇审核输出却没有缺口板块产出的来源暂不继续消耗该板块的尝试次数。综合审核的 HTTP 200 响应必须有非空内容与完整 token usage，否则记录为供应商失败并按已配置路由尝试备用，同时保留未知费用预留。当前生产文字/图片审核为 DeepSeek Flash 主用、MiMo 备用，商业来源扩为 The Conversation AU/US/UK Business 与 CNBC Business/Economy，¥1.50 硬预算及 401 词、已存储正文图片、审核哈希等发布门槛不变。三日日账与未验证的下一日收益见 [供给审计](editorial-supply-20260929.md)。Reader 图片快速下滑时的灰色占位及短暂停顿仍待修复，见 [Reader 图片滚动问题](featured-image-scroll-open-issue.md)。
 
@@ -325,7 +325,7 @@ Reader 切换文章建立独立阅读会话，清空来源词高亮与旧翻译�
 
 语境形容词的 -ed/-ing 词目保留实际形容词形式，前端流式合并和 Anki 导出同步规范；旧 Anki 已导入笔记不会自动改写。解释服务先有限重试损坏 JSON，最终失败仍按原分类保留私有错误报告。
 
-自动精选当前合同：60 为参考目标、总数至少55且无硬上限；时事至少13、不设上限，科学/文化/商业各13–17。先补缺口板块，达标后停止新增付费发现，已有合格时事继续发布。仅 Flash 合并全文分类/难度/图文审核，Jev 与自动 Pro 升级关闭。v3完整性、图片入桶、正文哈希、48小时审核及新闻7日时效仍必需；240自动尝试、120分钟、¥1.50共享硬预算与失败收尾/当前日邮件保留。手动候选和高中标签不变；规则见 automated-editorial.md，恢复证据见 editorial-recovery-20261004.md。
+自动精选当前合同：时事、科学、文化、商业每天各至少 14 篇，四板块和总数均不设上限。缺口影响优先级，不排除其他来源；达标后继续发现、审核与发布。每小时分批保存所有已启用且已验证来源的 RSS 链接；06:00 开始付费审核。未处理及技术失败跨日持久保留，技术重试/需要检查与内容拒绝分开记录。v3完整性、图片入桶、正文哈希、48小时审核及新闻7日时效仍必需；240次尝试、120分钟、¥1.50共享硬预算保留，去掉达标后 ¥1 软停止。手动候选和高中标签不变；规则与限制见 automated-editorial.md。
 
 Standalone dictionary synonym, word-family, collocation and Chinese-to-English expression headings share a small arrow button that queries the exact displayed English word or phrase through the existing lookup callback. Cached replay, history, quota and offline handling remain shared with typed queries. Buttons are disabled during streaming and expose a word-specific accessible label; coarse pointers receive a 44 px target. The query input also filters the complete stored lookup history by normalized, case-insensitive prefix while focused. Its inline scrollable combobox lists every match in existing recent-first order, supports ArrowUp/ArrowDown, Enter and Escape, and closes on blur or lookup. Filtering never calls an API or consumes quota; selecting a match reuses normal cached lookup and history handling. Empty input hides the list and unmatched input remains available for a new deep query.
 
@@ -357,7 +357,7 @@ Production release `20260919T223000`, parent `20260919T221000`, source `10862dfd
 
 Zhipu is included in the unified per-model report alongside DeepSeek and MiMo. The old dedicated Zhipu panel is no longer mounted in the accounts UI; its legacy API response remains compatible. All records remain Admin-only.
 
-自动精选当前合同：60 为参考目标、总数至少55且无硬上限；时事至少13、不设上限，科学/文化/商业各13–17。先补缺口板块，达标后停止新增付费发现，已有合格时事继续发布。仅 Flash 合并全文分类/难度/图文审核，Jev 与自动 Pro 升级关闭。v3完整性、图片入桶、正文哈希、48小时审核及新闻7日时效仍必需；240自动尝试、120分钟、¥1.50共享硬预算与失败收尾/当前日邮件保留。手动候选和高中标签不变；规则见 automated-editorial.md，恢复证据见 editorial-recovery-20261004.md。
+自动精选当前合同：时事、科学、文化、商业每天各至少 14 篇，四板块和总数均不设上限。缺口影响优先级，不排除其他来源；达标后继续发现、审核与发布。每小时分批保存所有已启用且已验证来源的 RSS 链接；06:00 开始付费审核。未处理及技术失败跨日持久保留，技术重试/需要检查与内容拒绝分开记录。v3完整性、图片入桶、正文哈希、48小时审核及新闻7日时效仍必需；240次尝试、120分钟、¥1.50共享硬预算保留，去掉达标后 ¥1 软停止。手动候选和高中标签不变；规则与限制见 automated-editorial.md。
 
 ## Accented lookup and homepage media
 
@@ -392,3 +392,7 @@ The provider transport no longer awaits the successful first-content health data
 
 
 自动精选成本与供给修复：同内容通过缓存不足48小时，未通过同内容保留七天；缓存时效证据在再次付费前拦截过期新闻。ICN/Nieman确定性页面模块清理仍需完整性核验；图片可读性先5秒直连、后12秒备用，原图入桶质量不变。仅来源耗尽且仍有预算/次数/处理时间的未达标日，上午可有一次后续新供给检查；暂停与其他硬边界不重跑。请求及邮件区分日常任务、缺口补齐、历史候选批处理，仍共享预算。见 [5日修复](editorial-efficiency-20261005.md)。
+
+## Editorial intake reliability
+
+Discovery and paid review are separate lifecycles. An hourly, three-source-per-tick sweep persists feed URLs under the discovery lease even when a paid day is closed. Per-source durable queues retain unfinished work across RSS rotation, classify failures by pipeline stage and provide bounded retry plus Admin inspection. Category floors are 14 without publication ceilings; source hints only prioritize. `AdminEditorialSettings` uses its existing paired day/night palette for the collapsible source log, keyboard focus and retry actions. Queue and publication security contracts are specified in automated-editorial.md and integration-guide.md.

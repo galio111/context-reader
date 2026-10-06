@@ -9,6 +9,8 @@ import { localizePublicArticleInputCover, localizeImportedArticleImages, withRem
 import { articleHasHomepageImage } from "@/lib/articleMedia";
 import { assertCrawlerAllowed } from "@/lib/crawlerRobots";
 import { discoveryImageIsReadable } from "@/lib/discoveryImages";
+import { captureEditorialSource, queuedFeedItems, recordEditorialIntake } from './editorialIntake';
+import { EditorialIntakeError, intakeFailure, type IntakeStage } from './editorialIntakePolicy';
 import { listArticleCandidates, listPublicArticles, saveArticleCandidate } from "@/lib/publicArticles";
 import type { ImportedArticle } from "@/types/article";
 import type { ArticleRecommendationMetadata, PublicArticle, PublicArticleCandidateInput } from "@/types/publicArticle";
@@ -167,7 +169,7 @@ export async function runRecommendationCrawler(
     if (site.feedPagination !== "none" && input.editorial?.enabled && input.feedPage && input.feedPage > 1 && /\/feed(?:\/rss)?\/?$/.test(url.pathname)) url.searchParams.set("paged", String(Math.min(6, Math.floor(input.feedPage))));
     return { ...site, feedUrl: url.href };
   }));
-  const feedResults = await Promise.allSettled(refresh ? [] : sources.map((source) => readSourceFeed(source, input.topic)));
+  const feedResults = await Promise.allSettled(refresh || input.editorial?.enabled ? [] : sources.map((source) => readSourceFeed(source, input.topic)));
   const discoveredItems: FeedItem[] = [];
   feedResults.forEach((feedResult, index) => {
     if (feedResult.status === "fulfilled") {
@@ -179,6 +181,13 @@ export async function runRecommendationCrawler(
       });
     }
   });
+  if (input.editorial?.enabled && !refresh) {
+    for (const site of configured) {
+      const state = await captureEditorialSource(site, input.feedPage || 1);
+      discoveredItems.push(...queuedFeedItems(site, state));
+      resultBase.sourceErrors.push(...state.feedErrors.map(message => ({ sourceName: site.name, message })));
+    }
+  }
   if (refresh) {
     if (!configured[0]) throw new Error("候选来源尚未验证，留待人工核实。");
     const dateFailure = freshnessFailure([refresh.importedArticle?.publishedTime || ""], refresh.recommendation?.timeliness === "time-sensitive");
@@ -195,10 +204,14 @@ export async function runRecommendationCrawler(
   const knownUrls = new Set([...allArticles.map((article) => article.sourceUrl), ...excludedUrls].map(canonicalArticleUrl).filter(Boolean));
   const knownTitles = new Set(allArticles.map((article) => normalizedFeedTitle(article.title)).filter(Boolean));
   const knownArticleIds = new Set(allArticles.map((article) => article.id));
+  if (input.editorial?.enabled && !refresh) {
+    for (const item of discoveredItems) {
+      if (knownUrls.has(canonicalArticleUrl(item.url))) await recordEditorialIntake(item, { skipped: '该 URL 已有候选、已发布或被管理员排除。' });
+    }
+  }
   const uniqueItems = interleaveSources(
     [...new Map(discoveredItems.map((item) => [canonicalArticleUrl(item.url), item])).values()]
-      .filter((item) => !knownUrls.has(canonicalArticleUrl(item.url)) && !knownTitles.has(normalizedFeedTitle(item.title)) && !input.excludedUrls?.includes(item.url))
-      .filter(item => !input.editorial?.enabled || !/\/(?:videos?|films?)\/|\/image-article\/apod-|\/shorts\//i.test(new URL(item.url).pathname)),
+      .filter((item) => !knownUrls.has(canonicalArticleUrl(item.url)) && (input.editorial?.enabled || !knownTitles.has(normalizedFeedTitle(item.title)) && !input.excludedUrls?.includes(item.url))),
   );
   resultBase.discovered = uniqueItems.length;
 
@@ -209,17 +222,14 @@ export async function runRecommendationCrawler(
   for (const item of uniqueItems) {
     if (resultBase.created.length >= needed || resultBase.attempted >= (input.maxAttempts ?? 3) || Date.now() - Date.parse(startedAt) > 180_000) break;
     resultBase.attempted += 1;
+    let stage: IntakeStage = 'discovery';
     try {
       const earlyFailure = freshnessFailure([item.publishedAt], false);
-      if (earlyFailure) throw new Error(earlyFailure);
-      if (/\b(?:top \d+|week[’']s \d+ biggest funding rounds)\b/i.test(item.title)) throw new Error("榜单汇总不进入自动精选，节省模型调用。");
-      if (/\/image-article\/apod-/i.test(item.url)) throw new Error("天文每日图片短条目，不作为完整阅读文章");
-      if (/\b(?:sponsored|advertorial|paid content|partner content)\b/i.test(item.title + " " + item.description.slice(0, 400))) throw new Error("赞助或推广内容");
-      if (/newsinlevels\.com/.test(item.url) && !/-level-3(?:\/|$)/.test(item.url)) throw new Error("只收录 level 3 的完整阅读，避免同文多级重复");
-      if (allArticles.some((article) => similarArticle(item.title, article.title))) throw new Error("标题与已有文章高度相似");
-      if (/\/videos?\//i.test(new URL(item.url).pathname)) throw new Error("视频页面不进入自动候选。");
+      if (earlyFailure) throw new EditorialIntakeError(earlyFailure, 'technical_pending', true);
+      if (/newsinlevels\.com/.test(item.url) && !/-level-3(?:\/|$)/.test(item.url)) throw new EditorialIntakeError("只收录 level 3 的完整阅读，避免同文多级重复", 'policy_skipped');
+      stage = 'import';
       const imported = await importArticleThroughApi(origin, item.url);
-      if ((imported.article!.text.match(/\b[a-zA-Z]+\b/g) || []).length < minimumDiscoveryWords(item.source.levelHint)) throw new Error("正文不足 401 词，不调用模型清理短讯。");
+      stage = 'extraction';
       const originalArticle=imported.article!;
       const repair = { article: input.editorial?.enabled ? sanitizeImportedArticleContent(cleanEditorialFurniture(imported.article!)) : imported.article! };
       const blockIdentity=(b:typeof originalArticle.blocks[number])=>JSON.stringify([b.type,b.text,b.alt,b.src,b.caption]);
@@ -229,12 +239,13 @@ export async function runRecommendationCrawler(
       if (input.editorial?.enabled && (!imported.metadata?.completeness || imported.metadata.completeness.missingTextBlocks > 0 || imported.metadata.completeness.missingImages > 0)) throw new Error("页面正文结构与提取结果不一致，暂停自动收录以核实漏段或漏图。");
       if (imported.metadata?.intakeWarnings?.length) throw new Error(imported.metadata.intakeWarnings.join("；"));
       const words = (article.text.match(/\b[a-zA-Z]+\b/g) ?? []).length;
-      if (words < minimumDiscoveryWords(item.source.levelHint)) throw new Error(`正文只有 ${words} 词，自动候选必须超过 400 词`);
+      if (words < minimumDiscoveryWords(item.source.levelHint)) throw new EditorialIntakeError(`提取结果只有 ${words} 词，需核对原文是否完整；未作内容淘汰判断。`, 'technical_pending', true);
       const imageCount = article.blocks.filter((block) => block.type === "image").length;
       const host = new URL(item.url).hostname.replace(/^www\./, "");
       const isReviewedJstorGallery = host === "daily.jstor.org" && words >= 600 && imageCount <= 20;
-      if (imageCount > (input.editorial?.enabled ? 20 : 8) && !isReviewedJstorGallery) throw new Error("图片过多，可能是图库或合集，留待人工导入");
-      if (article.language && !/^en\b/i.test(article.language)) throw new Error("不是英文正文");
+      if (imageCount > (input.editorial?.enabled ? 24 : 8) && !isReviewedJstorGallery) throw new EditorialIntakeError("图片数量超过本批审核容量，保留待检查。", 'technical_pending', true);
+      if (article.language && !/^en\b/i.test(article.language)) throw new EditorialIntakeError("不是英文正文", 'policy_skipped');
+      stage = 'images';
       const images = article.blocks.filter((block) => block.type === "image" && block.src && !/logo|avatar|icon|banner|pixel|tracking/i.test(block.src));
       const covers = (imported.metadata?.coverCandidates ?? []).filter((url) => !/logo|avatar|icon|banner|pixel|tracking/i.test(url));
       if (!images.length && !covers.length) throw new Error("没有可用的文章配图");
@@ -253,26 +264,34 @@ export async function runRecommendationCrawler(
         article.blocks=localized.article.blocks;
         if(coverIndex>=0 && article.blocks[coverIndex].src)imported.metadata.coverCandidates=[article.blocks[coverIndex].src!];
       }
+      stage = 'review';
       const integrated = input.editorial?.enabled ? await auditEditorialFlash(article) : null;
       const classification = integrated?.classification || await classifyArticle(article.title, article.text, {
         sourceUrl:item.url, sourceName:item.source.name, usageRoute:"/api/admin/article-crawler", discoveryReview:true,
         imageDescriptions:images.map(image=>image.alt||"").join("; ")
       });
-      if (input.editorial?.enabled && !EDITORIAL_DIFFICULTIES.includes(classification.difficulty)) throw new Error("高中及以下难度暂停自动更新，保留原标签且不计入每日精选。");
-      if (!classification.qualityReview?.eligible) throw new Error(classification.qualityReview?.reason || "质量判断暂时不可用，未自动入库");
+      if (integrated?.review.status === 'held') {
+        const checks = integrated.review.checks;
+        const technical = checks.incomplete || checks.contamination || checks.orphanCaption || /质量或难度尚有疑点/.test(integrated.review.reasons.join('；'));
+        const confidentContent = !integrated.review.uncertain && classification.difficultyEvidence.confidence !== 'low' && (checks.promotional || checks.mediaDependent || classification.qualityReview?.specialist || classification.qualityReview?.eligible === false);
+        throw new EditorialIntakeError(integrated.review.reasons.join('；') || '全文或图片审核尚未确认。', technical || !confidentContent ? 'technical_pending' : 'content_rejected', technical || !confidentContent);
+      }
+      if (input.editorial?.enabled && !EDITORIAL_DIFFICULTIES.includes(classification.difficulty)) throw new EditorialIntakeError("高中及以下难度暂停自动更新，保留原标签且不计入每日精选。", 'policy_skipped');
+      if (!classification.qualityReview?.eligible) throw new EditorialIntakeError(classification.qualityReview?.reason || "质量判断暂时不可用，未自动入库", classification.qualityReview ? 'content_rejected' : 'technical_pending');
       if (!input.editorial?.enabled && images.some((image) => image.alt?.trim()) && !classification.qualityReview.imageRelevant) throw new Error("配图说明与正文主题不相符");
-      if (classification.topics.includes("科技科学") && classification.qualityReview.specialist) throw new Error("科学内容过于专业，不符合通俗科普要求");
+      if (classification.topics.includes("科技科学") && classification.qualityReview.specialist) throw new EditorialIntakeError("科学内容过于专业，不符合通俗科普要求", 'content_rejected');
       const dateFailure = freshnessFailure([article.publishedTime || "", item.publishedAt], classification.timeliness === "time-sensitive");
-      if (dateFailure) throw new Error(dateFailure);
+      if (dateFailure) throw new EditorialIntakeError(dateFailure, dateFailure.includes('超过 7 天') ? 'policy_skipped' : 'technical_pending', true);
       const rejectedSimilar = allCandidates.some((old) => old.recommendation?.rejectedAt && old.recommendation.rejectionReason === "内容没兴趣" && similarArticle(article.title + " " + classification.summary, old.title + " " + old.summary, 0.5));
-      if (rejectedSimilar) throw new Error("与之前标为不感兴趣的文章主题高度相似");
+      if (rejectedSimilar) throw new EditorialIntakeError("与之前标为不感兴趣的文章主题高度相似", 'policy_skipped');
       const difficultFeedback = allCandidates.some((old) => old.recommendation?.rejectedAt && old.recommendation.rejectionReason === "太专业或太难" && old.recommendation.discoverySourceId === item.source.id && similarArticle(article.title, old.title, 0.45));
-      if (difficultFeedback && (classification.qualityReview.specialist || classification.difficultyEvidence.backgroundKnowledge >= 3)) throw new Error("参考不精选反馈：该网站相似主题仍要求较多专业背景");
-      if (allArticles.some((old) => similarArticle(article.text.slice(0, 1600), old.body.slice(0, 1600), 0.85))) throw new Error("正文与已有文章高度相似");
+      if (difficultFeedback && (classification.qualityReview.specialist || classification.difficultyEvidence.backgroundKnowledge >= 3)) throw new EditorialIntakeError("参考不精选反馈：该网站相似主题仍要求较多专业背景", 'policy_skipped');
+      if (allArticles.some((old) => similarArticle(article.text.slice(0, 1600), old.body.slice(0, 1600), 0.85))) throw new EditorialIntakeError("正文与已有文章高度相似", 'policy_skipped');
       if (input.difficulty !== "any" && classification.difficulty !== input.difficulty) {
         resultBase.skipped.push({ title: item.title, url: item.url, reason: `判断为${classification.difficulty}，与目标难度不符` });
         continue;
       }
+      stage = 'storage';
       const prepared = await withRemoteImageDeadline(70_000,()=>localizePublicArticleInputCover(crawlerCandidateInput(item, imported, classification), { strictImages: input.editorial?.enabled }));
       if (refresh) { prepared.id = refresh.id; prepared.expectedUpdatedAt = refresh.updatedAt; }
       if (!articleHasHomepageImage({ ...prepared, importedArticle: prepared.importedArticle || undefined })) throw new Error("图片无法安全保存，未收录无图文章");
@@ -293,6 +312,7 @@ export async function runRecommendationCrawler(
         prepared.importedArticle.recommendation = prepared.recommendation;
       }
       const candidate = await saveArticleCandidate(prepared);
+      if (input.editorial?.enabled) await recordEditorialIntake(item, { candidateId: candidate.id });
       if (knownArticleIds.has(candidate.id)) {
         resultBase.skipped.push({ title: item.title, url: item.url, reason: "与候选库中已有文章内容重复" });
         knownUrls.add(canonicalArticleUrl(item.url));
@@ -305,10 +325,11 @@ export async function runRecommendationCrawler(
       knownUrls.add(canonicalArticleUrl(item.url));
       knownTitles.add(normalizedFeedTitle(candidate.title));
     } catch (error) {
+      if (input.editorial?.enabled) await recordEditorialIntake(item, { error, stage });
       resultBase.skipped.push({
         title: item.title,
         url: item.url,
-        reason: error instanceof Error ? error.message.slice(0, 180) : "抓取失败",
+        ...intakeFailure(error), stage,
       });
     }
   }

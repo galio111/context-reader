@@ -7,6 +7,15 @@ import {defaultModelConfig} from '../lib/modelCatalog';
 const prose='This paragraph explains the historical evidence and its implications for ordinary readers. '.repeat(40);
 const article:ImportedArticle={title:'Evidence and history',url:'https://sciencealert.com/example',siteName:'Example',text:prose,blocks:[{id:'a',type:'paragraph',text:prose},{id:'b',type:'paragraph',text:'The final paragraph explains the limitations.'},{id:'c',type:'image',src:'https://example.com/photo.webp',alt:'Artifact'}]};
 const output={category:2,topic:2,level:1,cefr:'B2',summary:'历史证据与解释',evidence:[0,1],rationale:'讨论历史文物，句法适合 B2',confidence:'high',timely:false,eligible:true,specialist:false,imagesRelevant:true,uncertain:false,checks:{incomplete:false,contamination:false,orphanCaption:false,mediaDependent:false,promotional:false},reason:'clean'};
+test('a substantive Top-100 report with 22 charts receives full review instead of a title/image-count veto',async()=>{
+ const report={...article,title:'Top 100 consumer AI apps',blocks:[...article.blocks.slice(0,2),...Array.from({length:22},(_,i)=>({id:'chart'+i,type:'image' as const,src:`https://example.com/chart-${i}.webp`}))]};
+ let supplied=0;
+ const audit=await auditEditorialFlash(report,{cache:false,config:defaultModelConfig(),complete:async(prompt,_model,images)=>{
+  supplied=images?.length||0;assert.match(prompt,/rankings with substantive evidence/);
+  return {parsed:output,usage:{},cost:0};
+ }});
+ assert.equal(supplied,22);assert.equal(audit.review.status,'passed');
+});
 test('Jev replaces confident text checks without asking LLM to decide them again',async()=>{
  const config=defaultModelConfig();config.jevEnabled=true;let calls=0;
  const audit=await auditEditorialFlash(article,{cache:false,config,jev:async()=>({incomplete:false,contamination:false,mediaDependent:false,promotional:false}),complete:async prompt=>{

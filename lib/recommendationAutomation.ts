@@ -172,7 +172,7 @@ export async function getRecommendationAutomationStatus(now = new Date()): Promi
   config.maxNewArticles = (await getDiscoverySites()).filter((site) => site.enabled).reduce((n, site) => n + site.dailyTarget, 0);
   const {getEditorialConfig}=await import("@/lib/editorialReview");
   if((await getEditorialConfig()).enabled) {
-    config.maxNewArticles=60;
+    config.maxNewArticles=56; // Compatibility field denotes the combined minimum, never a publication ceiling.
     const {readDiscoverySetting}=await import("@/lib/discoveryStore");
     const today=shanghaiParts(now).dateKey;
     const reports=await Promise.all(["complete","shortfall","complete_recovery","shortfall_recovery"].map(kind=>readDiscoverySetting<{status?:string;error?:string;at?:number}>(`recommendation_editorial_email_${today}_60_${kind}`,{})));
