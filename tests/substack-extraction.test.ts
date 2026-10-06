@@ -12,6 +12,7 @@ const ending = "The final paragraph explains the remaining uncertainty and the p
 const prose = `<p>${opening}</p><h3>1. The evidence</h3><p>${"Independent researchers compared the results across several communities and explained their methods. ".repeat(12)}</p>
 <figure><a class="image-link image2" data-component-name="Image2ToDOM" href="https://substackcdn.com/chart.jpeg"><picture><img src="https://substackcdn.com/chart.jpeg" width="1272" height="800"></picture></a><figcaption>Survey findings.</figcaption></figure>
 <div class="subscribe-widget"><p>Subscribe for updates from this publication.</p></div><div class="post-embed"><p>Unrelated recommended story.</p></div>
+<div data-component-name="DigestPostEmbed" class="digestPostEmbed-changingHash"><div><span>Unrelated author · Oct 2</span></div><div><a href="/p/another-post"><span>Read full story</span></a></div></div>
 <div class="newsletter-signup"><p>Newsletter signup promotion.</p></div><div hidden><p>Hidden article bait must stay excluded.</p></div>
 <h3>2. The conclusion</h3><p>${ending}</p>`;
 const shell = '<section id="discussion"><h4>Discussion about this post</h4><p>No posts</p><p>A long reader comment must never become the article body when the real body is missing from the page.</p></section><h3>Ready for more?</h3>';
@@ -24,7 +25,7 @@ for (const host of ["www.a16z.news", "example.substack.com", "newsletter.example
   assert.ok(result.article.text.includes(opening) && result.article.text.includes(ending));
   assert.equal(result.article.blocks.filter(b => b.type === "image").length, 1);
   assert.match(result.article.text, /Survey findings/);
-  assert.doesNotMatch(result.article.text, /Discussion|No posts|Ready for more|reader comment|Subscribe|Unrelated|signup|Hidden article bait/);
+  assert.doesNotMatch(result.article.text, /Discussion|No posts|Ready for more|reader comment|Subscribe|Unrelated|Read full story|signup|Hidden article bait/);
   assert.equal(result.article.publishedTime, "2026-10-05T14:00:00Z");
   assert.deepEqual(result.metadata.completeness, { referenceKind: "article-body", missingTextBlocks: 0, missingImages: 0 });
 });

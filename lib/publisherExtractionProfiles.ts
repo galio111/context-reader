@@ -66,7 +66,7 @@ export function applyPublisherProfile(document: Document, baseUrl: string): void
     if (!body) continue;
     post.classList.remove("newsletter-post");
     body.setAttribute("data-article-body", "");
-    body.querySelectorAll(".subscribe-widget, .post-embed, .image-link-expand").forEach((node) => node.remove());
+    body.querySelectorAll('.subscribe-widget, .post-embed, [data-component-name="DigestPostEmbed"], .image-link-expand').forEach((node) => node.remove());
     if (host === "a16z.news") {
       // Inspected newsletter footer, not a quotation or article discussion of
       // investing. Require both disclosure links and its exact opening.
