@@ -22,6 +22,8 @@ Homepage delivery uses a server-rendered union of the original category showcase
 自动精选与 DeepSeek/Jev 接口准备、质量门槛、成本及验收边界见 [automated-editorial.md](automated-editorial.md)。该模式需显式开启；单站手动导入继续使用候选流程。
 ## Production
 
+URL imports support the public Substack article template on custom domains such as a16z.news. An absent or hidden body returns the existing HTTP 422 extraction failure instead of a footer-only success. a16z News is registered as a default-disabled RSS source (`https://www.a16z.news/feed`); the persisted Admin source must pass live feed/cadence/full-text/image verification before enablement. `feedPagination: "none"` prevents treating this Substack feed as a WordPress archive. Robots, daily limits, URL/title/body deduplication and editorial publication gates remain authoritative. Current deployment and source activation evidence: [Substack/a16z](substack-a16z-import.md).
+
 Use the fixed production URL:
 
 ```text
