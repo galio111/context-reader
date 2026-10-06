@@ -1,5 +1,10 @@
 # Production Release Governance
 
+## Current accepted editorial reliability release
+
+Accepted `20261006T122200`, parent `20261006T121000`, source `b2f55edd29877c228de598896f6b80a9e961edc9`. Public identity and stable entrypoint agree with mainland_internal. Cumulative 41/5/3-file releases retain accepted runtime history. Local/server builds, 90 critical, 82 editorial/source, 8 provider/billing and nine contracts pass; real signed-in Flash core, protocol-2/Admin, live published bodies/51 images, seven-service health, SHA-verified 34-table restore and parent rollback image verified. Only app/caddy replaced; backend uptimes unchanged. Hourly feed discovery has no model spend and the enabled timer continues without publication-count stop. [Evidence and limits](editorial-reliability-20261006.md). Later documentation commits do not change deployed source identity.
+
+
 ## Current accepted native FSRS study release
 
 Accepted `20261006T000033`, parent `20261005T131000`, source `704a0b776d218fe397e8501e986db928419cd0cd`. Exact 62-file cumulative delta passed the stable locked entrypoint, clean-source/parent/contracts checks and local/server builds. Public connectivity and accepted identity agree with `mainland_internal`. Ninety critical tests, FSRS/profile/provider/billing regressions, isolated restored SQL and eight-request reward concurrency passed. Real signed-in Flash reading core, protocol-2, native study save/retry/pause/source return, real one-point reward, five-point profile/replay, Admin save/boundaries, seven-service health, SHA-verified 34-table restore and current/parent images passed. Only app/caddy recreated. Test identity and grants removed; anonymized provider-cost audit retained. Anki preserved; history migration, personal weight training, physical-device and final user visual acceptance remain open. [Evidence and limits](vocabulary-study-release.md). Later documentation commits do not change production source identity.

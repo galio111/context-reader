@@ -343,3 +343,6 @@ The editorial recovery POST also accepts `report_recovery` after the day closes;
 ## Durable editorial intake
 
 Admin-only GET `/api/admin/editorial` returns `intake` per enabled source: last scan/success, feed faults, cumulative waiting/retry/attention/rejected/skipped/candidate counts, recent technical items and recent content rejections. Same-origin POST `retry_intake` takes an existing `sourceId` and `url`; only retry/attention records can reopen. It preserves prior evidence and uses the discovery lease. It does not bypass budget, robots, freshness, SSRF or publication review. Private `recommendation_editorial_intake_v1_<source>` settings retain unresolved links across RSS rotation; `recommendation_editorial_feed_poll_v1` stores a bounded hourly sweep cursor. The cron driver collects up to three sources per tick even before review time or after paid work closes; disabling automation stops collection. No schema migration or browser service key is needed.
+
+
+`GET /api/admin/discovery-sources` 的今日导入数合并真实候选与公开摘要，按ID去重、上海日createdAt及来源归属计算；不把旧手动任务计数当自动精选计数。来源验证图片容量24，与集成审核一致。小时订阅读取不调用AI；生产身份、TIME/a16z恢复及成本证据见[2026-10-06可靠性报告](editorial-reliability-20261006.md)。

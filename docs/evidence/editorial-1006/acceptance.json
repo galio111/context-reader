@@ -1,0 +1,453 @@
+{
+  "identity": {
+    "ok": true,
+    "checkedAt": "2026-10-06T04:32:38.699Z",
+    "releaseId": "20261006T122200",
+    "parentReleaseId": "20261006T121000",
+    "backendMode": "mainland_internal"
+  },
+  "daily": {
+    "day": "2026-10-06",
+    "count": 80
+  },
+  "counts": {
+    "科技": 20,
+    "商业": 18,
+    "时事": 26,
+    "文化": 16
+  },
+  "articles": [
+    {
+      "id": "642d34e4-9ae8-44bf-b308-717fbf2bea7a",
+      "title": "Breaking Down the Emotional Ending of 'Four Hands, Two Sonatas'",
+      "source": "https://time.com/article/2026/10/01/four-hands-two-sonatas-ending",
+      "category": "文化",
+      "words": 2653,
+      "blocks": 40,
+      "images": 4,
+      "images200": 4,
+      "review": "passed"
+    },
+    {
+      "id": "d4539def-ac04-4f43-a85f-366ff259ea2b",
+      "title": "POLITICO Blocked From Air Force One Amid Battle Over Media Access",
+      "source": "https://time.com/article/2026/10/05/politico-white-house-pool-air-force-one-trump-media-ban",
+      "category": "时事",
+      "words": 735,
+      "blocks": 18,
+      "images": 1,
+      "images200": 1,
+      "review": "passed"
+    },
+    {
+      "id": "061007bc-abe7-4627-b521-96b03a5b9219",
+      "title": "Spain’s Leader Is Betting His Government on the Housing Crisis",
+      "source": "https://time.com/article/2026/10/05/spain-snap-elections-sanchez-housing-crisis",
+      "category": "时事",
+      "words": 1437,
+      "blocks": 47,
+      "images": 1,
+      "images200": 1,
+      "review": "passed"
+    },
+    {
+      "id": "82dff248-8d9e-4399-9a10-f676546e1633",
+      "title": "Making Sense of Verity's Ambiguous Ending",
+      "source": "https://time.com/article/2026/10/01/verity-ending-explained",
+      "category": "文化",
+      "words": 3552,
+      "blocks": 50,
+      "images": 3,
+      "images200": 3,
+      "review": "passed"
+    },
+    {
+      "id": "ba367550-d076-481d-88bc-2897dea28d53",
+      "title": "What We Do—and Don't—Know About Russia 'Plague' After Dozens Quarantined in Siberia",
+      "source": "https://time.com/article/2026/10/05/russia-plague-fears-siberia-quarantine-lab-worker-died",
+      "category": "时事",
+      "words": 1119,
+      "blocks": 33,
+      "images": 1,
+      "images200": 1,
+      "review": "passed"
+    },
+    {
+      "id": "c5784e30-349f-4233-97af-19045e88c896",
+      "title": "The Elon Musk Documentary That Has Him Fighting Back",
+      "source": "https://time.com/article/2026/10/05/elon-musk-gibney-documentary",
+      "category": "文化",
+      "words": 1656,
+      "blocks": 43,
+      "images": 1,
+      "images200": 1,
+      "review": "passed"
+    },
+    {
+      "id": "82e73436-5253-4356-8646-40c6ce73a961",
+      "title": "When Is the Best Time to See Peak Fall Foliage?",
+      "source": "https://time.com/article/2026/10/05/when-is-the-best-time-to-see-peak-fall-foliage-",
+      "category": "科技",
+      "words": 774,
+      "blocks": 24,
+      "images": 1,
+      "images200": 1,
+      "review": "passed"
+    },
+    {
+      "id": "60ce087d-b0cb-4d86-b254-75b3633ae770",
+      "title": "Why the U.S. Bomber Withdrawal From a U.K. Air Base Is Significant",
+      "source": "https://time.com/article/2026/10/05/why-us-bomber-withdrawal-from-raf-fairford-air-base-matters",
+      "category": "时事",
+      "words": 1129,
+      "blocks": 24,
+      "images": 1,
+      "images200": 1,
+      "review": "passed"
+    },
+    {
+      "id": "1246368b-6456-4e69-aea8-514b5f27ed5d",
+      "title": "Alleged Chinese Agent Arrested at LAX",
+      "source": "https://time.com/article/2026/10/05/suspected-chinese-agent-arrested-lax-taiwan-president-family-surveillance",
+      "category": "时事",
+      "words": 834,
+      "blocks": 23,
+      "images": 1,
+      "images200": 1,
+      "review": "passed"
+    },
+    {
+      "id": "09a79cc6-5076-40ef-8545-a5a73e6c268f",
+      "title": "‘Cornell 7’ Case Renews Scrutiny of Fraternities",
+      "source": "https://time.com/article/2026/10/05/cornell-university-sexual-assault-allegations-fraternity-jane-doe-lawsuit",
+      "category": "时事",
+      "words": 1744,
+      "blocks": 40,
+      "images": 1,
+      "images200": 1,
+      "review": "passed"
+    },
+    {
+      "id": "5c53fef3-baa0-4fc1-b9e2-64d85f47ff8d",
+      "title": "Gambling Is Sending More People to the ER",
+      "source": "https://time.com/article/2026/10/05/gambling-emergency-room-visits",
+      "category": "时事",
+      "words": 964,
+      "blocks": 23,
+      "images": 1,
+      "images200": 1,
+      "review": "passed"
+    },
+    {
+      "id": "e7f2b4cc-292e-4afe-873d-91a6a7b63882",
+      "title": "The Case Against Wearing Headphones in Public",
+      "source": "https://time.com/article/2026/10/05/the-case-against-wearing-headphones-in-public",
+      "category": "时事",
+      "words": 1044,
+      "blocks": 23,
+      "images": 1,
+      "images200": 1,
+      "review": "passed"
+    },
+    {
+      "id": "ab3b692e-788e-459b-87c6-9aca8eb62b10",
+      "title": "Democrats in Key Races Embrace 'Capitalist' Label",
+      "source": "https://time.com/article/2026/10/05/democrats-in-key-senate-races-embrace-capitalist-label",
+      "category": "时事",
+      "words": 1116,
+      "blocks": 26,
+      "images": 1,
+      "images200": 1,
+      "review": "passed"
+    },
+    {
+      "id": "2a5787a0-cd2c-422f-8816-5950bc96e16b",
+      "title": "Why Republicans Still Think They Can Flip New Hampshire's Senate Seat",
+      "source": "https://time.com/article/2026/10/05/new-hampshire-blue-wave-republicans-sununu-pappas",
+      "category": "时事",
+      "words": 946,
+      "blocks": 19,
+      "images": 1,
+      "images200": 1,
+      "review": "passed"
+    },
+    {
+      "id": "8881985f-b1ca-4cac-bbf3-cdeb86207af0",
+      "title": "Top 100 Consumer AI Apps - Seventh Edition",
+      "source": "https://www.a16z.news/p/top-100-consumer-ai-apps-seventh",
+      "category": "商业",
+      "words": 2890,
+      "blocks": 79,
+      "images": 22,
+      "images200": 22,
+      "review": "passed"
+    },
+    {
+      "id": "0163ea99-5163-4b5f-bbb0-40b62d610264",
+      "title": "State of Markets II",
+      "source": "https://www.a16z.news/p/state-of-markets-ii",
+      "category": "商业",
+      "words": 1195,
+      "blocks": 48,
+      "images": 10,
+      "images200": 10,
+      "review": "passed"
+    }
+  ],
+  "sources": [
+    {
+      "id": "time-com",
+      "enabled": true,
+      "verified": true,
+      "feeds": [
+        "https://time.com/feed/"
+      ]
+    },
+    {
+      "id": "a16z-news",
+      "enabled": true,
+      "verified": true,
+      "feeds": [
+        "https://www.a16z.news/feed"
+      ]
+    }
+  ],
+  "queue": [
+    {
+      "sourceId": "news-mongabay-com",
+      "lastScanAt": "2026-10-06T04:16:03.205Z",
+      "feedErrors": [],
+      "counts": {
+        "waiting": 32
+      }
+    },
+    {
+      "sourceId": "smithsonianmag-com",
+      "lastScanAt": "2026-10-06T04:32:36.011Z",
+      "feedErrors": [],
+      "counts": {
+        "waiting": 10
+      }
+    },
+    {
+      "sourceId": "aeon-co",
+      "lastScanAt": "2026-10-06T04:32:36.620Z",
+      "feedErrors": [],
+      "counts": {
+        "waiting": 20
+      }
+    },
+    {
+      "sourceId": "nasa-gov",
+      "lastScanAt": "2026-10-06T04:32:37.984Z",
+      "feedErrors": [],
+      "counts": {
+        "waiting": 10
+      }
+    },
+    {
+      "sourceId": "snexplores-org",
+      "lastScanAt": "2026-10-06T04:15:50.477Z",
+      "feedErrors": [],
+      "counts": {
+        "waiting": 20
+      }
+    },
+    {
+      "sourceId": "theconversation-com",
+      "lastScanAt": "2026-10-06T04:26:59.655Z",
+      "feedErrors": [],
+      "counts": {
+        "waiting": 75
+      }
+    },
+    {
+      "sourceId": "theguardian-com",
+      "lastScanAt": "2026-10-06T04:29:36.784Z",
+      "feedErrors": [],
+      "counts": {
+        "waiting": 78
+      }
+    },
+    {
+      "sourceId": "sciencealert-com",
+      "lastScanAt": "2026-10-06T04:27:01.806Z",
+      "feedErrors": [],
+      "counts": {
+        "candidate": 3,
+        "waiting": 7
+      }
+    },
+    {
+      "sourceId": "daily-jstor-org",
+      "lastScanAt": "2026-10-06T04:22:08.082Z",
+      "feedErrors": [],
+      "counts": {
+        "waiting": 10
+      }
+    },
+    {
+      "sourceId": "news-harvard-edu",
+      "lastScanAt": "2026-10-06T04:27:11.467Z",
+      "feedErrors": [],
+      "counts": {
+        "waiting": 50
+      }
+    },
+    {
+      "sourceId": "themarginalian-org",
+      "lastScanAt": "2026-10-06T04:27:16.642Z",
+      "feedErrors": [],
+      "counts": {
+        "waiting": 20
+      }
+    },
+    {
+      "sourceId": "psyche-co",
+      "lastScanAt": "2026-10-06T04:26:45.328Z",
+      "feedErrors": [],
+      "counts": {
+        "waiting": 20
+      }
+    },
+    {
+      "sourceId": "popsci-com",
+      "lastScanAt": "2026-10-06T04:27:05.627Z",
+      "feedErrors": [],
+      "counts": {
+        "waiting": 50
+      }
+    },
+    {
+      "sourceId": "niemanlab-org",
+      "lastScanAt": "2026-10-06T04:27:07.431Z",
+      "feedErrors": [],
+      "counts": {
+        "waiting": 30
+      }
+    },
+    {
+      "sourceId": "insideclimatenews-org",
+      "lastScanAt": "2026-10-06T04:27:14.435Z",
+      "feedErrors": [],
+      "counts": {
+        "waiting": 10
+      }
+    },
+    {
+      "sourceId": "news-crunchbase-com",
+      "lastScanAt": "2026-10-06T04:27:23.944Z",
+      "feedErrors": [],
+      "counts": {
+        "waiting": 10
+      }
+    },
+    {
+      "sourceId": "nautil-us",
+      "lastScanAt": "2026-10-06T04:27:38.509Z",
+      "feedErrors": [],
+      "counts": {
+        "waiting": 10
+      }
+    },
+    {
+      "sourceId": "reasonstobecheerful-world",
+      "lastScanAt": "2026-10-06T04:27:12.984Z",
+      "feedErrors": [],
+      "counts": {
+        "waiting": 10
+      }
+    },
+    {
+      "sourceId": "techcrunch-com",
+      "lastScanAt": "2026-10-06T04:27:17.505Z",
+      "feedErrors": [],
+      "counts": {
+        "waiting": 20
+      }
+    },
+    {
+      "sourceId": "time-com",
+      "lastScanAt": "2026-10-06T04:27:37.226Z",
+      "feedErrors": [],
+      "counts": {
+        "skipped": 11,
+        "candidate": 14
+      }
+    },
+    {
+      "sourceId": "newsforkids-net",
+      "lastScanAt": "2026-10-06T04:27:25.328Z",
+      "feedErrors": [],
+      "counts": {
+        "waiting": 10
+      }
+    },
+    {
+      "sourceId": "cnbc-com",
+      "lastScanAt": "2026-10-06T04:29:38.910Z",
+      "feedErrors": [],
+      "counts": {
+        "waiting": 61
+      }
+    },
+    {
+      "sourceId": "a16z-news",
+      "lastScanAt": "2026-10-06T04:29:39.901Z",
+      "feedErrors": [],
+      "counts": {
+        "candidate": 2,
+        "rejected": 1,
+        "skipped": 2,
+        "waiting": 15
+      }
+    },
+    {
+      "sourceId": "noemamag-com",
+      "lastScanAt": "2026-10-06T04:27:50.191Z",
+      "feedErrors": [],
+      "counts": {
+        "waiting": 10
+      }
+    },
+    {
+      "sourceId": "quantamagazine-org",
+      "lastScanAt": "2026-10-06T04:29:21.614Z",
+      "feedErrors": [],
+      "counts": {
+        "waiting": 5
+      }
+    }
+  ],
+  "spend": {
+    "calls": 93,
+    "cny": 0.36339,
+    "reserved": 0
+  },
+  "sourceRevision": "b2f55edd29877c228de598896f6b80a9e961edc9",
+  "core": {
+    "account": true,
+    "sync": true,
+    "normalUserAdminDenied": true,
+    "anonymousAdminDenied": true,
+    "executions": [
+      {
+        "route": "/api/dictionary",
+        "model": "deepseek-flash",
+        "status": "succeeded"
+      },
+      {
+        "route": "/api/explain-word",
+        "model": "deepseek-flash",
+        "status": "succeeded"
+      },
+      {
+        "route": "/api/translate-article",
+        "model": "deepseek-flash",
+        "status": "succeeded"
+      }
+    ],
+    "testUserDeleted": true
+  },
+  "sourceBudgetNote": "Two-source recovery: 17 calls, CNY 0.105308; routine scheduled work and acceptance smoke are separate phases."
+}

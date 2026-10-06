@@ -1,0 +1,227 @@
+[
+  {
+    "event": "batch",
+    "sourceId": "time-com",
+    "attempted": 3,
+    "created": [
+      {
+        "id": "642d34e4-9ae8-44bf-b308-717fbf2bea7a",
+        "title": "Breaking Down the Emotional Ending of 'Four Hands, Two Sonatas'",
+        "words": 2653,
+        "images": 4,
+        "review": "passed"
+      },
+      {
+        "id": "d4539def-ac04-4f43-a85f-366ff259ea2b",
+        "title": "POLITICO Blocked From Air Force One Amid Battle Over Media Access",
+        "words": 735,
+        "images": 1,
+        "review": "passed"
+      },
+      {
+        "id": "061007bc-abe7-4627-b521-96b03a5b9219",
+        "title": "Spain’s Leader Is Betting His Government on the Housing Crisis",
+        "words": 1437,
+        "images": 1,
+        "review": "passed"
+      }
+    ],
+    "skipped": [],
+    "sourceErrors": []
+  },
+  {
+    "event": "batch",
+    "sourceId": "time-com",
+    "attempted": 3,
+    "created": [
+      {
+        "id": "82dff248-8d9e-4399-9a10-f676546e1633",
+        "title": "Making Sense of Verity's Ambiguous Ending",
+        "words": 3552,
+        "images": 3,
+        "review": "passed"
+      },
+      {
+        "id": "ba367550-d076-481d-88bc-2897dea28d53",
+        "title": "What We Do—and Don't—Know About Russia 'Plague' After Dozens Quarantined in Siberia",
+        "words": 1119,
+        "images": 1,
+        "review": "passed"
+      },
+      {
+        "id": "c5784e30-349f-4233-97af-19045e88c896",
+        "title": "The Elon Musk Documentary That Has Him Fighting Back",
+        "words": 1656,
+        "images": 1,
+        "review": "passed"
+      }
+    ],
+    "skipped": [],
+    "sourceErrors": []
+  },
+  {
+    "event": "batch",
+    "sourceId": "time-com",
+    "attempted": 3,
+    "created": [
+      {
+        "id": "82e73436-5253-4356-8646-40c6ce73a961",
+        "title": "When Is the Best Time to See Peak Fall Foliage?",
+        "words": 774,
+        "images": 1,
+        "review": "passed"
+      },
+      {
+        "id": "60ce087d-b0cb-4d86-b254-75b3633ae770",
+        "title": "Why the U.S. Bomber Withdrawal From a U.K. Air Base Is Significant",
+        "words": 1129,
+        "images": 1,
+        "review": "passed"
+      },
+      {
+        "id": "1246368b-6456-4e69-aea8-514b5f27ed5d",
+        "title": "Alleged Chinese Agent Arrested at LAX",
+        "words": 834,
+        "images": 1,
+        "review": "passed"
+      }
+    ],
+    "skipped": [],
+    "sourceErrors": []
+  },
+  {
+    "event": "batch",
+    "sourceId": "time-com",
+    "attempted": 3,
+    "created": [
+      {
+        "id": "09a79cc6-5076-40ef-8545-a5a73e6c268f",
+        "title": "‘Cornell 7’ Case Renews Scrutiny of Fraternities",
+        "words": 1744,
+        "images": 1,
+        "review": "passed"
+      },
+      {
+        "id": "5c53fef3-baa0-4fc1-b9e2-64d85f47ff8d",
+        "title": "Gambling Is Sending More People to the ER",
+        "words": 964,
+        "images": 1,
+        "review": "passed"
+      },
+      {
+        "id": "e7f2b4cc-292e-4afe-873d-91a6a7b63882",
+        "title": "The Case Against Wearing Headphones in Public",
+        "words": 1044,
+        "images": 1,
+        "review": "passed"
+      }
+    ],
+    "skipped": [],
+    "sourceErrors": []
+  },
+  {
+    "event": "batch",
+    "sourceId": "time-com",
+    "attempted": 3,
+    "created": [
+      {
+        "id": "ab3b692e-788e-459b-87c6-9aca8eb62b10",
+        "title": "Democrats in Key Races Embrace 'Capitalist' Label",
+        "words": 1116,
+        "images": 1,
+        "review": "passed"
+      },
+      {
+        "id": "2a5787a0-cd2c-422f-8816-5950bc96e16b",
+        "title": "Why Republicans Still Think They Can Flip New Hampshire's Senate Seat",
+        "words": 946,
+        "images": 1,
+        "review": "passed"
+      }
+    ],
+    "skipped": [
+      {
+        "title": "Arch Manning",
+        "url": "https://time.com/collection/time100-next/2026/arch-manning",
+        "kind": "technical_pending",
+        "needsAttention": true,
+        "reason": "提取结果只有 170 词，需核对原文是否完整；未作内容淘汰判断。",
+        "stage": "extraction"
+      }
+    ],
+    "sourceErrors": []
+  },
+  {
+    "event": "batch",
+    "sourceId": "time-com",
+    "attempted": 3,
+    "created": [],
+    "skipped": [
+      {
+        "title": "Sasha Gordon",
+        "url": "https://time.com/collection/time100-next/2026/sasha-gordon",
+        "kind": "technical_pending",
+        "needsAttention": true,
+        "reason": "提取结果只有 205 词，需核对原文是否完整；未作内容淘汰判断。",
+        "stage": "extraction"
+      },
+      {
+        "title": "Cristina Etcheberry",
+        "url": "https://time.com/collection/time100-next/2026/cristina-etcheberry",
+        "kind": "technical_pending",
+        "needsAttention": true,
+        "reason": "提取结果只有 149 词，需核对原文是否完整；未作内容淘汰判断。",
+        "stage": "extraction"
+      },
+      {
+        "title": "Lauren Ireland and Marianna Hewitt",
+        "url": "https://time.com/collection/time100-next/2026/lauren-ireland-and-marianna-hewitt",
+        "kind": "technical_pending",
+        "needsAttention": true,
+        "reason": "提取结果只有 173 词，需核对原文是否完整；未作内容淘汰判断。",
+        "stage": "extraction"
+      }
+    ],
+    "sourceErrors": []
+  },
+  {
+    "event": "batch",
+    "sourceId": "time-com",
+    "attempted": 2,
+    "created": [],
+    "skipped": [
+      {
+        "title": "Paapa Essiedu",
+        "url": "https://time.com/collection/time100-next/2026/paapa-essiedu",
+        "kind": "technical_pending",
+        "needsAttention": true,
+        "reason": "提取结果只有 155 词，需核对原文是否完整；未作内容淘汰判断。",
+        "stage": "extraction"
+      },
+      {
+        "title": "PinkPantheress",
+        "url": "https://time.com/collection/time100-next/2026/pinkpantheress",
+        "kind": "technical_pending",
+        "needsAttention": true,
+        "reason": "提取结果只有 135 词，需核对原文是否完整；未作内容淘汰判断。",
+        "stage": "extraction"
+      }
+    ],
+    "sourceErrors": []
+  },
+  {
+    "event": "batch",
+    "sourceId": "time-com",
+    "attempted": 0,
+    "created": [],
+    "skipped": [],
+    "sourceErrors": []
+  },
+  {
+    "event": "cost",
+    "sourceId": "time-com",
+    "calls": 14,
+    "costCny": 0.076186,
+    "reserveDeltaCny": 0
+  }
+]

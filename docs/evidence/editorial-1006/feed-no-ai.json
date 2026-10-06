@@ -1,0 +1,11 @@
+{
+  "batches": 2,
+  "modelCallDelta": 0,
+  "costDeltaCny": 0,
+  "reserveDeltaCny": 0,
+  "poll": {
+    "nextAt": 1791262376291,
+    "completedAt": "2026-10-06T04:29:38.942Z"
+  },
+  "immediateRepeatNoChange": true
+}
