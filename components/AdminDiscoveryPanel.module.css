@@ -1,0 +1,26 @@
+.panel {
+  --discovery-paper: #fff;
+  --discovery-soft: #edf5fb;
+  --discovery-ink: #17212a;
+  --discovery-muted: #485661;
+  --discovery-border: #7d8b96;
+  --discovery-link: #1769aa;
+  --discovery-error-bg: #fff1f2;
+  --discovery-error: #9f1239;
+  color: var(--discovery-ink);
+}
+
+.panel input::placeholder,
+.panel textarea::placeholder { color: var(--discovery-muted); opacity: 1; }
+
+:global(html[data-context-theme="night"]) .panel {
+  --discovery-paper: #17222d;
+  --discovery-soft: #233445;
+  --discovery-ink: #edf2f6;
+  --discovery-muted: #bac9d6;
+  --discovery-border: #8195a7;
+  --discovery-link: #8ecbff;
+  --discovery-error-bg: #42242e;
+  --discovery-error: #ffc3cc;
+  color-scheme: dark;
+}

@@ -21,7 +21,7 @@ export async function pollEditorialFeeds(sites: DiscoverySite[], now = Date.now(
   const remaining = (previous.remaining || enabled.map(s => s.id)).filter(id => enabled.some(s => s.id === id));
   for (const id of remaining.slice(0, 3)) await capture(enabled.find(s => s.id === id)!, 1, true);
   const rest = remaining.slice(3), startedAt = previous.startedAt || now;
-  await writeDiscoverySetting(pollKey, rest.length ? {remaining:rest,startedAt} : {nextAt:Math.max(now,startedAt)+3600_000,completedAt:new Date(now).toISOString()});
+  await writeDiscoverySetting(pollKey, rest.length ? {remaining:rest,startedAt} : {nextAt:startedAt+3600_000,completedAt:new Date(now).toISOString()});
 }
 
 /** The discovery lease owns writes. Store discoveries before spending on import or models. */

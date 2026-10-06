@@ -53,6 +53,10 @@ test('a feed rotation or outage cannot lose discovered URLs; retry and duplicate
     await pollEditorialFeeds([site],now+30_000,scan);assert.equal(scans,1);
     await pollEditorialFeeds([site],now+3600_001,scan);assert.equal(scans,2);
     await pollEditorialFeeds([{...site,enabled:false}],now+7200_002,scan);assert.equal(scans,2);
+    const fleet=Array.from({length:5},(_,i)=>({...site,id:`fleet-${i}`}));
+    await pollEditorialFeeds(fleet,now+10800_003,scan);assert.equal(scans,5);
+    await pollEditorialFeeds(fleet,now+11100_003,scan);assert.equal(scans,7);
+    await pollEditorialFeeds(fleet,now+14400_004,scan);assert.equal(scans,10,'next sweep starts an hour after the previous start, not its final batch');
   } finally {
     globalThis.fetch=oldFetch;
     for(const [i,key] of ['SUPABASE_URL','SUPABASE_SERVICE_ROLE_KEY'].entries())if(env[i]===undefined)delete process.env[key];else process.env[key]=env[i];
