@@ -1,0 +1,32 @@
+[
+  {
+    "id": "peg-amanda-stop",
+    "voice": "en_female_amanda_mars_bigtts",
+    "speed": 0.9,
+    "textType": "ssml",
+    "text": "<speak><phoneme alphabet=\"cmu\" ph=\"P EH1 G\">peg</phoneme>.</speak>",
+    "status": 200,
+    "providerCode": 3000,
+    "ms": 652
+  },
+  {
+    "id": "peg-lauren",
+    "voice": "en_female_lauren_moon_bigtts",
+    "speed": 0.9,
+    "textType": "ssml",
+    "text": "<speak><phoneme alphabet=\"cmu\" ph=\"P EH1 G\">peg</phoneme></speak>",
+    "status": 200,
+    "providerCode": 3000,
+    "ms": 677
+  },
+  {
+    "id": "peg-jackson",
+    "voice": "en_male_jackson_mars_bigtts",
+    "speed": 0.9,
+    "textType": "ssml",
+    "text": "<speak><phoneme alphabet=\"cmu\" ph=\"P EH1 G\">peg</phoneme></speak>",
+    "status": 200,
+    "providerCode": 3000,
+    "ms": 540
+  }
+]

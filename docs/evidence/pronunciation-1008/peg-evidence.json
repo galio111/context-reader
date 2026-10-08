@@ -1,0 +1,29 @@
+{
+  "capturedAt": "2026-10-08T09:00:03.421Z",
+  "release": "20261008T164800",
+  "cases": [
+    {
+      "id": "peg-plain",
+      "request": {
+        "text": "peg",
+        "accent": "en-US"
+      },
+      "bytes": 30240,
+      "sha256": "eb527e5e8c714c0456629f32ddfdff8543765dd80f495d023c361bfec6e17e74",
+      "filename": "cr-us-ea44c1258f8996b07eb01420.mp3",
+      "voice": "en_female_amanda_mars_bigtts"
+    },
+    {
+      "id": "peg-ipa",
+      "request": {
+        "text": "peg",
+        "accent": "en-US",
+        "phonetic": "/peɡ/"
+      },
+      "bytes": 30720,
+      "sha256": "ae90740c87b4cbf628ff25f7c7ed0a87f3e1af1dccad36e24961190618e4148e",
+      "filename": "cr-us-1db6bb0b6e801469c71c6058.mp3",
+      "voice": "en_female_amanda_mars_bigtts"
+    }
+  ]
+}

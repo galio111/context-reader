@@ -1,0 +1,25 @@
+{
+  "release": "20261008T164800",
+  "lever": {
+    "displayed": {
+      "us": "/ˈlevər/",
+      "uk": "/ˈliːvə/"
+    },
+    "keyboardPlaybackActivated": true,
+    "requests": [
+      {
+        "text": "lever",
+        "accent": "en-US",
+        "phonetic": "/ˈlevər/"
+      },
+      {
+        "text": "lever",
+        "accent": "en-GB"
+      }
+    ]
+  },
+  "limits": [
+    "Physical device and cross-browser not tested",
+    "Peg listening pending"
+  ]
+}

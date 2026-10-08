@@ -1,0 +1,10 @@
+{
+  "id": "peg-normal",
+  "voice": "en_female_amanda_mars_bigtts",
+  "speed": 1,
+  "textType": "ssml",
+  "text": "<speak><phoneme alphabet=\"cmu\" ph=\"P EH1 G\">peg</phoneme></speak>",
+  "status": 200,
+  "providerCode": 3000,
+  "ms": 839
+}

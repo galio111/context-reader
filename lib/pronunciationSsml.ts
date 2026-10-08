@@ -11,9 +11,10 @@ export function normalizePronunciationPhonetic(value: string, accent?: Pronuncia
   return ipa.length > 0 && ipa.length <= 100 && /^[a-zɑɐɒæɓβɔɕçɗðəɚɛɜɝɞɟɡɢɣɦɪɫɬɭɯɲŋɳɵøœɸɹɻɾʀʁʃʊʌʋʍʎʒʔθˈˌːˑ.\u0300-\u036f\u0361]+$/u.test(ipa) ? ipa : "";
 }
 
-// Volcengine's English phoneme alphabet is CMU/ARPABET, not IPA. Never send
-// dictionary transcription characters as CMU phones: the API can return 200
-// and playable audio even when that pronunciation is wrong.
+// This integration uses the CMU/ARPABET path accepted in listening tests.
+// The provider also documents IPA, but its separate trial was not accepted.
+// Never label dictionary IPA characters as CMU phones; HTTP 200 is not proof
+// that the resulting pronunciation is correct.
 const IPA_PHONES: Record<string, string> = {
   "tʃ": "CH", "dʒ": "JH", "eɪ": "EY", "aɪ": "AY", "aʊ": "AW", "ɔɪ": "OY",
   "əʊ": "OW", "oʊ": "OW", "ɜːr": "ER", "ɜr": "ER", "ɜː": "ER", "ɝː": "ER",
