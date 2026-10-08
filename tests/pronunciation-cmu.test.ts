@@ -47,6 +47,26 @@ test("CMU conversion preserves phonemes and primary/secondary stress across Engl
   ]) assert.equal(ipaToCmu(ipa), expected, ipa);
 });
 
+test("US monosyllables get a complete utterance ending without changing their consonants or other accents", () => {
+  for (const [word, ipa, phones] of [
+    ["peg", "/peɡ/", "P EH1 G"], ["bag", "/bæɡ/", "B AE1 G"],
+    ["leg", "/leɡ/", "L EH1 G"], ["big", "/bɪɡ/", "B IH1 G"],
+    ["dog", "/dɔːɡ/", "D AO1 G"], ["egg", "/eɡ/", "EH1 G"],
+    ["cat", "/kæt/", "K AE1 T"], ["book", "/bʊk/", "B UH1 K"],
+    ["change", "/tʃeɪndʒ/", "CH EY1 N JH"], ["stay", "/steɪ/", "S T EY1"],
+  ]) {
+    assert.equal(ipaToCmu(ipa, "en-US"), phones);
+    assert.deepEqual(pronunciationSynthesisInput(word, ipa, "en-US"), {
+      text: `<speak><phoneme alphabet="cmu" ph="${phones}">${word}</phoneme>.</speak>`, textType: "ssml",
+    });
+    assert.ok(pronunciationSynthesisInput(word, ipa, "en-GB").text.endsWith("</phoneme></speak>"));
+  }
+  for (const [word, ipa] of [["lever", "/ˈlevər/"], ["esteem", "/ɪˈstiːm/"], ["teacher", "/ˈtiːtʃər/"]]) {
+    assert.ok(pronunciationSynthesisInput(word, ipa, "en-US").text.endsWith("</phoneme></speak>"));
+  }
+  assert.deepEqual(pronunciationSynthesisInput("take in", "/ˈteɪkɪn/", "en-US"), {text:"take in",textType:"plain"});
+});
+
 test("alternate retains noun/adjective/verb readings and their distinct stress/vowel phones", () => {
   const entries = reviewedDictionaryPronunciations("alternate")!;
   assert.equal(entries.length, 6);

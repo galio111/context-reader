@@ -164,6 +164,20 @@ test("one transient TTS timeout retries inside the existing deduplicated request
   assert.equal(h.counts().providers, 2);
 });
 
+test("monosyllable ending bypasses old tail audio and equivalent IPA still shares one recording", async () => {
+  const h = harness();
+  const first = await h.getAudio("peg", "en-US", "/peɡ/");
+  const equivalent = await h.getAudio("peg", "en-US", "/pɛɡ/");
+  assert.equal(first.filename, equivalent.filename);
+  assert.equal(h.counts().providers, 1);
+  assert.equal(h.requests[0].request.text, '<speak><phoneme alphabet="cmu" ph="P EH1 G">peg</phoneme>.</speak>');
+  const oldInput = '<speak><phoneme alphabet="cmu" ph="P EH1 G">peg</phoneme></speak>';
+  const oldKey = createHash("sha256").update(["volcengine-v1", "en-US", "en_female_amanda_mars_bigtts", "peg", "cmu-ssml-v2", "ssml", oldInput].join("\n")).digest("hex");
+  assert.notEqual(first.filename, `cr-us-${oldKey.slice(0,24)}.mp3`);
+  await h.getAudio("peg", "en-GB", "/peɡ/");
+  assert.ok(h.requests[1].request.text.endsWith("</phoneme></speak>"));
+});
+
 test("persistent timeouts stop after two attempts and explicit rejections never retry", async () => {
   const timedOut = harness({ providerFailures: 10 });
   await assert.rejects(timedOut.getAudio("test", "en-US"), { name: "TimeoutError" });

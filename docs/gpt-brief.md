@@ -242,4 +242,4 @@ CET 暂停划记/题目翻译已生产（20261002T225700，parent 20261002T20262
 
 ## 美音与音标一致性（2026-10-08）
 
-本轮定位普通词美音未传显示 IPA、/ər/ 转换未使用 ER0。用户听音接受 Amanda 的 lever C 样本，拒绝直接 IPA/Jackson，Lauren 生硬。保留 Amanda/Emily 与 0.9 语速、英音原策略；美音行送显示 IPA、词尾卷舌统一 ER0，lever/esteem 词典核对值覆盖旧缓存且不触发历史重生成，显式变体不被默认读法覆盖。已接受生产 `20261008T164800`，parent `20261006T122200`，source `9e584e8d35c68c07a26914190959c711f4e4f6e7`；公网lever文件与C样本SHA一致，历史免费回放及签入核心/同步/Admin/备份/回滚验证通过。新增peg第一轮：纯文本/正常语速仍奇怪，按音标读对但生硬，末尾g听感未过；第二轮句末收尾/Lauren/Jackson仅为试听对照。其他模型 IPA 未经全库词典核验。详见 [美音一致性](pronunciation-consistency-20261008.md)。
+本轮定位普通词美音未传显示 IPA、/ər/ 转换未使用 ER0。用户听音接受 Amanda 的 lever C 样本，拒绝直接 IPA/Jackson，Lauren 生硬。保留 Amanda/Emily 与 0.9 语速、英音原策略；美音行送显示 IPA、词尾卷舌统一 ER0，lever/esteem 词典核对值覆盖旧缓存且不触发历史重生成，显式变体不被默认读法覆盖。已接受生产 `20261008T164800`，parent `20261006T122200`，source `9e584e8d35c68c07a26914190959c711f4e4f6e7`；公网lever文件与C样本SHA一致，历史免费回放及签入核心/同步/Admin/备份/回滚验证通过。新增peg第二轮用户接受Amanda句末收尾与Jackson，选择保留Amanda；全部美音单音节音素请求按元音数添加句末句号，未写peg专用规则，正在验证下一版发布。其他模型 IPA 未经全库词典核验。详见 [美音一致性](pronunciation-consistency-20261008.md)。

@@ -73,7 +73,11 @@ export function pronunciationSynthesisInput(text: string, phonetic = "", accent?
   const cmu = ipaToCmu(phonetic, accent);
   if (!cmu || !requiresCurrentFormPhonetic(word)) return { text: word, textType: "plain" };
   const escaped = word.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-  const ssml = `<speak><phoneme alphabet="cmu" ph="${cmu}">${escaped}</phoneme></speak>`;
+  // An isolated US monosyllable needs an utterance ending to avoid the
+  // provider's unnatural trailing release. Determine this from vowel phones,
+  // not spelling or a list of reported words. Keep punctuation outside phones.
+  const ending = accent === "en-US" && cmu.split(" ").filter(phone => /[012]$/.test(phone)).length === 1 ? "." : "";
+  const ssml = `<speak><phoneme alphabet="cmu" ph="${cmu}">${escaped}</phoneme>${ending}</speak>`;
   // The provider warns that SSML exceeding 150 characters increases bad cases.
   return ssml.length <= 150 ? { text: ssml, textType: "ssml" } : { text: word, textType: "plain" };
 }

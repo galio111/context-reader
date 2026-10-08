@@ -1,0 +1,9 @@
+{
+  "word": "peg",
+  "round": 2,
+  "D": "读对且自然",
+  "E": "仍然奇怪",
+  "F": "读对且自然",
+  "choice": "D: retain Amanda and 0.9, sentence ending outside phoneme",
+  "scope": "Generic US monosyllable synthesis rule, not a word override"
+}
