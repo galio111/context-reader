@@ -106,6 +106,10 @@ export function reviewedDictionaryPronunciations(query: string): Entry[] | null 
 // centralized so dictionary, contextual lookup and Anki share one identity.
 export function reviewedPronunciationAudioPhonetic(text: string, accent: PronunciationAccent): string {
   const word = text.trim().toLowerCase();
+  // Preserve the user's accepted recordings when ordinary dictionary rows
+  // return to the same unqualified request as Reader/vocabulary/Anki.
+  if (accent === "en-US" && word === "peg") return "/peɡ/";
+  if (accent === "en-US" && word === "humiliate") return "/hjuːˈmɪliˌeɪt/";
   if ((word === "lever" || word === "esteem") && accent === "en-US") {
     return reviewedDictionaryPronunciations(word)?.find(entry => entry.accent === accent)?.phonetic ?? "";
   }

@@ -178,6 +178,26 @@ test("monosyllable ending bypasses old tail audio and equivalent IPA still share
   assert.ok(h.requests[1].request.text.endsWith("</phoneme></speak>"));
 });
 
+test("ordinary requests preserve accepted peg and humiliate recordings while other words keep the Reader path", async () => {
+  const h = harness();
+  for (const [word, ipa, filename] of [
+    ["peg", "/peɡ/", "cr-us-73928ba61d67ddfea37528cc.mp3"],
+    ["humiliate", "/hjuːˈmɪliˌeɪt/", "cr-us-1e1b4050a21438b28abcaa19.mp3"],
+  ]) {
+    const normal = await h.getAudio(word, "en-US");
+    const accepted = await h.getAudio(word, "en-US", ipa);
+    assert.equal(normal.filename, filename);
+    assert.equal(normal.filename, accepted.filename);
+  }
+  await h.getAudio("bibliography", "en-US");
+  assert.equal(h.requests[2].request.text_type, "plain");
+  assert.equal(h.requests[2].request.text, "bibliography");
+  const variant = await h.getAudio("humiliate", "en-US", "/hjuːˈmɪlieɪt/");
+  assert.notEqual(variant.filename, "cr-us-1e1b4050a21438b28abcaa19.mp3");
+  await h.getAudio("humiliate", "en-GB");
+  assert.equal(h.requests[4].request.text_type, "plain");
+});
+
 test("persistent timeouts stop after two attempts and explicit rejections never retry", async () => {
   const timedOut = harness({ providerFailures: 10 });
   await assert.rejects(timedOut.getAudio("test", "en-US"), { name: "TimeoutError" });

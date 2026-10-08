@@ -9,7 +9,7 @@ import { groupDictionaryPronunciations, dictionaryPronunciationRows, phoneticCom
 import { requiresCurrentFormPhonetic } from "../lib/pronunciation";
 import type { DictionaryResult } from "../types/dictionary";
 
-test("ordinary US rows send displayed IPA, UK keeps its existing path, and failures never use device speech", async () => {
+test("ordinary words use the reader playback path; only distinct readings within an accent send IPA", async () => {
   const dom = new JSDOM("<!doctype html><body></body>", { url: "https://context-reader.com" });
   for (const [key, value] of Object.entries({ window: dom.window, document: dom.window.document, navigator: dom.window.navigator, HTMLElement: dom.window.HTMLElement, React, IS_REACT_ACT_ENVIRONMENT: true })) Object.defineProperty(globalThis, key, { configurable: true, writable: true, value });
   let spoken = 0;
@@ -43,11 +43,11 @@ test("ordinary US rows send displayed IPA, UK keeps its existing path, and failu
     assert.doesNotMatch(ui.container.textContent ?? "", /英美共用|语境发音|the regiment|to regiment/);
     const user = userEvent.setup({ document: dom.window.document });
     await waitFor(() => assert.equal(calls.length, 2));
-    assert.deepEqual(calls.slice(0, 2), [{text:"regiment",accent:"en-US",phonetic:"/ˈredʒɪment/"}, {text:"regiment",accent:"en-GB"}]);
+    assert.deepEqual(calls.slice(0, 2), [{text:"regiment",accent:"en-US"}, {text:"regiment",accent:"en-GB"}]);
     await user.click(ui.getByRole("button", { name: "播放 regiment 的美式发音" }));
     await waitFor(() => assert.equal(calls.length, 3));
     await waitFor(() => assert.ok(ui.getByText("云端美音暂时不可用，请稍后重试。")));
-    assert.deepEqual(calls[2], { text: "regiment", accent: "en-US", phonetic: "/ˈredʒɪment/" });
+    assert.deepEqual(calls[2], { text: "regiment", accent: "en-US" });
     assert.equal(spoken, 0);
     ui.rerender(<Component result={{ query: "record", pronunciations: [
       { accent: "en-US", partOfSpeech: "noun", phonetic: "/ˈrekərd/" },
@@ -58,6 +58,35 @@ test("ordinary US rows send displayed IPA, UK keeps its existing path, and failu
     await user.click(ui.getAllByRole("button", { name: "播放 record 的美式发音" })[1]);
     await waitFor(() => assert.equal(calls.length, 6));
     assert.deepEqual(calls[5], { text: "record", accent: "en-US", phonetic: "/rɪˈkɔːrd/" });
+    // Different US/UK IPA alone is not a heteronym. Neither new results nor
+    // restored history should force ordinary words through phoneme synthesis.
+    for (const [word, us, uk] of [
+      ["bibliography", "/ˌbɪbliˈɑɡrəfi/", "/ˌbɪbliˈɒɡrəfi/"],
+      ["humiliate", "/hjuːˈmɪlieɪt/", "/hjuːˈmɪlieɪt/"],
+      ["lever", "/ˈlevər/", "/ˈliːvə/"],
+      ["peg", "/peɡ/", "/peɡ/"],
+    ]) {
+      const before = calls.length;
+      ui.rerender(<Component result={{query:word, pronunciations:[
+        {accent:"en-US", partOfSpeech:"noun", phonetic:us},
+        {accent:"en-US", partOfSpeech:"verb", phonetic:us},
+        {accent:"en-GB", partOfSpeech:"noun", phonetic:uk},
+        {accent:"en-GB", partOfSpeech:"verb", phonetic:uk},
+      ]} as DictionaryResult}/>);
+      await waitFor(() => assert.equal(calls.length, before + 2));
+      assert.deepEqual(calls.slice(before), [{text:word,accent:"en-US"},{text:word,accent:"en-GB"}]);
+      assert.equal(ui.container.querySelectorAll("strong").length, 0);
+    }
+    const before = calls.length;
+    ui.rerender(<Component result={{query:"alternate", pronunciations:[
+      {accent:"en-US",partOfSpeech:"noun",phonetic:"/ˈɑːltɝːnət/"},
+      {accent:"en-US",partOfSpeech:"adjective",phonetic:"/ˈɑːltɝːnət/"},
+      {accent:"en-GB",partOfSpeech:"noun",phonetic:"/ˈɒltənət/"},
+      {accent:"en-GB",partOfSpeech:"adjective",phonetic:"/ɒlˈtɜːnət/"},
+    ]} as DictionaryResult}/>);
+    await waitFor(() => assert.equal(calls.length, before + 3));
+    assert.ok(calls.slice(before).filter(call=>call.accent==="en-US").every(call=>!("phonetic" in call)));
+    assert.deepEqual(calls.slice(before).filter(call=>call.accent==="en-GB").map(call=>call.phonetic), ["/ˈɒltənət/", "/ɒlˈtɜːnət/"]);
   } finally {
     cleanup();
     globalThis.fetch = originalFetch;
