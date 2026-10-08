@@ -25,7 +25,7 @@ const mediaRequests = new Map<string, Promise<PronunciationMedia>>();
 const MAX_CACHED_MEDIA = 120;
 
 function cacheKey(text: string, accent: PronunciationAccent, phonetic = ""): string {
-  return `${accent}\n${text.trim().toLowerCase()}\n${normalizePronunciationPhonetic(phonetic)}`;
+  return `${accent}\n${text.trim().toLowerCase()}\n${phonetic ? normalizePronunciationPhonetic(phonetic, accent) || phonetic.trim() : ""}`;
 }
 
 function filenameFromHeader(response: Response, accent: PronunciationAccent): string {

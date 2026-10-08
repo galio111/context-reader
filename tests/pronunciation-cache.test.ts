@@ -138,6 +138,22 @@ test("contemplate uses reviewed US phones and shares the correction across plain
   assert.equal(h.requests[1].request.text_type, "plain");
 });
 
+test("lever uses the approved CMU tail, equivalent US notation shares audio, and a requested variant stays distinct", async () => {
+  const h = harness();
+  const plain = await h.getAudio("lever", "en-US");
+  const explicit = await h.getAudio("lever", "en-US", "/ˈlevər/");
+  const rhotic = await h.getAudio("lever", "en-US", "/ˈlɛvɚ/");
+  assert.equal(plain.filename, explicit.filename);
+  assert.equal(plain.filename, rhotic.filename);
+  assert.equal(h.counts().providers, 1);
+  assert.equal(h.requests[0].request.text, '<speak><phoneme alphabet="cmu" ph="L EH1 V ER0">lever</phoneme></speak>');
+  const variant = await h.getAudio("lever", "en-US", "/ˈliːvər/");
+  assert.notEqual(variant.filename, plain.filename);
+  assert.match(h.requests[1].request.text, /L IY1 V ER0/);
+  await h.getAudio("lever", "en-GB");
+  assert.equal(h.requests[2].request.text_type, "plain");
+});
+
 
 test("one transient TTS timeout retries inside the existing deduplicated request", async () => {
   const h = harness({ providerFailures: 1 });

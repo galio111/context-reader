@@ -1,8 +1,12 @@
 import { normalizePronunciationText, requiresCurrentFormPhonetic } from "./pronunciation";
+import type { PronunciationAccent } from "./pronunciation";
 
-export function normalizePronunciationPhonetic(value: string): string {
-  const ipa = value.normalize("NFC").trim().replace(/^\/(.*)\/$/, "$1").replace(/^\[(.*)\]$/, "$1")
+export function normalizePronunciationPhonetic(value: string, accent?: PronunciationAccent): string {
+  let ipa = value.normalize("NFC").trim().replace(/^\/(.*)\/$/, "$1").replace(/^\[(.*)\]$/, "$1")
     .replace(/['’]/g, "ˈ").replace(/:/g, "ː");
+  // In a standalone UK recording the dictionary's optional linking r is
+  // absent. Resolve only this final notation, never arbitrary parentheses.
+  if (accent) ipa = ipa.replace(/\(r\)$/, accent === "en-GB" ? "" : "r");
   // Single-word IPA only. No markup, alternatives, prose, or unbounded input.
   return ipa.length > 0 && ipa.length <= 100 && /^[a-zɑɐɒæɓβɔɕçɗðəɚɛɜɝɞɟɡɢɣɦɪɫɬɭɯɲŋɳɵøœɸɹɻɾʀʁʃʊʌʋʍʎʒʔθˈˌːˑ.\u0300-\u036f\u0361]+$/u.test(ipa) ? ipa : "";
 }
@@ -23,10 +27,14 @@ const IPA_PHONES: Record<string, string> = {
 const IPA_TOKENS = Object.keys(IPA_PHONES).sort((a, b) => b.length - a.length);
 const CMU_VOWEL = /^(AA|AE|AH|AO|AW|AY|EH|ER|EY|IH|IY|OW|OY|UH|UW)$/;
 
-export function ipaToCmu(value: string): string {
+export function ipaToCmu(value: string, accent?: PronunciationAccent): string {
   // Strip syllable dividers, not phonemes. Unknown symbols/diacritics are not
-  // guessed or partly discarded: use the provider's normal word reading.
-  const ipa = normalizePronunciationPhonetic(value).replace(/\./g, "");
+  // guessed or partly discarded. The API rejects explicit unconvertible IPA.
+  let ipa = normalizePronunciationPhonetic(value, accent);
+  // US word-final schwa+r is the rhotic vowel ER0 (e.g. CMUdict lever).
+  // Do not fuse r at the start of the next syllable or change British phones.
+  if (accent === "en-US") ipa = ipa.replace(/ə[rɹ]$/, "ɚ");
+  ipa = ipa.replace(/\./g, "");
   if (!ipa) return "";
   const phones: string[] = [];
   const vowelIndices: number[] = [];
@@ -59,9 +67,9 @@ export function ipaToCmu(value: string): string {
   return phones.join(" ");
 }
 
-export function pronunciationSynthesisInput(text: string, phonetic = ""): { text: string; textType: "plain" | "ssml" } {
+export function pronunciationSynthesisInput(text: string, phonetic = "", accent?: PronunciationAccent): { text: string; textType: "plain" | "ssml" } {
   const word = normalizePronunciationText(text);
-  const cmu = ipaToCmu(phonetic);
+  const cmu = ipaToCmu(phonetic, accent);
   if (!cmu || !requiresCurrentFormPhonetic(word)) return { text: word, textType: "plain" };
   const escaped = word.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
   const ssml = `<speak><phoneme alphabet="cmu" ph="${cmu}">${escaped}</phoneme></speak>`;

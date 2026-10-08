@@ -111,7 +111,7 @@ async function ensurePronunciationBucket(client: PronunciationCacheClient): Prom
 }
 
 function cacheIdentity(text: string, accent: PronunciationAccent, voice: string, phonetic = ""): string {
-  const synthesis = pronunciationSynthesisInput(text, phonetic);
+  const synthesis = pronunciationSynthesisInput(text, phonetic, accent);
   return createHash("sha256")
     .update([PROVIDER_ID, accent, voice, text,
       ...(synthesis.textType === "ssml" ? ["cmu-ssml-v2", synthesis.textType, synthesis.text] : [])].join("\n"))
@@ -169,7 +169,7 @@ async function requestVolcengineAudioOnce(
     throw new MissingPronunciationConfigurationError();
   }
 
-  const synthesis = pronunciationSynthesisInput(text, phonetic);
+  const synthesis = pronunciationSynthesisInput(text, phonetic, accent);
   const response = await fetch(
     process.env.VOLCENGINE_TTS_ENDPOINT?.trim() || DEFAULT_ENDPOINT,
     {
@@ -259,7 +259,7 @@ async function createPronunciation(
 ): Promise<PronunciationResult> {
   const normalizedText = normalizePronunciationText(text);
   const voice = configuredVoice(accent);
-  const identity = cacheIdentity(normalizedText.toLowerCase(), accent, voice, normalizePronunciationPhonetic(phonetic));
+  const identity = cacheIdentity(normalizedText.toLowerCase(), accent, voice, normalizePronunciationPhonetic(phonetic, accent));
   const path = cachePath(accent, identity);
   const filename = mediaFilename(accent, identity);
   const client = pronunciationCacheClient();
@@ -309,10 +309,12 @@ export function getPronunciationAudio(
   accent: PronunciationAccent,
   phonetic = "",
 ): Promise<PronunciationResult> {
-  phonetic = reviewedPronunciationAudioPhonetic(text, accent) || phonetic;
+  // Explicit per-row variants own their audio. A default correction must not
+  // silently replace a requested, valid alternative pronunciation.
+  phonetic = phonetic || reviewedPronunciationAudioPhonetic(text, accent);
   const voice = configuredVoice(accent);
   const normalizedText = normalizePronunciationText(text);
-  const key = cacheIdentity(normalizedText.toLowerCase(), accent, voice, normalizePronunciationPhonetic(phonetic));
+  const key = cacheIdentity(normalizedText.toLowerCase(), accent, voice, normalizePronunciationPhonetic(phonetic, accent));
   const existing = inFlight.get(key);
   if (existing) return existing;
   const hot = hotAudio.get(key);

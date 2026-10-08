@@ -12,7 +12,7 @@ import {
 } from "@/lib/pronunciationServer";
 import { recordServerError, reportReference } from "@/lib/serverErrorReporting";
 
-import { normalizePronunciationPhonetic } from "@/lib/pronunciationSsml";
+import { normalizePronunciationPhonetic, pronunciationSynthesisInput } from "@/lib/pronunciationSsml";
 import { requiresCurrentFormPhonetic } from "@/lib/pronunciation";
 
 export const maxDuration = 30;
@@ -47,8 +47,9 @@ export async function POST(request: Request) {
     );
   }
 
-  const phonetic = typeof body.phonetic === "string" ? normalizePronunciationPhonetic(body.phonetic) : "";
-  if (body.phonetic !== undefined && (!phonetic || !requiresCurrentFormPhonetic(text))) {
+  const phonetic = typeof body.phonetic === "string" ? normalizePronunciationPhonetic(body.phonetic, body.accent) : "";
+  if (body.phonetic !== undefined && (!phonetic || !requiresCurrentFormPhonetic(text)
+    || pronunciationSynthesisInput(text, phonetic, body.accent).textType !== "ssml")) {
     return NextResponse.json({ error: "当前音标无法用于单词发音。", code: "unsupported_pronunciation_phonetic" }, { status: 400 });
   }
   try {

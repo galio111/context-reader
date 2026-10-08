@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-08",
+  "firstRoundAccepted": false,
+  "secondRound": {
+    "C": "读对且自然",
+    "D": "仍然不对",
+    "E": "仍然不对",
+    "F": "读对但生硬"
+  },
+  "accepted": {
+    "word": "lever",
+    "accent": "en-US",
+    "voice": "en_female_amanda_mars_bigtts",
+    "speedRatio": 0.9,
+    "textType": "ssml",
+    "text": "<speak><phoneme alphabet=\"cmu\" ph=\"L EH1 V ER0\">lever</phoneme></speak>",
+    "sha256": "3aec13662a2a10d3209aa877c428b1f0ba2d28873dc78414af294e4196c8bd7f",
+    "file": "lever-us-approved.mp3"
+  },
+  "limits": "User acceptance covers this lever sample, not every US word. UK voice and ordinary playback strategy retained."
+}

@@ -9,7 +9,7 @@ import { groupDictionaryPronunciations, dictionaryPronunciationRows, phoneticCom
 import { requiresCurrentFormPhonetic } from "../lib/pronunciation";
 import type { DictionaryResult } from "../types/dictionary";
 
-test("ordinary rows use word reading, heteronyms send their reading, and dictionary failures never fall back to device speech", async () => {
+test("ordinary US rows send displayed IPA, UK keeps its existing path, and failures never use device speech", async () => {
   const dom = new JSDOM("<!doctype html><body></body>", { url: "https://context-reader.com" });
   for (const [key, value] of Object.entries({ window: dom.window, document: dom.window.document, navigator: dom.window.navigator, HTMLElement: dom.window.HTMLElement, React, IS_REACT_ACT_ENVIRONMENT: true })) Object.defineProperty(globalThis, key, { configurable: true, writable: true, value });
   let spoken = 0;
@@ -43,11 +43,11 @@ test("ordinary rows use word reading, heteronyms send their reading, and diction
     assert.doesNotMatch(ui.container.textContent ?? "", /英美共用|语境发音|the regiment|to regiment/);
     const user = userEvent.setup({ document: dom.window.document });
     await waitFor(() => assert.equal(calls.length, 2));
-    assert.deepEqual(calls.slice(0, 2), [{text:"regiment",accent:"en-US"}, {text:"regiment",accent:"en-GB"}]);
+    assert.deepEqual(calls.slice(0, 2), [{text:"regiment",accent:"en-US",phonetic:"/ˈredʒɪment/"}, {text:"regiment",accent:"en-GB"}]);
     await user.click(ui.getByRole("button", { name: "播放 regiment 的美式发音" }));
     await waitFor(() => assert.equal(calls.length, 3));
     await waitFor(() => assert.ok(ui.getByText("云端美音暂时不可用，请稍后重试。")));
-    assert.deepEqual(calls[2], { text: "regiment", accent: "en-US" });
+    assert.deepEqual(calls[2], { text: "regiment", accent: "en-US", phonetic: "/ˈredʒɪment/" });
     assert.equal(spoken, 0);
     ui.rerender(<Component result={{ query: "record", pronunciations: [
       { accent: "en-US", partOfSpeech: "noun", phonetic: "/ˈrekərd/" },

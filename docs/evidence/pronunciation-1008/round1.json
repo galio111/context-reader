@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-08",
+  "candidate": "B: same production voices and speed, explicit CMU from displayed IPA",
+  "accepted": false,
+  "feedback": {
+    "leverUS": "仍然不对",
+    "leverUK": "读音更对，但仍生硬",
+    "esteemUS": "听不出差异",
+    "esteemUK": "听不出差异"
+  },
+  "supplements": ["lever完全没读对", "主要是美音的问题啊，英音问题都不大", "还有就是音标到底是否正确"],
+  "nextScope": "Focus on American synthesis accuracy; do not replace the British voice. IPA variants must be verified separately from synthesized audio."
+}

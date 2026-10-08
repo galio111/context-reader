@@ -48,6 +48,9 @@ function getAudioContext(): AudioContext | null {
 function playbackErrorMessage(error: unknown, accent: PronunciationAccent): string {
   const accentLabel = accent === "en-US" ? "美音" : "英音";
   if (error instanceof PronunciationRequestError) {
+    if (error.code === "unsupported_pronunciation_phonetic") {
+      return `这条${accentLabel}音标暂不支持朗读。`;
+    }
     if (error.code === "pronunciation_not_configured") {
       return `云端${accentLabel}尚未配置。`;
     }

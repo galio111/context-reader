@@ -93,7 +93,7 @@ function DictionaryPronunciations({ result }: { result: DictionaryResult }) {
           preload
           allowBrowserFallback={false}
           phonetics={requiresCurrentFormPhonetic(result.query) ? Object.fromEntries(
-            row.accents.filter(accent => new Set(groups.flatMap(item => item.entries)
+            row.accents.filter(accent => accent === "en-US" || new Set(groups.flatMap(item => item.entries)
               .filter(item => item.accent === accent).map(item => phoneticComparisonKey(item.phonetic))).size > 1)
               .map(accent => [accent, row.phonetics[accent]])
           ) : undefined} />

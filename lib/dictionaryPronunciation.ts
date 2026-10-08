@@ -78,6 +78,13 @@ export function reviewedDictionaryPronunciations(query: string): Entry[] | null 
   // https://dictionary.cambridge.org/pronunciation/english/burglary
   // https://dictionary.cambridge.org/pronunciation/english/tertiary
   const reviewed: Record<string, { partOfSpeech: Entry["partOfSpeech"]; us: string; uk: string }> = {
+    // Learner-facing defaults; Collins also records US /ˈliːvər/ for lever
+    // and /əˈstiːm/ for esteem. These are variants, not lexical errors.
+    // https://www.collinsdictionary.com/us/dictionary/english-pronunciations/lever
+    // https://dictionary.cambridge.org/pronunciation/english/esteem
+    // https://www.collinsdictionary.com/us/dictionary/english/esteem
+    lever: { partOfSpeech: "other", us: "/ˈlevər/", uk: "/ˈliːvə/" },
+    esteem: { partOfSpeech: "other", us: "/ɪˈstiːm/", uk: "/ɪˈstiːm/" },
     // https://dictionary.cambridge.org/pronunciation/english/contemplate
     contemplate: { partOfSpeech: "verb", us: "/ˈkɑːntəmpleɪt/", uk: "/ˈkɒntəmpleɪt/" },
     burglary: { partOfSpeech: "noun", us: "/ˈbɝːɡlɚi/", uk: "/ˈbɜːɡləri/" },
@@ -98,6 +105,9 @@ export function reviewedDictionaryPronunciations(query: string): Entry[] | null 
 // A reviewed correction to the provider's default word reading. Keep it
 // centralized so dictionary, contextual lookup and Anki share one identity.
 export function reviewedPronunciationAudioPhonetic(text: string, accent: PronunciationAccent): string {
-  return text.trim().toLowerCase() === "contemplate" && accent === "en-US"
-    ? "/ˈkɑːntəmpleɪt/" : "";
+  const word = text.trim().toLowerCase();
+  if ((word === "lever" || word === "esteem") && accent === "en-US") {
+    return reviewedDictionaryPronunciations(word)?.find(entry => entry.accent === accent)?.phonetic ?? "";
+  }
+  return word === "contemplate" && accent === "en-US" ? "/ˈkɑːntəmpleɪt/" : "";
 }

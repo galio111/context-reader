@@ -1,9 +1,34 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { ipaToCmu, pronunciationSynthesisInput } from "../lib/pronunciationSsml";
+import { ipaToCmu, normalizePronunciationPhonetic, pronunciationSynthesisInput } from "../lib/pronunciationSsml";
 import { normalizeDictionarySpelling } from "../lib/dictionarySpelling";
 import { reviewedDictionaryPronunciations, groupDictionaryPronunciations } from "../lib/dictionaryPronunciation";
 import type { DictionaryResult } from "../types/dictionary";
+
+test("reported lever and esteem defaults normalize cached results and constrain their different vowels", () => {
+  for (const [query, ipa, phones] of [
+    ["lever", ["/ˈlevər/", "/ˈliːvə/"], ["L EH1 V ER0", "L IY1 V AH0"]],
+    ["esteem", ["/ɪˈstiːm/", "/ɪˈstiːm/"], ["IH0 S T IY1 M", "IH0 S T IY1 M"]],
+  ] as const) {
+    const result = normalizeDictionarySpelling({ query, lemma: query, direction: "en_to_cn", phonetic: "/old/", phoneticFor: query } as DictionaryResult);
+    assert.deepEqual(result.pronunciations?.map(entry => entry.phonetic), [...ipa]);
+    assert.equal(groupDictionaryPronunciations(result.pronunciations).length, 1);
+    assert.deepEqual(result.pronunciations?.map(entry => ipaToCmu(entry.phonetic, entry.accent)), [...phones]);
+  }
+  assert.equal(ipaToCmu("/əˈstiːm/"), "AH0 S T IY1 M");
+});
+
+test("optional final r resolves by accent without stripping other unsupported notation", () => {
+  assert.equal(normalizePronunciationPhonetic("/'li:və(r)/", "en-GB"), "ˈliːvə");
+  assert.equal(ipaToCmu("/ˈliːvə(r)/", "en-GB"), "L IY1 V AH0");
+  assert.equal(ipaToCmu("/ˈliːvə(r)/", "en-US"), "L IY1 V ER0");
+  assert.equal(ipaToCmu("/ˈkæmə.rə/", "en-US"), "K AE1 M AH0 R AH0");
+  assert.equal(ipaToCmu("/ˈtiːtʃər/", "en-US"), "T IY1 CH ER0");
+  assert.equal(ipaToCmu("/ˈdɑːktər/", "en-US"), "D AA1 K T ER0");
+  for (const value of ["/ˈliː(v)ə/", "/ˈliːvə(r)bad/", "<speak>lever</speak>"]) {
+    assert.equal(normalizePronunciationPhonetic(value, "en-GB"), "");
+  }
+});
 
 test("CMU conversion preserves phonemes and primary/secondary stress across English words", () => {
   for (const [ipa, expected] of [
