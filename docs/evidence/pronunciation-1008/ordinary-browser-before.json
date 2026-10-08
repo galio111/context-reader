@@ -1,0 +1,24 @@
+[
+  {
+    "method": "Network.requestWillBeSent",
+    "requestId": "36640.6128",
+    "body": "{\"text\":\"bibliography\",\"accent\":\"en-US\",\"phonetic\":\"/ˌbɪbliˈɑɡrəfi/\"}"
+  },
+  {
+    "method": "Network.requestWillBeSent",
+    "requestId": "36640.6129",
+    "body": "{\"text\":\"bibliography\",\"accent\":\"en-GB\"}"
+  },
+  {
+    "method": "Network.responseReceived",
+    "requestId": "36640.6128",
+    "status": 200,
+    "filename": "cr-us-0a770d0f6450b04e2dd6abeb.mp3"
+  },
+  {
+    "method": "Network.responseReceived",
+    "requestId": "36640.6129",
+    "status": 200,
+    "filename": "cr-uk-09f7d1dd0e0484571a6d8cce.mp3"
+  }
+]

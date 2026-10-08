@@ -1,0 +1,162 @@
+{
+  "releaseId": "20261008T220600",
+  "parentReleaseId": "20261008T171800",
+  "url": "https://context-reader.com/",
+  "ordinaryWords": [
+    "bibliography",
+    "humiliate",
+    "peg"
+  ],
+  "genuineReadingVariants": "alternate noun/adjective vs verb",
+  "keyboardPlayObserved": true,
+  "mobile390PlayObserved": false,
+  "historySwitchGenerationRequests": 0,
+  "consoleErrors": [],
+  "requests": [
+    {
+      "method": "Network.requestWillBeSent",
+      "requestId": "35024.1588",
+      "url": "https://context-reader.com/api/pronunciation",
+      "body": "{\"text\":\"bibliography\",\"accent\":\"en-US\"}"
+    },
+    {
+      "method": "Network.requestWillBeSent",
+      "requestId": "35024.1589",
+      "url": "https://context-reader.com/api/pronunciation",
+      "body": "{\"text\":\"bibliography\",\"accent\":\"en-GB\"}"
+    },
+    {
+      "method": "Network.responseReceived",
+      "requestId": "35024.1588",
+      "url": "https://context-reader.com/api/pronunciation",
+      "status": 200,
+      "filename": "cr-us-a295588ba4407c37c5e71d8a.mp3"
+    },
+    {
+      "method": "Network.responseReceived",
+      "requestId": "35024.1589",
+      "url": "https://context-reader.com/api/pronunciation",
+      "status": 200,
+      "filename": "cr-uk-09f7d1dd0e0484571a6d8cce.mp3"
+    },
+    {
+      "method": "Network.requestWillBeSent",
+      "requestId": "35024.1590",
+      "url": "https://context-reader.com/api/pronunciation",
+      "body": "{\"text\":\"humiliate\",\"accent\":\"en-US\"}"
+    },
+    {
+      "method": "Network.requestWillBeSent",
+      "requestId": "35024.1591",
+      "url": "https://context-reader.com/api/pronunciation",
+      "body": "{\"text\":\"humiliate\",\"accent\":\"en-GB\"}"
+    },
+    {
+      "method": "Network.responseReceived",
+      "requestId": "35024.1590",
+      "url": "https://context-reader.com/api/pronunciation",
+      "status": 200,
+      "filename": "cr-us-1e1b4050a21438b28abcaa19.mp3"
+    },
+    {
+      "method": "Network.responseReceived",
+      "requestId": "35024.1591",
+      "url": "https://context-reader.com/api/pronunciation",
+      "status": 200,
+      "filename": "cr-uk-84782683db6f44894ef7f28a.mp3"
+    },
+    {
+      "method": "Network.requestWillBeSent",
+      "requestId": "35024.1592",
+      "url": "https://context-reader.com/api/pronunciation",
+      "body": "{\"text\":\"peg\",\"accent\":\"en-US\"}"
+    },
+    {
+      "method": "Network.requestWillBeSent",
+      "requestId": "35024.1593",
+      "url": "https://context-reader.com/api/pronunciation",
+      "body": "{\"text\":\"peg\",\"accent\":\"en-GB\"}"
+    },
+    {
+      "method": "Network.responseReceived",
+      "requestId": "35024.1592",
+      "url": "https://context-reader.com/api/pronunciation",
+      "status": 200,
+      "filename": "cr-us-73928ba61d67ddfea37528cc.mp3"
+    },
+    {
+      "method": "Network.responseReceived",
+      "requestId": "35024.1593",
+      "url": "https://context-reader.com/api/pronunciation",
+      "status": 200,
+      "filename": "cr-uk-5260785ba496406fd26e5443.mp3"
+    },
+    {
+      "method": "Network.requestWillBeSent",
+      "requestId": "35024.1594",
+      "url": "https://context-reader.com/api/pronunciation",
+      "body": "{\"text\":\"alternate\",\"accent\":\"en-US\",\"phonetic\":\"/ˈɑːltɝːnət/\"}"
+    },
+    {
+      "method": "Network.requestWillBeSent",
+      "requestId": "35024.1595",
+      "url": "https://context-reader.com/api/pronunciation",
+      "body": "{\"text\":\"alternate\",\"accent\":\"en-GB\",\"phonetic\":\"/ˈɒltənət/\"}"
+    },
+    {
+      "method": "Network.requestWillBeSent",
+      "requestId": "35024.1596",
+      "url": "https://context-reader.com/api/pronunciation",
+      "body": "{\"text\":\"alternate\",\"accent\":\"en-GB\",\"phonetic\":\"/ɒlˈtɜːnət/\"}"
+    },
+    {
+      "method": "Network.requestWillBeSent",
+      "requestId": "35024.1597",
+      "url": "https://context-reader.com/api/pronunciation",
+      "body": "{\"text\":\"alternate\",\"accent\":\"en-US\",\"phonetic\":\"/ˈɑːltɚneɪt/\"}"
+    },
+    {
+      "method": "Network.requestWillBeSent",
+      "requestId": "35024.1598",
+      "url": "https://context-reader.com/api/pronunciation",
+      "body": "{\"text\":\"alternate\",\"accent\":\"en-GB\",\"phonetic\":\"/ˈɒltəneɪt/\"}"
+    },
+    {
+      "method": "Network.responseReceived",
+      "requestId": "35024.1596",
+      "url": "https://context-reader.com/api/pronunciation",
+      "status": 200,
+      "filename": "cr-uk-668b7826913a04cd1c87b1ee.mp3"
+    },
+    {
+      "method": "Network.responseReceived",
+      "requestId": "35024.1594",
+      "url": "https://context-reader.com/api/pronunciation",
+      "status": 200,
+      "filename": "cr-us-1740b108e089905b7c99c9e8.mp3"
+    },
+    {
+      "method": "Network.responseReceived",
+      "requestId": "35024.1595",
+      "url": "https://context-reader.com/api/pronunciation",
+      "status": 200,
+      "filename": "cr-uk-a7dad59ed1ada6a17be7a2d1.mp3"
+    },
+    {
+      "method": "Network.responseReceived",
+      "requestId": "35024.1598",
+      "url": "https://context-reader.com/api/pronunciation",
+      "status": 200,
+      "filename": "cr-uk-471fd23fe40195ac3e9679cc.mp3"
+    },
+    {
+      "method": "Network.responseReceived",
+      "requestId": "35024.1597",
+      "url": "https://context-reader.com/api/pronunciation",
+      "status": 200,
+      "filename": "cr-us-61532a4553980cfc669e2d91.mp3"
+    }
+  ],
+  "naturalness": "Not inferred from network success; retained previously user-accepted lever C, peg D and humiliate B audio.",
+  "mobileVerification": "Viewport override requested but screenshot remained desktop sized; no new mobile acceptance claimed."
+}

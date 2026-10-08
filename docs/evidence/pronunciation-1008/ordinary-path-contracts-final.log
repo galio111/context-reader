@@ -1,0 +1,5 @@
+
+> context-reader@0.1.0 verify:release-contracts
+> tsx scripts/verify-release-contracts.ts
+
+release contracts passed: release-lineage-v1, phonetic-current-form-v1, anki-idempotency-v1, invitation-entitlement-v1, adaptive-article-image-localization-v3, reader-token-identity-v1, admin-curation-transition-v1, rolling-session-v1, featured-motion-preservation-v1

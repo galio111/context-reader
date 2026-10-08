@@ -1,0 +1,18 @@
+healthcheck passed
+{"status": "passed", "checks": {"session": 200, "accounts": 200, "public_articles": 200, "recommendation_automation": 200}}
+context-reader-app:accepted-20261008T220600 05f6494e5acc
+context-reader-app:candidate-20261008T220600 05f6494e5acc
+context-reader-app:latest 05f6494e5acc
+context-reader-app:accepted-20261008T171800 b4def5589c62
+context-reader-app:candidate-20261008T171800 b4def5589c62
+context-reader-app:accepted-20261008T164800 09ca54ec1f1b
+context-reader-app:candidate-20261008T164800 09ca54ec1f1b
+context-reader-app:accepted-20261006T122200 266ec39e631b
+context-reader-app:candidate-20261006T122200 266ec39e631b
+context-reader-app:accepted-20261006T121000 943decbf3c0b
+context-reader-app:candidate-20261006T121000 943decbf3c0b
+/context-reader-postgres-1 eb78126dbbadd0c1c4e98927e4c3b7e5d8848446d9e3627ec7fe324f6df5b762 2026-08-09T01:54:42.435772624Z 2026-08-09T01:54:42.95392548Z
+/context-reader-auth-1 85536a2958e0869dcc1894c3972776a996cceba2c49f14d0fa5d1cd321b11490 2026-08-08T16:41:57.165454349Z 2026-08-08T16:51:10.394275861Z
+/context-reader-rest-1 5439521fa22b77eaeacdbc77b0d791677516214948dd26650c772befd8d3f776 2026-08-08T16:41:57.159436649Z 2026-08-24T07:06:41.323937668Z
+/context-reader-storage-1 bcaee44aa72f5f865b3542c3cba2b7a3adc438f29af5ae93fc6950924f068595 2026-08-08T16:41:57.211922225Z 2026-08-08T16:51:21.011694637Z
+/context-reader-supabase-api-1 8cf4b5ce546533cebea4a839e6dbb8c7f764837d39370ba8e0f86cd37870e342 2026-08-09T01:54:42.636208389Z 2026-08-09T01:54:54.572677208Z

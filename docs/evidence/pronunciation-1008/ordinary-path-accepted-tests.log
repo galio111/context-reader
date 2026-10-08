@@ -1,0 +1,24 @@
+✔ ordinary words use the reader playback path; only distinct readings within an accent send IPA (1691.951ms)
+✔ repeated clicks while audio is loading keep the original request and playback intent (184.6567ms)
+✔ noun/verb playback uses supported CMU and never reuses the old IPA cache or another reading (170.543ms)
+✔ equivalent CMU transcriptions share corrected audio and unknown IPA never reaches phoneme markup (46.8717ms)
+✔ concurrent and repeated requests reuse one generated MP3; accents remain distinct (23.7365ms)
+✔ a transient storage failure retries existing audio instead of paying again (22.0991ms)
+✔ storage outage preserves playback and successful audio for subsequent requests (20.0191ms)
+✔ hot cache evicts least-recently-used entries at its fixed entry limit (108.5939ms)
+✔ a failed write is repaired in the background without another synthesis (26.0433ms)
+✔ a slow Storage write never delays the first successful playback or its concurrent replay (21.2695ms)
+✔ contemplate uses reviewed US phones and shares the correction across plain and dictionary requests (19.9781ms)
+✔ lever uses the approved CMU tail, equivalent US notation shares audio, and a requested variant stays distinct (19.2421ms)
+✔ one transient TTS timeout retries inside the existing deduplicated request (17.5379ms)
+✔ monosyllable ending bypasses old tail audio and equivalent IPA still shares one recording (20.3391ms)
+✔ ordinary requests preserve accepted peg and humiliate recordings while other words keep the Reader path (20.7695ms)
+✔ persistent timeouts stop after two attempts and explicit rejections never retry (58.2828ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6551.2575

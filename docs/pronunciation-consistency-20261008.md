@@ -1,56 +1,38 @@
 # 单独查词发音路径与异读边界
 
-状态：已生产接受 `20261008T171800`，parent `20261008T164800`，source `36c28db24447ed9ce15720343bb150eefd581418`。通用美音音标绑定、词尾卷舌转换和全部单音节音素请求的句末收尾均已上线。公网版本、10词音频身份、已接受样本、真实浏览器及账户回归通过；自然度听音接受覆盖 lever 与 peg，未声称全词库准确。
+状态：已生产接受 `20261008T220600`，parent `20261008T171800`，source `18fe18d4c7014e2f97bd6f34e1e572b10cae4aa8`。公网 `/api/connectivity` 精确返回该身份与 `mainland_internal`。普通词恢复与划词翻译相同的请求；只有同一口音的不同读法才提交对应音标。此前“所有美音都强制按 IPA 合成”的方向已被用户纠正并撤回。
 
-## 确认的事实
+## 当前规则
 
-核对聊天“优化单独查词发音与历史缓存”（01a106ff-2924-7201-8def-f22174a0c134）和修复前生产 `20261006T122200`（parent `20261006T121000`，source `b2f55edd29877c228de598896f6b80a9e961edc9`）：普通词的显示 IPA 未传入音频请求；上一轮预加载/点击意图/历史回放修复没有证明词汇发音正确。美音 Amanda、英音 Emily 和 0.9 合成语速均未发生此次调整前的配置漂移。
+- 按每个口音分别比较读音：只有一种读音时，发送与 Reader 一样的 `text` / `accent` 请求；同口音有多个读音时，才传当前行 `phonetic`。多个同音词性仍合并，单纯 US/UK 差异不触发音标合成。
+- 预加载、点击和旧历史回放共用此规则。保留原播放器、点击意图、音色（美音 Amanda、英音 Emily）及 **0.9 语速**。没有新增词库、模型调用或运行时词典查询。
+- 共享服务端保留 lever/esteem/contemplate 的核对默认值，并让 peg 和 humiliate 的普通请求复用用户已接受的参数；Reader、单独查词、生词本和 Anki 可共用这些已接受录音。显式请求不同合法音标时仍优先采用该变体。
+- 仅进入音素合成的美音单音节词保留 phoneme 外句末句号；美音词尾 /ər/ 转为 `ER0`，与 /ɚ/ 共用音频身份，不合并下个音节开头的 r。英音、多音节和短语不套用单音节收尾。
+- 未知或不完整音标返回 400，不调用供应商或悄悄改成另一读法。缓存身份含实际合成输入；不清空已有录音，不补生成旧历史，也不再次收费。
 
-`lever` 美音 /ˈlevər/ 和 /ˈliːvər/ 均有依据；英音 /ˈliːvə(r)/ 正确。`esteem` /ɪˈstiːm/ 与美音 /əˈstim/ 均有依据，重音在第二音节。不能因为与另一词典不同就把合法变体标成错误。当前学习界面采用 lever US /ˈlevər/、UK /ˈliːvə/，esteem /ɪˈstiːm/ 作为核对后的默认值。其他词的 IPA 仍可能由模型生成，当前实现不等于全库词典认证。
+用户原始目标是为不同词性的异读分别标示。普通词朗读曾因全面强制音标而变差；bibliography 的中间音素即使转换无缺失，也不能保证合成听感正确。因此没有发布后续全 CMU 词库方案，而是恢复用户要求的普通词路径。讨论和旧发布经过见 `docs/product-journey.md`，不得从历史段落恢复全 US 音标合成。
 
-来源：[Collins lever](https://www.collinsdictionary.com/us/dictionary/english-pronunciations/lever)、[Cambridge esteem](https://dictionary.cambridge.org/pronunciation/english/esteem)、[Collins esteem](https://www.collinsdictionary.com/us/dictionary/english/esteem)、[CMUdict](https://github.com/cmusphinx/cmudict/blob/master/cmudict.dict)、[供应商 SSML](https://docs.volcengine.com/docs/DoubaoVoice/SSMLmarkuplanguage?lang=zh)。CMUdict lever 对应 `L EH1 V ER0`，长元音变体对应 `L IY1 V ER0`。
+## 音标与已接受音频
 
-## 听音结果与选择
+`lever` 美音 /ˈlevər/、/ˈliːvər/ 都有词典依据，英音 /ˈliːvə(r)/ 正确；当前默认 US /ˈlevər/、UK /ˈliːvə/。`esteem` /ɪˈstiːm/ 与美音 /əˈstim/ 都有依据，重音在第二音节，当前采用 /ɪˈstiːm/。音标记法或合法变体不同不能直接判错。其他模型生成的 IPA 仍未获得全词库词典认证。
 
-第一轮保留音色/语速、直接传入原转换音素的 B：用户反馈 lever 美音仍错、英音更对但生硬、esteem 两口音听不出差异，随后明确“主要是美音的问题”。该轮未上线。
+来源：[Collins lever](https://www.collinsdictionary.com/us/dictionary/english-pronunciations/lever)、[Cambridge esteem](https://dictionary.cambridge.org/pronunciation/english/esteem)、[Collins esteem](https://www.collinsdictionary.com/us/dictionary/english/esteem)、[CMUdict](https://github.com/cmusphinx/cmudict/blob/master/cmudict.dict)、[供应商 SSML](https://docs.volcengine.com/docs/DoubaoVoice/SSMLmarkuplanguage?lang=zh)。
 
-第二轮：C（Amanda，CMU `L EH1 V ER0`，0.9）“读对且自然”；D（Amanda 直接 IPA）仍错；E（Jackson）仍错；F（Lauren）读对但生硬。采用 C，保留当前两种音色和原语速。D/E/F 未进入生产。
+| 词 | 用户接受的美音 | 当前普通请求 SHA256 |
+| --- | --- | --- |
+| lever | 第二轮 C，Amanda，`L EH1 V ER0`，0.9 | `3aec13662a2a10d3209aa877c428b1f0ba2d28873dc78414af294e4196c8bd7f` |
+| peg | 第二轮 D，Amanda，`P EH1 G` 加句末句号，0.9 | `3a3aa8321c0b11ef5629357c3f853071368dc78d2a0d7f1e65b5211ea23fa7f8` |
+| humiliate | 节奏试听 B，保留 `EY2` 次重音，Amanda，0.9 | `d8a3d9f174e8dea5bbff9eb333b5edd70fc2439c1c6c5c62a09ee20d2ddc23cb` |
 
-## 实现边界
+这些文件已逐字节验证与用户接受样本一致。bibliography 普通请求返回 `cr-us-a295588ba4407c37c5e71d8a.mp3`，SHA256 `608a9e27fad5c01c09afc6f6e00d15deaa112bd5a8ddfec0def901fee83f59c1`，与此前 Reader 普通路径一致，替代此前强制 IPA 的 `cr-us-0a770d0f6450b04e2dd6abeb.mp3`。这里只证明恢复原路径，不把网络成功视为该词已通过用户听感验收。
 
-- 当前修订：同一口音内读音一致时，查词与划词翻译发送相同的普通词请求；只有同一口音确有不同读音时才发送对应音标。英美口音本身不同不算词性异读。预加载、点击与旧历史共享这一选择规则，词性仅在真实读音不同时分开。
-- 美音单音节音素请求按 CMU 元音数识别，统一在 phoneme 外添加句末句号；无需按单词拼写配置。多音节、短语和英音保留原收尾。
-- 美音词尾 /ər/ 转为 CMU `ER0`，与 /ɚ/ 共用同一正确音频身份；不把下一个音节开头的 r 合并，也不改变英音音素。
-- lever/esteem 核对值作用于旧缓存和新结果，不补生成历史、不再次收费；US 默认请求也用同一核对值。显式请求合法变体时，不被默认覆盖。
-- `(r)` 仅按口音处理词尾可选标记；其他未知/不完整音标在 API 端拒绝，不调用供应商或退回另一读法。
-- 不清理已有录音库。缓存键按实际合成输入变化，正确音频与旧音频分离。
+## 当前发布验证
 
-## 验证
+- 90 项核心回归、九项发布契约、发音/真实控件/历史/供应商专项及本地、服务器正式构建通过；最后新增默认样本守卫后，16 项控件与音频缓存测试重新通过。真实控件测试覆盖普通 bibliography/humiliate/lever/peg、regiment 多词性同音、record 异读，以及只有 UK 异读时 US 仍走普通请求。
+- 17 文件累计增量来自干净提交，稳定部署入口验证父版本并接受；仅重建 app/caddy，五个后端容器身份与启动时间未变。
+- 新版本真实桌面页面：bibliography、humiliate、peg 的英美请求均不带 IPA；美音分别返回普通 Reader 文件、用户接受的 B、D 文件。alternate 的不同读法仍分组并携带对应 IPA，美音同音行只预加载一次；键盘 Enter 可播放普通词和异读行。历史切换零生成请求，控制台无错误。
+- 本轮请求 390px 覆盖后，实际 DOM 仍为 1039px，工具未生效，因此不新增手机验收结论。实体设备、跨浏览器和其他词自然度仍需独立验证；旧轮 390px 记录不当作本次新版本证据。
+- 独立临时 QA 验证会话、协议 2 同步、划词及句译、词典、两段全文翻译，三项均成功走 `deepseek-flash` 且分别只记一次 1/5/10 点。连续三次历史回放不增用量；普通用户与匿名 Admin、匿名同步/历史边界通过。临时账号及账单引用已按精确条件清理，供应商成本审计保留。
+- 七服务健康、恢复 Admin 四路 200、最新 PostgreSQL 备份 SHA 和隔离恢复 34 张表通过，当前与父版接受镜像均保留。
 
-两次发布均通过90项critical、九项发布契约及本地/服务器正式构建；首版37项发音/真实控件/历史/供应商回退与一次计费专项通过，最终单音节修订23项发音/控件/缓存/API专项通过。第一版164800为33文件累计增量，最终171800为其上的31文件累计增量；稳定部署入口锁与父版本复核启用，只重建app/caddy。
-
-公网 `/api/connectivity` 精确返回上述 release/parent 和 `mainland_internal`。默认 lever US、显式 /ˈlevər/、等价 /ˈlɛvɚ/ 均返回与用户接受 C 完全相同的 34,560 字节 MP3，SHA256 `3aec13662a2a10d3209aa877c428b1f0ba2d28873dc78414af294e4196c8bd7f`；该已接受样本写入其新的内容身份并读回核验，不清理其他缓存。peg US /peɡ/ 返回用户接受D的30,240字节MP3，SHA256 `3a3aa8321c0b11ef5629357c3f853071368dc78d2a0d7f1e65b5211ea23fa7f8`。10词线上抽测的文件身份均对应通用句末收尾输入（见coverage-live.json），不只peg命中特殊文件。UK 文件与修复前逐字节相同；显式长元音变体保留独立身份，不被短元音默认覆盖；未知音标返回 400。
-
-真实线上浏览器显示lever/esteem/peg核对音标，美音预加载分别传 /ˈlevər/、/ɪˈstiːm/、/peɡ/，英音沿用原选择策略。最终刷新后peg预加载返回已接受D的文件身份，键盘Enter触发播放；390px/减少动态效果模式下控件可操作，切历史lever再回peg零生成请求且无控制台错误，桌面截图已存。独立临时 QA 账号验证会话/协议2同步、单词与句译/查词/全文翻译均走成功的 `deepseek-flash`，三项分别只记一次 1/5/10 点；完整查词结果连续三次历史回放用量不变。普通用户与匿名 Admin 边界、匿名同步/历史边界通过。临时账号及其账单引用已精准清理，供应商成本审计保留。
-
-七服务健康、恢复 Admin 四路 200、最新备份 SHA 与隔离恢复 34 表通过。五个后端服务容器身份及创建时间未变，启动时间均早于本次发布；当前/父版接受镜像齐全。最终证据见 [live-acceptance-final.json](evidence/pronunciation-1008/live-acceptance-final.json)、[browser-final.json](evidence/pronunciation-1008/browser-final.json)、[coverage-live.json](evidence/pronunciation-1008/coverage-live.json)。
-
-## peg 补充问题
-
-用户在本轮发布验证期间报告“peg 的重音也奇怪”。[Cambridge](https://dictionary.cambridge.org/us/pronunciation/english/peg) 标 /peɡ/，[Collins](https://www.collinsdictionary.com/dictionary/english-pronunciations/peg) 美音标 /pɛɡ/，都属于该单音节词的合法标法；不标重音符号不意味着弱读。实测当前转换器将 /peɡ/、/pɛɡ/、/ˈpeɡ/ 全部转换为 `P EH1 G`，没有漏标主重音的证据。
-
-第一轮同一 Amanda 的三组本地对照：A 旧的纯文本“仍然奇怪”、B 当前按音标且0.9语速“读对但生硬”、C 同音素且1.0语速“仍然奇怪”。用户进一步指出最后 g 的音奇怪，三者均未获自然度接受，不把 B 标为成功。生产语速未变。
-
-第二轮保留 `P EH1 G` 和0.9语速：D Amanda 只增加句末句号、F Jackson 获用户“读对且自然”接受，E Lauren 仍奇怪。选择 D 保留原音色。用户强调不能只改一个词，故按 CMU 元音数识别所有美音单音节音素请求，在 phoneme 外添加句号，不增加 peg 专用分支；多音节、短语和英音维持现有路径。10词规则回归覆盖 peg/bag/leg/big/dog/egg/cat/book/change/stay；缓存依据合成输入自动分开，不复用旧尾音。其他词自然度仍不由自动测试推断。
-
-用户听音确认覆盖第二轮 C 的 lever 美音和第二轮 D 的 peg 美音。其他词的音质、全词库正确性、实体设备及跨浏览器仍需独立验证，不由 HTTP 200 或自动测试推断。
-
-本机原始对照及反馈：`artifacts/pronunciation-consistency-1008/`。该目录仅存本轮音频/脚本/证据；账号秘密不进入仓库。
-
-## 当前决定：普通词恢复划词翻译路径（待本轮生产验收）
-
-用户指出划词翻译朗读正常，最初只要求为不同词性的不同读法分别标示；全体普通词强制音标合成扩大了需求范围。用户报告 bibliography 中间音听似丢失，真实线上 US /ˌbɪbliˈɑɡrəfi/ 转换为 B IH2 B L IY0 AA1 G R AH0 F IY0，与词典音素相符，因此不能靠补重音证明解决。humiliate 次重音 B/D 获听音接受只证明该样本，不构成全面启用音标合成的理由。
-
-最终修订只改查词请求选择：每个口音分别比较真实读音数量；唯一读音走与 Reader 相同的 word/accent 请求，多读音才传当前行IPA。US/UK读音差异、多个同音词性均不触发IPA。音色、0.9语速、预加载/播放意图、缓存与历史免费回放保持原样；共享服务端保留lever/esteem/contemplate默认纠正，并将用户已接受的peg D与humiliate B参数用于不带IPA的请求，让Reader、查词、生词本和Anki共用已接受录音，显式变体仍优先。未发布的全CMU词库方案已撤下，没有词库新增依赖或运行时开销。此前全体美音行强制IPA的方向已被此决定取代。
-
-回归需验证 bibliography/humiliate/lever/peg 普通请求、regiment多词性同音合并、record异读、alternate仅UK异读时US仍普通请求，以及真实线上历史/预加载/点击。此次验收首先证明恢复原有路径，不宣称所有TTS录音经过人工听验。
+证据：[线上音频与账户](evidence/pronunciation-1008/ordinary-live-acceptance.json)、[真实浏览器请求](evidence/pronunciation-1008/ordinary-browser-final.json)、[修复前请求](evidence/pronunciation-1008/ordinary-browser-before.json)、[页面截图](evidence/pronunciation-1008/ordinary-bibliography-live.png)、[运维](evidence/pronunciation-1008/ordinary-operations.log)、[备份恢复](evidence/pronunciation-1008/ordinary-backup.log)。原始脚本/录音保存在本机 `artifacts/pronunciation-consistency-1008/`，账号秘密不进入仓库。

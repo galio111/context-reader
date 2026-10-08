@@ -1,0 +1,167 @@
+{
+  "release": {
+    "ok": true,
+    "checkedAt": "2026-10-08T14:10:55.798Z",
+    "releaseId": "20261008T220600",
+    "parentReleaseId": "20261008T171800",
+    "backendMode": "mainland_internal"
+  },
+  "approvedLeverUS": [
+    {
+      "text": "lever",
+      "accent": "en-US",
+      "bytes": 34560,
+      "sha256": "3aec13662a2a10d3209aa877c428b1f0ba2d28873dc78414af294e4196c8bd7f",
+      "filename": "cr-us-616bb5bdae41ee1108390806.mp3",
+      "cache": "hit",
+      "voice": "en_female_amanda_mars_bigtts"
+    },
+    {
+      "text": "lever",
+      "accent": "en-US",
+      "phonetic": "/ˈlevər/",
+      "bytes": 34560,
+      "sha256": "3aec13662a2a10d3209aa877c428b1f0ba2d28873dc78414af294e4196c8bd7f",
+      "filename": "cr-us-616bb5bdae41ee1108390806.mp3",
+      "cache": "hit",
+      "voice": "en_female_amanda_mars_bigtts"
+    },
+    {
+      "text": "lever",
+      "accent": "en-US",
+      "phonetic": "/ˈlɛvɚ/",
+      "bytes": 34560,
+      "sha256": "3aec13662a2a10d3209aa877c428b1f0ba2d28873dc78414af294e4196c8bd7f",
+      "filename": "cr-us-616bb5bdae41ee1108390806.mp3",
+      "cache": "hit",
+      "voice": "en_female_amanda_mars_bigtts"
+    }
+  ],
+  "ukUnchanged": {
+    "text": "lever",
+    "accent": "en-GB",
+    "bytes": 29760,
+    "sha256": "79dcbc21bbe9c6b191fe9be1b08cbcea41d17c9c77a4d4e488405e499ddddeca",
+    "filename": "cr-uk-5253cbb1205916ad58a2d545.mp3",
+    "cache": "hit",
+    "voice": "en_female_emily_mars_bigtts"
+  },
+  "esteemUS": {
+    "text": "esteem",
+    "accent": "en-US",
+    "phonetic": "/ɪˈstiːm/",
+    "bytes": 36960,
+    "sha256": "3a0790df4f08fc3c3e65996621946ab28c28e35c8aebb189b360059860cd3d09",
+    "filename": "cr-us-3a0d3ab52edc7fd11be75ce1.mp3",
+    "cache": "hit",
+    "voice": "en_female_amanda_mars_bigtts"
+  },
+  "explicitVariantPreserved": {
+    "text": "lever",
+    "accent": "en-US",
+    "phonetic": "/ˈliːvər/",
+    "bytes": 34560,
+    "sha256": "0741895667f7cb899a9d4a58103d537f353917080dddf008425fa7474ebf7d79",
+    "filename": "cr-us-586230ca6c8239e2ff89e1dc.mp3",
+    "cache": "hit",
+    "voice": "en_female_amanda_mars_bigtts"
+  },
+  "unsupportedRejected": true,
+  "approvedPegUS": {
+    "text": "peg",
+    "accent": "en-US",
+    "phonetic": "/peɡ/",
+    "bytes": 30240,
+    "sha256": "3a3aa8321c0b11ef5629357c3f853071368dc78d2a0d7f1e65b5211ea23fa7f8",
+    "filename": "cr-us-73928ba61d67ddfea37528cc.mp3",
+    "cache": "hit",
+    "voice": "en_female_amanda_mars_bigtts"
+  },
+  "approvedHumiliateUS": {
+    "text": "humiliate",
+    "accent": "en-US",
+    "bytes": 40800,
+    "sha256": "d8a3d9f174e8dea5bbff9eb333b5edd70fc2439c1c6c5c62a09ee20d2ddc23cb",
+    "filename": "cr-us-1e1b4050a21438b28abcaa19.mp3",
+    "cache": "hit",
+    "voice": "en_female_amanda_mars_bigtts"
+  },
+  "ordinaryPeg": {
+    "text": "peg",
+    "accent": "en-US",
+    "bytes": 30240,
+    "sha256": "3a3aa8321c0b11ef5629357c3f853071368dc78d2a0d7f1e65b5211ea23fa7f8",
+    "filename": "cr-us-73928ba61d67ddfea37528cc.mp3",
+    "cache": "hit",
+    "voice": "en_female_amanda_mars_bigtts"
+  },
+  "bibliographyReaderPath": {
+    "text": "bibliography",
+    "accent": "en-US",
+    "bytes": 41760,
+    "sha256": "608a9e27fad5c01c09afc6f6e00d15deaa112bd5a8ddfec0def901fee83f59c1",
+    "filename": "cr-us-a295588ba4407c37c5e71d8a.mp3",
+    "cache": "hit",
+    "voice": "en_female_amanda_mars_bigtts"
+  },
+  "account": true,
+  "sync": true,
+  "normalUserAdminDenied": true,
+  "wordAndSentenceTranslation": true,
+  "dictionaryPronunciations": [
+    {
+      "accent": "en-US",
+      "partOfSpeech": "other",
+      "phonetic": "/ˈlevər/"
+    },
+    {
+      "accent": "en-GB",
+      "partOfSpeech": "other",
+      "phonetic": "/ˈliːvə/"
+    }
+  ],
+  "historyReplayUncharged": true,
+  "fullArticleTranslation": true,
+  "oneActionEach": [
+    {
+      "feature": "full_article_translation",
+      "status": "succeeded",
+      "quota_units": 10
+    },
+    {
+      "feature": "standalone_dictionary",
+      "status": "succeeded",
+      "quota_units": 5
+    },
+    {
+      "feature": "word_explanation",
+      "status": "succeeded",
+      "quota_units": 1
+    }
+  ],
+  "executions": [
+    {
+      "route": "/api/explain-word",
+      "model": "deepseek-flash",
+      "status": "succeeded"
+    },
+    {
+      "route": "/api/dictionary",
+      "model": "deepseek-flash",
+      "status": "succeeded"
+    },
+    {
+      "route": "/api/translate-article",
+      "model": "deepseek-flash",
+      "status": "succeeded"
+    }
+  ],
+  "anonymousBoundaries": true,
+  "passed": true,
+  "cleanupRequired": false,
+  "cleanup": {
+    "exactDisposableAccountRemoved": true,
+    "billingReferencesRemoved": true,
+    "providerCostLedgerRetained": true
+  }
+}
