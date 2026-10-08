@@ -1,0 +1,106 @@
+{
+  "release": "20261008T171800",
+  "note": "All ten requests use generic monosyllable ending. Only peg has user listening acceptance in this set.",
+  "cases": [
+    {
+      "text": "peg",
+      "phonetic": "/peɡ/",
+      "phones": "P EH1 G",
+      "input": "<speak><phoneme alphabet=\"cmu\" ph=\"P EH1 G\">peg</phoneme>.</speak>",
+      "identity": "73928ba61d67ddfea37528cc4ddda4cfce2ba108cdc6c89d60fabdee9c98e5fe",
+      "bytes": 30240,
+      "sha256": "3a3aa8321c0b11ef5629357c3f853071368dc78d2a0d7f1e65b5211ea23fa7f8",
+      "approvedListening": true
+    },
+    {
+      "text": "bag",
+      "phonetic": "/bæɡ/",
+      "phones": "B AE1 G",
+      "input": "<speak><phoneme alphabet=\"cmu\" ph=\"B AE1 G\">bag</phoneme>.</speak>",
+      "identity": "ab3f43a2a45f72637f96e4f2f0f85913d76d69bc9c386c99b303bb83db8bcc00",
+      "bytes": 30720,
+      "sha256": "0fa82da2609e8a82f24446c8417d37ae5145b1a525ee5b5fb948fa4a50ae4ed1",
+      "approvedListening": false
+    },
+    {
+      "text": "leg",
+      "phonetic": "/leɡ/",
+      "phones": "L EH1 G",
+      "input": "<speak><phoneme alphabet=\"cmu\" ph=\"L EH1 G\">leg</phoneme>.</speak>",
+      "identity": "879a68a34b0fc43bafd65cf2b6920fcba0560a67c49467604169d895ada42074",
+      "bytes": 30720,
+      "sha256": "6d1b5d8366c8712e55bcf58303821737667a6e77ad901ae01731657acfc34e22",
+      "approvedListening": false
+    },
+    {
+      "text": "big",
+      "phonetic": "/bɪɡ/",
+      "phones": "B IH1 G",
+      "input": "<speak><phoneme alphabet=\"cmu\" ph=\"B IH1 G\">big</phoneme>.</speak>",
+      "identity": "0de12fa92e3a26d26e820b34ee6bc1964b98f8c52f0d4f0f8e918b34672b3255",
+      "bytes": 29280,
+      "sha256": "0f32a29dfccdafa0c9a21e6ae09630f246968d46c415a29d5640999d50c3e177",
+      "approvedListening": false
+    },
+    {
+      "text": "dog",
+      "phonetic": "/dɔːɡ/",
+      "phones": "D AO1 G",
+      "input": "<speak><phoneme alphabet=\"cmu\" ph=\"D AO1 G\">dog</phoneme>.</speak>",
+      "identity": "445d820ce0ce851e89603f37cffaa0da4010adf88da7de02ce14f81d55430892",
+      "bytes": 31680,
+      "sha256": "1d3bacacbc6b0e71ce4c87b040ffef7d24953a0f8dba36efcaba761e4102239e",
+      "approvedListening": false
+    },
+    {
+      "text": "egg",
+      "phonetic": "/eɡ/",
+      "phones": "EH1 G",
+      "input": "<speak><phoneme alphabet=\"cmu\" ph=\"EH1 G\">egg</phoneme>.</speak>",
+      "identity": "290e43cdc527e443a20be09fc020ab9a03d40f582cef69048aaf7e41bb158caf",
+      "bytes": 29760,
+      "sha256": "80662f6b0666f85e220d9bbc68f6db0e4d103ef2d5070b09f0da38140d87d2e8",
+      "approvedListening": false
+    },
+    {
+      "text": "cat",
+      "phonetic": "/kæt/",
+      "phones": "K AE1 T",
+      "input": "<speak><phoneme alphabet=\"cmu\" ph=\"K AE1 T\">cat</phoneme>.</speak>",
+      "identity": "31f8e3d5def095ea0e7169c7583c8c42841d086a3e0e56922af9d69175cbd579",
+      "bytes": 31680,
+      "sha256": "fc7affc686d7147fb150ce85964ce80f5d05299f541182a1b285fb5b66fb2011",
+      "approvedListening": false
+    },
+    {
+      "text": "book",
+      "phonetic": "/bʊk/",
+      "phones": "B UH1 K",
+      "input": "<speak><phoneme alphabet=\"cmu\" ph=\"B UH1 K\">book</phoneme>.</speak>",
+      "identity": "eb80e23b9240ba237bb3bfce0194861f8ca599bf94ecdf0c8481cf51818e0443",
+      "bytes": 29760,
+      "sha256": "c5f6f409321114a916b5d272e7c73345034a382d1dbda7e275946862e0e5562a",
+      "approvedListening": false
+    },
+    {
+      "text": "change",
+      "phonetic": "/tʃeɪndʒ/",
+      "phones": "CH EY1 N JH",
+      "input": "<speak><phoneme alphabet=\"cmu\" ph=\"CH EY1 N JH\">change</phoneme>.</speak>",
+      "identity": "140e780072a6002bf8ad7c431b210452067c2e553137c64de1d5f995f61f0e26",
+      "bytes": 35040,
+      "sha256": "60355ac324a0b243428f30b1e6654432088a1c2ec93256cabd8e5f2d94aa021c",
+      "approvedListening": false
+    },
+    {
+      "text": "stay",
+      "phonetic": "/steɪ/",
+      "phones": "S T EY1",
+      "input": "<speak><phoneme alphabet=\"cmu\" ph=\"S T EY1\">stay</phoneme>.</speak>",
+      "identity": "41c530f3b73cd983ab9df2606d12df6644c1fe5c49599a13f3b3aab4f8e325c1",
+      "bytes": 35040,
+      "sha256": "e62da5c524afb6e8675a3fff5e46ce451c6853f7a22c4adaaaab6773a83007dd",
+      "approvedListening": false
+    }
+  ]
+}
