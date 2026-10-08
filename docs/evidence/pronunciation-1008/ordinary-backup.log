@@ -1,6 +1,6 @@
 /var/backups/context-reader/postgres/daily/context-reader-20261007T191951Z.dump: OK
 GRANT
- restored_public_tables 
+ restored_public_tables
 ------------------------
                      34
 (1 row)
