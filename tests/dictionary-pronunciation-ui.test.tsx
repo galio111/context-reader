@@ -5,7 +5,7 @@ import { runInNewContext } from "node:vm";
 import ts from "typescript";
 import * as React from "react";
 import { JSDOM } from "jsdom";
-import { groupDictionaryPronunciations, dictionaryPronunciationRows, phoneticComparisonKey } from "../lib/dictionaryPronunciation";
+import { groupDictionaryPronunciations, dictionaryPronunciationRows, phoneticComparisonKey, reviewedDictionaryPronunciations } from "../lib/dictionaryPronunciation";
 import { requiresCurrentFormPhonetic } from "../lib/pronunciation";
 import type { DictionaryResult } from "../types/dictionary";
 
@@ -87,6 +87,12 @@ test("ordinary words use the reader playback path; only distinct readings within
     await waitFor(() => assert.equal(calls.length, before + 3));
     assert.ok(calls.slice(before).filter(call=>call.accent==="en-US").every(call=>!("phonetic" in call)));
     assert.deepEqual(calls.slice(before).filter(call=>call.accent==="en-GB").map(call=>call.phonetic), ["/ˈɒltənət/", "/ɒlˈtɜːnət/"]);
+    const beforeBass=calls.length;
+    ui.rerender(<Component result={{query:"bass",pronunciations:reviewedDictionaryPronunciations("bass")} as DictionaryResult}/>);
+    await waitFor(()=>assert.equal(calls.length,beforeBass+4));
+    assert.equal(ui.container.querySelectorAll("button").length,4);
+    assert.deepEqual(Array.from(ui.container.querySelectorAll("strong"),el=>el.textContent),["低音；贝斯 · 名词 / adjective","鲈鱼 · 名词"]);
+    assert.deepEqual(calls.slice(beforeBass).map(call=>[call.accent,call.phonetic]),[["en-US","/beɪs/"],["en-GB","/beɪs/"],["en-US","/bæs/"],["en-GB","/bæs/"]]);
   } finally {
     cleanup();
     globalThis.fetch = originalFetch;

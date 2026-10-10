@@ -72,7 +72,12 @@ export function pronunciationSynthesisInput(text: string, phonetic = "", accent?
   const word = normalizePronunciationText(text);
   const cmu = ipaToCmu(phonetic, accent);
   if (!cmu || !requiresCurrentFormPhonetic(word)) return { text: word, textType: "plain" };
-  const escaped = word.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  // The provider blends bass's spelling-default vowel into the requested CMU
+  // reading (US defaults to music, UK to fish). A neutral carrier lets the
+  // specified phones own this reviewed heteronym. Never change plain words
+  // or the previously accepted recordings of other explicit readings.
+  const carrier = word.toLowerCase() === "bass" && /^(B AE1 S|B EY1 S)$/.test(cmu) ? "word" : word;
+  const escaped = carrier.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
   // An isolated US monosyllable needs an utterance ending to avoid the
   // provider's unnatural trailing release. Determine this from vowel phones,
   // not spelling or a list of reported words. Keep punctuation outside phones.

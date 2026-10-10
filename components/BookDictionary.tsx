@@ -86,7 +86,7 @@ function DictionaryPronunciations({ result }: { result: DictionaryResult }) {
   const differsByPart = groups.length > 1;
   return <section className={styles.pronunciationVariants} aria-label="单词发音">
     {groups.map((group, index) => <div className={styles.pronunciationVariant} key={index}>
-      {differsByPart && <strong>{group.parts.filter(part => part !== "other").map(part => partOfSpeechLabels[part] || part).join(" / ") || "另一读音"}</strong>}
+      {differsByPart && <strong>{[group.meanings.join("；"), group.parts.filter(part => part !== "other").map(part => partOfSpeechLabels[part] || part).join(" / ")].filter(Boolean).join(" · ") || "另一读音"}</strong>}
       {dictionaryPronunciationRows(group).map((row, rowIndex) => <div className={styles.pronunciationVariantRow} key={rowIndex}>
         <span>{row.phonetic}</span>
         <PronunciationButtons text={result.query} accents={row.accents}
@@ -260,9 +260,7 @@ function DictionaryResultContent({
       <header>
         <div>
           <h3>{result.query}</h3>
-          {result.inputStatus === "ambiguous"
-            ? <p>这个拼写对应多个词头，以下义项会同时保留。</p>
-            : result.lemma !== result.query && <p>原型：{result.lemma}</p>}
+            {result.inputStatus !== "ambiguous" && result.lemma !== result.query && <p>原型：{result.lemma}</p>}
         </div>
         <div className={styles.pronunciation}>
           {result.phonetic && !result.pronunciations?.length && (

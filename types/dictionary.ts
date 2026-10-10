@@ -41,7 +41,7 @@ export interface DictionaryResult {
   lemma: string;
   phonetic: string;
   phoneticFor?: string;
-  pronunciations?: Array<{ accent: "en-US" | "en-GB"; partOfSpeech: "noun" | "verb" | "adjective" | "adverb" | "other"; phonetic: string }>;
+  pronunciations?: Array<{ accent: "en-US" | "en-GB"; partOfSpeech: "noun" | "verb" | "adjective" | "adverb" | "other"; phonetic: string; meaning?: string }>;
   direction: DictionaryDirection;
   inputStatus: DictionaryInputStatus;
   suggestedQuery: string;

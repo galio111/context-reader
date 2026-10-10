@@ -17,6 +17,7 @@ interface PronunciationButtonsProps {
 }
 
 let sharedAudioContext: AudioContext | null = null;
+let activePlayback: { owner: object; stop: () => void } | null = null;
 const DEFAULT_ACCENTS: PronunciationAccent[] = ["en-US", "en-GB"];
 
 function supportsBrowserSpeech(): boolean {
@@ -73,6 +74,8 @@ export const PronunciationButtons = memo(function PronunciationButtons({
   const [loadingAccent, setLoadingAccent] = useState<PronunciationAccent | null>(null);
   const [playbackError, setPlaybackError] = useState("");
   const playbackRequestIdRef = useRef(0);
+  const playbackOwnerRef = useRef<object>({});
+  const browserSpeechRef = useRef(false);
   const sourceRef = useRef<AudioBufferSourceNode | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const audioUrlRef = useRef("");
@@ -96,7 +99,8 @@ export const PronunciationButtons = memo(function PronunciationButtons({
       URL.revokeObjectURL(audioUrlRef.current);
       audioUrlRef.current = "";
     }
-    if (supportsBrowserSpeech()) {
+    if (browserSpeechRef.current && supportsBrowserSpeech()) {
+      browserSpeechRef.current = false;
       window.speechSynthesis.cancel();
     }
   }
@@ -104,6 +108,7 @@ export const PronunciationButtons = memo(function PronunciationButtons({
   function stopPlayback() {
     playbackRequestIdRef.current += 1;
     releaseAudio();
+    if (activePlayback?.owner === playbackOwnerRef.current) activePlayback = null;
     setLoadingAccent(null);
     setPlayingAccent(null);
   }
@@ -117,11 +122,15 @@ export const PronunciationButtons = memo(function PronunciationButtons({
   }, [preload, text, accentKey, usPhonetic, ukPhonetic]);
 
   useEffect(() => {
+    setLoadingAccent(null);
+    setPlayingAccent(null);
+    setPlaybackError("");
     return () => {
       playbackRequestIdRef.current += 1;
       releaseAudio();
+      if (activePlayback?.owner === playbackOwnerRef.current) activePlayback = null;
     };
-  }, []);
+  }, [text, accentKey, usPhonetic, ukPhonetic]);
 
   async function playWithHtmlAudio(
     bytes: Uint8Array,
@@ -186,6 +195,7 @@ export const PronunciationButtons = memo(function PronunciationButtons({
       utterance.voice = pickBrowserVoice(accent);
       utterance.onend = () => {
         if (playbackRequestIdRef.current === playbackRequestId) {
+          browserSpeechRef.current = false;
           setPlayingAccent(null);
         }
         resolve();
@@ -198,6 +208,7 @@ export const PronunciationButtons = memo(function PronunciationButtons({
         reject(new Error(event.error));
       };
       window.speechSynthesis.cancel();
+      browserSpeechRef.current = true;
       window.speechSynthesis.speak(utterance);
     });
   }
@@ -212,6 +223,10 @@ export const PronunciationButtons = memo(function PronunciationButtons({
     }
 
     stopPlayback();
+    // Different pronunciation rows are separate component instances. Starting
+    // one must also cancel playback/preparation owned by any other instance.
+    activePlayback?.stop();
+    activePlayback = { owner: playbackOwnerRef.current, stop: stopPlayback };
     setPlaybackError("");
     setLoadingAccent(accent);
     const playbackRequestId = playbackRequestIdRef.current;
@@ -222,6 +237,7 @@ export const PronunciationButtons = memo(function PronunciationButtons({
       const media = await requestPronunciationMedia(spokenText, accent, phonetics?.[accent]);
       if (playbackRequestIdRef.current !== playbackRequestId) return;
       await resumePromise;
+      if (playbackRequestIdRef.current !== playbackRequestId) return;
       setLoadingAccent(null);
       setPlayingAccent(accent);
       if (context) {
@@ -248,6 +264,7 @@ export const PronunciationButtons = memo(function PronunciationButtons({
         setPlaybackError("云端发音暂不可用，已切换为当前设备的本地语音。");
         await playWithBrowserSpeech(spokenText, accent, playbackRequestId);
       } catch {
+        if (playbackRequestIdRef.current !== playbackRequestId) return;
         setPlayingAccent(null);
         setPlaybackError(playbackErrorMessage(error, accent));
       }

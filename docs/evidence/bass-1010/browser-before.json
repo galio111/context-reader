@@ -1,0 +1,50 @@
+{
+  "requests": [
+    {
+      "method": "Network.requestWillBeSent",
+      "id": "2232.1791",
+      "body": "{\"text\":\"bass\",\"accent\":\"en-US\",\"phonetic\":\"/beɪs/\"}"
+    },
+    {
+      "method": "Network.requestWillBeSent",
+      "id": "2232.1792",
+      "body": "{\"text\":\"bass\",\"accent\":\"en-GB\",\"phonetic\":\"/beɪs/\"}"
+    },
+    {
+      "method": "Network.requestWillBeSent",
+      "id": "2232.1793",
+      "body": "{\"text\":\"bass\",\"accent\":\"en-US\",\"phonetic\":\"/bæs/\"}"
+    },
+    {
+      "method": "Network.requestWillBeSent",
+      "id": "2232.1794",
+      "body": "{\"text\":\"bass\",\"accent\":\"en-GB\",\"phonetic\":\"/bæs/\"}"
+    },
+    {
+      "method": "Network.responseReceived",
+      "id": "2232.1791",
+      "status": 200,
+      "filename": "cr-us-2efe996dfd7e4631f0cf5373.mp3"
+    },
+    {
+      "method": "Network.responseReceived",
+      "id": "2232.1794",
+      "status": 200,
+      "filename": "cr-uk-3ba0078bc5cc413a174a60b5.mp3"
+    },
+    {
+      "method": "Network.responseReceived",
+      "id": "2232.1792",
+      "status": 200,
+      "filename": "cr-uk-d62c4b82ebda43da22dccb2b.mp3"
+    },
+    {
+      "method": "Network.responseReceived",
+      "id": "2232.1793",
+      "status": 200,
+      "filename": "cr-us-fb7ddfc07beb5d38d2ddcc32.mp3"
+    }
+  ],
+  "crossRowOverlapObserved": true,
+  "simultaneouslyPressed": 2
+}

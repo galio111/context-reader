@@ -29,9 +29,9 @@ const dictionaryPrompt = `你是给中文母语英语学习者使用的双向深
 7. 英译中若词头或常见义项可作动词，verbForms 返回过去式、过去分词、现在分词；不是动词则为 null。中译英始终为 null。
 8. 中译英的 usageGuide 只需简短比较各候选之间的选择差别，不重复逐项说明；collocations、wordFamily、synonyms 和 memoryTip 返回空数组或空字符串。
 9. commonMistakes 仅在确有常见中式英语或选词误区时返回 0-3 条。
-10. 英译中增加 pronunciations 数组：用 en-US、en-GB 分别给出有把握的 IPA；partOfSpeech 只能为 noun、verb、adjective、adverb 或 other。同一拼写名词/动词读法不同（如 record）时，按词性分别列出两种口音；只有真实读音差异才按词性分组；发音相同的所有词性只返回一组 other，不重复。英美差异必须有可靠词典依据，统一音标记号体系，不得为了区分口音制造细微差别，不确定的口音音标留空。每个 IPA 都必须属于用户查询的当前拼写，不能用原形音标。不能可靠确认时留空数组，不得猜造。中译英留空数组。
+10. 英译中增加 pronunciations 数组：用 en-US、en-GB 分别给出有把握的 IPA；partOfSpeech 只能为 noun、verb、adjective、adverb 或 other。按实际读音及词义区分，不得只按词性推断。同一词性也可能因词义异读（如 bass：音乐名词/形容词均为 /beɪs/，鱼类名词为 /bæs/）。存在词义异读时用 meaning 写简短中文义项标签，同一词义的两种口音使用相同标签；同音义项可共用一组，只有一个读法时不添加标签。record 等词性异读仍分别保留。senses.phonetic 和 headwordNote 中的音标必须与该义项的读法一致，不得把某个名词读法套给所有名词。英美差异必须有可靠词典依据，统一音标记号体系，不得为了区分口音制造细微差别，不确定的口音音标留空。每个 IPA 都必须属于用户查询的当前拼写，不能用原形音标。不能可靠确认时留空数组，不得猜造。中译英留空数组。
 返回结构：
-{"query":"","lemma":"","phonetic":"","phoneticFor":"","pronunciations":[{"accent":"en-US","partOfSpeech":"other","phonetic":""}],"direction":"en_to_cn","inputStatus":"valid","suggestedQuery":"","senses":[{"headword":"","headwordNote":"","partOfSpeech":"","meaning":"","phonetic":"","register":"","usageNote":"","exampleEnglish":"","exampleChinese":""}],"verbForms":{"pastTense":"","pastParticiple":"","presentParticiple":""},"usageGuide":"","collocations":[{"phrase":"","meaning":"","exampleEnglish":""}],"wordFamily":[{"word":"","partOfSpeech":"","meaning":""}],"synonyms":[{"word":"","difference":""}],"commonMistakes":[""],"memoryTip":""}`;
+{"query":"","lemma":"","phonetic":"","phoneticFor":"","pronunciations":[{"accent":"en-US","partOfSpeech":"other","phonetic":"","meaning":""}],"direction":"en_to_cn","inputStatus":"valid","suggestedQuery":"","senses":[{"headword":"","headwordNote":"","partOfSpeech":"","meaning":"","phonetic":"","register":"","usageNote":"","exampleEnglish":"","exampleChinese":""}],"verbForms":{"pastTense":"","pastParticiple":"","presentParticiple":""},"usageGuide":"","collocations":[{"phrase":"","meaning":"","exampleEnglish":""}],"wordFamily":[{"word":"","partOfSpeech":"","meaning":""}],"synonyms":[{"word":"","difference":""}],"commonMistakes":[""],"memoryTip":""}`;
 
 interface ProviderProfile {
   apiKey: string;
@@ -120,7 +120,7 @@ function normalizeDictionary(value: unknown, query: string): DictionaryResult {
       const accent = item.accent === "en-US" || item.accent === "en-GB" ? item.accent : null;
       const partOfSpeech = ["noun", "verb", "adjective", "adverb", "other"].includes(text(item.partOfSpeech))
         ? text(item.partOfSpeech) as NonNullable<DictionaryResult["pronunciations"]>[number]["partOfSpeech"] : null;
-      return accent && partOfSpeech && text(item.phonetic) ? { accent, partOfSpeech, phonetic: text(item.phonetic) } : null;
+      return accent && partOfSpeech && text(item.phonetic) ? { accent, partOfSpeech, phonetic: text(item.phonetic), ...(text(item.meaning) ? {meaning: text(item.meaning).slice(0, 60)} : {}) } : null;
     }, 10),
     direction: isChineseQuery ? "cn_to_en" : "en_to_cn",
     inputStatus:

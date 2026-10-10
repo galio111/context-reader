@@ -1,0 +1,58 @@
+{
+  "userFeedback": "两种口音都正确、能区分",
+  "acceptedOn": "2026-10-10",
+  "samples": [
+    {
+      "accent": "en-US",
+      "reading": "music",
+      "phonetic": "/beɪs/",
+      "voice": "en_female_amanda_mars_bigtts",
+      "file": "neutral-en-US-music.mp3",
+      "speed": 0.9,
+      "synthesis": "<speak><phoneme alphabet=\"cmu\" ph=\"B EY1 S\">word</phoneme>.</speak>",
+      "identity": "477cb30d48eb8263c99af4455586fefa2ea5d33c07b717496ca392023f8d71a8",
+      "filename": "cr-us-477cb30d48eb8263c99af445.mp3",
+      "sha256": "d317c09939adf2418568112fbc2c3e5bc2466d28f84fadb2b98c6e2bd1c83fee",
+      "bytes": 33120
+    },
+    {
+      "accent": "en-US",
+      "reading": "fish",
+      "phonetic": "/bæs/",
+      "voice": "en_female_amanda_mars_bigtts",
+      "file": "neutral-en-US-fish.mp3",
+      "speed": 0.9,
+      "synthesis": "<speak><phoneme alphabet=\"cmu\" ph=\"B AE1 S\">word</phoneme>.</speak>",
+      "identity": "12b17325584b7dceda0b7354230e7e467bd226e442321eef6a4269999b1d4d5b",
+      "filename": "cr-us-12b17325584b7dceda0b7354.mp3",
+      "sha256": "71b92d3821b296cc50be621653bf15b78d53f78381f694509e924925715a8b81",
+      "bytes": 33120
+    },
+    {
+      "accent": "en-GB",
+      "reading": "music",
+      "phonetic": "/beɪs/",
+      "voice": "en_female_emily_mars_bigtts",
+      "file": "neutral-en-GB-music.mp3",
+      "speed": 0.9,
+      "synthesis": "<speak><phoneme alphabet=\"cmu\" ph=\"B EY1 S\">word</phoneme></speak>",
+      "identity": "3d27a5e98c0bc5f85c7be6ea00947c367fb0fe3aa84cedc459457cbac4c9368f",
+      "filename": "cr-uk-3d27a5e98c0bc5f85c7be6ea.mp3",
+      "sha256": "0d029d4e58edf684acc6c0347a340ea5daa2dfdc2e5e5f7fd444b541f291fdc7",
+      "bytes": 28800
+    },
+    {
+      "accent": "en-GB",
+      "reading": "fish",
+      "phonetic": "/bæs/",
+      "voice": "en_female_emily_mars_bigtts",
+      "file": "neutral-en-GB-fish.mp3",
+      "speed": 0.9,
+      "synthesis": "<speak><phoneme alphabet=\"cmu\" ph=\"B AE1 S\">word</phoneme></speak>",
+      "identity": "9bf3c42fdc666ae035a25eddeb14e418c8369346f47183359d008057bdf450b5",
+      "filename": "cr-uk-9bf3c42fdc666ae035a25edd.mp3",
+      "sha256": "13d86b7f5b163c8b7d42f771188a7559a888f92e3ca5f4ee19aceb05c3a63a8b",
+      "bytes": 28800
+    }
+  ]
+}

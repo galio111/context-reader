@@ -30,6 +30,16 @@ test("optional final r resolves by accent without stripping other unsupported no
   }
 });
 
+test("bass's explicit sense reading owns its vowel without the provider's spelling-default bias", () => {
+  for (const accent of ["en-US","en-GB"] as const) for (const [ipa,phones] of [["/bæs/","B AE1 S"],["/beɪs/","B EY1 S"]]) {
+    assert.deepEqual(pronunciationSynthesisInput("bass",ipa,accent), {
+      text:`<speak><phoneme alphabet="cmu" ph="${phones}">word</phoneme>${accent==="en-US"?".":""}</speak>`,textType:"ssml",
+    });
+  }
+  assert.deepEqual(pronunciationSynthesisInput("bass","","en-US"),{text:"bass",textType:"plain"});
+  assert.match(pronunciationSynthesisInput("lever","/ˈlevər/","en-US").text,/>lever<\/phoneme>/);
+});
+
 test("CMU conversion preserves phonemes and primary/secondary stress across English words", () => {
   for (const [ipa, expected] of [
     ["/ˈbɝːɡlɚi/", "B ER1 G L ER0 IY0"],

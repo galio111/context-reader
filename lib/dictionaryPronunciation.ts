@@ -4,6 +4,7 @@ import type { PronunciationAccent } from "./pronunciation";
 type Entry = NonNullable<DictionaryResult["pronunciations"]>[number];
 export interface DictionaryPronunciationGroup {
   parts: Entry["partOfSpeech"][];
+  meanings: string[];
   entries: Entry[];
 }
 
@@ -16,16 +17,23 @@ export function phoneticComparisonKey(value: string): string {
 }
 
 export function groupDictionaryPronunciations(entries: Entry[] = []): DictionaryPronunciationGroup[] {
-  const byPart = new Map<Entry["partOfSpeech"], Entry[]>();
+  const variants: Entry[][] = [];
   for (const entry of entries) {
     if (!entry.phonetic.trim()) continue;
-    const items = byPart.get(entry.partOfSpeech) ?? [];
-    if (!items.some(item => item.accent === entry.accent
-      && phoneticComparisonKey(item.phonetic) === phoneticComparisonKey(entry.phonetic))) items.push(entry);
-    byPart.set(entry.partOfSpeech, items);
+    const key = phoneticComparisonKey(entry.phonetic);
+    const candidates = variants.filter(items => items[0].partOfSpeech === entry.partOfSpeech
+      && (items[0].meaning || "") === (entry.meaning || "")
+      && !items.some(item => item.accent === entry.accent && phoneticComparisonKey(item.phonetic) !== key));
+    // A part of speech can contain several readings (bass/bow/lead). Prefer
+    // equal IPA when matching legacy entries that lack a meaning label.
+    const items = candidates.find(items => items.some(item => phoneticComparisonKey(item.phonetic) === key)) ?? candidates[0];
+    if (!items) variants.push([entry]);
+    else if (!items.some(item => item.accent === entry.accent)) items.push(entry);
   }
   const groups: DictionaryPronunciationGroup[] = [];
-  for (const [part, items] of byPart) {
+  for (const items of variants) {
+    const part = items[0].partOfSpeech;
+    const meaning = items[0].meaning?.trim();
     const compatible = groups.find(group => {
       let shared = false;
       for (const accent of ["en-US", "en-GB"] as const) {
@@ -39,10 +47,11 @@ export function groupDictionaryPronunciations(entries: Entry[] = []): Dictionary
       return shared;
     });
     if (compatible) {
-      compatible.parts.push(part);
+      if (!compatible.parts.includes(part)) compatible.parts.push(part);
+      if (meaning && !compatible.meanings.includes(meaning)) compatible.meanings.push(meaning);
       for (const item of items) if (!compatible.entries.some(entry => entry.accent === item.accent
         && phoneticComparisonKey(entry.phonetic) === phoneticComparisonKey(item.phonetic))) compatible.entries.push(item);
-    } else groups.push({ parts: [part], entries: [...items] });
+    } else groups.push({ parts: [part], meanings: meaning ? [meaning] : [], entries: [...items] });
   }
   return groups;
 }
@@ -66,6 +75,14 @@ export function dictionaryPronunciationRows(group: DictionaryPronunciationGroup)
 // Reviewed lexical corrections apply to old cached results as well as new streams.
 // https://www.oxfordlearnersdictionaries.com/definition/english/plead
 export function reviewedDictionaryPronunciations(query: string): Entry[] | null {
+  // https://dictionary.cambridge.org/dictionary/english/bass
+  // Music is /beɪs/ for both noun and adjective; the fish is /bæs/.
+  if (query.trim().toLowerCase() === "bass") return ([
+    ["noun", "/beɪs/", "低音；贝斯"],
+    ["adjective", "/beɪs/", "低音；贝斯"],
+    ["noun", "/bæs/", "鲈鱼"],
+  ] as const).flatMap(([partOfSpeech, phonetic, meaning]) =>
+    (["en-US", "en-GB"] as const).map(accent => ({accent, partOfSpeech, phonetic, meaning})));
   // https://dictionary.cambridge.org/us/pronunciation/english/alternate
   if (query.trim().toLowerCase() === "alternate") return [
     { accent: "en-US", partOfSpeech: "noun", phonetic: "/ˈɑːltɝːnət/" },
@@ -100,6 +117,19 @@ export function reviewedDictionaryPronunciations(query: string): Entry[] | null 
     { accent: "en-US", partOfSpeech: "verb", phonetic: ipa },
     { accent: "en-GB", partOfSpeech: "verb", phonetic: ipa },
   ] : null;
+}
+
+export function reviewedDictionarySenses(query: string, senses: DictionaryResult["senses"]): DictionaryResult["senses"] {
+  if (query.trim().toLowerCase() !== "bass") return senses;
+  return senses.map(sense => {
+    // Classify the actual definition, never the potentially incorrect IPA or
+    // POS in generated prose. This also repairs saved history without a lookup.
+    const phonetic = /鱼/.test(sense.meaning) ? "/bæs/"
+      : /低音|低沉|贝[斯司]/.test(sense.meaning) ? "/beɪs/" : "";
+    if (!phonetic) return sense;
+    return { ...sense, phonetic,
+      headwordNote: sense.headwordNote?.replace(/\/[ˈˌa-zɑæɛɪː]+\//gu, phonetic) };
+  });
 }
 
 // A reviewed correction to the provider's default word reading. Keep it

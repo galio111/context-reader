@@ -1,4 +1,4 @@
-import { reviewedDictionaryPronunciations } from "./dictionaryPronunciation";
+import { reviewedDictionaryPronunciations, reviewedDictionarySenses } from "./dictionaryPronunciation";
 import type { DictionaryInputStatus, DictionaryResult } from "@/types/dictionary";
 
 function normalized(value: string): string {
@@ -49,7 +49,8 @@ export function normalizeDictionarySpelling(
     ? result.pronunciations.slice(0, 10).filter((item) => item && (item.accent === "en-US" || item.accent === "en-GB")
       && ["noun", "verb", "adjective", "adverb", "other"].includes(item.partOfSpeech)
       && typeof item.phonetic === "string" && item.phonetic.trim().length > 0 && item.phonetic.length <= 100)
-      .map((item) => ({ accent: item.accent, partOfSpeech: item.partOfSpeech, phonetic: item.phonetic.trim() })) : [];
+      .map((item) => ({ accent: item.accent, partOfSpeech: item.partOfSpeech, phonetic: item.phonetic.trim(),
+        ...(typeof item.meaning === "string" && item.meaning.trim() ? {meaning:item.meaning.trim().slice(0, 60)} : {}) })) : [];
   const senses = Array.isArray(result.senses)
     ? result.senses.map((sense) => ({
       ...sense,
@@ -94,5 +95,6 @@ export function normalizeDictionarySpelling(
   const suggestedQuery = normalized(suggestionCandidate) !== normalized(query)
     ? suggestionCandidate
     : "";
-  return { ...result, query, lemma, ...pronunciation, pronunciations: inputStatus === "misspelled" ? [] : reviewed ?? pronunciations, direction, senses, verbForms, inputStatus, suggestedQuery };
+  return { ...result, query, lemma, ...pronunciation, pronunciations: inputStatus === "misspelled" ? [] : reviewed ?? pronunciations, direction,
+    senses: reviewedDictionarySenses(query, senses), verbForms, inputStatus, suggestedQuery };
 }
