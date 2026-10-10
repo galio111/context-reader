@@ -1,5 +1,5 @@
 export const EDITORIAL_PROCESSING_LIMIT_MS=120*60_000;
-export interface SupplyRetryLedger {finished?:boolean;suspended?:boolean;nextSupplyRetryAt?:string;supplyRetryCount?:number;processingMs?:number;processingStartedAt?:string;startedAt?:string}
+export interface SupplyRetryLedger {finished?:boolean;suspended?:boolean;shuffleCompleted?:boolean;nextSupplyRetryAt?:string;supplyRetryCount?:number;processingMs?:number;processingStartedAt?:string;startedAt?:string}
 export function supplyRetryDue(ledger:SupplyRetryLedger,now=Date.now()):boolean {
   const at=Date.parse(ledger.nextSupplyRetryAt||'');
   return !!ledger.finished && !ledger.suspended && (ledger.supplyRetryCount||0)<1 && Number.isFinite(at) && now>=at;

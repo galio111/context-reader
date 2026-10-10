@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
-import test from "node:test";
+import test, { mock } from "node:test";
+import { workAsyncStorage } from "next/dist/server/app-render/work-async-storage.external";
 import { listPublicArticleSummaries, publishArticleCandidate } from "../lib/publicArticles";
 import { invalidatePublicReadCache } from "../lib/publicReadCache";
 import { reportEditorialRecovery, runEditorialBatch } from "../lib/editorialRunner";
@@ -7,11 +8,12 @@ import { getRecommendationAutomationStatus } from "../lib/recommendationAutomati
 import { shanghaiDay } from "../lib/discoveryPolicy";
 
 function context(handler: typeof fetch) {
+  const cache = mock.method(workAsyncStorage, "getStore", () => ({ incrementalCache: {} }) as never);
   const previous=globalThis.fetch;
   const url=process.env.SUPABASE_URL,key=process.env.SUPABASE_SERVICE_ROLE_KEY;
   process.env.SUPABASE_URL="http://supabase-api:8000";process.env.SUPABASE_SERVICE_ROLE_KEY="test-only";
   globalThis.fetch=handler;invalidatePublicReadCache();
-  return ()=>{globalThis.fetch=previous;invalidatePublicReadCache();if(url===undefined)delete process.env.SUPABASE_URL;else process.env.SUPABASE_URL=url;if(key===undefined)delete process.env.SUPABASE_SERVICE_ROLE_KEY;else process.env.SUPABASE_SERVICE_ROLE_KEY=key;};
+  return ()=>{cache.mock.restore();globalThis.fetch=previous;invalidatePublicReadCache();if(url===undefined)delete process.env.SUPABASE_URL;else process.env.SUPABASE_URL=url;if(key===undefined)delete process.env.SUPABASE_SERVICE_ROLE_KEY;else process.env.SUPABASE_SERVICE_ROLE_KEY=key;};
 }
 
 test('later supply retry retains spend, attempts and excluded URLs and cannot schedule a second retry',async()=>{
@@ -25,6 +27,7 @@ test('later supply retry retains spend, attempts and excluded URLs and cannot sc
   if(u.pathname.endsWith('/public_articles'))return Response.json(u.searchParams.get('published')==='eq.false'?[]:articles);
   assert.ok(u.pathname.endsWith('/account_settings'));
   if(init?.method==='POST'){for(const row of JSON.parse(String(init.body)))values.set(row.key,row.value);return new Response(null,{status:204});}
+  if(init?.method==='PATCH'){const value=JSON.parse(String(init.body)).value;values.set((u.searchParams.get('key')||'').slice(3),value);return Response.json([{value}]);}
   const filter=u.searchParams.get('key')||'',keys=filter.startsWith('eq.')?[filter.slice(3)]:filter.slice(4,-1).split(',');
   return Response.json(keys.filter(k=>values.has(k)).map(key=>({key,value:values.get(key),updated_at:at})));
  });
@@ -35,8 +38,12 @@ test('later supply retry retains spend, attempts and excluded URLs and cannot sc
   assert.equal(revised.attempts,209);assert.equal(revised.supplyRetryCount,1);assert.equal(revised.nextSupplyRetryAt,undefined);
   assert.deepEqual(revised.sites.source.urls,ledger.sites.source.urls);assert.ok(revised.processingMs>=75*60_000 && revised.processingMs<76*60_000);
   assert.equal(values.get(`recommendation_editorial_spend_${today}`),spent);
+  const sorted = values.get('homepage_publication_curation') as {editorialShuffle:{day:string}};
+  assert.equal(sorted.editorialShuffle.day,today);
+  assert.equal((revised as typeof revised & {shuffleCompleted:boolean}).shuffleCompleted,true);
   const closed=await runEditorialBatch('https://context-reader.com','scheduled',{enabled:true,provider:'deepseek',jevMonthlyBudgetUsd:4,dailyReviewLimit:240,dailyBudgetCny:1.5},new Date());
   assert.equal(closed.skipped,'already_ran_today');assert.equal(values.get(dayKey),revised);
+  assert.equal(values.get('homepage_publication_curation'),sorted);
  } finally {restore();}
 });
 
@@ -80,6 +87,7 @@ test("unexpected batch failure closes today's ledger and requests today's report
     }
     assert.ok(u.pathname.endsWith("/account_settings"));
     if(init?.method==="POST"){for(const row of JSON.parse(String(init.body)))values.set(row.key,row.value);return new Response(null,{status:204});}
+  if(init?.method==="PATCH"){const value=JSON.parse(String(init.body)).value;values.set((u.searchParams.get("key")||"" ).slice(3),value);return Response.json([{value}]);}
     const filter=u.searchParams.get("key") || "";
     const keys=filter.startsWith("eq.")?[filter.slice(3)]:filter.slice(4,-1).split(",");
     return Response.json(keys.filter(k=>values.has(k)).map(key=>({key,value:values.get(key),updated_at:"2026-10-04T00:00:00Z"})));
@@ -114,6 +122,7 @@ test("final recovery report includes approved backlog selections and preserves s
     if(u.pathname.endsWith("/public_articles"))return Response.json(articles);
     assert.ok(u.pathname.endsWith("/account_settings"));
     if(init?.method==="POST"){for(const row of JSON.parse(String(init.body)))values.set(row.key,row.value);return new Response(null,{status:204});}
+  if(init?.method==="PATCH"){const value=JSON.parse(String(init.body)).value;values.set((u.searchParams.get("key")||"" ).slice(3),value);return Response.json([{value}]);}
     const filter=u.searchParams.get("key") || "";const keys=filter.startsWith("eq.")?[filter.slice(3)]:filter.slice(4,-1).split(",");
     return Response.json(keys.filter(k=>values.has(k)).map(key=>({key,value:values.get(key),updated_at:at})));
   });
