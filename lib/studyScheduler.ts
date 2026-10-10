@@ -72,15 +72,18 @@ export function buildStudyPlan(cards: StudyCard[], settings: StudySettings, now:
   return [...due.slice(0, settings.reviewsPerDay), ...fresh].map(c => c.id);
 }
 export function planProgress(cards: StudyCard[], ids: string[], now: Date, newIds?: string[]) {
-  const selected = ids.flatMap(id => { const c = cards.find(c => c.id === id); return c && !c.suspended ? [c] : []; });
+  const byId = new Map(cards.map(c => [c.id,c]));
+  const selected = ids.flatMap(id => { const c = byId.get(id); return c && !c.suspended ? [c] : []; });
   const end = studyDayEnd(now).getTime();
   const finished = selected.filter(c => c.memory.last_review && shanghaiDay(new Date(c.memory.last_review)) === shanghaiDay(now)
     && c.memory.state === State.Review && Date.parse(c.memory.due) >= end);
+  const finishedSet=new Set(finished);
   const newSet=new Set(newIds??selected.filter(c=>c.memory.state===State.New).map(c=>c.id));
-  const reviewRemaining=selected.some(c=>!newSet.has(c.id)&&!finished.includes(c));
-  const available=selected.filter(c=>!finished.includes(c)&&(!reviewRemaining||!newSet.has(c.id)));
+  const reviewRemaining=selected.some(c=>!newSet.has(c.id)&&!finishedSet.has(c));
+  const available=selected.filter(c=>!finishedSet.has(c)&&(!reviewRemaining||!newSet.has(c.id)));
   const ready = available.filter(c => Date.parse(c.memory.due) <= now.getTime())
     .sort((a,b) => (a.memory.state === State.New ? 1 : 0) - (b.memory.state === State.New ? 1 : 0) || Date.parse(a.memory.due) - Date.parse(b.memory.due));
-  const waiting = available.filter(c => !ready.includes(c));
-  return { total: selected.length, finished: finished.length, ready, waiting, blockedNew:reviewRemaining?selected.filter(c=>newSet.has(c.id)&&!finished.includes(c)).length:0 };
+  const readySet = new Set(ready);
+  const waiting = available.filter(c => !readySet.has(c));
+  return { total: selected.length, finished: finished.length, ready, waiting, blockedNew:reviewRemaining?selected.filter(c=>newSet.has(c.id)&&!finishedSet.has(c)).length:0 };
 }

@@ -133,7 +133,7 @@ export function StudyPanel({visible,onClose,onSource,notice}:{visible:boolean;on
   });
   const currentDay=shanghaiDay(now);
   useEffect(()=>{
-    if(snapshot?.today&&snapshot.today.day!==currentDay&&!pending&&!busy)void run(refresh);
+    if(snapshot?.today&&snapshot.today.day!==currentDay&&!pending&&!busy)void run(async()=>{accept(await api<StudySnapshot>({op:"start"}));setPresentation(n=>n+1);});
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[currentDay,snapshot?.today?.day,pending,busy]);
   const loadProfile=()=>run(async()=>{

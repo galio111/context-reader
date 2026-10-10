@@ -133,4 +133,3 @@ try{
  console.log("Study UI browser passed");
 }catch(error){console.error(await page.locator("body").innerText().catch(()=>""));console.error(error);await shot("failure").catch(()=>{});process.exitCode=1;}
 finally{await browser.close();}
-

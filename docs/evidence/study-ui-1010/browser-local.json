@@ -1,0 +1,250 @@
+{
+  "ok": true,
+  "evidence": [
+    {
+      "overflow": 0,
+      "viewport": 960,
+      "buttons": [
+        {
+          "label": "1不记得",
+          "bottom": 753,
+          "hit": true
+        },
+        {
+          "label": "2模糊",
+          "bottom": 753,
+          "hit": true
+        },
+        {
+          "label": "3记得",
+          "bottom": 753,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "overflow": 0,
+      "viewport": 960,
+      "buttons": [
+        {
+          "label": "答错了",
+          "bottom": 784,
+          "hit": true
+        },
+        {
+          "label": "答对了",
+          "bottom": 784,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "overflow": 0,
+      "viewport": 900,
+      "buttons": [
+        {
+          "label": "1不记得",
+          "bottom": 724.7279052734375,
+          "hit": true
+        },
+        {
+          "label": "2模糊",
+          "bottom": 724.7279052734375,
+          "hit": true
+        },
+        {
+          "label": "3记得",
+          "bottom": 724.7279052734375,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "overflow": 0,
+      "viewport": 900,
+      "buttons": [
+        {
+          "label": "下一个",
+          "bottom": 754,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "overflow": 0,
+      "viewport": 900,
+      "buttons": [
+        {
+          "label": "1不记得",
+          "bottom": 723.0438232421875,
+          "hit": true
+        },
+        {
+          "label": "2模糊",
+          "bottom": 723.0438232421875,
+          "hit": true
+        },
+        {
+          "label": "3记得",
+          "bottom": 723.0438232421875,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "overflow": 0,
+      "viewport": 900,
+      "buttons": [
+        {
+          "label": "下一个",
+          "bottom": 754,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "overflow": 0,
+      "viewport": 844,
+      "buttons": [
+        {
+          "label": "1不记得",
+          "bottom": 696.130859375,
+          "hit": true
+        },
+        {
+          "label": "2模糊",
+          "bottom": 696.130859375,
+          "hit": true
+        },
+        {
+          "label": "3记得",
+          "bottom": 696.130859375,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "overflow": 0,
+      "viewport": 844,
+      "buttons": [
+        {
+          "label": "下一个",
+          "bottom": 696,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "overflow": 0,
+      "viewport": 844,
+      "buttons": [
+        {
+          "label": "1不记得",
+          "bottom": 696.6814575195312,
+          "hit": true
+        },
+        {
+          "label": "2模糊",
+          "bottom": 696.6814575195312,
+          "hit": true
+        },
+        {
+          "label": "3记得",
+          "bottom": 696.6814575195312,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "overflow": 0,
+      "viewport": 844,
+      "buttons": [
+        {
+          "label": "下一个",
+          "bottom": 696,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "overflow": 0,
+      "viewport": 667,
+      "buttons": [
+        {
+          "label": "1不记得",
+          "bottom": 540.3043823242188,
+          "hit": true
+        },
+        {
+          "label": "2模糊",
+          "bottom": 540.3043823242188,
+          "hit": true
+        },
+        {
+          "label": "3记得",
+          "bottom": 540.3043823242188,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "overflow": 0,
+      "viewport": 667,
+      "buttons": [
+        {
+          "label": "下一个",
+          "bottom": 540,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "overflow": 0,
+      "viewport": 667,
+      "buttons": [
+        {
+          "label": "1不记得",
+          "bottom": 540.6160278320312,
+          "hit": true
+        },
+        {
+          "label": "2模糊",
+          "bottom": 540.6160278320312,
+          "hit": true
+        },
+        {
+          "label": "3记得",
+          "bottom": 540.6160278320312,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "overflow": 0,
+      "viewport": 667,
+      "buttons": [
+        {
+          "label": "下一个",
+          "bottom": 540,
+          "hit": true
+        }
+      ]
+    }
+  ],
+  "checks": [
+    "automatic question",
+    "reveal",
+    "assisted real Reader round trip",
+    "undo exact word",
+    "three viewports and both themes",
+    "all views",
+    "pause and cost dialogs",
+    "pending and claimed reward",
+    "5/10 minute defaults",
+    "100 review default",
+    "keyboard",
+    "reduced motion"
+  ],
+  "backend": "mocked HTTP, real application components and FSRS library",
+  "errors": []
+}
