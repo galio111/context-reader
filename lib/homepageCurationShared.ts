@@ -7,6 +7,7 @@ export interface HomepageCuration {
   recommendationFeaturedId: string;
   selectedAtById: Record<string, string>;
   updatedAt: string;
+  editorialShuffle?: { day: string; publicationSignature: string; completedAt: string };
 }
 
 function emptyCategories(): HomepageCuration["categories"] {
@@ -21,7 +22,9 @@ export function normalizeHomepageCuration(value: unknown): HomepageCuration {
   const categories = emptyCategories();
   for (const category of HOME_CURATION_CATEGORIES) {
     const ids = Array.isArray(rawCategories[category]) ? rawCategories[category] as unknown[] : [];
-    categories[category] = [...new Set(ids.filter((id): id is string => typeof id === "string" && id.length <= 100))].slice(0, 500);
+    // Topic tabs contain the full published library, already larger than 500.
+    // The recommendation whitelist keeps its existing bounded selection policy.
+    categories[category] = [...new Set(ids.filter((id): id is string => typeof id === "string" && id.length <= 100))].slice(0, category === "推荐" ? 500 : 10_000);
   }
   const rawSelectedAtById = input.selectedAtById && typeof input.selectedAtById === "object" && !Array.isArray(input.selectedAtById)
     ? input.selectedAtById as Record<string, unknown>
@@ -40,11 +43,18 @@ export function normalizeHomepageCuration(value: unknown): HomepageCuration {
     : "";
   const recommendationFeaturedId = explicitRecommendationFeaturedId
     || (input.version === 1 ? categories.推荐[0] ?? "" : "");
+  const shuffle = input.editorialShuffle as HomepageCuration["editorialShuffle"] | undefined;
+  const editorialShuffle = shuffle && /^\d{4}-\d{2}-\d{2}$/.test(shuffle.day)
+    && /^[a-f0-9]{64}$/.test(shuffle.publicationSignature)
+    && Number.isFinite(Date.parse(shuffle.completedAt))
+    ? { day: shuffle.day, publicationSignature: shuffle.publicationSignature, completedAt: shuffle.completedAt }
+    : undefined;
   return {
     version: 2,
     categories,
     recommendationFeaturedId,
     selectedAtById,
     updatedAt: typeof input.updatedAt === "string" ? input.updatedAt : "",
+    ...(editorialShuffle ? { editorialShuffle } : {}),
   };
 }

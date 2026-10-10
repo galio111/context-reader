@@ -1,0 +1,58 @@
+{
+  "identity": {
+    "ok": true,
+    "checkedAt": "2026-10-10T06:30:52.858Z",
+    "releaseId": "20261010T142500",
+    "parentReleaseId": "20261010T105000",
+    "backendMode": "mainland_internal"
+  },
+  "groups": {
+    "商业": {
+      "today": 22,
+      "older": 283,
+      "total": 305
+    },
+    "推荐": {
+      "today": 106,
+      "older": 394,
+      "total": 500
+    },
+    "文化": {
+      "today": 25,
+      "older": 384,
+      "total": 409
+    },
+    "时事": {
+      "today": 23,
+      "older": 473,
+      "total": 496
+    },
+    "科技": {
+      "today": 36,
+      "older": 523,
+      "total": 559
+    }
+  },
+  "receipt": {
+    "day": "2026-10-10",
+    "completedAt": "2026-10-10T06:30:15.816Z",
+    "publicationSignature": "dbc9251ad167a58fc565066e7e15219be40a230d5097c0f96ee994b0e2f45a50"
+  },
+  "publicSSR": true,
+  "articleReplay": [
+    {
+      "id": "00f590ad-c285-4d65-a102-68d12523f22d",
+      "blocks": 13
+    },
+    {
+      "id": "03fbe87f-7b73-4aa7-b4a4-cbe860bdd902",
+      "blocks": 22
+    }
+  ],
+  "sameInventory": true,
+  "repeatStable": true,
+  "unchangedSpend": true,
+  "unchangedAcceptedEmail": true,
+  "calls": 143,
+  "costMicrocny": 503940
+}

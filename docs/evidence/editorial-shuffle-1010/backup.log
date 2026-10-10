@@ -1,0 +1,8 @@
+/var/backups/context-reader/postgres/daily/context-reader-20261009T192251Z.dump: OK
+GRANT
+ restored_public_tables 
+------------------------
+                     34
+(1 row)
+
+restore verification passed

@@ -1,0 +1,36 @@
+{
+  "releaseId": "20261010T105000",
+  "network": [
+    {
+      "method": "Network.requestWillBeSent",
+      "url": "https://context-reader.com/api/pronunciation",
+      "body": "{\"text\":\"faction\",\"accent\":\"en-US\"}"
+    },
+    {
+      "method": "Network.requestWillBeSent",
+      "url": "https://context-reader.com/api/pronunciation",
+      "body": "{\"text\":\"faction\",\"accent\":\"en-GB\"}"
+    },
+    {
+      "method": "Network.responseReceived",
+      "url": "https://context-reader.com/api/pronunciation",
+      "status": 200,
+      "filename": "cr-us-e3342be5c9be50f4025f4448.mp3"
+    },
+    {
+      "method": "Network.responseReceived",
+      "url": "https://context-reader.com/api/pronunciation",
+      "status": 200,
+      "filename": "cr-uk-3ed7e14a23fc6a277d384cda.mp3"
+    }
+  ],
+  "plainUSAcceptedFilename": true,
+  "historyReplayWithoutGeneration": true,
+  "clickPlaying": true,
+  "keyboardPlaying": true,
+  "viewport": {
+    "height": 672,
+    "width": 551
+  },
+  "physicalMobileVerified": false
+}

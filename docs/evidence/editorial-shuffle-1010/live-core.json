@@ -1,0 +1,57 @@
+{
+  "identity": {
+    "ok": true,
+    "checkedAt": "2026-10-10T06:30:06.950Z",
+    "releaseId": "20261010T142500",
+    "parentReleaseId": "20261010T105000",
+    "backendMode": "mainland_internal"
+  },
+  "account": true,
+  "sync": true,
+  "normalUserAdminDenied": true,
+  "wordAndSentenceTranslation": true,
+  "dictionary": true,
+  "fullArticleTranslation": true,
+  "oneActionEach": [
+    {
+      "feature": "full_article_translation",
+      "status": "succeeded",
+      "quota_units": 10
+    },
+    {
+      "feature": "standalone_dictionary",
+      "status": "succeeded",
+      "quota_units": 5
+    },
+    {
+      "feature": "word_explanation",
+      "status": "succeeded",
+      "quota_units": 1
+    }
+  ],
+  "executions": [
+    {
+      "route": "/api/dictionary",
+      "model": "deepseek-flash",
+      "status": "succeeded"
+    },
+    {
+      "route": "/api/explain-word",
+      "model": "deepseek-flash",
+      "status": "succeeded"
+    },
+    {
+      "route": "/api/translate-article",
+      "model": "deepseek-flash",
+      "status": "succeeded"
+    }
+  ],
+  "anonymousAdminDenied": true,
+  "catalogueRows": 1690,
+  "oldArticleRestored": true,
+  "daily": {
+    "day": "2026-10-10",
+    "count": 106
+  },
+  "testUserDeleted": true
+}

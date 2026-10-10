@@ -21,6 +21,7 @@ import { normalizeHomepageCuration } from "@/lib/homepageCurationShared";
 import { invalidateHomepageCuration } from "@/lib/homepageCuration";
 import { approvedRefreshPool, isolatedPublishFailure } from "@/lib/editorialRecoveryPolicy";
 import { editorialCategoryForArticle } from "@/lib/editorialCuration";
+import { finalizeEditorialShuffle } from "@/lib/editorialShuffle";
 import { getRecommendationAutomationStatus, type RecommendationAutomationRunResponse } from "@/lib/recommendationAutomation";
 import type { PublicArticle } from "@/types/publicArticle";
 
@@ -35,6 +36,7 @@ export async function editorialDayClosed(day:string, read=readDiscoverySetting):
   if(!ledger.finished)return false;
   if(ledger.suspended)return true;
   if(supplyRetryDue(ledger))return false;
+  if(!ledger.shuffleCompleted)return false;
   const reports=await Promise.all([DAILY_DISCOVERY_TARGET,30].flatMap(target=>["complete","shortfall"].map(kind=>read<{status?:string}>(`recommendation_editorial_email_${day}_${target}_${kind}`,{}))));
   return reports.some(report=>report.status==="sent");
 }
@@ -50,7 +52,7 @@ export async function curateEditorialArticle(article: PublicArticle, today: stri
     }
     const value = normalizeHomepageCuration(rows[0].value);
     const category = editorialCategoryForArticle(article);
-    value.categories[category] = [article.id, ...value.categories[category].filter((id) => id !== article.id)].slice(0, 500);
+    value.categories[category] = [article.id, ...value.categories[category].filter((id) => id !== article.id)].slice(0, 10_000);
     value.categories.推荐 = [article.id, ...value.categories.推荐.filter((id) => id !== article.id)].slice(0, 500);
     value.selectedAtById[article.id] = article.recommendation?.autoPublishedAt || new Date().toISOString();
     // Reservoir sampling gives every newly published item a chance without model cost.
@@ -124,7 +126,8 @@ export async function reportEditorialRecovery() {
   const rows=articles.filter(a=>shanghaiDay(curation.selectedAtById?.[a.id] || a.recommendation?.autoPublishedAt || "")===today);
   const counts=Object.fromEntries(DAILY_CATEGORIES.map(k=>[k,rows.filter(a=>editorialCategoryForArticle(a)===k).length]));
   const complete=distributionSatisfied(counts);
-  if(complete)await writeDiscoverySetting(`recommendation_editorial_day_${today}`,{...ledger,nextSupplyRetryAt:undefined});
+  await finalizeEditorialShuffle(today,articles);
+  await writeDiscoverySetting(`recommendation_editorial_day_${today}`,{...ledger,shuffleCompleted:true,...(complete?{nextSupplyRetryAt:undefined}:{})});
   const email=await notifyDailyResult(today,rows,ledger.attempts || 0,complete,await import("@/lib/editorialReview").then(m=>m.getEditorialConfig()),true);
   const status=await getRecommendationAutomationStatus();
   await writeDiscoverySetting("recommendation_automation_state",{...status.state,lastCreatedCount:rows.length,status:complete?"succeeded":"failed",...(email?{lastEmailStatus:email.status,lastEmailError:email.error}:{})});
@@ -145,7 +148,7 @@ export async function runEditorialBatch(origin: string, trigger: "scheduled" | "
     const articles=(await listPublicArticles()).filter(a=>shanghaiDay(a.recommendation?.autoPublishedAt || "")===today);
     const detail=String(error).slice(0,500);
     await writeDiscoverySetting(`recommendation_editorial_fault_${today}_${Date.now()}`,{at:new Date().toISOString(),error:detail});
-    await writeDiscoverySetting(`recommendation_editorial_day_${today}`,{...ledger,finished:true,stopReason:"发布或运行异常"});
+    await writeDiscoverySetting(`recommendation_editorial_day_${today}`,{...ledger,finished:true,shuffleCompleted:false,stopReason:"发布或运行异常"});
     const initial=await getRecommendationAutomationStatus();
     const email=await notifyDailyResult(today,articles,Number(ledger.attempts)||0,false,effectiveConfig);
     await writeDiscoverySetting("recommendation_automation_state",{...initial.state,status:"failed",lastScheduledDate:today,lastCreatedCount:articles.length,lastFinishedAt:new Date().toISOString(),lastError:"自动精选遇到异常，已停止并保留后台明细。",...(email?{lastEmailStatus:email.status,lastEmailError:email.error}:{})});
@@ -171,7 +174,7 @@ async function runBudgetedBatch(origin: string, trigger: "scheduled" | "manual",
     const remaining=Math.max(0,120*60_000-(ledger.processingMs ?? 120*60_000));
     ledger.nextSupplyRetryAt=undefined;
     if(remaining) {
-      ledger.finished=false;ledger.supplyRetryCount=1;ledger.nextSupplyRetryAt=undefined;
+      ledger.finished=false;ledger.shuffleCompleted=false;ledger.supplyRetryCount=1;ledger.nextSupplyRetryAt=undefined;
       ledger.recoveryAt=now.toISOString();ledger.processingStartedAt=now.toISOString();ledger.deadlineAt=new Date(Date.now()+remaining).toISOString();
       for(const entry of Object.values(ledger.sites)){entry.waveVisits=0;entry.empty=0;}
     }
@@ -180,6 +183,9 @@ async function runBudgetedBatch(origin: string, trigger: "scheduled" | "manual",
   const todays = () => published.filter(a=>shanghaiDay(a.recommendation?.autoPublishedAt||"")===today);
   if (ledger.finished) {
     if(!ledger.suspended) {
+      await finalizeEditorialShuffle(today,published);
+      ledger.shuffleCompleted=true;
+      await writeDiscoverySetting(dayKey,ledger);
       const email=await notifyDailyResult(today,todays(),ledger.attempts,distributionSatisfied(Object.fromEntries(DAILY_CATEGORIES.map(k=>[k,todays().filter(a=>editorialCategoryForArticle(a)===k).length]))),config);
       if(email)await writeDiscoverySetting("recommendation_automation_state",{...initial.state,lastEmailStatus:email.status,lastEmailError:email.error});
     }
@@ -275,6 +281,8 @@ async function runBudgetedBatch(origin: string, trigger: "scheduled" | "manual",
   const stopReason=afterSpend.blocked||!maySpend?"预算达到边界，未审核文章保留":expired?"120 分钟时限，未审核文章保留":!site?"本轮可处理来源耗尽，技术问题保留":ledger.attempts>=config.dailyReviewLimit?`尝试次数达到 ${config.dailyReviewLimit}，未审核文章保留`:(ledger.failureStreak||0)>=3?"连续模型失败，保留待重试":"继续处理";
   ledger.finished=stopped;ledger.stopReason=stopReason;
   if(stopped) {
+    await finalizeEditorialShuffle(today,published);
+    ledger.shuffleCompleted=true;
     ledger.processingMs=Math.min(120*60_000,(ledger.processingMs||0)+Math.max(0,Date.now()-Date.parse(ledger.processingStartedAt || ledger.startedAt)));
     ledger.nextSupplyRetryAt=!site && !remainingRefresh && maySpend && !afterSpend.blocked && !expired && ledger.attempts<config.dailyReviewLimit && (ledger.failureStreak||0)<3 && !ledger.supplyRetryCount ? supplyRetryTime(today,Date.now(),ledger.processingMs) : undefined;
   }

@@ -1,6 +1,6 @@
 # Automatic editorial publication — current contract
 
-已接受生产版本 `20261006T122200`，parent `20261006T121000`，source `b2f55edd29877c228de598896f6b80a9e961edc9`；公网 `/api/connectivity` 与服务器记录一致，backendMode 为 `mainland_internal`。 See [reliability acceptance](editorial-reliability-20261006.md).
+当前自动排序已接受生产版本 `20261010T142500`，parent `20261010T105000`，source `27ae351239ee9d8d240e20ffee65acee36a93b66`；公网 `/api/connectivity` 与服务器记录一致，backendMode 为 `mainland_internal`。每日全部精选结束后分别随机排序今日与往日文章，重复唤醒不重排；[本次真实验证](editorial-shuffle-20261010.md)。原来源可靠性验收见 [reliability acceptance](editorial-reliability-20261006.md).
 
 a16z News and TIME are enabled and verified, with hourly persistent feed discovery and daily 06:00 Shanghai review. TIME 14 and a16z 2 additional articles were reviewed and published in the 6 October recovery; the two-source review cost was CNY 0.105308. Retain 240 attempts, 120 minutes and CNY 1.50; Flash/MiMo routes and Jev disabled remain unchanged. Quantity is never a stop condition. See [acceptance](editorial-reliability-20261006.md) for dated evidence and limits.
 
@@ -25,6 +25,10 @@ Versioned publisher rules additionally remove inspected ICN paired reader-fundin
 The source/ordered-block-template profile records distinct successful URLs and failures; five distinct clean samples mark the profile verified, any held sample resets it. Profiles support future rule maintenance and expose recurring failures. They do NOT currently waive the original-page comparison or integrated content check: source layout can change, and the combined check adds no extra model request. Do not advertise this as an autonomous selector-learning engine or permanent exemption from quality checks.
 
 ## Scheduling and accounting
+
+Daily publication finalization shuffles both Shanghai-today selections and the entire older published tail in 推荐/时事/科学/文化/商业, then persists the order before the completion report. Today stays first and existing current-day featured choices remain. The recommendation whitelist remains authoritative; topic order storage supports up to 10000 ids rather than truncating at 500. This uses no model calls. Ordinary source batches and hourly feed discovery do not shuffle.
+
+The curation row atomically stores its order and `editorialShuffle` receipt (day, SHA-256 of that day's automatic publication ids, completion time). CAS retries reread simultaneous Admin edits. The day ledger sets `shuffleCompleted` only after persistence; completed days from an older release receive one catch-up shuffle. Repeated cron calls and accepted-mail retries preserve the order. A later recovery with newly published ids shuffles once again at completion; an identical recovery report does not. Cache invalidation refreshes public SSR. Suspension does not initiate finalization; normal budget/time/attempt/source stops still finalize their already published articles.
 
 Database lease serializes bounded source batches. Up to three URL attempts per batch; titles alone do not reject rankings, videos, films or APOD. Actual extracted content and structured review determine eligibility; short extractions remain inspectable until their original body is confirmed. Eligible, already-paid v3 candidates are published first. Verified non-lower sources rotate with category/difficulty priority. A due persisted queue bypasses the former six-visit and empty-batch retirement limits; bounded archive exploration remains available when no due queue exists. Identical held content is not automatically re-reviewed.
 

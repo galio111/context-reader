@@ -1,0 +1,27 @@
+healthcheck passed
+{"status": "passed", "checks": {"session": 200, "accounts": 200, "public_articles": 200, "recommendation_automation": 200}}
+active
+Oct 10 14:29:16 context-reader-shadow systemd[1]: Failed to start context-reader-recommendations.service - Context Reader scheduled recommendation discovery check.
+Oct 10 14:29:51 context-reader-shadow systemd[1]: Starting context-reader-recommendations.service - Context Reader scheduled recommendation discovery check...
+Oct 10 14:30:15 context-reader-shadow python3[3225765]: {"status": "succeeded", "published": 106, "attempts": 240, "skipped": "already_ran_today"}
+Oct 10 14:30:15 context-reader-shadow systemd[1]: context-reader-recommendations.service: Deactivated successfully.
+Oct 10 14:30:15 context-reader-shadow systemd[1]: Finished context-reader-recommendations.service - Context Reader scheduled recommendation discovery check.
+Oct 10 14:30:48 context-reader-shadow systemd[1]: Starting context-reader-recommendations.service - Context Reader scheduled recommendation discovery check...
+Oct 10 14:30:48 context-reader-shadow python3[3226988]: {"status": "succeeded", "published": 106, "attempts": 240, "skipped": "already_ran_today"}
+Oct 10 14:30:48 context-reader-shadow systemd[1]: context-reader-recommendations.service: Deactivated successfully.
+Oct 10 14:30:48 context-reader-shadow systemd[1]: Finished context-reader-recommendations.service - Context Reader scheduled recommendation discovery check.
+/context-reader-postgres-1 2026-08-09T01:54:42.95392548Z
+/context-reader-auth-1 2026-08-08T16:51:10.394275861Z
+/context-reader-rest-1 2026-08-24T07:06:41.323937668Z
+/context-reader-storage-1 2026-08-08T16:51:21.011694637Z
+/context-reader-supabase-api-1 2026-08-09T01:54:54.572677208Z
+sha256:9ad3aba2afd68ecf4e097eea5a724e7b0758e8976a06bf3f35815a8b4ea4cc06
+sha256:e6b0dfe96e26731550eea65db241ded306cb634343cc62f5810a2eb12da5856a
+{
+  "schemaVersion": 1,
+  "releaseId": "20261010T142500",
+  "parentReleaseId": "20261010T105000",
+  "sourceRevision": "27ae351239ee9d8d240e20ffee65acee36a93b66",
+  "acceptedAt": "2026-10-10T06:28:15.516478+00:00",
+  "guardVersion": 1
+}
