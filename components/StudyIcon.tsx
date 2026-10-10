@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 
 const paths = {
+  copy: "M8 8h13v13H8zM4 16H2V2h14v2",
   book: "M4 4h6a3 3 0 0 1 3 3v14a4 4 0 0 0-4-2H4V4Zm9 3a3 3 0 0 1 3-3h5v15h-4a4 4 0 0 0-4 2",
   cards: "M7 5h12v16H7zM4 17V2h12",
   chart: "M4 4v16h17M8 16v-5m5 5V7m5 9V3",

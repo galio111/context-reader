@@ -4,7 +4,7 @@ import { getAuthenticatedUser } from "@/lib/userAuth";
 import { requestExternalOrigin } from "@/lib/requestSecurity";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
 import { buildStudyPlan, sanitizeStudySettings, scheduleStudy, STUDY_ALGORITHM, studyPaused, studyRating } from "@/lib/studyScheduler";
-import { getStudySettings, getStudySnapshot, reconcileStudyCards, saveStudySettings, studyRpc } from "@/lib/studyStore";
+import { getStudySettings, getStudySnapshot, reconcileStudyCards, saveStudySettings, studyRpc, studyRows } from "@/lib/studyStore";
 import type { StudyAnswer, StudyCard } from "@/types/study";
 import { recordServerError } from "@/lib/serverErrorReporting";
 
@@ -46,10 +46,11 @@ export async function POST(request: Request) {
     if (op === "prepare") {await reconcileStudyCards(userId);return result(await getStudySnapshot(userId));}
     if (op === "start") {
       await reconcileStudyCards(userId);
-      const snapshot = await getStudySnapshot(userId);
-      if (studyPaused(snapshot.settings, new Date())) return result(snapshot);
-      const ids = buildStudyPlan(snapshot.cards, snapshot.settings, new Date());
-      if (ids.length || snapshot.today) await studyRpc("start_flexible", { p_user: userId, p_ids: ids, p_settings: snapshot.settings });
+      const [settings,cards]=await Promise.all([getStudySettings(userId),studyRows<StudyCard>("study_cards",userId,"*","&order=id.asc")]);
+      if (!studyPaused(settings,new Date())) {
+        const ids=buildStudyPlan(cards.filter(c=>!c.suspended),settings,new Date());
+        await studyRpc("start_flexible",{p_user:userId,p_ids:ids,p_settings:settings});
+      }
       return result(await getStudySnapshot(userId));
     }
     if (op === "settings" || op === "pause" || op === "resume") {
@@ -87,7 +88,7 @@ export async function POST(request: Request) {
       const rows = await accountFetch<StudyCard[]>("study_cards?user_id=eq." + encodeURIComponent(userId) + "&id=eq." + cardId + "&limit=1");
       const card = rows[0];
       if (!card || card.suspended) throw new StudyError("这个词条已移除。", 404, "state_changed");
-      if (card.anki_pending && !(await getStudySettings(userId)).includeAnki) throw new StudyError("这个词的 Anki 进度尚未迁移，暂不加入站内复习。", 409, "state_changed");
+      if (card.anki_pending && !(await getStudySettings(userId)).includeAnki) throw new StudyError("这个词的历史进度尚未迁移，暂不加入复习。", 409, "state_changed");
       if (op === "present") {
         const state = await studyRpc<Record<string,unknown>>("present", { p_user: userId, p_card: cardId, p_version: body.version });
         if (!state.token) throw new StudyError("这张卡片暂时不能作答，请刷新学习记录。", 409);

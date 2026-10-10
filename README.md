@@ -3,13 +3,13 @@
 
 ## 站内背单词（已生产，2026-10-06）
 
-原生 FSRS-6 学习面板已部署，可从 `/study`、登录工作台、Menu 和生词本进入。支持云端复习进度、原文往返、学习奖励及主动生成阅读画像。部署需增量执行 `docs/study-migration.sql` 与 `docs/study-flexible-rewards-migration.sql`；保留现有 Anki。规则与限制见[背单词说明](docs/vocabulary-study.md)，上线检查见[发布证据](docs/vocabulary-study-release.md)。
+原生 FSRS-6 学习面板已部署，可从 `/study`、登录工作台、Menu 和生词本进入。支持云端复习进度、原文往返、学习奖励及主动生成阅读画像。部署需增量执行 `docs/study-migration.sql` 与 `docs/study-flexible-rewards-migration.sql`，以及 `docs/study-evidence-v2-migration.sql`；历史 Anki 字段保留，用户入口退休。规则与限制见[背单词说明](docs/vocabulary-study.md)，上线检查见[发布证据](docs/vocabulary-study-release.md)。
 
 Unified points and one-time monthly/annual plans are available at `/pricing`; Admin → 付费管理 controls prices and points. WeChat Native checkout stays disabled until merchant setup. See [billing rules](docs/account-usage-plan.md), [WeChat onboarding](docs/wechat-pay-setup.md) and [release evidence](docs/unified-billing-release.md).
 
 四六级阅读支持自测原文与题目四色下划线、提交后只读划记定位与查词，以及练习/自测分别保存的同题型浏览顺序与当前位置。自测暂停时原文和题目保持可见。生产身份、验证与开放项见 [发布治理](docs/release-governance.md) 和 [产品历程](docs/product-journey.md)。
 
-Context Reader is a Next.js reading tool for importing real English articles and understanding them with Chinese context-aware explanations, full-article translation, vocabulary capture and Anki export.
+Context Reader is a Next.js reading tool for importing real English articles and understanding them with Chinese context-aware explanations, full-article translation, vocabulary capture and native spaced repetition.
 
 - Production: `https://context-reader.com`
 - Primary route: `/`; legacy `/home-v2` links permanently redirect to the root and preserve query parameters
@@ -42,9 +42,9 @@ GitHub default `main` carries the cumulative accepted source and reconciled docu
 ### Learning Data
 
 - Save articles and vocabulary locally, then synchronize versioned objects after login.
-- Preserve source sentence, contextual meaning, phonetics, generated study fields and Anki import state; interrupted Anki imports are reconciled by stable note identity before retrying.
-- Export CSV or import complete notes through browser-side AnkiConnect.
-- Use identical cloud-generated US/UK pronunciation audio across browsers and new Anki cards.
+- Preserve source sentence, contextual meaning, phonetics, study state and historical import identity.
+- Export vocabulary as CSV or study it with the native FSRS scheduler.
+- Use identical cloud-generated US/UK pronunciation audio across website surfaces.
 - Merge duplicate/recovery article records into one logical article and keep saved articles ordered by latest open time.
 
 ### Accounts And Offline
@@ -141,7 +141,7 @@ Without usable backend credentials, loopback development falls back to browser-l
 |---|---|
 | `/` | Canonical homepage and recommendation entry |
 | `/home-v2` | Compatibility redirect to `/`, preserving query parameters |
-| `/guide` | New-user and AnkiConnect setup guide |
+| `/guide` | New-user reading and native vocabulary guide |
 | `/account/usage` | Account status and usage |
 | `/admin` | Server-authorized recommendations, accounts, feedback and error console |
 | `/api/import-url` | Safe, conservative text-first webpage extraction; selected images are localized to bounded first-party WebP assets after Reader opens |

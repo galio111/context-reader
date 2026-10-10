@@ -20,7 +20,6 @@ import {
 import { useVirtualizer } from "@tanstack/react-virtual";
 import { createPortal } from "react-dom";
 import { useRouter } from "next/navigation";
-import { AnkiSettingsPanel, defaultAnkiSettings } from "@/components/AnkiSettingsPanel";
 import { AccountUsagePageContent } from "@/components/AccountUsagePageContent";
 import ClearableField from "@/components/ClearableField";
 import { GuidePageContent } from "@/components/GuidePageContent";
@@ -30,7 +29,6 @@ import { VocabularyLearningDetails } from "@/components/VocabularyLearningDetail
 import { useMobileBottomSheet } from "@/components/useMobileBottomSheet";
 import { useDocumentScrollLock } from "@/components/useDocumentScrollLock";
 import { describeApiFailure, describeCaughtRequestError } from "@/lib/clientErrorReporting";
-import { addVocabularyNote, checkAnki, findImportedVocabularyNoteIds } from "@/lib/ankiConnect";
 import { downloadVocabularyCsv } from "@/lib/csv";
 import { normalizePartOfSpeechLabel, originalFormLabel } from "@/lib/displayLabels";
 import { currentFormPhonetic } from "@/lib/pronunciation";
@@ -40,13 +38,10 @@ import { sortVocabularyEntriesByCreatedAt } from "@/lib/vocabularyMerge";
 import {
   clearVocabularyEntries,
   deleteVocabularyEntry,
-  markVocabularyEntriesImported,
-  markVocabularyEntryImported,
 } from "@/lib/vocabulary";
 import { createVocabularySearchIndex, searchVocabularyIndex } from "@/lib/vocabularySearch";
 import type { AccountSessionState } from "@/types/account";
 import type { AnkiSettings } from "@/types/anki";
-import { readClientInteractionCapabilities } from "@/lib/clientCapabilities";
 import type { SavedArticle } from "@/types/article";
 import type { VocabularyEntry } from "@/types/vocabulary";
 import styles from "./HomeOptionMenu.module.css";
@@ -108,7 +103,7 @@ export interface HomeMenuVocabularyTools {
 }
 
 export type PreviewKind = "guide" | "vocabulary" | "saved" | "account" | "invite" | "feedback" | "settings";
-export type GuideSection = "anki" | "updates";
+export type GuideSection = "study" | "updates";
 type MenuAction = "import" | "dictionary" | "study";
 interface MenuItem {
   label: string;
@@ -196,7 +191,6 @@ export function HomeOptionMenu({
   avoidHomeQuickNav = false,
   readerTool = false,
   onVocabularyEntriesChange,
-  ankiTools,
   vocabularyTools,
 }: HomeOptionMenuProps) {
   const router = useRouter();
@@ -221,16 +215,6 @@ export function HomeOptionMenu({
   const [previewAnchorY, setPreviewAnchorY] = useState<number | null>(null);
   const [mobileMenu, setMobileMenu] = useState(false);
   const mobileSheet = useMobileBottomSheet(open, mobileMenu, readerTool ? 48 : undefined, onClose);
-  const [internalAnkiSettings, setInternalAnkiSettings] = useState<AnkiSettings>(() => defaultAnkiSettings());
-  const [internalAnkiStatus, setInternalAnkiStatus] = useState("");
-  const [internalAnkiChecking, setInternalAnkiChecking] = useState(false);
-  const [internalImportingId, setInternalImportingId] = useState("");
-  const [internalImportError, setInternalImportError] = useState("");
-  const reconciliationAttemptKeyRef = useRef("");
-  const [ankiSettingsOpen, setAnkiSettingsOpen] = useState(false);
-  const [ankiHelpOpen, setAnkiHelpOpen] = useState(false);
-  const [preciseHover, setPreciseHover] = useState(false);
-  const [desktopAnkiPlatform, setDesktopAnkiPlatform] = useState(true);
   const [guideScrollTarget, setGuideScrollTarget] = useState<GuideSection | null>(null);
   const items = useMemo(
     () => [
@@ -288,13 +272,7 @@ export function HomeOptionMenu({
     : account.authenticated
       ? (account.profile?.nickname || "已登录")
       : null;
-  const effectiveAnkiSettings = ankiTools?.settings ?? internalAnkiSettings;
-  const effectiveAnkiStatus = ankiTools?.status ?? internalAnkiStatus;
-  const effectiveAnkiChecking = ankiTools?.checking ?? internalAnkiChecking;
-  const effectiveImportingId = ankiTools?.importingId ?? internalImportingId;
-  const effectiveImportError = ankiTools?.importError ?? internalImportError;
-  const unimportedVocabularyCount = vocabularyEntries.filter((entry) => !entry.anki.ankiNoteId).length;
-  const hoverDrivenAnkiHelp = preciseHover && desktopAnkiPlatform;
+
 
   useEffect(() => {
     if (open) setMounted(true);
@@ -335,8 +313,6 @@ export function HomeOptionMenu({
       setMobileMenu(query.matches);
       if (!event) return;
       setHoveredVocabularyId(null);
-      setAnkiHelpOpen(false);
-      if (query.matches) setAnkiSettingsOpen(false);
       setPreviewAnchorY((current) => current === null
         ? null
         : query.matches
@@ -350,17 +326,7 @@ export function HomeOptionMenu({
     return () => query.removeEventListener("change", update);
   }, [standalonePreview]);
 
-  useEffect(() => {
-    const hoverQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
-    const update = () => {
-      const capabilities = readClientInteractionCapabilities(window);
-      setPreciseHover(capabilities.preciseHover);
-      setDesktopAnkiPlatform(capabilities.desktopAnkiPlatform);
-    };
-    update();
-    hoverQuery.addEventListener("change", update);
-    return () => hoverQuery.removeEventListener("change", update);
-  }, []);
+
 
   useEffect(() => {
     if (!open) return;
@@ -409,8 +375,6 @@ export function HomeOptionMenu({
     setSavedArticleContext(null);
     setPinnedPreview(null);
     setPreviewAnchorY(null);
-    setAnkiSettingsOpen(false);
-    setAnkiHelpOpen(false);
     if (mounted && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setMounted(false);
       return;
@@ -457,48 +421,7 @@ export function HomeOptionMenu({
     if (visiblePreview === "vocabulary") vocabularyVirtualizer.scrollToOffset(0);
   }, [deferredVocabularySearch, filteredVocabularyEntries.length, visiblePreview, vocabularyVirtualizer]);
 
-  useEffect(() => {
-    if (!open) {
-      reconciliationAttemptKeyRef.current = "";
-      return;
-    }
-    if (visiblePreview !== "vocabulary" || effectiveImportingId) return;
-    const pending = vocabularyEntries.filter((entry) => !entry.anki.ankiNoteId);
-    if (pending.length === 0) return;
-    const attemptKey = pending.map((entry) => `${entry.id}\u0000${entry.createdAt}`).sort().join("\u0001");
-    if (reconciliationAttemptKeyRef.current === attemptKey) return;
-    reconciliationAttemptKeyRef.current = attemptKey;
 
-    if (ankiTools?.onReconcile) {
-      void Promise.resolve(ankiTools.onReconcile(pending)).catch(() => undefined);
-      return;
-    }
-
-    setInternalImportingId("__reconcile__");
-    void findImportedVocabularyNoteIds(
-      pending,
-      internalAnkiSettings.deckName,
-      internalAnkiSettings.endpoint,
-    ).then((recovered) => {
-      if (recovered.size === 0) return;
-      onVocabularyEntriesChange?.(markVocabularyEntriesImported(recovered));
-      setInternalAnkiStatus(`已与 Anki 核对，找回 ${recovered.size} 条导入记录。`);
-    }).catch(() => {
-      // Opening the menu must remain quiet when Anki is closed. An explicit
-      // import attempt will surface the connection guidance.
-    }).finally(() => {
-      setInternalImportingId((current) => current === "__reconcile__" ? "" : current);
-    });
-  }, [
-    ankiTools,
-    effectiveImportingId,
-    internalAnkiSettings.deckName,
-    internalAnkiSettings.endpoint,
-    onVocabularyEntriesChange,
-    open,
-    visiblePreview,
-    vocabularyEntries,
-  ]);
 
   useEffect(() => {
     if (hoveredVocabularyId && !filteredVocabularyIds.has(hoveredVocabularyId)) {
@@ -506,82 +429,16 @@ export function HomeOptionMenu({
     }
   }, [filteredVocabularyIds, hoveredVocabularyId]);
 
+  useEffect(()=>{window.dispatchEvent(new CustomEvent("context-reader-main-menu-state",{detail:open}));return()=>{if(open)window.dispatchEvent(new CustomEvent("context-reader-main-menu-state",{detail:false}));};},[open]);
+
   if (!mounted || typeof document === "undefined") return null;
 
   function navigate(href: string) {
+    window.dispatchEvent(new Event("context-reader-leave-study"));
     onClose();
     router.push(href);
   }
 
-  async function checkInternalAnki() {
-    setInternalAnkiChecking(true);
-    setInternalAnkiStatus("");
-    try {
-      const version = await checkAnki(internalAnkiSettings.endpoint);
-      setInternalAnkiStatus(`连接成功，AnkiConnect version: ${version}`);
-    } catch (error) {
-      setInternalAnkiStatus(error instanceof Error ? error.message : "AnkiConnect 检测失败。");
-    } finally {
-      setInternalAnkiChecking(false);
-    }
-  }
-
-  async function importInternalAnki(entry: VocabularyEntry) {
-    if (internalImportingId) return;
-    if (entry.anki.ankiNoteId) {
-      setInternalImportError("这个词条已经导入过 Anki，不会重复导入。");
-      return;
-    }
-    setInternalImportingId(entry.id);
-    setInternalImportError("");
-    try {
-      const noteId = await addVocabularyNote(entry, internalAnkiSettings.deckName, internalAnkiSettings.endpoint);
-      onVocabularyEntriesChange?.(markVocabularyEntryImported(entry.id, noteId));
-    } catch (error) {
-      setInternalImportError(error instanceof Error ? error.message : "导入 Anki 失败，请稍后重试。");
-    } finally {
-      setInternalImportingId("");
-    }
-  }
-
-  async function importAllInternalAnki() {
-    if (internalImportingId) return;
-    const locallyPending = vocabularyEntries.filter((entry) => !entry.anki.ankiNoteId);
-    if (!locallyPending.length) {
-      setInternalImportError("没有未导入的词条。");
-      return;
-    }
-    setInternalImportingId("__all__");
-    setInternalImportError("");
-    let completed = 0;
-    try {
-      const recovered = await findImportedVocabularyNoteIds(
-        locallyPending,
-        internalAnkiSettings.deckName,
-        internalAnkiSettings.endpoint,
-      );
-      if (recovered.size > 0) {
-        onVocabularyEntriesChange?.(markVocabularyEntriesImported(recovered));
-        setInternalAnkiStatus(`已先与 Anki 核对，找回 ${recovered.size} 条导入记录。`);
-      }
-      const pending = locallyPending.filter((entry) => !recovered.has(entry.id));
-      for (const entry of pending) {
-        const noteId = await addVocabularyNote(entry, internalAnkiSettings.deckName, internalAnkiSettings.endpoint);
-        onVocabularyEntriesChange?.(markVocabularyEntryImported(entry.id, noteId));
-        completed += 1;
-      }
-    } catch (error) {
-      const message = error instanceof Error ? error.message : "批量导入 Anki 失败，请稍后重试。";
-      setInternalImportError(completed ? `已导入 ${completed} 个词条，随后失败：${message}` : message);
-    } finally {
-      setInternalImportingId("");
-    }
-  }
-
-  const checkAnkiConnection = ankiTools?.onCheck ?? (() => void checkInternalAnki());
-  const importOneToAnki = ankiTools?.onImport ?? ((entry: VocabularyEntry) => void importInternalAnki(entry));
-  const importAllToAnki = ankiTools?.onImportAll ?? (() => void importAllInternalAnki());
-  const updateAnkiSettings = ankiTools?.onSettingsChange ?? setInternalAnkiSettings;
   const deleteVocabulary = vocabularyTools?.onDelete ?? ((id: string) => {
     if (!window.confirm("确定删除这个生词吗？")) return;
     onVocabularyEntriesChange?.(deleteVocabularyEntry(id));
@@ -612,6 +469,7 @@ export function HomeOptionMenu({
       // Run the destination action only after that lock restores the document;
       // otherwise scrollIntoView is undone and Reader work layers stay covered.
       window.setTimeout(() => {
+        if (item.action !== "study") window.dispatchEvent(new Event("context-reader-leave-study"));
         if (item.action === "import") onOpenImport?.();
         else if (item.action === "study") openStudy();
         else onOpenDictionary?.();
@@ -633,25 +491,11 @@ export function HomeOptionMenu({
     if (item.preview) anchorPreview(event.currentTarget);
   }
 
-  function openDetailedAnkiGuide() {
-    setAnkiHelpOpen(false);
-    setAnkiSettingsOpen(false);
-    setHoveredVocabularyId(null);
-    setGuideScrollTarget("anki");
-    if (onOpenGuide) {
-      onOpenGuide("anki");
-      return;
-    }
-    setPreviewAnchorY(PREVIEW_ANCHOR_MIN);
-    setPinnedPreview("guide");
-  }
-
-  function keepAnkiHelpOpen() {
-    setAnkiHelpOpen(true);
-  }
 
   function handleDialogKeyDown(event: KeyboardEvent<HTMLElement>) {
+    if (!open) return;
     if (event.key === "Escape") {
+      event.stopPropagation();
       event.preventDefault();
       onClose();
       return;
@@ -682,6 +526,7 @@ export function HomeOptionMenu({
         "--mobile-sheet-drag-offset": `${mobileSheet.dragOffset}px`,
       } as CSSProperties}
       role="presentation"
+      data-study-menu={open || undefined}
       data-open={open || undefined}
       data-reader-tool={readerTool || undefined}
       data-theme={theme}
@@ -866,101 +711,11 @@ export function HomeOptionMenu({
           </div>
         </header>
         {orderedVocabularyEntries.length ? (
-          ankiSettingsOpen && !mobileMenu ? (
-            <div className={styles.ankiSettingsView} data-local-scroll-surface>
-              <button
-                className={styles.ankiSettingsBack}
-                type="button"
-                onClick={() => setAnkiSettingsOpen(false)}
-              >
-                ← 返回生词本
-              </button>
-              <div className={styles.ankiSettings}>
-                <AnkiSettingsPanel
-                  settings={effectiveAnkiSettings}
-                  status={effectiveAnkiStatus}
-                  checking={effectiveAnkiChecking}
-                  onChange={updateAnkiSettings}
-                  onCheck={checkAnkiConnection}
-                />
-                {effectiveImportError && <p className={styles.ankiError} role="status">{effectiveImportError}</p>}
-              </div>
-            </div>
-          ) : (
-            <>
-            {!mobileMenu && <div className={styles.ankiToolbar}>
-              {desktopAnkiPlatform ? <button
-                type="button"
-                onClick={importAllToAnki}
-                disabled={Boolean(effectiveImportingId) || unimportedVocabularyCount === 0}
-              >
-                {effectiveImportingId === "__all__"
-                  ? "核对并导入中…"
-                  : effectiveImportingId === "__reconcile__"
-                    ? "正在核对 Anki…"
-                    : `核对并导入 ${unimportedVocabularyCount}`}
-              </button> : <span className={styles.ankiDesktopBadge}>电脑端导入</span>}
-              <div
-                className={styles.ankiSettingsHelpGroup}
-                onPointerEnter={(event) => { if (hoverDrivenAnkiHelp && event.pointerType === "mouse") keepAnkiHelpOpen(); }}
-                onPointerLeave={(event) => { if (hoverDrivenAnkiHelp && event.pointerType === "mouse") setAnkiHelpOpen(false); }}
-                onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setAnkiHelpOpen(false); }}
-              >
-                {desktopAnkiPlatform && <button
-                  type="button"
-                  aria-expanded={ankiSettingsOpen}
-                  onClick={() => {
-                    setHoveredVocabularyId(null);
-                    setAnkiHelpOpen(false);
-                    setAnkiSettingsOpen(true);
-                  }}
-                >
-                  Anki 设置
-                </button>}
-                <button
-                  type="button"
-                  className={styles.ankiHelpTrigger}
-                  aria-label="Anki 是什么"
-                  aria-expanded={ankiHelpOpen}
-                  onFocus={() => { if (hoverDrivenAnkiHelp) setAnkiHelpOpen(true); }}
-                  onClick={() => setAnkiHelpOpen((open) => hoverDrivenAnkiHelp ? true : !open)}
-                >
-                  ?
-                </button>
-                {ankiHelpOpen && (
-                  <div
-                    className={styles.ankiHelpPopover}
-                    role="tooltip"
-                    onPointerEnter={keepAnkiHelpOpen}
-                    onPointerDown={(event) => event.stopPropagation()}
-                  >
-                    <strong>Anki 是什么？</strong>
-                    <span className={styles.ankiDesktopNotice}>需在电脑端使用</span>
-                    <p>Anki 是一款间隔重复记忆软件。Context Reader 把阅读中保存的词和原句做成卡片，Anki 再安排它们何时复习。</p>
-                    {!desktopAnkiPlatform && <p>你可以先在平板保存并同步生词，之后在电脑打开 Context Reader 导入 Anki。</p>}
-                    <button
-                      type="button"
-                      onPointerDown={(event) => {
-                        event.stopPropagation();
-                        openDetailedAnkiGuide();
-                      }}
-                      onClick={openDetailedAnkiGuide}
-                    >
-                      查看安装与详细用法 →
-                    </button>
-                  </div>
-                )}
-              </div>
-            </div>}
+          <>
             <div className={styles.vocabularyManageBar}>
               <button type="button" onClick={exportVocabulary}>导出 CSV</button>
               <button type="button" onClick={clearVocabulary}>清空生词本</button>
             </div>
-            {!mobileMenu && desktopAnkiPlatform && (effectiveAnkiStatus || effectiveImportError) && (
-              <p className={effectiveImportError ? styles.ankiError : styles.ankiStatus} role="status">
-                {effectiveImportError || effectiveAnkiStatus}
-              </p>
-            )}
             <label className={styles.vocabularySearch}>
               <span className={styles.srOnly}>检索生词本</span>
               <svg viewBox="0 0 20 20" aria-hidden="true">
@@ -1039,8 +794,7 @@ export function HomeOptionMenu({
             ) : (
               <p className={styles.empty}>没有匹配的生词。</p>
             )}
-            </>
-          )
+          </>
         ) : (
           <p className={styles.empty}>还没有收录生词。阅读时加入的词语会出现在这里。</p>
         )}
@@ -1064,11 +818,8 @@ export function HomeOptionMenu({
               onClose();
               onJumpToVocabularySource?.(hoveredVocabularyEntry);
             }}
-            importing={effectiveImportingId === hoveredVocabularyEntry.id || effectiveImportingId === "__all__"}
-            onImportAnki={() => importOneToAnki(hoveredVocabularyEntry)}
             onCopy={() => copyVocabulary(hoveredVocabularyEntry)}
             onDelete={() => deleteVocabulary(hoveredVocabularyEntry.id)}
-            showAnkiActions={!mobileMenu && desktopAnkiPlatform}
           />
         )}
       </section>
@@ -1116,6 +867,7 @@ export function HomeOptionMenu({
                 key={article.id}
                 onClick={() => {
                   onClose();
+                  window.dispatchEvent(new Event("context-reader-leave-study"));
                   onOpenSavedArticle(article);
                 }}
                 onContextMenu={(event) => openSavedArticleContext(article, event)}
@@ -1260,7 +1012,7 @@ export function HomeOptionMenu({
         </div>
       )}
     </div>,
-    document.body,
+    document.querySelector('dialog[data-study-open="true"]') || document.body,
   );
 }
 
@@ -1493,21 +1245,15 @@ function VocabularyHoverDetail({
   canJumpToSource,
   showJumpToSource,
   onJumpToSource,
-  importing,
-  onImportAnki,
   onCopy,
   onDelete,
-  showAnkiActions,
 }: {
   entry: VocabularyEntry;
   canJumpToSource: boolean;
   showJumpToSource: boolean;
   onJumpToSource: () => void;
-  importing: boolean;
-  onImportAnki: () => void;
   onCopy: () => void;
   onDelete: () => void;
-  showAnkiActions: boolean;
 }) {
   const isStandalone = !entry.sourceSentence.trim();
   const entryPhonetic = currentFormPhonetic(entry);
@@ -1547,14 +1293,7 @@ function VocabularyHoverDetail({
             定位原句
           </button>
         )}
-        {showAnkiActions && <button
-          className={styles.importAnkiAction}
-          type="button"
-          onClick={onImportAnki}
-          disabled={Boolean(entry.anki.ankiNoteId) || importing}
-        >
-          {entry.anki.ankiNoteId ? "已导入 Anki" : importing ? "导入中…" : "导入 Anki"}
-        </button>}
+
         <button className={styles.secondaryDetailAction} type="button" onClick={onCopy}>复制词条</button>
         <button className={styles.dangerDetailAction} type="button" onClick={onDelete}>删除</button>
       </div>
@@ -1571,7 +1310,6 @@ function VocabularyHoverDetail({
 
       <footer className={styles.vocabularyDetailMeta}>
         <span>难度：{entry.difficulty === "easy" ? "基础" : entry.difficulty === "hard" ? "较难" : "适中"}</span>
-        {showAnkiActions && <span className={styles.ankiMeta}>{entry.anki.ankiNoteId ? "已导入 Anki" : "未导入 Anki"}</span>}
       </footer>
     </div>
   );

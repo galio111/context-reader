@@ -100,11 +100,8 @@ requireSource("lib/ankiConnect.ts", [
   '{ query: "tag:context-reader" }',
   "allowDuplicate: false",
 ]);
-requireSource("components/HomeOptionMenu.tsx", [
-  "onReconcile",
-  "findImportedVocabularyNoteIds",
-  "正在核对 Anki",
-]);
+// 2026-10-10: user retired the website integration; data/import idempotency remains protected above.
+assert.doesNotMatch(source("components/HomeOptionMenu.tsx"), /findImportedVocabularyNoteIds|styles\.ankiToolbar|onImportAnki/);
 for (const path of [
   "components/AnkiPreviewModal.tsx",
   "components/VocabularyPanel.tsx",

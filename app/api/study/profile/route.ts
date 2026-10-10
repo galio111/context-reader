@@ -14,8 +14,8 @@ import { recordServerError } from "@/lib/serverErrorReporting";
 export const maxDuration=60;
 type ProfileResult={summary:string;recommendedLevel:string;strengths:string[];focus:string[]};
 async function evidence(userId:string) {
- const rows=await studyRows<{active_seconds:number;words:string[];articles:string[]}>("study_reading_days",userId,"active_seconds,words,articles","&order=day.desc");
- const activeSeconds=rows.reduce((n,r)=>n+r.active_seconds,0);
+ const rows=await studyRows<{verified_seconds:number;words:string[];articles:string[]}>("study_reading_days",userId,"verified_seconds,words,articles","&order=day.desc");
+ const activeSeconds=rows.reduce((n,r)=>n+r.verified_seconds,0);
  const words=[...new Set(rows.flatMap(r=>r.words))];
  const policy=await getStudyPolicy();
  const previous=await accountFetch<Array<{result:ProfileResult;created_at:string;action_id:string}>>("study_profiles?user_id=eq."+encodeURIComponent(userId)+"&select=result,created_at,action_id&limit=1");

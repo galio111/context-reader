@@ -36,7 +36,7 @@ export interface StudySnapshot {
   ankiPendingCount?:number;
   serverNow: string; settings: StudySettings; cards: StudyCard[]; entries: VocabularyEntry[];
   today: StudyDay | null; reviews: StudyReview[];
-  daily: Array<{ day: string; cards: number; active_ms: number; successes: number; reviews: number }>;
+  daily: Array<{ day: string; cards: number; new_cards?:number; review_cards?:number; active_ms: number; successes: number; reviews: number }>;
   policy: StudyPolicy;
   streak: { current:number; best:number; last_day:string|null }; rewards:StudyReward[];
   claims:StudyClaim[];

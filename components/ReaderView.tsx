@@ -675,7 +675,7 @@ async function requestExplanation(
   }
 
   if (!data?.explanation?.anki) {
-    throw new Error("解释结果缺少 Anki 制卡字段，请重新点击该词。");
+    throw new Error("词条学习信息不完整，请重新点击该词。");
   }
 
   return data.explanation;
@@ -1462,8 +1462,10 @@ export function ReaderView({
   const [readerMenuStandalonePreview, setReaderMenuStandalonePreview] = useState(false);
   useEffect(() => {
     const open = () => { setReaderMenuStandalonePreview(false); setReaderMenuInitialPreview("account"); setReaderMenuOpen(true); };
+    const mainMenu=()=>{setReaderMenuStandalonePreview(false);setReaderMenuInitialPreview(null);setReaderMenuPlacement("right");setReaderMenuOpen(true);};
+    window.addEventListener("context-reader-open-main-menu",mainMenu);
     window.addEventListener(OPEN_ACCOUNT_USAGE_EVENT, open);
-    return () => window.removeEventListener(OPEN_ACCOUNT_USAGE_EVENT, open);
+    return () => {window.removeEventListener(OPEN_ACCOUNT_USAGE_EVENT, open);window.removeEventListener("context-reader-open-main-menu",mainMenu);};
   }, []);
   const [readerTheme, setReaderTheme] = useState<"day" | "night">("day");
   const [vocabularyEntries, setVocabularyEntries] = useState<VocabularyEntry[]>([]);
@@ -3937,7 +3939,7 @@ export function ReaderView({
         style={{ "--mobile-sheet-height": `${mobileToolSheet.height}dvh` } as CSSProperties}
       >
         <article className="cr-reader-article min-w-0 overflow-x-hidden rounded-[16px] bg-white px-4 py-7 sm:min-h-[70vh] sm:px-10 sm:py-8 lg:px-12 lg:py-14">
-          {examSurface ? <ReaderTextContext.Provider value={{register: registerExternalText, selected: selectedTokenIdSet}}><div ref={articleShellRef} className={articleShellClassName} style={paragraphStyle} onPointerDown={handleArticlePointerDown} onPointerMove={handleArticlePointerMove} onPointerUp={handleArticlePointerUp} onPointerCancel={handleArticlePointerCancel} onClick={handleArticleClick} onKeyDown={event=>{if(event.key!=="Enter" && event.key!==" ")return;const token=tokenFromEventTarget(event.target);if(token){event.preventDefault();handleTokenClick(token);}}}>{examSurface.render(context => { void explainContext(context, []); })}</div></ReaderTextContext.Provider> : !articleMediaReady ? (
+          {examSurface ? <ReaderTextContext.Provider value={{register: registerExternalText, selected: selectedTokenIdSet}}><div data-learning-surface="reading" ref={articleShellRef} className={articleShellClassName} style={paragraphStyle} onPointerDown={handleArticlePointerDown} onPointerMove={handleArticlePointerMove} onPointerUp={handleArticlePointerUp} onPointerCancel={handleArticlePointerCancel} onClick={handleArticleClick} onKeyDown={event=>{if(event.key!=="Enter" && event.key!==" ")return;const token=tokenFromEventTarget(event.target);if(token){event.preventDefault();handleTokenClick(token);}}}>{examSurface.render(context => { void explainContext(context, []); })}</div></ReaderTextContext.Provider> : !articleMediaReady ? (
             <div
               className={loadingStyles.stage}
               role="status"
@@ -3989,7 +3991,7 @@ export function ReaderView({
             </header>
           )}
           <div
-            ref={articleShellRef}
+            data-learning-surface="reading" ref={articleShellRef}
             className={articleShellClassName}
             style={paragraphStyle}
             onPointerDown={handleArticlePointerDown}

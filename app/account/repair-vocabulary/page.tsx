@@ -37,7 +37,7 @@ export default function RepairVocabularyPage() {
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#687985]">Account maintenance</p>
         <h1 className="mt-4 text-3xl font-semibold tracking-[-0.04em]">修复重复生词</h1>
         <p className="mt-4 text-sm leading-7 text-[#5f6d79]">
-          按“单词＋原句”合并云端重复项，保留内容最完整的词条和 Anki 导入记录。操作可重复执行。
+          按“单词＋原句”合并云端重复项，保留内容最完整的词条和历史学习记录。操作可重复执行。
         </p>
         <button
           className="mt-8 rounded-full bg-[#174f82] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#123f68] disabled:opacity-50"

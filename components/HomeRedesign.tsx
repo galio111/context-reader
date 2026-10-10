@@ -240,9 +240,11 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const [menuStandalonePreview, setMenuStandalonePreview] = useState(false);
   useEffect(() => {
     const open = () => { setMenuStandalonePreview(false); setMenuInitialPreview("account"); setMenuOpen(true); };
+    const mainMenu=()=>{setMenuStandalonePreview(false);setMenuInitialPreview(null);setMenuOpen(true);};
+    window.addEventListener("context-reader-open-main-menu",mainMenu);
     window.addEventListener(OPEN_ACCOUNT_USAGE_EVENT, open);
     if (new URLSearchParams(window.location.search).get("menu") === "account") { open(); const u = new URL(window.location.href); u.searchParams.delete("menu"); window.history.replaceState(window.history.state, "", u); }
-    return () => window.removeEventListener(OPEN_ACCOUNT_USAGE_EVENT, open);
+    return () => {window.removeEventListener(OPEN_ACCOUNT_USAGE_EVENT, open);window.removeEventListener("context-reader-open-main-menu",mainMenu);};
   }, []);
   const dictionaryWindowRef = useRef<HTMLElement | null>(null);
   function startDictionaryDrag(event: PointerEvent<HTMLElement>) {
@@ -1278,8 +1280,9 @@ export function HomeRedesign(props: HomeRedesignProps) {
 
         {memberHome && (
           <section ref={importRef} className={styles.memberWorkbench} aria-label="阅读工作台">
-            <StudyEntry reminder />
-            <div className={styles.memberWorkbenchGrid} data-empty={!hasReadingHistory || undefined}>
+            <div className={styles.memberWorkbenchGrid}>
+              <div className={styles.memberLearningColumn}>
+                <StudyEntry reminder />
               {hasReadingHistory && (
                 <button
                   type="button"
@@ -1303,6 +1306,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
                   <span className={styles.continueReadingMeta}>从上次稳定停留处继续 <i aria-hidden="true">→</i></span>
                 </button>
               )}
+              </div>
               <div className={styles.memberImport}>
                 <header>
                   <p>YOUR ARTICLE</p>

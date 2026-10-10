@@ -412,7 +412,7 @@ export function ArticleInput({
                 ["01", "带入文章", "粘贴文本、导入网页，或从图片中识别英文。"],
                 ["02", "理解此处含义", "点击单词或划选短语，只看它在当前语境里的解释。"],
                 ["03", "继续读下去", "解释就在阅读界面旁边，不用来回切换词典。"],
-                ["04", "留下重要表达", "保存到生词本，之后导出 CSV 或送进 Anki。"],
+                ["04", "留下重要表达", "保存到生词本，随时回看与复习。"],
               ].map(([number, title, copy]) => (
                 <li key={number} className="flex gap-4"><span className="pt-0.5 font-mono text-xs text-[#2d765e]">{number}</span><div><h3 className="font-semibold">{title}</h3><p className="mt-1 text-sm leading-6 text-[#637169]">{copy}</p></div></li>
               ))}
@@ -423,8 +423,7 @@ export function ArticleInput({
         <footer className="flex flex-col gap-4 pt-10 sm:flex-row sm:items-center sm:justify-between">
           <div><p className="font-semibold">Context Reader</p><p className="mt-1 text-sm text-[#637169]">为英文新闻、博客、论文和长文精读准备。</p></div>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-[#53625b]">
-            <span>本地保存</span><span>语境解释</span><span>全文翻译</span><span>Anki 导入</span>
-            <Link className="font-medium text-[#1769aa] underline-offset-4 hover:underline" href="/guide#anki-setup">查看 Anki 设置</Link>
+            <span>本地保存</span><span>语境解释</span><span>全文翻译</span><span>单词复习</span>
           </div>
         </footer>
       </div>

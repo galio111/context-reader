@@ -1091,3 +1091,5 @@
 
 .articleSummaryTooltip { position: fixed; z-index: 140; pointer-events: none; padding: 12px 15px; border-radius: 12px; background: #f4f8f9; color: #46616a; box-shadow: 0 3px 16px rgb(25 60 70 / 10%); font: 13px/1.6 Arial, "PingFang SC", sans-serif; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; max-height: 128px; }
 .root[data-theme="night"] .articleSummaryTooltip { color: #c1d3d9; background: #1a3039; }
+
+.memberLearningColumn{display:flex;flex-direction:column;gap:18px;min-width:0}

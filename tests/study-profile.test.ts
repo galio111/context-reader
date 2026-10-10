@@ -6,10 +6,11 @@ test("profile charges the confirmed price once, replays results, refunds failure
  const require=createRequire(import.meta.url),restores:Array<()=>void>=[];
  const mock=(path:string,exports:object)=>{const id=require.resolve(path),old=require.cache[id];require.cache[id]={id,filename:id,loaded:true,exports} as NodeModule;restores.push(()=>{if(old)require.cache[id]=old;else delete require.cache[id];});};
  const action="cdd022f6-a944-4b5a-9f13-7e8608ae0d73";
+ let verified=3600;
  let claimed=false,previous:Array<Record<string,unknown>>=[],bad=false,requests=0,reservations=0,refunds=0,finishes=0,releases=0;
  mock("../lib/studyAuth",{studyOwner:async()=>"owner"});
  mock("../lib/serverErrorReporting",{recordServerError:async()=>null});
- mock("../lib/studyStore",{getStudyPolicy:async()=>DEFAULT_STUDY_POLICY,studyRows:async()=>[{active_seconds:3600,words:Array.from({length:50},(_,i)=>"word"+i),articles:["a"]}],studyRpc:async(name:string)=>{
+ mock("../lib/studyStore",{getStudyPolicy:async()=>DEFAULT_STUDY_POLICY,studyRows:async()=>[{active_seconds:999999,verified_seconds:verified,words:Array.from({length:50},(_,i)=>"word"+i),articles:["a"]}],studyRpc:async(name:string)=>{
   if(name==="profile_claim"){if(claimed)return {claimed:false};claimed=true;return {claimed:true};}
   if(name==="profile_release"){releases++;claimed=false;return;}
   return [];
@@ -22,6 +23,7 @@ test("profile charges the confirmed price once, replays results, refunds failure
  try{
   const {POST}=await import("../app/api/study/profile/route");
   const request=(cost=5,id=action)=>new Request("https://context-reader.com/api/study/profile",{method:"POST",headers:{origin:"https://context-reader.com","content-type":"application/json","x-context-action-id":id},body:JSON.stringify({confirmedCost:cost})});
+  verified=0;assert.equal((await POST(request())).status,409);assert.equal(reservations,0);verified=3600;
   assert.equal((await POST(request(4))).status,409);assert.equal(reservations,0);
   claimed=true;assert.equal((await POST(request())).status,409);assert.equal(releases,0);assert.equal(claimed,true);
   claimed=false;assert.equal((await POST(request())).status,200);assert.equal(requests,1);assert.equal(reservations,1);assert.equal(finishes,1);assert.equal(refunds,0);assert.equal(releases,1);

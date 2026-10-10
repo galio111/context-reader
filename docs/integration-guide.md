@@ -250,69 +250,9 @@ It fetches a remote image server-side, sends it to the configured vision model, 
 
 Automatic OCR for images inside URL-imported articles remains disabled in `ReaderView`; stored legacy OCR/layout metadata is still accepted. Imported images can be enlarged, cursor-anchored zoomed, and downloaded. Anonymous `POST /api/article-images/localize` accepts only the explicit `freshImport` path used immediately after extraction and removes failed image blocks; authenticated calls lazily repair external image blocks in a historical browser-local saved article and keep failures retryable, while the protected Admin migration repairs synced cloud objects. Remote downloads for legacy data use `GET /api/download-image?url=...&filename=...`, which validates image content and enforces a 20MB limit.
 
-## Anki
+## Historical Anki compatibility
 
-Anki import depends on local browser access to AnkiConnect:
-
-- Anki must be open.
-- AnkiConnect must be installed.
-- `http://127.0.0.1:8765` should respond with version 6.
-- CORS must include `https://context-reader.com`; include `https://context-reader-ten.vercel.app` too only when maintaining rollback compatibility.
-
-The public `/guide` route provides the user-facing setup flow. It detects the current device, links to the official Anki desktop download, copies AnkiConnect add-on code `2055492159`, tests the local connection, and reveals a targeted troubleshooting list plus a copyable production-origin configuration when the check fails. Clipboard copying falls back to a temporary selectable field for restricted browsers. A webpage cannot silently install desktop software or operate Anki before AnkiConnect exists, so the guide describes this as a three-step assisted setup rather than a literal one-click install.
-
-Context Reader creates or updates its Anki note templates during import. Cloze-card fronts show the cloze sentence first, then a large gap, then only the target word or phrase's exact current-context translation from the latest generated explanation. The hint does not include the basic meaning, full-sentence translation, fallback text, or an added label. New notes attach the same cloud-generated US and UK MP3 files used by the website to `AudioUS` and `AudioUK`; each card back plays the media field first and keeps Anki native `en_US`/`en_GB` TTS as a compatibility fallback when cloud audio is unavailable. Standalone English queries use `basic_en_to_cn`: the front remains English-only, while the formatted back includes Chinese senses and the complete study detail. Standalone Chinese queries use `basic_cn_to_en_dictionary`: the front contains the Chinese cue and the back contains the primary English expression, all returned alternatives, IPA, both pronunciation controls, candidate usage notes, examples, concise choice guidance, and any genuine mistake warning. `ensureModel` refreshes either template before a later import.
-
-IPA ownership is explicit across explanation, standalone dictionary, vocabulary and Anki data. New provider results write `phoneticFor` with the exact English form described by `phonetic`; English-to-Chinese requests require it to equal the selected/query form rather than `lemma`. A completed contextual lookup for one English word is rejected if current-form `phonetic` is empty or `phoneticFor` does not match; the structured repair request must supply both, and merged structured output becomes the visible authority even when the preceding stream omitted IPA. UI and export code shows IPA only when that ownership matches `Word`. Anki backs render `原型` and `当前词音标` as separate rows, and their US/UK audio always uses `Word`. Legacy rows without `phoneticFor` remain readable, but an IPA is considered safe only when normalized `Word` and `Lemma` are identical; otherwise regenerate the lookup before expecting IPA in the UI, CSV, or a new Anki note.
-
-Context Reader does not bulk-upgrade legacy Anki cards. For each future vocabulary import it retries transient pronunciation failures and creates the note only after both cloud MP3 files are ready, so every successful new import contains `AudioUS` and `AudioUK`. A persistent provider or network failure creates no partial card and can be retried later. AnkiConnect writes each file into desktop Anki's media collection, after which normal AnkiWeb media sync makes the identical recordings available in AnkiMobile and AnkiDroid. Context Reader still tries to set the target deck config's `autoplay` option to `false`, so pronunciation plays only when the user clicks it. If deck config writes are unavailable, note import continues and audio autoplay can be disabled manually in Anki's deck options.
-
-The notebook treats a stored `ankiNoteId` as the normal import receipt, but browser storage is not the authority for whether Anki accepted a note. Whenever the desktop notebook opens, both the homepage Menu and Reader paths silently scan all `context-reader`-tagged notes in local Anki and repair missing receipts. New notes carry an invisible stable `ContextReaderId`; legacy notes remain identifiable by the historical exact `CreatedAt` plus `Word` pair. A deck rename or later deck-setting change therefore does not make an existing note look absent.
-
-Every single or batch import repeats the Anki identity check before `addNote`, and batch import reconciles all missing local receipts before deciding which entries genuinely need creation. Context Reader adds `ContextReaderId` as the first model field and asks Anki to reject duplicates; if another attempt created the same note during audio/model preparation, or the `addNote` response was interrupted after Anki committed it, the client queries again and adopts the existing Note ID. The UI persists that recovered ID through the normal vocabulary sync path. Context Reader never deletes duplicate cards automatically; historical duplicates remain an explicit user data-cleanup decision.
-
-### September 2026 provider and summary compatibility
-
-Lookup, dictionary and article translation default to `deepseek-flash` (DeepSeek V4.1 Flash); Pro remains available for the existing configured core tasks. The official 2026-09-10 update routes the old Flash aliases to V4.1, so provider behavior can change independently of an app release. Summary input is bounded at 50,000 characters / 256 KiB JSON and sends the entire body; this covers the longest published article measured on 2026-09-12 (39,519 characters). Existing reviewed public summary reuse and quota semantics remain unchanged.
-
-### Sync storage and reconciliation
-
-Learning data now uses `lib/learningStorage.ts`: an explicit synchronous memory adapter with asynchronous IndexedDB transactions, without replacing native Storage APIs. Articles, vocabulary, explanations, translations, reading state, dictionary data and protocol-2 manifest rows are stored individually in `context-reader-learning-v1`; localStorage retains only small settings, identity snapshots and repair flags. Migration first preserves the original managed values in a one-time IndexedDB backup, commits and verifies reconstructed content, then removes only the unchanged legacy keys. Late old-tab writes are backed up and conservatively merged; account-owner guards reject stale cross-account writes. Pending writes remain recoverable on failure and the page shows retry/export controls. Account switching archives unsent owner data before clearing the active view.
-
-Authentication publishes the verified account and closes the login dialog after local storage is ready, independently of background cloud restoration. Bootstrap restores active/deleted article, vocabulary and reading-state pages before caches, stages page progress in IndexedDB and resumes interruptions within 30 minutes. `group=learning|cache` is optional for protocol-2 compatibility; `X-Context-Account` is checked against the authenticated identity, never used as authorization. Uploads are bounded to 200 objects or approximately 1.5 MB per batch, with durable acknowledgement checkpoints. Only completed full reconciliation with matching article/vocabulary identities and payloads reports verified counts. Missing local data never implies deletion; CAS, opaque cursors and tombstones remain intact.
-
-After successful sync, acknowledged explanation caches alone are evicted by recency above 20,000 entries or an estimated 40 MiB. Unsent caches, articles and vocabulary are never evicted by this policy; the budget is therefore soft, not a total storage cap. One-time migration backups and owner recovery archives remain until a separately reviewed cleanup. The account screen reports browser storage estimates and failures remain visible. Service-worker v5 updates on foreground return and never substitutes a stale cached page merely because storing a fresh network response failed. Existing open tabs still need refresh; physical mobile/browser acceptance is separate from automated isolated-client verification.
-
-
-Mainland Caddy overwrites X-Real-IP with its direct peer address because the application limiter reads that header; external values cannot spoof it. Sync pagination has its own bounded 120/minute IP bucket so it cannot exhaust login/connectivity budgets. A sync 429 honors Retry-After up to 60 seconds for at most three retries, preserving staged progress and checking account ownership before retry. This was added after real production large-account acceptance exposed shared unknown-address throttling.
-
-
-Routine login restoration, automatic polls, rate-limit waits and recoverable sync failures are silent. Only an explicit manual sync caller receives progress/results in its account panel; AccountProvider no longer creates a global sync banner or a normal storage-preparation notice. A genuine IndexedDB write failure retains its independent local-save warning and backup/retry controls. Sync 401 errors refresh verified account state without clearing learning data or claiming the account is still logged in. Ordinary logout uses Auth admin signOut with scope local, preserving other independently authenticated device/browser sessions; tabs sharing one cookie session remain the same session.
-
-
-### 候选与解释恢复约定
-
-自动精选当前合同：时事、科学、文化、商业每天各至少 14 篇，四板块和总数均不设上限。缺口影响优先级，不排除其他来源；达标后继续发现、审核与发布。每小时分批保存所有已启用且已验证来源的 RSS 链接；06:00 开始付费审核。未处理及技术失败跨日持久保留，技术重试/需要检查与内容拒绝分开记录。v3完整性、图片入桶、正文哈希、48小时审核及新闻7日时效仍必需；240次尝试、120分钟、¥1.50共享硬预算保留，去掉达标后 ¥1 软停止。手动候选和高中标签不变；规则与限制见 automated-editorial.md。
-
-### Pronunciation quota diagnostics
-
-Search private app logs for `pronunciation_provider_request` and `pronunciation_provider_success` to count actual upstream attempts and successful MP3 returns; `pronunciation_memory_hit` and `pronunciation_storage_hit` do not call TTS. `inputCharacters` is JavaScript input length, not provider billing units. The audio identity hash groups retries without logging lookup text. Records rotate with existing Docker logs. Warmup still prepares both accents, and Anki imports reuse the same audio identity. The 32 MiB/1,000-entry server hot cache retains successful audio through transient Storage failures and repairs failed writes on later hits without delaying playback. It is not durable across restarts; private Storage remains the long-term cache.
-
-
-### Quota rejection and explanation diagnostics
-
-`quota_exhausted` responses include `{error, code, quota: {metricKey, used, allowance, remaining, windowEnd, authenticated}}`. Use the server's message and identity; never reinterpret a member's 429 as guest trial exhaustion. `windowEnd` is an ISO instant displayed in Beijing time, and balances are visible independently of commercial UI. Reading and existing results remain available; no provider request starts for a rejected reservation.
-
-Admin error technical details now expose structured explanation field reasons (`missing`, `empty`, `wrong_type`, `no_chinese`, `target_mismatch`), initial/final invalid fields, model, repair status and output truncation. Raw content is excluded. Mainland `CONTEXT_READER_RELEASE_ID` identifies and separates reports; `CONTEXT_READER_PARENT_RELEASE_ID` is retained in private metadata. Historical reports cannot retroactively recover missing fields. TTS retries at most once for transient failures within 8s + 6s; final timeouts report 504/`provider_tts_timeout`. Provider attempt logs count retries individually.
-
-The contextual stream uses the same completed-explanation validator as the Reader before finalizing usage or emitting its completion marker. Incomplete streams retain a reserved action for structured fallback to finalize or refund; provider token execution is recorded as failed. Final structured diagnostics include the action id for correlation. No database function or quota balance is changed by this release.
-
-
-Admin account operations includes a dedicated 智谱备用调用 section: 30 Shanghai-day totals for recorded Zhipu executions, success/failure, input/output tokens, estimated cost and latest 100 matching records with time, feature and model. Matching uses provider or GLM model for historical compatibility and runs over the entire bounded 50,000-row result, not only the latest 200 general executions. The existing server-side Admin gate protects all records; no credentials or prompt content are exposed. Refresh uses the existing Admin refresh action. Calls that fail before the route writes a correctly attributed execution are not claimed as complete provider-attempt telemetry.
-
-自动精选当前合同：时事、科学、文化、商业每天各至少 14 篇，四板块和总数均不设上限。缺口影响优先级，不排除其他来源；达标后继续发现、审核与发布。每小时分批保存所有已启用且已验证来源的 RSS 链接；06:00 开始付费审核。未处理及技术失败跨日持久保留，技术重试/需要检查与内容拒绝分开记录。v3完整性、图片入桶、正文哈希、48小时审核及新闻7日时效仍必需；240次尝试、120分钟、¥1.50共享硬预算保留，去掉达标后 ¥1 软停止。手动候选和高中标签不变；规则与限制见 automated-editorial.md。
-
-Admin editorial PATCH accepts optional budgetTrial (day in Shanghai YYYY-MM-DD; cny number 0–10 exclusive of zero, or null for explicitly uncapped date) and jevAutoAdopt boolean. Omitted fields preserve existing values; budgetTrial: null removes the exception. The base dailyBudgetCny never inherits the trial value. Calibration and adoption records remain private account_settings, including per-provider ledger reservations; adoption is gated by completed sample day and policy versions. No API key is returned by these APIs.
+Anki import controls, local connection checks and user-facing setup instructions are retired by the explicit 2026-10-10 decision. Legacy fields, stable note identity, API helpers and template code remain for rollback and historical-data preservation, not as current website features. Do not enable imported words in native study until their progress is deliberately migrated.
 
 ## Admin usage reporting
 
@@ -349,3 +289,6 @@ Admin-only GET `/api/admin/editorial` returns `intake` per enabled source: last 
 
 
 站内学习增量升级需先应用 `docs/study-flexible-rewards-migration.sql`，再发布新版 app；它不替换 consume_usage 或旧学习 RPC。新增 `/api/study` 操作 `claimReward`（id 为 daily:日期 或 milestone:天数），同源、账号校验及数据库幂等生效。默认复习上限 100，新词不设日目标；新短期设置字段 forgotMinutes/unsureMinutes 默认 5/10。迁移前从最新备份恢复独立数据库运行 `tests/study-flexible-rewards.sql` 与 `tests/study-claim-concurrency.py`。
+
+
+Apply additive `docs/study-evidence-v2-migration.sql` before the refined app. It adds verified_seconds and service-only study_reading_tick_v2 / study_daily_stats_v2; does not replace consume_usage or old RPCs. Reading POST evidenceVersion:2 selects verified recording; legacy clients keep writing legacy totals without upgrading evidence. Rollback to the previous app remains compatible. Test against a restored isolated database with tests/study-evidence-v2.sql.

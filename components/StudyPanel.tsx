@@ -7,12 +7,15 @@ import { StudyRewards } from "./StudyRewards";
 import { StudyIcon, type StudyIconName } from "./StudyIcon";
 import { StudyDialog } from "./StudyDialog";
 import { StudyWord } from "./StudyWord";
+import { StudySettings as StudySettingsView } from "./StudySettings";
+import { StudyVocabulary } from "./StudyVocabulary";
 import { StudyStats } from "./StudyStats";
+import { CetSelect } from "./cet/CetSelect";
 import { activeStudySnapshot, chooseStudyCard } from "@/lib/studyPresentation";
 import type { VocabularyEntry } from "@/types/vocabulary";
 import { openStudySource } from "@/lib/studyNavigation";
 import { planProgress, shanghaiDay, studyPaused } from "@/lib/studyScheduler";
-import type { StudyAnswer, StudySettings, StudySnapshot } from "@/types/study";
+import type { StudyAnswer, StudySnapshot } from "@/types/study";
 import styles from "./StudyPanel.module.css";
 import { readRecommendationPreferences, writeRecommendationPreferences, type RecommendationReadingLevel } from "@/lib/recommendationPreferences";
 
@@ -30,11 +33,13 @@ export function StudyPanel({visible,onClose,onSource,notice}:{visible:boolean;on
   const [token,setToken]=useState("");
   const [presentation,setPresentation]=useState(0);
   const [tick,setTick]=useState(Date.now());
-  const [settings,setSettings]=useState<StudySettings|null>(null);
+  const [hint,setHint]=useState(false);
+  const [menuOpen,setMenuOpen]=useState(false);
+  useEffect(()=>{const f=(e:Event)=>setMenuOpen(Boolean((e as CustomEvent).detail));window.addEventListener("context-reader-main-menu-state",f);return()=>window.removeEventListener("context-reader-main-menu-state",f);},[]);
   const [pauseDays,setPauseDays]=useState(3),[pauseConfirm,setPauseConfirm]=useState(false);
   const [order,setOrder]=useState<"ordered"|"random">("ordered"),[motion,setMotion]=useState(true);
-  const [confirm,setConfirm]=useState<"anki"|"profile"|number|null>(null);
-  const [query,setQuery]=useState(""),[wordDetail,setWordDetail]=useState<VocabularyEntry|null>(null);
+  const [confirm,setConfirm]=useState<"profile"|number|null>(null);
+  const [wordDetail,setWordDetail]=useState<VocabularyEntry|null>(null);
   const [rewardNotice,setRewardNotice]=useState(false);
   const priorClaims=useRef(new Map<string,number>());
   const randomRanks=useRef(new Map<string,number>());
@@ -57,7 +62,7 @@ export function StudyPanel({visible,onClose,onSource,notice}:{visible:boolean;on
       if(pending>(priorClaims.current.get(claim.id)??0))setRewardNotice(true);
       priorClaims.current.set(claim.id,pending);
     }
-    offset.current=Date.parse(s.serverNow)-Date.now();setSnapshot(s);setSettings(s.settings);setTick(Date.now());
+    offset.current=Date.parse(s.serverNow)-Date.now();setSnapshot(s);setTick(Date.now());
   },[]);
   const api=useCallback(async <T,>(body?:unknown):Promise<T>=>{
     const response=await fetch("/api/study",{method:body?"POST":"GET",headers:{"Content-Type":"application/json","X-Context-Account":owner},body:body?JSON.stringify(body):undefined,cache:"no-store"});
@@ -82,13 +87,19 @@ export function StudyPanel({visible,onClose,onSource,notice}:{visible:boolean;on
   // A single account-scoped load; a sync callback changing must not reset a card.
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[owner]);
+  const previouslyVisible=useRef(false);
+  useEffect(()=>{
+    if(visible&&!previouslyVisible.current&&snapshot&&!pendingRef.current)void run(async()=>{await syncNow({dirtyKinds:["vocabulary"]}).catch(()=>{});accept(await api<StudySnapshot>({op:"start"}));});
+    previouslyVisible.current=visible;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[visible]);
   useEffect(()=>{if(notice)setMessage(notice);},[notice]);
   useEffect(()=>{if(!message)return;const id=setTimeout(()=>setMessage(""),5000);return()=>clearTimeout(id);},[message]);
   useEffect(()=>{
     const el=dialog.current;if(!el)return;
     if(visible&&!el.open)el.showModal();else if(!visible&&el.open)el.close();
   },[visible]);
-  useEffect(()=>{const id=setInterval(()=>setTick(Date.now()),1000);return()=>clearInterval(id);},[]);
+  useEffect(()=>{if(!visible)return;setTick(Date.now());const id=setInterval(()=>setTick(Date.now()),1000);return()=>clearInterval(id);},[visible]);
   const now=new Date(tick+offset.current);
   const learningSnapshot=useMemo(()=>snapshot?activeStudySnapshot(snapshot):null,[snapshot]);
   const progress=useMemo(()=>planProgress(learningSnapshot?.cards??[],snapshot?.today?.card_ids??[],new Date(tick+offset.current),snapshot?.today?.new_ids),[snapshot,learningSnapshot,tick]);
@@ -97,23 +108,23 @@ export function StudyPanel({visible,onClose,onSource,notice}:{visible:boolean;on
   useEffect(()=>{displayed.current=card?.id??"";},[card?.id]);
   const entry=snapshot?.entries.find(e=>e.id===card?.entry_id);
   const cardKey=card?card.id+":"+card.version:"";
-  const activeMs=useStudyTimer(visible&&tab==="today"&&Boolean(card)&&Boolean(token)&&!busy&&!pending&&!pauseConfirm&&confirm===null&&!wordDetail&&!rewardNotice,cardKey);
+  useEffect(()=>{setIntent(null);setHint(false);setAssisted(false);answerBody.current?.scrollTo(0,0);},[cardKey]);
+  const activeMs=useStudyTimer(visible&&tab==="today"&&Boolean(card)&&Boolean(token)&&!busy&&!pending&&!pauseConfirm&&confirm===null&&!wordDetail&&!rewardNotice&&!menuOpen,cardKey,owner);
   useEffect(()=>{
-    setIntent(null);setAssisted(false);setToken("");
-    answerBody.current?.scrollTo(0,0);
-    if(!card||pendingRef.current)return;
+    setToken("");
+    if(!visible||!card||pendingRef.current)return;
     let cancelled=false;
     void api<{token:string}>({op:"present",cardId:card.id,version:card.version}).then(r=>{if(!cancelled)setToken(r.token);}).catch(e=>{if(!cancelled)setError((e as Error).message);});
     return()=>{cancelled=true;};
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[cardKey,api,presentation]);
+  },[cardKey,api,presentation,visible]);
   useEffect(()=>{
     const fn=(e:KeyboardEvent)=>{
-      if(!visible||tab!=="today"||busy||!card||pending||confirm!==null||pauseConfirm||wordDetail||rewardNotice||["INPUT","SELECT","TEXTAREA"].includes((e.target as HTMLElement)?.tagName))return;
+      if(menuOpen||!visible||tab!=="today"||busy||!card||pending||confirm!==null||pauseConfirm||wordDetail||rewardNotice||["INPUT","SELECT","TEXTAREA"].includes((e.target as HTMLElement)?.tagName))return;
       if(!intent&&["1","2","3"].includes(e.key)){e.preventDefault();setIntent(e.key==="1"?"forgot":e.key==="2"?"unsure":"remembered");}
     };
     window.addEventListener("keydown",fn);return()=>window.removeEventListener("keydown",fn);
-  },[visible,tab,busy,card,pending,intent,confirm,pauseConfirm,wordDetail,rewardNotice]);
+  },[visible,tab,busy,card,pending,intent,confirm,pauseConfirm,wordDetail,rewardNotice,menuOpen]);
   const submit=async(answer:StudyAnswer)=>{
     if(!card||!token)return;
     const p:Pending={op:"review",id:crypto.randomUUID(),cardId:card.id,version:card.version,token,answer,activeMs:activeMs()};
@@ -159,7 +170,6 @@ export function StudyPanel({visible,onClose,onSource,notice}:{visible:boolean;on
     setProfile(d);profileAction.current="";try{sessionStorage.removeItem(key);}catch{}await refreshAccount();
   });
   const paused=snapshot?studyPaused(snapshot.settings,now):false;
-  const imported=snapshot?.ankiPendingCount??snapshot?.cards.filter(c=>c.anki_pending).length??0;
   const due=learningSnapshot?.cards.filter(c=>c.memory.state!==0&&Date.parse(c.memory.due)<=now.getTime()).length??0;
   const fresh=learningSnapshot?.cards.filter(c=>c.memory.state===0).length??0;
   const completed=progress.total>0&&progress.finished===progress.total;
@@ -188,8 +198,9 @@ export function StudyPanel({visible,onClose,onSource,notice}:{visible:boolean;on
     for(const id of ids){const r=await api<{claimed:{points:number};snapshot:StudySnapshot}>({op:"claimReward",id});points+=r.claimed.points;accept(r.snapshot);}
     await refreshAccount();setRewardNotice(false);setMessage(points>0?points+" 点已到账":"奖励已领取，可在奖励页启用会员");
   });
-  return <dialog ref={dialog} className={styles.dialog} aria-label="背单词" data-motion={motion?"on":"off"} onCancel={e=>{e.preventDefault();onClose();}}>
+  return <dialog ref={dialog} className={styles.dialog} data-study-open={visible?"true":"false"} aria-label="背单词" data-motion={motion?"on":"off"} onCancel={e=>{e.preventDefault();onClose();}}>
     <div className={styles.shell}>
+      <button className={styles.studyMenu} onClick={()=>window.dispatchEvent(new Event("context-reader-open-main-menu"))}>Menu <span aria-hidden="true">＋</span></button>
       <aside className={styles.rail}><button className={styles.brand} onClick={onClose} aria-label="返回阅读" title="返回阅读"><StudyIcon name="book"/></button>
         <nav aria-label="学习导航">{navigation.map(([key,label,icon])=><button key={key} aria-current={tab===key?"page":undefined} onClick={()=>selectTab(key)}><StudyIcon name={icon}/><span>{label}</span></button>)}</nav>
         <button className={styles.quietExit} onClick={onClose}><StudyIcon name="back"/>返回阅读</button>
@@ -201,13 +212,13 @@ export function StudyPanel({visible,onClose,onSource,notice}:{visible:boolean;on
           {isOffline&&<div className={styles.error} role="status">当前离线，恢复连接后可继续保存进度。</div>}
           {pending&&!busy&&<div className={styles.error} role="status"><span>刚才的答案还未保存。</span><button disabled={busy||isOffline} onClick={()=>void savePending(pending)}>重试保存</button></div>}
         </div>
-        {!snapshot?<div className={styles.skeleton} role="status" aria-label="正在读取学习记录"><span/><span/><span/></div>:<>
+        {!snapshot?<p className={styles.caption} role="status">正在连接学习记录…</p>:<>
           {tab!=="today"&&<header className={styles.pageHeader}><h1>{title}</h1><button onClick={()=>selectTab("today")}>继续背词<StudyIcon name="arrow"/></button></header>}
-          {tab==="today"&&<article className={styles.flashcard} data-answer={Boolean(intent)} key={cardKey||"empty"} aria-label="当前复习卡片">
+          {tab==="today"&&<article data-learning-surface="study" className={styles.flashcard} data-answer={Boolean(intent)} key={cardKey||"empty"} aria-label="当前复习卡片">
             <div className={styles.cardTop}><span>{snapshot.today?<>{card?(snapshot.today.new_ids.includes(card.id)?"新词":"复习"):"今日学习"}<span className={styles.counterDivider}> · </span>今天已学完 <b>{progress.finished}</b> 词</>:"今日学习"}</span>{undoButton}</div>
             {paused?<div className={styles.empty}><StudyIcon name="pause"/><h2>学习已暂停</h2><p>到 {new Date(snapshot.settings.pausedUntil!).toLocaleDateString("zh-CN")}。准备好时，随时回来。</p><button className={styles.primary} disabled={busy||isOffline} onClick={()=>void retryPrepare()}>恢复学习</button></div>:
-            (!snapshot.today||progress.total===0)?<div className={styles.empty}><StudyIcon name="book"/><h2>{imported&&!snapshot.settings.includeAnki?"先保留你的 Anki 进度":snapshot.entries.length?"今天没有待学的词":"从一个生词开始"}</h2><p>{imported&&!snapshot.settings.includeAnki?imported+" 个词的 Anki 进度尚未迁移。":"在阅读或词典里收藏单词，就能在这里复习。"}</p>{imported&&!snapshot.settings.includeAnki&&<button onClick={()=>selectTab("settings")}>管理学习安排</button>}<button className={styles.primary} onClick={onClose}>去阅读<StudyIcon name="arrow"/></button>{fresh>0&&<button disabled={busy||isOffline} onClick={()=>void retryPrepare()}>检查待学单词</button>}</div>:
-            card&&entry?<>{!intent?<><div className={styles.prompt} lang={card.mode==="basic_cn_to_en"||card.mode==="basic_cn_to_en_dictionary"?"zh-CN":"en"}>{card.mode==="cloze_context"?<><p>{entry.anki.clozeSentence}</p><span className={styles.cue}>{entry.contextMeaning}</span></>:card.mode==="basic_cn_to_en"||card.mode==="basic_cn_to_en_dictionary"?<p>{entry.anki.basicCue||entry.basicMeaning}</p>:<p className={styles.word}>{entry.word}</p>}</div><div className={styles.answers}>{([["forgot","不记得"],["unsure","模糊"],["remembered","记得"]] as const).map(([value,label],i)=><button key={value} data-rating={value} disabled={busy||Boolean(pending)||isOffline} onClick={()=>setIntent(value)}><kbd>{i+1}</kbd>{label}</button>)}</div></>:<>
+            (!snapshot.today||progress.total===0)?<div className={styles.empty}><StudyIcon name="book"/><h2>{snapshot.entries.length?"今天没有待学的词":"从一个生词开始"}</h2><p>在阅读或词典里收藏单词，就能在这里复习。</p><button className={styles.primary} onClick={onClose}>去阅读<StudyIcon name="arrow"/></button>{fresh>0&&<button disabled={busy||isOffline} onClick={()=>void retryPrepare()}>检查待学单词</button>}</div>:
+            card&&entry?<>{!intent?<><div className={styles.prompt} lang={card.mode==="basic_cn_to_en"||card.mode==="basic_cn_to_en_dictionary"?"zh-CN":"en"}>{card.mode==="cloze_context"?<><p>{entry.anki.clozeSentence}</p><button className={styles.cue} aria-expanded={hint} onClick={()=>setHint(v=>!v)}>{hint?entry.contextMeaning:"中文提示"}</button></>:card.mode==="basic_cn_to_en"||card.mode==="basic_cn_to_en_dictionary"?<p>{entry.anki.basicCue||entry.basicMeaning}</p>:<p className={styles.word}>{entry.word}</p>}</div><div className={styles.answers}>{([["forgot","不记得"],["unsure","模糊"],["remembered","记得"]] as const).map(([value,label],i)=><button key={value} data-rating={value} disabled={busy||Boolean(pending)||isOffline} onClick={()=>setIntent(value)}><kbd>{i+1}</kbd>{label}</button>)}</div></>:<>
               <div ref={answerBody} className={styles.answerBody} key={cardKey+"answer"} tabIndex={0} aria-label="核对答案"><StudyWord entry={entry} onSource={source}/></div>
               <footer className={styles.answerFooter}><span className={styles.feedback}>{assisted?"已看原文，稍后再练":intent==="forgot"?"看懂后，再练一次":intent==="unsure"?"模糊时，也核对对错":"核对刚才的回忆"}</span><div className={styles.nextActions}>{intent==="forgot"||assisted?<button className={styles.primary} disabled={busy||!token||Boolean(pending)||isOffline} onClick={()=>void submit("forgot")}>{busyLabel||"下一个"}<StudyIcon name="arrow"/></button>:<><button disabled={busy||!token||Boolean(pending)||isOffline} onClick={()=>void submit(intent==="unsure"?"unsure_wrong":"forgot")}>答错了</button><button className={styles.primary} disabled={busy||!token||Boolean(pending)||isOffline} onClick={()=>void submit(intent==="unsure"?"unsure_right":"remembered")}>{busyLabel||"答对了"}<StudyIcon name="arrow"/></button></>}</div></footer>
             </>}</>:
@@ -216,28 +227,16 @@ export function StudyPanel({visible,onClose,onSource,notice}:{visible:boolean;on
           </article>}
           {tab==="data"&&learningSnapshot&&<StudyStats snapshot={learningSnapshot}/>}
           {tab==="rewards"&&<StudyRewards snapshot={snapshot} busy={busy} onActivate={milestone=>setConfirm(milestone)} onClaim={id=>void claimRewards([id])}/>}
-          {tab==="vocabulary"&&learningSnapshot&&<section className={styles.surface}><div className={styles.sectionHead}><span>{learningSnapshot.entries.length} 个词</span><label className={styles.search}><StudyIcon name="search"/><input type="search" value={query} onChange={e=>setQuery(e.target.value)} placeholder="搜索生词" aria-label="搜索生词"/></label></div><ul className={styles.wordList}>{learningSnapshot.entries.filter(e=>(e.word+" "+e.basicMeaning).toLowerCase().includes(query.toLowerCase())).map(e=><li key={e.id}><button onClick={()=>setWordDetail(e)}><strong>{e.word}</strong><span>{e.contextMeaning||e.basicMeaning}</span><StudyIcon name="arrow"/></button></li>)}</ul>{!learningSnapshot.entries.length&&<p className={styles.caption}>收藏的生词会出现在这里。</p>}</section>}
-          {tab==="settings"&&settings&&<>
-            <section className={styles.surface}><div className={styles.sectionHead}><h2>学习安排</h2><span>新词数量由你决定</span></div>
-              <div className={styles.settingRow}><div><label htmlFor="study-reviews">每日最多复习</label><p>同一个词的再次巩固不重复计数。</p></div><div className={styles.fieldUnit}><input id="study-reviews" type="number" min="1" max="300" value={settings.reviewsPerDay} onChange={e=>setSettings({...settings,reviewsPerDay:Number(e.target.value)})}/><span>词</span></div></div>
-              <div className={styles.settingRow}><div><label htmlFor="study-retention">目标记住率</label><p>目标越高，复习越频繁。</p></div><select id="study-retention" value={settings.retention} onChange={e=>setSettings({...settings,retention:Number(e.target.value)})}>{[.85,.9,.95].map(n=><option key={n} value={n}>{Math.round(n*100)}%</option>)}</select></div>
-              <div className={styles.settingRow}><label htmlFor="study-remind">打开网站时提醒</label><input id="study-remind" className={styles.switch} type="checkbox" checked={settings.reminders} onChange={e=>setSettings({...settings,reminders:e.target.checked})}/></div>
-              {imported>0&&<div className={styles.settingRow}><div><label htmlFor="study-anki">已导入 Anki 的单词</label><p>{imported} 个词 · 原进度尚未迁移</p></div><button id="study-anki" onClick={()=>settings.includeAnki?setSettings({...settings,includeAnki:false}):setConfirm("anki")}>{settings.includeAnki?"已加入 · 停止加入":"从头开始站内学习"}</button></div>}
-              <div className={styles.saveRow}><p>复习上限与记住率次日生效，短期间隔立即生效。</p><button className={styles.primary} disabled={busy||isOffline} onClick={()=>void run(async()=>{accept(await api<StudySnapshot>({op:"settings",settings}));setMessage("学习安排已保存");})}>{busy?"保存中…":"保存安排"}</button></div>
-            </section>
-            <section className={styles.surface}><div className={styles.sectionHead}><h2>显示与顺序</h2><span>本机保存</span></div><div className={styles.settingRow}><div><span>出词顺序</span><p>在当前可复习的词中排序。</p></div><div className={styles.segmented}><button aria-pressed={order==="ordered"} onClick={()=>updateDisplay("ordered")}>顺序</button><button aria-pressed={order==="random"} onClick={()=>updateDisplay("random")}>乱序</button></div></div><div className={styles.settingRow}><span>切词动效</span><div className={styles.segmented}><button aria-pressed={motion} onClick={()=>updateDisplay(order,true)}>轻柔</button><button aria-pressed={!motion} onClick={()=>updateDisplay(order,false)}>关闭</button></div></div></section>
-            <section className={styles.surface}><div className={styles.settingRow}><div><span>阅读画像</span><p>用真实阅读记录，找到合适的难度。</p></div><button onClick={()=>selectTab("profile")}>查看<StudyIcon name="arrow"/></button></div><div className={styles.settingRow}><div><span>{paused?"学习已暂停":"特殊情况，暂停学习"}</span><p>会中断连续天数，已获奖励保留。</p></div><button onClick={()=>paused?void retryPrepare():setPauseConfirm(true)}>{paused?"恢复学习":"暂停"}</button></div></section>
-            <section className={styles.surface}><div className={styles.sectionHead}><h2>短期巩固</h2></div><div className={styles.settingRow}><div><label htmlFor="study-forgot">不记得后，再次出现</label><p>答错也使用这个间隔。</p></div><div className={styles.fieldUnit}><input id="study-forgot" type="number" min="1" max="120" value={settings.forgotMinutes??5} onChange={e=>setSettings({...settings,forgotMinutes:Number(e.target.value)})}/><span>分钟</span></div></div><div className={styles.settingRow}><div><label htmlFor="study-unsure">模糊但正确，再次出现</label><p>适用于新词与重新学习阶段。</p></div><div className={styles.fieldUnit}><input id="study-unsure" type="number" min="1" max="120" value={settings.unsureMinutes??10} onChange={e=>setSettings({...settings,unsureMinutes:Number(e.target.value)})}/><span>分钟</span></div></div><div className={styles.saveRow}><p>长期复习间隔仍由 FSRS 安排。</p><button className={styles.primary} disabled={busy||isOffline} onClick={()=>void run(async()=>{accept(await api<StudySnapshot>({op:"settings",settings}));setMessage("学习安排已保存");})}>保存安排</button></div></section>
-            <details className={styles.explanation}><summary>记忆安排依据</summary><p>不记得或答错记为遗忘；模糊但正确记为费力回忆；记得且正确记为正常回忆。使用 FSRS-6，完整历史保留。</p></details>
-          </>}
+          {tab==="vocabulary"&&learningSnapshot&&<StudyVocabulary snapshot={learningSnapshot} onOpen={setWordDetail}/>}
+          {<div hidden={tab!=="settings"}><StudySettingsView value={snapshot.settings} save={settings=>api<StudySnapshot>({op:"settings",settings})} onSaved={s=>setSnapshot(current=>current?{...current,settings:s.settings}:s)} order={order} motion={motion} onDisplay={updateDisplay} paused={paused} onPause={()=>paused?void retryPrepare():setPauseConfirm(true)} onProfile={()=>selectTab("profile")}/></div>}
           {tab==="profile"&&<section className={styles.surface}>{profile?<><div className={styles.sectionHead}><h2>从真实阅读开始</h2></div><dl className={styles.metrics}><div><dt>有效阅读</dt><dd>{Math.floor(profile.activeSeconds/60)}<small>分钟</small></dd></div><div><dt>不同查词</dt><dd>{profile.uniqueLookups}<small>个</small></dd></div></dl>{profile.result&&<div className={styles.profileResult}><h2>{profile.result.recommendedLevel}</h2><p>{profile.result.summary}</p><h3>接下来</h3><ul>{profile.result.focus.map((v,i)=><li key={i}>{v}</li>)}</ul><button onClick={()=>{const current=readRecommendationPreferences();writeRecommendationPreferences({...current,readingLevel:profile.result!.recommendedLevel as RecommendationReadingLevel},{authenticated:true});onClose();}}>按建议难度阅读<StudyIcon name="arrow"/></button></div>}<p className={styles.caption}>累计 {snapshot.policy.minimumReadingMinutes} 分钟有效阅读、{snapshot.policy.minimumLookups} 个不同查词后可生成。画像是阅读建议，不是词汇量测试。</p>{snapshot.policy.profileEnabled?<button className={styles.primary} disabled={!profile.eligible||busy||isOffline} onClick={()=>setConfirm("profile")}>生成画像 · {snapshot.policy.profileCost} 点</button>:<p className={styles.caption}>画像生成暂未开放。</p>}</>:<p role="status">正在读取阅读记录…</p>}</section>}
         </>}
       </main>
       {message&&<div className={styles.toast} role="status">{message}<button className={styles.iconButton} aria-label="关闭通知" onClick={()=>setMessage("")}><StudyIcon name="close"/></button></div>}
-      {rewardNotice&&pendingClaims.length>0&&<StudyDialog title="学习有了新收获" icon="gift" busy={busy} onCancel={()=>setRewardNotice(false)}><p>{pendingClaims.reduce((sum,c)=>sum+c.points-c.claimed_points,0)} 点学习额度{pendingClaims.some(c=>c.plan&&!c.claimed_at)?"，还有会员奖励":""}，已经为你存好。</p><p className={styles.caption}>现在领取，或稍后到学习奖励中领取。</p><div className={styles.dialogActions}><button autoFocus disabled={busy} onClick={()=>setRewardNotice(false)}>稍后领取</button><button className={styles.primary} disabled={busy||isOffline} onClick={()=>void claimRewards(pendingClaims.map(c=>c.id))}>{busy?"领取中…":"领取奖励"}</button></div>{error&&<p className={styles.dialogError} role="alert">{error}</p>}</StudyDialog>}
-      {pauseConfirm&&<StudyDialog title="暂时停一停？" icon="pause" busy={busy} onCancel={()=>setPauseConfirm(false)}><p>特殊情况时再暂停。连续天数会重新计算，已经获得的奖励保留。</p><label className={styles.dialogField}>暂停时长<select value={pauseDays} onChange={e=>setPauseDays(Number(e.target.value))}>{[1,3,7,14,30].map(d=><option key={d} value={d}>{d} 天</option>)}</select></label><p className={styles.caption}>记忆仍随时间变化。回来后，按每日计划分批复习。</p><div className={styles.dialogActions}><button autoFocus disabled={busy} onClick={()=>setPauseConfirm(false)}>继续坚持</button><button className={styles.primary} disabled={busy} onClick={()=>void run(async()=>{accept(await api<StudySnapshot>({op:"pause",days:pauseDays}));setPauseConfirm(false);setTab("today");})}>{busy?"保存中…":"暂停 "+pauseDays+" 天"}</button></div>{error&&<p className={styles.dialogError} role="alert">{error}</p>}</StudyDialog>}
-      {confirm!==null&&<StudyDialog title={confirm==="anki"?"从头开始站内学习？":confirm==="profile"?"生成阅读画像？":"启用会员奖励？"} icon={typeof confirm==="number"?"gift":confirm==="profile"?"profile":"cards"} busy={busy} onCancel={()=>setConfirm(null)}><p>{confirm==="anki"?"会从新词开始安排站内复习，Anki 中的进度与数据保留。":confirm==="profile"?"本次消耗 "+snapshot?.policy.profileCost+" 点。再次查看结果免费。":"奖励从启用时开始计时。同档会员可延长，不同档位需要等当前会员到期。"}</p><div className={styles.dialogActions}><button autoFocus disabled={busy} onClick={()=>setConfirm(null)}>取消</button><button className={styles.primary} disabled={busy||isOffline} onClick={()=>{if(confirm==="anki"){if(settings)setSettings({...settings,includeAnki:true});setConfirm(null);}else if(confirm==="profile"){setConfirm(null);void generateProfile();}else{const milestone=confirm;void run(async()=>{accept(await api<StudySnapshot>({op:"activateMembership",milestone}));await refreshAccount();setConfirm(null);setMessage("会员奖励已启用");});}}}>{busy?"保存中…":confirm==="profile"?"生成":confirm==="anki"?"加入学习":"启用奖励"}</button></div>{error&&<p className={styles.dialogError} role="alert">{error}</p>}</StudyDialog>}
-      {wordDetail&&<StudyDialog title="单词详情" onCancel={()=>setWordDetail(null)}><div className={styles.wordDetail}><StudyWord entry={wordDetail} onSource={source}/></div></StudyDialog>}
+      {visible&&rewardNotice&&pendingClaims.length>0&&<StudyDialog title="学习有了新收获" icon="gift" busy={busy} onCancel={()=>setRewardNotice(false)}><p>{pendingClaims.reduce((sum,c)=>sum+c.points-c.claimed_points,0)} 点学习额度{pendingClaims.some(c=>c.plan&&!c.claimed_at)?"，还有会员奖励":""}，已经为你存好。</p><p className={styles.caption}>现在领取，或稍后到学习奖励中领取。</p><div className={styles.dialogActions}><button autoFocus disabled={busy} onClick={()=>setRewardNotice(false)}>稍后领取</button><button className={styles.primary} disabled={busy||isOffline} onClick={()=>void claimRewards(pendingClaims.map(c=>c.id))}>{busy?"领取中…":"领取奖励"}</button></div>{error&&<p className={styles.dialogError} role="alert">{error}</p>}</StudyDialog>}
+      {visible&&pauseConfirm&&<StudyDialog title="暂时停一停？" icon="pause" busy={busy} onCancel={()=>setPauseConfirm(false)}><p>特殊情况时再暂停。连续天数会重新计算，已经获得的奖励保留。</p><div className={styles.dialogField}><span>暂停时长</span><CetSelect label="暂停时长" value={String(pauseDays)} options={[1,3,7,14,30].map(d=>({key:String(d),text:d+" 天"}))} onChange={d=>setPauseDays(Number(d))}/></div><p className={styles.caption}>记忆仍随时间变化。回来后，按每日计划分批复习。</p><div className={styles.dialogActions}><button autoFocus disabled={busy} onClick={()=>setPauseConfirm(false)}>继续坚持</button><button className={styles.primary} disabled={busy} onClick={()=>void run(async()=>{accept(await api<StudySnapshot>({op:"pause",days:pauseDays}));setPauseConfirm(false);setTab("today");})}>{busy?"保存中…":"暂停 "+pauseDays+" 天"}</button></div>{error&&<p className={styles.dialogError} role="alert">{error}</p>}</StudyDialog>}
+      {visible&&confirm!==null&&<StudyDialog title={confirm==="profile"?"生成阅读画像？":"启用会员奖励？"} icon={typeof confirm==="number"?"gift":confirm==="profile"?"profile":"cards"} busy={busy} onCancel={()=>setConfirm(null)}><p>{confirm==="profile"?"本次消耗 "+snapshot?.policy.profileCost+" 点。再次查看结果免费。":"奖励从启用时开始计时。同档会员可延长，不同档位需要等当前会员到期。"}</p><div className={styles.dialogActions}><button autoFocus disabled={busy} onClick={()=>setConfirm(null)}>取消</button><button className={styles.primary} disabled={busy||isOffline} onClick={()=>{if(confirm==="profile"){setConfirm(null);void generateProfile();}else{const milestone=confirm;void run(async()=>{accept(await api<StudySnapshot>({op:"activateMembership",milestone}));await refreshAccount();setConfirm(null);setMessage("会员奖励已启用");});}}}>{busy?"保存中…":confirm==="profile"?"生成":"启用奖励"}</button></div>{error&&<p className={styles.dialogError} role="alert">{error}</p>}</StudyDialog>}
+      {visible&&wordDetail&&<StudyDialog title={wordDetail.word} wide onCopy={()=>{void navigator.clipboard.writeText([wordDetail.word,wordDetail.contextMeaning,wordDetail.basicMeaning,wordDetail.sourceSentence,wordDetail.sentenceTranslation].filter(Boolean).join("\n")).then(()=>setMessage("已复制")).catch(()=>setMessage("复制失败，请重试"));}} onCancel={()=>setWordDetail(null)}><div className={styles.wordDetail}><StudyWord entry={wordDetail} onSource={source}/></div></StudyDialog>}
     </div>
   </dialog>;
 }

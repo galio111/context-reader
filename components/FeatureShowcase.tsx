@@ -10,7 +10,7 @@ export const FEATURE_SHOWCASE = [
   { id: "publications", label: "发现外刊", detail: "兴趣 × 难度", title: ["世界很大，", "从你想读的开始。"], paragraphs: ["科学的新发现，文化的新视角，商业与生活的另一面。让真实外刊成为你的日常读物。", "选好兴趣与阅读难度，找到既想读、又读得下去的内容。"], color: "#dce9f6", screens: [{ label: "外刊与个性化推荐", src: "/showcase/publications-v3.mp4" }] },
   { id: "context", label: "语境查词", detail: "单词 · 短语", title: ["划过不懂的，", "接着读下去。"], paragraphs: ["一个单词，一段短语，随手选中，就在原文旁理解它此刻的意思。", "从语境释义到用法、搭配与例句，把这一次读懂，变成下一次会用。"], color: "#dcece5", screens: [{ label: "划词与划短语演示", src: "" }] },
   { id: "import", label: "带来文章", detail: "粘贴 · 网址", title: ["想读的那篇，", "直接带进来。"], paragraphs: ["复制一段正文，或贴上文章链接。两种入口，都通向专注的阅读界面。", "收藏夹里没读完的长文，从这里继续。"], color: "#f3e8ca", screens: [{ label: "粘贴正文与网址导入", src: "" }] },
-  { id: "vocabulary", label: "记住新词", detail: "生词本 × Anki", title: ["在文章里遇见，", "在复习中记住。"], paragraphs: ["把值得记住的词收入生词本，连同原句和语境释义一起留下。", "再带进 Anki 持续复习，让阅读、积累与记忆连成一个完整的过程。"], color: "#e6e0f2", screens: [{ label: "生词本与 Anki 协作", src: "" }] },
+  { id: "vocabulary", label: "记住新词", detail: "生词本与复习", title: ["在文章里遇见，", "在复习中记住。"], paragraphs: ["把值得记住的词收入生词本，连同原句和语境释义一起留下。", "直接在本站复习，再回到文章里使用。"], color: "#e6e0f2", screens: [{ label: "收藏与背词", src: "" }] },
   { id: "explore", label: "继续探索", detail: "还有更多", title: ["读进去之后，", "还有更多发现。"], paragraphs: ["全文翻译、文章摘要、独立词典，还有为下一次阅读保存的进度。", "更多顺手的小功能，等你在阅读中发现。"], color: "#e3eaf0", screens: [] },
 ] as const;
 

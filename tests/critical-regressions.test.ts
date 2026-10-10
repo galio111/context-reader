@@ -1214,11 +1214,11 @@ test("opening a curated article immediately records the correct recent-reading o
   assert.match(temporary, /current\.sourceArticle/);
 });
 
-test("mobile and non-desktop tablet vocabulary hide Anki actions and image captions use reader tokens", () => {
+test("vocabulary retires Anki actions and image captions retain reader tokens", () => {
   const menu = readFileSync(new URL("../components/HomeOptionMenu.tsx", import.meta.url), "utf8");
   const reader = readFileSync(new URL("../components/ReaderView.tsx", import.meta.url), "utf8");
-  assert.match(menu, /showAnkiActions=\{!mobileMenu && desktopAnkiPlatform\}/);
-  assert.match(menu, /\{!mobileMenu && <div className=\{styles\.ankiToolbar\}>/);
+  assert.doesNotMatch(menu, /showAnkiActions|styles\.ankiToolbar/);
+  assert.doesNotMatch(menu, /onImportAnki|findImportedVocabularyNoteIds/);
   assert.match(reader, /image-caption:\$\{block\.id\}/);
   assert.match(reader, /renderTokenList\(block\.captionTokens\)/);
 });
@@ -1311,9 +1311,9 @@ test("account modal keeps native password focus and tablet Anki behavior follows
   const menu = readFileSync(new URL("../components/HomeOptionMenu.tsx", import.meta.url), "utf8");
   assert.doesNotMatch(account, /onMouseDown=\{\(event\) => \{ if \(event\.target === event\.currentTarget\) closeLogin\(\)/);
   assert.doesNotMatch(account, /readOnly=\{!passwordInputReady\}|passwordInputReady/);
-  assert.match(menu, /hoverDrivenAnkiHelp \? true : !open/);
-  assert.match(menu, /需在电脑端使用/);
-  assert.match(menu, /showAnkiActions=\{!mobileMenu && desktopAnkiPlatform\}/);
+  assert.doesNotMatch(menu, /hoverDrivenAnkiHelp/);
+  assert.doesNotMatch(menu, /需在电脑端使用/);
+  assert.doesNotMatch(menu, /showAnkiActions|styles\.ankiToolbar/);
 });
 
 test("every recommendation card receives a painted entry keyframe before observation", () => {

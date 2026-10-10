@@ -1,13 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { GuideAnkiSetup } from "@/components/GuideAnkiSetup";
 import { PUBLIC_CONTACT } from "@/lib/publicContact";
 import styles from "./GuidePageContent.module.css";
 
 const guideNav = [
   ["#developer", "开发者的话"], ["#start", "3 分钟开始"], ["#features", "核心功能"],
-  ["#reading-tools", "阅读操作"], ["#anki", "Anki 使用方法"], ["#faq", "常见问题"], ["#updates", "更新记录"],
+  ["#reading-tools", "阅读操作"], ["#study", "背单词"], ["#faq", "常见问题"], ["#updates", "更新记录"],
 ] as const;
 
 const quickSteps = [
@@ -40,12 +39,6 @@ const faqGroups = [
     ["精选外刊和自己导入有什么区别？", "精选外刊已经过整理，适合直接开始；粘贴正文和网址导入适合你已有明确阅读目标时使用。进入 Reader 后，查词、翻译和生词流程相同。"],
     ["一定要注册账号吗？", "不需要。游客可以直接阅读并试用查词与导入；保存文章、生词本、私有全文翻译和总结需要登录。"],
   ]],
-  ["Anki", [
-    ["不用 Anki，可以只用 Context Reader 吗？", "可以。Anki 不是使用网站的前置条件，阅读、语境解释和站内生词本都可以独立使用。"],
-    ["为什么必须打开桌面版 Anki？", "Context Reader 通过 AnkiConnect 与你电脑上正在运行的 Anki 通信。桌面软件未打开时，本地接口不会运行。"],
-    ["手机上能直接导入吗？", "目前不能。请在电脑浏览器完成导入，再通过 Anki 的同步功能在手机复习；CSV 导出可以作为备用方式。"],
-    ["连接失败先检查什么？", "先确认桌面版 Anki 已打开、AnkiConnect 已安装并重启，再进入生词本的 Anki 设置检测连接。"],
-  ]],
 ] as const;
 
 const releaseNotes = [
@@ -68,7 +61,7 @@ export function GuidePageContent({ embedded = false, onOpenFeedback }: { embedde
     target.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth", block: "start" });
   }}>
     <header className={styles.topbar}><Link className={styles.brand} href="/"><strong>Context Reader</strong><span>使用说明</span></Link></header>
-    <div className={styles.mobileDirectory}><nav aria-label="使用说明目录" data-local-scroll-surface>{guideNav.map(([href, label]) => <a href={href} key={href} data-mobile-hide-anki={href === "#anki" || undefined}>{label}</a>)}</nav></div>
+    <div className={styles.mobileDirectory}><nav aria-label="使用说明目录" data-local-scroll-surface>{guideNav.map(([href, label]) => <a href={href} key={href}>{label}</a>)}</nav></div>
     <div className={styles.shell}>
       <aside className={styles.directory}><nav aria-label="使用说明目录" data-local-scroll-surface><p>本页目录</p>{guideNav.map(([href, label]) => <a href={href} key={href}>{label}</a>)}</nav></aside>
       <article className={styles.content}>
@@ -80,9 +73,9 @@ export function GuidePageContent({ embedded = false, onOpenFeedback }: { embedde
 
         <section id="reading-tools" className={styles.section}><SectionHeading title="阅读时怎么操作" copy="点击加号查看说明。你提供操作录屏后，这里会直接显示相应的动图演示。" /><div className={styles.toolList}>{readingTools.map((tool) => <details key={tool.title}><summary><span>{tool.title}</span><i aria-hidden="true">＋</i></summary><div className={styles.toolAnswer}><p>{tool.copy}</p><ToolDemo demo={tool.demo} /></div></details>)}</div><div className={styles.readingRhythm}><strong>一个容易坚持的节奏</strong><ol><li><b>读</b><span>先连续读一小段</span></li><li><b>查</b><span>只解决真实阻碍</span></li><li><b>留</b><span>每次保存少量表达</span></li><li><b>回</b><span>用生词本定期回看</span></li></ol></div></section>
 
-        <section id="anki" className={styles.section}><SectionHeading title="用 Anki 复习阅读中留下的词" copy="Anki 是一款用间隔重复安排复习的记忆卡软件。Context Reader 负责保留阅读语境，Anki 负责在合适的时间让这些词再次出现。" /><ol className={styles.ankiFlow}><li><span>1</span><div><strong>在文章里理解</strong><p>查清单词在当前句子里的含义，不必从很多无关释义里猜。</p></div></li><li><span>2</span><div><strong>保存词和语境</strong><p>把单词、原句、翻译、音标和学习补充一起留在生词本。</p></div></li><li><span>3</span><div><strong>导入 Anki 复习</strong><p>在电脑端批量导入，之后由 Anki 按记忆情况安排下一次复习。</p></div></li></ol><div className={styles.ankiTerms}><div><strong>Deck</strong><span>卡组，把同一类卡片放在一起复习。</span></div><div><strong>Card</strong><span>卡片，正面提出问题，背面显示答案和语境。</span></div><div><strong>Review</strong><span>复习，看答案后告诉 Anki 自己记得怎么样。</span></div></div><div className={styles.ankiSetup}><GuideAnkiSetup /></div><div className={styles.ankiAfterImport}><div><h3>一张卡片会保留什么</h3><p>模板由 Context Reader 自动建立，你不需要手工添加字段。</p></div><ul>{["单词与音标", "当前语境含义", "原句与翻译", "常见搭配与例句", "美式与英式发音"].map((item) => <li key={item}>{item}</li>)}</ul><a href="https://docs.ankiweb.net/getting-started.html" target="_blank" rel="noreferrer">查看 Anki 官方入门说明 <ArrowIcon /></a></div></section>
+        <section id="study" className={styles.section}><SectionHeading title="背单词" copy="阅读时收藏的生词，可以直接在本站学习。" /><p>先复习，再学新词。按自己的回忆选择“不记得”“模糊”或“记得”，核对答案后继续。</p></section>
 
-        <section id="faq" className={styles.section}><SectionHeading title="常见问题" copy="按问题所属阶段查找。Anki 连接问题可以返回上方安装助手逐项检查。" /><div className={styles.faqGroups}>{faqGroups.map(([group, items]) => <section key={group}><h3>{group}</h3><div>{items.map(([question, answer]) => <details key={question}><summary><span>{question}</span><i aria-hidden="true">＋</i></summary><p>{answer}</p></details>)}</div></section>)}</div></section>
+        <section id="faq" className={styles.section}><SectionHeading title="常见问题" copy="按问题所属阶段查找。" /><div className={styles.faqGroups}>{faqGroups.map(([group, items]) => <section key={group}><h3>{group}</h3><div>{items.map(([question, answer]) => <details key={question}><summary><span>{question}</span><i aria-hidden="true">＋</i></summary><p>{answer}</p></details>)}</div></section>)}</div></section>
 
         <section id="updates" className={styles.section}><SectionHeading title="更新记录" /><ol className={styles.releaseNotes}>{releaseNotes.map(([date, title, copy]) => <li key={date}><time dateTime={date}>{date}</time><div><h3>{title}</h3><p>{copy}</p></div></li>)}</ol></section>
 
