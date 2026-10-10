@@ -2,7 +2,7 @@
 
 ## 当前状态
 
-用户已接受对照 B：“完整、正确且自然”。共享服务的修复及回归验证已准备，正式发布身份与公网验证完成后更新本节。Amanda 美音与 0.9 合成语速保持不变；英音保持原普通词路径。
+用户已接受对照 B：“完整、正确且自然”。已生产接受 `20261010T105000`，parent `20261010T101400`，source `5f12251e9752fb1ecf55db613e247bc702dffa4b`。公网 `/api/connectivity` 精确返回该身份及 `mainland_internal`。Amanda 美音与 0.9 合成语速保持不变；英音保持原普通词路径。
 
 ## 已确认的故障层
 
@@ -31,3 +31,9 @@ diffuse 的 /z/、/s/ 两轮样本仍未获得用户“能区分”的确认；�
 - [接受样本及身份](evidence/faction-1010/faction-approved.json)、[B 原始 MP3](evidence/faction-1010/faction-neutral.mp3)
 
 参考：[供应商 SSML 定义](https://docs.volcengine.com/docs/DoubaoVoice/SSMLmarkuplanguage?lang=zh)。文档支持 CMU 格式，不等于当前音色的每段结果都遵守音素。实验区分了输入正确、返回成功与用户听感正确三个不同条件。
+
+## 发布验收
+
+44 项发音/播放器/历史专项、90 核心、九契约、供应商回退一次扣费和本地/服务器构建通过。正式普通/显式 faction 美音均返回 B 原始字节；英音及 bass、lever、peg、humiliate 和 bibliography 原音频 SHA 保持。真实页面历史回放无生成请求，新美音文件身份正确，按钮播放与键盘回放通过。签入划词/句译、词典、两段全文翻译均走 deepseek-flash，各一次1/5/10点；免费历史、会话、协议2、Admin权限、七服务与34表备份恢复通过，QA身份精确清理并保留成本审计。仅app/caddy重建，五个后端容器身份保持；当前/父版镜像保留。未新增实体手机、跨浏览器或全词库正确率结论。
+
+[公网与核心链路](evidence/faction-1010/live-acceptance.json)、[浏览器](evidence/faction-1010/browser-final.json)、[验收摘要](evidence/faction-1010/verification.json)。

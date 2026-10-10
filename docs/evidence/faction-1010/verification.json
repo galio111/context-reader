@@ -1,0 +1,24 @@
+{
+  "releaseId": "20261010T105000",
+  "parentReleaseId": "20261010T101400",
+  "sourceRevision": "5f12251e9752fb1ecf55db613e247bc702dffa4b",
+  "targetedTests": 44,
+  "criticalTests": 90,
+  "releaseContracts": 9,
+  "providerFallbackSingleChargeTests": 1,
+  "localAndServerBuild": "passed",
+  "acceptedFactionBytesMatch": true,
+  "previousAcceptedAudioBytesUnchanged": true,
+  "ukFactionBytesUnchanged": true,
+  "unchangedBackendContainers": 5,
+  "healthServices": 7,
+  "recoveryAdminStatusCodes": [
+    200,
+    200,
+    200,
+    200
+  ],
+  "isolatedRestoredTableCount": 34,
+  "rawLogs": "Retained outside the repository in artifacts/bass-readings-1010/",
+  "physicalDeviceAndCrossBrowserVerified": false
+}
