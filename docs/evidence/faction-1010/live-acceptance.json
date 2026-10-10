@@ -1,0 +1,261 @@
+{
+  "release": {
+    "ok": true,
+    "checkedAt": "2026-10-10T02:54:38.532Z",
+    "releaseId": "20261010T105000",
+    "parentReleaseId": "20261010T101400",
+    "backendMode": "mainland_internal"
+  },
+  "factionRequestMs": 65,
+  "approvedFactionUS": [
+    {
+      "text": "faction",
+      "accent": "en-US",
+      "bytes": 39360,
+      "sha256": "b4d1be18695e88adc2177109e30ba5b4c96d3456db49b20d4e38c28a03b690d4",
+      "filename": "cr-us-e3342be5c9be50f4025f4448.mp3",
+      "cache": "hit",
+      "voice": "en_female_amanda_mars_bigtts"
+    },
+    {
+      "text": "faction",
+      "accent": "en-US",
+      "phonetic": "/ˈfækʃən/",
+      "bytes": 39360,
+      "sha256": "b4d1be18695e88adc2177109e30ba5b4c96d3456db49b20d4e38c28a03b690d4",
+      "filename": "cr-us-e3342be5c9be50f4025f4448.mp3",
+      "cache": "hit",
+      "voice": "en_female_amanda_mars_bigtts"
+    }
+  ],
+  "factionUkUnchanged": {
+    "text": "faction",
+    "accent": "en-GB",
+    "bytes": 34560,
+    "sha256": "8eefda7cc9a2d58a6998d00bf199288212b7ed66dbd2e56540a60fb94b960fd7",
+    "filename": "cr-uk-3ed7e14a23fc6a277d384cda.mp3",
+    "cache": "hit",
+    "voice": "en_female_emily_mars_bigtts"
+  },
+  "approvedLeverUS": [
+    {
+      "text": "lever",
+      "accent": "en-US",
+      "bytes": 34560,
+      "sha256": "3aec13662a2a10d3209aa877c428b1f0ba2d28873dc78414af294e4196c8bd7f",
+      "filename": "cr-us-616bb5bdae41ee1108390806.mp3",
+      "cache": "hit",
+      "voice": "en_female_amanda_mars_bigtts"
+    },
+    {
+      "text": "lever",
+      "accent": "en-US",
+      "phonetic": "/ˈlevər/",
+      "bytes": 34560,
+      "sha256": "3aec13662a2a10d3209aa877c428b1f0ba2d28873dc78414af294e4196c8bd7f",
+      "filename": "cr-us-616bb5bdae41ee1108390806.mp3",
+      "cache": "hit",
+      "voice": "en_female_amanda_mars_bigtts"
+    },
+    {
+      "text": "lever",
+      "accent": "en-US",
+      "phonetic": "/ˈlɛvɚ/",
+      "bytes": 34560,
+      "sha256": "3aec13662a2a10d3209aa877c428b1f0ba2d28873dc78414af294e4196c8bd7f",
+      "filename": "cr-us-616bb5bdae41ee1108390806.mp3",
+      "cache": "hit",
+      "voice": "en_female_amanda_mars_bigtts"
+    }
+  ],
+  "ukUnchanged": {
+    "text": "lever",
+    "accent": "en-GB",
+    "bytes": 29760,
+    "sha256": "79dcbc21bbe9c6b191fe9be1b08cbcea41d17c9c77a4d4e488405e499ddddeca",
+    "filename": "cr-uk-5253cbb1205916ad58a2d545.mp3",
+    "cache": "hit",
+    "voice": "en_female_emily_mars_bigtts"
+  },
+  "esteemUS": {
+    "text": "esteem",
+    "accent": "en-US",
+    "phonetic": "/ɪˈstiːm/",
+    "bytes": 36960,
+    "sha256": "3a0790df4f08fc3c3e65996621946ab28c28e35c8aebb189b360059860cd3d09",
+    "filename": "cr-us-3a0d3ab52edc7fd11be75ce1.mp3",
+    "cache": "hit",
+    "voice": "en_female_amanda_mars_bigtts"
+  },
+  "explicitVariantPreserved": {
+    "text": "lever",
+    "accent": "en-US",
+    "phonetic": "/ˈliːvər/",
+    "bytes": 34560,
+    "sha256": "0741895667f7cb899a9d4a58103d537f353917080dddf008425fa7474ebf7d79",
+    "filename": "cr-us-586230ca6c8239e2ff89e1dc.mp3",
+    "cache": "hit",
+    "voice": "en_female_amanda_mars_bigtts"
+  },
+  "unsupportedRejected": true,
+  "approvedPegUS": {
+    "text": "peg",
+    "accent": "en-US",
+    "phonetic": "/peɡ/",
+    "bytes": 30240,
+    "sha256": "3a3aa8321c0b11ef5629357c3f853071368dc78d2a0d7f1e65b5211ea23fa7f8",
+    "filename": "cr-us-73928ba61d67ddfea37528cc.mp3",
+    "cache": "hit",
+    "voice": "en_female_amanda_mars_bigtts"
+  },
+  "approvedHumiliateUS": {
+    "text": "humiliate",
+    "accent": "en-US",
+    "bytes": 40800,
+    "sha256": "d8a3d9f174e8dea5bbff9eb333b5edd70fc2439c1c6c5c62a09ee20d2ddc23cb",
+    "filename": "cr-us-1e1b4050a21438b28abcaa19.mp3",
+    "cache": "hit",
+    "voice": "en_female_amanda_mars_bigtts"
+  },
+  "ordinaryPeg": {
+    "text": "peg",
+    "accent": "en-US",
+    "bytes": 30240,
+    "sha256": "3a3aa8321c0b11ef5629357c3f853071368dc78d2a0d7f1e65b5211ea23fa7f8",
+    "filename": "cr-us-73928ba61d67ddfea37528cc.mp3",
+    "cache": "hit",
+    "voice": "en_female_amanda_mars_bigtts"
+  },
+  "bibliographyReaderPath": {
+    "text": "bibliography",
+    "accent": "en-US",
+    "bytes": 41760,
+    "sha256": "608a9e27fad5c01c09afc6f6e00d15deaa112bd5a8ddfec0def901fee83f59c1",
+    "filename": "cr-us-a295588ba4407c37c5e71d8a.mp3",
+    "cache": "hit",
+    "voice": "en_female_amanda_mars_bigtts"
+  },
+  "approvedBass": [
+    {
+      "text": "bass",
+      "accent": "en-US",
+      "phonetic": "/beɪs/",
+      "bytes": 33120,
+      "sha256": "d317c09939adf2418568112fbc2c3e5bc2466d28f84fadb2b98c6e2bd1c83fee",
+      "filename": "cr-us-477cb30d48eb8263c99af445.mp3",
+      "cache": "hit",
+      "voice": "en_female_amanda_mars_bigtts"
+    },
+    {
+      "text": "bass",
+      "accent": "en-US",
+      "phonetic": "/bæs/",
+      "bytes": 33120,
+      "sha256": "71b92d3821b296cc50be621653bf15b78d53f78381f694509e924925715a8b81",
+      "filename": "cr-us-12b17325584b7dceda0b7354.mp3",
+      "cache": "hit",
+      "voice": "en_female_amanda_mars_bigtts"
+    },
+    {
+      "text": "bass",
+      "accent": "en-GB",
+      "phonetic": "/beɪs/",
+      "bytes": 28800,
+      "sha256": "0d029d4e58edf684acc6c0347a340ea5daa2dfdc2e5e5f7fd444b541f291fdc7",
+      "filename": "cr-uk-3d27a5e98c0bc5f85c7be6ea.mp3",
+      "cache": "hit",
+      "voice": "en_female_emily_mars_bigtts"
+    },
+    {
+      "text": "bass",
+      "accent": "en-GB",
+      "phonetic": "/bæs/",
+      "bytes": 28800,
+      "sha256": "13d86b7f5b163c8b7d42f771188a7559a888f92e3ca5f4ee19aceb05c3a63a8b",
+      "filename": "cr-uk-9bf3c42fdc666ae035a25edd.mp3",
+      "cache": "hit",
+      "voice": "en_female_emily_mars_bigtts"
+    }
+  ],
+  "account": true,
+  "sync": true,
+  "normalUserAdminDenied": true,
+  "wordAndSentenceTranslation": true,
+  "dictionaryPronunciations": [
+    {
+      "accent": "en-US",
+      "partOfSpeech": "noun",
+      "phonetic": "/beɪs/",
+      "meaning": "低音；贝斯"
+    },
+    {
+      "accent": "en-GB",
+      "partOfSpeech": "noun",
+      "phonetic": "/beɪs/",
+      "meaning": "低音；贝斯"
+    },
+    {
+      "accent": "en-US",
+      "partOfSpeech": "adjective",
+      "phonetic": "/beɪs/",
+      "meaning": "低音；贝斯"
+    },
+    {
+      "accent": "en-GB",
+      "partOfSpeech": "adjective",
+      "phonetic": "/beɪs/",
+      "meaning": "低音；贝斯"
+    },
+    {
+      "accent": "en-US",
+      "partOfSpeech": "noun",
+      "phonetic": "/bæs/",
+      "meaning": "鲈鱼"
+    },
+    {
+      "accent": "en-GB",
+      "partOfSpeech": "noun",
+      "phonetic": "/bæs/",
+      "meaning": "鲈鱼"
+    }
+  ],
+  "historyReplayUncharged": true,
+  "fullArticleTranslation": true,
+  "oneActionEach": [
+    {
+      "feature": "full_article_translation",
+      "status": "succeeded",
+      "quota_units": 10
+    },
+    {
+      "feature": "standalone_dictionary",
+      "status": "succeeded",
+      "quota_units": 5
+    },
+    {
+      "feature": "word_explanation",
+      "status": "succeeded",
+      "quota_units": 1
+    }
+  ],
+  "executions": [
+    {
+      "route": "/api/explain-word",
+      "model": "deepseek-flash",
+      "status": "succeeded"
+    },
+    {
+      "route": "/api/dictionary",
+      "model": "deepseek-flash",
+      "status": "succeeded"
+    },
+    {
+      "route": "/api/translate-article",
+      "model": "deepseek-flash",
+      "status": "succeeded"
+    }
+  ],
+  "anonymousBoundaries": true,
+  "passed": true,
+  "testAccountRemoved": true
+}
