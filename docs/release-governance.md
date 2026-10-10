@@ -1,5 +1,9 @@
 # Production Release Governance
 
+## Accepted daily editorial sorting release
+
+Accepted 20261010T142500, parent 20261010T105000, source 27ae351239ee9d8d240e20ffee65acee36a93b66. Exact 18-file cumulative delta via stable guard; public identity reports mainland_internal. Local/server builds, nine contracts, 109 critical/editorial tests, eight provider/billing tests and real five-category daily/historical sorting passed. Repeated cron/timer calls preserve order, inventory, spending and accepted email. Signed-in Flash core, account/sync/Admin, health, 34-table backup restore and parent image passed. Only app/caddy recreated. See [evidence](editorial-shuffle-20261010.md), including the timestamp-verified orphan discovery-lease recovery. Later evidence commits do not change deployed source identity.
+
 ## Current accepted editorial reliability release
 
 Accepted `20261006T122200`, parent `20261006T121000`, source `b2f55edd29877c228de598896f6b80a9e961edc9`. Public identity and stable entrypoint agree with mainland_internal. Cumulative 41/5/3-file releases retain accepted runtime history. Local/server builds, 90 critical, 82 editorial/source, 8 provider/billing and nine contracts pass; real signed-in Flash core, protocol-2/Admin, live published bodies/51 images, seven-service health, SHA-verified 34-table restore and parent rollback image verified. Only app/caddy replaced; backend uptimes unchanged. Hourly feed discovery has no model spend and the enabled timer continues without publication-count stop. [Evidence and limits](editorial-reliability-20261006.md). Later documentation commits do not change deployed source identity.

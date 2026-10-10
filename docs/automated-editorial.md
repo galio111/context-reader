@@ -1,6 +1,6 @@
 # Automatic editorial publication — current contract
 
-已接受生产版本 `20261006T122200`，parent `20261006T121000`，source `b2f55edd29877c228de598896f6b80a9e961edc9`；公网 `/api/connectivity` 与服务器记录一致，backendMode 为 `mainland_internal`。 See [reliability acceptance](editorial-reliability-20261006.md).
+当前自动排序已接受生产版本 `20261010T142500`，parent `20261010T105000`，source `27ae351239ee9d8d240e20ffee65acee36a93b66`；公网 `/api/connectivity` 与服务器记录一致，backendMode 为 `mainland_internal`。每日全部精选结束后分别随机排序今日与往日文章，重复唤醒不重排；[本次真实验证](editorial-shuffle-20261010.md)。原来源可靠性验收见 [reliability acceptance](editorial-reliability-20261006.md).
 
 a16z News and TIME are enabled and verified, with hourly persistent feed discovery and daily 06:00 Shanghai review. TIME 14 and a16z 2 additional articles were reviewed and published in the 6 October recovery; the two-source review cost was CNY 0.105308. Retain 240 attempts, 120 minutes and CNY 1.50; Flash/MiMo routes and Jev disabled remain unchanged. Quantity is never a stop condition. See [acceptance](editorial-reliability-20261006.md) for dated evidence and limits.
 

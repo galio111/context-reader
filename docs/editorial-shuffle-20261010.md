@@ -1,6 +1,6 @@
 # Daily editorial shuffle
 
-Status: implemented and locally verified; production acceptance pending.
+Status: accepted in production as `20261010T142500`, parent `20261010T105000`, source `27ae351239ee9d8d240e20ffee65acee36a93b66`. Public `/api/connectivity` and the server agree with `mainland_internal`; accepted at 2026-10-10 14:28:15 Shanghai. Later evidence-only commits do not change this source identity.
 
 After each completed daily publication run, shuffle today's selections and older published articles independently in all five homepage categories. Today remains first; preserve existing current-day featured choices, selection timestamps, and the recommendation whitelist. Single-source manual discovery remains candidate-only. Normal source batches and hourly feed discovery do not trigger sorting. New publications from a later recovery receive one new final shuffle.
 
@@ -10,4 +10,10 @@ Live preflight found 1690 published articles, including 545 explicitly classifie
 
 Local verification: 109 critical/editorial tests, eight provider fallback/billing tests, nine release contracts, egress audit and production build passed. The strengthened final nine-test shuffle/runtime run verifies both day groups, all categories, CAS conflict recovery, repeated-run stability, new recovery/day handling, bounded conflict failure, mail-independent finalization and a 1200-item historical topic library. The inherited build has unrelated lint warnings.
 
-Production checks will compare real before/after category orders, inventory, completion receipt, repeat stability, unchanged editorial spending and accepted email, public SSR and article replay; then verify signed-in reading core, account/sync/Admin boundaries, seven services, isolated backup restore and parent rollback image.
+Production verification passed: all five groups changed both today's and older ordering, with today still first. Recommendation has 106 today / 394 older, current affairs 23 / 473, science 36 / 523, culture 25 / 384, business 22 / 283. Topic arrays preserve previous manual placements, so their sizes can differ from the exclusive classification totals. The 1690 published rows and 500-member recommendation whitelist are unchanged. Science persists all 559 placement ids, including the formerly truncated tail.
+
+The server timer performed the catch-up at 14:30:15; subsequent real timer runs and explicit repeat checks return `already_ran_today` with byte-equivalent curation. The editorial ledger remains at 143 model calls and CNY 0.503940 estimated spending, and the accepted count-106 email record is unchanged. Public SSR carries the receipt and the first recommendation plus historical science article replay with 13/22 body blocks passed. This verifies real finalization and idempotency; the next newly published daily set has automated recovery/day-boundary coverage, not a claim of future observed execution.
+
+Signed-in contextual explanation/sentence translation, standalone dictionary and full-article translation all used DeepSeek Flash with one action each (1/5/10 points). Account/protocol-2, ordinary-user and anonymous Admin denial, recovery Admin, seven-service health, SHA-verified isolated 34-table restore and active/parent rollback images passed. The synthetic test user was deleted. Only app/caddy restarted; all five backend start times are unchanged. See [sorting](evidence/editorial-shuffle-1010/live-shuffle.json), [reading core](evidence/editorial-shuffle-1010/live-core.json) and [operations](evidence/editorial-shuffle-1010/operations.log).
+
+Cutover interrupted a preexisting RSS worker at 14:27:57, leaving its 30-minute discovery lease. The replacement app started at 14:28:09. After confirming there was no old app container, an exact-timestamp CAS cleared only that orphan lease at 14:29:43. The timer then completed normally. No lease checks, release locks, editorial quality gates, budget boundaries or email idempotency were disabled.
