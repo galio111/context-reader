@@ -1,0 +1,12 @@
+{
+  "acceptedSamplesPreserved": true,
+  "results": [
+    {
+      "accent": "en-US",
+      "phonetic": "/ˈfækʃən/",
+      "object": "context-reader-pronunciation/us/e3342be5c9be50f4025f44489237915e1a474b2c8f1cb369b8145854046aefa5.mp3",
+      "sha256": "b4d1be18695e88adc2177109e30ba5b4c96d3456db49b20d4e38c28a03b690d4",
+      "bytes": 39360
+    }
+  ]
+}

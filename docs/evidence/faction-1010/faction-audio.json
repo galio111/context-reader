@@ -1,0 +1,38 @@
+[
+  {
+    "accent": "en-US",
+    "part": "plain",
+    "phonetic": "",
+    "file": "faction-en-US-plain.mp3",
+    "filename": "cr-us-f470cc4d4224d125aceace67.mp3",
+    "sha256": "50d9f08ea594db5a8948dc54e85851fbb6e639f360387beb7396351aae99585b",
+    "bytes": 39360
+  },
+  {
+    "accent": "en-US",
+    "part": "ipa",
+    "phonetic": "/ˈfækʃən/",
+    "file": "faction-en-US-ipa.mp3",
+    "filename": "cr-us-8ed51a6a52a751db5527a00e.mp3",
+    "sha256": "a9dd0c583e167df4dc36e46e1384719675f93a2b4e865e58f231e4daf31b741d",
+    "bytes": 39360
+  },
+  {
+    "accent": "en-GB",
+    "part": "plain",
+    "phonetic": "",
+    "file": "faction-en-GB-plain.mp3",
+    "filename": "cr-uk-3ed7e14a23fc6a277d384cda.mp3",
+    "sha256": "8eefda7cc9a2d58a6998d00bf199288212b7ed66dbd2e56540a60fb94b960fd7",
+    "bytes": 34560
+  },
+  {
+    "accent": "en-GB",
+    "part": "ipa",
+    "phonetic": "/ˈfækʃən/",
+    "file": "faction-en-GB-ipa.mp3",
+    "filename": "cr-uk-7b55efd1cb43da5c0062efb6.mp3",
+    "sha256": "f0684e053a4f7d5069511829ef72adac8ea048a9ca1748c9a4450cffc2b69a1e",
+    "bytes": 34560
+  }
+]

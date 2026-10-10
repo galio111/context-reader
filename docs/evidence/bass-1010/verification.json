@@ -1,0 +1,21 @@
+{
+  "release": "20261010T101400",
+  "targetedTests": 43,
+  "criticalTests": 90,
+  "releaseContracts": 9,
+  "providerFallbackSingleChargeTests": 1,
+  "localAndServerBuild": "passed",
+  "healthServices": 7,
+  "recoveryAdminStatusCodes": [
+    200,
+    200,
+    200,
+    200
+  ],
+  "unchangedBackendContainerCount": 5,
+  "backup": "20261009T192251Z.dump",
+  "backupShaVerified": true,
+  "isolatedRestoredTableCount": 34,
+  "currentAndParentImagesRetained": true,
+  "rawLogs": "Retained outside the repository in artifacts/bass-readings-1010/"
+}

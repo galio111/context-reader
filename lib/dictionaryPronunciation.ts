@@ -140,6 +140,7 @@ export function reviewedPronunciationAudioPhonetic(text: string, accent: Pronunc
   // return to the same unqualified request as Reader/vocabulary/Anki.
   if (accent === "en-US" && word === "peg") return "/peɡ/";
   if (accent === "en-US" && word === "humiliate") return "/hjuːˈmɪliˌeɪt/";
+  if (accent === "en-US" && word === "faction") return "/ˈfækʃən/";
   if ((word === "lever" || word === "esteem") && accent === "en-US") {
     return reviewedDictionaryPronunciations(word)?.find(entry => entry.accent === accent)?.phonetic ?? "";
   }

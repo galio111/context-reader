@@ -1,15 +1,19 @@
 # 单独查词发音路径与异读边界
 
-状态：已生产接受 `20261008T220600`，parent `20261008T171800`，source `18fe18d4c7014e2f97bd6f34e1e572b10cae4aa8`。公网 `/api/connectivity` 精确返回该身份与 `mainland_internal`。普通词恢复与划词翻译相同的请求；只有同一口音的不同读法才提交对应音标。此前“所有美音都强制按 IPA 合成”的方向已被用户纠正并撤回。
+状态：已生产接受 `20261010T101400`，parent `20261008T220600`，source `9935dd782623c0305cc7caa57c7b1ab8666beeae`。公网 `/api/connectivity` 精确返回该身份及 `mainland_internal`。普通词恢复与划词翻译相同的请求；只有同一口音的不同读法才提交对应音标。此前“所有美音都强制按 IPA 合成”的方向已被用户纠正并撤回。
 
-## bass 修复（2026-10-10，待发布）
+## bass 当前行为
 
 - 用户确认四段美音/英音样本“两种口音都正确、能区分”。[原样本及哈希](evidence/bass-1010/approved.json) 已保存，正式请求必须复用相同字节。
 - 音乐名词（低音、贝斯）与形容词均为 /beɪs/；鱼类名词为 /bæs/。依据 [Cambridge bass](https://dictionary.cambridge.org/dictionary/english/bass)。旧历史中的贝斯错误 /bæs/ 按实际释义纠正，无需重新生成。
 - 按实际异读及含义分组，不再只按词性；音乐名词与形容词合并为一组，鱼类另列。去掉“这个拼写对应多个词头，以下义项会同时保留。”提示。
-- 供应商在 CMU phoneme 内仍受 bass 拼写偏置影响；这两个已核对读音改用中性 carrier，音素、音色与 0.9 语速不变。其余普通词、已接受录音及缓存身份不变。
+- 对照实验发现 CMU phoneme 内的 bass 文本仍影响最终读音；这两个已核对读音改用中性 carrier，音素、音色与 0.9 语速不变。其余普通词、已接受录音及缓存身份不变。
 - 各行播放器共享播放所有权：切换时停止前一段并废弃延迟返回的旧请求，避免叠音。
-- 43 项专项、90 项核心和九项契约测试通过；正式构建与公网验收尚在进行。
+- 43 项专项、90 项核心、九项契约及一次扣费供应商回退测试通过；本地与服务器正式构建、公网音频与真实页面验收通过。
+
+## faction 后续诊断与修复
+
+已直接复现供应商纯文本输出异常，并保留用户接受的 B 原录音；共享服务修复待本轮正式发布验证。详见 [根因边界与复现证据](faction-pronunciation-20261010.md)。diffuse 两轮试听仍未获得可区分确认，本轮不改变其合成路径。
 
 ## 当前规则
 
@@ -37,11 +41,11 @@
 
 ## 当前发布验证
 
-- 90 项核心回归、九项发布契约、发音/真实控件/历史/供应商专项及本地、服务器正式构建通过；最后新增默认样本守卫后，16 项控件与音频缓存测试重新通过。真实控件测试覆盖普通 bibliography/humiliate/lever/peg、regiment 多词性同音、record 异读，以及只有 UK 异读时 US 仍走普通请求。
-- 17 文件累计增量来自干净提交，稳定部署入口验证父版本并接受；仅重建 app/caddy，五个后端容器身份与启动时间未变。
-- 新版本真实桌面页面：bibliography、humiliate、peg 的英美请求均不带 IPA；美音分别返回普通 Reader 文件、用户接受的 B、D 文件。alternate 的不同读法仍分组并携带对应 IPA，美音同音行只预加载一次；键盘 Enter 可播放普通词和异读行。历史切换零生成请求，控制台无错误。
-- 本轮请求 390px 覆盖后，实际 DOM 仍为 1039px，工具未生效，因此不新增手机验收结论。实体设备、跨浏览器和其他词自然度仍需独立验证；旧轮 390px 记录不当作本次新版本证据。
-- 独立临时 QA 验证会话、协议 2 同步、划词及句译、词典、两段全文翻译，三项均成功走 `deepseek-flash` 且分别只记一次 1/5/10 点。连续三次历史回放不增用量；普通用户与匿名 Admin、匿名同步/历史边界通过。临时账号及账单引用已按精确条件清理，供应商成本审计保留。
-- 七服务健康、恢复 Admin 四路 200、最新 PostgreSQL 备份 SHA 和隔离恢复 34 张表通过，当前与父版接受镜像均保留。
+- 43 项针对性测试、90 项核心回归、九项发布契约，以及独立的供应商故障回退一次扣费测试通过。覆盖同词性异义、同音合并、旧 bass 释义音标修正、晚到请求/解码不能恢复旧播放。
+- 本地与服务器正式构建成功；33 文件累计增量来自干净提交，稳定部署入口核对父版本后发布，仅重建 app/caddy。五个后端容器身份未变。
+- 正式接口返回四段 bass 音频与用户确认样本逐字节相同；lever、peg、humiliate 原接受录音及 bibliography 普通 Reader 音频保持原 SHA256。
+- 真实浏览器旧 bass 历史回放显示“低音；贝斯” /beɪs/、“鲈鱼” /bæs/ 两组与四个按钮；无多词头提示。切换按钮最多一个处于播放状态；历史回放不调用生成接口。桌面与键盘验证见浏览器证据；未新增实体手机、跨浏览器或全词库自然度验收结论。
+- 独立临时账号验证会话、协议2同步、划词/句译、词典、两段全文翻译。三项均成功走 deepseek-flash，各只有一次 1/5/10 点动作；三次历史回放不增用量。普通用户/匿名 Admin 与匿名同步/历史边界通过，临时账号和账单引用已精确清理，供应商成本审计保留。
+- 七服务健康、恢复 Admin 四路 200、最新 PostgreSQL 备份 SHA 与隔离恢复34张表通过；新旧接受镜像均保留。
 
-证据：[线上音频与账户](evidence/pronunciation-1008/ordinary-live-acceptance.json)、[真实浏览器请求](evidence/pronunciation-1008/ordinary-browser-final.json)、[修复前请求](evidence/pronunciation-1008/ordinary-browser-before.json)、[页面截图](evidence/pronunciation-1008/ordinary-bibliography-live.png)、[运维](evidence/pronunciation-1008/ordinary-operations.log)、[备份恢复](evidence/pronunciation-1008/ordinary-backup.log)。原始脚本/录音保存在本机 `artifacts/pronunciation-consistency-1008/`，账号秘密不进入仓库。
+证据：[用户接受样本](evidence/bass-1010/approved.json)、[公网音频与核心链路](evidence/bass-1010/live-acceptance.json)、[真实浏览器](evidence/bass-1010/browser-final.json)、[正式页面](evidence/bass-1010/bass-live.png)、[回归与运维验收摘要](evidence/bass-1010/verification.json)。原始脚本和完整本地日志在 `artifacts/bass-readings-1010/`，账号秘密不进入仓库。旧发布证据保留在 `docs/evidence/pronunciation-1008/`，不替代本次验证。

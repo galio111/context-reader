@@ -1,0 +1,73 @@
+{
+  "release": "20261010T101400",
+  "bassExclusive": [
+    {
+      "label": "播放 bass 的美式发音",
+      "pressed": "false"
+    },
+    {
+      "label": "播放 bass 的英式发音",
+      "pressed": "false"
+    },
+    {
+      "label": "播放 bass 的美式发音",
+      "pressed": "true"
+    },
+    {
+      "label": "播放 bass 的英式发音",
+      "pressed": "false"
+    }
+  ],
+  "requests": [
+    {
+      "method": "Network.requestWillBeSent",
+      "url": "https://context-reader.com/api/pronunciation",
+      "postData": "{\"text\":\"bass\",\"accent\":\"en-US\",\"phonetic\":\"/beɪs/\"}"
+    },
+    {
+      "method": "Network.requestWillBeSent",
+      "url": "https://context-reader.com/api/pronunciation",
+      "postData": "{\"text\":\"bass\",\"accent\":\"en-GB\",\"phonetic\":\"/beɪs/\"}"
+    },
+    {
+      "method": "Network.requestWillBeSent",
+      "url": "https://context-reader.com/api/pronunciation",
+      "postData": "{\"text\":\"bass\",\"accent\":\"en-US\",\"phonetic\":\"/bæs/\"}"
+    },
+    {
+      "method": "Network.requestWillBeSent",
+      "url": "https://context-reader.com/api/pronunciation",
+      "postData": "{\"text\":\"bass\",\"accent\":\"en-GB\",\"phonetic\":\"/bæs/\"}"
+    },
+    {
+      "method": "Network.responseReceived",
+      "url": "https://context-reader.com/api/pronunciation",
+      "status": 200,
+      "filename": "cr-us-477cb30d48eb8263c99af445.mp3"
+    },
+    {
+      "method": "Network.responseReceived",
+      "url": "https://context-reader.com/api/pronunciation",
+      "status": 200,
+      "filename": "cr-uk-9bf3c42fdc666ae035a25edd.mp3"
+    },
+    {
+      "method": "Network.responseReceived",
+      "url": "https://context-reader.com/api/pronunciation",
+      "status": 200,
+      "filename": "cr-uk-3d27a5e98c0bc5f85c7be6ea.mp3"
+    },
+    {
+      "method": "Network.responseReceived",
+      "url": "https://context-reader.com/api/pronunciation",
+      "status": 200,
+      "filename": "cr-us-12b17325584b7dceda0b7354.mp3"
+    }
+  ],
+  "keyboardEnterPlayback": true,
+  "observedViewport": {
+    "width": 551,
+    "height": 672
+  },
+  "physicalMobileVerified": false
+}

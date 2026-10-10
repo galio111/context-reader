@@ -1,0 +1,19 @@
+{
+  "userFeedback": "B 完整、正确且自然",
+  "acceptedOn": "2026-10-10",
+  "samples": [
+    {
+      "word": "faction",
+      "accent": "en-US",
+      "phonetic": "/ˈfækʃən/",
+      "voice": "en_female_amanda_mars_bigtts",
+      "file": "faction-neutral.mp3",
+      "speed": 0.9,
+      "synthesis": "<speak><phoneme alphabet=\"cmu\" ph=\"F AE1 K SH AH0 N\">word</phoneme></speak>",
+      "identity": "e3342be5c9be50f4025f44489237915e1a474b2c8f1cb369b8145854046aefa5",
+      "filename": "cr-us-e3342be5c9be50f4025f4448.mp3",
+      "sha256": "b4d1be18695e88adc2177109e30ba5b4c96d3456db49b20d4e38c28a03b690d4",
+      "bytes": 39360
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "samples": [
+    {
+      "id": "repeat-plain",
+      "textType": "plain",
+      "text": "faction",
+      "parameters": {
+        "voice_type": "en_female_amanda_mars_bigtts",
+        "encoding": "mp3",
+        "speed_ratio": 0.9,
+        "explicit_language": "en"
+      },
+      "status": 200,
+      "code": 3000,
+      "file": "faction-repeat-plain.mp3",
+      "sha256": "ded46a1e9601e2f8a344adee9052bc26be743155ea9d50017db3afa0bdc926b2",
+      "bytes": 39360
+    },
+    {
+      "id": "capitalized",
+      "textType": "plain",
+      "text": "Faction",
+      "parameters": {
+        "voice_type": "en_female_amanda_mars_bigtts",
+        "encoding": "mp3",
+        "speed_ratio": 0.9,
+        "explicit_language": "en"
+      },
+      "status": 200,
+      "code": 3000,
+      "file": "faction-capitalized.mp3",
+      "sha256": "2667c713b06374cdd500bd13c4f5393c27a9f4ebe2112330a13183cf20b40d4e",
+      "bytes": 46080
+    },
+    {
+      "id": "repeat-spelled",
+      "textType": "ssml",
+      "text": "<speak><phoneme alphabet=\"cmu\" ph=\"F AE1 K SH AH0 N\">faction</phoneme></speak>",
+      "parameters": {
+        "voice_type": "en_female_amanda_mars_bigtts",
+        "encoding": "mp3",
+        "speed_ratio": 0.9,
+        "explicit_language": "en"
+      },
+      "status": 200,
+      "code": 3000,
+      "file": "faction-repeat-spelled.mp3",
+      "sha256": "21642f6e1f1119df3dbc26af9a5453b229fad1ad2adb44fb62e5dde4560074c7",
+      "bytes": 39360
+    },
+    {
+      "id": "repeat-neutral",
+      "textType": "ssml",
+      "text": "<speak><phoneme alphabet=\"cmu\" ph=\"F AE1 K SH AH0 N\">word</phoneme></speak>",
+      "parameters": {
+        "voice_type": "en_female_amanda_mars_bigtts",
+        "encoding": "mp3",
+        "speed_ratio": 0.9,
+        "explicit_language": "en"
+      },
+      "status": 200,
+      "code": 3000,
+      "file": "faction-repeat-neutral.mp3",
+      "sha256": "7104882cdd9df2ca03c3db53780e6c6a6060fa718f661282073c2b17eb70938d",
+      "bytes": 38880
+    },
+    {
+      "id": "fraction-control",
+      "textType": "plain",
+      "text": "fraction",
+      "parameters": {
+        "voice_type": "en_female_amanda_mars_bigtts",
+        "encoding": "mp3",
+        "speed_ratio": 0.9,
+        "explicit_language": "en"
+      },
+      "status": 200,
+      "code": 3000,
+      "file": "faction-fraction-control.mp3",
+      "sha256": "697dba1f1f1f26e57ffe792df11c86c1c41046e5b07860b7271b0be2859327db",
+      "bytes": 36960
+    }
+  ],
+  "envelopeComparisons": [
+    {
+      "a": "faction-en-US-plain.mp3",
+      "b": "faction-fresh.mp3",
+      "rmsEnvelopePearson": 0.9652265184109347
+    },
+    {
+      "a": "faction-en-US-plain.mp3",
+      "b": "faction-repeat-plain.mp3",
+      "rmsEnvelopePearson": 0.9586474154663357
+    },
+    {
+      "a": "faction-en-US-plain.mp3",
+      "b": "faction-capitalized.mp3",
+      "rmsEnvelopePearson": 0.41757986021229265
+    },
+    {
+      "a": "faction-en-US-plain.mp3",
+      "b": "faction-repeat-spelled.mp3",
+      "rmsEnvelopePearson": 0.9648789325823475
+    },
+    {
+      "a": "faction-neutral.mp3",
+      "b": "faction-repeat-neutral.mp3",
+      "rmsEnvelopePearson": 0.967345831662398
+    }
+  ],
+  "note": "Envelope similarity is evidence of repeatability, not a transcription or lexical correctness test."
+}

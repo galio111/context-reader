@@ -1,0 +1,20 @@
+[
+  {
+    "method": "Network.requestWillBeSent",
+    "body": "{\"text\":\"faction\",\"accent\":\"en-US\"}"
+  },
+  {
+    "method": "Network.requestWillBeSent",
+    "body": "{\"text\":\"faction\",\"accent\":\"en-GB\"}"
+  },
+  {
+    "method": "Network.responseReceived",
+    "status": 200,
+    "filename": "cr-uk-3ed7e14a23fc6a277d384cda.mp3"
+  },
+  {
+    "method": "Network.responseReceived",
+    "status": 200,
+    "filename": "cr-us-f470cc4d4224d125aceace67.mp3"
+  }
+]

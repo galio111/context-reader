@@ -10,7 +10,7 @@ import { reviewedPronunciationAudioPhonetic } from "../lib/dictionaryPronunciati
 function harness(options: { readFailures?: number; writeFailure?: boolean; writeGate?: Promise<void>; now?: number; stored?: boolean; providerFailures?: number; providerStatus?: number } = {}) {
   let reads = 0, providers = 0, writes = 0;
   const events: string[] = [];
-  const requests: Array<{ request: { text: string; text_type: string; reqid: string; operation: string } }> = [];
+  const requests: Array<{ audio: { voice_type: string; speed_ratio: number }; request: { text: string; text_type: string; reqid: string; operation: string } }> = [];
   const audio = new Uint8Array([1, 2, 3]);
   const storage = {
     getBucket: async () => ({ data: {} }),
@@ -207,4 +207,24 @@ test("persistent timeouts stop after two attempts and explicit rejections never 
     await assert.rejects(h.getAudio("test", "en-US"));
     assert.equal(h.counts().providers, 1);
   }
+});
+
+test("faction uses the accepted neutral carrier across ordinary and IPA requests while UK remains unchanged", async () => {
+  const h = harness();
+  const ordinary = await h.getAudio("faction", "en-US");
+  const explicit = await h.getAudio("faction", "en-US", "/ˈfækʃən/");
+  assert.equal(ordinary.filename, explicit.filename);
+  assert.equal(h.counts().providers, 1);
+  assert.equal(h.requests[0].request.text, '<speak><phoneme alphabet="cmu" ph="F AE1 K SH AH0 N">word</phoneme></speak>');
+  assert.equal(h.requests[0].audio.voice_type, "en_female_amanda_mars_bigtts");
+  assert.equal(h.requests[0].audio.speed_ratio, 0.9);
+  // Both old recordings reproduced the missing initial /f/ and extra sounds.
+  assert.notEqual(ordinary.filename, "cr-us-f470cc4d4224d125aceace67.mp3");
+  assert.notEqual(ordinary.filename, "cr-us-8ed51a6a52a751db5527a00e.mp3");
+  const uk = await h.getAudio("faction", "en-GB");
+  assert.equal(uk.filename, "cr-uk-3ed7e14a23fc6a277d384cda.mp3");
+  assert.equal(h.requests[1].request.text_type, "plain");
+  assert.equal(h.requests[1].request.text, "faction");
+  await h.getAudio("fraction", "en-US");
+  assert.equal(h.requests[2].request.text_type, "plain");
 });

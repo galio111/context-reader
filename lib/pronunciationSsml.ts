@@ -72,11 +72,13 @@ export function pronunciationSynthesisInput(text: string, phonetic = "", accent?
   const word = normalizePronunciationText(text);
   const cmu = ipaToCmu(phonetic, accent);
   if (!cmu || !requiresCurrentFormPhonetic(word)) return { text: word, textType: "plain" };
-  // The provider blends bass's spelling-default vowel into the requested CMU
-  // reading (US defaults to music, UK to fish). A neutral carrier lets the
-  // specified phones own this reviewed heteronym. Never change plain words
-  // or the previously accepted recordings of other explicit readings.
-  const carrier = word.toLowerCase() === "bass" && /^(B AE1 S|B EY1 S)$/.test(cmu) ? "word" : word;
+  // Direct provider reproductions remain wrong with these spellings inside
+  // phoneme markup, despite correct phones. The neutral carrier recordings
+  // were accepted by the user (2026-10-10); the provider's internal cause is
+  // unknown. Scope this to reviewed readings, preserving other accepted audio.
+  const neutralCarrier = (word.toLowerCase() === "bass" && /^(B AE1 S|B EY1 S)$/.test(cmu))
+    || (word.toLowerCase() === "faction" && accent === "en-US" && cmu === "F AE1 K SH AH0 N");
+  const carrier = neutralCarrier ? "word" : word;
   const escaped = carrier.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
   // An isolated US monosyllable needs an utterance ending to avoid the
   // provider's unnatural trailing release. Determine this from vowel phones,

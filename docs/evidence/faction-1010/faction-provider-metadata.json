@@ -1,0 +1,38 @@
+[
+  {
+    "id": "faction-fresh",
+    "accent": "en-US",
+    "voice": "en_female_amanda_mars_bigtts",
+    "textType": "plain",
+    "text": "faction",
+    "status": 200,
+    "code": 3000,
+    "ms": 889,
+    "sha256": "4f7e450a350bca4ca9ca6fd9dfc3817964fd8be7b42008700cc8e3ff6a0f04e9",
+    "bytes": 39360
+  },
+  {
+    "id": "faction-period",
+    "accent": "en-US",
+    "voice": "en_female_amanda_mars_bigtts",
+    "textType": "plain",
+    "text": "faction.",
+    "status": 200,
+    "code": 3000,
+    "ms": 534,
+    "sha256": "31a3add861162175a270c395b2ef868caa32048d50c547d45b2e1b270062bccc",
+    "bytes": 33120
+  },
+  {
+    "id": "faction-neutral",
+    "accent": "en-US",
+    "voice": "en_female_amanda_mars_bigtts",
+    "textType": "ssml",
+    "text": "<speak><phoneme alphabet=\"cmu\" ph=\"F AE1 K SH AH0 N\">word</phoneme></speak>",
+    "status": 200,
+    "code": 3000,
+    "ms": 574,
+    "sha256": "b4d1be18695e88adc2177109e30ba5b4c96d3456db49b20d4e38c28a03b690d4",
+    "bytes": 39360
+  }
+]
