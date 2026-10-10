@@ -1,0 +1,8 @@
+{
+  "testUserId": "80b8d0ab-1d7e-4983-8c8f-df4317ae3c2a",
+  "partialRewardsPending": true,
+  "concurrentClaimOnce": true,
+  "exportPreservesAnkiAndClaims": true,
+  "studyOwnerGuard": true,
+  "passed": true
+}

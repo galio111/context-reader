@@ -1,6 +1,10 @@
 # Production Release Governance
 
-## Accepted daily editorial sorting release
+## Accepted study UI and claimable rewards release
+
+已生产接受 `20261010T153500`，parent `20261010T151700`，source `e4000f13a5438eeb714176cfb3b53bd615fe4feb`。首轮接入为 `20261010T151700`，parent `20261010T142500`，source `329d0650c6f655fbc5771452e9b495a4e4535e21`。39文件累计接入+2文件快速确认修正均经稳定发布入口；公网返回精确身份及 `mainland_internal`。 Only app/caddy recreated; all five backend container identities unchanged. Builds, 90 critical, 15 study/profile, eight provider/billing, nine contracts, isolated SQL and concurrency, real signed-in Flash core, study/account/sync/Admin, browser reward claim/pause, 35-table verified backup restore and parent image passed. Exact disposable QA cleanup retained provider-cost audit. [Evidence and open visual/device gates](study-ui-20261010.md).
+
+## Previous accepted daily editorial sorting release
 
 Accepted 20261010T142500, parent 20261010T105000, source 27ae351239ee9d8d240e20ffee65acee36a93b66. Exact 18-file cumulative delta via stable guard; public identity reports mainland_internal. Local/server builds, nine contracts, 109 critical/editorial tests, eight provider/billing tests and real five-category daily/historical sorting passed. Repeated cron/timer calls preserve order, inventory, spending and accepted email. Signed-in Flash core, account/sync/Admin, health, 34-table backup restore and parent image passed. Only app/caddy recreated. See [evidence](editorial-shuffle-20261010.md), including the timestamp-verified orphan discovery-lease recovery. Later evidence commits do not change deployed source identity.
 

@@ -1,0 +1,13 @@
+healthcheck passed
+{"status": "passed", "checks": {"session": 200, "accounts": 200, "public_articles": 200, "recommendation_automation": 200}}
+context-reader-caddy-1:e4065a22b281:Up 29 seconds
+context-reader-app-1:1bc5f197cf7a:Up 35 seconds (healthy)
+context-reader-supabase-api-1:8cf4b5ce5465:Up 2 months (healthy)
+context-reader-postgres-1:eb78126dbbad:Up 2 months (healthy)
+context-reader-storage-1:bcaee44aa72f:Up 2 months (healthy)
+context-reader-auth-1:85536a2958e0:Up 2 months (healthy)
+context-reader-rest-1:5439521fa22b:Up 6 weeks (healthy)
+sha256:ba8539086f3aa2a6d87c74d0727c67b3ea2bba6836163f7ffa04cabd2fd57486
+sha256:27908b7c0d012bcd65f0e6bf2db3e71f77fc0140a8b2e1d017a658052d828996
+/opt/context-reader-releases/20261010T153500
+active

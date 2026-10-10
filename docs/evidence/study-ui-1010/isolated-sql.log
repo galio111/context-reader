@@ -1,0 +1,4 @@
+BEGIN
+DO
+ROLLBACK
+NOTICE:  PASS flexible learning, review-first, partial settlement, explicit claims, replay, account isolation, daily cap, milestones, undo, pause, membership

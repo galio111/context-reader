@@ -1,0 +1,30 @@
+{
+  "testUserId": "80b8d0ab-1d7e-4983-8c8f-df4317ae3c2a",
+  "dictionaryStreamLength": 3332,
+  "translationStream": "{\"type\":\"translation\",\"translation\":{\"id\":\"study-stream-1\",\"translation\":\"每日阅读帮助我们学习新单词。\"}}\n{\"type\":\"done\"}\n",
+  "actions": [
+    {
+      "feature": "full_article_translation",
+      "status": "succeeded",
+      "quota_units": 10
+    },
+    {
+      "feature": "standalone_dictionary",
+      "status": "succeeded",
+      "quota_units": 5
+    }
+  ],
+  "executions": [
+    {
+      "route": "/api/dictionary-stream",
+      "model": "deepseek-flash",
+      "status": "succeeded"
+    },
+    {
+      "route": "/api/translate-article",
+      "model": "deepseek-flash",
+      "status": "succeeded"
+    }
+  ],
+  "passed": true
+}

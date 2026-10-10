@@ -44,17 +44,17 @@
       "buttons": [
         {
           "label": "1不记得",
-          "bottom": 724.7279052734375,
+          "bottom": 723.2119750976562,
           "hit": true
         },
         {
           "label": "2模糊",
-          "bottom": 724.7279052734375,
+          "bottom": 723.2119750976562,
           "hit": true
         },
         {
           "label": "3记得",
-          "bottom": 724.7279052734375,
+          "bottom": 723.2119750976562,
           "hit": true
         }
       ]
@@ -76,17 +76,17 @@
       "buttons": [
         {
           "label": "1不记得",
-          "bottom": 723.0438232421875,
+          "bottom": 723,
           "hit": true
         },
         {
           "label": "2模糊",
-          "bottom": 723.0438232421875,
+          "bottom": 723,
           "hit": true
         },
         {
           "label": "3记得",
-          "bottom": 723.0438232421875,
+          "bottom": 723,
           "hit": true
         }
       ]
@@ -108,17 +108,17 @@
       "buttons": [
         {
           "label": "1不记得",
-          "bottom": 696.130859375,
+          "bottom": 696.0004272460938,
           "hit": true
         },
         {
           "label": "2模糊",
-          "bottom": 696.130859375,
+          "bottom": 696.0004272460938,
           "hit": true
         },
         {
           "label": "3记得",
-          "bottom": 696.130859375,
+          "bottom": 696.0004272460938,
           "hit": true
         }
       ]
@@ -140,17 +140,17 @@
       "buttons": [
         {
           "label": "1不记得",
-          "bottom": 696.6814575195312,
+          "bottom": 696.0100708007812,
           "hit": true
         },
         {
           "label": "2模糊",
-          "bottom": 696.6814575195312,
+          "bottom": 696.0100708007812,
           "hit": true
         },
         {
           "label": "3记得",
-          "bottom": 696.6814575195312,
+          "bottom": 696.0100708007812,
           "hit": true
         }
       ]
@@ -172,17 +172,17 @@
       "buttons": [
         {
           "label": "1不记得",
-          "bottom": 540.3043823242188,
+          "bottom": 540.01025390625,
           "hit": true
         },
         {
           "label": "2模糊",
-          "bottom": 540.3043823242188,
+          "bottom": 540.01025390625,
           "hit": true
         },
         {
           "label": "3记得",
-          "bottom": 540.3043823242188,
+          "bottom": 540.01025390625,
           "hit": true
         }
       ]
@@ -204,17 +204,17 @@
       "buttons": [
         {
           "label": "1不记得",
-          "bottom": 540.6160278320312,
+          "bottom": 540.138671875,
           "hit": true
         },
         {
           "label": "2模糊",
-          "bottom": 540.6160278320312,
+          "bottom": 540.138671875,
           "hit": true
         },
         {
           "label": "3记得",
-          "bottom": 540.6160278320312,
+          "bottom": 540.138671875,
           "hit": true
         }
       ]
@@ -246,5 +246,6 @@
     "reduced motion"
   ],
   "backend": "mocked HTTP, real application components and FSRS library",
+  "quickAnswerGuardTested": true,
   "errors": []
 }
