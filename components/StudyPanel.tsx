@@ -125,7 +125,15 @@ export function StudyPanel({visible,onClose,onSource,notice}:{visible:boolean;on
   const refresh=async()=>{accept(await api<StudySnapshot>());setPresentation(n=>n+1);};
   const savePending=async(p:Pending)=>run(async()=>{
     try {
-      const data=await api<{snapshot:StudySnapshot}>(p);clearPending();accept(data.snapshot);setPresentation(n=>n+1);
+      let data:{snapshot:StudySnapshot};
+      try { data=await api<{snapshot:StudySnapshot}>(p); }
+      catch(e){
+        if((e as {code?:string}).code!=="too_fast")throw e;
+        // Preserve the server timing guard and the same idempotent answer; quick taps need no error dialog.
+        await new Promise(resolve=>setTimeout(resolve,850));
+        data=await api<{snapshot:StudySnapshot}>(p);
+      }
+      clearPending();accept(data.snapshot);setPresentation(n=>n+1);
     } catch(e) {
       if((e as {code?:string}).code==="state_changed"){clearPending();await refresh();}
       throw e;

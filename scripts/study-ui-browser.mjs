@@ -15,6 +15,7 @@ const base={phonetic:"/ˈflʌrɪʃ/",lemma:"flourish",partOfSpeech:"verb",basicM
 const entries=["flourish","resilient","contemplate"].map((word,i)=>({...base,id:"test-"+i,word,sourceSentence:i===0?"Plants flourish in the right conditions.":"",sourceArticle:i===0?{kind:"public",id:"study-example",title:"A reading example"}:undefined,anki:{cardMode:i===0?"cloze_context":"basic_en_to_cn",clozeSentence:"Plants ________ in the right conditions.",contextCue:"茁壮成长",basicCue:"繁荣",frontPreview:"",backPreview:"",canMakeCloze:i===0}}));
 const settings={reviewsPerDay:100,forgotMinutes:5,unsureMinutes:10,retention:.9,pausedUntil:null,reminders:true,includeAnki:false};
 let snapshot={serverNow:new Date().toISOString(),settings,cards:entries.map((e,i)=>({id:String(i+1).repeat(40),entry_id:e.id,mode:e.anki.cardMode,memory:JSON.parse(JSON.stringify(createEmptyCard(new Date()))),version:0,suspended:false,anki_pending:false,created_at:e.createdAt})),entries,today:null,reviews:[],daily:[],streak:{current:0,best:0,last_day:null},rewards:[],claims:[],policy:{rewardsEnabled:true,pointsPerNew:1,dailyRewardCap:50,rewardDays:90,streakMinNew:5,milestones:[{days:2,points:50,plan:null,months:0}],profileEnabled:true,profileCost:5,minimumReadingMinutes:60,minimumLookups:50}};
+let quickAnswerGuardTested=false;
 const stamp=()=>({...snapshot,serverNow:new Date().toISOString()});
 const account={configured:true,authenticated:true,profile:{userId:owner,nickname:"学习测试",status:"active",email:"",phone:"",readingInterests:[]},plan:{id:"free",displayName:"免费账号",priceCny:0,active:true,limits:[]},usage:[]};
 await page.route("**/api/**",async route=>{
@@ -27,6 +28,7 @@ await page.route("**/api/**",async route=>{
   const b=route.request().postDataJSON();
   if(b.op==="start"){snapshot.today??={day:new Date(Date.now()+8*3600000).toISOString().slice(0,10),card_ids:snapshot.cards.map(c=>c.id),new_ids:snapshot.cards.map(c=>c.id),new_completed:0,streak:0,settings:{...settings},completed_at:null,reward_points:0};return json(stamp());}
   if(b.op==="present")return json({token:randomUUID(),shownAt:new Date().toISOString()});
+  if(b.op==="review"&&!quickAnswerGuardTested){quickAnswerGuardTested=true;return route.fulfill({status:409,contentType:"application/json",body:JSON.stringify({error:"请先回忆并核对答案，再记录结果。",code:"too_fast"})});}
   if(b.op==="review"){const card=snapshot.cards.find(c=>c.id===b.cardId);const rating=b.answer==="forgot"||b.answer==="unsure_wrong"?1:b.answer==="unsure_right"?2:3;const old=structuredClone(card.memory);const scheduler=fsrs({request_retention:.9,enable_fuzz:false,learning_steps:["5m","10m"],relearning_steps:["5m"]});card.memory=JSON.parse(JSON.stringify(scheduler.next(card.memory,new Date(),rating).card));card.version++;snapshot.reviews.unshift({id:b.id,card_id:card.id,answer:b.answer,rating,reviewed_at:new Date().toISOString(),active_ms:b.activeMs,undone:false,previous:old,next:card.memory});return json({saved:true,id:b.id,snapshot:stamp()});}
   if(b.op==="claimReward"){const c=snapshot.claims.find(c=>c.id===b.id);const points=c.points-c.claimed_points;c.claimed_points=c.points;c.claimed_at=new Date().toISOString();return json({claimed:{claimed:true,points},snapshot:stamp()});}
   if(b.op==="pause"){snapshot.settings={...snapshot.settings,pausedUntil:new Date(Date.now()+b.days*86400000).toISOString()};return json(stamp());}
@@ -129,7 +131,7 @@ try{
  await check(animation==="none","Reduced motion disables entrance");
  await page.keyboard.press("Escape");await page.getByRole("dialog",{name:"背单词",exact:true}).waitFor({state:"hidden"});
  await check(errors.length===0,"Browser errors: "+errors.join(";"));
- await writeFile(new URL("result.json",output),JSON.stringify({ok:true,evidence,checks:["automatic question","reveal","assisted real Reader round trip","undo exact word","three viewports and both themes","all views","pause and cost dialogs","pending and claimed reward","5/10 minute defaults","100 review default","keyboard","reduced motion"],backend:"mocked HTTP, real application components and FSRS library",errors},null,2));
+ await writeFile(new URL("result.json",output),JSON.stringify({ok:true,evidence,checks:["automatic question","reveal","assisted real Reader round trip","undo exact word","three viewports and both themes","all views","pause and cost dialogs","pending and claimed reward","5/10 minute defaults","100 review default","keyboard","reduced motion"],backend:"mocked HTTP, real application components and FSRS library",quickAnswerGuardTested,errors},null,2));
  console.log("Study UI browser passed");
 }catch(error){console.error(await page.locator("body").innerText().catch(()=>""));console.error(error);await shot("failure").catch(()=>{});process.exitCode=1;}
 finally{await browser.close();}
