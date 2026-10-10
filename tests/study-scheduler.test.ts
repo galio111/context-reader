@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { fsrs, createEmptyCard, Rating } from "ts-fsrs";
-import { buildStudyPlan, DEFAULT_STUDY_SETTINGS, newMemory, planProgress, recallProbability, scheduleStudy, shanghaiDay, studyDayEnd, studyRating } from "../lib/studyScheduler";
+import { BasicLearningStepsStrategy, fsrs, createEmptyCard, Rating, State, StrategyMode } from "ts-fsrs";
+import { buildStudyPlan, DEFAULT_STUDY_SETTINGS, newMemory, planProgress, recallProbability, sanitizeStudySettings, scheduleStudy, shanghaiDay, studyDayEnd, studyRating } from "../lib/studyScheduler";
 import type { StudyAnswer, StudyCard } from "../types/study";
 import {DEFAULT_STUDY_POLICY,validateStudyPolicy} from "../lib/studyPolicy";
 
@@ -12,7 +12,10 @@ test("uncertain correctness preserves FSRS success/failure semantics without an 
  assert.equal(studyRating("remembered"),Rating.Good);
 });
 test("a multi-month mixed history agrees with the upstream FSRS implementation at every review",()=>{
- const upstream=fsrs({request_retention:.9,enable_fuzz:false,enable_short_term:true,learning_steps:["1m","10m"],relearning_steps:["10m"],maximum_interval:36500});
+ const upstream=fsrs({request_retention:.9,enable_fuzz:false,enable_short_term:true,learning_steps:["5m","10m"],relearning_steps:["5m"],maximum_interval:36500}).useStrategy(StrategyMode.LEARNING_STEPS,(params,state,step)=>{
+  const steps=BasicLearningStepsStrategy(params,state,step);steps[Rating.Again]={scheduled_minutes:5,next_step:0};
+  if(state!==State.Review)steps[Rating.Hard]={scheduled_minutes:10,next_step:step};return steps;
+ });
  let date=new Date("2026-01-01T08:00:00Z"),ours=newMemory(date),reference=createEmptyCard(date);
  const answers:StudyAnswer[]=["forgot","unsure_wrong","unsure_right","remembered"];
  for(let n=0;n<240;n++){
@@ -46,13 +49,13 @@ test("an intraday Good is still learning, not a completed card or reward",()=>{
  const later=new Date(m.due),next=scheduleStudy(m,"remembered",later,.9).memory;
  assert.equal(planProgress([{...c,memory:next}],["a"],later).finished,1);
 });
-test("Anki histories are excluded until explicitly opted in and catch-up plans stop new cards",()=>{
+test("Anki histories are excluded and review limits do not cap user-chosen new words",()=>{
  const n=new Date("2026-10-05"),base:StudyCard={id:"a",entry_id:"e",mode:"basic_en_to_cn",memory:newMemory(n),version:0,suspended:false,anki_pending:true,created_at:n.toISOString()};
  assert.deepEqual(buildStudyPlan([base],DEFAULT_STUDY_SETTINGS,n),[]);
  assert.deepEqual(buildStudyPlan([base],{...DEFAULT_STUDY_SETTINGS,includeAnki:true},n),["a"]);
  const cards=Array.from({length:4},(_,i)=>({...base,id:String(i),anki_pending:false,memory:{...base.memory,state:2}}));
  cards.push({...base,id:"new",anki_pending:false});
- assert.deepEqual(buildStudyPlan(cards,{...DEFAULT_STUDY_SETTINGS,reviewsPerDay:2},n),["0","1"]);
+ assert.deepEqual(buildStudyPlan(cards,{...DEFAULT_STUDY_SETTINGS,reviewsPerDay:2},n),["0","1","new"]);
 });
 test("reject backwards review clocks rather than corrupting an existing memory",()=>{
  const m=scheduleStudy(newMemory(new Date("2026-10-05")),"remembered",new Date("2026-10-05"),.9).memory;

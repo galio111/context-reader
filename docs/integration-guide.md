@@ -346,3 +346,6 @@ Admin-only GET `/api/admin/editorial` returns `intake` per enabled source: last 
 
 
 `GET /api/admin/discovery-sources` 的今日导入数合并真实候选与公开摘要，按ID去重、上海日createdAt及来源归属计算；不把旧手动任务计数当自动精选计数。来源验证图片容量24，与集成审核一致。小时订阅读取不调用AI；生产身份、TIME/a16z恢复及成本证据见[2026-10-06可靠性报告](editorial-reliability-20261006.md)。
+
+
+站内学习增量升级需先应用 `docs/study-flexible-rewards-migration.sql`，再发布新版 app；它不替换 consume_usage 或旧学习 RPC。新增 `/api/study` 操作 `claimReward`（id 为 daily:日期 或 milestone:天数），同源、账号校验及数据库幂等生效。默认复习上限 100，新词不设日目标；新短期设置字段 forgotMinutes/unsureMinutes 默认 5/10。迁移前从最新备份恢复独立数据库运行 `tests/study-flexible-rewards.sql` 与 `tests/study-claim-concurrency.py`。

@@ -5,6 +5,7 @@ import { useAccount } from "./AccountProvider";
 import { OPEN_STUDY_EVENT, STUDY_SOURCE_RESULT_EVENT, STUDY_VIEW_EVENT } from "@/lib/studyNavigation";
 import { getVocabularyEntries } from "@/lib/vocabulary";
 import styles from "./StudyPanel.module.css";
+import { StudyIcon } from "./StudyIcon";
 const StudyPanel = dynamic(() => import("./StudyPanel").then(m => m.StudyPanel), { ssr:false });
 export function StudyHost() {
   const { account, loading, isOffline, requireAccount } = useAccount();
@@ -13,7 +14,7 @@ export function StudyHost() {
   const owner = account.profile?.userId ?? "";
   const launch = useCallback(() => {
     if (!requireAccount("登录后即可保存复习进度。")) return;
-    setRemind(false); setSource(false); setOpen(true);
+    setRemind(false); setSource(false); setNotice(""); setOpen(true);
   },[requireAccount]);
   useEffect(() => {
     const fn=()=>launch(); window.addEventListener(OPEN_STUDY_EVENT,fn);
@@ -56,8 +57,8 @@ export function StudyHost() {
     return ()=>{cancelled=true;clearTimeout(timer);};
   },[owner,isOffline]);
   return <>
-    {remind&&!open&&<aside className={styles.notice} aria-label="今日复习提醒"><div><strong>今天也记住几个词</strong><p>生词本已经有内容，花一点时间把它们留下来。</p></div><button onClick={launch}>开始复习</button><button aria-label="稍后复习" onClick={()=>setRemind(false)}>稍后</button></aside>}
-    {open&&<StudyPanel visible={!source} notice={notice} onClose={()=>{setOpen(false);setSource(false);}} onSource={()=>setSource(true)} />}
-    {source&&<button type="button" className={styles.returnToStudy} onClick={()=>setSource(false)}>← 返回背单词 · 继续这张卡</button>}
+    {remind&&!open&&<aside className={styles.notice} aria-label="今日复习提醒"><div><strong>生词，今天也记一点</strong><p>完成复习，再继续阅读。</p></div><button onClick={launch}>去背词</button><button aria-label="稍后复习" onClick={()=>setRemind(false)}><StudyIcon name="close"/></button></aside>}
+    {open&&<StudyPanel key={owner} visible={!source} notice={notice} onClose={()=>{setOpen(false);setSource(false);}} onSource={()=>{setNotice("");setSource(true);}} />}
+    {source&&<button type="button" className={styles.returnToStudy} onClick={()=>setSource(false)}><StudyIcon name="back"/>继续背词</button>}
   </>;
 }

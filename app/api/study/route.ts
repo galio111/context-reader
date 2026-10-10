@@ -3,7 +3,7 @@ import { accountFetch } from "@/lib/accountStore";
 import { getAuthenticatedUser } from "@/lib/userAuth";
 import { requestExternalOrigin } from "@/lib/requestSecurity";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
-import { buildStudyPlan, planProgress, sanitizeStudySettings, scheduleStudy, STUDY_ALGORITHM, studyPaused, studyRating } from "@/lib/studyScheduler";
+import { buildStudyPlan, sanitizeStudySettings, scheduleStudy, STUDY_ALGORITHM, studyPaused, studyRating } from "@/lib/studyScheduler";
 import { getStudySettings, getStudySnapshot, reconcileStudyCards, saveStudySettings, studyRpc } from "@/lib/studyStore";
 import type { StudyAnswer, StudyCard } from "@/types/study";
 import { recordServerError } from "@/lib/serverErrorReporting";
@@ -47,9 +47,9 @@ export async function POST(request: Request) {
     if (op === "start") {
       await reconcileStudyCards(userId);
       const snapshot = await getStudySnapshot(userId);
-      if (studyPaused(snapshot.settings, new Date())) throw new StudyError("当前已暂停。恢复学习后即可继续。", 409);
+      if (studyPaused(snapshot.settings, new Date())) return result(snapshot);
       const ids = buildStudyPlan(snapshot.cards, snapshot.settings, new Date());
-      if (!snapshot.today && ids.length) await studyRpc("start", { p_user: userId, p_ids: ids, p_settings: snapshot.settings });
+      if (ids.length || snapshot.today) await studyRpc("start_flexible", { p_user: userId, p_ids: ids, p_settings: snapshot.settings });
       return result(await getStudySnapshot(userId));
     }
     if (op === "settings" || op === "pause" || op === "resume") {
@@ -69,15 +69,25 @@ export async function POST(request: Request) {
     const cardId = String(body.cardId ?? "");
     if(op==="activateMembership"){
       if(!Number.isSafeInteger(body.milestone))throw new StudyError("奖励记录无效。");
+      const claims=await accountFetch<Array<{claimed_at:string|null}>>("study_claims?user_id=eq."+encodeURIComponent(userId)+"&milestone=eq."+body.milestone+"&select=claimed_at");
+      if(claims.some(c=>!c.claimed_at))throw new StudyError("请先在奖励页领取这份会员奖励。",409);
       const reward=await studyRpc<{activated?:boolean;existingPlan?:boolean}>("activate_membership",{p_user:userId,p_milestone:body.milestone});
       if(!reward.activated)throw new StudyError(reward.existingPlan?"你正在使用不同档位的会员。奖励已保留，可在当前会员到期后启用。":"没有可启用的会员奖励。",409);
       return result(await getStudySnapshot(userId));
+    }
+    if(op==="claimReward"){
+      const id=String(body.id??"");
+      if(!/^(daily:\d{4}-\d{2}-\d{2}|milestone:\d{1,5})$/.test(id))throw new StudyError("奖励记录无效。");
+      const claimed=await studyRpc<{claimed?:boolean;points?:number}>("claim_reward",{p_user:userId,p_id:id});
+      if(!claimed.claimed)throw new StudyError("这份奖励暂时无法领取，请稍后再试。",409);
+      return result({claimed,snapshot:await getStudySnapshot(userId)});
     }
     if (op === "present" || op === "review") {
       if (!/^[a-f0-9]{40}$/.test(cardId) || !Number.isSafeInteger(body.version)) throw new StudyError("这张卡片已变化，请刷新学习记录。");
       const rows = await accountFetch<StudyCard[]>("study_cards?user_id=eq." + encodeURIComponent(userId) + "&id=eq." + cardId + "&limit=1");
       const card = rows[0];
       if (!card || card.suspended) throw new StudyError("这个词条已移除。", 404, "state_changed");
+      if (card.anki_pending && !(await getStudySettings(userId)).includeAnki) throw new StudyError("这个词的 Anki 进度尚未迁移，暂不加入站内复习。", 409, "state_changed");
       if (op === "present") {
         const state = await studyRpc<Record<string,unknown>>("present", { p_user: userId, p_card: cardId, p_version: body.version });
         if (!state.token) throw new StudyError("这张卡片暂时不能作答，请刷新学习记录。", 409);
@@ -89,30 +99,27 @@ export async function POST(request: Request) {
       const settings = await getStudySettings(userId);
       const snapshot = await getStudySnapshot(userId);
       const retention = snapshot.today?.settings.retention ?? settings.retention;
-      const scheduled = scheduleStudy(card.memory, answer, new Date(), retention);
+      const scheduled = scheduleStudy(card.memory, answer, new Date(), retention,settings);
       const saved = await studyRpc<Record<string,unknown>>("review", {
         p_user: userId, p_id: body.id, p_card: cardId, p_version: body.version, p_token: body.token,
         p_answer: answer, p_rating: studyRating(answer), p_active: Math.max(0, Math.min(60000, Math.floor(Number(body.activeMs) || 0))),
-        p_memory: scheduled.memory, p_algorithm: STUDY_ALGORITHM, p_parameters: { retention, learningSteps: ["1m","10m"], relearningSteps: ["10m"], fuzz: false },
+        p_memory: scheduled.memory, p_algorithm: STUDY_ALGORITHM, p_parameters: { retention, forgotMinutes:settings.forgotMinutes??5, unsureMinutes:settings.unsureMinutes??10, shortTermStrategy:"explicit-again-hard-v1", fuzz: false },
       });
       if (!saved.saved && !saved.duplicate) throw new StudyError(saved.tooFast ? "请先回忆并核对答案，再记录结果。" : "学习状态已变化，本次没有重复记分。已保留服务器上的最新进度。", 409, saved.tooFast ? "too_fast" : "state_changed");
-      let updated=await getStudySnapshot(userId);
-      const progress=planProgress(updated.cards,updated.today?.card_ids??[],new Date(),updated.today?.new_ids);
-      if(progress.total>0&&progress.finished===progress.total&&!updated.today?.completed_at){
-        await reconcileStudyCards(userId);
-        await studyRpc("complete",{p_user:userId});updated=await getStudySnapshot(userId);
-      }
+      if(scheduled.memory.state===2)await reconcileStudyCards(userId);
+      await studyRpc("settle_rewards",{p_user:userId});
+      const updated=await getStudySnapshot(userId);
       return result({ saved: true, id: body.id, snapshot: updated });
     }
     if (op === "undo") {
       if (!/^[0-9a-f-]{36}$/i.test(String(body.id))) throw new StudyError("记录无效。");
-      const saved = await studyRpc<Record<string,unknown>>("undo", { p_user: userId, p_id: body.id });
-      if (!saved.saved && !saved.duplicate) throw new StudyError(saved.settled?"当天计划已经结算，无法再撤销。":"仅能撤销十五分钟内、尚未再次作答的那次记录。", 409);
+      const saved = await studyRpc<Record<string,unknown>>("undo_flexible", { p_user: userId, p_id: body.id });
+      if (!saved.saved && !saved.duplicate) throw new StudyError(saved.settled?"这次作答已经计入奖励，无法撤销。":"仅能撤销十五分钟内、尚未再次作答的那次记录。", 409);
       return result(await getStudySnapshot(userId));
     }
     if (op === "complete") {
       await reconcileStudyCards(userId);
-      const completion = await studyRpc("complete", { p_user: userId });
+      const completion = await studyRpc("settle_rewards", { p_user: userId });
       return result({ completion, snapshot: await getStudySnapshot(userId) });
     }
     throw new StudyError("学习操作无效。");

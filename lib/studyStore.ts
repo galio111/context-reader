@@ -45,15 +45,18 @@ export async function reconcileStudyCards(userId: string): Promise<void> {
       headers: { Prefer: "resolution=ignore-duplicates,return=minimal" }, body: JSON.stringify(fresh.slice(offset, offset + 100)) });
   }
   const active = new Set(entries.map(e => e.id));
+  const imported = new Map(entries.map(e => [e.id, Boolean(e.anki.ankiNoteId)]));
   for (const card of cards) {
-    if (card.suspended === !active.has(card.entry_id)) continue;
+    const suspended = !active.has(card.entry_id);
+    const ankiPending = imported.get(card.entry_id) ?? card.anki_pending;
+    if (card.suspended === suspended && card.anki_pending === ankiPending) continue;
     await accountFetch("study_cards?user_id=eq." + encodeURIComponent(userId) + "&id=eq." + encodeURIComponent(card.id),
-      { method: "PATCH", body: JSON.stringify({ suspended: !active.has(card.entry_id) }) });
+      { method: "PATCH", body: JSON.stringify({ suspended, anki_pending: ankiPending }) });
   }
 }
 export async function getStudySnapshot(userId: string): Promise<StudySnapshot> {
   const now = new Date();
-  const [settings, cards, entries, today, reviews, daily, policy, streakRows, rewards] = await Promise.all([
+  const [settings, cards, entries, today, reviews, daily, policy, streakRows, rewards, claims] = await Promise.all([
     getStudySettings(userId), studyRows<StudyCard>("study_cards", userId, "id,entry_id,mode,memory,version,suspended,anki_pending,created_at", "&order=id.asc"),
     getStudyEntries(userId),
     accountFetch<StudyDay[]>("study_days?user_id=eq." + encodeURIComponent(userId) + "&day=eq." + shanghaiDay(now) + "&select=*&limit=1"),
@@ -61,11 +64,15 @@ export async function getStudySnapshot(userId: string): Promise<StudySnapshot> {
     studyRpc<StudySnapshot["daily"]>("daily_stats", { p_user: userId }), getStudyPolicy(),
     studyRows<{current:number;best:number;last_day:string|null}>("study_streaks",userId,"current,best,last_day"),
     studyRows<StudySnapshot["rewards"][number]>("study_rewards",userId,"milestone,points,plan,months,earned_at,activated_at,ends_at","&order=milestone.asc"),
+    studyRows<StudySnapshot["claims"][number]>("study_claims",userId,"id,day,milestone,points,claimed_points,plan,months,earned_at,claimed_at","&order=earned_at.desc"),
   ]);
   const ids = new Set(entries.map(e => e.id));
-  return { serverNow: now.toISOString(), settings, cards: cards.filter(c => ids.has(c.entry_id) && !c.suspended),
-    entries, today: today[0] ?? null, reviews, daily, policy,
-    streak:streakRows[0]??{current:0,best:0,last_day:null},rewards };
+  const active=cards.filter(c=>ids.has(c.entry_id)&&!c.suspended);
+  const visible=active.filter(c=>!c.anki_pending||settings.includeAnki);
+  const visibleIds=new Set(visible.map(c=>c.entry_id));
+  return { serverNow: now.toISOString(), settings, cards: visible, ankiPendingCount:active.filter(c=>c.anki_pending).length,
+    entries:entries.filter(e=>visibleIds.has(e.id)), today: today[0] ?? null, reviews, daily, policy,
+    streak:streakRows[0]??{current:0,best:0,last_day:null},rewards,claims };
 }
 export async function saveStudySettings(userId: string, settings: StudySettings) {
   await accountFetch("study_settings?on_conflict=user_id", { method: "POST",
