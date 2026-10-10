@@ -1,0 +1,15 @@
+{
+  "userId": "34bb88e2-4264-45b7-aed4-70f5feb03c53",
+  "release": {
+    "ok": true,
+    "checkedAt": "2026-10-10T14:40:41.789Z",
+    "releaseId": "20261010T223500",
+    "parentReleaseId": "20261010T153500",
+    "backendMode": "mainland_internal"
+  },
+  "startMs": 259,
+  "reviewUndoStats": true,
+  "verifiedSeconds": 2,
+  "syncObjectsFirstPage": 500,
+  "passed": true
+}

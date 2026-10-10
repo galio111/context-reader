@@ -254,6 +254,49 @@ Automatic OCR for images inside URL-imported articles remains disabled in `Reade
 
 Anki import controls, local connection checks and user-facing setup instructions are retired by the explicit 2026-10-10 decision. Legacy fields, stable note identity, API helpers and template code remain for rollback and historical-data preservation, not as current website features. Do not enable imported words in native study until their progress is deliberately migrated.
 
+### September 2026 provider and summary compatibility
+
+Lookup, dictionary and article translation default to `deepseek-flash` (DeepSeek V4.1 Flash); Pro remains available for the existing configured core tasks. The official 2026-09-10 update routes the old Flash aliases to V4.1, so provider behavior can change independently of an app release. Summary input is bounded at 50,000 characters / 256 KiB JSON and sends the entire body; this covers the longest published article measured on 2026-09-12 (39,519 characters). Existing reviewed public summary reuse and quota semantics remain unchanged.
+
+### Sync storage and reconciliation
+
+Learning data now uses `lib/learningStorage.ts`: an explicit synchronous memory adapter with asynchronous IndexedDB transactions, without replacing native Storage APIs. Articles, vocabulary, explanations, translations, reading state, dictionary data and protocol-2 manifest rows are stored individually in `context-reader-learning-v1`; localStorage retains only small settings, identity snapshots and repair flags. Migration first preserves the original managed values in a one-time IndexedDB backup, commits and verifies reconstructed content, then removes only the unchanged legacy keys. Late old-tab writes are backed up and conservatively merged; account-owner guards reject stale cross-account writes. Pending writes remain recoverable on failure and the page shows retry/export controls. Account switching archives unsent owner data before clearing the active view.
+
+Authentication publishes the verified account and closes the login dialog after local storage is ready, independently of background cloud restoration. Bootstrap restores active/deleted article, vocabulary and reading-state pages before caches, stages page progress in IndexedDB and resumes interruptions within 30 minutes. `group=learning|cache` is optional for protocol-2 compatibility; `X-Context-Account` is checked against the authenticated identity, never used as authorization. Uploads are bounded to 200 objects or approximately 1.5 MB per batch, with durable acknowledgement checkpoints. Only completed full reconciliation with matching article/vocabulary identities and payloads reports verified counts. Missing local data never implies deletion; CAS, opaque cursors and tombstones remain intact.
+
+After successful sync, acknowledged explanation caches alone are evicted by recency above 20,000 entries or an estimated 40 MiB. Unsent caches, articles and vocabulary are never evicted by this policy; the budget is therefore soft, not a total storage cap. One-time migration backups and owner recovery archives remain until a separately reviewed cleanup. The account screen reports browser storage estimates and failures remain visible. Service-worker v5 updates on foreground return and never substitutes a stale cached page merely because storing a fresh network response failed. Existing open tabs still need refresh; physical mobile/browser acceptance is separate from automated isolated-client verification.
+
+
+Mainland Caddy overwrites X-Real-IP with its direct peer address because the application limiter reads that header; external values cannot spoof it. Sync pagination has its own bounded 120/minute IP bucket so it cannot exhaust login/connectivity budgets. A sync 429 honors Retry-After up to 60 seconds for at most three retries, preserving staged progress and checking account ownership before retry. This was added after real production large-account acceptance exposed shared unknown-address throttling.
+
+
+Routine login restoration, automatic polls, rate-limit waits and recoverable sync failures are silent. Only an explicit manual sync caller receives progress/results in its account panel; AccountProvider no longer creates a global sync banner or a normal storage-preparation notice. A genuine IndexedDB write failure retains its independent local-save warning and backup/retry controls. Sync 401 errors refresh verified account state without clearing learning data or claiming the account is still logged in. Ordinary logout uses Auth admin signOut with scope local, preserving other independently authenticated device/browser sessions; tabs sharing one cookie session remain the same session.
+
+
+### 候选与解释恢复约定
+
+自动精选当前合同：时事、科学、文化、商业每天各至少 14 篇，四板块和总数均不设上限。缺口影响优先级，不排除其他来源；达标后继续发现、审核与发布。每小时分批保存所有已启用且已验证来源的 RSS 链接；06:00 开始付费审核。未处理及技术失败跨日持久保留，技术重试/需要检查与内容拒绝分开记录。v3完整性、图片入桶、正文哈希、48小时审核及新闻7日时效仍必需；240次尝试、120分钟、¥1.50共享硬预算保留，去掉达标后 ¥1 软停止。手动候选和高中标签不变；规则与限制见 automated-editorial.md。
+
+### Pronunciation quota diagnostics
+
+Search private app logs for `pronunciation_provider_request` and `pronunciation_provider_success` to count actual upstream attempts and successful MP3 returns; `pronunciation_memory_hit` and `pronunciation_storage_hit` do not call TTS. `inputCharacters` is JavaScript input length, not provider billing units. The audio identity hash groups retries without logging lookup text. Records rotate with existing Docker logs. Warmup still prepares both accents, and Anki imports reuse the same audio identity. The 32 MiB/1,000-entry server hot cache retains successful audio through transient Storage failures and repairs failed writes on later hits without delaying playback. It is not durable across restarts; private Storage remains the long-term cache.
+
+
+### Quota rejection and explanation diagnostics
+
+`quota_exhausted` responses include `{error, code, quota: {metricKey, used, allowance, remaining, windowEnd, authenticated}}`. Use the server's message and identity; never reinterpret a member's 429 as guest trial exhaustion. `windowEnd` is an ISO instant displayed in Beijing time, and balances are visible independently of commercial UI. Reading and existing results remain available; no provider request starts for a rejected reservation.
+
+Admin error technical details now expose structured explanation field reasons (`missing`, `empty`, `wrong_type`, `no_chinese`, `target_mismatch`), initial/final invalid fields, model, repair status and output truncation. Raw content is excluded. Mainland `CONTEXT_READER_RELEASE_ID` identifies and separates reports; `CONTEXT_READER_PARENT_RELEASE_ID` is retained in private metadata. Historical reports cannot retroactively recover missing fields. TTS retries at most once for transient failures within 8s + 6s; final timeouts report 504/`provider_tts_timeout`. Provider attempt logs count retries individually.
+
+The contextual stream uses the same completed-explanation validator as the Reader before finalizing usage or emitting its completion marker. Incomplete streams retain a reserved action for structured fallback to finalize or refund; provider token execution is recorded as failed. Final structured diagnostics include the action id for correlation. No database function or quota balance is changed by this release.
+
+
+Admin account operations includes a dedicated 智谱备用调用 section: 30 Shanghai-day totals for recorded Zhipu executions, success/failure, input/output tokens, estimated cost and latest 100 matching records with time, feature and model. Matching uses provider or GLM model for historical compatibility and runs over the entire bounded 50,000-row result, not only the latest 200 general executions. The existing server-side Admin gate protects all records; no credentials or prompt content are exposed. Refresh uses the existing Admin refresh action. Calls that fail before the route writes a correctly attributed execution are not claimed as complete provider-attempt telemetry.
+
+自动精选当前合同：时事、科学、文化、商业每天各至少 14 篇，四板块和总数均不设上限。缺口影响优先级，不排除其他来源；达标后继续发现、审核与发布。每小时分批保存所有已启用且已验证来源的 RSS 链接；06:00 开始付费审核。未处理及技术失败跨日持久保留，技术重试/需要检查与内容拒绝分开记录。v3完整性、图片入桶、正文哈希、48小时审核及新闻7日时效仍必需；240次尝试、120分钟、¥1.50共享硬预算保留，去掉达标后 ¥1 软停止。手动候选和高中标签不变；规则与限制见 automated-editorial.md。
+
+Admin editorial PATCH accepts optional budgetTrial (day in Shanghai YYYY-MM-DD; cny number 0–10 exclusive of zero, or null for explicitly uncapped date) and jevAutoAdopt boolean. Omitted fields preserve existing values; budgetTrial: null removes the exception. The base dailyBudgetCny never inherits the trial value. Calibration and adoption records remain private account_settings, including per-provider ledger reservations; adoption is gated by completed sample day and policy versions. No API key is returned by these APIs.
+
 ## Admin usage reporting
 
 `GET /api/admin/usage?period=today&scope=all` is Admin-only and no-store. Date/source validation, aggregate and unpriced-cost semantics are defined in [admin-usage-report.md](admin-usage-report.md). It is read-only and changes no quota or model configuration. The accounts mutation API is unchanged.

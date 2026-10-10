@@ -1,5 +1,10 @@
 # Production Release Governance
 
+## Accepted vocabulary refinement and activity evidence
+
+Accepted `20261010T223500`, parent `20261010T153500`, source `6a0829e0b454beec9d2e8795e5700c41d4393803`. Exact 62-file cumulative archive passed the stable single-writer guard. Public/state/current identity agrees with mainland_internal. Local/server builds; 90 critical, 19 targeted, 8 provider/billing, 9 contracts; isolated evidence SQL; real hook and mocked UI browser regressions; signed-in Flash reading core, native study/settings/stats/undo, protocol-2/Admin, public desktop/mobile day/night UI, 35-table SHA-verified restore and parent image passed. Only app/caddy replaced; five backend identities unchanged. Exact disposable QA removal preserved anonymized cost audit. User authorized retiring Anki UI, not historical data. [Evidence and remaining visual/device gates](study-refinement-20261010.md).
+
+
 ## Accepted study UI and claimable rewards release
 
 已生产接受 `20261010T153500`，parent `20261010T151700`，source `e4000f13a5438eeb714176cfb3b53bd615fe4feb`。首轮接入为 `20261010T151700`，parent `20261010T142500`，source `329d0650c6f655fbc5771452e9b495a4e4535e21`。39文件累计接入+2文件快速确认修正均经稳定发布入口；公网返回精确身份及 `mainland_internal`。 Only app/caddy recreated; all five backend container identities unchanged. Builds, 90 critical, 15 study/profile, eight provider/billing, nine contracts, isolated SQL and concurrency, real signed-in Flash core, study/account/sync/Admin, browser reward claim/pause, 35-table verified backup restore and parent image passed. Exact disposable QA cleanup retained provider-cost audit. [Evidence and open visual/device gates](study-ui-20261010.md).

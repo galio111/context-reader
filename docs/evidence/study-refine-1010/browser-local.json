@@ -1,0 +1,150 @@
+{
+  "ok": true,
+  "starts": 3,
+  "reopenMs": 56,
+  "checks": [
+    "hint",
+    "source roundtrip",
+    "undo",
+    "autosave sequencing and failure retry",
+    "unmount field flush",
+    "CET list",
+    "English and Chinese individual reveal",
+    "wide copy dialog",
+    "365-day trend and square calendar",
+    "day/night responsive",
+    "top-right real Menu",
+    "retained card",
+    "reduced motion"
+  ],
+  "evidence": [
+    {
+      "overflow": 0,
+      "viewport": 900,
+      "buttons": [
+        {
+          "label": "1不记得",
+          "bottom": 723,
+          "hit": true
+        },
+        {
+          "label": "2模糊",
+          "bottom": 723,
+          "hit": true
+        },
+        {
+          "label": "3记得",
+          "bottom": 723,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "overflow": 0,
+      "viewport": 900,
+      "buttons": [
+        {
+          "label": "1不记得",
+          "bottom": 723,
+          "hit": true
+        },
+        {
+          "label": "2模糊",
+          "bottom": 723,
+          "hit": true
+        },
+        {
+          "label": "3记得",
+          "bottom": 723,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "overflow": 0,
+      "viewport": 844,
+      "buttons": [
+        {
+          "label": "1不记得",
+          "bottom": 717,
+          "hit": true
+        },
+        {
+          "label": "2模糊",
+          "bottom": 717,
+          "hit": true
+        },
+        {
+          "label": "3记得",
+          "bottom": 717,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "overflow": 0,
+      "viewport": 844,
+      "buttons": [
+        {
+          "label": "1不记得",
+          "bottom": 717,
+          "hit": true
+        },
+        {
+          "label": "2模糊",
+          "bottom": 717,
+          "hit": true
+        },
+        {
+          "label": "3记得",
+          "bottom": 717,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "overflow": 0,
+      "viewport": 667,
+      "buttons": [
+        {
+          "label": "1不记得",
+          "bottom": 540,
+          "hit": true
+        },
+        {
+          "label": "2模糊",
+          "bottom": 540,
+          "hit": true
+        },
+        {
+          "label": "3记得",
+          "bottom": 540,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "overflow": 0,
+      "viewport": 667,
+      "buttons": [
+        {
+          "label": "1不记得",
+          "bottom": 540,
+          "hit": true
+        },
+        {
+          "label": "2模糊",
+          "bottom": 540,
+          "hit": true
+        },
+        {
+          "label": "3记得",
+          "bottom": 540,
+          "hit": true
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "backend": "mocked HTTP with real components"
+}
