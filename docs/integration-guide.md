@@ -3,6 +3,8 @@
 
 ## 站内背单词（已生产，2026-10-06）
 
+2026-10-11：galio 已完成一次账号级 Anki 历史迁移；当前记忆直接保留，历史事件保留来源、原始评分与用时，旧事件不参与奖励。没有应用或表结构变更，完整边界和恢复步骤见 [迁移记录](anki-import-20261011.md)。
+
 `/api/study` 提供在线学习、设置、暂停与结算；`/api/study/reading` 收集有效阅读证据；`/api/study/profile` 支持免费重看与显式收费生成；`/api/admin/study` 仅允许服务器验证的 Admin 修改规则。新环境需执行增量 `docs/study-migration.sql`，表及 RPC 仅 service_role 可访问。算法依赖固定为 `ts-fsrs@5.4.2`，Anki 接口与原数据保留。详见[规则与边界](vocabulary-study.md)及[发布证据](vocabulary-study-release.md)。
 
 ## Unified points and one-time membership purchases
