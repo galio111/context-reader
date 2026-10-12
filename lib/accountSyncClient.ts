@@ -2,6 +2,7 @@
 import {CET_ACTIVITIES_V4_KEY,CET_FINALIZATIONS_V4_KEY,preserveLegacyCetDraft} from "./cetActivityStorage";
 
 import { getLearningStorage, isLearningStorage, initializeLearningStorage, flushLearningStorage } from "@/lib/learningStorage";
+import { beginAccountStorageTransition } from "@/lib/accountStorageTransition";
 
 import {readCetTrail,writeCetTrail,CET_TRAIL_KEY,CET_TRAIL_PREFIX} from "./cetTypeTrailStorage";
 import type {CetTrailEvent} from "./cetTypeTrail";
@@ -211,18 +212,23 @@ export async function prepareLocalAccountForUser(userId: string, options?: { pre
   const storage = getLearningStorage();
   const previousOwner = storage.getItem(ACCOUNT_LOCAL_OWNER_KEY);
   const switchedAccount = Boolean(previousOwner && previousOwner !== userId);
-  if (switchedAccount && !options?.preserveExistingData) {
-    if (isLearningStorage(storage)) await storage.archiveOwner(previousOwner!);
-    for (const key of ACCOUNT_LOCAL_DATA_KEYS) storage.removeItem(key);
-    if (isLearningStorage(storage)) { await storage.flush(); await storage.restoreOwner(userId); await storage.clearStage(); }
-    clearStandaloneDictionaryRuntimeCache();
-    notifyAccountDataMerged();
+  const finishTransition = previousOwner !== userId ? beginAccountStorageTransition(storage) : undefined;
+  try {
+    if (switchedAccount && !options?.preserveExistingData) {
+      if (isLearningStorage(storage)) await storage.archiveOwner(previousOwner!);
+      for (const key of ACCOUNT_LOCAL_DATA_KEYS) storage.removeItem(key);
+      if (isLearningStorage(storage)) { await storage.flush(); await storage.restoreOwner(userId); await storage.clearStage(); }
+      clearStandaloneDictionaryRuntimeCache();
+      notifyAccountDataMerged();
+    }
+    // A first login adopts only this browser's guest CET records. Existing
+    // account records retain their owner and remain isolated on account switch.
+    if (!previousOwner) claimGuestCetRecords(storage, userId);
+    storage.setItem(ACCOUNT_LOCAL_OWNER_KEY, userId);
+    return switchedAccount;
+  } finally {
+    finishTransition?.();
   }
-  // A first login adopts only this browser's guest CET records. Existing
-  // account records retain their owner and remain isolated on account switch.
-  if (!previousOwner) claimGuestCetRecords(storage, userId);
-  storage.setItem(ACCOUNT_LOCAL_OWNER_KEY, userId);
-  return switchedAccount;
 }
 
 export function claimGuestCetRecords(storage: Storage, userId: string): void {
@@ -245,11 +251,16 @@ export async function clearLocalAccountData(): Promise<void> {
 
   const storage = getLearningStorage();
   const owner = storage.getItem(ACCOUNT_LOCAL_OWNER_KEY);
-  if (owner && isLearningStorage(storage)) await storage.archiveOwner(owner);
-  for (const key of ACCOUNT_LOCAL_DATA_KEYS) storage.removeItem(key);
-  clearStandaloneDictionaryRuntimeCache();
-  getLearningStorage().removeItem(ACCOUNT_LOCAL_OWNER_KEY);
-  notifyAccountDataMerged();
+  const finishTransition = beginAccountStorageTransition(storage);
+  try {
+    if (owner && isLearningStorage(storage)) await storage.archiveOwner(owner);
+    for (const key of ACCOUNT_LOCAL_DATA_KEYS) storage.removeItem(key);
+    clearStandaloneDictionaryRuntimeCache();
+    storage.removeItem(ACCOUNT_LOCAL_OWNER_KEY);
+    notifyAccountDataMerged();
+  } finally {
+    finishTransition();
+  }
 }
 
 function parseJson<T>(raw: string | null, fallback: T): T {

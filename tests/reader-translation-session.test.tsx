@@ -5,6 +5,7 @@ import { IDBFactory } from "fake-indexeddb";
 import { useReaderTranslationSession } from "../components/useReaderTranslationSession";
 import { startArticleTranslationJob } from "../lib/articleTranslationJobs";
 import { initializeLearningStorage, getLearningStorage, flushLearningStorage, isLearningStorage } from "../lib/learningStorage";
+import { prepareLocalAccountForUser } from "../lib/accountSyncClient";
 import type { ArticleTranslationBlock } from "../types/reader";
 
 const ownerKey = "context-reader:local-account-owner:v1";
@@ -94,6 +95,27 @@ test("mounted Reader translation session rebinds after login, survives panel cha
     });
     assert.deepEqual(ui.result.current.translations, []);
     assert.deepEqual(ui.result.current.staleBlockIds, []);
+    assert.ok(isLearningStorage(storage));
+    await act(async () => { ui.result.current.showCachedTranslations([{ id: "one", translation: "切换前的显示译文" }]); });
+    let releaseArchive!: () => void, archiveEntered = false;
+    const archiveWait = new Promise<void>(resolve => { releaseArchive = resolve; });
+    const archive = storage.archiveOwner.bind(storage);
+    storage.archiveOwner = async owner => { archiveEntered = true; await archiveWait; await archive(owner); };
+    let preparing!: Promise<boolean>;
+    await act(async () => {
+      preparing = prepareLocalAccountForUser("account-D");
+      for (let i = 0; i < 100 && !archiveEntered; i++) await tick();
+    });
+    assert.equal(archiveEntered, true);
+    assert.equal(storage.getItem(ownerKey), "account-B", "real preparation is paused before rewriting owner");
+    assert.equal(ui.result.current.ready, false);
+    assert.deepEqual(ui.result.current.translations, [], "transition entry hides old display before archive awaits");
+    await act(async () => { releaseArchive(); await preparing; });
+    storage.archiveOwner = archive;
+    assert.equal(ui.result.current.ready, false, "verified account context has not caught up yet");
+    ui.rerender({ owner: "account-D", sourceKey: `${key}-edit`, sourceBlocks: editedBlocks });
+    assert.equal(ui.result.current.ready, true);
+    assert.deepEqual(ui.result.current.translations, []);
     ui.unmount();
   } finally {
     cleanup(); await flushLearningStorage();

@@ -42,9 +42,10 @@ test("reading runtime layers keep their documented import boundaries", () => {
     ["lib/readerDocumentModel.ts", ["@/lib/readerBlockTokens", "@/lib/readerTokenIdentity", "@/lib/sourceMatching"]],
     ["lib/articleTranslationProgress.ts", []],
     ["lib/articleTranslationTransport.ts", []],
+    ["lib/accountStorageTransition.ts", []],
     ["lib/translationCacheRepository.ts", ["@/lib/learningStorage", "@/lib/articleTranslationIdentity"]],
     ["lib/vocabularyRepository.ts", ["@/lib/learningStorage", "@/lib/ankiData", "lz-string", "@/lib/accountEvents", "@/lib/vocabularyMerge"]],
-    ["components/useReaderTranslationSession.ts", ["react", "@/lib/accountEvents", "@/lib/learningStorage", "@/lib/cache", "@/lib/articleTranslationJobs"]],
+    ["components/useReaderTranslationSession.ts", ["react", "@/lib/accountEvents", "@/lib/learningStorage", "@/lib/cache", "@/lib/articleTranslationJobs", "@/lib/accountStorageTransition"]],
   ]);
   for (const [path, imports] of allowed) {
     for (const dependency of runtimeImports(path)) assert.ok(imports.includes(dependency), `${path} must not acquire undocumented dependency ${dependency}`);
