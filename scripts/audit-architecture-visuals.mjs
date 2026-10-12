@@ -9,6 +9,7 @@ const before = JSON.parse(await readFile(baseline + '/result.json', 'utf8'));
 const after = JSON.parse(await readFile(candidate + '/result.json', 'utf8'));
 const results = [];
 for (const original of before.results) {
+  if (process.env.AUDIT_SCENARIO && original.scenario.name !== process.env.AUDIT_SCENARIO) continue;
   const current = after.results.find(item => item.scenario.name === original.scenario.name);
   assert.ok(original.passed && current?.passed, original.scenario.name + ' passes behavioral flow on both versions');
   assert.deepEqual(current.lookupContext, original.lookupContext, 'same selected word and neighboring sentences');

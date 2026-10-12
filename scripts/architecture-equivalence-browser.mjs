@@ -17,11 +17,13 @@ for (const scenario of [
   { name: 'desktop-night-reduced', width: 1440, height: 1000, reducedMotion: 'reduce', theme: 'night' },
   { name: 'mobile-night-reduced', width: 390, height: 844, reducedMotion: 'reduce', theme: 'night' },
 ]) {
+  if (process.env.AUDIT_SCENARIO && scenario.name !== process.env.AUDIT_SCENARIO) continue;
   const browser = await chromium.launch({ headless: true, channel: 'chrome', args: ['--no-proxy-server', '--host-resolver-rules=MAP context-reader.com 43.143.122.238'] });
   const context = await browser.newContext({ viewport: { width: scenario.width, height: scenario.height }, reducedMotion: scenario.reducedMotion, serviceWorkers: 'block' });
   await context.addInitScript(({ theme }) => { localStorage.setItem('context-reader-home-ui-v1', JSON.stringify({ theme })); }, scenario);
-  const page = await context.newPage(), errors = [], requests = [], failedRequests = [];
-  page.on('pageerror', e => errors.push(e.message));
+  const page = await context.newPage(), errors = [], errorDetails = [], consoleErrors = [], requests = [], failedRequests = [];
+  page.on('pageerror', e => { errors.push(e.message); errorDetails.push({ name: e.name, message: e.message, stack: e.stack, url: page.url(), time: new Date().toISOString() }); });
+  page.on('console', message => { if (message.type() === 'error') consoleErrors.push({ text: message.text(), location: message.location() }); });
   page.on('requestfailed', request => failedRequests.push({ path: new URL(request.url()).pathname, error: request.failure()?.errorText }));
   await page.route('**/api/**', async route => {
     const p = new URL(route.request().url()).pathname;
@@ -41,7 +43,7 @@ for (const scenario of [
     if (p === '/api/pronunciation') return route.fulfill({ status: 503, body: '{"error":"fixture audio unavailable"}' });
     return json({ ok: true, count: 0, articles: [] });
   });
-  const report = { scenario, errors, requests, failedRequests, screenshots: [], geometry: [] };
+  const report = { scenario, errors, errorDetails, consoleErrors, requests, failedRequests, screenshots: [], geometry: [] };
   const shot = async name => {
     await page.evaluate(() => Promise.all(document.getAnimations().filter(a => a.effect?.getTiming().iterations !== Infinity).map(a => a.finished.catch(() => {}))));
     const filename = scenario.name + '-' + name + '.png';
