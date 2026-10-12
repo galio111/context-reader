@@ -1,0 +1,185 @@
+{
+  "parentReleaseId": "20261012T201305",
+  "releaseId": "20261012T205251",
+  "sourceRevision": "830f81a92dc89a8e795ef5bd5cd03e3498b9b505",
+  "public": {
+    "api": [
+      {
+        "path": "/api/admin/accounts?view=directory",
+        "ms": 88,
+        "bytes": 10427
+      },
+      {
+        "path": "/api/admin/product-analytics?days=30",
+        "ms": 77,
+        "bytes": 395
+      },
+      {
+        "path": "/api/admin/models?config=1",
+        "ms": 72,
+        "bytes": 623
+      },
+      {
+        "path": "/api/admin/public-articles?view=summary",
+        "ms": 14777,
+        "bytes": 2113332
+      },
+      {
+        "path": "/api/admin/article-candidates?view=summary",
+        "ms": 7565,
+        "bytes": 286403
+      }
+    ],
+    "identity": {
+      "ok": true,
+      "checkedAt": "2026-10-12T13:04:21.555Z",
+      "releaseId": "20261012T205251",
+      "parentReleaseId": "20261012T201305",
+      "backendMode": "mainland_internal"
+    },
+    "anonymousDenied": true,
+    "inventory": {
+      "published": 1888,
+      "candidates": 178
+    },
+    "candidateDetail": true,
+    "adminCandidateReadyMs": 2230,
+    "realReader": true,
+    "returnPreservesState": true,
+    "accountCopy": true,
+    "answeredAccuracy95": true,
+    "errors": [],
+    "counts": {
+      "/api/admin/session": 2,
+      "/api/admin/public-articles?view=summary": 1,
+      "/api/admin/article-candidates?view=summary": 1,
+      "/api/admin/homepage-curation": 1,
+      "/api/admin/article-candidates?id=c1ba6f19-f6ca-4b78-a982-c4501ca12873": 1,
+      "/api/admin/usage?period=today&scope=all": 1,
+      "/api/admin/accounts?view=directory": 1,
+      "/api/admin/product-analytics?days=30": 1,
+      "/api/admin/feedback": 1
+    },
+    "ok": true
+  },
+  "sameHostTimings": {
+    "before": [
+      {
+        "path": "/api/admin/session",
+        "ms": 51,
+        "bytes": 46,
+        "status": 200
+      },
+      {
+        "path": "/api/admin/accounts",
+        "ms": 1477,
+        "bytes": 354846,
+        "status": 200
+      },
+      {
+        "path": "/api/admin/accounts?view=directory",
+        "ms": 430,
+        "bytes": 354846,
+        "status": 200
+      },
+      {
+        "path": "/api/admin/usage?period=today&scope=all",
+        "ms": 1560,
+        "bytes": 47050,
+        "status": 200
+      },
+      {
+        "path": "/api/admin/product-analytics?days=30",
+        "ms": 38,
+        "bytes": 287,
+        "status": 200
+      },
+      {
+        "path": "/api/admin/models?config=1",
+        "ms": 19,
+        "bytes": 623,
+        "status": 200
+      },
+      {
+        "path": "/api/admin/models",
+        "ms": 147,
+        "bytes": 2491,
+        "status": 200
+      },
+      {
+        "path": "/api/admin/public-articles",
+        "ms": 202539,
+        "bytes": 68962897,
+        "status": 200
+      },
+      {
+        "path": "/api/admin/article-candidates",
+        "ms": 24274,
+        "bytes": 7658750,
+        "status": 200
+      }
+    ],
+    "after": [
+      {
+        "path": "/api/admin/session",
+        "ms": 56,
+        "bytes": 46,
+        "status": 200
+      },
+      {
+        "path": "/api/admin/accounts?view=directory",
+        "ms": 38,
+        "bytes": 10429,
+        "status": 200
+      },
+      {
+        "path": "/api/admin/usage?period=today&scope=all",
+        "ms": 41,
+        "bytes": 47050,
+        "status": 200
+      },
+      {
+        "path": "/api/admin/product-analytics?days=30",
+        "ms": 25,
+        "bytes": 395,
+        "status": 200
+      },
+      {
+        "path": "/api/admin/models?config=1",
+        "ms": 19,
+        "bytes": 623,
+        "status": 200
+      },
+      {
+        "path": "/api/admin/models?status=1",
+        "ms": 156,
+        "bytes": 1895,
+        "status": 200
+      },
+      {
+        "path": "/api/admin/public-articles?view=summary",
+        "ms": 14250,
+        "bytes": 2113332,
+        "status": 200
+      },
+      {
+        "path": "/api/admin/article-candidates?view=summary",
+        "ms": 2056,
+        "bytes": 286403,
+        "status": 200
+      }
+    ]
+  },
+  "health": true,
+  "backupRestoredPublicTables": 38,
+  "parentImageAvailable": true,
+  "unchangedBackendContainers": 5,
+  "onlyAppAndCaddyRecreated": true,
+  "cleanup": {
+    "exactDisposableAccountRemoved": true,
+    "testActivityRemoved": true,
+    "billingReferencesRemoved": true,
+    "providerCostLedgerRetained": true
+  },
+  "userVisualAcceptance": "pending"
+}

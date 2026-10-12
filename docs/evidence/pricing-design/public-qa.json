@@ -1,0 +1,33 @@
+{
+  "identity": {
+    "ok": true,
+    "checkedAt": "2026-10-12T12:18:06.619Z",
+    "releaseId": "20261012T201305",
+    "parentReleaseId": "20261012T161101",
+    "backendMode": "mainland_internal"
+  },
+  "anonymousBoundaries": true,
+  "guest": true,
+  "signedInQuote": true,
+  "noOrdersCreated": true,
+  "accountSyncAdmin": true,
+  "dialogReturn": true,
+  "mobileDialog": true,
+  "keyboardReducedMotion": true,
+  "passed": true,
+  "errors": [],
+  "requests": [
+    {
+      "action": "quote",
+      "planId": "plus",
+      "term": "month",
+      "kind": "membership"
+    },
+    {
+      "action": "quote",
+      "planId": "basic",
+      "term": "year",
+      "kind": "membership"
+    }
+  ]
+}

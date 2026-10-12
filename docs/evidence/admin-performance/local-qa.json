@@ -1,0 +1,44 @@
+{
+  "modelConfigReadyMs": 824,
+  "deferredCandidateReader": true,
+  "home390": {
+    "headingRight": 115.84375,
+    "buttonLeft": 228.359375,
+    "headingY": 105.796875,
+    "buttonY": 82,
+    "overflow": 0
+  },
+  "home1440": {
+    "headingRight": 475.453125,
+    "buttonLeft": 904,
+    "headingY": 300.890625,
+    "buttonY": 280.078125,
+    "overflow": 0
+  },
+  "ok": true,
+  "counts": {
+    "/api/admin/session": 2,
+    "/api/auth/session": 5,
+    "/api/account/activity": 5,
+    "/api/admin/usage?period=today&scope=all": 2,
+    "/api/admin/accounts?view=directory": 2,
+    "/api/study": 4,
+    "/api/account/sync?protocol=2&bootstrap=active&offset=0&group=learning": 1,
+    "/api/account/sync?protocol=2&bootstrap=deleted&offset=0&group=learning": 1,
+    "/api/account/sync?protocol=2&bootstrap=active&offset=0&group=cache": 1,
+    "/api/account/sync?protocol=2&bootstrap=deleted&offset=0&group=cache": 1,
+    "/api/admin/product-analytics?days=30": 2,
+    "/api/admin/models?config=1": 2,
+    "/api/admin/models?status=1": 1,
+    "/api/admin/product-analytics?days=7": 3,
+    "/api/admin/public-articles?view=summary": 1,
+    "/api/admin/article-candidates?view=summary": 1,
+    "/api/admin/homepage-curation": 1,
+    "/api/admin/article-candidates?id=00000000-0000-4000-8000-000000000099": 1,
+    "/api/account/sync?protocol=2": 2,
+    "/api/public-articles/daily-updates": 1,
+    "/api/cet/preview": 1,
+    "/api/billing": 1
+  },
+  "errors": []
+}
