@@ -24,7 +24,8 @@ for (const scenario of [
   page.on('pageerror', e => errors.push(e.message));
   await page.route('**/api/**', async route => {
     const p = new URL(route.request().url()).pathname;
-    requests.push({ path: p, method: route.request().method() });
+    const body = route.request().postDataJSON();
+    requests.push({ path: p, method: route.request().method(), ...(body ? { body } : {}) });
     const json = data => route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(data) });
     if (p === '/api/auth/session') return json({ account });
     if (p === '/api/account/sync') return json({ objects: [], results: [], nextOffset: null, snapshotCursor: '', nextCursor: '', hasMore: false, protocol: 2 });
@@ -33,6 +34,9 @@ for (const scenario of [
     if (p === '/api/study/profile') return json({ activeSeconds: 128, uniqueLookups: 5, eligible: false });
     if (p === '/api/public-articles') return json({ articles: [] });
     if (p === '/api/admin/session') return json({ authenticated: false });
+    if (p === '/api/explain-word-stream') return route.fulfill({ status: 503, contentType: 'application/json', body: '{"error":"fixture fallback"}' });
+    if (p === '/api/explain-word') return json({ explanation: { word: body.word, lemma: body.word, phonetic: '', phoneticFor: '', partOfSpeech: 'adjective', basicMeaning: '深思熟虑的', contextMeaning: '认真思考的', sentenceTranslation: '认真思考的读者探索准确的语言、可靠的知识与陌生表达。', usageNote: '形容认真思考的人。', collocation: 'a thoughtful reader', exampleEnglish: 'She is a thoughtful reader.', exampleChinese: '她是一位认真思考的读者。', difficulty: 'easy', shouldAddToVocabulary: true, anki: { canMakeCloze: true, cardMode: 'cloze_context', clozeSentence: body.sentence.replace(body.word, '________'), contextCue: '认真思考的', basicCue: '深思熟虑的', frontPreview: '', backPreview: '', ankiNoteId: null, ankiImportedAt: null } } });
+    if (p === '/api/summarize-article') return json({ summary: '固定的验收文章摘要。' });
     if (p === '/api/pronunciation') return route.fulfill({ status: 503, body: '{"error":"fixture audio unavailable"}' });
     return json({ ok: true, count: 0, articles: [] });
   });
@@ -69,6 +73,16 @@ for (const scenario of [
     await geometry('reader-return'); await shot('reader-return');
     assert.equal(report.geometry[0].blocks.length, report.geometry[1].blocks.length);
     assert.ok(report.geometry[0].blocks.length > 400, 'long reader crosses the former 400-block cache boundary');
+    const thoughtful = page.locator('[data-reader-block="paragraph-4"] [data-reader-token]').filter({ hasText: /^thoughtful$/ });
+    await thoughtful.click();
+    await page.locator('dd:visible').filter({ hasText: /^认真思考的$/ }).first().waitFor({ timeout: 20000 });
+    const lookup = requests.find(request => request.path === '/api/explain-word-stream');
+    assert.equal(lookup.body.word, 'thoughtful');
+    assert.equal(lookup.body.sentence, 'A thoughtful reader explores precise language, reliable knowledge, and unfamiliar expressions.');
+    assert.equal(lookup.body.previousSentence, 'Paragraph 1.');
+    assert.equal(lookup.body.nextSentence, 'Scientific writing improves through careful observation and repeated experiments.');
+    report.lookupContext = lookup.body; await shot('contextual-lookup');
+    await page.keyboard.press('Escape');
     if (scenario.width > 600) {
       const rail = page.getByRole('complementary', { name: '阅读快捷入口' });
       const dictionary = page.locator('aside[class*="dictionaryWindow"]');
@@ -78,6 +92,26 @@ for (const scenario of [
       await page.keyboard.press('Escape'); await importer.waitFor({ state: 'hidden' });
       assert.ok(await dictionary.isVisible()); await shot('dictionary');
       await dictionary.getByRole('button', { name: '隐藏单独查词窗口' }).click();
+      const tools = page.getByRole('banner', { name: '文章工具' });
+      const editorButton = page.getByRole('button', { name: '编辑文章', exact: true });
+      await editorButton.click();
+      const editor = page.locator('[contenteditable="true"]').first(); await editor.waitFor();
+      await editor.evaluate(element => {
+        const first = element.querySelector('p');
+        first.textContent += ' — edited';
+        element.dispatchEvent(new InputEvent('input', { bubbles: true, inputType: 'insertText', data: ' — edited' }));
+      });
+      await page.getByRole('button', { name: '保存编辑', exact: true }).click();
+      await editor.waitFor({ state: 'hidden' });
+      assert.equal(await page.locator('[data-reader-block="paragraph-0"]').innerText(), paragraphs[0] + ' — edited');
+      assert.equal(await page.locator('[data-reader-block="paragraph-1"]').innerText(), '\n');
+      await editorButton.click(); await editor.waitFor();
+      await page.getByRole('button', { name: '撤销文章编辑', exact: true }).click();
+      assert.equal(await editor.locator('p').first().innerText(), paragraphs[0]);
+      await page.getByRole('button', { name: '重做文章编辑', exact: true }).click();
+      assert.equal(await editor.locator('p').first().innerText(), paragraphs[0] + ' — edited');
+      await page.getByRole('button', { name: '取消编辑', exact: true }).click();
+      report.editSaveUndoRedoBlankLines = true;
       page.once('dialog', d => d.dismiss());
       await rail.getByRole('button', { name: '返回首页', exact: true }).click();
       await work.waitFor(); report.repeatReturn = true;

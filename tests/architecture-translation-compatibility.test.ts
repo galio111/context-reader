@@ -95,3 +95,42 @@ test("late cancelled stream cannot overwrite a newer forced translation in durab
   assert.equal(getCachedArticleTranslation(key)?.[0].translation, "最新强制结果。");
   assert.equal(getCachedArticleTranslationForBlocks([one])[0].translation, "最新强制结果。");
 }));
+
+test("translation snapshots and completed jobs remain private when another owner opens identical content", async () => browserFixture(async () => {
+  await initializeLearningStorage(); const storage = getLearningStorage();
+  storage.setItem("context-reader:local-account-owner:v1", "owner-a");
+  const key = "audit-owner-" + crypto.randomUUID();
+  globalThis.fetch = async (input, init) => {
+    const path = String(input), body = JSON.parse(String(init?.body));
+    if (path.endsWith("/start")) return Response.json({ actionId: body.actionId, source: "generated" });
+    if (path.endsWith("/finish")) return Response.json({ ok: true });
+    return new Response(JSON.stringify({ type: "translation", translation: translation(one, "账号A的译文。") }) + "\n");
+  };
+  await startArticleTranslationJob(key, [one]);
+  assert.equal(getArticleTranslationJobSnapshot(key)?.translations[0].translation, "账号A的译文。");
+  storage.setItem("context-reader:local-account-owner:v1", "owner-b");
+  assert.equal(getArticleTranslationJobSnapshot(key), null, "same article cache key must not expose a previous owner's job");
+}));
+
+test("owner A to B to A round trip cannot revive an old pending translation response", async () => browserFixture(async () => {
+  await initializeLearningStorage(); const storage = getLearningStorage();
+  storage.setItem("context-reader:local-account-owner:v1", "owner-a");
+  const key = "audit-owner-roundtrip-" + crypto.randomUUID(); let requested = false;
+  let releaseOld!: () => void; const wait = new Promise<void>(resolve => { releaseOld = resolve; });
+  globalThis.fetch = async (input, init) => {
+    const path = String(input), body = JSON.parse(String(init?.body));
+    if (path.endsWith("/start")) return Response.json({ actionId: body.actionId, source: "generated" });
+    if (path.endsWith("/finish")) return Response.json({ ok: true });
+    requested = true; await wait;
+    return new Response(JSON.stringify({ type: "translation", translation: translation(one, "不允许复活的旧结果。") }) + "\n");
+  };
+  const pending = startArticleTranslationJob(key, [one]);
+  while (!requested) await new Promise(resolve => setTimeout(resolve, 1));
+  storage.setItem("context-reader:local-account-owner:v1", "owner-b");
+  storage.removeItem(FULL); storage.removeItem(BLOCK);
+  storage.setItem("context-reader:local-account-owner:v1", "owner-a");
+  releaseOld(); await pending;
+  assert.equal(getCachedArticleTranslation(key), null);
+  assert.deepEqual(getCachedArticleTranslationForBlocks([one]), []);
+  assert.equal(getArticleTranslationJobSnapshot(key), null);
+}));
