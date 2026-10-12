@@ -1,6 +1,6 @@
 # Admin usage and cost reporting
 
-The accepted 2026-09-22 design separates four tasks: 用量与成本, 用户管理, 套餐与额度, 邀请码. Desktop uses a sticky left navigation and mobile a sticky native section selector. Only the selected section is visible; switching preserves draft settings and report filters. Scoped overflow rules on the active accounts surface allow real document sticky positioning.
+The current design separates six tasks: 用量与成本, 用户管理, 访问概览, 留存分析, 套餐与额度, 邀请码. Desktop uses a sticky left navigation and mobile a sticky native section selector. Only the selected section is visible; switching preserves draft settings and report filters. Scoped overflow rules on the active accounts surface allow real document sticky positioning.
 
 ## Reporting contract
 
@@ -12,7 +12,7 @@ All-source totals include user activity and background classification, editorial
 
 Costs use actual recorded model identities and existing dated provider rates from usageCost.ts. Flash and Pro are separate. Recorded fallback attempts cost separately while the shared action charges once. Some legacy failover paths only wrote final outcomes; missing intermediate attempts cannot be reconstructed and are explicitly outside complete provider telemetry. Input cache misses are reconstructed as total input minus bounded cache hits because legacy recorders stored a default zero miss count. Unknown models and all-zero/absent token usage are 待核算, never free calls. Known totals exclude unknown charges and therefore are estimates, not provider invoices. Legacy summary/translation detail costs use this same estimator. No pricing, quota-consumption or model-routing configuration is changed by this report.
 
-The users section preserves activity statistics, account search, plan assignment, suspension, bonus quota, reset actions, and the previous 30-day summary/translation/public-cache detail. Plan model controls and invitation management remain connected to their existing authorized endpoints.
+The users section contains account search, plan assignment, suspension, bonus quota and reset actions. Visit statistics have their own section; retention, reading activity and pre-payment reading have one dedicated section. The previous 30-day summary/translation/public-cache detail is loaded only when expanded under cost reporting. Plan model controls and invitation management remain connected to their existing authorized endpoints.
 
 ## User-confirmed choices
 
@@ -21,3 +21,7 @@ Goals: inspect today's spend, compare models, find failures and high-usage accou
 ## Validation status
 
 Deployed release `20260922T083448`, parent `20260922T074500`, source `4d6b38840191d79acd4932b81ec37ae7b8d2c2e5`. Public mainland identity and active symlink match. Local desktop/mobile fixture inspection, authenticated production reports, account/sync/Admin boundaries, configured MiMo contextual explanation with sentence translation, Flash dictionary and full-article translation passed. Seven-service health, isolated 16-table backup restore and accepted current/parent rollback images passed. Dedicated tests cover Shanghai boundaries, multi-provider fallback, cache pricing, unknown charges, scope totals, cross-day joins and pagination-independent aggregates. HTTP fixture validation covers 1,203 rows, auth, invalid filters, empty days and no-store responses.
+
+## Loading behavior
+
+Panels mount on first visit and remain mounted while switching sections; drafts and filters survive return. User directories use `/api/admin/accounts?view=directory`, without actions or execution ledgers. Cost reports load independently. Model settings load independently of provider balance/status. Concurrent identical reads share transport; completed private responses and authorization are never persisted. Admin article lists use `view=summary` projections with no body or structured blocks, retain pagination/rejected/order metadata, and fetch only the selected row before Reader or metadata editing. Legacy full APIs remain available for compatibility. See [October 12 validation](admin-performance-20261012.md).

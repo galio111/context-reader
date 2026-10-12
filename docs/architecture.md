@@ -434,8 +434,12 @@ StudyHost preloads only a verified online account and retains its keyed StudyPan
 
 文章 Reader 的 useReadingEvidence 只累计前台、聚焦、非学习弹层中的相邻可信阅读操作间隔；超过45秒的空闲断开，CET Reader不计入。v3事件UUID在网络重试中保留。study_reading_tick_v3在用户锁内调用原v2计时上限，按实际 verified_seconds 增量记入 product_reading_ticks；重复UUID直接返回，不重复计时。product_activity_days按上海日记录登录前台访问。新账本从product_activity_meta.started_at起算，不把旧无证据时段伪造为有效阅读。个人查询仅接受服务器验证的本账号。
 
-Admin统计排除当前管理员，按注册日成熟的第1/7/30天回访计算留存。首次付费按真实paid_at（含后续退款）去重；赠送、邀请或调档不是付费。只有采集开始后注册的账号能构成完整付费前样本，按事件时间截到首次支付；其余单独显示覆盖缺失。真题个人正确率来自本账号不可变提交，整卷覆盖分段，重复ID不重算，冲突与中止转学习不计入。
+Admin统计排除当前管理员，按注册日成熟的第1/7/30天回访计算留存。首次付费按真实paid_at（含后续退款）去重；赠送、邀请或调档不是付费。只有采集开始后注册的账号能构成完整付费前样本，按事件时间截到首次支付；其余单独显示覆盖缺失。真题个人正确率来自本账号不可变提交，逐题使用冻结的答案与实际已填选项，未作答及无可靠答案题不进入分母；不修改保存的整卷成绩。整卷覆盖分段，重复ID不重算，冲突与中止转学习不计入。
 
 开发者预览位于/admin/experience：外页和frame均要求活动developer账号，唯一frame路径允许同源嵌入。使用正式AccountProvider/HomeClient/Reader/账号/套餐/StudyHost，配额来自当前服务器套餐。frame内Storage与学习库使用内存，网络白名单只放行公开只读内容；账号、学习、同步返回示例状态，未知写入/生成/支付拒绝。预览导航与取消信号留在隔离环境；不修改开发者身份、真实IndexedDB、真实额度或订单。
+
+## Admin catalogue and panel loading
+
+Admin navigation retains visited sections in memory for the mounted authorized page; unopened sections do not fetch. Article lists use paginated metadata projections (`view=summary`) marked `contentDeferred`, preserve candidate order and rejection metadata, and load a single full row before editing/opening Reader. Summary rows cannot be saved as complete articles. Models load configuration separately from external balance/status. Account directory requests omit execution/action history; expanded article-cost detail uses the legacy full report. Concurrent read deduplication retains only pending transport and never caches authorization or persists private responses.
 
 独立词典加入生词本时保留完整 `dictionaryResult`，StudyWord 复用 DictionaryResultContent，提示按义项展示英文例句。学习快照不反复附带全部完整词典，按单词只读缓存恢复。直接输入查询在本地缓存缺失时先读取账号缓存；只在确认 404 且用户发起新查询时生成，历史回放与读取失败均不触发模型。`study_import_batches` 保存包哈希、原始 Anki notes/cards/revlog 与生成文件哈希，服务角色专用、账号导出包含、重复包幂等。

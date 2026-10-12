@@ -8,7 +8,7 @@ import {modelStatuses,probeModel} from '@/lib/modelHealth';
 import {withDiscoveryLease,writeDiscoverySetting} from '@/lib/discoveryStore';
 export async function GET(request:Request){
  if(!await isAdminRequest())return NextResponse.json({error:'需要管理员权限。'},{status:401});
- try{return NextResponse.json({config:await getModelConfig(),models:new URL(request.url).searchParams.has("config")?[]:await modelStatuses()},{headers:{'Cache-Control':'no-store'}});}catch{return NextResponse.json({error:'模型设置读取失败，请重试。'},{status:503});}
+ try{const params=new URL(request.url).searchParams; const [config,models]=await Promise.all([params.has("status")?Promise.resolve(null):getModelConfig(),params.has("config")?Promise.resolve([]):modelStatuses()]); return NextResponse.json({config,models},{headers:{'Cache-Control':'no-store'}});}catch{return NextResponse.json({error:'模型设置读取失败，请重试。'},{status:503});}
 }
 async function authorize(request:Request){
  if(!await isAdminRequest())return NextResponse.json({error:'需要管理员权限。'},{status:401});

@@ -7,7 +7,7 @@ import type { CetActivity } from "../types/cet";
 import type { AccountPlan } from "../types/account";
 
 test("CET accuracy counts canonical submissions, excludes conflicts and study exits",()=>{
- const activity=(finalizations:unknown)=>({finalizations}) as CetActivity;
+ const activity=(finalizations:Record<string, any>)=>({finalizations:Object.fromEntries(Object.entries(finalizations).map(([key,row])=>[key,{...row,questions:Array.from({length:row.scoreable},(_,i)=>({key:String(i),answer:"A",options:[{key:"A"},{key:"B"}]})),answers:Object.fromEntries(Array.from({length:row.scoreable},(_,i)=>[String(i),i<row.correct?"A":"B"]))}]))}) as CetActivity;
  const result=cetLearningSummary([
   activity({a:{id:"a",sectionId:"s1",correct:2,scoreable:5,reason:"passage_submit"},b:{id:"b",correct:8,scoreable:10,reason:"manual_submit"}}),
   activity({a:{id:"b",correct:8,scoreable:10,reason:"manual_submit"}}),

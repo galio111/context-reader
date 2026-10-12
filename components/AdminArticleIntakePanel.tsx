@@ -1,4 +1,6 @@
 "use client";
+import { loadAdminCandidate } from "@/lib/adminArticleClient";
+import { adminFetch } from "@/lib/adminFetch";
 import { LoadingStatus } from "./LoadingStatus";
 
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -240,7 +242,7 @@ export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, on
 
   async function loadCandidates() {
     setLoadingCandidates(true);
-    const response = await fetch("/api/admin/article-candidates", { cache: "no-store" });
+    const response = await adminFetch("/api/admin/article-candidates?view=summary", { cache: "no-store" });
     const data = await response.json().catch(() => null) as { articles?: PublicArticle[]; error?: string } | null;
     if (!response.ok) {
       setError(data?.error || "候选文章读取失败。");
@@ -288,7 +290,7 @@ export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, on
 
   async function classifyDraft(base: DraftState): Promise<DraftState> {
     setWorking("classify");
-    const response = await fetch("/api/admin/article-classification", {
+    const response = await adminFetch("/api/admin/article-classification", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -352,7 +354,7 @@ export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, on
     setError("");
     setMessage("");
     try {
-      const response = await fetch("/api/import-url", {
+      const response = await adminFetch("/api/import-url", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url: url.trim() }),
@@ -418,7 +420,7 @@ export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, on
       readyDraft = await classifyDraft(readyDraft);
     }
     setWorking("save");
-    const response = await fetch("/api/admin/article-candidates", {
+    const response = await adminFetch("/api/admin/article-candidates", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(inputFromDraft(readyDraft)),
@@ -454,7 +456,7 @@ export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, on
 
   async function publishIds(ids: string[]) {
     setWorking("publish");
-    const response = await fetch("/api/admin/article-candidates", {
+    const response = await adminFetch("/api/admin/article-candidates", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ action: "publish", ids }),
@@ -489,7 +491,7 @@ export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, on
 
   async function handleDeleteCandidate(article: PublicArticle, reason: string) {
     setError("");
-    const response = await fetch("/api/admin/article-candidates", {
+    const response = await adminFetch("/api/admin/article-candidates", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ action: "reject", id: article.id, reason }),
@@ -511,7 +513,7 @@ export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, on
     setWorking("shuffle");
     setError("");
     try {
-      const response = await fetch("/api/admin/article-candidates", { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: "shuffle" }) });
+      const response = await adminFetch("/api/admin/article-candidates", { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: "shuffle" }) });
       if (!response.ok) throw new Error("顺序暂时无法更新，请稍后重试。");
       await loadCandidates();
       setMessage("旧候选已打乱，当天新加入的文章仍在最前面；按北京时间换日。");
@@ -526,7 +528,7 @@ export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, on
     try {
       const formData = new FormData();
       formData.append("image", file);
-      const response = await fetch("/api/admin/article-covers", { method: "POST", body: formData });
+      const response = await adminFetch("/api/admin/article-covers", { method: "POST", body: formData });
       const data = await response.json().catch(() => null) as { url?: string; error?: string } | null;
       if (!response.ok || !data?.url) {
         throw new Error(data?.error || "封面上传失败。");
@@ -551,7 +553,7 @@ export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, on
     setError("");
     setMessage("");
     try {
-      const response = await fetch("/api/admin/article-covers", {
+      const response = await adminFetch("/api/admin/article-covers", {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({}),
@@ -749,7 +751,7 @@ export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, on
                 <input className="h-5 w-5 accent-[#1769aa]" type="checkbox" checked={selected} disabled={!hasCover || busy} aria-label={`选择 ${article.title}`} onChange={() => setSelectedIds((ids) => selected ? ids.filter((id) => id !== article.id) : [...ids, article.id])} />
                 <div className="aspect-[4/3] overflow-hidden rounded-lg bg-[#e8edf1]">{hasCover ? <img className="h-full w-full object-cover" src={recommendation?.coverImageUrl} alt="" /> : <div className="flex h-full items-center justify-center px-2 text-center text-xs text-[#6a4a43]">缺少封面</div>}</div>
                 <div className="min-w-0"><div className="flex flex-wrap items-center gap-2"><h3 className="font-semibold leading-6 text-[#17191c]">{article.title}</h3>{isRecent && <span className="rounded-full bg-[#1769aa] px-2.5 py-1 text-xs font-medium text-white">本次新增</span>}<span className={`rounded-full px-2.5 py-1 text-xs font-medium ${hasCover ? "bg-[#e9f5ee] text-[#17613b]" : "bg-[#fff0ed] text-[#9b3524]"}`}>{hasCover ? "可发布" : "待补封面"}</span>{recommendation?.sourceKind === "crawler" && <span className="rounded-full bg-[#edf5fb] px-2.5 py-1 text-xs font-medium text-[#174d73]">自动发现</span>}{recommendation?.sourceKind === "local-saved" && <span className="rounded-full bg-[#eef1f4] px-2.5 py-1 text-xs font-medium text-[#4d535a]">本地文章</span>}</div><p className="mt-1 line-clamp-2 text-sm leading-6 text-[#4d535a]">{article.summary || "暂无摘要"}</p><p className="mt-1 text-xs leading-5 text-[#68717a]">{recommendation?.difficulty || "待判断"} · CEFR {recommendation?.cefr || "待判断"} · {recommendation?.topics.join("、") || "待分类"} · {(recommendation?.wordCount ?? countArticleEnglishWords(article.body)).toLocaleString("zh-CN")} 词</p><p className="mt-0.5 text-xs leading-5 text-[#7b848c]">适合：{recommendation?.audienceStages.join("、") || "待判断"} · {recommendation?.timeliness === "time-sensitive" ? "需检查时效" : "长期有效"} · {article.sourceName || "来源待确认"}</p></div>
-                <div className="flex flex-wrap gap-2 sm:justify-end"><button className={secondaryButtonClass} type="button" onClick={() => onOpenArticle(article)} disabled={busy}>打开并编辑正文</button><button className={secondaryButtonClass} type="button" onClick={() => { setDraft(draftFromCandidate(article)); setMode(article.recommendation?.sourceKind === "local-saved" ? "local" : article.recommendation?.sourceKind === "manual-paste" ? "paste" : "url"); setSelectedLocalArticleId(""); setError(""); setMessage(""); editorRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }); }} disabled={busy}>编辑资料与封面</button><button className="inline-flex min-h-10 items-center rounded-full px-3 text-sm font-medium text-red-700 hover:bg-red-50 disabled:opacity-45" type="button" onClick={() => setRejectingId(article.id)} disabled={busy}>不精选</button></div>
+                <div className="flex flex-wrap gap-2 sm:justify-end"><button className={secondaryButtonClass} type="button" onClick={() => onOpenArticle(article)} disabled={busy}>打开并编辑正文</button><button className={secondaryButtonClass} type="button" onClick={async () => { setWorking("import"); setError(""); try { const full = await loadAdminCandidate(article); setDraft(draftFromCandidate(full)); setMode(full.recommendation?.sourceKind === "local-saved" ? "local" : full.recommendation?.sourceKind === "manual-paste" ? "paste" : "url"); setSelectedLocalArticleId(""); setMessage(""); editorRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }); } catch { setError("候选正文暂时无法读取，请重试。"); } finally { setWorking(""); } }} disabled={busy}>编辑资料与封面</button><button className="inline-flex min-h-10 items-center rounded-full px-3 text-sm font-medium text-red-700 hover:bg-red-50 disabled:opacity-45" type="button" onClick={() => setRejectingId(article.id)} disabled={busy}>不精选</button></div>
                 {rejectingId === article.id && <div className="w-full py-3"><p className="mb-2 text-sm font-medium">为什么不精选这篇？</p><div className="flex flex-wrap gap-2">{REJECTION_REASONS.map((reason) => <button key={reason} className={secondaryButtonClass} disabled={busy} onClick={() => void handleDeleteCandidate(article, reason)}>{reason}</button>)}<button className={secondaryButtonClass} onClick={() => setRejectingId("")}>取消</button></div></div>}
               </li>;
             })}

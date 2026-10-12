@@ -1,4 +1,5 @@
 "use client";
+import { adminFetch } from "@/lib/adminFetch";
 import { LoadingStatus } from "./LoadingStatus";
 import {useEffect,useState} from 'react';
 import {MODEL_CATALOG,MODEL_FEATURES,type ModelConfig,type ModelRoute,type ModelId,type ModelFeature} from '@/lib/modelCatalog';
@@ -10,15 +11,20 @@ export function ModelRouteFields({value,onChange,vision=false,inherit=false}:{va
 }
 export function PlanModelControls({planId}:{planId:string}){
  const [value,setValue]=useState<ModelRoute|null>(null),[loaded,setLoaded]=useState(false),[busy,setBusy]=useState(false),[message,setMessage]=useState('');
- useEffect(()=>{fetch('/api/admin/models?config=1',{cache:'no-store'}).then(r=>r.json()).then(p=>{if(!p.config)throw Error();setValue(p.config.plans[planId]||null);setLoaded(true);}).catch(()=>setMessage('模型设置读取失败。'));},[planId]);
- async function save(){setBusy(true);try{const r=await fetch('/api/admin/models',{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify({planId,planRoute:value})});const p=await r.json();if(!r.ok)throw Error(p.error);setMessage('套餐模型已保存，新请求生效。');}catch(e){setMessage(e instanceof Error?e.message:'保存失败。');}finally{setBusy(false);}}
+ useEffect(()=>{adminFetch('/api/admin/models?config=1',{cache:'no-store'}).then(r=>r.json()).then(p=>{if(!p.config)throw Error();setValue(p.config.plans[planId]||null);setLoaded(true);}).catch(()=>setMessage('模型设置读取失败。'));},[planId]);
+ async function save(){setBusy(true);try{const r=await adminFetch('/api/admin/models',{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify({planId,planRoute:value})});const p=await r.json();if(!r.ok)throw Error(p.error);setMessage('套餐模型已保存，新请求生效。');}catch(e){setMessage(e instanceof Error?e.message:'保存失败。');}finally{setBusy(false);}}
  return <div className="mt-3 border-t border-[#d7dde2] pt-3"><ModelRouteFields value={value} onChange={setValue} inherit/><button className="mt-2 min-h-11 text-sm font-medium text-[#1769aa] disabled:opacity-50" disabled={!loaded||busy} onClick={()=>void save()} type="button">{busy?'保存中…':'保存套餐模型'}</button><p role="status" className="text-sm text-[#4d535a]">{message}</p></div>;
 }
 export default function AdminModelsPanel(){
  const [config,setConfig]=useState<ModelConfig|null>(null),[models,setModels]=useState<Status[]>([]),[busy,setBusy]=useState(''),[message,setMessage]=useState('');
- async function load(){try{const r=await fetch('/api/admin/models',{cache:'no-store'});const p=await r.json();if(!r.ok)throw Error(p.error);setConfig(p.config);setModels(p.models);}catch(e){setMessage(e instanceof Error?e.message:'读取失败。');}}
+ async function load(){
+  await Promise.allSettled([
+   adminFetch('/api/admin/models?config=1').then(async r=>{if(!r.ok)throw Error();const p=await r.json();setConfig(p.config);}).catch(()=>setMessage('模型设置读取失败，请重试。')),
+   adminFetch('/api/admin/models?status=1').then(async r=>{if(!r.ok)throw Error();const p=await r.json();setModels(p.models);}).catch(()=>setMessage('模型状态暂时无法读取，设置仍可使用。')),
+  ]);
+ }
  useEffect(()=>{void load();},[]);
- async function send(action:'save'|'probe',model?:ModelId){setBusy(model||'save');setMessage('');try{const r=await fetch('/api/admin/models',{method:action==='save'?'PATCH':'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(action==='save'?{routes:config?.routes,jevEnabled:config?.jevEnabled}:{model})});const p=await r.json();if(!r.ok)throw Error(p.error);if(p.models)setModels(p.models);setMessage(action==='save'?'已保存，下次新请求生效。':p.probe.ok?'测试调用成功。':'测试未通过，请查看状态。');}catch(e){setMessage(e instanceof Error?e.message:'操作失败。');}finally{setBusy('');}}
+ async function send(action:'save'|'probe',model?:ModelId){setBusy(model||'save');setMessage('');try{const r=await adminFetch('/api/admin/models',{method:action==='save'?'PATCH':'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(action==='save'?{routes:config?.routes,jevEnabled:config?.jevEnabled}:{model})});const p=await r.json();if(!r.ok)throw Error(p.error);if(p.models)setModels(p.models);setMessage(action==='save'?'已保存，下次新请求生效。':p.probe.ok?'测试调用成功。':'测试未通过，请查看状态。');}catch(e){setMessage(e instanceof Error?e.message:'操作失败。');}finally{setBusy('');}}
  return <section className="mx-auto max-w-5xl px-4 py-6 text-[#17191c]"><h2 className="text-2xl font-semibold">模型与调用</h2><p className="mt-2 text-sm leading-6 text-[#4d535a]">新请求使用保存后的模型；已有缓存继续复用。套餐单独指定模型时，优先于下方文字功能设置。自动精选单独配置。</p>
  <div className="mt-6 divide-y divide-[#d7dde2] rounded-2xl bg-white px-5">{models.map(m=><div key={m.id} className="flex flex-wrap items-center justify-between gap-3 py-4"><div><strong className="text-base">{MODEL_CATALOG.find(x=>x.id===m.id)?.label}</strong><p className="mt-1 text-sm"><span aria-hidden="true" className={`mr-2 inline-block h-2.5 w-2.5 rounded-full ${m.indicator==='green'?'bg-[#187442]':m.indicator==='red'?'bg-[#b42318]':'bg-[#8a6500]'}`}/>{m.label}</p><p className="mt-1 text-xs leading-5 text-[#4d535a]">余额：{m.balance?.items?.map(b=>`${b.total_balance} ${b.currency}`).join(' / ')||'未知'} · {m.balanceNote}</p>{m.observed&&<p className="text-xs text-[#4d535a]">上次检测 {new Date(m.observed.at).toLocaleString('zh-CN')} · {m.observed.latencyMs} ms</p>}</div><button type="button" disabled={!!busy||!m.configured} onClick={()=>void send('probe',m.id)} className="min-h-11 rounded-xl border border-[#c9ced6] px-4 text-sm disabled:opacity-50">{busy===m.id?'测试中…':'测试连接'}</button></div>)}</div>
  <p className="mt-3 text-sm leading-6 text-[#4d535a]">绿点代表十分钟内成功，红点代表缺密钥或近期故障，黄色表示未知。忙碌状态依据实际限流结果，无法预知服务商实时负载。测试连接会产生一次少量付费请求。</p>

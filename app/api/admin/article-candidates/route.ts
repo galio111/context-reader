@@ -4,6 +4,8 @@ import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
 import {
   deleteArticleCandidate,
   listArticleCandidates,
+  listAdminArticleSummaries,
+  getArticleCandidate,
   listRejectedArticleCandidates,
   publishArticleCandidate,
   saveArticleCandidate,
@@ -14,11 +16,22 @@ import { EDITORIAL_CATEGORIES, editorialCategoryForArticle, markPublishedArticle
 import { isSafePublicArticleInput, UUID_PATTERN } from "@/lib/publicArticleInput";
 import { articleHasHomepageImage } from "@/lib/articleMedia";
 
-export async function GET() {
+export async function GET(request: Request) {
   if (!(await isAdminRequest())) {
     return NextResponse.json({ error: "需要管理员权限。" }, { status: 401 });
   }
   try {
+    const params = new URL(request.url).searchParams;
+    const id = params.get("id");
+    if (id) {
+      if (!UUID_PATTERN.test(id)) return NextResponse.json({ error: "文章编号无效。" }, { status: 400 });
+      const article = await getArticleCandidate(id);
+      return NextResponse.json(article ? { article } : { error: "候选文章不存在。" }, { status: article ? 200 : 404, headers: { "Cache-Control": "private, no-store" } });
+    }
+    if (params.get("view") === "summary") {
+      const all = await listAdminArticleSummaries(false);
+      return NextResponse.json({ articles: all.filter(article => !article.recommendation?.rejectedAt), rejectedArticles: all.filter(article => article.recommendation?.rejectedAt) }, { headers: { "Cache-Control": "private, no-store" } });
+    }
     const [articles, rejectedArticles] = await Promise.all([listArticleCandidates(), listRejectedArticleCandidates()]);
     return NextResponse.json({ articles, rejectedArticles });
   } catch (error) {

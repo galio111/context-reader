@@ -18,8 +18,18 @@ export function cetLearningSummary(activities: CetActivity[]) {
       const unique = [...new Map(rows.map(row => [row.id, row])).values()];
       if (unique.length !== 1) { excluded++; continue; }
       const row = unique[0];
-      if (seen.has(row.id) || !row.scoreable) continue;
-      seen.add(row.id); correct += row.correct; scoreable += row.scoreable; submissions++;
+      if (seen.has(row.id)) continue;
+      seen.add(row.id);
+      // The frozen submission is authoritative. Blank questions and questions
+      // without a reliable answer key must not lower personal accuracy.
+      const answered = (row.questions ?? []).filter(question =>
+        question.answer && question.options.some(option => option.key === question.answer)
+        && row.answers?.[question.key]?.trim(),
+      );
+      if (!answered.length) continue;
+      correct += answered.filter(question => row.answers[question.key] === question.answer).length;
+      scoreable += answered.length;
+      submissions++;
     }
   }
   return { correct, scoreable, submissions, excluded };

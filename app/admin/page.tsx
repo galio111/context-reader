@@ -1,16 +1,22 @@
 "use client";
-import { AdminBillingPanel } from "@/components/AdminBillingPanel";
+import { loadAdminCandidate } from "@/lib/adminArticleClient";
+import { adminFetch } from "@/lib/adminFetch";
+import { AdminSection } from "@/components/AdminSection";
+import dynamic from "next/dynamic";
+import { LoadingStatus } from "@/components/LoadingStatus";
+const panelLoading = () => <LoadingStatus className="py-6">正在打开…</LoadingStatus>;
+const AdminBillingPanel = dynamic(() => import("@/components/AdminBillingPanel").then(m => m.AdminBillingPanel), { loading: panelLoading });
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import AdminModelsPanel from "@/components/AdminModelsPanel";
-import AdminAccountsPanel from "@/components/AdminAccountsPanel";
+const AdminModelsPanel = dynamic(() => import("@/components/AdminModelsPanel"), { loading: panelLoading });
+const AdminAccountsPanel = dynamic(() => import("@/components/AdminAccountsPanel"), { loading: panelLoading });
 import ClearableField from "@/components/ClearableField";
-import AdminArticleIntakePanel from "@/components/AdminArticleIntakePanel";
+const AdminArticleIntakePanel = dynamic(() => import("@/components/AdminArticleIntakePanel"), { loading: panelLoading });
 import AdminArticleMetadataInspector from "@/components/AdminArticleMetadataInspector";
-import AdminHomepageCurationPanel from "@/components/AdminHomepageCurationPanel";
-import AdminFeedbackPanel from "@/components/AdminFeedbackPanel";
-import AdminErrorReportsPanel from "@/components/AdminErrorReportsPanel";
-import { ReaderView } from "@/components/ReaderView";
+const AdminHomepageCurationPanel = dynamic(() => import("@/components/AdminHomepageCurationPanel"), { loading: panelLoading });
+const AdminFeedbackPanel = dynamic(() => import("@/components/AdminFeedbackPanel"), { loading: panelLoading });
+const AdminErrorReportsPanel = dynamic(() => import("@/components/AdminErrorReportsPanel"), { loading: panelLoading });
+const ReaderView = dynamic(() => import("@/components/ReaderView").then(m => m.ReaderView), { loading: panelLoading });
 import { SiteBackdrop } from "@/components/SiteBackdrop";
 import { getSavedArticles } from "@/lib/articles";
 import { countArticleEnglishWords } from "@/lib/articleWordCount";
@@ -125,6 +131,8 @@ export default function AdminPage() {
   const [editorialSearch, setEditorialSearch] = useState("");
   const [editorialDifficulty, setEditorialDifficulty] = useState("");
   const [editorialCategory, setEditorialCategory] = useState("");
+  const [intakeVisited, setIntakeVisited] = useState(false);
+  const [curationVisited, setCurationVisited] = useState(false);
   const [quickUrl, setQuickUrl] = useState("");
   const [quickAdding, setQuickAdding] = useState(false);
   const [shuffling, setShuffling] = useState(false);
@@ -162,10 +170,12 @@ export default function AdminPage() {
   useEffect(() => {
     async function checkSession() {
       try {
-        const response = await fetch("/api/admin/session");
+        const response = await adminFetch("/api/admin/session");
         const data = (await response.json()) as { authenticated?: boolean; accessMode?: AdminAccessMode };
         setAuthenticated(Boolean(data.authenticated));
         setAccessMode(data.accessMode ?? null);
+      } catch {
+        setLoginError("后台连接暂时失败，请刷新重试。");
       } finally {
         setCheckingSession(false);
       }
@@ -180,15 +190,17 @@ export default function AdminPage() {
     window.history.replaceState(null, "", url);
   }
 
+  const articlesLoaded = useRef(false);
   useEffect(() => {
-    if (authenticated) {
+    if (authenticated && activeSection === "articles" && !articlesLoaded.current) {
+      articlesLoaded.current = true;
       setArticles(getSavedArticles());
-      void Promise.all([loadPublicArticles({ silent: true }), loadCandidateArticles({ silent: true }), loadHomepageCuration()]);
+      void Promise.all([loadPublicArticles({ silent: true }), loadCandidateArticles({ silent: true }), loadHomepageCuration()]).catch(() => { articlesLoaded.current = false; setStatus("文章列表暂时无法读取，请刷新重试。"); });
     }
-  }, [authenticated]);
+  }, [authenticated, activeSection]);
 
   async function loadPublicArticles(options?: { silent?: boolean }) {
-    const response = await fetch("/api/admin/public-articles");
+    const response = await adminFetch("/api/admin/public-articles?view=summary");
     const data = (await response.json().catch(() => null)) as { articles?: PublicArticle[]; error?: string } | null;
     if (!response.ok) {
       if (!options?.silent) {
@@ -200,7 +212,7 @@ export default function AdminPage() {
   }
 
   async function loadCandidateArticles(options?: { silent?: boolean }): Promise<PublicArticle[]> {
-    const response = await fetch("/api/admin/article-candidates", { cache: "no-store" });
+    const response = await adminFetch("/api/admin/article-candidates?view=summary", { cache: "no-store" });
     const data = await response.json().catch(() => null) as { articles?: PublicArticle[]; rejectedArticles?: PublicArticle[]; error?: string } | null;
     if (!response.ok) {
       if (!options?.silent) setStatus(data?.error || "候选文章列表读取失败。");
@@ -213,7 +225,7 @@ export default function AdminPage() {
   }
 
   async function loadHomepageCuration(): Promise<HomepageCuration> {
-    const response = await fetch("/api/admin/homepage-curation", { cache: "no-store" });
+    const response = await adminFetch("/api/admin/homepage-curation", { cache: "no-store" });
     const data = await response.json().catch(() => null) as { curation?: HomepageCuration; error?: string } | null;
     if (!response.ok || !data?.curation) throw new Error(data?.error || "首页编排读取失败。");
     setHomepageCuration(data.curation);
@@ -225,14 +237,18 @@ export default function AdminPage() {
     window.requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: "auto" }));
   }
 
-  function openCandidateArticle(article: PublicArticle) {
-    setStatus("");
-    setEditorialDrawer(null);
-    setCandidateArticles((items) => items.some((item) => item.id === article.id) ? items : [article, ...items]);
-    setArticlePlacement({ ...DEFAULT_CANDIDATE_PLACEMENT, preferLater: !articleHasHomepageImage(article) });
-    setInspectorOpen(false);
-    setReaderState({ kind: "candidate", article });
-    resetEditorialReaderViewport();
+  async function openCandidateArticle(summary: PublicArticle) {
+    if (openingArticleId) return;
+    setOpeningArticleId(summary.id); setStatus("");
+    try {
+      const article = await loadAdminCandidate(summary);
+      setEditorialDrawer(null);
+      setCandidateArticles(items => items.some(item => item.id === article.id) ? items.map(item => item.id === article.id ? article : item) : [article, ...items]);
+      setArticlePlacement({ ...DEFAULT_CANDIDATE_PLACEMENT, preferLater: !articleHasHomepageImage(article) });
+      setInspectorOpen(false); setReaderState({ kind: "candidate", article });
+      resetEditorialReaderViewport();
+    } catch { setStatus("候选正文暂时无法读取，请重试。"); }
+    finally { setOpeningArticleId(""); }
   }
 
   async function openPublishedArticle(article: PublicArticle) {
@@ -240,7 +256,7 @@ export default function AdminPage() {
     setOpeningArticleId(article.id);
     setStatus("");
     try {
-      const response = await fetch(`/api/public-articles/${encodeURIComponent(article.id)}`, { cache: "no-store" });
+      const response = await adminFetch(`/api/public-articles/${encodeURIComponent(article.id)}`, { cache: "no-store" });
       const data = await response.json().catch(() => null) as { article?: PublicArticle; error?: string } | null;
       if (!response.ok || !data?.article?.body?.trim()) {
         throw new Error(data?.error || "公开文章读取失败，请稍后重试。");
@@ -371,12 +387,7 @@ export default function AdminPage() {
   function continueCandidateQueue(completedId: string, nextQueue: PublicArticle[]) {
     const previousIndex = candidateArticles.findIndex((item) => item.id === completedId);
     const next = nextQueue[Math.min(Math.max(0, previousIndex), Math.max(0, nextQueue.length - 1))];
-    if (next) {
-      setArticlePlacement({ ...DEFAULT_CANDIDATE_PLACEMENT, preferLater: !articleHasHomepageImage(next) });
-      setInspectorOpen(false);
-      setReaderState({ kind: "candidate", article: next });
-      resetEditorialReaderViewport();
-    }
+    if (next) void openCandidateArticle(next);
     else setReaderState(null);
   }
 
@@ -387,7 +398,7 @@ export default function AdminPage() {
   }) {
     const active = readerState;
     if (!active || active.kind !== "candidate") return;
-    const response = await fetch("/api/admin/article-candidates", {
+    const response = await adminFetch("/api/admin/article-candidates", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -406,7 +417,7 @@ export default function AdminPage() {
     let translationStatus = "";
     const preparedTranslation = articleTranslationsForArticle(active.article)[0];
     if (preparedTranslation) {
-      const translationResponse = await fetch("/api/admin/public-article-translations", {
+      const translationResponse = await adminFetch("/api/admin/public-article-translations", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -446,7 +457,7 @@ export default function AdminPage() {
       ...placement,
       preferLater: !articleHasHomepageImage(active.article),
     });
-    const response = await fetch("/api/admin/homepage-curation", {
+    const response = await adminFetch("/api/admin/homepage-curation", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ curation: next }),
@@ -460,7 +471,7 @@ export default function AdminPage() {
   async function shufflePublishedArticles() {
     setShuffling(true);
     try {
-      const response = await fetch("/api/admin/homepage-curation", { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: "shuffle-published" }) });
+      const response = await adminFetch("/api/admin/homepage-curation", { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: "shuffle-published" }) });
       const data = await response.json().catch(() => null) as { curation?: HomepageCuration; error?: string } | null;
       if (!response.ok) throw new Error(data?.error || "打乱失败，请稍后重试。");
       if (data?.curation) setHomepageCuration(data.curation);
@@ -471,7 +482,7 @@ export default function AdminPage() {
   async function rejectCurrentCandidate(reason: RejectionReason) {
     const active = readerState;
     if (!active || active.kind !== "candidate") return;
-    const response = await fetch("/api/admin/article-candidates", {
+    const response = await adminFetch("/api/admin/article-candidates", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ action: "reject", id: active.article.id, reason }),
@@ -486,7 +497,7 @@ export default function AdminPage() {
   }
 
   async function restoreRejectedArticle(article: PublicArticle) {
-    const response = await fetch("/api/admin/article-candidates", {
+    const response = await adminFetch("/api/admin/article-candidates", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ action: "restore", id: article.id }),
@@ -506,14 +517,14 @@ export default function AdminPage() {
     setQuickAdding(true);
     setStatus("");
     try {
-      const importResponse = await fetch("/api/import-url", {
+      const importResponse = await adminFetch("/api/import-url", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url: quickUrl.trim() }),
       });
       const imported = await importResponse.json().catch(() => null) as { article?: ImportedArticle; metadata?: { description?: string; coverCandidates?: string[] }; error?: string } | null;
       if (!importResponse.ok || !imported?.article?.text?.trim()) throw new Error(imported?.error || "网址文章读取失败。");
-      const classificationResponse = await fetch("/api/admin/article-classification", {
+      const classificationResponse = await adminFetch("/api/admin/article-classification", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ title: imported.article.title, text: imported.article.text, sourceUrl: imported.article.url, sourceName: imported.article.siteName }),
@@ -538,7 +549,7 @@ export default function AdminPage() {
         reviewNotes: classification.reviewNotes,
         difficultyEvidence: classification.difficultyEvidence,
       };
-      const saveResponse = await fetch("/api/admin/article-candidates", {
+      const saveResponse = await adminFetch("/api/admin/article-candidates", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -587,6 +598,23 @@ export default function AdminPage() {
     });
   }
 
+  async function updateLocalPreload(article: PublicArticle) {
+    let local = findMatchingSavedArticle(article);
+    if (!local && article.contentDeferred) {
+      setOpeningArticleId(article.id);
+      try {
+        const response = await adminFetch(`/api/public-articles/${encodeURIComponent(article.id)}`);
+        const data = await response.json();
+        if (!response.ok || !data.article) throw Error();
+        setPublicArticles(items => items.map(item => item.id === article.id ? data.article : item));
+        local = findMatchingSavedArticle(data.article);
+      } catch { setStatus("文章暂时无法读取，请重试。"); return; }
+      finally { setOpeningArticleId(""); }
+    }
+    if (local) await handlePublish(local);
+    else setStatus("本机没有找到对应的已保存文章。");
+  }
+
   const articleStats = useMemo(
     () =>
       new Map(
@@ -604,7 +632,7 @@ export default function AdminPage() {
   async function handleLogin(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setLoginError("");
-    const response = await fetch("/api/admin/login", {
+    const response = await adminFetch("/api/admin/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ password }),
@@ -625,7 +653,7 @@ export default function AdminPage() {
       window.location.href = "/";
       return;
     }
-    await fetch("/api/admin/logout", { method: "POST" });
+    await adminFetch("/api/admin/logout", { method: "POST" });
     setAuthenticated(false);
     setAccessMode(null);
     setArticles([]);
@@ -654,7 +682,7 @@ export default function AdminPage() {
 
     const explanations = explanationsForArticle(article);
     const articleTranslations = articleTranslationsForArticle(article);
-    const response = await fetch("/api/admin/public-articles", {
+    const response = await adminFetch("/api/admin/public-articles", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -692,7 +720,7 @@ export default function AdminPage() {
 
     setDeletingId(article.id);
     setStatus("");
-    const response = await fetch(`/api/admin/public-articles?id=${encodeURIComponent(article.id)}`, {
+    const response = await adminFetch(`/api/admin/public-articles?id=${encodeURIComponent(article.id)}`, {
       method: "DELETE",
     });
     const data = (await response.json().catch(() => null)) as { error?: string } | null;
@@ -734,7 +762,7 @@ export default function AdminPage() {
       return "missing";
     }
 
-    const response = await fetch("/api/admin/public-article-translations", {
+    const response = await adminFetch("/api/admin/public-article-translations", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -894,8 +922,8 @@ export default function AdminPage() {
             <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-3 py-3">
               {drawerItems.length ? <ul className="divide-y divide-[#e1e5e9]">{drawerItems.map((article) => {
                 const recommendation = article.recommendation ?? article.importedArticle?.recommendation;
-                const publishedTime = article.importedArticle?.publishedTime;
-                return <li key={article.id}><button className={`w-full px-2 py-4 text-left hover:bg-[#f2f7fa] focus-visible:bg-[#f2f7fa] ${readerState.article.id === article.id ? "bg-[#eaf4fa]" : ""}`} type="button" onClick={() => readerState.kind === "published" && editorialDrawer === "published" ? void openPublishedArticle(article) : editorialDrawer === "candidates" ? openCandidateArticle(article) : void openPublishedArticle(article)}><strong className="block text-sm leading-5">{article.title}</strong><span className="mt-1 block text-xs leading-5 text-[#68737c]">{article.sourceName || "来源待确认"} · {editorialCategoryForRecommendation(recommendation)} · {recommendation?.difficulty || "难度待定"} · {publishedTime ? `发布于 ${new Date(publishedTime).toLocaleDateString("zh-CN")}` : "发布日期未知"} · {compactMediaLabel(articleMediaState(article))}</span></button></li>;
+                const publishedTime = article.importedArticle?.publishedTime || article.sourcePublishedAt;
+                return <li key={article.id}><button className={`w-full px-2 py-4 text-left hover:bg-[#f2f7fa] focus-visible:bg-[#f2f7fa] ${readerState.article.id === article.id ? "bg-[#eaf4fa]" : ""}`} type="button" onClick={() => readerState.kind === "published" && editorialDrawer === "published" ? void openPublishedArticle(article) : editorialDrawer === "candidates" ? openCandidateArticle(article) : void openPublishedArticle(article)}><strong className="block text-sm leading-5">{article.title}</strong><span className="mt-1 block text-xs leading-5 text-[#68737c]">{article.sourceName || "来源待确认"} · {editorialCategoryForRecommendation(recommendation)} · {recommendation?.difficulty || "难度待定"} · {publishedTime ? `发布于 ${new Date(publishedTime).toLocaleDateString("zh-CN")}` : "发布日期未知"} · {article.contentDeferred ? (article.recommendation?.coverImageUrl ? "封面已设置" : "打开查看配图") : compactMediaLabel(articleMediaState(article))}</span></button></li>;
               })}</ul> : <p className="px-3 py-10 text-center text-sm text-[#68737c]">没有符合当前筛选的文章。</p>}
               {editorialDrawer === "candidates" && rejectedArticles.length > 0 && <details className="mt-4 border-t border-[#d7dde2] pt-4"><summary className="cursor-pointer text-sm font-semibold">不精选记录（{rejectedArticles.length}）</summary><ul className="mt-2 divide-y divide-[#e1e5e9]">{rejectedArticles.map((article) => <li key={article.id} className="flex items-start justify-between gap-3 py-3"><div className="min-w-0"><strong className="block text-sm leading-5">{article.title}</strong><span className="text-xs text-[#68737c]">{article.sourceName || "来源待确认"}</span></div><button className="shrink-0 rounded-full border border-[#1769aa] px-3 py-1.5 text-xs text-[#1769aa]" type="button" onClick={() => void restoreRejectedArticle(article)}>撤销</button></li>)}</ul></details>}
             </div>
@@ -969,22 +997,12 @@ export default function AdminPage() {
           </button>
         </nav>
 
-        {activeSection === "models" ? <AdminModelsPanel /> : activeSection === "errors" ? (
-          <div className="mt-6">
-            <AdminErrorReportsPanel />
-          </div>
-        ) : activeSection === "feedback" ? (
-          <div className="mt-6">
-            <AdminFeedbackPanel />
-          </div>
-        ) : activeSection === "billing" ? (<div className="mt-6"><AdminBillingPanel /></div>
-        ) : activeSection === "accounts" ? (
-          <div className="mt-6">
-            <AdminAccountsPanel />
-          </div>
-        ) : (
-          <>
-
+        <AdminSection active={activeSection === "models"}><AdminModelsPanel /></AdminSection>
+        <AdminSection active={activeSection === "errors"}><div className="mt-6"><AdminErrorReportsPanel /></div></AdminSection>
+        <AdminSection active={activeSection === "feedback"}><div className="mt-6"><AdminFeedbackPanel /></div></AdminSection>
+        <AdminSection active={activeSection === "billing"}><div className="mt-6"><AdminBillingPanel /></div></AdminSection>
+        <AdminSection active={activeSection === "accounts"}><div className="mt-6"><AdminAccountsPanel /></div></AdminSection>
+        <AdminSection active={activeSection === "articles"}>
         {status && (
           <p className="mt-5 rounded-[16px] border border-[#d2d2d7] bg-white p-4 text-sm leading-6 text-[#333333]">
             {status}
@@ -1003,7 +1021,7 @@ export default function AdminPage() {
             </div>
             <div className="flex flex-wrap gap-2">
               <button className="min-h-11 rounded-full border border-[#1769aa] px-5 text-sm font-semibold text-[#1769aa] disabled:opacity-45" type="button" disabled={shuffling || publicArticles.length < 2} onClick={() => void shufflePublishedArticles()}>{shuffling ? "正在打乱…" : "打乱往日精选"}</button>
-              <button className="min-h-11 rounded-full bg-[#1769aa] px-5 text-sm font-semibold text-white disabled:bg-[#aeb8c2]" type="button" disabled={!candidateArticles.length} onClick={() => candidateArticles[0] && openCandidateArticle(candidateArticles[0])}>开始今日精选（{candidateArticles.length}）</button>
+              <button className="min-h-11 rounded-full bg-[#1769aa] px-5 text-sm font-semibold text-white disabled:bg-[#aeb8c2]" type="button" disabled={!candidateArticles.length || Boolean(openingArticleId)} onClick={() => candidateArticles[0] && openCandidateArticle(candidateArticles[0])}>{openingArticleId ? "正在打开正文…" : `开始今日精选（${candidateArticles.length}）`}</button>
               <button className="min-h-11 rounded-full border border-[#1769aa] px-5 text-sm font-semibold text-[#1769aa] disabled:opacity-45" type="button" disabled={!publicArticles.length} onClick={() => publicArticles[0] && void openPublishedArticle(publicArticles[0])}>查看精选列表（{publicArticles.length}）</button>
             </div>
           </div>
@@ -1014,22 +1032,22 @@ export default function AdminPage() {
           {rejectedArticles.length > 0 && <p className="mt-3 text-xs text-[#68737c]">另有 {rejectedArticles.length} 篇不精选记录，可在候选工作台右侧列表中撤销。</p>}
         </section>
 
-        <details className="mt-6 rounded-2xl bg-white p-5">
+        <details className="mt-6 rounded-2xl bg-white p-5" onToggle={event => { if (event.currentTarget.open) setIntakeVisited(true); }}>
           <summary className="cursor-pointer text-lg font-semibold">批量导入、封面与自动抓取</summary>
         <div className="mt-5">
-          <AdminArticleIntakePanel
+          {intakeVisited && <AdminArticleIntakePanel
             savedArticles={articles}
             publicArticleCount={publicArticles.length}
             onPublished={loadPublicArticles}
             onOpenArticle={openCandidateArticle}
             onShowPublished={() => publicArticlesRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })}
-          />
+          />}
         </div>
         </details>
 
-        <details className="mt-6 rounded-2xl bg-white p-5">
+        <details className="mt-6 rounded-2xl bg-white p-5" onToggle={event => { if (event.currentTarget.open) setCurationVisited(true); }}>
           <summary className="cursor-pointer text-lg font-semibold">栏目主推与顺序微调</summary>
-          <AdminHomepageCurationPanel key={homepageCuration.updatedAt || "initial"} articles={publicArticles} onSaved={setHomepageCuration} />
+          {curationVisited && <AdminHomepageCurationPanel key={homepageCuration.updatedAt || "initial"} articles={publicArticles} onSaved={setHomepageCuration} />}
         </details>
 
         <details className="mt-6 rounded-2xl bg-white p-5">
@@ -1063,7 +1081,7 @@ export default function AdminPage() {
                     <div className="flex flex-wrap items-center gap-2">
                       <h3 className="text-base font-semibold leading-6">{article.title}</h3>
                       <span className={`rounded-full px-2.5 py-1 text-xs font-medium ${articleHasHomepageImage(article) ? "bg-emerald-50 text-emerald-700" : "bg-amber-50 text-amber-800"}`}>
-                        {compactMediaLabel(articleMediaState(article))}
+                        {article.contentDeferred ? (article.recommendation?.coverImageUrl ? "封面已设置" : "打开查看配图") : compactMediaLabel(articleMediaState(article))}
                       </span>
                     </div>
                     <p className="mt-1 text-sm leading-5 text-[#333333]">{article.summary || "暂无摘要"}</p>
@@ -1092,10 +1110,10 @@ export default function AdminPage() {
                     <button
                       className="h-9 rounded-full border border-[#0066cc] px-4 text-sm text-[#0066cc] disabled:border-[#d2d2d7] disabled:text-[#7a7a7a]"
                       type="button"
-                      disabled={!localArticle || publishingId === localArticle.id}
-                      onClick={() => localArticle && handlePublish(localArticle)}
+                      disabled={Boolean(openingArticleId) || (!localArticle && !article.contentDeferred) || (localArticle && publishingId === localArticle.id)}
+                      onClick={() => void updateLocalPreload(article)}
                     >
-                      {localArticle && publishingId === localArticle.id ? "更新中..." : localArticle ? "更新预缓存" : "本地无对应文章"}
+                      {localArticle && publishingId === localArticle.id ? "更新中..." : localArticle ? "更新预缓存" : article.contentDeferred ? "检查本地预缓存" : "本地无对应文章"}
                     </button>
                     <button
                       className="h-9 rounded-full border border-red-200 px-4 text-sm text-red-600 disabled:text-[#7a7a7a]"
@@ -1113,8 +1131,7 @@ export default function AdminPage() {
           )}
         </section>
         </details>
-          </>
-        )}
+        </AdminSection>
       </section>
     </main>
   );

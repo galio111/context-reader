@@ -1,10 +1,11 @@
 "use client";
+import { AdminSection } from "./AdminSection";
+import { AdminArticleUsageDetails } from "./AdminArticleUsageDetails";
 import {PlanModelControls} from "./AdminModelsPanel";
 
 import { AdminProductAnalytics } from "./AdminProductAnalytics";
 import AdminUsageReport from "./AdminUsageReport";
 import reportStyles from "./AdminUsageReport.module.css";
-import type { ZhipuUsageSummary } from "@/lib/zhipuUsage";
 
 import ClearableField from "@/components/ClearableField";
 
@@ -23,7 +24,6 @@ interface DashboardData {
   limits: Array<Record<string, unknown>>;
   actions: Array<Record<string, unknown>>;
   executions: Array<Record<string, unknown>>;
-  zhipuUsage?: ZhipuUsageSummary;
   activitySummary: {
     dau: number;
     wau: number;
@@ -36,76 +36,6 @@ interface DashboardData {
     guestMau: number;
     daily: Array<{ date: string; accounts: number; guests: number }>;
   };
-  quotaUsage: {
-    summary: QuotaFeatureUsage;
-    translation: QuotaFeatureUsage;
-    publicCache: { hits: number; articles: number; avoidedDeepSeekCalls: number; actualModelCostCny: number };
-    details: Array<{
-      id: string;
-      userId: string;
-      metricKey: "article_summary" | "full_article_translation";
-      quotaUnits: number;
-      quotaMetric?: string;
-      status: string;
-      cacheHit: boolean;
-      source: string;
-      articleKey: string;
-      articleLabel: string;
-      providerExecutions: number;
-      promptTokens: number;
-      completionTokens: number;
-      estimatedCostCny: number;
-      unknownCost: number;
-      createdAt: string;
-    }>;
-  };
-  usageSummary: {
-    windowDays: number;
-    windowStart: string;
-    windowEnd: string;
-    executions: number;
-    failed: number;
-    failureRate: number;
-    promptTokens: number;
-    completionTokens: number;
-    estimatedCostMicrousd: number;
-    estimatedCostMicrocny: number;
-    estimatedCostCny: number;
-    usdToCnyRate: number;
-    daily: Array<{
-      date: string;
-      executions: number;
-      failed: number;
-      failureRate: number;
-      promptTokens: number;
-      completionTokens: number;
-      estimatedCostCny: number;
-    }>;
-    features: Array<{
-      key: string;
-      label: string;
-      executions: number;
-      failed: number;
-      failureRate: number;
-      promptTokens: number;
-      completionTokens: number;
-      estimatedCostCny: number;
-    }>;
-    truncated: boolean;
-    pricingBasis: string;
-  };
-}
-
-interface QuotaFeatureUsage {
-  unknownCost: number;
-  chargedActions: number;
-  succeededActions: number;
-  failedActions: number;
-  generatedArticles: number;
-  providerExecutions: number;
-  promptTokens: number;
-  completionTokens: number;
-  estimatedCostCny: number;
 }
 
 interface PlanRule {
@@ -195,7 +125,8 @@ function profileName(profile: Record<string, unknown>): string {
 
 export default function AdminAccountsPanel() {
   const [section, setSection] = useState("usage");
-  const sections = [["usage", "用量与成本"], ["users", "用户管理"], ["plans", "套餐与额度"], ["invitations", "邀请码"]];
+  const sections = [["usage", "用量与成本"], ["users", "用户管理"], ["activity", "访问概览"], ["retention", "留存分析"], ["plans", "套餐与额度"], ["invitations", "邀请码"]];
+  const [showArticleDetails, setShowArticleDetails] = useState(false);
   const [data, setData] = useState<DashboardData | null>(null);
   const [limitDrafts, setLimitDrafts] = useState<Record<string, string>>({});
   const [search, setSearch] = useState("");
@@ -206,7 +137,7 @@ export default function AdminAccountsPanel() {
 
   async function load() {
     try {
-    const response = await fetch("/api/admin/accounts", { cache: "no-store" });
+    const response = await fetch("/api/admin/accounts?view=directory", { cache: "no-store" });
     const next = (await response.json().catch(() => null)) as DashboardData & { error?: string } | null;
     if (!response.ok || !next) {
       setError(next?.error || "账号与用量读取失败，请重新登录管理员后台。");
@@ -268,11 +199,6 @@ export default function AdminAccountsPanel() {
     () => new Map((data?.entitlements ?? []).map((item) => [String(item.user_id), item])),
     [data],
   );
-  const profileByUser = useMemo(
-    () => new Map((data?.profiles ?? []).map((profile) => [String(profile.user_id), profile])),
-    [data],
-  );
-
   const visibleProfiles = useMemo(() => {
     const term = search.trim().toLowerCase();
     const profiles = data?.profiles ?? [];
@@ -287,7 +213,7 @@ export default function AdminAccountsPanel() {
         <div>
           <h2 className="text-[24px] font-semibold leading-tight">用户与额度</h2>
           <a href="/admin/experience" target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center text-sm text-[#245f86] underline">预览不同身份与额度界面 ↗</a>
-          <p className="mt-1 max-w-2xl text-sm leading-6 text-[#4d535a]">查看全站用量与模型成本，管理用户、套餐及邀请码。</p>
+          <p className="mt-1 max-w-2xl text-sm leading-6 text-[#4d535a]">管理账号与套餐，按需查看用量、访问和留存。</p>
         </div>
         <button className="min-h-10 self-start rounded-full border border-[#0066cc] px-4 text-sm font-medium text-[#0066cc] hover:bg-[#f2f7fc]" type="button" onClick={() => void load()}>
           刷新账号
@@ -306,16 +232,20 @@ export default function AdminAccountsPanel() {
           <div className="flex gap-2"><button className="min-h-9 rounded-full bg-white px-3" type="button" onClick={() => void navigator.clipboard.writeText(notice.pin)}>复制密码</button><button className="min-h-9 rounded-full px-3" type="button" onClick={() => setNotice(null)}>关闭</button></div>
         </div>
       )}
-      {!data && !error && <div className="mt-6 grid gap-3 sm:grid-cols-3" aria-label="正在读取账号与用量">{[0, 1, 2].map((item) => <div key={item} className="h-24 animate-pulse rounded-xl bg-white motion-reduce:animate-none" />)}</div>}
+      {!data && !error && section !== "usage" && section !== "retention" && <div className="mt-6 grid gap-3 sm:grid-cols-3" aria-label="正在读取账号与用量">{[0, 1, 2].map((item) => <div key={item} className="h-24 animate-pulse rounded-xl bg-white motion-reduce:animate-none" />)}</div>}
+
+      <AdminSection active={section === "usage"}>
+        <AdminUsageReport profiles={data?.profiles ?? []} onSelectUser={userId => {setSearch(userId);setSection("users");}} />
+        <details className={reportStyles.details} onToggle={event=>{if(event.currentTarget.open)setShowArticleDetails(true);}}><summary>文章扣量与精选缓存明细</summary>{showArticleDetails && <AdminArticleUsageDetails profiles={data?.profiles ?? []} />}</details>
+      </AdminSection>
+      <AdminSection active={section === "retention"}><AdminProductAnalytics /></AdminSection>
 
       {data && (
         <>
-          <div hidden={section !== "usage"}><AdminUsageReport profiles={data.profiles} onSelectUser={userId => { setSearch(userId); setSection("users"); document.getElementById("account-content")?.scrollIntoView({block:"start"}); }} /></div>
-          <div hidden={section !== "users"}>
-          {section === "users" && <AdminProductAnalytics />}
+          <AdminSection active={section === "activity"}>
           <section id="account-activity" className="mt-6 scroll-mt-24 overflow-hidden rounded-2xl bg-white">
             <div className="border-b border-[#e1e5e9] px-5 py-4">
-              <h3 className="text-lg font-semibold">活跃用户</h3>
+              <h3 className="text-lg font-semibold">访问概览</h3>
               <p className="mt-1 text-xs leading-5 text-[#68717a]">按上海自然日统计真正打开过站内客户端的去重身份。MAU 为最近 30 个自然日，不是只做过 AI 操作的人。</p>
             </div>
             <dl className="grid divide-y divide-[#e1e5e9] sm:grid-cols-3 sm:divide-x sm:divide-y-0">
@@ -331,15 +261,15 @@ export default function AdminAccountsPanel() {
             </div>
           </section>
 
-          </div>
-          <div hidden={section !== "invitations"}>
+          </AdminSection>
+          <AdminSection active={section === "invitations"}>
           <div id="account-invitations" className="scroll-mt-24">
             <AdminInvitationCodesPanel profiles={data.profiles} />
             <AdminStudyPanel />
           </div>
 
-          </div>
-          <div hidden={section !== "plans"}>
+          </AdminSection>
+          <AdminSection active={section === "plans"}>
           <section id="account-plans" className="mt-6 scroll-mt-24 overflow-hidden rounded-2xl bg-white">
             <div className="border-b border-[#e1e5e9] px-5 py-5">
               <h3 className="text-[21px] font-semibold">套餐点数规则</h3>
@@ -376,9 +306,8 @@ export default function AdminAccountsPanel() {
             </div>
           </section>
 
-          </div>
-          <div hidden={section !== "users"}>
-          {section === "users" && <AdminProductAnalytics />}
+          </AdminSection>
+          <AdminSection active={section === "users"}>
           <section id="account-users" className="mt-6 scroll-mt-24 overflow-hidden rounded-2xl bg-white">
             <div className="flex flex-col gap-4 border-b border-[#e1e5e9] px-5 py-5 sm:flex-row sm:items-end sm:justify-between">
               <div><h3 className="text-[21px] font-semibold">用户账号</h3><p className="mt-1 text-sm leading-6 text-[#4d535a]">日常通常只需要分配套餐、封禁异常账号或帮助用户重置密码。</p></div>
@@ -427,45 +356,7 @@ export default function AdminAccountsPanel() {
             )}
           </section>
 
-          <details className="mt-6"><summary className="cursor-pointer py-3 text-sm font-semibold">近 30 天摘要、翻译与精选缓存汇总</summary><section className="mt-6 overflow-hidden rounded-2xl bg-white" aria-labelledby="quota-split-title">
-            <div className="border-b border-[#e1e5e9] px-5 py-4">
-              <h3 id="quota-split-title" className="text-lg font-semibold">扣量与模型成本拆分（近 30 天）</h3>
-              <p className="mt-1 text-xs leading-5 text-[#68717a]">用户额度按一次完整动作统计；模型 请求按实际上游流批次统计。普通文章通常只需 1 次，超长文章才会拆成少量批次。</p>
-            </div>
-            <div className="divide-y divide-[#e1e5e9]">
-              <QuotaUsageRow label="摘要" usage={data.quotaUsage.summary} articleUnit="生成文章" />
-              <QuotaUsageRow label="全文翻译" usage={data.quotaUsage.translation} articleUnit="生成文章" />
-              <article className="grid gap-3 px-5 py-4 lg:grid-cols-[150px_minmax(0,1fr)] lg:gap-5">
-                <div><strong className="text-sm">精选缓存</strong><p className="mt-1 text-[11px] text-[#247044]">实际模型成本 ￥0</p></div>
-                <dl className="grid grid-cols-2 gap-y-4 divide-x divide-[#e1e5e9] sm:grid-cols-4">
-                  <MetricCell label="命中次数" value={`${data.quotaUsage.publicCache.hits.toLocaleString("zh-CN")} 次`} />
-                  <MetricCell label="涉及文章" value={`${data.quotaUsage.publicCache.articles.toLocaleString("zh-CN")} 篇`} />
-                  <MetricCell label="节省调用" value={`${data.quotaUsage.publicCache.avoidedDeepSeekCalls.toLocaleString("zh-CN")} 次`} />
-                  <MetricCell label="模型 成本" value="￥0.0000" />
-                </dl>
-              </article>
-            </div>
-          </section></details>
-
-          <section id="account-details" className="mt-6 scroll-mt-24 overflow-hidden rounded-2xl bg-white">
-            <div className="border-b border-[#e1e5e9] px-5 py-5">
-              <h3 className="text-[21px] font-semibold">每个用户、每篇文章的扣量记录</h3>
-              <p className="mt-1 text-sm leading-6 text-[#4d535a]">最近 30 天最多显示 500 条摘要和全文翻译动作。私人文章只显示匿名正文版本，不保存正文内容。</p>
-            </div>
-            {data.quotaUsage.details.length === 0 ? <p className="px-5 py-10 text-center text-sm text-[#68717a]">还没有摘要或全文翻译扣量记录。</p> : (
-              <div className="overflow-x-auto">
-                <table className="min-w-[980px] w-full text-left text-sm">
-                  <thead className="bg-[#f5f7f8] text-xs text-[#59636c]"><tr><th className="px-5 py-3 font-semibold">时间 / 用户</th><th className="px-3 py-3 font-semibold">文章</th><th className="px-3 py-3 font-semibold">类型</th><th className="px-3 py-3 font-semibold">用户扣量</th><th className="px-3 py-3 font-semibold">模型调用</th><th className="px-3 py-3 font-semibold">Tokens / 成本</th><th className="px-5 py-3 font-semibold">结果</th></tr></thead>
-                  <tbody className="divide-y divide-[#e1e5e9]">{data.quotaUsage.details.map((detail) => {
-                    const profile = profileByUser.get(detail.userId);
-                    const totalTokens = detail.promptTokens + detail.completionTokens;
-                    return <tr key={detail.id} className="align-top"><td className="px-5 py-4"><time className="block whitespace-nowrap">{new Date(detail.createdAt).toLocaleString("zh-CN", { timeZone: "Asia/Shanghai", month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit" })}</time><span className="mt-1 block text-xs text-[#68717a]">{profile ? profileName(profile) : "账号已删除"}</span></td><td className="max-w-xs px-3 py-4"><strong className="block truncate text-[#27333d]" title={detail.articleLabel}>{detail.articleLabel}</strong><span className="mt-1 block font-mono text-[11px] text-[#7b858d]">{detail.articleKey.slice(0, 12) || "无版本号"}</span></td><td className="px-3 py-4">{detail.metricKey === "article_summary" ? "摘要" : detail.source === "public_cache" ? "精选缓存" : "全文翻译"}</td><td className="px-3 py-4">{detail.quotaUnits > 0 ? `${detail.quotaUnits} ${detail.quotaMetric === "learning_points" ? "点" : "次（旧制）"}` : "0"}</td><td className="px-3 py-4">{detail.providerExecutions} 次调用</td><td className="px-3 py-4">{totalTokens.toLocaleString("zh-CN")}<span className="mt-1 block text-xs text-[#68717a]">￥{detail.estimatedCostCny.toFixed(6)}{detail.unknownCost > 0 ? ` + ${detail.unknownCost} 次待核算` : ""}</span></td><td className="px-5 py-4"><span className={`rounded-full px-2.5 py-1 text-xs font-medium ${detail.status === "succeeded" || detail.status === "cached" ? "bg-[#e9f5ee] text-[#17613b]" : "bg-red-50 text-red-700"}`}>{detail.status === "cached" ? "缓存命中" : detail.status === "succeeded" ? "成功" : detail.status === "reserved" ? "进行中" : "失败/取消"}</span></td></tr>;
-                  })}</tbody>
-                </table>
-              </div>
-            )}
-          </section>
-          </div>
+          </AdminSection>
         </>
       )}
       </div></div>
@@ -507,25 +398,5 @@ function BonusControl({
         <button className="border-l border-[#d7dce1] px-3 text-xs font-medium text-[#175a8d] hover:bg-[#edf5fb] disabled:text-[#8c969e]" type="button" disabled={saving === id} onClick={() => { const input = document.getElementById(id) as HTMLInputElement; void onSave({ action: "set_bonus", userId, metricKey: metric, allowance: Number(input.value) }, id); }}>{saving === id ? "保存中" : "保存"}</button>
       </span>
     </label>
-  );
-}
-
-
-function MetricCell({ label, value }: { label: string; value: string }) {
-  return <div className="px-3 first:pl-0"><dt className="text-[11px] text-[#68717a]">{label}</dt><dd className="mt-1 text-base font-semibold text-[#17212b]">{value}</dd></div>;
-}
-
-function QuotaUsageRow({ label, usage, articleUnit }: { label: string; usage: QuotaFeatureUsage; articleUnit: string }) {
-  return (
-    <article className="grid gap-3 px-5 py-4 lg:grid-cols-[150px_minmax(0,1fr)] lg:gap-5">
-      <div><strong className="text-sm">{label}</strong><p className="mt-1 text-[11px] text-[#68717a]">成功 {usage.succeededActions} · 失败 {usage.failedActions}</p></div>
-      <dl className="grid grid-cols-2 gap-y-4 divide-x divide-[#e1e5e9] sm:grid-cols-5">
-        <MetricCell label="扣量操作数" value={`${usage.chargedActions.toLocaleString("zh-CN")} 次`} />
-        <MetricCell label={articleUnit} value={`${usage.generatedArticles.toLocaleString("zh-CN")} 篇`} />
-        <MetricCell label="AI 请求" value={`${usage.providerExecutions.toLocaleString("zh-CN")} 次`} />
-        <MetricCell label="Tokens" value={(usage.promptTokens + usage.completionTokens).toLocaleString("zh-CN")} />
-        <MetricCell label="估算成本" value={`￥${usage.estimatedCostCny.toFixed(6)}${usage.unknownCost ? " + 待核算" : ""}`} />
-      </dl>
-    </article>
   );
 }
