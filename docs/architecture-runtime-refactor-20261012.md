@@ -25,18 +25,26 @@ The server APIs, provider selection/fallback, billing schema, publishing workflo
 | `createArticleTranslationProgress(blocks, initial)` | Maintain ordered immutable snapshots and constant-time replacement/index lookups | Storage, timers, network or UI |
 | `startArticleTranslationJob` / snapshot / subscription | Coordinate the existing action lifecycle, owner isolation, durable progress and cache publication | Component layout or account authentication decisions |
 | `useReaderTranslationSession(key, blocks, expectedOwner)` | Subscribe the mounted view to its ready owner's job and cache; preserve same-owner edit state | Starting paid work automatically or canceling a job when a tool panel changes |
+| Vocabulary repository read/write interfaces | Decode, normalize and detach owner-specific persisted snapshots behind the existing vocabulary facade | Reader/Study rendering, vocabulary domain actions or transport policy |
 
-`tests/architecture-boundaries.test.ts` guards the direct import edges of these layers. It deliberately forces a dependency decision to be reviewed when a future change adds an edge; it complements behavior tests rather than proving correctness by file layout. Existing facades and type contracts remain the supported entry points, so a view edit does not require edits to persistence or provider transport.
+`tests/architecture-boundaries.test.ts` guards the direct import edges of these layers, pure model/progress effects, and the complete reachable internal static runtime dependency graph (including re-exports) for cycles or reverse edges into Reader/routes. Type-only dependencies and third-party package internals are excluded; this does not claim that the entire pre-existing application is cycle-free. The checks deliberately force a dependency decision to be reviewed when a future change adds an edge; they complement behavior tests rather than proving correctness by file layout. Existing facades and type contracts remain the supported entry points, so a view edit does not require edits to persistence or provider transport.
+
+The direction is UI → session/task orchestration → transport/progress/repositories → shared data utilities. Changing an allowed dependency requires reviewing its responsibility and behavior contract; moving an effect into a helper does not justify bypassing the boundary. A future visual change should not require edits to persistent record representation or provider request handling.
 
 ## Reproducible checks
 
 ```powershell
+npm.cmd run test:architecture
 node --import tsx scripts/benchmark-architecture-runtime.mjs 4d0d91106087951d8d4271b46a328c0908f869d3
 npm.cmd run test:critical
 node_modules/.bin/tsx.cmd --test tests/architecture-runtime.test.ts tests/translation-job-ownership.test.ts tests/translation-background.test.ts tests/article-translation-batching.test.ts
 node_modules/.bin/tsx.cmd --test tests/reader-translation-session.test.tsx tests/architecture-boundaries.test.ts
 node_modules/.bin/tsc.cmd --noEmit --incremental false
 ```
+
+`test:architecture` uses the repository's server-context test loader and runs dependency guards, mixed Reader content, detached vocabulary snapshots, cache compatibility, translation cancellation/late-response ownership, mounted Reader login, background tasks, IndexedDB recovery, sync, logout, account isolation and the critical suite. It has no browser-runtime installation or machine-specific path requirement. Feature-specific CET/media/loading/provider suites and release checks remain required when affected.
+
+For independent document compatibility, `node --import tsx scripts/audit-reader-document-model.ts` executes the accepted baseline expressions and compares mixed content, blank lines, table/caption/inline offsets and source indices. UI review uses the identical before/after browser fixture and `node scripts/audit-architecture-visuals.mjs`; the explicitly recorded baseline may be updated only after accepting a release with evidence.
 
 The benchmark extracts and executes the old compiler from the specified Git revision. It checks 22 mixed/plain/generated documents by deep equality across all pre-existing model fields and compares all 264 Reader JSX nodes verbatim. The oracle and raw results are written under ignored `artifacts/architecture-runtime/`.
 
