@@ -84,7 +84,7 @@ export function FeatureShowcase({ sectionRef, onGuide, motionEnabled, guideOpen 
               <button type="button" className={styles.next} onClick={() => select(0)}>再看一遍 <span aria-hidden="true">↗</span></button>
             </div>
           </div> : feature.screens.map(screen => <ShowcaseRecording warm={warm} key={screen.label} src={screen.src} label={screen.label} playing={visible && !paused} onBuffered={() => setRecordingBuffered(true)} />)}
-          <GuideLanyard active={feature.id === "explore"} preload={visible && (feature.id !== "publications" || recordingBuffered)} onOpen={onGuide} running={feature.id === "explore" && visible && !paused && !guideOpen} motionEnabled={motionEnabled} />
+          <GuideLanyard replay={replay} active={feature.id === "explore"} preload={visible && (feature.id !== "publications" || recordingBuffered)} onOpen={onGuide} running={feature.id === "explore" && visible && !paused && !guideOpen} motionEnabled={motionEnabled} />
         </div>
       </div>
       <div className={styles.navigation}>

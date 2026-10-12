@@ -46,6 +46,8 @@ const BACK_UV_RECT = { x: 0.5, y: 0, w: 0.5, h: 0.757 };
 
 interface LanyardProps {
   running: boolean;
+  replay: number;
+  onReady: () => void;
   onDragStart: () => void;
   onDragRelease: () => void;
   position?: [number, number, number];
@@ -60,7 +62,7 @@ interface LanyardProps {
 }
 
 export default function Lanyard({
-  running, onDragStart, onDragRelease,
+  running, replay, onReady, onDragStart, onDragRelease,
   position = [0, 0, 20],
   gravity = [0, -40, 0],
   fov = 20,
@@ -91,6 +93,9 @@ export default function Lanyard({
         <ambientLight intensity={Math.PI} />
         <Physics paused={!running} gravity={gravity} timeStep={isMobile ? 1 / 30 : 1 / 60}>
           <Band
+            key={replay}
+            running={running}
+            onReady={onReady}
             onDragStart={onDragStart}
             onDragRelease={onDragRelease}
             isMobile={isMobile}
@@ -137,6 +142,8 @@ export default function Lanyard({
 }
 
 interface BandProps {
+  running: boolean;
+  onReady: () => void;
   onDragStart: () => void;
   onDragRelease: () => void;
   maxSpeed?: number;
@@ -154,7 +161,7 @@ type LanyardRigidBody = RapierRigidBody & {
 };
 
 function Band({
-  onDragStart, onDragRelease,
+  running, onReady, onDragStart, onDragRelease,
   maxSpeed = 50,
   minSpeed = 0,
   isMobile = false,
@@ -170,6 +177,13 @@ function Band({
   const j2 = useRef<LanyardRigidBody>(null!);
   const j3 = useRef<RapierRigidBody>(null!);
   const card = useRef<RapierRigidBody>(null!);
+  const [falling, setFalling] = useState(true);
+  const elapsed = useRef(0);
+  const firstFrame = useRef(true);
+  const notified = useRef(false);
+  const fallRotation = useMemo(() => new THREE.Quaternion(), []);
+  const fallAxis = useMemo(() => new THREE.Vector3(0, 0, 1), []);
+  useEffect(() => { firstFrame.current = true; }, [running]);
 
   const gesture = useRef<{ x: number; y: number; moved: boolean } | null>(null);
   const vec = new THREE.Vector3();
@@ -273,6 +287,38 @@ function Band({
   }, [hovered, dragged]);
 
   useFrame((state, delta) => {
+    if (!fixed.current || !card.current || !j1.current || !j2.current || !j3.current || !band.current) return;
+    if (!notified.current) { notified.current = true; onReady(); }
+    // Resource preparation never consumes the entrance. Resume also discards
+    // the first large delta after a hidden tab, pause, or Menu visit.
+    if (!running) { firstFrame.current = true; return; }
+    if (falling) {
+      if (!firstFrame.current) elapsed.current += Math.min(delta, 0.05);
+      firstFrame.current = false;
+      const t = Math.min(elapsed.current / 1.15, 1);
+      const progress = t * t * (3 - 2 * t);
+      const x = 0.18 * (1 - progress);
+      const y = 6.5 - 6.95 * progress;
+      const tilt = 0.10 * (1 - progress) + 0.035 * progress;
+      fallRotation.setFromAxisAngle(fallAxis, tilt);
+      card.current.setTranslation({ x, y, z: 0 }, true);
+      card.current.setRotation(fallRotation, true);
+      // Unfold the same strap above the same card, then hand the exact final
+      // pose to Rapier. No placeholder card or pre-settled replacement.
+      const attachX = x - Math.sin(tilt) * 1.45;
+      const attachY = y + Math.cos(tilt) * 1.45;
+      [j1, j2, j3].forEach((ref, index) => {
+        const part = (index + 1) / 3;
+        ref.current.setTranslation({ x: attachX * part, y: 4 + (attachY - 4) * part, z: 0 }, true);
+      });
+      getLerped(j1.current).copy(j1.current.translation());
+      getLerped(j2.current).copy(j2.current.translation());
+      if (t === 1) {
+        card.current.setLinvel({ x: 0.12, y: 0, z: 0 }, true);
+        card.current.setAngvel({ x: 0, y: 0, z: 0.18 }, true);
+        setFalling(false);
+      }
+    }
     if (dragged && typeof dragged !== 'boolean') {
       vec.set(state.pointer.x, state.pointer.y, 0.5).unproject(state.camera);
       dir.copy(vec).sub(state.camera.position).normalize();
@@ -297,7 +343,7 @@ function Band({
       band.current.geometry.setPoints(curve.getPoints(isMobile ? 16 : 32));
       ang.copy(card.current.angvel());
       rot.copy(card.current.rotation());
-      card.current.setAngvel({ x: ang.x, y: ang.y - rot.y * 0.25, z: ang.z }, true);
+      if (!falling) card.current.setAngvel({ x: ang.x, y: ang.y - rot.y * 0.25, z: ang.z }, true);
     }
   });
 
@@ -308,20 +354,20 @@ function Band({
     <>
       <group position={[0, 4, 0]}>
         <RigidBody ref={fixed} {...segmentProps} type="fixed" />
-        <RigidBody position={[0.5, 0, 0]} ref={j1} {...segmentProps} type="dynamic">
+        <RigidBody position={[0, 1.32, 0]} ref={j1} {...segmentProps} type={falling ? 'kinematicPosition' : 'dynamic'}>
           <BallCollider args={[0.1]} />
         </RigidBody>
-        <RigidBody position={[1, 0, 0]} ref={j2} {...segmentProps} type="dynamic">
+        <RigidBody position={[0, 2.63, 0]} ref={j2} {...segmentProps} type={falling ? 'kinematicPosition' : 'dynamic'}>
           <BallCollider args={[0.1]} />
         </RigidBody>
-        <RigidBody position={[1.5, 0, 0]} ref={j3} {...segmentProps} type="dynamic">
+        <RigidBody position={[0, 3.95, 0]} ref={j3} {...segmentProps} type={falling ? 'kinematicPosition' : 'dynamic'}>
           <BallCollider args={[0.1]} />
         </RigidBody>
         <RigidBody
-          position={[2, 0, 0]}
+          position={[0.18, 2.5, 0]}
           ref={card}
           {...segmentProps}
-          type={dragged ? 'kinematicPosition' : 'dynamic'}
+          type={falling || dragged ? 'kinematicPosition' : 'dynamic'}
         >
           <CuboidCollider args={[0.8, 1.125, 0.01]} />
           <group
@@ -342,7 +388,7 @@ function Band({
             }}
             onPointerDown={(e: ThreeEvent<PointerEvent>) => {
               e.stopPropagation();
-              if (e.button !== 0) return;
+              if (e.button !== 0 || falling || !running) return;
               onDragStart();
               gesture.current = { x: e.clientX, y: e.clientY, moved: false };
               (e.target as Element).setPointerCapture(e.pointerId);

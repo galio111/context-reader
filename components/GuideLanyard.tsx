@@ -5,7 +5,7 @@ import { Component, useEffect, useRef, useState, type ReactNode } from "react";
 import styles from "./GuideLanyard.module.css";
 
 const loadScene = () => import("./GuideLanyardScene");
-const Scene = dynamic(loadScene, { ssr: false, loading: () => <div className={styles.preflight} aria-hidden="true"><i /></div> });
+const Scene = dynamic(loadScene, { ssr: false });
 
 class SceneBoundary extends Component<{ children: ReactNode; fallback: ReactNode }, { failed: boolean }> {
   state = { failed: false };
@@ -13,13 +13,14 @@ class SceneBoundary extends Component<{ children: ReactNode; fallback: ReactNode
   render() { return this.state.failed ? this.props.fallback : this.props.children; }
 }
 
-export function GuideLanyard({ active, preload, onOpen, running, motionEnabled }: { active: boolean; preload: boolean; onOpen: () => void; running: boolean; motionEnabled: boolean }) {
+export function GuideLanyard({ active, preload, onOpen, running, motionEnabled, replay }: { active: boolean; preload: boolean; onOpen: () => void; running: boolean; motionEnabled: boolean; replay: number }) {
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [reduced, setReduced] = useState(false);
   const [supported, setSupported] = useState(true);
   const [compact, setCompact] = useState(true);
   const [started, setStarted] = useState(false);
   const [settling, setSettling] = useState(false);
+  const [ready, setReady] = useState(false);
   const open = useRef(onOpen);
   open.current = onOpen;
   useEffect(() => {
@@ -39,18 +40,19 @@ export function GuideLanyard({ active, preload, onOpen, running, motionEnabled }
     return () => query.removeEventListener("change", update);
   }, []);
   useEffect(() => {
-    if (preload && !compact && motionEnabled && !reduced && supported) {
+    if ((preload || active) && !compact && motionEnabled && !reduced && supported) {
       setStarted(true);
       void loadScene();
       for (const path of ["/lanyard/card.glb", "/lanyard/card-atlas.webp", "/lanyard/front.svg", "/lanyard/back.svg", "/lanyard/lanyard.png"]) {
         void fetch(path, { cache: "force-cache" }).catch(() => {});
       }
     }
-  }, [compact, motionEnabled, preload, reduced, supported]);
+  }, [active, compact, motionEnabled, preload, reduced, supported]);
   useEffect(() => {
+    setSettling(false);
     if (!running && timer.current) { clearTimeout(timer.current); timer.current = null; setSettling(false); }
     return () => { if (timer.current) { clearTimeout(timer.current); timer.current = null; } };
-  }, [running]);
+  }, [running, replay]);
   function cancelPending() {
     if (timer.current) clearTimeout(timer.current);
     timer.current = null; setSettling(false);
@@ -65,7 +67,8 @@ export function GuideLanyard({ active, preload, onOpen, running, motionEnabled }
   if (compact) return null;
   return <div className={styles.lanyard} data-active={active || undefined} data-guide-lanyard data-settling={settling} aria-hidden={!active} inert={!active}>
     {supported && motionEnabled && !reduced ? <SceneBoundary fallback={fallback}>
-      {started && <Scene running={running} onDragStart={cancelPending} onDragRelease={release} />}
+      {active && !ready && <div className={styles.preflight} role="status" aria-label="正在准备使用说明"><i /></div>}
+      {started && <Scene running={running} replay={replay} onReady={() => setReady(true)} onDragStart={cancelPending} onDragRelease={release} />}
       <button className={styles.keyboard} onClick={() => open.current()}>打开 Menu 中的使用说明</button>
     </SceneBoundary> : fallback}
   </div>;
