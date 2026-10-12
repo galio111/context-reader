@@ -403,8 +403,9 @@ function writeTombstones(storage: Storage, tombstones: Record<string, string>): 
 function mergeCloudIntoLocal(
   objects: AccountSyncObject[],
   manifest: Record<string, SyncManifestEntry>,
-): void {
-  if (objects.length === 0) return;
+): boolean {
+  if (objects.length === 0) return false;
+  let projectedVocabularyChanged = false;
   const storage = getLearningStorage();
   const tombstones = readTombstones(storage);
   // Merge intent events before projecting any legacy active/deleted history rows.
@@ -643,15 +644,31 @@ function mergeCloudIntoLocal(
       if (!query) continue;
       const snapshot = localDictionaryCacheByQuery.get(normalizeDictionaryQuery(query))
         ?? findStandaloneDictionaryCacheItem(query, storage);
-      if (snapshot) localVocabularyById.set(id, reconcileStandaloneVocabulary(entry, snapshot));
+      if (snapshot) {
+        const next = reconcileStandaloneVocabulary(entry, snapshot);
+        projectedVocabularyChanged ||= next !== entry;
+        localVocabularyById.set(id, next);
+      }
     }
+    const updatesByIdentity = new Map<string, typeof contextUpdates[number]>();
     for (const update of contextUpdates) {
       const separator = update.cacheKey.indexOf("::");
       if (separator < 0) continue;
-      const context = { word: update.cacheKey.slice(0, separator), sentence: update.cacheKey.slice(separator + 2) };
-      for (const [id, entry] of localVocabularyById) {
-        localVocabularyById.set(id, reconcileContextualVocabulary(entry, update.explanation, context, update.updatedAt));
-      }
+      updatesByIdentity.set(vocabularyIdentity({ word: update.cacheKey.slice(0, separator), sourceSentence: update.cacheKey.slice(separator + 2) }), update);
+    }
+    let legacyExplanations: Record<string, WordExplanation> | undefined;
+    for (const [id, entry] of localVocabularyById) {
+      if (!entry.sourceSentence.trim() || standaloneVocabularyQuery(entry)) continue;
+      const cacheKey = `${entry.word.trim().toLowerCase()}::${entry.sourceSentence.trim().toLowerCase()}`;
+      const update = updatesByIdentity.get(vocabularyIdentity(entry));
+      const cached = update?.explanation ?? (maps.explanation?.[cacheKey] ?? (isLearningStorage(storage)
+        ? storage.getRecord(KEYS.explanations, cacheKey)
+        : (legacyExplanations ??= parseJson<Record<string, WordExplanation>>(storage.getItem(KEYS.explanations), {}))[cacheKey])) as WordExplanation | undefined;
+      const updatedAt = update?.updatedAt || cached?.cacheUpdatedAt;
+      if (!cached || !updatedAt) continue;
+      const next = reconcileContextualVocabulary(entry, cached, { word: entry.word, sentence: entry.sourceSentence }, updatedAt);
+      projectedVocabularyChanged ||= next !== entry;
+      localVocabularyById.set(id, next);
     }
     const deduplicatedVocabulary = deduplicateVocabularyEntries(Array.from(localVocabularyById.values()));
     const deduplicatedAt = new Date().toISOString();
@@ -685,6 +702,7 @@ function mergeCloudIntoLocal(
   if (needsDictionaryHistory) writeStandaloneDictionaryHistory(storage, Array.from(localDictionaryHistoryByQuery.values()));
   if (needsDictionaryCache) writeStandaloneDictionaryCache(storage, Array.from(localDictionaryCacheByQuery.values()));
   writeTombstones(storage, tombstones);
+  return projectedVocabularyChanged;
 }
 
 async function collectLocalObjects(
@@ -976,8 +994,11 @@ async function performAccountSync(
   let manifest = mergeManifest(state.manifest, cloud.objects);
   report({ phase: "merging", initial, pulledCount: cloud.objects.length, pushedCount: 0 });
   if (cloud.objects.length > 0) {
-    mergeCloudIntoLocal(cloud.objects, manifest);
-    notifyAccountDataMerged(Array.from(new Set(cloud.objects.map((object) => object.kind))));
+    const projectedVocabularyChanged = mergeCloudIntoLocal(cloud.objects, manifest);
+    notifyAccountDataMerged(Array.from(new Set([
+      ...cloud.objects.map((object) => object.kind),
+      ...(projectedVocabularyChanged ? ["vocabulary" as const] : []),
+    ])));
   }
   const local = mode === "full"
     ? await collectLocalObjects(manifest, initial || cloud.objects.length > 0 ? undefined : dirtyKinds)

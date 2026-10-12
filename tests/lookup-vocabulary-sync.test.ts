@@ -17,6 +17,7 @@ import { getLearningStorage, initializeLearningStorage, flushLearningStorage, is
 import { prepareLocalAccountForUser, syncAccountData } from "../lib/accountSyncClient";
 import { parseDictionaryStream } from "../lib/dictionaryStream";
 import { DictionaryProviderStreamNormalizer } from "../lib/dictionaryStreamServer";
+import { ACCOUNT_DATA_MERGED_EVENT, accountDataEventKinds } from "../lib/accountEvents";
 import type { DictionaryResult } from "../types/dictionary";
 import type { VocabularyEntry } from "../types/vocabulary";
 import type { AccountSyncObject, AccountSyncWriteResult } from "../types/account";
@@ -131,11 +132,15 @@ test("central explanation cache writer updates the exact saved contextual entry 
   assert.equal(getVocabularyEntry(entry.id)!.contextMeaning, "银行门外");
   assert.equal(getVocabularyEntry(nearby.id)!.contextMeaning, nearby.contextMeaning);
   assert.equal(getVocabularyEntry(dictionary.id)!.contextMeaning, dictionary.contextMeaning);
+  setCachedExplanation(createExplanationCacheKey(entry.word, entry.sourceSentence), { ...entry, contextMeaning: "旧的公开预载" },
+    { syncVocabulary: false, updatedAt: "1970-01-01T00:00:00.000Z" });
+  assert.equal(getVocabularyEntry(entry.id)!.contextMeaning, "银行门外");
 }));
 
 test("protocol-2 merges reconcile cache-first dictionary pages and preserve a newer local contextual regeneration", () => browser(async () => {
   const originalFetch = globalThis.fetch;
   const cloud = new Map<string, AccountSyncObject>();
+  let deltaKinds: string[] | null = null;
   const dictionary = standalone(), context = contextual();
   function cloudObject(kind: AccountSyncObject["kind"], objectKey: string, payload: unknown, at = OLD) {
     cloud.set(kind + ":" + objectKey, { kind, objectKey, payload, clientUpdatedAt: at, serverVersion: 1 });
@@ -153,7 +158,7 @@ test("protocol-2 merges reconcile cache-first dictionary pages and preserve a ne
       return Response.json({ objects: results });
     }
     const params = new URL(String(input), "https://context-reader.com").searchParams;
-    if (!params.has("bootstrap")) return Response.json({ objects: [...cloud.values()], nextCursor: "current", hasMore: false });
+    if (!params.has("bootstrap")) return Response.json({ objects: [...cloud.values()].filter(object => !deltaKinds || deltaKinds.includes(object.kind)), nextCursor: "current", hasMore: false });
     const learning = new Set(["article", "vocabulary", "reading_state"]);
     return Response.json({ objects: [...cloud.values()].filter(object =>
       Boolean(object.deletedAt) === (params.get("bootstrap") === "deleted")
@@ -172,6 +177,20 @@ test("protocol-2 merges reconcile cache-first dictionary pages and preserve a ne
     await syncAccountData();
     assert.match(getVocabularyEntry(dictionary.id)!.basicMeaning, /云端新词义/);
     assert.equal(getVocabularyEntries().length, 2);
+    const mergedKinds: string[][] = [];
+    window.addEventListener(ACCOUNT_DATA_MERGED_EVENT, event => mergedKinds.push(accountDataEventKinds(event)));
+    const future = "2030-01-01T00:00:00.000Z";
+    cloudObject("explanation", contextKey, { ...context, contextMeaning: "另一设备重新生成", cacheUpdatedAt: future }, future);
+    deltaKinds = ["explanation"];
+    await syncAccountData();
+    assert.equal(getVocabularyEntry(context.id)!.contextMeaning, "另一设备重新生成");
+    assert.ok(mergedKinds.some(kinds => kinds.includes("explanation") && kinds.includes("vocabulary")));
+    cloudObject("vocabulary", context.id, { ...context, explanationUpdatedAt: OLD, updatedAt: "2031-01-01T00:00:00.000Z",
+      anki: { ...context.anki, ankiNoteId: 9876 } }, "2031-01-01T00:00:00.000Z");
+    deltaKinds = ["vocabulary"];
+    await syncAccountData();
+    assert.equal(getVocabularyEntry(context.id)!.contextMeaning, "另一设备重新生成");
+    assert.equal(getVocabularyEntry(context.id)!.anki.ankiNoteId, 9876);
   } finally { globalThis.fetch = originalFetch; }
 }));
 

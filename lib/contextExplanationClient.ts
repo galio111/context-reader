@@ -1,6 +1,7 @@
 import { fetchJson } from "@/lib/apiClient";
 import type { WordContext, WordExplanation } from "@/types/reader";
 import { EXPLANATION_STREAM_COMPLETE_MARKER } from "@/lib/explanationStreamProtocol";
+import { dictionaryHistoryOwner } from "@/lib/standaloneDictionaryHistory";
 
 function requestBody(context: WordContext) {
   return JSON.stringify({
@@ -15,6 +16,7 @@ export async function requestContextExplanation(
   context: WordContext,
   signal: AbortSignal,
   actionId: string,
+  expectedOwner = dictionaryHistoryOwner(),
 ): Promise<WordExplanation> {
   const { response, data } = await fetchJson<{ explanation?: WordExplanation; error?: string }>(
     "/api/explain-word",
@@ -23,6 +25,7 @@ export async function requestContextExplanation(
       headers: {
         "Content-Type": "application/json",
         "x-context-action-id": actionId,
+        "X-Context-Account": expectedOwner,
       },
       body: requestBody(context),
       signal,
@@ -53,6 +56,7 @@ export async function requestContextExplanationStream(
   signal: AbortSignal,
   onChunk: (chunk: string) => void,
   actionId: string,
+  expectedOwner = dictionaryHistoryOwner(),
 ): Promise<string> {
   let response: Response;
 
@@ -62,6 +66,7 @@ export async function requestContextExplanationStream(
       headers: {
         "Content-Type": "application/json",
         "x-context-action-id": actionId,
+        "X-Context-Account": expectedOwner,
       },
       body: requestBody(context),
       signal,

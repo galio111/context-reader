@@ -80,9 +80,13 @@ export function getCachedExplanation(key: string): WordExplanation | null {
   };
 }
 
-export function setCachedExplanation(key: string, explanation: WordExplanation): void {
+export function setCachedExplanation(
+  key: string, explanation: WordExplanation, options: { updatedAt?: string; syncVocabulary?: boolean } = {},
+): void {
   const storage = getLearningStorage();
-  const saved = { ...explanation, cacheUpdatedAt: new Date().toISOString() };
+  const saved = { ...explanation, cacheUpdatedAt: options.updatedAt || new Date().toISOString() };
+  const existing = (isLearningStorage(storage) ? storage.getRecord(EXPLANATION_CACHE_KEY, key) : readCache()[key]) as WordExplanation | undefined;
+  if (existing?.cacheUpdatedAt && Date.parse(existing.cacheUpdatedAt) > Date.parse(saved.cacheUpdatedAt)) return;
   if (isLearningStorage(storage)) {
     storage.setRecord(EXPLANATION_CACHE_KEY, key, saved);
     notifyAccountDataChanged(["explanation"]);
@@ -92,7 +96,7 @@ export function setCachedExplanation(key: string, explanation: WordExplanation):
     writeCache(cache);
   }
   const separator = key.indexOf("::");
-  if (separator >= 0) replaceMatchingVocabularyEntry(saved, {
+  if (separator >= 0 && options.syncVocabulary !== false) replaceMatchingVocabularyEntry(saved, {
     word: key.slice(0, separator), sentence: key.slice(separator + 2),
     previousSentence: "", nextSentence: "", paragraphIndex: 0, tokenIndex: 0,
   });

@@ -51,6 +51,7 @@ export async function gateUsage(request: Request, options: {
   loginRequired?: boolean;
   guestOnly?: boolean;
 }): Promise<UsageGateResult> {
+  const expectedOwner = request.headers.get("X-Context-Account")?.trim() || "";
   let identity: UsageIdentity;
   try {
     identity = await resolveUsageIdentity(request);
@@ -60,7 +61,7 @@ export async function gateUsage(request: Request, options: {
       "[usage-gate] Failed to resolve account identity:",
       error instanceof Error ? error.message : "Unknown account identity error",
     );
-    if (options.loginRequired) {
+    if (options.loginRequired || expectedOwner) {
       throw new UsageGateError("账号与用量服务暂未配置，请稍后再试。", 503, "account_not_configured");
     }
     const actionId = actionIdFromRequest(request);
@@ -88,6 +89,9 @@ export async function gateUsage(request: Request, options: {
     };
   }
 
+  if (expectedOwner && expectedOwner !== (identity.authenticated ? identity.userId : "guest")) {
+    throw new UsageGateError("账号已切换，请刷新后重试。", 409, "account_changed");
+  }
   if (identity.suspended) {
     throw new UsageGateError("此账号或游客身份已被暂停，请联系管理员。", 403, "account_suspended");
   }
