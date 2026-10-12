@@ -27,7 +27,7 @@ Reader 的正文派生模型移到 `lib/readerDocumentModel.ts`，UI 继续由�
 
 ## Unified points and one-time membership purchases
 
-Signed-in non-Admin accounts use one learning-points balance: Free 300/month, Basic 5,000 at CNY 6/month or 60/year, Plus 15,000 at 15/150, and Max 30,000 at 30/300. Admin → 付费管理 owns public prices and next-cycle points; the public `/pricing` page reads that same configuration. Already issued grants and orders retain snapshots. Guest daily pools and Admin safety counters remain separate.
+Signed-in non-Admin accounts use one learning-points balance: Free 300/month, Basic 5,000 at CNY 6/month or 60/year, Plus 15,000 at 15/150, and Max 30,000 at 30/300. Admin → 付费管理 owns public prices and next-cycle points; the public `/pricing` page reads that same configuration. Already issued grants and orders retain snapshots. Guest daily pools and Admin safety counters remain separate. The shared BillingPage presents three paid plans plus a separate Free row, derives annual savings from the public catalog, and retains quote/topup/order behavior in both /pricing and the account dialog. Detailed billing rules expand inline; payment readiness remains server-owned. See [pricing design](pricing-design-20261012.md).
 
 Lookup costs 1 point; standalone dictionary and sentence follow-up 5; summary 2; full translation 10 per 500 English words rounded up. First delivery of a curated summary/translation costs points even when provider work is cached. Own-result replay is free. Failed work refunds idempotently; partial translation settles completed server-verified blocks. Pure reading/import/save is free for members.
 

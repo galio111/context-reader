@@ -11,7 +11,7 @@ const FULL = "context-reader:article-translations:v1";
 const BLOCK = "context-reader:article-translation-blocks:v1";
 const one: ArticleTranslationBlock = { id: "audit-one", type: "paragraph", text: "Careful readers preserve context." };
 const two: ArticleTranslationBlock = { id: "audit-two", type: "paragraph", text: "A later paragraph adds detail." };
-const translation = (block: ArticleTranslationBlock, text: string): ArticleTranslationItem => ({ id: block.id, type: block.type, translation: text });
+const translation = (block: ArticleTranslationBlock, text: string): ArticleTranslationItem & Pick<ArticleTranslationBlock, "type"> => ({ id: block.id, type: block.type, translation: text });
 async function browserFixture(run: (dom: JSDOM, factory: IDBFactory) => Promise<void>) {
   const dom = new JSDOM("", { url: "https://context-reader.com" });
   const original = new Map(["window", "document", "CustomEvent"].map(key => [key, Object.getOwnPropertyDescriptor(globalThis, key)]));

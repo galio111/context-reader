@@ -1,0 +1,33 @@
+{
+  "annual": true,
+  "widths": [
+    1024,
+    768,
+    700,
+    390,
+    320
+  ],
+  "keyboard": true,
+  "guestLogin": true,
+  "quote": true,
+  "repeat": true,
+  "reducedMotion": true,
+  "retry": true,
+  "accountDialog": true,
+  "passed": true,
+  "errors": [],
+  "posts": [
+    {
+      "action": "quote",
+      "planId": "plus",
+      "term": "month",
+      "kind": "membership"
+    },
+    {
+      "action": "quote",
+      "planId": "basic",
+      "term": "year",
+      "kind": "membership"
+    }
+  ]
+}
