@@ -44,9 +44,7 @@ import {
   setCachedExplanation,
 } from "@/lib/cache";
 import {
-  getArticleTranslationJobSnapshot,
   startArticleTranslationJob,
-  subscribeArticleTranslationJob,
 } from "@/lib/articleTranslationJobs";
 import { fetchJson } from "@/lib/apiClient";
 import {
@@ -97,6 +95,7 @@ import type { DictionaryResult } from "@/types/dictionary";
 import { useAccount } from "@/components/AccountProvider";
 import { useToolLayer } from "./useToolLayer";
 import { useReadingEvidence } from "@/components/useReadingEvidence";
+import { preparedTranslationOwner, useReaderTranslationSession } from "@/components/useReaderTranslationSession";
 
 export interface ReaderExamSurface {
   translationBlocks?: ArticleTranslationBlock[];
@@ -1317,12 +1316,15 @@ export function ReaderView({
     setReaderWorkLayer(null);
   }, [examSurface?.locked, setExplanationStreamText]);
   const [guestLookupLocked, setGuestLookupLocked] = useState(false);
-  const [articleTranslations, setArticleTranslations] = useState<ArticleTranslationItem[]>([]);
-  const [translationLoading, setTranslationLoading] = useState(false);
-  const [translationError, setTranslationError] = useState("");
-  const [translationRequested, setTranslationRequested] = useState(false);
-  const [translationEstimatedSecondsRemaining, setTranslationEstimatedSecondsRemaining] = useState<number | null>(null);
-  const [translationRetryAfterSeconds, setTranslationRetryAfterSeconds] = useState<number | null>(null);
+  const translationAccountOwner = account.authenticated ? account.profile?.userId ?? null : isOffline ? localAccount?.userId ?? null : null;
+  const {
+    translations: articleTranslations, loading: translationLoading, error: translationError,
+    requested: translationRequested, estimatedSecondsRemaining: translationEstimatedSecondsRemaining,
+    retryAfterSeconds: translationRetryAfterSeconds, retryReason: translationRetryReason,
+    regenerating: translationRegenerating, completedTargetBlocks: translationCompletedTargetBlocks,
+    totalTargetBlocks: translationTotalTargetBlocks, staleBlockIds: staleTranslationBlockIds,
+    removedCount: removedTranslationCount, ready: translationOwnerReady, showCachedTranslations,
+  } = useReaderTranslationSession(translationSourceKey, translationBlocks, translationAccountOwner);
   const dictionaryLayer = useToolLayer(dictionaryMounted);
   const workLayer = useToolLayer(Boolean(readerWorkLayer));
   useDocumentScrollLock(mobileViewport && (Boolean(readerWorkLayer) || dictionaryMounted));
@@ -1334,10 +1336,6 @@ export function ReaderView({
     query.addEventListener("change", update);
     return () => query.removeEventListener("change", update);
   }, []);
-  const [translationRetryReason, setTranslationRetryReason] = useState<string | null>(null);
-  const [translationRegenerating, setTranslationRegenerating] = useState(false);
-  const [translationCompletedTargetBlocks, setTranslationCompletedTargetBlocks] = useState(0);
-  const [translationTotalTargetBlocks, setTranslationTotalTargetBlocks] = useState(0);
   const mobileTranslationScrollRef = useRef<HTMLElement | null>(null);
   const mobileTranslationScrollTopRef = useRef(0);
   useEffect(() => {
@@ -1353,8 +1351,6 @@ export function ReaderView({
     });
     return () => window.cancelAnimationFrame(frame);
   }, [mobileExplanationOpen, rightPanelMode]);
-  const [staleTranslationBlockIds, setStaleTranslationBlockIds] = useState<string[]>([]);
-  const [removedTranslationCount, setRemovedTranslationCount] = useState(0);
   const abortRef = useRef<AbortController | null>(null);
   const activeExplanationActionIdRef = useRef("");
   const activeExplanationKeyRef = useRef("");
@@ -1713,76 +1709,6 @@ export function ReaderView({
     window.addEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshVocabularyEntries);
     return () => window.removeEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshVocabularyEntries);
   }, []);
-
-  useEffect(() => {
-    function applyTranslationSnapshot(snapshot: {
-      translations: ArticleTranslationItem[];
-      loading: boolean;
-      error: string;
-      requested: boolean;
-      estimatedSecondsRemaining: number | null;
-      retryAfterSeconds: number | null;
-      retryReason: string | null;
-      regenerating: boolean;
-      completedTargetBlocks: number;
-      totalTargetBlocks: number;
-    }) {
-      setArticleTranslations(snapshot.translations);
-      setTranslationLoading(snapshot.loading);
-      setTranslationError(snapshot.error);
-      setTranslationRequested(snapshot.requested);
-      setTranslationEstimatedSecondsRemaining(snapshot.estimatedSecondsRemaining);
-      setTranslationRetryAfterSeconds(snapshot.retryAfterSeconds);
-      setTranslationRetryReason(snapshot.retryReason);
-      setTranslationRegenerating(snapshot.regenerating);
-      setTranslationCompletedTargetBlocks(snapshot.completedTargetBlocks);
-      setTranslationTotalTargetBlocks(snapshot.totalTargetBlocks);
-      if (!snapshot.loading && !snapshot.error) {
-        setStaleTranslationBlockIds([]);
-        setRemovedTranslationCount(0);
-      }
-    }
-
-    const runningSnapshot = getArticleTranslationJobSnapshot(translationSourceKey);
-    if (runningSnapshot) {
-      applyTranslationSnapshot(runningSnapshot);
-      setStaleTranslationBlockIds([]);
-      setRemovedTranslationCount(0);
-    } else {
-      const exactBlockTranslations = getCombinedCachedArticleTranslation(
-        translationSourceKey,
-        translationBlocks,
-      );
-      const exactTranslationIds = new Set(exactBlockTranslations.map((item) => item.id));
-      const currentById = new Map(articleTranslations.map((item) => [item.id, item.translation]));
-      const currentBlockIds = new Set(translationBlocks.map((block) => block.id));
-      const removedCount = articleTranslations.filter((item) => !currentBlockIds.has(item.id)).length;
-      const staleTranslations = translationBlocks
-        .filter((block) => !exactTranslationIds.has(block.id) && currentById.has(block.id))
-        .map((block) => ({ id: block.id, translation: currentById.get(block.id) ?? "" }))
-        .filter((item) => item.translation.trim());
-      const staleIds = staleTranslations.map((item) => item.id);
-      const mergedTranslations = [
-        ...exactBlockTranslations,
-        ...staleTranslations,
-      ];
-      const cached = mergedTranslations.length > 0 ? mergedTranslations : getCachedArticleTranslation(translationSourceKey);
-      setArticleTranslations(cached ?? []);
-      setStaleTranslationBlockIds(staleIds);
-      setRemovedTranslationCount(removedCount);
-      setTranslationError("");
-      setTranslationLoading(false);
-      setTranslationRequested(Boolean(cached));
-      setTranslationEstimatedSecondsRemaining(null);
-      setTranslationRetryAfterSeconds(null);
-      setTranslationRetryReason(null);
-      setTranslationRegenerating(false);
-      setTranslationCompletedTargetBlocks(0);
-      setTranslationTotalTargetBlocks(0);
-    }
-
-    return subscribeArticleTranslationJob(translationSourceKey, applyTranslationSnapshot);
-  }, [translationSourceKey, translationBlocks]);
 
   useEffect(() => {
     if (examSurface && !examSurface.locked && rightPanelMode === "translation" && translationRequested
@@ -2272,7 +2198,7 @@ export function ReaderView({
 
   function generateArticleTranslation(force = false) {
     if (!requireAccount("全文翻译需要登录；公开推荐文章中管理员预先发布的翻译仍可直接查看。")) return;
-    if ((!force && translationLoading) || translationBlocks.length === 0) {
+    if (!translationOwnerReady || preparedTranslationOwner() !== translationAccountOwner || (!force && translationLoading) || translationBlocks.length === 0) {
       return;
     }
     const cacheKey = translationSourceKey;
@@ -2297,9 +2223,7 @@ export function ReaderView({
       : translationBlocks.filter((block) => !translatedIds.has(block.id));
 
     if (!force && blocksToTranslate.length === 0) {
-      setArticleTranslations(initialTranslations);
-      setTranslationError("");
-      setTranslationRequested(true);
+      showCachedTranslations(initialTranslations);
       return;
     }
 
