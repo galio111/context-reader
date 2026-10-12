@@ -10,8 +10,23 @@ Baseline: accepted release `20261012T135500`, source `4d0d91106087951d8d4271b46a
 - `lib/translationCacheRepository.ts` owns full-article and block cache access. Production `LearningStorage` reads only requested records and writes one bucket delta through `updateRecords`. The facade in `lib/cache.ts`, bucket names, body-sensitive block identities, sync notifications, legacy `Storage` JSON format, account archives and IndexedDB schema remain compatible. No secondary in-memory account cache is introduced.
 - `lib/articleTranslationTransport.ts` owns streaming, retries, countdown and reader cleanup; `lib/articleTranslationProgress.ts` owns ordered progress accumulation. `articleTranslationJobs.ts` coordinates billing, public-cache replay and persistent progress. A streamed item updates the existing progress map and looks up its source block in constant time, without rebuilding an article-wide block map per item.
 - Runtime translation jobs and subscriptions are owner-scoped. Owner changes cancel/discard prior jobs immediately; generation/owner guards reject late stream chunks and delayed `/start` responses. Cancellation during `/start` records intent, waits for its confirmed action id and settles once. Switching a panel or unmounting a subscriber continues the job as before. Regeneration preserves previous visible translations until replacements arrive.
+- `components/useReaderTranslationSession.ts` binds a mounted Reader to the prepared storage owner and the account identity together. Login may complete without remounting Reader, so storage-owner events rebind the job subscription. Either ordering of account-context and storage preparation is supported; mismatches display no private translations. Prior translations remain available as stale content only across edits within the same owner. Owner transitions, including an A → B → A transition inside one React batch, discard the old display state.
 
-The server APIs, provider selection/fallback, billing schema, publishing workflow, images/quality/motion and homepage are unchanged. This is a bounded rewrite of core runtime responsibilities, not a claim that every application module has been rewritten. `ReaderView` remains substantial (4,749 → 4,542 lines); future extractions still need their own preservation evidence.
+The server APIs, provider selection/fallback, billing schema, publishing workflow, images/quality/motion and homepage are unchanged. This is a bounded rewrite of core runtime responsibilities, not a claim that every application module has been rewritten. `ReaderView` remains substantial; future extractions still need their own preservation evidence.
+
+## Public interfaces and change ownership
+
+| Interface | Responsibility | Must remain outside this layer |
+| --- | --- | --- |
+| `createReaderDocumentModel(article, imported, imageOcr, tokenCache, ocrEnabled)` | Compile document blocks and stable token/source indexes; retain only active token-cache keys | React state, layout, storage, network and account authorization |
+| `createTranslationCacheRepository(storage, changed)` | Read/write/delete full-article or block records with existing content keys and mutation notifications | Rendering, provider requests, billing or a second account cache |
+| `LearningStorage.updateRecords(bucket, values, deleteIds)` | Apply one bucket delta through the existing persistence/owner checks | Translation identity, account selection and feature-specific interpretation |
+| `requestArticleTranslation(blocks, signal, contextBlocks, actionId, onRetry, onTranslation)` | Transport the already-authorized action; retry missing blocks and release stream resources | Starting/settling usage, cache writes, React state or provider-policy changes |
+| `createArticleTranslationProgress(blocks, initial)` | Maintain ordered immutable snapshots and constant-time replacement/index lookups | Storage, timers, network or UI |
+| `startArticleTranslationJob` / snapshot / subscription | Coordinate the existing action lifecycle, owner isolation, durable progress and cache publication | Component layout or account authentication decisions |
+| `useReaderTranslationSession(key, blocks, expectedOwner)` | Subscribe the mounted view to its ready owner's job and cache; preserve same-owner edit state | Starting paid work automatically or canceling a job when a tool panel changes |
+
+`tests/architecture-boundaries.test.ts` guards the direct import edges of these layers. It deliberately forces a dependency decision to be reviewed when a future change adds an edge; it complements behavior tests rather than proving correctness by file layout. Existing facades and type contracts remain the supported entry points, so a view edit does not require edits to persistence or provider transport.
 
 ## Reproducible checks
 
@@ -19,6 +34,7 @@ The server APIs, provider selection/fallback, billing schema, publishing workflo
 node --import tsx scripts/benchmark-architecture-runtime.mjs 4d0d91106087951d8d4271b46a328c0908f869d3
 npm.cmd run test:critical
 node_modules/.bin/tsx.cmd --test tests/architecture-runtime.test.ts tests/translation-job-ownership.test.ts tests/translation-background.test.ts tests/article-translation-batching.test.ts
+node_modules/.bin/tsx.cmd --test tests/reader-translation-session.test.tsx tests/architecture-boundaries.test.ts
 node_modules/.bin/tsc.cmd --noEmit --incremental false
 ```
 
@@ -45,4 +61,4 @@ Representative rerun on this Windows machine, median of 10 measured samples afte
 
 The history fixture has 637,827 serialized characters. The asymptotic change is the durable evidence: indexed block operations no longer reconstruct/parse/rewrite unrelated history; long documents no longer clear their own token cache at 400 blocks; repeated sentence normalization and separate token-array passes are consolidated.
 
-Local critical suite: 90/90 passed. Focused runtime/ownership/background/batching suite: 12/12 passed. TypeScript `--noEmit --incremental false` passed. Final independent review, whole-app build, deployed signed-in smoke and physical-device/user acceptance must be recorded separately.
+Local critical suite: 90/90 passed. Focused runtime/ownership/background/batching suite: 12/12 passed. Mounted React login/account-switch regression: 1/1 passed. Import-boundary guards: 2/2 passed. TypeScript `--noEmit --incremental false` passed. Final independent review, whole-app build, deployed signed-in smoke and physical-device/user acceptance must be recorded separately. Account-storage preparation and archive transitions remain owned by `accountSyncClient`; its asynchronous transition boundary must be reviewed independently of the mounted-view hook.
