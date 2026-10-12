@@ -52,7 +52,7 @@ await page.route("**/api/**",async route=>{
 
 const check=async(condition,message)=>{if(!condition)throw Error(message);};
 const evidence=[];
-async function shot(name){await page.locator("dialog[open]").last().evaluate(el=>Promise.all(el.getAnimations({subtree:true}).filter(a=>a.effect?.getTiming().iterations!==Infinity).map(a=>a.finished.catch(()=>{}))));await page.screenshot({path:fileURLToPath(new URL(name+".png",output)),fullPage:false});}
+async function shot(name){if(await page.locator("dialog[open]").count())await page.locator("dialog[open]").last().evaluate(el=>Promise.all(el.getAnimations({subtree:true}).filter(a=>a.effect?.getTiming().iterations!==Infinity).map(a=>a.finished.catch(()=>{}))));await page.screenshot({path:fileURLToPath(new URL(name+".png",output)),fullPage:false});}
 async function fit(){
  const result=await page.locator('dialog[aria-label="背单词"]').evaluate(el=>({overflow:el.scrollWidth-el.clientWidth,viewport:window.innerHeight,buttons:[...el.querySelectorAll('article[aria-label="当前复习卡片"] footer button,article[aria-label="当前复习卡片"] > div:last-child button')].map(b=>{const r=b.getBoundingClientRect(),top=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);return {label:b.textContent.trim(),bottom:r.bottom,hit:b===top||b.contains(top)};})}));
  await check(result.overflow<=1,"Horizontal overflow");
