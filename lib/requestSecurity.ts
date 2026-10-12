@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { ipAddress } from "@vercel/functions/headers";
+import { staticAssetParts } from "./staticEncoding";
 
 interface RateWindow {
   count: number;
@@ -91,6 +92,18 @@ function consume(key: string, rule: RateRule, now: number): { allowed: boolean; 
 }
 
 function routeRules(pathname: string, method: string): RateRule[] {
+  // Cold page loads fetch many immutable build files. Keep their bounded read
+  // budget independent of API work, using the same decoded-path guard as the
+  // serving route. Encoded separators, traversal and unsupported methods must
+  // not gain this allowance.
+  if ((method === "GET" || method === "HEAD") && pathname.startsWith("/api/static-asset/")) {
+    try {
+      const parts = pathname.slice("/api/static-asset/".length).split("/").map(part => decodeURIComponent(part));
+      if (staticAssetParts(parts)) return [{ bucket: "static-read", limit: 600, windowMs: MINUTE }];
+    } catch {
+      // Invalid percent encodings retain the ordinary API budget.
+    }
+  }
   // A bounded sync bootstrap can span many pages. It must not exhaust the
   // separate login, lookup or connectivity budget for the same connection.
   if (pathname === "/api/account/sync") return [{ bucket: "account-sync", limit: 120, windowMs: MINUTE }];

@@ -13,7 +13,9 @@ Baseline: accepted release `20261012T135500`, source `4d0d91106087951d8d4271b46a
 - `components/useReaderTranslationSession.ts` binds a mounted Reader to the prepared storage owner and the account identity together. Login may complete without remounting Reader, so storage-owner events rebind the job subscription. Either ordering of account-context and storage preparation is supported; mismatches display no private translations. Prior translations remain available as stale content only across edits within the same owner. Owner transitions, including an A → B → A transition inside one React batch, discard the old display state.
 - `lib/accountStorageTransition.ts` is an import-free, non-persistent lifecycle signal. Account switching and logout enter a storage-scoped transition before their first archive/restore wait and leave in `finally`. Jobs cancel prior work and reject new starts throughout this window, while the mounted hook clears its display and reads no translation caches. The persisted owner remains unchanged until the original preparation workflow commits it; the signal does not replace account verification or change storage formats.
 
-The server APIs, provider selection/fallback, billing schema, publishing workflow, images/quality/motion and homepage are unchanged. This is a bounded rewrite of core runtime responsibilities, not a claim that every application module has been rewritten. `ReaderView` remains substantial; future extractions still need their own preservation evidence.
+The server API payload contracts, provider selection/fallback, billing schema, publishing workflow, images/quality/motion and homepage are unchanged. This is a bounded rewrite of core runtime responsibilities, not a claim that every application module has been rewritten. `ReaderView` remains substantial; future extractions still need their own preservation evidence.
+
+The independent browser audit also identified an existing cold-load failure: Brotli static-file rewrites consumed the shared API allowance, so the 121st request could return a JSON 429 response in place of CSS. `requestSecurity` now assigns valid `/api/static-asset/` GET/HEAD reads a separate 600-per-minute, per-address budget. It decodes each path segment once and reuses the serving route's `staticAssetParts` validation; invalid paths, other formats and mutation methods retain the ordinary API budget. Body/origin protection runs before either budget. AI, account, Admin and sync limits, static contents and cache headers are unchanged.
 
 ## Public interfaces and change ownership
 
@@ -37,6 +39,7 @@ node --import tsx scripts/benchmark-architecture-runtime.mjs 4d0d91106087951d8d4
 npm.cmd run test:critical
 node_modules/.bin/tsx.cmd --test tests/architecture-runtime.test.ts tests/translation-job-ownership.test.ts tests/translation-background.test.ts tests/article-translation-batching.test.ts
 node_modules/.bin/tsx.cmd --test tests/reader-translation-session.test.tsx tests/architecture-boundaries.test.ts
+node --import ./scripts/test-server-context.mjs --import tsx --test tests/static-asset-rate-isolation.test.ts tests/static-encoding.test.ts tests/sync-rate-recovery.test.ts tests/admin-curation-body-limit.test.ts
 node_modules/.bin/tsc.cmd --noEmit --incremental false
 ```
 
@@ -45,6 +48,8 @@ The benchmark extracts and executes the old compiler from the specified Git revi
 The regression suite verifies mixed content/source-index equivalence, 600-block token reuse and pruning, same-id/changed-text cache misses, returned-value mutation isolation, JSON compatibility, 2,500 unrelated stored rows surviving individual writes/deletes and IndexedDB reopen, no whole-bucket reads on indexed hot paths, non-destructive progress replacement, split UTF-8/NDJSON streams and reader release. Job tests cover late old streams after force, a delayed start across A → B → A, delayed-start settlement using the server id, completed-job/subscriber isolation between accounts, and the existing background retry/one-action contract.
 
 The two existing source-shape regression checks now inspect the extracted document/transport module for the original assertions and additionally verify that Reader/jobs call those modules. Assertions were moved with their implementation; they were not removed or relaxed.
+
+Static request protection tests call the real `protectApiRequest` function. They cover 141/240 static reads followed by the original AI/API limits, the shared GET/HEAD cap at 600, separate address isolation, static reads after API exhaustion, decoded route groups/parameters, traversal and malformed encodings, non-read methods, body/origin checks and unchanged authentication/Admin budgets. The combined static, encoding, sync-rate and Admin-body suite passed 13/13. A production build and native HTTP/browser repetition remain independent release checks.
 
 ## Local CPU measurements
 
