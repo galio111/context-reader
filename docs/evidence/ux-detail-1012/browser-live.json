@@ -1,0 +1,79 @@
+{
+  "home": {
+    "entryY": 236.890625,
+    "importY": 346.890625,
+    "entryWidth": 752.015625,
+    "overflow": 0
+  },
+  "spaceHint": true,
+  "forecast": "2026-10-12，100词；2026-10-13，100词；2026-10-14，100词；2026-10-15，100词；2026-10-16，100词；2026-10-17，38词；2026-10-18，0词",
+  "toolStack": true,
+  "accountProfileEntry": true,
+  "previews": [
+    {
+      "plan": "guest",
+      "balance": "available"
+    },
+    {
+      "plan": "guest",
+      "balance": "low"
+    },
+    {
+      "plan": "guest",
+      "balance": "empty"
+    },
+    {
+      "plan": "free",
+      "balance": "available"
+    },
+    {
+      "plan": "free",
+      "balance": "low"
+    },
+    {
+      "plan": "free",
+      "balance": "empty"
+    },
+    {
+      "plan": "basic",
+      "balance": "available"
+    },
+    {
+      "plan": "basic",
+      "balance": "low"
+    },
+    {
+      "plan": "basic",
+      "balance": "empty"
+    },
+    {
+      "plan": "plus",
+      "balance": "available"
+    },
+    {
+      "plan": "plus",
+      "balance": "low"
+    },
+    {
+      "plan": "plus",
+      "balance": "empty"
+    },
+    {
+      "plan": "max",
+      "balance": "available"
+    },
+    {
+      "plan": "max",
+      "balance": "low"
+    },
+    {
+      "plan": "max",
+      "balance": "empty"
+    }
+  ],
+  "previewExhaustedLookup": true,
+  "previewWritesBlocked": true,
+  "reducedMotion": true,
+  "errors": [],
+  "passed": true
+}

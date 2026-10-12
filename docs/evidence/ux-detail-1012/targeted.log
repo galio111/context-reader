@@ -1,0 +1,23 @@
+✔ Shanghai windows include midnight, exclude next midnight and reject impossible dates (4.7281ms)
+✔ fallback attempts cost separately but charge one user action; every breakdown reconciles (1.3419ms)
+✔ MiMo charges all input when the recorder defaulted cache miss to zero (0.4375ms)
+✔ cached action and background probe never invent model calls or user charges (1.0644ms)
+✔ cross-day action join preserves account attribution without counting yesterday's action today (0.487ms)
+✔ classification actions and executions share one feature; no lost unmatched calls (0.6145ms)
+✔ recent record cap does not cap costs and supports unknown costs (4.9983ms)
+✔ points follow actual word boundaries and explicit feature weights (2.0853ms)
+✔ depleted accounts carry no credit, early upgrades respect both limits (0.8295ms)
+✔ WeChat accepts verified envelopes and rejects tampering, stale timestamps and foreign keys (45.6011ms)
+✔ IndexedDB account archive isolates CET drafts, commit packages and exposure facts (175.8981ms)
+✔ public seed is finite metadata; shared subscribers keep independent cancellation and owner partitions (26.7233ms)
+✔ mobile sheets retain quarter-height, close below it, and distinguish flicks from paused or cancelled drags (1005.1212ms)
+✔ CET accuracy counts canonical submissions, excludes conflicts and study exits (2.429ms)
+✔ developer preview isolates storage and never forwards account, paid work or mutation requests (157.7678ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7105.2337

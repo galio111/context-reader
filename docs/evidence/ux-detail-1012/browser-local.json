@@ -1,0 +1,95 @@
+{
+  "passed": true,
+  "evidence": [
+    {
+      "home": {
+        "study": 236.890625,
+        "import": 346.890625,
+        "overflow": 0
+      }
+    },
+    {
+      "toolOpeningOrders": true,
+      "escapeRestoresPrevious": true
+    },
+    {
+      "plan": "guest",
+      "balance": "available",
+      "isolated": true
+    },
+    {
+      "plan": "guest",
+      "balance": "low",
+      "isolated": true
+    },
+    {
+      "plan": "guest",
+      "balance": "empty",
+      "isolated": true
+    },
+    {
+      "plan": "free",
+      "balance": "available",
+      "isolated": true
+    },
+    {
+      "plan": "free",
+      "balance": "low",
+      "isolated": true
+    },
+    {
+      "plan": "free",
+      "balance": "empty",
+      "isolated": true
+    },
+    {
+      "plan": "basic",
+      "balance": "available",
+      "isolated": true
+    },
+    {
+      "plan": "basic",
+      "balance": "low",
+      "isolated": true
+    },
+    {
+      "plan": "basic",
+      "balance": "empty",
+      "isolated": true
+    },
+    {
+      "plan": "plus",
+      "balance": "available",
+      "isolated": true
+    },
+    {
+      "plan": "plus",
+      "balance": "low",
+      "isolated": true
+    },
+    {
+      "plan": "plus",
+      "balance": "empty",
+      "isolated": true
+    },
+    {
+      "plan": "max",
+      "balance": "available",
+      "isolated": true
+    },
+    {
+      "plan": "max",
+      "balance": "low",
+      "isolated": true
+    },
+    {
+      "plan": "max",
+      "balance": "empty",
+      "isolated": true
+    },
+    {
+      "exhaustedDictionary": true
+    }
+  ],
+  "errors": []
+}
