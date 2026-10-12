@@ -1,5 +1,15 @@
 # Context Reader Architecture
 
+## Reader 与学习数据的职责分离（2026-10-12 候选）
+
+Reader 的正文派生模型移到 `lib/readerDocumentModel.ts`，UI 继续由原 `ReaderView` 渲染。单遍构建词、段落、句子、词源索引，当前文档的 token 缓存按仍在使用的 key 保留，避免长文因超过 400 块而每次整体失效。JSX、样式、布局、媒体和手势契约不由模型层决定。
+
+翻译的传输、重试/续传、进度聚合、任务归属与持久化分别由 `articleTranslationTransport`、`articleTranslationProgress`、`articleTranslationJobs`、`translationCacheRepository` 管理。IndexedDB 使用 `LearningStorage.updateRecords` 写入指定 delta，旧 Storage 仍可读写原格式。`vocabularyRepository` 单独负责生词解码/迁移与 Storage+owner+原始值快照；`vocabulary.ts` 保留领域操作和原导出接口，每次读取返回独立对象，历史 Anki 字段及同步格式不变。
+
+`useReaderTranslationSession` 在 Reader 不卸载时随实际账户重新订阅。`accountStorageTransition` 是无依赖的临时信号：在账号归档/恢复等待前进入，`finally` 退出；过渡中显示状态清空、旧翻译任务失效、新任务不启动。它不改变账户验证权威、owner 写入顺序或持久化 schema。`npm run test:architecture` 检查行为边界、单向依赖与循环，GitHub 同步执行核心及构建回归。
+
+全站功能和不可退化边界见 [功能契约](architecture-refactor/functional-contract.md)，测量、候选/发布状态见 [架构重构](architecture-refactor/implementation.md)，独立验收见 [审核报告](architecture-refactor/independent-audit.md)。这些模块替换不改变 API 路由、服务端鉴权、配额、数据库 schema、定时编辑或现有 UI。
+
 ## 每日精选自动排序（已生产，2026-10-10）
 
 每日自动审核与发布结束后，自动打乱今日精选及所有往日精选，今日仍在前。推荐/时事/科学/文化/商业均持久化，保留当日头条和推荐白名单；四个主题分类的排序容量从500扩至10000，避免旧文章只在尾部按原序出现。排序与完成凭据同一行 CAS 提交，日账记录完成；重复唤醒不重排，补齐新增文章后在收尾阶段再排一次，正常硬边界结束也处理已发布文章。排序不产生模型调用，详细合同见 [自动精选](automated-editorial.md)。已接受 `20261010T142500`（parent `20261010T105000`，source `27ae351239ee9d8d240e20ffee65acee36a93b66`），真实五组排序、重复稳定、零新增审核费用/邮件、阅读核心与运维验收见 [证据](editorial-shuffle-20261010.md)。

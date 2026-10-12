@@ -25,6 +25,8 @@ Candidate discovery is controlled per website in Admin: daily targets, source ve
 
 GitHub default `main` carries the cumulative accepted source and reconciled documents. After validated work, both the task branch and default branch must be pushed and their remote commit verified; a branch-only push is incomplete. The live release identity and evidence are recorded in [release governance](docs/release-governance.md).
 
+The complete current-function and UI compatibility inventory is in [the architecture refactor contract](docs/architecture-refactor/functional-contract.md). Module boundaries, measurements and release status are in [the implementation record](docs/architecture-refactor/implementation.md), with a separate [independent audit](docs/architecture-refactor/independent-audit.md).
+
 ## Current Product State
 
 ### Reading
