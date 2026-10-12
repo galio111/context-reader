@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-12",
+  "baselineSource": "4d0d91106087951d8d4271b46a328c0908f869d3",
+  "auditCandidateSource": "09df553bc8cf66e2ccdaa9f99a4a91da5f73e9d8",
+  "baselineTests": { "total": 458, "passed": 453, "failed": 5, "skipped": 0 },
+  "candidateTests": { "total": 493, "passed": 488, "failed": 5, "skipped": 0, "newlyFailing": 0, "addedPassing": 35 },
+  "build": { "passed": true, "precompressedAssets": 141, "rawBytes": 5783986, "brotliBytes": 1485782 },
+  "modelDifferential": { "independentCasesPassed": 4, "additionalOracleDocumentsPassed": 22, "unchangedReaderJsxNodes": 264 },
+  "staticHttp": { "staticReads200": 240, "ordinaryApiReads404": 120, "nextApiReadStatus": 429, "staticAfterApiExhaustionStatus": 200 },
+  "browser": { "scenariosPerRound": 4, "consecutiveRoundsPassed": 2, "scenariosPassed": 8, "pageErrors": 0, "failedRequests": 0, "guestLoginWithoutRemount": true, "accountSwitchClearsAndResubscribes": true },
+  "screenshots": { "total": 22, "zeroPixelDifference": 21, "readerZeroPixelDifference": 12, "remainingDifference": { "filename": "desktop-day-workbench.png", "pixels": 2656, "fraction": 0.0018444444444444443, "inspectedCause": "existing infinite floating-letter animation frame" } },
+  "rawEvidence": "artifacts/architecture-audit-1012-independent/",
+  "deploymentVerifiedByThisAgent": false,
+  "limitations": ["five exact baseline test failures remain", "public provider/billing and deployment acceptance owned by release coordinator", "physical devices and other browser engines not tested", "final human visual and pronunciation listening acceptance not established", "not every documented scenario permutation executed"]
+}
