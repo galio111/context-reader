@@ -4,6 +4,7 @@ import LZString from "lz-string";
 import { getLearningStorage, isLearningStorage } from "@/lib/learningStorage";
 import { notifyAccountDataChanged } from "@/lib/accountEvents";
 import type { DictionaryResult } from "@/types/dictionary";
+import { replaceStandaloneVocabularyEntries } from "@/lib/vocabulary";
 import {
   normalizeDictionaryQuery,
   normalizeStandaloneDictionaryCacheItem, type StandaloneDictionaryCacheItem,
@@ -44,11 +45,15 @@ export function readStandaloneDictionaryCache(
 
 // Replay reads one row; no full-history decode, compression or sorting.
 export function findStandaloneDictionaryCache(query: string, storage: Storage = getLearningStorage()): DictionaryResult | null {
+  return findStandaloneDictionaryCacheItem(query, storage)?.result ?? null;
+}
+
+export function findStandaloneDictionaryCacheItem(query: string, storage: Storage = getLearningStorage()): StandaloneDictionaryCacheItem | null {
   const key = normalizeDictionaryQuery(query);
   if (isLearningStorage(storage)) {
-    return normalizeStandaloneDictionaryCacheItem(storage.getRecord(STANDALONE_DICTIONARY_CACHE_KEY, key))?.result ?? null;
+    return normalizeStandaloneDictionaryCacheItem(storage.getRecord(STANDALONE_DICTIONARY_CACHE_KEY, key));
   }
-  return readStandaloneDictionaryCache(storage).find(item => item.normalizedQuery === key)?.result ?? null;
+  return readStandaloneDictionaryCache(storage).find(item => item.normalizedQuery === key) ?? null;
 }
 
 export function writeStandaloneDictionaryCache(storage: Storage, values: StandaloneDictionaryCacheItem[]): void {
@@ -59,15 +64,21 @@ export function writeStandaloneDictionaryCache(storage: Storage, values: Standal
 // Kept for account-switch compatibility. LearningStorage owns the data.
 export function clearStandaloneDictionaryRuntimeCache(): void {}
 
-export function recordStandaloneDictionaryCache(result: DictionaryResult): void {
+export function recordStandaloneDictionaryCache(
+  result: DictionaryResult, options: { updatedAt?: string } = {},
+): StandaloneDictionaryCacheItem | null {
   const item = normalizeStandaloneDictionaryCacheItem({
-    schemaVersion: 2, query: result.query, result, updatedAt: new Date().toISOString(),
+    schemaVersion: 2, query: result.query, result, updatedAt: options.updatedAt || new Date().toISOString(),
   });
-  if (!item) return;
+  if (!item) return null;
   const storage = getLearningStorage();
+  const existing = findStandaloneDictionaryCacheItem(result.query, storage);
+  if (existing && Date.parse(existing.updatedAt) > Date.parse(item.updatedAt)) return existing;
   if (isLearningStorage(storage)) storage.setRecord(STANDALONE_DICTIONARY_CACHE_KEY, item.normalizedQuery, item);
   else writeStandaloneDictionaryCache(storage, [item, ...readStandaloneDictionaryCache(storage)]);
+  replaceStandaloneVocabularyEntries(item);
   notifyAccountDataChanged(["preferences"]);
+  return item;
 }
 
 export function migrateStandaloneDictionarySessionCache(results: DictionaryResult[]): void {

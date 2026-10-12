@@ -1,15 +1,16 @@
 
 import { normalizeAnkiInfo } from "@/lib/ankiData";
-import { findSimilarVocabularyEntry, vocabularyWordsMatch } from "@/lib/sourceMatching";
 import type { WordContext, WordExplanation } from "@/types/reader";
 import type { VocabularyEntry, VocabularySourceArticle } from "@/types/vocabulary";
 import { notifyAccountObjectsDeleted } from "@/lib/accountEvents";
 import { vocabularyIdentity } from "@/lib/vocabularyMerge";
+import { reconcileContextualVocabulary, reconcileStandaloneVocabulary } from "@/lib/vocabularyLookupSync";
+import type { StandaloneDictionaryCacheItem } from "@/lib/dictionaryResultSnapshot";
 
 export { vocabularyIdentity } from "@/lib/vocabularyMerge";
 
 import { getVocabularyEntries, saveVocabularyEntries } from "@/lib/vocabularyRepository";
-export { getVocabularyEntries, saveVocabularyEntries, normalizeVocabularyEntries } from "@/lib/vocabularyRepository";
+export { getVocabularyEntries, getVocabularyEntry, saveVocabularyEntries, normalizeVocabularyEntries } from "@/lib/vocabularyRepository";
 
 export function createVocabularyEntry(
   explanation: WordExplanation,
@@ -74,36 +75,16 @@ export function replaceMatchingVocabularyEntry(
   sourceArticle?: VocabularySourceArticle,
 ): VocabularyEntry[] {
   const entries = getVocabularyEntries();
-  const identity = vocabularyIdentity({
-    word: explanation.word,
-    sourceSentence: context.sentence,
-  });
+  const updatedAt = explanation.cacheUpdatedAt && Number.isFinite(Date.parse(explanation.cacheUpdatedAt))
+    ? explanation.cacheUpdatedAt : new Date().toISOString();
   let replaced = false;
 
   const nextEntries = entries.map((entry) => {
-    const isSameSource = vocabularyIdentity(entry) === identity;
-    const isSimilarSource =
-      !isSameSource &&
-      vocabularyWordsMatch(entry.word, explanation.word) &&
-      findSimilarVocabularyEntry([entry], explanation.word, context.sentence);
-
-    if (!isSameSource && !isSimilarSource) {
-      return entry;
-    }
-
+    const next = reconcileContextualVocabulary(entry, explanation, context, updatedAt);
+    if (next === entry) return entry;
     replaced = true;
-    const generated = createVocabularyEntry(explanation, context, sourceArticle);
     return {
-      ...generated,
-      sourceArticle: generated.sourceArticle ?? entry.sourceArticle,
-      id: entry.id,
-      createdAt: entry.createdAt,
-      updatedAt: new Date().toISOString(),
-      anki: {
-        ...generated.anki,
-        ankiNoteId: entry.anki.ankiNoteId,
-        ankiImportedAt: entry.anki.ankiImportedAt,
-      },
+      ...next, sourceArticle: entry.sourceArticle ?? sourceArticle,
     };
   });
 
@@ -111,6 +92,18 @@ export function replaceMatchingVocabularyEntry(
     saveVocabularyEntries(nextEntries);
   }
   return nextEntries;
+}
+
+export function replaceStandaloneVocabularyEntries(snapshot: StandaloneDictionaryCacheItem): VocabularyEntry[] {
+  const entries = getVocabularyEntries();
+  let changed = false;
+  const next = entries.map(entry => {
+    const updated = reconcileStandaloneVocabulary(entry, snapshot);
+    changed ||= updated !== entry;
+    return updated;
+  });
+  if (changed) saveVocabularyEntries(next);
+  return next;
 }
 
 export function markVocabularyEntryImported(id: string, ankiNoteId: number): VocabularyEntry[] {

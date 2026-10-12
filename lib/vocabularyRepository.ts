@@ -4,6 +4,7 @@ import LZString from "lz-string";
 import type { VocabularyEntry } from "@/types/vocabulary";
 import { notifyAccountDataChanged, notifyAccountObjectsDeleted } from "@/lib/accountEvents";
 import { deduplicateVocabularyEntries } from "@/lib/vocabularyMerge";
+import { normalizeDictionaryQuery, normalizeStandaloneDictionaryCacheItem } from "@/lib/dictionaryResultSnapshot";
 
 const VOCABULARY_KEY = "context-reader:vocabulary:v1";
 const VOCABULARY_PRE_DEDUPE_BACKUP_KEY = "context-reader:vocabulary-backup-before-dedupe:v1";
@@ -41,6 +42,9 @@ function normalizeVocabularyEntry(value: unknown): VocabularyEntry | null {
   }
 
   const createdAt = typeof entry.createdAt === "string" ? entry.createdAt : new Date().toISOString();
+  const dictionaryQuery = entry.anki?.cardMode === "basic_cn_to_en_dictionary"
+    ? entry.anki.basicCue || entry.dictionaryResult?.query || ""
+    : entry.word;
   const sourceArticle = entry.sourceArticle
     && entry.sourceArticle.kind === "public"
     && typeof entry.sourceArticle.id === "string"
@@ -52,10 +56,15 @@ function normalizeVocabularyEntry(value: unknown): VocabularyEntry | null {
         }
       : undefined;
   const normalizedBase = {
-    ...(entry.dictionaryResult?.query === entry.word && Array.isArray(entry.dictionaryResult.senses)
-      && Array.isArray(entry.dictionaryResult.collocations) && Array.isArray(entry.dictionaryResult.wordFamily)
-      && Array.isArray(entry.dictionaryResult.synonyms) && Array.isArray(entry.dictionaryResult.commonMistakes)
-      ? { dictionaryResult: entry.dictionaryResult } : {}),
+    ...(entry.dictionaryResult && normalizeDictionaryQuery(entry.dictionaryResult.query || "") === normalizeDictionaryQuery(dictionaryQuery)
+      && normalizeStandaloneDictionaryCacheItem({
+      schemaVersion: 2, query: entry.dictionaryResult.query, result: entry.dictionaryResult,
+      updatedAt: entry.dictionaryUpdatedAt || entry.updatedAt || createdAt,
+    }) ? { dictionaryResult: entry.dictionaryResult } : {}),
+    ...(typeof entry.dictionaryUpdatedAt === "string" && Number.isFinite(Date.parse(entry.dictionaryUpdatedAt))
+      ? { dictionaryUpdatedAt: entry.dictionaryUpdatedAt } : {}),
+    ...(typeof entry.explanationUpdatedAt === "string" && Number.isFinite(Date.parse(entry.explanationUpdatedAt))
+      ? { explanationUpdatedAt: entry.explanationUpdatedAt } : {}),
     id: typeof entry.id === "string" ? entry.id : `${entry.word.toLowerCase()}-${Date.now()}`,
     word: entry.word,
     lemma: typeof entry.lemma === "string" ? entry.lemma : entry.word,
@@ -154,6 +163,17 @@ export function getVocabularyEntries(): VocabularyEntry[] {
     snapshots.delete(storage);
     return [];
   }
+}
+
+/** Detail refreshes read one IndexedDB row, never decode the full word list. */
+export function getVocabularyEntry(id: string): VocabularyEntry | null {
+  const storage = safeLocalStorage();
+  if (!storage) return null;
+  if (isLearningStorage(storage)) {
+    const entry = normalizeVocabularyEntry(storage.getRecord(VOCABULARY_KEY, id));
+    return entry?.id === id ? entry : null;
+  }
+  return getVocabularyEntries().find(entry => entry.id === id) ?? null;
 }
 
 export function saveVocabularyEntries(entries: VocabularyEntry[]): void {

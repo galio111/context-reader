@@ -44,7 +44,7 @@ test("reading runtime layers keep their documented import boundaries", () => {
     ["lib/articleTranslationTransport.ts", []],
     ["lib/accountStorageTransition.ts", []],
     ["lib/translationCacheRepository.ts", ["@/lib/learningStorage", "@/lib/articleTranslationIdentity"]],
-    ["lib/vocabularyRepository.ts", ["@/lib/learningStorage", "@/lib/ankiData", "lz-string", "@/lib/accountEvents", "@/lib/vocabularyMerge"]],
+    ["lib/vocabularyRepository.ts", ["@/lib/learningStorage", "@/lib/ankiData", "lz-string", "@/lib/accountEvents", "@/lib/vocabularyMerge", "@/lib/dictionaryResultSnapshot"]],
     ["components/useReaderTranslationSession.ts", ["react", "@/lib/accountEvents", "@/lib/learningStorage", "@/lib/cache", "@/lib/articleTranslationJobs", "@/lib/accountStorageTransition"]],
   ]);
   for (const [path, imports] of allowed) {

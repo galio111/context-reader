@@ -14,6 +14,7 @@ import { ACCOUNT_SYNC_TOMBSTONES_KEY, notifyAccountDataMerged } from "@/lib/acco
 import { mergeDuplicateSavedArticles } from "@/lib/savedArticleMerge";
 import {
   clearStandaloneDictionaryRuntimeCache,
+  findStandaloneDictionaryCacheItem,
   isStandaloneDictionaryCacheObjectKey,
   normalizeStandaloneDictionaryCacheItem,
   readStandaloneDictionaryCache,
@@ -53,6 +54,9 @@ import {
 import type { SavedArticle } from "@/types/article";
 import type { AccountSyncObject, AccountSyncWriteResult, SyncObjectKind } from "@/types/account";
 import type { VocabularyEntry } from "@/types/vocabulary";
+import { reconcileContextualVocabulary, reconcileStandaloneVocabulary, standaloneVocabularyQuery } from "@/lib/vocabularyLookupSync";
+import { normalizeDictionaryQuery } from "@/lib/dictionaryResultSnapshot";
+import type { WordExplanation } from "@/types/reader";
 import { readStoredArticles, writeStoredArticles } from "@/lib/articleStorage";
 
 import { CET_PROGRESS_KEY, CET_OBJECT_PREFIX, readCetAttempts, writeCetAttempts, normalizeCetAttempt, mergeCetAttempt } from "@/lib/cetProgress";
@@ -417,7 +421,8 @@ function mergeCloudIntoLocal(
   const needsCetExposure = objects.some(o => o.kind === "preferences" && o.objectKey.startsWith(CET_EXPOSURE_OBJECT_PREFIX));
   const cetExposures = new Map((needsCetExposure ? readCetExposures(storage) : []).map(item => [item.id, item]));
   const needsArticles = incomingKinds.has("article");
-  const needsVocabulary = incomingKinds.has("vocabulary");
+  const needsVocabulary = incomingKinds.has("vocabulary") || incomingKinds.has("explanation") || objects.some(object =>
+    object.kind === "preferences" && isStandaloneDictionaryCacheObjectKey(object.objectKey));
   const needsReadingStates = incomingKinds.has("reading_state")
     || objects.some((object) => object.kind === "article" && Boolean(object.deletedAt));
   const needsDictionaryHistory = objects.some((object) => (
@@ -462,6 +467,7 @@ function mergeCloudIntoLocal(
     : new Set<string>();
 
   const maps: Partial<Record<SyncObjectKind, Record<string, unknown>>> = {};
+  const contextUpdates: Array<{ cacheKey: string; explanation: WordExplanation; updatedAt: string }> = [];
   if (incomingKinds.has("explanation")) maps.explanation = parseJson(storage.getItem(KEYS.explanations), {});
   if (incomingKinds.has("article_translation")) maps.article_translation = parseJson(storage.getItem(KEYS.translations), {});
   if (incomingKinds.has("translation_block")) maps.translation_block = parseJson(storage.getItem(KEYS.translationBlocks), {});
@@ -608,7 +614,14 @@ function mergeCloudIntoLocal(
       }
     } else if (object.kind === "explanation" && maps.explanation) {
       const entry = explanationFromSync(object.objectKey, object.payload);
-      maps.explanation[entry.cacheKey] = entry.explanation;
+      const local = maps.explanation[entry.cacheKey] as WordExplanation | undefined;
+      const cloud = entry.explanation as WordExplanation | undefined;
+      if (!cloud || typeof cloud.word !== "string" || typeof cloud.contextMeaning !== "string") continue;
+      const updatedAt = cloud.cacheUpdatedAt || object.clientUpdatedAt;
+      const selected = timestamp(local?.cacheUpdatedAt) > timestamp(updatedAt) ? local! : cloud;
+      maps.explanation[entry.cacheKey] = selected;
+      contextUpdates.push({ cacheKey: entry.cacheKey, explanation: selected,
+        updatedAt: selected.cacheUpdatedAt || updatedAt });
     } else if (maps[object.kind]) {
       maps[object.kind]![object.objectKey] = object.payload;
     }
@@ -623,6 +636,23 @@ function mergeCloudIntoLocal(
     writeStoredArticles(storage, mergedArticles.articles);
   }
   if (needsVocabulary) {
+    // A cache can arrive before its vocabulary row in a paginated pull. Project
+    // that same saved result now; never let a later stale vocabulary page undo it.
+    for (const [id, entry] of localVocabularyById) {
+      const query = standaloneVocabularyQuery(entry);
+      if (!query) continue;
+      const snapshot = localDictionaryCacheByQuery.get(normalizeDictionaryQuery(query))
+        ?? findStandaloneDictionaryCacheItem(query, storage);
+      if (snapshot) localVocabularyById.set(id, reconcileStandaloneVocabulary(entry, snapshot));
+    }
+    for (const update of contextUpdates) {
+      const separator = update.cacheKey.indexOf("::");
+      if (separator < 0) continue;
+      const context = { word: update.cacheKey.slice(0, separator), sentence: update.cacheKey.slice(separator + 2) };
+      for (const [id, entry] of localVocabularyById) {
+        localVocabularyById.set(id, reconcileContextualVocabulary(entry, update.explanation, context, update.updatedAt));
+      }
+    }
     const deduplicatedVocabulary = deduplicateVocabularyEntries(Array.from(localVocabularyById.values()));
     const deduplicatedAt = new Date().toISOString();
     for (const removedId of deduplicatedVocabulary.removedIds) {
@@ -747,7 +777,8 @@ async function collectLocalObjects(
       const entry = kind === "explanation"
         ? await explanationSyncIdentity(objectKey, payload)
         : { objectKey, payload };
-      add(kind, entry.objectKey, entry.payload);
+      const savedAt = kind === "explanation" ? (payload as WordExplanation | null)?.cacheUpdatedAt : undefined;
+      add(kind, entry.objectKey, entry.payload, savedAt && Number.isFinite(Date.parse(savedAt)) ? savedAt : now);
     }
   }
 

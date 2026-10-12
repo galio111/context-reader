@@ -10,6 +10,7 @@ export {
 } from "@/lib/articleTranslationIdentity";
 import { notifyAccountDataChanged } from "@/lib/accountEvents";
 import { currentFormPhonetic } from "@/lib/pronunciation";
+import { replaceMatchingVocabularyEntry } from "@/lib/vocabulary";
 
 const EXPLANATION_CACHE_KEY = "context-reader:explanations:v5";
 
@@ -81,10 +82,20 @@ export function getCachedExplanation(key: string): WordExplanation | null {
 
 export function setCachedExplanation(key: string, explanation: WordExplanation): void {
   const storage = getLearningStorage();
-  if (isLearningStorage(storage)) { storage.setRecord(EXPLANATION_CACHE_KEY, key, explanation); notifyAccountDataChanged(["explanation"]); return; }
-  const cache = readCache();
-  cache[key] = explanation;
-  writeCache(cache);
+  const saved = { ...explanation, cacheUpdatedAt: new Date().toISOString() };
+  if (isLearningStorage(storage)) {
+    storage.setRecord(EXPLANATION_CACHE_KEY, key, saved);
+    notifyAccountDataChanged(["explanation"]);
+  } else {
+    const cache = readCache();
+    cache[key] = saved;
+    writeCache(cache);
+  }
+  const separator = key.indexOf("::");
+  if (separator >= 0) replaceMatchingVocabularyEntry(saved, {
+    word: key.slice(0, separator), sentence: key.slice(separator + 2),
+    previousSentence: "", nextSentence: "", paragraphIndex: 0, tokenIndex: 0,
+  });
 }
 
 export function getExplanationCacheEntries(): Array<{ cacheKey: string; explanation: WordExplanation }> {

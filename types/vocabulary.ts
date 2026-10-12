@@ -10,6 +10,8 @@ export interface VocabularySourceArticle {
 
 export interface VocabularyEntry {
   dictionaryResult?: DictionaryResult;
+  dictionaryUpdatedAt?: string;
+  explanationUpdatedAt?: string;
   id: string;
   word: string;
   lemma: string;

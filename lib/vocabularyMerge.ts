@@ -1,4 +1,6 @@
 import type { VocabularyEntry } from "@/types/vocabulary";
+import { standaloneVocabularyQuery } from "./vocabularyLookupSync";
+import { normalizeDictionaryQuery } from "./dictionaryResultSnapshot";
 
 const RECOVERY_ID_PATTERN = /-local-recovered-[a-z0-9]+/gi;
 const TEXT_FIELDS = [
@@ -90,12 +92,15 @@ function mergeVocabularyGroup(entries: VocabularyEntry[]): VocabularyEntry {
 
   const imported = richestFirst.find((entry) => Boolean(entry.anki.ankiNoteId));
   if (imported) {
-    merged.anki = imported.anki;
+    merged.anki = { ...merged.anki, cardMode: imported.anki.cardMode,
+      ankiNoteId: imported.anki.ankiNoteId, ankiImportedAt: imported.anki.ankiImportedAt };
   }
   return merged;
 }
 
-export function vocabularyIdentity(entry: Pick<VocabularyEntry, "word" | "sourceSentence">): string {
+export function vocabularyIdentity(entry: Pick<VocabularyEntry, "word" | "sourceSentence"> & Partial<Pick<VocabularyEntry, "anki" | "dictionaryResult">>): string {
+  const query = entry.anki ? standaloneVocabularyQuery({ ...entry, anki: entry.anki }) : null;
+  if (query) return `dictionary::${normalizeDictionaryQuery(query)}`;
   return `${normalizedIdentityPart(entry.word)}::${normalizedIdentityPart(entry.sourceSentence)}`;
 }
 

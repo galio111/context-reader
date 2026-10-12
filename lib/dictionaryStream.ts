@@ -1,6 +1,7 @@
 import type { DictionaryResult } from "@/types/dictionary";
 import { normalizeDictionarySpelling } from "@/lib/dictionarySpelling";
 import { pronunciationTargetMatches } from "@/lib/pronunciation";
+import { normalizeDictionaryQuery, normalizeStandaloneDictionaryCacheItem, type StandaloneDictionaryCacheItem } from "./dictionaryResultSnapshot";
 
 type DictionaryStreamEvent =
   | {
@@ -22,12 +23,14 @@ type DictionaryStreamEvent =
   | { type: "synonym"; word?: string; difference?: string; value?: string }
   | { type: "mistake"; value?: string }
   | { type: "memory"; value?: string }
-  | { type: "done" };
+  | { type: "done" }
+  | { type: "savedDictionary"; snapshot?: unknown };
 
 export interface ParsedDictionaryStream {
   result: DictionaryResult;
   complete: boolean;
   eventCount: number;
+  savedSnapshot?: StandaloneDictionaryCacheItem;
 }
 
 function clean(value: unknown): string {
@@ -65,6 +68,7 @@ export function parseDictionaryStream(text: string, fallbackQuery: string): Pars
   };
   let complete = false;
   let eventCount = 0;
+  let savedSnapshot: StandaloneDictionaryCacheItem | undefined;
 
   for (const line of text.split(/\r?\n/)) {
     const event = parseEvent(line);
@@ -152,10 +156,15 @@ export function parseDictionaryStream(text: string, fallbackQuery: string): Pars
       case "done":
         complete = true;
         break;
+      case "savedDictionary": {
+        const snapshot = normalizeStandaloneDictionaryCacheItem(event.snapshot);
+        if (complete && snapshot?.normalizedQuery === normalizeDictionaryQuery(fallbackQuery)) savedSnapshot = snapshot;
+        break;
+      }
     }
   }
 
-  return { result: normalizeDictionarySpelling(result, fallbackQuery), complete, eventCount };
+  return { result: savedSnapshot?.result ?? normalizeDictionarySpelling(result, fallbackQuery), complete, eventCount, savedSnapshot };
 }
 
 export function isCompleteDictionaryResult(parsed: ParsedDictionaryStream): boolean {

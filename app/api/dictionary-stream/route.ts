@@ -272,14 +272,16 @@ async function handlePOST(request: Request) {
             controller.close();
             return;
           }
+          if (clientAborted || request.signal.aborted) throw new DOMException("Lookup cancelled", "AbortError");
           if (resultOwner) {
-            await persistDictionaryResult(resultOwner, parseDictionaryStream(snapshotText, query).result).catch(async (error) => {
+            const saved = await persistDictionaryResult(resultOwner, parseDictionaryStream(snapshotText, query).result).catch(async (error) => {
               await recordServerError(request, {
                 category: "service", severity: "warning", operation: "dictionary_snapshot_save",
                 endpoint: "/api/dictionary-stream", code: "dictionary_snapshot_save_failed", httpStatus: 503,
                 userMessage: "查询完成，云端历史结果尚未保存；本机结果会继续保留。",
               }, error);
             });
+            if (saved) controller.enqueue(encoder.encode(JSON.stringify({ type: "savedDictionary", snapshot: saved }) + "\n"));
           }
           await recordUsageExecution({
             actionId,

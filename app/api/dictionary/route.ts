@@ -56,9 +56,10 @@ async function handlePOST(request: Request) {
 
   try {
     const result = await lookupDictionaryWithDeepSeek(query);
-    if (resultOwner) await persistDictionaryResult(resultOwner, result.dictionary).catch(error => {
+    if (request.signal.aborted) throw new DOMException("Lookup cancelled", "AbortError");
+    const saved = resultOwner ? await persistDictionaryResult(resultOwner, result.dictionary).catch(error => {
       console.error("Dictionary snapshot save failed", error);
-    });
+    }) : null;
     await recordUsageExecution({
       actionId,
       route: "/api/dictionary",
@@ -72,7 +73,7 @@ async function handlePOST(request: Request) {
       status: "succeeded",
     }).catch(() => undefined);
     await finishUsage(actionId, "succeeded").catch(() => undefined);
-    return NextResponse.json({ dictionary: result.dictionary });
+    return NextResponse.json({ dictionary: saved?.result ?? result.dictionary, updatedAt: saved?.updatedAt });
   } catch (error) {
     await refundUsage(actionId, "failed", error instanceof Error ? error.name : "unknown").catch(() => undefined);
     if (error instanceof MissingDeepSeekEnvError) {

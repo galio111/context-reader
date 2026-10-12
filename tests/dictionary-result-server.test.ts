@@ -4,6 +4,7 @@ import {readFileSync} from "node:fs";
 import {runInNewContext} from "node:vm";
 import ts from "typescript";
 import * as snapshot from "../lib/dictionaryResultSnapshot";
+import * as vocabularySync from "../lib/vocabularyLookupSync";
 import type {DictionaryResult} from "../types/dictionary";
 import type {AccountSyncObject} from "../types/account";
 
@@ -15,11 +16,11 @@ test("cloud result recovery is scoped to the verified user and writes use the ex
   const source=readFileSync(new URL("../lib/dictionaryResultServer.ts",import.meta.url),"utf8");
   const js=ts.transpileModule(source,{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.CommonJS}}).outputText;
   const account={
-    accountFetch:async(path:string)=>{paths.push(path);return [{payload,server_version:7,deleted_at:null}];},
+    accountFetch:async(path:string)=>{paths.push(path);return path.includes("kind=eq.vocabulary") ? [] : [{payload,server_version:7,deleted_at:null}];},
     writeSyncObjects:async(user:string,objects:AccountSyncObject[])=>{assert.equal(user,"user-A");writes.push(objects);return objects.map(item=>({...item,accepted:true}));},
   };
-  const modules:Record<string,unknown>={"server-only":{},"./accountStore":account,"./dictionaryResultSnapshot":snapshot};
-  const api=runInNewContext(js+"\nexports",{exports:{},require:(key:string)=>modules[key]}) as {
+  const modules:Record<string,unknown>={"server-only":{},"./accountStore":account,"./dictionaryResultSnapshot":snapshot,"./vocabularyLookupSync":vocabularySync};
+  const api=runInNewContext(js+"\nexports",{exports:{},URLSearchParams,console,require:(key:string)=>modules[key]}) as {
     readDictionaryResult(user:string,query:string):Promise<DictionaryResult|null>;
     persistDictionaryResult(user:string,result:DictionaryResult):Promise<void>;
   };

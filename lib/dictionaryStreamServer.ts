@@ -2,6 +2,7 @@ import { pronunciationTargetMatches } from "@/lib/pronunciation";
 import { IncrementalJsonObjectParser } from "@/lib/incrementalJsonObjects";
 
 const CHINESE_QUERY_PATTERN = /[\u3400-\u9fff\uf900-\ufaff]/u;
+const PROVIDER_EVENT_TYPES = new Set(["head", "sense", "verbForms", "usage", "collocation", "wordFamily", "synonym", "mistake", "memory", "done"]);
 
 function clean(value: unknown): string {
   return typeof value === "string" ? value.trim() : "";
@@ -21,6 +22,8 @@ export function normalizeDictionaryStreamLine(line: string, query: string): stri
 
   try {
     const event = JSON.parse(candidate) as Record<string, unknown>;
+    // This event is issued only by our server after account-scoped persistence.
+    if (typeof event.type !== "string" || !PROVIDER_EVENT_TYPES.has(event.type)) return "";
     if (event.type !== "head") return JSON.stringify(event);
 
     event.query = query;

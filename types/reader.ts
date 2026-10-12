@@ -61,6 +61,8 @@ export interface WordContext {
 }
 
 export interface WordExplanation {
+  /** Local save time shared by exact-context cache and vocabulary sync. */
+  cacheUpdatedAt?: string;
   word: string;
   lemma: string;
   phonetic: string;
