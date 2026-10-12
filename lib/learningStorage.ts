@@ -107,14 +107,28 @@ export class LearningStorage implements Storage {
     return [...(this.buckets.get(bucket)?.rows.values() || [])].map(row => JSON.parse(row.json));
   }
   setRecord(key: string, id: string, value: unknown): void {
+    this.updateRecords(key, [[id, value]]);
+  }
+  /** One bucket delta; does not serialize or rewrite unrelated rows. */
+  updateRecords(key: string, values: ReadonlyArray<readonly [string, unknown]>, deleteIds: readonly string[] = []): void {
     let bucket = this.buckets.get(key);
+    if (!bucket && values.length === 0) return;
     const descriptor = bucket ? undefined : { key, format: "map" as const };
+    // Serialize before mutation so invalid input cannot leave an unqueued partial update.
+    const serialized = values.map(([id, value]) => [id, JSON.stringify(value)] as const);
     if (!bucket) { bucket = { descriptor: descriptor!, rows: new Map() }; this.buckets.set(key, bucket); }
-    const old = bucket.rows.get(id);
-    const row: Row = { bucket: key, id, json: JSON.stringify(value), order: old?.order ?? bucket.rows.size };
-    if (old?.json === row.json) return;
-    bucket.rows.set(id, row); this.rawCache.delete(key);
-    this.enqueue({ bucket: key, descriptor, puts: [row], deletes: [] });
+    const deletes = deleteIds.filter(id => bucket!.rows.has(id));
+    for (const id of deletes) bucket.rows.delete(id);
+    const puts: Row[] = [];
+    for (const [id, json] of serialized) {
+      const old = bucket.rows.get(id);
+      if (old?.json === json) continue;
+      const row: Row = { bucket: key, id, json, order: old?.order ?? bucket.rows.size };
+      bucket.rows.set(id, row); puts.push(row);
+    }
+    if (!puts.length && !deletes.length && !descriptor) return;
+    this.rawCache.delete(key);
+    this.enqueue({ bucket: key, descriptor, puts, deletes });
   }
   setItem(key: string, raw: string): void {
     if (!managed(key)) { this.legacy.setItem(key, raw); return; }

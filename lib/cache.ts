@@ -2,9 +2,7 @@
 import { getLearningStorage, isLearningStorage } from "@/lib/learningStorage";
 import { normalizeAnkiInfo } from "@/lib/ankiData";
 import type { ArticleTranslationBlock, ArticleTranslationItem, WordExplanation } from "@/types/reader";
-import {
-  createArticleTranslationBlockCacheKey,
-} from "@/lib/articleTranslationIdentity";
+import { createTranslationCacheRepository } from "@/lib/translationCacheRepository";
 
 export {
   createArticleTranslationBlockCacheKey,
@@ -14,8 +12,6 @@ import { notifyAccountDataChanged } from "@/lib/accountEvents";
 import { currentFormPhonetic } from "@/lib/pronunciation";
 
 const EXPLANATION_CACHE_KEY = "context-reader:explanations:v5";
-const ARTICLE_TRANSLATION_CACHE_KEY = "context-reader:article-translations:v1";
-const ARTICLE_TRANSLATION_BLOCK_CACHE_KEY = "context-reader:article-translation-blocks:v1";
 
 type ExplanationCache = Record<string, WordExplanation>;
 type ArticleTranslationCache = Record<string, ArticleTranslationItem[]>;
@@ -102,129 +98,40 @@ export function getExplanationCacheEntries(): Array<{ cacheKey: string; explanat
   }));
 }
 
-function readArticleTranslationCache(): ArticleTranslationCache {
-  if (typeof window === "undefined") {
-    return {};
-  }
-
-  try {
-    const raw = getLearningStorage().getItem(ARTICLE_TRANSLATION_CACHE_KEY);
-    return raw ? (JSON.parse(raw) as ArticleTranslationCache) : {};
-  } catch {
-    return {};
-  }
-}
-
-function readArticleTranslationBlockCache(): ArticleTranslationBlockCache {
-  if (typeof window === "undefined") {
-    return {};
-  }
-
-  try {
-    const raw = getLearningStorage().getItem(ARTICLE_TRANSLATION_BLOCK_CACHE_KEY);
-    return raw ? (JSON.parse(raw) as ArticleTranslationBlockCache) : {};
-  } catch {
-    return {};
-  }
+function translationCache() {
+  let storage: Storage | null = null;
+  try { if (typeof window !== "undefined") storage = getLearningStorage(); } catch { /* Browser storage may be unavailable. */ }
+  return createTranslationCacheRepository(storage, kind => notifyAccountDataChanged([kind]));
 }
 
 export function getCachedArticleTranslationForBlock(block: ArticleTranslationBlock): ArticleTranslationItem | null {
-  return readArticleTranslationBlockCache()[createArticleTranslationBlockCacheKey(block)] ?? null;
-}
-
-function writeArticleTranslationCache(cache: ArticleTranslationCache): void {
-  if (typeof window === "undefined") {
-    return;
-  }
-
-  try {
-    getLearningStorage().setItem(ARTICLE_TRANSLATION_CACHE_KEY, JSON.stringify(cache));
-    notifyAccountDataChanged(["article_translation"]);
-  } catch {
-    // Translation cache failure should not block reading.
-  }
-}
-
-function writeArticleTranslationBlockCache(cache: ArticleTranslationBlockCache): void {
-  if (typeof window === "undefined") {
-    return;
-  }
-
-  try {
-    getLearningStorage().setItem(ARTICLE_TRANSLATION_BLOCK_CACHE_KEY, JSON.stringify(cache));
-    notifyAccountDataChanged(["translation_block"]);
-  } catch {
-    // Translation cache failure should not block reading.
-  }
+  return translationCache().getBlock(block);
 }
 
 export function getCachedArticleTranslation(key: string): ArticleTranslationItem[] | null {
-  const cached = readArticleTranslationCache()[key];
-  return Array.isArray(cached) && cached.length > 0 ? cached : null;
+  return translationCache().getArticle(key);
 }
 
 export function setCachedArticleTranslation(key: string, translations: ArticleTranslationItem[]): void {
-  const cache = readArticleTranslationCache();
-  cache[key] = translations;
-  writeArticleTranslationCache(cache);
+  translationCache().setArticle(key, translations);
 }
 
 export function removeCachedArticleTranslation(key: string): void {
-  const cache = readArticleTranslationCache();
-  if (!(key in cache)) {
-    return;
-  }
-  delete cache[key];
-  writeArticleTranslationCache(cache);
+  translationCache().removeArticle(key);
 }
 
 export function getCachedArticleTranslationForBlocks(blocks: ArticleTranslationBlock[]): ArticleTranslationItem[] {
-  const cache = readArticleTranslationBlockCache();
-  return blocks
-    .map((block) => cache[createArticleTranslationBlockCacheKey(block)])
-    .filter((item): item is ArticleTranslationItem => Boolean(item?.id && item.translation));
+  return translationCache().getBlocks(blocks);
 }
 
-export function setCachedArticleTranslationForBlocks(
-  blocks: ArticleTranslationBlock[],
-  translations: ArticleTranslationItem[],
-): void {
-  const cache = readArticleTranslationBlockCache();
-  const blockById = new Map(blocks.map((block) => [block.id, block]));
-
-  for (const translation of translations) {
-    const block = blockById.get(translation.id);
-    if (!block || !translation.translation.trim()) {
-      continue;
-    }
-    cache[createArticleTranslationBlockCacheKey(block)] = translation;
-  }
-
-  writeArticleTranslationBlockCache(cache);
+export function setCachedArticleTranslationForBlocks(blocks: ArticleTranslationBlock[], translations: ArticleTranslationItem[]): void {
+  translationCache().setBlocks(blocks, translations);
 }
 
 export function removeCachedArticleTranslationForBlocks(blocks: ArticleTranslationBlock[]): void {
-  const cache = readArticleTranslationBlockCache();
-  let changed = false;
-
-  for (const block of blocks) {
-    const key = createArticleTranslationBlockCacheKey(block);
-    if (key in cache) {
-      delete cache[key];
-      changed = true;
-    }
-  }
-
-  if (changed) {
-    writeArticleTranslationBlockCache(cache);
-  }
+  translationCache().removeBlocks(blocks);
 }
 
 export function getArticleTranslationCacheEntries(): Array<{ cacheKey: string; translations: ArticleTranslationItem[] }> {
-  return Object.entries(readArticleTranslationCache())
-    .filter(([, translations]) => Array.isArray(translations) && translations.length > 0)
-    .map(([cacheKey, translations]) => ({
-      cacheKey,
-      translations,
-    }));
+  return translationCache().entries();
 }
