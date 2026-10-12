@@ -53,3 +53,9 @@ test("538 overdue words carry through the daily cap together with upcoming words
  assert.deepEqual(studyForecast(backlog,now,false,100,0,"2026-10-12T00:00:00Z").map(d=>d.count),[0,0,100,100,100,100,100]);
  assert.equal(studyForecast([...backlog.map(c=>({...c,suspended:true})),card("new")],now,false)[0].count,0);
 });
+
+test("ongoing learning joins its due day outside the ordinary review cap",()=>{
+ const cards=[card("learning",1),card("relearning",3),card("old",2),card("backlog",2)];
+ assert.deepEqual(studyForecast(cards,now,false,1).map(d=>d.count),[3,1,0,0,0,0,0]);
+ assert.deepEqual(studyForecast(cards,now,false,1,0,"2026-10-11T00:00:00Z").map(d=>d.count),[0,3,1,0,0,0,0]);
+});

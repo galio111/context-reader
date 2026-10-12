@@ -49,7 +49,7 @@ export async function POST(request: Request) {
       const [settings,cards]=await Promise.all([getStudySettings(userId),studyRows<StudyCard>("study_cards",userId,"*","&order=id.asc")]);
       if (!studyPaused(settings,new Date())) {
         const ids=buildStudyPlan(cards.filter(c=>!c.suspended),settings,new Date());
-        await studyRpc("start_flexible",{p_user:userId,p_ids:ids,p_settings:settings});
+        await studyRpc("start_learning_v3",{p_user:userId,p_ids:ids,p_settings:settings});
       }
       return result(await getStudySnapshot(userId));
     }
@@ -90,7 +90,7 @@ export async function POST(request: Request) {
       if (!card || card.suspended) throw new StudyError("这个词条已移除。", 404, "state_changed");
       if (card.anki_pending && !(await getStudySettings(userId)).includeAnki) throw new StudyError("这个词的历史进度尚未迁移，暂不加入复习。", 409, "state_changed");
       if (op === "present") {
-        const state = await studyRpc<Record<string,unknown>>("present", { p_user: userId, p_card: cardId, p_version: body.version });
+        const state = await studyRpc<Record<string,unknown>>("present_v3", { p_user: userId, p_card: cardId, p_version: body.version });
         if (!state.token) throw new StudyError("这张卡片暂时不能作答，请刷新学习记录。", 409);
         return result(state);
       }
@@ -101,7 +101,7 @@ export async function POST(request: Request) {
       const snapshot = await getStudySnapshot(userId);
       const retention = snapshot.today?.settings.retention ?? settings.retention;
       const scheduled = scheduleStudy(card.memory, answer, new Date(), retention,settings);
-      const saved = await studyRpc<Record<string,unknown>>("review", {
+      const saved = await studyRpc<Record<string,unknown>>("review_v3", {
         p_user: userId, p_id: body.id, p_card: cardId, p_version: body.version, p_token: body.token,
         p_answer: answer, p_rating: studyRating(answer), p_active: Math.max(0, Math.min(60000, Math.floor(Number(body.activeMs) || 0))),
         p_memory: scheduled.memory, p_algorithm: STUDY_ALGORITHM, p_parameters: { retention, forgotMinutes:settings.forgotMinutes??5, unsureMinutes:settings.unsureMinutes??10, shortTermStrategy:"explicit-again-hard-v1", fuzz: false },

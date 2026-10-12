@@ -43,6 +43,7 @@ export function createStandaloneVocabularyEntry(result: DictionaryResult): Vocab
   const firstExample = result.senses.find((sense) => sense.exampleEnglish || sense.exampleChinese);
 
   return {
+    dictionaryResult: result,
     id: `standalone-${vocabularyWord.toLowerCase().replace(/\s+/g, "-")}-${Date.now()}`,
     word: vocabularyWord,
     lemma: result.lemma,

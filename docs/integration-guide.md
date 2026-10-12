@@ -344,3 +344,7 @@ Apply additive `docs/study-evidence-v2-migration.sql` before the refined app. It
 先应用 docs/product-activity-migration.sql（增量表/RPC，启用RLS且仅service_role可访问），保留已有v1/v2阅读接口兼容。POST /api/study/reading 的evidenceVersion=3携带UUID id及原seconds/words/article，服务端按本账号、同源、体积和字段验证。GET /api/account/activity返回个人seconds/todaySeconds/readingDays/since；同路径POST按上海日记前台访问。GET /api/admin/product-analytics?days=7|30|90仅Admin可读。统计不包含原文正文。回滚app时可保留新增表与旧接口，不删除采集数据。隔离恢复库验证脚本见tests/product-activity.sql。
 
 统计增量已在大陆生产执行，采集起点为2026-10-12 13:46:53（上海）；接受版本及权限、幂等、备份、公网证据见 [截图优化验收](ux-detail-20261012.md)。
+
+## 正在背队列与离线 Anki 数据准备
+
+部署学习 v3 应用前，依次执行 `study-learning-v3-migration.sql` 和 `study-import-batches-migration.sql`。迁移增量创建 RPC/凭据表并保留旧 RPC，浏览器角色无执行/表权限，应用回退无需删表。离线工具 `scripts/prepare-cet6-dictionary-import.py` 校验现代 APKG 与 Codex 生成 JSONL 的词集合完全一致，输出私人 payload/report/SQL；先在隔离数据库验证、重新快照目标账号，再执行身份、现有进度与键冲突保护下的事务。原始卡片、全部作答与手动事件保存在凭据中；评分记录另行迁入学习历史。不得提交账号快照、生成词库或认证材料到 Git。

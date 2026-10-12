@@ -61,7 +61,7 @@ export async function getStudySnapshot(userId: string): Promise<StudySnapshot> {
     getStudyEntries(userId),
     accountFetch<StudyDay[]>("study_days?user_id=eq." + encodeURIComponent(userId) + "&day=eq." + shanghaiDay(now) + "&select=*&limit=1"),
     accountFetch<StudyReview[]>("study_reviews?user_id=eq." + encodeURIComponent(userId) + "&select=id,card_id,answer,rating,reviewed_at,active_ms,undone,previous,next&order=reviewed_at.desc&limit=20"),
-    studyRpc<StudySnapshot["daily"]>("daily_stats_v2", { p_user: userId }), getStudyPolicy(),
+    studyRpc<StudySnapshot["daily"]>("daily_stats_v3", { p_user: userId }), getStudyPolicy(),
     studyRows<{current:number;best:number;last_day:string|null}>("study_streaks",userId,"current,best,last_day"),
     studyRows<StudySnapshot["rewards"][number]>("study_rewards",userId,"milestone,points,plan,months,earned_at,activated_at,ends_at","&order=milestone.asc"),
     studyRows<StudySnapshot["claims"][number]>("study_claims",userId,"id,day,milestone,points,claimed_points,plan,months,earned_at,claimed_at","&order=earned_at.desc"),
@@ -71,7 +71,9 @@ export async function getStudySnapshot(userId: string): Promise<StudySnapshot> {
   const visible=active.filter(c=>!c.anki_pending||settings.includeAnki);
   const visibleIds=new Set(visible.map(c=>c.entry_id));
   return { serverNow: now.toISOString(), settings, cards: visible, ankiPendingCount:active.filter(c=>c.anki_pending).length,
-    entries:entries.filter(e=>visibleIds.has(e.id)), today: today[0] ?? null, reviews, daily, policy,
+    // Full dictionaries remain in synced vocabulary/cache objects. Read one saved
+    // result when opening a card instead of repeating every dictionary per answer.
+    entries:entries.filter(e=>visibleIds.has(e.id)).map(entry=>({...entry,dictionaryResult:undefined})), today: today[0] ?? null, reviews, daily, policy,
     streak:streakRows[0]??{current:0,best:0,last_day:null},rewards,claims };
 }
 export async function saveStudySettings(userId: string, settings: StudySettings) {

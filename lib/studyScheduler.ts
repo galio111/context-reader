@@ -65,11 +65,18 @@ export function sanitizeStudySettings(input: unknown, current = DEFAULT_STUDY_SE
 export function buildStudyPlan(cards: StudyCard[], settings: StudySettings, now: Date): string[] {
   if (studyPaused(settings, now)) return [];
   const eligible = cards.filter(c => !c.suspended && (!c.anki_pending || settings.includeAnki));
-  const due = eligible.filter(c => c.memory.state !== State.New && Date.parse(c.memory.due) <= now.getTime())
+  const learning = eligible.filter(c => isStudyLearning(c.memory));
+  const due = eligible.filter(c => c.memory.state === State.Review && Date.parse(c.memory.due) <= now.getTime())
     .sort((a, b) => Date.parse(a.memory.due) - Date.parse(b.memory.due) || a.id.localeCompare(b.id));
   // Catch up before introducing more work.
   const fresh = eligible.filter(c => c.memory.state === State.New).sort((a, b) => a.created_at.localeCompare(b.created_at) || a.id.localeCompare(b.id));
-  return [...due.slice(0, settings.reviewsPerDay), ...fresh].map(c => c.id);
+  return [...learning, ...due.slice(0, settings.reviewsPerDay), ...fresh].map(c => c.id);
+}
+export function isStudyLearning(memory: StudyMemory): boolean {
+  return memory.state === State.Learning || memory.state === State.Relearning;
+}
+export function studyQueuePriority(card: StudyCard): number {
+  return isStudyLearning(card.memory) ? 0 : card.memory.state === State.Review ? 1 : 2;
 }
 export function planProgress(cards: StudyCard[], ids: string[], now: Date, newIds?: string[]) {
   const byId = new Map(cards.map(c => [c.id,c]));
@@ -79,11 +86,13 @@ export function planProgress(cards: StudyCard[], ids: string[], now: Date, newId
     && c.memory.state === State.Review && Date.parse(c.memory.due) >= end);
   const finishedSet=new Set(finished);
   const newSet=new Set(newIds??selected.filter(c=>c.memory.state===State.New).map(c=>c.id));
-  const reviewRemaining=selected.some(c=>!newSet.has(c.id)&&!finishedSet.has(c));
-  const available=selected.filter(c=>!finishedSet.has(c)&&(!reviewRemaining||!newSet.has(c.id)));
+  // A failed answer enters timed learning. Waiting for it must not hold up the
+  // first pass of the remaining reviews or the introduction of new words.
+  const reviewRemaining=selected.some(c=>c.memory.state===State.Review&&!finishedSet.has(c));
+  const available=selected.filter(c=>!finishedSet.has(c)&&(!reviewRemaining||c.memory.state!==State.New));
   const ready = available.filter(c => Date.parse(c.memory.due) <= now.getTime())
-    .sort((a,b) => (a.memory.state === State.New ? 1 : 0) - (b.memory.state === State.New ? 1 : 0) || Date.parse(a.memory.due) - Date.parse(b.memory.due));
+    .sort((a,b) => studyQueuePriority(a)-studyQueuePriority(b) || Date.parse(a.memory.due) - Date.parse(b.memory.due) || a.id.localeCompare(b.id));
   const readySet = new Set(ready);
   const waiting = available.filter(c => !readySet.has(c));
-  return { total: selected.length, finished: finished.length, ready, waiting, blockedNew:reviewRemaining?selected.filter(c=>newSet.has(c.id)&&!finishedSet.has(c)).length:0 };
+  return { total: selected.length, finished: finished.length, ready, waiting, blockedNew:reviewRemaining?selected.filter(c=>newSet.has(c.id)&&c.memory.state===State.New).length:0 };
 }

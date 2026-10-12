@@ -81,7 +81,7 @@ function groupSensesByPartOfSpeech(senses: DictionaryResult["senses"]) {
   return Array.from(groups, ([label, groupedSenses]) => ({ label, senses: groupedSenses }));
 }
 
-function DictionaryPronunciations({ result }: { result: DictionaryResult }) {
+function DictionaryPronunciations({ result, preload = true }: { result: DictionaryResult; preload?: boolean }) {
   const groups = groupDictionaryPronunciations(result.pronunciations);
   if (!groups.length) return null;
   const differsByPart = groups.length > 1;
@@ -91,7 +91,7 @@ function DictionaryPronunciations({ result }: { result: DictionaryResult }) {
       {dictionaryPronunciationRows(group).map((row, rowIndex) => <div className={styles.pronunciationVariantRow} key={rowIndex}>
         <span>{row.phonetic}</span>
         <PronunciationButtons text={result.query} accents={row.accents}
-          preload
+          preload={preload}
           allowBrowserFallback={false}
           phonetics={requiresCurrentFormPhonetic(result.query) ? Object.fromEntries(
             row.accents.filter(accent => new Set(groups.flatMap(item => item.entries)
@@ -155,8 +155,9 @@ function RelatedLookupButton({ query, label, disabled, onLookup }: {
   query: string;
   label: string;
   disabled: boolean;
-  onLookup: (query: string) => void;
+  onLookup?: (query: string) => void;
 }) {
+  if(!onLookup)return null;
   return (
     <button type="button" className={styles.synonymLookup} aria-label={`查询${label} ${query}`} title={`查询 ${query}`} disabled={disabled} onClick={() => onLookup(query)}>
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -166,14 +167,16 @@ function RelatedLookupButton({ query, label, disabled, onLookup }: {
   );
 }
 
-function DictionaryResultContent({
+export function DictionaryResultContent({
   result,
   streaming,
   onUseSuggestion,
+  preload = true,
 }: {
   result: DictionaryResult;
   streaming: boolean;
-  onUseSuggestion: (query: string) => void;
+  onUseSuggestion?: (query: string) => void;
+  preload?: boolean;
 }) {
   if (result.inputStatus === "misspelled") {
     return (
@@ -181,7 +184,7 @@ function DictionaryResultContent({
         <span>可能拼写有误</span>
         <h3>{result.query}</h3>
         <p>这个拼写没有被当作有效词条保存。你可能想查：</p>
-        <button type="button" disabled={streaming} onClick={() => onUseSuggestion(result.suggestedQuery)}>
+        <button type="button" disabled={streaming||!onUseSuggestion} onClick={() => onUseSuggestion?.(result.suggestedQuery)}>
           {streaming ? "正在确认拼写…" : <>改查 <strong>{result.suggestedQuery}</strong></>}
         </button>
       </article>
@@ -219,7 +222,7 @@ function DictionaryResultContent({
                     {(sense.phonetic || (index === 0 && result.phonetic)) && (
                       <span>{sense.phonetic || result.phonetic}</span>
                     )}
-                    <PronunciationButtons text={sense.meaning} allowBrowserFallback={false} preload />
+                    <PronunciationButtons text={sense.meaning} allowBrowserFallback={false} preload={preload} />
                   </div>
                 </div>
                 {sense.usageNote && <p className={styles.translationUsage}>{sense.usageNote}</p>}
@@ -267,11 +270,11 @@ function DictionaryResultContent({
           {result.phonetic && !result.pronunciations?.length && (
             <span><small>当前词音标</small>{result.phonetic}</span>
           )}
-          {result.query && !result.pronunciations?.length && <PronunciationButtons text={result.query} allowBrowserFallback={false} preload />}
+          {result.query && !result.pronunciations?.length && <PronunciationButtons text={result.query} allowBrowserFallback={false} preload={preload} />}
         </div>
       </header>
 
-      <DictionaryPronunciations result={result} />
+      <DictionaryPronunciations result={result} preload={preload} />
 
       {result.senses.length > 0 && (
         <ol className={styles.senses}>
@@ -512,8 +515,10 @@ export function BookDictionary({
       }
       return;
     }
-    if (options.history) {
-      // A historical name never silently starts another paid generation.
+    if (options.history || (!options.force && !offline && accountOwner !== "guest")) {
+      // Cold devices can have a saved server result before sync reaches this word.
+      // Only a confirmed miss on a new query may continue to paid generation.
+      let confirmedMiss = false;
       setResult(null);
       if (offline || accountOwner === "guest") {
         setError("这条旧历史未保存完整结果。可点击深度查询重新生成；新查询会保存完整结果。");
@@ -531,23 +536,26 @@ export function BookDictionary({
         const snapshot = normalizeStandaloneDictionaryCacheItem({
           schemaVersion: 2, query: normalized, result: data.dictionary, updatedAt: new Date().toISOString(),
         });
-        if (!response.ok || !snapshot) {
+        if (response.status === 404 && !options.history) {
+          confirmedMiss = true;
+        } else if (!response.ok || !snapshot) {
           setError(response.status === 404
             ? "这条旧历史未保存完整结果。可点击深度查询重新生成；新查询会保存完整结果。"
             : "历史结果暂时无法读取，请稍后重试。");
           return;
+        } else {
+          setResult(snapshot.result);
+          writeSession({ query: normalized, result: snapshot.result, cache: {} });
+          recordStandaloneDictionaryCache(snapshot.result);
+          rememberLookup(normalized, intent);
+          await flushLearningStorage();
         }
-        setResult(snapshot.result);
-        writeSession({ query: normalized, result: snapshot.result, cache: {} });
-        recordStandaloneDictionaryCache(snapshot.result);
-        rememberLookup(normalized, intent);
-        await flushLearningStorage();
       } catch {
         if (!controller.signal.aborted && intent.owner === dictionaryHistoryOwner()) setError("历史结果暂时无法读取，请稍后重试。");
       } finally {
         if (abortRef.current === controller) { abortRef.current = null; setLoading(false); }
       }
-      return;
+      if (!confirmedMiss) return;
     }
     if (offline) {
       setError("当前离线，这个查询还没有缓存。联网后可生成新的双向词典解释。");

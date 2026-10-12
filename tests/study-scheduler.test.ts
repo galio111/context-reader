@@ -61,14 +61,28 @@ test("reject backwards review clocks rather than corrupting an existing memory",
  const m=scheduleStudy(newMemory(new Date("2026-10-05")),"remembered",new Date("2026-10-05"),.9).memory;
  assert.throws(()=>scheduleStudy(m,"remembered",new Date("2026-10-04"),.9));
 });
-test("unfinished review learning steps block new cards even when no old card is due yet",()=>{
+test("waiting relearning does not block new words after the review pass",()=>{
  const now=new Date("2026-10-05T08:00:00Z");
  const fresh:StudyCard={id:"new",entry_id:"e",mode:"cloze_context",memory:newMemory(now),version:0,suspended:false,anki_pending:false,created_at:now.toISOString()};
  const review={...fresh,id:"old",memory:{...newMemory(now),state:3,due:new Date(now.getTime()+600000).toISOString()}};
  const waiting=planProgress([fresh,review],["old","new"],now,["new"]);
- assert.equal(waiting.ready.length,0);assert.equal(waiting.blockedNew,1);assert.equal(waiting.waiting[0].id,"old");
+ assert.equal(waiting.ready[0].id,"new");assert.equal(waiting.blockedNew,0);assert.equal(waiting.waiting[0].id,"old");
  const done={...review,memory:{...review.memory,state:2,last_review:now.toISOString(),due:new Date(now.getTime()+3*86400000).toISOString()}};
  assert.equal(planProgress([fresh,done],["old","new"],now,["new"]).ready[0].id,"new");
+});
+
+test("learning steps have priority and do not consume the review limit",()=>{
+ const now=new Date("2026-10-12T08:00:00Z");
+ const make=(id:string,state:number,due=now.toISOString()):StudyCard=>({id,entry_id:id,mode:"basic_en_to_cn",memory:{...newMemory(now),state,due},version:0,suspended:false,anki_pending:false,created_at:now.toISOString()});
+ const learning=make("learning",1),relearning=make("relearning",3),review=make("review",2),extra=make("extra",2),fresh=make("new",0);
+ const ids=buildStudyPlan([fresh,review,learning,extra,relearning],{...DEFAULT_STUDY_SETTINGS,reviewsPerDay:1},now);
+ assert.ok(ids.includes(learning.id)&&ids.includes(relearning.id));assert.equal(ids.length,4);
+ const p=planProgress([fresh,review,learning,relearning],["new","review","learning","relearning"],now,["new","learning"]);
+ assert.deepEqual(p.ready.map(c=>c.id),["learning","relearning","review"]);
+ const waiting={...learning,memory:{...learning.memory,due:new Date(now.getTime()+300000).toISOString()}};
+ assert.equal(planProgress([fresh,review,waiting],["new","review","learning"],now,["new","learning"]).ready[0].id,"review");
+ assert.equal(planProgress([fresh,waiting],["new","learning"],now,["new","learning"]).ready[0].id,"new");
+ assert.equal(planProgress([fresh,waiting],["new","learning"],new Date(now.getTime()+300000),["new","learning"]).ready[0].id,"learning");
 });
 test("reward policy preserves approved milestones and rejects malformed financial settings",()=>{
  assert.deepEqual(validateStudyPolicy(DEFAULT_STUDY_POLICY),DEFAULT_STUDY_POLICY);

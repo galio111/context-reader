@@ -23,7 +23,7 @@ Reader 的正文派生模型移到 `lib/readerDocumentModel.ts`，UI 继续由�
 
 2026-10-11：galio 已完成一次账号级 Anki 历史迁移；当前记忆直接保留，历史事件保留来源、原始评分与用时，旧事件不参与奖励。没有应用或表结构变更，完整边界和恢复步骤见 [迁移记录](anki-import-20261011.md)。
 
-已部署 FSRS-6 服务端调度和账号隔离的 `study_*` 状态/事件/计划/奖励/阅读证据。固定先复习再新词，出题凭据与版本控制防止跨账号和旧设备覆盖；结算沿用现有额度账本，阅读画像复用模型路由。详细算法、计时、暂停、撤销和奖励事务边界见[站内学习说明](vocabulary-study.md)；[发布验证](vocabulary-study-release.md)包含隔离 SQL、并发和实际公网检查。
+已部署 FSRS-6 服务端调度和账号隔离的 `study_*` 状态/事件/计划/奖励/阅读证据。队列优先已到期 Learning/Relearning，再普通复习，再新词；等待步骤不阻塞后续阶段，出题凭据与版本控制防止跨账号和旧设备覆盖；结算沿用现有额度账本，阅读画像复用模型路由。详细算法、计时、暂停、撤销和奖励事务边界见[站内学习说明](vocabulary-study.md)；[发布验证](vocabulary-study-release.md)包含隔离 SQL、并发和实际公网检查。
 
 ## Unified points and one-time membership purchases
 
@@ -422,12 +422,12 @@ The provider transport no longer awaits the successful first-content health data
 Discovery and paid review are separate lifecycles. An hourly, three-source-per-tick sweep persists feed URLs under the discovery lease even when a paid day is closed. Per-source durable queues retain unfinished work across RSS rotation, classify failures by pipeline stage and provide bounded retry plus Admin inspection. Category floors are 14 without publication ceilings; source hints only prioritize. `AdminEditorialSettings` uses its existing paired day/night palette for the collapsible source log, keyboard focus and retry actions. Queue and publication security contracts are specified in automated-editorial.md and integration-guide.md.
 
 
-`StudyPanel.module.css` 独立作用域包含日/夜配对语义色，复用 Design Lab 的单卡、玻璃侧栏/底栏、260ms 短位移动效，并覆盖 prefers-reduced-motion。StudyWord 使用原词条的当前词音标校验、词性标签及 VocabularyLearningDetails；不重新调用查词。`study_start_flexible` 固定当天旧词目标并可追加新保存词；`study_settle_rewards` 只确认真实完成的新词和连续日，`study_claim_reward` 在 study/billing 锁内按待领取差額发放，独立于自动入账的旧 RPC。`study_claims` 随账号导出且禁止浏览器直读写。
+`StudyPanel.module.css` 独立作用域包含日/夜配对语义色，复用 Design Lab 的单卡、玻璃侧栏/底栏、260ms 短位移动效，并覆盖 prefers-reduced-motion。StudyWord 使用原词条的当前词音标校验、词性标签及 VocabularyLearningDetails；不重新调用查词。`study_start_learning_v3` 固定当天普通复习目标，可追加新保存词与正在背步骤；`study_settle_rewards` 只确认真实完成的新词和连续日，`study_claim_reward` 在 study/billing 锁内按待领取差額发放，独立于自动入账的旧 RPC。`study_claims` 随账号导出且禁止浏览器直读写。
 
 
 ## Native study activity and retained presentation
 
-StudyHost preloads only a verified online account and retains its keyed StudyPanel on close. Presentation tokens are renewed on re-entry; hints/assistance reset only when card/version changes. Settings stay mounted, serialize saves and merge only returned settings so a late save cannot roll back a review. Reader Menu portals into the open native study dialog; navigation explicitly releases the study layer. Data plots use study_daily_stats_v2 (365 Shanghai days, unique daily new/review cards, undone excluded). Reading hooks connect trusted foreground interactions, never idle tails; cross-tab ownership breaks overlap. study_reading_tick_v2 row-locks and bounds time; verified_seconds alone gates profile generation, while legacy totals and generated profiles remain. Full windows and evidence: [study refinement](study-refinement-20261010.md).
+StudyHost preloads only a verified online account and retains its keyed StudyPanel on close. Presentation tokens are renewed on re-entry; hints/assistance reset only when card/version changes. Settings stay mounted, serialize saves and merge only returned settings so a late save cannot roll back a review. Reader Menu portals into the open native study dialog; navigation explicitly releases the study layer. Data plots use study_daily_stats_v3 (365 Shanghai days; distinct ongoing learning, first graduation and ordinary review; cross-day graduation counts on the completion day; undone excluded). Reading hooks connect trusted foreground interactions, never idle tails; cross-tab ownership breaks overlap. study_reading_tick_v2 row-locks and bounds time; verified_seconds alone gates profile generation, while legacy totals and generated profiles remain. Full windows and evidence: [study refinement](study-refinement-20261010.md).
 
 
 ## 有效阅读与产品活动统计
@@ -437,3 +437,5 @@ StudyHost preloads only a verified online account and retains its keyed StudyPan
 Admin统计排除当前管理员，按注册日成熟的第1/7/30天回访计算留存。首次付费按真实paid_at（含后续退款）去重；赠送、邀请或调档不是付费。只有采集开始后注册的账号能构成完整付费前样本，按事件时间截到首次支付；其余单独显示覆盖缺失。真题个人正确率来自本账号不可变提交，整卷覆盖分段，重复ID不重算，冲突与中止转学习不计入。
 
 开发者预览位于/admin/experience：外页和frame均要求活动developer账号，唯一frame路径允许同源嵌入。使用正式AccountProvider/HomeClient/Reader/账号/套餐/StudyHost，配额来自当前服务器套餐。frame内Storage与学习库使用内存，网络白名单只放行公开只读内容；账号、学习、同步返回示例状态，未知写入/生成/支付拒绝。预览导航与取消信号留在隔离环境；不修改开发者身份、真实IndexedDB、真实额度或订单。
+
+独立词典加入生词本时保留完整 `dictionaryResult`，StudyWord 复用 DictionaryResultContent，提示按义项展示英文例句。学习快照不反复附带全部完整词典，按单词只读缓存恢复。直接输入查询在本地缓存缺失时先读取账号缓存；只在确认 404 且用户发起新查询时生成，历史回放与读取失败均不触发模型。`study_import_batches` 保存包哈希、原始 Anki notes/cards/revlog 与生成文件哈希，服务角色专用、账号导出包含、重复包幂等。

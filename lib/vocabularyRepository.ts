@@ -52,6 +52,10 @@ function normalizeVocabularyEntry(value: unknown): VocabularyEntry | null {
         }
       : undefined;
   const normalizedBase = {
+    ...(entry.dictionaryResult?.query === entry.word && Array.isArray(entry.dictionaryResult.senses)
+      && Array.isArray(entry.dictionaryResult.collocations) && Array.isArray(entry.dictionaryResult.wordFamily)
+      && Array.isArray(entry.dictionaryResult.synonyms) && Array.isArray(entry.dictionaryResult.commonMistakes)
+      ? { dictionaryResult: entry.dictionaryResult } : {}),
     id: typeof entry.id === "string" ? entry.id : `${entry.word.toLowerCase()}-${Date.now()}`,
     word: entry.word,
     lemma: typeof entry.lemma === "string" ? entry.lemma : entry.word,

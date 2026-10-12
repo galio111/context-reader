@@ -1,5 +1,6 @@
 import type { Difficulty } from "./reader";
 import type { AnkiCardInfo } from "./anki";
+import type { DictionaryResult } from "./dictionary";
 
 export interface VocabularySourceArticle {
   kind: "public";
@@ -8,6 +9,7 @@ export interface VocabularySourceArticle {
 }
 
 export interface VocabularyEntry {
+  dictionaryResult?: DictionaryResult;
   id: string;
   word: string;
   lemma: string;
