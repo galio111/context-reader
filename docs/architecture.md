@@ -10,6 +10,8 @@ Reader 的正文派生模型移到 `lib/readerDocumentModel.ts`，UI 继续由�
 
 全站功能和不可退化边界见 [功能契约](architecture-refactor/functional-contract.md)，测量、候选/发布状态见 [架构重构](architecture-refactor/implementation.md)，独立验收见 [审核报告](architecture-refactor/independent-audit.md)。这些模块替换不改变 API 路由、服务端鉴权、配额、数据库 schema、定时编辑或现有 UI。
 
+构建 JS/CSS 经 Brotli 静态读取接口时，只对通过 `staticAssetParts` 验证的 GET/HEAD 使用独立 `static-read` 600/min 桶，避免一次冷加载消耗业务 `api-all` 120/min。无效路径和非读取方法保留普通 API 规则；AI/Auth/Admin 的专用限额及大小/来源验证不变。相关真实 HTTP 冷启动与保护函数回归见本轮架构审核。
+
 ## 每日精选自动排序（已生产，2026-10-10）
 
 每日自动审核与发布结束后，自动打乱今日精选及所有往日精选，今日仍在前。推荐/时事/科学/文化/商业均持久化，保留当日头条和推荐白名单；四个主题分类的排序容量从500扩至10000，避免旧文章只在尾部按原序出现。排序与完成凭据同一行 CAS 提交，日账记录完成；重复唤醒不重排，补齐新增文章后在收尾阶段再排一次，正常硬边界结束也处理已发布文章。排序不产生模型调用，详细合同见 [自动精选](automated-editorial.md)。已接受 `20261010T142500`（parent `20261010T105000`，source `27ae351239ee9d8d240e20ffee65acee36a93b66`），真实五组排序、重复稳定、零新增审核费用/邮件、阅读核心与运维验收见 [证据](editorial-shuffle-20261010.md)。

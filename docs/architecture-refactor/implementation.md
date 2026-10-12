@@ -22,8 +22,11 @@
 | `lib/accountStorageTransition.ts` | 无依赖的临时生命周期信号；覆盖账户归档、恢复及退出的异步等待 | 不新增持久化字段、不提前改 owner；过渡中旧任务不能写入、新任务不能启动 |
 | `lib/vocabularyRepository.ts` | 解码、归一化、去重迁移和单个 Storage 的私有快照缓存 | `vocabulary.ts` 导出 API 不变；key、id、创建时间、词源、Anki 信息、备份、删除 tombstone 保持 |
 | `lib/vocabulary.ts` | 新增、更新、重新生成、标记导入、删除等领域操作 | 调用方每次得到独立对象，修改返回结果不会污染缓存或其他读取 |
+| `lib/requestSecurity.ts` 静态资源策略 | 严格有效的构建 JS/CSS GET/HEAD 使用独立读取限流，避免页面资源耗尽业务额度 | 静态读取仍有 600/min 上限；普通 API、AI、账号/Admin、请求大小与来源保护保持 |
 
 生词本快照同时检查 Storage 实例、账户 owner、原始存储字节。同步直接覆盖、切换账户、删除、损坏后恢复都会失效；迁移通知同步重入时，只有数据仍匹配才建立快照。规范化记录只有 `anki` 与 `sourceArticle` 是嵌套对象，均单独复制。
+
+独立连续冷启动暴露既有静态资源限流问题：真实 HTTP 直接请求压缩 CSS，第 121 次返回 `429 site_rate_limit` JSON，浏览器因此报告样式 MIME 错误。修复把静态读取从业务 `api-all` 桶分离，仅允许安全路径；同一 IP 读取资源后，AI/Auth/Admin 仍保留原有限额。原始失败与定位证据保留在独立审核，不能将它归为随机浏览器异常或通过忽略错误验收。
 
 ## 测量口径
 
