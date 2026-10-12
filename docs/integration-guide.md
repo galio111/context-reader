@@ -344,3 +344,7 @@ Apply additive `docs/study-evidence-v2-migration.sql` before the refined app. It
 先应用 docs/product-activity-migration.sql（增量表/RPC，启用RLS且仅service_role可访问），保留已有v1/v2阅读接口兼容。POST /api/study/reading 的evidenceVersion=3携带UUID id及原seconds/words/article，服务端按本账号、同源、体积和字段验证。GET /api/account/activity返回个人seconds/todaySeconds/readingDays/since；同路径POST按上海日记前台访问。GET /api/admin/product-analytics?days=7|30|90仅Admin可读。统计不包含原文正文。回滚app时可保留新增表与旧接口，不删除采集数据。隔离恢复库验证脚本见tests/product-activity.sql。
 
 统计增量已在大陆生产执行，采集起点为2026-10-12 13:46:53（上海）；接受版本及权限、幂等、备份、公网证据见 [截图优化验收](ux-detail-20261012.md)。
+
+## Admin lightweight reads
+
+Authenticated GET `/api/admin/public-articles?view=summary` and `/api/admin/article-candidates?view=summary` omit all article text, blocks and preload results, preserve pagination and return `contentDeferred: true`. Candidate `?id=<uuid>` loads one complete unpublished row (400 for invalid id; 404 if absent). Published detail remains `/api/public-articles/<id>`. `GET /api/admin/accounts?view=directory` omits cost ledgers; legacy full response is unchanged. `/api/admin/models?config=1` and `?status=1` independently return configuration and provider status. Admin authorization remains mandatory and private responses use no-store.

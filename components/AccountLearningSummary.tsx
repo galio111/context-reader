@@ -32,7 +32,6 @@ export function AccountLearningSummary() {
       <div><dt>有阅读的天数</dt><dd>{summary.readingDays}<small> 天</small></dd></div>
       <div><dt>真题正确率</dt><dd>{cet.scoreable ? `${Math.round(cet.correct/cet.scoreable*100)}%` : "—"}</dd><small>{cet.scoreable ? `${cet.correct} / ${cet.scoreable} 题` : "提交真题后显示"}</small></div>
     </dl>}
-    <p className={styles.note}>只统计文章中的活跃阅读；离开页面或长时间无操作时暂停计时。真题与背词分别记录。{summary && `从 ${new Date(summary.since).toLocaleDateString("zh-CN",{timeZone:"Asia/Shanghai"})} 起记录。`}</p>
     {cet.excluded>0 && <p className={styles.note}>{cet.excluded} 组存在不同提交结果，未合并计入正确率。</p>}
   </section>;
 }

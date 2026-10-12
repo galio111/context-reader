@@ -448,6 +448,32 @@ export async function listPublicArticleSummaries(): Promise<PublicArticle[]> {
   });
 }
 
+/** Uncached Admin catalogue: never transfer every article's body/blocks to a list. */
+export async function listAdminArticleSummaries(published: boolean): Promise<PublicArticle[]> {
+  const fields = ["coverImageUrl", "difficulty", "cefr", "audienceStages", "topics", "homepageCategory", "wordCount", "timeliness", "sourceKind", "classificationSource", "manualFields", "rejectedAt", "rejectionReason"] as const;
+  const projection = fields.map(field => `${field}:imported_article->recommendation->${field}`).join(",");
+  const rows = await readAllArticleRows<SupabaseArticleRow & Partial<ArticleRecommendationMetadata> & { sourcePublishedAt?: string; editorialVersion?: number }>(
+    `public_articles?select=id,title,summary,source_url,source_name,published,created_at,updated_at,${projection},sourcePublishedAt:imported_article->>publishedTime,editorialVersion:imported_article->recommendation->editorialReview->version&published=eq.${published}&order=updated_at.desc,id.desc`,
+    path => supabaseFetch(path),
+  );
+  const articles = rows.map(row => {
+    const metadata = Object.fromEntries(fields.filter(field => row[field] != null).map(field => [field, row[field]]));
+    const recommendation = Object.keys(metadata).length
+      ? { topics: [], audienceStages: [], ...metadata } as unknown as ArticleRecommendationMetadata
+      : undefined;
+    if (row.editorialVersion === 1 && recommendation) recommendation.manualFields = [...(recommendation.manualFields || []), "cefr"];
+    return { ...mapArticle({ ...row, recommendation }), contentDeferred: true, sourcePublishedAt: row.sourcePublishedAt };
+  });
+  return published ? articles : candidateOrder(articles, await readDiscoverySetting<string[]>(ORDER_KEY, []));
+}
+
+export async function getArticleCandidate(id: string): Promise<PublicArticle | null> {
+  const rows = await supabaseFetch<SupabaseArticleRow[]>(
+    `public_articles?select=id,title,summary,body,source_url,source_name,imported_article,published,created_at,updated_at&id=eq.${encodeURIComponent(id)}&published=eq.false&limit=1`,
+  );
+  return rows[0] ? mapArticle(rows[0]) : null;
+}
+
 export async function getPublicArticle(id: string): Promise<PublicArticle | null> {
   const articleRows = await supabaseFetch<SupabaseArticleRow[]>(
     `public_articles?select=id,title,summary,body,source_url,source_name,imported_article,published,created_at,updated_at&id=eq.${encodeURIComponent(id)}&published=eq.true&limit=1`,

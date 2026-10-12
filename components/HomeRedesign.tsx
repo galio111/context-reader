@@ -1308,10 +1308,12 @@ export function HomeRedesign(props: HomeRedesignProps) {
               )}
               </div>
               <div className={styles.memberImport}>
-                <StudyEntry reminder />
                 <header>
+                  <div>
                   <p>YOUR ARTICLE</p>
                   <h1>导入文章</h1>
+                  </div>
+                  <StudyEntry reminder />
                 </header>
                 {renderImportPanel(true)}
               </div>

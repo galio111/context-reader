@@ -1,17 +1,18 @@
 import { NextResponse } from "next/server";
 import { isAdminRequest } from "@/lib/adminAuth";
-import { createPublicArticle, deletePublicArticle, listPublicArticles, updatePublicArticle } from "@/lib/publicArticles";
+import { createPublicArticle, deletePublicArticle, listPublicArticles, listAdminArticleSummaries, updatePublicArticle } from "@/lib/publicArticles";
 import { isSafePublicArticleInput, UUID_PATTERN } from "@/lib/publicArticleInput";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
 import { getHomepageCuration, saveHomepageCuration } from "@/lib/homepageCuration";
 import { removePublishedArticle } from "@/lib/editorialCuration";
 
-export async function GET() {
+export async function GET(request: Request) {
   if (!(await isAdminRequest())) {
     return NextResponse.json({ error: "需要管理员权限。" }, { status: 401 });
   }
   try {
-    return NextResponse.json({ articles: await listPublicArticles({ includeImportedArticle: true }) });
+    const summary = new URL(request.url).searchParams.get("view") === "summary";
+    return NextResponse.json({ articles: summary ? await listAdminArticleSummaries(true) : await listPublicArticles({ includeImportedArticle: true }) }, { headers: { "Cache-Control": "private, no-store" } });
   } catch (error) {
     return NextResponse.json(
       { error: error instanceof Error ? error.message : "公开文章读取失败。" },

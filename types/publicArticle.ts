@@ -118,6 +118,9 @@ export interface PublicArticleTranslation {
 }
 
 export interface PublicArticle {
+  /** Admin list projection; load this row before editing or opening Reader. */
+  contentDeferred?: boolean;
+  sourcePublishedAt?: string;
   id: string;
   title: string;
   summary: string;

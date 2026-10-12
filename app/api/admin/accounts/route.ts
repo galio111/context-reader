@@ -63,7 +63,8 @@ async function listRecentUsageExecutions(windowStart: string): Promise<{ rows: U
   return { rows, truncated: true };
 }
 
-export async function GET() {
+export async function GET(request: Request) {
+  const directoryOnly = new URL(request.url).searchParams.get("view") === "directory";
   if (!(await isAdminRequest())) return NextResponse.json({ error: "未登录管理员。" }, { status: 401 });
   const windowEnd = new Date();
   const usageWindow = shanghaiUsageWindow(windowEnd, USAGE_WINDOW_DAYS);
@@ -73,9 +74,9 @@ export async function GET() {
     accountFetch<Array<Record<string, unknown>>>("user_entitlements?select=user_id,plan_id,source,starts_at,ends_at,bonus_limits&limit=1000"),
     accountFetch<Array<Record<string, unknown>>>("quota_plans?select=id,display_name,price_cny,active&order=sort_order.asc"),
     accountFetch<Array<Record<string, unknown>>>("quota_plan_limits?select=plan_id,metric_key,allowance,window_type&order=plan_id.asc,metric_key.asc"),
-    accountFetch<UsageActionRow[]>(`usage_actions?select=id,user_id,guest_id,feature,metric_key,quota_units,status,cache_hit,metadata,created_at&created_at=gte.${encodeURIComponent(windowStart)}&order=created_at.desc&limit=5000`),
+    directoryOnly ? Promise.resolve([] as UsageActionRow[]) : accountFetch<UsageActionRow[]>(`usage_actions?select=id,user_id,guest_id,feature,metric_key,quota_units,status,cache_hit,metadata,created_at&created_at=gte.${encodeURIComponent(windowStart)}&order=created_at.desc&limit=5000`),
     accountFetch<ActivityRow[]>(`account_activity_days?select=activity_day,owner_key,identity_kind&activity_day=gte.${usageWindow.dayKeys[usageWindow.dayKeys.length - 1]}&order=activity_day.desc&limit=50000`),
-    listRecentUsageExecutions(windowStart),
+    directoryOnly ? Promise.resolve({rows: [] as UsageExecutionRow[], truncated: false}) : listRecentUsageExecutions(windowStart),
   ]);
   const executions = executionPage.rows;
   const usdToCnyRate = deepSeekUsdToCnyRate();
@@ -203,6 +204,7 @@ export async function GET() {
       phone_verified: false,
     };
   });
+  if (directoryOnly) return NextResponse.json({profiles: safeProfiles, entitlements, plans, limits, activitySummary}, {headers: {"Cache-Control": "private, no-store"}});
   return NextResponse.json({
     profiles: safeProfiles,
     entitlements,

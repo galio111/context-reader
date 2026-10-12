@@ -1,4 +1,5 @@
 "use client";
+import { adminFetch } from "@/lib/adminFetch";
 
 import { useEffect, useMemo, useState, type DragEvent } from "react";
 import { HOME_CURATION_CATEGORIES, type HomeCurationCategory, type HomepageCuration } from "@/lib/homepageCurationShared";
@@ -20,7 +21,7 @@ export default function AdminHomepageCurationPanel({ articles, onSaved }: { arti
   const available = articles.filter((article) => !selectedIds.includes(article.id));
 
   useEffect(() => {
-    void fetch("/api/admin/homepage-curation", { cache: "no-store" })
+    void adminFetch("/api/admin/homepage-curation", { cache: "no-store" })
       .then(async (response) => {
         const data = await response.json().catch(() => null) as { curation?: HomepageCuration; error?: string } | null;
         if (!response.ok || !data?.curation) throw new Error(data?.error || "首页编排读取失败。");
@@ -66,7 +67,7 @@ export default function AdminHomepageCurationPanel({ articles, onSaved }: { arti
     setSaving(true);
     setMessage("");
     try {
-      const response = await fetch("/api/admin/homepage-curation", {
+      const response = await adminFetch("/api/admin/homepage-curation", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ curation }),
