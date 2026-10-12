@@ -1,0 +1,154 @@
+{
+  "release": {
+    "releaseId": "20261012T161101",
+    "parentReleaseId": "20261012T135500",
+    "sourceRevision": "01927e6ec2a2a5ff2171d90f29d5a30cb4b8328f"
+  },
+  "publicApi": {
+    "release": {
+      "ok": true,
+      "checkedAt": "2026-10-12T08:26:29.926Z",
+      "releaseId": "20261012T161101",
+      "parentReleaseId": "20261012T135500",
+      "backendMode": "mainland_internal"
+    },
+    "account": true,
+    "accessBoundaries": true,
+    "syncProtocol2": true,
+    "studyReviewUndo": true,
+    "readingSecondsDelta": 2,
+    "retryIdempotent": true,
+    "profile": true,
+    "routes": true,
+    "passed": true
+  },
+  "readingCore": {
+    "contextualAndSentence": true,
+    "dictionaryStreamLength": 3689,
+    "translationStream": "{\"type\":\"translation\",\"translation\":{\"id\":\"arch-stream-1\",\"translation\":\"每日阅读帮助我们学习新单词。\"}}\n{\"type\":\"done\"}\n",
+    "actions": [
+      {
+        "feature": "full_article_translation",
+        "status": "succeeded",
+        "quota_units": 10
+      },
+      {
+        "feature": "standalone_dictionary",
+        "status": "succeeded",
+        "quota_units": 5
+      },
+      {
+        "feature": "word_explanation",
+        "status": "succeeded",
+        "quota_units": 1
+      }
+    ],
+    "executions": [
+      {
+        "route": "/api/explain-word",
+        "model": "deepseek-flash",
+        "status": "succeeded"
+      },
+      {
+        "route": "/api/dictionary-stream",
+        "model": "deepseek-flash",
+        "status": "succeeded"
+      },
+      {
+        "route": "/api/translate-article",
+        "model": "deepseek-flash",
+        "status": "succeeded"
+      }
+    ],
+    "passed": true
+  },
+  "publicBrowser": {
+    "cloudVocabularyStudy": true,
+    "reader": true,
+    "toolStack": true,
+    "account": true,
+    "passed": true,
+    "errors": []
+  },
+  "quality": {
+    "productionBaseline": "20261012T135500",
+    "parent": "20261010T223500",
+    "baselineSource": "4d0d91106087951d8d4271b46a328c0908f869d3",
+    "integrationArchitectureTests": {
+      "total": 139,
+      "passed": 139
+    },
+    "releaseContractsPassed": 9,
+    "providerFallbackAndBillingPassed": 8,
+    "githubLinuxCI": {
+      "runId": 38221743229,
+      "commit": "01927e6ec2a2a5ff2171d90f29d5a30cb4b8328f",
+      "conclusion": "success",
+      "url": "https://github.com/galio111/context-reader/actions/runs/38221743229"
+    },
+    "productionBuild": {
+      "passed": true,
+      "precompressedAssets": 141,
+      "rawBytes": 5783974,
+      "brotliBytes": 1485894
+    },
+    "backupRestoreBeforeRelease": {
+      "passed": true,
+      "publicTables": 38
+    },
+    "realSignedInBaselineBrowser": {
+      "passed": true,
+      "uncaughtErrors": 0
+    },
+    "visualCandidate": "independent audit passed two consecutive 4-scenario runs",
+    "independentFullSuite": {
+      "total": 493,
+      "passed": 488,
+      "preExistingFailures": 5,
+      "skipped": 0,
+      "newTestsPassed": 35
+    },
+    "immutableReaderScreenshots": {
+      "compared": 12,
+      "changedPixels": 0
+    },
+    "staticLoadingHttp": {
+      "brotliCssRequests": 240,
+      "passed": true,
+      "apiLimitUnchanged": 120,
+      "staticReadLimit": 600
+    }
+  },
+  "operations": {
+    "health": true,
+    "recoveryAdmin": {
+      "session": 200,
+      "accounts": 200,
+      "publicArticles": 200,
+      "recommendationAutomation": 200
+    },
+    "backupRestoredPublicTables": 38,
+    "backupVerifiedBeforeAndAfter": true,
+    "rollbackImageRetained": true,
+    "actualRollbackPerformed": false,
+    "unchangedContainers": {
+      "supabase-api": "8cf4b5ce5465",
+      "postgres": "eb78126dbbad",
+      "storage": "bcaee44aa72f",
+      "auth": "85536a2958e0",
+      "rest": "5439521fa22b"
+    },
+    "recreatedContainers": [
+      "app",
+      "caddy"
+    ],
+    "recommendationsTimerActive": true
+  },
+  "cleanup": {
+    "exactDisposableAccountRemoved": true,
+    "testActivityRemoved": true,
+    "billingReferencesRemoved": true,
+    "providerCostLedgerRetained": true,
+    "privateSessionFilesRemoved": true
+  }
+}

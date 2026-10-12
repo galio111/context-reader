@@ -1,6 +1,6 @@
 # Context Reader GPT 项目上下文包
 
-2026-10-12 架构候选：已建立独立的全站功能/UI/路由库存和审核基线；将 Reader document model、翻译传输/进度/缓存和生词仓库分离，保留现有 UI 与数据协议。状态及精确发布身份以 `docs/architecture-refactor/implementation.md` 为准；基线已有 5 个测试失败不能冒充全绿。
+2026-10-12 架构重构已生产：`20261012T161101`，parent `20261012T135500`，source `01927e6ec2a2a5ff2171d90f29d5a30cb4b8328f`。Reader 模型、翻译传输/进度/仓库/账户会话与生词仓库职责分离；修复账户准备期旧任务串写和静态资源占用业务限流，UI 与数据协议保持。139 项固定回归和 GitHub CI 通过；独立 493 项中 488 通过、5 项旧失败保留，浏览器两轮 8/8，公开真实 Flash 三链路/账号/同步/Admin/备份回滚验收通过。详见 `docs/architecture-refactor/implementation.md`；真机、其他浏览器及最终用户视觉验收未冒充完成。
 
 ## 单词与阅读工作台当前规则（2026-10-12，已生产，视觉待确认）
 

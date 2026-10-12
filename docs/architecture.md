@@ -1,6 +1,6 @@
 # Context Reader Architecture
 
-## Reader 与学习数据的职责分离（2026-10-12 候选）
+## Reader 与学习数据的职责分离（2026-10-12 已生产）
 
 Reader 的正文派生模型移到 `lib/readerDocumentModel.ts`，UI 继续由原 `ReaderView` 渲染。单遍构建词、段落、句子、词源索引，当前文档的 token 缓存按仍在使用的 key 保留，避免长文因超过 400 块而每次整体失效。JSX、样式、布局、媒体和手势契约不由模型层决定。
 
@@ -8,7 +8,7 @@ Reader 的正文派生模型移到 `lib/readerDocumentModel.ts`，UI 继续由�
 
 `useReaderTranslationSession` 在 Reader 不卸载时随实际账户重新订阅。`accountStorageTransition` 是无依赖的临时信号：在账号归档/恢复等待前进入，`finally` 退出；过渡中显示状态清空、旧翻译任务失效、新任务不启动。它不改变账户验证权威、owner 写入顺序或持久化 schema。`npm run test:architecture` 检查行为边界、单向依赖与循环，GitHub 同步执行核心及构建回归。
 
-全站功能和不可退化边界见 [功能契约](architecture-refactor/functional-contract.md)，测量、候选/发布状态见 [架构重构](architecture-refactor/implementation.md)，独立验收见 [审核报告](architecture-refactor/independent-audit.md)。这些模块替换不改变 API 路由、服务端鉴权、配额、数据库 schema、定时编辑或现有 UI。
+全站功能和不可退化边界见 [功能契约](architecture-refactor/functional-contract.md)，测量、发布身份和验证边界见 [架构重构](architecture-refactor/implementation.md)，独立验收见 [审核报告](architecture-refactor/independent-audit.md)。这些模块替换不改变 API 路由、服务端鉴权、配额、数据库 schema、定时编辑或现有 UI。
 
 构建 JS/CSS 经 Brotli 静态读取接口时，只对通过 `staticAssetParts` 验证的 GET/HEAD 使用独立 `static-read` 600/min 桶，避免一次冷加载消耗业务 `api-all` 120/min。无效路径和非读取方法保留普通 API 规则；AI/Auth/Admin 的专用限额及大小/来源验证不变。相关真实 HTTP 冷启动与保护函数回归见本轮架构审核。
 
