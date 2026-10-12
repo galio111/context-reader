@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ACCOUNT_DATA_MERGED_EVENT } from "@/lib/accountEvents";
 import { getLearningStorage, LEARNING_STORAGE_EVENT } from "@/lib/learningStorage";
+import { ACCOUNT_STORAGE_TRANSITION_EVENT, isAccountStorageTransition } from "@/lib/accountStorageTransition";
 import { getCachedArticleTranslation, getCachedArticleTranslationForBlocks } from "@/lib/cache";
 import { getArticleTranslationJobSnapshot, subscribeArticleTranslationJob, type ArticleTranslationJobSnapshot } from "@/lib/articleTranslationJobs";
 import type { ArticleTranslationBlock, ArticleTranslationItem } from "@/types/reader";
@@ -19,9 +20,11 @@ function emptySession(): ReaderTranslationSession {
     completedTargetBlocks: 0, totalTargetBlocks: 0, staleBlockIds: [], removedCount: 0 };
 }
 
-export function preparedTranslationOwner(): string | null {
-  try { return getLearningStorage().getItem("context-reader:local-account-owner:v1"); }
-  catch { return null; }
+export function preparedTranslationOwner(): string | null | undefined {
+  try {
+    const storage = getLearningStorage();
+    return isAccountStorageTransition(storage) ? undefined : storage.getItem("context-reader:local-account-owner:v1");
+  } catch { return null; }
 }
 
 /** An account can change while Reader stays mounted. Bind to the prepared storage
@@ -79,11 +82,13 @@ export function useReaderTranslationSession(key: string, blocks: ArticleTranslat
     }
     window.addEventListener(LEARNING_STORAGE_EVENT, ownerChanged);
     window.addEventListener(ACCOUNT_DATA_MERGED_EVENT, ownerChanged);
+    window.addEventListener(ACCOUNT_STORAGE_TRANSITION_EVENT, ownerChanged);
     bind(true);
     return () => {
       disposed = true; unsubscribe?.();
       window.removeEventListener(LEARNING_STORAGE_EVENT, ownerChanged);
       window.removeEventListener(ACCOUNT_DATA_MERGED_EVENT, ownerChanged);
+      window.removeEventListener(ACCOUNT_STORAGE_TRANSITION_EVENT, ownerChanged);
     };
   }, [key, blocks, expectedOwner]);
 

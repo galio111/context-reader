@@ -11,6 +11,7 @@ import { requestArticleTranslation, FALLBACK_ERROR, type TranslationApiResponse 
 import { createArticleTranslationProgress } from "@/lib/articleTranslationProgress";
 import { getLearningStorage, LEARNING_STORAGE_EVENT } from "@/lib/learningStorage";
 import { ACCOUNT_DATA_MERGED_EVENT } from "@/lib/accountEvents";
+import { ACCOUNT_STORAGE_TRANSITION_EVENT, isAccountStorageTransition } from "@/lib/accountStorageTransition";
 
 interface TranslationStartResponse extends TranslationApiResponse {
   actionId?: string;
@@ -48,13 +49,15 @@ const jobs = new Map<string, ArticleTranslationJob>();
 const listeners = new Map<string, Set<ArticleTranslationJobListener>>();
 const observedWindows = new WeakSet<Window>();
 
-function currentOwner(): string | null {
-  try { return getLearningStorage().getItem("context-reader:local-account-owner:v1"); }
-  catch { return null; }
+function currentOwner(): string | null | undefined {
+  try {
+    const storage = getLearningStorage();
+    return isAccountStorageTransition(storage) ? undefined : storage.getItem("context-reader:local-account-owner:v1");
+  } catch { return null; }
 }
 
-function listenerKey(key: string, owner: string | null): string {
-  return JSON.stringify([owner, key]);
+function listenerKey(key: string, owner: string | null | undefined): string {
+  return JSON.stringify([owner === undefined ? "unprepared" : "owner", owner ?? null, key]);
 }
 
 function discardOtherOwners(): void {
@@ -75,6 +78,7 @@ function observeOwnerChanges(): void {
   // React unmounts are deliberately not cancellation; an account owner replacement is.
   window.addEventListener(LEARNING_STORAGE_EVENT, discardOtherOwners);
   window.addEventListener(ACCOUNT_DATA_MERGED_EVENT, discardOtherOwners);
+  window.addEventListener(ACCOUNT_STORAGE_TRANSITION_EVENT, discardOtherOwners);
 }
 
 function snapshotJob(job: ArticleTranslationJob): ArticleTranslationJobSnapshot {
@@ -172,6 +176,7 @@ export async function startArticleTranslationJob(
   observeOwnerChanges();
   discardOtherOwners();
   const owner = currentOwner();
+  if (owner === undefined) return;
   const existingJob = jobs.get(key);
   if (existingJob?.owner === owner && existingJob.loading && !options.force) return;
   if (existingJob?.owner === owner && !existingJob.loading && !existingJob.error && existingJob.translations.length > 0 && !options.force) return;

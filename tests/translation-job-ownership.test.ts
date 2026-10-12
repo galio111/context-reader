@@ -5,6 +5,8 @@ import { IDBFactory } from "fake-indexeddb";
 import { getArticleTranslationJobSnapshot, startArticleTranslationJob, subscribeArticleTranslationJob } from "../lib/articleTranslationJobs";
 import { flushLearningStorage, getLearningStorage, initializeLearningStorage, isLearningStorage } from "../lib/learningStorage";
 import { getCachedArticleTranslation } from "../lib/cache";
+import { clearLocalAccountData, prepareLocalAccountForUser } from "../lib/accountSyncClient";
+import { beginAccountStorageTransition, isAccountStorageTransition } from "../lib/accountStorageTransition";
 
 const block = { id: "one", type: "paragraph" as const, text: "One reading session." };
 const line = (translation: string) => new TextEncoder().encode(JSON.stringify({ type: "translation", translation: { id: "one", translation } }) + "\n");
@@ -137,5 +139,102 @@ test("completed jobs and listeners remain isolated when the next account transla
     assert.equal(oldNotifications, beforeSwitch);
     assert.equal(getArticleTranslationJobSnapshot(key)?.translations[0].translation, "账号译文2");
     unsubscribeA();
+  });
+});
+
+test("real account prepare blocks stale streams and new jobs throughout archive and restore waits", async () => {
+  await inBrowser(async storage => {
+    assert.ok(isLearningStorage(storage));
+    storage.setItem(ownerKey, "prepare-A"); await storage.flush();
+    const key = `prepare-window-${crypto.randomUUID()}`;
+    const pendingKey = `${key}-pending-start`;
+    let stream: ReadableStreamDefaultController<Uint8Array> | undefined;
+    let starts = 0, providers = 0, archiveEntered = false, restoreEntered = false;
+    let confirmPendingStart: ((response: Response) => void) | undefined;
+    let releaseArchive!: () => void, releaseRestore!: () => void;
+    const archiveWait = new Promise<void>(resolve => { releaseArchive = resolve; });
+    const restoreWait = new Promise<void>(resolve => { releaseRestore = resolve; });
+    const archive = storage.archiveOwner.bind(storage), restore = storage.restoreOwner.bind(storage);
+    storage.archiveOwner = async owner => { archiveEntered = true; await archiveWait; await archive(owner); };
+    storage.restoreOwner = async owner => { restoreEntered = true; await restoreWait; await restore(owner); };
+    globalThis.fetch = async (url, init) => {
+      if (String(url).endsWith("/start")) {
+        starts++;
+        if (JSON.parse(String(init?.body)).cacheKey === pendingKey) return new Promise<Response>(resolve => { confirmPendingStart = resolve; });
+        return Response.json({ actionId: `prepare-action-${starts}` });
+      }
+      if (String(url).endsWith("/finish")) return Response.json({ ok: true });
+      providers++;
+      return new Response(new ReadableStream({ start(controller) { stream = controller; } }));
+    };
+    let preparing: Promise<boolean> | undefined;
+    try {
+      const old = startArticleTranslationJob(key, [block]);
+      await until(() => Boolean(stream));
+      const pendingStart = startArticleTranslationJob(pendingKey, [block]);
+      await until(() => Boolean(confirmPendingStart));
+      preparing = prepareLocalAccountForUser("prepare-B");
+      await until(() => archiveEntered);
+      assert.equal(storage.getItem(ownerKey), "prepare-A", "owner is not prematurely rewritten");
+      assert.equal(isAccountStorageTransition(storage), true);
+      assert.equal(getArticleTranslationJobSnapshot(key), null);
+      stream!.enqueue(line("不得进入新账号的旧译文")); stream!.close(); await old;
+      confirmPendingStart!(Response.json({ actionId: "confirmed-during-archive" })); await pendingStart;
+      assert.equal(providers, 1, "a previously pending start confirmed inside the archive window cannot invoke its provider");
+      assert.equal(getCachedArticleTranslation(key), null);
+      assert.equal(getCachedArticleTranslation(pendingKey), null);
+      await startArticleTranslationJob(key, [block]);
+      assert.equal(starts, 2, "no new action during archive wait");
+      releaseArchive(); await until(() => restoreEntered);
+      assert.equal(isAccountStorageTransition(storage), true);
+      await startArticleTranslationJob(key, [block]);
+      assert.equal(starts, 2, "no new action while old buckets were removed and restore is pending");
+      releaseRestore(); await preparing;
+      assert.equal(isAccountStorageTransition(storage), false);
+      assert.equal(storage.getItem(ownerKey), "prepare-B");
+      assert.equal(getCachedArticleTranslation(key), null);
+      stream = undefined;
+      const current = startArticleTranslationJob(key, [block]);
+      await until(() => Boolean(stream));
+      stream!.enqueue(line("准备完成后账户 B 的译文")); stream!.close(); await current;
+      assert.equal(starts, 3);
+      assert.equal(getCachedArticleTranslation(key)?.[0].translation, "准备完成后账户 B 的译文");
+    } finally {
+      releaseArchive(); releaseRestore(); await preparing?.catch(() => {});
+      storage.archiveOwner = archive; storage.restoreOwner = restore;
+    }
+  });
+});
+
+test("logout archive wait blocks translation work and transition state is released on errors", async () => {
+  await inBrowser(async storage => {
+    assert.ok(isLearningStorage(storage));
+    storage.setItem(ownerKey, "logout-A"); await storage.flush();
+    let entered = false, starts = 0, release!: () => void;
+    const wait = new Promise<void>(resolve => { release = resolve; });
+    const archive = storage.archiveOwner.bind(storage);
+    storage.archiveOwner = async owner => { entered = true; await wait; await archive(owner); };
+    globalThis.fetch = async url => { if (String(url).endsWith("/start")) starts++; return Response.json({ ok: true }); };
+    const clearing = clearLocalAccountData();
+    await until(() => entered);
+    assert.equal(storage.getItem(ownerKey), "logout-A");
+    assert.equal(isAccountStorageTransition(storage), true);
+    await startArticleTranslationJob(`logout-${crypto.randomUUID()}`, [block]);
+    assert.equal(starts, 0);
+    release(); await clearing;
+    assert.equal(storage.getItem(ownerKey), null);
+    assert.equal(isAccountStorageTransition(storage), false);
+    storage.archiveOwner = archive;
+
+    storage.setItem(ownerKey, "archive-error-A");
+    storage.archiveOwner = async () => { throw new Error("simulated archive failure"); };
+    await assert.rejects(prepareLocalAccountForUser("archive-error-B"), /simulated archive failure/);
+    assert.equal(isAccountStorageTransition(storage), false, "finally releases the failed transition");
+    assert.equal(storage.getItem(ownerKey), "archive-error-A");
+    storage.archiveOwner = archive;
+    const endOuter = beginAccountStorageTransition(storage), endInner = beginAccountStorageTransition(storage);
+    endOuter(); endOuter();
+    assert.equal(isAccountStorageTransition(storage), true, "nested transitions and repeated cleanup cannot release an active inner transition");
+    endInner(); assert.equal(isAccountStorageTransition(storage), false);
   });
 });
