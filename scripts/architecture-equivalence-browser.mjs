@@ -79,6 +79,9 @@ for (const scenario of [
     const thoughtful = page.locator('[data-reader-block="paragraph-4"] [data-reader-token]').filter({ hasText: /^thoughtful$/ });
     await thoughtful.click();
     await page.locator('dd:visible').filter({ hasText: /^认真思考的$/ }).first().waitFor({ timeout: 20000 });
+    // The normal-motion reveal continues after contextMeaning first appears.
+    // Capture the completed result, not an arbitrary typewriter frame.
+    await page.locator('dd:visible').filter({ hasText: /^她是一位认真思考的读者。$/ }).first().waitFor({ timeout: 20000 });
     const lookup = requests.find(request => request.path === '/api/explain-word-stream');
     assert.equal(lookup.body.word, 'thoughtful');
     assert.equal(lookup.body.sentence, 'A thoughtful reader explores precise language, reliable knowledge, and unfamiliar expressions.');
