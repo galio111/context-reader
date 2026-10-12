@@ -1,0 +1,41 @@
+{
+  "testUserId": "34bb88e2-4264-45b7-aed4-70f5feb03c53",
+  "contextualAndSentence": true,
+  "dictionaryStreamLength": 3504,
+  "translationStream": "{\"type\":\"translation\",\"translation\":{\"id\":\"study-stream-1\",\"translation\":\"每日阅读有助于我们学习新单词。\"}}\n{\"type\":\"done\"}\n",
+  "actions": [
+    {
+      "feature": "full_article_translation",
+      "status": "succeeded",
+      "quota_units": 10
+    },
+    {
+      "feature": "standalone_dictionary",
+      "status": "succeeded",
+      "quota_units": 5
+    },
+    {
+      "feature": "word_explanation",
+      "status": "succeeded",
+      "quota_units": 1
+    }
+  ],
+  "executions": [
+    {
+      "route": "/api/explain-word",
+      "model": "deepseek-flash",
+      "status": "succeeded"
+    },
+    {
+      "route": "/api/dictionary-stream",
+      "model": "deepseek-flash",
+      "status": "succeeded"
+    },
+    {
+      "route": "/api/translate-article",
+      "model": "deepseek-flash",
+      "status": "succeeded"
+    }
+  ],
+  "passed": true
+}

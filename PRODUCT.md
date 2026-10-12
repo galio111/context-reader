@@ -3,7 +3,7 @@
 
 ## 站内背单词（已生产，2026-10-06）
 
-站内背单词已上线，阅读 → 保存生词 → 复习 → 返回阅读形成站内闭环。使用 FSRS-6 默认参数，固定先复习再学新词；奖励按实际完成的学习任务结算，后台可调整。入口在登录工作台、Menu 和生词本；Anki 用户入口已退休，历史记录和待迁移词隔离保留。个人参数训练与 Anki 历史迁移尚未执行，界面仍待用户体验后调整。详见[产品规则](docs/vocabulary-study.md)。
+站内背单词已上线，阅读 → 保存生词 → 复习 → 返回阅读形成站内闭环。使用 FSRS-6 默认参数，固定先复习再学新词；奖励按实际完成的学习任务结算，后台可调整。入口在登录工作台、Menu 和生词本；Anki 用户入口已退休，历史记录和待迁移词隔离保留。galio 历史迁移已完成，个人参数训练尚未执行，界面仍待用户体验后调整。详见[产品规则](docs/vocabulary-study.md)。
 
 Paid reading support uses one point balance, one-time monthly or discounted annual purchases, and no automatic renewal. Pure reading stays available after exhaustion. Display used/total in Menu → 账号与用量; a 5%-remaining notice lasts about three seconds, links to that Menu and does not keep returning within the same browser session/window/threshold. The pricing dialog preserves the Menu state when closed. [Current billing rules](docs/account-usage-plan.md).
 

@@ -1,6 +1,6 @@
 # 单词系统：截图反馈、个人审美与验收
 
-状态：实现及本地回归完成，等待生产发布与公网验收。用户最终视觉接受尚未完成。
+状态：已上线并通过本轮公网功能验收；用户最终视觉接受尚未完成。
 
 ## 本轮明确决定
 
@@ -49,9 +49,17 @@ FSRS 原始评分、默认 5/10 分钟、先复习后新词、每日复习 100�
 - 在真实备份恢复的隔离库执行 `tests/study-evidence-v2.sql`：旧证据隔离、并发时钟封顶、日期边界、同日去重、新学/复习、撤回和服务角色权限。
 - `scripts/study-refinement-browser.mjs` 使用真实 React 组件、模拟 API，验证默认折叠、原文往返辅助标记、撤回、快速连续设置、失败重试、隐藏列、复制宽窗、365 天趋势、方格、1440/390/375 日夜、Menu、重复进入和减少动态。
 - `scripts/study-activity-browser.mjs` 直接打包真实两个 hook，在浏览器使用可信输入和可控时钟测试空置、鼠标移动、有效间隔、无操作尾巴、外部控件、失焦、其他标签页和背词作答。
-- 改前服务端到公网的测试账号 start 请求约 344/177/166ms；这不是用户设备网络耗时。本轮主要消除反复挂载/同步导致的前台空白，未声称服务器本来很慢。本地暖返回实测约 15ms；不能据此承诺任何网络冷启动零等待。
+- 改前服务端到公网的测试账号 start 请求约 344/177/166ms；这不是用户设备网络耗时。本轮主要消除反复挂载/同步导致的前台空白，未声称服务器本来很慢。本地暖返回实测约 56ms；不能据此承诺任何网络冷启动零等待。
 - 实体手机触摸、Edge/Safari、长期真实使用及用户最终审美接受仍开放。自动化正确不等于用户觉得好看。
 
 ## 发布记录
 
-待填写已接受 release、parent、source、公网身份、阅读核心与账号/同步/Admin/备份/回退检查。
+已接受 `20261010T223500`，parent `20261010T153500`，source `6a0829e0b454beec9d2e8795e5700c41d4393803`；接受时间 `2026-10-10T14:38:31.957817Z`。稳定入口核对精确 62 文件累计差异，包含前版已提交的发布文档，未打包共享脏根目录。公网 `/api/connectivity`、服务器 state/current 一致，backendMode 为 `mainland_internal`。本机与服务器生产构建通过（仍有非阻断 lint warnings）。仅 app/caddy 替换，五个后端容器身份不变，定时精选仍 active，当前/父版镜像保留。
+
+真实测试账号保留 1166 条词库来源，站内严格仅201条未导入词；自动保存、Again 5分钟、撤回、当天新学/复习统计、账号错配保护、非管理员拒绝、protocol-2 首批500对象、新证据不继承旧12000秒通过。真实 contextual + sentence、dictionary stream、full translation stream 都走默认 deepseek-flash，成功各计1/5/10点；独立备用供应商/一次计费边界由8项强制失败测试覆盖。
+
+公网浏览器验证首页入口与继续阅读均370.39px宽、纵向排列且位于导入左侧；1440/390、日夜设置/自定义列表/暂停/数据、自动保存、宽词义窗与真实剪贴板、右上真实Menu、Esc与原卡恢复通过，使用说明无Anki文字。两轮暖返回144/281ms，页面无脚本异常；start实测259ms，不据此宣称后端比前版更快。
+
+验收后按精确UUID/昵称删除一次性测试账号与其账本引用，保留匿名供应商成本审计；galio未重置。清理后备份 `context-reader-20261010T144606Z.dump` 通过SHA校验，恢复出35张public表和verified_seconds列，测试账号为0；隔离库和临时会话文件已移除。旧RPC保留，父版可回退。
+
+[线上界面记录](evidence/study-refine-1010/browser-live.json) · [真实学习接口](evidence/study-refine-1010/study-live.json) · [阅读核心](evidence/study-refine-1010/core-live.json) · [计时hook](evidence/study-refine-1010/activity.json) · [运维](evidence/study-refine-1010/operations.log) · [备份](evidence/study-refine-1010/backup.log)。公网截图：[首页](evidence/study-refine-1010/public-home.png)、[单词卡](evidence/study-refine-1010/public-question.png)、[宽词义窗](evidence/study-refine-1010/public-word-detail.png)、[手机夜间设置](evidence/study-refine-1010/public-390-night-settings.png)。

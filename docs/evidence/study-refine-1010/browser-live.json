@@ -1,0 +1,24 @@
+{
+  "homeLayout": {
+    "entry": {
+      "x": 130,
+      "y": 251.59375,
+      "width": 370.390625,
+      "bottom": 323.59375
+    },
+    "recent": {
+      "x": 130,
+      "y": 341.59375,
+      "width": 370.390625
+    },
+    "form": {
+      "x": 557.984375,
+      "y": 230.890625
+    }
+  },
+  "autosave": true,
+  "warmReopenMs": 281,
+  "guideRetired": true,
+  "passed": true,
+  "errors": []
+}

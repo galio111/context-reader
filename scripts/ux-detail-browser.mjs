@@ -44,6 +44,8 @@ try{
  await rail.getByRole("button",{name:/导入/}).click();await importer.waitFor();
  const stack=async()=>page.evaluate(()=>{const d=document.querySelector('aside[class*="dictionaryWindow"]'),i=document.querySelector('[class*="workLayerBackdrop"]');return {dictionary:Number(getComputedStyle(d).zIndex),import:Number(getComputedStyle(i).zIndex)};});
  let order=await stack();assert.ok(order.import>order.dictionary);await shot("import-over-dictionary");
+ await rail.getByRole("button",{name:/查词/}).click();order=await stack();assert.ok(order.dictionary>order.import);
+ await rail.getByRole("button",{name:/导入/}).click();order=await stack();assert.ok(order.import>order.dictionary);
  await page.keyboard.press("Escape");await importer.waitFor({state:"hidden"});assert.ok(await dictionary.isVisible());
  await dictionary.getByRole("button",{name:"隐藏单独查词窗口"}).click();await dictionary.waitFor({state:"hidden"});
  await rail.getByRole("button",{name:/导入/}).click();await importer.waitFor();

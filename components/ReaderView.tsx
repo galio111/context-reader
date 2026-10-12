@@ -1730,7 +1730,7 @@ export function ReaderView({
   useEffect(() => {
     if (!readerWorkLayer && !dictionaryMounted) return;
     const onKeyDown = (event: globalThis.KeyboardEvent) => {
-      if (event.key !== "Escape" || event.defaultPrevented || document.querySelector("dialog[open]")) return;
+      if (event.key !== "Escape" || event.defaultPrevented || readerMenuOpen || document.querySelector("dialog[open]")) return;
       if (readerWorkLayer && workLayer.isTop) setReaderWorkLayer(null);
       else if (dictionaryLayer.isTop) closeDictionaryWindow();
       else return;
@@ -1738,7 +1738,7 @@ export function ReaderView({
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [dictionaryMounted, readerWorkLayer, dictionaryLayer.isTop, workLayer.isTop]);
+  }, [dictionaryMounted, readerWorkLayer, dictionaryLayer.isTop, workLayer.isTop, readerMenuOpen]);
 
   useEffect(() => {
     if (editingArticle) {
@@ -2888,6 +2888,7 @@ export function ReaderView({
 
   function openDictionaryWindow() {
     if (examSurface?.locked) return;
+    dictionaryLayer.bringToFront();
     closeQuestions();
     if (dictionaryCloseTimerRef.current !== null) window.clearTimeout(dictionaryCloseTimerRef.current);
     setDictionaryClosing(false);
@@ -3846,7 +3847,7 @@ export function ReaderView({
           disabled={savingArticleEdit}
         />}
         <div className={toolbarStyles.railActions}>
-          {!editorialWorkbench && <button type="button" aria-disabled={examSurface?.locked || undefined}  onClick={() => setReaderWorkLayer("import")}>
+          {!editorialWorkbench && <button type="button" aria-disabled={examSurface?.locked || undefined}  onClick={() => { workLayer.bringToFront(); setReaderWorkLayer("import"); }}>
             <ReaderRailIcon kind="import" /><span>导入</span><small>{examSurface?.testing ? "自测时禁用该按钮" : "导入新的文章或网址"}</small>
           </button>}
           <button type="button" aria-disabled={examSurface?.locked || undefined}  onClick={openDictionaryWindow}>
@@ -4713,7 +4714,7 @@ export function ReaderView({
           Boolean(canJumpToVocabularySourceOutsideArticle?.(entry)) ||
           sourceWordSet.has(normalizeForSourceMatch(entry.word))
         }
-        onOpenImport={() => { cancelActiveExplanationRequest(); setMobileExplanationOpen(false); setReaderWorkLayer("import"); }}
+        onOpenImport={() => { cancelActiveExplanationRequest(); setMobileExplanationOpen(false); workLayer.bringToFront(); setReaderWorkLayer("import"); }}
         onOpenDictionary={() => {
           if (window.matchMedia("(max-width: 1023px)").matches) {
             setReaderMenuOpen(false);

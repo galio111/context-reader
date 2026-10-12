@@ -2,7 +2,7 @@
 
 ## Project
 
-Context Reader is a Next.js 15 / React 19 reading tool for Chinese-speaking learners reading real English articles. Reading flow is primary; lookup, translation, vocabulary, recommendations, accounts and Anki support it.
+Context Reader is a Next.js 15 / React 19 reading tool for Chinese-speaking learners reading real English articles. Reading flow is primary; lookup, translation, vocabulary, recommendations, accounts and native vocabulary study support it. Historical Anki records remain compatibility data.
 
 Primary production is `https://context-reader.com` on the mainland-China stack. `https://context-reader-ten.vercel.app` and the managed Supabase project are rollback/reference environments only. The canonical homepage is the bare domain root; legacy `/home-v2` links permanently redirect to `/` while preserving their query string.
 
@@ -31,6 +31,8 @@ Do not say a release is live because code was edited, committed, built, uploaded
 After each completed and validated change, automatically commit and push its reviewed `codex/*` branch, then integrate the cumulative accepted production source and reconciled documentation into GitHub default `main`. A task-branch push alone does not complete GitHub synchronization. Fetch `origin/main`, merge without discarding either history, and use a normal non-force push; if main advanced, re-integrate and verify. Confirm the remote main SHA equals the reviewed integration commit with `git ls-remote`, and report that SHA. Never include credentials, logs, caches, archives, worktrees or unrelated dirty-root edits. Source synchronization is not production deployment.
 
 ## Product Boundaries
+
+- The explicit 2026-10-10 decision retires website Anki controls, setup help and local connection checks. Preserve historical fields, imported-word exclusions and migration data; never reintroduce the UI from older docs. Personal UI judgments and concrete accepted/rejected patterns live in `docs/study-refinement-20261010.md` and the local Design Lab `DESIGN.md`.
 
 - Keep article text visually primary in `ReaderView`. The homepage may be expressive, but article entry must remain immediate and the site must not become a generic AI landing page, game or social feed.
 - Article editing stays directly in the reading canvas. Read and edit modes share typography and layout; never replace the article with a textarea or controlled per-keystroke editor. Preserve explicit blank paragraphs. Images remain read-only blocks that may be deleted whole.

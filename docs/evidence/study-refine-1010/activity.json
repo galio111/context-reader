@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "ticks": [
+    {
+      "seconds": 10,
+      "words": [],
+      "article": "article",
+      "evidenceVersion": 2
+    }
+  ],
+  "checks": [
+    "untouched",
+    "movement",
+    "quiet reading",
+    "idle",
+    "outside control",
+    "blur",
+    "tab ownership",
+    "study answer",
+    "abandoned study"
+  ],
+  "errors": []
+}
