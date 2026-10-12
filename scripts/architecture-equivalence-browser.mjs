@@ -10,7 +10,6 @@ await mkdir(output, { recursive: true });
 const account = { configured: true, authenticated: true, profile: { userId: '11111111-1111-4111-8111-111111111111', nickname: '独立功能验收', status: 'active', email: '', phone: '13800000000', readingInterests: [] }, plan: { id: 'free', displayName: '免费账号', priceCny: 0, active: true, limits: [] }, usage: [] };
 const paragraphs = ['Architecture Equivalence Audit', 'The resilient team worked together and found a fascinating new source of information.', ...Array.from({ length: 430 }, (_, i) => `Paragraph ${i + 1}. A thoughtful reader explores precise language, reliable knowledge, and unfamiliar expressions. Scientific writing improves through careful observation and repeated experiments.`)];
 const study = { serverNow: '2026-10-12T12:00:00Z', settings: { reviewsPerDay: 100, retention: .9, forgotMinutes: 5, unsureMinutes: 10, pausedUntil: null, includeAnki: false, reminders: false }, cards: [], entries: [], reviews: [], daily: [], today: null, streak: { current: 0, best: 0, last_day: null }, claims: [], rewards: [], policy: { rewardsEnabled: true, pointsPerNew: 1, dailyRewardCap: 50, rewardDays: 90, streakMinNew: 5, milestones: [], profileEnabled: true, profileCost: 5, minimumReadingMinutes: 60, minimumLookups: 50 } };
-const browser = await chromium.launch({ headless: true, channel: 'chrome', args: ['--no-proxy-server', '--host-resolver-rules=MAP context-reader.com 43.143.122.238'] });
 const results = [];
 for (const scenario of [
   { name: 'desktop-day', width: 1440, height: 1000, reducedMotion: 'no-preference', theme: 'day' },
@@ -18,10 +17,12 @@ for (const scenario of [
   { name: 'desktop-night-reduced', width: 1440, height: 1000, reducedMotion: 'reduce', theme: 'night' },
   { name: 'mobile-night-reduced', width: 390, height: 844, reducedMotion: 'reduce', theme: 'night' },
 ]) {
+  const browser = await chromium.launch({ headless: true, channel: 'chrome', args: ['--no-proxy-server', '--host-resolver-rules=MAP context-reader.com 43.143.122.238'] });
   const context = await browser.newContext({ viewport: { width: scenario.width, height: scenario.height }, reducedMotion: scenario.reducedMotion, serviceWorkers: 'block' });
   await context.addInitScript(({ theme }) => { localStorage.setItem('context-reader-home-ui-v1', JSON.stringify({ theme })); }, scenario);
-  const page = await context.newPage(), errors = [], requests = [];
+  const page = await context.newPage(), errors = [], requests = [], failedRequests = [];
   page.on('pageerror', e => errors.push(e.message));
+  page.on('requestfailed', request => failedRequests.push({ path: new URL(request.url()).pathname, error: request.failure()?.errorText }));
   await page.route('**/api/**', async route => {
     const p = new URL(route.request().url()).pathname;
     const body = route.request().postDataJSON();
@@ -40,7 +41,7 @@ for (const scenario of [
     if (p === '/api/pronunciation') return route.fulfill({ status: 503, body: '{"error":"fixture audio unavailable"}' });
     return json({ ok: true, count: 0, articles: [] });
   });
-  const report = { scenario, errors, requests, screenshots: [], geometry: [] };
+  const report = { scenario, errors, requests, failedRequests, screenshots: [], geometry: [] };
   const shot = async name => {
     await page.evaluate(() => Promise.all(document.getAnimations().filter(a => a.effect?.getTiming().iterations !== Infinity).map(a => a.finished.catch(() => {}))));
     const filename = scenario.name + '-' + name + '.png';
@@ -123,8 +124,7 @@ for (const scenario of [
     await shot('failure').catch(() => {});
     await writeFile(output + '/' + scenario.name + '-failure.txt', await page.locator('body').innerText().catch(() => ''));
     process.exitCode = 1;
-  } finally { results.push(report); await context.close(); }
+  } finally { results.push(report); console.log(JSON.stringify({ scenario: scenario.name, passed: report.passed, error: report.error, failedRequests })); await context.close(); await browser.close(); }
 }
 await writeFile(output + '/result.json', JSON.stringify({ base, results }, null, 2));
 console.log(JSON.stringify(results.map(({ scenario, passed, error, readerOpenMs, errors }) => ({ scenario: scenario.name, passed, error, readerOpenMs, errors })), null, 2));
-await browser.close();
