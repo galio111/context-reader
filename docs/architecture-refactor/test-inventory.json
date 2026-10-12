@@ -1,0 +1,2571 @@
+{
+  "baselineSourceRevision": "4d0d91106087951d8d4271b46a328c0908f869d3",
+  "files": [
+    {
+      "source": "tests/admin-curation-body-limit.test.ts",
+      "sha256": "471a07086bff37da78b2a60fccbf98904aac7ae3542d77dc0e9a83b3c11b4f6d",
+      "declaredTestTitles": [
+        {
+          "line": 10,
+          "title": "real catalogue-sized curation passes the middleware body guard"
+        },
+        {
+          "line": 14,
+          "title": "curation remains bounded and other Admin limits stay small"
+        },
+        {
+          "line": 19,
+          "title": "large curation mutations still reject a foreign origin"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/admin-usage-report.test.ts",
+      "sha256": "e623037ed1fae5f57fa9dc2b8f6e787d568d5b112f63a4cf5b8bef28c168562c",
+      "declaredTestTitles": [
+        {
+          "line": 8,
+          "title": "Shanghai windows include midnight, exclude next midnight and reject impossible dates"
+        },
+        {
+          "line": 17,
+          "title": "fallback attempts cost separately but charge one user action; every breakdown reconciles"
+        },
+        {
+          "line": 24,
+          "title": "MiMo charges all input when the recorder defaulted cache miss to zero"
+        },
+        {
+          "line": 30,
+          "title": "cached action and background probe never invent model calls or user charges"
+        },
+        {
+          "line": 38,
+          "title": "cross-day action join preserves account attribution without counting yesterday"
+        },
+        {
+          "line": 44,
+          "title": "classification actions and executions share one feature; no lost unmatched calls"
+        },
+        {
+          "line": 50,
+          "title": "recent record cap does not cap costs and supports unknown costs"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/article-management-regression.test.ts",
+      "sha256": "af8dacf5a15ad9a95236fc911cad1ab7258e7e78b0e77ad425040bfa5a8bfc84",
+      "declaredTestTitles": [
+        {
+          "line": 9,
+          "title": "article rename and deletion persist without removing an unrelated article"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/article-translation-batching.test.ts",
+      "sha256": "c9ea9d756344e7a2ffd622cf0e27d9ca488c8ce2de690d259c809826d96d430d",
+      "declaredTestTitles": [
+        {
+          "line": 6,
+          "title": "long article translation keeps every target block in bounded ordered batches"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/ballpit-first-frame.test.mjs",
+      "sha256": "47ee9c73468b8ff0ab168056031633897d7e2fd388f83faef74aac6b42674db4",
+      "declaredTestTitles": [
+        {
+          "line": 6,
+          "title": "component mount preserves onReady departure restoration unless a controlled prop is supplied"
+        },
+        {
+          "line": 21,
+          "title": "real scene lifecycle applies departure before its first renderer call and pauses departed scenes"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/billing-ledger.sql",
+      "sha256": "fa1c07658510fe7e685353ef003098c38fb26328b5844282d5ce52adcad4564b",
+      "declaredTestTitles": [],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/billing-policy.test.ts",
+      "sha256": "e9c41753edf05af38069c6a55d3dfbf98b28200776d468cf4d5d38ddcc7debf9",
+      "declaredTestTitles": [
+        {
+          "line": 6,
+          "title": "points follow actual word boundaries and explicit feature weights"
+        },
+        {
+          "line": 12,
+          "title": "depleted accounts carry no credit, early upgrades respect both limits"
+        },
+        {
+          "line": 18,
+          "title": "WeChat accepts verified envelopes and rejects tampering, stale timestamps and foreign keys"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/capacity-regressions.test.ts",
+      "sha256": "3926425fc83d01268f0a409b4d8bbf987d40c373cba5a57eb1fee6ecfbe5b4c5",
+      "declaredTestTitles": [
+        {
+          "line": 11,
+          "title": "capacity cache coalesces a burst, does not cache failures, expires and bounds memory"
+        },
+        {
+          "line": 26,
+          "title": "publish/delete invalidation cannot be undone by an older in-flight read"
+        },
+        {
+          "line": 36,
+          "title": "AI admission uses FIFO handoff, bounded waiting and cancellation without slot leaks"
+        },
+        {
+          "line": 53,
+          "title": "1000 DAU admission profile: 4 long requests cannot exclude 12 simultaneous lookups"
+        },
+        {
+          "line": 72,
+          "title": "compact catalogue preserves article identity, preference/category order and Admin originals"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/cet-account-isolation.test.ts",
+      "sha256": "22e98b640e128f50f764982cf5fbd2004b4b8716e5f3fe04f673a23bf44cec77",
+      "declaredTestTitles": [
+        {
+          "line": 13,
+          "title": "IndexedDB account archive isolates CET drafts, commit packages and exposure facts"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/cet-activity.test.ts",
+      "sha256": "b08b01dd887ef8fbe9d48debd447339357879ef2cdcd0460fb9f31ff33b9cfa7",
+      "declaredTestTitles": [
+        {
+          "line": 23,
+          "title": "new self-test has independent empty answers and an automatic fixed budget"
+        },
+        {
+          "line": 31,
+          "title": "practice selections stay draft until the passage is submitted; a submitted passage freezes"
+        },
+        {
+          "line": 50,
+          "title": "practice snapshots keep each passage"
+        },
+        {
+          "line": 59,
+          "title": "explicit pause preserves remaining budget; hiding time does not pause"
+        },
+        {
+          "line": 70,
+          "title": "a clock rollback is retained as a condition rather than presented as a standard test"
+        },
+        {
+          "line": 77,
+          "title": "finalization is immutable under late drafts, replay and concurrent different submissions"
+        },
+        {
+          "line": 95,
+          "title": "merge of edits and snapshots is idempotent, commutative and associative"
+        },
+        {
+          "line": 111,
+          "title": "same-millisecond navigation survives merging with its timer checkpoint"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/cet-adjustable-timer.test.ts",
+      "sha256": "b45cdf4b9bf0255deed0bae3e8b638eb261e133447dadfb8794514a895305384",
+      "declaredTestTitles": [
+        {
+          "line": 8,
+          "title": "90 second countup reset then 30 retains 120 cumulative, same answers and immutable final"
+        },
+        {
+          "line": 15,
+          "title": "countdown reset preserves 2 minutes, restarts complete 10 minute budget; paused stays paused"
+        },
+        {
+          "line": 21,
+          "title": "invalid scope/budget/revision and expiry cannot reset; retry is idempotent"
+        },
+        {
+          "line": 28,
+          "title": "practice adjustment only affects current section display; expiry caps time but leaves answers editable"
+        },
+        {
+          "line": 34,
+          "title": "same v4 activity allows mode change; late old epoch timer cannot undo reset and terminal wins"
+        },
+        {
+          "line": 42,
+          "title": "fallback storage upgrade retains v3 source, one logical history and late old draft recovery"
+        },
+        {
+          "line": 51,
+          "title": "epoch ancestry outranks a stale future clock and merge is order independent"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/cet-catalogue-client.test.ts",
+      "sha256": "ec23ffaec8dd2eda9f68e99cea2c5797eea952e8013bad1a9128fb2f0c69e322",
+      "declaredTestTitles": [
+        {
+          "line": 6,
+          "title": "public seed is finite metadata; shared subscribers keep independent cancellation and owner partitions"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/cet-catalogue-loader.test.ts",
+      "sha256": "9eafefb91a40857aaa67003673f710515cfba25f07358132c09b4ad9abf0ac08",
+      "declaredTestTitles": [
+        {
+          "line": 7,
+          "title": "directory exposes the first page immediately and reaches the last metadata entry"
+        },
+        {
+          "line": 13,
+          "title": "later failure retains first batch; retry resumes without duplicates"
+        },
+        {
+          "line": 20,
+          "title": "aborted query cannot append its late response; guest twelve stays finite"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/cet-exposure.test.ts",
+      "sha256": "b046d690420006fb95b6b4086362abbcd5c0f5f9e5029416b24e671b30e8ec68",
+      "declaredTestTitles": [
+        {
+          "line": 12,
+          "title": "strictly identical passages share material identity while different titles alone are insufficient"
+        },
+        {
+          "line": 20,
+          "title": "post-submission answer viewing does not retroactively contaminate the test"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/cet-history.test.ts",
+      "sha256": "0f57210905d686bc363fd66a22ac99e219f646199b5b4851a7aa3be1c65431fb",
+      "declaredTestTitles": [
+        {
+          "line": 10,
+          "title": "history uses frozen grades and submission time, never current draft answers"
+        },
+        {
+          "line": 23,
+          "title": "partial paper submissions and paused drafts stay in unsubmitted"
+        },
+        {
+          "line": 33,
+          "title": "multiple conflicting answers never get summed into a misleading grade"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/cet-inline-editor.test.tsx",
+      "sha256": "b067cd480f3405d358c56c32b1759fe52a911629468c9b97f22bf69a9a2f993b",
+      "declaredTestTitles": [
+        {
+          "line": 9,
+          "title": "developer edits the real passage, saves immediately, preserves history and retries conflicts"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/cet-legacy.test.ts",
+      "sha256": "d4faeb71ecb4abfeee61ff2d6ff3f20bc622a0fa35cec9cb6d18d0c302710c66",
+      "declaredTestTitles": [
+        {
+          "line": 17,
+          "title": "unfinished legacy exam keeps answers, early reveal and manual-time provenance"
+        },
+        {
+          "line": 29,
+          "title": "finished legacy exam is read-only with a snapshot and unknown conditions"
+        },
+        {
+          "line": 37,
+          "title": "finished legacy study retains every section without claiming a clean new practice"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/cet-listening-player.test.tsx",
+      "sha256": "6e0079fa6821422c1fd94682857462a2047e01450e3953d72a21eb32afb265aa",
+      "declaredTestTitles": [
+        {
+          "line": 7,
+          "title": "native media events: lazy loading, practice pause, self-test interruption and ended replay"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/cet-listening.test.ts",
+      "sha256": "459611b91b960ecd0806c8b669a0ba0842d94b52fd828a33c774f341f36c56d6",
+      "declaredTestTitles": [
+        {
+          "line": 22,
+          "title": "all listening English surfaces are free of source marks and Chinese explanations remain valid"
+        },
+        {
+          "line": 40,
+          "title": "reviewed watermark cleanup changes only exact source-backed fields and preserves answer/audio/snapshots"
+        },
+        {
+          "line": 66,
+          "title": "source attribution is immutable in submitted listening and unsafe snapshot links are rejected"
+        },
+        {
+          "line": 78,
+          "title": "source-positive answer evidence cannot select a previously excluded option"
+        },
+        {
+          "line": 88,
+          "title": "all listening additions have 25 choices, exhaustive material groups and first-party immutable audio"
+        },
+        {
+          "line": 103,
+          "title": "supplement preserves the original baseline except explicit reversible source corrections"
+        },
+        {
+          "line": 125,
+          "title": "adding audio cannot expand an existing reading-only answer sheet or alter its question snapshots"
+        },
+        {
+          "line": 133,
+          "title": "native-source corrections preserve original choices while fixing OCR and percentage notation"
+        },
+        {
+          "line": 153,
+          "title": "listening uses the original drafts and immutable submit package, including its transcript"
+        },
+        {
+          "line": 167,
+          "title": "audio checkpoints survive independent device merges and interrupted tests remain honestly non-comparable"
+        },
+        {
+          "line": 185,
+          "title": "verified reading-layout overlay changes only whitespace and five confirmed source footers"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/cet-paper-formatting.test.ts",
+      "sha256": "559d4a1a12e30242a1687277a3ce1379e407bede73b539a95b4cc1239c101a0e",
+      "declaredTestTitles": [
+        {
+          "line": 6,
+          "title": "paragraph repair can move breaks and remove a page number without changing fill-in blanks"
+        },
+        {
+          "line": 12,
+          "title": "editable passage round-trips empty paragraphs, soft breaks, spaces and protected blanks"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/cet-question-dock.test.ts",
+      "sha256": "67f663b1de49dfdfe526f01fbb4637c0ac95377c3bda36b2e48fa3115a7dce02",
+      "declaredTestTitles": [
+        {
+          "line": 3,
+          "title": "dock opens once, unavailable content hides synchronously and restores intent; close cancels pending automatic opening"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/cet-reader-events.test.tsx",
+      "sha256": "b107f3227ef8804359ca11708600f02df3a56c92fad652773b27e597dcd5c45a",
+      "declaredTestTitles": [
+        {
+          "line": 10,
+          "title": "real CET events preserve drafts, freeze one passage and start an independent self-test"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/cet-reading.test.ts",
+      "sha256": "e184dfb905a5e5f6eb7d1522324306a9f3d97204cb9051d454ebbfc3d16171b8",
+      "declaredTestTitles": [
+        {
+          "line": 24,
+          "title": "two devices retain independent answers and do not count replayed timer segments twice"
+        },
+        {
+          "line": 40,
+          "title": "explicit reset defeats stale clock data while preserving answers"
+        },
+        {
+          "line": 54,
+          "title": "newer answer wins, submission and early reveal survive delayed sync"
+        },
+        {
+          "line": 71,
+          "title": "clearing an exam answer survives normalization and timestamp merging"
+        },
+        {
+          "line": 85,
+          "title": "catalogue ships complete reading papers with answers and explanations, excludes answerless batches"
+        },
+        {
+          "line": 134,
+          "title": "full-archive coverage separates missing answers from incomplete reading order"
+        },
+        {
+          "line": 165,
+          "title": "archive expansion preserves existing papers and ships only paired, bounded reading data"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/cet-revision2.test.ts",
+      "sha256": "147b788c9dd5b7edb085c249437e87a94c25606cec32c72103d93540ba0c9bca",
+      "declaredTestTitles": [
+        {
+          "line": 17,
+          "title": "countup has no budget, survives elapsed background time and explicit pause/resume"
+        },
+        {
+          "line": 25,
+          "title": "countdown settles once, expiry blocks late answers, and validation stays strict"
+        },
+        {
+          "line": 31,
+          "title": "one scope model covers a paper, each type, clear answers and imported scope mismatches"
+        },
+        {
+          "line": 37,
+          "title": "half-submitted practice reveals only frozen section results and retains neutral drafts"
+        },
+        {
+          "line": 44,
+          "title": "selected conflicting self-test snapshot controls every answer, count and result even after reference change"
+        },
+        {
+          "line": 50,
+          "title": "ending practice from already submitted last passage retains every earlier draft without completed-count inflation"
+        },
+        {
+          "line": 57,
+          "title": "reference missing from frozen result is unverified, never counted correct"
+        },
+        {
+          "line": 61,
+          "title": "fragment offsets and unique token ids distinguish repeated words after multiple cloze gaps"
+        },
+        {
+          "line": 67,
+          "title": "v3 activity and commit stay outside v2 collections through persistence, guest claim and replay"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/cet-selection-translation.test.ts",
+      "sha256": "2b3da0f06ce741f918b52ed8c57a3f038c53bf6d3275e97185c9661bfdb56d32",
+      "declaredTestTitles": [
+        {
+          "line": 12,
+          "title": "selection ending beyond the passage clips to marked text and excludes surrounding UI"
+        },
+        {
+          "line": 28,
+          "title": "long selections anchor to a visible end and keep their menu inside narrow and desktop viewports"
+        },
+        {
+          "line": 41,
+          "title": "translation includes current passage, question stems and each option without answer explanations"
+        },
+        {
+          "line": 53,
+          "title": "cloze word bank is translated once, while historic question text uses the submission snapshot"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/cet-storage.test.ts",
+      "sha256": "b2f412197f5e2e414963c85e5f6c8dea4eb6235876a4624a518f981d89f18d05",
+      "declaredTestTitles": [
+        {
+          "line": 26,
+          "title": "commit package survives an interrupted activity write and restores the reveal boundary"
+        },
+        {
+          "line": 43,
+          "title": "first login adopts guest CET history without changing answers or finalization IDs"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/cet-submit-all.test.ts",
+      "sha256": "ced51326ff4fd44cb3c28ec6befa280d9379c95923f166e017f81da3c47f5fd1",
+      "declaredTestTitles": [
+        {
+          "line": 11,
+          "title": "submit all preserves existing snapshots, activity identity and late-draft scores"
+        },
+        {
+          "line": 25,
+          "title": "single and non-four scopes, unavailable answers and conflicting submissions"
+        },
+        {
+          "line": 36,
+          "title": "all commit packages recover together after interrupted activity write; retries add no duplicates"
+        },
+        {
+          "line": 47,
+          "title": "malformed section scopes cannot silently become completed papers"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/cet-submit-policy.test.ts",
+      "sha256": "32154d1077af5bac8288191309e10becc56bc5d237d7fa6c0219bf6457bf7e4c",
+      "declaredTestTitles": [
+        {
+          "line": 6,
+          "title": "single fixed scope offers passage command on every surface"
+        },
+        {
+          "line": 16,
+          "title": "multi passage last scope keeps batch action, malformed scope stays blocked"
+        },
+        {
+          "line": 25,
+          "title": "self test retains finalization semantics without practice commands"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/cet-sync-v3.test.ts",
+      "sha256": "668e11313983b5481306863f9d7c06ea581d2d9c8b899414696142224556a653",
+      "declaredTestTitles": [
+        {
+          "line": 15,
+          "title": "real protocol-2 client and IndexedDB round-trip v3 across two devices without losing v2 or article state"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/cet-sync-v4.test.ts",
+      "sha256": "224098dfc3d7e9903edcba154aa6fa00a322f4ba605c76e1a317d719a1f2f805",
+      "declaredTestTitles": [
+        {
+          "line": 17,
+          "title": "v4 adjusted timer roundtrip preserves v2/v3 sources through old client and immutable finalization"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/cet-type-trail.test.ts",
+      "sha256": "9b15533bd5b944bdb30e7487659b128c998938f258714134953489b4add38cae",
+      "declaredTestTitles": [
+        {
+          "line": 9,
+          "title": "historical adaptation uses attributable answer/assist evidence, never read or updatedAt"
+        },
+        {
+          "line": 22,
+          "title": "A/B/C effective trace, previews do not occupy slots and back/forward restores original activity"
+        },
+        {
+          "line": 33,
+          "title": "race/order dedup, purpose/owner isolation, accessible projection and fixed retry"
+        },
+        {
+          "line": 40,
+          "title": "explicit restart replaces activity binding without adding material; new round retains old events"
+        },
+        {
+          "line": 47,
+          "title": "opening an unanswered unit advances the seen count, including a later direct year selection"
+        },
+        {
+          "line": 61,
+          "title": "seen count is purpose-specific and persists through later rounds"
+        },
+        {
+          "line": 78,
+          "title": "back and forward follow the same viewed order before drawing another unanswered unit"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/cet-underlines.test.ts",
+      "sha256": "6a8a37354ead1c5dd2dedaa37547dd788556435ceb78869420b7a39c5508f2e9",
+      "declaredTestTitles": [
+        {
+          "line": 14,
+          "title": "overlapping recolor preserves the unselected segment and deleted marks stay deleted across merges"
+        },
+        {
+          "line": 27,
+          "title": "submission freezes both underline offsets and marked passage text despite a later stale draft"
+        },
+        {
+          "line": 40,
+          "title": "self-test question stem, option and word bank marks keep their own positions"
+        },
+        {
+          "line": 56,
+          "title": "paused markings can be added, recolored and deleted without changing timer or final snapshots"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/cover-preview-motion.test.mjs",
+      "sha256": "d06698687198bf1ec0d703adc6d6554aff0f805241cfdad55cbcecc824b50d55",
+      "declaredTestTitles": [
+        {
+          "line": 12,
+          "title": "final clear cover retains pointer tilt, readiness does not remount its motion surface"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/cover-queue.test.ts",
+      "sha256": "b0da88ccfb01f939a01a47ef33def03cce080b21310574a95e1ff5af06894ccf",
+      "declaredTestTitles": [
+        {
+          "line": 5,
+          "title": "warmup, viewport promotion, failures and cancellation obey shared network/decode limits"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/cover-variants.test.ts",
+      "sha256": "142b9bb59fb308cbc7d48db23bc8632367fea78c5070136c26afc95bec6dd55f",
+      "declaredTestTitles": [
+        {
+          "line": 6,
+          "title": "cover variants keep the accepted composition, never upscale, and preserve original as largest candidate"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/critical-regressions.test.ts",
+      "sha256": "cabf763aa674a0d873cf7e2dff85584e75cc4fa404d346611fe62b3235c9e257",
+      "declaredTestTitles": [
+        {
+          "line": 130,
+          "title": "Anki import receipts recover stable ids and legacy CreatedAt + Word notes"
+        },
+        {
+          "line": 167,
+          "title": "new Anki models use the stable vocabulary id as their duplicate key"
+        },
+        {
+          "line": 175,
+          "title": "Anki add reuses an existing Context Reader note before creating another"
+        },
+        {
+          "line": 196,
+          "title": "core lookup routes keep one DeepSeek model and share provider failover"
+        },
+        {
+          "line": 244,
+          "title": "standalone dictionary compacts pretty provider JSON across arbitrary chunks"
+        },
+        {
+          "line": 259,
+          "title": "article translation streaming parses complete objects without physical newlines"
+        },
+        {
+          "line": 272,
+          "title": "article translation streaming accepts provider block-type fields only for the requested type"
+        },
+        {
+          "line": 316,
+          "title": "article media keeps Reader and homepage image states consistent without duplicating editorial images"
+        },
+        {
+          "line": 354,
+          "title": "reader token ids stay unique across article blocks"
+        },
+        {
+          "line": 358,
+          "title": "saved-article rapid scans restart at top unless the reader settles, while vocabulary jumps stay exact"
+        },
+        {
+          "line": 382,
+          "title": "client cancellation is not classified as a provider failure"
+        },
+        {
+          "line": 389,
+          "title": "closing lookup surfaces aborts active provider work without creating a provider report"
+        },
+        {
+          "line": 410,
+          "title": "structured lookup defers provider reporting while its stream peer can still be cancelled"
+        },
+        {
+          "line": 444,
+          "title": "explicit cancellation reaches active requests and survives an early close race"
+        },
+        {
+          "line": 461,
+          "title": "lookup cancellation accepts the public origin behind the mainland reverse proxy"
+        },
+        {
+          "line": 480,
+          "title": "structured explanation distinguishes an aborted fetch from a completed malformed response"
+        },
+        {
+          "line": 582,
+          "title": "context cloze tolerates normalized apostrophes in saved phrases"
+        },
+        {
+          "line": 592,
+          "title": "normal image localization completes inline while slow localization falls back to background"
+        },
+        {
+          "line": 604,
+          "title": "reviewed cover uploads are not rejected by the generic 64 KB request limit"
+        },
+        {
+          "line": 612,
+          "title": "authenticated browser session uses the accepted 400-day rolling window"
+        },
+        {
+          "line": 616,
+          "title": "admin usage groups executions by Shanghai calendar day"
+        },
+        {
+          "line": 643,
+          "title": "ambiguous standalone lookup preserves inflection and independent headword senses"
+        },
+        {
+          "line": 654,
+          "title": "admin curation remounts and releases per-article working state"
+        },
+        {
+          "line": 667,
+          "title": "recommendations treat the Admin pool as authoritative and keep text-only entries out of the collapsed rows"
+        },
+        {
+          "line": 683,
+          "title": "saved reading preferences replace the generic recommendation lead"
+        },
+        {
+          "line": 708,
+          "title": "today"
+        },
+        {
+          "line": 733,
+          "title": "category curation keeps the lead order without hiding the remaining published articles"
+        },
+        {
+          "line": 741,
+          "title": "every category keeps today"
+        },
+        {
+          "line": 753,
+          "title": "editing an older article today does not turn it into a current-day selection"
+        },
+        {
+          "line": 765,
+          "title": "the first model topic is the legacy primary category and science is the displayed label"
+        },
+        {
+          "line": 771,
+          "title": "published shuffle keeps today"
+        },
+        {
+          "line": 804,
+          "title": "published shuffle preserves an explicitly featured article selected today"
+        },
+        {
+          "line": 820,
+          "title": "text-only articles stay out of the three post-feature rows and rejoin the expanded tail"
+        },
+        {
+          "line": 841,
+          "title": "temporary reading bands expose the two overlapping audience groups"
+        },
+        {
+          "line": 848,
+          "title": "daily crawler plan fills the most underrepresented editorial categories first"
+        },
+        {
+          "line": 865,
+          "title": "published placement can remove recommendation membership and move category atomically"
+        },
+        {
+          "line": 882,
+          "title": "recommendation motion rebinds when preference ordering swaps article ids without changing length"
+        },
+        {
+          "line": 889,
+          "title": "expanded recommendation reveals never accumulate more delay than the accepted showcase"
+        },
+        {
+          "line": 904,
+          "title": "URL extraction decodes publisher entities that were escaped twice"
+        },
+        {
+          "line": 911,
+          "title": "URL extraction decodes named, decimal, hexadecimal and multiply escaped letter entities"
+        },
+        {
+          "line": 923,
+          "title": "public article metadata and plain-text fallbacks use the same entity decoder as imported blocks"
+        },
+        {
+          "line": 931,
+          "title": "crawler keeps one headline and removes the duplicate lead created by a title prefix"
+        },
+        {
+          "line": 949,
+          "title": "a completed single-word explanation requires current-form IPA"
+        },
+        {
+          "line": 979,
+          "title": "public article saves request the charged prepublished summary cache"
+        },
+        {
+          "line": 986,
+          "title": "saved articles use backward-compatible compressed browser storage"
+        },
+        {
+          "line": 1015,
+          "title": "long articles and exhausted summary quotas remain saved without a summary request failure"
+        },
+        {
+          "line": 1027,
+          "title": "saved article menu supports prefilled rename and delete without changing the long-article summary rule"
+        },
+        {
+          "line": 1038,
+          "title": "homepage overlays preserve their current scene and today"
+        },
+        {
+          "line": 1047,
+          "title": "article storage recovery replays one full cloud snapshot before returning to incremental sync"
+        },
+        {
+          "line": 1054,
+          "title": "word lookup transports run stream-first instead of racing duplicate provider requests"
+        },
+        {
+          "line": 1061,
+          "title": "warning diagnostics stay in Admin without sending panic mail"
+        },
+        {
+          "line": 1069,
+          "title": "DeepSeek estimates use historical and peak/off-peak prices at execution time"
+        },
+        {
+          "line": 1084,
+          "title": "mobile tools use compact Reader height and never expand beyond 82 percent"
+        },
+        {
+          "line": 1105,
+          "title": "mobile Menu keeps theme controls tappable and vocabulary rows selectable"
+        },
+        {
+          "line": 1124,
+          "title": "mobile overlays lock background scroll and adapt across viewport changes"
+        },
+        {
+          "line": 1149,
+          "title": "temporary pasted and URL articles confirm before every route back to home"
+        },
+        {
+          "line": 1157,
+          "title": "reader bottom sheets own gestures without locking the exposed article"
+        },
+        {
+          "line": 1171,
+          "title": "mobile sheet drag handles and remaining return controls keep full touch targets"
+        },
+        {
+          "line": 1182,
+          "title": "homepage dictionary keeps separate desktop-window and mobile-sheet geometry"
+        },
+        {
+          "line": 1193,
+          "title": "return-home control skips nested Reader sessions while browser back restores one"
+        },
+        {
+          "line": 1199,
+          "title": "editor mode restores exact scroll pixels instead of realigning a different paragraph"
+        },
+        {
+          "line": 1206,
+          "title": "opening a curated article immediately records the correct recent-reading owner"
+        },
+        {
+          "line": 1217,
+          "title": "vocabulary retires Anki actions and image captions retain reader tokens"
+        },
+        {
+          "line": 1226,
+          "title": "release image retention preserves current and direct-parent rollback images"
+        },
+        {
+          "line": 1235,
+          "title": "homepage showcase keeps natural mobile scrolling with one-screen cover handoff"
+        },
+        {
+          "line": 1254,
+          "title": "guest cover touch gestures snap without turning horizontal drags into page navigation"
+        },
+        {
+          "line": 1292,
+          "title": "account modal keeps native password focus and tablet Anki behavior follows capabilities"
+        },
+        {
+          "line": 1319,
+          "title": "every recommendation card receives a painted entry keyframe before observation"
+        },
+        {
+          "line": 1326,
+          "title": "image zoom keeps the source pixel under a changed cursor position"
+        },
+        {
+          "line": 1340,
+          "title": "reader image loading and zoom stay outside the long article render state"
+        },
+        {
+          "line": 1349,
+          "title": "long readers hydrate only nearby lookup tokens"
+        },
+        {
+          "line": 1371,
+          "title": "long reader defers token hydration churn until continuous scrolling ends"
+        },
+        {
+          "line": 1391,
+          "title": "duplicate image captions collapse while distinct caption text survives"
+        },
+        {
+          "line": 1406,
+          "title": "URL extraction keeps publication time and does not duplicate exact figure captions"
+        },
+        {
+          "line": 1420,
+          "title": "URL extraction keeps linked editorial figures instead of treating them as cards"
+        },
+        {
+          "line": 1433,
+          "title": "translation start sends target text for new jobs, resume and regeneration while retaining full context"
+        },
+        {
+          "line": 1485,
+          "title": "URL extraction retains a credible metadata hero when the selected body has no image"
+        },
+        {
+          "line": 1505,
+          "title": "URL extraction rejects a small metadata thumbnail as an article hero"
+        },
+        {
+          "line": 1518,
+          "title": "Reader block tokenization preserves multiline text and isolates superscript references"
+        },
+        {
+          "line": 1535,
+          "title": "Reader keeps inline baselines in plain and interactive states and shows complete list markers"
+        },
+        {
+          "line": 1542,
+          "title": "continue-reading cover follows the active temporary article before saved history"
+        },
+        {
+          "line": 1548,
+          "title": "vocabulary source jumps avoid delayed long-article rerenders and bulk image wakeups"
+        },
+        {
+          "line": 1559,
+          "title": "source sentence matching indexes candidates instead of rescanning every word token"
+        },
+        {
+          "line": 1575,
+          "title": "full translation quotas bind to the exact article body version"
+        },
+        {
+          "line": 1583,
+          "title": "translation and summary quotas stay separate and curated cache keeps its charge"
+        },
+        {
+          "line": 1598,
+          "title": "quota migration keeps consume_usage column references unambiguous"
+        },
+        {
+          "line": 1607,
+          "title": "full translation keeps progressive output while batching upstream context"
+        },
+        {
+          "line": 1639,
+          "title": "published homepage toggles persist immediately while candidate choices remain draft"
+        },
+        {
+          "line": 1652,
+          "title": "homepage feedback keeps the reply promise outside the narrow contact field"
+        },
+        {
+          "line": 1660,
+          "title": "participial adjective entries preserve lexical form while verbs and comparatives retain their lemma"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/daily-publication-updates.test.ts",
+      "sha256": "767936f6dcd275733a7532cbba615a1afca924179b884722b09db4dce38f09ed",
+      "declaredTestTitles": [
+        {
+          "line": 4,
+          "title": "public selected dates deduplicate across categories, ignore invalid/unpublished and cross Shanghai midnight"
+        },
+        {
+          "line": 10,
+          "title": "notice spends two seconds only while actually visible, including multiple hidden intervals"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/dictionary-history-intents.test.ts",
+      "sha256": "a145774ca7eeae9f01b290b896046992b6a0a6688a2da59e1b8e77f79f6da5e7",
+      "declaredTestTitles": [
+        {
+          "line": 14,
+          "title": "legacy session migration -> delete -> remount never resurrects cached Chinese query"
+        },
+        {
+          "line": 19,
+          "title": "migration is stable, owner-verified and never promotes missing cache entries into new durable history"
+        },
+        {
+          "line": 25,
+          "title": "delete normalizes NFKC, spaces, case without touching unrelated Chinese records, cache or vocabulary"
+        },
+        {
+          "line": 31,
+          "title": "request intent issued before deletion cannot resurrect; explicit new cached lookup can, old delete replay cannot undo it"
+        },
+        {
+          "line": 39,
+          "title": "persistent deletion masks old cloud/bootstrap active rows before and after event replay"
+        },
+        {
+          "line": 44,
+          "title": "concurrent unknown deletion wins over a query that did not observe it, independent of clocks"
+        },
+        {
+          "line": 49,
+          "title": "account archive/restore keeps deletion and rejects stale owner request"
+        },
+        {
+          "line": 55,
+          "title": "migration flush failure cannot mark complete; deletion storage failure rejects"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/dictionary-history-replay-ui.test.tsx",
+      "sha256": "9aae8cd5c2b11eae46c2c64006013abcf11d48e519612db8539c61f1f5033c50",
+      "declaredTestTitles": [
+        {
+          "line": 19,
+          "title": "a completed new lookup replays after remount with no model/quota request; partial and missing histories cannot auto-generate"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/dictionary-history-sync.test.ts",
+      "sha256": "04f26e21b5d5ae55285e00b53793f47aa53f5434e1b1ef9c28d625ce8f88dd70",
+      "declaredTestTitles": [
+        {
+          "line": 9,
+          "title": "dictionary delete and explicit requery survive actual protocol-2 bootstrap, stale data and two devices"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/dictionary-pronunciation-groups.test.ts",
+      "sha256": "2d2d76ce1621f666ffe80203a6c5d0b8bb4c2aaf652fbf3d18b0b8f385d0ce52",
+      "declaredTestTitles": [
+        {
+          "line": 12,
+          "title": "identical noun/verb readings and redundant other readings collapse into one group"
+        },
+        {
+          "line": 23,
+          "title": "hemisphere has one POS group and retains the real rhotic UK/US difference"
+        },
+        {
+          "line": 31,
+          "title": "record noun/verb stress and stewardess accent differences remain separate"
+        },
+        {
+          "line": 38,
+          "title": "equivalent IPA typography does not create duplicate rows"
+        },
+        {
+          "line": 44,
+          "title": "old cached and streamed plead IPA are corrected without confusing pled"
+        },
+        {
+          "line": 52,
+          "title": "SSML translates IPA to the supported CMU alphabet and cannot contain extra spoken words"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/dictionary-pronunciation-ui.test.tsx",
+      "sha256": "064ca0ea2959e6ec737770c963ad080427f7e5d5d3c8f8aaa70b3fe71e4085c2",
+      "declaredTestTitles": [
+        {
+          "line": 12,
+          "title": "ordinary words use the reader playback path; only distinct readings within an accent send IPA"
+        },
+        {
+          "line": 103,
+          "title": "repeated clicks while audio is loading keep the original request and playback intent"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/dictionary-pronunciations.test.ts",
+      "sha256": "4ed216b589a620c6da43b0a877083690042ef42ca804d0d51490fc776187d616",
+      "declaredTestTitles": [
+        {
+          "line": 8,
+          "title": "dictionary keeps accent and noun/verb IPA for the queried spelling"
+        },
+        {
+          "line": 26,
+          "title": "bass groups actual readings and repairs wrong guitar IPA in saved and streamed senses"
+        },
+        {
+          "line": 45,
+          "title": "meaning-based readings survive normalization and group across parts of speech"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/dictionary-result-replay.test.ts",
+      "sha256": "3c5ced9557a255b65a37846cbc47c1f0582b58e128714815f9ff5a428d7354fb",
+      "declaredTestTitles": [
+        {
+          "line": 25,
+          "title": "every complete result survives beyond 80 entries, cold reopen and owner archive; replay only reads its row"
+        },
+        {
+          "line": 44,
+          "title": "failed persistence retains every result for retry and never shrinks the result collection"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/dictionary-result-server.test.ts",
+      "sha256": "ff734ccd98d0f2241cb4e222243b037426bad6397f7a63483d96451e3f9b6a47",
+      "declaredTestTitles": [
+        {
+          "line": 10,
+          "title": "cloud result recovery is scoped to the verified user and writes use the existing CAS; invalid results cannot persist"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/discovery-policy.test.ts",
+      "sha256": "8e7c7b209a903318691cca2da1f5ed6cba820180b14984ae80e6b1e19e82e884",
+      "declaredTestTitles": [
+        {
+          "line": 10,
+          "title": "Shanghai boundary and invalid timestamp"
+        },
+        {
+          "line": 15,
+          "title": "shuffle keeps today first in chronological order; yesterday participates after midnight"
+        },
+        {
+          "line": 23,
+          "title": "news rejects missing, old and future dates; update cannot hide old publication"
+        },
+        {
+          "line": 30,
+          "title": "cadence distinguishes daily and 2–3 day publishers from stale or sparse sources"
+        },
+        {
+          "line": 42,
+          "title": "default quota groups multiple feeds from one website"
+        },
+        {
+          "line": 49,
+          "title": "every automatic candidate must contain strictly more than 400 English words"
+        },
+        {
+          "line": 53,
+          "title": "publisher profile preserves Mongabay taxonomy article and excludes sidebars"
+        },
+        {
+          "line": 59,
+          "title": "learning source profile removes practice and marketing but preserves article"
+        },
+        {
+          "line": 68,
+          "title": "paywall and sponsorship evidence survives removal of page noise"
+        },
+        {
+          "line": 73,
+          "title": "Level Read retains reading paragraphs, not word lookup or other stories"
+        },
+        {
+          "line": 80,
+          "title": "Public Domain Review keeps notes but removes its post-article catalogue and promotion"
+        },
+        {
+          "line": 97,
+          "title": "publisher boundaries remove Open Culture, NASA and Smithsonian post-article sections"
+        },
+        {
+          "line": 113,
+          "title": "JSTOR removes inserted modules without truncating later prose and reads data-lazy gallery images"
+        },
+        {
+          "line": 132,
+          "title": "commercial sale pages and video-led Open Culture posts carry intake warnings"
+        },
+        {
+          "line": 138,
+          "title": "Reasons to be Cheerful keeps the article body when its wrapper also names the social rail"
+        },
+        {
+          "line": 147,
+          "title": "Science News Explores keeps its hashed article body and quoted language attributes normalize"
+        },
+        {
+          "line": 155,
+          "title": "similarity does not equate unrelated short headings"
+        },
+        {
+          "line": 161,
+          "title": "discovery can supplement low-output sources without unbounded per-source intake"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/editorial-budget-trial.test.ts",
+      "sha256": "539f5b0d97f20a47cb8ccb347be048a1021efba73d9817254bd83317371956ee",
+      "declaredTestTitles": [
+        {
+          "line": 6,
+          "title": "trial applies only to its Shanghai date and never changes the persistent base"
+        },
+        {
+          "line": 16,
+          "title": "invalid or removed trials cannot expand the budget"
+        },
+        {
+          "line": 23,
+          "title": "explicit uncapped date removes only that days application spending ceiling"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/editorial-budget.test.ts",
+      "sha256": "af36bded1c6af7a1f95818e2a4f5036486af9184613d3b1ad3aaca4547d4ff25",
+      "declaredTestTitles": [
+        {
+          "line": 8,
+          "title": "provider ledger preserves free Jev usage and separately reserves unknown failures"
+        },
+        {
+          "line": 24,
+          "title": "cost ceiling rejects before provider dispatch and includes failed reservations"
+        },
+        {
+          "line": 25,
+          "title": "provider usage settles reservation, records cached tokens and all pipeline costs"
+        },
+        {
+          "line": 26,
+          "title": "business preference uses article metadata rather than incidental title words"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/editorial-classification.test.ts",
+      "sha256": "ea24b9c23e59a27b5a369044cc20520102f9d2366474d74027f9a49060afb473",
+      "declaredTestTitles": [
+        {
+          "line": 4,
+          "title": "full-text classification transmits middle paragraphs and refuses invalid category evidence"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/editorial-completion.test.ts",
+      "sha256": "bd32e24a56e924e359111e3f6acb09a86bc77342e29de4cc8c934049c170ad8a",
+      "declaredTestTitles": [
+        {
+          "line": 5,
+          "title": "editorial provider envelopes require both completion and billable usage"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/editorial-distribution.test.ts",
+      "sha256": "6582a31511ed4df531c2a2230a3ec0d061736e53a554511f07345804a440cfbb",
+      "declaredTestTitles": [
+        {
+          "line": 5,
+          "title": "all categories and the total may exceed former ceilings"
+        },
+        {
+          "line": 8,
+          "title": "each category must be strictly greater than 13"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/editorial-efficiency.test.ts",
+      "sha256": "daa2117e10696f6f67f8bead908b3295b519f4de2d5eb27830beb8ea8422f42b",
+      "declaredTestTitles": [
+        {
+          "line": 12,
+          "title": "one later supply check stays within the same day and unused processing allowance"
+        },
+        {
+          "line": 23,
+          "title": "exact approvals survive a 24h boundary but never the 48h publication boundary"
+        },
+        {
+          "line": 30,
+          "title": "unchanged held content remains held without paying every day; old news fails before payment"
+        },
+        {
+          "line": 37,
+          "title": "compact audit payload preserves all text, tables, superscripts, image captions and block indices"
+        },
+        {
+          "line": 44,
+          "title": "inspected ICN paired fundraiser and footer are removed; intervening article prose and quotes survive"
+        },
+        {
+          "line": 51,
+          "title": "the new Nieman footer boundary needs both exact latest-heading and foundation footer evidence"
+        },
+        {
+          "line": 56,
+          "title": "real approved business output can fill the deficit even if the feed lacks a business hint"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/editorial-flash.test.ts",
+      "sha256": "147df864d4c1d53a2ae51f7f99962b2a90bc07c3f0669193c5561e661b26ed44",
+      "declaredTestTitles": [
+        {
+          "line": 10,
+          "title": "a substantive Top-100 report with 22 charts receives full review instead of a title/image-count veto"
+        },
+        {
+          "line": 19,
+          "title": "Jev replaces confident text checks without asking LLM to decide them again"
+        },
+        {
+          "line": 27,
+          "title": "text-only editorial selection dispatches independent vision once"
+        },
+        {
+          "line": 33,
+          "title": "block evidence validates without brittle verbatim quote copying; invalid indices fail closed"
+        },
+        {
+          "line": 39,
+          "title": "uncertainty, image mismatch and content defects cannot auto-approve"
+        },
+        {
+          "line": 45,
+          "title": "source rules remove subscription artwork, never real images, quoted mentions or another host"
+        },
+        {
+          "line": 52,
+          "title": "one integrated Flash call, no Pro or retries for held or malformed output"
+        },
+        {
+          "line": 59,
+          "title": "paid invalid output retains article attribution, cached tokens and settled cost"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/editorial-intake.test.ts",
+      "sha256": "05f973f7a889272c5604040144acdc9dab5a9f4eb2b98f23bcd45788077b5169",
+      "declaredTestTitles": [
+        {
+          "line": 13,
+          "title": "network, parser and model failures retry, then retain attention; advertising alone is a content rejection"
+        },
+        {
+          "line": 25,
+          "title": "a feed rotation or outage cannot lose discovered URLs; retry and duplicate resolution survive reload"
+        },
+        {
+          "line": 66,
+          "title": "queued TIME articles survive former visit and category caps while disabled sites remain off"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/editorial-inventory.test.ts",
+      "sha256": "aabcc2a9422c127e29a9ac841adc1964342c0048e48b9a9e77d1ee650286e03c",
+      "declaredTestTitles": [
+        {
+          "line": 6,
+          "title": "a catalogue larger than the REST ceiling retains its oldest duplicate identity"
+        },
+        {
+          "line": 19,
+          "title": "JSONB key ordering cannot discard today"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/editorial-publication-dates.test.ts",
+      "sha256": "60a1114e0e1a8d3d9bc2ffa28e9f66cd90b11da7998e3825c12e34be60f73dee",
+      "declaredTestTitles": [
+        {
+          "line": 5,
+          "title": "fresh publisher display clocks with a.m. or p.m. remain verifiable"
+        },
+        {
+          "line": 8,
+          "title": "normalization retains stale, future and missing source-date rejection"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/editorial-recovery-policy.test.ts",
+      "sha256": "b525de9828538bdf4ed81ba0318823eef4804f0a8afde457d2b1a461acf89112",
+      "declaredTestTitles": [
+        {
+          "line": 9,
+          "title": "reuse prior approvals for deficient culture/business and surplus approvals without re-auditing held rows"
+        },
+        {
+          "line": 15,
+          "title": "stale/duplicate candidate failures are isolated; transport/storage failures reach day failure handling"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/editorial-repair.test.ts",
+      "sha256": "fa68e8c8cdb99db33de8c4c9b5ddbf86d8b93e5ad3e514027596d1351a7fb0e0",
+      "declaredTestTitles": [
+        {
+          "line": 13,
+          "title": "repair removes agreed middle furniture while retaining exact prose, end, images and IDs"
+        },
+        {
+          "line": 20,
+          "title": "disagreement, uncertainty, invented text and excessive deletion cannot modify content"
+        },
+        {
+          "line": 25,
+          "title": "repair cannot delete images, captions or quotations to hide defects"
+        },
+        {
+          "line": 31,
+          "title": "failed repair preserves original and never supplies an approval"
+        },
+        {
+          "line": 35,
+          "title": "email reports exact published counts, zero categories, primary topics and difficulties"
+        },
+        {
+          "line": 44,
+          "title": "public Popsci article container is retained while actual subscription overlay is removed"
+        },
+        {
+          "line": 53,
+          "title": "Global Voices footer boundary preserves the complete story before categories"
+        },
+        {
+          "line": 60,
+          "title": "sponsored related card cannot condemn an independent article, but the article"
+        },
+        {
+          "line": 71,
+          "title": "Guardian share and related-story footer is removed without changing the ending"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/editorial-review.test.ts",
+      "sha256": "82de81bc1b2e7ea60702ac4fd627686e5dcf6a2afb156d92b7f110a88f84ef2f",
+      "declaredTestTitles": [
+        {
+          "line": 11,
+          "title": "full review keeps middle sections and last blocks"
+        },
+        {
+          "line": 16,
+          "title": "missing or stringified booleans never pass review"
+        },
+        {
+          "line": 21,
+          "title": "school labels remain excluded from the daily automated pool"
+        },
+        {
+          "line": 24,
+          "title": "hash binds title, full text and images but not mutable recommendation metadata"
+        },
+        {
+          "line": 29,
+          "title": "post-review edits and rejected candidates cannot auto-publish"
+        },
+        {
+          "line": 39,
+          "title": "structure catches missing images and duplicate block identities"
+        },
+        {
+          "line": 42,
+          "title": "balance penalizes overrepresented topics and sources"
+        },
+        {
+          "line": 46,
+          "title": "Nautilus newsletter and embedded-video labels do not become prose"
+        },
+        {
+          "line": 57,
+          "title": "Jev outage or reservation failure falls back to full DeepSeek audit"
+        },
+        {
+          "line": 69,
+          "title": "DeepSeek failure never turns into automatic approval"
+        },
+        {
+          "line": 74,
+          "title": "uncertain Flash decisions require Pro and unresolved uncertainty stays held"
+        },
+        {
+          "line": 81,
+          "title": "public reload preserves reviewed CEFR instead of remapping it from the old label"
+        },
+        {
+          "line": 91,
+          "title": "publication rechecks a fresh rejection before touching images or published rows"
+        },
+        {
+          "line": 102,
+          "title": "JSONB field reordering preserves review identity but reordered blocks do not"
+        },
+        {
+          "line": 111,
+          "title": "an interrupted audit cannot authorize deletion even after a text defect"
+        },
+        {
+          "line": 121,
+          "title": "image defects require vision-capable confirmation and uncertainty is not a confirmed defect"
+        },
+        {
+          "line": 135,
+          "title": "review serialization retains table cells, inline text and image captions"
+        },
+        {
+          "line": 142,
+          "title": "revision-guarded deletion fails closed when another edit wins"
+        },
+        {
+          "line": 161,
+          "title": "text-only orphan-caption claims require actual-image pairing before rejection"
+        },
+        {
+          "line": 173,
+          "title": "saving metadata never persists a presentation cover or shifts body identities"
+        },
+        {
+          "line": 189,
+          "title": "only completed confirmed defects leave the active candidate queue"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/editorial-runtime.test.ts",
+      "sha256": "58ba7e6b1b6a7ea84052cb25bc3b4f22f34199de55aa727c392668caacea6975",
+      "declaredTestTitles": [
+        {
+          "line": 19,
+          "title": "later supply retry retains spend, attempts and excluded URLs and cannot schedule a second retry"
+        },
+        {
+          "line": 50,
+          "title": "real public summary reads page through 1058 rows without requesting bodies"
+        },
+        {
+          "line": 61,
+          "title": "guarded duplicate publication fails before any image storage or article mutation"
+        },
+        {
+          "line": 72,
+          "title": "unexpected batch failure closes today"
+        },
+        {
+          "line": 106,
+          "title": "final recovery report includes approved backlog selections and preserves sent-report idempotency"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/editorial-shuffle.test.ts",
+      "sha256": "9dd8c49f661b8bb26a9e5b4c104ee6a279129108fb289fd69a03935dd72887e4",
+      "declaredTestTitles": [
+        {
+          "line": 26,
+          "title": "today and older selections both shuffle in all five categories without mixing dates or re-adding excluded recommendations"
+        },
+        {
+          "line": 43,
+          "title": "persistent completion survives restart, retries CAS against Admin changes and reruns only for new publications or day"
+        },
+        {
+          "line": 86,
+          "title": "a finished day with accepted mail still needs its shuffle; a completed day skips large inventory reads"
+        },
+        {
+          "line": 97,
+          "title": "a topic"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/editorial-source-priority.test.ts",
+      "sha256": "d4919afcc0b92f3c871f7448cb790b156d42eb39e76314961be06af197c43c34",
+      "declaredTestTitles": [
+        {
+          "line": 9,
+          "title": "business deficit raises priority without discarding other sources"
+        },
+        {
+          "line": 15,
+          "title": "when all category minimums are met, choose categories with room to reach target"
+        },
+        {
+          "line": 20,
+          "title": "a source with off-category output keeps lower priority rather than disappearing"
+        },
+        {
+          "line": 30,
+          "title": "a secondary source with proven output in a missing category remains eligible"
+        },
+        {
+          "line": 36,
+          "title": "proven secondary culture supply and unread archive pages are not starved by a primary feed"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/fixtures/cet-v2-storage.ts",
+      "sha256": "a6281f937405924fb8371cc2b7aac5c4ce480bd1d92b96bb936be1c2c6ca9c67",
+      "declaredTestTitles": [],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/fixtures/cet-v2-sync-client.ts",
+      "sha256": "2f7f0c5a3042fe6cdf9abcfb459c205b56dee62ee8014d4eddd4298cfb0e7c2d",
+      "declaredTestTitles": [],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/home-cover-motion.test.ts",
+      "sha256": "b45d8d88bd1849f4b5e00dca3c60614a25a14ea547edbabdaeb3405c89973c6a",
+      "declaredTestTitles": [
+        {
+          "line": 22,
+          "title": "new desktop scene behind a fixed-body Menu uses actual lower-page geometry"
+        },
+        {
+          "line": 36,
+          "title": "departure is reversible at each quarter without changing the existing choreography"
+        },
+        {
+          "line": 47,
+          "title": "resized and late-mounted scenes stay hidden below the hero, independent of canvas style"
+        },
+        {
+          "line": 60,
+          "title": "missing geometry keeps the window overlay hidden until real refs are available"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/home-resource-switch.test.ts",
+      "sha256": "bbb9a5a55edcc890117ed307634b901b27d8eb5431c78a84642552f520439d7a",
+      "declaredTestTitles": [
+        {
+          "line": 10,
+          "title": "same articles regain reveal after repeated CET tab remounts and old observers disconnect"
+        },
+        {
+          "line": 71,
+          "title": "featured and expanded recommendations retain their entry, exit and pointer-motion contracts"
+        },
+        {
+          "line": 85,
+          "title": "CET library filters survive remounts without storing answers and tolerate blocked storage"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/homepage-bootstrap.test.ts",
+      "sha256": "bc368c7c156ce4093f0ae2ba079c2cdaa8f29155066300e91ed0744f3a33e81d",
+      "declaredTestTitles": [
+        {
+          "line": 10,
+          "title": "bootstrap keeps every category"
+        },
+        {
+          "line": 33,
+          "title": "empty/small catalogues need no redundant completion fetch"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/incident-sync-summary.test.ts",
+      "sha256": "b8d23585f9539077bc27ba32076579be68e73848bee34fbd53a95c94671bee52",
+      "declaredTestTitles": [
+        {
+          "line": 17,
+          "title": "formatted provider fields become visible before stream completion"
+        },
+        {
+          "line": 25,
+          "title": "foreground lookup releases background work on completion and cancellation"
+        },
+        {
+          "line": 38,
+          "title": "progressive stream updates rerender the panel without rerendering its article parent"
+        },
+        {
+          "line": 68,
+          "title": "long sentence cache survives bounded sync identity and second-device replay"
+        },
+        {
+          "line": 82,
+          "title": "short legacy cache identity remains compatible"
+        },
+        {
+          "line": 89,
+          "title": "summary includes longest published article and sends full body"
+        },
+        {
+          "line": 100,
+          "title": "a long lookup no longer blocks article upload, second-device sync, or the next logout sync"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/indexeddb-reliability.test.ts",
+      "sha256": "0e11a98fa2cadba206fc1d10d1b596030df3cf34a436e8d51f4350fc2ce437c9",
+      "declaredTestTitles": [
+        {
+          "line": 20,
+          "title": "migration verifies durable rows, preserves unrelated keys and survives a cold reopen"
+        },
+        {
+          "line": 32,
+          "title": "two tabs commit different records without replacing each other"
+        },
+        {
+          "line": 42,
+          "title": "an aborted database transaction never reports saved and retained changes can retry"
+        },
+        {
+          "line": 63,
+          "title": "cache budget evicts acknowledged cold entries only and never removes learning data"
+        },
+        {
+          "line": 74,
+          "title": "account archive preserves unsynced local data while live storage can be cleared"
+        },
+        {
+          "line": 81,
+          "title": "a failed offline-cache write never replaces a freshly fetched page with an old release"
+        },
+        {
+          "line": 89,
+          "title": "a stale tab cannot write another account"
+        },
+        {
+          "line": 98,
+          "title": "late writes from an old page are backed up and newer articles survive reopening"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/jev-calibration.test.ts",
+      "sha256": "2a9279f8ce45f8de2179dc9e3be397ce14db9ed94edd890d4d737b5221c16a5f",
+      "declaredTestTitles": [
+        {
+          "line": 15,
+          "title": "unanimous clean articles and repeated retries cannot prove defect detection"
+        },
+        {
+          "line": 20,
+          "title": "a missed reference defect or insufficient source coverage blocks adoption"
+        },
+        {
+          "line": 28,
+          "title": "adoption requires completed trial and activates strictly after the sample day"
+        },
+        {
+          "line": 40,
+          "title": "approved confident Jev decisions skip duplicate text review while retaining actual image checks"
+        },
+        {
+          "line": 65,
+          "title": "mail exposes provider totals and subtraction without calling agreement ground truth accuracy"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/latin-lookup.test.ts",
+      "sha256": "e6987efd4e42aefea21a1601237471b60b6baa85aa1c97a2ca53caabec5ee0ed",
+      "declaredTestTitles": [
+        {
+          "line": 8,
+          "title": "accented words retain original text and offsets across selection, lookup and speech"
+        },
+        {
+          "line": 20,
+          "title": "lookup still rejects sentences, digits, mixed languages and isolated marks"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/learning-activity.test.ts",
+      "sha256": "efad250687a62aee5a72f462884481890b62fdc63db6701b35be10bb22244196",
+      "declaredTestTitles": [
+        {
+          "line": 5,
+          "title": "an untouched page earns no reading time"
+        },
+        {
+          "line": 10,
+          "title": "reading quietly between deliberate interactions counts; idle gaps do not"
+        },
+        {
+          "line": 14,
+          "title": "background, tab switch, dialog and source detours break the interval"
+        },
+        {
+          "line": 18,
+          "title": "an explicit card presentation counts until an answer, but an abandoned card does not"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/login-background-sync.test.tsx",
+      "sha256": "5fbf5a11f9a41b5eb04e68aee7f7be9823427a545d76e17d7cc61ec0bafdda0c",
+      "declaredTestTitles": [
+        {
+          "line": 8,
+          "title": "login completes while historical cache download is blocked, then retry restores exact data"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/logout-session-scope.test.ts",
+      "sha256": "96b32d887190ee6c3228f147fc9feea16c8e1f79e059865de91b33f845307e4e",
+      "declaredTestTitles": [
+        {
+          "line": 5,
+          "title": "ordinary logout revokes only its own session and clears this browser cookies"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/mobile-sheet-gestures.test.tsx",
+      "sha256": "96ff25b376346e1c95a7120501d70e974749f02fa4efc6be0ed917230dc7ce3c",
+      "declaredTestTitles": [
+        {
+          "line": 7,
+          "title": "mobile sheets retain quarter-height, close below it, and distinguish flicks from paused or cancelled drags"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/model-routing.test.ts",
+      "sha256": "67f3d199483c7ba5eb2e7fda36f612b2eb25b0a16981a08eaa5db53a3082dea8",
+      "declaredTestTitles": [
+        {
+          "line": 9,
+          "title": "model capability validation rejects Jev generation, same fallback and nonvision image routes"
+        },
+        {
+          "line": 14,
+          "title": "concurrent verified plan scopes cannot leak into other requests"
+        },
+        {
+          "line": 19,
+          "title": "switch changes actual URL, secret and model; fallback once; 400 never switches"
+        },
+        {
+          "line": 32,
+          "title": "Jev independent only at confidence boundaries; invalid data is not clean"
+        },
+        {
+          "line": 39,
+          "title": "quantity cannot conceal a missing category while current affairs may exceed the old ceiling"
+        },
+        {
+          "line": 46,
+          "title": "MiMo cached tokens and output use its own RMB rates, not DeepSeek time-of-day prices"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/overseas-fetch-contract.test.ts",
+      "sha256": "f557d41ad76073e160cbbae0dd91ce3555fa14e425b882710c4dba6474417cb6",
+      "declaredTestTitles": [
+        {
+          "line": 41,
+          "title": "overseas fetcher rejects unauthenticated and non-POST calls"
+        },
+        {
+          "line": 51,
+          "title": "overseas fetcher blocks private destinations before making an upstream request"
+        },
+        {
+          "line": 62,
+          "title": "mainland integration remains direct-first and narrowly scoped to the dedicated Vercel route"
+        },
+        {
+          "line": 79,
+          "title": "standalone Vercel project exposes only the bounded fetch function"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/product-activity.sql",
+      "sha256": "f323f9654f7d04b02f88bc970ad31143cb23ab0662d9023d97d17159ac1ecda7",
+      "declaredTestTitles": [],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/pronunciation-cache.test.ts",
+      "sha256": "3a54f6c603e5a1f0df03aa4d9feeb33727e1cdd2bdc1f468fd6a9ed930d6f680",
+      "declaredTestTitles": [
+        {
+          "line": 42,
+          "title": "noun/verb playback uses supported CMU and never reuses the old IPA cache or another reading"
+        },
+        {
+          "line": 60,
+          "title": "equivalent CMU transcriptions share corrected audio and unknown IPA never reaches phoneme markup"
+        },
+        {
+          "line": 69,
+          "title": "concurrent and repeated requests reuse one generated MP3; accents remain distinct"
+        },
+        {
+          "line": 79,
+          "title": "a transient storage failure retries existing audio instead of paying again"
+        },
+        {
+          "line": 86,
+          "title": "storage outage preserves playback and successful audio for subsequent requests"
+        },
+        {
+          "line": 96,
+          "title": "hot cache evicts least-recently-used entries at its fixed entry limit"
+        },
+        {
+          "line": 106,
+          "title": "a failed write is repaired in the background without another synthesis"
+        },
+        {
+          "line": 121,
+          "title": "a slow Storage write never delays the first successful playback or its concurrent replay"
+        },
+        {
+          "line": 131,
+          "title": "contemplate uses reviewed US phones and shares the correction across plain and dictionary requests"
+        },
+        {
+          "line": 141,
+          "title": "lever uses the approved CMU tail, equivalent US notation shares audio, and a requested variant stays distinct"
+        },
+        {
+          "line": 158,
+          "title": "one transient TTS timeout retries inside the existing deduplicated request"
+        },
+        {
+          "line": 167,
+          "title": "monosyllable ending bypasses old tail audio and equivalent IPA still shares one recording"
+        },
+        {
+          "line": 181,
+          "title": "ordinary requests preserve accepted peg and humiliate recordings while other words keep the Reader path"
+        },
+        {
+          "line": 201,
+          "title": "persistent timeouts stop after two attempts and explicit rejections never retry"
+        },
+        {
+          "line": 212,
+          "title": "faction uses the accepted neutral carrier across ordinary and IPA requests while UK remains unchanged"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/pronunciation-cmu.test.ts",
+      "sha256": "b01360ed338ce3535d5a2d5efc36b782dfd3c847291579110bd425729c887dba",
+      "declaredTestTitles": [
+        {
+          "line": 8,
+          "title": "reported lever and esteem defaults normalize cached results and constrain their different vowels"
+        },
+        {
+          "line": 21,
+          "title": "optional final r resolves by accent without stripping other unsupported notation"
+        },
+        {
+          "line": 33,
+          "title": "bass"
+        },
+        {
+          "line": 43,
+          "title": "CMU conversion preserves phonemes and primary/secondary stress across English words"
+        },
+        {
+          "line": 60,
+          "title": "US monosyllables get a complete utterance ending without changing their consonants or other accents"
+        },
+        {
+          "line": 80,
+          "title": "alternate retains noun/adjective/verb readings and their distinct stress/vowel phones"
+        },
+        {
+          "line": 91,
+          "title": "unsupported or ambiguous IPA falls back to exactly the word, never partially converted phones"
+        },
+        {
+          "line": 101,
+          "title": "burglary and tertiary replace bad cached and regenerated pronunciation entries, without changing spelling"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/pronunciation-playback.test.tsx",
+      "sha256": "6ef84b030075171b4435605b5d6f26644ed8aa3239a6eab8c1c4d18ddd6b4dec",
+      "declaredTestTitles": [
+        {
+          "line": 6,
+          "title": "different readings exclusively own playback, including late requests, decoding and changed words"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/pronunciation-route.test.ts",
+      "sha256": "34f4957e59405276f1f091183c0d7d451f656ebc0bba3ed748c10f44ce692174",
+      "declaredTestTitles": [
+        {
+          "line": 9,
+          "title": "phonetic requests reject unsupported conversion before synthesis; optional UK r succeeds"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/provider-billing.test.ts",
+      "sha256": "e5cd124fcc5f2b52ac562cd3bf90b2cab66ac36cb111fcccc81216488be65d59",
+      "declaredTestTitles": [
+        {
+          "line": 5,
+          "title": "dictionary route keeps one usage reservation when retryable primary fails over"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/provider-failover.test.ts",
+      "sha256": "72e26eaf3cdee9d802d384ad409a946bbedd36be69ad7b57d85a72622e873b9c",
+      "declaredTestTitles": [
+        {
+          "line": 8,
+          "title": "cross-provider fallback, first-content deadline, cancellation and circuit"
+        },
+        {
+          "line": 15,
+          "title": "busy primary switches once; next request bypasses unhealthy primary"
+        },
+        {
+          "line": 28,
+          "title": "headers and keepalive without content cannot postpone fallback"
+        },
+        {
+          "line": 41,
+          "title": "client abort cancels without starting backup"
+        },
+        {
+          "line": 51,
+          "title": "input rejection is not retried with another provider"
+        },
+        {
+          "line": 57,
+          "title": "empty JSON completion switches before result is exposed"
+        },
+        {
+          "line": 63,
+          "title": "partial stream is never spliced with another model"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/public-catalogue-cache.test.mjs",
+      "sha256": "4566db0ac8e438f5fab2b77ac87224127b326f275614d32b74ba86e83a7cab71",
+      "declaredTestTitles": [
+        {
+          "line": 6,
+          "title": "public catalogue canonicalizes metadata keys, retires old copies and preserves other offline content"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/public-summary-projection.test.ts",
+      "sha256": "39adf153a3fc2465a8db946145950a8185ae685bc4a8ef695ab26c3b109c7729",
+      "declaredTestTitles": [
+        {
+          "line": 8,
+          "title": "complete lightweight catalogue fits bounded cache and concurrent readers join one load"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/publication-preload.test.tsx",
+      "sha256": "5424ab91837314be5cdf86d29caf6988efd1ff5f9207266c632c3896fdc97883",
+      "declaredTestTitles": [
+        {
+          "line": 9,
+          "title": "full catalogue mounts in bounded commits and restores distant Reader origins without losing search results"
+        },
+        {
+          "line": 41,
+          "title": "speculative media waits for actual showcase completion without waiting for distant covers"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/publisher-media.test.ts",
+      "sha256": "f06a989c1cb5d76fc6761d74c2e9548901024a117490ea2f780a0abbef91b64d",
+      "declaredTestTitles": [
+        {
+          "line": 9,
+          "title": "nested carousel figures retain images and separate captions; video-only captions are omitted"
+        },
+        {
+          "line": 15,
+          "title": "rejected image has no orphan caption"
+        },
+        {
+          "line": 19,
+          "title": "series introduction branding is removed without deleting the first real paragraph or photograph"
+        },
+        {
+          "line": 26,
+          "title": "failed image localization removes its caption and text mirror but preserves following prose and successful captions"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/quota-diagnostics.test.ts",
+      "sha256": "e2d5f0f539a824ff42ccdc6d0cbca1fe8c57b51c7c5e2e7476694412ab3148a6",
+      "declaredTestTitles": [
+        {
+          "line": 19,
+          "title": "free and assigned-account quota responses preserve identity, metric and Shanghai reset"
+        },
+        {
+          "line": 30,
+          "title": "guest, disabled feature and insufficient units give distinct recovery instructions"
+        },
+        {
+          "line": 39,
+          "title": "an exhausted pool takes precedence over a merely low pool"
+        },
+        {
+          "line": 44,
+          "title": "failed repair records exact field reasons and truncation without retaining user text"
+        },
+        {
+          "line": 98,
+          "title": "stream EOF with missing fields cannot finalize a quota reservation"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/showcase-playback.test.mjs",
+      "sha256": "1eb0879c9d2d4a9f00528f2928cb1a7ac4816df0e9e278659d8460118082ab04",
+      "declaredTestTitles": [
+        {
+          "line": 10,
+          "title": "video warms before playback and stale promises cannot stop a new generation"
+        },
+        {
+          "line": 46,
+          "title": "nearby recording prepares during the opening without permission to play"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/static-encoding.test.ts",
+      "sha256": "806a09fcea7fd6393f126321643b238464459f3025405500c85669b536b1891a",
+      "declaredTestTitles": [
+        {
+          "line": 5,
+          "title": "Brotli negotiation respects explicit exclusions and malformed quality"
+        },
+        {
+          "line": 10,
+          "title": "static asset paths cannot escape the immutable build directory"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/study-claim-concurrency.py",
+      "sha256": "27e21300e43bac4febef027bbc956bf0c04dbc7ead2029d6172bfe098f24bce4",
+      "declaredTestTitles": [],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/study-concurrency.py",
+      "sha256": "7375c82d0f8e64423b60b59917501d3eb82139df7968741b6cb981f22fb55469",
+      "declaredTestTitles": [],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/study-evidence-v2.sql",
+      "sha256": "1c5950b97c284db39a4afac416612d7c256e31fb16f3af46c260246be9a72094",
+      "declaredTestTitles": [],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/study-flexible-rewards.sql",
+      "sha256": "7e3456eca961469fe31ec5667e793d707d432b4df8f61fa6327a98e8966a2c8a",
+      "declaredTestTitles": [],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/study-ledger.sql",
+      "sha256": "c770352083ffbe8e4e23d647e093f2113de598ce3aa590780f3c39e8d3065775",
+      "declaredTestTitles": [],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/study-presentation.test.ts",
+      "sha256": "60ef553b49ea3ae2e5fb7d59905d38fd2242cc84d5fb809a59ee2354c3cd4fb4",
+      "declaredTestTitles": [
+        {
+          "line": 9,
+          "title": "new words have no 5/50 ceiling and reviews default to 100"
+        },
+        {
+          "line": 15,
+          "title": "five and ten minute steps preserve upstream FSRS memory and long-term Hard"
+        },
+        {
+          "line": 29,
+          "title": "shuffle never crosses review-first boundary or replaces the visible question"
+        },
+        {
+          "line": 34,
+          "title": "Anki exclusions apply equally to vocabulary and progress without erasing source data"
+        },
+        {
+          "line": 40,
+          "title": "history fills missing days with zero and forecasts use Shanghai dates"
+        },
+        {
+          "line": 48,
+          "title": "538 overdue words carry through the daily cap together with upcoming words"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/study-profile.test.ts",
+      "sha256": "a409e33363d067765035d90de6254a7256c192357ccc0faa34e60cb1f682674e",
+      "declaredTestTitles": [
+        {
+          "line": 5,
+          "title": "profile charges the confirmed price once, replays results, refunds failures and releases only its own lease"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/study-rewards.sql",
+      "sha256": "711065af4afe6425c1d207acfbfc28949dad57d5c69415036aa1e5a75b7bc055",
+      "declaredTestTitles": [],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/study-scheduler.test.ts",
+      "sha256": "9dcaff07c281d87b4fafd04b0aa7fabcc35822807b128a7e119ad3e219e24ce9",
+      "declaredTestTitles": [
+        {
+          "line": 8,
+          "title": "uncertain correctness preserves FSRS success/failure semantics without an Easy surrogate"
+        },
+        {
+          "line": 14,
+          "title": "a multi-month mixed history agrees with the upstream FSRS implementation at every review"
+        },
+        {
+          "line": 31,
+          "title": "pause changes retrievability with elapsed time without mutating stability or deleting debt"
+        },
+        {
+          "line": 41,
+          "title": "Shanghai midnight, not machine timezone, determines completion and daily plans"
+        },
+        {
+          "line": 45,
+          "title": "an intraday Good is still learning, not a completed card or reward"
+        },
+        {
+          "line": 52,
+          "title": "Anki histories are excluded and review limits do not cap user-chosen new words"
+        },
+        {
+          "line": 60,
+          "title": "reject backwards review clocks rather than corrupting an existing memory"
+        },
+        {
+          "line": 64,
+          "title": "unfinished review learning steps block new cards even when no old card is due yet"
+        },
+        {
+          "line": 73,
+          "title": "reward policy preserves approved milestones and rejects malformed financial settings"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/substack-extraction.test.ts",
+      "sha256": "4741cee0693dceb55236d50e9ef4b2e8a94ef3617ccbc092bac926fcaf4d0b48",
+      "declaredTestTitles": [
+        {
+          "line": 32,
+          "title": "missing, empty, paywalled or hidden public bodies fail instead of importing footer chrome"
+        },
+        {
+          "line": 38,
+          "title": "public preview does not expose hidden subscriber text or remove subscription warnings"
+        },
+        {
+          "line": 45,
+          "title": "a16z paired terminal disclaimer removal preserves in-article quotations and other hosts"
+        },
+        {
+          "line": 52,
+          "title": "a16z feed discovery picks up later entries, canonicalizes tracking and stays disabled before verification"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/sync-rate-recovery.test.ts",
+      "sha256": "008fd060d3e81997c3b3b7251c31e4d03913a40c00193d5c8256bd3e63a412c8",
+      "declaredTestTitles": [
+        {
+          "line": 10,
+          "title": "sync pagination retains its limit without consuming login or another address budget"
+        },
+        {
+          "line": 20,
+          "title": "rate-limited sync waits, retries the same request and preserves the account boundary"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/sync-storage-recovery.test.ts",
+      "sha256": "0addea0a77df60fe1988c8d277a649ac4dafd946fe0bd28997080b02fd266ecd",
+      "declaredTestTitles": [
+        {
+          "line": 18,
+          "title": "bounded storage replay, missing local records, and incomplete upload acknowledgements"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/test_editorial_scheduler.py",
+      "sha256": "ba30af507535bbbafd3070994ed829fab83a63821f75b30688e22ea0fb541859",
+      "declaredTestTitles": [],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/text-reveal.test.ts",
+      "sha256": "10c1b8328fe55dd8b71f6b6afeffe76963969cf8746eed6cb88c73445ff7f3c7",
+      "declaredTestTitles": [
+        {
+          "line": 19,
+          "title": "a buffered full response finishes over multiple frames within 720ms"
+        },
+        {
+          "line": 29,
+          "title": "incremental input stays progressive; structured repair also drains"
+        },
+        {
+          "line": 38,
+          "title": "cancellation settles completion and never writes into the next lookup"
+        },
+        {
+          "line": 45,
+          "title": "reduced motion and hidden pages finish at the next tick"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/translation-background.test.ts",
+      "sha256": "e07d1aaccaa9a2de4decd1a8df1379f207f2b05c63a976f62465ff9dda5e8691",
+      "declaredTestTitles": [
+        {
+          "line": 8,
+          "title": "translation survives leaving its panel, retries only missing blocks and finishes one action"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/ux-detail.test.ts",
+      "sha256": "59390468d88e6ebb0f428c661206d238db5a6f046847203be91436644dba5d96",
+      "declaredTestTitles": [
+        {
+          "line": 9,
+          "title": "CET accuracy counts canonical submissions, excludes conflicts and study exits"
+        },
+        {
+          "line": 21,
+          "title": "developer preview isolates storage and never forwards account, paid work or mutation requests"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    },
+    {
+      "source": "tests/zhipu-usage.test.tsx",
+      "sha256": "ec17bae862e186ea96590143407a4c4349e15b3de6f0eb9baac8d62f74bec832",
+      "declaredTestTitles": [
+        {
+          "line": 7,
+          "title": "Zhipu statistics find old calls outside the latest 200 general executions"
+        },
+        {
+          "line": 14,
+          "title": "Zhipu empty state and bounded recent list retain complete totals"
+        }
+      ],
+      "status": "inventoried-not-run-by-this-agent"
+    }
+  ],
+  "note": "A test title can describe static assertions. Presence is not runtime coverage or a passing result."
+}
