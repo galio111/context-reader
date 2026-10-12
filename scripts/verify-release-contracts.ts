@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { createReaderDocumentModel } from "../lib/readerDocumentModel";
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
@@ -186,7 +187,15 @@ requireSource("components/HomeClient.tsx", [
   "freshImport: true",
   "imageLocalizationToken",
 ]);
-requireSource("components/ReaderView.tsx", ["scopeReaderTokenId", "`${id}-`"]);
+// The view must call the document compiler, which owns the unchanged token scope.
+requireSource("components/ReaderView.tsx", ["createReaderDocumentModel(currentArticle, effectiveImportedArticle, imageOcr, articleTokenCacheRef.current, IMAGE_OCR_ENABLED)"]);
+requireSource("lib/readerDocumentModel.ts", ["scopeReaderTokenId", "`${id}-`"]);
+const scopedDocument = createReaderDocumentModel("A shared word.\nA shared word.", null, {}, new Map());
+const scopedTokens = scopedDocument.renderableBlocks.flatMap(block => {
+  assert.ok(block.tokens?.every(token => token.id.startsWith(`${block.id}-`)), "plain-block token ids retain their owning block prefix");
+  return block.tokens ?? [];
+});
+assert.equal(new Set(scopedTokens.map(token => token.id)).size, scopedTokens.length, "identical text in different paragraphs must keep distinct token ids");
 requireSource("components/AdminArticleMetadataInspector.tsx", ["finally { setWorking(\"\"); }"]);
 requireSource("lib/userAuth.ts", ["USER_SESSION_MAX_AGE_SECONDS"]);
 requireSource("components/ReaderView.tsx", [
