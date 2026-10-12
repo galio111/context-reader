@@ -1,0 +1,21 @@
+{
+  "release": {
+    "ok": true,
+    "checkedAt": "2026-10-12T06:00:04.180Z",
+    "releaseId": "20261012T135500",
+    "parentReleaseId": "20261010T223500",
+    "backendMode": "mainland_internal"
+  },
+  "syncProtocol2": true,
+  "overdue538Daily100": true,
+  "reviewUndo": true,
+  "readingSeconds": 2,
+  "retryIdempotent": true,
+  "profile": true,
+  "adminAnalytics": {
+    "since": "2026-10-12T05:46:53.101433+00:00",
+    "cohortDays": []
+  },
+  "developerPreviewGuard": true,
+  "passed": true
+}

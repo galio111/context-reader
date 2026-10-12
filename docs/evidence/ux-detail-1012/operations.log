@@ -1,0 +1,21 @@
+healthcheck passed
+{"status": "passed", "checks": {"session": 200, "accounts": 200, "public_articles": 200, "recommendation_automation": 200}}
+context-reader-caddy-1:cf88eb07b625:Up 40 seconds
+context-reader-app-1:c651cfdc62a1:Up 46 seconds (healthy)
+context-reader-supabase-api-1:8cf4b5ce5465:Up 2 months (healthy)
+context-reader-postgres-1:eb78126dbbad:Up 2 months (healthy)
+context-reader-storage-1:bcaee44aa72f:Up 2 months (healthy)
+context-reader-auth-1:85536a2958e0:Up 2 months (healthy)
+context-reader-rest-1:5439521fa22b:Up 6 weeks (healthy)
+sha256:0ce5428d269fa411496be7c9cb52ce8d1b1e9f0682aa7f963a99736cb9347d19
+sha256:64c3a534d3a48be5e2d54e99aad23edcfc8591b88bd9a1aa06f2f32cbf50d1a7
+/opt/context-reader-releases/20261012T135500
+active
+{
+  "schemaVersion": 1,
+  "releaseId": "20261012T135500",
+  "parentReleaseId": "20261010T223500",
+  "sourceRevision": "4d0d91106087951d8d4271b46a328c0908f869d3",
+  "acceptedAt": "2026-10-12T05:58:07.474442+00:00",
+  "guardVersion": 1
+}
