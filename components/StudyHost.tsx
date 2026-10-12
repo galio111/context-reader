@@ -11,13 +11,15 @@ export function StudyHost() {
   const { account, loading, isOffline, requireAccount } = useAccount();
   const [open,setOpen] = useState(false), [source,setSource] = useState(false), [remind,setRemind] = useState(false);
   const [notice,setNotice] = useState("");
+  const [requestedTab,setRequestedTab]=useState<"today"|"profile">("today");
+  const [requestKey,setRequestKey]=useState(0);
   const owner = account.profile?.userId ?? "";
   const launch = useCallback(() => {
     if (!requireAccount("登录后即可保存复习进度。")) return;
     setRemind(false); setSource(false); setNotice(""); setOpen(true);
   },[requireAccount]);
   useEffect(() => {
-    const fn=()=>launch(); window.addEventListener(OPEN_STUDY_EVENT,fn);
+    const fn=(event:Event)=>{setRequestedTab((event as CustomEvent).detail==="profile"?"profile":"today");setRequestKey(n=>n+1);launch();}; window.addEventListener(OPEN_STUDY_EVENT,fn);
     const leave=()=>{setOpen(false);setSource(false);};
     window.addEventListener("context-reader-leave-study",leave);
     return ()=>{window.removeEventListener(OPEN_STUDY_EVENT,fn);window.removeEventListener("context-reader-leave-study",leave);};
@@ -60,7 +62,7 @@ export function StudyHost() {
   },[owner,isOffline]);
   return <>
     {remind&&!open&&<aside className={styles.notice} aria-label="今日复习提醒"><div><strong>生词，今天也记一点</strong><p>完成复习，再继续阅读。</p></div><button onClick={launch}>去背词</button><button aria-label="稍后复习" onClick={()=>setRemind(false)}><StudyIcon name="close"/></button></aside>}
-    {owner&&!loading&&!isOffline&&<StudyPanel key={owner} visible={open&&!source} notice={notice} onClose={()=>{setOpen(false);setSource(false);}} onSource={()=>{setNotice("");setSource(true);}} />}
+    {owner&&!loading&&!isOffline&&<StudyPanel key={owner} requestedTab={requestedTab} requestKey={requestKey} visible={open&&!source} notice={notice} onClose={()=>{setOpen(false);setSource(false);}} onSource={()=>{setNotice("");setSource(true);}} />}
     {source&&<button type="button" className={styles.returnToStudy} onClick={()=>setSource(false)}><StudyIcon name="back"/>继续背词</button>}
   </>;
 }

@@ -1,4 +1,5 @@
 "use client";
+import { LoadingStatus } from "./LoadingStatus";
 
 import { useEffect, useMemo, useState } from "react";
 import type { ErrorReportStatus, StoredErrorReport } from "@/types/errorReport";
@@ -146,7 +147,7 @@ export default function AdminErrorReportsPanel() {
 
       {error && <p className="mt-4 rounded-[12px] bg-red-50 px-4 py-3 text-sm leading-6 text-red-700" role="alert">{error}</p>}
       {loading ? (
-        <p className="mt-5 text-sm text-[#6e6e73]">正在读取错误记录…</p>
+        <LoadingStatus className="mt-5 text-sm text-[#6e6e73]">正在读取错误记录…</LoadingStatus>
       ) : visibleItems.length === 0 ? (
         <p className="mt-5 text-sm leading-6 text-[#6e6e73]">
           {filter === "new" ? "目前没有待处理错误。" : "这个筛选下没有错误记录。"}

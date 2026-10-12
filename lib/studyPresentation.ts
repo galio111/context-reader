@@ -23,10 +23,19 @@ export function studyHistoryDays(daily: StudySnapshot["daily"], today: string, c
     return byDay.get(day) ?? {day,cards:0,active_ms:0,successes:0,reviews:0};
   });
 }
-export function studyForecast(cards: StudyCard[], now: Date, includeAnki: boolean) {
+/** Allocate the current due inventory, including backlog, without inventing future FSRS answers. */
+export function studyForecast(cards: StudyCard[], now: Date, includeAnki: boolean, reviewsPerDay = 100, completedToday = 0, pausedUntil: string | null = null) {
   const today = shanghaiDay(now);
+  const due = cards.filter(c => !c.suspended && (!c.anki_pending || includeAnki) && c.memory.state !== 0)
+    .map(c => shanghaiDay(new Date(c.memory.due))).sort();
+  let index = 0, backlog = 0;
   return Array.from({length:7},(_,i)=>{
-    const day = new Date(Date.parse(today+"T00:00:00Z")+(i+1)*86400000).toISOString().slice(0,10);
-    return {day,count:cards.filter(c=>!c.suspended&&(!c.anki_pending||includeAnki)&&c.memory.state!==0&&shanghaiDay(new Date(c.memory.due))===day).length};
+    const day = new Date(Date.parse(today+"T00:00:00Z")+i*86400000).toISOString().slice(0,10);
+    while (index < due.length && due[index] <= day) { backlog++; index++; }
+    const paused = pausedUntil && day < shanghaiDay(new Date(pausedUntil));
+    const capacity = paused ? 0 : Math.max(0, reviewsPerDay - (i === 0 ? completedToday : 0));
+    const count = Math.min(backlog, capacity);
+    backlog -= count;
+    return {day,count,remaining:backlog};
   });
 }

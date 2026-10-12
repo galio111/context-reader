@@ -1,4 +1,5 @@
 "use client";
+import { LoadingStatus } from "./LoadingStatus";
 import { OPEN_ACCOUNT_USAGE_EVENT } from "@/lib/accountUsageNavigation";
 
 import dynamic from "next/dynamic";
@@ -96,6 +97,7 @@ import type { ArticleTranslationBlock, ArticleTranslationItem, ReaderToken, Read
 import type { VocabularyEntry, VocabularySourceArticle } from "@/types/vocabulary";
 import type { DictionaryResult } from "@/types/dictionary";
 import { useAccount } from "@/components/AccountProvider";
+import { useToolLayer } from "./useToolLayer";
 import { useReadingEvidence } from "@/components/useReadingEvidence";
 
 export interface ReaderExamSurface {
@@ -1449,7 +1451,7 @@ export function ReaderView({
   const [dragCurrentToken, setDragCurrentToken] = useState<ReaderToken | null>(null);
   const [selectedContext, setSelectedContext] = useState<WordContext | null>(null);
   const [explanation, setExplanation] = useState<WordExplanation | null>(null);
-  useReadingEvidence(account.authenticated && !isOffline ? account.profile?.userId ?? "" : "", articleSource?.id || currentArticle.slice(0, 160), explanation?.word ?? "");
+  useReadingEvidence(account.authenticated && !isOffline && !examSurface ? account.profile?.userId ?? "" : "", articleSource?.id || currentArticle.slice(0, 160), explanation?.word ?? "");
   const [explanationStream] = useState(createExplanationStreamStore);
   const setExplanationStreamText = explanationStream.setText;
   const [explanationStreaming, setExplanationStreaming] = useState(false);
@@ -1528,6 +1530,8 @@ export function ReaderView({
   const [translationRequested, setTranslationRequested] = useState(false);
   const [translationEstimatedSecondsRemaining, setTranslationEstimatedSecondsRemaining] = useState<number | null>(null);
   const [translationRetryAfterSeconds, setTranslationRetryAfterSeconds] = useState<number | null>(null);
+  const dictionaryLayer = useToolLayer(dictionaryMounted);
+  const workLayer = useToolLayer(Boolean(readerWorkLayer));
   useDocumentScrollLock(mobileViewport && (Boolean(readerWorkLayer) || dictionaryMounted));
 
   useEffect(() => {
@@ -1726,13 +1730,15 @@ export function ReaderView({
   useEffect(() => {
     if (!readerWorkLayer && !dictionaryMounted) return;
     const onKeyDown = (event: globalThis.KeyboardEvent) => {
-      if (event.key !== "Escape") return;
-      if (readerWorkLayer) setReaderWorkLayer(null);
-      else closeDictionaryWindow();
+      if (event.key !== "Escape" || event.defaultPrevented || document.querySelector("dialog[open]")) return;
+      if (readerWorkLayer && workLayer.isTop) setReaderWorkLayer(null);
+      else if (dictionaryLayer.isTop) closeDictionaryWindow();
+      else return;
+      event.preventDefault();
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [dictionaryMounted, readerWorkLayer]);
+  }, [dictionaryMounted, readerWorkLayer, dictionaryLayer.isTop, workLayer.isTop]);
 
   useEffect(() => {
     if (editingArticle) {
@@ -4184,7 +4190,7 @@ export function ReaderView({
                         className="pointer-events-none absolute inset-0 grid place-items-center px-6 text-center text-sm leading-6 text-[#526873]"
                         data-reader-image-placeholder={block.id}
                       >
-                        <span>{externalImagePending ? "配图正在保存，正文可先阅读" : "图片加载中"}</span>
+                        <LoadingStatus>{externalImagePending ? "配图正在保存，正文可先阅读" : "图片加载中"}</LoadingStatus>
                       </div>
                       <img
                         alt={block.alt || ""}
@@ -4357,6 +4363,8 @@ export function ReaderView({
           ref={dictionaryWindowRef}
           className={`${toolbarStyles.dictionaryWindow} ${dictionaryClosing ? toolbarStyles.dictionaryWindowClosing : ""}`}
           aria-label="单独查词窗口"
+          style={{zIndex:dictionaryLayer.zIndex}}
+          onPointerDownCapture={dictionaryLayer.bringToFront}
           onPointerUp={persistDictionaryWindow}
         >
           <header onPointerDown={startDictionaryDrag}>
@@ -4379,6 +4387,8 @@ export function ReaderView({
       {readerWorkLayer && (
         <div
           className={toolbarStyles.workLayerBackdrop}
+          style={{zIndex:workLayer.zIndex}}
+          onPointerDownCapture={workLayer.bringToFront}
           role="presentation"
           onMouseDown={(event) => {
             if (event.target === event.currentTarget) setReaderWorkLayer(null);
@@ -4391,7 +4401,7 @@ export function ReaderView({
               "--mobile-sheet-drag-offset": `${mobileWorkSheet.dragOffset}px`,
             } as CSSProperties}
             role="dialog"
-            aria-modal="true"
+            aria-modal="false"
             aria-label={readerWorkLayer === "import" ? "导入新文章" : "我的文章"}
             data-sheet-dragging={mobileWorkSheet.dragging || undefined}
           >
@@ -4464,7 +4474,7 @@ export function ReaderView({
                 <div className={toolbarStyles.importActionRow}>
                   <p role="status">{readerImportStatus || (readerImportMode === "text" ? "Ctrl / Cmd + Enter 也可以开始。" : "部分网站限制读取；失败时可以直接粘贴正文。")}</p>
                   <button type="button" disabled={readerImportBusy || !onOpenImportedArticle} onClick={() => void submitReaderImport()}>
-                    {readerImportBusy ? "读取中…" : readerImportMode === "url" && !readerImportPreview ? "读取文章" : "开始阅读"}
+                    {readerImportBusy ? <LoadingStatus>读取中…</LoadingStatus> : readerImportMode === "url" && !readerImportPreview ? "读取文章" : "开始阅读"}
                   </button>
                 </div>
               </div>
@@ -4648,7 +4658,7 @@ export function ReaderView({
                   {editingArticle ? (
                     <>
                       <button type="button" onClick={cancelArticleEditing} disabled={savingArticleEdit}>取消编辑</button>
-                      <button type="button" onClick={() => void saveArticleEditing()} disabled={savingArticleEdit}>{savingArticleEdit ? "保存中…" : "保存编辑"}</button>
+                      <button type="button" onClick={() => void saveArticleEditing()} disabled={savingArticleEdit}>{savingArticleEdit ? <LoadingStatus>保存中…</LoadingStatus> : "保存编辑"}</button>
                     </>
                   ) : (
                     <button type="button" onClick={() => { beginArticleEditing(); setMobileExplanationOpen(false); }}>编辑文章</button>

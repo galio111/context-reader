@@ -41,6 +41,15 @@ test("history fills missing days with zero and forecasts use Shanghai dates",()=
  const days=studyHistoryDays([{day:"2026-10-09",cards:3,active_ms:30000,successes:2,reviews:4}],"2026-10-10",3);
  assert.deepEqual(days.map(d=>d.cards),[0,3,0]);
  const c=card("a",2);c.memory.due="2026-10-10T16:01:00Z";
- assert.equal(studyForecast([c],now,false)[0].count,1);
+ assert.equal(studyForecast([c],now,false)[1].count,1);
  assert.equal(studyForecast([{...c,anki_pending:true}],now,false)[0].count,0);
+});
+
+test("538 overdue words carry through the daily cap together with upcoming words",()=>{
+ const backlog=Array.from({length:538},(_,i)=>({...card(String(i),2),memory:{...card(String(i),2).memory,due:"2026-10-01T00:00:00Z"}}));
+ const upcoming=Array.from({length:8},(_,i)=>({...card("future"+i,2),memory:{...card("future"+i,2).memory,due:"2026-10-11T00:00:00Z"}}));
+ assert.deepEqual(studyForecast([...backlog,...upcoming],now,false).map(d=>d.count),[100,100,100,100,100,46,0]);
+ assert.deepEqual(studyForecast(backlog,now,false,100,30).map(d=>d.count),[70,100,100,100,100,68,0]);
+ assert.deepEqual(studyForecast(backlog,now,false,100,0,"2026-10-12T00:00:00Z").map(d=>d.count),[0,0,100,100,100,100,100]);
+ assert.equal(studyForecast([...backlog.map(c=>({...c,suspended:true})),card("new")],now,false)[0].count,0);
 });

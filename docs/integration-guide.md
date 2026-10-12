@@ -292,3 +292,8 @@ Admin-only GET `/api/admin/editorial` returns `intake` per enabled source: last 
 
 
 Apply additive `docs/study-evidence-v2-migration.sql` before the refined app. It adds verified_seconds and service-only study_reading_tick_v2 / study_daily_stats_v2; does not replace consume_usage or old RPCs. Reading POST evidenceVersion:2 selects verified recording; legacy clients keep writing legacy totals without upgrading evidence. Rollback to the previous app remains compatible. Test against a restored isolated database with tests/study-evidence-v2.sql.
+
+
+## 活动统计接口
+
+先应用 docs/product-activity-migration.sql（增量表/RPC，启用RLS且仅service_role可访问），保留已有v1/v2阅读接口兼容。POST /api/study/reading 的evidenceVersion=3携带UUID id及原seconds/words/article，服务端按本账号、同源、体积和字段验证。GET /api/account/activity返回个人seconds/todaySeconds/readingDays/since；同路径POST按上海日记前台访问。GET /api/admin/product-analytics?days=7|30|90仅Admin可读。统计不包含原文正文。回滚app时可保留新增表与旧接口，不删除采集数据。隔离恢复库验证脚本见tests/product-activity.sql。

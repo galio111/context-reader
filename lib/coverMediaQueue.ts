@@ -91,11 +91,10 @@ function pump() {
   const waiting = [...jobs.values()].filter(job => !job.started && (job.background || [...job.subscribers].some(s => s.nearby)))
     .map(job => ({ job, distance: Math.min(...[...job.subscribers].filter(s => s.nearby).map(distance), Infinity) }))
     .sort((a, b) => a.distance - b.distance);
-  const showcasePending = [...document.querySelectorAll<HTMLImageElement>("img[data-cover-eager]")].some(image => !image.complete);
   for (const { job, distance } of waiting) {
     if (network >= limit || decodeQueue.length >= 2) break;
     const background = !Number.isFinite(distance);
-    if (background && (document.hidden || showcasePending || backgroundNetwork >= Math.max(1, limit - 2))) continue;
+    if (background && (document.hidden || backgroundNetwork >= Math.max(1, limit - 2))) continue;
     job.started = true;
     network++;
     if (background) backgroundNetwork++;

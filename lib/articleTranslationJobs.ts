@@ -248,7 +248,7 @@ async function finishTranslationUsage(actionId: string, status: "succeeded" | "f
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ actionId, status }),
-    keepalive: status !== "succeeded",
+    keepalive: true,
   }).catch(() => undefined);
 }
 

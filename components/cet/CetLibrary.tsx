@@ -1,4 +1,5 @@
 "use client";
+import { LoadingStatus } from "../LoadingStatus";
 import { useEffect, useRef, useState } from "react";
 import { readCetLibraryView, writeCetLibraryView, type CetLibraryView } from "@/lib/cetLibraryView";
 import { useAccount } from "@/components/AccountProvider";
@@ -186,7 +187,7 @@ export function CetLibrary({
               </button>
             ))
           )}
-          {visible.length > 0 && <div className="cet-catalogue-status" role={error ? "alert" : "status"}>{error ? <>{error}<button onClick={()=>setRetry(n=>n+1)}>重试</button></> : loading ? "正在读取后续目录…" : `已显示本筛选全部 ${visible.length} ${view === "paper" ? "套" : "篇"}`}<span className="sr-only">已取得 {papers.length}/{total} 套目录</span></div>}
+          {visible.length > 0 && <div className="cet-catalogue-status" role={error ? "alert" : "status"}>{error ? <>{error}<button onClick={()=>setRetry(n=>n+1)}>重试</button></> : loading ? <LoadingStatus>正在读取后续目录…</LoadingStatus> : `已显示本筛选全部 ${visible.length} ${view === "paper" ? "套" : "篇"}`}<span className="sr-only">已取得 {papers.length}/{total} 套目录</span></div>}
           {!account.authenticated && (
             <div className="cet-login-note">
               <span>

@@ -57,10 +57,14 @@ async function fit(){
  evidence.push(result);
 }
 try {
- await page.goto("http://127.0.0.1:3211/?study=1",{waitUntil:"domcontentloaded",timeout:120000});
+ await page.goto((process.env.STUDY_BASE||"http://127.0.0.1:3211")+"/?study=1",{waitUntil:"domcontentloaded",timeout:120000});
  const study=page.getByRole("dialog",{name:"背单词",exact:true});const nav=study.getByRole("navigation",{name:"学习导航"});
  await study.getByRole("button",{name:"中文提示",exact:true}).waitFor({timeout:60000});
  await check(await study.getByText("茁壮成长",{exact:true}).count()===0,"Chinese hint collapsed");
+ await study.getByRole("article",{name:"当前复习卡片"}).focus();await page.keyboard.press("Space");
+ await study.getByRole("button",{name:"茁壮成长",exact:true}).waitFor();
+ await check(await study.getByRole("button",{name:"茁壮成长",exact:true}).isVisible(),"Space reveals Chinese hint");
+ await page.keyboard.press("Space");await check(await study.getByRole("button",{name:"中文提示",exact:true}).isVisible(),"Space hides hint again");
  await study.getByRole("button",{name:"中文提示",exact:true}).click();await check(await study.getByRole("button",{name:"茁壮成长",exact:true}).isVisible(),"Hint revealed");
  await shot("question");
  await study.getByRole("button",{name:/模糊/}).click();await study.getByRole("button",{name:/查看 flourish 的原文/}).click();

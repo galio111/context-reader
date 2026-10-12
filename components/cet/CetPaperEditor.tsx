@@ -1,4 +1,5 @@
 "use client";
+import { LoadingStatus } from "@/components/LoadingStatus";
 
 import { useEffect, useRef, useState } from "react";
 import { readCetEditableParagraphs, writeCetEditableParagraphs, validateCetParagraphEdit } from "@/lib/cetPaperFormatting";
@@ -107,7 +108,7 @@ export function CetPaperEditor({ paperId, section, onSaved, onClose }: {
 
   return <>
     <div className="cet-paper-editor-tools" role="group" aria-label="原文排版编辑">
-      <span>{ready ? "直接修改原文；Enter 分段，Shift+Enter 换行。" : "正在载入可编辑原文…"}</span>
+      <span>{ready ? "直接修改原文；Enter 分段，Shift+Enter 换行。" : <LoadingStatus>正在载入可编辑原文…</LoadingStatus>}</span>
       <div className="cet-paper-editor-actions">
         <button type="button" disabled={!canUndo || busy} onClick={() => moveHistory(-1)}>撤销</button>
         <button type="button" disabled={!canRedo || busy} onClick={() => moveHistory(1)}>重做</button>

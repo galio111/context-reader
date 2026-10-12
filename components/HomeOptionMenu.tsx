@@ -1,4 +1,5 @@
 "use client";
+import { navigateExperiencePreview } from "@/lib/experiencePreview";
 import { contextualLemma } from "@/lib/displayLabels";
 
 import {
@@ -436,6 +437,7 @@ export function HomeOptionMenu({
   function navigate(href: string) {
     window.dispatchEvent(new Event("context-reader-leave-study"));
     onClose();
+    if (navigateExperiencePreview(href)) return;
     router.push(href);
   }
 

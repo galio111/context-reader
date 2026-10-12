@@ -414,3 +414,12 @@ Discovery and paid review are separate lifecycles. An hourly, three-source-per-t
 ## Native study activity and retained presentation
 
 StudyHost preloads only a verified online account and retains its keyed StudyPanel on close. Presentation tokens are renewed on re-entry; hints/assistance reset only when card/version changes. Settings stay mounted, serialize saves and merge only returned settings so a late save cannot roll back a review. Reader Menu portals into the open native study dialog; navigation explicitly releases the study layer. Data plots use study_daily_stats_v2 (365 Shanghai days, unique daily new/review cards, undone excluded). Reading hooks connect trusted foreground interactions, never idle tails; cross-tab ownership breaks overlap. study_reading_tick_v2 row-locks and bounds time; verified_seconds alone gates profile generation, while legacy totals and generated profiles remain. Full windows and evidence: [study refinement](study-refinement-20261010.md).
+
+
+## 有效阅读与产品活动统计
+
+文章 Reader 的 useReadingEvidence 只累计前台、聚焦、非学习弹层中的相邻可信阅读操作间隔；超过45秒的空闲断开，CET Reader不计入。v3事件UUID在网络重试中保留。study_reading_tick_v3在用户锁内调用原v2计时上限，按实际 verified_seconds 增量记入 product_reading_ticks；重复UUID直接返回，不重复计时。product_activity_days按上海日记录登录前台访问。新账本从product_activity_meta.started_at起算，不把旧无证据时段伪造为有效阅读。个人查询仅接受服务器验证的本账号。
+
+Admin统计排除当前管理员，按注册日成熟的第1/7/30天回访计算留存。首次付费按真实paid_at（含后续退款）去重；赠送、邀请或调档不是付费。只有采集开始后注册的账号能构成完整付费前样本，按事件时间截到首次支付；其余单独显示覆盖缺失。真题个人正确率来自本账号不可变提交，整卷覆盖分段，重复ID不重算，冲突与中止转学习不计入。
+
+开发者预览位于/admin/experience：外页和frame均要求活动developer账号，唯一frame路径允许同源嵌入。使用正式AccountProvider/HomeClient/Reader/账号/套餐/StudyHost，配额来自当前服务器套餐。frame内Storage与学习库使用内存，网络白名单只放行公开只读内容；账号、学习、同步返回示例状态，未知写入/生成/支付拒绝。预览导航与取消信号留在隔离环境；不修改开发者身份、真实IndexedDB、真实额度或订单。

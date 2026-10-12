@@ -81,7 +81,7 @@ export function buildUsageReport(executions: ReportExecution[], actions: ReportA
   if (window.scope === "all" || window.scope === "reader") for (const key of ["word_explanation", "standalone_dictionary", "sentence_question", "article_summary", "full_article_translation"]) get(features, `reader:${key}`, REPORT_FEATURES[key], "reader");
   for (const day of window.days) get(days, day, day, "all");
   const inWindow = (at?: string) => Boolean(at && Date.parse(at) >= Date.parse(window.start) && Date.parse(at) < Date.parse(window.end));
-  const details: Array<{ id: string; at: string; feature: string; model: string; userId: string; scope: UsageScope; status: string; input: number; output: number; costMicrocny: number | null }> = [];
+  const details: Array<{ id: string; at: string; feature: string; model: string; userId: string; scope: UsageScope; status: string; actionStatus: string; input: number; output: number; costMicrocny: number | null }> = [];
   for (const row of executions) {
     if (!inWindow(row.created_at)) continue;
     const action = row.usage_actions || actionMap.get(row.action_id);
@@ -103,7 +103,7 @@ export function buildUsageReport(executions: ReportExecution[], actions: ReportA
       t.cacheTokens += Math.min(Math.max(0, Number(row.prompt_tokens) || 0), Math.max(0, Number(row.prompt_cache_hit_tokens) || 0));
       if (cost === null) t.unknownCost++; else t.costMicrocny += cost;
     }
-    if (details.length < 200) details.push({ id: row.id, at: row.created_at, feature: feature.label, model, userId: action?.user_id || "", scope, status: row.status || "unknown", input: Number(row.prompt_tokens) || 0, output: Number(row.completion_tokens) || 0, costMicrocny: cost });
+    if (details.length < 200) details.push({ id: row.id, at: row.created_at, feature: feature.label, model, userId: action?.user_id || "", scope, status: row.status || "unknown", actionStatus: action?.status || "unknown", input: Number(row.prompt_tokens) || 0, output: Number(row.completion_tokens) || 0, costMicrocny: cost });
   }
   for (const action of actions) {
     if (!inWindow(action.created_at)) continue;

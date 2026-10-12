@@ -1,4 +1,5 @@
 "use client";
+import { LoadingStatus } from "../LoadingStatus";
 import { useEffect, useImperativeHandle, useRef, useState, type RefObject } from "react";
 import type { CetListeningAudio, CetListeningPlayback } from "@/types/cet";
 
@@ -62,7 +63,7 @@ export function CetListeningPlayer({audio,testing,stopped,blocked=false,initial,
     <div className="cet-audio-controls">
       <button type="button" className="cet-audio-play" disabled={blocked||loading||testing&&(ended||running)} aria-label={testing&&ended?'听力播放完毕':loading?'正在加载音频':running?testing?'听力正在播放':'暂停听力':position>0?'继续播放听力':'播放听力'} onClick={()=>{
         if(running&&!testing)element.current?.pause();else if(!running)void play();
-      }}>{loading?'加载中…':testing&&ended?'播放完毕':running?testing?'正在播放':'Ⅱ 暂停':position>0?'▶ 继续播放':'▶ 播放听力'}</button>
+      }}>{loading?<LoadingStatus>加载中…</LoadingStatus>:testing&&ended?'播放完毕':running?testing?'正在播放':'Ⅱ 暂停':position>0?'▶ 继续播放':'▶ 播放听力'}</button>
       <span className="cet-audio-time" aria-live="off">{time(position)} / {time(duration)}</span>
       {testing?<div className="cet-audio-progress" role="progressbar" aria-label="听力播放进度" aria-valuemin={0} aria-valuemax={Math.ceil(duration)} aria-valuenow={Math.floor(position)}><span style={{width:`${Math.min(100,position/duration*100)}%`}} /></div>
         :<input type="range" aria-label="听力播放位置" min={0} max={Math.floor(duration)} step={1} value={Math.floor(position)} disabled={blocked||!loaded} onChange={event=>{const value=Number(event.target.value);if(element.current){element.current.currentTime=value;setPosition(value);setEnded(false);checkpoint(running?'playing':'paused');}}} />}

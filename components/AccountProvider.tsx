@@ -1,4 +1,5 @@
 "use client";
+import { LoadingStatus } from "@/components/LoadingStatus";
 
 import { openAccountUsage } from "@/lib/accountUsageNavigation";
 import { lowUsageNotice } from "@/lib/usagePresentation";
@@ -6,6 +7,7 @@ import { lowUsageNotice } from "@/lib/usagePresentation";
 import { startupMark } from "@/lib/startupPerformance";
 import { getLearningStorage, downloadLearningBackup, initializeLearningStorage, flushLearningStorage, isLearningStorage, LEARNING_STORAGE_EVENT, type LearningStorageStatus } from "@/lib/learningStorage";
 import Link from "next/link";
+import { useAccountActivity } from "./useAccountActivity";
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import ClearableField from "@/components/ClearableField";
 import { ACCOUNT_DATA_CHANGED_EVENT, accountDataEventKinds } from "@/lib/accountEvents";
@@ -114,6 +116,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
   const [account, setAccount] = useState<AccountSessionState>(emptyAccount);
   const [loading, setLoading] = useState(true);
   const [isOffline, setIsOffline] = useState(false);
+  useAccountActivity(account.profile?.userId??"",account.authenticated&&!account.localOnly&&!isOffline);
   const [offlineReason, setOfflineReason] = useState<Exclude<ConnectionResult, "online">>("network");
   const [localAccount, setLocalAccount] = useState<LocalAccountSession | null>(null);
   const [offlineActionNotice, setOfflineActionNotice] = useState("");
@@ -682,8 +685,8 @@ export function AccountProvider({ children }: { children: ReactNode }) {
                 aria-busy={connectivityChecking}
                 onClick={() => void runConnectivityCheck()}
               >
-                <span className="sm:hidden">{connectivityChecking ? "检查中…" : "重试"}</span>
-                <span className="hidden sm:inline">{connectivityChecking ? "正在检查网络…" : "重新检测网络"}</span>
+                <span className="sm:hidden">{connectivityChecking ? <LoadingStatus>检查中…</LoadingStatus> : "重试"}</span>
+                <span className="hidden sm:inline">{connectivityChecking ? <LoadingStatus>正在检查网络…</LoadingStatus> : "重新检测网络"}</span>
               </button>
             </div>
           </div>
@@ -762,7 +765,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
               </label>}
               {syncingLogin && <p className="mt-4 rounded-xl bg-[#e3edf4] px-3 py-2 text-sm leading-6 text-[#405d70]" role="status">登录成功，正在同步当前账号的生词本、文章和缓存，请稍候…</p>}
               {message && <p className="mt-4 text-sm leading-6 text-[#8a3d34]" role="alert">{message}</p>}
-              <button className="mt-6 w-full rounded-full bg-[#174f82] px-5 py-3.5 font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2868ad] disabled:cursor-not-allowed disabled:opacity-50" disabled={!account.configured || submitting || (!account.authenticated && (phone.trim().length < 11 || !pinIsValid || (loginMode === "register" && (!nickname.trim() || !confirmPinIsValid))))} type="submit">{syncingLogin ? "正在同步账号数据…" : submitting ? (loginMode === "login" ? "正在登录…" : "正在创建账号…") : account.authenticated ? "重试同步" : loginMode === "login" ? "登录" : "创建账号并登录"}</button>
+              <button className="mt-6 w-full rounded-full bg-[#174f82] px-5 py-3.5 font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2868ad] disabled:cursor-not-allowed disabled:opacity-50" disabled={!account.configured || submitting || (!account.authenticated && (phone.trim().length < 11 || !pinIsValid || (loginMode === "register" && (!nickname.trim() || !confirmPinIsValid))))} type="submit">{syncingLogin ? <LoadingStatus>正在同步账号数据…</LoadingStatus> : submitting ? <LoadingStatus>{loginMode === "login" ? "正在登录…" : "正在创建账号…"}</LoadingStatus> : account.authenticated ? "重试同步" : loginMode === "login" ? "登录" : "创建账号并登录"}</button>
             </form>
           </section>
         </div>
@@ -815,7 +818,7 @@ export function AccountNav() {
         {account.localOnly || account.localDirect ? (
           <span className="rounded-xl px-3 py-2 text-xs leading-5 text-[#6c786f]">{account.localDirect ? "localhost 已固定连接到这个云端开发者账号；数据会正常同步。" : "本机学习身份固定启用；文章和生词本保存在此浏览器。"}</span>
         ) : (
-          <button className="rounded-xl px-3 py-2 text-left hover:bg-black/5 disabled:cursor-wait disabled:text-black/45" type="button" disabled={loggingOut} onClick={() => void handleLogout()}>{loggingOut ? "正在同步并退出…" : "退出登录"}</button>
+          <button className="rounded-xl px-3 py-2 text-left hover:bg-black/5 disabled:cursor-wait disabled:text-black/45" type="button" disabled={loggingOut} onClick={() => void handleLogout()}>{loggingOut ? <LoadingStatus>正在同步并退出…</LoadingStatus> : "退出登录"}</button>
         )}
         {logoutError && <span className="rounded-xl bg-red-50 px-3 py-2 text-xs leading-5 text-red-700" role="alert">{logoutError}</span>}
       </span>}

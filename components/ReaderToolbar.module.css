@@ -81,7 +81,7 @@
 
 .desktopRail {
   position: fixed;
-  z-index: 34;
+  z-index: 90;
   top: 16px;
   left: clamp(14px, 2.2vw, 42px);
   display: none;

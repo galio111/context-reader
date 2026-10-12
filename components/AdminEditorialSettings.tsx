@@ -1,4 +1,5 @@
 "use client";
+import { LoadingStatus } from "./LoadingStatus";
 import { useEffect, useState } from "react";
 import type { EditorialConfig } from "@/lib/editorialReview";
 import styles from "./AdminEditorialSettings.module.css";
@@ -42,12 +43,12 @@ export default function AdminEditorialSettings() {
       </div>
       <p>主备模型和 Jev 独立判断在 <a href="/admin?section=models">模型与调用</a> 设置。每日费用硬上限 ¥1.50、运行时长最多 120 分钟；未处理文章保留到后续任务。未达到板块门槛会报告缺口。</p>
       <button disabled={busy} type="submit">{busy ? "正在保存…" : "保存精选设置"}</button>
-    </form> : <p>正在读取设置…</p>}
+    </form> : <LoadingStatus>正在读取设置…</LoadingStatus>}
     {status && <p role={error ? "alert" : "status"} data-error={error}>{status}</p>}
     <section className={styles.intake} aria-label="来源处理记录">
       <h3>来源处理记录</h3>
       <p>每小时分批检查启用来源并保存新链接，每天到设定时间开始审核。订阅更新后仍保留未完成文章。技术故障先重试，重复失败转为需要检查；只有明确的内容判断才记为未入选。这里显示累计记录，已处理记录保留 30 天。</p>
-      {intake === null ? <p>正在读取来源记录…</p> : intake.length === 0 ? <p>尚未启用来源。</p> : intake.map(source => <details key={source.id}>
+      {intake === null ? <LoadingStatus>正在读取来源记录…</LoadingStatus> : intake.length === 0 ? <p>尚未启用来源。</p> : intake.map(source => <details key={source.id}>
         <summary>{source.name}<span>待审核 {source.counts.waiting} · 待重试 {source.counts.retry} · 需检查 {source.counts.attention}{source.feedErrors.length ? ' · 订阅读取异常' : ''}</span></summary>
         <p>最近发现检查：{source.lastScanAt ? new Date(source.lastScanAt).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }) : '新记录尚未建立'}（北京时间）<br />内容未入选 {source.counts.rejected} · 重复或规则跳过 {source.counts.skipped} · 已入候选 {source.counts.candidate}</p>
         {source.feedErrors.length > 0 && <p data-error="true">订阅暂时无法完整读取，已保留此前发现的文章；请检查来源连接或页面结构。</p>}

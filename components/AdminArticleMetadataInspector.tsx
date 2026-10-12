@@ -1,4 +1,5 @@
 "use client";
+import { LoadingStatus } from "./LoadingStatus";
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import ClearableField from "@/components/ClearableField";
@@ -271,7 +272,7 @@ export default function AdminArticleMetadataInspector(props: InspectorProps) {
         {articleKind === "candidate" && <div className="mt-3 grid grid-cols-2 gap-2"><button className="min-h-11 rounded-lg bg-[#1769aa] px-3 text-sm font-semibold text-white disabled:bg-[#9fb5c5]" type="button" onClick={() => void handleSelect()} disabled={busy}>{working === "select" ? "正在精选…" : "精选并继续"}</button><button className="min-h-11 rounded-lg border border-[#d5a7a7] bg-white px-3 text-sm font-semibold text-[#9a3030] disabled:opacity-45" type="button" onClick={() => setChoosingReason(true)} disabled={busy} aria-expanded={choosingReason}>{working === "reject" ? "正在移出…" : "不精选"}</button></div>}
         {articleKind === "candidate" && <p className="mt-2 text-xs leading-5 text-[#526873]">{mediaSummary}。</p>}
         {articleKind === "published" && onUploadTranslation && <button className="mt-3 min-h-11 w-full rounded-lg bg-[#1769aa] px-3 text-sm font-semibold text-white disabled:bg-[#9fb5c5]" type="button" onClick={() => void handleUploadTranslation()} disabled={busy}>{working === "translation" ? "正在上传…" : "上传全文翻译"}</button>}
-        {articleKind === "published" && working === "translation" && <p className="mt-2 text-xs text-[#526873]" role="status">正在检查并上传当前完整译文…</p>}
+        {articleKind === "published" && working === "translation" && <LoadingStatus className="mt-2 text-xs text-[#526873]" >正在检查并上传当前完整译文…</LoadingStatus>}
         {articleKind === "published" && working !== "translation" && message && <p className="mt-2 text-xs font-medium text-[#315e66]" role="status">{message}</p>}
         {articleKind === "published" && error && <p className="mt-2 text-xs font-medium text-[#9a3030]" role="alert">{error}</p>}
         {articleKind === "published" && onDelete && <button className="mt-3 min-h-11 w-full rounded-lg border border-[#d5a7a7] bg-white px-3 text-sm font-semibold text-[#9a3030] disabled:opacity-45" type="button" onClick={() => void handleDelete()} disabled={busy}>{working === "delete" ? "正在删除…" : "删除这篇精选"}</button>}

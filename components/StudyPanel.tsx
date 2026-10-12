@@ -10,6 +10,7 @@ import { StudyWord } from "./StudyWord";
 import { StudySettings as StudySettingsView } from "./StudySettings";
 import { StudyVocabulary } from "./StudyVocabulary";
 import { StudyStats } from "./StudyStats";
+import { LoadingStatus } from "./LoadingStatus";
 import { CetSelect } from "./cet/CetSelect";
 import { activeStudySnapshot, chooseStudyCard } from "@/lib/studyPresentation";
 import type { VocabularyEntry } from "@/types/vocabulary";
@@ -22,7 +23,7 @@ import { readRecommendationPreferences, writeRecommendationPreferences, type Rec
 type Tab = "today" | "vocabulary" | "data" | "rewards" | "settings" | "profile";
 type Pending = { op: string; id: string; cardId: string; version: number; token: string; answer: StudyAnswer; activeMs: number };
 const navigation: Array<[Tab,string,StudyIconName]> = [["today","背单词","cards"],["vocabulary","生词本","book"],["data","学习数据","chart"],["rewards","学习奖励","gift"],["settings","设置","settings"]];
-export function StudyPanel({visible,onClose,onSource,notice}:{visible:boolean;onClose:()=>void;onSource:()=>void;notice:string}) {
+export function StudyPanel({visible,onClose,onSource,notice,requestedTab="today",requestKey=0}:{visible:boolean;onClose:()=>void;onSource:()=>void;notice:string;requestedTab?:"today"|"profile";requestKey?:number}) {
   const {account,isOffline,syncNow,refreshAccount}=useAccount();
   const owner=account.profile?.userId ?? "";
   const [snapshot,setSnapshot]=useState<StudySnapshot|null>(null);
@@ -44,6 +45,7 @@ export function StudyPanel({visible,onClose,onSource,notice}:{visible:boolean;on
   const priorClaims=useRef(new Map<string,number>());
   const randomRanks=useRef(new Map<string,number>());
   const answerBody=useRef<HTMLDivElement>(null);
+  const questionSurface=useRef<HTMLElement>(null);
   const [pending,setPending]=useState<Pending|null>(null);
   const [profile,setProfile]=useState<{activeSeconds:number;uniqueLookups:number;result?:{summary:string;recommendedLevel:string;strengths:string[];focus:string[]};eligible:boolean}|null>(null);
   const dialog=useRef<HTMLDialogElement>(null);
@@ -78,8 +80,10 @@ export function StudyPanel({visible,onClose,onSource,notice}:{visible:boolean;on
   };
   useEffect(()=>{
     void run(async()=>{
-      await syncNow({dirtyKinds:["vocabulary"]}).catch(()=>{});
+      const syncing=syncNow({dirtyKinds:["vocabulary"]}).catch(()=>null);
       accept(await api<StudySnapshot>({op:"start"}));
+      const synced=await syncing;
+      if(synced&&(synced.pushedCount>0||synced.pulledCount>0))accept(await api<StudySnapshot>({op:"start"}));
     });
     try{const local=JSON.parse(localStorage.getItem("context-reader-study-display:"+owner)||"{}");setOrder(local.order==="random"?"random":"ordered");setMotion(local.motion!==false);}catch{}
     try{profileAction.current=sessionStorage.getItem("context-reader-profile-action:"+owner)||"";}catch{}
@@ -89,7 +93,7 @@ export function StudyPanel({visible,onClose,onSource,notice}:{visible:boolean;on
   },[owner]);
   const previouslyVisible=useRef(false);
   useEffect(()=>{
-    if(visible&&!previouslyVisible.current&&snapshot&&!pendingRef.current)void run(async()=>{await syncNow({dirtyKinds:["vocabulary"]}).catch(()=>{});accept(await api<StudySnapshot>({op:"start"}));});
+    if(visible&&!previouslyVisible.current&&snapshot&&!pendingRef.current)void run(async()=>{accept(await api<StudySnapshot>({op:"start"}));});
     previouslyVisible.current=visible;
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[visible]);
@@ -108,6 +112,7 @@ export function StudyPanel({visible,onClose,onSource,notice}:{visible:boolean;on
   useEffect(()=>{displayed.current=card?.id??"";},[card?.id]);
   const entry=snapshot?.entries.find(e=>e.id===card?.entry_id);
   const cardKey=card?card.id+":"+card.version:"";
+  useEffect(()=>{if(visible&&tab==="today"&&cardKey)questionSurface.current?.focus({preventScroll:true});},[visible,tab,cardKey]);
   useEffect(()=>{setIntent(null);setHint(false);setAssisted(false);answerBody.current?.scrollTo(0,0);},[cardKey]);
   const activeMs=useStudyTimer(visible&&tab==="today"&&Boolean(card)&&Boolean(token)&&!busy&&!pending&&!pauseConfirm&&confirm===null&&!wordDetail&&!rewardNotice&&!menuOpen,cardKey,owner);
   useEffect(()=>{
@@ -120,7 +125,10 @@ export function StudyPanel({visible,onClose,onSource,notice}:{visible:boolean;on
   },[cardKey,api,presentation,visible]);
   useEffect(()=>{
     const fn=(e:KeyboardEvent)=>{
-      if(menuOpen||!visible||tab!=="today"||busy||!card||pending||confirm!==null||pauseConfirm||wordDetail||rewardNotice||["INPUT","SELECT","TEXTAREA"].includes((e.target as HTMLElement)?.tagName))return;
+      if(menuOpen||!visible||tab!=="today"||!card||pending||confirm!==null||pauseConfirm||wordDetail||rewardNotice||["INPUT","SELECT","TEXTAREA"].includes((e.target as HTMLElement)?.tagName))return;
+      if(e.repeat||e.altKey||e.ctrlKey||e.metaKey||(e.target as HTMLElement)?.isContentEditable)return;
+      if(!intent&&e.code==="Space"&&card.mode!=="basic_cn_to_en"&&card.mode!=="basic_cn_to_en_dictionary"&&!(e.target as HTMLElement)?.closest("button,a,[role=button]")){e.preventDefault();setHint(value=>!value);return;}
+      if(busy)return;
       if(!intent&&["1","2","3"].includes(e.key)){e.preventDefault();setIntent(e.key==="1"?"forgot":e.key==="2"?"unsure":"remembered");}
     };
     window.addEventListener("keydown",fn);return()=>window.removeEventListener("keydown",fn);
@@ -169,6 +177,9 @@ export function StudyPanel({visible,onClose,onSource,notice}:{visible:boolean;on
     if(!r.ok){if(r.status!==409){profileAction.current="";try{sessionStorage.removeItem(key);}catch{}}throw new Error(d.error);}
     setProfile(d);profileAction.current="";try{sessionStorage.removeItem(key);}catch{}await refreshAccount();
   });
+  const profileAutoLoad=useRef(false);
+  useEffect(()=>{if(visible){setTab(requestedTab);profileAutoLoad.current=false;}},[requestKey,requestedTab,visible]);
+  useEffect(()=>{if(visible&&tab==="profile"&&snapshot&&!busy&&!profileAutoLoad.current){profileAutoLoad.current=true;void loadProfile();}});
   const paused=snapshot?studyPaused(snapshot.settings,now):false;
   const due=learningSnapshot?.cards.filter(c=>c.memory.state!==0&&Date.parse(c.memory.due)<=now.getTime()).length??0;
   const fresh=learningSnapshot?.cards.filter(c=>c.memory.state===0).length??0;
@@ -209,18 +220,19 @@ export function StudyPanel({visible,onClose,onSource,notice}:{visible:boolean;on
       <main className={tab==="today"?styles.stage:styles.page}>
         <div className={styles.statusArea}>
           {error&&<div className={styles.error} role="alert"><span>{error}</span>{!pending&&<button disabled={busy} onClick={()=>void run(snapshot?refresh:async()=>accept(await api<StudySnapshot>({op:"prepare"})))}>重试</button>}<button className={styles.iconButton} aria-label="关闭错误提示" onClick={()=>setError("")}><StudyIcon name="close"/></button></div>}
+          {busy&&snapshot&&<LoadingStatus className={styles.caption}>正在同步学习记录…</LoadingStatus>}
           {isOffline&&<div className={styles.error} role="status">当前离线，恢复连接后可继续保存进度。</div>}
           {pending&&!busy&&<div className={styles.error} role="status"><span>刚才的答案还未保存。</span><button disabled={busy||isOffline} onClick={()=>void savePending(pending)}>重试保存</button></div>}
         </div>
-        {!snapshot?<p className={styles.caption} role="status">正在连接学习记录…</p>:<>
+        {!snapshot?<LoadingStatus className={styles.caption}>正在连接学习记录…</LoadingStatus>:<>
           {tab!=="today"&&<header className={styles.pageHeader}><h1>{title}</h1><button onClick={()=>selectTab("today")}>继续背词<StudyIcon name="arrow"/></button></header>}
-          {tab==="today"&&<article data-learning-surface="study" className={styles.flashcard} data-answer={Boolean(intent)} key={cardKey||"empty"} aria-label="当前复习卡片">
+          {tab==="today"&&<article ref={questionSurface} tabIndex={-1} data-learning-surface="study" className={styles.flashcard} data-answer={Boolean(intent)} key={cardKey||"empty"} aria-label="当前复习卡片">
             <div className={styles.cardTop}><span>{snapshot.today?<>{card?(snapshot.today.new_ids.includes(card.id)?"新词":"复习"):"今日学习"}<span className={styles.counterDivider}> · </span>今天已学完 <b>{progress.finished}</b> 词</>:"今日学习"}</span>{undoButton}</div>
             {paused?<div className={styles.empty}><StudyIcon name="pause"/><h2>学习已暂停</h2><p>到 {new Date(snapshot.settings.pausedUntil!).toLocaleDateString("zh-CN")}。准备好时，随时回来。</p><button className={styles.primary} disabled={busy||isOffline} onClick={()=>void retryPrepare()}>恢复学习</button></div>:
             (!snapshot.today||progress.total===0)?<div className={styles.empty}><StudyIcon name="book"/><h2>{snapshot.entries.length?"今天没有待学的词":"从一个生词开始"}</h2><p>在阅读或词典里收藏单词，就能在这里复习。</p><button className={styles.primary} onClick={onClose}>去阅读<StudyIcon name="arrow"/></button>{fresh>0&&<button disabled={busy||isOffline} onClick={()=>void retryPrepare()}>检查待学单词</button>}</div>:
-            card&&entry?<>{!intent?<><div className={styles.prompt} lang={card.mode==="basic_cn_to_en"||card.mode==="basic_cn_to_en_dictionary"?"zh-CN":"en"}>{card.mode==="cloze_context"?<><p>{entry.anki.clozeSentence}</p><button className={styles.cue} aria-expanded={hint} onClick={()=>setHint(v=>!v)}>{hint?entry.contextMeaning:"中文提示"}</button></>:card.mode==="basic_cn_to_en"||card.mode==="basic_cn_to_en_dictionary"?<p>{entry.anki.basicCue||entry.basicMeaning}</p>:<p className={styles.word}>{entry.word}</p>}</div><div className={styles.answers}>{([["forgot","不记得"],["unsure","模糊"],["remembered","记得"]] as const).map(([value,label],i)=><button key={value} data-rating={value} disabled={busy||Boolean(pending)||isOffline} onClick={()=>setIntent(value)}><kbd>{i+1}</kbd>{label}</button>)}</div></>:<>
+            card&&entry?<>{!intent?<><div className={styles.prompt} lang={card.mode==="basic_cn_to_en"||card.mode==="basic_cn_to_en_dictionary"?"zh-CN":"en"}>{card.mode==="cloze_context"?<><p>{entry.anki.clozeSentence}</p><button className={styles.cue} aria-label={hint?entry.contextMeaning:"中文提示"} aria-expanded={hint} onClick={()=>setHint(v=>!v)}>{hint?entry.contextMeaning:<>中文提示 <kbd>空格</kbd></>}</button></>:card.mode==="basic_cn_to_en"||card.mode==="basic_cn_to_en_dictionary"?<p>{entry.anki.basicCue||entry.basicMeaning}</p>:<><p className={styles.word}>{entry.word}</p><button className={styles.cue} aria-label={hint?entry.basicMeaning:"中文提示"} aria-expanded={hint} onClick={()=>setHint(v=>!v)}>{hint?entry.basicMeaning:<>中文提示 <kbd>空格</kbd></>}</button></>}</div><div className={styles.answers}>{([["forgot","不记得"],["unsure","模糊"],["remembered","记得"]] as const).map(([value,label],i)=><button key={value} data-rating={value} disabled={busy||Boolean(pending)||isOffline} onClick={()=>setIntent(value)}><kbd>{i+1}</kbd>{label}</button>)}</div></>:<>
               <div ref={answerBody} className={styles.answerBody} key={cardKey+"answer"} tabIndex={0} aria-label="核对答案"><StudyWord entry={entry} onSource={source}/></div>
-              <footer className={styles.answerFooter}><span className={styles.feedback}>{assisted?"已看原文，稍后再练":intent==="forgot"?"看懂后，再练一次":intent==="unsure"?"模糊时，也核对对错":"核对刚才的回忆"}</span><div className={styles.nextActions}>{intent==="forgot"||assisted?<button className={styles.primary} disabled={busy||!token||Boolean(pending)||isOffline} onClick={()=>void submit("forgot")}>{busyLabel||"下一个"}<StudyIcon name="arrow"/></button>:<><button disabled={busy||!token||Boolean(pending)||isOffline} onClick={()=>void submit(intent==="unsure"?"unsure_wrong":"forgot")}>答错了</button><button className={styles.primary} disabled={busy||!token||Boolean(pending)||isOffline} onClick={()=>void submit(intent==="unsure"?"unsure_right":"remembered")}>{busyLabel||"答对了"}<StudyIcon name="arrow"/></button></>}</div></footer>
+              <footer className={styles.answerFooter}><span className={styles.feedback}>{assisted?"已看原文，稍后再练":intent==="forgot"?"看懂后，再练一次":intent==="unsure"?"模糊时，也核对对错":"核对刚才的回忆"}</span><div className={styles.nextActions}>{intent==="forgot"||assisted?<button className={styles.primary} disabled={busy||!token||Boolean(pending)||isOffline} onClick={()=>void submit("forgot")}>{busyLabel?<LoadingStatus>{busyLabel}</LoadingStatus>:"下一个"}<StudyIcon name="arrow"/></button>:<><button disabled={busy||!token||Boolean(pending)||isOffline} onClick={()=>void submit(intent==="unsure"?"unsure_wrong":"forgot")}>答错了</button><button className={styles.primary} disabled={busy||!token||Boolean(pending)||isOffline} onClick={()=>void submit(intent==="unsure"?"unsure_right":"remembered")}>{busyLabel?<LoadingStatus>{busyLabel}</LoadingStatus>:"答对了"}<StudyIcon name="arrow"/></button></>}</div></footer>
             </>}</>:
             completed?<div className={styles.empty}><StudyIcon name="check"/><h2>今天的计划，完成了</h2><p>已完成 {progress.finished} 个词{snapshot.today.reward_points>0?" · "+snapshot.today.reward_points+" 点已到账":""}。</p>{due>0&&<p>其余到期词会按每日计划分批安排。</p>}{!snapshot.today.completed_at&&<button className={styles.primary} disabled={busy} onClick={()=>void run(async()=>{const r=await api<{snapshot:StudySnapshot}>({op:"complete"});accept(r.snapshot);await refreshAccount();})}>保存完成记录</button>}<button className={styles.primary} onClick={onClose}>去阅读<StudyIcon name="arrow"/></button><button onClick={()=>selectTab("rewards")}>查看奖励</button></div>:
             <div className={styles.empty}><StudyIcon name="cards"/><h2>稍后再巩固</h2><p>{progress.waiting.length} 个词待复习 · 约 {Math.max(1,Math.ceil((Math.min(...progress.waiting.map(c=>Date.parse(c.memory.due)))-now.getTime())/60000))} 分钟后继续</p>{progress.blockedNew>0&&<p>复习完成后，再学 {progress.blockedNew} 个新词。</p>}<button className={styles.primary} onClick={onClose}>先去阅读<StudyIcon name="arrow"/></button></div>}
@@ -229,7 +241,7 @@ export function StudyPanel({visible,onClose,onSource,notice}:{visible:boolean;on
           {tab==="rewards"&&<StudyRewards snapshot={snapshot} busy={busy} onActivate={milestone=>setConfirm(milestone)} onClaim={id=>void claimRewards([id])}/>}
           {tab==="vocabulary"&&learningSnapshot&&<StudyVocabulary snapshot={learningSnapshot} onOpen={setWordDetail}/>}
           {<div hidden={tab!=="settings"}><StudySettingsView value={snapshot.settings} save={settings=>api<StudySnapshot>({op:"settings",settings})} onSaved={s=>setSnapshot(current=>current?{...current,settings:s.settings}:s)} order={order} motion={motion} onDisplay={updateDisplay} paused={paused} onPause={()=>paused?void retryPrepare():setPauseConfirm(true)} onProfile={()=>selectTab("profile")}/></div>}
-          {tab==="profile"&&<section className={styles.surface}>{profile?<><div className={styles.sectionHead}><h2>从真实阅读开始</h2></div><dl className={styles.metrics}><div><dt>有效阅读</dt><dd>{Math.floor(profile.activeSeconds/60)}<small>分钟</small></dd></div><div><dt>不同查词</dt><dd>{profile.uniqueLookups}<small>个</small></dd></div></dl>{profile.result&&<div className={styles.profileResult}><h2>{profile.result.recommendedLevel}</h2><p>{profile.result.summary}</p><h3>接下来</h3><ul>{profile.result.focus.map((v,i)=><li key={i}>{v}</li>)}</ul><button onClick={()=>{const current=readRecommendationPreferences();writeRecommendationPreferences({...current,readingLevel:profile.result!.recommendedLevel as RecommendationReadingLevel},{authenticated:true});onClose();}}>按建议难度阅读<StudyIcon name="arrow"/></button></div>}<p className={styles.caption}>累计 {snapshot.policy.minimumReadingMinutes} 分钟有效阅读、{snapshot.policy.minimumLookups} 个不同查词后可生成。画像是阅读建议，不是词汇量测试。</p>{snapshot.policy.profileEnabled?<button className={styles.primary} disabled={!profile.eligible||busy||isOffline} onClick={()=>setConfirm("profile")}>生成画像 · {snapshot.policy.profileCost} 点</button>:<p className={styles.caption}>画像生成暂未开放。</p>}</>:<p role="status">正在读取阅读记录…</p>}</section>}
+          {tab==="profile"&&<section className={styles.surface}>{profile?<><div className={styles.sectionHead}><h2>从真实阅读开始</h2></div><dl className={styles.metrics}><div><dt>有效阅读</dt><dd>{Math.floor(profile.activeSeconds/60)}<small>分钟</small></dd></div><div><dt>不同查词</dt><dd>{profile.uniqueLookups}<small>个</small></dd></div></dl>{profile.result&&<div className={styles.profileResult}><h2>{profile.result.recommendedLevel}</h2><p>{profile.result.summary}</p><h3>接下来</h3><ul>{profile.result.focus.map((v,i)=><li key={i}>{v}</li>)}</ul><button onClick={()=>{const current=readRecommendationPreferences();writeRecommendationPreferences({...current,readingLevel:profile.result!.recommendedLevel as RecommendationReadingLevel},{authenticated:true});onClose();}}>按建议难度阅读<StudyIcon name="arrow"/></button></div>}<p className={styles.caption}>累计 {snapshot.policy.minimumReadingMinutes} 分钟有效阅读、{snapshot.policy.minimumLookups} 个不同查词后可生成。画像是阅读建议，不是词汇量测试。</p>{snapshot.policy.profileEnabled?<button className={styles.primary} disabled={!profile.eligible||busy||isOffline} onClick={()=>setConfirm("profile")}>生成画像 · {snapshot.policy.profileCost} 点</button>:<p className={styles.caption}>画像生成暂未开放。</p>}</>:<LoadingStatus >正在读取阅读记录…</LoadingStatus>}</section>}
         </>}
       </main>
       {message&&<div className={styles.toast} role="status">{message}<button className={styles.iconButton} aria-label="关闭通知" onClick={()=>setMessage("")}><StudyIcon name="close"/></button></div>}

@@ -1,6 +1,7 @@
 "use client";
 import {PlanModelControls} from "./AdminModelsPanel";
 
+import { AdminProductAnalytics } from "./AdminProductAnalytics";
 import AdminUsageReport from "./AdminUsageReport";
 import reportStyles from "./AdminUsageReport.module.css";
 import type { ZhipuUsageSummary } from "@/lib/zhipuUsage";
@@ -285,6 +286,7 @@ export default function AdminAccountsPanel() {
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <h2 className="text-[24px] font-semibold leading-tight">用户与额度</h2>
+          <a href="/admin/experience" target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center text-sm text-[#245f86] underline">预览不同身份与额度界面 ↗</a>
           <p className="mt-1 max-w-2xl text-sm leading-6 text-[#4d535a]">查看全站用量与模型成本，管理用户、套餐及邀请码。</p>
         </div>
         <button className="min-h-10 self-start rounded-full border border-[#0066cc] px-4 text-sm font-medium text-[#0066cc] hover:bg-[#f2f7fc]" type="button" onClick={() => void load()}>
@@ -310,6 +312,7 @@ export default function AdminAccountsPanel() {
         <>
           <div hidden={section !== "usage"}><AdminUsageReport profiles={data.profiles} onSelectUser={userId => { setSearch(userId); setSection("users"); document.getElementById("account-content")?.scrollIntoView({block:"start"}); }} /></div>
           <div hidden={section !== "users"}>
+          {section === "users" && <AdminProductAnalytics />}
           <section id="account-activity" className="mt-6 scroll-mt-24 overflow-hidden rounded-2xl bg-white">
             <div className="border-b border-[#e1e5e9] px-5 py-4">
               <h3 className="text-lg font-semibold">活跃用户</h3>
@@ -375,6 +378,7 @@ export default function AdminAccountsPanel() {
 
           </div>
           <div hidden={section !== "users"}>
+          {section === "users" && <AdminProductAnalytics />}
           <section id="account-users" className="mt-6 scroll-mt-24 overflow-hidden rounded-2xl bg-white">
             <div className="flex flex-col gap-4 border-b border-[#e1e5e9] px-5 py-5 sm:flex-row sm:items-end sm:justify-between">
               <div><h3 className="text-[21px] font-semibold">用户账号</h3><p className="mt-1 text-sm leading-6 text-[#4d535a]">日常通常只需要分配套餐、封禁异常账号或帮助用户重置密码。</p></div>

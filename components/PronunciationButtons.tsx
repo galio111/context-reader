@@ -284,7 +284,7 @@ export const PronunciationButtons = memo(function PronunciationButtons({
         aria-busy={loadingAccent === "en-US"}
         title="美式发音"
       >
-        <span aria-hidden="true">{loadingAccent === "en-US" ? "…" : playingAccent === "en-US" ? "■" : "▶"}</span>
+        <span aria-hidden="true">{loadingAccent === "en-US" ? <span className="cr-loading-spinner"/> : playingAccent === "en-US" ? "■" : "▶"}</span>
         <span>{loadingAccent === "en-US" ? "准备中" : "美音"}</span>
       </button>}
       {accents.includes("en-GB") &&
@@ -297,7 +297,7 @@ export const PronunciationButtons = memo(function PronunciationButtons({
         aria-busy={loadingAccent === "en-GB"}
         title="英式发音"
       >
-        <span aria-hidden="true">{loadingAccent === "en-GB" ? "…" : playingAccent === "en-GB" ? "■" : "▶"}</span>
+        <span aria-hidden="true">{loadingAccent === "en-GB" ? <span className="cr-loading-spinner"/> : playingAccent === "en-GB" ? "■" : "▶"}</span>
         <span>{loadingAccent === "en-GB" ? "准备中" : "英音"}</span>
       </button>}
       {playbackError && (

@@ -44,7 +44,7 @@ test("warmup, viewport promotion, failures and cancellation obey shared network/
   const element = (top:number) => ({getBoundingClientRect:()=>({top,bottom:top+100})}) as HTMLElement;
   try {
     cleanups.push(warmCovers(Array.from({length:100},(_,i)=>source(i))));
-    await turn(); assert.equal(images.length,0,"showcase images finish before library warmup competes");
+    await turn(); assert.equal(images.length,2,"an offscreen incomplete showcase cannot indefinitely block background downloads");
     criticalPending = false; listeners.get("load")?.(); await turn();
     assert.equal(active,2,"background leaves two foreground network slots free");
     cleanups.push(prepareCover(element(200),{...source(0),done:()=>done.push("shared")}));

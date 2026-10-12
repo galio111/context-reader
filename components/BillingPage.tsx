@@ -1,5 +1,8 @@
 "use client";
 import Link from "next/link";
+import { navigateExperiencePreview } from "@/lib/experiencePreview";
+import { cachedPublicBilling, rememberPublicBilling } from "@/lib/billingClient";
+import { LoadingStatus } from "./LoadingStatus";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useAccount } from "@/components/AccountProvider";
@@ -23,9 +26,9 @@ async function billingAction(body: object) {
 }
 export function BillingPage({ onBack }: { onBack?: () => void }) {
  const { account, openLogin, refreshAccount, isOffline } = useAccount();
- const [plans,setPlans] = useState<BillingPlan[]>([]);
+ const [plans,setPlans] = useState<BillingPlan[]>(()=>cachedPublicBilling()?.plans??[]);
  const [term,setTerm] = useState<"month"|"year">("month");
- const [ready,setReady] = useState(false);
+ const [ready,setReady] = useState(()=>cachedPublicBilling()?.paymentReady??false);
  const [member,setMember] = useState<Member|null>(null);
  const [orders,setOrders] = useState<Order[]>([]);
  const checkoutRef = useRef<HTMLElement>(null);
@@ -38,7 +41,7 @@ export function BillingPage({ onBack }: { onBack?: () => void }) {
   try {
    const r = await fetch("/api/billing" + (account.authenticated && !account.localOnly ? "?account=1" : ""),{cache:"no-store"});
    const d = await r.json(); if (!r.ok) throw new Error(d.error);
-   setPlans(d.plans);setReady(d.paymentReady);setMember(d.membership || null);setOrders(d.orders || []);
+   rememberPublicBilling(d);setError("");setPlans(d.plans);setReady(d.paymentReady);setMember(d.membership || null);setOrders(d.orders || []);
   } catch { setError("套餐信息暂时无法加载，请重试。"); }
  },[account.authenticated,account.localOnly]);
  useEffect(()=>{ void load(); },[load]);
@@ -69,12 +72,12 @@ export function BillingPage({ onBack }: { onBack?: () => void }) {
   }catch(e){setError(e instanceof Error?e.message:"订单未完成。");}finally{setBusy(false);}
  }
  return <div className={s.page}>
-  <header className={s.nav}><Link href="/">Context Reader</Link><button type="button" onClick={onBack || (()=>window.location.assign("/?menu=account"))}>← 返回账号与用量</button></header>
+  <header className={s.nav}><Link href="/">Context Reader</Link><button type="button" onClick={onBack || (()=>{if(!navigateExperiencePreview("/?menu=account"))window.location.assign("/?menu=account");})}>← 返回账号与用量</button></header>
   <div className={s.content}>
    <header className={s.heading}><p>为每天多读一点</p><h1>找到适合你的阅读节奏。</h1><p>外刊与真题，一份额度。月付或年付，均不自动续费。</p></header>
    <div className={s.switcher} aria-label="付款周期">{(["month","year"] as const).map(v=><button key={v} type="button" aria-pressed={term===v} onClick={()=>{setTerm(v);setQuote(null);setOrder(null);setQr("");}}>{v==="month"?"月付":"年付 · 更划算"}</button>)}</div>
    {error&&<p className={s.notice} role="alert">{error} <button type="button" onClick={()=>{setError("");void load();}}>刷新</button></p>}
-   {!plans.length&&!error&&<p role="status">正在读取套餐…</p>}
+   {!plans.length&&!error&&<LoadingStatus>正在读取套餐…</LoadingStatus>}
    <div className={s.grid}>{plans.map(p=><article key={p.id} className={s.card} data-featured={p.id==="plus" || undefined}>
     <div className={s.cardTop}><h2>{p.name}</h2>{account.plan?.id===p.id&&<span>当前套餐</span>}</div>
     <p className={s.tagline}>{copy[p.id]?.[0]}</p>

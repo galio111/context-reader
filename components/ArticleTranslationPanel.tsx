@@ -1,4 +1,5 @@
 "use client";
+import { LoadingStatus } from "./LoadingStatus";
 import { openAccountUsage, isQuotaMessage } from "@/lib/accountUsageNavigation";
 
 import type { Ref } from "react";
@@ -74,7 +75,7 @@ export function ArticleTranslationPanel({
       {loading && !hasTranslations && (
         <div className="py-6">
           <div className="cr-translation-skeleton space-y-3"><div className="h-4 w-5/6 rounded-full bg-[#ececf0]" /><div className="h-4 w-full rounded-full bg-[#ececf0]" /><div className="h-4 w-2/3 rounded-full bg-[#ececf0]" /></div>
-          <p className="mt-4 text-sm leading-6 tracking-[-0.224px] text-[#333333]">{retryText ?? "正在后台翻译，切回词句解释也会继续。"}</p>
+          <p className="mt-4 text-sm leading-6 tracking-[-0.224px] text-[#333333]"><LoadingStatus>{retryText ?? "正在后台翻译，切到其他工具也会继续。"}</LoadingStatus></p>
           <p className="mt-2 rounded-[14px] bg-[#f5f5f7] px-3 py-2 text-xs leading-5 tracking-[-0.12px] text-[#333333]">{estimateText}</p>
         </div>
       )}
@@ -88,7 +89,7 @@ export function ArticleTranslationPanel({
 
       {hasTranslations && (
         <div className="space-y-5 py-5">
-          {loading && <div className="cr-translation-status rounded-[14px] bg-[#f5f5f7] px-3 py-2 text-xs leading-5 tracking-[-0.12px] text-[#333333]"><p>{retryText ?? activeProgressText}</p></div>}
+          {loading && <div className="cr-translation-status rounded-[14px] bg-[#f5f5f7] px-3 py-2 text-xs leading-5 tracking-[-0.12px] text-[#333333]"><LoadingStatus>{retryText ?? activeProgressText}</LoadingStatus></div>}
           {!loading && !error && hasIncompleteTranslations && (
             <div className="cr-translation-status flex items-center justify-between gap-3 rounded-[14px] bg-[#f5f5f7] px-3 py-2 text-xs leading-5 tracking-[-0.12px] text-[#333333]">
               <p>已保留 {translations.length}/{blocks.length} 段，可从缺失处继续。</p>

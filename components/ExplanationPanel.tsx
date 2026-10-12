@@ -1,4 +1,5 @@
 "use client";
+import { LoadingStatus } from "./LoadingStatus";
 import { openAccountUsage, isQuotaMessage } from "@/lib/accountUsageNavigation";
 
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
@@ -187,7 +188,7 @@ export function ExplanationPanel({
         <p className="text-sm leading-6 tracking-[-0.224px] text-[#7a7a7a]">点击文章中的任意英文单词查看语境解释。</p>
       )}
 
-      {loading && !streamText && <p className="text-sm leading-6 tracking-[-0.224px] text-[#333333]">正在分析语境...</p>}
+      {loading && !streamText && <LoadingStatus className="text-sm leading-6 tracking-[-0.224px] text-[#333333]">正在分析语境...</LoadingStatus>}
 
       {displayStream && (
         <div className="space-y-4 pb-5">
@@ -288,7 +289,7 @@ export function ExplanationPanel({
                     className="min-h-11 w-full rounded-full bg-[#0066cc] px-4 text-sm tracking-[-0.224px] text-white transition active:scale-95 disabled:bg-[#d2d2d7]"
                     disabled={askingSentenceQuestion || !sentenceQuestion.trim()}
                   >
-                    {askingSentenceQuestion ? "正在回答..." : "提问"}
+                    {askingSentenceQuestion ? <LoadingStatus>正在回答…</LoadingStatus> : "提问"}
                   </button>
                 </form>
 
@@ -438,7 +439,7 @@ export function ExplanationPanel({
                 className="min-h-11 w-full rounded-full bg-[#0066cc] px-4 text-sm tracking-[-0.224px] text-white transition active:scale-95 disabled:bg-[#d2d2d7]"
                 disabled={askingSentenceQuestion || !sentenceQuestion.trim()}
               >
-                {askingSentenceQuestion ? "正在回答..." : "提问"}
+                {askingSentenceQuestion ? <LoadingStatus>正在回答…</LoadingStatus> : "提问"}
               </button>
             </form>
 

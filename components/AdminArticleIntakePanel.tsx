@@ -1,4 +1,5 @@
 "use client";
+import { LoadingStatus } from "./LoadingStatus";
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import ClearableField from "@/components/ClearableField";
@@ -737,7 +738,7 @@ export default function AdminArticleIntakePanel({ onPublished, onOpenArticle, on
           <div className="flex flex-wrap gap-2"><button className={secondaryButtonClass} type="button" onClick={() => void loadCandidates()} disabled={busy || loadingCandidates}>刷新候选</button><button className={primaryButtonClass} type="button" onClick={handleBatchPublish} disabled={busy || selectedIds.length === 0}>发布选中 ({selectedIds.length})</button></div>
         </div>
 
-        {loadingCandidates ? <p className="mt-5 text-sm text-[#59636c]">正在读取候选文章...</p> : candidates.length === 0 ? <p className="mt-5 rounded-xl bg-[#f3f5f7] px-4 py-5 text-sm leading-6 text-[#59636c]">还没有候选文章。请从本地文章、粘贴正文或 URL 建立第一篇候选。</p> : (
+        {loadingCandidates ? <LoadingStatus className="mt-5 text-sm text-[#59636c]">正在读取候选文章...</LoadingStatus> : candidates.length === 0 ? <p className="mt-5 rounded-xl bg-[#f3f5f7] px-4 py-5 text-sm leading-6 text-[#59636c]">还没有候选文章。请从本地文章、粘贴正文或 URL 建立第一篇候选。</p> : (
           <ul ref={candidateListRef} className="mt-5 max-h-[min(70vh,760px)] divide-y divide-[#e1e5e9] overflow-y-auto overscroll-contain scroll-smooth border-y border-[#e1e5e9] pr-2" aria-label="候选文章列表" tabIndex={0}>
             {candidates.map((article) => {
               const recommendation = article.recommendation;

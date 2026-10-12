@@ -6,3 +6,8 @@
 .copy i:nth-child(2) { width: 86%; height: 17px; }
 .copy i:last-child { width: 54%; }
 @media (max-width: 760px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+
+.status { grid-column: 1 / -1; padding: 16px 0 0; color: #506b77; font-size: 14px; }
+.cover, .copy i { animation: cet-skeleton-breathe 1.5s ease-in-out infinite alternate; }
+@keyframes cet-skeleton-breathe { from { opacity: .45; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .cover, .copy i { animation: none; } }

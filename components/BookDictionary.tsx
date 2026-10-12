@@ -1,4 +1,5 @@
 "use client";
+import { LoadingStatus } from "./LoadingStatus";
 import { openAccountUsage, isQuotaMessage } from "@/lib/accountUsageNavigation";
 
 import { useCallback, useEffect, useId, useMemo, useRef, useState, type FormEvent } from "react";
@@ -507,7 +508,7 @@ export function BookDictionary({
       if (cached.inputStatus === "misspelled") {
         void deleteHistory(normalized);
       } else {
-        if (!options.history) rememberLookup(normalized, intent);
+        rememberLookup(normalized, intent);
       }
       return;
     }
@@ -539,6 +540,7 @@ export function BookDictionary({
         setResult(snapshot.result);
         writeSession({ query: normalized, result: snapshot.result, cache: {} });
         recordStandaloneDictionaryCache(snapshot.result);
+        rememberLookup(normalized, intent);
         await flushLearningStorage();
       } catch {
         if (!controller.signal.aborted && intent.owner === dictionaryHistoryOwner()) setError("历史结果暂时无法读取，请稍后重试。");
@@ -697,7 +699,7 @@ export function BookDictionary({
                 maxLength={80}
               />
             </ClearableField>
-            <button type="submit" disabled={!query.trim() || loading}>{loading ? "正在查询…" : "深度查询"}</button>
+            <button type="submit" disabled={!query.trim() || loading}>{loading ? <LoadingStatus>正在查询…</LoadingStatus> : "深度查询"}</button>
           </div>
         </form>
 
@@ -802,7 +804,7 @@ export function BookDictionary({
       <div className={styles.resultPage} data-pointer-quiet>
         {(loading || result) && (
           <div className={styles.resultToolbar}>
-            <span>{loading ? "正在生成完整词条" : result?.inputStatus === "misspelled" ? "请确认正确拼写" : "词条已生成"}</span>
+            <span>{loading ? <LoadingStatus>正在生成完整词条</LoadingStatus> : result?.inputStatus === "misspelled" ? "请确认正确拼写" : "词条已生成"}</span>
             <div className={styles.resultActions}>
             {result?.inputStatus !== "misspelled" && (
               <button
@@ -833,7 +835,7 @@ export function BookDictionary({
         ) : loading && progressive.eventCount > 0 ? (
           <DictionaryResultContent result={progressive.result} streaming onUseSuggestion={(suggestion) => void lookup(suggestion)} />
         ) : loading ? (
-          <div className={styles.streamStarting}><i /><span>正在连接词典…</span></div>
+          <div className={styles.streamStarting}><LoadingStatus>正在连接词典…</LoadingStatus></div>
         ) : (
           <div className={styles.empty}>
             <span aria-hidden="true">Aa</span>

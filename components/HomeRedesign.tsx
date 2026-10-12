@@ -1,4 +1,5 @@
 "use client";
+import { LoadingStatus } from "./LoadingStatus";
 import { OPEN_ACCOUNT_USAGE_EVENT } from "@/lib/accountUsageNavigation";
 
 import dynamicCet from "next/dynamic";
@@ -26,7 +27,7 @@ import ClearableField from "@/components/ClearableField";
 import dynamic from "next/dynamic";
 import { HomeOptionMenu, type GuideSection, type PreviewKind } from "@/components/HomeOptionMenu";
 const BookDictionary = dynamic(() => import("@/components/BookDictionary").then(module => module.BookDictionary), {
-  loading: () => <p role="status">正在打开词典…</p>,
+  loading: () => <LoadingStatus >正在打开词典…</LoadingStatus>,
 });
 import { PillNavAction } from "@/components/PillNavAction";
 import { StudyEntry } from "@/components/StudyEntry";
@@ -1119,7 +1120,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
           )}
         </div>
         <button type="button" className={styles.importSubmit} onClick={submitImport} disabled={props.importingUrl}>
-          {inputMode === "url" && props.importingUrl ? "正在准备文章…" : "开始阅读"}
+          {inputMode === "url" && props.importingUrl ? <LoadingStatus>正在准备文章…</LoadingStatus> : "开始阅读"}
         </button>
         <p className={styles.importError} role="alert">{inputMode === "url" ? props.urlError : props.error}</p>
         {inputMode === "url" && props.urlError && (
@@ -1280,9 +1281,8 @@ export function HomeRedesign(props: HomeRedesignProps) {
 
         {memberHome && (
           <section ref={importRef} className={styles.memberWorkbench} aria-label="阅读工作台">
-            <div className={styles.memberWorkbenchGrid}>
-              <div className={styles.memberLearningColumn}>
-                <StudyEntry reminder />
+            <div className={styles.memberWorkbenchGrid} data-empty={!hasReadingHistory||undefined}>
+              <div className={styles.memberLearningColumn} hidden={!hasReadingHistory}>
               {hasReadingHistory && (
                 <button
                   type="button"
@@ -1308,6 +1308,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
               )}
               </div>
               <div className={styles.memberImport}>
+                <StudyEntry reminder />
                 <header>
                   <p>YOUR ARTICLE</p>
                   <h1>导入文章</h1>

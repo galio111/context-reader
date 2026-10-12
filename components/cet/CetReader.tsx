@@ -1,4 +1,5 @@
 "use client";
+import { LoadingStatus } from "../LoadingStatus";
 import { cetSubmitPolicy, type CetSubmitCommand } from "@/lib/cetSubmitPolicy";
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type ComponentProps, type ReactNode } from "react";
@@ -530,7 +531,7 @@ export function CetReader({ entry, onOpen, onBack, ...base }: BaseProps & { entr
   };
 
   if (error) return <div className="cet-load"><p role="alert">{error}</p><button onClick={onBack}>返回首页</button></div>;
-  if (!paper) return <div className="cet-load" role="status">正在打开试卷…</div>;
+  if (!paper) return <LoadingStatus className="cet-load" >正在打开试卷…</LoadingStatus>;
 
   const scopeIds = activity?.sectionIds || (entry.sectionId ? [entry.sectionId] : paper.sections.map((s) => s.id));
   const model = cetViewModel(paper, activity, entry.sectionId, selectedFinalId);

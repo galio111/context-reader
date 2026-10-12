@@ -10,6 +10,7 @@ export function useReadingEvidence(owner:string,article:string,word:string){
     if(!owner||!article)return;
     const clock=new LearningActivity(45000),id=crypto.randomUUID();
     let studyOpen=false,seconds=0,sending=false;
+    let pending:{id:string;seconds:number;words:string[];article:string;evidenceVersion:3}|null=null;
     const foreground=()=>document.visibilityState==="visible"&&document.hasFocus()&&!studyOpen&&!document.querySelector('dialog[open], [data-study-menu]');
     const activity=(event:Event)=>{
       if(!event.isTrusted)return;
@@ -23,9 +24,10 @@ export function useReadingEvidence(owner:string,article:string,word:string){
     };
     const send=()=>{
       const batch=[...words.current].slice(0,30),amount=Math.min(30,Math.floor(seconds));
-      if(sending||(!amount&&!batch.length))return;
-      sending=true;seconds-=amount;
-      void fetch("/api/study/reading",{method:"POST",keepalive:true,headers:{"Content-Type":"application/json","X-Context-Account":owner},body:JSON.stringify({seconds:amount,words:batch,article:article.slice(0,160),evidenceVersion:2})}).then(r=>{if(r.ok){for(const w of batch)words.current.delete(w);}else seconds+=amount;}).catch(()=>{seconds+=amount;}).finally(()=>{sending=false;});
+      if(sending||(!pending&&!amount&&!batch.length))return;
+      if(!pending){pending={id:crypto.randomUUID(),seconds:amount,words:batch,article:article.slice(0,160),evidenceVersion:3};seconds-=amount;}
+      sending=true;const payload=pending;
+      void fetch("/api/study/reading",{method:"POST",keepalive:true,headers:{"Content-Type":"application/json","X-Context-Account":owner},body:JSON.stringify(payload)}).then(r=>{if(r.ok){for(const w of payload.words)words.current.delete(w);pending=null;}}).catch(()=>{}).finally(()=>{sending=false;});
     };
     const pause=()=>{clock.pause();active.current=false;send();};
     const study=(e:Event)=>{studyOpen=Boolean((e as CustomEvent).detail);pause();};

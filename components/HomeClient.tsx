@@ -1,16 +1,18 @@
 "use client";
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
-const CetReader = dynamic(() => import("@/components/cet/CetReader").then(m => m.CetReader), { loading: () => <div role="status" className="p-10">正在打开真题…</div> });
+const CetReader = dynamic(() => import("@/components/cet/CetReader").then(m => m.CetReader), { loading: () => <div className="p-10"><LoadingStatus>正在打开真题…</LoadingStatus></div> });
 import type { CetEntry } from "@/components/cet/CetLibrary";
 import { HomeRedesign } from "@/components/HomeRedesign";
 import dynamic from "next/dynamic";
 const ArticleInput = dynamic(() => import("@/components/ArticleInput").then(module => module.ArticleInput));
 const ReaderView = dynamic(() => import("@/components/ReaderView").then(module => module.ReaderView), {
-  loading: () => <div role="status" className="min-h-screen bg-white p-8 text-center text-slate-600">正在打开文章…</div>,
+  loading: () => <div className="min-h-screen bg-white p-8 text-center text-slate-600"><LoadingStatus>正在打开文章…</LoadingStatus></div>,
 });
 import { fetchJson } from "@/lib/apiClient";
 import { coverSource, type CoverSource } from "@/lib/coverSources";
+import { preparePublicBilling } from "@/lib/billingClient";
+import { LoadingStatus } from "./LoadingStatus";
 import { warmCovers } from "@/lib/coverMediaQueue";
 import { orderHomepageRecommendations } from "@/lib/homepageRecommendations";
 import { emptyRecommendationPreferences } from "@/lib/recommendationPreferencesShared";
@@ -232,6 +234,7 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
     let timer = 0;
     const run = () => {
       if (cancelled) return;
+      void preparePublicBilling().catch(()=>{});
       // Guest warmup reads only the already-public metadata/images. It neither
       // exposes member controls nor changes the current curated article order.
       void loadPublicCatalogue().then(articles => {
@@ -247,7 +250,7 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
       }).catch(() => {});
     };
     const start = () => {
-      if ([...document.querySelectorAll<HTMLImageElement>("img[data-cover-eager]")].some(image => !image.complete)) return;
+      // Visible images keep priority in the queue; an offscreen lazy image must not block warmup.
       document.removeEventListener("load", start, true);
       document.removeEventListener("error", start, true);
       if (typeof window.requestIdleCallback === "function") idle = window.requestIdleCallback(run, { timeout: 1200 });

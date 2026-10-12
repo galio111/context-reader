@@ -1,4 +1,5 @@
 "use client";
+import { LoadingStatus } from "./LoadingStatus";
 import { useEffect, useState } from "react";
 import type { DiscoverySite, DiscoveryDay } from "@/lib/discoveryStore";
 import type { RecommendationAutomationStatus } from "@/types/recommendationCrawler";
@@ -67,7 +68,7 @@ export default function AdminDiscoveryPanel({ onRefresh, onCandidates }: { onRef
       <button className={button} onClick={onCandidates}>查看候选</button>
     </div>
     {(message || error) && <p role={error ? "alert" : "status"} className={`mt-4 rounded-lg px-3 py-3 text-sm leading-6 ${error ? "bg-[var(--discovery-error-bg)] text-[var(--discovery-error)]" : "bg-[var(--discovery-soft)] text-[var(--discovery-ink)]"}`}>{error || message}</p>}
-    {!loaded && <p className="mt-4 text-sm text-[var(--discovery-muted)]">正在读取网站与今日记录…</p>}
+    {!loaded && <LoadingStatus className="mt-4 text-sm text-[var(--discovery-muted)]">正在读取网站与今日记录…</LoadingStatus>}
     {loaded && <>
       <AdminEditorialSettings />
       <p className="my-4 text-sm text-[var(--discovery-ink)]">日常启用 {enabled.length} 站，其中低难度专门来源 {enabled.filter((s) => s.levelHint === "lower").length} 站暂不参与自动精选审核。各板块至少 14 篇，板块、来源与总数均不设上限；数量达标后继续审核有质量的长文。备选或停用 {sites.length - enabled.length} 站。</p>

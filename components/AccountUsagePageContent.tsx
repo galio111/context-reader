@@ -1,4 +1,6 @@
 "use client";
+import { LoadingStatus } from "./LoadingStatus";
+import { AccountLearningSummary } from "./AccountLearningSummary";
 
 import { getLearningStorage, isLearningStorage, LEARNING_STORAGE_EVENT, type LearningStorageStatus } from "@/lib/learningStorage";
 import Link from "next/link";
@@ -168,7 +170,7 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
           <p className="mt-4 text-sm text-[#657582]">把时间留给阅读。</p>
         </section>
 
-        {loading ? <p className="cr-account-state mt-12 text-[#657582]">正在读取账号…</p> : isOffline ? (
+        {loading ? <LoadingStatus className="cr-account-state mt-12 text-[#657582]">正在读取账号…</LoadingStatus> : isOffline ? (
           <section className="cr-account-state mt-12 rounded-[16px] bg-[#fff7df] p-7 text-[#533d17] shadow-[0_4px_8px_rgb(69_48_12_/_12%)] sm:p-9">
             <h2 className="text-2xl font-semibold">当前为离线访问</h2>
             <p className="mt-3 leading-7">
@@ -185,6 +187,7 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
           </section>
         ) : (
           <>
+            <AccountLearningSummary />
             <section className="cr-account-state mt-12 rounded-[16px] bg-[#fbfcfe] p-7 shadow-[0_4px_8px_rgb(43_61_77_/_10%)] sm:p-9">
               <div className="flex flex-wrap items-start justify-between gap-5">
                 <div><p className="text-sm text-[#5f6d79]">当前账号</p><h2 className="mt-1 text-2xl font-semibold">{account.profile?.nickname || accountIdentifier}</h2><p className="mt-2 text-sm text-[#5f6d79]">{accountIdentifier}</p>{!account.localOnly && <button className="mt-3 text-xs font-medium text-[#567080] underline decoration-[#9aadb7] underline-offset-4" type="button" onClick={() => { setAccountDetailsEditing((value) => !value); setAccountDetailsMessage(""); }}>{accountDetailsEditing ? "收起账号资料" : "修改账号资料"}</button>}</div>

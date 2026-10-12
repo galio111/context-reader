@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+.cr-loading-status { display: inline-flex; align-items: center; gap: .65em; color: inherit; line-height: 1.5; }
+.cr-loading-spinner { display: inline-block; flex: 0 0 auto; width: 1em; height: 1em; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: cr-loading-spin .85s linear infinite; }
+@keyframes cr-loading-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .cr-loading-spinner { animation: none; } }
+
 :root {
   color-scheme: light;
   --cr-site-background:

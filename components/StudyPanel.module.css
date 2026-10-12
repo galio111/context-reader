@@ -238,8 +238,8 @@
 .dialog .cue{background:transparent;color:var(--study-muted);font-size:13px;padding:6px 12px;min-height:44px}
 .dialog .studyMenu{position:fixed;right:28px;top:23px;z-index:6;min-width:94px;background:var(--study-glass);backdrop-filter:blur(18px);border-radius:24px;justify-content:space-between}
 .dialog .studyMenu span{font-size:18px;font-weight:300}
-.entryReminder{margin:0;min-height:72px;border:0;border-radius:16px;background:#e5e8ed;color:#303742;padding:18px 24px;text-align:left;transition:background 160ms}
-.entryReminder:hover{background:#dce1e8}.entryReminder span:first-child{font-weight:550}.entryReminder span:last-child{color:#535d6a;font-size:12px}
+.entryReminder{margin:0;min-height:64px;border:1px solid #c6dbe4;border-radius:16px;background:#fff;color:#263e4b;padding:18px 24px;text-align:left;transition:background 160ms}
+.entryReminder:hover{background:#e8f2f7}.entryReminder span:first-child{font-weight:550}.entryReminder span:last-child{color:#535d6a;font-size:12px}
 :global([data-context-theme=night]) .entryReminder{background:#303944;color:#edf1f5}:global([data-context-theme=night]) .entryReminder span:last-child{color:#bdc8d4}
 .wideDialog{max-width:800px;padding:24px 36px 32px;border:0;overflow-wrap:anywhere}.wideDialog .wordDetail{margin-top:0}.wideDialog .wordHeading h2{font-size:32px}.wideDialog .definitions{grid-template-columns:1fr 1fr}.wideDialog .dialogTop{margin-bottom:8px}.wideDialog .definitions dd{white-space:pre-wrap;overflow-wrap:anywhere}.srOnly{position:absolute!important;width:1px;height:1px;padding:0!important;margin:-1px!important;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
 .saveStatus{font-size:12px;color:var(--study-muted);display:flex;justify-content:flex-end;align-items:center;gap:8px;min-height:32px}

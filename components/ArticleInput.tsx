@@ -1,4 +1,5 @@
 "use client";
+import { LoadingStatus } from "./LoadingStatus";
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
@@ -338,7 +339,7 @@ export function ArticleInput({
                   <ClearableField className="min-w-0 flex-1" value={articleUrl} onClear={() => onArticleUrlChange("")} label="清空文章网址">
                     <input id="article-url" className="h-12 w-full min-w-0 rounded-full border border-[#cfd7d2] bg-[#f8faf8] px-5 text-base text-[#18211d] outline-none placeholder:text-[#69766f] focus:border-[#1769aa] focus:ring-2 focus:ring-[#1769aa]/15" value={articleUrl} onChange={(event) => onArticleUrlChange(event.target.value)} placeholder="https://example.com/article" type="url" onKeyDown={(event) => { if (event.key === "Enter") onImportUrl(); }} />
                   </ClearableField>
-                  <button className="h-12 rounded-full bg-[#1769aa] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#125b94] disabled:bg-[#9ba7a1]" type="button" onClick={onImportUrl} disabled={importingUrl}>{importingUrl ? "正在提取正文…" : "导入并阅读"}</button>
+                  <button className="h-12 rounded-full bg-[#1769aa] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#125b94] disabled:bg-[#9ba7a1]" type="button" onClick={onImportUrl} disabled={importingUrl}>{importingUrl ? <LoadingStatus>正在提取正文…</LoadingStatus> : "导入并阅读"}</button>
                 </div>
                 <p className="mt-3 min-h-5 text-center text-sm text-red-700" role="alert">{urlError}</p>
               </div>
@@ -371,7 +372,7 @@ export function ArticleInput({
                 {initialPublicArticles.slice(0, 4).map((publicArticle) => (
                   <li key={publicArticle.id}>
                     <button className="group flex w-full items-start justify-between gap-5 py-5 text-left disabled:cursor-wait disabled:opacity-60" type="button" onClick={() => onOpenPublicArticle(publicArticle.id)} disabled={Boolean(openingPublicArticleId)}>
-                      <span className="min-w-0"><span className="block text-[15px] font-semibold leading-6 text-[#18211d] group-hover:text-[#1769aa]">{publicArticle.title}</span><span className="mt-1 line-clamp-2 block text-sm leading-6 text-[#637169]">{openingPublicArticleId === publicArticle.id ? "正在打开..." : publicArticle.summary || "适合语境查词的英文阅读文章"}</span></span>
+                      <span className="min-w-0"><span className="block text-[15px] font-semibold leading-6 text-[#18211d] group-hover:text-[#1769aa]">{publicArticle.title}</span><span className="mt-1 line-clamp-2 block text-sm leading-6 text-[#637169]">{openingPublicArticleId === publicArticle.id ? <LoadingStatus>正在打开…</LoadingStatus> : publicArticle.summary || "适合语境查词的英文阅读文章"}</span></span>
                       <span className="mt-1 shrink-0 text-[#66736c] transition-transform group-hover:translate-x-1"><ArrowIcon /></span>
                     </button>
                   </li>

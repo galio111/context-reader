@@ -1,7 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { PwaRegistration } from "@/components/PwaRegistration";
-import { AccountProvider } from "@/components/AccountProvider";
-import { StudyHost } from "@/components/StudyHost";
+import { AppProviders } from "@/components/AppProviders";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -31,8 +29,7 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <AccountProvider>{children}<StudyHost /></AccountProvider>
-        <PwaRegistration />
+        <AppProviders>{children}</AppProviders>
       </body>
     </html>
   );

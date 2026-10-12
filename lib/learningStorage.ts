@@ -1,6 +1,7 @@
 "use client";
 
 import LZString from "lz-string";
+import { experiencePreviewStorage } from "./experiencePreview";
 
 export const LEARNING_STORAGE_EVENT = "context-reader:learning-storage";
 const DATABASE = "context-reader-learning-v1";
@@ -329,6 +330,8 @@ export class LearningStorage implements Storage {
 const instances = new WeakMap<Storage, LearningStorage>();
 export function getLearningStorage(): Storage {
   if (typeof window === "undefined") throw new Error("本机数据库只在浏览器中可用。");
+  const preview=experiencePreviewStorage();
+  if(preview)return preview;
   const legacy = window.localStorage;
   let storage = instances.get(legacy);
   if (!storage) {
@@ -342,7 +345,7 @@ export function getLearningStorage(): Storage {
   return storage;
 }
 export function isLearningStorage(storage: Storage): storage is LearningStorage { return storage instanceof LearningStorage; }
-export async function initializeLearningStorage(): Promise<void> { const storage = getLearningStorage(); if (isLearningStorage(storage)) await storage.initialize(); }
+export async function initializeLearningStorage(): Promise<void> { const storage = getLearningStorage(); if (isLearningStorage(storage)) await storage.initialize(); else if(experiencePreviewStorage()) window.dispatchEvent(new CustomEvent(LEARNING_STORAGE_EVENT,{detail:{ready:true,pending:false,error:""}})); }
 export async function flushLearningStorage(): Promise<void> { const storage = getLearningStorage(); if (isLearningStorage(storage)) await storage.flush(); }
 
 export async function downloadLearningBackup(): Promise<void> {

@@ -23,6 +23,7 @@ test("a completed new lookup replays after remount with no model/quota request; 
   const source=readFileSync(new URL("../components/BookDictionary.tsx",import.meta.url),"utf8");
   const output=ts.transpileModule(source,{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.CommonJS,jsx:ts.JsxEmit.React}}).outputText;
   const modules:Record<string,unknown>={"react":React,
+    "./LoadingStatus":{LoadingStatus:({children}:{children:React.ReactNode})=><span role="status">{children}</span>},
     "@/lib/accountUsageNavigation":{openAccountUsage(){},isQuotaMessage(){return false;}},
     "@/components/PronunciationButtons":{PronunciationButtons:()=>null},
     "@/components/AccountProvider":{useAccount:()=>({loading:false,account:{profile:null},localAccount:null})},
@@ -69,6 +70,12 @@ test("a completed new lookup replays after remount with no model/quota request; 
     await user.click(ui.getByRole("button",{name:"retention"}));
     await waitFor(()=>assert.ok(ui.getByText("完整例句")));
     assert.equal(calls.length,1,"historical replay must not hit the generation API");
+    await user.clear(ui.getByRole("combobox"));await user.type(ui.getByRole("combobox"),"militia");
+    await user.click(ui.getByRole("button",{name:"深度查询"}));
+    await waitFor(()=>assert.equal(history.readStandaloneDictionaryHistory()[0]?.query,"militia"));
+    await user.click(ui.getByRole("button",{name:"retention"}));
+    await waitFor(()=>assert.equal(history.readStandaloneDictionaryHistory()[0]?.query,"retention"));
+    assert.equal(calls.length,2,"cached history replay updates recency without another provider call");
     complete=false;await user.clear(ui.getByRole("combobox"));await user.type(ui.getByRole("combobox"),"partial");
     await user.click(ui.getByRole("button",{name:"深度查询"}));
     await waitFor(()=>assert.ok(ui.getByText("词典结果没有完整生成，请重新查询。")));
@@ -77,7 +84,7 @@ test("a completed new lookup replays after remount with no model/quota request; 
     await waitFor(()=>assert.ok(ui.getByRole("button",{name:"oldmissing"})));
     await user.click(ui.getByRole("button",{name:"oldmissing"}));
     await waitFor(()=>assert.ok(ui.getByText(/这条旧历史未保存完整结果/)));
-    assert.equal(calls.length,2,"missing guest history also must not trigger generation");
+    assert.equal(calls.length,3,"missing guest history also must not trigger generation");
   }finally{
     cleanup();globalThis.fetch=originalFetch;await learning.flushLearningStorage();
     const storage=learning.getLearningStorage();if(learning.isLearningStorage(storage))storage.close();dom.window.close();

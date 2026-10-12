@@ -4,7 +4,7 @@ import type { CetPaper } from "../types/cet";
 let seed: { papers: CetPaper[]; version: string; at: number } | undefined;
 let pendingSeed: Promise<void> | undefined;
 export function prepareCetPreview(): Promise<void> {
-  if (seed && Date.now() - seed.at < 60_000) return Promise.resolve();
+  if (seed && Date.now() - seed.at < 300_000) return Promise.resolve();
   return pendingSeed ??= fetch("/api/cet/preview", { signal: AbortSignal.timeout(12_000) }).then(async response => {
     if (!response.ok) throw Error("preview");
     const value = await response.json();
@@ -19,12 +19,12 @@ const cache = new Map<string, Entry>();
 export function subscribeCetCatalogue(scope: {level: 4 | 6; year: string; owner: string}, subscriber: Subscriber) {
   let live = true;
   let attached: Entry | undefined;
-  void prepareCetPreview().catch(() => {}).then(() => {
+  const attach = () => {
     if (!live) return;
     const guest = scope.owner === "guest";
     const key = `${seed?.version || "unknown"}:${scope.owner}:${scope.level}:${guest ? "recent" : scope.year}`;
     let entry = cache.get(key);
-    if (!entry || (Date.now() - entry.at > 60_000 && !entry.listeners.size && !entry.controller)) {
+    if (!entry || (Date.now() - entry.at > 300_000 && !entry.listeners.size && !entry.controller)) {
       for (const [oldKey, old] of cache) if (cache.size >= 8 && !old.listeners.size && !old.controller) cache.delete(oldKey);
       entry = {complete:false,at:Date.now(),listeners:new Set()};
       if (seed && (guest || scope.year === "recent")) {
@@ -53,7 +53,9 @@ export function subscribeCetCatalogue(scope: {level: 4 | 6; year: string; owner:
     }).then(()=>{if(!controller.signal.aborted)current.complete=true;})
       .catch(()=>{if(!controller.signal.aborted)for(const listener of current.listeners)listener.error();})
       .finally(()=>{if(current.controller!==controller)return;current.controller=undefined;for(const listener of current.listeners)listener.done();});
-  });
+  };
+  if(seed) { attach(); void prepareCetPreview().catch(()=>{}); }
+  else void prepareCetPreview().catch(()=>{}).then(attach);
   return () => {
     live=false;
     attached?.listeners.delete(subscriber);
