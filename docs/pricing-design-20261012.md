@@ -1,6 +1,6 @@
 # 套餐页设计
 
-状态：已实现并完成本机浏览器自检，等待本轮生产接受记录。用户最终审美确认与真实手机验收仍待进行。
+状态：已生产接受 `20261012T201305`，父版 `20261012T161101`，源码 `491f29761540d42314e6cc435b28788b3c04c0b5`。公开身份和服务器接受状态一致（`mainland_internal`）。用户最终审美确认与真实手机验收仍待进行。
 
 ## 设计与来源
 
@@ -24,3 +24,13 @@
 - 实际微信收款仍未开放；不以二维码或 fixture 验证声称已完成真实支付。真实设备、其他浏览器及用户最终视觉接受仍开放。
 
 [原页](evidence/pricing-design/before.png) · [月付](evidence/pricing-design/desktop-month.png) · [年付](evidence/pricing-design/desktop-year.png) · [窄屏](evidence/pricing-design/mobile-year.png) · [本机检查](evidence/pricing-design/local-qa.json)
+
+## 生产接受
+
+- 公开桌面/390px及320px、月年切换、登录入口、实际账号的 Plus 月付与 Basic 年付报价、禁用收款、账号弹窗返回/Escape/焦点恢复、键盘与减少动态通过，零页面错误，未创建支付订单。
+- 未登录私有计费/同步/Admin 和普通账号 Admin 边界通过；protocol-2 实际写入后的1篇文章、3条词汇回放正确。
+- 真实登录语境释义含句译、独立词典、全文翻译三项成功，均记录 `deepseek-flash`，三项各一个成功扣费动作。独立 Zhipu 回退单次计费在本地回归通过，没有在生产制造提供商故障。
+- 仅 app/caddy 重建，其余5个服务容器 ID 一致，健康及4个 recovery Admin 读取通过；发布前后最新备份恢复38张 public 表，父版镜像可用，精选定时器 active。没有实际执行回滚。
+- 按精确 UUID、专用昵称、邮箱前缀和创建日期清理本轮临时账号及测试账目，保留提供商成本审计；临时会话文件已移除。
+
+[公网月付](evidence/pricing-design/public-desktop.png) · [公网年付](evidence/pricing-design/public-annual.png) · [公网手机布局](evidence/pricing-design/public-mobile.png) · [接受证据](evidence/pricing-design/acceptance.json)
