@@ -66,14 +66,12 @@ import { beginForegroundLookup, createExplanationStreamStore } from "@/lib/expla
 import { currentFormPhonetic } from "@/lib/pronunciation";
 import { notifyLookupCancellation } from "@/lib/lookupCancellationClient";
 import {
-  createSourceSentenceIndex,
   findBestSourceSentenceMatchInIndex,
   findSimilarVocabularyEntry,
   normalizeForSourceMatch,
 } from "@/lib/sourceMatching";
 import { tokenToWordContext } from "@/lib/tokenizer";
-import { groupReaderTokensByInline, tokenizeReaderBlockText, type ReaderInlineTokenGroup } from "@/lib/readerBlockTokens";
-import { scopeReaderTokenId } from "@/lib/readerTokenIdentity";
+import { createReaderDocumentModel, importedBlockText, inlinePlainText, type ReaderTokenCache, type RenderableArticleBlock, type RenderableTokenGroup, type ImageOcrState } from "@/lib/readerDocumentModel";
 import { getArticleImageSources, primeArticleImage } from "@/lib/articleImagePreload";
 import { isExternalArticleImageUrl } from "@/lib/articleImageUrls";
 import { cursorAnchoredImageZoom, interpolateImageZoom, type ImageZoomPoint, type ImageZoomTransform } from "@/lib/imageZoom";
@@ -91,7 +89,7 @@ import {
 } from "@/lib/vocabulary";
 import { createStandaloneVocabularyEntry } from "@/lib/standaloneDictionary";
 import type { AnkiSettings } from "@/types/anki";
-import type { ArticleReadingStyle, ImportedArticle, ImportedArticleBlock, ImportedArticleInlineText, ImportedArticleTableCell, SavedArticle } from "@/types/article";
+import type { ArticleReadingStyle, ImportedArticle, ImportedArticleBlock, ImportedArticleInlineText, SavedArticle } from "@/types/article";
 import type { PublicArticleTranslation, PublicExplanation } from "@/types/publicArticle";
 import type { ArticleTranslationBlock, ArticleTranslationItem, ReaderToken, ReaderViewportAnchor, ReaderViewportReport, WordContext, WordExplanation } from "@/types/reader";
 import type { VocabularyEntry, VocabularySourceArticle } from "@/types/vocabulary";
@@ -165,35 +163,6 @@ function getCombinedCachedArticleTranslation(
     .map((block) => byId.get(block.id))
     .filter((item): item is ArticleTranslationItem => Boolean(item?.translation.trim()));
 }
-
-interface RenderableArticleBlock {
-  id: string;
-  type: ImportedArticleBlock["type"];
-  tokens?: ReaderToken[];
-  captionTokens?: ReaderToken[];
-  tokenGroups?: RenderableTokenGroup[];
-  src?: string;
-  alt?: string;
-  width?: number;
-  height?: number;
-  ocrStatus?: ImageOcrStatus;
-  ocrError?: string;
-  layoutWords?: ImageLayoutWord[];
-  layoutError?: string;
-  listStyle?: ImportedArticleBlock["listStyle"];
-  listLevel?: number;
-  listOrdinal?: number;
-  table?: ImportedArticleBlock["table"];
-  tableRows?: RenderableTableCell[][];
-  plainText?: string;
-}
-
-interface RenderableTableCell {
-  cell: ImportedArticleTableCell;
-  tokens: ReaderToken[];
-}
-
-type RenderableTokenGroup = ReaderInlineTokenGroup;
 
 function useReaderBlockInteractivity(store: ReaderBlockInteractivityStore, blockId: string) {
   const [interactive, setInteractive] = useState(() => store.getSnapshot(blockId));
@@ -417,7 +386,6 @@ function createArticleHistoryAvailabilityStore(): ArticleHistoryAvailabilityStor
   };
 }
 
-type ImageOcrStatus = "idle" | "loading" | "ready" | "error";
 type RightPanelMode = "explanation" | "translation" | "dictionary" | "article";
 type ReaderWorkLayer = "import" | "articles" | null;
 
@@ -556,12 +524,6 @@ function captureReaderViewportAnchor(root: HTMLElement): ReaderViewportAnchor | 
 
 function isReaderViewportAtBottom(): boolean {
   return isReaderAtBottom(document.documentElement.scrollHeight, window.scrollY, window.innerHeight);
-}
-
-interface ImageOcrState {
-  status: ImageOcrStatus;
-  text: string;
-  error: string;
 }
 
 const AUTO_SUMMARY_MAX_ARTICLE_CHARS = 50_000;
@@ -821,13 +783,6 @@ function textBlockClassName(type: ImportedArticleBlock["type"]): string {
   return `${typographyStyles.body} whitespace-pre-wrap text-[#1d1d1f]`;
 }
 
-function importedBlockText(block: ImportedArticleBlock): string {
-  if (block.type !== "table") {
-    return block.text ?? "";
-  }
-  return block.text || block.table?.rows.map((row) => row.map((cell) => cell.text).join(" | ")).join("\n") || "";
-}
-
 function editableArticleBlockType(
   element: HTMLElement,
   originalBlock?: ImportedArticleBlock,
@@ -873,10 +828,6 @@ function editableInlineContent(block: ImportedArticleBlock) {
     }
     return <span key={`${block.id}-inline-${index}`}>{item.text}</span>;
   });
-}
-
-function inlinePlainText(inline: ImportedArticleInlineText[]): string {
-  return inline.map((item) => item.text).join("");
 }
 
 function ReaderRailIcon({ kind }: { kind: "import" | "dictionary" | "vocabulary" | "articles" }) {
@@ -1200,11 +1151,7 @@ export function ReaderView({
   } = useAccount();
   const [currentArticle, setCurrentArticle] = useState(article);
   const [currentImportedArticle, setCurrentImportedArticle] = useState<ImportedArticle | null>(importedArticle ?? null);
-  const articleTokenCacheRef = useRef(new Map<string, {
-    text: string;
-    paragraphIndex: number;
-    tokens: ReaderToken[];
-  }>());
+  const articleTokenCacheRef = useRef<ReaderTokenCache>(new Map());
   const [editingArticle, setEditingArticle] = useState(false);
   const [draftPlainArticle, setDraftPlainArticle] = useState("");
   const [draftBlocks, setDraftBlocks] = useState<ImportedArticleBlock[]>([]);
@@ -1247,10 +1194,6 @@ export function ReaderView({
     },
   );
   const articleMediaReady = readyArticleImageSourceKey === articleImageSourceKey;
-  const plainArticleParagraphs = useMemo(
-    () => currentImportedArticle?.blocks?.length ? [] : currentArticle.split(/\r?\n/),
-    [currentArticle, currentImportedArticle?.blocks?.length],
-  );
   const effectiveImportedArticle = useMemo<ImportedArticle | null>(() => {
     if (!currentImportedArticle?.blocks?.length) {
       return currentImportedArticle ?? null;
@@ -1270,132 +1213,11 @@ export function ReaderView({
       }),
     };
   }, [imageOcr, currentImportedArticle]);
-  const renderableBlocks = useMemo<RenderableArticleBlock[]>(() => {
-    const tokenCache = articleTokenCacheRef.current;
-    if (tokenCache.size > 400) tokenCache.clear();
-    const cachedBlockTokens = (
-      cacheId: string,
-      text: string,
-      paragraphIndex: number,
-      idPrefix = "",
-    ) => {
-      const cached = tokenCache.get(cacheId);
-      if (cached?.text === text && cached.paragraphIndex === paragraphIndex) return cached.tokens;
-      const tokens = tokenizeReaderBlockText(text, paragraphIndex, (tokenId) => scopeReaderTokenId(idPrefix, tokenId));
-      tokenCache.set(cacheId, { text, paragraphIndex, tokens });
-      return tokens;
-    };
-    if (!effectiveImportedArticle?.blocks?.length) {
-      return plainArticleParagraphs.map((text, paragraphIndex) => {
-        const id = `paragraph-${paragraphIndex}`;
-        const tokens = cachedBlockTokens(`plain:${id}`, text, paragraphIndex, `${id}-`);
-        return {
-          id,
-          type: "paragraph",
-          tokens,
-          plainText: text,
-        };
-      });
-    }
-
-    let textBlockIndex = 0;
-    return effectiveImportedArticle.blocks
-      .map((block): RenderableArticleBlock | null => {
-        if (block.type === "image") {
-          const captionText = block.alt?.trim() || "";
-          const captionTokens = captionText
-            ? cachedBlockTokens(`image-caption:${block.id}`, captionText, textBlockIndex, `${block.id}-caption-`)
-            : undefined;
-          if (captionTokens) textBlockIndex += 1;
-          const ocrState = imageOcr[block.id];
-          const ocrText = IMAGE_OCR_ENABLED ? ocrState?.text || block.ocrText?.trim() || "" : "";
-          const tokens = ocrText
-            ? tokenizeReaderBlockText(ocrText, textBlockIndex, (tokenId) => scopeReaderTokenId(`${block.id}-ocr-`, tokenId))
-            : undefined;
-          if (tokens) {
-            textBlockIndex += 1;
-          }
-          return {
-            id: block.id,
-            type: "image",
-            src: block.src,
-            alt: block.alt,
-            width: block.width,
-            height: block.height,
-            tokens,
-            captionTokens,
-            ocrStatus: ocrText ? "ready" : ocrState?.status ?? "idle",
-            ocrError: ocrState?.error,
-            layoutWords: block.layoutWords,
-            layoutError: block.layoutError,
-          };
-        }
-
-        if (block.type === "table" && block.table) {
-          const tableTokens: ReaderToken[] = [];
-          const tableRows = block.table.rows.map((row, rowIndex) => row.map((cell, cellIndex) => {
-            const tokens = cachedBlockTokens(
-              `table:${block.id}:${rowIndex}:${cellIndex}`,
-              cell.text,
-              textBlockIndex,
-              `${block.id}-cell-${rowIndex}-${cellIndex}-`,
-            );
-            textBlockIndex += 1;
-            tableTokens.push(...tokens);
-            return { cell, tokens };
-          }));
-          return {
-            id: block.id,
-            type: "table",
-            tokens: tableTokens,
-            table: block.table,
-            tableRows,
-          };
-        }
-
-        const text = importedBlockText(block);
-        if (!text.trim()) {
-          textBlockIndex += 1;
-          return {
-            id: block.id,
-            type: block.type,
-            tokens: [],
-          };
-        }
-
-        const tokens = cachedBlockTokens(`block:${block.id}`, text, textBlockIndex, `${block.id}-`);
-        const inline = block.inline?.length && inlinePlainText(block.inline) === text ? block.inline : null;
-        textBlockIndex += 1;
-
-        return {
-          id: block.id,
-          type: block.type,
-          tokens,
-          plainText: text,
-          ...(inline && tokens ? { tokenGroups: groupReaderTokensByInline(tokens, inline) } : {}),
-          listStyle: block.listStyle,
-          listLevel: block.listLevel,
-          listOrdinal: block.listOrdinal,
-          table: block.table,
-        };
-      })
-      .filter((block): block is RenderableArticleBlock => Boolean(block));
-  }, [effectiveImportedArticle, imageOcr, plainArticleParagraphs]);
-  const wordTokens = useMemo(
-    () => renderableBlocks.flatMap((block) => [
-      ...(block.tokens?.filter((token) => token.type === "word") ?? []),
-      ...(block.captionTokens?.filter((token) => token.type === "word") ?? []),
-    ]),
-    [renderableBlocks],
+  const { renderableBlocks, wordTokens, tokenBlockIdByTokenId, tokenById, wordTokensByParagraph,
+    wordTokensBySentence, sourceSentenceIndex, sourceSentenceSet, sourceWordSet } = useMemo(
+    () => createReaderDocumentModel(currentArticle, effectiveImportedArticle, imageOcr, articleTokenCacheRef.current, IMAGE_OCR_ENABLED),
+    [currentArticle, effectiveImportedArticle, imageOcr],
   );
-  const tokenBlockIdByTokenId = useMemo(() => {
-    const index = new Map<string, string>();
-    for (const block of renderableBlocks) {
-      for (const token of block.tokens ?? []) index.set(token.id, block.id);
-      for (const token of block.captionTokens ?? []) index.set(token.id, block.id);
-    }
-    return index;
-  }, [renderableBlocks]);
   const revealInteractiveBlocks = useCallback((blockIds: string[]) => {
     readerBlockInteractivityStore.reveal(blockIds);
   }, [readerBlockInteractivityStore]);
@@ -1407,19 +1229,6 @@ export function ReaderView({
     () => createArticleTranslationCacheKey(translationBlocks),
     [translationBlocks],
   );
-  const tokenById = useMemo(
-    () => new Map(wordTokens.map((token) => [token.id, token])),
-    [wordTokens],
-  );
-  const wordTokensByParagraph = useMemo(() => {
-    const tokensByParagraph = new Map<number, ReaderToken[]>();
-    for (const token of wordTokens) {
-      const tokens = tokensByParagraph.get(token.paragraphIndex) ?? [];
-      tokens.push(token);
-      tokensByParagraph.set(token.paragraphIndex, tokens);
-    }
-    return tokensByParagraph;
-  }, [wordTokens]);
   const [selectedTokenIds, setSelectedTokenIds] = useState<string[]>([]);
   const selectedTokenIdSet = useMemo(() => new Set(selectedTokenIds), [selectedTokenIds]);
   const [highlightedSourceSentence, setHighlightedSourceSentence] = useState(sourceSentenceToHighlight);
@@ -1428,25 +1237,9 @@ export function ReaderView({
   );
   const highlightedTargetTokenIdSet = useMemo(() => new Set(highlightedTargetTokenIds), [highlightedTargetTokenIds]);
   const highlightedSentenceTokenIdSet = useMemo(() => {
-    const normalizedSourceSentence = normalizeForSourceMatch(highlightedSourceSentence);
-    if (!normalizedSourceSentence) {
-      return new Set<string>();
-    }
-    return new Set(
-      wordTokens
-        .filter((token) => normalizeForSourceMatch(token.sentence) === normalizedSourceSentence)
-        .map((token) => token.id),
-    );
-  }, [highlightedSourceSentence, wordTokens]);
-  const sourceSentenceSet = useMemo(
-    () => new Set(wordTokens.map((token) => normalizeForSourceMatch(token.sentence)).filter(Boolean)),
-    [wordTokens],
-  );
-  const sourceSentenceIndex = useMemo(() => createSourceSentenceIndex(wordTokens), [wordTokens]);
-  const sourceWordSet = useMemo(
-    () => new Set(wordTokens.map((token) => normalizeForSourceMatch(token.value)).filter(Boolean)),
-    [wordTokens],
-  );
+    const normalized = normalizeForSourceMatch(highlightedSourceSentence);
+    return new Set(normalized ? (wordTokensBySentence.get(normalized) ?? []).map(token => token.id) : []);
+  }, [highlightedSourceSentence, wordTokensBySentence]);
   const [dragStartToken, setDragStartToken] = useState<ReaderToken | null>(null);
   const [dragCurrentToken, setDragCurrentToken] = useState<ReaderToken | null>(null);
   const [selectedContext, setSelectedContext] = useState<WordContext | null>(null);

@@ -1217,9 +1217,11 @@ test("opening a curated article immediately records the correct recent-reading o
 test("vocabulary retires Anki actions and image captions retain reader tokens", () => {
   const menu = readFileSync(new URL("../components/HomeOptionMenu.tsx", import.meta.url), "utf8");
   const reader = readFileSync(new URL("../components/ReaderView.tsx", import.meta.url), "utf8");
+  const readerDocument = readFileSync(new URL("../lib/readerDocumentModel.ts", import.meta.url), "utf8");
   assert.doesNotMatch(menu, /showAnkiActions|styles\.ankiToolbar/);
   assert.doesNotMatch(menu, /onImportAnki|findImportedVocabularyNoteIds/);
-  assert.match(reader, /image-caption:\$\{block\.id\}/);
+  assert.match(reader, /createReaderDocumentModel\(currentArticle/);
+  assert.match(readerDocument, /image-caption:\$\{block\.id\}/);
   assert.match(reader, /renderTokenList\(block\.captionTokens\)/);
 });
 
@@ -1608,6 +1610,7 @@ test("full translation keeps progressive output while batching upstream context"
   const reader = readFileSync(new URL("../components/ReaderView.tsx", import.meta.url), "utf8");
   const translationRoute = readFileSync(new URL("../app/api/translate-article/route.ts", import.meta.url), "utf8");
   const translationJobs = readFileSync(new URL("../lib/articleTranslationJobs.ts", import.meta.url), "utf8");
+  const translationTransport = readFileSync(new URL("../lib/articleTranslationTransport.ts", import.meta.url), "utf8");
   const translationBatching = readFileSync(new URL("../lib/articleTranslationBatching.ts", import.meta.url), "utf8");
   const translationPanel = readFileSync(new URL("../components/ArticleTranslationPanel.tsx", import.meta.url), "utf8");
   const adminPage = readFileSync(new URL("../app/admin/page.tsx", import.meta.url), "utf8");
@@ -1621,8 +1624,9 @@ test("full translation keeps progressive output while batching upstream context"
   assert.match(translationRoute, /IncrementalJsonObjectParser/);
   assert.doesNotMatch(translationRoute, /正在保留已完成段落/);
   assert.match(translationBatching, /ARTICLE_TRANSLATION_BATCH_MAX_CHARS\s*=\s*5_000/);
-  assert.match(translationJobs, /onTranslation\(event\.translation\)/);
-  assert.match(translationJobs, /setInterval\(updateCountdown, 1_000\)/);
+  assert.match(translationJobs, /await requestArticleTranslation\(batch/);
+  assert.match(translationTransport, /onTranslation\(event\.translation\)/);
+  assert.match(translationTransport, /setInterval\(updateCountdown, 1_000\)/);
   assert.match(reader, /mobileTranslationScrollTopRef\.current = mobileTranslationScrollRef\.current\.scrollTop/);
   assert.match(reader, /mobileTranslationScrollRef\.current\.scrollTop = mobileTranslationScrollTopRef\.current/);
   assert.match(reader, /scrollContainerRef=\{mobileTranslationScrollRef\}/);
