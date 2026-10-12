@@ -1,0 +1,2946 @@
+{
+  "baselineSourceRevision": "4d0d91106087951d8d4271b46a328c0908f869d3",
+  "sources": [
+    {
+      "source": "app/api/account/activity/route.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 3,
+          "text": "import { studyRpc } from \"@/lib/studyStore\";"
+        },
+        {
+          "line": 8,
+          "text": "return NextResponse.json(await studyRpc(\"activity_summary\", { p_user: user }), { headers: { \"Cache-Control\": \"private, no-store\", Vary: \"Cookie\" } });"
+        },
+        {
+          "line": 15,
+          "text": "await studyRpc(\"record_visit\", { p_user: user });"
+        }
+      ]
+    },
+    {
+      "source": "app/api/account/export/route.ts",
+      "storageAndEventEvidence": [
+        {
+          "line": 24,
+          "text": "headers: { \"Cache-Control\": \"no-store\", \"Content-Disposition\": `attachment; filename=\"context-reader-data-${new Date().toISOString().slice(0, 10)}.json\"` },"
+        }
+      ],
+      "schemaAndRpcEvidence": []
+    },
+    {
+      "source": "app/api/account/invitation-code/route.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 52,
+          "text": "const rows = await accountFetch<RedeemRow[]>(\"rpc/redeem_invitation_code\", {"
+        }
+      ]
+    },
+    {
+      "source": "app/api/admin/accounts/route.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 259,
+          "text": "await accountFetch(\"rpc/billing_reset_usage\", { method: \"POST\", body: JSON.stringify({ p_user: body.userId }) });"
+        }
+      ]
+    },
+    {
+      "source": "app/api/admin/billing/route.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 4,
+          "text": "import { billingCatalog, billingRpc, ownedOrder, type BillingOrder } from \"@/lib/billingStore\";"
+        },
+        {
+          "line": 20,
+          "text": "await billingRpc(\"update_plan\", { p_plan: b.planId, p_month: b.monthlyFen, p_year: b.annualFen, p_points: b.points, p_active: b.active });"
+        }
+      ]
+    },
+    {
+      "source": "app/api/admin/product-analytics/route.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 3,
+          "text": "import { studyRpc } from \"@/lib/studyStore\";"
+        },
+        {
+          "line": 8,
+          "text": "try { return NextResponse.json(await studyRpc(\"product_analytics\", { p_days: days }), { headers: { \"Cache-Control\": \"private, no-store\" } }); }"
+        }
+      ]
+    },
+    {
+      "source": "app/api/billing/route.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 3,
+          "text": "import { billingCatalog, billingRpc, ownedOrder, publicOrder, type BillingOrder } from \"@/lib/billingStore\";"
+        },
+        {
+          "line": 36,
+          "text": "if (body.action === \"quote\") return NextResponse.json({ quote: await billingRpc(\"quote\", args) });"
+        },
+        {
+          "line": 39,
+          "text": "const order = await billingRpc<BillingOrder>(\"create_order\", { ...args, p_amount: body.amountFen });"
+        }
+      ]
+    },
+    {
+      "source": "app/api/download-image/route.ts",
+      "storageAndEventEvidence": [
+        {
+          "line": 13,
+          "text": "return filename || `context-reader-image-${Date.now()}.jpg`;"
+        },
+        {
+          "line": 18,
+          "text": "return safeFilename(lastPathSegment || `context-reader-image-${Date.now()}.jpg`);"
+        }
+      ],
+      "schemaAndRpcEvidence": []
+    },
+    {
+      "source": "app/api/study/profile/route.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 4,
+          "text": "import { getStudyPolicy, studyRows, studyRpc } from \"@/lib/studyStore\";"
+        },
+        {
+          "line": 42,
+          "text": "const claim=await studyRpc<{claimed?:boolean}>(\"profile_claim\",{p_user:userId,p_action:actionId});"
+        },
+        {
+          "line": 52,
+          "text": "const stats=await studyRpc(\"daily_stats\",{p_user:userId});"
+        },
+        {
+          "line": 78,
+          "text": "release?.();if(claimed)await studyRpc(\"profile_release\",{p_user:userId,p_action:actionId}).catch(()=>{});"
+        }
+      ]
+    },
+    {
+      "source": "app/api/study/reading/route.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 3,
+          "text": "import { studyRpc } from \"@/lib/studyStore\";"
+        },
+        {
+          "line": 11,
+          "text": "if(b.evidenceVersion===3)await studyRpc(\"reading_tick_v3\",{p_user:user,p_seconds:b.seconds,p_words:b.words,p_article:b.article,p_id:b.id});"
+        },
+        {
+          "line": 12,
+          "text": "else await studyRpc(b.evidenceVersion===2?\"reading_tick_v2\":\"reading_tick\",{p_user:user,p_seconds:b.seconds,p_words:b.words,p_article:b.article});"
+        }
+      ]
+    },
+    {
+      "source": "app/api/study/route.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 7,
+          "text": "import { getStudySettings, getStudySnapshot, reconcileStudyCards, saveStudySettings, studyRpc, studyRows } from \"@/lib/studyStore\";"
+        },
+        {
+          "line": 52,
+          "text": "await studyRpc(\"start_flexible\",{p_user:userId,p_ids:ids,p_settings:settings});"
+        },
+        {
+          "line": 66,
+          "text": "if(op===\"pause\")await studyRpc(\"pause\",{p_user:userId,p_settings:next});"
+        },
+        {
+          "line": 75,
+          "text": "const reward=await studyRpc<{activated?:boolean;existingPlan?:boolean}>(\"activate_membership\",{p_user:userId,p_milestone:body.milestone});"
+        },
+        {
+          "line": 82,
+          "text": "const claimed=await studyRpc<{claimed?:boolean;points?:number}>(\"claim_reward\",{p_user:userId,p_id:id});"
+        },
+        {
+          "line": 93,
+          "text": "const state = await studyRpc<Record<string,unknown>>(\"present\", { p_user: userId, p_card: cardId, p_version: body.version });"
+        },
+        {
+          "line": 104,
+          "text": "const saved = await studyRpc<Record<string,unknown>>(\"review\", {"
+        },
+        {
+          "line": 111,
+          "text": "await studyRpc(\"settle_rewards\",{p_user:userId});"
+        },
+        {
+          "line": 117,
+          "text": "const saved = await studyRpc<Record<string,unknown>>(\"undo_flexible\", { p_user: userId, p_id: body.id });"
+        },
+        {
+          "line": 123,
+          "text": "const completion = await studyRpc(\"settle_rewards\", { p_user: userId });"
+        }
+      ]
+    },
+    {
+      "source": "app/api/translate-article/finish/route.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 1,
+          "text": "import { billingRpc } from \"@/lib/billingStore\";"
+        },
+        {
+          "line": 27,
+          "text": "if (action.metricKey === \"learning_points\") { await billingRpc(\"translation_finish\", { p_action: actionId }); return NextResponse.json({ ok: true }); }"
+        }
+      ]
+    },
+    {
+      "source": "app/api/translate-article/route.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 1,
+          "text": "import { billingRpc } from \"@/lib/billingStore\";"
+        },
+        {
+          "line": 247,
+          "text": "try { await billingRpc(\"translation_claim\", { p_action: actionId, p_blocks: blocks.map(translationBlockCharge) }); }"
+        },
+        {
+          "line": 251,
+          "text": "if (pointsTranslation) await billingRpc(\"translation_result\", { p_action: actionId, p_ids: ids, p_success: success });"
+        }
+      ]
+    },
+    {
+      "source": "app/api/translate-article/start/route.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 1,
+          "text": "import { billingRpc } from \"@/lib/billingStore\";"
+        },
+        {
+          "line": 112,
+          "text": "if (reservation.metricKey === \"learning_points\") await billingRpc(\"translation_start\", { p_action: actionId, p_blocks: chargedBlocks.map(translationBlockCharge) });"
+        }
+      ]
+    },
+    {
+      "source": "app/layout.tsx",
+      "storageAndEventEvidence": [
+        {
+          "line": 27,
+          "text": "__html: \"try{const p=JSON.parse(localStorage.getItem('context-reader-home-ui-v1')||'null');if(p?.theme==='night'){document.documentElement.dataset.contextTheme='night';document.documentElement.style.colorScheme='dark'}}catch{}\","
+        }
+      ],
+      "schemaAndRpcEvidence": []
+    },
+    {
+      "source": "components/AccountLearningSummary.tsx",
+      "storageAndEventEvidence": [
+        {
+          "line": 7,
+          "text": "import { ACCOUNT_DATA_CHANGED_EVENT, ACCOUNT_DATA_MERGED_EVENT } from \"@/lib/accountEvents\";"
+        },
+        {
+          "line": 24,
+          "text": "refresh(); window.addEventListener(ACCOUNT_DATA_CHANGED_EVENT, refresh); window.addEventListener(ACCOUNT_DATA_MERGED_EVENT, refresh);"
+        },
+        {
+          "line": 25,
+          "text": "return () => { controller.abort(); window.removeEventListener(ACCOUNT_DATA_CHANGED_EVENT, refresh); window.removeEventListener(ACCOUNT_DATA_MERGED_EVENT, refresh); };"
+        }
+      ],
+      "schemaAndRpcEvidence": []
+    },
+    {
+      "source": "components/AccountProvider.tsx",
+      "storageAndEventEvidence": [
+        {
+          "line": 13,
+          "text": "import { ACCOUNT_DATA_CHANGED_EVENT, accountDataEventKinds } from \"@/lib/accountEvents\";"
+        },
+        {
+          "line": 426,
+          "text": "if (event.key === \"context-reader:sync-state:v2\" || event.key === \"context-reader:last-sync:v1\") return;"
+        },
+        {
+          "line": 432,
+          "text": "window.addEventListener(ACCOUNT_DATA_CHANGED_EVENT, scheduleLocalPush);"
+        },
+        {
+          "line": 441,
+          "text": "window.removeEventListener(ACCOUNT_DATA_CHANGED_EVENT, scheduleLocalPush);"
+        },
+        {
+          "line": 726,
+          "text": "name={`context-reader-${loginMode}-credential`}"
+        },
+        {
+          "line": 749,
+          "text": "name=\"context-reader-confirm-credential\""
+        }
+      ],
+      "schemaAndRpcEvidence": []
+    },
+    {
+      "source": "components/ArticleInput.tsx",
+      "storageAndEventEvidence": [
+        {
+          "line": 10,
+          "text": "import { ACCOUNT_DATA_MERGED_EVENT, accountDataEventKinds } from \"@/lib/accountEvents\";"
+        },
+        {
+          "line": 115,
+          "text": "window.addEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshVocabularyEntries);"
+        },
+        {
+          "line": 116,
+          "text": "return () => window.removeEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshVocabularyEntries);"
+        }
+      ],
+      "schemaAndRpcEvidence": []
+    },
+    {
+      "source": "components/Ballpit.tsx",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 30,
+          "text": "export interface BallpitProps {"
+        },
+        {
+          "line": 64,
+          "text": "export interface BallpitHandle {"
+        }
+      ]
+    },
+    {
+      "source": "components/BookDictionary.tsx",
+      "storageAndEventEvidence": [
+        {
+          "line": 10,
+          "text": "import { ACCOUNT_DATA_CHANGED_EVENT, ACCOUNT_DATA_MERGED_EVENT, accountDataEventKinds } from \"@/lib/accountEvents\";"
+        },
+        {
+          "line": 41,
+          "text": "const SESSION_KEY = \"context-reader:standalone-dictionary:session:v3\";"
+        },
+        {
+          "line": 471,
+          "text": "window.addEventListener(ACCOUNT_DATA_CHANGED_EVENT, refreshAccountDictionaryData);"
+        },
+        {
+          "line": 472,
+          "text": "window.addEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshAccountDictionaryData);"
+        },
+        {
+          "line": 475,
+          "text": "window.removeEventListener(ACCOUNT_DATA_CHANGED_EVENT, refreshAccountDictionaryData);"
+        },
+        {
+          "line": 476,
+          "text": "window.removeEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshAccountDictionaryData);"
+        }
+      ],
+      "schemaAndRpcEvidence": []
+    },
+    {
+      "source": "components/BookHome.tsx",
+      "storageAndEventEvidence": [
+        {
+          "line": 24,
+          "text": "import { ACCOUNT_DATA_MERGED_EVENT, accountDataEventKinds } from \"@/lib/accountEvents\";"
+        },
+        {
+          "line": 64,
+          "text": "const DEMO_HINT_KEY = \"context-reader:book-demo-hint-seen:v1\";"
+        },
+        {
+          "line": 65,
+          "text": "const MOBILE_DESKTOP_HINT_KEY = \"context-reader:mobile-desktop-hint-seen:v1\";"
+        },
+        {
+          "line": 66,
+          "text": "const RECOMMENDATION_PROFILE_KEY = \"context-reader:recommendation-profile:v1\";"
+        },
+        {
+          "line": 450,
+          "text": "window.addEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshVocabularyEntries);"
+        },
+        {
+          "line": 466,
+          "text": "window.removeEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshVocabularyEntries);"
+        },
+        {
+          "line": 588,
+          "text": "window.dispatchEvent(new Event(\"context-reader:book-layout-change\"));"
+        }
+      ],
+      "schemaAndRpcEvidence": []
+    },
+    {
+      "source": "components/BookLetterField.tsx",
+      "storageAndEventEvidence": [
+        {
+          "line": 269,
+          "text": "window.addEventListener(\"context-reader:book-layout-change\", scheduleMaskRefresh);"
+        },
+        {
+          "line": 279,
+          "text": "window.removeEventListener(\"context-reader:book-layout-change\", scheduleMaskRefresh);"
+        }
+      ],
+      "schemaAndRpcEvidence": []
+    },
+    {
+      "source": "components/cet/CetLibrary.tsx",
+      "storageAndEventEvidence": [
+        {
+          "line": 12,
+          "text": "ACCOUNT_DATA_MERGED_EVENT,"
+        },
+        {
+          "line": 13,
+          "text": "ACCOUNT_DATA_CHANGED_EVENT,"
+        },
+        {
+          "line": 76,
+          "text": "const owner = getLearningStorage().getItem(\"context-reader:local-account-owner:v1\") || \"guest\";"
+        },
+        {
+          "line": 84,
+          "text": "window.addEventListener(ACCOUNT_DATA_MERGED_EVENT, refresh);"
+        },
+        {
+          "line": 85,
+          "text": "window.addEventListener(ACCOUNT_DATA_CHANGED_EVENT, refresh);"
+        },
+        {
+          "line": 88,
+          "text": "window.removeEventListener(ACCOUNT_DATA_MERGED_EVENT, refresh);"
+        },
+        {
+          "line": 89,
+          "text": "window.removeEventListener(ACCOUNT_DATA_CHANGED_EVENT, refresh);"
+        }
+      ],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 21,
+          "text": "export interface CetEntry {"
+        }
+      ]
+    },
+    {
+      "source": "components/cet/CetListeningPlayer.tsx",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 9,
+          "text": "export type CetListeningController = { checkpoint: () => void };"
+        }
+      ]
+    },
+    {
+      "source": "components/cet/CetQuestionSurface.tsx",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 6,
+          "text": "export type QuestionSurface = \"inline\" | \"dock\";"
+        },
+        {
+          "line": 7,
+          "text": "export interface QuestionAction {id:string; label:string; disabled?:boolean; invoke:()=>void; className?:string}"
+        }
+      ]
+    },
+    {
+      "source": "components/cet/CetReader.tsx",
+      "storageAndEventEvidence": [
+        {
+          "line": 19,
+          "text": "import { ACCOUNT_DATA_MERGED_EVENT } from \"@/lib/accountEvents\";"
+        },
+        {
+          "line": 144,
+          "text": "const storageOwner = useCallback(() => getLearningStorage().getItem(\"context-reader:local-account-owner:v1\") || \"guest\", []);"
+        },
+        {
+          "line": 301,
+          "text": "window.addEventListener(ACCOUNT_DATA_MERGED_EVENT, onMerge);"
+        },
+        {
+          "line": 302,
+          "text": "return () => { window.clearInterval(interval); document.removeEventListener(\"visibilitychange\", onVisibility); window.removeEventListener(\"pagehide\", onPageHide); window.removeEventListener(ACCOUNT_DATA_MERGED_EVENT, onMerge); };"
+        }
+      ],
+      "schemaAndRpcEvidence": []
+    },
+    {
+      "source": "components/cet/CetSelect.tsx",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 4,
+          "text": "export interface CetSelectOption { key: string; text: string }"
+        }
+      ]
+    },
+    {
+      "source": "components/CurvedPageTurn.tsx",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 13,
+          "text": "export interface CurvedPageTurnHandle {"
+        }
+      ]
+    },
+    {
+      "source": "components/HomeClient.tsx",
+      "storageAndEventEvidence": [
+        {
+          "line": 20,
+          "text": "import { ACCOUNT_DATA_MERGED_EVENT, accountDataEventKinds } from \"@/lib/accountEvents\";"
+        },
+        {
+          "line": 399,
+          "text": "window.addEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshSavedArticles);"
+        },
+        {
+          "line": 400,
+          "text": "return () => window.removeEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshSavedArticles);"
+        }
+      ],
+      "schemaAndRpcEvidence": []
+    },
+    {
+      "source": "components/HomeOptionMenu.tsx",
+      "storageAndEventEvidence": [
+        {
+          "line": 433,
+          "text": "useEffect(()=>{window.dispatchEvent(new CustomEvent(\"context-reader-main-menu-state\",{detail:open}));return()=>{if(open)window.dispatchEvent(new CustomEvent(\"context-reader-main-menu-state\",{detail:false}));};},[open]);"
+        },
+        {
+          "line": 438,
+          "text": "window.dispatchEvent(new Event(\"context-reader-leave-study\"));"
+        },
+        {
+          "line": 474,
+          "text": "if (item.action !== \"study\") window.dispatchEvent(new Event(\"context-reader-leave-study\"));"
+        },
+        {
+          "line": 872,
+          "text": "window.dispatchEvent(new Event(\"context-reader-leave-study\"));"
+        }
+      ],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 86,
+          "text": "export interface HomeMenuAnkiTools {"
+        },
+        {
+          "line": 99,
+          "text": "export interface HomeMenuVocabularyTools {"
+        },
+        {
+          "line": 106,
+          "text": "export type PreviewKind = \"guide\" | \"vocabulary\" | \"saved\" | \"account\" | \"invite\" | \"feedback\" | \"settings\";"
+        },
+        {
+          "line": 107,
+          "text": "export type GuideSection = \"study\" | \"updates\";"
+        }
+      ]
+    },
+    {
+      "source": "components/HomeRedesign.tsx",
+      "storageAndEventEvidence": [
+        {
+          "line": 3,
+          "text": "import { OPEN_ACCOUNT_USAGE_EVENT } from \"@/lib/accountUsageNavigation\";"
+        },
+        {
+          "line": 20,
+          "text": "import { ACCOUNT_DATA_MERGED_EVENT, accountDataEventKinds } from \"@/lib/accountEvents\";"
+        },
+        {
+          "line": 96,
+          "text": "const HOME_PREFERENCES_KEY = \"context-reader-home-ui-v1\";"
+        },
+        {
+          "line": 97,
+          "text": "const HOME_VIEW_STATE_KEY = \"context-reader-home-view-v1\";"
+        },
+        {
+          "line": 245,
+          "text": "window.addEventListener(\"context-reader-open-main-menu\",mainMenu);"
+        },
+        {
+          "line": 246,
+          "text": "window.addEventListener(OPEN_ACCOUNT_USAGE_EVENT, open);"
+        },
+        {
+          "line": 248,
+          "text": "return () => {window.removeEventListener(OPEN_ACCOUNT_USAGE_EVENT, open);window.removeEventListener(\"context-reader-open-main-menu\",mainMenu);};"
+        },
+        {
+          "line": 310,
+          "text": "try { sessionStorage.removeItem(\"context-reader:home-resource\"); } catch { /* A fresh visit still starts with articles. */ }"
+        },
+        {
+          "line": 313,
+          "text": "try { if (sessionStorage.getItem(\"context-reader:home-resource\") === \"cet\") setResourceTab(\"cet\"); } catch { /* In-memory tabs still work without storage. */ }"
+        },
+        {
+          "line": 570,
+          "text": "window.addEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshVocabulary);"
+        },
+        {
+          "line": 571,
+          "text": "return () => window.removeEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshVocabulary);"
+        },
+        {
+          "line": 1064,
+          "text": "try { sessionStorage.setItem(\"context-reader:home-resource\", next); } catch { /* Keep the current tab usable. */ }"
+        }
+      ],
+      "schemaAndRpcEvidence": []
+    },
+    {
+      "source": "components/OptionWheel.tsx",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 30,
+          "text": "export interface OptionWheelProps {"
+        }
+      ]
+    },
+    {
+      "source": "components/PwaRegistration.tsx",
+      "storageAndEventEvidence": [
+        {
+          "line": 20,
+          "text": "keys.filter((key) => key.startsWith(\"context-reader-\")).map((key) => window.caches.delete(key)),"
+        }
+      ],
+      "schemaAndRpcEvidence": []
+    },
+    {
+      "source": "components/ReaderTextAdapter.tsx",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 4,
+          "text": "export interface ReaderTextAdapter {"
+        }
+      ]
+    },
+    {
+      "source": "components/ReaderView.tsx",
+      "storageAndEventEvidence": [
+        {
+          "line": 3,
+          "text": "import { OPEN_ACCOUNT_USAGE_EVENT } from \"@/lib/accountUsageNavigation\";"
+        },
+        {
+          "line": 56,
+          "text": "import { ACCOUNT_DATA_MERGED_EVENT, accountDataEventKinds } from \"@/lib/accountEvents\";"
+        },
+        {
+          "line": 633,
+          "text": "const key = \"context-reader:guest-trial:fallback:v1\";"
+        },
+        {
+          "line": 1468,
+          "text": "window.addEventListener(\"context-reader-open-main-menu\",mainMenu);"
+        },
+        {
+          "line": 1469,
+          "text": "window.addEventListener(OPEN_ACCOUNT_USAGE_EVENT, open);"
+        },
+        {
+          "line": 1470,
+          "text": "return () => {window.removeEventListener(OPEN_ACCOUNT_USAGE_EVENT, open);window.removeEventListener(\"context-reader-open-main-menu\",mainMenu);};"
+        },
+        {
+          "line": 1697,
+          "text": "const saved = JSON.parse(window.localStorage.getItem(\"context-reader-dictionary-window-v1\") || \"null\") as {"
+        },
+        {
+          "line": 1920,
+          "text": "window.addEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshVocabularyEntries);"
+        },
+        {
+          "line": 1921,
+          "text": "return () => window.removeEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshVocabularyEntries);"
+        },
+        {
+          "line": 2863,
+          "text": "const current = JSON.parse(window.localStorage.getItem(\"context-reader-home-ui-v1\") || \"null\") as Record<string, unknown> | null;"
+        },
+        {
+          "line": 2864,
+          "text": "window.localStorage.setItem(\"context-reader-home-ui-v1\", JSON.stringify({ ...(current ?? {}), theme: nextTheme }));"
+        },
+        {
+          "line": 2902,
+          "text": "window.localStorage.setItem(\"context-reader-dictionary-window-v1\", JSON.stringify({"
+        },
+        {
+          "line": 3768,
+          "text": "return altName || `context-reader-image-${block.id}.jpg`;"
+        }
+      ],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 103,
+          "text": "export interface ReaderExamSurface {"
+        }
+      ]
+    },
+    {
+      "source": "components/StudyHost.tsx",
+      "storageAndEventEvidence": [
+        {
+          "line": 5,
+          "text": "import { OPEN_STUDY_EVENT, STUDY_SOURCE_RESULT_EVENT, STUDY_VIEW_EVENT } from \"@/lib/studyNavigation\";"
+        },
+        {
+          "line": 22,
+          "text": "const fn=(event:Event)=>{setRequestedTab((event as CustomEvent).detail===\"profile\"?\"profile\":\"today\");setRequestKey(n=>n+1);launch();}; window.addEventListener(OPEN_STUDY_EVENT,fn);"
+        },
+        {
+          "line": 24,
+          "text": "window.addEventListener(\"context-reader-leave-study\",leave);"
+        },
+        {
+          "line": 25,
+          "text": "return ()=>{window.removeEventListener(OPEN_STUDY_EVENT,fn);window.removeEventListener(\"context-reader-leave-study\",leave);};"
+        },
+        {
+          "line": 50,
+          "text": "const key=\"context-reader-study-reminder:\"+owner+\":\"+new Date(Date.now()+8*3600000).toISOString().slice(0,10);"
+        }
+      ],
+      "schemaAndRpcEvidence": []
+    },
+    {
+      "source": "components/StudyIcon.tsx",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 20,
+          "text": "export type StudyIconName = keyof typeof paths;"
+        }
+      ]
+    },
+    {
+      "source": "components/StudyPanel.tsx",
+      "storageAndEventEvidence": [
+        {
+          "line": 39,
+          "text": "useEffect(()=>{const f=(e:Event)=>setMenuOpen(Boolean((e as CustomEvent).detail));window.addEventListener(\"context-reader-main-menu-state\",f);return()=>window.removeEventListener(\"context-reader-main-menu-state\",f);},[]);"
+        },
+        {
+          "line": 57,
+          "text": "const storageKey=\"context-reader-study-pending:\"+owner;"
+        },
+        {
+          "line": 88,
+          "text": "try{const local=JSON.parse(localStorage.getItem(\"context-reader-study-display:\"+owner)||\"{}\");setOrder(local.order===\"random\"?\"random\":\"ordered\");setMotion(local.motion!==false);}catch{}"
+        },
+        {
+          "line": 89,
+          "text": "try{profileAction.current=sessionStorage.getItem(\"context-reader-profile-action:\"+owner)||\"\";}catch{}"
+        },
+        {
+          "line": 172,
+          "text": "const key=\"context-reader-profile-action:\"+owner;"
+        },
+        {
+          "line": 199,
+          "text": "try{localStorage.setItem(\"context-reader-study-display:\"+owner,JSON.stringify({order:nextOrder,motion:nextMotion}));}catch{}"
+        },
+        {
+          "line": 214,
+          "text": "<button className={styles.studyMenu} onClick={()=>window.dispatchEvent(new Event(\"context-reader-open-main-menu\"))}>Menu <span aria-hidden=\"true\">＋</span></button>"
+        }
+      ],
+      "schemaAndRpcEvidence": []
+    },
+    {
+      "source": "components/useDailyPublicationNotice.ts",
+      "storageAndEventEvidence": [
+        {
+          "line": 15,
+          "text": "const key = userId ? `context-reader:daily-update:${userId}` : \"\";"
+        }
+      ],
+      "schemaAndRpcEvidence": []
+    },
+    {
+      "source": "lib/accountEvents.ts",
+      "storageAndEventEvidence": [
+        {
+          "line": 5,
+          "text": "export const ACCOUNT_DATA_CHANGED_EVENT = \"context-reader:account-data-changed\";"
+        },
+        {
+          "line": 6,
+          "text": "export const ACCOUNT_DATA_MERGED_EVENT = \"context-reader:account-data-merged\";"
+        },
+        {
+          "line": 7,
+          "text": "export const ACCOUNT_SYNC_TOMBSTONES_KEY = \"context-reader:sync-tombstones:v1\";"
+        },
+        {
+          "line": 23,
+          "text": "window.dispatchEvent(new CustomEvent<AccountDataChangedDetail>(ACCOUNT_DATA_CHANGED_EVENT, {"
+        },
+        {
+          "line": 31,
+          "text": "window.dispatchEvent(new CustomEvent<AccountDataChangedDetail>(ACCOUNT_DATA_MERGED_EVENT, {"
+        }
+      ],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 9,
+          "text": "export type AccountDeletedObjectKind = \"article\" | \"vocabulary\" | \"reading_state\" | \"preferences\";"
+        },
+        {
+          "line": 11,
+          "text": "export interface AccountDataChangedDetail {"
+        }
+      ]
+    },
+    {
+      "source": "lib/accountStore.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 56,
+          "text": "export interface UsageActionRecord {"
+        },
+        {
+          "line": 80,
+          "text": "export interface SyncChangeCursor {"
+        },
+        {
+          "line": 86,
+          "text": "export interface SyncChangePage {"
+        },
+        {
+          "line": 234,
+          "text": "await accountFetch(\"rpc/billing_recover\", { method: \"POST\", body: JSON.stringify({ p_user: userId }) });"
+        },
+        {
+          "line": 235,
+          "text": "return [await accountFetch<UsageBalance>(\"rpc/billing_balance\", { method: \"POST\", body: JSON.stringify({ p_user: userId }) })];"
+        },
+        {
+          "line": 292,
+          "text": "const result = await accountFetch<UsageBalance & { allowed: boolean; duplicate: boolean }>(\"rpc/billing_consume\", {"
+        },
+        {
+          "line": 303,
+          "text": "}>>(\"rpc/consume_usage\", {"
+        },
+        {
+          "line": 336,
+          "text": "await accountFetch(\"rpc/billing_finish\", { method: \"POST\", body: JSON.stringify({ p_action: actionId, p_status: status, p_cache: cacheHit, p_refund: cacheHit && refundCacheHit }) });"
+        },
+        {
+          "line": 339,
+          "text": "await accountFetch(\"rpc/finalize_usage\", {"
+        },
+        {
+          "line": 353,
+          "text": "await accountFetch(\"rpc/billing_finish\", { method: \"POST\", body: JSON.stringify({ p_action: actionId, p_status: status, p_refund: true }) });"
+        },
+        {
+          "line": 356,
+          "text": "await accountFetch(\"rpc/refund_usage\", {"
+        },
+        {
+          "line": 617,
+          "text": "const rows = await accountFetch<Array<SyncObjectRow & { accepted: boolean }>>(\"rpc/merge_user_data_objects\", {"
+        }
+      ]
+    },
+    {
+      "source": "lib/accountSyncClient.ts",
+      "storageAndEventEvidence": [
+        {
+          "line": 69,
+          "text": "articles: \"context-reader:articles:v1\","
+        },
+        {
+          "line": 70,
+          "text": "vocabulary: \"context-reader:vocabulary:v1\","
+        },
+        {
+          "line": 71,
+          "text": "explanations: \"context-reader:explanations:v5\","
+        },
+        {
+          "line": 72,
+          "text": "translations: \"context-reader:article-translations:v1\","
+        },
+        {
+          "line": 73,
+          "text": "translationBlocks: \"context-reader:article-translation-blocks:v1\","
+        },
+        {
+          "line": 84,
+          "text": "const VOCABULARY_CONFLICT_RECOVERY_KEY = \"context-reader:vocabulary-conflict-recovery:v1\";"
+        },
+        {
+          "line": 85,
+          "text": "const ACCOUNT_LOCAL_OWNER_KEY = \"context-reader:local-account-owner:v1\";"
+        },
+        {
+          "line": 86,
+          "text": "const LAST_SYNC_KEY = \"context-reader:last-sync:v1\";"
+        },
+        {
+          "line": 87,
+          "text": "const SYNC_STATE_KEY = \"context-reader:sync-state:v2\";"
+        },
+        {
+          "line": 88,
+          "text": "const ARTICLE_STORAGE_RECOVERY_KEY = \"context-reader:article-storage-recovery:20260905\";"
+        },
+        {
+          "line": 89,
+          "text": "const INDEXEDDB_RECOVERY_KEY = \"context-reader:indexeddb-sync-recovery:v1\";"
+        },
+        {
+          "line": 90,
+          "text": "const SYNC_STORAGE_RECOVERY_KEY = \"context-reader:sync-storage-recovery:20260913\";"
+        },
+        {
+          "line": 95,
+          "text": "\"context-reader:vocabulary-backup-before-dedupe:v1\","
+        },
+        {
+          "line": 96,
+          "text": "\"context-reader:cache-access:v1\","
+        },
+        {
+          "line": 1087,
+          "text": "? navigator.locks.request(\"context-reader:account-sync\", { mode: \"exclusive\" }, run)"
+        }
+      ],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 117,
+          "text": "export type AccountSyncPhase = \"waiting\" | \"pulling\" | \"merging\" | \"pushing\" | \"complete\";"
+        },
+        {
+          "line": 119,
+          "text": "export interface AccountSyncProgress {"
+        },
+        {
+          "line": 126,
+          "text": "export interface AccountSyncResult {"
+        },
+        {
+          "line": 137,
+          "text": "export interface AccountSyncOptions {"
+        }
+      ]
+    },
+    {
+      "source": "lib/accountUsageNavigation.ts",
+      "storageAndEventEvidence": [
+        {
+          "line": 1,
+          "text": "export const OPEN_ACCOUNT_USAGE_EVENT = \"context-reader:open-account-usage\";"
+        },
+        {
+          "line": 4,
+          "text": "if (window.location.pathname === \"/\") window.dispatchEvent(new Event(OPEN_ACCOUNT_USAGE_EVENT));"
+        }
+      ],
+      "schemaAndRpcEvidence": []
+    },
+    {
+      "source": "lib/adminAuth.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 101,
+          "text": "export type AdminAccessMode = \"developer\" | \"password\" | null;"
+        }
+      ]
+    },
+    {
+      "source": "lib/adminUsageReport.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 3,
+          "text": "export type UsageScope = \"all\" | \"reader\" | \"system\" | \"unclassified\";"
+        },
+        {
+          "line": 4,
+          "text": "export interface ReportAction {"
+        },
+        {
+          "line": 9,
+          "text": "export interface ReportExecution {"
+        },
+        {
+          "line": 15,
+          "text": "export interface UsageTotals {"
+        },
+        {
+          "line": 20,
+          "text": "export interface UsageGroup extends UsageTotals { key: string; label: string; scope: UsageScope; children: UsageGroup[] }"
+        },
+        {
+          "line": 124,
+          "text": "export type AdminUsageReport = ReturnType<typeof buildUsageReport> & { truncated: boolean; loadedAt: string };"
+        }
+      ]
+    },
+    {
+      "source": "lib/articleClassification.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 33,
+          "text": "export interface ArticleClassificationResult {"
+        },
+        {
+          "line": 50,
+          "text": "export interface ArticleClassificationContext {"
+        }
+      ]
+    },
+    {
+      "source": "lib/articleImageLocalizationPolicy.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 3,
+          "text": "export type FastImageLocalizationResult<T> ="
+        }
+      ]
+    },
+    {
+      "source": "lib/articleMedia.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 6,
+          "text": "export type ArticleMediaState = \"cover-and-body\" | \"cover-only\" | \"body-as-cover\" | \"text-only\";"
+        }
+      ]
+    },
+    {
+      "source": "lib/articles.ts",
+      "storageAndEventEvidence": [
+        {
+          "line": 33,
+          "text": "blockId: \"context-reader:top\","
+        }
+      ],
+      "schemaAndRpcEvidence": []
+    },
+    {
+      "source": "lib/articleStorage.ts",
+      "storageAndEventEvidence": [
+        {
+          "line": 7,
+          "text": "export const SAVED_ARTICLES_STORAGE_KEY = \"context-reader:articles:v1\";"
+        }
+      ],
+      "schemaAndRpcEvidence": []
+    },
+    {
+      "source": "lib/articleTranslationJobs.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 29,
+          "text": "export interface ArticleTranslationJobSnapshot {"
+        }
+      ]
+    },
+    {
+      "source": "lib/billingPolicy.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 1,
+          "text": "export type PaidPlan = \"basic\" | \"plus\" | \"max\";"
+        },
+        {
+          "line": 2,
+          "text": "export type BillingTerm = \"month\" | \"year\";"
+        }
+      ]
+    },
+    {
+      "source": "lib/billingStore.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 4,
+          "text": "export interface BillingPlan { id: string; name: string; monthlyFen: number; annualFen: number; points: number; active: boolean }"
+        },
+        {
+          "line": 5,
+          "text": "export interface BillingOrder {"
+        },
+        {
+          "line": 11,
+          "text": "export interface BillingQuote { planId: string; term: string; kind: string; priceFen: number; creditFen: number; amountFen: number; points: number }"
+        },
+        {
+          "line": 12,
+          "text": "export async function billingRpc<T>(name: string, args: Record<string, unknown>): Promise<T> {"
+        },
+        {
+          "line": 13,
+          "text": "return accountFetch<T>(`rpc/billing_${name}`, { method: \"POST\", body: JSON.stringify(args) });"
+        }
+      ]
+    },
+    {
+      "source": "lib/cache.ts",
+      "storageAndEventEvidence": [
+        {
+          "line": 16,
+          "text": "const EXPLANATION_CACHE_KEY = \"context-reader:explanations:v5\";"
+        },
+        {
+          "line": 17,
+          "text": "const ARTICLE_TRANSLATION_CACHE_KEY = \"context-reader:article-translations:v1\";"
+        },
+        {
+          "line": 18,
+          "text": "const ARTICLE_TRANSLATION_BLOCK_CACHE_KEY = \"context-reader:article-translation-blocks:v1\";"
+        },
+        {
+          "line": 57,
+          "text": "if (cached && storage && isLearningStorage(storage)) storage.setRecord(\"context-reader:cache-access:v1\", key, Date.now());"
+        }
+      ],
+      "schemaAndRpcEvidence": []
+    },
+    {
+      "source": "lib/cetActivityStorage.ts",
+      "storageAndEventEvidence": [
+        {
+          "line": 10,
+          "text": "export const CET_ACTIVITIES_KEY = \"context-reader:cet-activities:v2\";"
+        },
+        {
+          "line": 11,
+          "text": "export const CET_FINALIZATIONS_KEY = \"context-reader:cet-finalizations:v2\";"
+        },
+        {
+          "line": 15,
+          "text": "export const CET_ACTIVITIES_V3_KEY = \"context-reader:cet-activities:v3\";"
+        },
+        {
+          "line": 16,
+          "text": "export const CET_FINALIZATIONS_V3_KEY = \"context-reader:cet-finalizations:v3\";"
+        },
+        {
+          "line": 17,
+          "text": "export const CET_ACTIVITIES_V4_KEY = \"context-reader:cet-activities:v4\";"
+        },
+        {
+          "line": 18,
+          "text": "export const CET_FINALIZATIONS_V4_KEY = \"context-reader:cet-finalizations:v4\";"
+        }
+      ],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 54,
+          "text": "export interface CetCommitPackage { schemaVersion?: 2 | 3 | 4; id?: string; attemptId: string; finalization: CetFinalization }"
+        }
+      ]
+    },
+    {
+      "source": "lib/cetAdjustableTimer.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 2,
+          "text": "export interface CetTimerEpoch {"
+        },
+        {
+          "line": 28,
+          "text": "export interface CetTimerTarget {owner:string;activityId:string;sectionId:string;revision:string}"
+        }
+      ]
+    },
+    {
+      "source": "lib/cetCatalogueLoader.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 2,
+          "text": "export interface CetCataloguePage { papers: CetPaper[]; total: number; years: number[] }"
+        }
+      ]
+    },
+    {
+      "source": "lib/cetExposure.ts",
+      "storageAndEventEvidence": [
+        {
+          "line": 7,
+          "text": "export const CET_EXPOSURES_KEY = \"context-reader:cet-exposures:v2\";"
+        }
+      ],
+      "schemaAndRpcEvidence": []
+    },
+    {
+      "source": "lib/cetHistory.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 3,
+          "text": "export type CetHistoryStatus = \"all\" | \"submitted\" | \"unsubmitted\";"
+        }
+      ]
+    },
+    {
+      "source": "lib/cetLibraryView.ts",
+      "storageAndEventEvidence": [
+        {
+          "line": 8,
+          "text": "const KEY = \"context-reader:cet-library-view:v1\";"
+        }
+      ],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 1,
+          "text": "export interface CetLibraryView {"
+        }
+      ]
+    },
+    {
+      "source": "lib/cetLocalViewport.ts",
+      "storageAndEventEvidence": [
+        {
+          "line": 2,
+          "text": "const KEY = \"context-reader:cet-viewports:v1\";"
+        }
+      ],
+      "schemaAndRpcEvidence": []
+    },
+    {
+      "source": "lib/cetProgress.ts",
+      "storageAndEventEvidence": [
+        {
+          "line": 5,
+          "text": "export const CET_PROGRESS_KEY = \"context-reader:cet-progress:v1\";"
+        }
+      ],
+      "schemaAndRpcEvidence": []
+    },
+    {
+      "source": "lib/cetSubmitPolicy.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 3,
+          "text": "export type CetSubmitCommand = \"passage_submit\" | \"submit_all\" | \"manual_submit\";"
+        }
+      ]
+    },
+    {
+      "source": "lib/cetTypeTrail.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 2,
+          "text": "export interface CetTypeUnit { paperId: string; sectionId: string }"
+        },
+        {
+          "line": 3,
+          "text": "export interface CetTrailKey { owner: string; level: 4|6; type: CetType; purpose: CetPurpose }"
+        },
+        {
+          "line": 4,
+          "text": "export interface CetTrailEvent extends CetTrailKey, CetTypeUnit {"
+        }
+      ]
+    },
+    {
+      "source": "lib/cetTypeTrailStorage.ts",
+      "storageAndEventEvidence": [
+        {
+          "line": 5,
+          "text": "export const CET_TRAIL_KEY='context-reader:cet-type-trail:v1';"
+        }
+      ],
+      "schemaAndRpcEvidence": []
+    },
+    {
+      "source": "lib/cetUnderlines.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 3,
+          "text": "export interface CetUnderlineRange {"
+        }
+      ]
+    },
+    {
+      "source": "lib/clientCapabilities.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 1,
+          "text": "export interface ClientInteractionCapabilities {"
+        }
+      ]
+    },
+    {
+      "source": "lib/clientErrorReporting.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 13,
+          "text": "export interface ClientErrorContext {"
+        }
+      ]
+    },
+    {
+      "source": "lib/coverSources.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 3,
+          "text": "export interface CoverSource { src: string; srcSet?: string; sizes: string }"
+        }
+      ]
+    },
+    {
+      "source": "lib/csv.ts",
+      "storageAndEventEvidence": [
+        {
+          "line": 68,
+          "text": "link.download = `context-reader-vocabulary-${new Date().toISOString().slice(0, 10)}.csv`;"
+        }
+      ],
+      "schemaAndRpcEvidence": []
+    },
+    {
+      "source": "lib/deepseek.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 117,
+          "text": "export interface DeepSeekExplanationResult {"
+        }
+      ]
+    },
+    {
+      "source": "lib/deepseekDictionary.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 54,
+          "text": "export interface DeepSeekDictionaryResult {"
+        }
+      ]
+    },
+    {
+      "source": "lib/deepseekModelFailover.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 18,
+          "text": "export interface DeepSeekModelFailoverAttempt {"
+        },
+        {
+          "line": 24,
+          "text": "export interface DeepSeekModelFailoverResult {"
+        }
+      ]
+    },
+    {
+      "source": "lib/dictionaryPronunciation.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 5,
+          "text": "export interface DictionaryPronunciationGroup {"
+        }
+      ]
+    },
+    {
+      "source": "lib/dictionaryResultSnapshot.ts",
+      "storageAndEventEvidence": [
+        {
+          "line": 4,
+          "text": "export const STANDALONE_DICTIONARY_CACHE_KEY = \"context-reader:standalone-dictionary-cache:v2\";"
+        }
+      ],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 11,
+          "text": "export interface StandaloneDictionaryCacheItem {"
+        }
+      ]
+    },
+    {
+      "source": "lib/dictionaryStream.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 27,
+          "text": "export interface ParsedDictionaryStream {"
+        }
+      ]
+    },
+    {
+      "source": "lib/discoveryPolicy.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 4,
+          "text": "export type RejectionReason = typeof REJECTION_REASONS[number];"
+        }
+      ]
+    },
+    {
+      "source": "lib/discoveryStore.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 7,
+          "text": "export interface DiscoverySite extends RecommendationCrawlerSource {"
+        },
+        {
+          "line": 16,
+          "text": "export interface SiteDay {"
+        },
+        {
+          "line": 21,
+          "text": "export interface DiscoveryDay { day: string; sites: Record<string, SiteDay> }"
+        }
+      ]
+    },
+    {
+      "source": "lib/editorialBudget.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 4,
+          "text": "export interface EditorialRequestRecord { id:string; phase?:'scheduled'|'recovery'|'backlog'; article?:string; hash?:string; stage:string; model:string; at:string; durationMs?:number; status:string; httpStatus?:number; usage?:ProviderTokenUsage; microcny?:number; microusd?:number; reservedMicrocny:number }"
+        },
+        {
+          "line": 10,
+          "text": "export interface EditorialSpend {"
+        }
+      ]
+    },
+    {
+      "source": "lib/editorialBudgetPolicy.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 1,
+          "text": "export interface EditorialBudgetTrial { day: string; cny: number | null }"
+        }
+      ]
+    },
+    {
+      "source": "lib/editorialCuration.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 5,
+          "text": "export type EditorialCategory = Exclude<HomeCurationCategory, \"推荐\">;"
+        },
+        {
+          "line": 21,
+          "text": "export interface PublishedArticlePlacement {"
+        }
+      ]
+    },
+    {
+      "source": "lib/editorialFlash.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 59,
+          "text": "export interface FlashAudit { classification: ArticleClassificationResult; review: EditorialReview }"
+        }
+      ]
+    },
+    {
+      "source": "lib/editorialIntakePolicy.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 1,
+          "text": "export type IntakeOutcome = 'technical_pending' | 'content_rejected' | 'policy_skipped';"
+        },
+        {
+          "line": 2,
+          "text": "export type IntakeStage = 'discovery' | 'import' | 'extraction' | 'images' | 'review' | 'storage';"
+        },
+        {
+          "line": 3,
+          "text": "export type IntakeState = 'waiting' | 'retry' | 'attention' | 'rejected' | 'skipped' | 'candidate';"
+        },
+        {
+          "line": 4,
+          "text": "export interface IntakeEntry {"
+        }
+      ]
+    },
+    {
+      "source": "lib/editorialRepair.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 4,
+          "text": "export interface EditorialRepairEvidence {"
+        }
+      ]
+    },
+    {
+      "source": "lib/editorialReview.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 19,
+          "text": "export interface EditorialConfig { enabled: boolean; provider: EditorialProvider; jevMonthlyBudgetUsd: number; dailyReviewLimit: number; dailyBudgetCny?: number; budgetTrial?: EditorialBudgetTrial | null; jevAutoAdopt?: boolean; approvedJevChecks?: EditorialCheck[] }"
+        }
+      ]
+    },
+    {
+      "source": "lib/editorialReviewPolicy.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 13,
+          "text": "export type EditorialCheck = keyof typeof EDITORIAL_QUESTIONS;"
+        },
+        {
+          "line": 14,
+          "text": "export type EditorialDecisions = Record<EditorialCheck, boolean>;"
+        },
+        {
+          "line": 15,
+          "text": "export type EditorialProvider = \"deepseek\" | \"jev-shadow\";"
+        },
+        {
+          "line": 16,
+          "text": "export interface EditorialReview {"
+        }
+      ]
+    },
+    {
+      "source": "lib/editorialSourcePriority.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 6,
+          "text": "export type SourceCategoryYield = { total: number; categories: Partial<Record<Category, number>> };"
+        }
+      ]
+    },
+    {
+      "source": "lib/editorialSupplyRetry.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 2,
+          "text": "export interface SupplyRetryLedger {finished?:boolean;suspended?:boolean;shuffleCompleted?:boolean;nextSupplyRetryAt?:string;supplyRetryCount?:number;processingMs?:number;processingStartedAt?:string;startedAt?:string}"
+        }
+      ]
+    },
+    {
+      "source": "lib/experiencePreview.ts",
+      "storageAndEventEvidence": [
+        {
+          "line": 38,
+          "text": "} else if (url.pathname === \"/study\") window.dispatchEvent(new CustomEvent(\"context-reader-open-study\"));"
+        },
+        {
+          "line": 57,
+          "text": "else if(url.pathname===\"/study\")window.dispatchEvent(new CustomEvent(\"context-reader-open-study\"));"
+        }
+      ],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 7,
+          "text": "export type PreviewBalance = \"available\" | \"low\" | \"empty\";"
+        }
+      ]
+    },
+    {
+      "source": "lib/explanationDisplay.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 7,
+          "text": "export interface ExplanationDisplaySection {"
+        }
+      ]
+    },
+    {
+      "source": "lib/explanationStreamStore.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 20,
+          "text": "export type ExplanationStreamStore = ReturnType<typeof createExplanationStreamStore>;"
+        }
+      ]
+    },
+    {
+      "source": "lib/featureOrbitMotion.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 4,
+          "text": "export type FeatureOrbitGestureIntent = \"pending\" | \"horizontal\" | \"vertical\";"
+        }
+      ]
+    },
+    {
+      "source": "lib/feedbackStore.ts",
+      "storageAndEventEvidence": [
+        {
+          "line": 3,
+          "text": "export const FEEDBACK_BUCKET = \"context-reader-feedback\";"
+        }
+      ],
+      "schemaAndRpcEvidence": []
+    },
+    {
+      "source": "lib/guestCoverTouchSnap.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 1,
+          "text": "export type GuestCoverSnapTarget = \"cover\" | \"recommendations\";"
+        }
+      ]
+    },
+    {
+      "source": "lib/homepageCurationShared.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 2,
+          "text": "export type HomeCurationCategory = (typeof HOME_CURATION_CATEGORIES)[number];"
+        },
+        {
+          "line": 4,
+          "text": "export interface HomepageCuration {"
+        }
+      ]
+    },
+    {
+      "source": "lib/imageZoom.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 1,
+          "text": "export interface ImageZoomTransform {"
+        },
+        {
+          "line": 7,
+          "text": "export interface ImageZoomPoint {"
+        }
+      ]
+    },
+    {
+      "source": "lib/jevCalibration.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 6,
+          "text": "export interface JevSample { id: string; source: string; probabilities: Partial<Record<EditorialCheck, number>>; reference: EditorialDecisions; certain: boolean }"
+        },
+        {
+          "line": 34,
+          "text": "export interface JevAdoption { sampleDay: string; version: number; policyVersion: number; approvedChecks: EditorialCheck[]; completed: boolean }"
+        }
+      ]
+    },
+    {
+      "source": "lib/learningActivity.ts",
+      "storageAndEventEvidence": [
+        {
+          "line": 16,
+          "text": "const key=\"context-reader-active-learning:\"+owner;"
+        }
+      ],
+      "schemaAndRpcEvidence": []
+    },
+    {
+      "source": "lib/learningCachePolicy.ts",
+      "storageAndEventEvidence": [
+        {
+          "line": 5,
+          "text": "const key = \"context-reader:explanations:v5\";"
+        },
+        {
+          "line": 7,
+          "text": "const access = JSON.parse(storage.getItem(\"context-reader:cache-access:v1\") || \"{}\") as Record<string, number>;"
+        },
+        {
+          "line": 17,
+          "text": "if (removed) { storage.setItem(key, JSON.stringify(cache)); storage.setItem(\"context-reader:cache-access:v1\", JSON.stringify(access)); }"
+        }
+      ],
+      "schemaAndRpcEvidence": []
+    },
+    {
+      "source": "lib/learningStorage.ts",
+      "storageAndEventEvidence": [
+        {
+          "line": 6,
+          "text": "export const LEARNING_STORAGE_EVENT = \"context-reader:learning-storage\";"
+        },
+        {
+          "line": 7,
+          "text": "const DATABASE = \"context-reader-learning-v1\";"
+        },
+        {
+          "line": 9,
+          "text": "\"context-reader:cet-activities:v4\", \"context-reader:cet-finalizations:v4\","
+        },
+        {
+          "line": 10,
+          "text": "\"context-reader:cet-type-trail:v1\","
+        },
+        {
+          "line": 11,
+          "text": "\"context-reader:dictionary-history-events:v1\", \"context-reader:dictionary-history-migrations:v1\","
+        },
+        {
+          "line": 12,
+          "text": "\"context-reader:cet-progress:v1\","
+        },
+        {
+          "line": 13,
+          "text": "\"context-reader:cet-activities:v2\","
+        },
+        {
+          "line": 14,
+          "text": "\"context-reader:cet-activities:v3\","
+        },
+        {
+          "line": 15,
+          "text": "\"context-reader:cet-finalizations:v3\","
+        },
+        {
+          "line": 16,
+          "text": "\"context-reader:cet-finalizations:v2\","
+        },
+        {
+          "line": 17,
+          "text": "\"context-reader:cet-exposures:v2\","
+        },
+        {
+          "line": 18,
+          "text": "\"context-reader:articles:v1\", \"context-reader:vocabulary:v1\", \"context-reader:explanations:v5\","
+        },
+        {
+          "line": 19,
+          "text": "\"context-reader:article-translations:v1\", \"context-reader:article-translation-blocks:v1\","
+        },
+        {
+          "line": 20,
+          "text": "\"context-reader:reading-states:v1\", \"context-reader:standalone-dictionary-history:v1\","
+        },
+        {
+          "line": 21,
+          "text": "\"context-reader:standalone-dictionary-cache:v1\", \"context-reader:standalone-dictionary-cache:v2\","
+        },
+        {
+          "line": 22,
+          "text": "\"context-reader:sync-state:v2\", \"context-reader:sync-tombstones:v1\","
+        },
+        {
+          "line": 23,
+          "text": "\"context-reader:vocabulary-conflict-recovery:v1\", \"context-reader:vocabulary-backup-before-dedupe:v1\","
+        },
+        {
+          "line": 24,
+          "text": "\"context-reader:local-account-owner:v1\", \"context-reader:recommendation-preferences:v1\","
+        },
+        {
+          "line": 25,
+          "text": "\"context-reader:cache-access:v1\","
+        },
+        {
+          "line": 27,
+          "text": "const managed = (key: string) => LEGACY_KEYS.has(key) || key.startsWith(\"context-reader:temporary-reading:v1:\");"
+        },
+        {
+          "line": 48,
+          "text": "if (key === \"context-reader:sync-state:v2\") {"
+        },
+        {
+          "line": 171,
+          "text": "const owner = current.get(\"context-reader:local-account-owner:v1\");"
+        },
+        {
+          "line": 172,
+          "text": "const oldOwner = incoming.get(\"context-reader:local-account-owner:v1\");"
+        },
+        {
+          "line": 177,
+          "text": "if (key === \"context-reader:sync-state:v2\" || key === \"context-reader:local-account-owner:v1\") continue;"
+        },
+        {
+          "line": 188,
+          "text": "const deleted = current.get(\"context-reader:sync-state:v2\")?.rows.get(`${key === \"context-reader:articles:v1\" ? \"article\" : \"vocabulary\"}:${row.id}`);"
+        },
+        {
+          "line": 190,
+          "text": "if (!old || at > oldAt || (key === \"context-reader:sync-tombstones:v1\" && String(value) > String(oldValue))) changes.push(row);"
+        },
+        {
+          "line": 201,
+          "text": "this.legacy.removeItem(\"context-reader:indexeddb-sync-recovery:v1\");"
+        },
+        {
+          "line": 241,
+          "text": "this.persistedOwner = this.getItem(\"context-reader:local-account-owner:v1\");"
+        },
+        {
+          "line": 269,
+          "text": "const ownerBucket = loaded.get(\"context-reader:local-account-owner:v1\");"
+        },
+        {
+          "line": 288,
+          "text": "const nextOwner = this.getItem(\"context-reader:local-account-owner:v1\");"
+        },
+        {
+          "line": 290,
+          "text": "const ownerRequest = tx.objectStore(\"records\").get([\"context-reader:local-account-owner:v1\", \"$\"]);"
+        },
+        {
+          "line": 341,
+          "text": "if (changed) window.dispatchEvent(new CustomEvent(\"context-reader:account-data-merged\", { detail: { kinds: [] } }));"
+        },
+        {
+          "line": 355,
+          "text": "const blob = new Blob([JSON.stringify({ format: \"context-reader-local-backup-v1\", exportedAt: new Date().toISOString(), stores })], { type: \"application/json\" });"
+        },
+        {
+          "line": 357,
+          "text": "anchor.href = url; anchor.download = `context-reader-local-${new Date().toISOString().slice(0, 10)}.json`; anchor.click();"
+        }
+      ],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 32,
+          "text": "export interface LearningStorageStatus { ready: boolean; pending: boolean; error: string; usage?: number; quota?: number }"
+        },
+        {
+          "line": 207,
+          "text": "db.createObjectStore(\"records\", { keyPath: [\"bucket\", \"id\"] });"
+        },
+        {
+          "line": 208,
+          "text": "db.createObjectStore(\"collections\", { keyPath: \"key\" });"
+        },
+        {
+          "line": 209,
+          "text": "db.createObjectStore(\"legacyBackup\");"
+        },
+        {
+          "line": 210,
+          "text": "db.createObjectStore(\"meta\");"
+        },
+        {
+          "line": 211,
+          "text": "db.createObjectStore(\"bootstrap\");"
+        }
+      ]
+    },
+    {
+      "source": "lib/localAccountSession.ts",
+      "storageAndEventEvidence": [
+        {
+          "line": 5,
+          "text": "const LOCAL_ACCOUNT_SESSION_KEY = \"context-reader:last-account-session:v1\";"
+        }
+      ],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 7,
+          "text": "export interface LocalAccountSession {"
+        }
+      ]
+    },
+    {
+      "source": "lib/modelCatalog.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 8,
+          "text": "export type ModelId = typeof MODEL_CATALOG[number]['id'];"
+        },
+        {
+          "line": 10,
+          "text": "export type ModelFeature=keyof typeof MODEL_FEATURES;"
+        },
+        {
+          "line": 11,
+          "text": "export type ModelRoute={primary:ModelId;fallback:ModelId|null};"
+        },
+        {
+          "line": 12,
+          "text": "export type ModelConfig={version:1; routes:Record<ModelFeature,ModelRoute>;plans:Record<string,ModelRoute>;jevEnabled:boolean};"
+        }
+      ]
+    },
+    {
+      "source": "lib/overseasFetch.ts",
+      "storageAndEventEvidence": [
+        {
+          "line": 13,
+          "text": "\"context-reader-overseas-fetch.vercel.app\","
+        }
+      ],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 3,
+          "text": "export type RemoteDocumentMode = \"html\" | \"feed\";"
+        },
+        {
+          "line": 5,
+          "text": "export interface RemoteDocumentFetchResult {"
+        }
+      ]
+    },
+    {
+      "source": "lib/pronunciation.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 2,
+          "text": "export type PronunciationAccent = \"en-US\" | \"en-GB\";"
+        }
+      ]
+    },
+    {
+      "source": "lib/pronunciationClient.ts",
+      "storageAndEventEvidence": [
+        {
+          "line": 34,
+          "text": "return `context-reader-${accent === \"en-US\" ? \"us\" : \"uk\"}-${Date.now()}.mp3`;"
+        }
+      ],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 6,
+          "text": "export interface PronunciationMedia {"
+        }
+      ]
+    },
+    {
+      "source": "lib/pronunciationServer.ts",
+      "storageAndEventEvidence": [
+        {
+          "line": 11,
+          "text": "const PRONUNCIATION_BUCKET = \"context-reader-pronunciation\";"
+        },
+        {
+          "line": 188,
+          "text": "uid: `context-reader-${createHash(\"sha256\").update(text).digest(\"hex\").slice(0, 16)}`,"
+        }
+      ],
+      "schemaAndRpcEvidence": []
+    },
+    {
+      "source": "lib/readerBlockInteractivity.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 1,
+          "text": "export type ReaderBlockInteractivityListener = (interactive: boolean, urgent: boolean) => void;"
+        },
+        {
+          "line": 3,
+          "text": "export interface ReaderBlockInteractivityStore {"
+        }
+      ]
+    },
+    {
+      "source": "lib/readerBlockTokens.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 5,
+          "text": "export interface ReaderInlineTokenGroup {"
+        }
+      ]
+    },
+    {
+      "source": "lib/readingState.ts",
+      "storageAndEventEvidence": [
+        {
+          "line": 7,
+          "text": "export const READING_STATES_KEY = \"context-reader:reading-states:v1\";"
+        }
+      ],
+      "schemaAndRpcEvidence": []
+    },
+    {
+      "source": "lib/recommendationAutomation.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 208,
+          "text": "export interface RecommendationAutomationRunResponse {"
+        }
+      ]
+    },
+    {
+      "source": "lib/recommendationBalance.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 11,
+          "text": "export interface RecommendationBalanceSlot {"
+        },
+        {
+          "line": 17,
+          "text": "export interface RecommendationBalancePlanItem {"
+        }
+      ]
+    },
+    {
+      "source": "lib/recommendationFeed.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 13,
+          "text": "export interface FeedItem {"
+        }
+      ]
+    },
+    {
+      "source": "lib/recommendationPreferencesShared.ts",
+      "storageAndEventEvidence": [
+        {
+          "line": 3,
+          "text": "export const RECOMMENDATION_PREFERENCES_STORAGE_KEY = \"context-reader:recommendation-preferences:v1\";"
+        },
+        {
+          "line": 5,
+          "text": "export const RECOMMENDATION_PREFERENCES_CHANGED_EVENT = \"context-reader:recommendation-preferences-changed\";"
+        }
+      ],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 8,
+          "text": "export type RecommendationReadingLevel = (typeof RECOMMENDATION_READING_LEVELS)[number];"
+        },
+        {
+          "line": 20,
+          "text": "export type RecommendationInterest = (typeof RECOMMENDATION_INTERESTS)[number][\"id\"];"
+        },
+        {
+          "line": 22,
+          "text": "export interface RecommendationPreferences {"
+        }
+      ]
+    },
+    {
+      "source": "lib/recommendationSources.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 4,
+          "text": "export interface RecommendationCrawlerSource extends RecommendationCrawlerSourceInfo {"
+        }
+      ]
+    },
+    {
+      "source": "lib/requestCancellation.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 1,
+          "text": "export type StreamTermination = \"cancelled\" | \"timeout\" | \"failed\";"
+        }
+      ]
+    },
+    {
+      "source": "lib/sentenceQuestion.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 28,
+          "text": "export interface SentenceQuestionResult extends SentenceQuestionAnswer {"
+        }
+      ]
+    },
+    {
+      "source": "lib/siteNotificationEmail.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 3,
+          "text": "export type SiteEmailStatus = \"sent\" | \"failed\" | \"not_configured\";"
+        },
+        {
+          "line": 5,
+          "text": "export interface SiteEmailResult {"
+        }
+      ]
+    },
+    {
+      "source": "lib/sourceMatching.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 14,
+          "text": "export interface SourceSentenceIndex {"
+        }
+      ]
+    },
+    {
+      "source": "lib/standaloneDictionaryCache.ts",
+      "storageAndEventEvidence": [
+        {
+          "line": 17,
+          "text": "export const STANDALONE_DICTIONARY_CACHE_KEY = \"context-reader:standalone-dictionary-cache:v2\";"
+        }
+      ],
+      "schemaAndRpcEvidence": []
+    },
+    {
+      "source": "lib/standaloneDictionaryHistory.ts",
+      "storageAndEventEvidence": [
+        {
+          "line": 9,
+          "text": "export const STANDALONE_DICTIONARY_HISTORY_KEY = \"context-reader:standalone-dictionary-history:v1\";"
+        },
+        {
+          "line": 10,
+          "text": "export const STANDALONE_DICTIONARY_HISTORY_OBJECT_PREFIX = \"standalone-dictionary-history:\";"
+        },
+        {
+          "line": 14,
+          "text": "export const DICTIONARY_HISTORY_EVENTS_KEY = \"context-reader:dictionary-history-events:v1\";"
+        },
+        {
+          "line": 15,
+          "text": "export const DICTIONARY_HISTORY_EVENT_PREFIX = \"dictionary-history-event:v1:\";"
+        },
+        {
+          "line": 16,
+          "text": "export const DICTIONARY_HISTORY_MIGRATIONS_KEY = \"context-reader:dictionary-history-migrations:v1\";"
+        },
+        {
+          "line": 23,
+          "text": "return storage.getItem(\"context-reader:local-account-owner:v1\") || \"guest\";"
+        },
+        {
+          "line": 170,
+          "text": "const tombstones = JSON.parse(storage.getItem(\"context-reader:sync-tombstones:v1\") || \"{}\");"
+        }
+      ],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 17,
+          "text": "export interface DictionaryHistoryEvent {"
+        },
+        {
+          "line": 21,
+          "text": "export interface DictionaryQueryIntent { owner: string; event: DictionaryHistoryEvent }"
+        },
+        {
+          "line": 63,
+          "text": "export interface StandaloneDictionaryHistoryItem {"
+        }
+      ]
+    },
+    {
+      "source": "lib/studyNavigation.ts",
+      "storageAndEventEvidence": [
+        {
+          "line": 2,
+          "text": "export const OPEN_STUDY_EVENT = \"context-reader-open-study\";"
+        },
+        {
+          "line": 3,
+          "text": "export const STUDY_SOURCE_EVENT = \"context-reader-study-source\";"
+        },
+        {
+          "line": 4,
+          "text": "export const STUDY_SOURCE_RESULT_EVENT = \"context-reader-study-source-result\";"
+        },
+        {
+          "line": 5,
+          "text": "export const STUDY_VIEW_EVENT = \"context-reader-study-view\";"
+        },
+        {
+          "line": 6,
+          "text": "export function openStudy(tab?: unknown) { window.dispatchEvent(new CustomEvent(OPEN_STUDY_EVENT,{detail:tab===\"profile\"?\"profile\":\"today\"})); }"
+        }
+      ],
+      "schemaAndRpcEvidence": []
+    },
+    {
+      "source": "lib/studyStore.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 8,
+          "text": "export async function studyRpc<T>(name: string, args: Record<string, unknown>): Promise<T> {"
+        },
+        {
+          "line": 9,
+          "text": "return accountFetch<T>(\"rpc/study_\" + name, { method: \"POST\", body: JSON.stringify(args) });"
+        },
+        {
+          "line": 64,
+          "text": "studyRpc<StudySnapshot[\"daily\"]>(\"daily_stats_v2\", { p_user: userId }), getStudyPolicy(),"
+        }
+      ]
+    },
+    {
+      "source": "lib/temporaryReading.ts",
+      "storageAndEventEvidence": [
+        {
+          "line": 9,
+          "text": "const TEMPORARY_READING_PREFIX = \"context-reader:temporary-reading:v1:\";"
+        }
+      ],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 11,
+          "text": "export interface TemporaryReading {"
+        }
+      ]
+    },
+    {
+      "source": "lib/urlArticleExtractor.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 52,
+          "text": "export interface ExtractedUrlArticle {"
+        }
+      ]
+    },
+    {
+      "source": "lib/usageCost.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 1,
+          "text": "export interface ProviderTokenUsage {"
+        },
+        {
+          "line": 9,
+          "text": "export interface UsageExecutionSummaryRow extends ProviderTokenUsage {"
+        },
+        {
+          "line": 16,
+          "text": "export interface DailyUsageSummary {"
+        },
+        {
+          "line": 28,
+          "text": "export interface UsageFeatureSummary extends Omit<DailyUsageSummary, \"date\"> {"
+        }
+      ]
+    },
+    {
+      "source": "lib/usageGate.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 17,
+          "text": "export interface UsageGateResult {"
+        }
+      ]
+    },
+    {
+      "source": "lib/usageIdentity.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 12,
+          "text": "export interface UsageIdentity {"
+        }
+      ]
+    },
+    {
+      "source": "lib/usagePresentation.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 25,
+          "text": "export interface QuotaDetails extends UsageBalance {"
+        }
+      ]
+    },
+    {
+      "source": "lib/visionOcr.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 30,
+          "text": "export interface ImageLayoutWord {"
+        },
+        {
+          "line": 39,
+          "text": "export interface ImageLayoutResult {"
+        }
+      ]
+    },
+    {
+      "source": "lib/vocabulary.ts",
+      "storageAndEventEvidence": [
+        {
+          "line": 13,
+          "text": "const VOCABULARY_KEY = \"context-reader:vocabulary:v1\";"
+        },
+        {
+          "line": 14,
+          "text": "const VOCABULARY_PRE_DEDUPE_BACKUP_KEY = \"context-reader:vocabulary-backup-before-dedupe:v1\";"
+        }
+      ],
+      "schemaAndRpcEvidence": []
+    },
+    {
+      "source": "lib/vocabularyPresentation.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 3,
+          "text": "export interface StandaloneVocabularyPresentation {"
+        }
+      ]
+    },
+    {
+      "source": "lib/vocabularySearch.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 9,
+          "text": "export interface VocabularySearchIndex {"
+        }
+      ]
+    },
+    {
+      "source": "lib/wechatPay.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 3,
+          "text": "import { billingRpc } from \"@/lib/billingStore\";"
+        },
+        {
+          "line": 40,
+          "text": "export interface WechatTransaction { appid: string; mchid: string; out_trade_no: string; transaction_id: string; trade_state: string; amount: { total: number; currency: string } }"
+        },
+        {
+          "line": 47,
+          "text": "await billingRpc(\"settle\", { p_order: id, p_transaction: t.transaction_id, p_amount: t.amount.total });"
+        }
+      ]
+    },
+    {
+      "source": "lib/zhipuUsage.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 3,
+          "text": "export interface ZhipuExecution {"
+        },
+        {
+          "line": 22,
+          "text": "export type ZhipuUsageSummary = ReturnType<typeof summarizeZhipuUsage>;"
+        }
+      ]
+    },
+    {
+      "source": "types/account.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 1,
+          "text": "export type AccountPlanId = \"guest\" | \"free\" | \"basic\" | \"plus\" | \"max\" | \"admin\";"
+        },
+        {
+          "line": 2,
+          "text": "export type AccountStatus = \"active\" | \"suspended\" | \"deleted\";"
+        },
+        {
+          "line": 3,
+          "text": "export type GuestUsageMetricKey ="
+        },
+        {
+          "line": 9,
+          "text": "export type UsageMetricKey = string;"
+        },
+        {
+          "line": 11,
+          "text": "export interface AccountProfile {"
+        },
+        {
+          "line": 28,
+          "text": "export interface AccountPlanLimit {"
+        },
+        {
+          "line": 34,
+          "text": "export interface AccountPlan {"
+        },
+        {
+          "line": 42,
+          "text": "export interface AccountEntitlement {"
+        },
+        {
+          "line": 49,
+          "text": "export interface UsageBalance {"
+        },
+        {
+          "line": 57,
+          "text": "export interface AccountSessionState {"
+        },
+        {
+          "line": 71,
+          "text": "export interface UsageReservation {"
+        },
+        {
+          "line": 82,
+          "text": "export type SyncObjectKind ="
+        },
+        {
+          "line": 91,
+          "text": "export interface AccountSyncObject {"
+        },
+        {
+          "line": 100,
+          "text": "export interface AccountSyncWriteResult extends AccountSyncObject {"
+        }
+      ]
+    },
+    {
+      "source": "types/anki.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 1,
+          "text": "export type AnkiCardMode ="
+        },
+        {
+          "line": 7,
+          "text": "export interface AnkiCardInfo {"
+        },
+        {
+          "line": 19,
+          "text": "export interface AnkiSettings {"
+        },
+        {
+          "line": 24,
+          "text": "export interface AnkiAddNoteRequest {"
+        },
+        {
+          "line": 30,
+          "text": "export interface AnkiAddNoteResponse {"
+        }
+      ]
+    },
+    {
+      "source": "types/article.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 1,
+          "text": "export type ImportedArticleBlockType ="
+        },
+        {
+          "line": 11,
+          "text": "export type ImportedArticleInlineBaseline = \"sup\" | \"sub\";"
+        },
+        {
+          "line": 13,
+          "text": "export interface ImportedArticleInlineText {"
+        },
+        {
+          "line": 18,
+          "text": "export interface ImportedArticleTableCell {"
+        },
+        {
+          "line": 26,
+          "text": "export interface ImportedArticleTable {"
+        },
+        {
+          "line": 31,
+          "text": "export interface ImportedImageLayoutWord {"
+        },
+        {
+          "line": 40,
+          "text": "export interface ImportedArticleBlock {"
+        },
+        {
+          "line": 59,
+          "text": "export interface ArticleReadingStyle {"
+        },
+        {
+          "line": 68,
+          "text": "export interface ImportedArticle {"
+        },
+        {
+          "line": 81,
+          "text": "export interface SavedArticle {"
+        }
+      ]
+    },
+    {
+      "source": "types/cet.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 1,
+          "text": "export type CetType = \"cloze\" | \"matching\" | \"detail\" | \"listening\";"
+        },
+        {
+          "line": 2,
+          "text": "export interface CetListeningGroup {"
+        },
+        {
+          "line": 11,
+          "text": "export interface CetListeningAudio {"
+        },
+        {
+          "line": 19,
+          "text": "export interface CetListeningPlayback {"
+        },
+        {
+          "line": 25,
+          "text": "export interface CetQuestion {"
+        },
+        {
+          "line": 32,
+          "text": "export interface CetSection {"
+        },
+        {
+          "line": 44,
+          "text": "export interface CetPaper {"
+        },
+        {
+          "line": 56,
+          "text": "export interface CetAttempt {"
+        },
+        {
+          "line": 77,
+          "text": "export type CetPurpose = \"practice\" | \"self_test\";"
+        },
+        {
+          "line": 78,
+          "text": "export type CetActivityStatus = \"in_progress\" | \"paused\" | \"submitted\" | \"ended\";"
+        },
+        {
+          "line": 79,
+          "text": "export type CetFinalizationReason = \"passage_submit\" | \"manual_submit\" | \"time_expired\" | \"ended_for_study\" | \"legacy\";"
+        },
+        {
+          "line": 80,
+          "text": "export interface CetAnswerRevision {"
+        },
+        {
+          "line": 85,
+          "text": "export interface CetQuestionSnapshot {"
+        },
+        {
+          "line": 94,
+          "text": "export type CetUnderlineColor = \"blue\" | \"teal\" | \"amber\" | \"rose\";"
+        },
+        {
+          "line": 95,
+          "text": "export interface CetUnderline {"
+        },
+        {
+          "line": 109,
+          "text": "export interface CetFinalization {"
+        },
+        {
+          "line": 130,
+          "text": "export interface CetActivity {"
+        },
+        {
+          "line": 172,
+          "text": "export interface CetExposure {"
+        }
+      ]
+    },
+    {
+      "source": "types/dictionary.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 1,
+          "text": "export interface DictionarySense {"
+        },
+        {
+          "line": 13,
+          "text": "export interface DictionaryCollocation {"
+        },
+        {
+          "line": 19,
+          "text": "export interface DictionaryWordFamilyItem {"
+        },
+        {
+          "line": 25,
+          "text": "export interface DictionarySynonym {"
+        },
+        {
+          "line": 30,
+          "text": "export interface DictionaryVerbForms {"
+        },
+        {
+          "line": 36,
+          "text": "export type DictionaryInputStatus = \"valid\" | \"inflection\" | \"ambiguous\" | \"misspelled\";"
+        },
+        {
+          "line": 37,
+          "text": "export type DictionaryDirection = \"en_to_cn\" | \"cn_to_en\";"
+        },
+        {
+          "line": 39,
+          "text": "export interface DictionaryResult {"
+        }
+      ]
+    },
+    {
+      "source": "types/errorReport.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 1,
+          "text": "export type ErrorReportCategory ="
+        },
+        {
+          "line": 8,
+          "text": "export type ErrorReportSeverity = \"warning\" | \"error\" | \"critical\";"
+        },
+        {
+          "line": 9,
+          "text": "export type ErrorReportStatus = \"new\" | \"resolved\";"
+        },
+        {
+          "line": 10,
+          "text": "export type ErrorEmailStatus = \"sent\" | \"failed\" | \"not_configured\" | \"suppressed\";"
+        },
+        {
+          "line": 12,
+          "text": "export interface ErrorReportInput {"
+        },
+        {
+          "line": 26,
+          "text": "export interface StoredErrorReport extends ErrorReportInput {"
+        }
+      ]
+    },
+    {
+      "source": "types/publicArticle.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 28,
+          "text": "export type ArticleDifficulty = (typeof ARTICLE_DIFFICULTIES)[number];"
+        },
+        {
+          "line": 29,
+          "text": "export type ArticleCefrLevel = (typeof ARTICLE_CEFR_LEVELS)[number];"
+        },
+        {
+          "line": 30,
+          "text": "export type ArticleAudienceStage = (typeof ARTICLE_AUDIENCE_STAGES)[number];"
+        },
+        {
+          "line": 31,
+          "text": "export type ArticleTopic = (typeof ARTICLE_TOPICS)[number];"
+        },
+        {
+          "line": 32,
+          "text": "export type ArticleTimeliness = \"evergreen\" | \"time-sensitive\";"
+        },
+        {
+          "line": 33,
+          "text": "export type ArticleSourceKind = \"manual-paste\" | \"manual-url\" | \"local-saved\" | \"crawler\";"
+        },
+        {
+          "line": 34,
+          "text": "export type ArticleSourceProfile = \"general\" | \"youth\" | \"learner\" | \"exam\" | \"unknown\";"
+        },
+        {
+          "line": 35,
+          "text": "export type ArticleClassificationConfidence = \"low\" | \"medium\" | \"high\";"
+        },
+        {
+          "line": 36,
+          "text": "export type ArticleManualField ="
+        },
+        {
+          "line": 46,
+          "text": "export interface ArticleVocabularyProfile {"
+        },
+        {
+          "line": 53,
+          "text": "export interface ArticleDifficultyEvidence {"
+        },
+        {
+          "line": 70,
+          "text": "export interface ArticleRecommendationMetadata {"
+        },
+        {
+          "line": 106,
+          "text": "export interface PublicExplanation {"
+        },
+        {
+          "line": 114,
+          "text": "export interface PublicArticleTranslation {"
+        },
+        {
+          "line": 120,
+          "text": "export interface PublicArticle {"
+        },
+        {
+          "line": 136,
+          "text": "export interface PublicArticleInput {"
+        },
+        {
+          "line": 149,
+          "text": "export interface PublicArticleCandidateInput extends PublicArticleInput {"
+        }
+      ]
+    },
+    {
+      "source": "types/reader.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 1,
+          "text": "export type Difficulty = \"easy\" | \"medium\" | \"hard\";"
+        },
+        {
+          "line": 3,
+          "text": "export type TokenType = \"word\" | \"text\";"
+        },
+        {
+          "line": 5,
+          "text": "export interface ReaderToken {"
+        },
+        {
+          "line": 18,
+          "text": "export interface ParsedParagraph {"
+        },
+        {
+          "line": 23,
+          "text": "export interface ReaderViewportAnchor {"
+        },
+        {
+          "line": 32,
+          "text": "export interface ReaderViewportActivity {"
+        },
+        {
+          "line": 38,
+          "text": "export interface ReaderViewportReport {"
+        },
+        {
+          "line": 43,
+          "text": "export interface ReaderReadingProgress extends ReaderViewportAnchor {"
+        },
+        {
+          "line": 47,
+          "text": "export interface ArticleReadingState {"
+        },
+        {
+          "line": 54,
+          "text": "export interface WordContext {"
+        },
+        {
+          "line": 63,
+          "text": "export interface WordExplanation {"
+        },
+        {
+          "line": 81,
+          "text": "export interface ExplanationRequest {"
+        },
+        {
+          "line": 88,
+          "text": "export interface SentenceQuestionRequest extends ExplanationRequest {"
+        },
+        {
+          "line": 92,
+          "text": "export interface SentenceQuestionAnswer {"
+        },
+        {
+          "line": 96,
+          "text": "export interface ArticleTranslationBlock {"
+        },
+        {
+          "line": 102,
+          "text": "export interface ArticleTranslationItem {"
+        },
+        {
+          "line": 107,
+          "text": "export interface ArticleTranslationResult {"
+        }
+      ]
+    },
+    {
+      "source": "types/recommendationCrawler.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 4,
+          "text": "export type CrawlerDifficulty = ArticleDifficulty | \"any\";"
+        },
+        {
+          "line": 6,
+          "text": "export interface RecommendationCrawlerSourceInfo {"
+        },
+        {
+          "line": 13,
+          "text": "export interface RecommendationCrawlerStatus {"
+        },
+        {
+          "line": 21,
+          "text": "export interface RecommendationAutomationConfig {"
+        },
+        {
+          "line": 27,
+          "text": "export interface RecommendationAutomationState {"
+        },
+        {
+          "line": 45,
+          "text": "export interface RecommendationAutomationStatus {"
+        },
+        {
+          "line": 55,
+          "text": "export interface RecommendationCrawlerRunInput {"
+        },
+        {
+          "line": 71,
+          "text": "export interface RecommendationCrawlerSkippedItem {"
+        },
+        {
+          "line": 79,
+          "text": "export interface RecommendationCrawlerSourceError {"
+        },
+        {
+          "line": 84,
+          "text": "export interface RecommendationCrawlerRunResult {"
+        }
+      ]
+    },
+    {
+      "source": "types/study.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 3,
+          "text": "export type StudyAnswer = \"forgot\" | \"unsure_wrong\" | \"unsure_right\" | \"remembered\";"
+        },
+        {
+          "line": 4,
+          "text": "export interface StudyMemory {"
+        },
+        {
+          "line": 9,
+          "text": "export interface StudyCard {"
+        },
+        {
+          "line": 13,
+          "text": "export interface StudySettings {"
+        },
+        {
+          "line": 19,
+          "text": "export interface StudyReview {"
+        },
+        {
+          "line": 23,
+          "text": "export interface StudyDay {"
+        },
+        {
+          "line": 27,
+          "text": "export interface StudyMilestone { days:number; points:number; plan:\"basic\"|\"plus\"|\"max\"|null; months:number; }"
+        },
+        {
+          "line": 28,
+          "text": "export interface StudyReward { milestone:number; points:number; plan:string|null; months:number; earned_at:string; activated_at:string|null; ends_at:string|null; }"
+        },
+        {
+          "line": 29,
+          "text": "export interface StudyClaim { id:string; day:string|null; milestone:number|null; points:number; claimed_points:number; plan:string|null; months:number; earned_at:string; claimed_at:string|null; }"
+        },
+        {
+          "line": 30,
+          "text": "export interface StudyPolicy {"
+        },
+        {
+          "line": 35,
+          "text": "export interface StudySnapshot {"
+        }
+      ]
+    },
+    {
+      "source": "types/vocabulary.ts",
+      "storageAndEventEvidence": [],
+      "schemaAndRpcEvidence": [
+        {
+          "line": 4,
+          "text": "export interface VocabularySourceArticle {"
+        },
+        {
+          "line": 10,
+          "text": "export interface VocabularyEntry {"
+        }
+      ]
+    },
+    {
+      "source": "public/sw.js",
+      "storageAndEventEvidence": [
+        {
+          "line": 1,
+          "text": "const CACHE_VERSION = \"context-reader-v5\";"
+        },
+        {
+          "line": 19,
+          "text": ".then((keys) => Promise.all(keys.filter((key) => key.startsWith(\"context-reader-v\") && key !== CACHE_VERSION).map((key) => caches.delete(key))))"
+        }
+      ],
+      "schemaAndRpcEvidence": []
+    }
+  ],
+  "note": "Static storage/event/type/RPC evidence index. Preserve caller semantics; this is not a database schema dump or proof of runtime use."
+}
