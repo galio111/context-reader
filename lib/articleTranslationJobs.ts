@@ -7,18 +7,10 @@ import {
 import { fetchJson } from "@/lib/apiClient";
 import type { ArticleTranslationBlock, ArticleTranslationItem } from "@/types/reader";
 import { createArticleTranslationBatches } from "@/lib/articleTranslationBatching";
-
-const MAX_RETRY_ATTEMPTS = 8;
-const MAX_CONSECUTIVE_ZERO_PROGRESS_ATTEMPTS = 3;
-const RETRY_BASE_DELAY_MS = 2_000;
-const RETRY_MAX_DELAY_MS = 30_000;
-const FALLBACK_ERROR = "全文翻译生成失败，请稍后重试。";
-
-interface TranslationApiResponse {
-  translations?: ArticleTranslationItem[];
-  error?: string;
-  code?: string;
-}
+import { requestArticleTranslation, FALLBACK_ERROR, type TranslationApiResponse } from "@/lib/articleTranslationTransport";
+import { createArticleTranslationProgress } from "@/lib/articleTranslationProgress";
+import { getLearningStorage, LEARNING_STORAGE_EVENT } from "@/lib/learningStorage";
+import { ACCOUNT_DATA_MERGED_EVENT } from "@/lib/accountEvents";
 
 interface TranslationStartResponse extends TranslationApiResponse {
   actionId?: string;
@@ -42,6 +34,10 @@ export interface ArticleTranslationJobSnapshot {
 type ArticleTranslationJobListener = (snapshot: ArticleTranslationJobSnapshot) => void;
 
 interface ArticleTranslationJob extends ArticleTranslationJobSnapshot {
+  owner: string | null;
+  usageStarted: boolean;
+  requestedSettlement?: "succeeded" | "failed" | "cancelled";
+  settled?: boolean;
   controller: AbortController;
   actionId: string;
   startedAt: number;
@@ -50,6 +46,36 @@ interface ArticleTranslationJob extends ArticleTranslationJobSnapshot {
 
 const jobs = new Map<string, ArticleTranslationJob>();
 const listeners = new Map<string, Set<ArticleTranslationJobListener>>();
+const observedWindows = new WeakSet<Window>();
+
+function currentOwner(): string | null {
+  try { return getLearningStorage().getItem("context-reader:local-account-owner:v1"); }
+  catch { return null; }
+}
+
+function listenerKey(key: string, owner: string | null): string {
+  return JSON.stringify([owner, key]);
+}
+
+function discardOtherOwners(): void {
+  const owner = currentOwner();
+  for (const [key, job] of jobs) {
+    if (job.owner === owner) continue;
+    jobs.delete(key);
+    if (job.loading && !job.controller.signal.aborted) {
+      job.controller.abort();
+      void finishJobUsage(job, "cancelled");
+    }
+  }
+}
+
+function observeOwnerChanges(): void {
+  if (typeof window === "undefined" || observedWindows.has(window)) return;
+  observedWindows.add(window);
+  // React unmounts are deliberately not cancellation; an account owner replacement is.
+  window.addEventListener(LEARNING_STORAGE_EVENT, discardOtherOwners);
+  window.addEventListener(ACCOUNT_DATA_MERGED_EVENT, discardOtherOwners);
+}
 
 function snapshotJob(job: ArticleTranslationJob): ArticleTranslationJobSnapshot {
   return {
@@ -68,155 +94,9 @@ function snapshotJob(job: ArticleTranslationJob): ArticleTranslationJobSnapshot 
 
 function notifyJob(key: string): void {
   const job = jobs.get(key);
-  if (!job) return;
+  if (!job || job.owner !== currentOwner()) return;
   const snapshot = snapshotJob(job);
-  listeners.get(key)?.forEach((listener) => listener(snapshot));
-}
-
-function waitForRetry(
-  signal: AbortSignal,
-  delayMs: number,
-  onCountdown: (remainingSeconds: number) => void,
-): Promise<void> {
-  return new Promise((resolve, reject) => {
-    const deadline = Date.now() + delayMs;
-    const updateCountdown = () => onCountdown(Math.max(0, Math.ceil((deadline - Date.now()) / 1_000)));
-    updateCountdown();
-    const interval = window.setInterval(updateCountdown, 1_000);
-    const cleanup = () => {
-      window.clearInterval(interval);
-      signal.removeEventListener("abort", onAbort);
-    };
-    const onAbort = () => {
-      window.clearTimeout(timer);
-      cleanup();
-      reject(new DOMException("Aborted", "AbortError"));
-    };
-    const timer = window.setTimeout(() => {
-      cleanup();
-      resolve();
-    }, delayMs);
-    signal.addEventListener("abort", onAbort, { once: true });
-  });
-}
-
-async function requestArticleTranslation(
-  blocks: ArticleTranslationBlock[],
-  signal: AbortSignal,
-  contextBlocks: ArticleTranslationBlock[],
-  actionId: string,
-  onRetry: (delaySeconds: number, reason: string) => void,
-  onTranslation: (translation: ArticleTranslationItem) => void,
-): Promise<ArticleTranslationItem[]> {
-  const collected = new Map<string, ArticleTranslationItem>();
-  let consecutiveZeroProgressAttempts = 0;
-  for (let attempt = 0; attempt <= MAX_RETRY_ATTEMPTS; attempt += 1) {
-    const pendingBlocks = blocks.filter((block) => !collected.has(block.id));
-    if (!pendingBlocks.length) return blocks.map((block) => collected.get(block.id)!).filter(Boolean);
-    const collectedBeforeAttempt = collected.size;
-    let response: Response;
-    try {
-      response = await fetch("/api/translate-article", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-context-translation-action-id": actionId,
-          Accept: "application/x-ndjson",
-        },
-        body: JSON.stringify({ blocks: pendingBlocks, contextBlocks }),
-        signal,
-      });
-    } catch (error) {
-      if (signal.aborted || attempt === MAX_RETRY_ATTEMPTS) {
-        throw error;
-      }
-      const delayMs = Math.min(RETRY_MAX_DELAY_MS, RETRY_BASE_DELAY_MS * 2 ** attempt);
-      const retryReason = "网络连接暂时中断，正在等待恢复。";
-      await waitForRetry(signal, delayMs, (remainingSeconds) => onRetry(remainingSeconds, retryReason));
-      continue;
-    }
-
-    if (response.ok && response.body) {
-      const reader = response.body.getReader();
-      const decoder = new TextDecoder();
-      let buffer = "";
-      let streamError: TranslationApiResponse | null = null;
-      const consumeLine = (line: string) => {
-          if (!line.trim()) return;
-          let event: { type?: string; translation?: ArticleTranslationItem; error?: string; code?: string };
-          try { event = JSON.parse(line); }
-          catch { streamError = { error: "翻译流数据不完整。", code: "provider_temporary" }; return; }
-          if (event.type === "translation" && event.translation?.id && event.translation.translation?.trim()) {
-            if (!collected.has(event.translation.id)) {
-              collected.set(event.translation.id, event.translation);
-              onTranslation(event.translation);
-            }
-          } else if (event.type === "error") {
-            streamError = { error: event.error, code: event.code };
-          }
-      };
-      try {
-        while (true) {
-          const { done, value } = await reader.read();
-          buffer += decoder.decode(value, { stream: !done });
-          const lines = buffer.split(/\r?\n/);
-          buffer = lines.pop() ?? "";
-          for (const line of lines) consumeLine(line);
-          if (done) { consumeLine(buffer); break; }
-        }
-      } catch (error) {
-        if (signal.aborted) throw error;
-        streamError = { error: "翻译流连接中断。", code: "provider_temporary" };
-      }
-      if (!streamError && blocks.every((block) => collected.has(block.id))) {
-        return blocks.map((block) => collected.get(block.id)!).filter(Boolean);
-      }
-      streamError ??= { error: "AI 服务没有返回完整译文。", code: "provider_temporary" };
-      if (streamError) {
-        consecutiveZeroProgressAttempts = collected.size > collectedBeforeAttempt
-          ? 0
-          : consecutiveZeroProgressAttempts + 1;
-        if (consecutiveZeroProgressAttempts >= MAX_CONSECUTIVE_ZERO_PROGRESS_ATTEMPTS) {
-          throw new Error("AI 服务连续未返回可显示译文，请点击重试。");
-        }
-        if (attempt === MAX_RETRY_ATTEMPTS) throw new Error(streamError.error || FALLBACK_ERROR);
-        const delayMs = Math.min(RETRY_MAX_DELAY_MS, RETRY_BASE_DELAY_MS * 2 ** attempt);
-        const retryReason = "AI 翻译流短暂中断，正在续传未完成段落。";
-        await waitForRetry(signal, delayMs, (remainingSeconds) => onRetry(remainingSeconds, retryReason));
-        continue;
-      }
-    }
-
-    const data = await response.json().catch(() => null) as TranslationApiResponse | null;
-
-    const message = data?.error || FALLBACK_ERROR;
-    const canRetry =
-      data?.code === "provider_rate_limit" ||
-      data?.code === "provider_temporary" ||
-      data?.code === "local_concurrency" ||
-      data?.code === "site_rate_limit" ||
-      response.status === 429 ||
-      (response.status === 503 && data?.code !== "account_not_configured");
-    if (!canRetry || attempt === MAX_RETRY_ATTEMPTS) throw new Error(message);
-
-    const retryAfter = Number(response.headers.get("Retry-After"));
-    const delayMs = Math.min(
-      RETRY_MAX_DELAY_MS,
-      Math.max(
-        Number.isFinite(retryAfter) && retryAfter > 0 ? retryAfter * 1_000 : 0,
-        RETRY_BASE_DELAY_MS * 2 ** attempt,
-      ),
-    );
-    const retryReason = data?.code === "site_rate_limit" || response.status === 429
-      ? "本站正在平稳提交后续段落，避免瞬时请求过多。"
-      : data?.code === "provider_rate_limit"
-        ? "AI 翻译服务暂时限流，正在等待可用通道。"
-        : data?.code === "local_concurrency"
-          ? "当前有其他翻译任务，正在等待处理位置。"
-          : "AI 翻译服务短暂波动，正在等待恢复。";
-    await waitForRetry(signal, delayMs, (remainingSeconds) => onRetry(remainingSeconds, retryReason));
-  }
-  throw new Error(FALLBACK_ERROR);
+  listeners.get(listenerKey(key, job.owner))?.forEach((listener) => listener(snapshot));
 }
 
 async function startTranslationUsage(
@@ -252,18 +132,29 @@ async function finishTranslationUsage(actionId: string, status: "succeeded" | "f
   }).catch(() => undefined);
 }
 
+function finishJobUsage(job: ArticleTranslationJob, status: "succeeded" | "failed" | "cancelled"): Promise<void> {
+  job.requestedSettlement ??= status;
+  // Cancellation may win while /start is still reserving usage. Settle only after
+  // its response confirms the real action id (public-cache actions can replace it).
+  if (!job.usageStarted) return Promise.resolve();
+  if (job.settled) return Promise.resolve();
+  job.settled = true;
+  return finishTranslationUsage(job.actionId, job.requestedSettlement);
+}
+
 export function getArticleTranslationJobSnapshot(key: string): ArticleTranslationJobSnapshot | null {
   const job = jobs.get(key);
-  return job ? snapshotJob(job) : null;
+  return job && job.owner === currentOwner() ? snapshotJob(job) : null;
 }
 
 export function subscribeArticleTranslationJob(key: string, listener: ArticleTranslationJobListener): () => void {
-  const keyListeners = listeners.get(key) ?? new Set<ArticleTranslationJobListener>();
+  const scopedKey = listenerKey(key, currentOwner());
+  const keyListeners = listeners.get(scopedKey) ?? new Set<ArticleTranslationJobListener>();
   keyListeners.add(listener);
-  listeners.set(key, keyListeners);
+  listeners.set(scopedKey, keyListeners);
   return () => {
     keyListeners.delete(listener);
-    if (keyListeners.size === 0) listeners.delete(key);
+    if (keyListeners.size === 0) listeners.delete(scopedKey);
   };
 }
 
@@ -278,18 +169,23 @@ export async function startArticleTranslationJob(
     publicArticleId?: string;
   } = {},
 ): Promise<void> {
+  observeOwnerChanges();
+  discardOtherOwners();
+  const owner = currentOwner();
   const existingJob = jobs.get(key);
-  if (existingJob?.loading && !options.force) return;
-  if (existingJob && !existingJob.loading && !existingJob.error && existingJob.translations.length > 0 && !options.force) return;
+  if (existingJob?.owner === owner && existingJob.loading && !options.force) return;
+  if (existingJob?.owner === owner && !existingJob.loading && !existingJob.error && existingJob.translations.length > 0 && !options.force) return;
   if (existingJob?.loading) {
     existingJob.controller.abort();
-    void finishTranslationUsage(existingJob.actionId, "cancelled");
+    void finishJobUsage(existingJob, "cancelled");
   }
 
   const controller = new AbortController();
   let actionId = crypto.randomUUID();
   const initialTranslations = options.initialTranslations ?? [];
   const job: ArticleTranslationJob = {
+    owner,
+    usageStarted: false,
     controller,
     actionId,
     translations: initialTranslations,
@@ -307,6 +203,14 @@ export async function startArticleTranslationJob(
   };
   jobs.set(key, job);
   notifyJob(key);
+  const ensureCurrentJob = () => {
+    if (!controller.signal.aborted && job.owner !== currentOwner()) {
+      controller.abort();
+      if (jobs.get(key) === job) jobs.delete(key);
+      void finishJobUsage(job, "cancelled");
+    }
+    if (controller.signal.aborted || jobs.get(key) !== job) throw new DOMException("Aborted", "AbortError");
+  };
 
   try {
     const allBlocks = options.allBlocks ?? blocks;
@@ -319,6 +223,9 @@ export async function startArticleTranslationJob(
     );
     actionId = start.actionId ?? actionId;
     job.actionId = actionId;
+    job.usageStarted = true;
+    if (job.requestedSettlement) await finishJobUsage(job, job.requestedSettlement);
+    ensureCurrentJob();
 
     if (options.publicCache) {
       const available = new Map((start.translations ?? []).map((item) => [item.id, item]));
@@ -327,7 +234,7 @@ export async function startArticleTranslationJob(
       const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
       const revealed: ArticleTranslationItem[] = [];
       for (const translation of ordered) {
-        if (controller.signal.aborted) throw new DOMException("Aborted", "AbortError");
+        ensureCurrentJob();
         revealed.push(translation);
         job.translations = [...revealed];
         job.completedTargetBlocks = revealed.length;
@@ -335,6 +242,7 @@ export async function startArticleTranslationJob(
         notifyJob(key);
         if (!reduceMotion) await new Promise((resolve) => window.setTimeout(resolve, 45));
       }
+      ensureCurrentJob();
       job.loading = false;
       job.error = "";
       setCachedArticleTranslation(key, ordered);
@@ -343,25 +251,26 @@ export async function startArticleTranslationJob(
       return;
     }
 
-    const mergedTranslations: ArticleTranslationItem[] = [...initialTranslations];
-    const completedTargetIds = new Set<string>();
+    const progress = createArticleTranslationProgress(allBlocks, initialTranslations);
     for (const batch of createArticleTranslationBatches(blocks)) {
       await requestArticleTranslation(batch, controller.signal, allBlocks, actionId, (delaySeconds, reason) => {
+        // This callback also runs from an interval; abort the transport without
+        // throwing out of the browser's timer callback.
+        try { ensureCurrentJob(); } catch { return; }
         job.retryAfterSeconds = delaySeconds;
         job.retryReason = reason;
         notifyJob(key);
       }, (translation) => {
+        ensureCurrentJob();
         job.retryAfterSeconds = null;
         job.retryReason = null;
-        const existingIndex = mergedTranslations.findIndex((item) => item.id === translation.id);
-        if (existingIndex >= 0) mergedTranslations.splice(existingIndex, 1);
-        mergedTranslations.push(translation);
-        completedTargetIds.add(translation.id);
-        const mergedById = new Map(mergedTranslations.map((item) => [item.id, item]));
-        job.translations = allBlocks.map((block) => mergedById.get(block.id)).filter((item): item is ArticleTranslationItem => Boolean(item));
-        job.completedTargetBlocks = completedTargetIds.size;
+        const next = progress.accept(translation);
+        job.translations = next.translations;
+        job.completedTargetBlocks = next.completedTargetBlocks;
         setCachedArticleTranslation(key, job.translations);
-        setCachedArticleTranslationForBlocks(allBlocks, [translation]);
+        // The stream changes one block. Do not rebuild the whole article's block index per event.
+        const translatedBlock = progress.block(translation.id);
+        setCachedArticleTranslationForBlocks(translatedBlock ? [translatedBlock] : [], [translation]);
         const completedBlocks = Math.max(1, job.completedTargetBlocks);
         const remainingBlocks = Math.max(0, job.totalBlocks - job.completedTargetBlocks);
         const elapsedSeconds = Math.max(1, (Date.now() - job.startedAt) / 1_000);
@@ -369,6 +278,7 @@ export async function startArticleTranslationJob(
         notifyJob(key);
       });
     }
+    ensureCurrentJob();
     job.loading = false;
     job.error = "";
     job.estimatedSecondsRemaining = 0;
@@ -376,11 +286,14 @@ export async function startArticleTranslationJob(
     job.retryReason = null;
     setCachedArticleTranslation(key, job.translations);
     setCachedArticleTranslationForBlocks(allBlocks, job.translations);
-    await finishTranslationUsage(actionId, "succeeded");
+    await finishJobUsage(job, "succeeded");
     notifyJob(key);
   } catch (translationRequestError) {
+    // The failed response may also arrive after logout/account replacement.
+    try { ensureCurrentJob(); } catch { return; }
     if (controller.signal.aborted) return;
-    await finishTranslationUsage(actionId, "failed");
+    await finishJobUsage(job, "failed");
+    try { ensureCurrentJob(); } catch { return; }
     job.loading = false;
     job.retryAfterSeconds = null;
     job.retryReason = null;
