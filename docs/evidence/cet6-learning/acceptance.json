@@ -1,0 +1,76 @@
+{
+  "releaseId": "20261012T213932",
+  "parentReleaseId": "20261012T212808",
+  "sourceRevision": "458fe4cf53e332db5fe7390a4042ae894750657e",
+  "backendMode": "mainland_internal",
+  "sourceSha256": "4578aa9fd5ee0d0c54296bfe754670a13b36487536c56e9e97a840d265d2a4da",
+  "dictionary": {
+    "passed": true,
+    "words": 1724,
+    "senses": 3562,
+    "collocations": 5198,
+    "exactSourceCoverage": true,
+    "duplicateQueries": 0,
+    "chineseInEnglishExamples": 0,
+    "providerCalls": 0
+  },
+  "import": {
+    "bootstrapPages": 14,
+    "objects": 6941,
+    "vocabulary": 1724,
+    "caches": 1724,
+    "history": 1724,
+    "cards": 1724,
+    "states": {
+      "0": 1071,
+      "1": 2,
+      "2": 651
+    },
+    "reviews": 3622,
+    "rawEvents": 3623,
+    "usageBefore": 32,
+    "usageAfter": 32,
+    "providerCalls": 0
+  },
+  "snapshot": {
+    "passed": true,
+    "existingObjectsPreserved": 45,
+    "importedObjectsExact": 6896,
+    "memoriesPreserved": 1724,
+    "reviewsPreserved": 3622,
+    "answersSubmitted": 0
+  },
+  "browser": {
+    "passed": true,
+    "importedLearning": "wield",
+    "hintExamples": 2,
+    "typedQueries": [
+      "duplicate",
+      "paradigm",
+      "zoom"
+    ],
+    "generated": [],
+    "errors": [],
+    "answersSubmitted": 0
+  },
+  "cleanup": {
+    "passed": true,
+    "disposableQaRemoved": true,
+    "targetVerificationSessionRevoked": true,
+    "targetLogoutScope": "local",
+    "targetPasswordChanged": false,
+    "targetStudyAnswersSubmitted": 0
+  },
+  "validation": {
+    "build": "passed",
+    "studyTests": 17,
+    "criticalTests": 90,
+    "dictionaryTests": 21,
+    "releaseContracts": 9,
+    "sourceMemoryOutcomes": 5172,
+    "isolatedSql": "passed",
+    "schemaRestoreTables": 39,
+    "backendContainersRecreated": false,
+    "rollbackParentImage": "verified"
+  }
+}
