@@ -1,5 +1,9 @@
 # Production Release Governance
 
+## Preserving already-open pages
+
+All subsequent releases require `static-asset-retention-v1`: install the reviewed stable tools outside candidate archives, then retain current/candidate public build assets before cutover. `/opt/context-reader-shared/next-static` and its separate manifests survive image cleanup and app rollback. Do not expire hashed files to free space; capacity failure must stop release. Keep the current shared Caddy mount/route when rolling the app image back. Run `npm run test:release-safety` in CI and verify old-page article entry across an actual deployment. [Implementation, incident and acceptance evidence](release-safe-reader.md).
+
 ## Current accepted release
 
 Accepted `20261013T031701`, parent `20261013T030124`, source `cc7280dcd65060acef641596e48199e910e5cdab`. Developer-only real-page UI studio and atomic draft/publish/rollback store are live. The initial 191-file release `20261013T030124` was followed by an exact 9-file patch through the stable locked entrypoint. Public identity, ten-scene browser checks, draft persistence/conflict/restore, account/sync/Admin boundaries, slow-asset regression, actual database concurrency/atomic audit, health, backup and parent image are verified. Only app/caddy changed; five backend container identities remained unchanged. No QA recipe was published. Full coverage, evidence and remaining user visual/device gates: [UI design studio](ui-design-studio.md). Later documentation-only commits do not change the deployed source identity.

@@ -1,5 +1,9 @@
 # Context Reader Integration Guide
 
+## Build assets across releases
+
+Mainland production serves public `/_next/static/*` directly from the persistent read-only Caddy mount, with exact original bytes, immutable success caching and real non-cacheable missing responses. Dynamic gzip/zstd is enabled; the application's older `/api/static-asset/*` Brotli path remains a compatibility route for other environments. Install the reviewed stable retainer and seed historical images before the first protected cutover. Subsequent releases preserve current/candidate resources automatically; storage pressure blocks deployment rather than expiring old-page resources. Rollback must retain this route and mount. No API, account or sync schema changes are required. See [release-safe-reader.md](release-safe-reader.md) for verification and operating boundaries.
+
 
 ## 站内背单词（已生产，2026-10-06）
 
