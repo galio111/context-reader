@@ -1,0 +1,6100 @@
+{
+  "acceptedCode": "b590ed3",
+  "generatedAt": "2026-10-13",
+  "inventoryMethod": "Exact git b590ed3 source. Components TSX/TS/CSS + non-API app pages/layouts/globals + key motion helpers. API/provider business implementation excluded from visible inventory. Import reachability is not runtime-mount proof.",
+  "fileCount": 145,
+  "records": [
+    {
+      "file": "app/account/repair-vocabulary/page.tsx",
+      "lines": 62,
+      "status": "live-source",
+      "visibleTargets": [
+        "account.repair"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "@/components/SiteBackdrop"
+      ],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "app/account/usage/page.tsx",
+      "lines": 5,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "@/components/AccountUsagePageContent"
+      ],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "页面/布局接线文件，可见内容由目标清单中的子组件覆盖。"
+    },
+    {
+      "file": "app/admin/accounts/page.tsx",
+      "lines": 5,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [
+        "next/navigation"
+      ],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "页面/布局接线文件，可见内容由目标清单中的子组件覆盖。"
+    },
+    {
+      "file": "app/admin/experience/frame/page.tsx",
+      "lines": 18,
+      "status": "admin-preview-only",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "next/navigation",
+        "@/lib/adminAuth",
+        "@/lib/accountStore",
+        "@/types/account",
+        "@/lib/experiencePreview",
+        "@/components/ExperiencePreview",
+        "@/components/AccountUsagePageContent",
+        "@/components/BillingPage",
+        "@/app/page"
+      ],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "已列入源码库存；现有目录未细分内部控件，不能声明已支持逐项编辑"
+    },
+    {
+      "file": "app/admin/experience/page.tsx",
+      "lines": 8,
+      "status": "admin-preview-only",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "next/navigation",
+        "@/lib/adminAuth",
+        "@/components/ExperiencePreviewControls"
+      ],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "已列入源码库存；现有目录未细分内部控件，不能声明已支持逐项编辑"
+    },
+    {
+      "file": "app/admin/layout.tsx",
+      "lines": 10,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [
+        "react"
+      ],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "页面/布局接线文件，可见内容由目标清单中的子组件覆盖。"
+    },
+    {
+      "file": "app/admin/page.tsx",
+      "lines": 1138,
+      "status": "live-source",
+      "visibleTargets": [
+        "admin.navigation"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "@/lib/adminArticleClient",
+        "@/lib/adminFetch",
+        "@/components/AdminSection",
+        "next/dynamic",
+        "@/components/LoadingStatus",
+        "@/components/AdminBillingPanel",
+        "react",
+        "@/components/AdminModelsPanel",
+        "@/components/AdminAccountsPanel",
+        "@/components/ClearableField",
+        "@/components/AdminArticleIntakePanel",
+        "@/components/AdminArticleMetadataInspector",
+        "@/components/AdminHomepageCurationPanel",
+        "@/components/AdminFeedbackPanel",
+        "@/components/AdminErrorReportsPanel",
+        "@/components/ReaderView",
+        "@/components/SiteBackdrop",
+        "@/lib/articles",
+        "@/lib/articleWordCount",
+        "@/lib/discoveryPolicy",
+        "@/lib/articleMedia",
+        "@/lib/articleTranslationBlocks",
+        "@/lib/cache",
+        "@/types/article",
+        "@/types/publicArticle",
+        "@/lib/editorialCuration",
+        "@/lib/homepageCurationShared"
+      ],
+      "cssModuleClasses": [
+        "categoryFeatured",
+        "every",
+        "filter",
+        "find",
+        "findIndex",
+        "get",
+        "has",
+        "includeInRecommendation",
+        "join",
+        "length",
+        "map",
+        "recommendationFeatured",
+        "some",
+        "推荐"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "app/admin/public-image-repair/page.tsx",
+      "lines": 82,
+      "status": "live-source",
+      "visibleTargets": [
+        "admin.image-repair"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react"
+      ],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "app/globals.css",
+      "lines": 1957,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [
+        "effect.global-spinner",
+        "effect.legacy-home"
+      ],
+      "hasJsx": false,
+      "imports": [],
+      "cssModuleClasses": [
+        "is"
+      ],
+      "keyframes": [
+        {
+          "name": "cr-loading-spin",
+          "line": 7
+        },
+        {
+          "name": "home-demo-highlight",
+          "line": 156
+        },
+        {
+          "name": "home-demo-panel",
+          "line": 168
+        },
+        {
+          "name": "cr-loader-line-in",
+          "line": 598
+        },
+        {
+          "name": "cr-page-transition-buffer",
+          "line": 723
+        },
+        {
+          "name": "cr-word-enter",
+          "line": 1291
+        },
+        {
+          "name": "cr-word-guide",
+          "line": 1297
+        },
+        {
+          "name": "cr-word-press",
+          "line": 1304
+        },
+        {
+          "name": "cr-cursor-arrive",
+          "line": 1345
+        },
+        {
+          "name": "cr-cursor-wait",
+          "line": 1351
+        },
+        {
+          "name": "cr-waiting-ring",
+          "line": 1357
+        },
+        {
+          "name": "cr-click-ring",
+          "line": 1362
+        },
+        {
+          "name": "cr-guide-label-in",
+          "line": 1376
+        },
+        {
+          "name": "cr-blink",
+          "line": 1408
+        },
+        {
+          "name": "cr-demo-swipe",
+          "line": 1604
+        },
+        {
+          "name": "cr-hand-swipe",
+          "line": 1688
+        },
+        {
+          "name": "cr-article-title-arrive",
+          "line": 1752
+        },
+        {
+          "name": "cr-article-row-in",
+          "line": 1794
+        },
+        {
+          "name": "cr-connector-drop",
+          "line": 1828
+        },
+        {
+          "name": "cr-final-title-open",
+          "line": 1838
+        }
+      ],
+      "motionDeclarations": [
+        {
+          "line": 6,
+          "text": ".cr-loading-spinner { display: inline-block; flex: 0 0 auto; width: 1em; height: 1em; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: cr-loading-spin .85s linear infinite; }"
+        },
+        {
+          "line": 8,
+          "text": "@media (prefers-reduced-motion: reduce) { .cr-loading-spinner { animation: none; } }"
+        },
+        {
+          "line": 184,
+          "text": "animation: home-demo-highlight 5.5s cubic-bezier(0.16, 1, 0.3, 1) infinite;"
+        },
+        {
+          "line": 188,
+          "text": "animation: home-demo-panel 5.5s cubic-bezier(0.16, 1, 0.3, 1) infinite;"
+        },
+        {
+          "line": 194,
+          "text": "animation: none;"
+        },
+        {
+          "line": 465,
+          "text": "transition: background 1.2s var(--cr-ease);"
+        },
+        {
+          "line": 476,
+          "text": "transition: opacity .42s ease, filter .42s ease, transform .55s var(--cr-ease);"
+        },
+        {
+          "line": 560,
+          "text": "animation: cr-loader-line-in .8s var(--cr-ease) forwards;"
+        },
+        {
+          "line": 582,
+          "text": "transition: width 80ms linear;"
+        },
+        {
+          "line": 589,
+          "text": "transition: opacity .35s ease, transform .35s ease;"
+        },
+        {
+          "line": 595,
+          "text": "transition: transform .95s var(--cr-ease) .28s, visibility 0s 1.25s;"
+        },
+        {
+          "line": 611,
+          "text": "transition: clip-path .68s var(--cr-ease);"
+        },
+        {
+          "line": 614,
+          "text": ".cr-page-transition::after {"
+        },
+        {
+          "line": 625,
+          "text": "transition: opacity .45s ease .18s, transform .8s var(--cr-ease) .12s;"
+        },
+        {
+          "line": 635,
+          "text": "transition: opacity .28s ease .18s;"
+        },
+        {
+          "line": 674,
+          "text": "transition: transform .48s var(--cr-ease) .12s;"
+        },
+        {
+          "line": 714,
+          "text": "animation: cr-page-transition-buffer .8s var(--cr-ease) forwards;"
+        },
+        {
+          "line": 738,
+          "text": "backdrop-filter: blur(15px);"
+        },
+        {
+          "line": 748,
+          "text": "transition: opacity .8s ease .7s, transform .8s var(--cr-ease) .7s;"
+        },
+        {
+          "line": 797,
+          "text": "transition: transform .55s var(--cr-ease);"
+        },
+        {
+          "line": 863,
+          "text": "transition: border-color .18s ease, background .18s ease;"
+        },
+        {
+          "line": 902,
+          "text": "transition: transform .2s var(--cr-ease);"
+        },
+        {
+          "line": 924,
+          "text": "transition: opacity .18s ease, visibility .18s ease, transform .2s var(--cr-ease);"
+        },
+        {
+          "line": 1102,
+          "text": "transition: opacity .9s ease 1.05s, transform 1.1s var(--cr-ease) 1.05s;"
+        },
+        {
+          "line": 1114,
+          "text": "backdrop-filter: blur(18px);"
+        },
+        {
+          "line": 1181,
+          "text": "backdrop-filter: blur(22px) saturate(112%);"
+        },
+        {
+          "line": 1184,
+          "text": "transition: opacity .28s ease, transform .42s var(--cr-ease), visibility 0s .42s;"
+        },
+        {
+          "line": 1204,
+          "text": "transition: background .25s ease, transform .35s var(--cr-ease);"
+        },
+        {
+          "line": 1238,
+          "text": "transition: opacity .65s ease .42s, clip-path .8s var(--cr-ease) .42s, filter .8s ease .42s, transform .8s var(--cr-ease) .42s;"
+        },
+        {
+          "line": 1260,
+          "text": "transition: color .28s ease, transform .4s var(--cr-ease), text-shadow .3s ease;"
+        },
+        {
+          "line": 1269,
+          "text": "animation: cr-word-enter .72s var(--cr-ease) calc(.62s + var(--word-index) * 42ms) both;"
+        },
+        {
+          "line": 1273,
+          "text": "animation: none;"
+        },
+        {
+          "line": 1284,
+          "text": "animation: cr-word-guide .95s ease-in-out infinite;"
+        },
+        {
+          "line": 1288,
+          "text": "animation: cr-word-press .28s var(--cr-ease) forwards !important;"
+        },
+        {
+          "line": 1333,
+          "text": "animation: cr-cursor-arrive 1.45s var(--cr-ease) forwards;"
+        },
+        {
+          "line": 1336,
+          "text": ".cr-hero-cursor.is-waiting { opacity: 1; animation: cr-cursor-wait .7s ease-in-out 1.45s infinite; }"
+        },
+        {
+          "line": 1338,
+          "text": "animation:"
+        },
+        {
+          "line": 1342,
+          "text": ".cr-hero-cursor.is-waiting::after { animation: cr-waiting-ring 1.15s ease-out 1.45s infinite; }"
+        },
+        {
+          "line": 1343,
+          "text": ".cr-hero-cursor.is-pressing::after { animation: cr-click-ring .55s ease-out; }"
+        },
+        {
+          "line": 1373,
+          "text": "animation: cr-guide-label-in .45s var(--cr-ease) 1.25s both;"
+        },
+        {
+          "line": 1404,
+          "text": "animation: cr-blink .55s steps(1) infinite;"
+        },
+        {
+          "line": 1509,
+          "text": ".cr-phrase-section.is-active .cr-phrase-layout > h2 span { transition: opacity .65s ease, clip-path .85s var(--cr-ease), transform 1s var(--cr-ease); }"
+        },
+        {
+          "line": 1529,
+          "text": ".cr-phrase-section.is-active .cr-demo-row { transition: opacity .7s ease .35s, transform .9s var(--cr-ease) .35s; }"
+        },
+        {
+          "line": 1570,
+          "text": "transition: width 2.2s var(--cr-ease), opacity .18s ease;"
+        },
+        {
+          "line": 1601,
+          "text": "animation: cr-demo-swipe 1.72s var(--cr-ease) forwards;"
+        },
+        {
+          "line": 1634,
+          "text": "transition: opacity .75s ease, transform 1s var(--cr-ease);"
+        },
+        {
+          "line": 1642,
+          "text": "perspective: 720px;"
+        },
+        {
+          "line": 1659,
+          "text": "transition: background .25s ease;"
+        },
+        {
+          "line": 1682,
+          "text": "animation: cr-hand-swipe 5.1s var(--cr-ease) infinite;"
+        },
+        {
+          "line": 1686,
+          "text": ".cr-phrase-unit.is-explained .cr-gesture-hand { opacity: 0; animation: none; }"
+        },
+        {
+          "line": 1749,
+          "text": "animation: cr-article-title-arrive 1.1s var(--cr-ease) both;"
+        },
+        {
+          "line": 1777,
+          "text": "transition: padding .45s var(--cr-ease);"
+        },
+        {
+          "line": 1787,
+          "text": "transition: transform .65s var(--cr-ease);"
+        },
+        {
+          "line": 1791,
+          "text": "animation: cr-article-row-in .42s var(--cr-ease) calc(.14s + var(--row-index) * 40ms) both;"
+        },
+        {
+          "line": 1803,
+          "text": ".cr-article-list strong { display: block; overflow: hidden; font-size: clamp(1.65rem, 3.2vw, 3.15rem); font-weight: 520; line-height: 1.05; text-overflow: ellipsis; white-space: nowrap; transition: transform .65s var(--cr-ease); }"
+        },
+        {
+          "line": 1805,
+          "text": ".cr-article-list > button > span:last-child { font-size: 28px; transition: transform .55s var(--cr-ease); }"
+        },
+        {
+          "line": 1827,
+          "text": ".cr-final-section.is-active::before { animation: cr-connector-drop 1.25s var(--cr-ease) forwards; }"
+        },
+        {
+          "line": 1836,
+          "text": ".cr-final-section.is-active h2 { animation: cr-final-title-open 1.2s var(--cr-ease) both; }"
+        },
+        {
+          "line": 1908,
+          "text": ".cr-page-transition::after { right: -19vw; bottom: -15vw; width: 68vw; height: 68vw; }"
+        }
+      ]
+    },
+    {
+      "file": "app/guide/page.tsx",
+      "lines": 11,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "next",
+        "@/components/GuidePageContent"
+      ],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "页面/布局接线文件，可见内容由目标清单中的子组件覆盖。"
+    },
+    {
+      "file": "app/home-v2/page.tsx",
+      "lines": 23,
+      "status": "route-redirect",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "next/navigation"
+      ],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "已列入源码库存；现有目录未细分内部控件，不能声明已支持逐项编辑"
+    },
+    {
+      "file": "app/layout.tsx",
+      "lines": 36,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "next",
+        "@/components/AppProviders",
+        "./globals.css"
+      ],
+      "cssModuleClasses": [
+        "css"
+      ],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "页面/布局接线文件，可见内容由目标清单中的子组件覆盖。"
+    },
+    {
+      "file": "app/page.tsx",
+      "lines": 51,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "next",
+        "react-dom",
+        "@/components/HomeClient",
+        "@/lib/homepageCuration",
+        "@/lib/publicArticles",
+        "@/lib/publicArticleSummary",
+        "@/lib/homepageBootstrap",
+        "@/lib/discoveryPolicy",
+        "@/lib/homepageRecommendations",
+        "@/lib/recommendationPreferencesShared",
+        "@/lib/coverSources"
+      ],
+      "cssModuleClasses": [
+        "map",
+        "preview"
+      ],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "页面/布局接线文件，可见内容由目标清单中的子组件覆盖。"
+    },
+    {
+      "file": "app/pricing/page.tsx",
+      "lines": 2,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "@/components/BillingPage"
+      ],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "页面/布局接线文件，可见内容由目标清单中的子组件覆盖。"
+    },
+    {
+      "file": "app/study/page.tsx",
+      "lines": 2,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [
+        "next/navigation"
+      ],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "页面/布局接线文件，可见内容由目标清单中的子组件覆盖。"
+    },
+    {
+      "file": "components/AccountLearningSummary.module.css",
+      "lines": 10,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/AccountLearningSummary.tsx",
+      "lines": 37,
+      "status": "live-source",
+      "visibleTargets": [
+        "account.learning"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "./AccountProvider",
+        "./LoadingStatus",
+        "@/lib/cetActivityStorage",
+        "@/lib/cetLearningSummary",
+        "@/lib/accountEvents",
+        "@/lib/studyNavigation",
+        "./AccountLearningSummary.module.css"
+      ],
+      "cssModuleClasses": [
+        "metrics",
+        "note",
+        "section"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/AccountProvider.tsx",
+      "lines": 827,
+      "status": "shared-state-and-visible-dialogs",
+      "visibleTargets": [
+        "account.login",
+        "account.login-title",
+        "account.login-fields",
+        "account.login-switch",
+        "account.login-submit",
+        "account.password-hint",
+        "global.offline",
+        "global.storage-error",
+        "global.usage-toast"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "@/components/LoadingStatus",
+        "@/lib/accountUsageNavigation",
+        "@/lib/usagePresentation",
+        "@/lib/startupPerformance",
+        "@/lib/learningStorage",
+        "next/link",
+        "./useAccountActivity",
+        "react",
+        "@/components/ClearableField",
+        "@/lib/accountEvents",
+        "@/lib/clientErrorReporting",
+        "@/lib/accountSyncClient",
+        "@/lib/localAccountSession",
+        "@/types/account",
+        "@/types/account",
+        "@/lib/passwordPolicy"
+      ],
+      "cssModuleClasses": [
+        "add",
+        "clear",
+        "current",
+        "error",
+        "length",
+        "pending",
+        "ready",
+        "size"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/AccountUsagePageContent.tsx",
+      "lines": 248,
+      "status": "live-source",
+      "visibleTargets": [
+        "account.root",
+        "account.title",
+        "account.intro",
+        "account.state",
+        "account.guest-login",
+        "account.profile-fields",
+        "account.usage-bars"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "./LoadingStatus",
+        "./AccountLearningSummary",
+        "@/lib/learningStorage",
+        "next/link",
+        "react",
+        "@/components/AccountProvider",
+        "@/components/SiteBackdrop",
+        "@/lib/accountSyncClient",
+        "@/components/BillingPage",
+        "@/lib/passwordPolicy",
+        "@/lib/usagePresentation",
+        "@/types/account"
+      ],
+      "cssModuleClasses": [
+        "initial",
+        "pulledCount",
+        "pushedCount",
+        "quota",
+        "usage"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/AdminAccountsPanel.tsx",
+      "lines": 402,
+      "status": "live-source",
+      "visibleTargets": [
+        "admin.AdminAccountsPanel"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "./AdminSection",
+        "./AdminArticleUsageDetails",
+        "./AdminModelsPanel",
+        "./AdminProductAnalytics",
+        "./AdminUsageReport",
+        "./AdminUsageReport.module.css",
+        "@/components/ClearableField",
+        "react",
+        "@/components/AdminInvitationCodesPanel",
+        "@/components/AdminStudyPanel",
+        " | ",
+        " | ",
+        ", label: ",
+        ", label: "
+      ],
+      "cssModuleClasses": [
+        "content",
+        "details",
+        "filter",
+        "layout",
+        "learning_points",
+        "length",
+        "map",
+        "mobileNav",
+        "navigation",
+        "some",
+        "toLocaleString"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/AdminArticleIntakePanel.tsx",
+      "lines": 765,
+      "status": "live-source",
+      "visibleTargets": [
+        "admin.AdminArticleIntakePanel"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "@/lib/adminArticleClient",
+        "@/lib/adminFetch",
+        "./LoadingStatus",
+        "react",
+        "@/components/ClearableField",
+        "@/components/AdminDiscoveryPanel",
+        "@/lib/discoveryPolicy",
+        "@/lib/articleWordCount",
+        "@/types/article",
+        "@/types/publicArticle",
+        " | ",
+        ");\n    setError(",
+        " || working === ",
+        "); setError("
+      ],
+      "cssModuleClasses": [
+        "filter",
+        "find",
+        "includes",
+        "indexOf",
+        "join",
+        "length",
+        "map",
+        "trim"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/AdminArticleMetadataInspector.module.css",
+      "lines": 55,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": [
+        {
+          "line": 32,
+          "text": "transition: transform 220ms cubic-bezier(.22, 1, .36, 1), box-shadow 180ms ease;"
+        },
+        {
+          "line": 54,
+          "text": ".inspector { transition: none; }"
+        }
+      ]
+    },
+    {
+      "file": "components/AdminArticleMetadataInspector.tsx",
+      "lines": 307,
+      "status": "live-source",
+      "visibleTargets": [
+        "admin.AdminArticleMetadataInspector"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "./LoadingStatus",
+        "react",
+        "@/components/ClearableField",
+        "@/lib/discoveryPolicy",
+        "@/lib/articleWordCount",
+        "@/lib/articleMedia",
+        "@/lib/editorialCuration",
+        "@/lib/articleAudience",
+        "@/components/AdminArticleMetadataInspector.module.css",
+        "@/types/publicArticle"
+      ],
+      "cssModuleClasses": [
+        "backdrop",
+        "filter",
+        "includes",
+        "inspector",
+        "join",
+        "length",
+        "mobileClose",
+        "trim"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/AdminArticleUsageDetails.tsx",
+      "lines": 108,
+      "status": "live-source",
+      "visibleTargets": [
+        "admin.AdminArticleUsageDetails"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "./LoadingStatus",
+        "@/lib/adminFetch"
+      ],
+      "cssModuleClasses": [
+        "length",
+        "map",
+        "toLocaleString"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/AdminBillingPanel.tsx",
+      "lines": 18,
+      "status": "live-source",
+      "visibleTargets": [
+        "admin.AdminBillingPanel"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "@/lib/billingStore"
+      ],
+      "cssModuleClasses": [
+        "length",
+        "map"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/AdminDiscoveryPanel.module.css",
+      "lines": 26,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/AdminDiscoveryPanel.tsx",
+      "lines": 119,
+      "status": "live-source",
+      "visibleTargets": [
+        "admin.AdminDiscoveryPanel"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "./LoadingStatus",
+        "react",
+        "@/lib/discoveryStore",
+        "@/types/recommendationCrawler",
+        "@/types/publicArticle",
+        "./AdminEditorialSettings",
+        "./AdminDiscoveryPanel.module.css"
+      ],
+      "cssModuleClasses": [
+        "day",
+        "enabled",
+        "error",
+        "feedback",
+        "filter",
+        "id",
+        "includes",
+        "join",
+        "length",
+        "levelHint",
+        "map",
+        "panel",
+        "sites",
+        "some"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/AdminEditorialSettings.module.css",
+      "lines": 25,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/AdminEditorialSettings.tsx",
+      "lines": 65,
+      "status": "live-source",
+      "visibleTargets": [
+        "admin.AdminEditorialSettings"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "./LoadingStatus",
+        "react",
+        "@/lib/editorialReview",
+        "./AdminEditorialSettings.module.css",
+        "@/lib/editorialIntake",
+        "]}<br />{issue.reason}</p>\n          <button type="
+      ],
+      "cssModuleClasses": [
+        "attention",
+        "candidate",
+        "check",
+        "fields",
+        "intake",
+        "issue",
+        "length",
+        "map",
+        "module",
+        "rejected",
+        "retry",
+        "root",
+        "skipped",
+        "waiting"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/AdminErrorReportsPanel.tsx",
+      "lines": 240,
+      "status": "live-source",
+      "visibleTargets": [
+        "admin.AdminErrorReportsPanel"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "./LoadingStatus",
+        "react",
+        "@/types/errorReport"
+      ],
+      "cssModuleClasses": [
+        "filter",
+        "length",
+        "map"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/AdminFeedbackPanel.tsx",
+      "lines": 218,
+      "status": "live-source",
+      "visibleTargets": [
+        "admin.AdminFeedbackPanel"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react"
+      ],
+      "cssModuleClasses": [
+        "filter",
+        "length",
+        "map"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/AdminHomepageCurationPanel.tsx",
+      "lines": 121,
+      "status": "live-source",
+      "visibleTargets": [
+        "admin.AdminHomepageCurationPanel"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "@/lib/adminFetch",
+        "react",
+        "@/lib/homepageCurationShared",
+        "@/types/publicArticle",
+        "@/lib/editorialCuration"
+      ],
+      "cssModuleClasses": [
+        "filter",
+        "includes",
+        "indexOf",
+        "length",
+        "map",
+        "slice"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/AdminInvitationCodesPanel.tsx",
+      "lines": 248,
+      "status": "live-source",
+      "visibleTargets": [
+        "admin.AdminInvitationCodesPanel"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "@/components/ClearableField"
+      ],
+      "cssModuleClasses": [
+        "className",
+        "label",
+        "length",
+        "map"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/AdminModelsPanel.tsx",
+      "lines": 33,
+      "status": "live-source",
+      "visibleTargets": [
+        "admin.AdminModelsPanel"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "@/lib/adminFetch",
+        "./LoadingStatus",
+        "react",
+        "@/lib/modelCatalog"
+      ],
+      "cssModuleClasses": [
+        "map"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/AdminProductAnalytics.tsx",
+      "lines": 58,
+      "status": "live-source",
+      "visibleTargets": [
+        "admin.AdminProductAnalytics"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "./LoadingStatus",
+        "./AdminUsageReport.module.css"
+      ],
+      "cssModuleClasses": [
+        "button",
+        "details",
+        "header",
+        "link",
+        "muted",
+        "over120",
+        "report",
+        "section",
+        "summary",
+        "table",
+        "tableWrap",
+        "toolbar",
+        "under30",
+        "warning"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/AdminSection.tsx",
+      "lines": 9,
+      "status": "nonvisual",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react"
+      ],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "无独立可视根节点 / 由父节点或专用效果入口覆盖"
+    },
+    {
+      "file": "components/AdminStudyPanel.tsx",
+      "lines": 28,
+      "status": "live-source",
+      "visibleTargets": [
+        "admin.AdminStudyPanel"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "@/types/study"
+      ],
+      "cssModuleClasses": [
+        "filter",
+        "length",
+        "map"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/AdminUsageReport.module.css",
+      "lines": 5,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/AdminUsageReport.tsx",
+      "lines": 60,
+      "status": "live-source",
+      "visibleTargets": [
+        "admin.AdminUsageReport"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "./LoadingStatus",
+        "react",
+        "@/lib/adminUsageReport",
+        "./AdminUsageReport.module.css"
+      ],
+      "cssModuleClasses": [
+        "at",
+        "button",
+        "details",
+        "empty",
+        "failure",
+        "filter",
+        "find",
+        "flatMap",
+        "header",
+        "includes",
+        "length",
+        "link",
+        "loading",
+        "map",
+        "muted",
+        "nested",
+        "report",
+        "section",
+        "set",
+        "slice",
+        "source",
+        "summary",
+        "table",
+        "tableWrap",
+        "tabs",
+        "title",
+        "toolbar",
+        "warning"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/AdminZhipuUsage.tsx",
+      "lines": 32,
+      "status": "legacy",
+      "visibleTargets": [
+        "legacy.AdminZhipuUsage"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "@/lib/zhipuUsage"
+      ],
+      "cssModuleClasses": [
+        "toLocaleString"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/AnkiPreviewModal.tsx",
+      "lines": 144,
+      "status": "legacy",
+      "visibleTargets": [
+        "legacy.AnkiPreviewModal"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "@/lib/displayLabels",
+        "@/components/PronunciationButtons",
+        "@/components/VocabularyLearningDetails",
+        "@/lib/pronunciation",
+        "@/types/vocabulary"
+      ],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/AnkiSettingsPanel.tsx",
+      "lines": 70,
+      "status": "legacy",
+      "visibleTargets": [
+        "legacy.AnkiSettingsPanel"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "@/lib/ankiTemplates",
+        "@/components/ClearableField",
+        "@/types/anki"
+      ],
+      "cssModuleClasses": [
+        "deckName",
+        "endpoint"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/AppProviders.tsx",
+      "lines": 11,
+      "status": "nonvisual",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "next/navigation",
+        "react",
+        "./AccountProvider",
+        "./StudyHost",
+        "./PwaRegistration"
+      ],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "无独立可视根节点 / 由父节点或专用效果入口覆盖"
+    },
+    {
+      "file": "components/ArticleCover.tsx",
+      "lines": 130,
+      "status": "live-source",
+      "visibleTargets": [
+        "home.cover-surface"
+      ],
+      "effects": [
+        "effect.cover-tilt"
+      ],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "@/types/publicArticle",
+        "@/lib/coverMediaQueue",
+        "@/lib/coverSources",
+        "./HomeRedesign.module.css"
+      ],
+      "cssModuleClasses": [
+        "coverClip",
+        "coverFallback",
+        "coverFeatured",
+        "coverSurface",
+        "height",
+        "left",
+        "sourceUrl",
+        "top",
+        "width"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/ArticleInput.tsx",
+      "lines": 451,
+      "status": "legacy",
+      "visibleTargets": [
+        "legacy.ArticleInput"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "./LoadingStatus",
+        "next/link",
+        "react",
+        "@/components/HomeReadingDemo",
+        "@/components/ClearableField",
+        "@/components/ImmersiveHome",
+        "@/components/VocabularyPanel",
+        "@/lib/accountEvents",
+        "@/lib/articles",
+        "@/lib/pronunciation",
+        "@/lib/csv",
+        "@/lib/vocabulary",
+        "@/types/article",
+        "@/types/publicArticle",
+        "@/types/vocabulary",
+        "@/components/AccountProvider"
+      ],
+      "cssModuleClasses": [
+        "includes",
+        "length",
+        "map",
+        "slice"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/ArticleTranslationPanel.tsx",
+      "lines": 112,
+      "status": "live-source",
+      "visibleTargets": [
+        "reader.translation",
+        "reader.translation-regenerate",
+        "reader.translation-retry"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "./LoadingStatus",
+        "@/lib/accountUsageNavigation",
+        "react",
+        "@/types/reader"
+      ],
+      "cssModuleClasses": [
+        "length",
+        "map"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/Ballpit.tsx",
+      "lines": 1097,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [
+        "effect.ballpit"
+      ],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "three",
+        "three/examples/jsm/environments/RoomEnvironment.js"
+      ],
+      "cssModuleClasses": [
+        "add",
+        "ambientLight",
+        "animationFrame",
+        "bottom",
+        "camera",
+        "canvas",
+        "canvasBounds",
+        "center",
+        "config",
+        "correction",
+        "count",
+        "debugPerformance",
+        "defines",
+        "degToRad",
+        "departureProgress",
+        "difference",
+        "disposed",
+        "environmentTexture",
+        "frustumCulled",
+        "gatherProgress",
+        "gatherStartPositions",
+        "geometry",
+        "getContext",
+        "handleIntersection",
+        "handlePointerLeave",
+        "handlePointerMove",
+        "handleResize",
+        "handleVisibilityChange",
+        "height",
+        "initializePositions",
+        "initializeSizes",
+        "initializeVelocities",
+        "initialized",
+        "instanceColor",
+        "instanceMatrix",
+        "intersectionObserver",
+        "intersectionPoint",
+        "isAnimating",
+        "isIntersecting",
+        "lastInteractionAt",
+        "lastRenderedAt",
+        "left",
+        "length",
+        "lerp",
+        "map",
+        "material",
+        "onBeforeCompile",
+        "otherPosition",
+        "otherVelocity",
+        "parentElement",
+        "performanceFrameCount",
+        "performanceLastFrame",
+        "performanceSampleStart",
+        "performanceWorkTotal",
+        "performanceWorstGap",
+        "physics",
+        "pointLight",
+        "pointerPlane",
+        "pointerPosition",
+        "position",
+        "positionData",
+        "randFloat",
+        "randFloatSpread",
+        "raycaster",
+        "renderer",
+        "resize",
+        "resizeFrame",
+        "resizeObserver",
+        "right",
+        "scene",
+        "setColorAt",
+        "setColors",
+        "setMatrixAt",
+        "sizeData",
+        "smoothstep",
+        "spheres",
+        "start",
+        "stop",
+        "style",
+        "thermalTime",
+        "thicknessUniforms",
+        "timer",
+        "top",
+        "transformObject",
+        "update",
+        "velocity",
+        "velocityCorrection",
+        "velocityData",
+        "width"
+      ],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "通过独立动效清单和父画布容器覆盖。"
+    },
+    {
+      "file": "components/BillingPage.module.css",
+      "lines": 21,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": [
+        {
+          "line": 4,
+          "text": ".back{display:inline-flex;align-items:center;gap:9px;padding:0 16px;border:1px solid var(--line);border-radius:999px;background:rgb(255 255 255 / 75%);backdrop-filter:blur(12px);font-size:13px;transition:background .18s ease}.back:hover{background:#fff}.back svg{width:16px;height:16px}"
+        },
+        {
+          "line": 6,
+          "text": ".switcher{position:relative;display:grid;grid-template-columns:1fr 1fr;width:220px;padding:4px;border:1px solid var(--line);border-radius:999px;background:#eaf0f3}.switcher::before{content:\"\";position:absolute;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);border-radius:999px;background:#fff;box-shadow:0 2px 5px rgb(23 52 67 / 10%);transition:transform .22s cubic-bezier(.16,1,.3,1)}.switcher[data-term=\"year\"]::before{transform:translateX(100%)}.switcher button{position:relative;min-height:38p"
+        },
+        {
+          "line": 9,
+          "text": ".primary{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:11px 18px;border:1px solid #bbcbd5;border-radius:999px;color:var(--ink);background:#fff;font-size:14px;font-weight:600;transition:background .18s ease,border-color .18s ease,transform .18s ease}.primary svg{width:16px;height:16px;transition:transform .18s ease}.card[data-featured] .primary,.checkout .primary{border-color:var(--accent);background:var(--accent);color:#fff}.primary:not(:disabled):hover{backg"
+        },
+        {
+          "line": 11,
+          "text": ".free{display:flex;align-items:center;gap:24px;padding:22px 28px;margin-top:16px;border:1px solid var(--line);border-radius:12px;background:rgb(255 255 255 / 55%)}.freeTitle{display:flex;align-items:center;flex-wrap:wrap;gap:10px}.free h2{font-size:17px;font-weight:600}.free p{margin-top:3px;color:var(--muted);font-size:13px}.freePoints{display:flex;align-items:baseline;gap:6px;margin-left:auto;white-space:nowrap}.freePoints strong{font-size:22px;font-weight:500;font-variant-numeric:tabular-nums"
+        },
+        {
+          "line": 21,
+          "text": "@media(prefers-reduced-motion:reduce){.page *,.page *::before{transition:none!important;scroll-behavior:auto!important}}"
+        }
+      ]
+    },
+    {
+      "file": "components/BillingPage.tsx",
+      "lines": 130,
+      "status": "live-source",
+      "visibleTargets": [
+        "pricing.page",
+        "pricing.navigation",
+        "pricing.heading",
+        "pricing.period",
+        "pricing.grid",
+        "pricing.card",
+        "pricing.price",
+        "pricing.primary",
+        "pricing.points",
+        "pricing.free",
+        "pricing.checkout",
+        "pricing.rules",
+        "pricing.orders",
+        "pricing.dialog"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "next/link",
+        "@/lib/experiencePreview",
+        "@/lib/billingClient",
+        "./LoadingStatus",
+        "react",
+        "react-dom",
+        "@/components/AccountProvider",
+        "@/lib/billingStore",
+        "@/lib/billingPolicy",
+        "./BillingPage.module.css",
+        "qrcode"
+      ],
+      "cssModuleClasses": [
+        "addon",
+        "availability",
+        "back",
+        "brand",
+        "card",
+        "cardTop",
+        "checkout",
+        "content",
+        "costs",
+        "currency",
+        "current",
+        "dialog",
+        "filter",
+        "find",
+        "focus",
+        "footnote",
+        "free",
+        "freeAction",
+        "freePoints",
+        "freeTitle",
+        "grid",
+        "guide",
+        "heading",
+        "length",
+        "loading",
+        "map",
+        "nav",
+        "notice",
+        "orders",
+        "page",
+        "period",
+        "points",
+        "price",
+        "primary",
+        "qr",
+        "ruleBody",
+        "rules",
+        "rulesIntro",
+        "saving",
+        "subPrice",
+        "support",
+        "switcher",
+        "tagline",
+        "time",
+        "toLocaleString"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/BookDictionary.module.css",
+      "lines": 929,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [
+        "effect.dictionary-stream",
+        "effect.dictionary-pulse"
+      ],
+      "hasJsx": false,
+      "imports": [],
+      "cssModuleClasses": [],
+      "keyframes": [
+        {
+          "name": "streamPulse",
+          "line": 506
+        },
+        {
+          "name": "loading",
+          "line": 555
+        },
+        {
+          "name": "blockReveal",
+          "line": 723
+        }
+      ],
+      "motionDeclarations": [
+        {
+          "line": 354,
+          "text": "transition: background .18s ease, color .18s ease;"
+        },
+        {
+          "line": 378,
+          "text": "transition: background .18s ease, color .18s ease;"
+        },
+        {
+          "line": 504,
+          "text": ".streamStarting i { background: #2868ad; animation: streamPulse .8s ease-in-out infinite alternate; }"
+        },
+        {
+          "line": 550,
+          "text": ".skeleton i { display: block; height: 18px; border-radius: 4px; background: linear-gradient(90deg, #e7edf1, #f7f9fa, #e7edf1); background-size: 220% 100%; animation: loading 1.2s linear infinite; }"
+        },
+        {
+          "line": 720,
+          "text": ".streamingResult footer { animation: blockReveal .22s cubic-bezier(.22, 1, .36, 1) both; }"
+        },
+        {
+          "line": 722,
+          "text": ".streamTail i { width: 7px; height: 7px; border-radius: 50%; background: #2868ad; animation: streamPulse .8s ease-in-out infinite alternate; }"
+        },
+        {
+          "line": 907,
+          "text": ".skeleton i { animation: none; }"
+        },
+        {
+          "line": 909,
+          "text": ".streamTail i { animation: none; }"
+        },
+        {
+          "line": 915,
+          "text": ".streamingResult footer { animation: none; }"
+        }
+      ]
+    },
+    {
+      "file": "components/BookDictionary.tsx",
+      "lines": 927,
+      "status": "live-source",
+      "visibleTargets": [
+        "dictionary.root",
+        "dictionary.search",
+        "dictionary.submit",
+        "dictionary.history",
+        "dictionary.history-match",
+        "dictionary.history-more",
+        "dictionary.examples",
+        "dictionary.results",
+        "dictionary.toolbar",
+        "dictionary.regenerate",
+        "dictionary.correction",
+        "dictionary.meaning",
+        "dictionary.forms",
+        "dictionary.usage",
+        "dictionary.collocations",
+        "dictionary.related",
+        "dictionary.translations",
+        "dictionary.pronunciations",
+        "dictionary.stream",
+        "dictionary.empty"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "./LoadingStatus",
+        "@/lib/accountUsageNavigation",
+        "react",
+        "@/components/PronunciationButtons",
+        "@/components/AccountProvider",
+        "@/lib/learningStorage",
+        "@/components/ClearableField",
+        "@/lib/accountEvents",
+        "@/lib/clientErrorReporting",
+        "@/lib/dictionaryStream",
+        "@/lib/dictionarySpelling",
+        "@/lib/lookupCancellationClient",
+        "@/lib/standaloneDictionaryCache",
+        "@/lib/standaloneDictionaryHistory",
+        "@/types/dictionary",
+        "@/lib/dictionaryResultSnapshot",
+        "./BookDictionary.module.css",
+        "@/lib/dictionaryPronunciation",
+        "@/lib/pronunciation"
+      ],
+      "cssModuleClasses": [
+        "WheelEvent",
+        "backButton",
+        "chineseResult",
+        "choiceGuide",
+        "compact",
+        "correction",
+        "details",
+        "dictionary",
+        "embedded",
+        "empty",
+        "error",
+        "examples",
+        "filter",
+        "flatMap",
+        "force",
+        "get",
+        "headingPage",
+        "history",
+        "historyBlock",
+        "historyDelete",
+        "historyHasMore",
+        "historyLabel",
+        "historyList",
+        "historyListItem",
+        "historyMatches",
+        "historyMore",
+        "historyQuery",
+        "historyRecent",
+        "historyRecentDelete",
+        "historyRecentItem",
+        "includes",
+        "join",
+        "kicker",
+        "length",
+        "map",
+        "pageLabel",
+        "pageTopline",
+        "panel",
+        "panelIntro",
+        "pastParticiple",
+        "pastTense",
+        "presentParticiple",
+        "pronunciation",
+        "pronunciationVariant",
+        "pronunciationVariantRow",
+        "pronunciationVariants",
+        "regenerateButton",
+        "relatedHeading",
+        "result",
+        "resultActions",
+        "resultPage",
+        "resultToolbar",
+        "savedDetail",
+        "search",
+        "searchField",
+        "senseOrigin",
+        "senses",
+        "set",
+        "streamStarting",
+        "streamTail",
+        "streamingResult",
+        "synonymLookup",
+        "translationGroup",
+        "translationGroups",
+        "translationHead",
+        "translationMistakes",
+        "translationUsage",
+        "translations",
+        "twoColumns",
+        "usage",
+        "verbForms"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/BookHome.module.css",
+      "lines": 2707,
+      "status": "legacy-style",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [],
+      "cssModuleClasses": [],
+      "keyframes": [
+        {
+          "name": "hintPulse",
+          "line": 378
+        },
+        {
+          "name": "overlayIn",
+          "line": 763
+        },
+        {
+          "name": "menuIn",
+          "line": 764
+        },
+        {
+          "name": "forewordMetaReveal",
+          "line": 1358
+        },
+        {
+          "name": "forewordGlyphReveal",
+          "line": 1363
+        },
+        {
+          "name": "forewordCopyReveal",
+          "line": 1369
+        },
+        {
+          "name": "forewordSignatureLabelReveal",
+          "line": 1374
+        },
+        {
+          "name": "forewordSignatureReveal",
+          "line": 1379
+        },
+        {
+          "name": "chapterInkReveal",
+          "line": 1423
+        },
+        {
+          "name": "spreadAwake",
+          "line": 1567
+        },
+        {
+          "name": "coverFaceOcclusion",
+          "line": 1723
+        },
+        {
+          "name": "coverBackReveal",
+          "line": 1728
+        },
+        {
+          "name": "coverFaceReturn",
+          "line": 1733
+        },
+        {
+          "name": "coverBackHide",
+          "line": 1738
+        },
+        {
+          "name": "openingCamera",
+          "line": 1907
+        },
+        {
+          "name": "closingCamera",
+          "line": 1913
+        },
+        {
+          "name": "coverLightSweep",
+          "line": 1935
+        },
+        {
+          "name": "scrollCoverCamera",
+          "line": 1988
+        },
+        {
+          "name": "scrollBookBody",
+          "line": 1994
+        },
+        {
+          "name": "scrollBookEdges",
+          "line": 2005
+        },
+        {
+          "name": "scrollClosedBook",
+          "line": 2010
+        },
+        {
+          "name": "scrollBackBoard",
+          "line": 2018
+        },
+        {
+          "name": "scrollRightPageBlock",
+          "line": 2033
+        },
+        {
+          "name": "scrollLeftPageBlock",
+          "line": 2038
+        },
+        {
+          "name": "scrollFrontBoard",
+          "line": 2052
+        },
+        {
+          "name": "scrollCoverFace",
+          "line": 2074
+        },
+        {
+          "name": "scrollCoverBack",
+          "line": 2079
+        },
+        {
+          "name": "scrollForeEdge",
+          "line": 2084
+        },
+        {
+          "name": "scrollSpreadReveal",
+          "line": 2097
+        },
+        {
+          "name": "scrollSpineReveal",
+          "line": 2109
+        },
+        {
+          "name": "scrollCoverLight",
+          "line": 2120
+        },
+        {
+          "name": "scrollMobileCamera",
+          "line": 2585
+        },
+        {
+          "name": "scrollMobileClosedBook",
+          "line": 2591
+        },
+        {
+          "name": "scrollMobileBackBoard",
+          "line": 2599
+        },
+        {
+          "name": "scrollMobilePageBlock",
+          "line": 2612
+        },
+        {
+          "name": "scrollMobileFrontBoard",
+          "line": 2616
+        },
+        {
+          "name": "scrollMobileForeEdge",
+          "line": 2637
+        }
+      ],
+      "motionDeclarations": [
+        {
+          "line": 53,
+          "text": "transition: opacity .2s ease;"
+        },
+        {
+          "line": 146,
+          "text": "transition: transform .2s var(--ease);"
+        },
+        {
+          "line": 176,
+          "text": "perspective: 2400px;"
+        },
+        {
+          "line": 193,
+          "text": "transition: transform .88s var(--ease), box-shadow .65s ease;"
+        },
+        {
+          "line": 223,
+          "text": "transition: opacity .62s ease, transform .82s var(--ease), filter .5s ease;"
+        },
+        {
+          "line": 323,
+          "text": "transition: color .18s ease, background .18s ease;"
+        },
+        {
+          "line": 363,
+          "text": "animation: hintPulse 1.4s ease-in-out infinite;"
+        },
+        {
+          "line": 424,
+          "text": "transition: opacity .45s ease, transform .7s var(--ease);"
+        },
+        {
+          "line": 482,
+          "text": ".continueReading strong { overflow: hidden; font-size: 13px; text-overflow: ellipsis; white-space: nowrap; transition: color .18s ease; }"
+        },
+        {
+          "line": 540,
+          "text": "transition: border-color .18s ease, box-shadow .18s ease;"
+        },
+        {
+          "line": 581,
+          "text": "transition: transform .18s ease, background .18s ease;"
+        },
+        {
+          "line": 629,
+          "text": "transition:"
+        },
+        {
+          "line": 745,
+          "text": "animation: overlayIn .2s ease both;"
+        },
+        {
+          "line": 760,
+          "text": "animation: menuIn .34s var(--ease) both;"
+        },
+        {
+          "line": 896,
+          "text": "transition: transform .68s var(--ease);"
+        },
+        {
+          "line": 902,
+          "text": ".readerEntering::after { opacity: 1; transition: opacity .22s ease .48s; }"
+        },
+        {
+          "line": 944,
+          "text": "perspective: 1800px;"
+        },
+        {
+          "line": 1015,
+          "text": "transition: transform 1.48s var(--ease), opacity .18s ease 1.26s, visibility 0s linear 1.66s;"
+        },
+        {
+          "line": 1062,
+          "text": ".demoInstruction i { animation: none; }"
+        },
+        {
+          "line": 1064,
+          "text": ".menuPanel { animation: none; }"
+        },
+        {
+          "line": 1098,
+          "text": "perspective: 2800px;"
+        },
+        {
+          "line": 1115,
+          "text": "transition: box-shadow .7s ease, transform .7s var(--ease);"
+        },
+        {
+          "line": 1180,
+          "text": "transition: opacity .18s ease, visibility 0s linear .18s;"
+        },
+        {
+          "line": 1186,
+          "text": "transition: opacity .2s ease, visibility 0s;"
+        },
+        {
+          "line": 1255,
+          "text": "animation: forewordMetaReveal 480ms cubic-bezier(.16, 1, .3, 1) both;"
+        },
+        {
+          "line": 1262,
+          "text": "animation: none !important;"
+        },
+        {
+          "line": 1284,
+          "text": "perspective: 700px;"
+        },
+        {
+          "line": 1296,
+          "text": "animation: forewordGlyphReveal 760ms cubic-bezier(.16, 1, .3, 1) both;"
+        },
+        {
+          "line": 1322,
+          "text": "animation: forewordCopyReveal 720ms cubic-bezier(.16, 1, .3, 1) both;"
+        },
+        {
+          "line": 1351,
+          "text": "animation: forewordSignatureLabelReveal 520ms cubic-bezier(.16, 1, .3, 1) 1280ms both;"
+        },
+        {
+          "line": 1355,
+          "text": "animation: forewordSignatureReveal 680ms cubic-bezier(.16, 1, .3, 1) 1370ms both;"
+        },
+        {
+          "line": 1411,
+          "text": "animation: chapterInkReveal 820ms cubic-bezier(.16, 1, .3, 1) both;"
+        },
+        {
+          "line": 1548,
+          "text": "transition: opacity .7s ease .72s, transform .9s var(--ease);"
+        },
+        {
+          "line": 1564,
+          "text": ".coverOpening .book::after { transition: opacity .8s ease .42s; }"
+        },
+        {
+          "line": 1565,
+          "text": ".coverOpening .spreadActive { animation: spreadAwake 1.72s var(--ease) both; }"
+        },
+        {
+          "line": 1578,
+          "text": "perspective: 2800px;"
+        },
+        {
+          "line": 1597,
+          "text": "transition: transform .5s var(--ease), filter .5s ease;"
+        },
+        {
+          "line": 1618,
+          "text": "transition: right 1.82s var(--ease), left 1.82s var(--ease), box-shadow 1.2s ease, border-radius 1.1s ease;"
+        },
+        {
+          "line": 1632,
+          "text": "transition: left 1.82s var(--ease), right 1.82s var(--ease), opacity .72s ease .48s, border-radius 1.1s ease;"
+        },
+        {
+          "line": 1679,
+          "text": "transition: top .45s ease, bottom .45s ease, left 1.82s var(--ease), right 1.82s var(--ease), width 1.82s var(--ease), transform 1.9s cubic-bezier(.14,.78,.18,1), filter .45s ease;"
+        },
+        {
+          "line": 1716,
+          "text": ".coverOpening .coverFace { animation: coverFaceOcclusion 1.9s linear both; }"
+        },
+        {
+          "line": 1717,
+          "text": ".coverOpening .frontBoardBack { animation: coverBackReveal 1.9s linear both; }"
+        },
+        {
+          "line": 1718,
+          "text": ".coverClosing .coverFace { animation: coverFaceReturn 1.9s linear both; }"
+        },
+        {
+          "line": 1719,
+          "text": ".coverClosing .frontBoardBack { animation: coverBackHide 1.9s linear both; }"
+        },
+        {
+          "line": 1876,
+          "text": "transition: opacity .55s ease, right 1.82s var(--ease), width 1.1s ease;"
+        },
+        {
+          "line": 1904,
+          "text": ".coverOpening .bookShell { animation: openingCamera 2.08s var(--ease) both; }"
+        },
+        {
+          "line": 1905,
+          "text": ".coverClosing .bookShell { animation: closingCamera 1.92s var(--ease) both; }"
+        },
+        {
+          "line": 1933,
+          "text": ".coverOpening .coverFace::after { animation: coverLightSweep 1.08s ease-out both; }"
+        },
+        {
+          "line": 2179,
+          "text": "transition: transform .25s var(--ease), background .25s ease;"
+        },
+        {
+          "line": 2223,
+          "text": ".interestChoices button { border: 1px solid #b7c6d0; color: #38566b; background: transparent; font: 12px Arial, sans-serif; cursor: pointer; transition: border-color .18s ease, color .18s ease, background .18s ease, transform .18s ease; }"
+        },
+        {
+          "line": 2248,
+          "text": "backdrop-filter: blur(8px);"
+        },
+        {
+          "line": 2406,
+          "text": "perspective: none;"
+        },
+        {
+          "line": 2465,
+          "text": "animation: none;"
+        },
+        {
+          "line": 2535,
+          "text": "animation: none !important;"
+        },
+        {
+          "line": 2689,
+          "text": "animation: none;"
+        },
+        {
+          "line": 2702,
+          "text": "animation: none;"
+        }
+      ]
+    },
+    {
+      "file": "components/BookHome.tsx",
+      "lines": 2134,
+      "status": "legacy",
+      "visibleTargets": [
+        "legacy.BookHome"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "next/dynamic",
+        "react",
+        "@/components/ExplanationPanel",
+        "@/components/BookDictionary",
+        "@/components/BookLetterField",
+        "@/components/BookRecommendations",
+        "@/components/ClearableField",
+        "@/components/CurvedPageTurn",
+        "@/components/FeedbackPanel",
+        "@/components/HomeOptionMenu",
+        "@/components/PillNavAction",
+        "@/components/VocabularyPanel",
+        "@/components/AccountProvider",
+        "@/lib/accountEvents",
+        "@/lib/cache",
+        "@/lib/standaloneDictionaryHistory",
+        "@/lib/contextExplanationClient",
+        "@/lib/csv",
+        "@/lib/explanationDisplay",
+        "@/lib/savedArticleMerge",
+        "@/lib/pronunciation",
+        "@/lib/standaloneDictionary",
+        "@/lib/tokenizer",
+        "@/lib/vocabulary",
+        "@/types/article",
+        "@/types/dictionary",
+        "@/types/publicArticle",
+        "@/types/reader",
+        "@/types/vocabulary",
+        "./BookHome.module.css",
+        "@/components/Ballpit"
+      ],
+      "cssModuleClasses": [
+        "activeMode",
+        "ambient",
+        "articleEntryPage",
+        "articleForm",
+        "articleInputModes",
+        "backBoard",
+        "book",
+        "bookForeEdge",
+        "bookShell",
+        "brand",
+        "chapterRail",
+        "chapterReveal",
+        "chapterRevealActive",
+        "chapterRevealHidden",
+        "chapterRevealPrinted",
+        "choiceGrid",
+        "choiceSelected",
+        "closedBook",
+        "contextExplanationPage",
+        "contextPageHeader",
+        "continueMarker",
+        "continueReading",
+        "coverAssembly",
+        "coverBallpit",
+        "coverBallpitCanvas",
+        "coverFace",
+        "coverFooter",
+        "coverSpine",
+        "coverTitle",
+        "current",
+        "delete",
+        "demoArticle",
+        "demoHeader",
+        "demoInstruction",
+        "demoStatus",
+        "developerSignature",
+        "dictionaryHeader",
+        "dictionaryPage",
+        "dictionaryStage",
+        "entryModeArea",
+        "experience",
+        "experienceArticlePage",
+        "experienceExplanationShell",
+        "experienceSpread",
+        "explanationPlaceholder",
+        "explanationShell",
+        "filter",
+        "foreword",
+        "forewordBlank",
+        "forewordContent",
+        "forewordContentPrinted",
+        "forewordContentVisible",
+        "forewordCopy",
+        "forewordPage",
+        "forewordSpread",
+        "forewordTitleGlyph",
+        "forewordTitleLine",
+        "formError",
+        "formFooter",
+        "frontBoard",
+        "frontBoardBack",
+        "get",
+        "icpLink",
+        "includes",
+        "inputModes",
+        "interestChoices",
+        "leftPage",
+        "leftPageBlockEdges",
+        "length",
+        "map",
+        "menuButton",
+        "menuGlyph",
+        "mobileDesktopHint",
+        "modePanel",
+        "paceChoices",
+        "page",
+        "pageBlockEdges",
+        "pageNumber",
+        "profileDialog",
+        "profileDialogActions",
+        "profileDialogBackdrop",
+        "profileDialogBody",
+        "profileDialogHeader",
+        "readerEntering",
+        "readerTransitionStatus",
+        "recommendationSpine",
+        "recommendationSpread",
+        "rightPage",
+        "root",
+        "sectionLabel",
+        "selectedWord",
+        "set",
+        "some",
+        "spine",
+        "spreadActive",
+        "spreadInactive",
+        "spreadLayer",
+        "stageGuidance",
+        "stickyStage",
+        "story",
+        "textAction",
+        "toFixed",
+        "topActions",
+        "topbar",
+        "urlForm",
+        "urlInputField",
+        "word",
+        "workbench",
+        "workbenchFoot",
+        "workbenchHeader",
+        "workbenchSpread"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/BookLetterField.module.css",
+      "lines": 12,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/BookLetterField.tsx",
+      "lines": 290,
+      "status": "live-source",
+      "visibleTargets": [
+        "home.letter-field"
+      ],
+      "effects": [
+        "effect.letters"
+      ],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "./BookLetterField.module.css"
+      ],
+      "cssModuleClasses": [
+        "canvas",
+        "forEach",
+        "height",
+        "length",
+        "push",
+        "shift",
+        "splice",
+        "width"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/BookRecommendations.module.css",
+      "lines": 209,
+      "status": "legacy-style",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [],
+      "cssModuleClasses": [],
+      "keyframes": [
+        {
+          "name": "turnPage",
+          "line": 37
+        }
+      ],
+      "motionDeclarations": [
+        {
+          "line": 32,
+          "text": "transform: perspective(1800px) rotateY(0deg);"
+        },
+        {
+          "line": 36,
+          "text": ".entered .turnLeaf { animation: turnPage 1.15s cubic-bezier(.16,1,.3,1) forwards; }"
+        },
+        {
+          "line": 38,
+          "text": "0% { opacity: 1; transform: perspective(1800px) rotateY(0deg); }"
+        },
+        {
+          "line": 40,
+          "text": "100% { opacity: 0; transform: perspective(1800px) rotateY(-104deg); visibility: hidden; }"
+        },
+        {
+          "line": 84,
+          "text": "transition: color .2s ease, background .2s ease, transform .2s cubic-bezier(.16,1,.3,1);"
+        },
+        {
+          "line": 115,
+          "text": ".imageWrap img { width: 100%; height: 100%; object-fit: cover; transition: transform .58s cubic-bezier(.16,1,.3,1), filter .25s ease; }"
+        },
+        {
+          "line": 134,
+          "text": ".imageWrap i { position: absolute; right: 10px; bottom: 10px; padding: 6px 9px; border-radius: 999px; color: #203744; background: rgb(255 255 255 / 88%); font-style: normal; font-size: 10px; font-weight: 700; backdrop-filter: blur(8px); }"
+        },
+        {
+          "line": 161,
+          "text": "transition: left .72s cubic-bezier(.16,1,.3,1), top .72s cubic-bezier(.16,1,.3,1), width .72s cubic-bezier(.16,1,.3,1), height .72s cubic-bezier(.16,1,.3,1), border-radius .72s cubic-bezier(.16,1,.3,1);"
+        },
+        {
+          "line": 166,
+          "text": ".coverOverlay > div { position: absolute; inset: auto clamp(24px, 6vw, 100px) clamp(28px, 8vh, 90px); opacity: 0; transform: translateY(18px); color: white; transition: opacity .28s ease .34s, transform .5s cubic-bezier(.16,1,.3,1) .34s; }"
+        }
+      ]
+    },
+    {
+      "file": "components/BookRecommendations.tsx",
+      "lines": 229,
+      "status": "legacy",
+      "visibleTargets": [
+        "legacy.BookRecommendations"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "@/types/publicArticle",
+        "./BookRecommendations.module.css"
+      ],
+      "cssModuleClasses": [
+        "article",
+        "articleCopy",
+        "catalogue",
+        "coverFallback",
+        "coverOverlay",
+        "coverOverlayExpanded",
+        "coverOverlayFallback",
+        "dailyBadge",
+        "embedded",
+        "empty",
+        "entered",
+        "filter",
+        "has",
+        "header",
+        "imageWrap",
+        "includes",
+        "length",
+        "map",
+        "meta",
+        "module",
+        "personalizeButton",
+        "recommendationControls",
+        "section",
+        "slice",
+        "some",
+        "turnLeaf"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/ClearableField.module.css",
+      "lines": 81,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": [
+        {
+          "line": 43,
+          "text": "transition: color 160ms ease, background-color 160ms ease !important;"
+        },
+        {
+          "line": 79,
+          "text": "transition: none !important;"
+        }
+      ]
+    },
+    {
+      "file": "components/ClearableField.tsx",
+      "lines": 69,
+      "status": "live-source",
+      "visibleTargets": [
+        "global.clear-input"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "react",
+        "./ClearableField.module.css"
+      ],
+      "cssModuleClasses": [
+        "button",
+        "field",
+        "multiline"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/CurvedPageTurn.module.css",
+      "lines": 368,
+      "status": "legacy-style",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [],
+      "cssModuleClasses": [],
+      "keyframes": [
+        {
+          "name": "contactShadow",
+          "line": 71
+        },
+        {
+          "name": "contactShadowBackward",
+          "line": 78
+        },
+        {
+          "name": "fallbackTurn",
+          "line": 319
+        },
+        {
+          "name": "fallbackTurnBackward",
+          "line": 325
+        },
+        {
+          "name": "mobileLeafPass",
+          "line": 352
+        },
+        {
+          "name": "reducedTurn",
+          "line": 364
+        }
+      ],
+      "motionDeclarations": [
+        {
+          "line": 10,
+          "text": "transition: opacity 110ms ease, visibility 0s linear 110ms;"
+        },
+        {
+          "line": 26,
+          "text": "transition: opacity 80ms ease, visibility 0s;"
+        },
+        {
+          "line": 32,
+          "text": "transition: none;"
+        },
+        {
+          "line": 53,
+          "text": "animation: contactShadow 1.08s cubic-bezier(.2,.68,.18,1) both;"
+        },
+        {
+          "line": 66,
+          "text": "animation: none;"
+        },
+        {
+          "line": 116,
+          "text": "perspective: 2600px !important;"
+        },
+        {
+          "line": 252,
+          "text": "animation: none !important;"
+        },
+        {
+          "line": 256,
+          "text": "transition: none !important;"
+        },
+        {
+          "line": 302,
+          "text": ".active:not(.ready) .fallbackLeaf { animation: fallbackTurn 1.08s cubic-bezier(.18,.72,.16,1) both; }"
+        },
+        {
+          "line": 316,
+          "text": "animation: none;"
+        },
+        {
+          "line": 336,
+          "text": ".active .fallbackLeaf { animation: mobileLeafPass .72s cubic-bezier(.2,.72,.18,1) both !important; }"
+        },
+        {
+          "line": 350,
+          "text": "animation: none !important;"
+        },
+        {
+          "line": 362,
+          "text": "animation: reducedTurn .16s ease both !important;"
+        }
+      ]
+    },
+    {
+      "file": "components/CurvedPageTurn.tsx",
+      "lines": 502,
+      "status": "legacy",
+      "visibleTargets": [
+        "legacy.CurvedPageTurn"
+      ],
+      "effects": [
+        "effect.legacy-page-turn"
+      ],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "page-flip/dist/js/page-flip.module.js",
+        "./CurvedPageTurn.module.css"
+      ],
+      "cssModuleClasses": [
+        "active",
+        "backward",
+        "coverInsideHinge",
+        "coverInsideSurface",
+        "coverInsideTurnPaper",
+        "coverMode",
+        "coverSnapshotContent",
+        "coverSnapshotViewport",
+        "coverTurnPaper",
+        "engine",
+        "fallbackLeaf",
+        "forEach",
+        "getContext",
+        "height",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "paperGrain",
+        "ready",
+        "remove",
+        "snapshotContent",
+        "snapshotRight",
+        "snapshotViewport",
+        "transparentTurnPaper",
+        "turnLayer",
+        "turnPaper",
+        "width"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/ExperiencePreview.tsx",
+      "lines": 12,
+      "status": "admin-preview-only",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "@/types/account",
+        "@/lib/experiencePreview",
+        "./StudyHost",
+        "./AccountProvider",
+        "./LoadingStatus"
+      ],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "已列入源码库存；现有目录未细分内部控件，不能声明已支持逐项编辑"
+    },
+    {
+      "file": "components/ExperiencePreviewControls.tsx",
+      "lines": 17,
+      "status": "admin-preview-only",
+      "visibleTargets": [
+        "admin.experience"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react"
+      ],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/ExplanationPanel.tsx",
+      "lines": 462,
+      "status": "live-source",
+      "visibleTargets": [
+        "reader.explanation",
+        "reader.explanation-heading",
+        "reader.explanation-regenerate",
+        "reader.ask-ai"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "./LoadingStatus",
+        "@/lib/accountUsageNavigation",
+        "react",
+        "@/lib/explanationStreamStore",
+        "@/components/PronunciationButtons",
+        "@/components/ClearableField",
+        "@/lib/apiClient",
+        "@/lib/displayLabels",
+        "@/lib/explanationDisplay",
+        "@/lib/pronunciation",
+        "@/types/reader"
+      ],
+      "cssModuleClasses": [
+        "filter",
+        "length",
+        "map"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/FallingWordOpening.tsx",
+      "lines": 200,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [
+        "effect.wordfall"
+      ],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "@/lib/startupPerformance"
+      ],
+      "cssModuleClasses": [
+        "forEach",
+        "getBoundingClientRect",
+        "getContext",
+        "height",
+        "length",
+        "map",
+        "push",
+        "width"
+      ],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "通过独立动效清单和父画布容器覆盖。"
+    },
+    {
+      "file": "components/FeatureShowcase.module.css",
+      "lines": 112,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [
+        "effect.showcase-reveal",
+        "effect.showcase-tab",
+        "effect.showcase-finale"
+      ],
+      "hasJsx": false,
+      "imports": [
+        "] { --scene: #f0eddf; --glow: #eee3c6; --accent: #806139; --scene-night: #38372d; }\n.showcase[data-feature="
+      ],
+      "cssModuleClasses": [],
+      "keyframes": [
+        {
+          "name": "ambienceReveal",
+          "line": 64
+        },
+        {
+          "name": "reveal",
+          "line": 65
+        },
+        {
+          "name": "wordReveal",
+          "line": 66
+        },
+        {
+          "name": "arrowReveal",
+          "line": 67
+        }
+      ],
+      "motionDeclarations": [
+        {
+          "line": 12,
+          "text": ".ambience { position: absolute; z-index: -1; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 74% 43%, var(--glow), transparent 68%), linear-gradient(180deg, transparent, var(--scene) 28%, var(--scene) 70%, transparent); animation: ambienceReveal 700ms ease both; }"
+        },
+        {
+          "line": 17,
+          "text": ".copy, .media { animation: reveal 520ms cubic-bezier(.16,1,.3,1) both; min-width: 0; }"
+        },
+        {
+          "line": 22,
+          "text": ".next { display: inline-flex; align-items: center; gap: 32px; min-height: 54px; border: 1px solid color-mix(in srgb, var(--accent) 60%, transparent); border-radius: 999px; padding: 12px 26px; margin-top: 17px; font-size: 18px; font-weight: 500; color: var(--ink-showcase); background: #ffffff35; transition: background 240ms, transform 240ms; }"
+        },
+        {
+          "line": 24,
+          "text": ".next span { transition: transform 300ms; } .next:hover span { transform: translate(3px,-3px); }"
+        },
+        {
+          "line": 37,
+          "text": ".tabs button { position: relative; isolation: isolate; display: flex; justify-content: center; align-items: center; flex: 1 0 160px; min-height: 68px; gap: 12px; padding: 15px 24px; color: #304450; background: color-mix(in srgb, var(--tile) 72%, #fff); border: 0; border-radius: 999px; text-align: center; overflow: hidden; transition: transform 320ms cubic-bezier(.16,1,.3,1), background 320ms, box-shadow 320ms; }"
+        },
+        {
+          "line": 38,
+          "text": ".tabs button::before { content: \"\"; position: absolute; z-index: -1; inset: 0; background: var(--tile); border-radius: inherit; transform: translateY(105%); transition: transform 400ms cubic-bezier(.16,1,.3,1); }"
+        },
+        {
+          "line": 43,
+          "text": ".pillArrow { width: 0; opacity: 0; transform: translate(-8px,8px); transition: width 320ms, opacity 240ms, transform 320ms; font-size: 22px; }"
+        },
+        {
+          "line": 46,
+          "text": ".arrows button { width: 54px; height: 54px; border-radius: 50%; background: #ffffff65; color: var(--accent); font-size: 26px; transition: background 240ms, transform 240ms; }"
+        },
+        {
+          "line": 52,
+          "text": ".showcase[data-feature=\"explore\"] .media { height: 100%; animation: none; }"
+        },
+        {
+          "line": 56,
+          "text": ".finaleCanvas i { display: inline-block; font-style: normal; animation: wordReveal 7s infinite; }"
+        },
+        {
+          "line": 81,
+          "text": ".showcase[data-motion=\"false\"] *, .showcase[data-motion=\"false\"] .finaleCanvas * { animation: none; transition: none; }"
+        },
+        {
+          "line": 112,
+          "text": "@media (prefers-reduced-motion: reduce) { .showcase *, .showcase .finaleCanvas *, .ambience { animation: none; transition: none; scroll-behavior: auto; } .showcase[data-handoff-motion] .inner, .showcase[data-handoff-motion] .ambience { opacity: 1; transform: none; } }"
+        }
+      ]
+    },
+    {
+      "file": "components/FeatureShowcase.tsx",
+      "lines": 101,
+      "status": "live-source",
+      "visibleTargets": [
+        "showcase.root",
+        "showcase.copy",
+        "showcase.media",
+        "showcase.tabs",
+        "showcase.arrows",
+        "showcase.background",
+        "showcase.finale"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "./ShowcaseRecording",
+        "./GuideLanyard",
+        "./FeatureShowcase.module.css",
+        ", label: "
+      ],
+      "cssModuleClasses": [
+        "ambience",
+        "arrows",
+        "copy",
+        "current",
+        "dragHint",
+        "finale",
+        "finaleCanvas",
+        "footer",
+        "inner",
+        "map",
+        "media",
+        "mobileGuide",
+        "navigation",
+        "next",
+        "pillArrow",
+        "presentation",
+        "showcase",
+        "some",
+        "tabs",
+        "words"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/FeedbackPanel.module.css",
+      "lines": 41,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": [
+        {
+          "line": 1,
+          "text": ".overlay { position: fixed; z-index: 150; inset: 0; display: grid; padding: 24px; place-items: center; background: rgb(27 42 53 / 38%); backdrop-filter: blur(10px); }"
+        }
+      ]
+    },
+    {
+      "file": "components/FeedbackPanel.tsx",
+      "lines": 121,
+      "status": "live-source",
+      "visibleTargets": [
+        "global.feedback"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "@/components/ClearableField",
+        "@/lib/clientErrorReporting",
+        "./FeedbackPanel.module.css"
+      ],
+      "cssModuleClasses": [
+        "contactLabel",
+        "embeddedPanel",
+        "embeddedShell",
+        "error",
+        "footer",
+        "honeypot",
+        "overlay",
+        "panel",
+        "success"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/GuideAnkiSetup.module.css",
+      "lines": 85,
+      "status": "legacy-style",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": [
+        {
+          "line": 51,
+          "text": "@media (prefers-reduced-motion: reduce) { .primaryAction { transition: none; } }"
+        }
+      ]
+    },
+    {
+      "file": "components/GuideAnkiSetup.tsx",
+      "lines": 170,
+      "status": "legacy",
+      "visibleTargets": [
+        "legacy.GuideAnkiSetup"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "@/components/ClearableField",
+        "@/lib/ankiConnect",
+        "@/lib/ankiTemplates",
+        "./GuideAnkiSetup.module.css"
+      ],
+      "cssModuleClasses": [
+        "addonCode",
+        "advanced",
+        "advancedBody",
+        "ankiweb",
+        "assistant",
+        "assistantHeader",
+        "configHeader",
+        "endpointField",
+        "primaryAction",
+        "status",
+        "stepBody",
+        "stepNumber",
+        "stepStatus",
+        "stepTitle",
+        "steps",
+        "textLink",
+        "troubleshoot"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/GuideLanyard.module.css",
+      "lines": 17,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [],
+      "cssModuleClasses": [],
+      "keyframes": [
+        {
+          "name": "preparing",
+          "line": 11
+        }
+      ],
+      "motionDeclarations": [
+        {
+          "line": 1,
+          "text": ".lanyard { position: absolute; right: 0; top: -135px; width: 48%; height: calc(100% + 110px); z-index: 3; visibility: hidden; opacity: 0; pointer-events: none; transition: opacity 120ms ease; }"
+        },
+        {
+          "line": 4,
+          "text": ".preflight i { width: 24px; height: 24px; border: 2px solid #64547630; border-top-color: #645476; border-radius: 50%; animation: preparing 800ms linear infinite; }"
+        },
+        {
+          "line": 12,
+          "text": "@media (prefers-reduced-motion: reduce) { .preflight i { animation: none; } }"
+        }
+      ]
+    },
+    {
+      "file": "components/GuideLanyard.tsx",
+      "lines": 75,
+      "status": "live-source",
+      "visibleTargets": [
+        "showcase.lanyard"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "next/dynamic",
+        "react",
+        "./GuideLanyard.module.css",
+        "./GuideLanyardScene"
+      ],
+      "cssModuleClasses": [
+        "fallback",
+        "getContext",
+        "keyboard",
+        "lanyard",
+        "preflight",
+        "props",
+        "state",
+        "webp"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/GuideLanyardScene.tsx",
+      "lines": 427,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [
+        "effect.lanyard"
+      ],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "@react-three/fiber",
+        "@react-three/drei",
+        "@react-three/rapier",
+        "meshline",
+        "three"
+      ],
+      "cssModuleClasses": [
+        "base",
+        "card",
+        "clamp",
+        "clip",
+        "getContext",
+        "height",
+        "md",
+        "metal",
+        "style",
+        "width"
+      ],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "通过独立动效清单和父画布容器覆盖。"
+    },
+    {
+      "file": "components/GuidePageContent.module.css",
+      "lines": 262,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": [
+        {
+          "line": 51,
+          "text": ".toolList summary i, .faqGroups summary i { display: grid; width: 28px; height: 28px; flex: 0 0 auto; place-items: center; border-radius: 50%; color: #3b6875; background: #e1ecee; font-style: normal; font-weight: 500; transition: transform 180ms ease; }"
+        },
+        {
+          "line": 122,
+          "text": "@media (prefers-reduced-motion: reduce) { .guide { scroll-behavior: auto; } .toolList summary i, .faqGroups summary i { transition: none; } }"
+        }
+      ]
+    },
+    {
+      "file": "components/GuidePageContent.tsx",
+      "lines": 86,
+      "status": "live-source",
+      "visibleTargets": [
+        "guide.root",
+        "guide.directory",
+        "guide.content",
+        "guide.intro",
+        "guide.steps",
+        "guide.features",
+        "guide.tools",
+        "guide.faq",
+        "guide.updates"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "next/link",
+        "@/lib/publicContact",
+        "./GuidePageContent.module.css"
+      ],
+      "cssModuleClasses": [
+        "brand",
+        "content",
+        "developerCopy",
+        "directory",
+        "faqGroups",
+        "featureList",
+        "guide",
+        "guideFooter",
+        "intro",
+        "introLabel",
+        "map",
+        "mobileDirectory",
+        "quickSteps",
+        "readingRhythm",
+        "releaseNotes",
+        "section",
+        "sectionHeading",
+        "shell",
+        "softNote",
+        "toolAnswer",
+        "toolDemo",
+        "toolList",
+        "topbar"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/HomeClient.tsx",
+      "lines": 1622,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "@/components/cet/CetReader",
+        "@/components/cet/CetLibrary",
+        "@/components/HomeRedesign",
+        "next/dynamic",
+        "@/components/ArticleInput",
+        "@/components/ReaderView",
+        "@/lib/apiClient",
+        "@/lib/coverSources",
+        "@/lib/billingClient",
+        "./LoadingStatus",
+        "@/lib/coverMediaQueue",
+        "@/lib/homepageRecommendations",
+        "@/lib/recommendationPreferencesShared",
+        "@/lib/discoveryPolicy",
+        "@/lib/accountEvents",
+        "@/lib/articles",
+        "@/lib/sourceMatching",
+        "@/lib/tokenizer",
+        "@/lib/articleImagePreload",
+        "@/lib/articleImageLocalizationPolicy",
+        "@/lib/readingProgressPolicy",
+        "@/lib/articleImageUrls",
+        "@/types/article",
+        "@/types/publicArticle",
+        "@/types/reader",
+        "@/types/vocabulary",
+        "@/lib/vocabulary",
+        "@/components/AccountProvider",
+        "@/lib/temporaryReading",
+        "@/lib/homepageCurationShared",
+        "@/lib/studyNavigation",
+        " | ",
+        ")\n        && !findSavedArticle(article);\n      if (!approvedReaderBackRef.current && importedUnsaved) {\n        const leaveUnsaved = window.confirm(",
+        ", {\n        method: ",
+        ",\n        metadata: { hostname: (() => { try { return new URL(url).hostname; } catch { return ",
+        ");\n    if (prepared?.completed) settleImageLocalizationResult(prepared.completed);\n    if (prepared?.background) watchBackgroundImageLocalization(prepared.background);\n  }\n\n  async function handleImportUrl() {\n    if (importingUrl) return;\n    setImportingUrl(true);\n    try {\n      const imported = await fetchUrlImport();\n      if (!imported || !(await consumeGuestImport(",
+        " : ",
+        "}\n        desktopViewportInsetLeft={132}\n        initialViewportAnchor={readerInitialViewportAnchor}\n        onViewportAnchorChange={handleReaderViewportAnchorChange}\n        onViewportCaptureChange={handleReaderViewportCaptureChange}\n        onSourceJumpAligned={() => {\n          const savedArticleId = pendingSourceJumpSavedArticleIdRef.current ?? activeSavedArticleIdRef.current;\n          pendingSourceJumpSavedArticleIdRef.current = null;\n          if (!savedArticleId) return;\n          forceProgressSaveForArticleRef.current = savedArticleId;\n        }}\n        savedArticles={savedArticles}\n        onOpenSavedArticle={handleOpenSavedArticleFromReader}\n        onRenameSavedArticle={handleRenameSavedArticle}\n        onDeleteSavedArticle={handleDeleteSavedArticle}\n        onOpenImportedArticle={handleOpenImportedArticleFromReader}\n        onImportedArticleChange={handleImportedArticleChange}\n        onJumpToVocabularySourceOutsideArticle={handleJumpToVocabularySource}\n        canJumpToVocabularySourceOutsideArticle={canJumpToVocabularySource}\n        onArticleChange={(nextArticle, nextImportedArticle) => {\n          setArticle(nextArticle);\n          setImportedArticle(nextImportedArticle);\n          if (activeTemporaryUserIdRef.current) {\n            setTemporaryReading(writeTemporaryReading(\n              activeTemporaryUserIdRef.current,\n              nextArticle,\n              nextImportedArticle,\n              readerViewportAnchorRef.current,\n            ));\n          }\n          setPreloadedExplanations([]);\n          setPreloadedArticleTranslations([]);\n          setActiveArticleSource(undefined);\n          setSourceSentenceToHighlight("
+      ],
+      "cssModuleClasses": [
+        "blocks",
+        "filter",
+        "find",
+        "includes",
+        "join",
+        "length",
+        "push",
+        "some"
+      ],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "页面/布局接线文件，可见内容由目标清单中的子组件覆盖。"
+    },
+    {
+      "file": "components/HomeOptionMenu.module.css",
+      "lines": 2062,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [
+        "effect.menu-layers",
+        "effect.menu-panel",
+        "effect.menu-items",
+        "effect.menu-preview",
+        "effect.theme-switch"
+      ],
+      "hasJsx": false,
+      "imports": [],
+      "cssModuleClasses": [],
+      "keyframes": [
+        {
+          "name": "layerIn",
+          "line": 1603
+        },
+        {
+          "name": "layerOut",
+          "line": 1608
+        },
+        {
+          "name": "panelIn",
+          "line": 1613
+        },
+        {
+          "name": "panelOut",
+          "line": 1618
+        },
+        {
+          "name": "itemIn",
+          "line": 1623
+        },
+        {
+          "name": "numberIn",
+          "line": 1628
+        }
+      ],
+      "motionDeclarations": [
+        {
+          "line": 39,
+          "text": "backdrop-filter: blur(3px) saturate(.94);"
+        },
+        {
+          "line": 42,
+          "text": "transition: opacity .24s ease-out;"
+        },
+        {
+          "line": 70,
+          "text": "animation: layerOut .32s cubic-bezier(.7, 0, .84, 0) both;"
+        },
+        {
+          "line": 75,
+          "text": "animation: layerIn .5s cubic-bezier(.22, 1, .36, 1) both;"
+        },
+        {
+          "line": 100,
+          "text": "animation: panelOut .32s cubic-bezier(.7, 0, .84, 0) both;"
+        },
+        {
+          "line": 105,
+          "text": "animation: panelIn .65s .15s cubic-bezier(.22, 1, .36, 1) both;"
+        },
+        {
+          "line": 170,
+          "text": "transition: transform .28s cubic-bezier(.22, 1, .36, 1);"
+        },
+        {
+          "line": 224,
+          "text": ".accountIdentity i { position: absolute; right: 2px; bottom: 2px; color: #347ca7; font-size: 17px; font-style: normal; transition: transform 220ms cubic-bezier(.22, 1, .36, 1); }"
+        },
+        {
+          "line": 275,
+          "text": "transition: color .25s ease;"
+        },
+        {
+          "line": 292,
+          "text": "animation: numberIn .48s var(--number-delay) ease-out both;"
+        },
+        {
+          "line": 303,
+          "text": "animation: itemIn .88s var(--item-delay) cubic-bezier(.22, 1, .36, 1) both;"
+        },
+        {
+          "line": 336,
+          "text": "transition:"
+        },
+        {
+          "line": 372,
+          "text": ".toggle { position: relative; width: 46px; height: 26px; padding: 0; flex: 0 0 auto; border: 0; border-radius: 999px; background: #bdcbd1; cursor: pointer; transition: background 180ms ease; }"
+        },
+        {
+          "line": 373,
+          "text": ".toggle i { position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: #fff; box-shadow: 0 2px 5px rgb(13 32 43 / 22%); transition: transform 220ms cubic-bezier(.22, 1, .36, 1); }"
+        },
+        {
+          "line": 773,
+          "text": "transition: background .16s ease;"
+        },
+        {
+          "line": 880,
+          "text": ".savedList[data-scrolling=\"true\"] .vocabularyEntry { transition: none; }"
+        },
+        {
+          "line": 905,
+          "text": "transition:"
+        },
+        {
+          "line": 1692,
+          "text": "transition: translate 220ms cubic-bezier(.16, 1, .3, 1);"
+        },
+        {
+          "line": 1698,
+          "text": "transition:"
+        },
+        {
+          "line": 2032,
+          "text": "animation: none !important;"
+        },
+        {
+          "line": 2038,
+          "text": "animation: none !important;"
+        }
+      ]
+    },
+    {
+      "file": "components/HomeOptionMenu.tsx",
+      "lines": 1318,
+      "status": "live-source",
+      "visibleTargets": [
+        "menu.root",
+        "menu.panel",
+        "menu.backdrop",
+        "menu.layers",
+        "menu.items",
+        "menu.list",
+        "menu.account",
+        "menu.settings",
+        "menu.theme",
+        "menu.toggle",
+        "menu.vocabulary",
+        "menu.vocab-detail",
+        "menu.saved",
+        "menu.search",
+        "menu.feedback",
+        "menu.preview-vocabulary",
+        "menu.preview-saved",
+        "menu.preview-account",
+        "menu.preview-invite",
+        "menu.preview-settings",
+        "menu.preview-feedback",
+        "menu.preview-guide",
+        "menu.article-context",
+        "menu.feedback-images"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "@/lib/experiencePreview",
+        "@/lib/displayLabels",
+        "react",
+        "@tanstack/react-virtual",
+        "react-dom",
+        "next/navigation",
+        "@/components/AccountUsagePageContent",
+        "@/components/ClearableField",
+        "@/components/GuidePageContent",
+        "@/components/InvitationCodeRedeemContent",
+        "@/components/PronunciationButtons",
+        "@/components/VocabularyLearningDetails",
+        "@/components/useMobileBottomSheet",
+        "@/components/useDocumentScrollLock",
+        "@/lib/clientErrorReporting",
+        "@/lib/csv",
+        "@/lib/displayLabels",
+        "@/lib/pronunciation",
+        "@/lib/localAccountSession",
+        "@/lib/savedArticleMerge",
+        "@/lib/vocabularyMerge",
+        "@/lib/vocabulary",
+        "@/lib/vocabularySearch",
+        "@/types/account",
+        "@/types/anki",
+        "@/types/article",
+        "@/types/vocabulary",
+        "./HomeOptionMenu.module.css",
+        "./AccountProvider",
+        "@/lib/studyNavigation",
+        " | ",
+        ", quick: true },\n  { label: ",
+        ") onOpenImport?.();\n        else if (item.action === "
+      ],
+      "cssModuleClasses": [
+        "KeyboardEvent",
+        "PointerEvent",
+        "accountIdentity",
+        "accountPreview",
+        "backdrop",
+        "close",
+        "dangerDetailAction",
+        "empty",
+        "feedbackContactLabel",
+        "feedbackError",
+        "feedbackFooter",
+        "feedbackForm",
+        "feedbackImagePicker",
+        "feedbackImages",
+        "feedbackPreview",
+        "feedbackSuccess",
+        "forEach",
+        "generalPreview",
+        "has",
+        "honeypot",
+        "itemLabel",
+        "itemWrap",
+        "jumpToSource",
+        "length",
+        "map",
+        "menuItem",
+        "menuList",
+        "mobileAccountLine",
+        "mobileGuideBack",
+        "mobilePreviewBack",
+        "mobileSheetHandle",
+        "overlay",
+        "pageContent",
+        "pagePreview",
+        "panel",
+        "panelHeader",
+        "panelInner",
+        "prelayer",
+        "prelayers",
+        "previewClose",
+        "previewCompact",
+        "previewSecondaryAction",
+        "savedArticle",
+        "savedArticleContextMenu",
+        "savedArticleDeleteAction",
+        "savedHeader",
+        "savedHeaderActions",
+        "savedList",
+        "savedPreview",
+        "savedPreviewVisible",
+        "secondaryDetailAction",
+        "settingsPanel",
+        "srOnly",
+        "themeChoices",
+        "toggle",
+        "virtualVocabularyList",
+        "vocabularyDetail",
+        "vocabularyDetailActions",
+        "vocabularyDetailHeader",
+        "vocabularyDetailInner",
+        "vocabularyDetailMeta",
+        "vocabularyDetailVisible",
+        "vocabularyDetails",
+        "vocabularyEntry",
+        "vocabularyManageBar",
+        "vocabularySearch"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/HomeReadingDemo.tsx",
+      "lines": 35,
+      "status": "legacy",
+      "visibleTargets": [
+        "legacy.HomeReadingDemo"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/HomeRedesign.module.css",
+      "lines": 1103,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [
+        "effect.cover-scroll-distort",
+        "effect.cover-open",
+        "effect.cover-caption",
+        "effect.summary-tooltip",
+        "effect.nav-hover",
+        "effect.continue-hover",
+        "effect.section-reveal",
+        "effect.bridge-reveal",
+        "effect.closing-reveal",
+        "effect.feedback-expand",
+        "effect.qr-reveal",
+        "effect.dictionary-enter",
+        "effect.day-night",
+        "effect.legacy-orbit"
+      ],
+      "hasJsx": false,
+      "imports": [
+        "] { background: linear-gradient(145deg, #cfe2e6, #edf0e5); }\n.orbitVisual[data-kind="
+      ],
+      "cssModuleClasses": [],
+      "keyframes": [
+        {
+          "name": "accountResolvingPulse",
+          "line": 33
+        },
+        {
+          "name": "dictionaryBackdropIn",
+          "line": 204
+        },
+        {
+          "name": "dictionaryBackdropOut",
+          "line": 205
+        },
+        {
+          "name": "dictionaryWindowIn",
+          "line": 206
+        },
+        {
+          "name": "dictionaryWindowOut",
+          "line": 207
+        },
+        {
+          "name": "memberOpeningReduced",
+          "line": 1076
+        }
+      ],
+      "motionDeclarations": [
+        {
+          "line": 11,
+          "text": "transition: color 260ms ease, background-color 260ms ease;"
+        },
+        {
+          "line": 29,
+          "text": "animation: accountResolvingPulse 780ms ease-in-out infinite alternate;"
+        },
+        {
+          "line": 102,
+          "text": "transition: opacity 180ms ease, transform 220ms var(--ease);"
+        },
+        {
+          "line": 131,
+          "text": "transition: opacity 150ms ease, transform 180ms ease;"
+        },
+        {
+          "line": 150,
+          "text": "transition: color 180ms ease, background 180ms ease, transform 220ms var(--ease), box-shadow 220ms ease;"
+        },
+        {
+          "line": 157,
+          "text": ".root[data-nav-motion=\"fill\"] .quickButton { background: linear-gradient(90deg, #1d6277 0 0) no-repeat, rgb(248 251 252 / 96%); background-size: 0 100%; transition: color 220ms ease, background-size 360ms var(--ease); }"
+        },
+        {
+          "line": 164,
+          "text": ".quickButton svg { transition: transform 300ms var(--ease); }"
+        },
+        {
+          "line": 172,
+          "text": "backdrop-filter: blur(3px);"
+        },
+        {
+          "line": 174,
+          "text": "animation: dictionaryBackdropIn 180ms ease-out both;"
+        },
+        {
+          "line": 176,
+          "text": ".dictionaryLayer[data-closing] .dictionaryBackdrop { pointer-events: none; animation: dictionaryBackdropOut 180ms ease-in both; }"
+        },
+        {
+          "line": 192,
+          "text": "animation: dictionaryWindowIn 230ms var(--ease) both;"
+        },
+        {
+          "line": 194,
+          "text": ".dictionaryWindowClosing { pointer-events: none; animation: dictionaryWindowOut 220ms cubic-bezier(.55,0,1,.45) both; }"
+        },
+        {
+          "line": 240,
+          "text": ".heroCopy { position: relative; z-index: 4; width: min(510px, 44vw); align-self: center; opacity: var(--hero-opacity, 1); transform: translate3d(0, var(--hero-shift, 0), 0); transition: opacity 80ms linear; }"
+        },
+        {
+          "line": 287,
+          "text": ".coverAction i { font-style: normal; transition: transform .3s var(--ease); }"
+        },
+        {
+          "line": 341,
+          "text": ".continueReadingCard { transition: border-color 220ms ease, background 300ms ease, transform 320ms var(--ease), box-shadow 320ms ease; }"
+        },
+        {
+          "line": 356,
+          "text": ".continueReadingMeta i { transition: transform 260ms var(--ease); }"
+        },
+        {
+          "line": 359,
+          "text": ".continueReadingCover img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.72) contrast(.92); transform: scale(1.025); transition: transform 600ms var(--ease), filter 300ms ease; }"
+        },
+        {
+          "line": 376,
+          "text": ".memberOpeningBalls { position: absolute; inset: 0; opacity: 0; transition: opacity 110ms ease; }"
+        },
+        {
+          "line": 382,
+          "text": ".resourceSwitch button { font: inherit; font-size: calc(1em - 6px); letter-spacing: inherit; color: #71818a; cursor: pointer; transition: font-size 240ms var(--ease), color 240ms ease; }"
+        },
+        {
+          "line": 423,
+          "text": ".preferenceTrigger { display: inline-flex; min-height: 42px; padding: 7px 13px; align-items: center; gap: 12px; border: 1px solid rgb(27 89 108 / 27%); border-radius: 999px; color: #194f61; background: rgb(251 253 253 / 76%); font: inherit; text-align: left; cursor: pointer; transition: border-color 180ms ease, background 180ms ease, transform 220ms var(--ease); }"
+        },
+        {
+          "line": 488,
+          "text": "transition: opacity 180ms ease, transform 180ms ease;"
+        },
+        {
+          "line": 529,
+          "text": "perspective: 900px;"
+        },
+        {
+          "line": 534,
+          "text": "transition: transform 520ms cubic-bezier(.22, .76, .25, 1);"
+        },
+        {
+          "line": 547,
+          "text": "transform: perspective(900px) rotateX(var(--rotate-x)) rotateY(var(--rotate-y)) skewY(calc(var(--scroll-skew) * 1deg)) scaleY(var(--scroll-stretch)) scale(var(--entry-image-scale)) translate3d(calc((.5 - var(--pointer-x)) * 2.4%), calc((.5 - var(--pointer-y)) * 2.4% + var(--scroll-drift) * 1px), 0);"
+        },
+        {
+          "line": 548,
+          "text": "transition: filter 220ms ease, transform 500ms cubic-bezier(.22, .76, .25, 1);"
+        },
+        {
+          "line": 579,
+          "text": ".cardCopy { position: relative; display: block; padding-top: 16px; opacity: 1; transform: none; transition: opacity 360ms ease, transform 460ms cubic-bezier(.22, .76, .25, 1); transition-delay: calc(70ms + var(--article-reveal-index, 0) * 16ms); }"
+        },
+        {
+          "line": 583,
+          "text": ".cardCopy small { display: block; margin-bottom: 9px; color: #69808a; font-size: 12px; letter-spacing: .04em; transition: color 220ms ease; }"
+        },
+        {
+          "line": 594,
+          "text": ".cardCopy b { position: absolute; top: 43px; right: 2px; opacity: 0; font-size: 20px; transition: opacity .2s ease, transform .3s var(--ease); }"
+        },
+        {
+          "line": 621,
+          "text": ".publicationBridge[data-motion-ready] span { opacity: 0; transform: translateY(12px); transition: opacity 280ms ease, transform 520ms var(--ease); }"
+        },
+        {
+          "line": 622,
+          "text": ".publicationBridge[data-motion-ready] p { opacity: 0; clip-path: inset(0 0 100%); transform: scale(.975); transition: opacity 420ms 90ms ease, clip-path 620ms 90ms var(--ease), transform 620ms 90ms var(--ease); }"
+        },
+        {
+          "line": 623,
+          "text": ".publicationBridge[data-motion-ready] i { transform: scaleY(0); transition: transform 520ms 330ms var(--ease); }"
+        },
+        {
+          "line": 639,
+          "text": ".importSection::after { content: \"\"; position: absolute; z-index: 2; bottom: -78px; left: 50%; width: 1px; height: 118px; background: linear-gradient(180deg, rgb(31 91 108 / 45%), rgb(31 91 108 / 12%)); transform: translateX(-50%) scaleY(0); transform-origin: top; pointer-events: none; transition: transform 560ms 560ms var(--ease); }"
+        },
+        {
+          "line": 648,
+          "text": ".importSection[data-motion-ready] > div:first-child > p { transition: opacity 200ms ease, transform 360ms var(--ease); }"
+        },
+        {
+          "line": 649,
+          "text": ".importSection[data-motion-ready] > div:first-child > h2 { transition: opacity 260ms 80ms ease, transform 440ms 80ms var(--ease); }"
+        },
+        {
+          "line": 650,
+          "text": ".importSection[data-motion-ready] .importPanel { clip-path: inset(10% 0 10% 0 round 22px); transform: translate3d(0, 20px, 0) scale(.988); transition: opacity 260ms 220ms ease, transform 480ms 220ms var(--ease), clip-path 480ms 220ms var(--ease); }"
+        },
+        {
+          "line": 651,
+          "text": ".importSection[data-motion-ready] .importModes { transition: opacity 180ms 370ms ease, transform 320ms 370ms var(--ease); }"
+        },
+        {
+          "line": 652,
+          "text": ".importSection[data-motion-ready] .importFieldSlot { transition: opacity 200ms 470ms ease, transform 360ms 470ms var(--ease); }"
+        },
+        {
+          "line": 653,
+          "text": ".importSection[data-motion-ready] .importSubmit { transition: opacity 180ms 650ms ease, transform 300ms 650ms var(--ease); }"
+        },
+        {
+          "line": 675,
+          "text": ".temporaryReading i { font-size: 22px; font-style: normal; transition: transform 180ms ease; }"
+        },
+        {
+          "line": 682,
+          "text": ".importPanel input { width: 100%; padding: 14px 16px; border: 1px solid rgb(31 87 105 / 20%); border-radius: 14px; outline: 0; color: #173f4d; background: rgb(255 255 255 / 76%); font: inherit; font-size: 14px; transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease; }"
+        },
+        {
+          "line": 695,
+          "text": ".urlHelp > span { position: absolute; right: 0; bottom: calc(100% + 10px); z-index: 4; width: min(310px, 78vw); padding: 12px 14px; border-radius: 12px; color: #36515c; background: #fff; box-shadow: 0 14px 38px rgb(22 63 76 / 17%); font-size: 12px; line-height: 1.65; opacity: 0; transform: translateY(5px); pointer-events: none; transition: opacity 180ms ease, transform 180ms ease; }"
+        },
+        {
+          "line": 740,
+          "text": ".featureOrbit::before { content: \"\"; position: absolute; top: -105px; left: 50%; width: min(900px, 78vw); height: 190px; border: 1px solid rgb(31 91 108 / 18%); border-bottom-color: transparent; border-radius: 50% 50% 0 0; clip-path: inset(0 50% 0 50%); opacity: 0; transform: translateX(-50%); pointer-events: none; transition: clip-path 720ms 80ms var(--ease), opacity 240ms 80ms ease; }"
+        },
+        {
+          "line": 751,
+          "text": ".orbitControls button { display: grid; width: 42px; height: 42px; padding: 0; place-items: center; border: 1px solid rgb(28 84 101 / 17%); border-radius: 50%; color: #244f5e; background: rgb(255 255 255 / 54%); font: inherit; font-size: 17px; cursor: pointer; transition: transform 180ms ease, color 180ms ease, background 180ms ease; }"
+        },
+        {
+          "line": 753,
+          "text": ".orbitStage { position: relative; width: 100vw; height: clamp(470px, 51vw, 620px); margin-left: calc(50% - 50vw); perspective: 1500px; touch-action: pan-y; user-select: none; cursor: grab; transform-style: preserve-3d; }"
+        },
+        {
+          "line": 754,
+          "text": ".featureOrbit[data-motion-ready] > header { opacity: 0; transform: translate3d(-34px, 0, 0); transition: opacity 300ms ease, transform 600ms var(--ease); }"
+        },
+        {
+          "line": 755,
+          "text": ".featureOrbit[data-motion-ready] .orbitStage { opacity: 0; transform: perspective(1400px) translate3d(0, 54px, 0) rotateX(7deg) scale(.955); transform-origin: center 35%; transition: opacity 440ms 120ms ease, transform 760ms 120ms var(--ease); }"
+        },
+        {
+          "line": 756,
+          "text": ".featureOrbit[data-motion-ready] .orbitDragHint { opacity: 0; transform: translateY(14px); transition: opacity 260ms 470ms ease, transform 420ms 470ms var(--ease); }"
+        },
+        {
+          "line": 771,
+          "text": ".orbitCard { --card-step: clamp(235px, 23vw, 330px); --orbit-x: 0px; --orbit-lift: 0px; position: absolute; top: 50%; left: 50%; display: grid; width: clamp(290px, 29vw, 420px); height: clamp(380px, 38vw, 510px); padding: 18px; grid-template-rows: minmax(0, 1fr) auto; overflow: hidden; border: 1px solid rgb(25 75 92 / 16%); border-radius: 16px; color: #173f4d; background: rgb(248 250 249 / 98%); box-shadow: 0 7px 8px rgb(26 63 75 / 12%); opacity: var(--orbit-opacity, 1); transform: translate(-50"
+        },
+        {
+          "line": 772,
+          "text": ".orbitStage[data-dragging] .orbitCard { transition: opacity 120ms linear, filter 120ms linear; }"
+        },
+        {
+          "line": 777,
+          "text": ".orbitCard[data-hidden] { opacity: 0; visibility: hidden; pointer-events: none; transition: transform 620ms cubic-bezier(.16,1,.3,1), opacity 150ms ease, visibility 0s linear 170ms; }"
+        },
+        {
+          "line": 841,
+          "text": ".closingSection[data-motion-ready] .closingCopy { opacity: 0; clip-path: inset(0 0 100%); transform: translateY(26px); transition: opacity 360ms ease, clip-path 720ms var(--ease), transform 720ms var(--ease); }"
+        },
+        {
+          "line": 842,
+          "text": ".closingSection[data-motion-ready] .closingActions { opacity: 0; transform: translateY(34px); transition: opacity 340ms 260ms ease, transform 620ms 260ms var(--ease); }"
+        },
+        {
+          "line": 843,
+          "text": ".closingSection[data-motion-ready] .siteFooter { opacity: 0; transition: opacity 420ms 520ms ease; }"
+        },
+        {
+          "line": 850,
+          "text": ".wechatQr { position: absolute; z-index: 9; bottom: 2px; left: clamp(210px, 38%, 330px); width: 136px; padding: 6px; border: 1px solid rgb(41 75 82 / 13%); border-radius: 11px; opacity: 0; background: #fff; box-shadow: 0 7px 8px rgb(29 58 66 / 14%); transform: translateX(-8px) scale(.97); transform-origin: left center; pointer-events: none; transition: opacity 200ms ease, transform 260ms var(--ease); }"
+        },
+        {
+          "line": 859,
+          "text": ".inlineFeedback { display: grid; grid-template-rows: 0fr; margin-top: 14px; opacity: 0; transition: grid-template-rows 420ms cubic-bezier(.22,.8,.24,1), opacity 240ms ease; }"
+        },
+        {
+          "line": 867,
+          "text": ".openingWash { position: absolute; inset: 0; opacity: 0; background: #d7e4e6; transition: opacity .54s ease .38s; }"
+        },
+        {
+          "line": 877,
+          "text": "transition: left .56s cubic-bezier(.2,.75,.2,1), top .56s cubic-bezier(.2,.75,.2,1), width .56s cubic-bezier(.2,.75,.2,1), height .56s cubic-bezier(.2,.75,.2,1), border-radius .56s ease, transform .56s cubic-bezier(.2,.75,.2,1), filter .45s ease .2s, opacity .28s ease 1.02s;"
+        },
+        {
+          "line": 880,
+          "text": ".openingTitle { position: absolute; left: 8vw; bottom: 10vh; max-width: 760px; opacity: 0; transform: translateY(26px); transition: opacity .32s ease .9s, transform .42s var(--ease) .86s; }"
+        },
+        {
+          "line": 884,
+          "text": ".openingLayerActive .openingImage { left: -5vw; top: -8vh; width: 110vw; height: 116vh; border-radius: 0; transform: perspective(1100px) rotateX(5deg) rotateY(-6deg) scale(1.04); filter: blur(13px) saturate(.72); opacity: .14; }"
+        },
+        {
+          "line": 956,
+          "text": ".dictionaryWindow { inset: auto 0 0; width: 100% !important; height: var(--mobile-dictionary-height, 48dvh) !important; max-height: 82dvh; min-width: 0; min-height: 0; grid-template-rows: 30px minmax(0, 1fr); border-radius: 16px 16px 0 0; translate: 0 var(--mobile-sheet-drag-offset, 0px); transition: translate 220ms cubic-bezier(.16, 1, .3, 1); }"
+        },
+        {
+          "line": 1051,
+          "text": ".resourceSwitch button { transition: none; }"
+        },
+        {
+          "line": 1063,
+          "text": ".articleCard { opacity: 1; transform: none; transition: none; }"
+        },
+        {
+          "line": 1068,
+          "text": ".closingSection > * { opacity: 1 !important; clip-path: none !important; transform: none !important; transition: none !important; }"
+        },
+        {
+          "line": 1070,
+          "text": ".featureOrbit::before { opacity: 1 !important; clip-path: none !important; transform: translateX(-50%) !important; transition: none !important; }"
+        },
+        {
+          "line": 1072,
+          "text": ".orbitCard { transition: none; }"
+        },
+        {
+          "line": 1073,
+          "text": ".memberOpening { animation: memberOpeningReduced 360ms ease both; }"
+        }
+      ]
+    },
+    {
+      "file": "components/HomeRedesign.tsx",
+      "lines": 1633,
+      "status": "live-source",
+      "visibleTargets": [
+        "home.root",
+        "home.topbar",
+        "home.brand",
+        "home.quick-nav",
+        "home.quick-import",
+        "home.quick-dictionary",
+        "home.quick-vocabulary",
+        "home.quick-articles",
+        "home.menu",
+        "home.hero",
+        "home.title",
+        "home.subtitle",
+        "home.start",
+        "home.hero-edge",
+        "home.ballpit",
+        "home.member-opening",
+        "home.workbench",
+        "home.workbench-grid",
+        "home.continue",
+        "home.member-import",
+        "home.import",
+        "home.import-modes",
+        "home.import-field",
+        "home.import-submit",
+        "home.import-error",
+        "home.url-help",
+        "home.recommendations",
+        "home.resource-switch",
+        "home.categories",
+        "home.recommendation-settings",
+        "home.preference-panel",
+        "home.preference-options",
+        "home.search",
+        "home.article-grid",
+        "home.article-card",
+        "home.article-copy",
+        "home.article-title",
+        "home.today-badge",
+        "home.article-summary",
+        "home.all-articles",
+        "home.closing",
+        "home.closing-copy",
+        "home.qr",
+        "home.footer",
+        "home.publication-bridge",
+        "home.daily-notice",
+        "home.opening-layer",
+        "home.dictionary-window",
+        "home.dictionary-backdrop",
+        "home.dictionary-body"
+      ],
+      "effects": [
+        "effect.cover-scroll",
+        "effect.showcase-handoff"
+      ],
+      "hasJsx": true,
+      "imports": [
+        "./LoadingStatus",
+        "@/lib/accountUsageNavigation",
+        "next/dynamic",
+        "@/lib/cetCatalogueClient",
+        "@/components/cet/CetLibraryPlaceholder",
+        "@/components/cet/CetLibrary",
+        "react",
+        "@/components/ArticleCover",
+        "@/components/useDailyPublicationNotice",
+        "@/components/useArticleSummary",
+        "@/lib/startupPerformance",
+        "@/lib/homeCoverMotion",
+        "@/components/useArticleReveal",
+        "@/components/usePublicationMountCount",
+        "@/components/useShowcaseCoversReady",
+        "react-dom",
+        "@/lib/accountEvents",
+        "@/lib/learningStorage",
+        "@/lib/standaloneDictionary",
+        "@/lib/vocabulary",
+        "@/components/AccountProvider",
+        "@/components/BookLetterField",
+        "@/components/ClearableField",
+        "next/dynamic",
+        "@/components/HomeOptionMenu",
+        "@/components/BookDictionary",
+        "@/components/PillNavAction",
+        "@/components/StudyEntry",
+        "@/components/useMobileBottomSheet",
+        "@/components/useDocumentScrollLock",
+        "@/components/FeedbackPanel",
+        "@/lib/publicContact",
+        "@/types/article",
+        "@/types/publicArticle",
+        "@/types/vocabulary",
+        "@/lib/temporaryReading",
+        "@/components/Ballpit",
+        "@/components/Ballpit",
+        "@/components/FallingWordOpening",
+        "@/lib/recommendationPreferences",
+        "@/lib/homepageCurationShared",
+        "@/lib/editorialCuration",
+        "@/lib/homepageRecommendations",
+        "@/components/FeatureShowcase",
+        "@/lib/guestCoverTouchSnap",
+        "./HomeRedesign.module.css",
+        " | ",
+        ") {\n    return <svg viewBox=",
+        "@/components/cet/CetLibrary",
+        " />} />\n            </span>\n            <span className={styles.quickItem} data-tooltip="
+      ],
+      "cssModuleClasses": [
+        "PointerEvent",
+        "accountResolving",
+        "article",
+        "articleCard",
+        "articleGrid",
+        "articleSummaryTooltip",
+        "articleUrl",
+        "ballCanvas",
+        "ballField",
+        "brand",
+        "brandCluster",
+        "brandClusterFixed",
+        "canJumpToVocabularySource",
+        "cardCopy",
+        "cardMeta",
+        "catalogueCounts",
+        "catalogueStatus",
+        "closingActions",
+        "closingCopy",
+        "closingSection",
+        "continueReadingCard",
+        "continueReadingCover",
+        "continueReadingEyebrow",
+        "continueReadingMeta",
+        "coverAction",
+        "coverBreath",
+        "coverStage",
+        "coverSurface",
+        "dailyUpdateNotice",
+        "delete",
+        "dictionaryBackdrop",
+        "dictionaryCloseDesktop",
+        "dictionaryCloseMobile",
+        "dictionaryLayer",
+        "dictionarySheetHandle",
+        "dictionaryWindow",
+        "dictionaryWindowBody",
+        "dictionaryWindowClosing",
+        "disconnect",
+        "emptyArticles",
+        "error",
+        "featuredCard",
+        "filter",
+        "find",
+        "findIndex",
+        "flow",
+        "forEach",
+        "forceGuestPreview",
+        "forceMemberPreview",
+        "get",
+        "getBoundingClientRect",
+        "guestLibraryAction",
+        "hero",
+        "heroCopy",
+        "heroEdge",
+        "heroSubtitle",
+        "homepageCuration",
+        "importError",
+        "importFieldSlot",
+        "importIntro",
+        "importModes",
+        "importPanel",
+        "importSection",
+        "importSubmit",
+        "importingUrl",
+        "includes",
+        "inlineFeedback",
+        "inlineFeedbackOpen",
+        "insideHandoff",
+        "interests",
+        "length",
+        "libraryAction",
+        "libraryFilters",
+        "map",
+        "memberImport",
+        "memberImportPanel",
+        "memberLearningColumn",
+        "memberOpening",
+        "memberOpeningBalls",
+        "memberStage",
+        "memberWorkbench",
+        "memberWorkbenchGrid",
+        "menuButton",
+        "menuGlyph",
+        "mobileCoverDecoration",
+        "nearRecommendations",
+        "observe",
+        "onArticleChange",
+        "onArticleUrlChange",
+        "onCapturePublicArticleOrigin",
+        "onDeleteSavedArticle",
+        "onImportUrl",
+        "onJumpToVocabularySource",
+        "onOpenCet",
+        "onOpenPublicArticle",
+        "onOpenSavedArticle",
+        "onOpenTemporaryReading",
+        "onPrefetchPublicArticle",
+        "onPublicArticleOriginRestored",
+        "onRenameSavedArticle",
+        "onRequestCatalogue",
+        "onStartReading",
+        "openingImage",
+        "openingLayer",
+        "openingLayerActive",
+        "openingPublicArticleId",
+        "openingTitle",
+        "openingWash",
+        "pasteFallback",
+        "preferenceBar",
+        "preferenceChoices",
+        "preferenceControl",
+        "preferencePanel",
+        "preferenceTrigger",
+        "publicArticles",
+        "publicationBridge",
+        "qrToggle",
+        "quickButton",
+        "quickItem",
+        "quickNav",
+        "readingLevel",
+        "ready",
+        "recommendations",
+        "resourceLabel",
+        "resourceSwitch",
+        "restorePublicArticleOrigin",
+        "root",
+        "savedArticles",
+        "sectionHead",
+        "siteFooter",
+        "skipMemberOpening",
+        "slice",
+        "some",
+        "temporaryReading",
+        "todayBadge",
+        "topbar",
+        "updateCadence",
+        "urlError",
+        "urlFieldRow",
+        "urlHelp",
+        "wechatContact",
+        "wechatQr",
+        "wechatQrOpen",
+        "wordFallCanvas"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/ImmersiveHome.tsx",
+      "lines": 910,
+      "status": "legacy",
+      "visibleTargets": [
+        "legacy.ImmersiveHome"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "@/types/article",
+        "@/types/publicArticle",
+        "@/types/vocabulary",
+        "@/components/AccountProvider",
+        "@/components/ClearableField",
+        "@/components/FeedbackPanel",
+        "@/components/HomeOptionMenu",
+        ", "
+      ],
+      "cssModuleClasses": [
+        "article",
+        "articleUrl",
+        "demoCompleted",
+        "error",
+        "filter",
+        "find",
+        "forEach",
+        "getContext",
+        "height",
+        "importingUrl",
+        "length",
+        "map",
+        "onArticleChange",
+        "onArticleUrlChange",
+        "onImportUrl",
+        "onOpenPublicArticle",
+        "onOpenSavedArticle",
+        "onPrefetchPublicArticle",
+        "onStartReading",
+        "openingPublicArticleId",
+        "overlayOpen",
+        "publicArticles",
+        "push",
+        "savedArticles",
+        "splice",
+        "travels",
+        "urlError",
+        "vocabularyEntries",
+        "width"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/InvitationCodeRedeemContent.module.css",
+      "lines": 184,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/InvitationCodeRedeemContent.tsx",
+      "lines": 149,
+      "status": "live-source",
+      "visibleTargets": [
+        "account.invite",
+        "account.entitlement"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "@/components/AccountProvider",
+        "./InvitationCodeRedeemContent.module.css"
+      ],
+      "cssModuleClasses": [
+        "balances",
+        "error",
+        "explanation",
+        "field",
+        "form",
+        "length",
+        "map",
+        "notice",
+        "primary",
+        "root",
+        "signedOut",
+        "success",
+        "summary"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/LoadingStatus.tsx",
+      "lines": 6,
+      "status": "live-source",
+      "visibleTargets": [
+        "global.loading"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react"
+      ],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/OptionWheel.module.css",
+      "lines": 91,
+      "status": "legacy-style",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/OptionWheel.tsx",
+      "lines": 400,
+      "status": "legacy",
+      "visibleTargets": [
+        "legacy.OptionWheel"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "./OptionWheel.module.css"
+      ],
+      "cssModuleClasses": [
+        "current",
+        "dragging",
+        "item",
+        "length",
+        "map",
+        "right",
+        "root",
+        "selected"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/PillNavAction.module.css",
+      "lines": 79,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/PillNavAction.tsx",
+      "lines": 251,
+      "status": "live-source",
+      "visibleTargets": [
+        "global.pill-button"
+      ],
+      "effects": [
+        "effect.pill-fill"
+      ],
+      "hasJsx": true,
+      "imports": [
+        "next/link",
+        "react",
+        "gsap",
+        "./PillNavAction.module.css"
+      ],
+      "cssModuleClasses": [
+        "content",
+        "dark",
+        "hoverCircle",
+        "hoverContent",
+        "labelStack",
+        "light",
+        "noMotion",
+        "pillAction"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/PronunciationButtons.tsx",
+      "lines": 310,
+      "status": "live-source",
+      "visibleTargets": [
+        "global.pronunciation"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "@/lib/pronunciationClient",
+        "@/lib/pronunciation"
+      ],
+      "cssModuleClasses": [
+        "cancel",
+        "find",
+        "getVoices",
+        "includes",
+        "join",
+        "map",
+        "speak"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/PwaRegistration.tsx",
+      "lines": 36,
+      "status": "nonvisual",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [
+        "react"
+      ],
+      "cssModuleClasses": [
+        "delete",
+        "env",
+        "filter",
+        "keys",
+        "map"
+      ],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "无独立可视根节点 / 由父节点或专用效果入口覆盖"
+    },
+    {
+      "file": "components/ReaderLoading.module.css",
+      "lines": 137,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [
+        "effect.reader-loading"
+      ],
+      "hasJsx": false,
+      "imports": [],
+      "cssModuleClasses": [],
+      "keyframes": [
+        {
+          "name": "reader-loading-ink",
+          "line": 105
+        },
+        {
+          "name": "reader-loading-progress",
+          "line": 117
+        }
+      ],
+      "motionDeclarations": [
+        {
+          "line": 50,
+          "text": "animation: reader-loading-ink 1.1s cubic-bezier(0.25, 1, 0.5, 1) infinite alternate;"
+        },
+        {
+          "line": 102,
+          "text": "animation: reader-loading-progress 900ms cubic-bezier(0.65, 0, 0.35, 1) infinite;"
+        },
+        {
+          "line": 131,
+          "text": "animation: none;"
+        }
+      ]
+    },
+    {
+      "file": "components/ReaderTextAdapter.tsx",
+      "lines": 9,
+      "status": "nonvisual",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "@/types/reader"
+      ],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "无独立可视根节点 / 由父节点或专用效果入口覆盖"
+    },
+    {
+      "file": "components/ReaderToolbar.module.css",
+      "lines": 986,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [
+        "effect.reader-dictionary",
+        "effect.reader-work-layer",
+        "effect.reader-status",
+        "effect.reader-action-hover",
+        "effect.reader-sheet-settle"
+      ],
+      "hasJsx": false,
+      "imports": [],
+      "cssModuleClasses": [],
+      "keyframes": [
+        {
+          "name": "dictionary-window-in",
+          "line": 231
+        },
+        {
+          "name": "dictionary-window-out",
+          "line": 232
+        },
+        {
+          "name": "work-backdrop-in",
+          "line": 302
+        },
+        {
+          "name": "work-layer-in",
+          "line": 303
+        },
+        {
+          "name": "status-in",
+          "line": 335
+        }
+      ],
+      "motionDeclarations": [
+        {
+          "line": 51,
+          "text": "transition:"
+        },
+        {
+          "line": 141,
+          "text": "transition: transform 180ms cubic-bezier(.22,1,.36,1), box-shadow 180ms ease, background 180ms ease;"
+        },
+        {
+          "line": 173,
+          "text": "transition: opacity 150ms ease, transform 180ms ease;"
+        },
+        {
+          "line": 206,
+          "text": "animation: dictionary-window-in 230ms cubic-bezier(.22,1,.36,1) both;"
+        },
+        {
+          "line": 211,
+          "text": "animation: dictionary-window-out 220ms cubic-bezier(.55,0,1,.45) both;"
+        },
+        {
+          "line": 242,
+          "text": "backdrop-filter: blur(3px);"
+        },
+        {
+          "line": 243,
+          "text": "animation: work-backdrop-in 180ms ease both;"
+        },
+        {
+          "line": 256,
+          "text": "animation: work-layer-in 260ms cubic-bezier(.22,1,.36,1) both;"
+        },
+        {
+          "line": 331,
+          "text": "animation: status-in 180ms cubic-bezier(0.22, 1, 0.36, 1);"
+        },
+        {
+          "line": 551,
+          "text": "transition: translate 220ms cubic-bezier(.16, 1, .3, 1);"
+        },
+        {
+          "line": 653,
+          "text": "transition: translate 220ms cubic-bezier(.16, 1, .3, 1);"
+        },
+        {
+          "line": 937,
+          "text": "animation: none;"
+        },
+        {
+          "line": 938,
+          "text": "transition: none;"
+        }
+      ]
+    },
+    {
+      "file": "components/ReaderTypography.module.css",
+      "lines": 24,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/ReaderView.tsx",
+      "lines": 4495,
+      "status": "live-source",
+      "visibleTargets": [
+        "reader.root",
+        "reader.rail",
+        "reader.toolbar",
+        "reader.back",
+        "reader.actions",
+        "reader.status",
+        "reader.history",
+        "reader.side-panel",
+        "reader.dictionary-body",
+        "reader.import-tabs",
+        "reader.import-body",
+        "reader.import-actions",
+        "reader.saved-list",
+        "reader.mobile-sheet",
+        "reader.mobile-sheet-handle",
+        "reader.mobile-sheet-body",
+        "reader.mobile-dock",
+        "reader.article",
+        "reader.paragraph",
+        "reader.image",
+        "reader.table",
+        "reader.edit-canvas",
+        "reader.panel-tabs",
+        "reader.dictionary",
+        "reader.import-layer",
+        "reader.saved-layer",
+        "reader.image-viewer",
+        "cet.question-dock",
+        "cet.question-trigger",
+        "reader.loading"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "./LoadingStatus",
+        "@/lib/accountUsageNavigation",
+        "next/dynamic",
+        "@/components/cet/CetLibrary",
+        "@/components/cet/CetLibraryDialog",
+        "@/lib/usagePresentation",
+        "@/lib/learningStorage",
+        "react",
+        "react",
+        "@/components/AnkiSettingsPanel",
+        "@/components/ArticleTranslationPanel",
+        "@/components/BookDictionary",
+        "@/components/ExplanationPanel",
+        "@/components/HomeOptionMenu",
+        "@/components/PillNavAction",
+        "@/components/useMobileBottomSheet",
+        "@/components/useMobileSheetScrollBoundary",
+        "@/components/useDocumentScrollLock",
+        "@/lib/cetLocalViewport",
+        "@/components/cet/useCetQuestionDock",
+        "@/components/ReaderTextAdapter",
+        "@/components/WordToken",
+        "@/components/ReaderToolbar.module.css",
+        "@/components/ReaderLoading.module.css",
+        "@/components/ReaderTypography.module.css",
+        "@/lib/ankiConnect",
+        "@/lib/articleTranslationBlocks",
+        "@/lib/articles",
+        "@/lib/cache",
+        "@/lib/articleTranslationJobs",
+        "@/lib/apiClient",
+        "@/lib/readingProgressPolicy",
+        "@/lib/accountEvents",
+        "@/lib/csv",
+        "@/lib/explanationDisplay",
+        "@/lib/textReveal",
+        "@/lib/explanationStreamProtocol",
+        "@/lib/explanationStreamStore",
+        "@/lib/pronunciation",
+        "@/lib/lookupCancellationClient",
+        "@/lib/sourceMatching",
+        "@/lib/tokenizer",
+        "@/lib/readerDocumentModel",
+        "@/lib/articleImagePreload",
+        "@/lib/articleImageUrls",
+        "@/lib/imageZoom",
+        "@/lib/readerBlockInteractivity",
+        "@/lib/vocabulary",
+        "@/lib/standaloneDictionaryHistory",
+        "@/lib/standaloneDictionary",
+        "@/types/anki",
+        "@/types/article",
+        "@/types/publicArticle",
+        "@/types/reader",
+        "@/types/vocabulary",
+        "@/types/dictionary",
+        "@/components/AccountProvider",
+        "./useToolLayer",
+        "@/components/useReadingEvidence",
+        "@/components/useReaderTranslationSession",
+        " | ",
+        " | ",
+        ") {\n    return <svg viewBox=",
+        "); }}>\n            <ReaderRailIcon kind=",
+        " /><span>导入</span><small>{examSurface?.testing ? ",
+        " ? ",
+        " ? ",
+        " ? ",
+        " ? (\n              <div className={toolbarStyles.importWorkspace}>\n                <div className={toolbarStyles.importTabs} role=",
+        "); }}\n        onOpenDictionary={() => {\n          if (window.matchMedia("
+      ],
+      "cssModuleClasses": [
+        "KeyboardEvent",
+        "PointerEvent",
+        "WheelEvent",
+        "action",
+        "actions",
+        "add",
+        "answered",
+        "backAction",
+        "body",
+        "content",
+        "copy",
+        "copyAction",
+        "current",
+        "deckName",
+        "delete",
+        "desktopRail",
+        "dictionaryWindow",
+        "dictionaryWindowBody",
+        "dictionaryWindowClosing",
+        "document",
+        "editorialMobileActions",
+        "editorialRailActions",
+        "emptyWorkspace",
+        "endpoint",
+        "every",
+        "filter",
+        "find",
+        "forEach",
+        "force",
+        "has",
+        "historyAction",
+        "historyActions",
+        "image",
+        "importActionRow",
+        "importTabs",
+        "importWorkspace",
+        "includes",
+        "indexOf",
+        "join",
+        "key",
+        "length",
+        "line",
+        "lineLong",
+        "lineMedium",
+        "lineShort",
+        "lineTitle",
+        "list",
+        "map",
+        "mobileArticleActions",
+        "mobileBackAction",
+        "mobileDictionary",
+        "mobileSheetBody",
+        "mobileSheetHandle",
+        "mobileToolDock",
+        "mobileToolEmpty",
+        "mobileToolSheet",
+        "offsetLeft",
+        "offsetTop",
+        "primaryAction",
+        "progress",
+        "railActions",
+        "railBackAction",
+        "readerLayout",
+        "readerSidePanel",
+        "render",
+        "savedWorkspace",
+        "slice",
+        "some",
+        "stage",
+        "status",
+        "syncVocabulary",
+        "toolbar",
+        "total",
+        "urlWorkspace",
+        "workLayer",
+        "workLayerBackdrop",
+        "workLayerCloseDesktop",
+        "workLayerCloseMobile",
+        "workLayerHandle"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/ShowcaseRecording.tsx",
+      "lines": 72,
+      "status": "live-source",
+      "visibleTargets": [
+        "showcase.recording"
+      ],
+      "effects": [
+        "effect.showcase-video"
+      ],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "./FeatureShowcase.module.css"
+      ],
+      "cssModuleClasses": [
+        "placeholder",
+        "placeholderIcon",
+        "play",
+        "recording"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/SiteBackdrop.tsx",
+      "lines": 9,
+      "status": "live-source",
+      "visibleTargets": [
+        "global.site-backdrop"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/StudyDialog.tsx",
+      "lines": 18,
+      "status": "live-source",
+      "visibleTargets": [
+        "study.confirm"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "./StudyIcon",
+        "./StudyPanel.module.css"
+      ],
+      "cssModuleClasses": [
+        "confirm",
+        "dialogSymbol",
+        "dialogTop",
+        "iconButton",
+        "srOnly",
+        "wideDialog"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/StudyDictionaryHint.tsx",
+      "lines": 13,
+      "status": "live-source",
+      "visibleTargets": [
+        "study.dictionary-hint"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "@/types/vocabulary",
+        "./useStudyDictionary",
+        "./LoadingStatus",
+        "./StudyPanel.module.css"
+      ],
+      "cssModuleClasses": [
+        "caption",
+        "cue",
+        "exampleEnglish",
+        "exampleHint",
+        "length",
+        "map"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/StudyEntry.tsx",
+      "lines": 8,
+      "status": "live-source",
+      "visibleTargets": [
+        "study.entry"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "@/lib/studyNavigation",
+        "./StudyPanel.module.css"
+      ],
+      "cssModuleClasses": [
+        "entry",
+        "entryReminder"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/StudyHost.tsx",
+      "lines": 68,
+      "status": "live-source",
+      "visibleTargets": [
+        "study.reminder",
+        "study.return"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "next/dynamic",
+        "react",
+        "./AccountProvider",
+        "@/lib/studyNavigation",
+        "@/lib/vocabulary",
+        "./StudyPanel.module.css",
+        "./StudyIcon",
+        "./StudyPanel"
+      ],
+      "cssModuleClasses": [
+        "notice",
+        "pausedUntil",
+        "reminders",
+        "returnToStudy"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/StudyIcon.tsx",
+      "lines": 23,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react"
+      ],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "共享小图标/词语适配，继承所属组件的样式，不单独做业务入口。"
+    },
+    {
+      "file": "components/StudyPanel.module.css",
+      "lines": 261,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [
+        "effect.study-card",
+        "effect.study-answer",
+        "effect.study-dialog",
+        "effect.study-switch"
+      ],
+      "hasJsx": false,
+      "imports": [],
+      "cssModuleClasses": [],
+      "keyframes": [
+        {
+          "name": "enter",
+          "line": 205
+        },
+        {
+          "name": "reveal",
+          "line": 206
+        },
+        {
+          "name": "breathe",
+          "line": 207
+        }
+      ],
+      "motionDeclarations": [
+        {
+          "line": 16,
+          "text": ".dialog button:where(:not(:global([data-study-menu] *), :global([data-standalone-dictionary] *))){display:inline-flex;justify-content:center;align-items:center;gap:9px;min-height:44px;padding:10px 18px;border:0;border-radius:12px;background:var(--study-soft);color:var(--study-ink);font-size:13px;transition:background 140ms,color 140ms,transform 140ms}"
+        },
+        {
+          "line": 31,
+          "text": ".dialog .rail nav button{justify-content:flex-start;white-space:nowrap;width:116px;gap:10px;border-radius:23px;padding:10px 15px;background:var(--study-glass);backdrop-filter:blur(18px) saturate(1.2);box-shadow:inset 0 1px 0 #ffffff30,0 2px 7px #2048750b;color:var(--study-muted)}"
+        },
+        {
+          "line": 38,
+          "text": ".flashcard{width:min(800px,100%);height:min(606px,calc(100svh - 76px));min-height:420px;padding:22px 40px 30px;background:var(--study-surface);border-radius:var(--study-radius);box-shadow:var(--study-shadow);display:flex;flex-direction:column;animation:enter var(--study-duration) cubic-bezier(.22,1,.36,1)}"
+        },
+        {
+          "line": 54,
+          "text": ".answerBody{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;padding:8px 4px 14px 0;scrollbar-width:thin;animation:reveal var(--study-duration) cubic-bezier(.22,1,.36,1)}"
+        },
+        {
+          "line": 140,
+          "text": ".switch:after{content:\"\";position:absolute;top:3px;left:3px;width:19px;height:19px;background:var(--study-surface);border-radius:50%;transition:transform 140ms}"
+        },
+        {
+          "line": 179,
+          "text": ".confirm{width:calc(100% - 32px);max-width:440px;max-height:calc(100svh - 32px);margin:auto;border:1px solid var(--study-line);border-radius:var(--study-radius);padding:24px 30px 30px;background:var(--study-surface);color:var(--study-ink);box-shadow:var(--study-shadow);overflow:auto;animation:reveal 180ms cubic-bezier(.22,1,.36,1)}"
+        },
+        {
+          "line": 180,
+          "text": ".confirm::backdrop{background:#1d28384d;backdrop-filter:blur(5px)}"
+        },
+        {
+          "line": 195,
+          "text": ".skeleton span{height:16px;border-radius:5px;background:var(--study-soft);width:70%;animation:breathe 1.5s ease-in-out infinite}"
+        },
+        {
+          "line": 199,
+          "text": ".notice{position:fixed;z-index:70;bottom:24px;left:50%;transform:translateX(-50%);width:calc(100% - 32px);max-width:530px;display:flex;align-items:center;gap:12px;padding:16px 18px;border:1px solid var(--study-line);border-radius:var(--study-radius);background:var(--study-glass);backdrop-filter:blur(20px);box-shadow:var(--study-shadow);font-size:14px}"
+        },
+        {
+          "line": 204,
+          "text": ".returnToStudy{position:fixed;z-index:80;bottom:calc(28px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:10px;min-height:48px;padding:12px 20px;border:1px solid var(--study-line);border-radius:24px;background:var(--study-glass);color:var(--study-accent);backdrop-filter:blur(20px);box-shadow:var(--study-shadow);font-size:13px;white-space:nowrap}"
+        },
+        {
+          "line": 208,
+          "text": ".dialog[data-motion=off] :is(.flashcard,.answerBody,.confirm){animation:none}"
+        },
+        {
+          "line": 213,
+          "text": ".rail{top:auto;bottom:max(13px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);width:min(370px,calc(100% - 28px));padding:7px;gap:0;border-radius:22px;background:var(--study-glass);backdrop-filter:blur(22px) saturate(1.3);box-shadow:0 2px 16px #18314912}"
+        },
+        {
+          "line": 215,
+          "text": ".dialog .rail nav button{padding:7px 6px;min-height:48px;width:61px;flex-direction:column;gap:4px;font-size:10px;border-radius:14px;box-shadow:none;background:transparent;backdrop-filter:none}"
+        },
+        {
+          "line": 235,
+          "text": "@media(prefers-reduced-motion:reduce){.dialog *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}"
+        },
+        {
+          "line": 240,
+          "text": ".dialog .studyMenu{position:fixed;right:28px;top:23px;z-index:6;min-width:94px;background:var(--study-glass);backdrop-filter:blur(18px);border-radius:24px;justify-content:space-between}"
+        },
+        {
+          "line": 242,
+          "text": ".entryReminder{margin:0;min-height:64px;border:1px solid #c6dbe4;border-radius:16px;background:#fff;color:#263e4b;padding:18px 24px;text-align:left;transition:background 160ms}"
+        }
+      ]
+    },
+    {
+      "file": "components/StudyPanel.tsx",
+      "lines": 270,
+      "status": "live-source",
+      "visibleTargets": [
+        "study.root",
+        "study.shell",
+        "study.menu",
+        "study.rail",
+        "study.card",
+        "study.card-top",
+        "study.prompt",
+        "study.hint",
+        "study.answer",
+        "study.answer-actions",
+        "study.toast",
+        "study.page-title",
+        "study.profile",
+        "study.status",
+        "study.rating-forgot",
+        "study.rating-unsure",
+        "study.rating-remembered",
+        "study.undo"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "./AccountProvider",
+        "./useDocumentScrollLock",
+        "./useStudyTimer",
+        "./StudyRewards",
+        "./StudyIcon",
+        "./StudyDialog",
+        "./StudyWord",
+        "./StudyDictionaryHint",
+        "./BookDictionary",
+        "./useStudyVocabularyEntries",
+        "@/lib/vocabulary",
+        "@/lib/standaloneDictionary",
+        "@/lib/learningStorage",
+        "./StudySettings",
+        "./StudyVocabulary",
+        "./StudyStats",
+        "./LoadingStatus",
+        "./cet/CetSelect",
+        "@/lib/studyPresentation",
+        "@/types/vocabulary",
+        "@/lib/studyNavigation",
+        "@/lib/studyScheduler",
+        "@/types/study",
+        "./StudyPanel.module.css",
+        "@/lib/recommendationPreferences"
+      ],
+      "cssModuleClasses": [
+        "answerBody",
+        "answerFooter",
+        "answers",
+        "blockedNew",
+        "brand",
+        "caption",
+        "cardTop",
+        "claims",
+        "counterDivider",
+        "cue",
+        "current",
+        "dialog",
+        "dialogActions",
+        "dialogError",
+        "dialogField",
+        "empty",
+        "error",
+        "feedback",
+        "filter",
+        "find",
+        "finished",
+        "flashcard",
+        "iconButton",
+        "includes",
+        "length",
+        "map",
+        "metrics",
+        "mobileExit",
+        "nextActions",
+        "page",
+        "pageHeader",
+        "pausedUntil",
+        "primary",
+        "profileResult",
+        "prompt",
+        "quietExit",
+        "rail",
+        "ready",
+        "reduce",
+        "sectionHead",
+        "serverNow",
+        "settings",
+        "shell",
+        "some",
+        "stage",
+        "statusArea",
+        "studyMenu",
+        "surface",
+        "toast",
+        "today",
+        "total",
+        "waiting",
+        "word",
+        "wordDetail"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/StudyRewards.tsx",
+      "lines": 26,
+      "status": "live-source",
+      "visibleTargets": [
+        "study.rewards",
+        "study.milestones",
+        "study.reward-rules"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "@/types/study",
+        "react",
+        "@/lib/studyScheduler",
+        "./StudyIcon",
+        "./StudyPanel.module.css"
+      ],
+      "cssModuleClasses": [
+        "caption",
+        "explanation",
+        "filter",
+        "find",
+        "map",
+        "milestoneIcon",
+        "milestones",
+        "primary",
+        "rewardDaily",
+        "rewardLead",
+        "sectionHead",
+        "segmented",
+        "settingRow",
+        "some",
+        "streak",
+        "surface"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/StudySettings.tsx",
+      "lines": 46,
+      "status": "live-source",
+      "visibleTargets": [
+        "study.settings-row",
+        "study.input-reviewsPerDay",
+        "study.input-forgotMinutes",
+        "study.input-unsureMinutes",
+        "study.retention",
+        "study.remind"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "@/types/study",
+        "./cet/cet.css",
+        "./cet/CetSelect",
+        "./StudyPanel.module.css"
+      ],
+      "cssModuleClasses": [
+        "current",
+        "fieldUnit",
+        "saveStatus",
+        "segmented",
+        "settingRow",
+        "surface",
+        "switch"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/StudyStats.tsx",
+      "lines": 39,
+      "status": "live-source",
+      "visibleTargets": [
+        "study.metrics",
+        "study.trend",
+        "study.trend-filter",
+        "study.donut",
+        "study.forecast",
+        "study.calendar",
+        "study.chart-tooltip"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "@/lib/studyScheduler",
+        "@/lib/studyPresentation",
+        "@/types/study",
+        "./StudyPanel.module.css"
+      ],
+      "cssModuleClasses": [
+        "calendarScroll",
+        "caption",
+        "chartBars",
+        "chartGrid",
+        "chartLabels",
+        "chartTooltip",
+        "distribution",
+        "donut",
+        "filter",
+        "forecast",
+        "heatmap",
+        "includeAnki",
+        "legend",
+        "length",
+        "map",
+        "metrics",
+        "pausedUntil",
+        "reviewsPerDay",
+        "sectionHead",
+        "segmented",
+        "surface",
+        "timeValue",
+        "trendBar",
+        "trendLegend",
+        "trendToolbar"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/StudyVocabulary.tsx",
+      "lines": 31,
+      "status": "live-source",
+      "visibleTargets": [
+        "study.vocab-search",
+        "study.vocab-filter",
+        "study.vocab-columns",
+        "study.vocab-list"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "@/types/study",
+        "@/types/vocabulary",
+        "@/lib/studyPresentation",
+        "./StudyIcon",
+        "./StudyPanel.module.css"
+      ],
+      "cssModuleClasses": [
+        "caption",
+        "concealed",
+        "filter",
+        "get",
+        "iconButton",
+        "length",
+        "map",
+        "search",
+        "sectionHead",
+        "surface",
+        "vocabularyRows",
+        "wordCell",
+        "wordColumns",
+        "wordFilters"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/StudyWord.tsx",
+      "lines": 28,
+      "status": "live-source",
+      "visibleTargets": [
+        "study.word-title",
+        "study.source",
+        "study.meaning",
+        "study.sentence",
+        "study.more"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "@/types/vocabulary",
+        "@/lib/pronunciation",
+        "@/lib/displayLabels",
+        "./PronunciationButtons",
+        "./VocabularyLearningDetails",
+        "./StudyIcon",
+        "./BookDictionary",
+        "./AccountProvider",
+        "./useStudyDictionary",
+        "./StudyPanel.module.css"
+      ],
+      "cssModuleClasses": [
+        "definitions",
+        "dictionaryMeaning",
+        "mainMeaning",
+        "moreDefinitions",
+        "pronunciation",
+        "sentence",
+        "sourceLink",
+        "wordDetails",
+        "wordHeading"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/VocabularyLearningDetails.module.css",
+      "lines": 125,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/VocabularyLearningDetails.tsx",
+      "lines": 95,
+      "status": "live-source",
+      "visibleTargets": [
+        "study.saved-details"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "@/lib/vocabularyPresentation",
+        "@/types/vocabulary",
+        "./VocabularyLearningDetails.module.css"
+      ],
+      "cssModuleClasses": [
+        "anki",
+        "compact",
+        "details",
+        "example",
+        "length",
+        "map",
+        "mistakes",
+        "module",
+        "points",
+        "section",
+        "synonyms"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/VocabularyPanel.tsx",
+      "lines": 530,
+      "status": "legacy",
+      "visibleTargets": [
+        "legacy.VocabularyPanel"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "@tanstack/react-virtual",
+        "@/components/AnkiPreviewModal",
+        "@/lib/studyNavigation",
+        "@/components/ClearableField",
+        "@/components/PronunciationButtons",
+        "@/components/useDocumentScrollLock",
+        "@/components/VocabularyLearningDetails",
+        "@/lib/displayLabels",
+        "@/lib/pronunciation",
+        "@/lib/vocabularyMerge",
+        "@/lib/vocabularySearch",
+        "@/lib/vocabularyPresentation",
+        "@/types/vocabulary"
+      ],
+      "cssModuleClasses": [
+        "filter",
+        "get",
+        "has",
+        "length",
+        "reduce",
+        "set"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/WordToken.tsx",
+      "lines": 48,
+      "status": "live-source",
+      "visibleTargets": [
+        "reader.token",
+        "reader.selection",
+        "reader.sentence-highlight",
+        "reader.source-target"
+      ],
+      "effects": [
+        "effect.token-highlight"
+      ],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "@/types/reader"
+      ],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/cet/CetLibrary.tsx",
+      "lines": 256,
+      "status": "live-source",
+      "visibleTargets": [
+        "cet.library",
+        "cet.library-controls",
+        "cet.filters",
+        "cet.resource-grid",
+        "cet.resource",
+        "cet.cover",
+        "cet.recent"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "../LoadingStatus",
+        "react",
+        "@/lib/cetLibraryView",
+        "@/components/AccountProvider",
+        "@/lib/cetProgress",
+        "@/lib/cetActivityStorage",
+        "@/lib/cetHistory",
+        "@/lib/cetActivity",
+        "@/lib/learningStorage",
+        "@/lib/accountEvents",
+        "@/types/cet",
+        "./cet.css",
+        "@/lib/cetCatalogueClient",
+        "./CetSelect",
+        "@/lib/cetGuestPreview",
+        "./CetLibraryPlaceholder"
+      ],
+      "cssModuleClasses": [
+        "length",
+        "map",
+        "questions",
+        "slice",
+        "some",
+        "sort",
+        "title",
+        "type"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/cet/CetLibraryDialog.tsx",
+      "lines": 20,
+      "status": "live-source",
+      "visibleTargets": [
+        "cet.dialog"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "@/components/useDocumentScrollLock",
+        "./CetLibrary"
+      ],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/cet/CetLibraryPlaceholder.module.css",
+      "lines": 13,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [],
+      "cssModuleClasses": [],
+      "keyframes": [
+        {
+          "name": "cet-skeleton-breathe",
+          "line": 12
+        }
+      ],
+      "motionDeclarations": [
+        {
+          "line": 11,
+          "text": ".cover, .copy i { animation: cet-skeleton-breathe 1.5s ease-in-out infinite alternate; }"
+        },
+        {
+          "line": 13,
+          "text": "@media (prefers-reduced-motion: reduce) { .cover, .copy i { animation: none; } }"
+        }
+      ]
+    },
+    {
+      "file": "components/cet/CetLibraryPlaceholder.tsx",
+      "lines": 12,
+      "status": "live-source",
+      "visibleTargets": [
+        "cet.placeholder"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "../LoadingStatus",
+        "./CetLibraryPlaceholder.module.css"
+      ],
+      "cssModuleClasses": [
+        "copy",
+        "cover",
+        "grid",
+        "row",
+        "status"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/cet/CetListeningPlayer.tsx",
+      "lines": 74,
+      "status": "live-source",
+      "visibleTargets": [
+        "cet.listening",
+        "cet.play",
+        "cet.progress"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "../LoadingStatus",
+        "react",
+        "@/types/cet"
+      ],
+      "cssModuleClasses": [
+        "current"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/cet/CetPaperEditor.tsx",
+      "lines": 139,
+      "status": "live-source",
+      "visibleTargets": [
+        "cet.paper-editor",
+        "cet.paper-text"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "@/components/LoadingStatus",
+        "react",
+        "@/lib/cetPaperFormatting",
+        "@/types/cet"
+      ],
+      "cssModuleClasses": [
+        "find",
+        "some"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/cet/CetQuestionSurface.tsx",
+      "lines": 37,
+      "status": "live-source",
+      "visibleTargets": [
+        "cet.questions",
+        "cet.options",
+        "cet.match",
+        "cet.bank",
+        "cet.question-actions"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "@/types/cet",
+        "@/lib/cetUnderlines"
+      ],
+      "cssModuleClasses": [
+        "at",
+        "filter",
+        "find",
+        "includes",
+        "map",
+        "some"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/cet/CetReader.tsx",
+      "lines": 862,
+      "status": "live-source",
+      "visibleTargets": [
+        "cet.start",
+        "cet.start-actions",
+        "cet.history-record",
+        "cet.reading",
+        "cet.meta",
+        "cet.sections",
+        "cet.bottom-nav",
+        "cet.notice",
+        "cet.history",
+        "cet.answer-card",
+        "cet.confirm",
+        "cet.underline"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "../LoadingStatus",
+        "@/lib/cetSubmitPolicy",
+        "react",
+        "react-dom",
+        "./CetSelect",
+        "@/components/ReaderView",
+        "@/components/PillNavAction",
+        "@/components/AccountProvider",
+        "@/components/useDocumentScrollLock",
+        "@/lib/learningStorage",
+        "@/lib/cetProgress",
+        "@/lib/cetLegacy",
+        "@/lib/cetExposure",
+        "@/lib/cetActivityStorage",
+        "@/lib/cetHistory",
+        "@/lib/cetActivity",
+        "@/lib/accountEvents",
+        "./CetLibrary",
+        "@/lib/cetPracticeSubmitAll",
+        "@/lib/cetViewModel",
+        "@/lib/cetAdjustableTimer",
+        "@/lib/cetCatalogueLoader",
+        "@/lib/cetTypeTrail",
+        "@/lib/cetTypeTrailStorage",
+        "./CetQuestionSurface",
+        "@/lib/cetLocalViewport",
+        "./CetText",
+        "./CetListeningPlayer",
+        "@/lib/cetListening",
+        "./CetPaperEditor",
+        "@/lib/cetUnderlines",
+        "@/types/cet",
+        "@/lib/cetTranslationBlocks",
+        "@/lib/cetUnderlineSelection",
+        "./useCetUnderlineSelection",
+        "@/types/reader",
+        "@/components/ReaderToolbar.module.css",
+        "./cet.css"
+      ],
+      "cssModuleClasses": [
+        "action",
+        "completed",
+        "conflict",
+        "correct",
+        "current",
+        "elapsedMs",
+        "filter",
+        "find",
+        "id",
+        "includes",
+        "join",
+        "length",
+        "map",
+        "push",
+        "railActions",
+        "scoreable",
+        "slice",
+        "some",
+        "type",
+        "unanswered",
+        "unreliable"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/cet/CetSelect.tsx",
+      "lines": 40,
+      "status": "live-source",
+      "visibleTargets": [
+        "cet.select",
+        "cet.listbox"
+      ],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "react-dom"
+      ],
+      "cssModuleClasses": [
+        "current",
+        "find",
+        "findIndex",
+        "length",
+        "map"
+      ],
+      "keyframes": [],
+      "motionDeclarations": []
+    },
+    {
+      "file": "components/cet/CetText.tsx",
+      "lines": 49,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "@/lib/cetTextTokens",
+        "@/components/WordToken",
+        "@/components/ReaderTextAdapter",
+        "@/types/reader",
+        "@/types/cet"
+      ],
+      "cssModuleClasses": [
+        "find",
+        "flatMap",
+        "map",
+        "slice",
+        "some"
+      ],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "共享小图标/词语适配，继承所属组件的样式，不单独做业务入口。"
+    },
+    {
+      "file": "components/cet/cet.css",
+      "lines": 1196,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [
+        "effect.cet-dock",
+        "effect.cet-card-hover"
+      ],
+      "hasJsx": false,
+      "imports": [],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": [
+        {
+          "line": 79,
+          "text": "transition: transform 0.22s ease-out;"
+        },
+        {
+          "line": 740,
+          "text": "transition: none;"
+        },
+        {
+          "line": 1127,
+          "text": ".cet-question-dock { position:absolute;inset:52px 0 0;z-index:4;transform-origin:calc(100% - 6px) 50%;transform:scale(.08,.06);opacity:0;visibility:hidden;transition:transform 280ms cubic-bezier(.2,.8,.2,1),opacity 180ms ease,visibility 0s 280ms; }"
+        },
+        {
+          "line": 1169,
+          "text": "@media (prefers-reduced-motion:reduce) { .cet-question-dock { transition:none; } }"
+        }
+      ]
+    },
+    {
+      "file": "components/cet/useCetQuestionDock.ts",
+      "lines": 25,
+      "status": "ui-hook",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [
+        "react"
+      ],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "无独立可视根节点 / 由父节点或专用效果入口覆盖"
+    },
+    {
+      "file": "components/cet/useCetUnderlineSelection.ts",
+      "lines": 45,
+      "status": "ui-hook",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react"
+      ],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "无独立可视根节点 / 由父节点或专用效果入口覆盖"
+    },
+    {
+      "file": "components/useAccountActivity.ts",
+      "lines": 20,
+      "status": "ui-hook",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [
+        "react"
+      ],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "无独立可视根节点 / 由父节点或专用效果入口覆盖"
+    },
+    {
+      "file": "components/useArticleReveal.ts",
+      "lines": 57,
+      "status": "ui-hook",
+      "visibleTargets": [],
+      "effects": [
+        "effect.article-reveal"
+      ],
+      "hasJsx": true,
+      "imports": [
+        "react"
+      ],
+      "cssModuleClasses": [
+        "current",
+        "forEach"
+      ],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "无独立可视根节点 / 由父节点或专用效果入口覆盖"
+    },
+    {
+      "file": "components/useArticleSummary.ts",
+      "lines": 25,
+      "status": "ui-hook",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react"
+      ],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "无独立可视根节点 / 由父节点或专用效果入口覆盖"
+    },
+    {
+      "file": "components/useDailyPublicationNotice.ts",
+      "lines": 59,
+      "status": "ui-hook",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "@/lib/dailyPublicationUpdates",
+        "@/lib/startupPerformance"
+      ],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "无独立可视根节点 / 由父节点或专用效果入口覆盖"
+    },
+    {
+      "file": "components/useDocumentScrollLock.ts",
+      "lines": 74,
+      "status": "ui-hook",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [
+        "react"
+      ],
+      "cssModuleClasses": [
+        "bodyLeft",
+        "bodyOverflow",
+        "bodyPaddingRight",
+        "bodyPosition",
+        "bodyTop",
+        "bodyWidth",
+        "documentOverflow",
+        "scrollX",
+        "scrollY"
+      ],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "无独立可视根节点 / 由父节点或专用效果入口覆盖"
+    },
+    {
+      "file": "components/useMobileBottomSheet.ts",
+      "lines": 116,
+      "status": "ui-hook",
+      "visibleTargets": [],
+      "effects": [
+        "effect.mobile-sheet"
+      ],
+      "hasJsx": true,
+      "imports": [
+        "react"
+      ],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "无独立可视根节点 / 由父节点或专用效果入口覆盖"
+    },
+    {
+      "file": "components/useMobileSheetScrollBoundary.ts",
+      "lines": 75,
+      "status": "ui-hook",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react"
+      ],
+      "cssModuleClasses": [
+        "TouchEvent",
+        "WheelEvent"
+      ],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "无独立可视根节点 / 由父节点或专用效果入口覆盖"
+    },
+    {
+      "file": "components/usePublicationMountCount.ts",
+      "lines": 29,
+      "status": "ui-hook",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [
+        "react"
+      ],
+      "cssModuleClasses": [
+        "count",
+        "key"
+      ],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "无独立可视根节点 / 由父节点或专用效果入口覆盖"
+    },
+    {
+      "file": "components/useReaderTranslationSession.ts",
+      "lines": 103,
+      "status": "ui-hook",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react",
+        "@/lib/accountEvents",
+        "@/lib/learningStorage",
+        "@/lib/accountStorageTransition",
+        "@/lib/cache",
+        "@/lib/articleTranslationJobs",
+        "@/types/reader"
+      ],
+      "cssModuleClasses": [
+        "filter",
+        "has",
+        "map",
+        "translations"
+      ],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "无独立可视根节点 / 由父节点或专用效果入口覆盖"
+    },
+    {
+      "file": "components/useReadingEvidence.ts",
+      "lines": 41,
+      "status": "ui-hook",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [
+        "react",
+        "@/lib/studyNavigation",
+        "@/lib/learningActivity"
+      ],
+      "cssModuleClasses": [
+        "current"
+      ],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "无独立可视根节点 / 由父节点或专用效果入口覆盖"
+    },
+    {
+      "file": "components/useShowcaseCoversReady.ts",
+      "lines": 27,
+      "status": "ui-hook",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": true,
+      "imports": [
+        "react"
+      ],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "无独立可视根节点 / 由父节点或专用效果入口覆盖"
+    },
+    {
+      "file": "components/useStudyDictionary.ts",
+      "lines": 66,
+      "status": "ui-hook",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [
+        "react",
+        "./AccountProvider",
+        "@/lib/accountEvents",
+        "@/lib/standaloneDictionaryCache",
+        "@/lib/standaloneDictionaryHistory",
+        "@/lib/dictionaryResultSnapshot",
+        "@/lib/vocabularyRepository",
+        "@/lib/vocabularyLookupSync",
+        "@/types/vocabulary",
+        "@/types/dictionary"
+      ],
+      "cssModuleClasses": [
+        "id",
+        "length",
+        "result",
+        "some",
+        "updatedAt"
+      ],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "无独立可视根节点 / 由父节点或专用效果入口覆盖"
+    },
+    {
+      "file": "components/useStudyTimer.ts",
+      "lines": 26,
+      "status": "ui-hook",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [
+        "react",
+        "@/lib/learningActivity"
+      ],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "无独立可视根节点 / 由父节点或专用效果入口覆盖"
+    },
+    {
+      "file": "components/useStudyVocabularyEntries.ts",
+      "lines": 34,
+      "status": "ui-hook",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [
+        "react",
+        "@/lib/accountEvents",
+        "@/lib/vocabularyRepository",
+        "@/lib/standaloneDictionaryHistory",
+        "@/types/vocabulary"
+      ],
+      "cssModuleClasses": [
+        "includes",
+        "length",
+        "map"
+      ],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "无独立可视根节点 / 由父节点或专用效果入口覆盖"
+    },
+    {
+      "file": "components/useToolLayer.ts",
+      "lines": 26,
+      "status": "ui-hook",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [
+        "react"
+      ],
+      "cssModuleClasses": [
+        "add",
+        "at",
+        "delete",
+        "indexOf",
+        "push",
+        "splice"
+      ],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "无独立可视根节点 / 由父节点或专用效果入口覆盖"
+    },
+    {
+      "file": "lib/homeCoverMotion.ts",
+      "lines": 26,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "已列入源码库存；现有目录未细分内部控件，不能声明已支持逐项编辑"
+    },
+    {
+      "file": "lib/guestCoverTouchSnap.ts",
+      "lines": 25,
+      "status": "live-source",
+      "visibleTargets": [],
+      "effects": [],
+      "hasJsx": false,
+      "imports": [],
+      "cssModuleClasses": [],
+      "keyframes": [],
+      "motionDeclarations": [],
+      "coverageNote": "已列入源码库存；现有目录未细分内部控件，不能声明已支持逐项编辑"
+    }
+  ],
+  "keyframeCount": 95,
+  "motionDeclarationCount": 299,
+  "coverage": {
+    "targetFiles": 74,
+    "effectFiles": 21
+  }
+}

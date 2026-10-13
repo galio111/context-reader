@@ -4,6 +4,7 @@ import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
 import { requestExternalOrigin } from "@/lib/requestSecurity";
 import { UiDesignValidationError } from "@/lib/uiDesign";
 import { mutateUiDesign, readUiDesignState } from "@/lib/uiDesignStore";
+import { invalidatePublishedDesign } from '@/lib/uiDesignPublished';
 
 export const dynamic = "force-dynamic";
 const headers = { "Cache-Control": "private, no-store" };
@@ -30,6 +31,7 @@ export async function POST(request: Request) {
     const result = await mutateUiDesign(body);
     if (result.status === "conflict") return reply({ error: "方案已在另一处更新，请先重新载入。", code: "conflict", state: result.state }, 409);
     if (result.status === "no-previous") return reply({ error: "还没有可恢复的上一版设计。", code: "no-previous", state: result.state }, 409);
+    if(result.status==='published'||result.status==='rolled-back')invalidatePublishedDesign();
     return reply({ state: result.state, status: result.status });
   } catch (error) {
     if (error instanceof UiDesignValidationError) return reply({ error: error.message }, 400);

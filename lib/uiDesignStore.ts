@@ -45,4 +45,11 @@ export function createUiDesignStore(fetchSettings: SettingsFetch, targets: reado
 const store = createUiDesignStore(accountFetch, UI_DESIGN_TARGET_RULES);
 export const readUiDesignState = () => store.read();
 export const mutateUiDesign = (input: unknown) => store.mutate(input);
-export const readPublishedUiDesign = async () => publicUiDesignState(await store.read());
+export const readPublishedUiDesign = async () => {
+  const rows=await accountFetch<Array<{value:ReturnType<typeof emptyUiDesignState>}>>(`account_settings?key=eq.${UI_DESIGN_SETTINGS_KEY}&select=value&limit=1`,{signal:AbortSignal.timeout(2000)});
+  if(!Array.isArray(rows))throw new Error('UI design storage response invalid');
+  if(!rows.length)return publicUiDesignState(emptyUiDesignState());
+  const value=rows[0].value;
+  // Old drafts and rollback history must not block an otherwise valid public design.
+  return publicUiDesignState(validateUiDesignState({...emptyUiDesignState(),revision:value.revision,publishedRevision:value.publishedRevision,published:value.published,updatedAt:value.updatedAt,publishedAt:value.publishedAt},UI_DESIGN_TARGET_RULES));
+};

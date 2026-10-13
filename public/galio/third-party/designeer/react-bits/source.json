@@ -1,0 +1,28 @@
+{
+  "repo": "DavidHDev/react-bits",
+  "revision": "2139cb3098d4fedc6264f13e50dcb4694224ba7c",
+  "checkedAt": "2026-10-12",
+  "paths": [
+    "LICENSE.md",
+    "src/content/Components/ElasticSlider/ElasticSlider.jsx",
+    "src/content/Components/ElasticSlider/ElasticSlider.css",
+    "src/content/Components/BounceCards/BounceCards.jsx",
+    "src/content/Components/BounceCards/BounceCards.css",
+    "src/content/Components/Stack/Stack.jsx",
+    "src/content/Components/Stack/Stack.css",
+    "src/content/Components/CardSwap/CardSwap.jsx",
+    "src/content/Components/CardSwap/CardSwap.css",
+    "src/content/Components/FlowingMenu/FlowingMenu.jsx",
+    "src/content/Components/FlowingMenu/FlowingMenu.css",
+    "src/content/TextAnimations/CircularText/CircularText.jsx",
+    "src/content/TextAnimations/CircularText/CircularText.css",
+    "src/content/TextAnimations/ScrollFloat/ScrollFloat.jsx",
+    "src/content/TextAnimations/ScrollFloat/ScrollFloat.css",
+    "src/content/TextAnimations/ScrollVelocity/ScrollVelocity.jsx",
+    "src/content/TextAnimations/ScrollVelocity/ScrollVelocity.css",
+    "src/content/Animations/BlobCursor/BlobCursor.jsx",
+    "src/content/Animations/BlobCursor/BlobCursor.css",
+    "src/content/Animations/GlareHover/GlareHover.jsx",
+    "src/content/Animations/GlareHover/GlareHover.css"
+  ]
+}

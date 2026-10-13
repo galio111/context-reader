@@ -1,4 +1,5 @@
 "use client";
+import {experiencePreviewStorage,navigateExperiencePreview} from '@/lib/experiencePreview';
 import { loadAdminCandidate } from "@/lib/adminArticleClient";
 import { adminFetch } from "@/lib/adminFetch";
 import { AdminSection } from "@/components/AdminSection";
@@ -187,7 +188,10 @@ export default function AdminPage() {
   function selectSection(section: "articles" | "accounts" | "feedback" | "errors" | "models" | "billing") {
     setActiveSection(section);
     const url = section === "articles" ? "/admin" : `/admin?section=${section}`;
-    window.history.replaceState(null, "", url);
+    if(experiencePreviewStorage()){
+      const query=new URLSearchParams(window.location.search);query.set('section',section);
+      window.history.replaceState(null,'',window.location.pathname+'?'+query);
+    }else window.history.replaceState(null, "", url);
   }
 
   const articlesLoaded = useRef(false);
@@ -650,6 +654,7 @@ export default function AdminPage() {
 
   async function handleLogout() {
     if (accessMode === "developer") {
+      if(navigateExperiencePreview('/'))return;
       window.location.href = "/";
       return;
     }
@@ -954,6 +959,7 @@ export default function AdminPage() {
         </header>
 
         <nav className="mt-5 flex w-full flex-wrap gap-1 rounded-2xl bg-white p-1 sm:w-fit" aria-label="后台功能">
+          {accessMode==='developer'&&<a className="inline-flex min-h-11 items-center rounded-full px-5 text-sm text-[#333] hover:bg-[#f5f5f7]" href="/admin/ui-studio">设计工作台 ↗</a>}
           <button
             className={`min-h-11 flex-1 whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors sm:flex-none sm:px-5 ${
               activeSection === "articles" ? "bg-[#0066cc] text-white" : "text-[#333333] hover:bg-[#f5f5f7]"

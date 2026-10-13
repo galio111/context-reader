@@ -1,0 +1,1065 @@
+[
+  {
+    "id": "c-motion-pixel",
+    "category": "motion",
+    "title": "像素换页",
+    "summary": "先覆盖，再逐格揭开。",
+    "interaction": "进入后拖动进度，看清像素覆盖与揭开。",
+    "source": {
+      "name": "React Bits · PixelTransition",
+      "url": "https://reactbits.dev/animations/pixel-transition",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/main/src/content/Animations/PixelTransition/PixelTransition.jsx",
+      "observation": "直接阅读 PixelTransition 公开源码，保留其主要算法与视觉过程；将React生命周期移植为可销毁的DOM模块。",
+      "license": "MIT + Commons Clause",
+      "licensePath": "third-party/motion-layout/react-bits/LICENSE.md",
+      "implementation": "source-port"
+    },
+    "tags": ["完整页面", "可暂停", "可拖动", "源码移植"],
+    "module": "motion-layout",
+    "variant": "pixel",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-motion-float",
+    "category": "motion",
+    "title": "页面浮出",
+    "summary": "整页抬起，旧页退到后层。",
+    "interaction": "进入、返回、暂停和拖动进度。",
+    "source": {
+      "name": "Unseen",
+      "url": "https://2025.unseen.co/",
+      "observation": "参考前后层次关系；本项提取为可承载任意内容的整页浮层，未声称原站路由采用同一算法。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["完整页面", "可暂停", "可拖动", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "float",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-motion-push",
+    "category": "motion",
+    "title": "横向推页",
+    "summary": "前后两页沿水平方向交接。",
+    "interaction": "返回时方向相反。",
+    "source": {
+      "name": "Build in Amsterdam",
+      "url": "https://www.buildinamsterdam.com/",
+      "observation": "原站的图文左右分区、相邻导航提供清晰方向。提取空间关系，去掉品牌图形。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["完整页面", "可暂停", "可拖动", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "push",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-motion-rise",
+    "category": "motion",
+    "title": "纵向推页",
+    "summary": "两个完整页面上下接续。",
+    "interaction": "对照水平推页，观察方向差别。",
+    "source": {
+      "name": "Motion",
+      "url": "https://motion.dev/",
+      "observation": "参考官网同一属性在不同状态间的直接比较方式；方向与层级独立于图片。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["完整页面", "可暂停", "可拖动", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "rise",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-motion-iris",
+    "category": "motion",
+    "title": "圆形揭示",
+    "summary": "内容从中心圆形窗口展开。",
+    "interaction": "拖到50%能清楚看到圆形边界。",
+    "source": {
+      "name": "Cuberto",
+      "url": "https://cuberto.com/",
+      "observation": "参考居中入口和圆形视觉焦点；抽取圆形遮罩，具体路由时序属于本库延伸。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["完整页面", "可暂停", "可拖动", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "iris",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-motion-curtain",
+    "category": "motion",
+    "title": "左右开帘",
+    "summary": "旧页分为左右两半退场。",
+    "interaction": "暂停看两侧退场与后页位置。",
+    "source": {
+      "name": "GSAP",
+      "url": "https://gsap.com/",
+      "observation": "官网把动作编排与内容分开，文字可以按序进入；本项为独立通用实现，并非官网原样路由动画。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["完整页面", "可暂停", "可拖动", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "curtain",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-motion-diagonal",
+    "category": "motion",
+    "title": "斜切揭幕",
+    "summary": "沿对角线打开下一页。",
+    "interaction": "拖动看斜面扫过文字。",
+    "source": {
+      "name": "Build in Amsterdam",
+      "url": "https://www.buildinamsterdam.com/",
+      "observation": "原站的图文左右分区、相邻导航提供清晰方向。提取空间关系，去掉品牌图形。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["完整页面", "可暂停", "可拖动", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "diagonal",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-motion-shutters",
+    "category": "motion",
+    "title": "分行卷帘",
+    "summary": "六行内容按顺序横向离开。",
+    "interaction": "慢放观察每行错开的时间。",
+    "source": {
+      "name": "Aristide Benoist",
+      "url": "https://aristidebenoist.com/",
+      "observation": "官网使用并列竖片组织项目。将分片关系延伸为通用内容卷帘，非原站路由实测复刻。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["完整页面", "可暂停", "可拖动", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "shutters",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-motion-doors",
+    "category": "motion",
+    "title": "双扇开门",
+    "summary": "旧页两半绕左右边缘转开。",
+    "interaction": "暂停观察透视与平移的区别。",
+    "source": {
+      "name": "Motion",
+      "url": "https://motion.dev/",
+      "observation": "参考官网同一属性在不同状态间的直接比较方式；方向与层级独立于图片。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["完整页面", "可暂停", "可拖动", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "doors",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-motion-page-turn",
+    "category": "motion",
+    "title": "书页翻转",
+    "summary": "整页围绕侧边翻开。",
+    "interaction": "进入与返回采用相反转轴。",
+    "source": {
+      "name": "GSAP",
+      "url": "https://gsap.com/",
+      "observation": "官网把动作编排与内容分开，文字可以按序进入；本项为独立通用实现，并非官网原样路由动画。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["完整页面", "可暂停", "可拖动", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "page-turn",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-motion-shared",
+    "category": "motion",
+    "title": "封面展开",
+    "summary": "同一封面长成详情页。",
+    "interaction": "点击封面，再从详情返回。",
+    "source": {
+      "name": "DIA Studio",
+      "url": "https://www.dia.studio/",
+      "observation": "官网作品墙将封面和项目连接；抽取共享封面，前后元素用data-motion-shared连接。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["完整页面", "可暂停", "可拖动", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "shared",
+    "defaultDuration": 1000,
+    "portable": true,
+    "requires": "前后对应元素标记 data-motion-shared；无标记时淡化切页"
+  },
+  {
+    "id": "c-motion-depth",
+    "category": "motion",
+    "title": "景深穿行",
+    "summary": "前页放大退出，后页从深处接近。",
+    "interaction": "暂停比较前后页的尺度变化。",
+    "source": {
+      "name": "Active Theory v5",
+      "url": "https://v5.activetheory.net/home",
+      "observation": "观察入口的远近层次，抽取为普通DOM页面景深，未搬入WebGL专属场景。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["完整页面", "可暂停", "可拖动", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "depth",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-motion-stagger",
+    "category": "motion",
+    "title": "分层入场",
+    "summary": "标题、正文和操作按顺序到位。",
+    "interaction": "慢放查看内容层级先后。",
+    "source": {
+      "name": "GSAP",
+      "url": "https://gsap.com/",
+      "observation": "官网把动作编排与内容分开，文字可以按序进入；本项为独立通用实现，并非官网原样路由动画。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["完整页面", "可暂停", "可拖动", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "stagger",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-motion-animated-content",
+    "category": "motion",
+    "title": "内容抬入",
+    "summary": "React Bits 的距离、缩放与淡入组合。",
+    "interaction": "拖动观察100像素抬入及透明度变化。",
+    "source": {
+      "name": "React Bits · AnimatedContent",
+      "url": "https://reactbits.dev/animations/animated-content",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/main/src/content/Animations/AnimatedContent/AnimatedContent.jsx",
+      "observation": "直接阅读 AnimatedContent 公开源码，保留其主要算法与视觉过程；将React生命周期移植为可销毁的DOM模块。",
+      "license": "MIT + Commons Clause",
+      "licensePath": "third-party/motion-layout/react-bits/LICENSE.md",
+      "implementation": "source-port"
+    },
+    "tags": ["完整页面", "可暂停", "可拖动", "源码移植"],
+    "module": "motion-layout",
+    "variant": "animated-content",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-layout-split",
+    "category": "layout",
+    "title": "左右分屏",
+    "summary": "两块内容各占一侧，主次稳定。",
+    "interaction": "点数字切换右侧内容。",
+    "source": {
+      "name": "Build in Amsterdam",
+      "url": "https://www.buildinamsterdam.com/",
+      "observation": "原站的图文左右分区、相邻导航提供清晰方向。提取空间关系，去掉品牌图形。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["任意内容", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "split",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-layout-editorial",
+    "category": "layout",
+    "title": "编辑式双栏",
+    "summary": "标题留在左侧，条目在右侧铺开。",
+    "interaction": "选择条目或重新排列。",
+    "source": {
+      "name": "Pentagram",
+      "url": "https://www.pentagram.com/",
+      "observation": "观察作品列表中标题、分类与大幅内容的比例；提取编辑式排版，而不复用作品图片。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["任意内容", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "editorial",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-layout-sidebar",
+    "category": "layout",
+    "title": "固定侧栏",
+    "summary": "分类与阅读内容各有位置。",
+    "interaction": "点击左侧分类，右侧内容立即改变。",
+    "source": {
+      "name": "Notion",
+      "url": "https://www.notion.com/",
+      "observation": "实际首屏展示稳定侧栏、多视图内容区、居中大标题与短正文；提取对应可复用结构。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["任意内容", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "sidebar",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-layout-columns",
+    "category": "layout",
+    "title": "双栏阅读",
+    "summary": "短篇内容以两栏排开。",
+    "interaction": "重新排列，用真实长文检查换行。",
+    "source": {
+      "name": "Pentagram",
+      "url": "https://www.pentagram.com/",
+      "observation": "观察作品列表中标题、分类与大幅内容的比例；提取编辑式排版，而不复用作品图片。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["任意内容", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "columns",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-layout-mosaic",
+    "category": "layout",
+    "title": "不等格拼版",
+    "summary": "重点内容占更大的空间。",
+    "interaction": "重排后看不同内容成为主角。",
+    "source": {
+      "name": "Pitch",
+      "url": "https://pitch.com/",
+      "observation": "官网大标题与多尺寸内容面板有明确前后关系；提取类型对比和不等高布局，不复制演示模板。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["任意内容", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "mosaic",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-layout-master-detail",
+    "category": "layout",
+    "title": "列表与详情",
+    "summary": "选择内容时保留列表位置。",
+    "interaction": "点击左侧，右侧显示对应详情。",
+    "source": {
+      "name": "Linear",
+      "url": "https://linear.app/insights",
+      "observation": "Insights 公布了可切时间范围、条形/趋势/明细与模块化报告的组织方式。本项使用传入数据独立实现。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["任意内容", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "master-detail",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-layout-horizontal",
+    "category": "layout",
+    "title": "横向书架",
+    "summary": "内容可横向滚动，露出下一项。",
+    "interaction": "拖动或滚动书架，点下一项。",
+    "source": {
+      "name": "Aristide Benoist",
+      "url": "https://aristidebenoist.com/",
+      "observation": "官网使用并列竖片组织项目。将分片关系延伸为通用内容卷帘，非原站路由实测复刻。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["任意内容", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "horizontal",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-layout-timeline",
+    "category": "layout",
+    "title": "时间线条目",
+    "summary": "时间、标题和正文严格对齐。",
+    "interaction": "重排比较顺序，打开条目。",
+    "source": {
+      "name": "Notion",
+      "url": "https://www.notion.com/",
+      "observation": "实际首屏展示稳定侧栏、多视图内容区、居中大标题与短正文；提取对应可复用结构。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["任意内容", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "timeline",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-layout-tabs",
+    "category": "layout",
+    "title": "页签内容",
+    "summary": "多组内容共用一个展示位置。",
+    "interaction": "点击页签切换，当前位置可辨。",
+    "source": {
+      "name": "Linear",
+      "url": "https://linear.app/insights",
+      "observation": "Insights 公布了可切时间范围、条形/趋势/明细与模块化报告的组织方式。本项使用传入数据独立实现。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["任意内容", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "tabs",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-layout-index",
+    "category": "layout",
+    "title": "索引目录",
+    "summary": "序号、横线和标题构成可扫读列表。",
+    "interaction": "点选条目，接入打开回调。",
+    "source": {
+      "name": "DIA Studio",
+      "url": "https://www.dia.studio/",
+      "observation": "官网作品墙将封面和项目连接；抽取共享封面，前后元素用data-motion-shared连接。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["任意内容", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "index",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-layout-masonry",
+    "category": "layout",
+    "title": "瀑布流",
+    "summary": "React Bits 的最短列排布算法。",
+    "interaction": "重排时各块沿真实位置移动。",
+    "source": {
+      "name": "React Bits · Masonry",
+      "url": "https://reactbits.dev/components/masonry",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/main/src/content/Components/Masonry/Masonry.jsx",
+      "observation": "直接阅读 Masonry 公开源码，保留其主要算法与视觉过程；将React生命周期移植为可销毁的DOM模块。",
+      "license": "MIT + Commons Clause",
+      "licensePath": "third-party/motion-layout/react-bits/LICENSE.md",
+      "implementation": "source-port"
+    },
+    "tags": ["任意内容", "源码移植"],
+    "module": "motion-layout",
+    "variant": "masonry",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-backgrounds-dots",
+    "category": "backgrounds",
+    "title": "稀疏点阵",
+    "summary": "点阵提供尺度，正文保持清楚。",
+    "interaction": "配合真实阅读内容看前后层次。",
+    "source": {
+      "name": "Nothing",
+      "url": "https://nothing.tech/",
+      "observation": "实际官网以点阵和透明结构形成秩序；提取稀疏点阵材质和等宽小字。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["任意内容", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "dots",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-backgrounds-grid",
+    "category": "backgrounds",
+    "title": "制图网格",
+    "summary": "细线把内容放进明确的网格。",
+    "interaction": "调强调色，网格仍保持中性。",
+    "source": {
+      "name": "Vercel",
+      "url": "https://vercel.com/",
+      "observation": "实际官网留出大面积中性场域；文字、细线和结构承担主次，提取网格和单色信息节奏。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["任意内容", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "grid",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-backgrounds-crosshair",
+    "category": "backgrounds",
+    "title": "定位细线",
+    "summary": "四周刻线组织留白与对齐。",
+    "interaction": "用于封面或内容区边界。",
+    "source": {
+      "name": "Studio Freight",
+      "url": "https://studiofreight.com/",
+      "observation": "官网使用间断网格和中央留白；提取边界、定位线和非等权重布局。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["任意内容", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "crosshair",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-backgrounds-grain",
+    "category": "backgrounds",
+    "title": "细颗粒纸感",
+    "summary": "低强度颗粒让大块灰面有质地。",
+    "interaction": "放大查看纹理，正文仍需可读。",
+    "source": {
+      "name": "Pitch",
+      "url": "https://pitch.com/",
+      "observation": "官网大标题与多尺寸内容面板有明确前后关系；提取类型对比和不等高布局，不复制演示模板。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["任意内容", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "grain",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-backgrounds-split",
+    "category": "backgrounds",
+    "title": "单色分区",
+    "summary": "边缘色块建立不对称构图。",
+    "interaction": "调整强调色，可直接看到色块变化。",
+    "source": {
+      "name": "Build in Amsterdam",
+      "url": "https://www.buildinamsterdam.com/",
+      "observation": "原站的图文左右分区、相邻导航提供清晰方向。提取空间关系，去掉品牌图形。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["任意内容", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "split",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-backgrounds-spotlight",
+    "category": "backgrounds",
+    "title": "指针聚光",
+    "summary": "暗色场域中，光随指针移动。",
+    "interaction": "移动鼠标，观察光的位置。",
+    "source": {
+      "name": "Raycast",
+      "url": "https://www.raycast.com/",
+      "observation": "参考暗色工具层与定向光，去除品牌红色及图片，使材质可以接入任意阅读区。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["任意内容", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "spotlight",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-backgrounds-ruled",
+    "category": "backgrounds",
+    "title": "笔记横线",
+    "summary": "间隔一致的细横线承载文字。",
+    "interaction": "看长段落与基线的关系。",
+    "source": {
+      "name": "Notion",
+      "url": "https://www.notion.com/",
+      "observation": "实际首屏展示稳定侧栏、多视图内容区、居中大标题与短正文；提取对应可复用结构。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["任意内容", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "ruled",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-backgrounds-hatch",
+    "category": "backgrounds",
+    "title": "斜线衬底",
+    "summary": "用斜向纹理衬托稳定内容面。",
+    "interaction": "替换阅读区背景，文字无需改动。",
+    "source": {
+      "name": "Studio Freight",
+      "url": "https://studiofreight.com/",
+      "observation": "官网使用间断网格和中央留白；提取边界、定位线和非等权重布局。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["任意内容", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "hatch",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-backgrounds-inset",
+    "category": "backgrounds",
+    "title": "嵌入式纸面",
+    "summary": "外部空间与内容面有轻微高度差。",
+    "interaction": "用于独立内容区，不覆盖全站。",
+    "source": {
+      "name": "Linear",
+      "url": "https://linear.app/insights",
+      "observation": "Insights 公布了可切时间范围、条形/趋势/明细与模块化报告的组织方式。本项使用传入数据独立实现。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["任意内容", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "inset",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-backgrounds-edge-light",
+    "category": "backgrounds",
+    "title": "侧缘折光",
+    "summary": "单束窄光给中性背景一个方向。",
+    "interaction": "观察窄光与正文区域的关系。",
+    "source": {
+      "name": "Raycast",
+      "url": "https://www.raycast.com/",
+      "observation": "参考暗色工具层与定向光，去除品牌红色及图片，使材质可以接入任意阅读区。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["任意内容", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "edge-light",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-backgrounds-magnet-lines",
+    "category": "backgrounds",
+    "title": "磁场细线",
+    "summary": "React Bits 细线随指针改变朝向。",
+    "interaction": "在空白处移动鼠标，看线场跟随。",
+    "source": {
+      "name": "React Bits · MagnetLines",
+      "url": "https://reactbits.dev/animations/magnet-lines",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/main/src/content/Animations/MagnetLines/MagnetLines.jsx",
+      "observation": "直接阅读 MagnetLines 公开源码，保留其主要算法与视觉过程；将React生命周期移植为可销毁的DOM模块。",
+      "license": "MIT + Commons Clause",
+      "licensePath": "third-party/motion-layout/react-bits/LICENSE.md",
+      "implementation": "source-port"
+    },
+    "tags": ["任意内容", "源码移植"],
+    "module": "motion-layout",
+    "variant": "magnet-lines",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-typography-system",
+    "category": "typography",
+    "title": "清晰无衬线",
+    "summary": "同一字体用字重和间距建立层次。",
+    "interaction": "切换中英文，试读长段落。",
+    "source": {
+      "name": "Linear",
+      "url": "https://linear.app/insights",
+      "observation": "Insights 公布了可切时间范围、条形/趋势/明细与模块化报告的组织方式。本项使用传入数据独立实现。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["中英文", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "system",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-typography-editorial",
+    "category": "typography",
+    "title": "衬线编辑",
+    "summary": "衬线标题搭配适合阅读的正文。",
+    "interaction": "英文Georgia，中文宋体，使用本机字体。",
+    "source": {
+      "name": "Pentagram",
+      "url": "https://www.pentagram.com/",
+      "observation": "观察作品列表中标题、分类与大幅内容的比例；提取编辑式排版，而不复用作品图片。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["中英文", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "editorial",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-typography-mono-label",
+    "category": "typography",
+    "title": "标签与标题",
+    "summary": "等宽小标签配粗体大标题。",
+    "interaction": "比较字重和数字的稳定性。",
+    "source": {
+      "name": "Nothing",
+      "url": "https://nothing.tech/",
+      "observation": "实际官网以点阵和透明结构形成秩序；提取稀疏点阵材质和等宽小字。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["中英文", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "mono-label",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-typography-condensed",
+    "category": "typography",
+    "title": "窄体大字",
+    "summary": "窄体英文标题与紧凑中文搭配。",
+    "interaction": "切换中英文看实际字体差异。",
+    "source": {
+      "name": "Studio Dumbar",
+      "url": "https://studiodumbar.com/work/google-sans-flex",
+      "observation": "参考字重、尺度与姿态进入构图的方式；使用本机真实字体，不冒充原站字体。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["中英文", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "condensed",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-typography-serif-title",
+    "category": "typography",
+    "title": "斜体开场",
+    "summary": "英文斜体与中文无衬线形成对比。",
+    "interaction": "试读长段落，标题仍保持独立。",
+    "source": {
+      "name": "DIA Studio",
+      "url": "https://www.dia.studio/",
+      "observation": "官网作品墙将封面和项目连接；抽取共享封面，前后元素用data-motion-shared连接。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["中英文", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "serif-title",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-typography-mono",
+    "category": "typography",
+    "title": "等宽记录",
+    "summary": "等宽英文和数字用于记录类内容。",
+    "interaction": "观察数字宽度，切换中文。",
+    "source": {
+      "name": "Motion",
+      "url": "https://motion.dev/",
+      "observation": "参考官网同一属性在不同状态间的直接比较方式；方向与层级独立于图片。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["中英文", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "mono",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-typography-bilingual",
+    "category": "typography",
+    "title": "中文主标题",
+    "summary": "中文作为主角，英文是短的陪衬。",
+    "interaction": "中英文大小和位置各司其职。",
+    "source": {
+      "name": "Pentagram",
+      "url": "https://www.pentagram.com/",
+      "observation": "观察作品列表中标题、分类与大幅内容的比例；提取编辑式排版，而不复用作品图片。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["中英文", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "bilingual",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-typography-contrast",
+    "category": "typography",
+    "title": "粗体与斜体",
+    "summary": "同一标题内用两种字形分出重音。",
+    "interaction": "更换内容，字形对比仍然成立。",
+    "source": {
+      "name": "Unseen",
+      "url": "https://2025.unseen.co/",
+      "observation": "参考前后层次关系；本项提取为可承载任意内容的整页浮层，未声称原站路由采用同一算法。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["中英文", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "contrast",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-typography-underlined",
+    "category": "typography",
+    "title": "细线标题",
+    "summary": "下划线参与标题排版。",
+    "interaction": "长标题自然换行，不截断内容。",
+    "source": {
+      "name": "Studio Freight",
+      "url": "https://studiofreight.com/",
+      "observation": "官网使用间断网格和中央留白；提取边界、定位线和非等权重布局。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["中英文", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "underlined",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-typography-centered",
+    "category": "typography",
+    "title": "居中宣言",
+    "summary": "大标题居中，正文控制行宽。",
+    "interaction": "用短标题与长段落比较。",
+    "source": {
+      "name": "Notion",
+      "url": "https://www.notion.com/",
+      "observation": "实际首屏展示稳定侧栏、多视图内容区、居中大标题与短正文；提取对应可复用结构。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["中英文", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "centered",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-typography-blur-text",
+    "category": "typography",
+    "title": "逐词清晰",
+    "summary": "React Bits BlurText 三段关键帧。",
+    "interaction": "点击播放，从模糊到清楚逐词出现。",
+    "source": {
+      "name": "React Bits · BlurText",
+      "url": "https://reactbits.dev/text-animations/blur-text",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/main/src/content/TextAnimations/BlurText/BlurText.jsx",
+      "observation": "直接阅读 BlurText 公开源码，保留其主要算法与视觉过程；将React生命周期移植为可销毁的DOM模块。",
+      "license": "MIT + Commons Clause",
+      "licensePath": "third-party/motion-layout/react-bits/LICENSE.md",
+      "implementation": "source-port"
+    },
+    "tags": ["中英文", "源码移植"],
+    "module": "motion-layout",
+    "variant": "blur-text",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-typography-decrypted",
+    "category": "typography",
+    "title": "字符解密",
+    "summary": "React Bits 中心向两侧逐字揭示。",
+    "interaction": "点击播放，字符逐步变成原文。",
+    "source": {
+      "name": "React Bits · DecryptedText",
+      "url": "https://reactbits.dev/text-animations/decrypted-text",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/main/src/content/TextAnimations/DecryptedText/DecryptedText.jsx",
+      "observation": "直接阅读 DecryptedText 公开源码，保留其主要算法与视觉过程；将React生命周期移植为可销毁的DOM模块。",
+      "license": "MIT + Commons Clause",
+      "licensePath": "third-party/motion-layout/react-bits/LICENSE.md",
+      "implementation": "source-port"
+    },
+    "tags": ["中英文", "源码移植"],
+    "module": "motion-layout",
+    "variant": "decrypted",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-data-line",
+    "category": "data",
+    "title": "折线趋势",
+    "summary": "细线、数据点与时间范围。",
+    "interaction": "切换范围，悬停或点数据点。",
+    "source": {
+      "name": "Linear",
+      "url": "https://linear.app/insights",
+      "observation": "Insights 公布了可切时间范围、条形/趋势/明细与模块化报告的组织方式。本项使用传入数据独立实现。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["真实数据", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "line",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-data-area",
+    "category": "data",
+    "title": "面积趋势",
+    "summary": "曲线下方浅色面积强调累计规模。",
+    "interaction": "切换范围，点击读取数值。",
+    "source": {
+      "name": "Attio",
+      "url": "https://attio.com/platform/reporting",
+      "observation": "Reporting 页把范围比较、目标线、分类与钻取放在图旁；本项独立实现数据图，点击能读实际数值。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["真实数据", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "area",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-data-bars",
+    "category": "data",
+    "title": "每日柱状",
+    "summary": "等宽柱体保留逐日差异。",
+    "interaction": "点柱体查看对应日期和数值。",
+    "source": {
+      "name": "Attio",
+      "url": "https://attio.com/platform/reporting",
+      "observation": "Reporting 页把范围比较、目标线、分类与钻取放在图旁；本项独立实现数据图，点击能读实际数值。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["真实数据", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "bars",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-data-stacked",
+    "category": "data",
+    "title": "新学与复习",
+    "summary": "同一柱体中比较两类数量。",
+    "interaction": "点柱体同时查看两类计数。",
+    "source": {
+      "name": "Linear",
+      "url": "https://linear.app/insights",
+      "observation": "Insights 公布了可切时间范围、条形/趋势/明细与模块化报告的组织方式。本项使用传入数据独立实现。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["真实数据", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "stacked",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-data-donut",
+    "category": "data",
+    "title": "占比圆环",
+    "summary": "总量在中心，分类围绕四周。",
+    "interaction": "点每段圆环看对应数值。",
+    "source": {
+      "name": "Attio",
+      "url": "https://attio.com/platform/reporting",
+      "observation": "Reporting 页把范围比较、目标线、分类与钻取放在图旁；本项独立实现数据图，点击能读实际数值。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["真实数据", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "donut",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-data-heatmap",
+    "category": "data",
+    "title": "方格日历",
+    "summary": "每个数据点一个方格，不伪造日期。",
+    "interaction": "悬停或点方格查看实际标签与计数。",
+    "source": {
+      "name": "Linear",
+      "url": "https://linear.app/insights",
+      "observation": "Insights 公布了可切时间范围、条形/趋势/明细与模块化报告的组织方式。本项使用传入数据独立实现。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["真实数据", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "heatmap",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-data-ranking",
+    "category": "data",
+    "title": "横条排行",
+    "summary": "项目名称、长度与数值同行。",
+    "interaction": "切换范围，点条目查看数值。",
+    "source": {
+      "name": "Attio",
+      "url": "https://attio.com/platform/reporting",
+      "observation": "Reporting 页把范围比较、目标线、分类与钻取放在图旁；本项独立实现数据图，点击能读实际数值。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["真实数据", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "ranking",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-data-table",
+    "category": "data",
+    "title": "数据明细",
+    "summary": "表格与占比条相互补充。",
+    "interaction": "点击数量标题排序，点数量选中记录。",
+    "source": {
+      "name": "Linear",
+      "url": "https://linear.app/insights",
+      "observation": "Insights 公布了可切时间范围、条形/趋势/明细与模块化报告的组织方式。本项使用传入数据独立实现。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["真实数据", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "table",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-data-target",
+    "category": "data",
+    "title": "目标对照",
+    "summary": "实际趋势与目标虚线一起展示。",
+    "interaction": "传入目标值，点数据点比较。",
+    "source": {
+      "name": "Attio",
+      "url": "https://attio.com/platform/reporting",
+      "observation": "Reporting 页把范围比较、目标线、分类与钻取放在图旁；本项独立实现数据图，点击能读实际数值。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["真实数据", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "target",
+    "defaultDuration": 1000,
+    "portable": true
+  },
+  {
+    "id": "c-data-sparkline",
+    "category": "data",
+    "title": "紧凑趋势",
+    "summary": "数字旁保留一条简练的小趋势。",
+    "interaction": "切换时间范围会重算总数。",
+    "source": {
+      "name": "Linear",
+      "url": "https://linear.app/insights",
+      "observation": "Insights 公布了可切时间范围、条形/趋势/明细与模块化报告的组织方式。本项使用传入数据独立实现。",
+      "implementation": "observed-adaptation"
+    },
+    "tags": ["真实数据", "参考抽取"],
+    "module": "motion-layout",
+    "variant": "sparkline",
+    "defaultDuration": 1000,
+    "portable": true
+  }
+]

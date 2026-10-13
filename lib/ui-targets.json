@@ -1,0 +1,2530 @@
+[
+  {
+    "id": "home.root",
+    "selector": "[data-home-mode]",
+    "kind": "background",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "home.topbar",
+    "selector": "[class*=\"HomeRedesign_topbar__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "home.brand",
+    "selector": "[class*=\"HomeRedesign_brand__\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "home.quick-nav",
+    "selector": "nav[aria-label=\"常用功能\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "home.quick-import",
+    "selector": "[data-home-mode] [aria-label=\"导入文章\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "home.quick-dictionary",
+    "selector": "[data-home-mode] [aria-label=\"单独查词\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "home.quick-vocabulary",
+    "selector": "[data-home-mode] [aria-label=\"打开生词本\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "home.quick-articles",
+    "selector": "[data-home-mode] [aria-label=\"打开我的文章\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "home.menu",
+    "selector": "[class*=\"HomeRedesign_menuButton__\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "home.hero",
+    "selector": "[class*=\"HomeRedesign_hero__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "home.title",
+    "selector": "#home-redesign-title",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "home.subtitle",
+    "selector": "[class*=\"HomeRedesign_heroSubtitle__\"]",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "home.start",
+    "selector": "[class*=\"HomeRedesign_coverAction__\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "home.hero-edge",
+    "selector": "[class*=\"HomeRedesign_heroEdge__\"]",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "home.ballpit",
+    "selector": "[class*=\"HomeRedesign_ballField__\"]",
+    "kind": "background",
+    "status": "live",
+    "capability": "specialized-adapter",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "home.member-opening",
+    "selector": "[class*=\"HomeRedesign_memberOpening__\"]",
+    "kind": "motion",
+    "status": "live",
+    "capability": "specialized-adapter",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "home.workbench",
+    "selector": "section[aria-label=\"阅读工作台\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "home.workbench-grid",
+    "selector": "[class*=\"HomeRedesign_memberWorkbenchGrid__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "home.continue",
+    "selector": "[class*=\"HomeRedesign_continueReadingCard__\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "home.member-import",
+    "selector": "[class*=\"HomeRedesign_memberImport__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "home.import",
+    "selector": "[class*=\"HomeRedesign_importSection__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "home.import-modes",
+    "selector": "[class*=\"HomeRedesign_importModes__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "home.import-field",
+    "selector": "[class*=\"HomeRedesign_importFieldSlot__\"]",
+    "kind": "input",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "home.import-submit",
+    "selector": "[class*=\"HomeRedesign_importSubmit__\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "home.import-error",
+    "selector": "[class*=\"HomeRedesign_importError__\"]",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "home.url-help",
+    "selector": "[class*=\"HomeRedesign_urlHelp__\"]",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "home.recommendations",
+    "selector": "[class*=\"HomeRedesign_recommendations__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "home.resource-switch",
+    "selector": "[class*=\"HomeRedesign_resourceSwitch__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "home.categories",
+    "selector": "nav[aria-label=\"外刊分类\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "home.recommendation-settings",
+    "selector": "[class*=\"HomeRedesign_preferenceTrigger__\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "home.preference-panel",
+    "selector": "[role=\"dialog\"][aria-label=\"个性化推荐设置\"]",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "home.preference-options",
+    "selector": "[class*=\"HomeRedesign_preferenceChoices__\"] button",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "home.search",
+    "selector": "[class*=\"HomeRedesign_libraryFilters__\"]",
+    "kind": "input",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "home.article-grid",
+    "selector": "[class*=\"HomeRedesign_articleGrid__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "home.article-card",
+    "selector": "[data-public-article-id]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "home.article-copy",
+    "selector": "[class*=\"HomeRedesign_cardCopy__\"]",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "home.article-title",
+    "selector": "[data-public-article-id] [data-summary-title]",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "home.today-badge",
+    "selector": "[class*=\"HomeRedesign_todayBadge__\"]",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "home.article-summary",
+    "selector": "#article-summary-tooltip",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "home.all-articles",
+    "selector": "[class*=\"HomeRedesign_libraryAction__\"] button",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "home.closing",
+    "selector": "[class*=\"HomeRedesign_closingSection__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "home.closing-copy",
+    "selector": "[class*=\"HomeRedesign_closingCopy__\"]",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "home.qr",
+    "selector": "[class*=\"HomeRedesign_wechatContact__\"]",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "home.footer",
+    "selector": "[class*=\"HomeRedesign_siteFooter__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "home.publication-bridge",
+    "selector": "[class*=\"HomeRedesign_publicationBridge__\"]",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "home.daily-notice",
+    "selector": "[class*=\"HomeRedesign_dailyUpdateNotice__\"]",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "home.opening-layer",
+    "selector": "[class*=\"HomeRedesign_openingLayer__\"]",
+    "kind": "motion",
+    "status": "live",
+    "capability": "specialized-adapter",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "home.dictionary-window",
+    "selector": "[aria-label=\"单独查词面板\"]",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "home.dictionary-backdrop",
+    "selector": "[class*=\"HomeRedesign_dictionaryBackdrop__\"]",
+    "kind": "background",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "home.dictionary-body",
+    "selector": "[class*=\"HomeRedesign_dictionaryWindowBody__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "showcase.root",
+    "selector": "[class*=\"FeatureShowcase_showcase__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "showcase.copy",
+    "selector": "[class*=\"FeatureShowcase_copy__\"]",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "showcase.media",
+    "selector": "[class*=\"FeatureShowcase_media__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "showcase.tabs",
+    "selector": "[class*=\"FeatureShowcase_tabs__\"] button",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "showcase.arrows",
+    "selector": "[class*=\"FeatureShowcase_arrows__\"] button",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "showcase.background",
+    "selector": "[class*=\"FeatureShowcase_ambience__\"]",
+    "kind": "background",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "showcase.finale",
+    "selector": "[class*=\"FeatureShowcase_finale__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "showcase.recording",
+    "selector": "[data-has-video]",
+    "kind": "motion",
+    "status": "live",
+    "capability": "specialized-adapter",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "showcase.lanyard",
+    "selector": "[data-guide-lanyard]",
+    "kind": "motion",
+    "status": "live",
+    "capability": "specialized-adapter",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "home.letter-field",
+    "selector": "[class*=\"BookLetterField_canvas__\"]",
+    "kind": "background",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "reader.root",
+    "selector": ".cr-reader-root",
+    "kind": "background",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "reader.rail",
+    "selector": "aside[aria-label=\"阅读快捷入口\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "reader.toolbar",
+    "selector": "header[aria-label=\"文章工具\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "reader.back",
+    "selector": ".cr-reader-root [class*=\"ReaderToolbar_backAction__\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "reader.actions",
+    "selector": ".cr-reader-root [class*=\"ReaderToolbar_actions__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "reader.status",
+    "selector": ".cr-reader-root [class*=\"ReaderToolbar_status__\"]",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "reader.history",
+    "selector": ".cr-reader-root [class*=\"ReaderToolbar_historyActions__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "reader.side-panel",
+    "selector": ".cr-reader-root [class*=\"ReaderToolbar_readerSidePanel__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "reader.dictionary-body",
+    "selector": ".cr-reader-root [class*=\"ReaderToolbar_dictionaryWindowBody__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "reader.import-tabs",
+    "selector": ".cr-reader-root [class*=\"ReaderToolbar_importTabs__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "reader.import-body",
+    "selector": ".cr-reader-root [class*=\"ReaderToolbar_importWorkspace__\"]",
+    "kind": "input",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "reader.import-actions",
+    "selector": ".cr-reader-root [class*=\"ReaderToolbar_importActionRow__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "reader.saved-list",
+    "selector": ".cr-reader-root [class*=\"ReaderToolbar_savedWorkspace__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "reader.mobile-sheet",
+    "selector": ".cr-reader-root [class*=\"ReaderToolbar_mobileToolSheet__\"]",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "reader.mobile-sheet-handle",
+    "selector": ".cr-reader-root [class*=\"ReaderToolbar_mobileSheetHandle__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "reader.mobile-sheet-body",
+    "selector": ".cr-reader-root [class*=\"ReaderToolbar_mobileSheetBody__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "reader.mobile-dock",
+    "selector": ".cr-reader-root [class*=\"ReaderToolbar_mobileToolDock__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "reader.article",
+    "selector": "[data-learning-surface=\"reading\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "reader.paragraph",
+    "selector": "[data-learning-surface=\"reading\"] [data-reader-block]",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "reader.token",
+    "selector": "[data-reader-token]",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "reader.selection",
+    "selector": "[data-reader-token][data-selected=\"true\"]",
+    "kind": "background",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "reader.sentence-highlight",
+    "selector": "[data-reader-token][data-highlighted=\"true\"]",
+    "kind": "background",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "reader.source-target",
+    "selector": "[data-reader-token][data-source-target=\"true\"]",
+    "kind": "background",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "reader.image",
+    "selector": "[data-reader-image]",
+    "kind": "container",
+    "status": "live",
+    "capability": "specialized-adapter",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "reader.table",
+    "selector": "[data-reader-block] table",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "reader.edit-canvas",
+    "selector": "[data-block-id]",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "reader.panel-tabs",
+    "selector": "[data-reader-panel-tabs]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "reader.dictionary",
+    "selector": "[aria-label=\"单独查词窗口\"]",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "reader.import-layer",
+    "selector": "[aria-label=\"导入新文章\"]",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "reader.saved-layer",
+    "selector": "[aria-label=\"我的文章\"]",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "reader.image-viewer",
+    "selector": "[aria-label=\"放大图片\"]",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "reader.explanation",
+    "selector": ".cr-reader-panel:not(.cr-translation-panel)",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "reader.explanation-heading",
+    "selector": ".cr-reader-panel:not(.cr-translation-panel) h2",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "reader.explanation-regenerate",
+    "selector": "[aria-label=\"重新生成解释和翻译\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "reader.ask-ai",
+    "selector": "[aria-label=\"向 AI 追问这句话\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "reader.translation",
+    "selector": ".cr-translation-panel",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "reader.translation-regenerate",
+    "selector": ".cr-translation-regenerate",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "reader.translation-retry",
+    "selector": ".cr-translation-retry",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "dictionary.root",
+    "selector": "[data-standalone-dictionary]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "dictionary.search",
+    "selector": "[class*=\"BookDictionary_searchField__\"]",
+    "kind": "input",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "dictionary.submit",
+    "selector": "[class*=\"BookDictionary_search__\"] button[type=\"submit\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "dictionary.history",
+    "selector": "[class*=\"BookDictionary_history__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "dictionary.history-match",
+    "selector": "[class*=\"BookDictionary_historyMatches__\"]",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "dictionary.history-more",
+    "selector": "[class*=\"BookDictionary_historyList__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "dictionary.examples",
+    "selector": "[class*=\"BookDictionary_examples__\"] button",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "dictionary.results",
+    "selector": "[class*=\"BookDictionary_resultPage__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "dictionary.toolbar",
+    "selector": "[class*=\"BookDictionary_resultToolbar__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "dictionary.regenerate",
+    "selector": "[class*=\"BookDictionary_regenerateButton__\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "dictionary.correction",
+    "selector": "[class*=\"BookDictionary_correction__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "dictionary.meaning",
+    "selector": "[class*=\"BookDictionary_senses__\"]",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "dictionary.forms",
+    "selector": "[class*=\"BookDictionary_verbForms__\"]",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "dictionary.usage",
+    "selector": "[class*=\"BookDictionary_usage__\"]",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "dictionary.collocations",
+    "selector": "[class*=\"BookDictionary_details__\"]",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "dictionary.related",
+    "selector": "[class*=\"BookDictionary_twoColumns__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "dictionary.translations",
+    "selector": "[class*=\"BookDictionary_translationGroups__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "dictionary.pronunciations",
+    "selector": "[class*=\"BookDictionary_pronunciationVariants__\"] button",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "dictionary.stream",
+    "selector": "[class*=\"BookDictionary_streamTail__\"]",
+    "kind": "motion",
+    "status": "live",
+    "capability": "specialized-adapter",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "dictionary.empty",
+    "selector": "[class*=\"BookDictionary_empty__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.root",
+    "selector": "dialog[data-study-open]",
+    "kind": "background",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "study.shell",
+    "selector": "[class*=\"StudyPanel_shell__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.menu",
+    "selector": "[class*=\"StudyPanel_studyMenu__\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.rail",
+    "selector": "[class*=\"StudyPanel_rail__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.card",
+    "selector": "[class*=\"StudyPanel_flashcard__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.card-top",
+    "selector": "[class*=\"StudyPanel_cardTop__\"]",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "study.prompt",
+    "selector": "[class*=\"StudyPanel_prompt__\"]",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "study.hint",
+    "selector": "[class*=\"StudyPanel_cue__\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.answer",
+    "selector": "[class*=\"StudyPanel_answerBody__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.answer-actions",
+    "selector": "[class*=\"StudyPanel_nextActions__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.toast",
+    "selector": "[class*=\"StudyPanel_toast__\"]",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.page-title",
+    "selector": "[class*=\"StudyPanel_pageHeader__\"]",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "study.profile",
+    "selector": "[class*=\"StudyPanel_profileResult__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.status",
+    "selector": "[class*=\"StudyPanel_statusArea__\"]",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.rating-forgot",
+    "selector": "[data-rating=\"forgot\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.rating-unsure",
+    "selector": "[data-rating=\"unsure\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.rating-remembered",
+    "selector": "[data-rating=\"remembered\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.undo",
+    "selector": "[aria-label=\"回到上一张\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.word-title",
+    "selector": "[class*=\"StudyPanel_wordHeading__\"]",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "study.source",
+    "selector": "[class*=\"StudyPanel_sourceLink__\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.meaning",
+    "selector": "[class*=\"StudyPanel_definitions__\"]",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "study.sentence",
+    "selector": "[class*=\"StudyPanel_sentence__\"]",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "study.more",
+    "selector": "[class*=\"StudyPanel_wordDetails__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.metrics",
+    "selector": "[class*=\"StudyPanel_metrics__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.trend",
+    "selector": "[class*=\"StudyPanel_chartBars__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.trend-filter",
+    "selector": "[class*=\"StudyPanel_trendToolbar__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.donut",
+    "selector": "[class*=\"StudyPanel_donut__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.forecast",
+    "selector": "[class*=\"StudyPanel_forecast__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.calendar",
+    "selector": "[class*=\"StudyPanel_heatmap__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.chart-tooltip",
+    "selector": "[class*=\"StudyPanel_chartTooltip__\"]",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.vocab-search",
+    "selector": "[class*=\"StudyPanel_search__\"]",
+    "kind": "input",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "study.vocab-filter",
+    "selector": "[class*=\"StudyPanel_wordFilters__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.vocab-columns",
+    "selector": "[class*=\"StudyPanel_wordColumns__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.vocab-list",
+    "selector": "[class*=\"StudyPanel_vocabularyRows__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.settings-row",
+    "selector": "[class*=\"StudyPanel_settingRow__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.rewards",
+    "selector": "[class*=\"StudyPanel_rewardLead__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.milestones",
+    "selector": "[class*=\"StudyPanel_milestones__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.reward-rules",
+    "selector": "[class*=\"StudyPanel_explanation__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.confirm",
+    "selector": "[class*=\"StudyPanel_confirm__\"]",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.input-reviewsPerDay",
+    "selector": "#study-reviewsPerDay",
+    "kind": "input",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "study.input-forgotMinutes",
+    "selector": "#study-forgotMinutes",
+    "kind": "input",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "study.input-unsureMinutes",
+    "selector": "#study-unsureMinutes",
+    "kind": "input",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "study.retention",
+    "selector": "[aria-label=\"目标记住率\"]",
+    "kind": "input",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "study.remind",
+    "selector": "#study-remind",
+    "kind": "input",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "study.reminder",
+    "selector": "[aria-label=\"今日复习提醒\"]",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.return",
+    "selector": "[class*=\"StudyPanel_returnToStudy__\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.entry",
+    "selector": "[class*=\"StudyPanel_entryReminder__\"], [class*=\"StudyPanel_entry__\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "menu.root",
+    "selector": "[data-placement][data-theme][role=\"presentation\"]",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "menu.panel",
+    "selector": "#home-option-menu",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "menu.backdrop",
+    "selector": "[class*=\"HomeOptionMenu_backdrop__\"]",
+    "kind": "background",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "menu.layers",
+    "selector": "[class*=\"HomeOptionMenu_prelayers__\"]",
+    "kind": "motion",
+    "status": "live",
+    "capability": "specialized-adapter",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "menu.items",
+    "selector": "[class*=\"HomeOptionMenu_menuItem__\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "menu.list",
+    "selector": "[class*=\"HomeOptionMenu_menuList__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "menu.account",
+    "selector": "[class*=\"HomeOptionMenu_accountIdentity__\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "menu.settings",
+    "selector": "[class*=\"HomeOptionMenu_settingsPanel__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "menu.theme",
+    "selector": "[class*=\"HomeOptionMenu_themeChoices__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "menu.toggle",
+    "selector": "[class*=\"HomeOptionMenu_toggle__\"]",
+    "kind": "input",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "menu.vocabulary",
+    "selector": "[class*=\"HomeOptionMenu_vocabularyEntry__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "menu.vocab-detail",
+    "selector": "[class*=\"HomeOptionMenu_vocabularyDetail__\"]",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "menu.saved",
+    "selector": "[class*=\"HomeOptionMenu_savedArticle__\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "menu.search",
+    "selector": "[class*=\"HomeOptionMenu_vocabularySearch__\"]",
+    "kind": "input",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "menu.feedback",
+    "selector": "[class*=\"HomeOptionMenu_feedbackForm__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "menu.preview-vocabulary",
+    "selector": "[data-home-menu-preview][aria-label=\"生词本\"]",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "menu.preview-saved",
+    "selector": "[data-home-menu-preview][aria-label=\"保存文章\"]",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "menu.preview-account",
+    "selector": "[data-home-menu-preview][aria-label=\"账号与用量\"]",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "menu.preview-invite",
+    "selector": "[data-home-menu-preview][aria-label=\"兑换邀请码\"]",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "menu.preview-settings",
+    "selector": "[data-home-menu-preview][aria-label=\"设置\"]",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "menu.preview-feedback",
+    "selector": "[data-home-menu-preview][aria-label=\"意见反馈\"]",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "menu.preview-guide",
+    "selector": "[data-home-menu-preview][aria-label=\"使用说明\"]",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "menu.article-context",
+    "selector": "[data-saved-article-context-menu]",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "cet.library",
+    "selector": ".cet-library",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "cet.library-controls",
+    "selector": ".cet-library-controls",
+    "kind": "input",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "cet.filters",
+    "selector": ".cet-filter-line",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "cet.resource-grid",
+    "selector": ".cet-resource-grid",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "cet.resource",
+    "selector": ".cet-resource-row",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "cet.cover",
+    "selector": ".cet-cover",
+    "kind": "background",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "cet.recent",
+    "selector": ".cet-recent",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "cet.dialog",
+    "selector": ".cet-sheet",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "cet.start",
+    "selector": ".cet-start-goals",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "cet.start-actions",
+    "selector": ".cet-start-actions",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "cet.history-record",
+    "selector": ".cet-start-record",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "cet.reading",
+    "selector": ".cet-reading",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "cet.meta",
+    "selector": ".cet-reading-meta",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "cet.sections",
+    "selector": ".cet-sections",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "cet.bottom-nav",
+    "selector": ".cet-bottom-nav",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "cet.notice",
+    "selector": ".cet-notice",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "cet.history",
+    "selector": ".cet-history",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "cet.answer-card",
+    "selector": ".cet-answer-card",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "cet.confirm",
+    "selector": ".cet-confirm",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "cet.questions",
+    "selector": ".cet-questions",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "cet.options",
+    "selector": ".cet-option button[role='radio']",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "cet.match",
+    "selector": ".cet-match-choice",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "cet.bank",
+    "selector": ".cet-word-bank",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "cet.question-actions",
+    "selector": ".cet-question-actions",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "cet.listening",
+    "selector": ".cet-listening-player",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "cet.play",
+    "selector": ".cet-audio-play",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "cet.progress",
+    "selector": ".cet-audio-progress",
+    "kind": "input",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "cet.select",
+    "selector": ".cet-select-trigger",
+    "kind": "input",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "cet.listbox",
+    "selector": ".cet-select-list",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "cet.question-dock",
+    "selector": ".cet-question-dock",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "cet.question-trigger",
+    "selector": ".cet-question-dock-trigger",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "cet.underline",
+    "selector": "[data-cet-mark-target]",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "account.login",
+    "selector": "[role=\"dialog\"][aria-labelledby=\"account-login-title\"]",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "account.login-title",
+    "selector": "#account-login-title",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "account.login-fields",
+    "selector": "[aria-labelledby=\"account-login-title\"] input",
+    "kind": "input",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "account.login-switch",
+    "selector": "[aria-label=\"登录或注册\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "account.login-submit",
+    "selector": "[aria-labelledby=\"account-login-title\"] [type=\"submit\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "account.password-hint",
+    "selector": "#account-password-help",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "account.learning",
+    "selector": "section[aria-label=\"我的学习记录\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "account.invite",
+    "selector": "[class*=\"InvitationCodeRedeemContent_form__\"]",
+    "kind": "input",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "account.entitlement",
+    "selector": "[aria-label=\"当前账号权益\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "pricing.page",
+    "selector": "[class*=\"BillingPage_page__\"]",
+    "kind": "background",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "pricing.navigation",
+    "selector": "[class*=\"BillingPage_nav__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "pricing.heading",
+    "selector": "[class*=\"BillingPage_heading__\"]",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "pricing.period",
+    "selector": "[class*=\"BillingPage_switcher__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "pricing.grid",
+    "selector": "[class*=\"BillingPage_grid__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "pricing.card",
+    "selector": "[class*=\"BillingPage_card__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "pricing.price",
+    "selector": "[class*=\"BillingPage_price__\"]",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "pricing.primary",
+    "selector": "[class*=\"BillingPage_primary__\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "pricing.points",
+    "selector": "[class*=\"BillingPage_points__\"]",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "pricing.free",
+    "selector": "[class*=\"BillingPage_free__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "pricing.checkout",
+    "selector": "[class*=\"BillingPage_checkout__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "pricing.rules",
+    "selector": "[class*=\"BillingPage_rules__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "pricing.orders",
+    "selector": "[class*=\"BillingPage_orders__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "pricing.dialog",
+    "selector": "[class*=\"BillingPage_dialog__\"]",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "guide.root",
+    "selector": "[class*=\"GuidePageContent_guide__\"]",
+    "kind": "background",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "guide.directory",
+    "selector": "[class*=\"GuidePageContent_directory__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "guide.content",
+    "selector": "[class*=\"GuidePageContent_content__\"]",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "guide.intro",
+    "selector": "[class*=\"GuidePageContent_intro__\"]",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "guide.steps",
+    "selector": "[class*=\"GuidePageContent_quickSteps__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "guide.features",
+    "selector": "[class*=\"GuidePageContent_featureList__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "guide.tools",
+    "selector": "[class*=\"GuidePageContent_toolList__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "guide.faq",
+    "selector": "[class*=\"GuidePageContent_faqGroups__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "guide.updates",
+    "selector": "[class*=\"GuidePageContent_releaseNotes__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "global.loading",
+    "selector": ".cr-loading-spinner",
+    "kind": "motion",
+    "status": "live",
+    "capability": "specialized-adapter",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "global.pill-button",
+    "selector": "[data-pill-action=\"true\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "global.clear-input",
+    "selector": "[data-clear-input-button]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "global.pronunciation",
+    "selector": ".cr-pronunciation-control",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "global.feedback",
+    "selector": "[class*=\"FeedbackPanel_panel__\"]",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "admin.AdminAccountsPanel",
+    "selector": "",
+    "kind": "container",
+    "status": "live",
+    "capability": "inventory-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "admin.AdminArticleIntakePanel",
+    "selector": "",
+    "kind": "container",
+    "status": "live",
+    "capability": "inventory-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "admin.AdminArticleMetadataInspector",
+    "selector": "",
+    "kind": "container",
+    "status": "live",
+    "capability": "inventory-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "admin.AdminArticleUsageDetails",
+    "selector": "",
+    "kind": "container",
+    "status": "live",
+    "capability": "inventory-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "admin.AdminBillingPanel",
+    "selector": "",
+    "kind": "container",
+    "status": "live",
+    "capability": "inventory-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "admin.AdminDiscoveryPanel",
+    "selector": "",
+    "kind": "container",
+    "status": "live",
+    "capability": "inventory-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "admin.AdminEditorialSettings",
+    "selector": "",
+    "kind": "container",
+    "status": "live",
+    "capability": "inventory-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "admin.AdminErrorReportsPanel",
+    "selector": "",
+    "kind": "container",
+    "status": "live",
+    "capability": "inventory-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "admin.AdminFeedbackPanel",
+    "selector": "",
+    "kind": "container",
+    "status": "live",
+    "capability": "inventory-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "admin.AdminHomepageCurationPanel",
+    "selector": "",
+    "kind": "container",
+    "status": "live",
+    "capability": "inventory-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "admin.AdminInvitationCodesPanel",
+    "selector": "",
+    "kind": "container",
+    "status": "live",
+    "capability": "inventory-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "admin.AdminModelsPanel",
+    "selector": "",
+    "kind": "container",
+    "status": "live",
+    "capability": "inventory-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "admin.AdminProductAnalytics",
+    "selector": "",
+    "kind": "container",
+    "status": "live",
+    "capability": "inventory-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "admin.AdminStudyPanel",
+    "selector": "",
+    "kind": "container",
+    "status": "live",
+    "capability": "inventory-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "admin.AdminUsageReport",
+    "selector": "",
+    "kind": "container",
+    "status": "live",
+    "capability": "inventory-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "admin.navigation",
+    "selector": "nav[aria-label=\"后台功能\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "admin.experience",
+    "selector": "",
+    "kind": "container",
+    "status": "live",
+    "capability": "inventory-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "menu.feedback-images",
+    "selector": "[class*=\"HomeOptionMenu_feedbackImages__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "home.cover-surface",
+    "selector": "[data-public-article-id] [class*=\"HomeRedesign_coverSurface__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "account.root",
+    "selector": ".cr-account-usage",
+    "kind": "background",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "account.title",
+    "selector": ".cr-account-title",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "account.intro",
+    "selector": ".cr-account-intro",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "account.state",
+    "selector": ".cr-account-state",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "account.guest-login",
+    "selector": ".cr-account-login",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "account.profile-fields",
+    "selector": ".cr-account-usage input",
+    "kind": "input",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "account.usage-bars",
+    "selector": "",
+    "kind": "container",
+    "status": "live",
+    "capability": "inventory-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "global.site-backdrop",
+    "selector": ".cr-site-backdrop",
+    "kind": "background",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "global.offline",
+    "selector": "",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "inventory-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "global.storage-error",
+    "selector": "",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "inventory-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "global.usage-toast",
+    "selector": "",
+    "kind": "overlay",
+    "status": "live",
+    "capability": "inventory-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "reader.loading",
+    "selector": "[class*=\"ReaderLoading_stage__\"]",
+    "kind": "motion",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "cet.paper-editor",
+    "selector": ".cet-paper-editor-tools",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "cet.paper-text",
+    "selector": ".cet-editable-passages",
+    "kind": "text",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "cet.placeholder",
+    "selector": "",
+    "kind": "container",
+    "status": "live",
+    "capability": "inventory-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "study.dictionary-hint",
+    "selector": "[class*=\"StudyPanel_exampleHint__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.saved-details",
+    "selector": "[class*=\"VocabularyLearningDetails_details__\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "account.repair",
+    "selector": "",
+    "kind": "container",
+    "status": "live",
+    "capability": "inventory-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "admin.image-repair",
+    "selector": "",
+    "kind": "container",
+    "status": "live",
+    "capability": "inventory-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "legacy.BookHome",
+    "selector": "",
+    "kind": "container",
+    "status": "legacy",
+    "capability": "legacy-read-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "legacy.BookRecommendations",
+    "selector": "",
+    "kind": "container",
+    "status": "legacy",
+    "capability": "legacy-read-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "legacy.CurvedPageTurn",
+    "selector": "",
+    "kind": "container",
+    "status": "legacy",
+    "capability": "legacy-read-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "legacy.ImmersiveHome",
+    "selector": "",
+    "kind": "container",
+    "status": "legacy",
+    "capability": "legacy-read-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "legacy.HomeReadingDemo",
+    "selector": "",
+    "kind": "container",
+    "status": "legacy",
+    "capability": "legacy-read-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "legacy.ArticleInput",
+    "selector": "",
+    "kind": "container",
+    "status": "legacy",
+    "capability": "legacy-read-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "legacy.VocabularyPanel",
+    "selector": "",
+    "kind": "container",
+    "status": "legacy",
+    "capability": "legacy-read-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "legacy.AnkiPreviewModal",
+    "selector": "",
+    "kind": "container",
+    "status": "legacy",
+    "capability": "legacy-read-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "legacy.AnkiSettingsPanel",
+    "selector": "",
+    "kind": "container",
+    "status": "legacy",
+    "capability": "legacy-read-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "legacy.GuideAnkiSetup",
+    "selector": "",
+    "kind": "container",
+    "status": "legacy",
+    "capability": "legacy-read-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "legacy.OptionWheel",
+    "selector": "",
+    "kind": "container",
+    "status": "legacy",
+    "capability": "legacy-read-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "legacy.AdminZhipuUsage",
+    "selector": "",
+    "kind": "container",
+    "status": "legacy",
+    "capability": "legacy-read-only",
+    "mayMoveWithinLayout": false
+  },
+  {
+    "id": "study.next",
+    "selector": "[data-ui-target=\"study.next\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.answer-wrong",
+    "selector": "[data-ui-target=\"study.answer-wrong\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.answer-right",
+    "selector": "[data-ui-target=\"study.answer-right\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.pause",
+    "selector": "[data-ui-target=\"study.pause\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.order",
+    "selector": "[data-ui-target=\"study.order\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.claim",
+    "selector": "[data-ui-target=\"study.claim\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.activate",
+    "selector": "[data-ui-target=\"study.activate\"]",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.dialog-confirm",
+    "selector": "[class*=\"StudyPanel_dialogActions\"] > button:last-child",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.dialog-cancel",
+    "selector": "[class*=\"StudyPanel_dialogActions\"] > button:first-child",
+    "kind": "button",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": true
+  }
+]

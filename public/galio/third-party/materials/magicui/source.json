@@ -1,0 +1,59 @@
+{
+  "repo": "magicuidesign/magicui",
+  "revision": "85f97fd27b053339af74ba9dd4ca428ee25989fb",
+  "checkedAt": "2026-10-12",
+  "files": [
+    {
+      "path": "apps/www/registry/magicui/shiny-button.tsx",
+      "ok": true
+    },
+    {
+      "path": "LICENSE.md",
+      "ok": true
+    },
+    {
+      "path": "apps/www/registry/magicui/shimmer-button.tsx",
+      "ok": true
+    },
+    {
+      "path": "apps/www/registry/magicui/interactive-hover-button.tsx",
+      "ok": true
+    },
+    {
+      "path": "apps/www/registry/magicui/rainbow-button.tsx",
+      "ok": true
+    },
+    {
+      "path": "apps/www/registry/magicui/pulsating-button.tsx",
+      "ok": true
+    },
+    {
+      "path": "apps/www/registry/magicui/meteors.tsx",
+      "ok": true
+    },
+    {
+      "path": "apps/www/registry/magicui/retro-grid.tsx",
+      "ok": true
+    },
+    {
+      "path": "apps/www/registry/magicui/shine-border.tsx",
+      "ok": true
+    },
+    {
+      "path": "apps/www/registry/magicui/line-shadow-text.tsx",
+      "ok": true
+    },
+    {
+      "path": "apps/www/registry/magicui/animated-list.tsx",
+      "ok": true
+    },
+    {
+      "path": "apps/www/registry/magicui/text-3d-flip.tsx",
+      "ok": true
+    },
+    {
+      "path": "apps/www/registry/magicui/confetti.tsx",
+      "ok": true
+    }
+  ]
+}

@@ -145,6 +145,7 @@ Without usable backend credentials, loopback development falls back to browser-l
 | `/home-v2` | Compatibility redirect to `/`, preserving query parameters |
 | `/guide` | New-user reading and native vocabulary guide |
 | `/account/usage` | Account status and usage |
+| `/admin/ui-studio` | Developer-only real-page design preview, saved drafts and one-click site-wide application; [guide](docs/ui-design-studio.md) |
 | `/admin` | Server-authorized recommendations, accounts, feedback and error console |
 | `/api/import-url` | Safe, conservative text-first webpage extraction; selected images are localized to bounded first-party WebP assets after Reader opens |
 | `/api/explain-word*` | Context explanation, structured and streaming |

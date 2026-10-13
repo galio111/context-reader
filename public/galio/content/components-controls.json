@@ -1,0 +1,1243 @@
+[
+  {
+    "id": "c-buttons-rolling",
+    "category": "buttons",
+    "title": "文字向上滚动",
+    "summary": "悬停时，按钮文字从下方接替。",
+    "interaction": "悬停或重播；点击执行原操作。",
+    "source": {
+      "name": "Cuberto",
+      "url": "https://cuberto.com/",
+      "observation": "Contacts 按钮的填充与文字联动；本样例拆成可独立套用的文字滚动。"
+    },
+    "tags": [
+      "现有元素增强",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "rolling",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-buttons-split",
+    "category": "buttons",
+    "title": "独立箭头格",
+    "summary": "文字区与箭头区分开，方向更清楚。",
+    "interaction": "悬停箭头滑入，点击整枚按钮。",
+    "source": {
+      "name": "Vercel Geist",
+      "url": "https://vercel.com/geist/split-button",
+      "observation": "官方 Split Button 把主操作和尾部按钮分开；此样例仅采用分区外观，整枚执行同一操作。"
+    },
+    "tags": [
+      "现有元素增强",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "split",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-buttons-fill",
+    "category": "buttons",
+    "title": "从底部铺开",
+    "summary": "轮廓按钮内的填充从下方展开。",
+    "interaction": "悬停或点击重播。",
+    "source": {
+      "name": "Cuberto",
+      "url": "https://cuberto.com/",
+      "observation": "官网 Contacts 悬停前后的轮廓/填充变化可观察；此处保留变化、去掉品牌文案。"
+    },
+    "tags": [
+      "现有元素增强",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "fill",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-buttons-circle",
+    "category": "buttons",
+    "title": "圆形箭头入口",
+    "summary": "文字后方留一个独立的圆形箭头。",
+    "interaction": "悬停箭头转正，点击进入。",
+    "source": {
+      "name": "Stripe",
+      "url": "https://stripe.com/",
+      "observation": "借用明确的尾部箭头导向；圆形包裹为可复用排版改编。"
+    },
+    "tags": [
+      "现有元素增强",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "circle",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-buttons-underline",
+    "category": "buttons",
+    "title": "文字与细线",
+    "summary": "不用按钮底色，以细线强调可点击文字。",
+    "interaction": "悬停时细线完整展开。",
+    "source": {
+      "name": "Resend",
+      "url": "https://resend.com/",
+      "observation": "官网 Documentation 使用轻文字入口；这里把强调线独立为可套用控件。"
+    },
+    "tags": [
+      "现有元素增强",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "underline",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-buttons-shortcut",
+    "category": "buttons",
+    "title": "带快捷键的按钮",
+    "summary": "操作旁边保留一个小键帽。",
+    "interaction": "点击执行操作；键帽提示不冒充全局热键。",
+    "source": {
+      "name": "Vercel Geist",
+      "url": "https://vercel.com/geist/keyboard-input",
+      "observation": "官方键盘标签用小框和等宽字，让指令与正文分开。"
+    },
+    "tags": [
+      "现有元素增强",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "shortcut",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-buttons-physical",
+    "category": "buttons",
+    "title": "有厚度的按键",
+    "summary": "亮面、底边和按下位移让按钮像实体按键。",
+    "interaction": "点击时下压，再回弹。",
+    "source": {
+      "name": "Raycast",
+      "url": "https://www.raycast.com/",
+      "observation": "官网下载按钮使用浅色实体表面；保留这种可按压感，去掉平台标志。"
+    },
+    "tags": [
+      "现有元素增强",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "physical",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-buttons-reveal-arrow",
+    "category": "buttons",
+    "title": "箭头向前",
+    "summary": "尾部箭头向前出现，文字位置保持稳定。",
+    "interaction": "悬停或重播，点击执行操作。",
+    "source": {
+      "name": "Stripe",
+      "url": "https://stripe.com/",
+      "observation": "官网立即开始、联系销售都把小箭头放在动作末尾。"
+    },
+    "tags": [
+      "现有元素增强",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "reveal-arrow",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-buttons-pill",
+    "category": "buttons",
+    "title": "套环胶囊",
+    "summary": "外圈与内按钮形成两层清晰边界。",
+    "interaction": "悬停或点击，整枚按钮可操作。",
+    "source": {
+      "name": "Clerk",
+      "url": "https://clerk.com/",
+      "observation": "官网注册演示底部分段控件有独立浅色外槽与白色选中胶囊。"
+    },
+    "tags": [
+      "现有元素增强",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "pill",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-buttons-flip",
+    "category": "buttons",
+    "title": "薄片翻入",
+    "summary": "一块薄填充沿横轴翻入按钮内。",
+    "interaction": "悬停或重播，点击保持原行为。",
+    "source": {
+      "name": "Cuberto",
+      "url": "https://cuberto.com/",
+      "observation": "借用轮廓/实心两态；翻片是明确标注的动效改编，不声称官网使用同一旋转。"
+    },
+    "tags": [
+      "现有元素增强",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "flip",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-inputs-floating",
+    "category": "inputs",
+    "title": "浮起的字段名",
+    "summary": "输入后标签留在上方，不被内容替换。",
+    "interaction": "输入邮箱；标签始终可见。",
+    "source": {
+      "name": "Clerk",
+      "url": "https://clerk.com/",
+      "observation": "注册示例的字段名和输入内容独立，浮起布局是空间压缩改编。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "floating",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-inputs-search",
+    "category": "inputs",
+    "title": "有建议的搜索",
+    "summary": "搜索框下直接看到匹配的文章。",
+    "interaction": "输入筛选，点结果填入。",
+    "source": {
+      "name": "Vercel Geist",
+      "url": "https://vercel.com/geist/input",
+      "observation": "官方 Search 与 ⌘K 样例把搜索图标、输入和键帽排在同一行。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "search",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-inputs-tags",
+    "category": "inputs",
+    "title": "可移除的标签",
+    "summary": "多个值变成轻量标签，输入仍留在同一框里。",
+    "interaction": "输入后按回车；点 × 移除。",
+    "source": {
+      "name": "Vercel Geist",
+      "url": "https://vercel.com/geist/multi-select",
+      "observation": "Multi Select 的已选项用紧凑标签展示，每项能独立移除。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "tags",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-inputs-code",
+    "category": "inputs",
+    "title": "单行验证码",
+    "summary": "等宽数字形成六个清楚的位置。",
+    "interaction": "输入或粘贴六位数字。",
+    "source": {
+      "name": "Base UI",
+      "url": "https://base-ui.com/react/components/otp-field",
+      "observation": "OTP Field 将验证码作为一个整体输入，强调各位数字的位置；本样例保留单输入粘贴。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "code",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-inputs-stepper",
+    "category": "inputs",
+    "title": "加减数字",
+    "summary": "当前数值居中，加减操作在两侧。",
+    "interaction": "点 − / +，也可以直接输入。",
+    "source": {
+      "name": "Base UI",
+      "url": "https://base-ui.com/react/components/number-field",
+      "observation": "Number Field 官方示例以减号、数值、加号形成单个控件。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "stepper",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-inputs-password",
+    "category": "inputs",
+    "title": "可查看的密码",
+    "summary": "显示/隐藏放在输入框内部右侧。",
+    "interaction": "输入密码，点显示核对。",
+    "source": {
+      "name": "Clerk",
+      "url": "https://clerk.com/",
+      "observation": "注册示例把密码作为独立字段；本样例补上可查看状态，保持窄小辅助操作。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "password",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-inputs-editor",
+    "category": "inputs",
+    "title": "带字数的笔记",
+    "summary": "正文和剩余空间在一块编辑区内。",
+    "interaction": "编辑笔记，下方字数即时变化。",
+    "source": {
+      "name": "Resend",
+      "url": "https://resend.com/",
+      "observation": "官方页面展示可编辑邮件内容与紧凑工具；这里抽成文本笔记，不依赖编辑器截图。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "editor",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-inputs-choices",
+    "category": "inputs",
+    "title": "可多选的标签",
+    "summary": "轻胶囊选中后变成实心，勾号同时确认。",
+    "interaction": "多选兴趣，再点取消。",
+    "source": {
+      "name": "Vercel Geist",
+      "url": "https://vercel.com/geist/choicebox",
+      "observation": "Choicebox / Multi Select 通过清楚选中态支持多项选择；这里缩成短标签。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "choices",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-inputs-slider",
+    "category": "inputs",
+    "title": "带字号预览的滑尺",
+    "summary": "拖动时，数值和真实文字一起改变。",
+    "interaction": "拖动滑块或按方向键。",
+    "source": {
+      "name": "Vercel Geist",
+      "url": "https://vercel.com/geist/slider",
+      "observation": "官方 Slider 以细轨道和白色滑块表明连续调整。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "slider",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-inputs-select",
+    "category": "inputs",
+    "title": "可展开的选择列表",
+    "summary": "列表与触发器同宽，选中项带勾。",
+    "interaction": "展开、选择；方向键移动，Esc 收起。",
+    "source": {
+      "name": "Vercel Geist",
+      "url": "https://vercel.com/geist/select",
+      "observation": "官方 Select 示例展示触发器、选中勾号与自绘菜单，而不是浏览器默认列表。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "select",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-navigation-pills",
+    "category": "navigation",
+    "title": "圆弧填充导航",
+    "summary": "圆弧从胶囊底部铺开，文字向上接替。",
+    "interaction": "悬停各项，点击切换内容。",
+    "source": {
+      "name": "React Bits",
+      "url": "https://reactbits.dev/components/pill-nav",
+      "observation": "PillNav 源码按胶囊宽高计算圆半径，同时移动两层文字。",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/main/src/content/Components/PillNav/PillNav.jsx",
+      "license": "MIT + Commons Clause",
+      "reuse": "核心计算移植为原生 DOM / Web Animations，保留现有业务节点与回调。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "源码移植"
+    ],
+    "module": "controls",
+    "variant": "pills",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-navigation-underline",
+    "category": "navigation",
+    "title": "滑线式页签",
+    "summary": "当前页签由一条贴近文字的细线标明。",
+    "interaction": "点页签，下面内容随之切换。",
+    "source": {
+      "name": "Vercel Geist",
+      "url": "https://vercel.com/geist/tabs",
+      "observation": "Tabs 官方例子用底线区分选中与未选中，正文区域稳定。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "underline",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-navigation-sidebar",
+    "category": "navigation",
+    "title": "轻侧栏",
+    "summary": "左侧只保留目录，选中项出现浅底和箭头。",
+    "interaction": "选择目录，在右侧看内容。",
+    "source": {
+      "name": "Linear",
+      "url": "https://linear.app/",
+      "observation": "实际产品图的侧栏用选中底色标识位置，内容留给右侧主区。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "sidebar",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-navigation-breadcrumbs",
+    "category": "navigation",
+    "title": "路径导航",
+    "summary": "路径连续呈现，任何一级都可返回。",
+    "interaction": "点击任一层级切换。",
+    "source": {
+      "name": "Vercel Geist",
+      "url": "https://vercel.com/geist/breadcrumbs",
+      "observation": "Breadcrumbs 使用斜杠和明暗差表达层级，而不是一排主导航。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "breadcrumbs",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-navigation-pagination",
+    "category": "navigation",
+    "title": "块状分页",
+    "summary": "短标签各占一个明确点击区域。",
+    "interaction": "点不同页码或标签。",
+    "source": {
+      "name": "Vercel Geist",
+      "url": "https://vercel.com/geist/pagination",
+      "observation": "Pagination 将离散页码排成低密度控件，当前页独立突出。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "pagination",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-navigation-steps",
+    "category": "navigation",
+    "title": "按步骤前进",
+    "summary": "编号和标题成组，能看清当前阶段。",
+    "interaction": "点击阶段，显示相应内容。",
+    "source": {
+      "name": "Cal.com",
+      "url": "https://cal.com/",
+      "observation": "官网预约流程依次连接日历、设置可用时间、选择会面方式；抽出线性阶段结构。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "steps",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-navigation-dock",
+    "category": "navigation",
+    "title": "随鼠标放大的工具坞",
+    "summary": "鼠标靠近时，中间图标和相邻图标逐级放大。",
+    "interaction": "移动鼠标、键盘聚焦、点击进入。",
+    "source": {
+      "name": "React Bits",
+      "url": "https://reactbits.dev/components/dock",
+      "observation": "Dock 当前源码用余弦平方计算距离衰减；保留相邻放大与悬浮标签。",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/main/src/content/Components/Dock/Dock.jsx",
+      "license": "MIT + Commons Clause",
+      "reuse": "核心计算移植为原生 DOM / Web Animations，保留现有业务节点与回调。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "源码移植"
+    ],
+    "module": "controls",
+    "variant": "dock",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-navigation-mega",
+    "category": "navigation",
+    "title": "展开式分组菜单",
+    "summary": "一个入口打开几组具体去处。",
+    "interaction": "展开菜单，再选择；Esc 返回。",
+    "source": {
+      "name": "Linear",
+      "url": "https://linear.app/",
+      "observation": "实际 Product 菜单展开成三列，主导航不直接堆所有子页面。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "mega",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-navigation-index",
+    "category": "navigation",
+    "title": "章节刻度",
+    "summary": "细线、刻度和短标签表达文章的不同章节。",
+    "interaction": "点刻度标签切换章节。",
+    "source": {
+      "name": "Vercel",
+      "url": "https://vercel.com/",
+      "observation": "官网用对齐的网格和细规则线分层；这里将该细线语言用于章节索引。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "index",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-navigation-command",
+    "category": "navigation",
+    "title": "紧凑跳转菜单",
+    "summary": "搜索形入口展开可直接跳转的列表。",
+    "interaction": "点入口选择目的地，Esc 收起。",
+    "source": {
+      "name": "Raycast",
+      "url": "https://www.raycast.com/",
+      "observation": "官网命令菜单示意把名称与快捷键排成行；这里保留同一跳转关系。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "command",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-hover-roll",
+    "category": "hover",
+    "title": "文字接力",
+    "summary": "另一层文字从下方接替当前文字。",
+    "interaction": "把鼠标移入移出，或重播。",
+    "source": {
+      "name": "Cuberto",
+      "url": "https://cuberto.com/",
+      "observation": "官网 Contacts 按钮的文字与填充在悬停时联动，抽离为纯文字效果。"
+    },
+    "tags": [
+      "现有元素增强",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "roll",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-hover-arrow-loop",
+    "category": "hover",
+    "title": "斜向箭头接替",
+    "summary": "新箭头沿对角线进入原来的位置。",
+    "interaction": "悬停看箭头方向。",
+    "source": {
+      "name": "Stripe",
+      "url": "https://stripe.com/",
+      "observation": "CTA 的小箭头负责给出方向；此处增加可独立应用的斜向接替。"
+    },
+    "tags": [
+      "现有元素增强",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "arrow-loop",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-hover-radial",
+    "category": "hover",
+    "title": "圆弧填入",
+    "summary": "底部圆弧逐渐覆盖整个交互区域。",
+    "interaction": "悬停展开，移出恢复。",
+    "source": {
+      "name": "React Bits",
+      "url": "https://reactbits.dev/components/pill-nav",
+      "observation": "PillNav 使用从底边起始的圆形铺展；移植为单元素增强。",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/main/src/content/Components/PillNav/PillNav.jsx",
+      "license": "MIT + Commons Clause",
+      "reuse": "核心计算移植为原生 DOM / Web Animations，保留现有业务节点与回调。"
+    },
+    "tags": [
+      "现有元素增强",
+      "源码移植"
+    ],
+    "module": "controls",
+    "variant": "radial",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-hover-magnet",
+    "category": "hover",
+    "title": "磁性吸附",
+    "summary": "元素朝鼠标方向移动，移出后回位。",
+    "interaction": "在按钮内缓慢移动鼠标。",
+    "source": {
+      "name": "React Bits",
+      "url": "https://reactbits.dev/animations/magnet",
+      "observation": "Magnet 核心按指针到中心的距离除以 magnetStrength，默认强度 2。",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/main/src/content/Animations/Magnet/Magnet.jsx",
+      "license": "MIT + Commons Clause",
+      "reuse": "核心计算移植为原生 DOM / Web Animations，保留现有业务节点与回调。"
+    },
+    "tags": [
+      "现有元素增强",
+      "源码移植"
+    ],
+    "module": "controls",
+    "variant": "magnet",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-hover-line-draw",
+    "category": "hover",
+    "title": "细线画入",
+    "summary": "一条细线沿文字底部画出。",
+    "interaction": "悬停出现，移出消失。",
+    "source": {
+      "name": "Resend",
+      "url": "https://resend.com/",
+      "observation": "Documentation 等辅助入口使用无底色文字，增强只作用于文字底边。"
+    },
+    "tags": [
+      "现有元素增强",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "line-draw",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-hover-tilt",
+    "category": "hover",
+    "title": "跟随透视",
+    "summary": "内容像一块薄片，跟随指针倾斜。",
+    "interaction": "移向四角，看方向与透视变化。",
+    "source": {
+      "name": "React Bits",
+      "url": "https://reactbits.dev/components/tilted-card",
+      "observation": "TiltedCard 以相对中心偏移计算 rotateX / rotateY，默认最大 14°、轻微放大。",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/main/src/content/Components/TiltedCard/TiltedCard.jsx",
+      "license": "MIT + Commons Clause",
+      "reuse": "核心计算移植为原生 DOM / Web Animations，保留现有业务节点与回调。"
+    },
+    "tags": [
+      "现有元素增强",
+      "源码移植"
+    ],
+    "module": "controls",
+    "variant": "tilt",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-hover-spotlight",
+    "category": "hover",
+    "title": "鼠标聚光",
+    "summary": "柔和光斑跟随指针，按下时略微增强。",
+    "interaction": "移动指针，看光斑跟随。",
+    "source": {
+      "name": "React Bits",
+      "url": "https://reactbits.dev/components/spotlight-card",
+      "observation": "SpotlightCard 使用局部径向光与柔化衰减函数，光源坐标来自鼠标。",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/main/src/content/Components/SpotlightCard/SpotlightCard.jsx",
+      "license": "MIT + Commons Clause",
+      "reuse": "核心计算移植为原生 DOM / Web Animations，保留现有业务节点与回调。"
+    },
+    "tags": [
+      "现有元素增强",
+      "源码移植"
+    ],
+    "module": "controls",
+    "variant": "spotlight",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-hover-reveal",
+    "category": "hover",
+    "title": "尾部提示出现",
+    "summary": "保持标题稳定，只让末尾入口浮现。",
+    "interaction": "悬停看右侧箭头。",
+    "source": {
+      "name": "Attio",
+      "url": "https://attio.com/",
+      "observation": "官网轻量按钮把动作集中在尾部箭头，产品内容仍占主位。"
+    },
+    "tags": [
+      "现有元素增强",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "reveal",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-hover-lift",
+    "category": "hover",
+    "title": "内容轻轻抬起",
+    "summary": "整块可点击内容离开底面，再落回。",
+    "interaction": "悬停抬起，移出回落。",
+    "source": {
+      "name": "Cal.com",
+      "url": "https://cal.com/",
+      "observation": "官网预约面板有明确的白色面板与底层关系；抬起是标注的独立悬停改编。"
+    },
+    "tags": [
+      "现有元素增强",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "lift",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-hover-border-trace",
+    "category": "hover",
+    "title": "轮廓描画",
+    "summary": "一圈细边框从左向右显现。",
+    "interaction": "悬停或拖动播放进度。",
+    "source": {
+      "name": "Resend",
+      "url": "https://resend.com/",
+      "observation": "官网深色按钮靠细边缘与轻亮面区分层次；这里把边缘显现独立展示。"
+    },
+    "tags": [
+      "现有元素增强",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "border-trace",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-overlays-modal",
+    "category": "overlays",
+    "title": "中心详情窗",
+    "summary": "详情在中间打开，背景退后一层。",
+    "interaction": "打开、确认或 Esc 返回。",
+    "source": {
+      "name": "Base UI",
+      "url": "https://base-ui.com/react/components/dialog",
+      "observation": "Dialog 官方示例将标题、内容和关闭操作放在同一对话框内。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "modal",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-overlays-drawer",
+    "category": "overlays",
+    "title": "侧边设置",
+    "summary": "设置从右侧进入，原内容仍在背后。",
+    "interaction": "打开设置、改变开关、完成。",
+    "source": {
+      "name": "Vercel Geist",
+      "url": "https://vercel.com/geist/drawer",
+      "observation": "Drawer 让次要编辑沿边进入，保留页面空间关系。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "drawer",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-overlays-sheet",
+    "category": "overlays",
+    "title": "底部选择面板",
+    "summary": "选择项从底部上来，适合小屏。",
+    "interaction": "打开后选一项；可直接返回。",
+    "source": {
+      "name": "Base UI",
+      "url": "https://base-ui.com/react/components/drawer",
+      "observation": "Drawer 示例的底部面板有独立面板边缘与可关闭结构。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "sheet",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-overlays-menu",
+    "category": "overlays",
+    "title": "按钮附近的菜单",
+    "summary": "只在操作旁边出现少量选项。",
+    "interaction": "打开菜单、选操作或 Esc。",
+    "source": {
+      "name": "Vercel Geist",
+      "url": "https://vercel.com/geist/menu",
+      "observation": "Menu 以紧凑行列承载短操作，和详情弹窗区别明显。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "menu",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-overlays-command",
+    "category": "overlays",
+    "title": "搜索命令面板",
+    "summary": "一行输入和匹配结果组成快速入口。",
+    "interaction": "输入筛选，点结果执行。",
+    "source": {
+      "name": "Raycast",
+      "url": "https://www.raycast.com/",
+      "observation": "命令窗口的搜索与结果在同一小窗；操作不需要跳到新页面。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "command",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-overlays-popover",
+    "category": "overlays",
+    "title": "轻量资料卡",
+    "summary": "短资料紧贴当前内容出现。",
+    "interaction": "打开资料，关注或关闭。",
+    "source": {
+      "name": "Vercel Geist",
+      "url": "https://vercel.com/geist/context-card",
+      "observation": "Context Card 承载局部补充信息，不把用户带离当前区域。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "popover",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-overlays-fullscreen",
+    "category": "overlays",
+    "title": "铺开的目录",
+    "summary": "深色目录覆盖当前内容，去处更醒目。",
+    "interaction": "打开目录，点击某项或返回。",
+    "source": {
+      "name": "Cuberto",
+      "url": "https://cuberto.com/",
+      "observation": "官网导航主次清楚、黑白对比明确；此面板是可移植的整块目录改编。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "fullscreen",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-overlays-confirm",
+    "category": "overlays",
+    "title": "轻确认",
+    "summary": "只保留后果与两种明确操作。",
+    "interaction": "保留或移出收藏。",
+    "source": {
+      "name": "Base UI",
+      "url": "https://base-ui.com/react/components/alert-dialog",
+      "observation": "Alert Dialog 将后果描述与取消/确认并置，动作名具体。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "confirm",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-overlays-inline",
+    "category": "overlays",
+    "title": "原位展开编辑",
+    "summary": "当前内容下方直接展开笔记编辑。",
+    "interaction": "编辑文字，点完成保留。",
+    "source": {
+      "name": "Resend",
+      "url": "https://resend.com/",
+      "observation": "官方邮件编辑示例保持内容与编辑工具在同一区域，这里抽成原位文本编辑。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "inline",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-overlays-share",
+    "category": "overlays",
+    "title": "短分享窗",
+    "summary": "要分享的内容与复制按钮放在一起。",
+    "interaction": "点击复制，显示真实成功或失败。",
+    "source": {
+      "name": "Vercel Geist",
+      "url": "https://vercel.com/geist/text-with-copy-button",
+      "observation": "Text With Copy Button 把可复制文本和独立操作放在同一行组。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "share",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-feedback-toast",
+    "category": "feedback",
+    "title": "可撤销的通知",
+    "summary": "轻通知从下方浮出，带一个撤销动作。",
+    "interaction": "加入收藏，再点撤销。",
+    "source": {
+      "name": "Sonner",
+      "url": "https://sonner.emilkowal.ski/",
+      "observation": "实际官方 demo 使用紧凑通知与动作行；移植为局部作用的通知。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "toast",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-feedback-button",
+    "category": "feedback",
+    "title": "按钮原位完成",
+    "summary": "按钮本身切换成勾号和完成文字。",
+    "interaction": "保存后看原位反馈，可重复。",
+    "source": {
+      "name": "Clerk",
+      "url": "https://clerk.com/",
+      "observation": "官网流程完成态用清楚的确认信息，避免再弹一层；此处把结果收进原按钮。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "button",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-feedback-inline",
+    "category": "feedback",
+    "title": "行内完成提示",
+    "summary": "勾号和一句结果出现在操作附近。",
+    "interaction": "点击完成阅读。",
+    "source": {
+      "name": "Vercel Geist",
+      "url": "https://vercel.com/geist/note",
+      "observation": "Note 把状态信息靠近相关内容，以短文字和图标表达。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "inline",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-feedback-banner",
+    "category": "feedback",
+    "title": "顶部通知条",
+    "summary": "消息占一条窄区域，可立即关闭。",
+    "interaction": "开启提醒，再点关闭。",
+    "source": {
+      "name": "Attio",
+      "url": "https://attio.com/",
+      "observation": "官网顶部黑色发布条独立于导航，关闭按钮放在最右端。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "banner",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-feedback-error",
+    "category": "feedback",
+    "title": "可重试的错误",
+    "summary": "错误保留上下文，重试就在旁边。",
+    "interaction": "尝试同步、点重试看恢复。",
+    "source": {
+      "name": "Vercel Geist",
+      "url": "https://vercel.com/geist/error-card",
+      "observation": "Error Card 将问题和恢复操作放在一处，输入内容不丢失。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "error",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-feedback-progress",
+    "category": "feedback",
+    "title": "细线进度",
+    "summary": "只用一条细线表示任务向前推进。",
+    "interaction": "开始整理，可暂停看中途。",
+    "source": {
+      "name": "Vercel Geist",
+      "url": "https://vercel.com/geist/progress",
+      "observation": "Progress 的细进度条与百分比配合，未完成部分保持浅色。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "progress",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-feedback-steps",
+    "category": "feedback",
+    "title": "逐项完成",
+    "summary": "几个阶段依次变得清楚。",
+    "interaction": "点击导入，看阶段顺序。",
+    "source": {
+      "name": "Cal.com",
+      "url": "https://cal.com/",
+      "observation": "官网清楚展示三个接续的安排阶段；这里用于显示本地处理步骤。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "steps",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-feedback-empty",
+    "category": "feedback",
+    "title": "空状态变成内容",
+    "summary": "点击建立后出现第一条真实内容。",
+    "interaction": "建立清单，看空到有的变化。",
+    "source": {
+      "name": "Vercel Geist",
+      "url": "https://vercel.com/geist/empty-state",
+      "observation": "Empty State 使用标题、短说明和单一明确动作，结果接在同一区域。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "empty",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-feedback-copy",
+    "category": "feedback",
+    "title": "复制后原位确认",
+    "summary": "复制结果直接显示在原按钮内。",
+    "interaction": "复制标题，真实读取剪贴板权限。",
+    "source": {
+      "name": "Resend",
+      "url": "https://resend.com/",
+      "observation": "官网代码片段的复制按钮保持贴近内容，不另开页面。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "copy",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-feedback-favorite",
+    "category": "feedback",
+    "title": "收藏回弹",
+    "summary": "星标回弹，同时明确显示收藏状态。",
+    "interaction": "收藏与取消可反复切换。",
+    "source": {
+      "name": "Vercel Geist",
+      "url": "https://vercel.com/geist/toggle",
+      "observation": "Toggle 使用按下状态表达持久选择，此处用星标的动作补充反馈。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "结构参考"
+    ],
+    "module": "controls",
+    "variant": "favorite",
+    "defaultDuration": 800,
+    "portable": true
+  },
+  {
+    "id": "c-feedback-spark",
+    "category": "feedback",
+    "title": "点击火花",
+    "summary": "点击位置出现八条向外散开的细光线。",
+    "interaction": "点击按钮或重播，可暂停逐帧看。",
+    "source": {
+      "name": "React Bits",
+      "url": "https://reactbits.dev/animations/click-spark",
+      "observation": "ClickSpark 按等角度放射 8 条线；距离缓出增加，线段长度同时收缩。",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/main/src/content/Animations/ClickSpark/ClickSpark.jsx",
+      "license": "MIT + Commons Clause",
+      "reuse": "核心计算移植为原生 DOM / Web Animations，保留现有业务节点与回调。"
+    },
+    "tags": [
+      "业务区域挂载",
+      "源码移植"
+    ],
+    "module": "controls",
+    "variant": "spark",
+    "defaultDuration": 800,
+    "portable": true
+  }
+]

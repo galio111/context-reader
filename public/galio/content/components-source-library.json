@@ -1,0 +1,674 @@
+[
+  {
+    "id": "c-source-ripple-button",
+    "category": "buttons",
+    "variant": "ripple-button",
+    "title": "点击涟漪",
+    "summary": "点击任意位置，波纹从落点散开。",
+    "interaction": "点击任意位置，波纹从落点散开。",
+    "module": "source-library",
+    "portable": true,
+    "defaultDuration": 1400,
+    "tags": [
+      "Designeer",
+      "真实源码参考",
+      "Magic UI"
+    ],
+    "source": {
+      "name": "Magic UI · ripple-button",
+      "url": "https://magicui.design/docs/components/ripple-button",
+      "codeUrl": "https://github.com/magicuidesign/magicui/blob/85f97fd27b053339af74ba9dd4ca428ee25989fb/apps/www/registry/magicui/ripple-button.tsx",
+      "license": "MIT",
+      "licensePath": "third-party/designeer/magicui/LICENSE.md",
+      "implementation": "source-port",
+      "observation": "保留公开源码中的主要几何计算或呈现机制，移植为可销毁的 DOM 组件。",
+      "adaptation": "使用项目自己的文字与数据；添加键盘、减少动效、暂停与销毁支持。非原站像素级复制。",
+      "visualEvidence": {
+        "image": "/docs/designeer-evidence/components-source/ripple-button.jpg",
+        "title": "Ripple Button | React Components & Templates",
+        "checkedAt": "2026-10-12",
+        "scope": "公开组件页面的浏览器静帧，不等于全动效一致性验收"
+      }
+    }
+  },
+  {
+    "id": "c-source-lens",
+    "category": "hover",
+    "variant": "lens",
+    "title": "局部放大镜",
+    "summary": "移动鼠标或用方向键，放大所指内容。",
+    "interaction": "移动鼠标或用方向键，放大所指内容。",
+    "module": "source-library",
+    "portable": true,
+    "defaultDuration": 1400,
+    "tags": [
+      "Designeer",
+      "真实源码参考",
+      "Magic UI"
+    ],
+    "source": {
+      "name": "Magic UI · lens",
+      "url": "https://magicui.design/docs/components/lens",
+      "codeUrl": "https://github.com/magicuidesign/magicui/blob/85f97fd27b053339af74ba9dd4ca428ee25989fb/apps/www/registry/magicui/lens.tsx",
+      "license": "MIT",
+      "licensePath": "third-party/designeer/magicui/LICENSE.md",
+      "implementation": "source-port",
+      "observation": "保留公开源码中的主要几何计算或呈现机制，移植为可销毁的 DOM 组件。",
+      "adaptation": "使用项目自己的文字与数据；添加键盘、减少动效、暂停与销毁支持。非原站像素级复制。",
+      "visualEvidence": {
+        "image": "/docs/designeer-evidence/components-source/lens.jpg",
+        "title": "Lens | React Components & Templates",
+        "checkedAt": "2026-10-12",
+        "scope": "公开组件页面的浏览器静帧，不等于全动效一致性验收"
+      }
+    }
+  },
+  {
+    "id": "c-source-marquee",
+    "category": "layout",
+    "variant": "marquee",
+    "title": "无缝流动卡片",
+    "summary": "连续横移，悬停停下，卡片可以打开。",
+    "interaction": "连续横移，悬停停下，卡片可以打开。",
+    "module": "source-library",
+    "portable": true,
+    "defaultDuration": 1400,
+    "tags": [
+      "Designeer",
+      "真实源码参考",
+      "Magic UI"
+    ],
+    "source": {
+      "name": "Magic UI · marquee",
+      "url": "https://magicui.design/docs/components/marquee",
+      "codeUrl": "https://github.com/magicuidesign/magicui/blob/85f97fd27b053339af74ba9dd4ca428ee25989fb/apps/www/registry/magicui/marquee.tsx",
+      "license": "MIT",
+      "licensePath": "third-party/designeer/magicui/LICENSE.md",
+      "implementation": "source-port",
+      "observation": "保留公开源码中的主要几何计算或呈现机制，移植为可销毁的 DOM 组件。",
+      "adaptation": "使用项目自己的文字与数据；添加键盘、减少动效、暂停与销毁支持。非原站像素级复制。",
+      "visualEvidence": {
+        "image": "/docs/designeer-evidence/components-source/marquee.jpg",
+        "title": "Marquee | React Components & Templates",
+        "checkedAt": "2026-10-12",
+        "scope": "公开组件页面的浏览器静帧，不等于全动效一致性验收"
+      }
+    }
+  },
+  {
+    "id": "c-source-border-beam",
+    "category": "backgrounds",
+    "variant": "border-beam",
+    "title": "游走边线",
+    "summary": "细光沿容器边缘移动。",
+    "interaction": "细光沿容器边缘移动。",
+    "module": "source-library",
+    "portable": true,
+    "defaultDuration": 1400,
+    "tags": [
+      "Designeer",
+      "真实源码参考",
+      "Magic UI"
+    ],
+    "source": {
+      "name": "Magic UI · border-beam",
+      "url": "https://magicui.design/docs/components/border-beam",
+      "codeUrl": "https://github.com/magicuidesign/magicui/blob/85f97fd27b053339af74ba9dd4ca428ee25989fb/apps/www/registry/magicui/border-beam.tsx",
+      "license": "MIT",
+      "licensePath": "third-party/designeer/magicui/LICENSE.md",
+      "implementation": "source-port",
+      "observation": "保留公开源码中的主要几何计算或呈现机制，移植为可销毁的 DOM 组件。",
+      "adaptation": "使用项目自己的文字与数据；添加键盘、减少动效、暂停与销毁支持。非原站像素级复制。",
+      "visualEvidence": {
+        "image": "/docs/designeer-evidence/components-source/border-beam.jpg",
+        "title": "Border Beam | React Components & Templates",
+        "checkedAt": "2026-10-12",
+        "scope": "公开组件页面的浏览器静帧，不等于全动效一致性验收"
+      }
+    }
+  },
+  {
+    "id": "c-source-orbiting-circles",
+    "category": "layout",
+    "variant": "orbiting-circles",
+    "title": "环绕入口",
+    "summary": "多个入口绕中心环行，悬停停下。",
+    "interaction": "多个入口绕中心环行，悬停停下。",
+    "module": "source-library",
+    "portable": true,
+    "defaultDuration": 1400,
+    "tags": [
+      "Designeer",
+      "真实源码参考",
+      "Magic UI"
+    ],
+    "source": {
+      "name": "Magic UI · orbiting-circles",
+      "url": "https://magicui.design/docs/components/orbiting-circles",
+      "codeUrl": "https://github.com/magicuidesign/magicui/blob/85f97fd27b053339af74ba9dd4ca428ee25989fb/apps/www/registry/magicui/orbiting-circles.tsx",
+      "license": "MIT",
+      "licensePath": "third-party/designeer/magicui/LICENSE.md",
+      "implementation": "source-port",
+      "observation": "保留公开源码中的主要几何计算或呈现机制，移植为可销毁的 DOM 组件。",
+      "adaptation": "使用项目自己的文字与数据；添加键盘、减少动效、暂停与销毁支持。非原站像素级复制。",
+      "visualEvidence": {
+        "image": "/docs/designeer-evidence/components-source/orbiting-circles.jpg",
+        "title": "Orbiting Circles | React Components & Templates",
+        "checkedAt": "2026-10-12",
+        "scope": "公开组件页面的浏览器静帧，不等于全动效一致性验收"
+      }
+    }
+  },
+  {
+    "id": "c-source-animated-circular-progress-bar",
+    "category": "data",
+    "variant": "animated-circular-progress-bar",
+    "title": "留口进度环",
+    "summary": "两段弧线之间留一口空隙。",
+    "interaction": "两段弧线之间留一口空隙。",
+    "module": "source-library",
+    "portable": true,
+    "defaultDuration": 1400,
+    "tags": [
+      "Designeer",
+      "真实源码参考",
+      "Magic UI"
+    ],
+    "source": {
+      "name": "Magic UI · animated-circular-progress-bar",
+      "url": "https://magicui.design/docs/components/animated-circular-progress-bar",
+      "codeUrl": "https://github.com/magicuidesign/magicui/blob/85f97fd27b053339af74ba9dd4ca428ee25989fb/apps/www/registry/magicui/animated-circular-progress-bar.tsx",
+      "license": "MIT",
+      "licensePath": "third-party/designeer/magicui/LICENSE.md",
+      "implementation": "source-port",
+      "observation": "保留公开源码中的主要几何计算或呈现机制，移植为可销毁的 DOM 组件。",
+      "adaptation": "使用项目自己的文字与数据；添加键盘、减少动效、暂停与销毁支持。非原站像素级复制。",
+      "visualEvidence": {
+        "image": "/docs/designeer-evidence/components-source/animated-circular-progress-bar.jpg",
+        "title": "Animated Circular Progress Bar | React Components & Templates",
+        "checkedAt": "2026-10-12",
+        "scope": "公开组件页面的浏览器静帧，不等于全动效一致性验收"
+      }
+    }
+  },
+  {
+    "id": "c-source-interactive-grid-pattern",
+    "category": "backgrounds",
+    "variant": "interactive-grid-pattern",
+    "title": "触碰格纹",
+    "summary": "鼠标经过的方格亮起，然后缓缓淡出。",
+    "interaction": "鼠标经过的方格亮起，然后缓缓淡出。",
+    "module": "source-library",
+    "portable": true,
+    "defaultDuration": 1400,
+    "tags": [
+      "Designeer",
+      "真实源码参考",
+      "Magic UI"
+    ],
+    "source": {
+      "name": "Magic UI · interactive-grid-pattern",
+      "url": "https://magicui.design/docs/components/interactive-grid-pattern",
+      "codeUrl": "https://github.com/magicuidesign/magicui/blob/85f97fd27b053339af74ba9dd4ca428ee25989fb/apps/www/registry/magicui/interactive-grid-pattern.tsx",
+      "license": "MIT",
+      "licensePath": "third-party/designeer/magicui/LICENSE.md",
+      "implementation": "source-port",
+      "observation": "保留公开源码中的主要几何计算或呈现机制，移植为可销毁的 DOM 组件。",
+      "adaptation": "使用项目自己的文字与数据；添加键盘、减少动效、暂停与销毁支持。非原站像素级复制。",
+      "visualEvidence": {
+        "image": "/docs/designeer-evidence/components-source/interactive-grid-pattern.jpg",
+        "title": "Interactive Grid Pattern | React Components & Templates",
+        "checkedAt": "2026-10-12",
+        "scope": "公开组件页面的浏览器静帧，不等于全动效一致性验收"
+      }
+    }
+  },
+  {
+    "id": "c-source-ripple",
+    "category": "backgrounds",
+    "variant": "ripple",
+    "title": "同心波纹",
+    "summary": "一圈圈向外呼吸，内容保持清楚。",
+    "interaction": "一圈圈向外呼吸，内容保持清楚。",
+    "module": "source-library",
+    "portable": true,
+    "defaultDuration": 1400,
+    "tags": [
+      "Designeer",
+      "真实源码参考",
+      "Magic UI"
+    ],
+    "source": {
+      "name": "Magic UI · ripple",
+      "url": "https://magicui.design/docs/components/ripple",
+      "codeUrl": "https://github.com/magicuidesign/magicui/blob/85f97fd27b053339af74ba9dd4ca428ee25989fb/apps/www/registry/magicui/ripple.tsx",
+      "license": "MIT",
+      "licensePath": "third-party/designeer/magicui/LICENSE.md",
+      "implementation": "source-port",
+      "observation": "保留公开源码中的主要几何计算或呈现机制，移植为可销毁的 DOM 组件。",
+      "adaptation": "使用项目自己的文字与数据；添加键盘、减少动效、暂停与销毁支持。非原站像素级复制。",
+      "visualEvidence": {
+        "image": "/docs/designeer-evidence/components-source/ripple.jpg",
+        "title": "Ripple | React Components & Templates",
+        "checkedAt": "2026-10-12",
+        "scope": "公开组件页面的浏览器静帧，不等于全动效一致性验收"
+      }
+    }
+  },
+  {
+    "id": "c-source-flickering-grid",
+    "category": "backgrounds",
+    "variant": "flickering-grid",
+    "title": "微光像素",
+    "summary": "细小方点不规则闪动。",
+    "interaction": "细小方点不规则闪动。",
+    "module": "source-library",
+    "portable": true,
+    "defaultDuration": 1400,
+    "tags": [
+      "Designeer",
+      "真实源码参考",
+      "Magic UI"
+    ],
+    "source": {
+      "name": "Magic UI · flickering-grid",
+      "url": "https://magicui.design/docs/components/flickering-grid",
+      "codeUrl": "https://github.com/magicuidesign/magicui/blob/85f97fd27b053339af74ba9dd4ca428ee25989fb/apps/www/registry/magicui/flickering-grid.tsx",
+      "license": "MIT",
+      "licensePath": "third-party/designeer/magicui/LICENSE.md",
+      "implementation": "source-port",
+      "observation": "保留公开源码中的主要几何计算或呈现机制，移植为可销毁的 DOM 组件。",
+      "adaptation": "使用项目自己的文字与数据；添加键盘、减少动效、暂停与销毁支持。非原站像素级复制。",
+      "visualEvidence": {
+        "image": "/docs/designeer-evidence/components-source/flickering-grid.jpg",
+        "title": "Flickering Grid | React Components & Templates",
+        "checkedAt": "2026-10-12",
+        "scope": "公开组件页面的浏览器静帧，不等于全动效一致性验收"
+      }
+    }
+  },
+  {
+    "id": "c-source-word-rotate",
+    "category": "typography",
+    "variant": "word-rotate",
+    "title": "词语轮换",
+    "summary": "向下退出，再从上方带入下一句。",
+    "interaction": "向下退出，再从上方带入下一句。",
+    "module": "source-library",
+    "portable": true,
+    "defaultDuration": 1400,
+    "tags": [
+      "Designeer",
+      "真实源码参考",
+      "Magic UI"
+    ],
+    "source": {
+      "name": "Magic UI · word-rotate",
+      "url": "https://magicui.design/docs/components/word-rotate",
+      "codeUrl": "https://github.com/magicuidesign/magicui/blob/85f97fd27b053339af74ba9dd4ca428ee25989fb/apps/www/registry/magicui/word-rotate.tsx",
+      "license": "MIT",
+      "licensePath": "third-party/designeer/magicui/LICENSE.md",
+      "implementation": "source-port",
+      "observation": "保留公开源码中的主要几何计算或呈现机制，移植为可销毁的 DOM 组件。",
+      "adaptation": "使用项目自己的文字与数据；添加键盘、减少动效、暂停与销毁支持。非原站像素级复制。",
+      "visualEvidence": {
+        "image": "/docs/designeer-evidence/components-source/word-rotate.jpg",
+        "title": "Word Rotate | React Components & Templates",
+        "checkedAt": "2026-10-12",
+        "scope": "公开组件页面的浏览器静帧，不等于全动效一致性验收"
+      }
+    }
+  },
+  {
+    "id": "c-source-typing-animation",
+    "category": "typography",
+    "variant": "typing-animation",
+    "title": "逐字打出",
+    "summary": "文字逐字出现，光标跟随。",
+    "interaction": "文字逐字出现，光标跟随。",
+    "module": "source-library",
+    "portable": true,
+    "defaultDuration": 1400,
+    "tags": [
+      "Designeer",
+      "真实源码参考",
+      "Magic UI"
+    ],
+    "source": {
+      "name": "Magic UI · typing-animation",
+      "url": "https://magicui.design/docs/components/typing-animation",
+      "codeUrl": "https://github.com/magicuidesign/magicui/blob/85f97fd27b053339af74ba9dd4ca428ee25989fb/apps/www/registry/magicui/typing-animation.tsx",
+      "license": "MIT",
+      "licensePath": "third-party/designeer/magicui/LICENSE.md",
+      "implementation": "source-adaptation",
+      "observation": "阅读公开源码后提取其交互与空间关系，改为不依赖框架的版本。",
+      "adaptation": "使用项目自己的文字与数据；添加键盘、减少动效、暂停与销毁支持。非原站像素级复制。",
+      "visualEvidence": {
+        "image": "/docs/designeer-evidence/components-source/typing-animation.jpg",
+        "title": "Typing Animation | React Components & Templates",
+        "checkedAt": "2026-10-12",
+        "scope": "公开组件页面的浏览器静帧，不等于全动效一致性验收"
+      }
+    }
+  },
+  {
+    "id": "c-source-number-ticker",
+    "category": "data",
+    "variant": "number-ticker",
+    "title": "数字渐进",
+    "summary": "数字平滑增长，停在真实值。",
+    "interaction": "数字平滑增长，停在真实值。",
+    "module": "source-library",
+    "portable": true,
+    "defaultDuration": 1400,
+    "tags": [
+      "Designeer",
+      "真实源码参考",
+      "Magic UI"
+    ],
+    "source": {
+      "name": "Magic UI · number-ticker",
+      "url": "https://magicui.design/docs/components/number-ticker",
+      "codeUrl": "https://github.com/magicuidesign/magicui/blob/85f97fd27b053339af74ba9dd4ca428ee25989fb/apps/www/registry/magicui/number-ticker.tsx",
+      "license": "MIT",
+      "licensePath": "third-party/designeer/magicui/LICENSE.md",
+      "implementation": "source-adaptation",
+      "observation": "阅读公开源码后提取其交互与空间关系，改为不依赖框架的版本。",
+      "adaptation": "使用项目自己的文字与数据；添加键盘、减少动效、暂停与销毁支持。非原站像素级复制。",
+      "visualEvidence": {
+        "image": "/docs/designeer-evidence/components-source/number-ticker.jpg",
+        "title": "Number Ticker | React Components & Templates",
+        "checkedAt": "2026-10-12",
+        "scope": "公开组件页面的浏览器静帧，不等于全动效一致性验收"
+      }
+    }
+  },
+  {
+    "id": "c-source-elastic-slider",
+    "category": "inputs",
+    "variant": "elastic-slider",
+    "title": "弹性滑杆",
+    "summary": "拖到两端之外，轨道会拉伸回弹。",
+    "interaction": "拖到两端之外，轨道会拉伸回弹。",
+    "module": "source-library",
+    "portable": true,
+    "defaultDuration": 1400,
+    "tags": [
+      "Designeer",
+      "真实源码参考",
+      "React Bits"
+    ],
+    "source": {
+      "name": "React Bits · ElasticSlider",
+      "url": "https://reactbits.dev/components/elastic-slider",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/2139cb3098d4fedc6264f13e50dcb4694224ba7c/src/content/Components/ElasticSlider/ElasticSlider.jsx",
+      "license": "MIT + Commons Clause",
+      "licensePath": "third-party/designeer/react-bits/LICENSE.md",
+      "implementation": "source-port",
+      "observation": "保留公开源码中的主要几何计算或呈现机制，移植为可销毁的 DOM 组件。",
+      "adaptation": "使用项目自己的文字与数据；添加键盘、减少动效、暂停与销毁支持。非原站像素级复制。",
+      "visualEvidence": {
+        "image": "/docs/designeer-evidence/components-source/elastic-slider.jpg",
+        "title": "Elastic Slider — React Component | React Bits",
+        "checkedAt": "2026-10-12",
+        "scope": "公开组件页面的浏览器静帧，不等于全动效一致性验收"
+      }
+    }
+  },
+  {
+    "id": "c-source-bounce-cards",
+    "category": "layout",
+    "variant": "bounce-cards",
+    "title": "散开的卡片",
+    "summary": "悬停一张，旁边的卡片向两侧让开。",
+    "interaction": "悬停一张，旁边的卡片向两侧让开。",
+    "module": "source-library",
+    "portable": true,
+    "defaultDuration": 1400,
+    "tags": [
+      "Designeer",
+      "真实源码参考",
+      "React Bits"
+    ],
+    "source": {
+      "name": "React Bits · BounceCards",
+      "url": "https://reactbits.dev/components/bounce-cards",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/2139cb3098d4fedc6264f13e50dcb4694224ba7c/src/content/Components/BounceCards/BounceCards.jsx",
+      "license": "MIT + Commons Clause",
+      "licensePath": "third-party/designeer/react-bits/LICENSE.md",
+      "implementation": "source-adaptation",
+      "observation": "阅读公开源码后提取其交互与空间关系，改为不依赖框架的版本。",
+      "adaptation": "使用项目自己的文字与数据；添加键盘、减少动效、暂停与销毁支持。非原站像素级复制。",
+      "visualEvidence": {
+        "image": "/docs/designeer-evidence/components-source/bounce-cards.jpg",
+        "title": "Bounce Cards — React Component | React Bits",
+        "checkedAt": "2026-10-12",
+        "scope": "公开组件页面的浏览器静帧，不等于全动效一致性验收"
+      }
+    }
+  },
+  {
+    "id": "c-source-stack-cards",
+    "category": "layout",
+    "variant": "stack-cards",
+    "title": "可拨动卡堆",
+    "summary": "左右拖动翻到下一张，也能用键盘。",
+    "interaction": "左右拖动翻到下一张，也能用键盘。",
+    "module": "source-library",
+    "portable": true,
+    "defaultDuration": 1400,
+    "tags": [
+      "Designeer",
+      "真实源码参考",
+      "React Bits"
+    ],
+    "source": {
+      "name": "React Bits · Stack",
+      "url": "https://reactbits.dev/components/stack",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/2139cb3098d4fedc6264f13e50dcb4694224ba7c/src/content/Components/Stack/Stack.jsx",
+      "license": "MIT + Commons Clause",
+      "licensePath": "third-party/designeer/react-bits/LICENSE.md",
+      "implementation": "source-adaptation",
+      "observation": "阅读公开源码后提取其交互与空间关系，改为不依赖框架的版本。",
+      "adaptation": "使用项目自己的文字与数据；添加键盘、减少动效、暂停与销毁支持。非原站像素级复制。",
+      "visualEvidence": {
+        "image": "/docs/designeer-evidence/components-source/stack-cards.jpg",
+        "title": "Stack — React Component | React Bits",
+        "checkedAt": "2026-10-12",
+        "scope": "公开组件页面的浏览器静帧，不等于全动效一致性验收"
+      }
+    }
+  },
+  {
+    "id": "c-source-card-swap",
+    "category": "layout",
+    "variant": "card-swap",
+    "title": "错层换卡",
+    "summary": "前卡滑出，后面的卡片依次上前。",
+    "interaction": "前卡滑出，后面的卡片依次上前。",
+    "module": "source-library",
+    "portable": true,
+    "defaultDuration": 1400,
+    "tags": [
+      "Designeer",
+      "真实源码参考",
+      "React Bits"
+    ],
+    "source": {
+      "name": "React Bits · CardSwap",
+      "url": "https://reactbits.dev/components/card-swap",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/2139cb3098d4fedc6264f13e50dcb4694224ba7c/src/content/Components/CardSwap/CardSwap.jsx",
+      "license": "MIT + Commons Clause",
+      "licensePath": "third-party/designeer/react-bits/LICENSE.md",
+      "implementation": "source-adaptation",
+      "observation": "阅读公开源码后提取其交互与空间关系，改为不依赖框架的版本。",
+      "adaptation": "使用项目自己的文字与数据；添加键盘、减少动效、暂停与销毁支持。非原站像素级复制。",
+      "visualEvidence": {
+        "image": "/docs/designeer-evidence/components-source/card-swap.jpg",
+        "title": "Card Swap — React Component | React Bits",
+        "checkedAt": "2026-10-12",
+        "scope": "公开组件页面的浏览器静帧，不等于全动效一致性验收"
+      }
+    }
+  },
+  {
+    "id": "c-source-flowing-menu",
+    "category": "navigation",
+    "variant": "flowing-menu",
+    "title": "流动菜单",
+    "summary": "悬停后，整行变成连续滚动的标题。",
+    "interaction": "悬停后，整行变成连续滚动的标题。",
+    "module": "source-library",
+    "portable": true,
+    "defaultDuration": 1400,
+    "tags": [
+      "Designeer",
+      "真实源码参考",
+      "React Bits"
+    ],
+    "source": {
+      "name": "React Bits · FlowingMenu",
+      "url": "https://reactbits.dev/components/flowing-menu",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/2139cb3098d4fedc6264f13e50dcb4694224ba7c/src/content/Components/FlowingMenu/FlowingMenu.jsx",
+      "license": "MIT + Commons Clause",
+      "licensePath": "third-party/designeer/react-bits/LICENSE.md",
+      "implementation": "source-port",
+      "observation": "保留公开源码中的主要几何计算或呈现机制，移植为可销毁的 DOM 组件。",
+      "adaptation": "使用项目自己的文字与数据；添加键盘、减少动效、暂停与销毁支持。非原站像素级复制。",
+      "visualEvidence": {
+        "image": "/docs/designeer-evidence/components-source/flowing-menu.jpg",
+        "title": "Flowing Menu — React Component | React Bits",
+        "checkedAt": "2026-10-12",
+        "scope": "公开组件页面的浏览器静帧，不等于全动效一致性验收"
+      }
+    }
+  },
+  {
+    "id": "c-source-circular-text",
+    "category": "typography",
+    "variant": "circular-text",
+    "title": "环形文字",
+    "summary": "文字围成一个圆，悬停暂停旋转。",
+    "interaction": "文字围成一个圆，悬停暂停旋转。",
+    "module": "source-library",
+    "portable": true,
+    "defaultDuration": 1400,
+    "tags": [
+      "Designeer",
+      "真实源码参考",
+      "React Bits"
+    ],
+    "source": {
+      "name": "React Bits · CircularText",
+      "url": "https://reactbits.dev/text-animations/circular-text",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/2139cb3098d4fedc6264f13e50dcb4694224ba7c/src/content/TextAnimations/CircularText/CircularText.jsx",
+      "license": "MIT + Commons Clause",
+      "licensePath": "third-party/designeer/react-bits/LICENSE.md",
+      "implementation": "source-port",
+      "observation": "保留公开源码中的主要几何计算或呈现机制，移植为可销毁的 DOM 组件。",
+      "adaptation": "使用项目自己的文字与数据；添加键盘、减少动效、暂停与销毁支持。非原站像素级复制。",
+      "visualEvidence": {
+        "image": "/docs/designeer-evidence/components-source/circular-text.jpg",
+        "title": "Circular Text — React Text Animation | React Bits",
+        "checkedAt": "2026-10-12",
+        "scope": "公开组件页面的浏览器静帧，不等于全动效一致性验收"
+      }
+    }
+  },
+  {
+    "id": "c-source-scroll-float",
+    "category": "typography",
+    "variant": "scroll-float",
+    "title": "逐字浮起",
+    "summary": "字符拉伸后落到行内，可拖动过程。",
+    "interaction": "字符拉伸后落到行内，可拖动过程。",
+    "module": "source-library",
+    "portable": true,
+    "defaultDuration": 1400,
+    "tags": [
+      "Designeer",
+      "真实源码参考",
+      "React Bits"
+    ],
+    "source": {
+      "name": "React Bits · ScrollFloat",
+      "url": "https://reactbits.dev/text-animations/scroll-float",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/2139cb3098d4fedc6264f13e50dcb4694224ba7c/src/content/TextAnimations/ScrollFloat/ScrollFloat.jsx",
+      "license": "MIT + Commons Clause",
+      "licensePath": "third-party/designeer/react-bits/LICENSE.md",
+      "implementation": "source-adaptation",
+      "observation": "阅读公开源码后提取其交互与空间关系，改为不依赖框架的版本。",
+      "adaptation": "使用项目自己的文字与数据；添加键盘、减少动效、暂停与销毁支持。非原站像素级复制。",
+      "visualEvidence": {
+        "image": "/docs/designeer-evidence/components-source/scroll-float.jpg",
+        "title": "Scroll Float — React Text Animation | React Bits",
+        "checkedAt": "2026-10-12",
+        "scope": "公开组件页面的浏览器静帧，不等于全动效一致性验收"
+      }
+    }
+  },
+  {
+    "id": "c-source-scroll-velocity",
+    "category": "typography",
+    "variant": "scroll-velocity",
+    "title": "滚动变速文字",
+    "summary": "滚动时，文字随方向加速移动。",
+    "interaction": "滚动时，文字随方向加速移动。",
+    "module": "source-library",
+    "portable": true,
+    "defaultDuration": 1400,
+    "tags": [
+      "Designeer",
+      "真实源码参考",
+      "React Bits"
+    ],
+    "source": {
+      "name": "React Bits · ScrollVelocity",
+      "url": "https://reactbits.dev/text-animations/scroll-velocity",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/2139cb3098d4fedc6264f13e50dcb4694224ba7c/src/content/TextAnimations/ScrollVelocity/ScrollVelocity.jsx",
+      "license": "MIT + Commons Clause",
+      "licensePath": "third-party/designeer/react-bits/LICENSE.md",
+      "implementation": "source-adaptation",
+      "observation": "阅读公开源码后提取其交互与空间关系，改为不依赖框架的版本。",
+      "adaptation": "使用项目自己的文字与数据；添加键盘、减少动效、暂停与销毁支持。非原站像素级复制。",
+      "visualEvidence": {
+        "image": "/docs/designeer-evidence/components-source/scroll-velocity.jpg",
+        "title": "Scroll Velocity — React Text Animation | React Bits",
+        "checkedAt": "2026-10-12",
+        "scope": "公开组件页面的浏览器静帧，不等于全动效一致性验收"
+      }
+    }
+  },
+  {
+    "id": "c-source-glare-hover",
+    "category": "hover",
+    "variant": "glare-hover",
+    "title": "掠过的反光",
+    "summary": "一条柔和的反光扫过表面。",
+    "interaction": "一条柔和的反光扫过表面。",
+    "module": "source-library",
+    "portable": true,
+    "defaultDuration": 1400,
+    "tags": [
+      "Designeer",
+      "真实源码参考",
+      "React Bits"
+    ],
+    "source": {
+      "name": "React Bits · GlareHover",
+      "url": "https://reactbits.dev/animations/glare-hover",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/2139cb3098d4fedc6264f13e50dcb4694224ba7c/src/content/Animations/GlareHover/GlareHover.jsx",
+      "license": "MIT + Commons Clause",
+      "licensePath": "third-party/designeer/react-bits/LICENSE.md",
+      "implementation": "source-adaptation",
+      "observation": "阅读公开源码后提取其交互与空间关系，改为不依赖框架的版本。",
+      "adaptation": "使用项目自己的文字与数据；添加键盘、减少动效、暂停与销毁支持。非原站像素级复制。",
+      "visualEvidence": {
+        "image": "/docs/designeer-evidence/components-source/glare-hover.jpg",
+        "title": "Glare Hover — React Animation Effect | React Bits",
+        "checkedAt": "2026-10-12",
+        "scope": "公开组件页面的浏览器静帧，不等于全动效一致性验收"
+      }
+    }
+  }
+]

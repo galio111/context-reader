@@ -28,7 +28,7 @@ begin
   end if;
   if p_action = 'save' then
     if p_recipe is null or jsonb_typeof(p_recipe) <> 'object' or p_recipe->'version' is distinct from '1'::jsonb
-      or jsonb_typeof(p_recipe->'targets') is distinct from 'object' or octet_length(p_recipe::text) > 65536 then
+      or jsonb_typeof(p_recipe->'targets') is distinct from 'object' or octet_length(p_recipe::text) > 131072 then
       raise exception 'ui_design_invalid';
     end if;
     if (select count(*) from jsonb_object_keys(p_recipe->'targets')) > 384 then raise exception 'ui_design_invalid'; end if;

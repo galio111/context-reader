@@ -1,0 +1,44 @@
+/* All rules are opt-in and scoped to a mounted project. */
+[data-galio-scope]{color:var(--gd-ink);font-family:var(--gd-font);font-size:var(--gd-size);--gd-ease:cubic-bezier(.2,.7,.2,1)}
+[data-galio-scope] [data-galio-component],[data-galio-scope][data-galio-component]{box-sizing:border-box;transition:background-color var(--gd-duration) var(--gd-ease),color var(--gd-duration) var(--gd-ease),border-color var(--gd-duration) var(--gd-ease),box-shadow var(--gd-duration) var(--gd-ease),transform var(--gd-duration) var(--gd-ease);}
+[data-galio-scope] [data-galio-component][data-galio-type="button"]{font-family:var(--gd-font);font-size:calc(var(--gd-size) * .875);border-radius:var(--gd-item-radius,var(--gd-radius));padding:calc(12px * var(--gd-space)) calc(18px * var(--gd-space));cursor:pointer;min-height:40px;line-height:1.4}
+[data-galio-scope] [data-galio-type="button"][data-galio-variant="solid"]{background:var(--gd-accent);color:#fff;border:1px solid transparent;box-shadow:none}
+[data-galio-scope] [data-galio-type="button"][data-galio-variant="soft"]{background:var(--gd-soft);color:var(--gd-accent);border:1px solid transparent;box-shadow:none}
+[data-galio-scope] [data-galio-type="button"][data-galio-variant="outline"]{background:transparent;color:var(--gd-ink);border:1px solid var(--gd-line);box-shadow:none}
+[data-galio-scope] [data-galio-type="button"][data-galio-variant="quiet"]{background:transparent;color:var(--gd-ink);border:1px solid transparent;box-shadow:none}
+[data-galio-scope] [data-galio-type="button"][data-galio-variant="pill"]{background:var(--gd-accent);color:#fff;border:1px solid transparent;border-radius:99px;box-shadow:none}
+[data-galio-scope] [data-galio-type="button"][data-galio-variant="glass"]{background:color-mix(in srgb,var(--gd-surface) 72%,transparent);color:var(--gd-ink);border:1px solid color-mix(in srgb,var(--gd-surface) 85%,var(--gd-line));backdrop-filter:blur(14px);box-shadow:0 3px 14px #232b3610,inset 0 1px 0 #fff}
+[data-galio-scope] [data-galio-type="button"]:disabled{cursor:not-allowed;opacity:.45;transform:none!important;box-shadow:none!important}
+[data-galio-scope] [data-galio-type="button"]:active{transform:scale(.975)}
+[data-galio-scope] [data-galio-type="panel"]{border-radius:var(--gd-item-radius,var(--gd-radius));padding:calc(24px * var(--gd-space))}
+[data-galio-scope] [data-galio-type="panel"][data-galio-variant="plain"]{background:transparent;border:1px solid transparent;box-shadow:none}
+[data-galio-scope] [data-galio-type="panel"][data-galio-variant="surface"]{background:var(--gd-surface);border:1px solid transparent;box-shadow:none}
+[data-galio-scope] [data-galio-type="panel"][data-galio-variant="outlined"]{background:transparent;border:1px solid var(--gd-line);box-shadow:none}
+[data-galio-scope] [data-galio-type="panel"][data-galio-variant="inset"]{background:var(--gd-soft);border:1px solid transparent;box-shadow:none}
+[data-galio-scope] [data-galio-type="panel"][data-galio-variant="floating"]{background:var(--gd-surface);border:1px solid transparent;box-shadow:0 8px 28px #20272510,0 1px 2px #20272509}
+[data-galio-scope] [data-galio-type="text"]{font-family:var(--gd-font);font-size:var(--gd-size);color:var(--gd-ink)}
+[data-galio-scope] [data-galio-type="text"][data-galio-variant="sans"]{font-family:var(--gd-font);line-height:1.75;letter-spacing:0}
+[data-galio-scope] [data-galio-type="text"][data-galio-variant="serif"]{font-family:var(--gd-font-serif);line-height:1.85;letter-spacing:0}
+[data-galio-scope] [data-galio-type="text"][data-galio-variant="reading"]{font-family:var(--gd-font-serif);line-height:2;font-size:calc(var(--gd-size) * 1.15);letter-spacing:.005em;max-width:66ch}
+[data-galio-scope] [data-galio-type="text"][data-galio-variant="compact"]{font-family:var(--gd-font);line-height:1.55;font-size:calc(var(--gd-size) * .94);letter-spacing:0}
+[data-galio-scope] [data-galio-type="navigation"]{display:flex;gap:8px;align-items:center;flex-wrap:wrap;border-radius:var(--gd-item-radius,var(--gd-radius));padding:6px}
+[data-galio-scope] [data-galio-type="navigation"]>button,[data-galio-scope] [data-galio-type="navigation"]>a{font:inherit;font-size:.875em;border:1px solid transparent;background:transparent;color:var(--gd-muted);text-decoration:none;padding:9px 14px;cursor:pointer;border-radius:calc(var(--gd-item-radius,var(--gd-radius)) * .7);transition:background var(--gd-duration),color var(--gd-duration)}
+[data-galio-scope] [data-galio-type="navigation"][data-galio-variant="underline"]{border-bottom:1px solid var(--gd-line);background:transparent;border-radius:0}
+[data-galio-scope] [data-galio-type="navigation"][data-galio-variant="underline"]>[aria-current="page"],[data-galio-scope] [data-galio-type="navigation"][data-galio-variant="underline"]>[aria-selected="true"]{box-shadow:0 2px 0 var(--gd-accent);border-radius:0;color:var(--gd-ink)}
+[data-galio-scope] [data-galio-type="navigation"][data-galio-variant="pill"]{background:var(--gd-soft);border:0}
+[data-galio-scope] [data-galio-type="navigation"][data-galio-variant="pill"]>[aria-current="page"],[data-galio-scope] [data-galio-type="navigation"][data-galio-variant="pill"]>[aria-selected="true"]{background:var(--gd-surface);color:var(--gd-ink);box-shadow:0 1px 5px #00000009}
+[data-galio-scope] [data-galio-type="navigation"][data-galio-variant="bar"]{background:var(--gd-surface);border:1px solid var(--gd-line)}
+[data-galio-scope] [data-galio-type="navigation"][data-galio-variant="bar"]>[aria-current="page"],[data-galio-scope] [data-galio-type="navigation"][data-galio-variant="bar"]>[aria-selected="true"]{background:var(--gd-soft);color:var(--gd-ink)}
+[data-galio-scope] [data-galio-type="navigation"][data-galio-variant="glass"]{background:color-mix(in srgb,var(--gd-surface) 72%,transparent);border:1px solid color-mix(in srgb,var(--gd-surface) 85%,var(--gd-line));backdrop-filter:blur(16px);box-shadow:0 5px 18px #252a3012,inset 0 1px 0 #fff}
+[data-galio-scope] [data-galio-type="navigation"][data-galio-variant="glass"]>[aria-current="page"],[data-galio-scope] [data-galio-type="navigation"][data-galio-variant="glass"]>[aria-selected="true"]{background:var(--gd-surface);color:var(--gd-ink);box-shadow:0 1px 6px #0000000b}
+[data-galio-scope] [data-galio-type="background"],[data-galio-scope][data-galio-type="background"]{min-height:100%;background-color:var(--gd-bg)}
+[data-galio-scope] [data-galio-type="background"][data-galio-variant="plain"],[data-galio-scope][data-galio-variant="plain"]{background:var(--gd-surface)}
+[data-galio-scope] [data-galio-type="background"][data-galio-variant="mist"],[data-galio-scope][data-galio-variant="mist"]{background:var(--gd-bg)}
+[data-galio-scope] [data-galio-type="background"][data-galio-variant="paper"],[data-galio-scope][data-galio-variant="paper"]{background:#f7f3eb}
+[data-galio-scope] [data-galio-type="background"][data-galio-variant="grid"],[data-galio-scope][data-galio-variant="grid"]{background-color:var(--gd-bg);background-image:linear-gradient(var(--gd-line) 1px,transparent 1px),linear-gradient(90deg,var(--gd-line) 1px,transparent 1px);background-size:28px 28px}
+@media(hover:hover){[data-galio-scope] [data-galio-hover="lift"]:hover{transform:translateY(-3px);box-shadow:0 8px 22px #20272515}[data-galio-scope] [data-galio-hover="tint"]:hover{filter:brightness(.97)}[data-galio-scope] [data-galio-hover="quiet"]:hover{filter:brightness(.99)}}
+[data-galio-scope] [data-galio-selected],[data-galio-scope][data-galio-selected]{outline:1.5px dashed var(--gd-accent)!important;outline-offset:5px!important}
+[data-galio-scope] [data-galio-component]:focus:not(:focus-visible){outline:none}
+[data-galio-scope] [data-galio-component]:focus-visible{outline:1px solid currentColor;outline-offset:4px}
+[data-galio-scope] [data-galio-type="navigation"]>:focus-visible{outline:1px solid currentColor;outline-offset:3px}[data-galio-scope] [data-galio-type="navigation"]>:focus:not(:focus-visible){outline:none}
+@media(prefers-reduced-motion:reduce){[data-galio-scope] [data-galio-component],[data-galio-scope][data-galio-component]{transition:none!important;animation:none!important}[data-galio-scope] [data-galio-hover="lift"]:hover{transform:none}}

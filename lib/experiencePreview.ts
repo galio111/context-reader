@@ -34,7 +34,7 @@ export function navigateExperiencePreview(href: string): boolean {
     : url.pathname === "/billing" ? "billing" : null;
   if (screen) {
     const query = new URLSearchParams(location.search); query.set("screen", screen);
-    location.href = "/admin/experience/frame?" + query.toString();
+    location.href = (location.pathname==='/admin/ui-studio/frame'?location.pathname:'/admin/experience/frame')+"?" + query.toString();
   } else if (url.pathname === "/study") window.dispatchEvent(new CustomEvent("context-reader-open-study"));
   return true;
 }
@@ -50,10 +50,11 @@ export function installExperiencePreview(account: AccountSessionState) {
   const json=(value:unknown,status=200)=>Promise.resolve(new Response(JSON.stringify(value),{status,headers:{"Content-Type":"application/json"}}));
   const navigate=(event:MouseEvent)=>{
     const anchor=(event.target as Element)?.closest?.("a[href]") as HTMLAnchorElement|null;
-    if(!anchor)return;const url=new URL(anchor.href,location.href);if(url.origin!==location.origin)return;
+    if(!anchor)return;const url=new URL(anchor.href,location.href);
+    if(url.origin===location.origin&&url.pathname===location.pathname&&url.search===location.search&&url.hash)return;
     const screen=url.pathname==="/"?"home":url.pathname==="/account"||url.pathname==="/account/usage"?"account":url.pathname==="/billing"?"billing":null;
     event.preventDefault();event.stopPropagation();
-    if(screen){const query=new URLSearchParams(location.search);query.set("screen",screen);location.href=location.pathname+"?"+query.toString();}
+    if(url.origin===location.origin&&screen){const query=new URLSearchParams(location.search);query.set("screen",screen);location.href=location.pathname+"?"+query.toString();}
     else if(url.pathname==="/study")window.dispatchEvent(new CustomEvent("context-reader-open-study"));
   };
   document.addEventListener("click",navigate,true);
@@ -61,6 +62,7 @@ export function installExperiencePreview(account: AccountSessionState) {
     const url=new URL(input instanceof Request?input.url:String(input),location.href);
     const method=(init?.method||(input instanceof Request?input.method:"GET")).toUpperCase(),path=url.pathname;
     if(url.origin!==location.origin)return json({error:"体验预览不会发送外部请求。"},403);
+    if(method==='GET'&&path.startsWith('/galio/'))return nativeFetch(input,init);
     if(path==="/api/auth/session")return json({account});
     if(path==="/api/admin/session")return json({authenticated:false,accessMode:null});
     if(path==="/api/account/sync")return json({objects:[],results:[],nextOffset:null,snapshotCursor:"",nextCursor:"",hasMore:false,protocol:2});

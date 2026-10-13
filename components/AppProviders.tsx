@@ -6,6 +6,6 @@ import { StudyHost } from "./StudyHost";
 import { PwaRegistration } from "./PwaRegistration";
 export function AppProviders({children}:{children:ReactNode}) {
   const path=usePathname();
-  if(path.startsWith("/admin/experience"))return <>{children}</>;
+  if(path.startsWith("/admin/experience")||path.startsWith("/admin/ui-studio"))return <>{children}</>;
   return <><AccountProvider>{children}<StudyHost/></AccountProvider><PwaRegistration/></>;
 }

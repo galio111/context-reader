@@ -1,0 +1,123 @@
+{
+  "repo": "DavidHDev/react-bits",
+  "revision": "e2eb04d89d5be5a633dba7b2d4adfd274e053767",
+  "checkedAt": "2026-10-12",
+  "files": [
+    {
+      "path": "LICENSE.md",
+      "ok": true
+    },
+    {
+      "path": "src/content/Components/SpecularButton/SpecularButton.css",
+      "ok": true
+    },
+    {
+      "path": "src/content/Components/SpecularButton/SpecularButton.jsx",
+      "ok": true
+    },
+    {
+      "path": "src/content/Components/GlassIcons/GlassIcons.jsx",
+      "ok": true
+    },
+    {
+      "path": "src/content/Components/GlassIcons/GlassIcons.css",
+      "ok": true
+    },
+    {
+      "path": "src/content/Animations/StarBorder/StarBorder.jsx",
+      "ok": true
+    },
+    {
+      "path": "src/content/Animations/StarBorder/StarBorder.css",
+      "ok": true
+    },
+    {
+      "path": "src/content/Components/GooeyNav/GooeyNav.css",
+      "ok": true
+    },
+    {
+      "path": "src/content/Components/GooeyNav/GooeyNav.jsx",
+      "ok": true
+    },
+    {
+      "path": "src/content/Components/BubbleMenu/BubbleMenu.jsx",
+      "ok": true
+    },
+    {
+      "path": "src/content/Components/BubbleMenu/BubbleMenu.css",
+      "ok": true
+    },
+    {
+      "path": "src/content/Components/CardNav/CardNav.jsx",
+      "ok": true
+    },
+    {
+      "path": "src/content/Components/CardNav/CardNav.css",
+      "ok": true
+    },
+    {
+      "path": "src/content/Components/Folder/Folder.css",
+      "ok": true
+    },
+    {
+      "path": "src/content/Components/Folder/Folder.jsx",
+      "ok": true
+    },
+    {
+      "path": "src/content/Micro/FlipCard/FlipCard.jsx",
+      "ok": true
+    },
+    {
+      "path": "src/content/Micro/FlipCard/FlipCard.css",
+      "ok": true
+    },
+    {
+      "path": "src/content/Components/AccordionGallery/AccordionGallery.jsx",
+      "ok": true
+    },
+    {
+      "path": "src/content/Components/AccordionGallery/AccordionGallery.css",
+      "ok": true
+    },
+    {
+      "path": "src/content/TextAnimations/GradientText/GradientText.jsx",
+      "ok": true
+    },
+    {
+      "path": "src/content/TextAnimations/GradientText/GradientText.css",
+      "ok": true
+    },
+    {
+      "path": "src/content/TextAnimations/ShinyText/ShinyText.css",
+      "ok": true
+    },
+    {
+      "path": "src/content/TextAnimations/ShinyText/ShinyText.jsx",
+      "ok": true
+    },
+    {
+      "path": "src/content/Components/Counter/Counter.jsx",
+      "ok": true
+    },
+    {
+      "path": "src/content/Components/Counter/Counter.css",
+      "ok": true
+    },
+    {
+      "path": "src/content/Components/Stepper/Stepper.css",
+      "ok": true
+    },
+    {
+      "path": "src/content/Components/Stepper/Stepper.jsx",
+      "ok": true
+    },
+    {
+      "path": "src/content/Components/PixelCard/PixelCard.jsx",
+      "ok": true
+    },
+    {
+      "path": "src/content/Components/PixelCard/PixelCard.css",
+      "ok": true
+    }
+  ]
+}

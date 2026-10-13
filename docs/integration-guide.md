@@ -352,3 +352,7 @@ Authenticated GET `/api/admin/public-articles?view=summary` and `/api/admin/arti
 ## 正在背队列与离线 Anki 数据准备
 
 部署学习 v3 应用前，依次执行 `study-learning-v3-migration.sql` 和 `study-import-batches-migration.sql`。迁移增量创建 RPC/凭据表并保留旧 RPC，浏览器角色无执行/表权限，应用回退无需删表。离线工具 `scripts/prepare-cet6-dictionary-import.py` 校验现代 APKG 与 Codex 生成 JSONL 的词集合完全一致，输出私人 payload/report/SQL；先在隔离数据库验证、重新快照目标账号，再执行身份、现有进度与键冲突保护下的事务。原始卡片、全部作答与手动事件保存在凭据中；评分记录另行迁入学习历史。不得提交账号快照、生成词库或认证材料到 Git。
+
+## UI design API
+
+`GET /api/ui-design` returns only published recipe/revision, no draft/history. Developer-account-only `/api/admin/ui-design` GET reads state; POST accepts `save` with recipe, or `publish`/`rollback`, always with `expectedRevision`. Same-origin JSON, strict fields/targets and 64KiB body bound; stale writes return409. Apply `ops/mainland/migrate-ui-design.sql` for service-role-only atomic RPC and audit; do not grant browser roles access. The settings key is `ui_design_v1`. See [usage and capability contract](ui-design-studio.md).

@@ -1,0 +1,38 @@
+{
+  "at": "2026-10-13T02:58:06.855236+00:00",
+  "temporaryDatabase": "ui_studio_verify_1013",
+  "checks": {
+    "saveOnlyDraft": true,
+    "publish": true,
+    "rollbackRestoresAndKeepsDraft": true,
+    "optimisticConflict": true,
+    "unchangedNoRevisionOrAudit": true,
+    "noPrevious": true,
+    "rolesAndPublicDenied": true,
+    "auditAtomicity": true,
+    "invalidArgumentsAndSize": true,
+    "serviceRoleExecution": true,
+    "twoConnectionCASLock": true
+  },
+  "productionBefore": {
+    "rows": 0,
+    "digest": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "functionPreviouslyPresent": false,
+  "migrationSha256": "7cce4ade2cfbc50271553cd071bb114a453f4a36ac9080f7989a0aac7eae09c0",
+  "concurrentWaitSeconds": 3.01,
+  "temporaryDatabaseRemoved": true,
+  "productionMigration": "applied-new-function",
+  "productionAfter": {
+    "rows": 0,
+    "digest": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "productionFunctionChecks": {
+    "exists": true,
+    "serviceRole": true,
+    "anonDenied": true,
+    "authenticatedDenied": true,
+    "functionHash": "748e4e3aaaf07b576dd7a00aa1e358d3"
+  },
+  "completed": true
+}

@@ -1,0 +1,994 @@
+[
+  {
+    "id": "c-material-shimmer-button",
+    "category": "buttons",
+    "variant": "shimmer-button",
+    "title": "绕边流光",
+    "summary": "一道光沿按钮边缘环绕。",
+    "interaction": "一道光沿按钮边缘环绕。",
+    "module": "material-library",
+    "portable": true,
+    "defaultDuration": 1600,
+    "tags": [
+      "Magic UI",
+      "源码参考",
+      "本次新增"
+    ],
+    "source": {
+      "name": "Magic UI · shimmer-button",
+      "url": "https://magicui.design/docs/components/shimmer-button",
+      "codeUrl": "https://github.com/magicuidesign/magicui/blob/85f97fd27b053339af74ba9dd4ca428ee25989fb/apps/www/registry/magicui/shimmer-button.tsx",
+      "license": "MIT",
+      "licensePath": "third-party/materials/magicui/LICENSE.md",
+      "implementation": "source-adaptation",
+      "observation": "一道光沿按钮边缘环绕。",
+      "adaptation": "从原组件的分层、几何与交互机制移植为独立 DOM/CSS 组件；替换展示内容，加入键盘操作、暂停、减少动态和销毁恢复。非逐像素复制。",
+      "visualEvidence": {
+        "image": "/docs/materials-evidence/sources/shimmer-button.jpg",
+        "title": "Shimmer Button | React Components & Templates",
+        "checkedAt": "2026-10-12",
+        "scope": "原组件页面的浏览器静帧，移植差异见源码记录"
+      }
+    }
+  },
+  {
+    "id": "c-material-shiny-button",
+    "category": "buttons",
+    "variant": "shiny-button",
+    "title": "扫光按钮",
+    "summary": "文字与细边框同步掠过一道光。",
+    "interaction": "文字与细边框同步掠过一道光。",
+    "module": "material-library",
+    "portable": true,
+    "defaultDuration": 1600,
+    "tags": [
+      "Magic UI",
+      "源码参考",
+      "本次新增"
+    ],
+    "source": {
+      "name": "Magic UI · shiny-button",
+      "url": "https://magicui.design/docs/components/shiny-button",
+      "codeUrl": "https://github.com/magicuidesign/magicui/blob/85f97fd27b053339af74ba9dd4ca428ee25989fb/apps/www/registry/magicui/shiny-button.tsx",
+      "license": "MIT",
+      "licensePath": "third-party/materials/magicui/LICENSE.md",
+      "implementation": "source-adaptation",
+      "observation": "文字与细边框同步掠过一道光。",
+      "adaptation": "从原组件的分层、几何与交互机制移植为独立 DOM/CSS 组件；替换展示内容，加入键盘操作、暂停、减少动态和销毁恢复。非逐像素复制。",
+      "visualEvidence": {
+        "image": "/docs/materials-evidence/sources/shiny-button.jpg",
+        "title": "Shiny Button | React Components & Templates",
+        "checkedAt": "2026-10-12",
+        "scope": "原组件页面的浏览器静帧，移植差异见源码记录"
+      }
+    }
+  },
+  {
+    "id": "c-material-interactive-hover-button",
+    "category": "buttons",
+    "variant": "interactive-hover-button",
+    "title": "圆点漫开",
+    "summary": "悬停时，小圆点铺满按钮，箭头滑入。",
+    "interaction": "悬停时，小圆点铺满按钮，箭头滑入。",
+    "module": "material-library",
+    "portable": true,
+    "defaultDuration": 1600,
+    "tags": [
+      "Magic UI",
+      "源码参考",
+      "本次新增"
+    ],
+    "source": {
+      "name": "Magic UI · interactive-hover-button",
+      "url": "https://magicui.design/docs/components/interactive-hover-button",
+      "codeUrl": "https://github.com/magicuidesign/magicui/blob/85f97fd27b053339af74ba9dd4ca428ee25989fb/apps/www/registry/magicui/interactive-hover-button.tsx",
+      "license": "MIT",
+      "licensePath": "third-party/materials/magicui/LICENSE.md",
+      "implementation": "source-adaptation",
+      "observation": "悬停时，小圆点铺满按钮，箭头滑入。",
+      "adaptation": "从原组件的分层、几何与交互机制移植为独立 DOM/CSS 组件；替换展示内容，加入键盘操作、暂停、减少动态和销毁恢复。非逐像素复制。",
+      "visualEvidence": {
+        "image": "/docs/materials-evidence/sources/interactive-hover-button.jpg",
+        "title": "Interactive Hover Button | React Components & Templates",
+        "checkedAt": "2026-10-12",
+        "scope": "原组件页面的浏览器静帧，移植差异见源码记录"
+      }
+    }
+  },
+  {
+    "id": "c-material-pulsating-button",
+    "category": "buttons",
+    "variant": "pulsating-button",
+    "title": "呼吸光环",
+    "summary": "按钮外的光环向外扩散。",
+    "interaction": "按钮外的光环向外扩散。",
+    "module": "material-library",
+    "portable": true,
+    "defaultDuration": 1600,
+    "tags": [
+      "Magic UI",
+      "源码参考",
+      "本次新增"
+    ],
+    "source": {
+      "name": "Magic UI · pulsating-button",
+      "url": "https://magicui.design/docs/components/pulsating-button",
+      "codeUrl": "https://github.com/magicuidesign/magicui/blob/85f97fd27b053339af74ba9dd4ca428ee25989fb/apps/www/registry/magicui/pulsating-button.tsx",
+      "license": "MIT",
+      "licensePath": "third-party/materials/magicui/LICENSE.md",
+      "implementation": "source-adaptation",
+      "observation": "按钮外的光环向外扩散。",
+      "adaptation": "从原组件的分层、几何与交互机制移植为独立 DOM/CSS 组件；替换展示内容，加入键盘操作、暂停、减少动态和销毁恢复。非逐像素复制。",
+      "visualEvidence": {
+        "image": "/docs/materials-evidence/sources/pulsating-button.jpg",
+        "title": "Pulsating Button | React Components & Templates",
+        "checkedAt": "2026-10-12",
+        "scope": "原组件页面的浏览器静帧，移植差异见源码记录"
+      }
+    }
+  },
+  {
+    "id": "c-material-rainbow-button",
+    "category": "buttons",
+    "variant": "rainbow-button",
+    "title": "光谱细边",
+    "summary": "多色细边缓慢流动，悬停时透出柔光。",
+    "interaction": "多色细边缓慢流动，悬停时透出柔光。",
+    "module": "material-library",
+    "portable": true,
+    "defaultDuration": 1600,
+    "tags": [
+      "Magic UI",
+      "源码参考",
+      "本次新增"
+    ],
+    "source": {
+      "name": "Magic UI · rainbow-button",
+      "url": "https://magicui.design/docs/components/rainbow-button",
+      "codeUrl": "https://github.com/magicuidesign/magicui/blob/85f97fd27b053339af74ba9dd4ca428ee25989fb/apps/www/registry/magicui/rainbow-button.tsx",
+      "license": "MIT",
+      "licensePath": "third-party/materials/magicui/LICENSE.md",
+      "implementation": "source-adaptation",
+      "observation": "多色细边缓慢流动，悬停时透出柔光。",
+      "adaptation": "从原组件的分层、几何与交互机制移植为独立 DOM/CSS 组件；替换展示内容，加入键盘操作、暂停、减少动态和销毁恢复。非逐像素复制。",
+      "visualEvidence": {
+        "image": "/docs/materials-evidence/sources/rainbow-button.jpg",
+        "title": "Rainbow Button | React Components & Templates",
+        "checkedAt": "2026-10-12",
+        "scope": "原组件页面的浏览器静帧，移植差异见源码记录"
+      }
+    }
+  },
+  {
+    "id": "c-material-retro-grid",
+    "category": "backgrounds",
+    "variant": "retro-grid",
+    "title": "透视地平线",
+    "summary": "网格向地平线流动。",
+    "interaction": "网格向地平线流动。",
+    "module": "material-library",
+    "portable": true,
+    "defaultDuration": 1600,
+    "tags": [
+      "Magic UI",
+      "源码参考",
+      "本次新增"
+    ],
+    "source": {
+      "name": "Magic UI · retro-grid",
+      "url": "https://magicui.design/docs/components/retro-grid",
+      "codeUrl": "https://github.com/magicuidesign/magicui/blob/85f97fd27b053339af74ba9dd4ca428ee25989fb/apps/www/registry/magicui/retro-grid.tsx",
+      "license": "MIT",
+      "licensePath": "third-party/materials/magicui/LICENSE.md",
+      "implementation": "source-adaptation",
+      "observation": "网格向地平线流动。",
+      "adaptation": "从原组件的分层、几何与交互机制移植为独立 DOM/CSS 组件；替换展示内容，加入键盘操作、暂停、减少动态和销毁恢复。非逐像素复制。",
+      "visualEvidence": {
+        "image": "/docs/materials-evidence/sources/retro-grid.jpg",
+        "title": "Retro Grid | React Components & Templates",
+        "checkedAt": "2026-10-12",
+        "scope": "原组件页面的浏览器静帧，移植差异见源码记录"
+      }
+    }
+  },
+  {
+    "id": "c-material-shine-border",
+    "category": "backgrounds",
+    "variant": "shine-border",
+    "title": "流动边框",
+    "summary": "渐变只在边缘流动，内容保持清楚。",
+    "interaction": "渐变只在边缘流动，内容保持清楚。",
+    "module": "material-library",
+    "portable": true,
+    "defaultDuration": 1600,
+    "tags": [
+      "Magic UI",
+      "源码参考",
+      "本次新增"
+    ],
+    "source": {
+      "name": "Magic UI · shine-border",
+      "url": "https://magicui.design/docs/components/shine-border",
+      "codeUrl": "https://github.com/magicuidesign/magicui/blob/85f97fd27b053339af74ba9dd4ca428ee25989fb/apps/www/registry/magicui/shine-border.tsx",
+      "license": "MIT",
+      "licensePath": "third-party/materials/magicui/LICENSE.md",
+      "implementation": "source-adaptation",
+      "observation": "渐变只在边缘流动，内容保持清楚。",
+      "adaptation": "从原组件的分层、几何与交互机制移植为独立 DOM/CSS 组件；替换展示内容，加入键盘操作、暂停、减少动态和销毁恢复。非逐像素复制。",
+      "visualEvidence": {
+        "image": "/docs/materials-evidence/sources/shine-border.jpg",
+        "title": "Shine Border | React Components & Templates",
+        "checkedAt": "2026-10-12",
+        "scope": "原组件页面的浏览器静帧，移植差异见源码记录"
+      }
+    }
+  },
+  {
+    "id": "c-material-meteors",
+    "category": "backgrounds",
+    "variant": "meteors",
+    "title": "斜落流星",
+    "summary": "错开时间的细光线，从背景斜落。",
+    "interaction": "错开时间的细光线，从背景斜落。",
+    "module": "material-library",
+    "portable": true,
+    "defaultDuration": 1600,
+    "tags": [
+      "Magic UI",
+      "源码参考",
+      "本次新增"
+    ],
+    "source": {
+      "name": "Magic UI · meteors",
+      "url": "https://magicui.design/docs/components/meteors",
+      "codeUrl": "https://github.com/magicuidesign/magicui/blob/85f97fd27b053339af74ba9dd4ca428ee25989fb/apps/www/registry/magicui/meteors.tsx",
+      "license": "MIT",
+      "licensePath": "third-party/materials/magicui/LICENSE.md",
+      "implementation": "source-adaptation",
+      "observation": "错开时间的细光线，从背景斜落。",
+      "adaptation": "从原组件的分层、几何与交互机制移植为独立 DOM/CSS 组件；替换展示内容，加入键盘操作、暂停、减少动态和销毁恢复。非逐像素复制。",
+      "visualEvidence": {
+        "image": "/docs/materials-evidence/sources/meteors.jpg",
+        "title": "Meteors | React Components & Templates",
+        "checkedAt": "2026-10-12",
+        "scope": "原组件页面的浏览器静帧，移植差异见源码记录"
+      }
+    }
+  },
+  {
+    "id": "c-material-line-shadow-text",
+    "category": "typography",
+    "variant": "line-shadow-text",
+    "title": "斜线字影",
+    "summary": "文字后方有缓慢移动的斜线阴影。",
+    "interaction": "文字后方有缓慢移动的斜线阴影。",
+    "module": "material-library",
+    "portable": true,
+    "defaultDuration": 1600,
+    "tags": [
+      "Magic UI",
+      "源码参考",
+      "本次新增"
+    ],
+    "source": {
+      "name": "Magic UI · line-shadow-text",
+      "url": "https://magicui.design/docs/components/line-shadow-text",
+      "codeUrl": "https://github.com/magicuidesign/magicui/blob/85f97fd27b053339af74ba9dd4ca428ee25989fb/apps/www/registry/magicui/line-shadow-text.tsx",
+      "license": "MIT",
+      "licensePath": "third-party/materials/magicui/LICENSE.md",
+      "implementation": "source-adaptation",
+      "observation": "文字后方有缓慢移动的斜线阴影。",
+      "adaptation": "从原组件的分层、几何与交互机制移植为独立 DOM/CSS 组件；替换展示内容，加入键盘操作、暂停、减少动态和销毁恢复。非逐像素复制。",
+      "visualEvidence": {
+        "image": "/docs/materials-evidence/sources/line-shadow-text.jpg",
+        "title": "Line Shadow Text | React Components & Templates",
+        "checkedAt": "2026-10-12",
+        "scope": "原组件页面的浏览器静帧，移植差异见源码记录"
+      }
+    }
+  },
+  {
+    "id": "c-material-text-3d-flip",
+    "category": "typography",
+    "variant": "text-3d-flip",
+    "title": "逐字立体翻转",
+    "summary": "悬停或重播，让每个字依次转过一个立体面。",
+    "interaction": "悬停或重播，让每个字依次转过一个立体面。",
+    "module": "material-library",
+    "portable": true,
+    "defaultDuration": 1600,
+    "tags": [
+      "Magic UI",
+      "源码参考",
+      "本次新增"
+    ],
+    "source": {
+      "name": "Magic UI · text-3d-flip",
+      "url": "https://magicui.design/docs/components/text-3d-flip",
+      "codeUrl": "https://github.com/magicuidesign/magicui/blob/85f97fd27b053339af74ba9dd4ca428ee25989fb/apps/www/registry/magicui/text-3d-flip.tsx",
+      "license": "MIT",
+      "licensePath": "third-party/materials/magicui/LICENSE.md",
+      "implementation": "source-adaptation",
+      "observation": "悬停或重播，让每个字依次转过一个立体面。",
+      "adaptation": "从原组件的分层、几何与交互机制移植为独立 DOM/CSS 组件；替换展示内容，加入键盘操作、暂停、减少动态和销毁恢复。非逐像素复制。",
+      "visualEvidence": {
+        "image": "/docs/materials-evidence/sources/text-3d-flip.jpg",
+        "title": "Text 3D Flip | React Components & Templates",
+        "checkedAt": "2026-10-12",
+        "scope": "原组件页面的浏览器静帧，移植差异见源码记录"
+      }
+    }
+  },
+  {
+    "id": "c-material-animated-list",
+    "category": "feedback",
+    "variant": "animated-list",
+    "title": "通知层叠进入",
+    "summary": "通知逐条进入，已有内容顺势让位。",
+    "interaction": "通知逐条进入，已有内容顺势让位。",
+    "module": "material-library",
+    "portable": true,
+    "defaultDuration": 1600,
+    "tags": [
+      "Magic UI",
+      "源码参考",
+      "本次新增"
+    ],
+    "source": {
+      "name": "Magic UI · animated-list",
+      "url": "https://magicui.design/docs/components/animated-list",
+      "codeUrl": "https://github.com/magicuidesign/magicui/blob/85f97fd27b053339af74ba9dd4ca428ee25989fb/apps/www/registry/magicui/animated-list.tsx",
+      "license": "MIT",
+      "licensePath": "third-party/materials/magicui/LICENSE.md",
+      "implementation": "source-adaptation",
+      "observation": "通知逐条进入，已有内容顺势让位。",
+      "adaptation": "从原组件的分层、几何与交互机制移植为独立 DOM/CSS 组件；替换展示内容，加入键盘操作、暂停、减少动态和销毁恢复。非逐像素复制。",
+      "visualEvidence": {
+        "image": "/docs/materials-evidence/sources/animated-list.jpg",
+        "title": "Animated List | React Components & Templates",
+        "checkedAt": "2026-10-12",
+        "scope": "原组件页面的浏览器静帧，移植差异见源码记录"
+      }
+    }
+  },
+  {
+    "id": "c-material-confetti",
+    "category": "feedback",
+    "variant": "confetti",
+    "title": "双侧礼花",
+    "summary": "点击庆祝，纸屑从两侧抛起后自然落下。",
+    "interaction": "点击庆祝，纸屑从两侧抛起后自然落下。",
+    "module": "material-library",
+    "portable": true,
+    "defaultDuration": 1600,
+    "tags": [
+      "Magic UI",
+      "源码参考",
+      "本次新增"
+    ],
+    "source": {
+      "name": "Magic UI · confetti",
+      "url": "https://magicui.design/docs/components/confetti",
+      "codeUrl": "https://github.com/magicuidesign/magicui/blob/85f97fd27b053339af74ba9dd4ca428ee25989fb/apps/www/registry/magicui/confetti.tsx",
+      "license": "MIT",
+      "licensePath": "third-party/materials/magicui/LICENSE.md",
+      "implementation": "source-adaptation",
+      "observation": "点击庆祝，纸屑从两侧抛起后自然落下。",
+      "adaptation": "从原组件的分层、几何与交互机制移植为独立 DOM/CSS 组件；替换展示内容，加入键盘操作、暂停、减少动态和销毁恢复。非逐像素复制。",
+      "visualEvidence": {
+        "image": "/docs/materials-evidence/sources/confetti.jpg",
+        "title": "Confetti | React Components & Templates",
+        "checkedAt": "2026-10-12",
+        "scope": "原组件页面的浏览器静帧，移植差异见源码记录"
+      }
+    }
+  },
+  {
+    "id": "c-material-specular-button",
+    "category": "buttons",
+    "variant": "specular-button",
+    "title": "追光玻璃",
+    "summary": "移动鼠标，玻璃边缘的高光跟随转动。",
+    "interaction": "移动鼠标，玻璃边缘的高光跟随转动。",
+    "module": "material-library",
+    "portable": true,
+    "defaultDuration": 1600,
+    "tags": [
+      "React Bits",
+      "源码参考",
+      "本次新增"
+    ],
+    "source": {
+      "name": "React Bits · specular-button",
+      "url": "https://reactbits.dev/components/specular-button",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/e2eb04d89d5be5a633dba7b2d4adfd274e053767/src/content/Components/SpecularButton/SpecularButton.jsx",
+      "license": "MIT + Commons Clause",
+      "licensePath": "third-party/materials/react-bits/LICENSE.md",
+      "implementation": "source-port",
+      "observation": "直接移植原组件的 GLSL、圆角边缘位置计算与高光合成。",
+      "adaptation": "改写为按需绘制的 DOM 生命周期；无 WebGL2 时保留静态按钮，不宣称所有浏览器折射一致。",
+      "visualEvidence": {
+        "image": "/docs/materials-evidence/sources/specular-button.jpg",
+        "title": "Specular Button — React Component | React Bits",
+        "checkedAt": "2026-10-12",
+        "scope": "原组件页面的浏览器静帧，移植差异见源码记录"
+      }
+    }
+  },
+  {
+    "id": "c-material-glass-icons",
+    "category": "buttons",
+    "variant": "glass-icons",
+    "title": "叠层玻璃按钮",
+    "summary": "悬停时，透明面板和背后的色片错开。",
+    "interaction": "悬停时，透明面板和背后的色片错开。",
+    "module": "material-library",
+    "portable": true,
+    "defaultDuration": 1600,
+    "tags": [
+      "React Bits",
+      "源码参考",
+      "本次新增"
+    ],
+    "source": {
+      "name": "React Bits · glass-icons",
+      "url": "https://reactbits.dev/components/glass-icons",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/e2eb04d89d5be5a633dba7b2d4adfd274e053767/src/content/Components/GlassIcons/GlassIcons.jsx",
+      "license": "MIT + Commons Clause",
+      "licensePath": "third-party/materials/react-bits/LICENSE.md",
+      "implementation": "source-adaptation",
+      "observation": "保留倾斜色片、透明前层、悬停错开与高光结构。",
+      "adaptation": "当前用 CSS blur/saturate 与透明分层；未移植原站 WebGL 真实折射。",
+      "visualEvidence": {
+        "image": "/docs/materials-evidence/sources/glass-icons.jpg",
+        "title": "Glass Icons — React Component | React Bits",
+        "checkedAt": "2026-10-12",
+        "scope": "原组件页面的浏览器静帧，移植差异见源码记录"
+      }
+    }
+  },
+  {
+    "id": "c-material-star-border",
+    "category": "buttons",
+    "variant": "star-border",
+    "title": "双向星光边",
+    "summary": "两道光从相反方向划过上下边缘。",
+    "interaction": "两道光从相反方向划过上下边缘。",
+    "module": "material-library",
+    "portable": true,
+    "defaultDuration": 1600,
+    "tags": [
+      "React Bits",
+      "源码参考",
+      "本次新增"
+    ],
+    "source": {
+      "name": "React Bits · star-border",
+      "url": "https://reactbits.dev/animations/star-border",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/e2eb04d89d5be5a633dba7b2d4adfd274e053767/src/content/Animations/StarBorder/StarBorder.jsx",
+      "license": "MIT + Commons Clause",
+      "licensePath": "third-party/materials/react-bits/LICENSE.md",
+      "implementation": "source-adaptation",
+      "observation": "相向移动的上下边缘光，按钮内容保持不动。",
+      "adaptation": "CSS 适配原双向光线机制；未移植来源当前版本的 WebGL 着色器。",
+      "visualEvidence": {
+        "image": "/docs/materials-evidence/sources/star-border.jpg",
+        "title": "Star Border — React Animation Effect | React Bits",
+        "checkedAt": "2026-10-12",
+        "scope": "原组件页面的浏览器静帧，移植差异见源码记录"
+      }
+    }
+  },
+  {
+    "id": "c-material-gooey-nav",
+    "category": "navigation",
+    "variant": "gooey-nav",
+    "title": "融化胶囊导航",
+    "summary": "点击后，选中胶囊带着小气泡移向下一项。",
+    "interaction": "点击后，选中胶囊带着小气泡移向下一项。",
+    "module": "material-library",
+    "portable": true,
+    "defaultDuration": 1600,
+    "tags": [
+      "React Bits",
+      "源码参考",
+      "本次新增"
+    ],
+    "source": {
+      "name": "React Bits · gooey-nav",
+      "url": "https://reactbits.dev/components/gooey-nav",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/e2eb04d89d5be5a633dba7b2d4adfd274e053767/src/content/Components/GooeyNav/GooeyNav.jsx",
+      "license": "MIT + Commons Clause",
+      "licensePath": "third-party/materials/react-bits/LICENSE.md",
+      "implementation": "source-adaptation",
+      "observation": "移动胶囊、模糊与阈值滤镜把小气泡融合进选中项。",
+      "adaptation": "采用局部 SVG 合成与可暂停 DOM 粒子，保留真实导航 id 和点击回调。",
+      "visualEvidence": {
+        "image": "/docs/materials-evidence/sources/gooey-nav.jpg",
+        "title": "Gooey Nav — React Component | React Bits",
+        "checkedAt": "2026-10-12",
+        "scope": "原组件页面的浏览器静帧，移植差异见源码记录"
+      }
+    }
+  },
+  {
+    "id": "c-material-bubble-menu",
+    "category": "navigation",
+    "variant": "bubble-menu",
+    "title": "气泡展开菜单",
+    "summary": "打开菜单，圆形入口依次弹出。",
+    "interaction": "打开菜单，圆形入口依次弹出。",
+    "module": "material-library",
+    "portable": true,
+    "defaultDuration": 1600,
+    "tags": [
+      "React Bits",
+      "源码参考",
+      "本次新增"
+    ],
+    "source": {
+      "name": "React Bits · bubble-menu",
+      "url": "https://reactbits.dev/components/bubble-menu",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/e2eb04d89d5be5a633dba7b2d4adfd274e053767/src/content/Components/BubbleMenu/BubbleMenu.jsx",
+      "license": "MIT + Commons Clause",
+      "licensePath": "third-party/materials/react-bits/LICENSE.md",
+      "implementation": "source-adaptation",
+      "observation": "打开菜单，圆形入口依次弹出。",
+      "adaptation": "从原组件的分层、几何与交互机制移植为独立 DOM/CSS 组件；替换展示内容，加入键盘操作、暂停、减少动态和销毁恢复。非逐像素复制。",
+      "visualEvidence": {
+        "image": "/docs/materials-evidence/sources/bubble-menu.jpg",
+        "title": "Bubble Menu — React Component | React Bits",
+        "checkedAt": "2026-10-12",
+        "scope": "原组件页面的浏览器静帧，移植差异见源码记录"
+      }
+    }
+  },
+  {
+    "id": "c-material-card-nav",
+    "category": "navigation",
+    "variant": "card-nav",
+    "title": "卡片展开导航",
+    "summary": "顶部导航向下展开成可以选择的卡片。",
+    "interaction": "顶部导航向下展开成可以选择的卡片。",
+    "module": "material-library",
+    "portable": true,
+    "defaultDuration": 1600,
+    "tags": [
+      "React Bits",
+      "源码参考",
+      "本次新增"
+    ],
+    "source": {
+      "name": "React Bits · card-nav",
+      "url": "https://reactbits.dev/components/card-nav",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/e2eb04d89d5be5a633dba7b2d4adfd274e053767/src/content/Components/CardNav/CardNav.jsx",
+      "license": "MIT + Commons Clause",
+      "licensePath": "third-party/materials/react-bits/LICENSE.md",
+      "implementation": "source-adaptation",
+      "observation": "顶部导航向下展开成可以选择的卡片。",
+      "adaptation": "从原组件的分层、几何与交互机制移植为独立 DOM/CSS 组件；替换展示内容，加入键盘操作、暂停、减少动态和销毁恢复。非逐像素复制。",
+      "visualEvidence": {
+        "image": "/docs/materials-evidence/sources/card-nav.jpg",
+        "title": "Card Nav — React Component | React Bits",
+        "checkedAt": "2026-10-12",
+        "scope": "原组件页面的浏览器静帧，移植差异见源码记录"
+      }
+    }
+  },
+  {
+    "id": "c-material-folder",
+    "category": "layout",
+    "variant": "folder",
+    "title": "纸页文件夹",
+    "summary": "打开文件夹，纸页抬起，每一页都可以选择。",
+    "interaction": "打开文件夹，纸页抬起，每一页都可以选择。",
+    "module": "material-library",
+    "portable": true,
+    "defaultDuration": 1600,
+    "tags": [
+      "React Bits",
+      "源码参考",
+      "本次新增"
+    ],
+    "source": {
+      "name": "React Bits · folder",
+      "url": "https://reactbits.dev/components/folder",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/e2eb04d89d5be5a633dba7b2d4adfd274e053767/src/content/Components/Folder/Folder.jsx",
+      "license": "MIT + Commons Clause",
+      "licensePath": "third-party/materials/react-bits/LICENSE.md",
+      "implementation": "source-adaptation",
+      "observation": "打开文件夹，纸页抬起，每一页都可以选择。",
+      "adaptation": "从原组件的分层、几何与交互机制移植为独立 DOM/CSS 组件；替换展示内容，加入键盘操作、暂停、减少动态和销毁恢复。非逐像素复制。",
+      "visualEvidence": {
+        "image": "/docs/materials-evidence/sources/folder.jpg",
+        "title": "Folder — React Component | React Bits",
+        "checkedAt": "2026-10-12",
+        "scope": "原组件页面的浏览器静帧，移植差异见源码记录"
+      }
+    }
+  },
+  {
+    "id": "c-material-flip-card",
+    "category": "layout",
+    "variant": "flip-card",
+    "title": "双面翻转卡",
+    "summary": "翻到背面查看详情，再打开内容。",
+    "interaction": "翻到背面查看详情，再打开内容。",
+    "module": "material-library",
+    "portable": true,
+    "defaultDuration": 1600,
+    "tags": [
+      "React Bits",
+      "源码参考",
+      "本次新增"
+    ],
+    "source": {
+      "name": "React Bits · flip-card",
+      "url": "https://reactbits.dev/micro-interactions/flip-card",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/e2eb04d89d5be5a633dba7b2d4adfd274e053767/src/content/Micro/FlipCard/FlipCard.jsx",
+      "license": "MIT + Commons Clause",
+      "licensePath": "third-party/materials/react-bits/LICENSE.md",
+      "implementation": "source-adaptation",
+      "observation": "翻到背面查看详情，再打开内容。",
+      "adaptation": "从原组件的分层、几何与交互机制移植为独立 DOM/CSS 组件；替换展示内容，加入键盘操作、暂停、减少动态和销毁恢复。非逐像素复制。",
+      "visualEvidence": {
+        "image": "/docs/materials-evidence/sources/flip-card.jpg",
+        "title": "Flip Card — React Micro Interaction | React Bits",
+        "checkedAt": "2026-10-12",
+        "scope": "原组件页面的浏览器静帧，移植差异见源码记录"
+      }
+    }
+  },
+  {
+    "id": "c-material-accordion-gallery",
+    "category": "layout",
+    "variant": "accordion-gallery",
+    "title": "伸展画廊",
+    "summary": "悬停、聚焦或点击，让当前内容展开。",
+    "interaction": "悬停、聚焦或点击，让当前内容展开。",
+    "module": "material-library",
+    "portable": true,
+    "defaultDuration": 1600,
+    "tags": [
+      "React Bits",
+      "源码参考",
+      "本次新增"
+    ],
+    "source": {
+      "name": "React Bits · accordion-gallery",
+      "url": "https://reactbits.dev/components/accordion-gallery",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/e2eb04d89d5be5a633dba7b2d4adfd274e053767/src/content/Components/AccordionGallery/AccordionGallery.jsx",
+      "license": "MIT + Commons Clause",
+      "licensePath": "third-party/materials/react-bits/LICENSE.md",
+      "implementation": "source-adaptation",
+      "observation": "悬停、聚焦或点击，让当前内容展开。",
+      "adaptation": "从原组件的分层、几何与交互机制移植为独立 DOM/CSS 组件；替换展示内容，加入键盘操作、暂停、减少动态和销毁恢复。非逐像素复制。",
+      "visualEvidence": {
+        "image": "/docs/materials-evidence/sources/accordion-gallery.jpg",
+        "title": "Accordion Gallery — React Component | React Bits",
+        "checkedAt": "2026-10-12",
+        "scope": "原组件页面的浏览器静帧，移植差异见源码记录"
+      }
+    }
+  },
+  {
+    "id": "c-material-gradient-text",
+    "category": "typography",
+    "variant": "gradient-text",
+    "title": "流动字色",
+    "summary": "颜色只在字形内部缓慢流动。",
+    "interaction": "颜色只在字形内部缓慢流动。",
+    "module": "material-library",
+    "portable": true,
+    "defaultDuration": 1600,
+    "tags": [
+      "React Bits",
+      "源码参考",
+      "本次新增"
+    ],
+    "source": {
+      "name": "React Bits · gradient-text",
+      "url": "https://reactbits.dev/text-animations/gradient-text",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/e2eb04d89d5be5a633dba7b2d4adfd274e053767/src/content/TextAnimations/GradientText/GradientText.jsx",
+      "license": "MIT + Commons Clause",
+      "licensePath": "third-party/materials/react-bits/LICENSE.md",
+      "implementation": "source-adaptation",
+      "observation": "颜色只在字形内部缓慢流动。",
+      "adaptation": "从原组件的分层、几何与交互机制移植为独立 DOM/CSS 组件；替换展示内容，加入键盘操作、暂停、减少动态和销毁恢复。非逐像素复制。",
+      "visualEvidence": {
+        "image": "/docs/materials-evidence/sources/gradient-text.jpg",
+        "title": "Gradient Text — React Text Animation | React Bits",
+        "checkedAt": "2026-10-12",
+        "scope": "原组件页面的浏览器静帧，移植差异见源码记录"
+      }
+    }
+  },
+  {
+    "id": "c-material-shiny-text",
+    "category": "typography",
+    "variant": "shiny-text",
+    "title": "金属字光",
+    "summary": "一道窄高光沿文字滑过。",
+    "interaction": "一道窄高光沿文字滑过。",
+    "module": "material-library",
+    "portable": true,
+    "defaultDuration": 1600,
+    "tags": [
+      "React Bits",
+      "源码参考",
+      "本次新增"
+    ],
+    "source": {
+      "name": "React Bits · shiny-text",
+      "url": "https://reactbits.dev/text-animations/shiny-text",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/e2eb04d89d5be5a633dba7b2d4adfd274e053767/src/content/TextAnimations/ShinyText/ShinyText.jsx",
+      "license": "MIT + Commons Clause",
+      "licensePath": "third-party/materials/react-bits/LICENSE.md",
+      "implementation": "source-adaptation",
+      "observation": "一道窄高光沿文字滑过。",
+      "adaptation": "从原组件的分层、几何与交互机制移植为独立 DOM/CSS 组件；替换展示内容，加入键盘操作、暂停、减少动态和销毁恢复。非逐像素复制。",
+      "visualEvidence": {
+        "image": "/docs/materials-evidence/sources/shiny-text.jpg",
+        "title": "Shiny Text — React Text Animation | React Bits",
+        "checkedAt": "2026-10-12",
+        "scope": "原组件页面的浏览器静帧，移植差异见源码记录"
+      }
+    }
+  },
+  {
+    "id": "c-material-counter",
+    "category": "data",
+    "variant": "counter",
+    "title": "滚轮计数",
+    "summary": "每一位数字独立滚动到目标数值。",
+    "interaction": "每一位数字独立滚动到目标数值。",
+    "module": "material-library",
+    "portable": true,
+    "defaultDuration": 1600,
+    "tags": [
+      "React Bits",
+      "源码参考",
+      "本次新增"
+    ],
+    "source": {
+      "name": "React Bits · counter",
+      "url": "https://reactbits.dev/components/counter",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/e2eb04d89d5be5a633dba7b2d4adfd274e053767/src/content/Components/Counter/Counter.jsx",
+      "license": "MIT + Commons Clause",
+      "licensePath": "third-party/materials/react-bits/LICENSE.md",
+      "implementation": "source-adaptation",
+      "observation": "每一位数字独立滚动到目标数值。",
+      "adaptation": "从原组件的分层、几何与交互机制移植为独立 DOM/CSS 组件；替换展示内容，加入键盘操作、暂停、减少动态和销毁恢复。非逐像素复制。",
+      "visualEvidence": {
+        "image": "/docs/materials-evidence/sources/counter.jpg",
+        "title": "Counter — React Component | React Bits",
+        "checkedAt": "2026-10-12",
+        "scope": "原组件页面的浏览器静帧，移植差异见源码记录"
+      }
+    }
+  },
+  {
+    "id": "c-material-stepper",
+    "category": "feedback",
+    "variant": "stepper",
+    "title": "步骤连线",
+    "summary": "下一步时，连线延伸，已完成步骤变成勾。",
+    "interaction": "下一步时，连线延伸，已完成步骤变成勾。",
+    "module": "material-library",
+    "portable": true,
+    "defaultDuration": 1600,
+    "tags": [
+      "React Bits",
+      "源码参考",
+      "本次新增"
+    ],
+    "source": {
+      "name": "React Bits · stepper",
+      "url": "https://reactbits.dev/components/stepper",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/e2eb04d89d5be5a633dba7b2d4adfd274e053767/src/content/Components/Stepper/Stepper.jsx",
+      "license": "MIT + Commons Clause",
+      "licensePath": "third-party/materials/react-bits/LICENSE.md",
+      "implementation": "source-adaptation",
+      "observation": "下一步时，连线延伸，已完成步骤变成勾。",
+      "adaptation": "从原组件的分层、几何与交互机制移植为独立 DOM/CSS 组件；替换展示内容，加入键盘操作、暂停、减少动态和销毁恢复。非逐像素复制。",
+      "visualEvidence": {
+        "image": "/docs/materials-evidence/sources/stepper.jpg",
+        "title": "Stepper — React Component | React Bits",
+        "checkedAt": "2026-10-12",
+        "scope": "原组件页面的浏览器静帧，移植差异见源码记录"
+      }
+    }
+  },
+  {
+    "id": "c-material-pixel-card",
+    "category": "hover",
+    "variant": "pixel-card",
+    "title": "像素绽开",
+    "summary": "悬停或聚焦时，细小像素从中心向外亮起。",
+    "interaction": "悬停或聚焦时，细小像素从中心向外亮起。",
+    "module": "material-library",
+    "portable": true,
+    "defaultDuration": 1600,
+    "tags": [
+      "React Bits",
+      "源码参考",
+      "本次新增"
+    ],
+    "source": {
+      "name": "React Bits · pixel-card",
+      "url": "https://reactbits.dev/components/pixel-card",
+      "codeUrl": "https://github.com/DavidHDev/react-bits/blob/e2eb04d89d5be5a633dba7b2d4adfd274e053767/src/content/Components/PixelCard/PixelCard.jsx",
+      "license": "MIT + Commons Clause",
+      "licensePath": "third-party/materials/react-bits/LICENSE.md",
+      "implementation": "source-adaptation",
+      "observation": "悬停或聚焦时，细小像素从中心向外亮起。",
+      "adaptation": "从原组件的分层、几何与交互机制移植为独立 DOM/CSS 组件；替换展示内容，加入键盘操作、暂停、减少动态和销毁恢复。非逐像素复制。",
+      "visualEvidence": {
+        "image": "/docs/materials-evidence/sources/pixel-card.jpg",
+        "title": "Pixel Card — React Component | React Bits",
+        "checkedAt": "2026-10-12",
+        "scope": "原组件页面的浏览器静帧，移植差异见源码记录"
+      }
+    }
+  },
+  {
+    "id": "c-material-hold-button",
+    "category": "buttons",
+    "variant": "hold-button",
+    "title": "长按确认",
+    "summary": "按住填满进度；提前松手就取消。",
+    "interaction": "按住填满进度；提前松手就取消。",
+    "module": "material-library",
+    "portable": true,
+    "defaultDuration": 1800,
+    "tags": [
+      "Kokonut UI",
+      "源码参考",
+      "本次新增"
+    ],
+    "source": {
+      "name": "Kokonut UI · hold-button",
+      "url": "https://kokonutui.com/docs/buttons/hold-button",
+      "codeUrl": "https://github.com/kokonut-labs/kokonutui/blob/83eec6d982d400a18438001a8efdbac1f159dd43/components/kokonutui/hold-button.tsx",
+      "license": "MIT",
+      "licensePath": "third-party/materials/kokonut/LICENSE",
+      "implementation": "source-adaptation",
+      "observation": "按住填满进度、松手恢复的确认动作。",
+      "adaptation": "加入键盘、提前松开、失焦、切后台取消；完成后只触发宿主点击一次。",
+      "visualEvidence": {
+        "image": "/docs/materials-evidence/sources/hold-button.jpg",
+        "title": "Hold Button | KokonutUI",
+        "checkedAt": "2026-10-12",
+        "scope": "原组件页面的浏览器静帧，移植差异见源码记录"
+      }
+    }
+  },
+  {
+    "id": "c-material-particle-button",
+    "category": "buttons",
+    "variant": "particle-button",
+    "title": "点击纸屑",
+    "summary": "点击后，小纸片从按钮四周弹出。",
+    "interaction": "点击后，小纸片从按钮四周弹出。",
+    "module": "material-library",
+    "portable": true,
+    "defaultDuration": 1600,
+    "tags": [
+      "Kokonut UI",
+      "源码参考",
+      "本次新增"
+    ],
+    "source": {
+      "name": "Kokonut UI · particle-button",
+      "url": "https://kokonutui.com/docs/buttons/particle-button",
+      "codeUrl": "https://github.com/kokonut-labs/kokonutui/blob/83eec6d982d400a18438001a8efdbac1f159dd43/components/kokonutui/particle-button.tsx",
+      "license": "MIT",
+      "licensePath": "third-party/materials/kokonut/LICENSE",
+      "implementation": "source-adaptation",
+      "observation": "点击后，小纸片从按钮四周弹出。",
+      "adaptation": "从原组件的分层、几何与交互机制移植为独立 DOM/CSS 组件；替换展示内容，加入键盘操作、暂停、减少动态和销毁恢复。非逐像素复制。",
+      "visualEvidence": {
+        "image": "/docs/materials-evidence/sources/particle-button.jpg",
+        "title": "Particle Button | KokonutUI",
+        "checkedAt": "2026-10-12",
+        "scope": "原组件页面的浏览器静帧，移植差异见源码记录"
+      }
+    }
+  },
+  {
+    "id": "c-material-switch-button",
+    "category": "buttons",
+    "variant": "switch-button",
+    "title": "旋转切换",
+    "summary": "按下后切换状态，图标顺势旋转。",
+    "interaction": "按下后切换状态，图标顺势旋转。",
+    "module": "material-library",
+    "portable": true,
+    "defaultDuration": 1600,
+    "tags": [
+      "Kokonut UI",
+      "源码参考",
+      "本次新增"
+    ],
+    "source": {
+      "name": "Kokonut UI · switch-button",
+      "url": "https://kokonutui.com/docs/buttons/switch-button",
+      "codeUrl": "https://github.com/kokonut-labs/kokonutui/blob/83eec6d982d400a18438001a8efdbac1f159dd43/components/kokonutui/switch-button.tsx",
+      "license": "MIT",
+      "licensePath": "third-party/materials/kokonut/LICENSE",
+      "implementation": "source-adaptation",
+      "observation": "按下后切换状态，图标顺势旋转。",
+      "adaptation": "从原组件的分层、几何与交互机制移植为独立 DOM/CSS 组件；替换展示内容，加入键盘操作、暂停、减少动态和销毁恢复。非逐像素复制。",
+      "visualEvidence": {
+        "image": "/docs/materials-evidence/sources/switch-button.jpg",
+        "title": "Switch Button | KokonutUI",
+        "checkedAt": "2026-10-12",
+        "scope": "原组件页面的浏览器静帧，移植差异见源码记录"
+      }
+    }
+  },
+  {
+    "id": "c-material-image-comparison",
+    "category": "layout",
+    "variant": "image-comparison",
+    "title": "拖动对照",
+    "summary": "左右拖动分界线，比较同一内容的两种呈现。",
+    "interaction": "左右拖动分界线，比较同一内容的两种呈现。",
+    "module": "material-library",
+    "portable": true,
+    "defaultDuration": 1600,
+    "tags": [
+      "Motion Primitives",
+      "源码参考",
+      "本次新增"
+    ],
+    "source": {
+      "name": "Motion Primitives · image-comparison",
+      "url": "https://motion-primitives.com/docs/image-comparison",
+      "codeUrl": "https://github.com/ibelick/motion-primitives/blob/120f64f6ca60348e251f929e9c81f11ccbe45eda/components/core/image-comparison.tsx",
+      "license": "MIT",
+      "licensePath": "third-party/materials/motion-primitives/LICENCE.md",
+      "implementation": "source-adaptation",
+      "observation": "左右拖动分界线，比较同一内容的两种呈现。",
+      "adaptation": "从原组件的分层、几何与交互机制移植为独立 DOM/CSS 组件；替换展示内容，加入键盘操作、暂停、减少动态和销毁恢复。非逐像素复制。",
+      "visualEvidence": {
+        "image": "/docs/materials-evidence/sources/image-comparison.jpg",
+        "title": "Image Comparison - Motion-Primitives",
+        "checkedAt": "2026-10-12",
+        "scope": "原组件页面的浏览器静帧，移植差异见源码记录"
+      }
+    }
+  },
+  {
+    "id": "c-material-accordion",
+    "category": "layout",
+    "variant": "accordion",
+    "title": "自然展开列表",
+    "summary": "点击标题展开内容，其他项目平滑让位。",
+    "interaction": "点击标题展开内容，其他项目平滑让位。",
+    "module": "material-library",
+    "portable": true,
+    "defaultDuration": 1600,
+    "tags": [
+      "Motion Primitives",
+      "源码参考",
+      "本次新增"
+    ],
+    "source": {
+      "name": "Motion Primitives · accordion",
+      "url": "https://motion-primitives.com/docs/accordion",
+      "codeUrl": "https://github.com/ibelick/motion-primitives/blob/120f64f6ca60348e251f929e9c81f11ccbe45eda/components/core/accordion.tsx",
+      "license": "MIT",
+      "licensePath": "third-party/materials/motion-primitives/LICENCE.md",
+      "implementation": "source-adaptation",
+      "observation": "点击标题展开内容，其他项目平滑让位。",
+      "adaptation": "从原组件的分层、几何与交互机制移植为独立 DOM/CSS 组件；替换展示内容，加入键盘操作、暂停、减少动态和销毁恢复。非逐像素复制。",
+      "visualEvidence": {
+        "image": "/docs/materials-evidence/sources/accordion.jpg",
+        "title": "Accordion - Motion-Primitives",
+        "checkedAt": "2026-10-12",
+        "scope": "原组件页面的浏览器静帧，移植差异见源码记录"
+      }
+    }
+  }
+]

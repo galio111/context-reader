@@ -1,0 +1,164 @@
+/* Surface studies: glass layers after React Bits, reflective finishes are original CSS studies. */
+[data-galio-material][data-galio-material]:not(
+    [data-galio-material="original"]
+  ) {
+  --gm-x: 35%;
+  --gm-y: 10%;
+  border-radius: var(--gm-radius, 14px) !important;
+  border: 1px solid var(--gm-border, transparent) !important;
+  background: var(--gm-surface) !important;
+  color: var(--gm-text, var(--gm-ink)) !important;
+  box-shadow: var(--gm-shadow) !important;
+  text-shadow: var(--gm-text-shadow, none);
+  backdrop-filter: var(--gm-backdrop, none);
+  -webkit-backdrop-filter: var(--gm-backdrop, none);
+}
+[data-galio-material="matte"] {
+  --gm-surface: var(--gm-color);
+  --gm-shadow: 0 2px 3px #0000000d, inset 0 1px #ffffff1f;
+}
+[data-galio-material="frosted"] {
+  --gm-surface:
+    linear-gradient(135deg, #ffffffaa, #ffffff38),
+    color-mix(in srgb, var(--gm-color) 15%, #ffffff80);
+  --gm-text: #20242a;
+  --gm-backdrop: blur(14px) saturate(1.6);
+  --gm-shadow:
+    inset 0 1px 1px #fff, inset 0 -1px 1px #ffffff80, 0 8px 20px -12px #22304766;
+  --gm-border: #ffffffb3;
+}
+[data-galio-material="clear"] {
+  --gm-surface:
+    radial-gradient(
+      ellipse at var(--gm-x) var(--gm-y),
+      #ffffffc9,
+      transparent 55%
+    ),
+    linear-gradient(160deg, #ffffff55, #ffffff09 55%, #ffffff4d),
+    color-mix(in srgb, var(--gm-color) 10%, #ffffff14);
+  --gm-text: #1c2228;
+  --gm-backdrop: blur(2px) saturate(1.7);
+  --gm-shadow:
+    inset 0 1.5px 1px #fff, inset 1px 0 1px #fff9, inset -1px -2px 2px #fff8,
+    0 8px 18px -12px #15253f80;
+  --gm-border: #ffffff70;
+}
+[data-galio-material="ceramic"] {
+  --gm-surface:
+    radial-gradient(ellipse at var(--gm-x) 0, #ffffff, transparent 70%),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--gm-color) 9%, #fff) 20%,
+      color-mix(in srgb, var(--gm-color) 18%, #f4f1ef) 55%,
+      color-mix(in srgb, var(--gm-color) 28%, #e5e0da)
+    );
+  --gm-text: #232326;
+  --gm-shadow:
+    inset 0 2px 2px #fff, inset 0 -3px 4px #00000016, 0 1px 1px #00000026,
+    0 7px 10px -7px #0006;
+  --gm-border: #00000012;
+}
+[data-galio-material="chrome"] {
+  --gm-surface:
+    linear-gradient(115deg, transparent 25%, #ffffff9c 45%, transparent 60%),
+    linear-gradient(
+      180deg,
+      #fbfcff 0%,
+      color-mix(in srgb, var(--gm-color) 14%, #c8ccd1) 34%,
+      #949aa2 48%,
+      #f7f9fd 51%,
+      #c9cdd3 76%,
+      #fff 100%
+    );
+  --gm-text: #151b23;
+  --gm-text-shadow: 0 1px #ffffffa6;
+  --gm-shadow:
+    inset 0 1px 1px #fff, inset 0 -1px 1px #474d58, 0 2px 2px #0002,
+    0 10px 16px -11px #0009;
+  --gm-border: #7f858d77;
+  background-position: var(--gm-x) center !important;
+}
+[data-galio-material="brushed"] {
+  --gm-surface:
+    repeating-linear-gradient(
+      0deg,
+      #ffffff33 0px,
+      #00000010 0.5px,
+      transparent 1px,
+      transparent 2px
+    ),
+    linear-gradient(
+      100deg,
+      #eef0f2,
+      color-mix(in srgb, var(--gm-color) 18%, #c2c6cd) 40%,
+      #f8faff 65%,
+      #c0c5ce
+    );
+  --gm-text: #20242c;
+  --gm-text-shadow: 0 1px #fff9;
+  --gm-shadow:
+    inset 0 1px #fff, inset 0 -1px #7c818a, 0 2px 3px #0002,
+    0 7px 13px -10px #0007;
+  --gm-border: #858b953d;
+}
+[data-galio-material="soft"] {
+  --gm-surface: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--gm-color) 75%, #fff),
+    var(--gm-color)
+  );
+  --gm-shadow:
+    inset 2px 3px 5px #ffffff45, inset -3px -5px 7px #00000025,
+    0 4px 0 color-mix(in srgb, var(--gm-color) 60%, #000), 0 9px 12px -7px #0006;
+}
+[data-galio-material="gel"] {
+  --gm-surface:
+    radial-gradient(ellipse at 50% 0, #ffffffc7, transparent 62%),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--gm-color) 65%, #fff),
+      var(--gm-color) 50%,
+      color-mix(in srgb, var(--gm-color) 60%, #fff)
+    );
+  --gm-shadow:
+    inset 0 2px 2px #ffffffe6, inset 2px 0 5px #fff6, inset -2px -4px 5px #0003,
+    0 3px 0 color-mix(in srgb, var(--gm-color) 60%, #000),
+    0 9px 18px -9px color-mix(in srgb, var(--gm-color) 70%, #000);
+  --gm-border: #ffffff6e;
+}
+[data-galio-material="paper"] {
+  --gm-surface:
+    repeating-linear-gradient(90deg, #00000003 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(0deg, #fff7 0 1px, transparent 1px 3px),
+    color-mix(in srgb, var(--gm-color) 9%, #f7f3e9);
+  --gm-text: #332f2a;
+  --gm-text-shadow: 0 1px #fff;
+  --gm-shadow:
+    inset 0 1px #fff, inset 0 -1px #0000000d, 0 2px 0 #cfc9bf,
+    0 4px 4px #00000017;
+  --gm-border: #b8b0a05c;
+}
+[data-galio-material]:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-galio-material] {
+    --gm-x: 35% !important;
+    --gm-y: 10% !important;
+  }
+}
+
+[data-galio-material][data-galio-material]:not([data-galio-material="original"])
+  .gc-deco-copy {
+  background: var(--gm-surface) !important;
+  color: var(--gm-text, var(--gm-ink)) !important;
+}
+[data-galio-material]:not([data-galio-material="original"]) .ml-fill-dot {
+  background: var(--gm-text, var(--gm-ink));
+  opacity: 0.12;
+}
+[data-galio-material]:not([data-galio-material="original"]) .ml-label,
+[data-galio-material]:not([data-galio-material="original"]) .ml-fill-arrow {
+  color: var(--gm-text, var(--gm-ink)) !important;
+}

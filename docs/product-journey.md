@@ -1970,3 +1970,7 @@ humiliate重音试听B/D自然后，曾准备通用CMU词库校验；bibliograph
 ## 2026-10-13 学习词条与查词统一（已生产）
 
 用户要求单词系统详情复用独立查词，并支持重新生成、关联词窗口及两处同步；划词生成也应更新已有生词。接受 `20261013T081227`，parent `20261012T213932`，source `b590ed307cd9b94a740cc75cc33dd425c72c64dc`。完成结果按原始查询或精确单词+原句投影，保留身份、Anki与学习记录；时间戳、CAS、账号保护和只读回放保持。169项测试、契约、本机/服务器构建和公开账户桌面/手机日夜通过。模型响应替身不消费API；同一源码服务器保存函数另对QA账号执行真实PostgREST/CAS并通过。客户端替身经账户同步后冷浏览器回放通过；既有首页动画可能因8ms空闲门槛延后后台上传，未扩大修改调度，正常词典生成直接保存云端。学习参数/版本及复习记录不变，零作答/费用事件，临时账号和服务器脚本清理完成。Admin、七服务、39表恢复、父镜像及后端不重启通过。真机、其他浏览器、用户视觉仍开放；详见 [本轮记录](lookup-detail-sync-20261013.md)。
+
+## 2026-10-13 — Real-page design workbench implementation
+
+User chose saved drafts followed by one-click site-wide application. Added developer-only UI inventory and real-page visual editing, composable personal-library materials/buttons, phone-specific geometry, undo/redo, comparison and release rollback. Preview learning state and generation remain isolated. 316 interface targets and51 effect records distinguish editable adapters from source-only/legacy references. Saved recipe and public application use atomic revision/audit transactions. Local protocol/browser/critical checks passed; actual database and production acceptance are recorded separately in [final state](ui-design-studio.md). User visual approval is still pending.

@@ -36,11 +36,11 @@ export function StudySettings({value, save, onSaved, order, motion, onDisplay, p
     <div className={styles.settingRow}><div><span>目标记住率</span><p>越高，复习越频繁</p></div><CetSelect label="目标记住率" value={String(draft.retention)} options={[.85,.9,.95].map(n=>({key:String(n),text:Math.round(n*100)+"%"}))} onChange={n=>change({retention:Number(n)})}/></div>
     {number("forgotMinutes","不记得后，再次出现",120,"分钟")}
     {number("unsureMinutes","模糊但正确，再次出现",120,"分钟")}
-    <div className={styles.settingRow}><span>出词顺序</span><div className={styles.segmented}><button aria-pressed={order==="ordered"} onClick={()=>onDisplay("ordered",motion)}>顺序</button><button aria-pressed={order==="random"} onClick={()=>onDisplay("random",motion)}>乱序</button></div></div>
+    <div className={styles.settingRow}><span>出词顺序</span><div className={styles.segmented}><button aria-pressed={order==="ordered"} data-ui-target="study.order" onClick={()=>onDisplay("ordered",motion)}>顺序</button><button aria-pressed={order==="random"} data-ui-target="study.order" onClick={()=>onDisplay("random",motion)}>乱序</button></div></div>
     <div className={styles.settingRow}><span>切词动效</span><div className={styles.segmented}><button aria-pressed={motion} onClick={()=>onDisplay(order,true)}>轻柔</button><button aria-pressed={!motion} onClick={()=>onDisplay(order,false)}>关闭</button></div></div>
     <div className={styles.settingRow}><label htmlFor="study-remind">打开网站时提醒</label><input id="study-remind" className={styles.switch} type="checkbox" checked={draft.reminders} onChange={e=>change({reminders:e.target.checked})}/></div>
     <div className={styles.settingRow}><span>阅读画像</span><button onClick={onProfile}>查看</button></div>
-    <div className={styles.settingRow}><span>{paused?"学习已暂停":"暂停学习"}</span><button onClick={onPause}>{paused?"恢复":"暂停"}</button></div>
+    <div className={styles.settingRow}><span>{paused?"学习已暂停":"暂停学习"}</span><button data-ui-target="study.pause" onClick={onPause}>{paused?"恢复":"暂停"}</button></div>
     {status&&<div className={styles.saveStatus} role="status">{status}{status==="未保存"&&<button onClick={()=>void flush.current()}>重试</button>}</div>}
   </section>;
 }

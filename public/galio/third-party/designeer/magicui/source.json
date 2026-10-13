@@ -1,0 +1,21 @@
+{
+  "repo": "magicuidesign/magicui",
+  "revision": "85f97fd27b053339af74ba9dd4ca428ee25989fb",
+  "checkedAt": "2026-10-12",
+  "paths": [
+    "LICENSE.md",
+    "apps/www/registry/magicui/ripple-button.tsx",
+    "apps/www/registry/magicui/lens.tsx",
+    "apps/www/registry/magicui/marquee.tsx",
+    "apps/www/registry/magicui/border-beam.tsx",
+    "apps/www/registry/magicui/orbiting-circles.tsx",
+    "apps/www/registry/magicui/animated-circular-progress-bar.tsx",
+    "apps/www/registry/magicui/interactive-grid-pattern.tsx",
+    "apps/www/registry/magicui/ripple.tsx",
+    "apps/www/registry/magicui/flickering-grid.tsx",
+    "apps/www/registry/magicui/word-rotate.tsx",
+    "apps/www/registry/magicui/typing-animation.tsx",
+    "apps/www/registry/magicui/scroll-progress.tsx",
+    "apps/www/registry/magicui/number-ticker.tsx"
+  ]
+}

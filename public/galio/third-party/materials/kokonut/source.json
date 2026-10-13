@@ -1,0 +1,23 @@
+{
+  "repo": "kokonut-labs/kokonutui",
+  "revision": "83eec6d982d400a18438001a8efdbac1f159dd43",
+  "checkedAt": "2026-10-12",
+  "files": [
+    {
+      "path": "LICENSE",
+      "ok": true
+    },
+    {
+      "path": "components/kokonutui/hold-button.tsx",
+      "ok": true
+    },
+    {
+      "path": "components/kokonutui/particle-button.tsx",
+      "ok": true
+    },
+    {
+      "path": "components/kokonutui/switch-button.tsx",
+      "ok": true
+    }
+  ]
+}

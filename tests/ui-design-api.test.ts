@@ -83,16 +83,22 @@ test("validation messages are bounded product copy, while transport faults stay 
     assert.equal(response.status, 503);
     assert.doesNotMatch(await response.text(), /secret|postgres|internal/);
     response = await publicRoute.GET();
-    assert.equal(response.status, 503);
+    // Public presentation can fall back to the last known published design.
+    assert.equal(response.status, 200);
     assert.doesNotMatch(await response.text(), /secret|postgres|internal/);
   } finally { console.error = log; mockState.error = null; }
 });
 
 test("public endpoint exposes only the published projection, without draft, history or admin checks", async () => {
   mockState.access = null;
-  mockState.result = { status: "saved", state: { ...state, draft: { version: 1, targets: { "private-draft": { accent: "#ff0000" } } } } };
+  const publishedState = {...state, revision:7, publishedRevision: 7, published: {version: 1 as const, targets: {'study.card': {radius: 23}}}};
+  mockState.result = { status: "saved", state: { ...publishedState, draft: { version: 1, targets: { "private-draft": { accent: "#ff0000" } } } } };
+  const {invalidatePublishedDesign} = await import('../lib/uiDesignPublished');
+  invalidatePublishedDesign();
+  const reads = mockState.reads;
   const response = await publicRoute.GET();
   assert.equal(response.status, 200);
   assert.equal(response.headers.get("cache-control"), "no-store");
-  assert.deepEqual(await response.json(), publicUiDesignState(state));
+  assert.deepEqual(await response.json(), publicUiDesignState(publishedState));
+  assert.equal(mockState.reads, reads + 1);
 });

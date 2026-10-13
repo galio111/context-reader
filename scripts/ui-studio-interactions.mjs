@@ -1,0 +1,40 @@
+// Run only against the isolated UI fixture gateway, never production.
+import {createRequire} from 'node:module';
+import assert from 'node:assert/strict';
+const {chromium}=createRequire(process.env.PLAYWRIGHT_PACKAGE || `${process.env.USERPROFILE}/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/package.json`)('playwright');
+const browser=await chromium.launch({channel:'chrome',headless:true});
+const page=await browser.newPage({viewport:{width:1600,height:1000}}),errors=[];
+page.on('pageerror',e=>errors.push(e.message));
+const base='http://127.0.0.1:3391';
+try{
+ await page.goto(base+'/admin/ui-studio',{waitUntil:'networkidle'});
+ await page.getByRole('button',{name:'选择页面',exact:true}).click();
+ await page.getByRole('option',{name:'背单词',exact:true}).click();
+ const frame=page.frameLocator('iframe'),card=frame.locator('[class*="StudyPanel_flashcard"]');
+ await card.waitFor();
+ await page.getByRole('button',{name:'选择 / 移动',exact:true}).click();
+ await card.click({position:{x:20,y:20}});
+ const x=page.getByRole('spinbutton',{name:'水平',exact:true});
+ await x.fill('0');
+ const box=await card.boundingBox();
+ await page.mouse.move(box.x+20,box.y+20);await page.mouse.down();
+ await page.mouse.move(box.x+70,box.y+45,{steps:10});await page.mouse.up();
+ await page.waitForTimeout(250);
+ assert.ok(Number(await x.inputValue())>50,'frame scaling converted into page coordinates');
+ const dragged=await x.inputValue();
+ await page.getByTitle('撤销',{exact:true}).click();assert.equal(await x.inputValue(),'0');
+ await page.getByTitle('重做',{exact:true}).click();assert.equal(await x.inputValue(),dragged);
+ await page.getByRole('button',{name:'手机',exact:true}).click();assert.equal(await x.inputValue(),'');
+ await x.fill('12');assert.match(await card.evaluate(n=>getComputedStyle(n).translate),/^12px/);
+ await page.getByRole('button',{name:'电脑',exact:true}).click();assert.equal(await x.inputValue(),dragged);
+ await page.getByRole('button',{name:'入场动效',exact:true}).scrollIntoViewIfNeeded();await page.waitForTimeout(300);await page.getByRole('button',{name:'入场动效',exact:true}).click();await page.getByRole('option',{name:'向上浮出',exact:true}).click();
+ await page.emulateMedia({reducedMotion:'reduce'});assert.equal(await card.evaluate(n=>getComputedStyle(n).animationName),'none');
+ await page.emulateMedia({reducedMotion:'no-preference'});assert.equal(await card.evaluate(n=>getComputedStyle(n).animationName),'ui-design-rise');
+ await page.getByRole('button',{name:'保存方案',exact:true}).click();await page.getByRole('status').filter({hasText:'方案已保存'}).waitFor();
+ const saved=(await (await page.request.get(base+'/api/admin/ui-design')).json()).state;
+ assert.equal(saved.draft.targets['study.card'].mobile.offsetX,12);
+ await page.reload({waitUntil:'networkidle'});
+ const again=(await (await page.request.get(base+'/api/admin/ui-design')).json()).state;
+ assert.deepEqual(again.draft,saved.draft);
+ assert.deepEqual(errors,[]);console.log(JSON.stringify({ok:true,dragged,checks:['drag','undo','redo','mobile isolation','reduced motion','saved persistence']}));
+}catch(e){await page.screenshot({path:'artifacts/ui-studio/interactions-failure.png'});console.error(e);process.exitCode=1;}finally{await browser.close();}

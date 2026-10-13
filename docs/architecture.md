@@ -445,3 +445,7 @@ Admin统计排除当前管理员，按注册日成熟的第1/7/30天回访计算
 Admin navigation retains visited sections in memory for the mounted authorized page; unopened sections do not fetch. Article lists use paginated metadata projections (`view=summary`) marked `contentDeferred`, preserve candidate order and rejection metadata, and load a single full row before editing/opening Reader. Summary rows cannot be saved as complete articles. Models load configuration separately from external balance/status. Account directory requests omit execution/action history; expanded article-cost detail uses the legacy full report. Concurrent read deduplication retains only pending transport and never caches authorization or persists private responses.
 
 独立词典加入生词本时保留完整 `dictionaryResult`，StudyWord 复用 DictionaryResultContent，提示按义项展示英文例句。学习快照不反复附带全部完整词典，按单词只读缓存恢复。直接输入查询在本地缓存缺失时先读取账号缓存；只在确认 404 且用户发起新查询时生成，历史回放与读取失败均不触发模型。`study_import_batches` 保存包哈希、原始 Anki notes/cards/revlog 与生成文件哈希，服务角色专用、账号导出包含、重复包幂等。
+
+## UI design studio
+
+`UiStudio` edits an allowlisted presentation recipe through an origin/source/nonce checked same-origin frame. The frame uses real product components with window-local storage and intercepted business APIs; only reviewed Admin GET requests reach production data. `UiDesignPublicRuntime` applies the published recipe, preserving handlers and the original unconfigured view. `uiDesignPublished` bounds reads and retains last-good designs. Exact contract and limits: [studio](ui-design-studio.md).
