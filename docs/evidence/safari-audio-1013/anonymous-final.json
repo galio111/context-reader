@@ -1,0 +1,14 @@
+[
+  {
+    "path": "/api/admin/accounts",
+    "status": 401
+  },
+  {
+    "path": "/api/account/sync",
+    "status": 401
+  },
+  {
+    "path": "/api/dictionary-history?query=bass",
+    "status": 401
+  }
+]

@@ -128,5 +128,5 @@ try {
   }
 } finally {
   server.close();
-  await writeFile(resolve(output, "browser-matrix.json"), JSON.stringify({ contentSecurityPolicy: csp, results, note: "Automated Windows engines with real MP3; Mac/iOS Safari default-policy and physical listening still require device acceptance." }, null, 2));
+  await writeFile(resolve(output, "browser-matrix.json"), JSON.stringify({ contentSecurityPolicy: csp, results, note: `Automated ${process.platform} engines with real MP3; Mac/iOS Safari default-policy and physical listening still require device acceptance.` }, null, 2));
 }

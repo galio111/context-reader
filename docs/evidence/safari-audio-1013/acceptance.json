@@ -1,5 +1,5 @@
 {
-  "status": "candidate validated; production acceptance pending",
+  "status": "production playback verified; physical Safari default-policy listening remains open",
   "baseReleaseId": "20261013T175502",
   "baseSourceRevision": "a9df5542b60815c349b7130f9886933bc5fe2fa9",
   "tests": {
@@ -8,7 +8,8 @@
     "audioCacheListening": 22,
     "releaseContracts": "passed",
     "productionBuild": "passed",
-    "typecheck": "passed"
+    "typecheck": "passed",
+    "productionCsp": 1
   },
   "browserScenarios": [
     "cold",
@@ -19,9 +20,12 @@
     "background"
   ],
   "passedBrowsers": [
-    "Chromium",
-    "Chrome",
-    "Edge"
+    "Windows Chromium (6)",
+    "Windows Chrome (6)",
+    "Windows Edge (6)",
+    "Ubuntu Chromium (6)",
+    "Ubuntu Firefox (6)",
+    "Ubuntu WebKit (6)"
   ],
   "unverified": [
     "Mac Safari default autoplay policy and physical listening",
@@ -33,5 +37,47 @@
     "https://webkit.org/blog/7734/auto-play-policy-changes-for-macos/",
     "https://bugs.webkit.org/show_bug.cgi?id=281566"
   ],
-  "integration": "Merged accepted predecode and stable-button release; reran audio/critical/contracts/build and browser matrix."
+  "integration": "Merged accepted predecode and stable-button release; reran audio/critical/contracts/build and browser matrix.",
+  "releaseId": "20261013T190024",
+  "parentReleaseId": "20261013T184215",
+  "sourceRevision": "1a0119310aa77b0580b07c051c1dcad24c304d8b",
+  "acceptedAt": "2026-10-13T11:05:57.545452+00:00",
+  "publicPlayback": {
+    "usEnded": true,
+    "ukEnded": true,
+    "keyboardReplayEnded": true,
+    "pageErrors": 0,
+    "responseOverrides": false
+  },
+  "cspRegression": "Intermediate 20261013T184215 failed public Blob audio playback. Final media-src self blob fixes it; harness now loads production CSP.",
+  "accountAcceptance": {
+    "session": true,
+    "protocol2Sync": true,
+    "normalUserAdminDenied": true,
+    "anonymousBoundaries": true,
+    "wordDictionaryArticleTranslation": true,
+    "historyReplayUncharged": true,
+    "singleChargeEach": true,
+    "strictAllFlashAssertion": "not passed on final release: word deepseek-flash; dictionary and article glm-4.5-air succeeded; no model route changes",
+    "qaAccountRemoved": true,
+    "providerCostLedgerRetained": true
+  },
+  "operations": {
+    "healthyServices": 7,
+    "backendContainerIdentitiesUnchanged": true,
+    "backup": "context-reader-20261013T083905Z.dump",
+    "backupShaVerified": true,
+    "restorePublicTables": 39,
+    "diskUsedPercentAfterOwnBuildImageCleanup": 81,
+    "rollbackImages": [
+      "20261013T175502",
+      "20261013T184215"
+    ],
+    "rollbackLimitation": "184215 has known native audio CSP failure; 175502 retains original Safari limitation"
+  },
+  "ci": {
+    "exactSource": "https://github.com/galio111/context-reader/actions/runs/38387287637",
+    "threeEngines": "https://github.com/galio111/context-reader/actions/runs/38387638386",
+    "conclusion": "success"
+  }
 }

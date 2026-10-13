@@ -1,0 +1,680 @@
+{
+  "contentSecurityPolicy": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https: http:; font-src 'self' data:; media-src 'self' blob:; connect-src 'self' http://127.0.0.1:8765 http://localhost:8765; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'",
+  "results": [
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.4",
+      "scenario": "cold",
+      "events": [
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "buffer-start",
+          "gesture": false,
+          "state": "running"
+        },
+        {
+          "type": "buffer-ended",
+          "time": 1.9620861678004535
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.4",
+      "scenario": "preload",
+      "events": [
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.4",
+      "scenario": "denied-resume",
+      "events": [
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.4",
+      "scenario": "hung-resume",
+      "events": [
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.4",
+      "scenario": "decode-failure",
+      "events": [
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.4",
+      "scenario": "background",
+      "events": [
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "buffer-start",
+          "gesture": false,
+          "state": "running"
+        },
+        {
+          "type": "buffer-ended",
+          "time": 2.728344671201814
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "version": "157.0",
+      "scenario": "cold",
+      "events": [
+        {
+          "type": "warmup",
+          "gesture": true,
+          "state": "suspended"
+        },
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "buffer-start",
+          "gesture": false,
+          "state": "running"
+        },
+        {
+          "type": "buffer-ended",
+          "time": 1.979501133786848
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "version": "157.0",
+      "scenario": "preload",
+      "events": [
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "version": "157.0",
+      "scenario": "denied-resume",
+      "events": [
+        {
+          "type": "warmup",
+          "gesture": true,
+          "state": "suspended"
+        },
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "version": "157.0",
+      "scenario": "hung-resume",
+      "events": [
+        {
+          "type": "warmup",
+          "gesture": true,
+          "state": "suspended"
+        },
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "version": "157.0",
+      "scenario": "decode-failure",
+      "events": [
+        {
+          "type": "warmup",
+          "gesture": true,
+          "state": "suspended"
+        },
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "version": "157.0",
+      "scenario": "background",
+      "events": [
+        {
+          "type": "warmup",
+          "gesture": true,
+          "state": "suspended"
+        },
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "warmup",
+          "gesture": true,
+          "state": "suspended"
+        },
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "buffer-start",
+          "gesture": false,
+          "state": "running"
+        },
+        {
+          "type": "buffer-ended",
+          "time": 1.979501133786848
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "version": "27.2",
+      "scenario": "cold",
+      "events": [
+        {
+          "type": "warmup",
+          "gesture": true,
+          "state": "suspended"
+        },
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "buffer-start",
+          "gesture": false,
+          "state": "running"
+        },
+        {
+          "type": "buffer-ended",
+          "time": 2.211700680272109
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "version": "27.2",
+      "scenario": "preload",
+      "events": [
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "version": "27.2",
+      "scenario": "denied-resume",
+      "events": [
+        {
+          "type": "warmup",
+          "gesture": true,
+          "state": "suspended"
+        },
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "version": "27.2",
+      "scenario": "hung-resume",
+      "events": [
+        {
+          "type": "warmup",
+          "gesture": true,
+          "state": "suspended"
+        },
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "version": "27.2",
+      "scenario": "decode-failure",
+      "events": [
+        {
+          "type": "warmup",
+          "gesture": true,
+          "state": "suspended"
+        },
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "version": "27.2",
+      "scenario": "background",
+      "events": [
+        {
+          "type": "warmup",
+          "gesture": true,
+          "state": "suspended"
+        },
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "buffer-start",
+          "gesture": false,
+          "state": "running"
+        },
+        {
+          "type": "buffer-ended",
+          "time": 2.7341496598639456
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    }
+  ],
+  "note": "Automated Linux engines with real MP3; Mac/iOS Safari default-policy and physical listening still require device acceptance.",
+  "executionEnvironment": "GitHub Actions ubuntu-latest; workflow 38387638386"
+}

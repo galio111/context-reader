@@ -1,4 +1,5 @@
 {
+  "contentSecurityPolicy": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https: http:; font-src 'self' data:; media-src 'self' blob:; connect-src 'self' http://127.0.0.1:8765 http://localhost:8765; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'",
   "results": [
     {
       "engine": "chromium",
@@ -16,7 +17,7 @@
         },
         {
           "type": "buffer-ended",
-          "time": 2
+          "time": 2.021333333333333
         },
         {
           "type": "native-play",
@@ -222,7 +223,7 @@
         },
         {
           "type": "buffer-ended",
-          "time": 1.992
+          "time": 2.010666666666667
         },
         {
           "type": "native-play",
@@ -395,7 +396,7 @@
         },
         {
           "type": "buffer-ended",
-          "time": 2.6213333333333333
+          "time": 2.712
         },
         {
           "type": "native-play",
@@ -428,7 +429,7 @@
         },
         {
           "type": "buffer-ended",
-          "time": 1.9813333333333334
+          "time": 1.992
         },
         {
           "type": "native-play",
@@ -601,7 +602,7 @@
         },
         {
           "type": "buffer-ended",
-          "time": 2.752
+          "time": 2.72
         },
         {
           "type": "native-play",
@@ -617,21 +618,6 @@
       ],
       "errors": [],
       "passed": true
-    },
-    {
-      "engine": "firefox",
-      "available": false,
-      "error": "browserType.launch: spawn UNKNOWN\nCall log:\n\u001b[2m  - <launching> C:\\Users\\娆ч槼瀛愭旦\\AppData\\Local\\ms-playwright\\firefox-1555\\firefox\\firefox.exe -no-remote -headless -profile C:\\Users\\娆ч槼瀛愭旦\\AppData\\Local\\Temp\\playwright_firefoxdev_profile-UlqiZo -juggler-pipe -silent\u001b[22m\n"
-    },
-    {
-      "engine": "webkit",
-      "available": false,
-      "observed": {
-        "AudioContext": "undefined",
-        "mp3CanPlayType": "probably",
-        "actualMp3Playback": "NotSupportedError"
-      },
-      "note": "Windows port lacks audio capabilities; not Mac Safari validation."
     }
   ],
   "note": "Automated Windows engines with real MP3; Mac/iOS Safari default-policy and physical listening still require device acceptance."

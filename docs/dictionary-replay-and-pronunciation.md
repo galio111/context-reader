@@ -1,6 +1,6 @@
 # 单独查词历史与发音
 
-## 浏览器播放兼容（2026-10-13，修复待发布）
+## 浏览器播放兼容（2026-10-13，已生产，Safari 真机听音待确认）
 
 Mac Safari 用户在开启“允许所有自动播放”后恢复发音，说明播放策略相关；没有在原设备默认策略下采集状态，不能认定唯一根因。修复目标是默认设置下点击即可播放，不要求用户放宽站点自动播放权限。
 
@@ -8,7 +8,13 @@ Mac Safari 用户在开启“允许所有自动播放”后恢复发音，说明
 
 CET 听力已在点击内直接调用原生播放器，并以 playing/pause/error 事件控制状态，本轮保持其连续自测、恢复位置和权限语义。首页录屏仍为既有静音展示。
 
-本地验证：90 个 critical、8 个 provider、22 个发音/缓存/听力专项通过；生产构建、TypeScript 与发布契约通过。Chrome、Edge、Chromium 各 6 组实际 MP3 播放场景通过。Windows Firefox 测试程序因系统并行配置错误（WinError 14001）无法启动；Windows WebKit 无 AudioContext，原生 MP3 亦报不支持，因此两者未验收，不将模拟状态测试当作真机兼容证明。中间版 20261013T184215 的公网原生播放检查发现原有 CSP 没有 media-src，默认 self 拦截了 Blob 音频；此版本不能视为播放验收通过。已补精确媒体策略，浏览器矩阵改为加载真实 next.config.ts 的生产 CSP。后续累计发布状态待补齐。自动化 WebKit 不等同于 macOS/iOS Safari；最终仍需在 Safari 默认“停止播放含声音的媒体”设置下验证首次播放、英美切换、换词、后台返回及实际听音。
+正式接受 `20261013T190024`，parent `20261013T184215`，source `1a0119310aa77b0580b07c051c1dcad24c304d8b`，公网身份与服务器记录一致。中间版 20261013T184215 的真实站点检查发现原有 CSP 默认 self 拦截 Blob 音频，未通过播放门禁；最终版修正了精确媒体策略。未覆盖响应头或模拟音频的公网 Chrome 检查确认英音、美音与键盘重播均从 playing 到 ended，零页面脚本错误。
+
+90 个 critical、8 个 provider、22 个发音/缓存/听力专项及 1 个全站 CSP 测试通过；生产构建、TypeScript、发布契约与精确生产源码 CI 通过。加载真实 next.config.ts 的生产 CSP、真实 MP3 和实际组件后，Windows Chrome/Edge/Chromium 共18场景、Ubuntu Chromium/Firefox/WebKit 共18场景通过，覆盖冷加载、预加载、拒绝或挂起恢复、解码失败、后台返回，以及重复播放、换词与手势内调用。已加入三引擎持续集成。Windows Firefox 因 WinError 14001 无法启动，Windows WebKit 无 AudioContext 且不能播放 MP3，这两个本机运行环境仍未验收；Linux 对应引擎通过不抹去平台差异。
+
+最终版真实临时账号的会话、协议2同步、普通账号拒绝 Admin、单词/词典/全文翻译、三次不计费历史回放及每操作一次扣费通过。更严格的“三项必须全部由 Flash 完成”断言未通过：单词使用 deepseek-flash，词典与翻译由 glm-4.5-air 成功完成；不将备用模型完成冒充全 Flash 通过，也未为音频修复更改路由。中间版已通过三项 Flash，后端在最终补丁中没有变更。匿名三条权限边界与恢复 Admin 通过；七服务健康、五后端容器未重启，最新每日备份 SHA 及39表隔离恢复通过。精确清理临时账号和账单引用，保留成本审计。仅删除本轮两张未被容器引用的无标签构建中间镜像后磁盘81%，健康检查通过。175502及184215镜像保留；184215有已知媒体 CSP 缺口，不作为发音功能已验收的回滚目标。
+
+证据见 [验收汇总](evidence/safari-audio-1013/acceptance.json)、[公网播放事件](evidence/safari-audio-1013/public-browser.json)、[Linux 三引擎](evidence/safari-audio-1013/linux-browser-matrix.json)；[生产源码 CI](https://github.com/galio111/context-reader/actions/runs/38387287637)、[跨浏览器 CI](https://github.com/galio111/context-reader/actions/runs/38387638386) 均成功。自动化 WebKit 不等同于 macOS/iOS Safari；仍需用户恢复 Safari 默认“停止播放含声音的媒体”设置，刷新后验证首次播放、英美切换、换词、后台返回及实际听音。
 
 
 历史缓存改造已在 `20261004T212050` 接受（父版 `20261004T164800`，源码 `9c77b1694b257ad0aa1492424f8842a0bcea0b3f`）。当前美音一致性修订及发布状态见 [2026-10-08 记录](pronunciation-consistency-20261008.md)。下方历史回放机制保持不变。学习详情与查词结果的双向同步见 [2026-10-13 记录](lookup-detail-sync-20261013.md)。

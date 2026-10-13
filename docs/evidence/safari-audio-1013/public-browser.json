@@ -1,0 +1,157 @@
+{
+  "identity": {
+    "ok": true,
+    "checkedAt": "2026-10-13T11:06:34.482Z",
+    "releaseId": "20261013T190024",
+    "parentReleaseId": "20261013T184215",
+    "backendMode": "mainland_internal"
+  },
+  "playedUS": true,
+  "playedUK": true,
+  "keyboardReplay": true,
+  "audioResponses": [
+    {
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "status": 200,
+      "type": "audio/mpeg"
+    }
+  ],
+  "events": [
+    {
+      "type": "play",
+      "src": "blob:"
+    },
+    {
+      "type": "event-playing",
+      "ended": false,
+      "time": 0,
+      "paused": false,
+      "ready": 4,
+      "visibility": "visible"
+    },
+    {
+      "type": "event-pause",
+      "ended": true,
+      "time": 1.944,
+      "paused": true,
+      "ready": 4,
+      "visibility": "visible"
+    },
+    {
+      "type": "event-ended",
+      "ended": true,
+      "time": 1.944,
+      "paused": true,
+      "ready": 4,
+      "visibility": "visible"
+    },
+    {
+      "type": "pause-call",
+      "stack": "Error\n    at HTMLMediaElement.pause (<anonymous>:4:162)\n    at D (https://context-reader.com/_next/static/chunks/3843-13dc4e2fa12d55e4.js:1:8634)\n    at A.o.onended (https://context-reader.com/_next/static/chunks/3843-13dc4e2fa12d55e4.js:1:9130)"
+    },
+    {
+      "type": "ended",
+      "position": 0
+    },
+    {
+      "type": "event-emptied",
+      "ended": false,
+      "time": 0,
+      "paused": true,
+      "ready": 0,
+      "visibility": "visible"
+    },
+    {
+      "type": "play",
+      "src": "blob:"
+    },
+    {
+      "type": "event-playing",
+      "ended": false,
+      "time": 0,
+      "paused": false,
+      "ready": 4,
+      "visibility": "visible"
+    },
+    {
+      "type": "event-pause",
+      "ended": true,
+      "time": 1.752,
+      "paused": true,
+      "ready": 4,
+      "visibility": "visible"
+    },
+    {
+      "type": "event-ended",
+      "ended": true,
+      "time": 1.752,
+      "paused": true,
+      "ready": 4,
+      "visibility": "visible"
+    },
+    {
+      "type": "pause-call",
+      "stack": "Error\n    at HTMLMediaElement.pause (<anonymous>:4:162)\n    at D (https://context-reader.com/_next/static/chunks/3843-13dc4e2fa12d55e4.js:1:8634)\n    at A.o.onended (https://context-reader.com/_next/static/chunks/3843-13dc4e2fa12d55e4.js:1:9130)"
+    },
+    {
+      "type": "ended",
+      "position": 0
+    },
+    {
+      "type": "event-emptied",
+      "ended": false,
+      "time": 0,
+      "paused": true,
+      "ready": 0,
+      "visibility": "visible"
+    },
+    {
+      "type": "play",
+      "src": "blob:"
+    },
+    {
+      "type": "event-playing",
+      "ended": false,
+      "time": 0,
+      "paused": false,
+      "ready": 4,
+      "visibility": "visible"
+    },
+    {
+      "type": "event-pause",
+      "ended": true,
+      "time": 1.944,
+      "paused": true,
+      "ready": 4,
+      "visibility": "visible"
+    },
+    {
+      "type": "event-ended",
+      "ended": true,
+      "time": 1.944,
+      "paused": true,
+      "ready": 4,
+      "visibility": "visible"
+    },
+    {
+      "type": "pause-call",
+      "stack": "Error\n    at HTMLMediaElement.pause (<anonymous>:4:162)\n    at D (https://context-reader.com/_next/static/chunks/3843-13dc4e2fa12d55e4.js:1:8634)\n    at A.o.onended (https://context-reader.com/_next/static/chunks/3843-13dc4e2fa12d55e4.js:1:9130)"
+    },
+    {
+      "type": "ended",
+      "position": 0
+    },
+    {
+      "type": "event-emptied",
+      "ended": false,
+      "time": 0,
+      "paused": true,
+      "ready": 0,
+      "visibility": "visible"
+    }
+  ],
+  "errors": []
+}
