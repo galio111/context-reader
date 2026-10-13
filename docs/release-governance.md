@@ -2,6 +2,10 @@
 
 ## Current accepted release
 
+Accepted `20261013T063535`, parent `20261013T031701`, source `c95525c24986fb1c48ff11240a8f14fa9d7db636`. The exact reviewed 31-file cumulative archive passed the stable locked entrypoint. Reader and Study now share the dictionary window; pointer/programmatic content focus frames are suppressed, study answers persist locally and save in the background, and remaining learning/review plus completed-new counts stay distinct. Public delayed-save, cached related-word, counter/footer, account/sync/Admin, health, 39-table restore and parent-image checks passed; five backend container identities and start times are unchanged. See [study flow evidence and remaining device/visual gates](study-flow-20261013.md). Later documentation-only commits do not change the deployed source identity.
+
+## Previous accepted UI design studio release
+
 Accepted `20261013T031701`, parent `20261013T030124`, source `cc7280dcd65060acef641596e48199e910e5cdab`. Developer-only real-page UI studio and atomic draft/publish/rollback store are live. The initial 191-file release `20261013T030124` was followed by an exact 9-file patch through the stable locked entrypoint. Public identity, ten-scene browser checks, draft persistence/conflict/restore, account/sync/Admin boundaries, slow-asset regression, actual database concurrency/atomic audit, health, backup and parent image are verified. Only app/caddy changed; five backend container identities remained unchanged. No QA recipe was published. Full coverage, evidence and remaining user visual/device gates: [UI design studio](ui-design-studio.md). Later documentation-only commits do not change the deployed source identity.
 
 The dated records below describe earlier releases; the identity above is current.

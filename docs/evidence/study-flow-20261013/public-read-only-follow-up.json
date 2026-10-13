@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "releaseId": "20261013T063535",
+  "activity": [
+    {
+      "status": 200,
+      "method": "POST"
+    }
+  ],
+  "reviewAttempts": 0,
+  "reviewRows": 3,
+  "versionsUnchanged": true,
+  "dictionaryGenerationAttempts": 0,
+  "blocked": [
+    "/api/pronunciation",
+    "/api/pronunciation"
+  ],
+  "errors": []
+}
