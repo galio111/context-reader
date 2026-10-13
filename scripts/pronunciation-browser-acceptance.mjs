@@ -6,6 +6,10 @@ import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { resolve } from "node:path";
 import assert from "node:assert/strict";
 import { build } from "esbuild";
+import { pathToFileURL } from "node:url";
+const {default: nextConfig} = await import(pathToFileURL(resolve("next.config.ts")).href);
+const policies = await nextConfig.headers();
+const csp = policies.find(rule => rule.source === "/").headers.find(header => header.key === "Content-Security-Policy").value;
 const require = createRequire(process.env.PLAYWRIGHT_PACKAGE || import.meta.url);
 const engines = require("playwright");
 const output = resolve(process.env.AUDIO_OUTPUT || "artifacts/pronunciation-browser");
@@ -19,6 +23,7 @@ createRoot(document.getElementById('app')).render(<App/>);`, resolveDir: process
   bundle: true, write: false, platform: "browser", jsx: "automatic", define: { "process.env.NODE_ENV": '"production"' } });
 let requests = 0;
 const server = createServer(async (req, res) => {
+  res.setHeader("Content-Security-Policy", csp);
   if (req.url === "/bundle.js") { res.setHeader("content-type", "application/javascript"); res.end(bundle.outputFiles[0].text); }
   else if (req.url === "/api/pronunciation") { requests++; await new Promise(r => setTimeout(r, 250)); res.setHeader("content-type", "audio/mpeg"); res.end(audio); }
   else { res.setHeader("content-type", "text/html; charset=utf-8"); res.end('<html><body><div id="app"></div><script src="/bundle.js"></script></body></html>'); }
@@ -121,5 +126,5 @@ try {
   }
 } finally {
   server.close();
-  await writeFile(resolve(output, "browser-matrix.json"), JSON.stringify({ results, note: "Automated Windows engines with real MP3; Mac/iOS Safari default-policy and physical listening still require device acceptance." }, null, 2));
+  await writeFile(resolve(output, "browser-matrix.json"), JSON.stringify({ contentSecurityPolicy: csp, results, note: "Automated Windows engines with real MP3; Mac/iOS Safari default-policy and physical listening still require device acceptance." }, null, 2));
 }
