@@ -34,10 +34,10 @@ export function loadGalio(){const path='/galio/sdk/components.js';return sdk??=i
 export function loadGalioCatalog(){return catalog??=loadGalio().then(m=>m.loadComponentCatalog());}
 export function galioOptions(p:UiVisualPatch){return {...p,material:p.material??'original',fontSize:p.fontSize??16,reducedMotion:typeof matchMedia==='function'&&matchMedia('(prefers-reduced-motion: reduce)').matches,font:p.font==='serif'?'reading':p.font??'system',accent:p.accent??'#292c30',radius:p.radius??12,duration:p.motionDuration??800};}
 export function mountUiDesign(recipe:UiDesignRecipe,onError?:(message:string)=>void){
- let disposed=false,scanning=false;const handles=new Map<HTMLElement,{key:string;componentId?:string;handle:GalioHandle}>();let timer:ReturnType<typeof setTimeout>|undefined;
+ let disposed=false,scanning=false,scanAgain=false;const handles=new Map<HTMLElement,{key:string;componentId?:string;handle:GalioHandle}>();let timer:ReturnType<typeof setTimeout>|undefined;
  const style=document.createElement('style');style.dataset.uiDesign='runtime';style.textContent=compileUiDesign(recipe);document.head.append(style);
  async function scan(){
-  if(disposed||scanning)return;scanning=true;
+  if(disposed)return;if(scanning){scanAgain=true;return;}scanning=true;
   try{const entries=Object.entries(recipe.targets);const needs=entries.some(([,p])=>Object.hasOwn(p,'componentId')||Object.hasOwn(p,'material')||p.mobile?.componentId||p.mobile?.material)?entries:[];
    if(!needs.length){handles.forEach(h=>h.handle.destroy());handles.clear();return;}const [module,items]=await Promise.all([loadGalio(),loadGalioCatalog()]);if(disposed)return;
    const desired=new Map<HTMLElement,{p:UiVisualPatch;key:string;component:GalioItem|undefined}>();
@@ -56,7 +56,7 @@ export function mountUiDesign(recipe:UiDesignRecipe,onError?:(message:string)=>v
       const h=materials.mountMaterial(node,{category:'buttons'},galioOptions(p),true);handles.set(node,{key,handle:{...h,ready:Promise.resolve(),replay(){}}});}
    }
    for(const [node,h] of handles)if(!node.isConnected||!desired.has(node)){h.handle.destroy();handles.delete(node);}
-  }finally{scanning=false;}
+  }finally{scanning=false;if(scanAgain&&!disposed){scanAgain=false;schedule();}}
  }
  const schedule=()=>{clearTimeout(timer);timer=setTimeout(()=>{void scan().catch(()=>onError?.('组件样式暂时无法加载。'));},80);};
  const observer=new MutationObserver(schedule);observer.observe(document.body,{childList:true,subtree:true});window.addEventListener('resize',schedule);const motionQuery=matchMedia('(prefers-reduced-motion: reduce)');motionQuery.addEventListener('change',schedule);schedule();

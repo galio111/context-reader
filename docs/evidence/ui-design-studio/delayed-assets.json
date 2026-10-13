@@ -1,0 +1,17 @@
+{
+  "test": "UI runtime update during first SDK or catalog load",
+  "page": "http://127.0.0.1:3391/admin/ui-studio/frame?screen=study",
+  "storageWrites": false,
+  "selector": "[data-rating=remembered]",
+  "sequence": [{"material":"matte","seq":1000,"atMs":0},{"material":"chrome","seq":1001,"atMs":200}],
+  "networkDelayMs": 1000,
+  "beforeFix": [
+    {"delayed":"catalog", "samples":[{"ms":514,"material":null},{"ms":825,"material":null},{"ms":1135,"material":"matte"},{"ms":1447,"material":"matte"},{"ms":1758,"material":"matte"},{"ms":2066,"material":"matte"},{"ms":2378,"material":"matte"},{"ms":2687,"material":"matte"},{"ms":2997,"material":"matte"},{"ms":3303,"material":"matte"}], "childListMutationsAfterUpdate":0,"errors":[]},
+    {"delayed":"sdk", "samples":[{"ms":515,"material":null},{"ms":828,"material":null},{"ms":1143,"material":"matte"},{"ms":1454,"material":"matte"},{"ms":1763,"material":"matte"},{"ms":2072,"material":"matte"},{"ms":2384,"material":"matte"},{"ms":2699,"material":"matte"},{"ms":3008,"material":"matte"},{"ms":3317,"material":"matte"}], "childListMutationsAfterUpdate":0,"errors":[]}
+  ],
+  "afterFix": [
+    {"delayed":"catalog", "samples":[{"ms":519,"material":null},{"ms":832,"material":null},{"ms":1146,"material":"matte"},{"ms":1456,"material":"chrome"},{"ms":1764,"material":"chrome"},{"ms":2079,"material":"chrome"},{"ms":2387,"material":"chrome"},{"ms":2697,"material":"chrome"},{"ms":3007,"material":"chrome"},{"ms":3320,"material":"chrome"}], "childListMutationsAfterUpdate":0,"errors":[]},
+    {"delayed":"sdk", "samples":[{"ms":524,"material":null},{"ms":839,"material":null},{"ms":1153,"material":"matte"},{"ms":1463,"material":"chrome"},{"ms":1776,"material":"chrome"},{"ms":2089,"material":"chrome"},{"ms":2404,"material":"chrome"},{"ms":2718,"material":"chrome"},{"ms":3027,"material":"chrome"},{"ms":3337,"material":"chrome"}], "childListMutationsAfterUpdate":0,"errors":[]}
+  ],
+  "conclusion":"scanAgain finally reschedule converges on latest chrome without unrelated DOM mutation; initial stale matte may be briefly painted before queued rerun."
+}
