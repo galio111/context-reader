@@ -1,0 +1,42 @@
+✔ Study advances immediately, keeps a new answer visible across another tab's review acknowledgement, and restores interrupted saves (6317.4092ms)
+✔ new words have no 5/50 ceiling and reviews default to 100 (25.1834ms)
+✔ five and ten minute steps preserve upstream FSRS memory and long-term Hard (7.0812ms)
+✔ shuffle never crosses review-first boundary or replaces the visible question (0.7777ms)
+✔ Anki exclusions apply equally to vocabulary and progress without erasing source data (1.0237ms)
+✔ history fills missing days with zero and forecasts use Shanghai dates (0.7779ms)
+✔ 538 overdue words carry through the daily cap together with upcoming words (9.4658ms)
+✔ ongoing learning joins its due day outside the ordinary review cap (0.6551ms)
+✔ answers remain durable and account isolated while serial background saving waits (3.9658ms)
+✔ a committed answer with a lost response retries its identical id without double recording (0.962ms)
+✔ too-fast retries retain the timing guard and immutable answer (0.5498ms)
+✔ cross-day recovery creates today's plan before replaying the unchanged presented answer (0.6144ms)
+✔ a failed day initialization or still-unplanned card never discards yesterday's answer (0.7066ms)
+✔ switching accounts during cross-day initialization retains the original answer without replay (0.5858ms)
+✔ unmount or account switch fences delayed responses and leaves the answer for recovery (0.3733ms)
+✔ a concurrent state change resolves only after a fresh authoritative read succeeds (0.5782ms)
+✔ legacy session pending migration preserves identity, and a failed write retains the old record (0.7071ms)
+✔ independent answer keys survive another tab's write and immutable id reuse is rejected (0.5604ms)
+✔ pending cards are skipped immediately without inventing completed counts or FSRS states (6.5498ms)
+✔ remaining counts track graduation, wrong review, timed learning and valid today plan only (2.4292ms)
+✔ receipt unlocks queue without a full-library request; a lost response retries the immutable answer (3.7907ms)
+✔ invalid or unrelated receipts never remove a pending answer (0.7843ms)
+✔ receipt updates counts once and prevents an old snapshot resurrecting a saved card (0.6299ms)
+✔ review distinguishes retryable day changes from real version conflicts without settling failed answers (873.1286ms)
+✔ uncertain correctness preserves FSRS success/failure semantics without an Easy surrogate (1.5078ms)
+✔ a multi-month mixed history agrees with the upstream FSRS implementation at every review (25.5116ms)
+✔ pause changes retrievability with elapsed time without mutating stability or deleting debt (2.1561ms)
+✔ Shanghai midnight, not machine timezone, determines completion and daily plans (0.3028ms)
+✔ an intraday Good is still learning, not a completed card or reward (0.8378ms)
+✔ Anki histories are excluded and review limits do not cap user-chosen new words (17.3993ms)
+✔ reject backwards review clocks rather than corrupting an existing memory (0.5961ms)
+✔ waiting relearning does not block new words after the review pass (0.3338ms)
+✔ learning steps have priority and do not consume the review limit (0.5959ms)
+✔ reward policy preserves approved milestones and rejects malformed financial settings (1.5688ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10553.3197
