@@ -1,5 +1,7 @@
 # Production Release Governance
 
+Latest accepted study correction: `20261013T163700`, parent `20261013T163100`, source `a98901d50323cb313059f4d6461a3892713a63cb`. Silent durable receipts, first-learning counters, unanswered-new boundary and active category highlighting passed exact-source CI/build, public authenticated review/replay/refresh checks, account/Admin boundaries, health, 39-table restore and rollback-image checks. Backend start times unchanged. [Evidence and limits](study-answer-recovery-20261013.md).
+
 ## Preserving already-open pages
 
 All subsequent releases require `static-asset-retention-v1`: install the reviewed stable tools outside candidate archives, then retain current/candidate public build assets before cutover. `/opt/context-reader-shared/next-static` and its separate manifests survive image cleanup and app rollback. Do not expire hashed files to free space; capacity failure must stop release. Keep the current shared Caddy mount/route when rolling the app image back. Run `npm run test:release-safety` in CI and verify old-page article entry across an actual deployment. [Implementation, incident and acceptance evidence](release-safe-reader.md).

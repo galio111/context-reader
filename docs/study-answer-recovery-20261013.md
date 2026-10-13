@@ -1,0 +1,19 @@
+# Study answer recovery acceptance
+
+Production accepted `20261013T163700`, parent `20261013T163100`, source `a98901d50323cb313059f4d6461a3892713a63cb`. Public identity and stable server state agree. The preceding cumulative release `20261013T163100` used parent `20261013T161000` and source `871ff59cacae3a4aac93d38a4321486d4eda1771`.
+
+The gggg answer at 2026-10-13 15:49:28 Beijing was already committed. The old 1,678,470-byte full snapshot took 18.19 seconds server-side, close to the client's 20-second timeout including transfer. The original answer remains present once and is not undone; no gggg records were edited.
+
+New clients receive a small authoritative card/review/daily-stat receipt after the atomic review commit. The durable account-local outbox validates acknowledgement before deleting an answer, and lost responses replay the same ID. Background full snapshots cannot roll back an acknowledged card. Reward settlement runs on later full refresh/start. Old full-snapshot clients remain supported.
+
+Normal saving, background sync and recoverable retries are silent. Only actionable login/account/conflict or local-write problems retain brief inline notices. Today new counts distinct words actually answered from New on this Shanghai day; repeats, old reviews and prior-day learning graduations do not add new words. Merely presenting an untouched word does not add it to ongoing learning. Imported progress remains intact. The active category has blue text, a pale blue background and semibold numbers; confirmed counts update without waiting for full-library refresh.
+
+Final exact-source CI [38370208996](https://github.com/galio111/context-reader/actions/runs/38370208996) passed, including all 60 study tests, architecture/critical/account checks, release safety, charging contracts and production build. Local 60-study, 90-critical, contracts and production builds passed. An initial merged CI found a missing reward RPC in an old test fixture; the final fixture explicitly supports settlement. Isolated SQL covers first forgotten answer, repeat, old review, cross-day learning, undo and privileges; the migration replaces aggregation without rewriting learning records.
+
+Final public HTTPS acceptance used independent temporary QA accounts: authenticated session, vocabulary sync, three actual review writes, exact-ID replay, unchanged memory after presentation, refresh durability, ordinary-account Admin denial and anonymous Study denial. Receipts measured 88–90 ms and 1,257–1,307 bytes from the production host, not a user's full network-latency guarantee. Three reviews and a new-word count of one survived refresh. All QA accounts were cleaned up and no leftovers remain. Initial teardown encountered non-cascading billing references; cleanup verified the exact synthetic identity and absence of orders before removing its generated test records.
+
+The production isolated UI Studio renders the actual StudyPanel. Desktop and 390×844 views show the active category without overflow or console errors. Keyboard focus and reduced-motion mode were checked and emulation restored. Dynamic category/count transitions and delayed responses are covered by the component test; actual saves were verified through the public API. No real user's answers were submitted through the browser. Physical touch devices and final user visual acceptance remain open.
+
+The stable deployment retained cumulative parents, exact source/deltas, global lock, protected contracts and old-page assets. Seven-service health passed. Backup `context-reader-20261013T083905Z.dump` checksum and isolated 39-public-table restore passed. Current and parent rollback images exist. Only app/caddy were recreated; all five backend start times are unchanged.
+
+Evidence is under `docs/evidence/study-answer-recovery-1013/`. Later documentation and QA-script commits do not change the deployed source identity.

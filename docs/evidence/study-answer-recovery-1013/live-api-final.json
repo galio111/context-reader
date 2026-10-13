@@ -1,0 +1,43 @@
+{
+  "release": {
+    "ok": true,
+    "checkedAt": "2026-10-13T08:40:00.868Z",
+    "releaseId": "20261013T163700",
+    "parentReleaseId": "20261013T163100",
+    "backendMode": "mainland_internal"
+  },
+  "receipts": [
+    {
+      "category": "learning",
+      "ms": 90,
+      "bytes": 1307,
+      "duplicateMs": 837,
+      "newWords": 0,
+      "savedOnce": true
+    },
+    {
+      "category": "review",
+      "ms": 88,
+      "bytes": 1301,
+      "duplicateMs": 531,
+      "newWords": 0,
+      "savedOnce": true
+    },
+    {
+      "category": "new",
+      "ms": 88,
+      "bytes": 1257,
+      "duplicateMs": 347,
+      "newWords": 1,
+      "savedOnce": true
+    }
+  ],
+  "checks": [
+    "authenticated account and vocabulary sync",
+    "presenting an unanswered new word preserves New state and does not count as ongoing learning",
+    "refresh preserves all three reviews and exact new-word count",
+    "ordinary account cannot access Admin",
+    "anonymous study rejected"
+  ],
+  "qaRemoved": true
+}

@@ -40,6 +40,6 @@ try{
  const ordinary=await fetch(base+'/api/admin/accounts',{headers:{Cookie:cookie}});assert.ok([401,403].includes(ordinary.status));evidence.checks.push('ordinary account cannot access Admin');
  const anonymous=await fetch(base+'/api/study');assert.equal(anonymous.status,401);evidence.checks.push('anonymous study rejected');
 }finally{
- if(user){const own=await db('/auth/v1/admin/users/'+user.id);assert.equal(own.email,email);await db('/auth/v1/admin/users/'+user.id,'DELETE');const left=await db('/rest/v1/study_reviews?user_id=eq.'+user.id+'&select=id');assert.equal(left.length,0);evidence.qaRemoved=true;}
+ if(user){const own=await db('/auth/v1/admin/users/'+user.id);assert.equal(own.email,email);const orders=await db('/rest/v1/billing_orders?user_id=eq.'+user.id+'&select=id');assert.equal(orders.length,0);await db('/rest/v1/billing_grants?user_id=eq.'+user.id,'DELETE');await db('/rest/v1/billing_memberships?user_id=eq.'+user.id,'DELETE');await db('/auth/v1/admin/users/'+user.id,'DELETE');const left=await db('/rest/v1/study_reviews?user_id=eq.'+user.id+'&select=id');assert.equal(left.length,0);evidence.qaRemoved=true;}
 }
 console.log(JSON.stringify(evidence,null,2));

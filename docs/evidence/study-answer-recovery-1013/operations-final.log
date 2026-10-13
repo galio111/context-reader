@@ -1,0 +1,16 @@
+healthcheck passed
+{
+  "schemaVersion": 1,
+  "releaseId": "20261013T163700",
+  "parentReleaseId": "20261013T163100",
+  "sourceRevision": "a98901d50323cb313059f4d6461a3892713a63cb",
+  "acceptedAt": "2026-10-13T08:39:48.111004+00:00",
+  "guardVersion": 1
+}
+[context-reader-app:accepted-20261013T163700 context-reader-app:candidate-20261013T163700 context-reader-app:latest] sha256:3ff30b70cc2a09822a69d055c28a4c751fc70de713dc41b68165032d4cf26615
+[context-reader-app:accepted-20261013T163100 context-reader-app:candidate-20261013T163100] sha256:dce8e81e258f14cd74b70a6ecb299c8ffcd77f3c723ac3b9cd33d9e9629b1bb7
+/context-reader-postgres-1 2026-08-09T01:54:42.95392548Z
+/context-reader-auth-1 2026-08-08T16:51:10.394275861Z
+/context-reader-rest-1 2026-08-24T07:06:41.323937668Z
+/context-reader-storage-1 2026-08-08T16:51:21.011694637Z
+/context-reader-supabase-api-1 2026-08-09T01:54:54.572677208Z
