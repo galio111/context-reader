@@ -87,7 +87,7 @@ export async function prepareUiTarget(id:string,group:string,selector:string,sig
   close('[data-study-menu="true"] button[aria-label="关闭生词本"],[data-study-menu="true"] button[aria-label="关闭保存文章"],[data-study-menu="true"] button[aria-label="关闭菜单"]');
  if(group==='study'&&!/confirm|dialog-|saved-details|vocab-detail/.test(id)&&!target?.closest('dialog[class*="StudyPanel_confirm"]'))
   close('dialog[class*="StudyPanel_confirm"][open] button[aria-label="关闭提示"]');
- if(!/dictionary/.test(id)&&!target?.closest('[aria-label="单独查词面板"]'))close('button[aria-label="隐藏单独查词窗口"]');
+ if(!/dictionary/.test(id)&&!target?.closest('[aria-label="单独查词面板"]'))close('button[aria-label="隐藏单独查词窗口"],button[aria-label="关闭单独查词"]');
  if(group==='reader'&&!/import-|work-layer|saved-/.test(id)&&!target?.closest('[aria-label="导入新文章"],[aria-label="我的文章"]'))close('[aria-label="导入新文章"] button[aria-label="返回原文"],[aria-label="我的文章"] button[aria-label="返回原文"]');
  await new Promise(r=>setTimeout(r,120));
 }
