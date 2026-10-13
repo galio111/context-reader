@@ -1,7 +1,7 @@
 -- Run against isolated production schema only. All fixtures roll back.
 begin;
 do $$
-declare u uuid:=gen_random_uuid();v uuid:=gen_random_uuid(); t uuid; r jsonb; m jsonb;
+declare u uuid:=gen_random_uuid();v uuid:=gen_random_uuid(); t uuid; r jsonb; m jsonb; pending_id uuid:=gen_random_uuid();
  l text:=repeat('a',40); o text:=repeat('b',40); n text:=repeat('c',40); late text:=repeat('d',40);
 begin
  assert current_database()='context_reader_cet6_1012','isolated database required';
@@ -38,6 +38,20 @@ begin
  (u,gen_random_uuid(),late,'forgot',1,1000,m,m||'{"state":1}','FSRS-6','{}',1,now()-interval '1 day'),
  (u,gen_random_uuid(),late,'remembered',3,1000,m||'{"state":1}',m||'{"state":2}','FSRS-6','{}',2,now());
  r:=study_daily_stats_v3(u);assert (r->0->>'new_cards')::int=0 and (r->1->>'new_cards')::int=2,'cross-day graduation statistics';
+ -- An outbox may replay yesterday's answer before today's start request finishes.
+ insert into study_cards(user_id,id,entry_id,mode,memory) values(v,l,'pending-yesterday','basic_en_to_cn',m||'{"state":1}');
+ perform study_start_learning_v3(v,to_jsonb(array[l]),'{"retention":0.9,"reviewsPerDay":1}');
+ t:=(study_present_v3(v,l,0)->>'token')::uuid;
+ update study_cards set shown_at=now()-interval '1 day' where user_id=v and id=l;
+ update study_days set day=day-1 where user_id=v;
+ r:=study_review_v3(v,pending_id,l,0,t,'forgot',1,1000,m||jsonb_build_object('state',1,'last_review',now(),'due',now()+interval '5 minutes'),'FSRS-6','{}');
+ assert r->>'dayChanged'='true' and not exists(select 1 from study_reviews where user_id=v and id=pending_id),'day change is retryable and does not save';
+ perform study_start_learning_v3(v,to_jsonb(array[l]),'{"retention":0.9,"reviewsPerDay":1}');
+ assert exists(select 1 from study_cards where user_id=v and id=l and version=0 and presentation_id=t),'start preserves the prior presentation';
+ r:=study_review_v3(v,pending_id,l,0,t,'forgot',1,1000,m||jsonb_build_object('state',1,'last_review',now(),'due',now()+interval '5 minutes'),'FSRS-6','{}');
+ assert r->>'saved'='true','unchanged pending answer recovers after midnight';
+ assert study_review_v3(v,pending_id,l,0,t,'forgot',1,1000,m,'FSRS-6','{}')->>'duplicate'='true','recovered answer remains idempotent';
+ assert (select count(*) from study_reviews where user_id=v and id=pending_id)=1,'one recovered review';
  assert not has_function_privilege('authenticated','study_review_v3(uuid,uuid,text,bigint,uuid,text,integer,integer,jsonb,text,jsonb)','execute');
  assert not has_function_privilege('anon','study_daily_stats_v3(uuid)','execute');
  raise notice 'PASS learning queue, due times, cross-day graduation, ownership, server timing and grants';

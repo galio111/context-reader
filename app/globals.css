@@ -1955,3 +1955,23 @@ a:hover .cr-roll > span {
   .cr-article-list > button,
   .cr-final-inner h2 { opacity: 1 !important; clip-path: none !important; filter: none !important; transform: none !important; }
 }
+
+/* Confirmed preference: pointer interaction and dialog return leave no focus frame.
+   Keep actual borders/elevation; keyboard navigation gets a quiet neutral cue. */
+html[data-focus-input="pointer"] :focus {
+  outline: none !important;
+  --tw-ring-shadow: 0 0 #0000 !important;
+  --tw-ring-offset-shadow: 0 0 #0000 !important;
+}
+html:not([data-focus-input="pointer"]) :is(button, a[href], summary, input, textarea, select, [role="button"], [role="listbox"], [role="option"]):focus-visible {
+  outline: 1px solid #737d86 !important;
+  outline-offset: 3px;
+  --tw-ring-shadow: 0 0 #0000 !important;
+  --tw-ring-offset-shadow: 0 0 #0000 !important;
+}
+html[data-context-theme="night"]:not([data-focus-input="pointer"]) :is(button, a[href], summary, input, textarea, select, [role="button"], [role="listbox"], [role="option"]):focus-visible {
+  outline-color: #aab5bf !important;
+}
+
+/* Form borders identify the field; a click does not add an outer blue halo. */
+html :is(input, textarea, select):focus { box-shadow: none !important; }

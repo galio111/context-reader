@@ -18,6 +18,7 @@ const settings={reviewsPerDay:100,forgotMinutes:5,unsureMinutes:10,retention:.9,
 let snapshot={serverNow:new Date().toISOString(),settings,cards:entries.map((e,i)=>({id:String(i+1).repeat(40),entry_id:e.id,mode:e.anki.cardMode,memory:JSON.parse(JSON.stringify(createEmptyCard(new Date()))),version:0,suspended:false,anki_pending:false,created_at:e.createdAt})),entries,today:null,reviews:[],daily:[{day:new Date(Date.now()+8*3600000).toISOString().slice(0,10),cards:12,new_cards:5,review_cards:7,reviews:18,successes:15,active_ms:180000}],streak:{current:0,best:0,last_day:null},rewards:[],claims:[],policy:{rewardsEnabled:true,pointsPerNew:1,dailyRewardCap:50,rewardDays:90,streakMinNew:5,milestones:[{days:2,points:50,plan:null,months:0}],profileEnabled:true,profileCost:5,minimumReadingMinutes:60,minimumLookups:50}};
 let syncDelayed=false;let firstStartAt=0;let firstResponseAt=0;let quickAnswerGuardTested=false;let starts=0;let failSettings=false;let settingsDelay=0;
 let holdStart=false, releaseStart, heldStart, failStart=false, syncCalls=0, presentConflicts=0;
+let holdReview=false, releaseReview;
 const stamp=()=>({...snapshot,serverNow:new Date().toISOString()});
 const account={configured:true,authenticated:true,profile:{userId:owner,nickname:"学习测试",status:"active",email:"",phone:"",readingInterests:[]},plan:{id:"free",displayName:"免费账号",priceCny:0,active:true,limits:[]},usage:[]};
 await page.route("**/api/**",async route=>{
@@ -43,6 +44,7 @@ await page.route("**/api/**",async route=>{
    return json({token:randomUUID(),shownAt:new Date().toISOString()});
   }
   if(b.op==="review"&&!quickAnswerGuardTested){quickAnswerGuardTested=true;return route.fulfill({status:409,contentType:"application/json",body:JSON.stringify({error:"请先回忆并核对答案，再记录结果。",code:"too_fast"})});}
+  if(b.op==='review'&&holdReview){holdReview=false;await new Promise(resolve=>releaseReview=resolve);}
   if(b.op==="review"){const card=snapshot.cards.find(c=>c.id===b.cardId);const rating=b.answer==="forgot"||b.answer==="unsure_wrong"?1:b.answer==="unsure_right"?2:3;const old=structuredClone(card.memory);const scheduler=fsrs({request_retention:.9,enable_fuzz:false,learning_steps:["5m","10m"],relearning_steps:["5m"]});card.memory=JSON.parse(JSON.stringify(scheduler.next(card.memory,new Date(),rating).card));card.version++;snapshot.reviews.unshift({id:b.id,card_id:card.id,answer:b.answer,rating,reviewed_at:new Date().toISOString(),active_ms:b.activeMs,undone:false,previous:old,next:card.memory});return json({saved:true,id:b.id,snapshot:stamp()});}
   if(b.op==="claimReward"){const c=snapshot.claims.find(c=>c.id===b.id);const points=c.points-c.claimed_points;c.claimed_points=c.points;c.claimed_at=new Date().toISOString();return json({claimed:{claimed:true,points},snapshot:stamp()});}
   if(b.op==="pause"){snapshot.settings={...snapshot.settings,pausedUntil:new Date(Date.now()+b.days*86400000).toISOString()};return json(stamp());}
@@ -151,13 +153,17 @@ try {
   await study.getByRole('alert').waitFor();
   if(await study.getByRole('button',{name:'答对了',exact:true}).isDisabled())throw Error('Background failure cleared or blocked existing card');
   report.backgroundFailurePreservesCard=true;
-  // A saved failed answer must recover its snapshot and retry controls after reload.
+  // Legacy pending answers migrate into the durable outbox and drain automatically.
+  // Hold that write: the initial snapshot must still expose the next recall card.
   const c=snapshot.cards[1];
   await page.evaluate(({owner,pending})=>sessionStorage.setItem('context-reader-study-pending:'+owner,JSON.stringify(pending)),{owner,pending:{op:'review',id:randomUUID(),cardId:c.id,version:c.version,token:randomUUID(),answer:'remembered',activeMs:3000}});
+  holdReview=true;const pendingReloadAt=Date.now();
   await page.goto((process.env.STUDY_BASE||"http://127.0.0.1:3226")+'/?study=1',{waitUntil:'domcontentloaded'});
-  await study.getByRole('button',{name:'重试保存',exact:true}).waitFor({timeout:30000});
-  await study.getByRole('button',{name:'重试保存',exact:true}).click();
-  await study.getByText('contemplate',{exact:true}).waitFor();
+  await study.getByText('contemplate',{exact:true}).waitFor({timeout:10000});
+  report.pendingInitialSnapshotMs=Date.now()-pendingReloadAt;
+  if(!releaseReview||await answer.isDisabled())throw Error('Pending write blocks first snapshot or recall');
+  releaseReview();
+  await page.waitForFunction(()=>!Object.keys(localStorage).some(key=>key.startsWith('context-reader-study-outbox:')));
   report.pendingRecovery=true;
   await new Promise(r=>setTimeout(r,200));
   await study.getByRole('button',{name:'返回阅读',exact:true}).last().click();

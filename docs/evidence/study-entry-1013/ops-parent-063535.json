@@ -1,0 +1,57 @@
+{
+  "capturedAt": "2026-10-13T06:55:44.5509669Z",
+  "releaseId": "20261013T063535",
+  "parentReleaseId": "20261013T031701",
+  "sourceRevision": "c95525c24986fb1c48ff11240a8f14fa9d7db636",
+  "containers": [
+    {
+      "name": "/context-reader-app-1",
+      "id": "f0c4ae80f3e395293a8c1d8df7913fe4c261aefe83a60b43bd001f45c0e240f9",
+      "startedAt": "2026-10-13T06:42:13.803204634Z",
+      "image": "context-reader-app",
+      "imageId": "sha256:f24bb6e609f31e1b994e3aa07881d78511c6735276d5c371006cbc21e2a9b8c4"
+    },
+    {
+      "name": "/context-reader-caddy-1",
+      "id": "79a7aae63129f2da922e4a3ea9507f3de02e2747b517c4d800f612b9f910eda3",
+      "startedAt": "2026-10-13T06:42:19.469482185Z",
+      "image": "caddy:2.10-alpine",
+      "imageId": "sha256:4c6e91c6ed0e2fa03efd5b44747b625fec79bc9cd06ac5235a779726618e530d"
+    },
+    {
+      "name": "/context-reader-auth-1",
+      "id": "85536a2958e0869dcc1894c3972776a996cceba2c49f14d0fa5d1cd321b11490",
+      "startedAt": "2026-08-08T16:51:10.394275861Z",
+      "image": "supabase/gotrue:v2.189.0",
+      "imageId": "sha256:385184459f57569c54c25209f51f3b2be99ddd7c4ce9e3555b5d3eea8447b7cf"
+    },
+    {
+      "name": "/context-reader-postgres-1",
+      "id": "eb78126dbbadd0c1c4e98927e4c3b7e5d8848446d9e3627ec7fe324f6df5b762",
+      "startedAt": "2026-08-09T01:54:42.95392548Z",
+      "image": "supabase/postgres:17.6.1.136",
+      "imageId": "sha256:f371b5f3f2ac0a05703f33d6e6134515fb2498cab708fb948a0aeb7481467c00"
+    },
+    {
+      "name": "/context-reader-rest-1",
+      "id": "5439521fa22b77eaeacdbc77b0d791677516214948dd26650c772befd8d3f776",
+      "startedAt": "2026-08-24T07:06:41.323937668Z",
+      "image": "postgrest/postgrest:v14.12",
+      "imageId": "sha256:54000f24847d01a2c2302e0041cf0618b875c57fb48507d743cfa9aaa50bf43c"
+    },
+    {
+      "name": "/context-reader-storage-1",
+      "id": "bcaee44aa72f5f865b3542c3cba2b7a3adc438f29af5ae93fc6950924f068595",
+      "startedAt": "2026-08-08T16:51:21.011694637Z",
+      "image": "supabase/storage-api:v1.60.4",
+      "imageId": "sha256:c8eb9858eafec891a97c27125470aaad54703c3f4eb4d55ca7f1bf6c6411febf"
+    },
+    {
+      "name": "/context-reader-supabase-api-1",
+      "id": "8cf4b5ce546533cebea4a839e6dbb8c7f764837d39370ba8e0f86cd37870e342",
+      "startedAt": "2026-08-09T01:54:54.572677208Z",
+      "image": "caddy:2.10-alpine",
+      "imageId": "sha256:4c6e91c6ed0e2fa03efd5b44747b625fec79bc9cd06ac5235a779726618e530d"
+    }
+  ]
+}

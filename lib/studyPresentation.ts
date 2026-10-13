@@ -1,5 +1,5 @@
 import type { StudyCard, StudySnapshot } from "@/types/study";
-import { shanghaiDay, studyQueuePriority, isStudyLearning, recallProbability } from "./studyScheduler";
+import { shanghaiDay, studyDayEnd, studyQueuePriority, isStudyLearning, recallProbability } from "./studyScheduler";
 
 export function studyWordState(card: StudyCard, now: Date): "new"|"learning"|"review"|"steady" {
   if(card.memory.state===0)return "new";
@@ -20,6 +20,15 @@ export function chooseStudyCard(ready: StudyCard[], current: string, order: "ord
   if (order === "ordered") return ready[0];
   // Only reorder already-eligible cards, and never let a new word precede due learning.
   return [...ready].sort((a,b) => studyQueuePriority(a)-studyQueuePriority(b) || (ranks.get(a.id) ?? 0)-(ranks.get(b.id) ?? 0))[0];
+}
+export function remainingStudyCounts(cards: StudyCard[], ids: string[], now: Date, paused = false) {
+  if (paused) return { learning: 0, review: 0 };
+  const planned = new Set(ids), end = studyDayEnd(now).getTime();
+  const active = cards.filter(card => planned.has(card.id) && !card.suspended);
+  return {
+    learning: active.filter(card => isStudyLearning(card.memory)).length,
+    review: active.filter(card => card.memory.state === 2 && Date.parse(card.memory.due) < end).length,
+  };
 }
 export function studyHistoryDays(daily: StudySnapshot["daily"], today: string, count: number) {
   const byDay = new Map(daily.map(day => [day.day, day]));

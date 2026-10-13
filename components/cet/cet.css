@@ -1015,7 +1015,7 @@ button.cet-timer[data-state="paused"] { background: #e8f3f6; }
 .cet-select-list [role="option"] { display: flex; align-items: center; justify-content: space-between; min-height: 44px; padding: 9px 12px; gap: 12px; border-radius: 7px; cursor: pointer; }
 .cet-select-list [data-active="true"] { background: #e8f3f6; }
 .cet-select-list [aria-selected="true"] { color: #245d70; font-weight: 600; }
-.cet-select-list:focus { outline: 1px solid #527783; outline-offset: 2px; }
+.cet-select-list:focus-visible { outline: 1px solid #527783; outline-offset: 2px; }
 .cet-library button:focus:not(:focus-visible), .cet-sheet :is(button,input):focus:not(:focus-visible), .cet-reading button:focus:not(:focus-visible), .cet-start button:focus:not(:focus-visible), .cet-timer:focus:not(:focus-visible) { outline: none; }
 .cet-select-trigger:focus-visible, .cet-timer:focus-visible { outline: 2px solid #27778c; outline-offset: 3px; }
 .cet-timer-mode { display: inline-flex; padding: 4px; gap: 4px; background: #edf2f3; border-radius: 999px; margin: 16px 0; }

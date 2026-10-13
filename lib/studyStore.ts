@@ -26,10 +26,19 @@ export async function getStudyPolicy(): Promise<StudyPolicy> {
   if (!rows[0]) throw new Error("Study policy unavailable");
   return rows[0].policy;
 }
+// Project JSON fields in PostgreSQL: discarding dictionaryResult after fetching
+// every saved dictionary still makes each answer scale with the entire library.
+const STUDY_ENTRY_FIELDS: Array<Exclude<keyof VocabularyEntry, "dictionaryResult">> = [
+  "id", "word", "lemma", "phonetic", "phoneticFor", "partOfSpeech", "basicMeaning", "contextMeaning",
+  "sentenceTranslation", "usageNote", "collocation", "exampleEnglish", "exampleChinese", "sourceSentence",
+  "previousSentence", "nextSentence", "sourceArticle", "difficulty", "shouldAddToVocabulary", "createdAt",
+  "updatedAt", "anki", "dictionaryUpdatedAt", "explanationUpdatedAt",
+];
+export const STUDY_ENTRY_SELECT = "object_key," + STUDY_ENTRY_FIELDS.map(field => `${field}:payload->${field}`).join(",");
 export async function getStudyEntries(userId: string): Promise<VocabularyEntry[]> {
-  const rows = await studyRows<{ object_key: string; payload: VocabularyEntry }>("user_data_objects", userId, "object_key,payload", "&kind=eq.vocabulary&deleted_at=is.null&order=object_key.asc");
-  return rows.filter(r => r.payload?.id === r.object_key && typeof r.payload.word === "string" && r.payload.anki)
-    .map(r => r.payload);
+  const rows = await studyRows<VocabularyEntry & { object_key: string }>("user_data_objects", userId, STUDY_ENTRY_SELECT, "&kind=eq.vocabulary&deleted_at=is.null&order=object_key.asc");
+  return rows.filter(r => r.id === r.object_key && typeof r.word === "string" && r.anki)
+    .map(({ object_key, ...entry }) => { void object_key; return entry; });
 }
 export async function reconcileStudyCards(userId: string): Promise<VocabularyEntry[]> {
   const [entries, cards] = await Promise.all([getStudyEntries(userId), studyRows<StudyCard>("study_cards", userId, "*", "&order=id.asc")]);

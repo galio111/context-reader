@@ -15,6 +15,7 @@ import type { CSSProperties, KeyboardEvent as ReactKeyboardEvent, PointerEvent a
 import { defaultAnkiSettings } from "@/components/AnkiSettingsPanel";
 import { ArticleTranslationPanel } from "@/components/ArticleTranslationPanel";
 import { BookDictionary } from "@/components/BookDictionary";
+import { DictionaryWindow } from "./DictionaryWindow";
 import { ExplanationPanel } from "@/components/ExplanationPanel";
 import { HomeOptionMenu, type PreviewKind } from "@/components/HomeOptionMenu";
 import { PillNavAction } from "@/components/PillNavAction";
@@ -1380,7 +1381,6 @@ export function ReaderView({
   const sourceAlignmentLockUntilRef = useRef(0);
   const sourceJumpAttemptIdRef = useRef(0);
   const blockEditRefs = useRef<Record<string, HTMLElement | null>>({});
-  const dictionaryWindowRef = useRef<HTMLElement | null>(null);
   const dictionaryCloseTimerRef = useRef<number | null>(null);
 
   useEffect(() => () => {
@@ -1483,30 +1483,6 @@ export function ReaderView({
     if (dictionaryCloseTimerRef.current !== null) window.clearTimeout(dictionaryCloseTimerRef.current);
   }, []);
 
-  useEffect(() => {
-    if (!dictionaryMounted) return;
-    const element = dictionaryWindowRef.current;
-    if (!element) return;
-    try {
-      const saved = JSON.parse(window.localStorage.getItem("context-reader-dictionary-window-v1") || "null") as {
-        left?: number;
-        top?: number;
-        width?: number;
-        height?: number;
-      } | null;
-      const width = Math.min(Math.max(saved?.width ?? 340, 300), window.innerWidth - 28);
-      const height = Math.min(Math.max(saved?.height ?? 560, 380), window.innerHeight - 28);
-      const visibleGrip = Math.min(104, width);
-      const left = Math.min(
-        Math.max(saved?.left ?? 132, visibleGrip - width),
-        window.innerWidth - visibleGrip,
-      );
-      const top = Math.min(Math.max(saved?.top ?? 92, 14), window.innerHeight - 58);
-      Object.assign(element.style, { left: `${left}px`, top: `${top}px`, width: `${width}px`, height: `${height}px` });
-    } catch {
-      // A stale window preference must never prevent dictionary access.
-    }
-  }, [dictionaryMounted]);
 
   useEffect(() => {
     if (account.authenticated) setGuestLookupLocked(false);
@@ -2641,18 +2617,6 @@ export function ReaderView({
     setDictionaryMounted(true);
   }
 
-  function persistDictionaryWindow() {
-    const element = dictionaryWindowRef.current;
-    if (!element) return;
-    const rect = element.getBoundingClientRect();
-    window.localStorage.setItem("context-reader-dictionary-window-v1", JSON.stringify({
-      left: Math.round(rect.left),
-      top: Math.round(rect.top),
-      width: Math.round(rect.width),
-      height: Math.round(rect.height),
-    }));
-  }
-
   function closeDictionaryWindow() {
     setDictionaryClosing(true);
     dictionaryCloseTimerRef.current = window.setTimeout(() => {
@@ -2660,35 +2624,6 @@ export function ReaderView({
       setDictionaryMounted(false);
       setDictionaryClosing(false);
     }, 220);
-  }
-
-  function startDictionaryDrag(event: ReactPointerEvent<HTMLElement>) {
-    if (event.button !== 0 || (event.target as HTMLElement).closest("button")) return;
-    const element = dictionaryWindowRef.current;
-    if (!element) return;
-    event.preventDefault();
-    const rect = element.getBoundingClientRect();
-    const startX = event.clientX;
-    const startY = event.clientY;
-    const move = (moveEvent: globalThis.PointerEvent) => {
-      const visibleGrip = Math.min(104, rect.width);
-      const left = Math.min(
-        Math.max(rect.left + moveEvent.clientX - startX, visibleGrip - rect.width),
-        window.innerWidth - visibleGrip,
-      );
-      const top = Math.min(Math.max(rect.top + moveEvent.clientY - startY, 12), window.innerHeight - 58);
-      element.style.left = `${left}px`;
-      element.style.top = `${top}px`;
-    };
-    const finish = () => {
-      window.removeEventListener("pointermove", move);
-      window.removeEventListener("pointerup", finish);
-      window.removeEventListener("pointercancel", finish);
-      persistDictionaryWindow();
-    };
-    window.addEventListener("pointermove", move);
-    window.addEventListener("pointerup", finish, { once: true });
-    window.addEventListener("pointercancel", finish, { once: true });
   }
 
   async function submitReaderImport() {
@@ -4106,19 +4041,8 @@ export function ReaderView({
       </div>
 
       {dictionaryMounted && (
-        <aside
-          ref={dictionaryWindowRef}
-          className={`${toolbarStyles.dictionaryWindow} ${dictionaryClosing ? toolbarStyles.dictionaryWindowClosing : ""}`}
-          aria-label="单独查词窗口"
-          style={{zIndex:dictionaryLayer.zIndex}}
-          onPointerDownCapture={dictionaryLayer.bringToFront}
-          onPointerUp={persistDictionaryWindow}
-        >
-          <header onPointerDown={startDictionaryDrag}>
-            <span><ReaderRailIcon kind="dictionary" />单独查词</span>
-            <button type="button" aria-label="隐藏单独查词窗口" onClick={closeDictionaryWindow}>×</button>
-          </header>
-          <div className={toolbarStyles.dictionaryWindowBody} data-local-scroll-surface>
+        <DictionaryWindow closing={dictionaryClosing} zIndex={dictionaryLayer.zIndex}
+          onBringToFront={dictionaryLayer.bringToFront} onClose={closeDictionaryWindow}>
             <BookDictionary
               embedded
               panel
@@ -4127,8 +4051,7 @@ export function ReaderView({
               onAddToVocabulary={handleAddStandaloneDictionaryToVocabulary}
               isInVocabulary={isStandaloneDictionaryInVocabulary}
             />
-          </div>
-        </aside>
+        </DictionaryWindow>
       )}
 
       {readerWorkLayer && (

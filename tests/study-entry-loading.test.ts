@@ -15,7 +15,12 @@ function harness(count: number) {
  const accountFetch=async (path:string)=>{
   reads.push(path);
   const [table,query]=path.split('?'),q=new URLSearchParams(query),offset=Number(q.get('offset')||0),limit=Number(q.get('limit')||50000);
-  if(table==='user_data_objects')return entries.slice(offset,offset+limit).map(e=>({object_key:e.id,payload:structuredClone(e)}));
+  if(table==='user_data_objects')return entries.slice(offset,offset+limit).map(e=>{
+   const select=q.get('select')??'';
+   if(select==='object_key,payload')return {object_key:e.id,payload:structuredClone(e)};
+   const fields=select.split(',').filter(field=>field.includes(':payload->')).map(field=>field.split(':')[0]);
+   return {object_key:e.id,...Object.fromEntries(fields.map(field=>[field,structuredClone(e[field as keyof VocabularyEntry]??null)]))};
+  });
   if(table==='study_cards')return structuredClone(cards.slice(offset,offset+limit));
   if(table==='study_settings')return [];
   if(table==='study_policy')return [{policy:{rewardsEnabled:true}}];
@@ -51,8 +56,9 @@ test('start reads a 1200-entry vocabulary once while preserving the latest card 
 test('prepared and ordinary snapshots have identical vocabulary and preserve Anki filtering',async()=>{
  const h=harness(3);h.cards[1].anki_pending=true;h.cards[2].suspended=true;
  const normal=await h.store.getStudySnapshot('owner');
+ const entries=await h.store.getStudyEntries('owner');
  h.reads.length=0;
- const prepared=await h.store.getStudySnapshot('owner',{entries:h.entries});
+ const prepared=await h.store.getStudySnapshot('owner',{entries});
  assert.deepEqual(JSON.parse(JSON.stringify({...prepared,serverNow:''})),JSON.parse(JSON.stringify({...normal,serverNow:''})));assert.equal(prepared.entries.length,1);assert.equal(prepared.ankiPendingCount,1);
  assert.equal(h.reads.filter(p=>p.startsWith('user_data_objects?')).length,0);
 });
