@@ -1,0 +1,15 @@
+{
+  "cacheDisabled": true,
+  "serviceWorkerBypassed": true,
+  "guest": true,
+  "oldConnectivity": {
+    "ok": true,
+    "checkedAt": "2026-10-13T08:35:35.253Z",
+    "releaseId": "20261013T163100",
+    "parentReleaseId": "20261013T161000",
+    "backendMode": "mainland_internal"
+  },
+  "oldTimeOrigin": 1791880513094,
+  "openedAt": "2026-10-13T08:35:24.931Z",
+  "articleId": "128e56d9-84d1-4a87-8ba1-b2b8a0553a2e"
+}

@@ -1,0 +1,28 @@
+✔ admin UI access requires a server-verified developer and excludes legacy password sessions (21.2754ms)
+✔ cross-origin, missing-origin, oversized and malformed writes never call persistence (4.9852ms)
+✔ save conflicts return the latest saved state and never pretend success (1.0792ms)
+✔ validation messages are bounded product copy, while transport faults stay private (1.9157ms)
+✔ public endpoint exposes only the published projection, without draft, history or admin checks (9.4472ms)
+✔ inventory destinations distinguish guest, member, reader and study states (1.0829ms)
+✔ native capsule effect resolves to a real editable button with its new adapter (0.6132ms)
+✔ clearing explicit text color does not keep a previous SDK option (0.2023ms)
+✔ desktop geometry is isolated from mobile, but shared visual choices remain available (1.5054ms)
+✔ mobile-only entrance motion honors reduced motion and full reset has no target overrides (0.6214ms)
+✔ gesture-owned geometry and animation cannot be overwritten by a saved design (0.5868ms)
+✔ inventory ids are unique; old components and special effects are not writable recipes (0.7248ms)
+✔ admin preview permits only reviewed GET requests, not probes, payments, learning or extra parameters (0.857ms)
+✔ design recipe retains safe values, canonicalizes colors/order and isolates the mobile breakpoint (1.3575ms)
+✔ design documents reject executable strings, selectors, arbitrary URLs, metadata and unknown targets (0.9468ms)
+✔ all numeric adjustments are finite and bounded; arrays/strings are never coerced (2.8474ms)
+✔ publish cannot include an unsaved client recipe, and mutation revisions are explicit safe integers (0.3666ms)
+✔ save remains private, publish applies only saved draft, rollback preserves draft, retries do not publish twice (0.5573ms)
+✔ store validates before transport and uses only the fixed service RPC and settings key (0.8593ms)
+✔ competing clients cannot overwrite one another and transport failures do not become successful defaults (1.0825ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1654.4266

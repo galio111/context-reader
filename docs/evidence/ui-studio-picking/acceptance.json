@@ -1,0 +1,67 @@
+{
+  "releaseId": "20261013T084711",
+  "parentReleaseId": "20261013T163700",
+  "parentSourceRevision": "a98901d50323cb313059f4d6461a3892713a63cb",
+  "sourceRevision": "537e522f7fd1d29865b6aa024554d93422000ca6",
+  "changedFiles": [
+    "components/UiStudioBridge.tsx",
+    "docs/evidence/release-safe-reader-1013/acceptance.json",
+    "docs/evidence/release-safe-reader-1013/admin-backup-after.log",
+    "docs/evidence/release-safe-reader-1013/after-image-prune.json",
+    "docs/evidence/release-safe-reader-1013/anonymous-after.json",
+    "docs/evidence/release-safe-reader-1013/ci-source.json",
+    "docs/evidence/release-safe-reader-1013/final-health.log",
+    "docs/evidence/release-safe-reader-1013/old-page-after.json",
+    "docs/evidence/release-safe-reader-1013/old-page-before.json",
+    "docs/evidence/release-safe-reader-1013/old-page-reader.jpg",
+    "docs/evidence/release-safe-reader-1013/public-ops.log",
+    "docs/evidence/release-safe-reader-1013/recovery-desktop.jpg",
+    "docs/evidence/release-safe-reader-1013/recovery-mobile.jpg",
+    "docs/evidence/release-safe-reader-1013/recovery-mobile.json",
+    "docs/evidence/release-safe-reader-1013/retry-after.json",
+    "docs/evidence/release-safe-reader-1013/retry-mobile-reader.jpg",
+    "docs/evidence/release-safe-reader-1013/signed-in-after.json",
+    "docs/gpt-brief.md",
+    "docs/product-journey.md",
+    "docs/release-governance.md",
+    "docs/release-safe-reader.md",
+    "lib/uiDesignNavigation.ts",
+    "scripts/ui-studio-selection-audit.mjs",
+    "tests/study-entry-loading.test.ts"
+  ],
+  "sha256": "e1a6482e12bfdd848a2f4126e4700d6e15358d97122513a31c54d1fe9756ec07",
+  "archiveBytes": 31743849,
+  "status": "public-accepted",
+  "parentFilesCompared": 1741,
+  "acceptedState": {
+    "schemaVersion": 1,
+    "releaseId": "20261013T084711",
+    "parentReleaseId": "20261013T163700",
+    "sourceRevision": "537e522f7fd1d29865b6aa024554d93422000ca6",
+    "acceptedAt": "2026-10-13T08:55:43.459390+00:00",
+    "guardVersion": 1
+  },
+  "sourceCi": "https://github.com/galio111/context-reader/actions/runs/38371354014",
+  "sourceCiConclusion": "success",
+  "previousInitialRelease": {
+    "releaseId": "20261013T075029",
+    "parentReleaseId": "20261013T074100",
+    "sourceRevision": "7c7f54a1b094a403c4aadfe8a1573f37c5fcba5e"
+  },
+  "staleCandidatesNotDeployed": [
+    "20261013T081905",
+    "20261013T083146",
+    "20261013T083714"
+  ],
+  "library": {
+    "repository": "galio111/galio-design-library",
+    "private": true,
+    "runtimeRevision": "7cd7c1c",
+    "documentationRevision": "cb00895b5326a3cb9377614c8d8df2b12d49b5f0"
+  },
+  "pendingGates": [
+    "Physical devices and other browser engines",
+    "User final visual acceptance",
+    "Held-open page across final cutover: QA process failed; post-cutover old-asset verification is separate"
+  ]
+}

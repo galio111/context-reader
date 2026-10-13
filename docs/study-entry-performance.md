@@ -14,7 +14,7 @@ The notebook has three upper-right display orders: 收藏顺序 (default, origin
 
 Above 100 entries, the notebook renders the viewport plus eight overscan rows. Each row uses its actual measured height, including long meanings, masking and viewport changes; 76px is only an initial estimate. The existing dialog remains the scroll container. Per-id keys retain reveal state, list semantics expose positions/count, and memoized content avoids unnecessary parent-timer rendering. Smaller lists retain normal document flow. Closing a detail restores its connected opener without scrolling.
 
-## Cold-entry follow-up (implementation complete, release verification pending)
+## Cold-entry follow-up (accepted 20261013T161000)
 
 The user's screenshot identifies `snapshot === null`, not dynamic script or authentication loading. Real signed-in Chrome resource timings on the old full response were 11,947 / 9,852 / 7,076 ms, including 10,311 / 9,198 / 6,061 ms downloading approximately 714 KB compressed (2.72 MB decoded). Earlier mocked delays did not measure this network bottleneck.
 
@@ -22,7 +22,19 @@ The user's screenshot identifies `snapshot === null`, not dynamic script or auth
 
 The reminder uses `GET /api/study?summary=1` for settings and day/completion only, eliminating a second full notebook download. Legacy clients keep their full response. Missing and changed entries, interrupted reads and failed local storage have explicit recovery paths. The cache does not turn a limited/offline identity into server authorization.
 
-## Evidence and limits
+## Current accepted release and evidence
+
+Accepted `20261013T161000`, parent `20261013T075029`, source `1a7f9fcd41a50ddc27b279e27619acb0066c623a`. The stable entrypoint accepted the exact reviewed 21-file delta from clean source. Public connectivity and server identity agree. The source preserves the intervening Reader recovery/static retention and UI studio releases. Later documentation commits do not change deployed source identity.
+
+Read-only real snapshots retained all 1,166 / 1,724 entries while reducing gzip size from 736,601 / 1,649,293 bytes to 176,231 / 311,701 bytes (76.08% / 81.10%). Signed-in Chrome measured the first new study response at 5,579 ms (794 ms to first byte, 4,785 ms download), 177,348 compressed bytes; a later response took 994 ms. Actual warm entry rendered the card and enabled recall controls in 70 ms. A refreshed, already-authenticated/prefetched homepage entered in 91 ms; that does not isolate cache-only timing. Full-page/authentication latency and variable network conditions remain, so cold entry is not claimed instantaneous. Recall inspection is distinct from committing an answer, which still requires live server authorization.
+
+The public browser regression uses deployed assets with synthetic API delays: first enabled recall controls 674 ms (500 ms fixture delay), warm entry 23 ms without another start, 2,000-word shuffle 45 ms with ten mounted rows. Reload showed the cached 2,000-word notebook in 2,137 ms including navigation while the fresh response was held. Full saved details resolved on demand. Ordering, repeated/keyboard shuffle, mask identity, measured mobile rows, focus return, stale responses, missing/version-changed cards, local changes and durable outbox recovery passed with zero page errors. These controlled results are separate from real-account network measurements.
+
+57 study tests, 90 critical tests, three final settings/logout/account regressions, 139 architecture tests, nine release-safety tests, 11 release contracts, local/server builds and exact-source [GitHub Actions](https://github.com/galio111/context-reader/actions/runs/38367308985) passed. Independent review found and fixed cached settings initializing an obsolete draft before live settings arrived. No real-user answer was submitted; physical devices, other browsers and user acceptance remain open.
+
+Only app/caddy changed. All five backend ids, start times and image ids stayed unchanged; seven services run normally. Anonymous study, summary, single-entry, sync and Admin reads return 401; four recovery Admin reads return 200. Health, latest `20261013T081103Z` backup SHA and isolated 39-table restore passed, with no verifier database remaining. Current/direct-parent rollback images are available; disk usage is 78%. Local evidence remains in `artifacts/study-connection-delay-1013/`. Automatic review rejected helper-worktree cleanup with `blocked by policy`; those checkouts remain intact.
+
+## Earlier warm-entry evidence and limits (20261013T145900)
 
 Public baseline release 20261013T031701 had 1,724 entries in the largest account. Read-only start stages used 29 internal REST calls and 16.8 MB, excluding authentication and write RPCs; the browser snapshot was 4.07 MB JSON / approximately 946 KB gzip. Three server observations were 496 / 4,232 / 1,975 ms. These are dated, variable observations from before the inherited compact projection.
 
@@ -36,7 +48,7 @@ The older study-refinement-browser script has a baseline-identical obsolete flou
 
 Automatic approval review rejected temporary QA-account creation (blocked by policy); this task created no account and submitted no real user answer. Live new-answer writes for this release remain unverified. Mocked public-browser behavior and real route/store fixtures do not replace that missing check. Physical devices, other browsers and the user's final visual assessment also remain open.
 
-## Accepted release
+## Previous accepted release (20261013T145900)
 
 Production release 20261013T145900, parent 20261013T063535, source 516a1724697f5b60de7e6281aafd737cab3d4f48. The stable entrypoint accepted the exact 43-file cumulative delta; public connectivity, manifest and release state agree with mainland_internal. Evidence is under docs/evidence/study-entry-1013/.
 

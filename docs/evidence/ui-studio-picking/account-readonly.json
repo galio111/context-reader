@@ -1,0 +1,121 @@
+{
+  "completedAt": "2026-10-13T08:57:10.661409+00:00",
+  "releaseId": "20261013T084711",
+  "qaUserId": "4775cc2f-d88e-42a9-af67-78d3ceff21c4",
+  "accountAuthenticated": true,
+  "accountPlan": "admin",
+  "accountRoute": "/api/auth/session",
+  "protocol2ReadOnlyChecksPassed": true,
+  "checks": [
+    {
+      "path": "/api/connectivity",
+      "authorized": false,
+      "status": 200,
+      "bytes": 150
+    },
+    {
+      "path": "/api/ui-design",
+      "authorized": false,
+      "status": 200,
+      "bytes": 67
+    },
+    {
+      "path": "/api/auth/session",
+      "authorized": true,
+      "status": 200,
+      "bytes": 1307
+    },
+    {
+      "path": "/api/account/sync?protocol=2&bootstrap=active",
+      "authorized": true,
+      "status": 200,
+      "bytes": 52
+    },
+    {
+      "path": "/api/account/sync?protocol=2&bootstrap=deleted",
+      "authorized": true,
+      "status": 200,
+      "bytes": 52
+    },
+    {
+      "path": "/api/account/sync?protocol=2",
+      "authorized": true,
+      "status": 200,
+      "bytes": 46
+    },
+    {
+      "path": "/api/account/sync?protocol=2",
+      "authorized": true,
+      "status": 409,
+      "bytes": 75
+    },
+    {
+      "path": "/api/account/sync?protocol=2",
+      "authorized": false,
+      "status": 401,
+      "bytes": 51
+    },
+    {
+      "path": "/api/admin/ui-design",
+      "authorized": true,
+      "status": 200,
+      "bytes": 215
+    },
+    {
+      "path": "/admin/ui-studio",
+      "authorized": true,
+      "status": 200,
+      "bytes": 19741
+    },
+    {
+      "path": "/admin/ui-studio/frame?screen=study&nonce=11111111-1111-4111-8111-111111111111",
+      "authorized": true,
+      "status": 200,
+      "bytes": 15131
+    },
+    {
+      "path": "/api/admin/ui-design",
+      "authorized": false,
+      "status": 403,
+      "bytes": 48
+    },
+    {
+      "path": "/admin/ui-studio",
+      "authorized": false,
+      "status": 404,
+      "bytes": 9176
+    },
+    {
+      "path": "/admin/ui-studio/frame?screen=study&nonce=11111111-1111-4111-8111-111111111111",
+      "authorized": false,
+      "status": 404,
+      "bytes": 10503
+    },
+    {
+      "path": "/api/admin/ui-design",
+      "authorized": true,
+      "status": 200,
+      "bytes": 215
+    },
+    {
+      "path": "/api/ui-design",
+      "authorized": false,
+      "status": 200,
+      "bytes": 67
+    },
+    {
+      "path": "/api/connectivity",
+      "authorized": false,
+      "status": 200,
+      "bytes": 150
+    }
+  ],
+  "publicProjectionUnchanged": true,
+  "publishedProjectionSha256": "ae14861768d1faaf9f04bfc0cdcf52ef46b7a291fa01fd6d363f976769526c68",
+  "adminDesignStateUnchanged": true,
+  "adminDesignStateSha256": "09a514111bbda02a0e52975763ff0ba7e35203f65a3e34b8262f3d80634c3197",
+  "publicRevision": 0,
+  "modelGenerationRequests": 0,
+  "studyAnswerRequests": 0,
+  "allPassed": true
+}

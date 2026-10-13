@@ -1,0 +1,176 @@
+{
+  "cacheDisabled": true,
+  "serviceWorkerBypassed": true,
+  "guest": true,
+  "oldConnectivity": {
+    "ok": true,
+    "checkedAt": "2026-10-13T08:56:02.950Z",
+    "releaseId": "20261013T084711",
+    "parentReleaseId": "20261013T163700",
+    "backendMode": "mainland_internal"
+  },
+  "oldTimeOrigin": 1791881738960.8,
+  "openedAt": "2026-10-13T08:55:52.675Z",
+  "articleId": "128e56d9-84d1-4a87-8ba1-b2b8a0553a2e",
+  "newConnectivity": {
+    "ok": true,
+    "checkedAt": "2026-10-13T08:57:51.858Z",
+    "releaseId": "20261013T084711",
+    "parentReleaseId": "20261013T163700",
+    "backendMode": "mainland_internal"
+  },
+  "afterSignalAt": "2026-10-13T08:57:41.528Z",
+  "readerTextLength": 8441,
+  "firstTimeOrigin": 1791881738960.8,
+  "repeatTimeOrigin": 1791881738960.8,
+  "ok": true,
+  "errors": [],
+  "modules": [
+    {
+      "phase": "before",
+      "url": "https://context-reader.com/_next/static/chunks/webpack-039108e2af9d14b5.js",
+      "status": 200
+    },
+    {
+      "phase": "before",
+      "url": "https://context-reader.com/_next/static/chunks/main-app-f3336e172256d2ab.js",
+      "status": 200
+    },
+    {
+      "phase": "before",
+      "url": "https://context-reader.com/_next/static/chunks/2619-04bc32f026a0d946.js",
+      "status": 200
+    },
+    {
+      "phase": "before",
+      "url": "https://context-reader.com/_next/static/chunks/6313-3dcff87154ca2e37.js",
+      "status": 200
+    },
+    {
+      "phase": "before",
+      "url": "https://context-reader.com/_next/static/chunks/app/page-1ffb5236014f06a1.js",
+      "status": 200
+    },
+    {
+      "phase": "before",
+      "url": "https://context-reader.com/_next/static/chunks/app/layout-c3e62ef81f0dc968.js",
+      "status": 200
+    },
+    {
+      "phase": "before",
+      "url": "https://context-reader.com/_next/static/chunks/6074-cd2ed4c290e720da.js",
+      "status": 200
+    },
+    {
+      "phase": "before",
+      "url": "https://context-reader.com/_next/static/chunks/542-c9ee18f43f2a5b58.js",
+      "status": 200
+    },
+    {
+      "phase": "before",
+      "url": "https://context-reader.com/_next/static/chunks/7778-6c488516701ba4de.js",
+      "status": 200
+    },
+    {
+      "phase": "before",
+      "url": "https://context-reader.com/_next/static/chunks/9215-5b349ffe27dd2d2a.js",
+      "status": 200
+    },
+    {
+      "phase": "before",
+      "url": "https://context-reader.com/_next/static/chunks/7855-6be82ec1f5472720.js",
+      "status": 200
+    },
+    {
+      "phase": "before",
+      "url": "https://context-reader.com/_next/static/chunks/1983-0484470610cd4fb1.js",
+      "status": 200
+    },
+    {
+      "phase": "before",
+      "url": "https://context-reader.com/_next/static/chunks/5206-a34a33a7fc43ffc8.js",
+      "status": 200
+    },
+    {
+      "phase": "before",
+      "url": "https://context-reader.com/_next/static/chunks/1904-9a308f317210cf76.js",
+      "status": 200
+    },
+    {
+      "phase": "before",
+      "url": "https://context-reader.com/_next/static/chunks/8144-6b86f253098e6706.js",
+      "status": 200
+    },
+    {
+      "phase": "before",
+      "url": "https://context-reader.com/_next/static/chunks/8640-d8ff92a0ec9382d4.js",
+      "status": 200
+    },
+    {
+      "phase": "before",
+      "url": "https://context-reader.com/_next/static/chunks/5217-ec3fb010b333abf3.js",
+      "status": 200
+    },
+    {
+      "phase": "before",
+      "url": "https://context-reader.com/_next/static/chunks/330-033ad0ac37b1fe3f.js",
+      "status": 200
+    },
+    {
+      "phase": "before",
+      "url": "https://context-reader.com/_next/static/chunks/c15bf2b0-bfa95b308e62c6cc.js",
+      "status": 200
+    },
+    {
+      "phase": "before",
+      "url": "https://context-reader.com/_next/static/chunks/4239-c42643284c62444b.js",
+      "status": 200
+    },
+    {
+      "phase": "before",
+      "url": "https://context-reader.com/_next/static/chunks/1255-d3668eefd1b4a69b.js",
+      "status": 200
+    },
+    {
+      "phase": "before",
+      "url": "https://context-reader.com/_next/static/chunks/4bd1b696-100b9d70ed4e49c1.js",
+      "status": 200
+    },
+    {
+      "phase": "before",
+      "url": "https://context-reader.com/_next/static/chunks/8072.c8640ffc99e57a20.js",
+      "status": 200
+    },
+    {
+      "phase": "before",
+      "url": "https://context-reader.com/_next/static/chunks/b536a0f1.a89aaee2c858350d.js",
+      "status": 200
+    },
+    {
+      "phase": "before",
+      "url": "https://context-reader.com/_next/static/chunks/bd904a5c.a41790b73ae35279.js",
+      "status": 200
+    },
+    {
+      "phase": "after",
+      "url": "https://context-reader.com/_next/static/chunks/9040-8c99a500d934e019.js",
+      "status": 200
+    },
+    {
+      "phase": "after",
+      "url": "https://context-reader.com/_next/static/chunks/2687-f89361115c75b9cc.js",
+      "status": 200
+    },
+    {
+      "phase": "after",
+      "url": "https://context-reader.com/_next/static/chunks/3449.f4fcaad4b85f791b.js",
+      "status": 200
+    },
+    {
+      "phase": "after",
+      "url": "https://context-reader.com/_next/static/chunks/6063-da19be4783e4ea9a.js",
+      "status": 200
+    }
+  ],
+  "writes": []
+}

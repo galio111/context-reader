@@ -1,0 +1,54 @@
+{
+  "checks": [
+    {
+      "name": "rapid cross scene last wins",
+      "ok": true
+    },
+    {
+      "name": "pending locate selection never executes answer",
+      "ok": true
+    },
+    {
+      "name": "normal operation answers",
+      "ok": true
+    },
+    {
+      "name": "Escape deselects without closing native dialog",
+      "ok": true
+    },
+    {
+      "name": "reveal reader.dictionary",
+      "ok": true
+    },
+    {
+      "name": "reveal reader.import-layer",
+      "ok": true
+    },
+    {
+      "name": "reveal reader.edit-canvas",
+      "ok": true
+    },
+    {
+      "name": "reveal menu.preview-vocabulary",
+      "ok": true
+    },
+    {
+      "name": "reveal home.url-help",
+      "ok": true
+    },
+    {
+      "name": "home target closes unrelated dictionary window",
+      "ok": true
+    },
+    {
+      "name": "home target closes blocking study host",
+      "ok": true
+    },
+    {
+      "name": "brand back remains selectable",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "writes": []
+}
