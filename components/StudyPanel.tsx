@@ -351,9 +351,8 @@ export function StudyPanel({visible,onClose,onSource,notice,requestedTab="today"
         <div className={styles.statusArea}>
           {error&&<div className={styles.error} role="alert"><span>{error}</span>{!pending&&<button disabled={busy} onClick={()=>void run(snapshot?refresh:async()=>accept(await api<StudySnapshot>({op:"prepare"})))}>重试</button>}<button className={styles.iconButton} aria-label="关闭错误提示" onClick={()=>setError("")}><StudyIcon name="close"/></button></div>}
           {snapshot&&!authoritative&&!error&&<LoadingStatus className={styles.caption}>正在核对最新进度…</LoadingStatus>}
-          {busy&&snapshot&&authoritative&&<LoadingStatus className={styles.caption}>正在同步学习记录…</LoadingStatus>}
           {isOffline&&<div className={styles.error} role="status">当前离线，恢复连接后可继续保存进度。</div>}
-          {reviews.error&&<div className={styles.error} role="status"><span>{reviews.error}</span><button disabled={isOffline} onClick={()=>void reviews.retry()}>重试同步</button></div>}
+          {reviews.error&&<div className={styles.error} role="status"><span>{reviews.error}</span><button disabled={isOffline} onClick={()=>void reviews.retry()}>重试</button></div>}
         </div>
         {!snapshot?<LoadingStatus className={styles.caption}>正在连接学习记录…</LoadingStatus>:<>
           {tab!=="today"&&<header className={styles.pageHeader}><h1>{title}</h1><button onClick={()=>selectTab("today")}>继续背词<StudyIcon name="arrow"/></button></header>}
