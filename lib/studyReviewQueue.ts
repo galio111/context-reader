@@ -48,7 +48,7 @@ export function migrateStudyReview(storage: QueueStorage, session: Pick<Storage,
 
 export interface ReviewQueueCallbacks {
   active: () => boolean;
-  changed: (pending: PendingStudyReview[]) => void;
+  changed: (pending: PendingStudyReview[], acknowledgedId: string) => void;
   saved: (snapshot: StudySnapshot) => void;
   conflict: () => void;
 }
@@ -68,8 +68,13 @@ export async function drainStudyReviews(
       let response: { snapshot: StudySnapshot };
       try { response = await api<{ snapshot: StudySnapshot }>(review); }
       catch (error) {
-        if ((error as {code?: string}).code !== "too_fast") throw error;
-        await sleep(850);
+        const code = (error as {code?: string}).code;
+        if (code === "day_changed") {
+          // A prior day's presented card keeps its token and version. Creating
+          // today's plan does not present it again or replace the original answer.
+          await api<StudySnapshot>({ op: "start" });
+        } else if (code === "too_fast") await sleep(850);
+        else throw error;
         if (!callbacks.active()) return;
         response = await api<{ snapshot: StudySnapshot }>(review);
       }
@@ -82,7 +87,7 @@ export async function drainStudyReviews(
     }
     if (!callbacks.active()) return;
     storage.removeItem(prefix(owner) + review.id);
-    callbacks.changed(readStudyReviews(storage, owner));
+    callbacks.changed(readStudyReviews(storage, owner), review.id);
     callbacks.saved(snapshot);
     if (conflict) callbacks.conflict();
   }

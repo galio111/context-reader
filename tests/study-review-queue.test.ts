@@ -45,6 +45,41 @@ test("too-fast retries retain the timing guard and immutable answer",async()=>{
   assert.deepEqual(waits,[850]);assert.deepEqual(sent,[item,item]);assert.equal(storage.length,0);
 });
 
+test("cross-day recovery creates today's plan before replaying the unchanged presented answer",async()=>{
+  const storage=new StorageMock(), item={...operation(1),queuedAt:Date.now()-86400000};storeStudyReview(storage,"A",item);
+  const calls:unknown[]=[];let planned=false, conflicts=0, saved=0;
+  await drainStudyReviews(storage,"A",async<T>(body?:unknown)=>{
+    calls.push(body);
+    if((body as {op:string}).op==="start") {planned=true;return snapshot() as T;}
+    if(!planned)throw Object.assign(new Error(),{code:"day_changed",status:409});
+    assert.deepEqual(body,item);return {snapshot:snapshot(2)} as T;
+  },{...callbacks(),saved:()=>{saved++;},conflict:()=>{conflicts++;}});
+  assert.deepEqual(calls,[item,{op:"start"},item]);
+  assert.equal(saved,1);assert.equal(conflicts,0);assert.equal(storage.length,0);
+});
+
+test("a failed day initialization or still-unplanned card never discards yesterday's answer",async()=>{
+  for(const startFails of [true,false]){
+    const storage=new StorageMock(), item=operation(1);storeStudyReview(storage,"A",item);let conflicts=0;
+    await assert.rejects(drainStudyReviews(storage,"A",async<T>(body?:unknown)=>{
+      if((body as {op:string}).op==="start") {if(startFails)throw new TypeError("offline");return snapshot() as T;}
+      throw Object.assign(new Error(),{code:"day_changed",status:409});
+    },{...callbacks(),conflict:()=>{conflicts++;}}));
+    assert.deepEqual(readStudyReviews(storage,"A"),[item]);assert.equal(conflicts,0);
+  }
+});
+
+test("switching accounts during cross-day initialization retains the original answer without replay",async()=>{
+  const storage=new StorageMock(), item=operation(1);storeStudyReview(storage,"A",item);
+  const started=deferred<StudySnapshot>(), calls:unknown[]=[];let active=true;
+  const draining=drainStudyReviews(storage,"A",async<T>(body?:unknown)=>{
+    calls.push(body);if((body as {op:string}).op==="start")return await started.promise as T;
+    throw Object.assign(new Error(),{code:"day_changed",status:409});
+  },{...callbacks(),active:()=>active});
+  await Promise.resolve();active=false;started.resolve(snapshot());await draining;
+  assert.deepEqual(calls,[item,{op:"start"}]);assert.deepEqual(readStudyReviews(storage,"A"),[item]);
+});
+
 test("unmount or account switch fences delayed responses and leaves the answer for recovery",async()=>{
   const storage=new StorageMock(), item=operation(1);storeStudyReview(storage,"A",item);
   const wait=deferred<{snapshot:StudySnapshot}>();let active=true,accepted=0;

@@ -64,6 +64,7 @@ export function StudyPanel({visible,onClose,onSource,notice,requestedTab="today"
   const alive=useRef(true);
   const displayed=useRef("");
   const profileAction=useRef("");
+  const preparedDay=useRef("");
   const offset=useRef(0),requestLock=useRef(false);
   const acceptedAt=useRef(0);
   useDocumentScrollLock(visible);
@@ -155,13 +156,19 @@ export function StudyPanel({visible,onClose,onSource,notice,requestedTab="today"
       if(reviews.enqueue({op:"review",id:crypto.randomUUID(),cardId:card.id,version:card.version,token,answer,activeMs:activeMs(),queuedAt:Date.now()})){setToken("");setError("");}
     } catch(e) { setError((e as Error).message); }
   };
-  const refresh=async()=>{accept(await api<StudySnapshot>());setPresentation(n=>n+1);};
+  const refresh=async()=>{
+    let fresh=await api<StudySnapshot>();
+    if(!fresh.today&&!studyPaused(fresh.settings,new Date(fresh.serverNow)))fresh=await api<StudySnapshot>({op:"start"});
+    accept(fresh);setPresentation(n=>n+1);
+  };
   const currentDay=shanghaiDay(now);
   const learnedToday=snapshot?.daily.find(day=>day.day===currentDay)?.new_cards??0;
   useEffect(()=>{
-    if(snapshot?.today&&snapshot.today.day!==currentDay&&!pending&&!busy)void run(async()=>{accept(await api<StudySnapshot>({op:"start"}));setPresentation(n=>n+1);});
+    if(!snapshot||snapshot.today?.day===currentDay||pending||busy||studyPaused(snapshot.settings,new Date(tick+offset.current))||preparedDay.current===currentDay)return;
+    preparedDay.current=currentDay;
+    void run(async()=>{accept(await api<StudySnapshot>({op:"start"}));setPresentation(n=>n+1);});
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[currentDay,snapshot?.today?.day,pending,busy]);
+  },[currentDay,snapshot?.today?.day,snapshot?.settings.pausedUntil,pending,busy]);
   const loadProfile=()=>run(async()=>{
     const r=await fetch("/api/study/profile",{headers:{"X-Context-Account":owner},cache:"no-store"});
     const d=await r.json();if(!r.ok)throw new Error(d.error);setProfile(d);

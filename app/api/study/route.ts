@@ -108,6 +108,7 @@ export async function POST(request: Request) {
         p_answer: answer, p_rating: studyRating(answer), p_active: Math.max(0, Math.min(60000, Math.floor(Number(body.activeMs) || 0))),
         p_memory: scheduled.memory, p_algorithm: STUDY_ALGORITHM, p_parameters: { retention, forgotMinutes:settings.forgotMinutes??5, unsureMinutes:settings.unsureMinutes??10, shortTermStrategy:"explicit-again-hard-v1", fuzz: false },
       });
+      if (saved.dayChanged) throw new StudyError("正在更新今日计划，本次答案仍然保留。", 409, "day_changed");
       if (!saved.saved && !saved.duplicate) throw new StudyError(saved.tooFast ? "请先回忆并核对答案，再记录结果。" : "学习状态已变化，本次没有重复记分。已保留服务器上的最新进度。", 409, saved.tooFast ? "too_fast" : "state_changed");
       if(scheduled.memory.state===2)await reconcileStudyCards(userId);
       await studyRpc("settle_rewards",{p_user:userId});
