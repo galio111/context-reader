@@ -35,9 +35,15 @@ New URL imports and newly published recommendation media are first-party assets.
 1. Run `bootstrap-ubuntu.sh` as root on a fresh Ubuntu 24.04 server.
 2. Clone the reviewed repository into `/opt/context-reader`.
 3. Copy `env.example` to `.env` and `env.runtime.example` to `.env.runtime`, then fill secrets on the server.
-4. Start the private stack:
+4. From `ops/mainland`, build the app, seed the reviewed public static store, then start the private stack (fresh empty servers only):
 
-   `docker compose --env-file .env -f compose.yml -f compose.shadow.yml up -d --build`
+   ```sh
+   docker compose --env-file .env -f compose.yml -f compose.shadow.yml build app
+   bootstrap_release_id="$(date -u +%Y%m%dT%H%M%S)"
+   docker tag context-reader-app:latest "context-reader-app:candidate-$bootstrap_release_id"
+   python3 retain-next-static.py --image "context-reader-app:candidate-$bootstrap_release_id"
+   docker compose --env-file .env -f compose.yml -f compose.shadow.yml up -d --no-build
+   ```
 
 5. From the developer computer, open an SSH tunnel:
 
@@ -46,3 +52,22 @@ New URL imports and newly published recommendation media are first-party assets.
 6. Browse `http://127.0.0.1:8080` while the tunnel remains open.
 
 The public ports remain blocked by UFW during shadow mode. After ICP filing and DNS setup, run `cutover-production.sh`; it changes the port overlay only after the DNS guard passes. Never start both shadow and production port overlays together.
+
+## Keeping already-open pages usable across releases
+
+`static-asset-retention-v1` makes `/opt/context-reader-shared/next-static` the permanent public store for `/_next/static/*`. Caddy mounts it read-only and serves only GET/HEAD, including JavaScript/CSS MIME types, byte ranges, and dynamic zstd/gzip compression. Successful responses are immutable; missing files are real 404 responses without long-lived negative caching. Directory listings and application/HTML fallthrough are disabled. The store contains only allowlisted public build resources; release metadata is kept in the separate, unserved `next-static-manifests` directory. Precompressed sidecar negotiation remains disabled on Caddy 2.10.2 because its [upstream issue 7250](https://github.com/caddyserver/caddy/issues/7250) incorrectly returns HTTP 206 for full responses, breaking browser Cache API writes. The existing dynamic encoder avoids that path; clients accepting only Brotli receive the ordinary uncompressed representation. Re-enable precompressed negotiation only after a separately tested Caddy upgrade, without rewriting response status codes.
+
+Before any app/Caddy cutover, the stable `/opt/context-reader/bin/retain-next-static` helper reads `/app/.next/static` from the current accepted image and the candidate image. It does not run the image or mount secrets. Unsafe archive paths, links, devices, source maps and non-public files are rejected. An existing path must have identical size and SHA-256; a collision rejects deployment without replacing that file. New files are added atomically. Identical paths are stored once across releases, and image cleanup never touches this shared store. **There is no age-based or release-count-based asset pruning:** an arbitrarily old page can still need its lazy Reader chunk.
+
+The default storage budget is 1 GiB, with a 1 GiB remaining-disk floor and a 256 MiB extraction limit per source image. Exhaustion rejects the deployment before cutover. Expand storage or make a reviewed budget change to the stable helper; do not delete historical chunks to make deployment pass. Budget checks measure the persistent store plus new assets, while free-space checks also account for temporary staging. Failed staging directories and temporary extraction containers are removed automatically. Source-image inventories with SHA-256 values allow operators to check retention independently of app images.
+
+The first rollout requires a separate reviewed upgrade of the privileged stable tools; a candidate archive must never install its own deployment authority:
+
+1. Export the actual installed `deploy-release` and `verify-release-contracts`; reconcile their cumulative checks with the reviewed Git commit. The repository verifier must preserve the actual production checks even when the old repository copy has drifted.
+2. Upload the reviewed `retain-next-static.py`, `verify-release-contracts.sh` and `deploy-release.sh`, plus a SHA-256 list from that exact commit, into a private staging directory. Check the digests before installation.
+3. Acquire `/var/lock/context-reader-deploy.lock` and recheck the public accepted release against `/opt/context-reader-current` and the release state. Install each tool as a temporary sibling under `/opt/context-reader/bin`, mode `0755`, and atomically rename it: retainer first, verifier second, deploy entrypoint last. Keep copies of the prior stable tools outside candidate directories. Never install through an unreviewed candidate script.
+4. Under that same deployment lock, run the installed helper with one `--image context-reader-app:accepted-RELEASE_ID` per still-available historical accepted image, including the current release and direct parent. Seed these before the image-pruning timer can remove them. If an older image was already deleted, an exact-source rebuild may be seeded under a `candidate-RELEASE_ID` tag only after its original requested chunk names and bytes have been verified; never fabricate an old filename or pretend a reconstruction is an accepted image. Lost resources cannot be recovered by renaming new chunks.
+5. Run `python3 ops/mainland/test-retain-next-static.py` on Linux (including symlink tests). Validate the reviewed Caddy config with the actual installed Caddy version and an isolated listener: old/new JS and CSS GET/HEAD, identical SHA-256, immutable success, 404 without immutable, no directory listing, compressed responses, and method rejection. Then use the stable deployment entrypoint normally. It retains the parent and candidate before cutover and retains the global lock/parent recheck/protected contracts.
+6. Keep a homepage open across the actual deployment, then open a previously unvisited article and another article after returning home. Confirm the public release/parent identity and that the old page gets the original Reader chunks from the shared store. A successful new-page test does not prove this case.
+
+For an application-image rollback, retain the new shared-static Caddy route and volume mount, then change only the application image under the deployment lock. Do not restore an older release's entire Compose/Caddy configuration: that would remove the retention route even though the files remain. The historical `rollback-shadow.sh` is private-shadow-only; invoke it from the current reviewed configuration, and never use it as a production rollback entrypoint. New private bootstraps must seed build assets before enabling this Caddy route as shown above.

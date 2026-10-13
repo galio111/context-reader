@@ -1,5 +1,9 @@
 # Production Release Governance
 
+## Preserving already-open pages
+
+All subsequent releases require `static-asset-retention-v1`: install the reviewed stable tools outside candidate archives, then retain current/candidate public build assets before cutover. `/opt/context-reader-shared/next-static` and its separate manifests survive image cleanup and app rollback. Do not expire hashed files to free space; capacity failure must stop release. Keep the current shared Caddy mount/route when rolling the app image back. Run `npm run test:release-safety` in CI and verify old-page article entry across an actual deployment. [Implementation, incident and acceptance evidence](release-safe-reader.md).
+
 ## Accepted study entry and notebook ordering release
 
 Accepted `20261013T145900`, parent `20261013T063535`, source `516a1724697f5b60de7e6281aafd737cab3d4f48`. Stable guard, exact 43-file cumulative delta, public identity, local/server builds and exact-source CI passed. Warm entry, local display sorting and measured large-list rendering preserve the parent's durable outbox and cross-day/cross-tab recovery. Two controlled public browser runs, 71 targeted/90 critical checks, anonymous/recovery-Admin boundaries, health, latest SHA/39-table isolated restore and current/parent rollback images passed. Only app/caddy recreated; five backend identities unchanged. Guarded application-image retention resolved a disk threshold warning. Real new-answer writes for this task, physical devices and final user visual acceptance remain open. [Evidence and limits](study-entry-performance.md).

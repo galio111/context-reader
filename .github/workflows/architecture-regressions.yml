@@ -28,6 +28,8 @@ jobs:
         run: npm run test:architecture
       - name: Provider fallback preserves one user charge
         run: node --import ./scripts/test-server-context.mjs --import tsx --test tests/provider-failover.test.ts tests/provider-billing.test.ts
+      - name: Old-page assets and Reader failure recovery
+        run: npm run test:release-safety
       - run: npm run verify:release-contracts
       - run: npm run audit:egress
       - run: npm run build

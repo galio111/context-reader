@@ -221,4 +221,16 @@ assert.doesNotMatch(
   "expanded recommendation cards must retain their enter/exit animation",
 );
 
-console.log("release contracts passed: release-lineage-v1, phonetic-current-form-v1, anki-idempotency-v1, invitation-entitlement-v1, adaptive-article-image-localization-v3, reader-token-identity-v1, admin-curation-transition-v1, rolling-session-v1, featured-motion-preservation-v1");
+requireSource("ops/mainland/deploy-release.sh", [
+  'STATIC_ASSET_RETAINER="/opt/context-reader/bin/retain-next-static"',
+  '"$STATIC_ASSET_RETAINER"',
+  "static-asset-retention-v1",
+]);
+requireSource("ops/mainland/compose.yml", ["/opt/context-reader-shared/next-static:/srv/next-static:ro"]);
+requireSource("ops/mainland/Caddyfile", ["handle_path /_next/static/*", "root * /srv/next-static", "encode zstd gzip"]);
+requireSource("ops/mainland/retain-next-static.py", ["immutable static asset collision", "expand capacity, never prune open-tab assets", "os.link(source, target)"]);
+requireSource("components/HomeClient.tsx", ["createRecoverableReader", "onRecoveryBack={handleReaderRecoveryBack}"]);
+requireSource("components/RecoverableReader.tsx", ["getDerivedStateFromError", "Reader: lazy(load)", "reportReaderFailure"]);
+requireSource("scripts/test-release-safety.mjs", ["test-retain-next-static.py", "reader-load-recovery.test.tsx"]);
+
+console.log("release contracts passed: release-lineage-v1, phonetic-current-form-v1, anki-idempotency-v1, invitation-entitlement-v1, adaptive-article-image-localization-v3, reader-token-identity-v1, admin-curation-transition-v1, rolling-session-v1, featured-motion-preservation-v1, static-asset-retention-v1, reader-load-recovery-v1");
