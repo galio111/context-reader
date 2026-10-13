@@ -79,7 +79,12 @@ export function PillNavAction({
       activeTweenRef.current?.kill();
       timelineRef.current?.kill();
 
-      const { width, height } = action.getBoundingClientRect();
+      if(action.dataset.uiEffectOwner==='galio') {
+        timelineRef.current=null;
+        gsap.set(circle,{scale:0});gsap.set(primaryContent,{y:0});gsap.set(hoverContent,{y:0,opacity:0});
+        return;
+      }
+      const width=action.offsetWidth,height=action.offsetHeight;
       const radius = ((width * width) / 4 + height * height) / (2 * height);
       const diameter = Math.ceil(2 * radius) + 2;
       const delta = Math.ceil(
@@ -144,6 +149,8 @@ export function PillNavAction({
       timelineRef.current = timeline;
     };
 
+    const ownerObserver=new MutationObserver(layout);
+    ownerObserver.observe(action,{attributes:true,attributeFilter:['data-ui-effect-owner']});
     layout();
     window.addEventListener("resize", layout);
     reducedMotionQuery.addEventListener("change", layout);
@@ -151,6 +158,7 @@ export function PillNavAction({
 
     return () => {
       cancelled = true;
+      ownerObserver.disconnect();
       window.removeEventListener("resize", layout);
       reducedMotionQuery.removeEventListener("change", layout);
       activeTweenRef.current?.kill();
@@ -159,7 +167,7 @@ export function PillNavAction({
   }, [disabled, ease, label, motion]);
 
   const play = () => {
-    if (disabled) return;
+    if (disabled || actionRef.current?.dataset.uiEffectOwner==='galio') return;
     const timeline = timelineRef.current;
     if (!timeline || reducedMotionRef.current) return;
     activeTweenRef.current?.kill();
@@ -171,7 +179,7 @@ export function PillNavAction({
   };
 
   const reverse = () => {
-    if (disabled) return;
+    if (disabled || actionRef.current?.dataset.uiEffectOwner==='galio') return;
     const timeline = timelineRef.current;
     if (!timeline || reducedMotionRef.current) return;
     activeTweenRef.current?.kill();
@@ -184,13 +192,14 @@ export function PillNavAction({
 
   const content = (
     <>
-      <span className={styles.hoverCircle} aria-hidden="true" ref={circleRef} />
+      <span data-pill-circle className={styles.hoverCircle} aria-hidden="true" ref={circleRef} />
       <span className={styles.labelStack}>
-        <span className={styles.content} ref={primaryContentRef}>
+        <span data-pill-primary className={styles.content} ref={primaryContentRef}>
           <span>{label}</span>
           {renderIcon?.()}
         </span>
         <span
+          data-pill-hover
           className={`${styles.content} ${styles.hoverContent}`}
           aria-hidden="true"
           ref={hoverContentRef}

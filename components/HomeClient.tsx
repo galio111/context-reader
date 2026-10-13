@@ -67,6 +67,7 @@ interface HomeClientProps {
   homeVariant?: "immersive" | "book";
   forceGuestPreview?: boolean;
   forceMemberPreview?: boolean;
+  skipOpening?: boolean;
 }
 
 type PublicArticleDetails = Pick<
@@ -201,7 +202,7 @@ async function requestImageLayoutWords(file: File): Promise<ImportedImageLayoutW
   return data.words;
 }
 
-export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCatalogueComplete = true, initialCatalogueCounts, initialHomepageCuration, homeVariant = "immersive", forceGuestPreview = false, forceMemberPreview = false }: HomeClientProps) {
+export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCatalogueComplete = true, initialCatalogueCounts, initialHomepageCuration, homeVariant = "immersive", forceGuestPreview = false, forceMemberPreview = false, skipOpening = false }: HomeClientProps) {
   const { account, isOffline, requireAccount } = useAccount();
   const [initialPublicArticles, setPublicArticles] = useState(bootstrapArticles);
   const [catalogueStatus, setCatalogueStatus] = useState<"idle" | "loading" | "ready" | "error">(initialCatalogueComplete ? "ready" : "idle");
@@ -1537,7 +1538,7 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
         onOpenCet={entry => { homeReturnPositionedRef.current = false; cetHomeScrollRef.current = window.scrollY; setCetEntry(entry); }}
         forceGuestPreview={forceGuestPreview}
         forceMemberPreview={forceMemberPreview}
-        skipMemberOpening={homeDemoCompleted}
+        skipMemberOpening={homeDemoCompleted || skipOpening}
         article={article}
         articleUrl={articleUrl}
         error={error}

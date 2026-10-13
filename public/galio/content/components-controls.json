@@ -1,5 +1,26 @@
 [
   {
+    "id": "c-buttons-context-pill",
+    "category": "buttons",
+    "title": "阅读站的胶囊按钮",
+    "summary": "圆形从底部铺满，文字与图标从下方接替。",
+    "interaction": "悬停看进入与退出；演示可重播、慢放和拖动过程。点击保留原操作。",
+    "source": {
+      "name": "Context Reader · PillNavAction",
+      "url": "https://context-reader.com/",
+      "codeUrl": "https://github.com/galio111/context-reader/blob/main/components/PillNavAction.tsx",
+      "observation": "用户指定收录的真实顶栏按钮。保留原圆形几何、双文字层及进入300ms/退出200ms的双重power3.out节奏。",
+      "implementation": "从本项目PillNavAction完整移植，底层几何沿用React Bits PillNav；无GSAP运行依赖。保留真实节点和点击事件。",
+      "licensePath": "third-party/controls/react-bits/LICENSE.md"
+    },
+    "tags": ["真实项目提取", "现有元素增强", "用户指定收录"],
+    "module": "context-pill",
+    "variant": "context-pill",
+    "defaultDuration": 300,
+    "defaultRadius": 32,
+    "portable": true
+  },
+  {
     "id": "c-buttons-rolling",
     "category": "buttons",
     "title": "文字向上滚动",
