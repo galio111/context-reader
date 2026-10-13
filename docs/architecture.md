@@ -429,6 +429,8 @@ Discovery and paid review are separate lifecycles. An hourly, three-source-per-t
 
 ## Native study activity and retained presentation
 
+Study answers first enter an account-scoped durable outbox, then advance the visible card while server-authoritative FSRS and reward confirmation run in the background. Compact database vocabulary projections exclude complete dictionary payloads; the per-word cache still supplies full details. Header counts separate remaining learning, remaining review and actual daily first graduation. Cross-day recovery and cross-tab acknowledgements retain pending answers until authoritative reconciliation.
+
 StudyHost preloads only a verified online account and retains its keyed StudyPanel on close. Presentation tokens are renewed on re-entry; hints/assistance reset only when card/version changes. Settings stay mounted, serialize saves and merge only returned settings so a late save cannot roll back a review. Reader Menu portals into the open native study dialog; navigation explicitly releases the study layer. Data plots use study_daily_stats_v3 (365 Shanghai days; distinct ongoing learning, first graduation and ordinary review; cross-day graduation counts on the completion day; undone excluded). Reading hooks connect trusted foreground interactions, never idle tails; cross-tab ownership breaks overlap. study_reading_tick_v2 row-locks and bounds time; verified_seconds alone gates profile generation, while legacy totals and generated profiles remain. Full windows and evidence: [study refinement](study-refinement-20261010.md).
 
 
