@@ -1,0 +1,592 @@
+{
+  "completedAt": "2026-10-13T03:26:33.740049+00:00",
+  "userId": "9f48f8e8-a90b-4cbf-8851-e49aa101b2b7",
+  "ordinaryAccountStatuses": {
+    "/api/admin/ui-design": 403,
+    "/admin/ui-studio": 404,
+    "/admin/ui-studio/frame?screen=study&nonce=qa-cleanup-boundary": 404
+  },
+  "before": {
+    "observedAt": "2026-10-13T03:26:41.055735+00:00",
+    "identity": {
+      "userId": "9f48f8e8-a90b-4cbf-8851-e49aa101b2b7",
+      "verifiedDisposableIdentity": true
+    },
+    "publicUserReferenceCounts": [
+      {
+        "table": "product_activity_days",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "billing_grants",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "billing_grants",
+        "column": "id",
+        "count": 0
+      },
+      {
+        "table": "study_reading_days",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "study_days",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "account_profiles",
+        "column": "user_id",
+        "count": 1
+      },
+      {
+        "table": "user_entitlements",
+        "column": "user_id",
+        "count": 1
+      },
+      {
+        "table": "billing_translation_blocks",
+        "column": "action_id",
+        "count": 0
+      },
+      {
+        "table": "billing_allocations",
+        "column": "grant_id",
+        "count": 0
+      },
+      {
+        "table": "billing_allocations",
+        "column": "action_id",
+        "count": 0
+      },
+      {
+        "table": "admin_audit_logs",
+        "column": "id",
+        "count": 0
+      },
+      {
+        "table": "billing_orders",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "billing_orders",
+        "column": "id",
+        "count": 0
+      },
+      {
+        "table": "account_activity_days",
+        "column": "owner_key",
+        "count": 1
+      },
+      {
+        "table": "invitation_codes",
+        "column": "redeemed_by",
+        "count": 0
+      },
+      {
+        "table": "invitation_codes",
+        "column": "id",
+        "count": 0
+      },
+      {
+        "table": "usage_actions",
+        "column": "owner_key",
+        "count": 0
+      },
+      {
+        "table": "account_activity_days",
+        "column": "guest_id",
+        "count": 0
+      },
+      {
+        "table": "account_activity_days",
+        "column": "user_id",
+        "count": 1
+      },
+      {
+        "table": "public_explanations",
+        "column": "article_id",
+        "count": 0
+      },
+      {
+        "table": "public_explanations",
+        "column": "id",
+        "count": 0
+      },
+      {
+        "table": "study_import_batches",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "billing_memberships",
+        "column": "order_id",
+        "count": 0
+      },
+      {
+        "table": "billing_memberships",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "study_claims",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "usage_counters",
+        "column": "owner_key",
+        "count": 0
+      },
+      {
+        "table": "study_profiles",
+        "column": "action_id",
+        "count": 0
+      },
+      {
+        "table": "study_profiles",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "public_article_translations",
+        "column": "article_id",
+        "count": 0
+      },
+      {
+        "table": "public_article_translations",
+        "column": "id",
+        "count": 0
+      },
+      {
+        "table": "study_rewards",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "study_reward_words",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "study_settings",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "product_reading_ticks",
+        "column": "id",
+        "count": 0
+      },
+      {
+        "table": "product_reading_ticks",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "study_profile_jobs",
+        "column": "action_id",
+        "count": 0
+      },
+      {
+        "table": "study_profile_jobs",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "study_streaks",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "guest_identities",
+        "column": "id",
+        "count": 0
+      },
+      {
+        "table": "public_articles",
+        "column": "id",
+        "count": 0
+      },
+      {
+        "table": "study_cards",
+        "column": "presentation_id",
+        "count": 0
+      },
+      {
+        "table": "study_cards",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "usage_actions",
+        "column": "guest_id",
+        "count": 0
+      },
+      {
+        "table": "usage_actions",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "usage_actions",
+        "column": "id",
+        "count": 0
+      },
+      {
+        "table": "usage_executions",
+        "column": "action_id",
+        "count": 0
+      },
+      {
+        "table": "usage_executions",
+        "column": "id",
+        "count": 0
+      },
+      {
+        "table": "study_reviews",
+        "column": "id",
+        "count": 0
+      },
+      {
+        "table": "study_reviews",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "user_data_objects",
+        "column": "user_id",
+        "count": 0
+      }
+    ],
+    "authCounts": {
+      "users": 1,
+      "sessions": 1,
+      "refreshTokens": 1
+    },
+    "uiDesignState": {
+      "draft": {
+        "targets": {},
+        "version": 1
+      },
+      "version": 1,
+      "previous": null,
+      "revision": 10,
+      "published": {
+        "targets": {},
+        "version": 1
+      },
+      "updatedAt": "2026-10-13T03:23:06.452227+00:00",
+      "publishedAt": null,
+      "publishedRevision": 0
+    }
+  },
+  "demotion": {
+    "action": "demote",
+    "userId": "9f48f8e8-a90b-4cbf-8851-e49aa101b2b7",
+    "identityVerified": true,
+    "completedAt": "2026-10-13T03:26:41.500Z"
+  },
+  "cleanup": {
+    "action": "cleanup",
+    "userId": "9f48f8e8-a90b-4cbf-8851-e49aa101b2b7",
+    "identityVerified": true,
+    "completedAt": "2026-10-13T03:26:43.328Z"
+  },
+  "after": {
+    "observedAt": "2026-10-13T03:26:43.848948+00:00",
+    "identity": {
+      "userId": "9f48f8e8-a90b-4cbf-8851-e49aa101b2b7",
+      "verifiedDisposableIdentity": true
+    },
+    "publicUserReferenceCounts": [
+      {
+        "table": "product_activity_days",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "billing_grants",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "billing_grants",
+        "column": "id",
+        "count": 0
+      },
+      {
+        "table": "study_reading_days",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "study_days",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "account_profiles",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "user_entitlements",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "billing_translation_blocks",
+        "column": "action_id",
+        "count": 0
+      },
+      {
+        "table": "billing_allocations",
+        "column": "grant_id",
+        "count": 0
+      },
+      {
+        "table": "billing_allocations",
+        "column": "action_id",
+        "count": 0
+      },
+      {
+        "table": "admin_audit_logs",
+        "column": "id",
+        "count": 0
+      },
+      {
+        "table": "billing_orders",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "billing_orders",
+        "column": "id",
+        "count": 0
+      },
+      {
+        "table": "account_activity_days",
+        "column": "owner_key",
+        "count": 0
+      },
+      {
+        "table": "invitation_codes",
+        "column": "redeemed_by",
+        "count": 0
+      },
+      {
+        "table": "invitation_codes",
+        "column": "id",
+        "count": 0
+      },
+      {
+        "table": "usage_actions",
+        "column": "owner_key",
+        "count": 0
+      },
+      {
+        "table": "account_activity_days",
+        "column": "guest_id",
+        "count": 0
+      },
+      {
+        "table": "account_activity_days",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "public_explanations",
+        "column": "article_id",
+        "count": 0
+      },
+      {
+        "table": "public_explanations",
+        "column": "id",
+        "count": 0
+      },
+      {
+        "table": "study_import_batches",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "billing_memberships",
+        "column": "order_id",
+        "count": 0
+      },
+      {
+        "table": "billing_memberships",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "study_claims",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "usage_counters",
+        "column": "owner_key",
+        "count": 0
+      },
+      {
+        "table": "study_profiles",
+        "column": "action_id",
+        "count": 0
+      },
+      {
+        "table": "study_profiles",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "public_article_translations",
+        "column": "article_id",
+        "count": 0
+      },
+      {
+        "table": "public_article_translations",
+        "column": "id",
+        "count": 0
+      },
+      {
+        "table": "study_rewards",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "study_reward_words",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "study_settings",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "product_reading_ticks",
+        "column": "id",
+        "count": 0
+      },
+      {
+        "table": "product_reading_ticks",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "study_profile_jobs",
+        "column": "action_id",
+        "count": 0
+      },
+      {
+        "table": "study_profile_jobs",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "study_streaks",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "guest_identities",
+        "column": "id",
+        "count": 0
+      },
+      {
+        "table": "public_articles",
+        "column": "id",
+        "count": 0
+      },
+      {
+        "table": "study_cards",
+        "column": "presentation_id",
+        "count": 0
+      },
+      {
+        "table": "study_cards",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "usage_actions",
+        "column": "guest_id",
+        "count": 0
+      },
+      {
+        "table": "usage_actions",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "usage_actions",
+        "column": "id",
+        "count": 0
+      },
+      {
+        "table": "usage_executions",
+        "column": "action_id",
+        "count": 0
+      },
+      {
+        "table": "usage_executions",
+        "column": "id",
+        "count": 0
+      },
+      {
+        "table": "study_reviews",
+        "column": "user_id",
+        "count": 0
+      },
+      {
+        "table": "study_reviews",
+        "column": "id",
+        "count": 0
+      },
+      {
+        "table": "user_data_objects",
+        "column": "user_id",
+        "count": 0
+      }
+    ],
+    "authCounts": {
+      "users": 0,
+      "sessions": 0,
+      "refreshTokens": 0
+    },
+    "uiDesignState": {
+      "draft": {
+        "targets": {},
+        "version": 1
+      },
+      "version": 1,
+      "previous": null,
+      "revision": 10,
+      "published": {
+        "targets": {},
+        "version": 1
+      },
+      "updatedAt": "2026-10-13T03:23:06.452227+00:00",
+      "publishedAt": null,
+      "publishedRevision": 0
+    }
+  },
+  "publicUiDesign": {
+    "recipe": {
+      "version": 1,
+      "targets": {}
+    },
+    "revision": 0,
+    "updatedAt": null
+  },
+  "publicAndDraftUntouched": true,
+  "allDisposableIdentityRecordsRemoved": true,
+  "noOtherAccountTouched": true
+}

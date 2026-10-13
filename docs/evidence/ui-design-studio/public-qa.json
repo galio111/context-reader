@@ -10,7 +10,7 @@
     },
     {
       "name": "词典",
-      "text": "Dictionary · 03\n返回阅读工作台\n\n独立深度词典\n\n没有原句，也可以把一个词查透\n中文或英文单词、短语\n深度查询\n试试：\ntake in\n微妙\n落实\n\n历史结果暂时无法读取，请稍后重试。\n\nAa\n这页会写下完整查询结果\n\n输入英文查看中文释义；输入中文查看可用的英文表达、例句和选词区别。"
+      "text": "Dictionary · 03\n返回阅读工作台\n\n独立深度词典\n\n没有原句，也可以把一个词查透\n中文或英文单词、短语\n深度查询\n历史查词\nsubtle\n×\n词条已生成\n↻\nsubtle\n▶\n美音\n▶\n英音\nadjective\n\n微妙的；不易察觉的\n\nThere is a subtle difference betwee"
     },
     {
       "name": "四、六级",
@@ -43,14 +43,14 @@
   ],
   "identity": {
     "ok": true,
-    "checkedAt": "2026-10-13T03:12:24.165Z",
-    "releaseId": "20261013T030124",
-    "parentReleaseId": "20261013T081227",
+    "checkedAt": "2026-10-13T03:23:05.670Z",
+    "releaseId": "20261013T031701",
+    "parentReleaseId": "20261013T030124",
     "backendMode": "mainland_internal"
   },
   "/api/admin/ui-design": 403,
   "/api/account/sync": 401,
-  "initialRevision": 6,
+  "initialRevision": 8,
   "draftSaveRestore": true,
   "publicUnchanged": true,
   "errors": [],

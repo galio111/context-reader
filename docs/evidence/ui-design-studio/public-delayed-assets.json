@@ -1,0 +1,19 @@
+{
+  "releaseId": "20261013T031701",
+  "parentReleaseId": "20261013T030124",
+  "sourceRevision": "cc7280dcd65060acef641596e48199e910e5cdab",
+  "networkDelayMs": 1000,
+  "results": [
+    {
+      "kind": "catalog",
+      "finalMaterial": "chrome",
+      "errors": []
+    },
+    {
+      "kind": "sdk",
+      "finalMaterial": "chrome",
+      "errors": []
+    }
+  ],
+  "storageWrites": false
+}
