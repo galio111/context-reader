@@ -1,0 +1,18 @@
+[
+  {
+    "path": "/api/auth/session",
+    "status": "200"
+  },
+  {
+    "path": "/api/account/sync?protocol=2",
+    "status": "401"
+  },
+  {
+    "path": "/api/admin/accounts",
+    "status": "401"
+  },
+  {
+    "path": "/api/study",
+    "status": "401"
+  }
+]

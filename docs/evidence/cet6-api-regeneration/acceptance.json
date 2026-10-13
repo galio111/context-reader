@@ -1,0 +1,127 @@
+{
+  "completedAt": "2026-10-13T07:28:29.775Z",
+  "status": "production account data regenerated; no application deployment in this task",
+  "words": 1724,
+  "senses": 5223,
+  "collocations": 8254,
+  "contentSource": "Normal production standalone dictionary API, followed by verified targeted corrections. glamourous uses the full API result for its accepted canonical spelling glamorous.",
+  "quality": {
+    "fullStructureAndNormalizationChecked": 1724,
+    "correctedWords": 120,
+    "correctionReceipts": 121,
+    "manualReview": "Targeted lexical review and every automated verb-form candidate; not independent dictionary certification of every field.",
+    "remainingAuditCandidates": 67,
+    "verbFormReview": {
+      "requiredCorrections": 39,
+      "patchCount": 39,
+      "dispositions": {
+        "correct_clear_derived_noun": 39,
+        "preserve_participial_relation": 11,
+        "preserve_not_confirmed_error": 16,
+        "preserve_real_verb_variant_unresolved": 1,
+        "preserve_attested_homographic_verb": 38,
+        "preserve_lexicalized_participle_relation": 1
+      },
+      "preserveWithoutExactFormConfirmation": 17,
+      "alreadyProcessed": 4
+    }
+  },
+  "cloud": {
+    "passed": true,
+    "checkedAt": "2026-10-13T07:28:06.196Z",
+    "words": 1724,
+    "pages": 0,
+    "cacheAndVocabularyExact": 1724,
+    "originalIdentitiesPreserved": true,
+    "issues": [],
+    "unchangedOtherObjects": 3500,
+    "deletedObjects": 0
+  },
+  "browser": {
+    "passed": true,
+    "words": [
+      "abbreviation",
+      "abide",
+      "contemplate"
+    ],
+    "localVocabulary": 1724,
+    "alreadyInVocabulary": true,
+    "fullApiExamplesAndUsageVisible": true,
+    "generated": 0,
+    "errors": [],
+    "answersSubmitted": 0
+  },
+  "publicHistory": {
+    "passed": true,
+    "words": [
+      "abbreviation",
+      "bass",
+      "batter",
+      "coup d’état",
+      "glamourous",
+      "plateau",
+      "poised",
+      "terrain",
+      "terminate",
+      "trauma",
+      "vogue",
+      "zoom"
+    ],
+    "exactSavedResults": 12,
+    "generationRequests": 0,
+    "studyAnswersSubmitted": 0
+  },
+  "progress": {
+    "cards": 1724,
+    "allCardFieldsUnchanged": true,
+    "reviews": 3624,
+    "reviewCountUnchanged": true,
+    "studyAnswersSubmitted": 0
+  },
+  "usage": {
+    "byModel": [
+      {
+        "model": "deepseek-flash",
+        "executions": 1696,
+        "cost_microusd": 2453011,
+        "prompt_tokens": 2333642,
+        "completion_tokens": 1939300
+      },
+      {
+        "model": "glm-4.5-air",
+        "executions": 42,
+        "cost_microusd": 15683,
+        "prompt_tokens": 57006,
+        "completion_tokens": 33659
+      }
+    ],
+    "recorded": 1752,
+    "statuses": {
+      "failed": 14,
+      "succeeded": 1738
+    },
+    "requested": 1765,
+    "executions": 1738,
+    "estimatedProviderCostUsd": 2.468694,
+    "staleReservationsRefunded": 14,
+    "cacheReplayGenerationRequests": 0
+  },
+  "limits": [
+    "No human audio listening acceptance.",
+    "Model output received structural validation and targeted lexical corrections; absence of all remaining lexical errors is not asserted."
+  ],
+  "cleanup": {
+    "passed": true,
+    "verificationSessionRevoked": true,
+    "scope": "local",
+    "otherSessionsUntouched": true,
+    "studyAnswersSubmitted": 0,
+    "passwordChanged": false
+  },
+  "productionIdentity": {
+    "releaseId": "20261013T145900",
+    "parentReleaseId": "20261013T063535",
+    "backendMode": "mainland_internal",
+    "newDeploymentByThisTask": false
+  }
+}

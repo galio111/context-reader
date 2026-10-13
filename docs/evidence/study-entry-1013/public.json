@@ -1,0 +1,35 @@
+{
+  "label": "public",
+  "firstCardAfterStartMs": 668,
+  "firstEnabledAfterStartMs": 702,
+  "extraWaitAfterSnapshotMs": 198,
+  "disabledAfterSnapshot": false,
+  "reopenEnabledMs": 120,
+  "reopenStartRequests": 0,
+  "mobileOverflow": false,
+  "vocabularyOrder": {
+    "defaultCollected": true,
+    "alphabetical": true,
+    "repeatedShuffle": true,
+    "keyboard": true,
+    "maskIdentity": true,
+    "noReload": true
+  },
+  "backgroundRacePreservedReview": true,
+  "localChangeRefresh": true,
+  "remoteVersionRecovery": true,
+  "backgroundFailurePreservesCard": true,
+  "pendingInitialSnapshotMs": 5562,
+  "pendingRecovery": true,
+  "deletedCardRecovery": true,
+  "shuffle2000RowsMs": 63,
+  "measuredLargeRows": {
+    "mounted": 10,
+    "total": 2000,
+    "lastReachable": true,
+    "mobileVariableHeight": true,
+    "keyboardBeyondInitialRange": true,
+    "detailFocusReturn": true
+  },
+  "errors": []
+}

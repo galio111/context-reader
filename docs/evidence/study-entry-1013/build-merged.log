@@ -1,0 +1,229 @@
+
+> context-reader@0.1.0 build
+> next build && node scripts/precompress-static.mjs
+
+   ▲ Next.js 15.5.23
+   - Experiments (use with caution):
+     · cpus: 1
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 22.7s
+   Linting and checking validity of types ...
+
+./app/api/admin/accounts/route.ts
+104:11  Warning: 'estimatedCostMicrocny' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+134:13  Warning: 'estimatedCostMicrocny' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./components/AdminAccountsPanel.tsx
+114:10  Warning: 'formatUsageDay' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./components/AdminArticleIntakePanel.tsx
+688:38  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+703:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+752:99  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./components/AdminArticleMetadataInspector.tsx
+167:6  Warning: React Hook useEffect has missing dependencies: 'saveDraft' and 'working'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+
+./components/ArticleInput.tsx
+100:9  Warning: 'hasArticle' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./components/Ballpit.tsx
+1047:6  Warning: React Hook useEffect has a missing dependency: 'departureProgress'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./components/BillingPage.tsx
+111:132  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./components/BookHome.tsx
+336:3  Warning: 'onDeleteSavedArticle' is defined but never used.  @typescript-eslint/no-unused-vars
+468:19  Warning: The ref value 'pageTurnRef.current' will likely have changed by the time this effect cleanup function runs. If this ref points to a node rendered by React, copy 'pageTurnRef.current' to a variable inside the effect, and use that variable in the cleanup function.  react-hooks/exhaustive-deps
+469:20  Warning: The ref value 'coverTurnRef.current' will likely have changed by the time this effect cleanup function runs. If this ref points to a node rendered by React, copy 'coverTurnRef.current' to a variable inside the effect, and use that variable in the cleanup function.  react-hooks/exhaustive-deps
+478:6  Warning: React Hook useEffect has a missing dependency: 'scrollToWorkbench'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+830:6  Warning: React Hook useCallback has a missing dependency: 'setChapterImmediately'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+1368:6  Warning: React Hook useCallback has a missing dependency: 'markDemoHintSeen'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+1433:12  Warning: 'handleOpenVocabulary' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./components/BookRecommendations.tsx
+187:21  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+218:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./components/CurvedPageTurn.tsx
+490:7  Warning: React Hook useImperativeHandle has a missing dependency: 'resetSeek'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./components/GuideLanyardScene.tsx
+2:1  Warning: Unused eslint-disable directive (no problems were reported from 'react/no-unknown-property').
+
+./components/GuidePageContent.tsx
+52:113  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./components/HomeOptionMenu.tsx
+182:3  Warning: 'onOpenGuide' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./components/HomeRedesign.tsx
+324:6  Warning: React Hook useEffect has a missing dependency: 'props'. Either include it or remove the dependency array. However, 'props' will change when *any* prop changes, so the preferred fix is to destructure the 'props' object outside of the useEffect call and refer to those specific props inside useEffect.  react-hooks/exhaustive-deps
+
+./components/ImmersiveHome.tsx
+315:6  Warning: React Hook useEffect has a missing dependency: 'props'. Either include it or remove the dependency array. However, 'props' will change when *any* prop changes, so the preferred fix is to destructure the 'props' object outside of the useEffect call and refer to those specific props inside useEffect.  react-hooks/exhaustive-deps
+
+./components/PronunciationButtons.tsx
+131:54  Warning: The ref value 'playbackOwnerRef.current' will likely have changed by the time this effect cleanup function runs. If this ref points to a node rendered by React, copy 'playbackOwnerRef.current' to a variable inside the effect, and use that variable in the cleanup function.  react-hooks/exhaustive-deps
+
+./components/ReaderView.tsx
+14:83  Warning: 'ReactPointerEvent' is defined but never used.  @typescript-eslint/no-unused-vars
+73:37  Warning: 'importedBlockText' is defined but never used.  @typescript-eslint/no-unused-vars
+92:75  Warning: 'ImportedArticleInlineText' is defined but never used.  @typescript-eslint/no-unused-vars
+1075:9  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+1301:5  Warning: React Hook useLayoutEffect has a missing dependency: 'examSurface.questions'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+1383:9  Warning: 'blockEditRefs' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+1732:6  Warning: React Hook useEffect has a missing dependency: 'setExplanationStreamText'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+1865:6  Warning: React Hook useLayoutEffect has a missing dependency: 'scrollToBestSourceSentence'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+2877:12  Warning: 'updateDraftBlock' is defined but never used.  @typescript-eslint/no-unused-vars
+3756:27  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+3877:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./components/ShowcaseRecording.tsx
+56:18  Warning: The ref value 'generation.current' will likely have changed by the time this effect cleanup function runs. If this ref points to a node rendered by React, copy 'generation.current' to a variable inside the effect, and use that variable in the cleanup function.  react-hooks/exhaustive-deps
+
+./components/StudyPanel.tsx
+176:5  Warning: React Hook useEffect has a missing dependency: 'reviews.pendingRef'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+181:3  Warning: Unused eslint-disable directive (no problems were reported from 'react-hooks/exhaustive-deps').
+
+./components/useStudyVocabularyEntries.ts
+33:6  Warning: React Hook useMemo has an unnecessary dependency: 'revision'. Either exclude it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./lib/ankiConnect.ts
+59:10  Warning: 'friendlyNetworkError' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./lib/cache.ts
+18:6  Warning: 'ArticleTranslationCache' is defined but never used.  @typescript-eslint/no-unused-vars
+19:6  Warning: 'ArticleTranslationBlockCache' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./lib/deepseekModelFailover.ts
+9:3  Warning: '_configuredFallbacks' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./lib/editorialPending.ts
+9:67  Warning: '_config' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./lib/editorialReport.ts
+7:212  Warning: '_adoption' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./lib/editorialReview.ts
+215:542  Warning: 'src' is defined but never used.  @typescript-eslint/no-unused-vars
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules
+   Collecting page data ...
+   Generating static pages (0/74) ...
+   Generating static pages (18/74) 
+   Generating static pages (36/74) 
+   Generating static pages (55/74) 
+ ✓ Generating static pages (74/74)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                    Size  First Load JS
+┌ ƒ /                                         219 B         278 kB
+├ ƒ /_not-found                                1 kB         105 kB
+├ ƒ /account/repair-vocabulary              1.26 kB         105 kB
+├ ƒ /account/usage                          1.69 kB         170 kB
+├ ƒ /admin                                  1.99 kB         148 kB
+├ ƒ /admin/accounts                           320 B         104 kB
+├ ƒ /admin/experience                       1.24 kB         105 kB
+├ ƒ /admin/experience/frame                 2.46 kB         281 kB
+├ ƒ /admin/public-image-repair               1.6 kB         105 kB
+├ ƒ /admin/ui-studio                        8.78 kB         144 kB
+├ ƒ /admin/ui-studio/frame                   124 kB         450 kB
+├ ƒ /api/account/activity                     320 B         104 kB
+├ ƒ /api/account/export                       320 B         104 kB
+├ ƒ /api/account/invitation-code              320 B         104 kB
+├ ƒ /api/account/password                     320 B         104 kB
+├ ƒ /api/account/profile                      320 B         104 kB
+├ ƒ /api/account/sync                         320 B         104 kB
+├ ƒ /api/account/vocabulary-repair          1.46 kB         113 kB
+├ ƒ /api/admin/accounts                       320 B         104 kB
+├ ƒ /api/admin/article-candidates             320 B         104 kB
+├ ƒ /api/admin/article-classification         320 B         104 kB
+├ ƒ /api/admin/article-covers                 320 B         104 kB
+├ ƒ /api/admin/article-crawler                320 B         104 kB
+├ ƒ /api/admin/billing                        320 B         104 kB
+├ ƒ /api/admin/cet-paper                      320 B         104 kB
+├ ƒ /api/admin/discovery-sources              320 B         104 kB
+├ ƒ /api/admin/editorial                      320 B         104 kB
+├ ƒ /api/admin/error-reports                  320 B         104 kB
+├ ƒ /api/admin/feedback                       320 B         104 kB
+├ ƒ /api/admin/homepage-curation              320 B         104 kB
+├ ƒ /api/admin/invitation-codes               320 B         104 kB
+├ ƒ /api/admin/login                          320 B         104 kB
+├ ƒ /api/admin/logout                         320 B         104 kB
+├ ƒ /api/admin/models                         320 B         104 kB
+├ ƒ /api/admin/product-analytics              320 B         104 kB
+├ ƒ /api/admin/public-article-translations    320 B         104 kB
+├ ƒ /api/admin/public-articles                320 B         104 kB
+├ ƒ /api/admin/saved-article-images           320 B         104 kB
+├ ƒ /api/admin/session                        320 B         104 kB
+├ ƒ /api/admin/study                          320 B         104 kB
+├ ƒ /api/admin/ui-design                      320 B         104 kB
+├ ƒ /api/admin/usage                          320 B         104 kB
+├ ƒ /api/anki/add-note                      3.14 kB         115 kB
+├ ƒ /api/anki/check                         1.89 kB         106 kB
+├ ƒ /api/anki/create-model                  1.89 kB         106 kB
+├ ƒ /api/anki/decks                         1.89 kB         106 kB
+├ ƒ /api/anki/models                        1.89 kB         106 kB
+├ ƒ /api/article-images/localize              320 B         104 kB
+├ ƒ /api/ask-sentence                         320 B         104 kB
+├ ƒ /api/auth/adopt-session                   320 B         104 kB
+├ ƒ /api/auth/logout                          320 B         104 kB
+├ ƒ /api/auth/phone-login                     320 B         104 kB
+├ ƒ /api/auth/phone-register                  320 B         104 kB
+├ ƒ /api/auth/request-otp                     320 B         104 kB
+├ ƒ /api/auth/session                         320 B         104 kB
+├ ƒ /api/auth/verify-otp                      320 B         104 kB
+├ ƒ /api/billing                              320 B         104 kB
+├ ƒ /api/billing/wechat/notify                320 B         104 kB
+├ ƒ /api/cet                                  320 B         104 kB
+├ ƒ /api/cet/preview                          320 B         104 kB
+├ ƒ /api/connectivity                         320 B         104 kB
+├ ƒ /api/cron/recommendations                 320 B         104 kB
+├ ƒ /api/dictionary                           320 B         104 kB
+├ ƒ /api/dictionary-history                   320 B         104 kB
+├ ƒ /api/dictionary-stream                    320 B         104 kB
+├ ƒ /api/download-image                       320 B         104 kB
+├ ƒ /api/error-reports                        320 B         104 kB
+├ ƒ /api/explain-word                         320 B         104 kB
+├ ƒ /api/explain-word-stream                  320 B         104 kB
+├ ƒ /api/feedback                             320 B         104 kB
+├ ƒ /api/import-url                           320 B         104 kB
+├ ƒ /api/lookup-cancel                        320 B         104 kB
+├ ƒ /api/ocr-image                            320 B         104 kB
+├ ƒ /api/ocr-image-layout                     320 B         104 kB
+├ ƒ /api/ocr-image-url                        320 B         104 kB
+├ ƒ /api/pronunciation                        320 B         104 kB
+├ ƒ /api/public-articles                      320 B         104 kB
+├ ƒ /api/public-articles/[id]                 320 B         104 kB
+├ ƒ /api/public-articles/daily-updates        320 B         104 kB
+├ ƒ /api/public-articles/preview              320 B         104 kB
+├ ƒ /api/static-asset/[...path]               320 B         104 kB
+├ ƒ /api/study                                320 B         104 kB
+├ ƒ /api/study/profile                        320 B         104 kB
+├ ƒ /api/study/reading                        320 B         104 kB
+├ ƒ /api/summarize-article                    320 B         104 kB
+├ ƒ /api/translate-article                    320 B         104 kB
+├ ƒ /api/translate-article/finish             320 B         104 kB
+├ ƒ /api/translate-article/start              320 B         104 kB
+├ ƒ /api/ui-design                            320 B         104 kB
+├ ƒ /api/usage/cache-lookup                   320 B         104 kB
+├ ƒ /api/usage/guest-import                   320 B         104 kB
+├ ƒ /guide                                    171 B         113 kB
+├ ƒ /home-v2                                  320 B         104 kB
+├ ƒ /pricing                                1.55 kB         164 kB
+└ ƒ /study                                    320 B         104 kB
++ First Load JS shared by all                104 kB
+  ├ chunks/1255-d3668eefd1b4a69b.js         46.1 kB
+  ├ chunks/4bd1b696-100b9d70ed4e49c1.js     54.2 kB
+  └ other shared chunks (total)             3.38 kB
+
+
+ƒ Middleware                                36.7 kB
+
+ƒ  (Dynamic)  server-rendered on demand
+
+{"precompressedAssets":163,"rawBytes":6232334,"brotliBytes":1561544}

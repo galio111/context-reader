@@ -1,0 +1,6 @@
+{
+  "result": {
+    "type": "string",
+    "value": "{\"timeOrigin\":1791875364251,\"heading\":\"Antarctic Sea Ice Grows to Its 2026 Maximum\",\"checks\":[{\"path\":\"/api/auth/session\",\"status\":200,\"authenticated\":true},{\"path\":\"/api/account/sync?protocol=2&bootstrap=active&group=learning&offset=0\",\"status\":200}]}"
+  }
+}

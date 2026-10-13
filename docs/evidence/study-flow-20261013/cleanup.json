@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "verifiedAt": "2026-10-13T06:54:25.699Z",
+  "auth": {
+    "before": 1,
+    "after": 0,
+    "status": 404
+  },
+  "before": {
+    "account_profiles": 1,
+    "user_entitlements": 1,
+    "user_data_objects": 20,
+    "study_cards": 3,
+    "study_reviews": 3,
+    "study_days": 1,
+    "study_settings": 0,
+    "study_claims": 0,
+    "study_rewards": 0,
+    "study_streaks": 1,
+    "usage_actions": 0,
+    "account_activity_days": 1,
+    "billing_grants": 1,
+    "billing_orders": 0,
+    "billing_memberships": 0,
+    "billing_allocations": 0
+  },
+  "after": {
+    "account_profiles": 0,
+    "user_entitlements": 0,
+    "user_data_objects": 0,
+    "study_cards": 0,
+    "study_reviews": 0,
+    "study_days": 0,
+    "study_settings": 0,
+    "study_claims": 0,
+    "study_rewards": 0,
+    "study_streaks": 0,
+    "usage_actions": 0,
+    "account_activity_days": 0,
+    "billing_grants": 0,
+    "billing_orders": 0,
+    "billing_memberships": 0,
+    "billing_allocations": 0
+  },
+  "grantClassification": "QA automatic free calendar-month period; used 0; no orders, memberships, allocations or usage",
+  "otherAccountsTouched": 0,
+  "providerCalls": 0
+}

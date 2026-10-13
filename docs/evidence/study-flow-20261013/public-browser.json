@@ -1,0 +1,259 @@
+{
+  "expectedRelease": "20261013T063535",
+  "checks": [
+    {
+      "name": "initial-three-counts",
+      "learning": 1,
+      "review": 1,
+      "newCompleted": 0
+    },
+    {
+      "name": "initial-card-no-frame",
+      "outline": "none",
+      "width": "3px",
+      "focused": true,
+      "focusVisible": true
+    },
+    {
+      "name": "space-hint-no-frame",
+      "outline": "none",
+      "width": "3px",
+      "focused": true,
+      "focusVisible": true
+    },
+    {
+      "name": "three-counts-1440",
+      "learning": 1,
+      "review": 1,
+      "newCompleted": 0
+    },
+    {
+      "name": "cached-related-window-1440",
+      "width": 340,
+      "height": 560,
+      "left": 132,
+      "right": 472,
+      "bottom": 652,
+      "viewportWidth": 1440,
+      "viewportHeight": 960,
+      "headingHit": true
+    },
+    {
+      "name": "pointer-close-answer-1440",
+      "outline": "none",
+      "width": "3px",
+      "focused": false,
+      "focusVisible": false,
+      "mode": "pointer"
+    },
+    {
+      "name": "pointer-close-card-1440",
+      "outline": "none",
+      "width": "3px",
+      "focused": false,
+      "focusVisible": false,
+      "mode": "pointer"
+    },
+    {
+      "name": "returned-counts-1440",
+      "learning": 1,
+      "review": 1,
+      "newCompleted": 0
+    },
+    {
+      "name": "three-counts-390",
+      "learning": 1,
+      "review": 1,
+      "newCompleted": 0
+    },
+    {
+      "name": "cached-related-window-390",
+      "width": 390,
+      "height": 742.71875,
+      "left": 0,
+      "right": 390,
+      "bottom": 844,
+      "viewportWidth": 390,
+      "viewportHeight": 844,
+      "headingHit": true
+    },
+    {
+      "name": "pointer-close-answer-390",
+      "outline": "none",
+      "width": "3px",
+      "focused": false,
+      "focusVisible": false,
+      "mode": "pointer"
+    },
+    {
+      "name": "pointer-close-card-390",
+      "outline": "none",
+      "width": "3px",
+      "focused": false,
+      "focusVisible": false,
+      "mode": "pointer"
+    },
+    {
+      "name": "returned-counts-390",
+      "learning": 1,
+      "review": 1,
+      "newCompleted": 0
+    },
+    {
+      "name": "optimistic-next-before-server",
+      "advanceMs": 84,
+      "delayMs": 2500,
+      "persistedAnswers": 1,
+      "nextWord": "resilient"
+    },
+    {
+      "name": "duplicate-answer-idempotent",
+      "rows": 1,
+      "cardVersion": 1
+    },
+    {
+      "name": "after-learning-forgot",
+      "learning": 1,
+      "review": 1,
+      "newCompleted": 0
+    },
+    {
+      "name": "review-finished-new-visible",
+      "learning": 1,
+      "review": 0,
+      "newCompleted": 0
+    },
+    {
+      "name": "final-three-counts-1440",
+      "learning": 2,
+      "review": 0,
+      "newCompleted": 0
+    },
+    {
+      "name": "final-card-no-frame-1440",
+      "outline": "none",
+      "width": "3px",
+      "focused": false,
+      "focusVisible": false,
+      "mode": "pointer"
+    },
+    {
+      "name": "final-three-counts-390",
+      "learning": 2,
+      "review": 0,
+      "newCompleted": 0
+    },
+    {
+      "name": "final-card-no-frame-390",
+      "outline": "none",
+      "width": "3px",
+      "focused": false,
+      "focusVisible": false,
+      "mode": "pointer"
+    }
+  ],
+  "status": "passed",
+  "errors": [],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+    "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+    "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+    "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+    "Failed to load resource: the server responded with a status of 503 (Service Unavailable)"
+  ],
+  "network": [
+    {
+      "op": "start",
+      "status": 200,
+      "at": 1791873845859
+    },
+    {
+      "op": "present",
+      "status": 200,
+      "at": 1791873846197
+    },
+    {
+      "op": "start",
+      "status": 200,
+      "at": 1791873847856
+    },
+    {
+      "op": "GET",
+      "status": 200,
+      "at": 1791873849070
+    },
+    {
+      "op": "review",
+      "status": 200,
+      "at": 1791873853310
+    },
+    {
+      "op": "present",
+      "status": 200,
+      "at": 1791873853602
+    },
+    {
+      "op": "review",
+      "status": 200,
+      "at": 1791873855276
+    },
+    {
+      "op": "present",
+      "status": 200,
+      "at": 1791873855504
+    },
+    {
+      "op": "review",
+      "status": 200,
+      "at": 1791873857258
+    }
+  ],
+  "blocked": [
+    {
+      "path": "/api/account/activity",
+      "method": "POST"
+    },
+    {
+      "path": "/api/pronunciation",
+      "method": "POST"
+    },
+    {
+      "path": "/api/pronunciation",
+      "method": "POST"
+    },
+    {
+      "path": "/api/pronunciation",
+      "method": "POST"
+    },
+    {
+      "path": "/api/pronunciation",
+      "method": "POST"
+    }
+  ],
+  "identity": {
+    "ok": true,
+    "checkedAt": "2026-10-13T06:44:07.756Z",
+    "releaseId": "20261013T063535",
+    "parentReleaseId": "20261013T031701",
+    "backendMode": "mainland_internal"
+  },
+  "harnessCorrection": {
+    "originalResult": "Local artifacts retain the original harness failure",
+    "originalStatus": "failed",
+    "reason": "The guard mislabeled a blocked normal POST /api/account/activity as a provider attempt. Source calls only study record_visit; normal browser POST and cached lookup rechecked successfully.",
+    "readOnlyFollowUp": "public-read-only-follow-up.json",
+    "scoresRepeated": false
+  },
+  "final": {
+    "cards": 3,
+    "reviews": 3,
+    "newCardState": 1,
+    "newCompleted": 0,
+    "learningCount": 2,
+    "reviewCount": 0,
+    "providerCalls": 0,
+    "usageActions": 0,
+    "oneVersionIncrementPerCard": true
+  },
+  "databaseEvidence": "db-verification.json"
+}
