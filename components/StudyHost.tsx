@@ -51,7 +51,7 @@ export function StudyHost() {
       try {
         if (sessionStorage.getItem(key)) return;
         if (!getVocabularyEntries().length) return;
-        const r=await fetch("/api/study",{headers:{"X-Context-Account":owner}});
+        const r=await fetch("/api/study?summary=1",{headers:{"X-Context-Account":owner}});
         if (!r.ok) return;
         const data=await r.json();
         if (cancelled || !data.settings.reminders || (data.settings.pausedUntil && Date.parse(data.settings.pausedUntil)>Date.now()) || data.today?.completed_at) return;

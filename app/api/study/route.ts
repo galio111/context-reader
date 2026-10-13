@@ -4,9 +4,10 @@ import { getAuthenticatedUser } from "@/lib/userAuth";
 import { requestExternalOrigin } from "@/lib/requestSecurity";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
 import { buildStudyPlan, sanitizeStudySettings, scheduleStudy, shanghaiDay, STUDY_ALGORITHM, studyPaused, studyRating } from "@/lib/studyScheduler";
-import { getStudySettings, getStudySnapshot, reconcileStudyCards, saveStudySettings, studyRpc, studyRows } from "@/lib/studyStore";
+import { getStudyEntry, getStudyReminder, getStudySettings, getStudySnapshot, reconcileStudyCards, saveStudySettings, studyRpc, studyRows } from "@/lib/studyStore";
 import type { StudyAnswer, StudyCard, StudyDay } from "@/types/study";
 import { recordServerError } from "@/lib/serverErrorReporting";
+import { compactStudyResponse, STUDY_COMPACT_FORMAT } from "@/lib/studyTransport";
 
 export const dynamic = "force-dynamic";
 class StudyError extends Error { constructor(message: string, public status = 400, public code = "") { super(message); } }
@@ -23,7 +24,7 @@ async function owner(request: Request) {
   if (profiles[0]?.status !== "active") throw new StudyError("此账号暂时无法使用复习服务。", 403);
   return user.id;
 }
-function result(data: unknown) { return NextResponse.json(data, { headers: { "Cache-Control": "private, no-store", Vary: "Cookie" } }); }
+function result(request: Request, data: unknown) { return NextResponse.json(request.headers.get("X-Study-Format") === STUDY_COMPACT_FORMAT ? compactStudyResponse(data) : data, { headers: { "Cache-Control": "private, no-store", Vary: "Cookie, X-Study-Format" } }); }
 async function failure(error: unknown,request:Request) {
   if (error instanceof StudyError) return NextResponse.json({ error: error.message, code: error.code }, { status: error.status });
   if (error instanceof RequestBodyTooLargeError) return NextResponse.json({ error: "请求内容过大。" }, { status: 413 });
@@ -32,7 +33,19 @@ async function failure(error: unknown,request:Request) {
   return NextResponse.json({ error: "学习记录暂时无法读取或保存，请稍后重试。进度不会被自动重置。" }, { status: 503 });
 }
 export async function GET(request: Request) {
-  try { return result(await getStudySnapshot(await owner(request))); } catch (error) { return failure(error,request); }
+  try {
+    const userId = await owner(request);
+    const query = new URL(request.url).searchParams;
+    if (query.has("entry")) {
+      const id = query.get("entry") ?? "";
+      if (!id || id.length > 500) throw new StudyError("这个词条已移除。", 404, "state_changed");
+      const entry = await getStudyEntry(userId, id);
+      if (!entry) throw new StudyError("这个词条已移除。", 404, "state_changed");
+      return result(request, { entry });
+    }
+    if (query.get("summary") === "1") return result(request, await getStudyReminder(userId));
+    return result(request, await getStudySnapshot(userId));
+  } catch (error) { return failure(error,request); }
 }
 export async function POST(request: Request) {
   try {
@@ -43,7 +56,7 @@ export async function POST(request: Request) {
       throw new StudyError("请求格式不正确。");
     }
     const op = body.op;
-    if (op === "prepare") {const entries=await reconcileStudyCards(userId);return result(await getStudySnapshot(userId,{entries}));}
+    if (op === "prepare") {const entries=await reconcileStudyCards(userId);return result(request, await getStudySnapshot(userId,{entries}));}
     if (op === "start") {
       const entries=await reconcileStudyCards(userId);
       const [settings,cards]=await Promise.all([getStudySettings(userId),studyRows<StudyCard>("study_cards",userId,"*","&order=id.asc")]);
@@ -51,7 +64,7 @@ export async function POST(request: Request) {
         const ids=buildStudyPlan(cards.filter(c=>!c.suspended),settings,new Date());
         await studyRpc("start_learning_v3",{p_user:userId,p_ids:ids,p_settings:settings});
       }
-      return result(await getStudySnapshot(userId,{entries}));
+      return result(request, await getStudySnapshot(userId,{entries}));
     }
     if (op === "settings" || op === "pause" || op === "resume") {
       const current = await getStudySettings(userId);
@@ -65,7 +78,7 @@ export async function POST(request: Request) {
       } else next = { ...current, pausedUntil: null };
       if(op==="pause")await studyRpc("pause",{p_user:userId,p_settings:next});
       else await saveStudySettings(userId, next);
-      return result(await getStudySnapshot(userId));
+      return result(request, await getStudySnapshot(userId));
     }
     const cardId = String(body.cardId ?? "");
     if(op==="activateMembership"){
@@ -74,14 +87,14 @@ export async function POST(request: Request) {
       if(claims.some(c=>!c.claimed_at))throw new StudyError("请先在奖励页领取这份会员奖励。",409);
       const reward=await studyRpc<{activated?:boolean;existingPlan?:boolean}>("activate_membership",{p_user:userId,p_milestone:body.milestone});
       if(!reward.activated)throw new StudyError(reward.existingPlan?"你正在使用不同档位的会员。奖励已保留，可在当前会员到期后启用。":"没有可启用的会员奖励。",409);
-      return result(await getStudySnapshot(userId));
+      return result(request, await getStudySnapshot(userId));
     }
     if(op==="claimReward"){
       const id=String(body.id??"");
       if(!/^(daily:\d{4}-\d{2}-\d{2}|milestone:\d{1,5})$/.test(id))throw new StudyError("奖励记录无效。");
       const claimed=await studyRpc<{claimed?:boolean;points?:number}>("claim_reward",{p_user:userId,p_id:id});
       if(!claimed.claimed)throw new StudyError("这份奖励暂时无法领取，请稍后再试。",409);
-      return result({claimed,snapshot:await getStudySnapshot(userId)});
+      return result(request, {claimed,snapshot:await getStudySnapshot(userId)});
     }
     if (op === "present" || op === "review") {
       if (!/^[a-f0-9]{40}$/.test(cardId) || !Number.isSafeInteger(body.version)) throw new StudyError("这张卡片已变化，请刷新学习记录。");
@@ -92,7 +105,7 @@ export async function POST(request: Request) {
       if (op === "present") {
         const state = await studyRpc<Record<string,unknown>>("present_v3", { p_user: userId, p_card: cardId, p_version: body.version });
         if (!state.token) throw new StudyError("这张卡片暂时不能作答，请刷新学习记录。", 409);
-        return result(state);
+        return result(request, state);
       }
       const answer = body.answer as StudyAnswer;
       if (!["forgot","unsure_wrong","unsure_right","remembered"].includes(answer)) throw new StudyError("请选择本次回忆结果。");
@@ -113,18 +126,18 @@ export async function POST(request: Request) {
       if(scheduled.memory.state===2)await reconcileStudyCards(userId);
       await studyRpc("settle_rewards",{p_user:userId});
       const updated=await getStudySnapshot(userId);
-      return result({ saved: true, id: body.id, snapshot: updated });
+      return result(request, { saved: true, id: body.id, snapshot: updated });
     }
     if (op === "undo") {
       if (!/^[0-9a-f-]{36}$/i.test(String(body.id))) throw new StudyError("记录无效。");
       const saved = await studyRpc<Record<string,unknown>>("undo_flexible", { p_user: userId, p_id: body.id });
       if (!saved.saved && !saved.duplicate) throw new StudyError(saved.settled?"这次作答已经计入奖励，无法撤销。":"仅能撤销十五分钟内、尚未再次作答的那次记录。", 409);
-      return result(await getStudySnapshot(userId));
+      return result(request, await getStudySnapshot(userId));
     }
     if (op === "complete") {
       await reconcileStudyCards(userId);
       const completion = await studyRpc("settle_rewards", { p_user: userId });
-      return result({ completion, snapshot: await getStudySnapshot(userId) });
+      return result(request, { completion, snapshot: await getStudySnapshot(userId) });
     }
     throw new StudyError("学习操作无效。");
   } catch (error) { return failure(error,request); }
