@@ -12,6 +12,10 @@ Within a single prepare/start request, reconciliation returns its already-read v
 
 The notebook has three local display orders in its upper-right controls: 收藏顺序 (default, original `createdAt`, oldest first), 字母 A–Z (case-insensitive English collation), and 随机 (reshuffle on every click). With at least two visible entries each shuffle changes their order, including filtered lists. Sorting never fetches a snapshot or changes saved records, Anki data or FSRS queues. New words append to an existing random order. Memoized rows retain per-entry reveal state and avoid rebuilding their contents during reordering; the notebook does not rerender on each parent timer tick.
 
+Lists above 100 entries render only the viewport and an eight-row overscan through the existing virtualizer dependency. Every rendered row is measured at its real height, including long meanings, masking and viewport changes. The existing dialog remains the scroll container; list semantics expose the total count and each row's position. Smaller lists use normal flow. The 2,000-entry browser comparison went from 513 ms for a full-DOM production reorder to 62 ms with measured rows in development; final production evidence is recorded separately below.
+
+The repeated development run measured 68 ms and passed a 35-row keyboard traversal beyond the original mounted range, search for an unmounted word, long-meaning mobile geometry, final-row reachability and detail-close focus return. StudyDialog explicitly restores its connected opener without changing the scroll position on unmount.
+
 ## Measurements and verification
 
 Read-only production baseline on 2026-10-13, release `20261013T031701`: the largest vocabulary contained 1,724 entries. The start read stages used 29 internal REST calls and 16.8 MB, excluding authentication and the write RPC. Its browser snapshot was 4.07 MB JSON, approximately 946 KB gzip. Three read-only samples took 496 / 4,232 / 1,975 ms; these are variable server observations, not a fixed latency promise.
