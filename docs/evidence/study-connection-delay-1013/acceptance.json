@@ -1,0 +1,47 @@
+{
+  "releaseId": "20261013T161000",
+  "parentReleaseId": "20261013T075029",
+  "sourceRevision": "1a7f9fcd41a50ddc27b279e27619acb0066c623a",
+  "publicIdentityVerified": true,
+  "changedFiles": 21,
+  "ci": "https://github.com/galio111/context-reader/actions/runs/38367308985",
+  "realChrome": {
+    "previousStudyRequestMs": [11947, 9852, 7076],
+    "newStudyRequestMs": [5579, 994],
+    "newEncodedBodyBytes": 177348,
+    "newDecodedBodyBytes": 825743,
+    "warmCardVisibleMs": 70,
+    "warmRecallControlsMs": 70,
+    "answerSubmitted": false,
+    "pageErrors": 0
+  },
+  "readOnlyPayloadComparison": [
+    {"entries": 1166, "oldGzipBytes": 736601, "compactGzipBytes": 176231, "reductionPercent": 76.08},
+    {"entries": 1724, "oldGzipBytes": 1649293, "compactGzipBytes": 311701, "reductionPercent": 81.10}
+  ],
+  "publicControlledBrowser": {
+    "firstRecallControlsMs": 674,
+    "fixtureStartDelayMs": 500,
+    "warmEntryMs": 23,
+    "warmStartRequests": 0,
+    "shuffle2000WordsMs": 45,
+    "mountedRows": 10,
+    "cachedReloadBeforeHeldResponseMs": 2137,
+    "savedDetailResolved": true,
+    "sortKeyboardMasksMobileFocusRacesOutbox": "passed",
+    "pageErrors": 0
+  },
+  "validation": {"study": 57, "critical": 90, "finalSettingsLogoutAccount": 3, "architecture": 139, "releaseSafety": 9, "releaseContracts": 11, "build": "passed", "ci": "passed"},
+  "operations": {
+    "servicesRunning": 7,
+    "backendIdentitiesUnchanged": 5,
+    "anonymousStudySummaryEntrySyncAdmin": 401,
+    "recoveryAdminReadsPassed": 4,
+    "backup": "context-reader-20261013T081103Z.dump",
+    "backupShaVerified": true,
+    "restoredTables": 39,
+    "verifierDatabasesRemaining": 0,
+    "currentAndParentImagesAvailable": true
+  },
+  "limits": ["Real timings vary with network and exclude full page/authentication latency", "Recall controls do not constitute a committed answer", "No real-user answer submitted", "Physical devices and other browsers not verified", "Helper cleanup rejected by automatic approval review; directories retained"]
+}
