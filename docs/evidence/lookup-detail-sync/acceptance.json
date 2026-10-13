@@ -1,0 +1,114 @@
+{
+  "releaseId": "20261013T081227",
+  "parentReleaseId": "20261012T213932",
+  "sourceRevision": "b590ed307cd9b94a740cc75cc33dd425c72c64dc",
+  "automatedTests": 169,
+  "productionBuild": true,
+  "releaseContracts": true,
+  "publicApi": {
+    "passed": true,
+    "identity": {
+      "ok": true,
+      "checkedAt": "2026-10-13T00:28:00.921Z",
+      "releaseId": "20261013T081227",
+      "parentReleaseId": "20261012T213932",
+      "backendMode": "mainland_internal"
+    },
+    "records": [
+      {
+        "path": "/api/auth/session",
+        "status": 200
+      },
+      {
+        "path": "/api/dictionary-history?query=accessory",
+        "status": 200
+      },
+      {
+        "path": "/api/dictionary-history?query=qaabsentword",
+        "status": 404
+      },
+      {
+        "path": "/api/dictionary-history?query=accessory",
+        "status": 409
+      },
+      {
+        "path": "/api/dictionary-stream",
+        "status": 409
+      },
+      {
+        "path": "/api/explain-word-stream",
+        "status": 409
+      },
+      {
+        "path": "/api/admin/accounts?view=directory",
+        "status": 401
+      },
+      {
+        "path": "/api/account/sync?protocol=2&bootstrap=active",
+        "status": 200
+      },
+      {
+        "path": "/api/account/export",
+        "status": 200
+      }
+    ],
+    "providerCalls": 0,
+    "usageActions": 0,
+    "learningMemoryIdentityVersionUnchanged": true,
+    "presentationFieldsMayRefresh": true,
+    "crossDeviceLatestCache": true,
+    "answers": 0
+  },
+  "serverPersistence": {
+    "passed": true,
+    "serverPersistenceSource": "b590ed307cd9b94a740cc75cc33dd425c72c64dc",
+    "realPostgrestAndCas": true,
+    "cacheAndExistingVocabularyUpdated": true,
+    "idAndCreatedAtAndCardModePreserved": true,
+    "providerCalls": 0
+  },
+  "browser": {
+    "passed": true,
+    "generationQueries": [
+      "accessory",
+      "attachment",
+      "accessory",
+      "accessorize"
+    ],
+    "errors": [],
+    "checks": [
+      "same result and toolbar",
+      "detail regeneration",
+      "related popup",
+      "return to original",
+      "home regeneration syncs study",
+      "English hint updates",
+      "desktop mobile day night",
+      "keyboard no answer",
+      "reduced motion"
+    ],
+    "answers": 0
+  },
+  "coldBrowserReplayAfterAccountSync": true,
+  "providerCalls": 0,
+  "backupRestoreTables": 39,
+  "backendContainersRestarted": false,
+  "rollbackImage": "sha256:47abc9e7498bae63c8988640b19ef9e06cdcf760b84cac13873e7da8eb696e4f",
+  "adminRecoveryStatuses": [
+    200,
+    200,
+    200,
+    200
+  ],
+  "cleanup": {
+    "passed": true,
+    "disposableQaRemoved": true,
+    "productionAccountsTouched": 0,
+    "providerCalls": 0
+  },
+  "limitations": [
+    "Provider responses mocked; actual source persistence helper separately exercised against real production PostgREST/CAS.",
+    "Client-only changes used account immediate sync; existing animated homepage idle gate can defer background upload.",
+    "Physical devices, other browsers and user visual acceptance remain open."
+  ]
+}
