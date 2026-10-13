@@ -3,9 +3,9 @@ import { accountFetch } from "@/lib/accountStore";
 import { getAuthenticatedUser } from "@/lib/userAuth";
 import { requestExternalOrigin } from "@/lib/requestSecurity";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
-import { buildStudyPlan, sanitizeStudySettings, scheduleStudy, STUDY_ALGORITHM, studyPaused, studyRating } from "@/lib/studyScheduler";
+import { buildStudyPlan, sanitizeStudySettings, scheduleStudy, shanghaiDay, STUDY_ALGORITHM, studyPaused, studyRating } from "@/lib/studyScheduler";
 import { getStudySettings, getStudySnapshot, reconcileStudyCards, saveStudySettings, studyRpc, studyRows } from "@/lib/studyStore";
-import type { StudyAnswer, StudyCard } from "@/types/study";
+import type { StudyAnswer, StudyCard, StudyDay } from "@/types/study";
 import { recordServerError } from "@/lib/serverErrorReporting";
 
 export const dynamic = "force-dynamic";
@@ -97,9 +97,11 @@ export async function POST(request: Request) {
       const answer = body.answer as StudyAnswer;
       if (!["forgot","unsure_wrong","unsure_right","remembered"].includes(answer)) throw new StudyError("请选择本次回忆结果。");
       if (!/^[0-9a-f-]{36}$/i.test(String(body.id)) || !/^[0-9a-f-]{36}$/i.test(String(body.token))) throw new StudyError("本次答题凭据无效。");
-      const settings = await getStudySettings(userId);
-      const snapshot = await getStudySnapshot(userId);
-      const retention = snapshot.today?.settings.retention ?? settings.retention;
+      const [settings, days] = await Promise.all([
+        getStudySettings(userId),
+        accountFetch<Array<Pick<StudyDay, "settings">>>("study_days?user_id=eq." + encodeURIComponent(userId) + "&day=eq." + shanghaiDay(new Date()) + "&select=settings&limit=1"),
+      ]);
+      const retention = days[0]?.settings.retention ?? settings.retention;
       const scheduled = scheduleStudy(card.memory, answer, new Date(), retention,settings);
       const saved = await studyRpc<Record<string,unknown>>("review_v3", {
         p_user: userId, p_id: body.id, p_card: cardId, p_version: body.version, p_token: body.token,
