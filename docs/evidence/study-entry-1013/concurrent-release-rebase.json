@@ -1,0 +1,65 @@
+{
+  "capturedAt": "2026-10-13T06:50:53.3979788Z",
+  "public": {
+    "ok": true,
+    "checkedAt": "2026-10-13T06:51:02.938Z",
+    "releaseId": "20261013T063535",
+    "parentReleaseId": "20261013T031701",
+    "backendMode": "mainland_internal"
+  },
+  "acceptedManifest": {
+    "schemaVersion": 1,
+    "releaseId": "20261013T063535",
+    "parentReleaseId": "20261013T031701",
+    "sourceRevision": "c95525c24986fb1c48ff11240a8f14fa9d7db636",
+    "guardVersion": 1,
+    "requiredContracts": [
+      "release-lineage-v1",
+      "phonetic-current-form-v1",
+      "article-image-localization-v1"
+    ],
+    "changedFiles": [
+      "app/api/study/route.ts",
+      "app/globals.css",
+      "components/AppProviders.tsx",
+      "components/DictionaryWindow.tsx",
+      "components/FocusModality.tsx",
+      "components/ReaderToolbar.module.css",
+      "components/ReaderView.tsx",
+      "components/StudyPanel.module.css",
+      "components/StudyPanel.tsx",
+      "components/cet/cet.css",
+      "components/useStudyReviewQueue.ts",
+      "docs/architecture.md",
+      "docs/evidence/ui-design-studio/cleanup.json",
+      "docs/evidence/ui-design-studio/ops-after.json",
+      "docs/evidence/ui-design-studio/ops-before.json",
+      "docs/evidence/ui-design-studio/public-delayed-assets.json",
+      "docs/evidence/ui-design-studio/public-mobile-preview.png",
+      "docs/evidence/ui-design-studio/public-qa.json",
+      "docs/gpt-brief.md",
+      "docs/product-journey.md",
+      "docs/release-governance.md",
+      "docs/study-flow-20261013.md",
+      "docs/ui-design-studio.md",
+      "lib/studyPresentation.ts",
+      "lib/studyReviewQueue.ts",
+      "lib/studyStore.ts",
+      "tests/study-background-ui.test.tsx",
+      "tests/study-entry-projection.test.ts",
+      "tests/study-learning-v3.sql",
+      "tests/study-review-queue.test.ts",
+      "tests/study-review-route.test.ts"
+    ]
+  },
+  "rejectedCandidate": "20261013T144700",
+  "guardExitCode": 76,
+  "candidateCutover": false,
+  "rejectionJournal": [
+    "Oct 13 14:48:47 context-reader-shadow systemd[1]: Started context-reader-release-20261013T144700.service - /opt/context-reader/bin/deploy-release 20261013T144700 /tmp/release-20261013T144700.tar.gz.",
+    "Oct 13 14:48:48 context-reader-shadow deploy-release[3157626]: parent release mismatch: candidate expects 20261013T031701, current production is 20261013T063535",
+    "Oct 13 14:48:48 context-reader-shadow systemd[1]: context-reader-release-20261013T144700.service: Main process exited, code=exited, status=76/PROTOCOL",
+    "Oct 13 14:48:48 context-reader-shadow systemd[1]: context-reader-release-20261013T144700.service: Failed with result 'exit-code'.",
+    "Oct 13 14:48:48 context-reader-shadow systemd[1]: context-reader-release-20261013T144700.service: Consumed 1.887s CPU time."
+  ]
+}

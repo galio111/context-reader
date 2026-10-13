@@ -1,0 +1,24 @@
+{
+  "capturedAt": "2026-10-13T06:16:23.0886209Z",
+  "checks": [
+    {
+      "path": "/api/study",
+      "status": 401,
+      "elapsedMs": 547,
+      "bytes": 52
+    },
+    {
+      "path": "/api/account/sync?protocol=2",
+      "status": 401,
+      "elapsedMs": 177,
+      "bytes": 51
+    },
+    {
+      "path": "/api/admin/accounts",
+      "status": 401,
+      "elapsedMs": 168,
+      "bytes": 33
+    }
+  ],
+  "passed": true
+}

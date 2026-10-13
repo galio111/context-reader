@@ -5,7 +5,7 @@ import { JSDOM } from "jsdom";
 import * as React from "react";
 import { DEFAULT_STUDY_SETTINGS, newMemory, shanghaiDay } from "../lib/studyScheduler";
 import type { StudySnapshot } from "../types/study";
-import { readStudyReviews } from "../lib/studyReviewQueue";
+import { readStudyReviews, storeStudyReview, type PendingStudyReview } from "../lib/studyReviewQueue";
 
 test("Study advances immediately, keeps a new answer visible across another tab's review acknowledgement, and restores interrupted saves",async()=>{
   const dom=new JSDOM("<!doctype html><body></body>",{url:"https://context-reader.com",pretendToBeVisual:true});
@@ -35,10 +35,12 @@ test("Study advances immediately, keeps a new answer visible across another tab'
   let rejectReview!:(reason:Error)=>void;
   let delaySnapshot=false, snapshotReads=0, resolveSnapshot!:(value:Response)=>void;
   let missingPlan=false, missingPlanStarts=0;
+  let delayStart=false, resolveStart!:(value:Response)=>void;
   const requests:Array<Record<string,unknown>>=[],presented:string[]=[];
   const originalFetch=globalThis.fetch;
   globalThis.fetch=async(_url,init)=>{
     const body=init?.body?JSON.parse(String(init.body)):null;
+    if(body?.op==="start"&&delayStart)return new Promise<Response>(resolve=>{resolveStart=resolve;});
     if(body?.op==="start"&&missingPlan){
       missingPlanStarts++;
       if(missingPlanStarts===1)return Response.json({...copy(),today:null});
@@ -102,6 +104,9 @@ test("Study advances immediately, keeps a new answer visible across another tab'
     ui=render(<StudyPanel {...props}/>);
     await waitFor(()=>assert.equal(requests.length,4));
     assert.equal(requests.at(-1)!.id,originalId);
+    // A held outbox write must not hold the initial snapshot or next-card recall.
+    await waitFor(()=>assert.ok(ui.getByText("gamma")));
+    assert.equal(ui.getByRole("button",{name:/不记得/}).hasAttribute("disabled"),false);
     base.cards[1]={...base.cards[1],version:1,memory:{...base.cards[1].memory,state:1,due:new Date(now.getTime()+300000).toISOString()}};
     await act(async()=>{resolveReview(Response.json({snapshot:copy()}));});
     await waitFor(()=>assert.equal(readStudyReviews(localStorage,owner).length,0));
@@ -115,5 +120,14 @@ test("Study advances immediately, keeps a new answer visible across another tab'
     fireEvent.click(ui.getByRole("button",{name:"重试"}));
     await waitFor(()=>assert.equal(missingPlanStarts,3));
     await waitFor(()=>assert.ok(ui.getByText("gamma")));
+    ui.unmount();delayStart=true;
+    storeStudyReview(localStorage,owner,requests.at(-1) as unknown as PendingStudyReview);
+    ui=render(<StudyPanel {...props}/>);
+    await waitFor(()=>assert.equal(requests.length,5));
+    await act(async()=>{resolveReview(Response.json({snapshot:copy()}));});
+    await waitFor(()=>assert.ok(ui.getByText("gamma")));
+    await waitFor(()=>assert.equal(ui.getByRole("button",{name:/不记得/}).hasAttribute("disabled"),false));
+    assert.equal(readStudyReviews(localStorage,owner).length,0,"fast queue confirmation unlocks the first snapshot before start finishes");
+    delayStart=false;await act(async()=>{resolveStart(Response.json(copy()));});
   } finally {cleanup();globalThis.fetch=originalFetch;dom.window.close();}
 });

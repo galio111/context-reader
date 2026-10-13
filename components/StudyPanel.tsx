@@ -12,6 +12,7 @@ import { StudyDictionaryHint } from "./StudyDictionaryHint";
 import { BookDictionary } from "./BookDictionary";
 import { DictionaryWindow } from "./DictionaryWindow";
 import { useStudyVocabularyEntries } from "./useStudyVocabularyEntries";
+import { ACCOUNT_DATA_CHANGED_EVENT, ACCOUNT_DATA_MERGED_EVENT, accountDataEventKinds } from "@/lib/accountEvents";
 import { addVocabularyEntry, getVocabularyEntries, vocabularyIdentity } from "@/lib/vocabulary";
 import { createStandaloneVocabularyEntry } from "@/lib/standaloneDictionary";
 import { flushLearningStorage } from "@/lib/learningStorage";
@@ -48,6 +49,7 @@ export function StudyPanel({visible,onClose,onSource,notice,requestedTab="today"
   const [order,setOrder]=useState<"ordered"|"random">("ordered"),[motion,setMotion]=useState(true);
   const [confirm,setConfirm]=useState<"profile"|number|null>(null);
   const [wordDetailId,setWordDetailId]=useState<string|null>(null);
+  const openVocabularyEntry=useCallback((entry:VocabularyEntry)=>setWordDetailId(entry.id),[]);
   const [relatedQuery,setRelatedQuery]=useState<string|null>(null);
   const [relatedEntries,setRelatedEntries]=useState<VocabularyEntry[]>([]);
   useEffect(()=>{if(!visible)setRelatedQuery(null);},[visible]);
@@ -67,23 +69,54 @@ export function StudyPanel({visible,onClose,onSource,notice,requestedTab="today"
   const preparedDay=useRef("");
   const offset=useRef(0),requestLock=useRef(false);
   const acceptedAt=useRef(0);
+  const snapshotRef=useRef<StudySnapshot|null>(null);
+  const lastLoadedAt=useRef(0), mutationEpoch=useRef(0), mutations=useRef(0);
+  const refreshRequested=useRef(true), refreshInFlight=useRef(false);
+  const presentationRetry=useRef(false), retriedCard=useRef("");
+  const [refreshTick,setRefreshTick]=useState(0);
+  const requestRefresh=useCallback(()=>{refreshRequested.current=true;setRefreshTick(n=>n+1);},[]);
   useDocumentScrollLock(visible);
   useEffect(()=>{alive.current=true;return()=>{alive.current=false;};},[]);
   const accept=useCallback((s:StudySnapshot)=>{
     if(!alive.current||Date.parse(s.serverNow)<acceptedAt.current)return;
+    const firstSnapshot=!snapshotRef.current;
     acceptedAt.current=Date.parse(s.serverNow);
+    // Any newer accepted state, including a foreground read/retry, supersedes
+    // background requests that started before it.
+    mutationEpoch.current++;
     for(const claim of s.claims??[]){
       const pending=claim.points-claim.claimed_points+(claim.plan&&!claim.claimed_at?1:0);
       if(pending>(priorClaims.current.get(claim.id)??0))setRewardNotice(true);
       priorClaims.current.set(claim.id,pending);
     }
+    snapshotRef.current=s;lastLoadedAt.current=Date.now();
     offset.current=Date.parse(s.serverNow)-Date.now();setSnapshot(s);setTick(Date.now());
+    // A restored outbox can return a complete snapshot before the initial start.
+    if(firstSnapshot&&!requestLock.current)setBusy(false);
+    if(presentationRetry.current){presentationRetry.current=false;setPresentation(n=>n+1);}
   },[]);
+  const acceptSettings=useCallback((s:StudySnapshot)=>{
+    if(!alive.current)return;
+    const current=snapshotRef.current;
+    if(!current){accept(s);return;}
+    mutationEpoch.current++;
+    const next={...current,settings:s.settings};
+    snapshotRef.current=next;setSnapshot(next);
+    // A settings-only merge neither rewinds the server clock nor makes the
+    // retained cards newer, and cannot fulfill a pending presentation refresh.
+  },[accept]);
   const api=useCallback(async <T,>(body?:unknown):Promise<T>=>{
+    const op=(body as {op?:string}|undefined)?.op;
+    const mutating=Boolean(op&&op!=="start"&&op!=="prepare"&&op!=="present");
+    if(mutating){mutationEpoch.current++;mutations.current++;}
+    try {
     const response=await fetch("/api/study",{method:body?"POST":"GET",headers:{"Content-Type":"application/json","X-Context-Account":owner},body:body?JSON.stringify(body):undefined,cache:"no-store",signal:body&&(body as {op?:string}).op==="review"?AbortSignal.timeout(20000):undefined});
     const data=await response.json();
     if(!response.ok)throw Object.assign(new Error(data.error||"暂时无法保存，请稍后重试。"),{code:data.code,status:response.status});
     return data as T;
+    } finally {
+      if(mutating){mutationEpoch.current++;mutations.current--;if(alive.current)setRefreshTick(n=>n+1);}
+    }
   },[owner]);
   const reviews=useStudyReviewQueue(owner,api,accept);
   const pending=reviews.pending.length>0;
@@ -94,23 +127,59 @@ export function StudyPanel({visible,onClose,onSource,notice,requestedTab="today"
     finally{requestLock.current=false;if(alive.current)setBusy(false);}
   };
   useEffect(()=>{
-    void run(async()=>{
-      const syncing=syncNow({dirtyKinds:["vocabulary"]}).catch(()=>null);
-      accept(await api<StudySnapshot>({op:"start"}));
-      const synced=await syncing;
-      if(synced&&(synced.pushedCount>0||synced.pulledCount>0))accept(await api<StudySnapshot>({op:"start"}));
-    });
+    // Account bootstrap can include megabytes of unrelated reading/cache data.
+    // It must not hold the study controls after the server's first snapshot arrives.
+    void syncNow({dirtyKinds:["vocabulary"]}).then(synced=>{
+      if(alive.current&&(synced.pushedCount>0||synced.pulledCount>0))requestRefresh();
+    }).catch(()=>{});
     try{const local=JSON.parse(localStorage.getItem("context-reader-study-display:"+owner)||"{}");setOrder(local.order==="random"?"random":"ordered");setMotion(local.motion!==false);}catch{}
     try{profileAction.current=sessionStorage.getItem("context-reader-profile-action:"+owner)||"";}catch{}
   // A single account-scoped load; a sync callback changing must not reset a card.
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[owner]);
+  useEffect(()=>{
+    const merged=(event:Event)=>{const kinds=accountDataEventKinds(event);if(!kinds.length||kinds.includes("vocabulary"))requestRefresh();};
+    let timer:ReturnType<typeof setTimeout>|undefined, syncing=false, dirty=false, cancelled=false;
+    const flush=async()=>{
+      if(syncing||cancelled)return;
+      dirty=false;syncing=true;
+      try{await syncNow({dirtyKinds:["vocabulary"]});if(!cancelled)requestRefresh();}catch{/* Account sync owns retry and offline state. */}
+      finally{syncing=false;if(dirty&&!cancelled)timer=setTimeout(()=>void flush(),300);}
+    };
+    const changed=(event:Event)=>{
+      const kinds=accountDataEventKinds(event);if(kinds.length&&!kinds.includes("vocabulary"))return;
+      dirty=true;clearTimeout(timer);timer=setTimeout(()=>void flush(),300);
+    };
+    window.addEventListener(ACCOUNT_DATA_MERGED_EVENT,merged);
+    window.addEventListener(ACCOUNT_DATA_CHANGED_EVENT,changed);
+    return()=>{cancelled=true;clearTimeout(timer);window.removeEventListener(ACCOUNT_DATA_MERGED_EVENT,merged);window.removeEventListener(ACCOUNT_DATA_CHANGED_EVENT,changed);};
+  },[requestRefresh,syncNow]);
+  useEffect(()=>{
+    if(!refreshRequested.current||refreshInFlight.current||requestLock.current||busy)return;
+    const initial=!snapshotRef.current;
+    // Pending outbox rows hide their cards. They can drain while the first
+    // snapshot loads; only later refreshes must wait for their confirmation.
+    if(!initial&&(mutations.current||reviews.pendingRef.current.length))return;
+    refreshRequested.current=false;refreshInFlight.current=true;
+    const epoch=mutationEpoch.current;
+    if(initial)setBusy(true);
+    void api<StudySnapshot>({op:"start"}).then(s=>{
+      if(!alive.current)return;
+      if(snapshotRef.current&&(epoch!==mutationEpoch.current||mutations.current||reviews.pendingRef.current.length)){refreshRequested.current=true;return;}
+      accept(s);
+    }).catch(e=>{
+      if(alive.current&&epoch===mutationEpoch.current)setError(e instanceof TypeError?"网络未连接。请恢复连接后重试，学习进度仍然保留。":e.message);
+    }).finally(()=>{
+      refreshInFlight.current=false;
+      if(alive.current){if(initial&&!requestLock.current)setBusy(false);setRefreshTick(n=>n+1);}
+    });
+  },[refreshTick,busy,pending,api,accept]);
   const previouslyVisible=useRef(false);
   useEffect(()=>{
-    if(visible&&!previouslyVisible.current&&snapshot&&!reviews.pendingRef.current.length)void run(async()=>{accept(await api<StudySnapshot>({op:"start"}));});
+    if(visible&&!previouslyVisible.current&&snapshotRef.current&&Date.now()-lastLoadedAt.current>30000)requestRefresh();
     previouslyVisible.current=visible;
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[visible]);
+  },[visible,requestRefresh]);
   useEffect(()=>{if(notice)setMessage(notice);},[notice]);
   useEffect(()=>{if(!message)return;const id=setTimeout(()=>setMessage(""),5000);return()=>clearTimeout(id);},[message]);
   useEffect(()=>{
@@ -135,7 +204,13 @@ export function StudyPanel({visible,onClose,onSource,notice,requestedTab="today"
     setToken("");
     if(!visible||!card||!reviews.ready||reviews.pendingRef.current.length)return;
     let cancelled=false;
-    void api<{token:string}>({op:"present",cardId:card.id,version:card.version}).then(r=>{if(!cancelled)setToken(r.token);}).catch(e=>{if(!cancelled)setError((e as Error).message);});
+    void api<{token:string}>({op:"present",cardId:card.id,version:card.version}).then(r=>{if(!cancelled){setToken(r.token);retriedCard.current="";}}).catch(e=>{
+      if(cancelled)return;
+      // A different device may have advanced the retained card. Refresh once;
+      // never authorize an answer with its old version or presentation token.
+      if((e.status===409||e.code==="state_changed")&&retriedCard.current!==cardKey){retriedCard.current=cardKey;presentationRetry.current=true;requestRefresh();}
+      else setError((e as Error).message);
+    });
     return()=>{cancelled=true;};
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[cardKey,api,presentation,visible,pending,reviews.ready]);
@@ -247,8 +322,8 @@ export function StudyPanel({visible,onClose,onSource,notice,requestedTab="today"
           </article>}
           {tab==="data"&&learningSnapshot&&<StudyStats snapshot={learningSnapshot}/>}
           {tab==="rewards"&&<StudyRewards snapshot={snapshot} busy={busy} onActivate={milestone=>setConfirm(milestone)} onClaim={id=>void claimRewards([id])}/>}
-          {tab==="vocabulary"&&learningSnapshot&&<StudyVocabulary snapshot={learningSnapshot} onOpen={entry=>setWordDetailId(entry.id)}/>}
-          {<div hidden={tab!=="settings"}><StudySettingsView value={snapshot.settings} save={settings=>api<StudySnapshot>({op:"settings",settings})} onSaved={s=>setSnapshot(current=>current?{...current,settings:s.settings}:s)} order={order} motion={motion} onDisplay={updateDisplay} paused={paused} onPause={()=>paused?void retryPrepare():setPauseConfirm(true)} onProfile={()=>selectTab("profile")}/></div>}
+          {tab==="vocabulary"&&learningSnapshot&&<StudyVocabulary snapshot={learningSnapshot} onOpen={openVocabularyEntry}/>}
+          {<div hidden={tab!=="settings"}><StudySettingsView value={snapshot.settings} save={settings=>api<StudySnapshot>({op:"settings",settings})} onSaved={acceptSettings} order={order} motion={motion} onDisplay={updateDisplay} paused={paused} onPause={()=>paused?void retryPrepare():setPauseConfirm(true)} onProfile={()=>selectTab("profile")}/></div>}
           {tab==="profile"&&<section className={styles.surface}>{profile?<><div className={styles.sectionHead}><h2>从真实阅读开始</h2></div><dl className={styles.metrics}><div><dt>有效阅读</dt><dd>{Math.floor(profile.activeSeconds/60)}<small>分钟</small></dd></div><div><dt>不同查词</dt><dd>{profile.uniqueLookups}<small>个</small></dd></div></dl>{profile.result&&<div className={styles.profileResult}><h2>{profile.result.recommendedLevel}</h2><p>{profile.result.summary}</p><h3>接下来</h3><ul>{profile.result.focus.map((v,i)=><li key={i}>{v}</li>)}</ul><button onClick={()=>{const current=readRecommendationPreferences();writeRecommendationPreferences({...current,readingLevel:profile.result!.recommendedLevel as RecommendationReadingLevel},{authenticated:true});onClose();}}>按建议难度阅读<StudyIcon name="arrow"/></button></div>}<p className={styles.caption}>累计 {snapshot.policy.minimumReadingMinutes} 分钟有效阅读、{snapshot.policy.minimumLookups} 个不同查词后可生成。画像是阅读建议，不是词汇量测试。</p>{snapshot.policy.profileEnabled?<button className={styles.primary} disabled={!profile.eligible||busy||isOffline} onClick={()=>setConfirm("profile")}>生成画像 · {snapshot.policy.profileCost} 点</button>:<p className={styles.caption}>画像生成暂未开放。</p>}</>:<LoadingStatus >正在读取阅读记录…</LoadingStatus>}</section>}
         </>}
       </main>

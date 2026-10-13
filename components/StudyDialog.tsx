@@ -8,7 +8,15 @@ export function StudyDialog({title, children, onCancel, busy = false, icon = "ca
 }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const heading = useId();
-  useEffect(() => { const el = dialog.current; el?.showModal(); return () => el?.close(); }, []);
+  useEffect(() => {
+    const el = dialog.current;
+    const previousFocus = document.activeElement;
+    el?.showModal();
+    return () => {
+      el?.close();
+      if (previousFocus instanceof HTMLElement && previousFocus.isConnected) previousFocus.focus({ preventScroll: true });
+    };
+  }, []);
   return <dialog ref={dialog} className={`${styles.confirm} ${wide?styles.wideDialog:""}`} aria-labelledby={heading}
     onCancel={e => { e.preventDefault(); e.stopPropagation(); if (!busy) onCancel(); }}
     onClick={e => { if (e.target === e.currentTarget && !busy) { const r=e.currentTarget.getBoundingClientRect(); if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)onCancel(); } }}>

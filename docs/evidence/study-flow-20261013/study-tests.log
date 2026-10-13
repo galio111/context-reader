@@ -1,0 +1,40 @@
+✔ Study advances immediately, keeps a new answer visible across another tab's review acknowledgement, and restores interrupted saves (6193.3393ms)
+✔ study reads paginate compact vocabulary fields without fetching saved dictionary payloads (10.7969ms)
+✔ new words have no 5/50 ceiling and reviews default to 100 (29.8123ms)
+✔ five and ten minute steps preserve upstream FSRS memory and long-term Hard (4.7122ms)
+✔ shuffle never crosses review-first boundary or replaces the visible question (0.5703ms)
+✔ Anki exclusions apply equally to vocabulary and progress without erasing source data (1.5424ms)
+✔ history fills missing days with zero and forecasts use Shanghai dates (1.3327ms)
+✔ 538 overdue words carry through the daily cap together with upcoming words (10.5025ms)
+✔ ongoing learning joins its due day outside the ordinary review cap (0.5148ms)
+✔ answers remain durable and account isolated while serial background saving waits (4.7751ms)
+✔ a committed answer with a lost response retries its identical id without double recording (1.0177ms)
+✔ too-fast retries retain the timing guard and immutable answer (0.9184ms)
+✔ cross-day recovery creates today's plan before replaying the unchanged presented answer (1.1734ms)
+✔ a failed day initialization or still-unplanned card never discards yesterday's answer (0.8863ms)
+✔ switching accounts during cross-day initialization retains the original answer without replay (0.4835ms)
+✔ unmount or account switch fences delayed responses and leaves the answer for recovery (0.4374ms)
+✔ a concurrent state change resolves only after a fresh authoritative read succeeds (0.7593ms)
+✔ legacy session pending migration preserves identity, and a failed write retains the old record (0.7736ms)
+✔ independent answer keys survive another tab's write and immutable id reuse is rejected (0.5412ms)
+✔ pending cards are skipped immediately without inventing completed counts or FSRS states (6.7742ms)
+✔ remaining counts track graduation, wrong review, timed learning and valid today plan only (3.2254ms)
+✔ review distinguishes retryable day changes from real version conflicts without settling failed answers (411.7478ms)
+✔ uncertain correctness preserves FSRS success/failure semantics without an Easy surrogate (1.348ms)
+✔ a multi-month mixed history agrees with the upstream FSRS implementation at every review (23.3432ms)
+✔ pause changes retrievability with elapsed time without mutating stability or deleting debt (2.7711ms)
+✔ Shanghai midnight, not machine timezone, determines completion and daily plans (0.3929ms)
+✔ an intraday Good is still learning, not a completed card or reward (0.9012ms)
+✔ Anki histories are excluded and review limits do not cap user-chosen new words (17.2215ms)
+✔ reject backwards review clocks rather than corrupting an existing memory (0.534ms)
+✔ waiting relearning does not block new words after the review pass (0.3197ms)
+✔ learning steps have priority and do not consume the review limit (0.9413ms)
+✔ reward policy preserves approved milestones and rejects malformed financial settings (1.5756ms)
+ℹ tests 32
+ℹ suites 0
+ℹ pass 32
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10396.4356
