@@ -42,7 +42,7 @@ export function installUiDesignPreview(account:AccountSessionState){
    if(body.op==='complete')return json({snapshot});return json(snapshot);
   }
   if(url.pathname==='/api/study/profile')return json({activeSeconds:4200,uniqueLookups:64,eligible:true,...(method==='POST'?{result:{summary:'你更熟悉日常与文化类文章。',recommendedLevel:'中等',strengths:['善于结合语境理解词义'],focus:['尝试稍长的论述段落']}}:{})});
-  if(url.pathname==='/api/dictionary-history')return json({items:[],history:[]});
+  if(url.pathname==='/api/dictionary-history')return url.searchParams.get('query')==='subtle'?json({dictionary:UI_PREVIEW_DICTIONARY,updatedAt:new Date().toISOString()}):json({dictionary:null},404);
   if(url.pathname==='/api/explain-word-stream'){
    const base=snapshot.entries.find(e=>e.word===body.word)??snapshot.entries[0];
    const explanation={...base,word:body.word||base.word,lemma:body.word||base.lemma};

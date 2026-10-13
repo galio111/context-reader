@@ -1,0 +1,59 @@
+{
+  "scenes": [
+    {
+      "name": "背单词",
+      "text": "继续背词\nMenu\n＋\n背单词\n生词本\n学习数据\n学习奖励\n设置\n返回阅读\n复习 · 今天已学完 0 词\n\nsubtle\n\n中文提示\n空格\n1\n不记得\n2\n模糊\n3\n记得"
+    },
+    {
+      "name": "文章阅读",
+      "text": "返回首页\n返回首页\n导入\n导入新的文章或网址\n查词\n打开可移动查词窗口\n生词本\n查看保存的词与原句\n我的文章\n打开保存文章\n编辑文章\n编辑文章\n复制文章内容\n复制文章内容\n保存文章\n保存文章\nMenu\nMenu\n\nThe quiet power of noticing\n\n\n\n\nA small change in att"
+    },
+    {
+      "name": "词典",
+      "text": "Dictionary · 03\n返回阅读工作台\n\n独立深度词典\n\n没有原句，也可以把一个词查透\n中文或英文单词、短语\n深度查询\n试试：\ntake in\n微妙\n落实\n\n历史结果暂时无法读取，请稍后重试。\n\nAa\n这页会写下完整查询结果\n\n输入英文查看中文释义；输入中文查看可用的英文表达、例句和选词区别。"
+    },
+    {
+      "name": "四、六级",
+      "text": "四级\n六级\n按试卷\n按题型\n最近年份\n⌄\nCET 4\n2025\n12 月 · 1\n2025 年 12 月 · 第 1 套\n大学英语四级\n听力 · 选词填空 · 长篇匹配 · 仔细阅读\n↗\nCET 4\n2025\n12 月 · 2\n2025 年 12 月 · 第 2 套\n大学英语四级\n听力 · 选词填空 · 长篇匹配 · "
+    },
+    {
+      "name": "账号",
+      "text": "Context Reader\n账号与用量\n\n把时间留给阅读。\n\n我的学习记录\n阅读画像 ↗\n今天有效阅读\n0 秒\n累计有效阅读\n0 秒\n有阅读的天数\n0 天\n真题正确率\n—\n提交真题后显示\n\n当前账号\n\n体验账号\n\n手机号 13800000000\n\n修改账号资料\nPlus\n学习点数\n已用 0 / 15,000\n\n11/"
+    },
+    {
+      "name": "套餐",
+      "text": "Context Reader\n返回账号与用量\n选择适合你的阅读计划\n\n查词、翻译与摘要，共用一份月度点数。\n\n月付\n年付\n\n按需购买 · 不自动续费\n\nBasic\n\n把阅读变成日常\n\n¥\n6\n/ 月\n\n购买后开启一个月阅读计划\n\n每月额度\n5,000点\n\n查看 Basic\n阅读量参考\n\n外刊 1–2 篇 / 天\n\n或真"
+    },
+    {
+      "name": "使用说明",
+      "text": "Context Reader\n使用说明\n\n本页目录\n\n开发者的话\n3 分钟开始\n核心功能\n阅读操作\n背单词\n常见问题\n更新记录\n\n为什么做这个网站\n\n开发者的话\n\n我做 Context Reader，是因为自己在读外刊和长文章时，也经常被密集的生词劝退。把词一个个复制到词典里很慢，同一个词又会列出很多意思，读完一篇文章"
+    },
+    {
+      "name": "后台",
+      "text": "READ\nLOOKUP\nREMEMBER\nContext Reader 管理后台\n\n管理推荐内容、用户额度、反馈处理和站点异常。\n\n返回首页\n设计工作台 ↗\n推荐文章\n模型与调用\n用户与额度\n付费管理\n用户反馈\n错误与 Bug\n\n每日内容工作台\n\n阅读、判断、继续下一篇\n\n候选仍按今天加入优先。打乱只作用于已精选的首页"
+    },
+    {
+      "name": "首页 · 游客",
+      "text": "Context Reader\nContext Reader\n导入\n查词\n生词本\n我的文章\nMenu\nMenu\n\nCONTEXT READER\n\n在语境里，\n读懂英文。\n\n从精选外刊到你的长文，让每一处难懂，都能在语境里得到解释。\n\n看看怎么读\n↓\nEXPLORE CONTEXT READER\n世界很大，\n从你想读的开始"
+    },
+    {
+      "name": "首页 · 登录后",
+      "text": "Context Reader\nContext Reader\n导入\n查词\n生词本\n我的文章\nMenu\nMenu\n\nYOUR ARTICLE\n\n导入文章\n背单词\n继续学习 →\n粘贴文章\n输入网址\n开始阅读\n\nSELECTED READING\n\n精选外刊\n/\n四六级真题\n外刊会定期更新\n个性化推荐\n设置阅读水平与兴趣\n推荐\n"
+    }
+  ],
+  "identity": {
+    "ok": true,
+    "checkedAt": "2026-10-13T03:12:24.165Z",
+    "releaseId": "20261013T030124",
+    "parentReleaseId": "20261013T081227",
+    "backendMode": "mainland_internal"
+  },
+  "/api/admin/ui-design": 403,
+  "/api/account/sync": 401,
+  "initialRevision": 6,
+  "draftSaveRestore": true,
+  "publicUnchanged": true,
+  "errors": [],
+  "frameBusinessWrites": 0,
+  "ok": true
+}
