@@ -28,6 +28,10 @@ export function UiStudioBridge({nonce}:{nonce:string}){
    const t=entries.find(t=>t.id===id);if(!t)return;
    current.editing=true;current.selected=id;picked=null;hovered=null;
    try{
+    // The inventory keeps this iframe mounted but hidden. Wait for the parent
+    // canvas layout before testing visibility or closing its transient layers.
+    for(let attempt=0;attempt<60&&!controller.signal.aborted&&window.frameElement?.getBoundingClientRect().height===0;attempt++)await new Promise(r=>setTimeout(r,32));
+    if(controller.signal.aborted)return;
     revealing=true;await prepareUiTarget(id,t.group,t.selector??'',controller.signal);
     let node=t.selector?findVisibleUiNode(t.selector):null;const opened=new Set<string>();
     for(let attempt=0;attempt<35&&!controller.signal.aborted;attempt++){
