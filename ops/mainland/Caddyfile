@@ -26,9 +26,9 @@
       match status 2xx 304
     }
     respond @staticWrite 405
-    file_server {
-      precompressed br zstd gzip
-    }
+    # Caddy 2.10.2 returns a spurious 206 for precompressed sidecars (upstream
+    # #7250). Use the existing dynamic zstd/gzip encoder until Caddy is upgraded.
+    file_server
   }
 
   # Reviewed original audio is immutable and read-only. Caddy serves byte
