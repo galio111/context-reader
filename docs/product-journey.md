@@ -1977,7 +1977,15 @@ humiliate重音试听B/D自然后，曾准备通用CMU词库校验；bibliograph
 
 接受 `20261013T031701`，parent `20261013T030124`，source `cc7280dcd65060acef641596e48199e910e5cdab`。前一轮接入 `20261013T030124`，parent `20261013T081227`，source `ee946ab9f9165f27d7785060618e1c6a89b7b45b`；最终补丁修正慢网络首次加载的材质竞态和词典预览。17 项协议/权限/样式、90 项关键、9 个发布契约、本机/服务器构建、实际 PostgreSQL 并发/回滚及浏览器编辑/撤销/移动/适配器验证通过。公网十个页面、真实草稿保存/还原、冲突、账号同步、匿名权限及慢资源回归通过；公开方案保持原样，预览业务写入/页面错误为零。七服务健康、备份 SHA、本轮 39 表恢复、父镜像及五个后端容器不重启通过。临时 QA 普通权限验证通过，账号/会话/令牌及其记录精确清理，未操作其他账号。用户视觉、真机与其他浏览器仍待确认，详见 [能力与证据](ui-design-studio.md)。
 
+## 2026-10-13 背词连续操作、关联查词与焦点反馈（已生产）
+
+用户指出关联词打开空白框、关闭或空格提示后留下黑框、保存阻塞换词，并要求增加正在背/待复习/今日新学三项计数，删除所有作答底部说明。关联词与 Reader 共用同一可拖动缩放的 DictionaryWindow；指针及程序回焦不留框，内容区域无外围焦点框，真实控件保留细中性键盘定位。个人设计库已记录这条明确反感项。作答先可靠落入按账号隔离的本地 outbox，再立即换词并后台重试；服务端继续控制 FSRS、时间、幂等和奖励。删除每次保存前的整库词典载荷读取；首次毕业才计今日新学。独立审计发现并修复跨日与多标签页回执竞态。
+
+接受 `20261013T063535`，parent `20261013T031701`，source `c95525c24986fb1c48ff11240a8f14fa9d7db636`。31文件精确累计发布通过稳定入口及公网身份核对。139项架构/关键、49项词典/学习、9契约、本机/服务器构建、74项本机浏览器观测与真实隔离 SQL 通过。公网 QA 三卡学习、复习、新词真实保存；延迟2500ms时84ms显示下一词，迟到回执不回退，重复答案仅一次写入。1440/390窗口、焦点、计数、底部、协议2、Admin与数据导出通过，零模型调用。健康、39表备份恢复、父版镜像和五个后端容器不重启通过。原空白框在本机Chrome未稳定复现，已验证替换后的真实窗口；Safari/实体手机及用户最终观感仍开放。详见 [实现与生产证据](study-flow-20261013.md)。
+
 ## 2026-10-13 — Study entry no longer waits for full account sync
+
+Accepted `20261013T145900`, parent `20261013T063535`, source `516a1724697f5b60de7e6281aafd737cab3d4f48`. The exact 43-file cumulative package passed the stable guard and public identity. Two public browser runs with synthetic APIs measured warm entry 120/19ms and 2,000-word shuffle 63/44ms; all sorting, keyboard, measured-row, pending-answer and stale-response checks passed. One earlier full-document recovery exceeded a 10s wait; later complete page recovery remained variable at 5.562/14.467s, so cold page loading is explicitly not claimed instant. Exact-source CI, 71 targeted/90 critical tests, builds, anonymous/recovery-Admin boundaries, latest SHA/39-table restore and rollback images passed. Only app/caddy changed. Existing guarded image retention resolved the 87% disk warning to 67%, retaining current/parent images and all backend containers. Temporary-account creation was rejected by automatic review; no real answer was submitted in this task. [Current behavior, evidence and remaining gates](study-entry-performance.md).
 
 During release, the stable guard rejected stale-parent candidate `20261013T144700` without cutover. Merged the newly accepted `20261013T063535` source `c95525c24986fb1c48ff11240a8f14fa9d7db636`, retaining durable background answers, cross-tab/midnight recovery, compact study projection, DictionaryWindow and focus behavior. Initial entry now tolerates either the outbox confirmation or initial start arriving first; 71 targeted and 90 critical tests pass after integration. Final public identity and evidence are maintained in the linked performance record.
 
@@ -1989,6 +1997,18 @@ User reported a long wait every time the vocabulary learning system opened and r
 
 根据 Safari 真实日志，点击文章的 API 成功，而此前页面引用的 `6063-fc805f9af6d50219.js` 在应用更新后 404。加入永久不可变公共构建资源目录、稳定发布入口切换前归档、容量保护及 CI 回归；Reader/CET 加载或渲染失败在局部提供重试与返回，保留 HomeClient 状态及导入草稿。真实 Caddy 2.10.2 的预压缩响应存在错误 206，保留原动态 gzip/zstd 避开该路径。139 项架构、9 项真实 React 恢复、16 项 Linux 归档测试与独立审计通过。生产身份和完整验收见 `docs/release-safe-reader.md`，构建或候选通过不代表已上线。
 
+
+## 2026-10-13 · UI 工作台点选与胶囊替换（已实现，待发布）
+
+用户指出预览点不中、列表无定位及替换胶囊残留原效果。修复双模式拦截、跨场景握手和状态展开；加入真实胶囊组件并让替换与原生动效互斥，保留业务事件与还原。编辑预览跳过首页开场，可主动重播。独立复核发现并修复阅读工具定位及纯文本编辑选择器遗漏；本轮不发布测试设计。具体覆盖、证据与最终身份将在验收后写入 docs/ui-design-studio.md。
+
+## 2026-10-13 CET6 词典 API 重生成完成
+
+用户认为首次 Codex 词典内容过于简略，明确授权使用网站 API 重生成，并要求质量优先。以 gggg 正式鉴权完成 1,724 词的完整 API 内容保存、失败恢复和定向词典核查；当前有 5,223 个义项、8,254 条搭配，修正 120 词的确认问题。全部查词缓存与生词结果逐项相同，1,724 学习卡所有字段及 3,624 复习记录保留，其他账号对象未更改。glamourous 按合法异体映射完整 API 结果。
+
+全量结构/归一化检查、正式历史接口 12 词、真实浏览器等待同步后完整回放通过；验收零生成和零作答。费用账本估算 2.468694 美元，14 个发布中断的过期预留经现有退款函数退回。词形候选逐项分类，仍有 17 项具体少见形式未证实而保留；不声称逐字段外部词典认证或音频听感验收。
+
+本轮仅修改账号内容和文档，没有部署应用；验收时公网仍为 20261013T145900，父版 20261013T063535。数据快照、原始 API 流和修改凭据保存在私有 artifacts/vocabulary-sync-1013；脱敏记录见 docs/evidence/cet6-api-regeneration/acceptance.json，当前状态见 docs/cet6-learning-20261012.md。
 
 ## 2026-10-13 — 作答保存回执与新词口径修复（待发布验收）
 

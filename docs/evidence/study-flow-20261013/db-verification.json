@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "identity": {
+    "ok": true,
+    "checkedAt": "2026-10-13T06:47:26.773Z",
+    "releaseId": "20261013T063535",
+    "parentReleaseId": "20261013T031701",
+    "backendMode": "mainland_internal"
+  },
+  "cards": 3,
+  "reviews": 3,
+  "oneVersionIncrementPerCard": true,
+  "idempotentReplayDidNotDuplicate": true,
+  "newCardState": 1,
+  "newCompleted": 0,
+  "usageActions": 0,
+  "providerExecutions": 0,
+  "protocol2": true,
+  "ordinaryAdminStatus": 401,
+  "accountExport": true,
+  "otherAccountsTouched": 0
+}

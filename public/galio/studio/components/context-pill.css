@@ -1,0 +1,18 @@
+/* The host owns business semantics; only this inert decoration owns the effect. */
+.gcp-stage { display:grid;place-items:center; }
+.gcp-sample { display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:52px;padding:0 24px;background:#f6f5f2;border:1px solid #dcdcd7;color:#292c2f;cursor:pointer; }
+.gcp-sample svg { width:20px;height:20px; }
+.gcp-host { position:relative;overflow:hidden;isolation:isolate;white-space:nowrap; }
+.gcp-host > :not(.gcp-visual) { opacity:0!important; }
+.gcp-visual { position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;z-index:1;gap:inherit; }
+.gcp-visual,.gcp-visual * { transition:none!important;animation:none!important; }
+.gcp-circle { position:absolute;left:50%;border-radius:50%;background:var(--gcp-fill);will-change:transform; }
+.gcp-stack { position:relative;display:inline-block;line-height:1;gap:inherit; }
+.gcp-primary,.gcp-hover { position:relative;display:inline-flex;align-items:center;justify-content:center;gap:var(--pill-action-gap,14px);line-height:1;will-change:transform; }
+.gcp-primary { color:var(--gcp-explicit-ink,var(--gcp-base-ink)); }
+.gcp-host[data-galio-material]:not([data-galio-material="original"]) .gcp-primary { color:var(--gcp-explicit-ink,var(--gm-text,var(--gm-ink,var(--gcp-base-ink)))); }
+.gcp-hover { position:absolute;top:0;left:0;color:var(--gcp-hover-ink);opacity:0;will-change:transform,opacity; }
+.gcp-sample:disabled { cursor:default;opacity:.5; }
+.gcp-sample:focus-visible { outline:1px solid #777;outline-offset:4px; }
+.gcp-sample:focus:not(:focus-visible) { outline:none; }
+@media (prefers-reduced-motion:reduce) { .gcp-circle,.gcp-primary,.gcp-hover { will-change:auto; } }

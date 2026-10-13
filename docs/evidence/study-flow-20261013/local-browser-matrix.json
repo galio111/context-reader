@@ -1,0 +1,51 @@
+{
+  "scope": "Local development UI with mocked account, study and provider APIs; no production data mutation",
+  "engine": "Installed Google Chrome via Playwright channel chrome",
+  "webKit": "Unavailable: ms-playwright/webkit-2336/Playwright.exe is not installed; Safari not verified",
+  "mobile": "390x844 with hasTouch; night variants reducedMotion=reduce",
+  "desktop": "1440x960; actual Reader window open, drag, native resize, close and persisted-size reopen validated",
+  "console": "No pageerror or hydration exceptions. Expected mocked HTTP errors: dictionary-history 404 miss and pronunciation 503 (no audio provider).",
+  "matrix": [
+    {
+      "variant": "desktop-day",
+      "status": "passed",
+      "checks": 22,
+      "pageErrors": 0,
+      "reviewRequests": 0,
+      "providerRequests": "All APIs intercepted; stream and pronunciation fully mocked",
+      "evidence": "artifacts\\study-lookup-focus-1013\\regression\\desktop-day\\summary.json"
+    },
+    {
+      "variant": "desktop-night",
+      "status": "passed",
+      "checks": 20,
+      "pageErrors": 0,
+      "reviewRequests": 0,
+      "providerRequests": "All APIs intercepted; stream and pronunciation fully mocked",
+      "evidence": "artifacts\\study-lookup-focus-1013\\regression\\desktop-night\\summary.json"
+    },
+    {
+      "variant": "mobile-day",
+      "status": "passed",
+      "checks": 16,
+      "pageErrors": 0,
+      "reviewRequests": 0,
+      "providerRequests": "All APIs intercepted; stream and pronunciation fully mocked",
+      "evidence": "artifacts\\study-lookup-focus-1013\\regression\\mobile-day\\summary.json"
+    },
+    {
+      "variant": "mobile-night",
+      "status": "passed",
+      "checks": 16,
+      "pageErrors": 0,
+      "reviewRequests": 0,
+      "providerRequests": "All APIs intercepted; stream and pronunciation fully mocked",
+      "evidence": "artifacts\\study-lookup-focus-1013\\regression\\mobile-night\\summary.json"
+    }
+  ],
+  "allPassed": true,
+  "manualInspection": [
+    "mobile-night/answer-related.png",
+    "desktop-day/reader-drag-resize.png"
+  ]
+}

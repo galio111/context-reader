@@ -1,0 +1,1 @@
+{"ok":true,"errors":[],"writes":[{"url":"http://127.0.0.1:3391/api/admin/ui-design","method":"POST","frame":"http://127.0.0.1:3391/admin/ui-studio"},{"url":"http://127.0.0.1:3391/api/admin/ui-design","method":"POST","frame":"http://127.0.0.1:3391/admin/ui-studio"},{"url":"http://127.0.0.1:3391/api/admin/ui-design","method":"POST","frame":"http://127.0.0.1:3391/admin/ui-studio"}]}

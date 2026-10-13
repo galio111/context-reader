@@ -1,0 +1,18 @@
+/var/backups/context-reader/postgres/daily/context-reader-20261013T063139Z.dump: OK
+GRANT
+ restored_public_tables 
+------------------------
+                     39
+(1 row)
+
+ review_revoked | daily_revoked 
+----------------+---------------
+ t              | t
+(1 row)
+
+REVOKE
+BEGIN
+DO
+NOTICE:  PASS learning queue, due times, cross-day graduation, ownership, server timing and grants
+ROLLBACK
+restore and study SQL verification passed

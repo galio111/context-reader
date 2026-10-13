@@ -2,6 +2,7 @@
 import { mountMaterial, normalizeMaterial } from "./materials.js";
 const base = new URL("../", import.meta.url);
 const loaders = {
+  "context-pill": () => import("../studio/components/context-pill.js"),
   controls: () => import("../studio/components/controls.js"),
   "motion-layout": () => import("../studio/components/motion-layout.js"),
   "source-library": () => import("../studio/components/source-library.js"),
@@ -59,7 +60,7 @@ export function componentOptions(item, input = {}) {
         ? input.font
         : COMPONENT_FONTS.system),
     fontSize: n(input.fontSize, 12, 24, 16),
-    radius: n(input.radius, 0, 32, 10),
+    radius: n(input.radius, 0, 32, item.defaultRadius ?? 10),
     duration: n(input.duration, 0, 4000, item.defaultDuration || 1000),
     speed: n(input.speed, 0.2, 2, 1),
     reducedMotion:

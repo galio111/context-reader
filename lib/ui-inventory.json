@@ -2963,7 +2963,7 @@
       "page": "/",
       "state": "reader-edit",
       "type": "text",
-      "selector": "[data-block-id]",
+      "selector": "[data-learning-surface=\"reading\"] > [contenteditable=\"true\"]",
       "source": {
         "file": "components/ReaderView.tsx",
         "line": 3792
@@ -2984,7 +2984,7 @@
       "selectorStability": "existing-semantic",
       "kind": "text",
       "selectors": [
-        "[data-block-id]"
+        "[data-learning-surface=\"reading\"] > [contenteditable=\"true\"]"
       ],
       "capability": "style",
       "runtimeRequired": "reader-edit",
