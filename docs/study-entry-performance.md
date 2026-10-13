@@ -16,6 +16,8 @@ Lists above 100 entries render only the viewport and an eight-row overscan throu
 
 The repeated development run measured 68 ms and passed a 35-row keyboard traversal beyond the original mounted range, search for an unmounted word, long-meaning mobile geometry, final-row reachability and detail-close focus return. StudyDialog explicitly restores its connected opener without changing the scroll position on unmount.
 
+The final production build measured first enabled controls at 974 ms, warm re-entry at 21 ms with zero start requests, and the 2,000-entry random action at 48 ms (including the click and two animation frames). All race, keyboard, search, masking, variable-height mobile, final-row and focus-return checks passed with zero page errors. These use controlled synthetic API delays; they are not a real-account or every-device latency guarantee.
+
 ## Measurements and verification
 
 Read-only production baseline on 2026-10-13, release `20261013T031701`: the largest vocabulary contained 1,724 entries. The start read stages used 29 internal REST calls and 16.8 MB, excluding authentication and the write RPC. Its browser snapshot was 4.07 MB JSON, approximately 946 KB gzip. Three read-only samples took 496 / 4,232 / 1,975 ms; these are variable server observations, not a fixed latency promise.
