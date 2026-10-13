@@ -7,9 +7,17 @@ import { StudyIcon } from "./StudyIcon";
 import { BookDictionary } from "./BookDictionary";
 import { useAccount } from "./AccountProvider";
 import { useStudyDictionary } from "./useStudyDictionary";
+import { useStudyEntry } from "./useStudyEntry";
+import { LoadingStatus } from "./LoadingStatus";
 import styles from "./StudyPanel.module.css";
 
-export function StudyWord({entry,onSource,onLookup}: {entry:VocabularyEntry;onSource:(entry:VocabularyEntry)=>void;onLookup:(query:string)=>void}) {
+type StudyWordProps={entry:VocabularyEntry;onSource:(entry:VocabularyEntry)=>void;onLookup:(query:string)=>void};
+export function StudyWord(props:StudyWordProps) {
+  const {entry,error,retry}=useStudyEntry(props.entry);
+  if(!entry)return error?<div role="alert"><p>{error}</p><button onClick={retry}>重试读取</button></div>:<LoadingStatus>正在读取这个词…</LoadingStatus>;
+  return <StudyWordDetails {...props} entry={entry}/>;
+}
+function StudyWordDetails({entry,onSource,onLookup}:StudyWordProps) {
   const {isOffline}=useAccount();
   const {result,updatedAt}=useStudyDictionary(entry);
   const standalone = !entry.sourceSentence.trim();
