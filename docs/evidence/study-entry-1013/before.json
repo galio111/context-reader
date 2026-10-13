@@ -1,0 +1,11 @@
+{
+  "label": "before",
+  "firstCardAfterStartMs": 800,
+  "firstEnabledAfterStartMs": 5017,
+  "extraWaitAfterSnapshotMs": 4509,
+  "disabledAfterSnapshot": true,
+  "reopenEnabledMs": 2524,
+  "reopenStartRequests": 1,
+  "mobileOverflow": false,
+  "errors": []
+}
