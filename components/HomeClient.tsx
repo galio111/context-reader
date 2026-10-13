@@ -6,6 +6,8 @@ const CetReader = createRecoverableReader<ComponentProps<typeof import("@/compon
   () => import("@/components/cet/CetReader").then(module => ({ default: module.CetReader })), "cet",
 );
 import type { CetEntry } from "@/components/cet/CetLibrary";
+import { useContext } from "react";
+import { UiPreviewOpeningContext } from "./UiPreviewOpeningContext";
 import { HomeRedesign } from "@/components/HomeRedesign";
 import dynamic from "next/dynamic";
 const ArticleInput = dynamic(() => import("@/components/ArticleInput").then(module => module.ArticleInput));
@@ -204,6 +206,7 @@ async function requestImageLayoutWords(file: File): Promise<ImportedImageLayoutW
 }
 
 export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCatalogueComplete = true, initialCatalogueCounts, initialHomepageCuration, homeVariant = "immersive", forceGuestPreview = false, forceMemberPreview = false }: HomeClientProps) {
+  const skipOpening = useContext(UiPreviewOpeningContext);
   const { account, isOffline, requireAccount } = useAccount();
   const [initialPublicArticles, setPublicArticles] = useState(bootstrapArticles);
   const [catalogueStatus, setCatalogueStatus] = useState<"idle" | "loading" | "ready" | "error">(initialCatalogueComplete ? "ready" : "idle");
@@ -1553,7 +1556,7 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
         onOpenCet={entry => { homeReturnPositionedRef.current = false; cetHomeScrollRef.current = window.scrollY; setCetEntry(entry); }}
         forceGuestPreview={forceGuestPreview}
         forceMemberPreview={forceMemberPreview}
-        skipMemberOpening={homeDemoCompleted}
+        skipMemberOpening={homeDemoCompleted || skipOpening}
         article={article}
         articleUrl={articleUrl}
         error={error}

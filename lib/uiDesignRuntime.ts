@@ -32,14 +32,14 @@ export interface GalioSdk{loadComponentCatalog:()=>Promise<GalioItem[]>;createCo
 let sdk:Promise<GalioSdk>|undefined,catalog:Promise<GalioItem[]>|undefined;
 export function loadGalio(){const path='/galio/sdk/components.js';return sdk??=import(/* webpackIgnore: true */ path) as Promise<GalioSdk>;}
 export function loadGalioCatalog(){return catalog??=loadGalio().then(m=>m.loadComponentCatalog());}
-export function galioOptions(p:UiVisualPatch){return {...p,material:p.material??'original',fontSize:p.fontSize??16,reducedMotion:typeof matchMedia==='function'&&matchMedia('(prefers-reduced-motion: reduce)').matches,font:p.font==='serif'?'reading':p.font??'system',accent:p.accent??'#292c30',radius:p.radius??12,duration:p.motionDuration??800};}
+export function galioOptions(p:UiVisualPatch){return {...p,material:p.material??'original',textColor:p.textColor??null,fontSize:p.fontSize??16,reducedMotion:typeof matchMedia==='function'&&matchMedia('(prefers-reduced-motion: reduce)').matches,font:p.font==='serif'?'reading':p.font??'system',accent:p.accent??'#292c30',radius:p.radius??(p.componentId==='c-buttons-context-pill'?32:12),duration:p.motionDuration??(p.componentId==='c-buttons-context-pill'?300:800)};}
 export function mountUiDesign(recipe:UiDesignRecipe,onError?:(message:string)=>void){
  let disposed=false,scanning=false,scanAgain=false;const handles=new Map<HTMLElement,{key:string;componentId?:string;handle:GalioHandle}>();let timer:ReturnType<typeof setTimeout>|undefined;
  const style=document.createElement('style');style.dataset.uiDesign='runtime';style.textContent=compileUiDesign(recipe);document.head.append(style);
  async function scan(){
   if(disposed)return;if(scanning){scanAgain=true;return;}scanning=true;
   try{const entries=Object.entries(recipe.targets);const needs=entries.some(([,p])=>Object.hasOwn(p,'componentId')||Object.hasOwn(p,'material')||p.mobile?.componentId||p.mobile?.material)?entries:[];
-   if(!needs.length){handles.forEach(h=>h.handle.destroy());handles.clear();return;}const [module,items]=await Promise.all([loadGalio(),loadGalioCatalog()]);if(disposed)return;
+   if(!needs.length){handles.forEach((h,n)=>{h.handle.destroy();delete n.dataset.uiEffectOwner;});handles.clear();return;}const [module,items]=await Promise.all([loadGalio(),loadGalioCatalog()]);if(disposed)return;
    const desired=new Map<HTMLElement,{p:UiVisualPatch;key:string;component:GalioItem|undefined}>();
    for(const [id,base] of needs.sort(([a],[b])=>Number(!a.startsWith('global.'))-Number(!b.startsWith('global.')))){const target=UI_TARGETS.find(t=>t.id===id);if(!target?.selector)continue;
     const p={...base,...(matchMedia('(max-width:700px)').matches?base.mobile:{})};
@@ -49,17 +49,17 @@ export function mountUiDesign(recipe:UiDesignRecipe,onError?:(message:string)=>v
     }
    }
    for(const [node,{p,key,component}] of desired){
-     const prior=handles.get(node);if(prior&&prior.componentId===component?.id&&(!component||node.querySelector('.gc-decoration'))){if(prior.key!==key){prior.handle.update(galioOptions(p));prior.key=key;}continue;}prior?.handle.destroy();
+     const prior=handles.get(node);if(prior&&prior.componentId===component?.id&&(!component||node.querySelector('.gc-decoration,.gcp-visual'))){if(prior.key!==key){prior.handle.update(galioOptions(p));prior.key=key;}continue;}prior?.handle.destroy();if(component)node.dataset.uiEffectOwner='galio';else delete node.dataset.uiEffectOwner;
      if(component){const handle=module.createComponent(node,component,galioOptions(p),{enhance:true});handles.set(node,{key,componentId:component.id,handle});void handle.ready.catch(()=>onError?.('这个样式未能加载，请重试。'));}
      else{const path='/galio/sdk/materials.js';const materials=await import(/* webpackIgnore: true */ path) as {mountMaterial:(n:HTMLElement,i:{category:string},o:Record<string,unknown>,e:boolean)=>{destroy:()=>void;update:(v:Record<string,unknown>)=>void}};if(disposed)return;
       if(!document.querySelector('link[data-ui-materials]')){const link=document.createElement('link');link.rel='stylesheet';link.href='/galio/studio/components/materials.css';link.dataset.uiMaterials='';document.head.append(link);}
       const h=materials.mountMaterial(node,{category:'buttons'},galioOptions(p),true);handles.set(node,{key,handle:{...h,ready:Promise.resolve(),replay(){}}});}
    }
-   for(const [node,h] of handles)if(!node.isConnected||!desired.has(node)){h.handle.destroy();handles.delete(node);}
+   for(const [node,h] of handles)if(!node.isConnected||!desired.has(node)){h.handle.destroy();delete node.dataset.uiEffectOwner;handles.delete(node);}
   }finally{scanning=false;if(scanAgain&&!disposed){scanAgain=false;schedule();}}
  }
  const schedule=()=>{clearTimeout(timer);timer=setTimeout(()=>{void scan().catch(()=>onError?.('组件样式暂时无法加载。'));},80);};
  const observer=new MutationObserver(schedule);observer.observe(document.body,{childList:true,subtree:true});window.addEventListener('resize',schedule);const motionQuery=matchMedia('(prefers-reduced-motion: reduce)');motionQuery.addEventListener('change',schedule);schedule();
- const dispose=()=>{disposed=true;clearTimeout(timer);observer.disconnect();window.removeEventListener('resize',schedule);motionQuery.removeEventListener('change',schedule);style.remove();handles.forEach(h=>h.handle.destroy());handles.clear();};
+ const dispose=()=>{disposed=true;clearTimeout(timer);observer.disconnect();window.removeEventListener('resize',schedule);motionQuery.removeEventListener('change',schedule);style.remove();handles.forEach((h,n)=>{h.handle.destroy();delete n.dataset.uiEffectOwner;});handles.clear();};
  dispose.update=(next:UiDesignRecipe)=>{recipe=next;style.textContent=compileUiDesign(next);schedule();};return dispose;
 }

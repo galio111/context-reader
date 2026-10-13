@@ -3,6 +3,7 @@ import http from 'node:http';
 const empty=()=>({version:1,targets:{}});let state={version:1,revision:0,publishedRevision:0,draft:empty(),published:empty(),previous:null,updatedAt:null,publishedAt:null};
 http.createServer(async(req,res)=>{
  const u=new URL(req.url,'http://127.0.0.1'),p=u.pathname.split('/').at(-1);let value=[];let body='';for await(const chunk of req)body+=chunk;
+ if(u.pathname==='/auth/v1/user'){if(req.headers.authorization!=='Bearer ui-studio-local-fixture'){res.writeHead(401);res.end('{}');return;}value={id:'11111111-1111-4111-8111-111111111111',aud:'authenticated',role:'authenticated',email:'ui-fixture@example.invalid',created_at:new Date().toISOString(),app_metadata:{},user_metadata:{}};}
  if(p==='user_entitlements')value=[{plan_id:'admin',source:'qa',starts_at:null,ends_at:null}];
  if(p==='account_profiles')value=[{status:'active',nickname:'UI QA'}];
  if(p==='quota_plans')value=[{id:u.searchParams.get('id')?.replace('eq.','')??'plus',display_name:'Plus',price_cny:20,active:true}];

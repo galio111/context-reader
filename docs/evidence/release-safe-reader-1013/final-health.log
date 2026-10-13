@@ -1,0 +1,12 @@
+healthcheck passed
+{
+  "schemaVersion": 1,
+  "releaseId": "20261013T075029",
+  "parentReleaseId": "20261013T074100",
+  "sourceRevision": "7c7f54a1b094a403c4aadfe8a1573f37c5fcba5e",
+  "acceptedAt": "2026-10-13T08:00:35.778539+00:00",
+  "guardVersion": 1
+}
+protected release contracts present
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/vda2        40G   26G   13G  67% /

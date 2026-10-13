@@ -2,6 +2,10 @@
 
 ## Current accepted release
 
+At the follow-up check, public production reported `20261013T075029`, parent `20261013T074100`, source `7c7f54a1b094a403c4aadfe8a1573f37c5fcba5e`, accepted at 2026-10-13 08:00:35 UTC. This cumulative successor includes the Reader retention source as a Git ancestor; stable contracts and health passed. The dedicated Reader release and its measured acceptance remain recorded below. UI studio changes and their feature-specific acceptance belong to [the studio record](ui-design-studio.md).
+
+## Accepted Reader availability release
+
 Accepted `20261013T074100`, parent `20261013T145900`, source `4cc51cb3388619ae5e7e435336a008852a9d0d48`, at 2026-10-13 07:43:28 UTC. The exact 27-file delta passed the stable locked entrypoint. Old-page Reader JS/CSS remain available from immutable shared storage, and Reader/CET failures have local retry/return actions. A real homepage held open across cutover loaded the old Reader from the server with unchanged document timeOrigin; repeat entry and blocked-load recovery passed. Exact-source CI, public HTTP byte/cache/compression/range checks, signed-in session/protocol-2 read, anonymous/Admin boundaries, seven-service health, SHA-verified 39-table isolated restore and current/parent images passed. Only app/caddy changed; five backend identities and start times are unchanged. [Evidence and limitations](release-safe-reader.md). Later documentation-only commits do not change the deployed source identity.
 
 ## Preserving already-open pages

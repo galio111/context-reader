@@ -1,0 +1,11 @@
+{
+  "ok": true,
+  "cycles": 3,
+  "oldTimelineSuppressed": true,
+  "restoredNative": true,
+  "originalClickPreserved": true,
+  "compareRestores": true,
+  "mobileAndReducedMotion": true,
+  "errors": [],
+  "frameBusinessWrites": 0
+}

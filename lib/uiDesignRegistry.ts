@@ -5,7 +5,7 @@ export const UI_TARGETS=targets;
 export const UI_SCENES=[['home','首页 · 登录后'],['guest','首页 · 游客'],['reader','文章阅读'],['study','背单词'],['dictionary','词典'],['cet','四、六级'],['account','账号'],['billing','套餐'],['guide','使用说明'],['admin','后台']] as const;
 export type UiScene=typeof UI_SCENES[number][0];
 export function sceneForGroup(group:string):UiScene{return ({pricing:'billing',menu:'home',global:'home',legacy:'home'} as Record<string,UiScene>)[group]??(UI_SCENES.some(([id])=>id===group)?group as UiScene:'home');}
-export const UI_BUTTON_COMPONENTS=['split','fill','circle','underline','shortcut','physical','reveal-arrow','pill','flip'].map(x=>'c-buttons-'+x);
+export const UI_BUTTON_COMPONENTS=['split','fill','circle','underline','shortcut','physical','reveal-arrow','pill','flip','context-pill'].map(x=>'c-buttons-'+x);
 export const UI_HOVER_COMPONENTS=['arrow-loop','radial','magnet','line-draw','tilt','spotlight','reveal','lift','border-trace'].map(x=>'c-hover-'+x);
 const ownsTransform=(id:string)=>/mobile-sheet|mobile-dock|cover|ballpit|lanyard|intro|token|edit-canvas/.test(id);
 const common:UiVisualField[]=['accent','background','textColor','font','fontSize','radius','padding','gap','opacity'];
