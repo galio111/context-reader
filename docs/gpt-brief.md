@@ -1,6 +1,6 @@
 # Context Reader GPT 项目上下文包
 
-2026-10-13 单词发音兼容修复已生产：`20261013T190024`，parent `20261013T184215`，source `1a0119310aa77b0580b07c051c1dcad24c304d8b`。已准备录音直接在点击内原生播放；冷加载同步解锁 Web Audio，恢复/解码/启动均有超时与真实状态检查，失败保留同一录音供原按钮重试。所有页面 CSP 增加精确 `media-src 'self' blob:`，修复公网原生音频被拦截；保留静默预加载、英美音及稳定按钮。公网英美音与键盘重播实际结束，Windows Chrome/Edge/Chromium 和 Ubuntu Chromium/Firefox/WebKit 共36场景通过，纳入持续集成。Mac/iOS Safari 默认设置与真机听音仍待用户确认；完整发布、回滚与外围模型降级验收边界见 [发音记录](dictionary-replay-and-pronunciation.md)。
+2026-10-13 单词首次点击修复已生产：20261013T194152，parent 20261013T190024，source df4a1882ba16f4c21bcbe5de750e0ca2fd3f8795。背词入口不预加载，前版冷路径失败后第二次才走原生播放；现在点击内启动无声原生通道，下载后同一元素播放原录音，不依赖 Web Audio。48组跨浏览器检查及公网背词3词首次点击、延迟6.2秒后播放、英音共6次 ended 通过。缓存、独占、取消和稳定标签保持；Mac Safari 默认设置实际听音待用户复验。见 [首次点击记录](pronunciation-first-click-20261013.md)。
 
 2026-10-13 旧页面跨更新读文章崩溃修复已生产（20261013T074100，parent 20261013T145900，source 4cc51cb）：已确认是旧 Reader 哈希脚本在发布后 404。实现永久不可变静态资源目录、切换前保留、容量不足拒绝发布，以及 Reader/CET 局部失败重试与返回首页；禁止靠强制刷新丢弃阅读状态。上线身份和实测结论统一见 [本轮记录](release-safe-reader.md)。
 

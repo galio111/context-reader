@@ -1,0 +1,37 @@
+{
+  "releaseId": "20261013T194152",
+  "parentReleaseId": "20261013T190024",
+  "sourceRevision": "df4a1882ba16f4c21bcbe5de750e0ca2fd3f8795",
+  "status": "public study first clicks verified; physical Mac Safari confirmation pending",
+  "unitTests": 20,
+  "criticalTests": 90,
+  "contracts": "passed",
+  "build": "passed",
+  "exactSourceCi": "passed",
+  "browserScenarios": 48,
+  "studyWords": [
+    {
+      "word": "lever",
+      "firstClickEnded": true,
+      "delayedResponseMs": 6200,
+      "totalMs": 8039
+    },
+    {
+      "word": "contemplate",
+      "firstClickEnded": true,
+      "delayedResponseMs": 6200,
+      "totalMs": 8249
+    },
+    {
+      "word": "esteem",
+      "firstClickEnded": true,
+      "delayedResponseMs": 6200,
+      "totalMs": 8152
+    }
+  ],
+  "backendContainersUnchanged": true,
+  "restoredPublicTables": 39,
+  "rollbackImageRetained": "20261013T190024",
+  "qaAccountRemoved": true,
+  "macSafariListening": "pending user confirmation"
+}
