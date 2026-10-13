@@ -444,7 +444,7 @@ Admin统计排除当前管理员，按注册日成熟的第1/7/30天回访计算
 
 Admin navigation retains visited sections in memory for the mounted authorized page; unopened sections do not fetch. Article lists use paginated metadata projections (`view=summary`) marked `contentDeferred`, preserve candidate order and rejection metadata, and load a single full row before editing/opening Reader. Summary rows cannot be saved as complete articles. Models load configuration separately from external balance/status. Account directory requests omit execution/action history; expanded article-cost detail uses the legacy full report. Concurrent read deduplication retains only pending transport and never caches authorization or persists private responses.
 
-独立词典加入生词本时保留完整 `dictionaryResult`，StudyWord 复用 DictionaryResultContent，提示按义项展示英文例句。学习快照不反复附带全部完整词典，按单词只读缓存恢复。直接输入查询在本地缓存缺失时先读取账号缓存；只在确认 404 且用户发起新查询时生成，历史回放与读取失败均不触发模型。`study_import_batches` 保存包哈希、原始 Anki notes/cards/revlog 与生成文件哈希，服务角色专用、账号导出包含、重复包幂等。
+独立词典加入生词本时保留完整 `dictionaryResult`，StudyWord 复用 BookDictionary 的结果与重新生成，提示按最新义项展示英文例句。Reader 与 Study 的关联查询共用 DictionaryWindow 的标题、明确高度、拖动/缩放和查词内容；Study 使用原生顶层 dialog 保证不会被背词层遮挡。FocusModality 记录指针/键盘导航来源：点击与弹窗返回不添加外框，卡片和答案滚动区不画整块焦点框，实际控件保留细中性键盘定位。学习快照不反复附带全部完整词典，按单词只读缓存恢复。直接输入查询在本地缓存缺失时先读取账号缓存；只在确认 404 且用户发起新查询时生成，历史回放与读取失败均不触发模型。`study_import_batches` 保存包哈希、原始 Anki notes/cards/revlog 与生成文件哈希，服务角色专用、账号导出包含、重复包幂等。
 
 ## UI design studio
 

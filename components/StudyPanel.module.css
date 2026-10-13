@@ -78,8 +78,7 @@
 .moreDefinitions{font-size:13px;line-height:1.65}
 .moreDefinitions p{margin:6px 0;white-space:pre-line}
 .moreDefinitions p span{display:block;color:var(--study-muted);font-size:12px;margin-bottom:4px}
-.answerFooter{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:14px;border-top:1px solid var(--study-line);flex-shrink:0}
-.feedback{font-size:12px;color:var(--study-muted)}
+.answerFooter{display:flex;align-items:center;justify-content:flex-end;gap:14px;padding-top:14px;border-top:1px solid var(--study-line);flex-shrink:0}
 .nextActions{display:flex;gap:8px}
 .nextActions button{min-width:112px}
 .page{max-width:1060px;margin:auto;padding:54px 44px 64px 142px}
@@ -221,7 +220,7 @@
  .prompt{padding:12px 0 24px;gap:21px}.prompt p{font-size:23px;line-height:1.6;letter-spacing:-.25px}.prompt p.word{font-size:42px}.cue{font-size:13px}
  .answers{gap:8px}.dialog .answers button{padding:12px 5px;min-height:46px;font-size:13px}.answers kbd{display:none}
  .wordHeading h2{font-size:29px}.pronunciation{font-size:12px;margin-bottom:10px}.definitions{grid-template-columns:1fr;gap:10px}.definitions dt{font-size:11px;margin-bottom:3px}.definitions dd{font-size:13px;line-height:1.6}.definitions .mainMeaning dd{font-size:17px}.sentence{margin-top:13px;padding-top:13px}.sentence p{font-size:14px;line-height:1.55}.sentence p+p{font-size:12px}
- .answerBody{padding-bottom:10px}.answerFooter{gap:8px;flex-wrap:wrap;padding-top:12px}.nextActions{width:100%}.nextActions button{flex:1;min-width:0;font-size:13px}.feedback{font-size:11px}
+ .answerBody{padding-bottom:10px}.answerFooter{gap:8px;flex-wrap:wrap;padding-top:12px}.nextActions{width:100%}.nextActions button{flex:1;min-width:0;font-size:13px}
  .page{padding:76px 19px 110px;margin:0;max-width:none}.pageHeader{margin-bottom:24px;gap:10px}.pageHeader h1{font-size:25px}.pageHeader button{font-size:12px;padding:9px 12px}.surface{padding:22px}.metrics{grid-template-columns:1fr 1fr;gap:23px}.metrics dd{font-size:25px}
  .chartBars{height:135px;gap:4px}.heatmap{grid-template-rows:repeat(7,10px);gap:4px}.settingRow{gap:12px;flex-wrap:wrap}.settingRow p{max-width:215px}.settingRow label{font-size:13px}.dialog .fieldUnit input{width:70px}.saveRow{flex-wrap:wrap;gap:8px}.saveRow p{margin:0}.rewardLead h2{font-size:20px}.streak{font-size:37px}.milestones>div{gap:12px;font-size:13px}
  .dialog .wordList button{grid-template-columns:90px 1fr 16px;gap:12px}.wordList strong{font-size:14px}
