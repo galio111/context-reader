@@ -40,6 +40,22 @@ export async function getStudyEntries(userId: string): Promise<VocabularyEntry[]
   return rows.filter(r => r.id === r.object_key && typeof r.word === "string" && r.anki)
     .map(({ object_key, ...entry }) => { void object_key; return entry; });
 }
+/** Read a single saved result; this never generates content or changes a card. */
+export async function getStudyEntry(userId: string, id: string): Promise<VocabularyEntry | null> {
+  const rows = await accountFetch<Array<{ object_key: string; payload: VocabularyEntry }>>(
+    "user_data_objects?user_id=eq." + encodeURIComponent(userId) + "&kind=eq.vocabulary&deleted_at=is.null&object_key=eq." + encodeURIComponent(id) + "&select=object_key,payload&limit=1",
+  );
+  const row = rows[0];
+  return row?.object_key === id && row.payload?.id === id && typeof row.payload.word === "string" && row.payload.anki ? row.payload : null;
+}
+/** The home reminder needs no word list, card memories, review history or plan IDs. */
+export async function getStudyReminder(userId: string): Promise<{ settings: StudySettings; today: Pick<StudyDay, "day" | "completed_at"> | null }> {
+  const [settings, days] = await Promise.all([
+    getStudySettings(userId),
+    accountFetch<Array<Pick<StudyDay, "day" | "completed_at">>>("study_days?user_id=eq." + encodeURIComponent(userId) + "&day=eq." + shanghaiDay(new Date()) + "&select=day,completed_at&limit=1"),
+  ]);
+  return { settings, today: days[0] ?? null };
+}
 export async function reconcileStudyCards(userId: string): Promise<VocabularyEntry[]> {
   const [entries, cards] = await Promise.all([getStudyEntries(userId), studyRows<StudyCard>("study_cards", userId, "*", "&order=id.asc")]);
   const existing = new Map(cards.map(c => [c.entry_id, c]));

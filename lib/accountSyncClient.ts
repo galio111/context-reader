@@ -3,6 +3,7 @@ import {CET_ACTIVITIES_V4_KEY,CET_FINALIZATIONS_V4_KEY,preserveLegacyCetDraft} f
 
 import { getLearningStorage, isLearningStorage, initializeLearningStorage, flushLearningStorage } from "@/lib/learningStorage";
 import { beginAccountStorageTransition } from "@/lib/accountStorageTransition";
+import { clearStudySnapshotCache } from "@/lib/studySnapshotCache";
 
 import {readCetTrail,writeCetTrail,CET_TRAIL_KEY,CET_TRAIL_PREFIX} from "./cetTypeTrailStorage";
 import type {CetTrailEvent} from "./cetTypeTrail";
@@ -250,6 +251,7 @@ export function claimGuestCetRecords(storage: Storage, userId: string): void {
 }
 
 export async function clearLocalAccountData(): Promise<void> {
+  await clearStudySnapshotCache();
   await initializeLearningStorage();
   if (typeof window === "undefined") return;
 
