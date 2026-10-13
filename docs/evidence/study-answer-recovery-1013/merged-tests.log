@@ -1,0 +1,41 @@
+✔ Study advances immediately, keeps a new answer visible across another tab's review acknowledgement, and restores interrupted saves (8357.9031ms)
+✔ compact response opt-in handles GET and nested mutations without changing legacy snapshots (153.0945ms)
+✔ single-entry detail is an owner-scoped saved-result read including its dictionary, with no writes (33.2606ms)
+✔ reminders fetch only settings and today's completion, without full plan or vocabulary data (32.0372ms)
+✔ detail and reminder routes retain login, expected-owner and active-profile authorization (56.4489ms)
+✔ compact snapshots preserve scheduling and inline the first eight ready full entries (15.5083ms)
+✔ nested mutation responses compact and hydrate with explicit summary markers while full legacy responses remain unchanged (1.947ms)
+✔ a large vocabulary no longer downloads all detailed explanations in each snapshot (186.9378ms)
+✔ summary details are deduplicated, scoped to owner and version, and never shown as complete questions (3481.7461ms)
+✔ answers remain durable and account isolated while serial background saving waits (1.9017ms)
+✔ a committed answer with a lost response retries its identical id without double recording (0.4372ms)
+✔ too-fast retries retain the timing guard and immutable answer (0.248ms)
+✔ cross-day recovery creates today's plan before replaying the unchanged presented answer (0.2905ms)
+✔ a failed day initialization or still-unplanned card never discards yesterday's answer (0.3693ms)
+✔ switching accounts during cross-day initialization retains the original answer without replay (0.2477ms)
+✔ unmount or account switch fences delayed responses and leaves the answer for recovery (0.2175ms)
+✔ a concurrent state change resolves only after a fresh authoritative read succeeds (0.2578ms)
+✔ legacy session pending migration preserves identity, and a failed write retains the old record (0.3543ms)
+✔ independent answer keys survive another tab's write and immutable id reuse is rejected (0.4428ms)
+✔ pending cards are skipped immediately without inventing completed counts or FSRS states (3.6153ms)
+✔ remaining counts track graduation, wrong review, timed learning and valid today plan only (1.917ms)
+✔ receipt unlocks queue without a full-library request; a lost response retries the immutable answer (1.7927ms)
+✔ invalid or unrelated receipts never remove a pending answer (0.3918ms)
+✔ receipt updates counts once and prevents an old snapshot resurrecting a saved card (0.2966ms)
+✔ review distinguishes retryable day changes from real version conflicts without settling failed answers (1389.2367ms)
+✔ snapshot cache survives a cold client but isolates accounts and excludes presentation envelopes (16.4107ms)
+✔ cache expires after 24 hours and a delayed older response cannot replace newer cards (2.2834ms)
+✔ logout clears all cached accounts and rejects late saves from prior sessions (2.607ms)
+✔ unavailable or failed cache storage does not fail the study request path (0.4502ms)
+✔ an aborted cache write is harmless and never reports an unsaved snapshot on reopen (1.2361ms)
+✔ logout tombstones also reject a separate tab's late cache writes (80.1865ms)
+✔ schema mismatches and malformed snapshots are ignored (1.2052ms)
+✔ cached Study views never replace live data, authorize answers, duplicate a cross-day start, or reveal pending cards (5330.6207ms)
+ℹ tests 33
+ℹ suites 0
+ℹ pass 33
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 22376.3308

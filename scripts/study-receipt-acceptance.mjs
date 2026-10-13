@@ -25,6 +25,9 @@ try{
  for(let i=0;i<3;i++){
   const c=(await db('/rest/v1/study_cards?user_id=eq.'+user.id+'&entry_id=eq.receipt-qa-'+i))[0];
   const shown=(await api('/api/study',{op:'present',cardId:c.id,version:c.version})).data;
+  const untouched=(await db('/rest/v1/study_cards?user_id=eq.'+user.id+'&id=eq.'+c.id))[0];
+  assert.deepEqual(untouched.memory,c.memory);assert.equal(untouched.version,c.version);
+  if(i===2)evidence.checks.push('presenting an unanswered new word preserves New state and does not count as ongoing learning');
   await new Promise(resolve=>setTimeout(resolve,900));
   const body={op:'review',response:'receipt',id:randomUUID(),cardId:c.id,version:c.version,token:shown.token,answer:i===1?'forgot':'remembered',activeMs:1000};
   const response=await api('/api/study',body),d=response.data;
