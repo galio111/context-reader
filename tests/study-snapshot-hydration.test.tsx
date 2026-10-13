@@ -27,7 +27,7 @@ test("cached Study views never replace live data, authorize answers, duplicate a
   mock("../components/StudyWord", { StudyWord: ({ entry }: { entry: { word: string } }) => <div>{entry.word} answer</div> });
   mock("../components/StudyDictionaryHint", { StudyDictionaryHint: () => null });
   mock("../components/BookDictionary", { BookDictionary: () => null });
-  for (const name of ["StudyRewards", "StudySettings", "StudyVocabulary", "StudyStats"]) mock("../components/" + name, { [name]: () => null });
+  for (const name of ["StudyRewards", "StudyVocabulary", "StudyStats"]) mock("../components/" + name, { [name]: () => null });
   const { StudyPanel } = await import("../components/StudyPanel");
   const { render, act, fireEvent, waitFor, cleanup } = await import("@testing-library/react");
   const now = new Date(), ids = ["a".repeat(40), "b".repeat(40)];
@@ -40,6 +40,7 @@ test("cached Study views never replace live data, authorize answers, duplicate a
     } as unknown as StudySnapshot;
   }
   const starts: Array<(value: Response) => void> = [], reviewResponses: Array<(value: Response) => void> = [];
+  const savedSettings: StudySnapshot["settings"][] = [];
   let presents = 0, getResponse = snapshot();
   const originalFetch = globalThis.fetch;
   globalThis.fetch = async (_url, init) => {
@@ -47,6 +48,7 @@ test("cached Study views never replace live data, authorize answers, duplicate a
     if (body?.op === "start") return new Promise(resolve => { starts.push(resolve); });
     if (body?.op === "present") { presents++; return Response.json({ token: "00000000-0000-4000-8000-000000000099" }); }
     if (body?.op === "review") return new Promise(resolve => { reviewResponses.push(resolve); });
+    if (body?.op === "settings") { savedSettings.push(body.settings); return Response.json({ ...snapshot(), settings: body.settings }); }
     return Response.json(getResponse);
   };
   const props = { visible: true, onClose() {}, onSource() {}, notice: "" };
@@ -55,13 +57,21 @@ test("cached Study views never replace live data, authorize answers, duplicate a
     await waitFor(() => assert.equal(starts.length, 1));
     await act(async () => { resolveDisk(snapshot("alpha", new Date(now.getTime() + 60_000))); });
     assert.ok(ui.getByText("alpha")); assert.equal(ui.queryByText("正在连接学习记录…"), null);
+    assert.equal(ui.queryByLabelText("每日最多复习"), null, "a cached settings draft must never mount before authoritative settings arrive");
     assert.equal(ui.getByRole("button", { name: /不记得/ }).hasAttribute("disabled"), false);
     fireEvent.click(ui.getByRole("button", { name: /不记得/ }));
     assert.ok(ui.getByText("alpha answer")); assert.equal(presents, 0);
     assert.equal(ui.getByRole("button", { name: "准备中…" }).hasAttribute("disabled"), true);
-    await act(async () => { starts[0](Response.json(snapshot())); });
+    const liveSettings = { ...DEFAULT_STUDY_SETTINGS, reviewsPerDay: 200, retention: .95 };
+    await act(async () => { starts[0](Response.json({ ...snapshot(), settings: liveSettings })); });
     await waitFor(() => assert.equal(presents, 1));
     assert.ok(ui.getByText("alpha answer")); assert.equal(saves.length, 1);
+    fireEvent.click(ui.getByRole("button", { name: "设置" }));
+    assert.equal((ui.getByLabelText("每日最多复习") as HTMLInputElement).value, "200");
+    fireEvent.click(ui.getByRole("checkbox", { name: "打开网站时提醒" }));
+    await waitFor(() => assert.equal(savedSettings.length, 1));
+    assert.equal(savedSettings[0].reviewsPerDay, 200); assert.equal(savedSettings[0].retention, .95);
+    assert.equal(savedSettings[0].reminders, !liveSettings.reminders);
     ui.unmount();
 
     // The network may win the disk race. Even a disk snapshot with a future
