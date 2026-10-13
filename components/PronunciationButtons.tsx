@@ -19,6 +19,20 @@ interface PronunciationButtonsProps {
 }
 
 let sharedAudioContext: AudioContext | null = null;
+// Media identities already distinguish text, accent and explicit phonetics.
+// Weak keys release decoded buffers when the bounded media cache evicts them.
+const decodedMedia = new WeakMap<PronunciationMedia, Promise<AudioBuffer>>();
+
+function prepareDecodedAudio(media: PronunciationMedia, context: AudioContext): Promise<AudioBuffer> {
+  const cached = decodedMedia.get(media);
+  if (cached) return cached;
+  const decoded = withAudioTimeout(context.decodeAudioData(Uint8Array.from(media.bytes).buffer), 8000, "decode").catch(error => {
+    decodedMedia.delete(media);
+    throw error;
+  });
+  decodedMedia.set(media, decoded);
+  return decoded;
+}
 let activePlayback: { owner: object; stop: () => void } | null = null;
 const DEFAULT_ACCENTS: PronunciationAccent[] = ["en-US", "en-GB"];
 
@@ -135,7 +149,10 @@ export const PronunciationButtons = memo(function PronunciationButtons({
     let disposed = false;
     void Promise.all(selectedAccents.map(async accent => {
       const media = await requestPronunciationMedia(text, accent, accent === "en-US" ? usPhonetic : ukPhonetic);
-      if (!disposed) preparedMediaRef.current.set(accent, media);
+      if (disposed) return;
+      preparedMediaRef.current.set(accent, media);
+      const context = getAudioContext();
+      if (context) await prepareDecodedAudio(media, context);
     })).catch(() => {
       // A visible click reports the actionable error; background preparation is silent.
     });
@@ -204,13 +221,12 @@ export const PronunciationButtons = memo(function PronunciationButtons({
   }
 
   async function playDecodedAudio(
-    bytes: Uint8Array,
+    media: PronunciationMedia,
     playbackRequestId: number,
     context: AudioContext,
     accent: PronunciationAccent,
   ): Promise<void> {
-    const encodedAudio = Uint8Array.from(bytes).buffer;
-    const decodedAudio = await withAudioTimeout(context.decodeAudioData(encodedAudio), 8000, "decode");
+    const decodedAudio = await prepareDecodedAudio(media, context);
     if (playbackRequestIdRef.current !== playbackRequestId) return;
 
     if (context.state !== "running") throw new PronunciationPlaybackError("interrupted");
@@ -319,7 +335,7 @@ export const PronunciationButtons = memo(function PronunciationButtons({
       if (playbackRequestIdRef.current !== playbackRequestId) return;
       if (audioError) throw audioError;
       if (context) {
-        await playDecodedAudio(media.bytes, playbackRequestId, context, accent);
+        await playDecodedAudio(media, playbackRequestId, context, accent);
       } else {
         await playWithHtmlAudio(media.bytes, media.contentType, playbackRequestId, accent);
       }
@@ -369,8 +385,8 @@ export const PronunciationButtons = memo(function PronunciationButtons({
         aria-busy={loadingAccent === "en-US"}
         title="美式发音"
       >
-        <span aria-hidden="true">{loadingAccent === "en-US" ? <span className="cr-loading-spinner"/> : playingAccent === "en-US" ? "■" : "▶"}</span>
-        <span>{loadingAccent === "en-US" ? "准备中" : "美音"}</span>
+        <span aria-hidden="true">{playingAccent === "en-US" ? "■" : "▶"}</span>
+        <span>美音</span>
       </button>}
       {accents.includes("en-GB") &&
       <button
@@ -382,8 +398,8 @@ export const PronunciationButtons = memo(function PronunciationButtons({
         aria-busy={loadingAccent === "en-GB"}
         title="英式发音"
       >
-        <span aria-hidden="true">{loadingAccent === "en-GB" ? <span className="cr-loading-spinner"/> : playingAccent === "en-GB" ? "■" : "▶"}</span>
-        <span>{loadingAccent === "en-GB" ? "准备中" : "英音"}</span>
+        <span aria-hidden="true">{playingAccent === "en-GB" ? "■" : "▶"}</span>
+        <span>英音</span>
       </button>}
       {playbackError && (
         <p className="basis-full text-xs leading-5 text-[#6e6e73]" role="status">

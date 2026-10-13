@@ -12,7 +12,7 @@ test("different readings exclusively own playback, including late requests, deco
   globalThis.fetch=async (_url,init) => new Promise<Response>(resolve => {
     const body=JSON.parse(String(init?.body)); pending.set(`${body.text}:${body.phonetic}`,resolve);
   });
-  let playing=0, maxPlaying=0, created=0, stopped=0;
+  let playing=0, maxPlaying=0, created=0, stopped=0, decoded=0;
   const decodeQueue:Array<()=>void>=[];
   let delayDecode=false;
   class Context {
@@ -22,7 +22,7 @@ test("different readings exclusively own playback, including late requests, deco
     addEventListener() {}
     removeEventListener() {}
     async resume() {}
-    async decodeAudioData() {if(delayDecode)await new Promise<void>(resolve=>decodeQueue.push(resolve));return {};}
+    async decodeAudioData() {decoded++;if(delayDecode)await new Promise<void>(resolve=>decodeQueue.push(resolve));return {};}
     createBufferSource() {
       created++;let started=false;
       return {buffer:null,onended:null,connect(){},disconnect(){},
@@ -31,6 +31,13 @@ test("different readings exclusively own playback, including late requests, deco
     }
   }
   Object.defineProperty(dom.window,"AudioContext",{value:Context,configurable:true});
+  class NativeAudio {
+    preload="";onended=null;onerror=null;onpause=null;ended=false;paused=true;
+    async play(){this.paused=false;playing++;maxPlaying=Math.max(maxPlaying,playing);}
+    pause(){if(!this.paused){playing--;this.paused=true;}}
+    removeAttribute(){} load(){}
+  }
+  Object.defineProperty(globalThis,"Audio",{value:NativeAudio,configurable:true});
   const {PronunciationButtons}=await import("../components/PronunciationButtons");
   const {render,cleanup,waitFor,act}=await import("@testing-library/react");
   const {default:userEvent}=await import("@testing-library/user-event");
@@ -42,6 +49,10 @@ test("different readings exclusively own playback, including late requests, deco
     const music=ui.getByRole("button",{name:"播放 music 的美式发音"});
     const fish=ui.getByRole("button",{name:"播放 fish 的美式发音"});
     await user.click(music);await user.click(fish);
+    assert.equal(fish.textContent,"▶美音","pending playback keeps its stable label and icon");
+    assert.equal(ui.container.querySelector(".cr-loading-spinner"),null);
+    await user.click(fish);
+    assert.equal(fish.getAttribute("aria-busy"),"true","repeated clicks preserve pending intent");
     assert.equal(music.getAttribute("aria-busy"),"false");
     await finish("bass:/bæs/");await waitFor(()=>assert.equal(playing,1));
     await finish("bass:/beɪs/");assert.equal(created,1,"late first request must not start");
@@ -56,6 +67,21 @@ test("different readings exclusively own playback, including late requests, deco
     await user.click(fish);await finish("nextword:/bæs/");await waitFor(()=>assert.equal(decodeQueue.length,2));
     await act(async()=>{decodeQueue[0]();decodeQueue[1]();});
     await waitFor(()=>assert.equal(playing,1));assert.equal(created,3);assert.equal(maxPlaying,1);
+    cleanup();assert.equal(playing,0);
+    delayDecode=false;
+    const beforeDecode=decoded;
+    const prepared=render(<PronunciationButtons text="prepared" preload accents={["en-US"]} allowBrowserFallback={false}/>);
+    await finish("prepared:undefined");
+    await waitFor(()=>assert.equal(decoded,beforeDecode+1));
+    assert.equal(playing,0,"background fetch and decode must never autoplay");
+    pending.delete("prepared:undefined");
+    const button=prepared.getByRole("button",{name:"播放 prepared 的美式发音"});
+    await user.click(button);await waitFor(()=>assert.equal(playing,1));
+    assert.equal(decoded,beforeDecode+1,"first native click does not repeat background decoding");
+    assert.equal(pending.has("prepared:undefined"),false,"first click makes no new request");
+    await user.click(button);assert.equal(playing,0);
+    await user.click(button);await waitFor(()=>assert.equal(playing,1));
+    assert.equal(decoded,beforeDecode+1,"native replay does not repeat background decoding");
     cleanup();assert.equal(playing,0);
   } finally {cleanup();globalThis.fetch=originalFetch;dom.window.close();}
 });
