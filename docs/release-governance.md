@@ -1,5 +1,13 @@
 # Production Release Governance
 
+## Current accepted release
+
+At the follow-up check, public production reported `20261013T075029`, parent `20261013T074100`, source `7c7f54a1b094a403c4aadfe8a1573f37c5fcba5e`, accepted at 2026-10-13 08:00:35 UTC. This cumulative successor includes the Reader retention source as a Git ancestor; stable contracts and health passed. The dedicated Reader release and its measured acceptance remain recorded below. UI studio changes and their feature-specific acceptance belong to [the studio record](ui-design-studio.md).
+
+## Accepted Reader availability release
+
+Accepted `20261013T074100`, parent `20261013T145900`, source `4cc51cb3388619ae5e7e435336a008852a9d0d48`, at 2026-10-13 07:43:28 UTC. The exact 27-file delta passed the stable locked entrypoint. Old-page Reader JS/CSS remain available from immutable shared storage, and Reader/CET failures have local retry/return actions. A real homepage held open across cutover loaded the old Reader from the server with unchanged document timeOrigin; repeat entry and blocked-load recovery passed. Exact-source CI, public HTTP byte/cache/compression/range checks, signed-in session/protocol-2 read, anonymous/Admin boundaries, seven-service health, SHA-verified 39-table isolated restore and current/parent images passed. Only app/caddy changed; five backend identities and start times are unchanged. [Evidence and limitations](release-safe-reader.md). Later documentation-only commits do not change the deployed source identity.
+
 ## Preserving already-open pages
 
 All subsequent releases require `static-asset-retention-v1`: install the reviewed stable tools outside candidate archives, then retain current/candidate public build assets before cutover. `/opt/context-reader-shared/next-static` and its separate manifests survive image cleanup and app rollback. Do not expire hashed files to free space; capacity failure must stop release. Keep the current shared Caddy mount/route when rolling the app image back. Run `npm run test:release-safety` in CI and verify old-page article entry across an actual deployment. [Implementation, incident and acceptance evidence](release-safe-reader.md).
@@ -8,7 +16,7 @@ All subsequent releases require `static-asset-retention-v1`: install the reviewe
 
 Accepted `20261013T145900`, parent `20261013T063535`, source `516a1724697f5b60de7e6281aafd737cab3d4f48`. Stable guard, exact 43-file cumulative delta, public identity, local/server builds and exact-source CI passed. Warm entry, local display sorting and measured large-list rendering preserve the parent's durable outbox and cross-day/cross-tab recovery. Two controlled public browser runs, 71 targeted/90 critical checks, anonymous/recovery-Admin boundaries, health, latest SHA/39-table isolated restore and current/parent rollback images passed. Only app/caddy recreated; five backend identities unchanged. Guarded application-image retention resolved a disk threshold warning. Real new-answer writes for this task, physical devices and final user visual acceptance remain open. [Evidence and limits](study-entry-performance.md).
 
-## Current accepted release
+## Previous accepted study flow release
 
 Accepted `20261013T063535`, parent `20261013T031701`, source `c95525c24986fb1c48ff11240a8f14fa9d7db636`. The exact reviewed 31-file cumulative archive passed the stable locked entrypoint. Reader and Study now share the dictionary window; pointer/programmatic content focus frames are suppressed, study answers persist locally and save in the background, and remaining learning/review plus completed-new counts stay distinct. Public delayed-save, cached related-word, counter/footer, account/sync/Admin, health, 39-table restore and parent-image checks passed; five backend container identities and start times are unchanged. See [study flow evidence and remaining device/visual gates](study-flow-20261013.md). Later documentation-only commits do not change the deployed source identity.
 
