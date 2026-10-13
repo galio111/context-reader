@@ -1993,15 +1993,6 @@ The user also requested collection, alphabetical and per-click random ordering i
 
 User reported a long wait every time the vocabulary learning system opened and requested the shortest possible entry. Split initial server data from account sync, retained a 30-second warm snapshot, made later reconciliation nonblocking, guarded stale background responses against answer/settings mutations, refreshed local vocabulary changes after upload, and recovered server presentation-version conflicts. Reuse request-local vocabulary during server preparation while keeping fresh card/settings reads. Controlled slow-sync browser measurements improved 5,017→733ms for first enabled controls and 2,524→48ms for warm re-entry. Dedicated race/pending/failure/mobile checks, 20 study tests and 90 critical tests passed; the older refinement script has a baseline-identical obsolete vocabulary-button selector failure. Release acceptance and final operational evidence are maintained in [study entry performance](study-entry-performance.md). Physical-device feel remains user acceptance.
 
-## 2026-10-13 旧页面跨版本阅读恢复（实现，待生产验收）
-
-根据 Safari 真实日志，点击文章的 API 成功，而此前页面引用的 `6063-fc805f9af6d50219.js` 在应用更新后 404。加入永久不可变公共构建资源目录、稳定发布入口切换前归档、容量保护及 CI 回归；Reader/CET 加载或渲染失败在局部提供重试与返回，保留 HomeClient 状态及导入草稿。真实 Caddy 2.10.2 的预压缩响应存在错误 206，保留原动态 gzip/zstd 避开该路径。139 项架构、9 项真实 React 恢复、16 项 Linux 归档测试与独立审计通过。生产身份和完整验收见 `docs/release-safe-reader.md`，构建或候选通过不代表已上线。
-
-
-## 2026-10-13 · UI 工作台点选与胶囊替换（已实现，待发布）
-
-用户指出预览点不中、列表无定位及替换胶囊残留原效果。修复双模式拦截、跨场景握手和状态展开；加入真实胶囊组件并让替换与原生动效互斥，保留业务事件与还原。编辑预览跳过首页开场，可主动重播。独立复核发现并修复阅读工具定位及纯文本编辑选择器遗漏；本轮不发布测试设计。具体覆盖、证据与最终身份将在验收后写入 docs/ui-design-studio.md。
-
 ## 2026-10-13 CET6 词典 API 重生成完成
 
 用户认为首次 Codex 词典内容过于简略，明确授权使用网站 API 重生成，并要求质量优先。以 gggg 正式鉴权完成 1,724 词的完整 API 内容保存、失败恢复和定向词典核查；当前有 5,223 个义项、8,254 条搭配，修正 120 词的确认问题。全部查词缓存与生词结果逐项相同，1,724 学习卡所有字段及 3,624 复习记录保留，其他账号对象未更改。glamourous 按合法异体映射完整 API 结果。
@@ -2014,3 +2005,10 @@ User reported a long wait every time the vocabulary learning system opened and r
 ## 2026-10-13 单词系统冷进入再次提速（实现完成，生产验收待完成）
 
 用户实际截图仍停在「正在连接学习记录…」。已用真实登录 Chrome 确认旧响应 7–12 秒，其中6–10秒下载约714KB压缩数据；上一轮模拟延迟和暖重开不足以代表该路径。改为完整调度状态与全词表摘要，内联8个即将学习的完整词条，其余按保存详情只读获取；提醒独立轻量读取；账号隔离 IndexedDB 缓存提前展示、联网确认后才允许写学习进度。独立审查修复旧缓存设置初始化后覆盖线上新设置的风险。真实1166/1724词库压缩响应分别减少76.08%/81.10%；57学习专项、90关键回归、设置/退出隔离回归与发布契约通过。实际线上时间、最终版本身份和验收限制统一记录于 [学习入口性能](study-entry-performance.md)。
+## 2026-10-13 旧页面跨版本阅读恢复（已生产）
+
+根据 Safari 真实日志，点击文章的 API 成功，而此前页面引用的 `6063-fc805f9af6d50219.js` 在应用更新后 404。加入永久不可变公共构建资源目录、稳定发布入口切换前归档、容量保护及 CI 回归；Reader/CET 加载或渲染失败在局部提供重试与返回，保留 HomeClient 状态及导入草稿。真实 Caddy 2.10.2 的预压缩响应存在错误 206，保留原动态 gzip/zstd 避开该路径。139 项架构、9 项真实 React 恢复、16 项 Linux 归档测试与独立审计通过。正式接受 `20261013T074100`，parent `20261013T145900`，source `4cc51cb3388619ae5e7e435336a008852a9d0d48`。旧首页跨实际发布首次点击、返回后二次阅读均正常，旧模块从服务器返回 200 且文档 timeOrigin 不变；主动阻断加载后保持恢复界面，解除后重试读入同一文章。手机390px、键盘返回、CI、真实账号会话/协议2读取、匿名/Admin边界、健康、39表备份恢复与父镜像通过，五个后台服务未重启。测试阻断已解除并关闭专用标签页；未改用户代理。完整证据和物理Safari验收限制见 `docs/release-safe-reader.md`。
+
+## 2026-10-13 · UI 工作台点选与胶囊替换（已实现，待发布）
+
+用户指出预览点不中、列表无定位及替换胶囊残留原效果。修复双模式拦截、跨场景握手和状态展开；加入真实胶囊组件并让替换与原生动效互斥，保留业务事件与还原。编辑预览跳过首页开场，可主动重播。独立复核发现并修复阅读工具定位及纯文本编辑选择器遗漏；本轮不发布测试设计。具体覆盖、证据与最终身份将在验收后写入 docs/ui-design-studio.md。

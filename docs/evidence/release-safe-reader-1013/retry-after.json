@@ -1,0 +1,11 @@
+{
+  "initialTimeOrigin": 1791877535333.9,
+  "after": {
+    "result": {
+      "type": "string",
+      "value": "{\"timeOrigin\":1791877535333.9,\"heading\":\"Antarctic Sea Ice Grows to Its 2026 Maximum\",\"article\":true,\"recovery\":false,\"width\":390,\"scrollWidth\":390}"
+    }
+  },
+  "repeatedFailureRecoverable": true,
+  "keyboardBackWorked": true
+}

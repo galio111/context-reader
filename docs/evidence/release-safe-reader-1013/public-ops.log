@@ -1,0 +1,79 @@
+{
+  "passed": true,
+  "baseUrl": "https://context-reader.com",
+  "checks": [
+    {
+      "asset": "chunks/6063-fc805f9af6d50219.js",
+      "status": 200,
+      "sha256": "a052bfe9d07e04a846b07ded4ca21874c3046a392c4ae379f5036f6b7dc47a36",
+      "bytes": 152770,
+      "head": 200,
+      "conditional": 304,
+      "gzip": 200,
+      "brFallback": 200,
+      "range": 206
+    },
+    {
+      "asset": "chunks/6063-7e40e4899273aa48.js",
+      "status": 200,
+      "sha256": "87400b006990c2f89fccb6f31616fdd6517cb8a3be2968020c4c34ddab2d3721",
+      "bytes": 153615,
+      "head": 200,
+      "conditional": 304,
+      "gzip": 200,
+      "brFallback": 200,
+      "range": 206
+    },
+    {
+      "asset": "css/da0556181a9688cd.css",
+      "status": 200,
+      "sha256": "1bbc16bf48bd3b1f2e192fac42fad6a1dda0f810cb608cc70c90356458aa0801",
+      "bytes": 75412,
+      "head": 200,
+      "conditional": 304,
+      "gzip": 200,
+      "brFallback": 200,
+      "range": 206
+    },
+    {
+      "asset": "css/ef8f28910b9a1657.css",
+      "status": 200,
+      "sha256": "2200200e329258c648de367b449f68c5a272b1797c338548b0948edb13c7fc70",
+      "bytes": 75534,
+      "head": 200,
+      "conditional": 304,
+      "gzip": 200,
+      "brFallback": 200,
+      "range": 206
+    },
+    {
+      "asset": "chunks/release-safety-definitely-missing.js",
+      "method": "GET",
+      "status": 404,
+      "cacheControl": "no-store"
+    },
+    {
+      "asset": "chunks/",
+      "method": "GET",
+      "status": 404,
+      "cacheControl": "no-store"
+    },
+    {
+      "asset": "chunks/6063-fc805f9af6d50219.js",
+      "method": "POST",
+      "status": 405,
+      "cacheControl": "no-store"
+    }
+  ]
+}
+healthcheck passed
+sha256:32faa2a0bb14d8c4abf9036d9673d4cb671ce8cf6fd13a616b68ad55cc1c8e4b
+sha256:3bc39d2e1fd362585fd15f5c14828e84a789da78d17a3e547739f03eb1552e20
+{
+  "schemaVersion": 1,
+  "releaseId": "20261013T074100",
+  "parentReleaseId": "20261013T145900",
+  "sourceRevision": "4cc51cb3388619ae5e7e435336a008852a9d0d48",
+  "acceptedAt": "2026-10-13T07:43:28.677775+00:00",
+  "guardVersion": 1
+}

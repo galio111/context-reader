@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "baseUrl": "https://context-reader.com",
+  "checks": [
+    {
+      "asset": "chunks/6063-fc805f9af6d50219.js",
+      "status": 200,
+      "sha256": "a052bfe9d07e04a846b07ded4ca21874c3046a392c4ae379f5036f6b7dc47a36",
+      "bytes": 152770,
+      "head": 200,
+      "conditional": 304,
+      "gzip": 200,
+      "brFallback": 200,
+      "range": 206
+    },
+    {
+      "asset": "chunks/6063-7e40e4899273aa48.js",
+      "status": 200,
+      "sha256": "87400b006990c2f89fccb6f31616fdd6517cb8a3be2968020c4c34ddab2d3721",
+      "bytes": 153615,
+      "head": 200,
+      "conditional": 304,
+      "gzip": 200,
+      "brFallback": 200,
+      "range": 206
+    },
+    {
+      "asset": "chunks/release-safety-definitely-missing.js",
+      "method": "GET",
+      "status": 404,
+      "cacheControl": "no-store"
+    },
+    {
+      "asset": "chunks/",
+      "method": "GET",
+      "status": 404,
+      "cacheControl": "no-store"
+    },
+    {
+      "asset": "chunks/6063-fc805f9af6d50219.js",
+      "method": "POST",
+      "status": 405,
+      "cacheControl": "no-store"
+    }
+  ]
+}

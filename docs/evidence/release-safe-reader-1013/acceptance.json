@@ -1,0 +1,19 @@
+{
+  "releaseId": "20261013T074100",
+  "parentReleaseId": "20261013T145900",
+  "sourceRevision": "4cc51cb3388619ae5e7e435336a008852a9d0d48",
+  "archiveSha256": "6a5661144c17342aca630fbc2d0e38fae7b182e764868f1217791908d8d5000e",
+  "changedFiles": 27,
+  "backendIdentitiesAndStartedAtUnchanged": true,
+  "architectureTests": 139,
+  "readerRecoveryTests": 9,
+  "linuxRetentionTests": 16,
+  "providerTests": 8,
+  "protectedContracts": 11,
+  "retainedPublicBytes": 10468663,
+  "backupRestorePublicTables": 39,
+  "browser": "Chrome",
+  "oldDocumentTimeOrigin": 1791875364251,
+  "retryDocumentTimeOrigin": 1791877535333.9,
+  "physicalSafariVerified": false
+}

@@ -1,0 +1,9 @@
+{"status": "passed", "checks": {"session": 200, "accounts": 200, "public_articles": 200, "recommendation_automation": 200}}
+/var/backups/context-reader/postgres/daily/context-reader-20261013T063139Z.dump: OK
+GRANT
+ restored_public_tables
+------------------------
+                     39
+(1 row)
+
+restore verification passed
