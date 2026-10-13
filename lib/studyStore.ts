@@ -40,7 +40,7 @@ export async function getStudyEntries(userId: string): Promise<VocabularyEntry[]
   return rows.filter(r => r.id === r.object_key && typeof r.word === "string" && r.anki)
     .map(({ object_key, ...entry }) => { void object_key; return entry; });
 }
-export async function reconcileStudyCards(userId: string): Promise<void> {
+export async function reconcileStudyCards(userId: string): Promise<VocabularyEntry[]> {
   const [entries, cards] = await Promise.all([getStudyEntries(userId), studyRows<StudyCard>("study_cards", userId, "*", "&order=id.asc")]);
   const existing = new Map(cards.map(c => [c.entry_id, c]));
   const now = new Date();
@@ -62,12 +62,13 @@ export async function reconcileStudyCards(userId: string): Promise<void> {
     await accountFetch("study_cards?user_id=eq." + encodeURIComponent(userId) + "&id=eq." + encodeURIComponent(card.id),
       { method: "PATCH", body: JSON.stringify({ suspended, anki_pending: ankiPending }) });
   }
+  return entries;
 }
-export async function getStudySnapshot(userId: string): Promise<StudySnapshot> {
+export async function getStudySnapshot(userId: string, prepared?: { entries: VocabularyEntry[] }): Promise<StudySnapshot> {
   const now = new Date();
   const [settings, cards, entries, today, reviews, daily, policy, streakRows, rewards, claims] = await Promise.all([
     getStudySettings(userId), studyRows<StudyCard>("study_cards", userId, "id,entry_id,mode,memory,version,suspended,anki_pending,created_at", "&order=id.asc"),
-    getStudyEntries(userId),
+    prepared?.entries ?? getStudyEntries(userId),
     accountFetch<StudyDay[]>("study_days?user_id=eq." + encodeURIComponent(userId) + "&day=eq." + shanghaiDay(now) + "&select=*&limit=1"),
     accountFetch<StudyReview[]>("study_reviews?user_id=eq." + encodeURIComponent(userId) + "&select=id,card_id,answer,rating,reviewed_at,active_ms,undone,previous,next&order=reviewed_at.desc&limit=20"),
     studyRpc<StudySnapshot["daily"]>("daily_stats_v3", { p_user: userId }), getStudyPolicy(),

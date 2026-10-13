@@ -43,15 +43,15 @@ export async function POST(request: Request) {
       throw new StudyError("请求格式不正确。");
     }
     const op = body.op;
-    if (op === "prepare") {await reconcileStudyCards(userId);return result(await getStudySnapshot(userId));}
+    if (op === "prepare") {const entries=await reconcileStudyCards(userId);return result(await getStudySnapshot(userId,{entries}));}
     if (op === "start") {
-      await reconcileStudyCards(userId);
+      const entries=await reconcileStudyCards(userId);
       const [settings,cards]=await Promise.all([getStudySettings(userId),studyRows<StudyCard>("study_cards",userId,"*","&order=id.asc")]);
       if (!studyPaused(settings,new Date())) {
         const ids=buildStudyPlan(cards.filter(c=>!c.suspended),settings,new Date());
         await studyRpc("start_learning_v3",{p_user:userId,p_ids:ids,p_settings:settings});
       }
-      return result(await getStudySnapshot(userId));
+      return result(await getStudySnapshot(userId,{entries}));
     }
     if (op === "settings" || op === "pause" || op === "resume") {
       const current = await getStudySettings(userId);

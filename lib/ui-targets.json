@@ -2526,5 +2526,13 @@
     "status": "live",
     "capability": "style",
     "mayMoveWithinLayout": true
+  },
+  {
+    "id": "study.vocabulary-order",
+    "selector": "[data-ui-target=\"study.vocabulary-order\"]",
+    "kind": "container",
+    "status": "live",
+    "capability": "style",
+    "mayMoveWithinLayout": false
   }
 ]

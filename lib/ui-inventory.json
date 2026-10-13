@@ -3,9 +3,9 @@
   "acceptedCode": "b590ed3",
   "scope": "Accepted-source inventory plus reviewed studio bindings. Static discovery is not visual verification of every runtime state.",
   "summary": {
-    "targets": 316,
+    "targets": 317,
     "effects": 51,
-    "liveTargets": 304,
+    "liveTargets": 305,
     "legacyTargets": 12,
     "liveEffects": 47,
     "legacyEffects": 4
@@ -10869,6 +10869,41 @@
       "capability": "style",
       "runtimeRequired": "study",
       "mayMoveWithinLayout": true,
+      "scopeRequirement": "page state + visible root; skip [hidden], [inert], [aria-hidden=true] ancestors"
+    },
+    {
+      "id": "study.vocabulary-order",
+      "title": "生词本排序",
+      "group": "study",
+      "page": "/study",
+      "state": "study",
+      "type": "container",
+      "selector": "[data-ui-target=\"study.vocabulary-order\"]",
+      "source": {
+        "file": "components/StudyVocabulary.tsx",
+        "line": 1
+      },
+      "trigger": "打开学习系统的生词本",
+      "technology": "React + CSS",
+      "status": "live",
+      "editable": [
+        "color",
+        "background",
+        "font",
+        "size",
+        "radius",
+        "spacing",
+        "shadow"
+      ],
+      "notes": "收藏时间顺序、字母 A-Z 和每次重新随机；只调整展示，不改变学习计划。",
+      "selectorStability": "explicit-data-target",
+      "kind": "container",
+      "selectors": [
+        "[data-ui-target=\"study.vocabulary-order\"]"
+      ],
+      "capability": "style",
+      "runtimeRequired": "study",
+      "mayMoveWithinLayout": false,
       "scopeRequirement": "page state + visible root; skip [hidden], [inert], [aria-hidden=true] ancestors"
     }
   ],

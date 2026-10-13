@@ -1,0 +1,16 @@
+{
+  "label": "after",
+  "firstCardAfterStartMs": 715,
+  "firstEnabledAfterStartMs": 733,
+  "extraWaitAfterSnapshotMs": 223,
+  "disabledAfterSnapshot": false,
+  "reopenEnabledMs": 48,
+  "reopenStartRequests": 0,
+  "mobileOverflow": false,
+  "backgroundRacePreservedReview": true,
+  "localChangeRefresh": true,
+  "remoteVersionRecovery": true,
+  "backgroundFailurePreservesCard": true,
+  "pendingRecovery": true,
+  "errors": []
+}

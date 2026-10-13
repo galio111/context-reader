@@ -1,0 +1,4 @@
+ADMIN_PASSWORD is missing
+exit_code=1
+{"status": "passed", "checks": {"session": 200, "accounts": 200, "public_articles": 200, "recommendation_automation": 200}}
+runtime_env_exit_code=0

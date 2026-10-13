@@ -1,5 +1,9 @@
 # Production Release Governance
 
+## Accepted study entry and notebook ordering release
+
+Accepted `20261013T145900`, parent `20261013T063535`, source `516a1724697f5b60de7e6281aafd737cab3d4f48`. Stable guard, exact 43-file cumulative delta, public identity, local/server builds and exact-source CI passed. Warm entry, local display sorting and measured large-list rendering preserve the parent's durable outbox and cross-day/cross-tab recovery. Two controlled public browser runs, 71 targeted/90 critical checks, anonymous/recovery-Admin boundaries, health, latest SHA/39-table isolated restore and current/parent rollback images passed. Only app/caddy recreated; five backend identities unchanged. Guarded application-image retention resolved a disk threshold warning. Real new-answer writes for this task, physical devices and final user visual acceptance remain open. [Evidence and limits](study-entry-performance.md).
+
 ## Current accepted release
 
 Accepted `20261013T063535`, parent `20261013T031701`, source `c95525c24986fb1c48ff11240a8f14fa9d7db636`. The exact reviewed 31-file cumulative archive passed the stable locked entrypoint. Reader and Study now share the dictionary window; pointer/programmatic content focus frames are suppressed, study answers persist locally and save in the background, and remaining learning/review plus completed-new counts stay distinct. Public delayed-save, cached related-word, counter/footer, account/sync/Admin, health, 39-table restore and parent-image checks passed; five backend container identities and start times are unchanged. See [study flow evidence and remaining device/visual gates](study-flow-20261013.md). Later documentation-only commits do not change the deployed source identity.
