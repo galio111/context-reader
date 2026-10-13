@@ -48,6 +48,7 @@ export async function reportClientIssue(input: {
   severity?: ErrorReportSeverity;
   operation: string;
   endpoint?: string;
+  page?: string;
   userMessage: string;
   technicalMessage: string;
   code?: string;
@@ -67,7 +68,7 @@ export async function reportClientIssue(input: {
         severity: input.severity || "error",
         operation: input.operation,
         endpoint: input.endpoint || "",
-        page: window.location.href,
+        page: input.page ?? window.location.href,
         userMessage: input.userMessage,
         technicalMessage: input.technicalMessage,
         code: input.code || "",
