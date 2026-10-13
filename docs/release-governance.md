@@ -2,6 +2,10 @@
 
 ## Current accepted release
 
+Accepted `20261013T161000`, parent `20261013T075029`, source `1a7f9fcd41a50ddc27b279e27619acb0066c623a`, at 2026-10-13 08:21:36 UTC. The reviewed 21-file delta passed the stable locked entrypoint and public identity. Compact study transport, saved-detail reads, a small reminder and account view cache preserve server authority and the durable outbox. Exact-source CI, public controlled browser regression and signed-in read timings, anonymous/Admin boundaries, seven-service health, latest 081103Z SHA/39-table restore and current/parent images passed. Five backend identities and start times stayed unchanged. No real-user answer was submitted. [Evidence and limits](study-entry-performance.md). Later documentation commits do not change deployed source identity.
+
+## Previous cumulative UI studio release
+
 At the follow-up check, public production reported `20261013T075029`, parent `20261013T074100`, source `7c7f54a1b094a403c4aadfe8a1573f37c5fcba5e`, accepted at 2026-10-13 08:00:35 UTC. This cumulative successor includes the Reader retention source as a Git ancestor; stable contracts and health passed. The dedicated Reader release and its measured acceptance remain recorded below. UI studio changes and their feature-specific acceptance belong to [the studio record](ui-design-studio.md).
 
 ## Accepted Reader availability release
