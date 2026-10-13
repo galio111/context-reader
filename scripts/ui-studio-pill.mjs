@@ -19,7 +19,7 @@ try{
  }
  await choose('c-buttons-context-pill');await p.getByRole('button',{name:'正常操作',exact:true}).click();await menu.click();await f.locator('#home-option-menu').waitFor();
  await p.getByRole('button',{name:'对比原版',exact:true}).click();await p.waitForTimeout(250);assert.equal(await menu.locator('.gcp-visual').count(),0);await p.getByRole('button',{name:'返回设计',exact:true}).click();await menu.locator('.gcp-visual').waitFor();
- await p.getByRole('button',{name:'手机',exact:true}).click();await p.waitForTimeout(300);await p.screenshot({path:out+'/capsule-mobile.png'});
+ await p.getByRole('button',{name:'手机',exact:true}).click();await p.waitForTimeout(1600);await p.screenshot({path:out+'/capsule-mobile.png'});
  await p.emulateMedia({reducedMotion:'reduce'});await p.waitForTimeout(250);assert.deepEqual(errors,[]);assert.deepEqual(writes,[]);
  const report={ok:true,cycles:3,oldTimelineSuppressed:true,restoredNative:true,originalClickPreserved:true,compareRestores:true,mobileAndReducedMotion:true,errors,frameBusinessWrites:0};await fs.writeFile(out+'/pill.json',JSON.stringify(report,null,2));console.log(report);
 }catch(e){console.error(e);await p.screenshot({path:out+'/pill-failure.png'});process.exitCode=1;}finally{await b.close();}

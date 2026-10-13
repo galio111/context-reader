@@ -1,0 +1,8 @@
+{
+  "status": "not_completed",
+  "oldRelease": "20261013T163100",
+  "reason": "QA helper refresh of wait timer succeeded, but its inspector-close cleanup callback used require in an ES module and caused the retained browser process to exit before deployment.",
+  "replacementReleaseObserved": "20261013T084711",
+  "replacementPageChunk": "app/page-1ffb5236014f06a1.js",
+  "note": "Replacement page Reader entry and return/reentry passed with unchanged timeOrigin, zero page errors and zero API writes. Ops independently confirmed webpack-039108e2af9d14b5.js and app/page-1ffb5236014f06a1.js occur in both 163700 and 084711 manifests; they cannot identify the page version. Cross-release old-page browser contract remains not completed. Static parent asset retention is separately verified by ops."
+}

@@ -2,6 +2,10 @@
 
 ## Current accepted release
 
+Accepted `20261013T084711`, parent `20261013T163700`, source `537e522f7fd1d29865b6aa024554d93422000ca6`, at 2026-10-13 08:55:43 UTC. The exact 24-file cumulative delta passed the stable locked entrypoint, public identity, source CI and builds. Public UI selection/navigation and exclusive capsule replacement checks passed without preview business writes or published test recipes. Account/protocol-2/Admin boundaries, seven services, a fresh SHA-verified 39-table isolated restore, current/parent images and backend identity preservation passed; the existing image-retention policy restored disk from 86% to 69%. The browser held across cutover was lost to a QA-process exception: final cross-release browser acceptance remains incomplete, despite successful retained-asset and new-page Reader checks. Do not equate those checks. [Coverage, evidence and remaining gates](ui-design-studio.md). Later documentation/test-evidence commits do not change deployed source identity.
+
+## Previous accepted cold study entry release
+
 Accepted `20261013T161000`, parent `20261013T075029`, source `1a7f9fcd41a50ddc27b279e27619acb0066c623a`, at 2026-10-13 08:21:36 UTC. The reviewed 21-file delta passed the stable locked entrypoint and public identity. Compact study transport, saved-detail reads, a small reminder and account view cache preserve server authority and the durable outbox. Exact-source CI, public controlled browser regression and signed-in read timings, anonymous/Admin boundaries, seven-service health, latest 081103Z SHA/39-table restore and current/parent images passed. Five backend identities and start times stayed unchanged. No real-user answer was submitted. [Evidence and limits](study-entry-performance.md). Later documentation commits do not change deployed source identity.
 
 ## Previous cumulative UI studio release
