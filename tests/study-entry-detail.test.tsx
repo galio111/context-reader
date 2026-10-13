@@ -7,7 +7,7 @@ import type { VocabularyEntry } from "../types/vocabulary";
 
 test("summary details are deduplicated, scoped to owner and version, and never shown as complete questions", async () => {
   const dom=new JSDOM("<!doctype html><body></body>",{url:"https://context-reader.com"});
-  for(const [key,value] of Object.entries({window:dom.window,document:dom.window.document,navigator:dom.window.navigator,HTMLElement:dom.window.HTMLElement,React,IS_REACT_ACT_ENVIRONMENT:true}))Object.defineProperty(globalThis,key,{configurable:true,value});
+  for(const [key,value] of Object.entries({window:dom.window,document:dom.window.document,navigator:dom.window.navigator,HTMLElement:dom.window.HTMLElement,React,IS_REACT_ACT_ENVIRONMENT:true}))Object.defineProperty(globalThis,key,{configurable:true,writable:true,value});
   const require=createRequire(import.meta.url);
   const mock=(path:string,exports:object)=>{const filename=require.resolve(path);require.cache[filename]={id:filename,filename,loaded:true,exports} as NodeModule;};
   let owner="detail-owner-a",local:VocabularyEntry|undefined;
@@ -17,7 +17,7 @@ test("summary details are deduplicated, scoped to owner and version, and never s
   const {useStudyEntry,preloadStudyEntry}=await import("../components/useStudyEntry");
   const {render,act,waitFor,cleanup}=await import("@testing-library/react");
   const summary={id:"detail-word",word:"example",updatedAt:"2026-10-13T01:00:00Z",studySummary:true} as unknown as VocabularyEntry;
-  const full={...summary,studySummary:undefined,sourceSentence:"A complete source sentence",usageNote:"All saved usage",anki:{cardMode:"cloze_context",clozeSentence:"A complete ________ sentence"}} as VocabularyEntry;
+  const full={...summary,studySummary:undefined,sourceSentence:"A complete source sentence",usageNote:"All saved usage",anki:{cardMode:"cloze_context",clozeSentence:"A complete ________ sentence",canMakeCloze:true,contextCue:"",basicCue:"",frontPreview:"",backPreview:""}} as VocabularyEntry;
   const originalFetch=globalThis.fetch;
   const calls:Array<{owner:string;resolve:(response:Response)=>void}>=[];
   globalThis.fetch=async(_url,init)=>new Promise<Response>(resolve=>calls.push({owner:new Headers(init?.headers).get("X-Context-Account")!,resolve}));
