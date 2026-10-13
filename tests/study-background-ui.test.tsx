@@ -94,6 +94,7 @@ test("Study advances immediately, keeps a new answer visible across another tab'
     await waitFor(()=>assert.equal(requests.length,2));
     const originalId=requests.at(-1)!.id;
     await act(async()=>{rejectReview(new TypeError("lost response"));});
+    assert.equal(ui.queryByText(/答案已保存在本机|暂时无法同步|重试同步|正在同步学习记录/),null,"background retries do not interrupt studying with save notices");
     assert.ok(ui.getByText("gamma"));assert.equal(readStudyReviews(localStorage,owner).length,1);
     await waitFor(()=>assert.equal(requests.length,3),{timeout:4000});
     assert.equal(requests.at(-1)!.id,originalId);

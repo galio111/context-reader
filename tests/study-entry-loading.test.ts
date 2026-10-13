@@ -31,6 +31,7 @@ function harness(count: number) {
    // Another device can review while this request is preparing its plan.
    cards[0].version=4;cards[0].memory.reps=4;return {};
   }
+  if(table==='rpc/study_settle_rewards')return {};
   if(table.startsWith('study_')||table==='rpc/study_daily_stats_v3')return [];
   throw Error(path);
  };

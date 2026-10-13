@@ -55,9 +55,11 @@ export function useStudyReviewQueue(owner: string, api: <T>(body?: unknown) => P
       failures.current = 0;
     } catch (error) {
       if (active.current) {
-        setError(error instanceof TypeError ? "网络暂时未连接，答案已保存在本机，将自动重试。" : "答案已保存在本机，暂时无法同步。恢复后将自动重试。");
         const status = (error as {status?: number}).status;
-        if (status !== 401 && status !== 403 && (status !== 409 || ["too_fast", "day_changed"].includes((error as {code?: string}).code ?? ""))) {
+        const retryable = status !== 401 && status !== 403 && (status !== 409 || ["too_fast", "day_changed"].includes((error as {code?: string}).code ?? ""));
+        // Durable answers retry silently. Only an action the user must take gets a notice.
+        setError(retryable ? "" : status === 401 ? "登录已过期，请重新登录后继续。" : status === 403 ? "账号暂时无法提交，请检查账号状态。" : "学习状态已变化，请重试后继续。");
+        if (retryable) {
           const delay = [1500, 4000, 10000, 30000][Math.min(failures.current++, 3)];
           retry.current = setTimeout(() => { void drainRef.current(); }, delay);
         }
