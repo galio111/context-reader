@@ -2036,3 +2036,8 @@ User reported a long wait every time the vocabulary learning system opened and r
 本轮公网播放门禁进一步捕获中间版 20261013T184215 的 CSP 缺口：隔离组件播放通过，但真实站点 default-src self 阻止了原生播放器的 Blob URL。该中间版本未通过播放验收。修正只增加 media-src self blob:，并将实际生产 CSP 加入浏览器矩阵及所有页面策略测试；不以隔离测试替代公开站点的播放结束验证。
 
 最终接受 `20261013T190024`，parent `20261013T184215`，source `1a0119310aa77b0580b07c051c1dcad24c304d8b`。公网英美音及键盘重播 playing→ended、无脚本错误；实际生产 CSP 下 Windows Chrome/Edge/Chromium 18场景与 Ubuntu Chromium/Firefox/WebKit 18场景通过。23专项、90核心、8提供商、契约、构建及精确源码 CI 通过，三引擎检查加入持续集成。账号/同步/权限、三条阅读功能及一次扣费、免费历史回放通过；最终版词典/翻译由备用 GLM 完成，严格全 Flash 断言未通过，未隐去或更改模型设置。七服务、五后端不重启、39表备份恢复和镜像留存通过，临时账号精确清理；中间184215镜像保留但有已知 CSP 缺口。仅清理本轮两张未引用的无标签构建镜像，磁盘81%。证据见 [验收汇总](evidence/safari-audio-1013/acceptance.json)。真机 Safari 默认设置与听音仍需用户确认。
+
+
+## 2026-10-13 — 每个新词首次点击发音修复（候选待发布）
+
+用户确认上一版能发音，但每个新词第一次点击等待仍无声，第二次才成功。改为冷加载在首次手势启动原生通道，下载后复用同一元素播放；取消 Web Audio 冷播放依赖及无用预解码，保留缓存、独占、取消与稳定标签。旧生产组件在严格逐元素授权、无 Web Audio 的真实浏览器条件下可复现首次失败；新测试要求每个新词均单击播放，包括6.2秒延迟。状态与证据见 [首次发音记录](pronunciation-first-click-20261013.md)。

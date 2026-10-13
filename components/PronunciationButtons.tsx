@@ -6,7 +6,7 @@ import {
   type PronunciationMedia,
   requestPronunciationMedia,
 } from "@/lib/pronunciationClient";
-import { PronunciationPlaybackError, unlockPronunciationAudio, withAudioTimeout } from "@/lib/pronunciationPlayback";
+import { PronunciationPlaybackError, pronunciationGestureSilence, withAudioTimeout } from "@/lib/pronunciationPlayback";
 import type { PronunciationAccent } from "@/lib/pronunciation";
 
 interface PronunciationButtonsProps {
@@ -18,21 +18,6 @@ interface PronunciationButtonsProps {
   allowBrowserFallback?: boolean;
 }
 
-let sharedAudioContext: AudioContext | null = null;
-// Media identities already distinguish text, accent and explicit phonetics.
-// Weak keys release decoded buffers when the bounded media cache evicts them.
-const decodedMedia = new WeakMap<PronunciationMedia, Promise<AudioBuffer>>();
-
-function prepareDecodedAudio(media: PronunciationMedia, context: AudioContext): Promise<AudioBuffer> {
-  const cached = decodedMedia.get(media);
-  if (cached) return cached;
-  const decoded = withAudioTimeout(context.decodeAudioData(Uint8Array.from(media.bytes).buffer), 8000, "decode").catch(error => {
-    decodedMedia.delete(media);
-    throw error;
-  });
-  decodedMedia.set(media, decoded);
-  return decoded;
-}
 let activePlayback: { owner: object; stop: () => void } | null = null;
 const DEFAULT_ACCENTS: PronunciationAccent[] = ["en-US", "en-GB"];
 
@@ -51,15 +36,6 @@ function pickBrowserVoice(accent: PronunciationAccent): SpeechSynthesisVoice | n
     ?? voices.find((voice) => voice.lang.toLowerCase().replace("_", "-").startsWith(target))
     ?? voices.find((voice) => voice.lang.toLowerCase().startsWith("en"))
     ?? null;
-}
-
-function getAudioContext(): AudioContext | null {
-  if (typeof window === "undefined") return null;
-  const AudioContextConstructor = window.AudioContext
-    ?? (window as typeof window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
-  if (!AudioContextConstructor) return null;
-  if (!sharedAudioContext || sharedAudioContext.state === "closed") sharedAudioContext = new AudioContextConstructor();
-  return sharedAudioContext;
 }
 
 function playbackErrorMessage(error: unknown, accent: PronunciationAccent): string {
@@ -95,7 +71,6 @@ export const PronunciationButtons = memo(function PronunciationButtons({
   const playbackRequestIdRef = useRef(0);
   const playbackOwnerRef = useRef<object>({});
   const browserSpeechRef = useRef(false);
-  const sourceRef = useRef<AudioBufferSourceNode | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const audioUrlRef = useRef("");
   const preparedMediaRef = useRef(new Map<PronunciationAccent, PronunciationMedia>());
@@ -107,15 +82,6 @@ export const PronunciationButtons = memo(function PronunciationButtons({
   function releaseAudio() {
     playbackCleanupRef.current?.();
     playbackCleanupRef.current = null;
-    if (sourceRef.current) {
-      try {
-        sourceRef.current.stop();
-      } catch {
-        // The source may already have ended.
-      }
-      sourceRef.current.disconnect();
-      sourceRef.current = null;
-    }
     if (audioRef.current) {
       audioRef.current.onended = null;
       audioRef.current.onerror = null;
@@ -151,8 +117,6 @@ export const PronunciationButtons = memo(function PronunciationButtons({
       const media = await requestPronunciationMedia(text, accent, accent === "en-US" ? usPhonetic : ukPhonetic);
       if (disposed) return;
       preparedMediaRef.current.set(accent, media);
-      const context = getAudioContext();
-      if (context) await prepareDecodedAudio(media, context);
     })).catch(() => {
       // A visible click reports the actionable error; background preparation is silent.
     });
@@ -195,11 +159,17 @@ export const PronunciationButtons = memo(function PronunciationButtons({
     contentType: string,
     playbackRequestId: number,
     accent: PronunciationAccent,
+    audio = new Audio(),
   ): Promise<void> {
+    // A cold request reuses the exact element authorized by this click. Safari
+    // grants playback per element, not to another player created after fetch.
+    audio.pause();
+    audio.loop = false;
     const url = URL.createObjectURL(new Blob([bytes], { type: contentType }));
-    const audio = new Audio(url);
+    audio.src = url;
     audio.preload = "auto";
     audioRef.current = audio;
+    if (audioUrlRef.current) URL.revokeObjectURL(audioUrlRef.current);
     audioUrlRef.current = url;
     audio.onended = () => {
       if (playbackRequestIdRef.current === playbackRequestId) {
@@ -213,45 +183,12 @@ export const PronunciationButtons = memo(function PronunciationButtons({
       setPlaybackError("播放已中断，请再点一次发音按钮。");
     };
     audio.onerror = interrupted;
-    audio.onpause = () => { if (!audio.ended) interrupted(); };
+    // A queued pause from replacing the silent source must not cancel the word.
+    audio.onpause = () => { if (audio.paused && !audio.ended) interrupted(); };
     // For a prepared recording this executes inside the click, with no await first.
     await withAudioTimeout(audio.play(), 5000);
     if (playbackRequestIdRef.current !== playbackRequestId) { audio.pause(); return; }
     markPlaying(accent, playbackRequestId);
-  }
-
-  async function playDecodedAudio(
-    media: PronunciationMedia,
-    playbackRequestId: number,
-    context: AudioContext,
-    accent: PronunciationAccent,
-  ): Promise<void> {
-    const decodedAudio = await prepareDecodedAudio(media, context);
-    if (playbackRequestIdRef.current !== playbackRequestId) return;
-
-    if (context.state !== "running") throw new PronunciationPlaybackError("interrupted");
-    const source = context.createBufferSource();
-    source.buffer = decodedAudio;
-    source.connect(context.destination);
-    source.onended = () => {
-      if (
-        playbackRequestIdRef.current === playbackRequestId
-        && sourceRef.current === source
-      ) {
-        releaseAudio();
-        setPlayingAccent(null);
-      }
-    };
-    sourceRef.current = source;
-    source.start();
-    markPlaying(accent, playbackRequestId);
-    const interrupted = () => {
-      if (context.state === "running" || playbackRequestIdRef.current !== playbackRequestId) return;
-      stopPlayback();
-      setPlaybackError("播放已中断，请再点一次发音按钮。");
-    };
-    context.addEventListener("statechange", interrupted);
-    playbackCleanupRef.current = () => context.removeEventListener("statechange", interrupted);
   }
 
   function playWithBrowserSpeech(
@@ -315,30 +252,28 @@ export const PronunciationButtons = memo(function PronunciationButtons({
     setLoadingAccent(accent);
     const playbackRequestId = playbackRequestIdRef.current;
     let media = preparedMediaRef.current.get(accent);
-    let context: AudioContext | null = null;
 
     try {
       if (media) {
         await playWithHtmlAudio(media.bytes, media.contentType, playbackRequestId, accent);
         return;
       }
-      // Catch constructor errors too. Observe resume rejection immediately, even
-      // while a slow network request is pending (no unhandled rejection).
-      try { context = getAudioContext(); } catch { /* use native recording playback */ }
-      const ready = context
-        ? unlockPronunciationAudio(context).then(() => null, error => error as unknown)
-        : Promise.resolve(null);
+      // Start this unmuted (but silent) player synchronously in the gesture,
+      // while the real recording loads. Never depend on Web Audio unlocking a
+      // different playback mechanism or ask for a second click after download.
+      const audio = new Audio();
+      audioRef.current = audio;
+      audioUrlRef.current = URL.createObjectURL(pronunciationGestureSilence());
+      audio.src = audioUrlRef.current;
+      audio.loop = true;
+      const ready = withAudioTimeout(audio.play(), 5000).then(() => null, error => error as unknown);
       media ??= await requestPronunciationMedia(spokenText, accent, phonetics?.[accent]);
       if (playbackRequestIdRef.current !== playbackRequestId) return;
       preparedMediaRef.current.set(accent, media);
       const audioError = await ready;
       if (playbackRequestIdRef.current !== playbackRequestId) return;
       if (audioError) throw audioError;
-      if (context) {
-        await playDecodedAudio(media, playbackRequestId, context, accent);
-      } else {
-        await playWithHtmlAudio(media.bytes, media.contentType, playbackRequestId, accent);
-      }
+      await playWithHtmlAudio(media.bytes, media.contentType, playbackRequestId, accent, audio);
     } catch (error) {
       if (playbackRequestIdRef.current !== playbackRequestId) return;
       // Invalidate any late decode/play result before offering another gesture.
