@@ -27,6 +27,15 @@ require_text "ops/mainland/deploy-release.sh" "RELEASE_GUARD_VERSION=1"
 require_text "ops/mainland/deploy-release.sh" "context-reader-deploy.lock"
 require_text "ops/mainland/deploy-release.sh" "parent release mismatch"
 require_text "ops/mainland/deploy-release.sh" 'data.get("backendMode") != "mainland_internal"'
+require_text "ops/mainland/deploy-release.sh" 'STATIC_ASSET_RETAINER="/opt/context-reader/bin/retain-next-static"'
+require_text "ops/mainland/deploy-release.sh" '"$STATIC_ASSET_RETAINER"'
+require_text "ops/mainland/deploy-release.sh" 'static-asset-retention-v1'
+require_text "ops/mainland/retain-next-static.py" 'immutable static asset collision'
+require_text "ops/mainland/retain-next-static.py" 'static asset retention budget exceeded'
+require_text "ops/mainland/Caddyfile" 'handle_path /_next/static/*'
+require_text "ops/mainland/Caddyfile" 'root * /srv/next-static'
+require_text "ops/mainland/Caddyfile" 'match status 2xx 304'
+require_text "ops/mainland/compose.yml" '/opt/context-reader-shared/next-static:/srv/next-static:ro'
 require_text "ops/mainland/start-mainland-app.mjs" 'process.env.CONTEXT_READER_RUNTIME_MODE !== "mainland"'
 require_text "ops/mainland/start-mainland-app.mjs" 'process.env.SUPABASE_URL !== EXPECTED_INTERNAL_API'
 require_text "ops/mainland/compose.yml" "CONTEXT_READER_RUNTIME_MODE: mainland"
@@ -43,14 +52,15 @@ require_text "lib/deepseek.ts" "phoneticFor"
 require_text "lib/deepseekDictionary.ts" "phoneticFor"
 require_text "lib/dictionaryStream.ts" "pronunciationTargetMatches"
 require_text "lib/dictionarySpelling.ts" "normalizePhoneticOwnership"
+require_text "lib/dictionaryStreamServer.ts" "normalizeDictionaryStreamLine"
+require_text "app/api/dictionary-stream/route.ts" "normalizeDictionaryStreamLine"
 require_text "lib/dictionaryStreamServer.ts" "DictionaryProviderStreamNormalizer"
 require_text "app/api/dictionary-stream/route.ts" "DictionaryProviderStreamNormalizer"
 require_text "app/api/dictionary-stream/route.ts" "phoneticFor"
 require_text "app/api/explain-word-stream/route.ts" "当前词音标归属"
 require_text "app/api/explain-word-stream/route.ts" "fetchWithDeepSeekModelFailover"
 require_text "app/api/dictionary-stream/route.ts" "fetchWithDeepSeekModelFailover"
-require_text "lib/deepseek.ts" "coreDeepSeekModelCandidates"
-require_text "lib/deepseekModelFailover.ts" 'DEFAULT_CORE_FALLBACK_MODEL = "deepseek-v4-flash"'
+require_text "lib/deepseekModelFailover.ts" "coreDeepSeekModelCandidates"
 require_text "lib/explanationDisplay.ts" "currentFormPhonetic"
 require_text "lib/cache.ts" "currentFormPhonetic"
 require_text "lib/standaloneDictionaryCache.ts" "standalone-dictionary-cache:v2"
@@ -70,7 +80,7 @@ require_text "components/HomeOptionMenu.tsx" "currentFormPhonetic"
 require_text "components/BookHome.tsx" "currentFormPhonetic"
 require_text "components/ArticleInput.tsx" "currentFormPhonetic"
 require_text "components/ReaderView.tsx" "currentFormPhonetic"
-require_text "app/api/import-url/route.ts" "localizeImportedArticleImages"
+require_text "lib/publicArticleCovers.ts" "localizeImportedArticleImages"
 require_text "lib/publicArticleCovers.ts" "images.weserv.nl"
 require_text "lib/publicArticleCovers.ts" "article-images/"
 require_text "lib/publicArticleCovers.ts" "withArticleImageDownloadSlot"

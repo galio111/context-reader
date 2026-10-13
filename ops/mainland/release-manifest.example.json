@@ -6,7 +6,9 @@
   "guardVersion": 1,
   "requiredContracts": [
     "release-lineage-v1",
-    "phonetic-current-form-v1"
+    "phonetic-current-form-v1",
+    "article-image-localization-v1",
+    "static-asset-retention-v1"
   ],
   "changedFiles": [
     "path/to/reviewed-file"

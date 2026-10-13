@@ -5,6 +5,7 @@ RELEASE_GUARD_VERSION=1
 DEPLOY_LOCK_PATH="/var/lock/context-reader-deploy.lock"
 MANIFEST_RELATIVE_PATH="ops/mainland/release-manifest.json"
 CONTRACT_VERIFIER="/opt/context-reader/bin/verify-release-contracts"
+STATIC_ASSET_RETAINER="/opt/context-reader/bin/retain-next-static"
 
 if [[ $# -ne 2 ]]; then
   echo "usage: $0 RELEASE_ID ARCHIVE_PATH" >&2
@@ -122,7 +123,7 @@ if any(not isinstance(item, str) or not item for item in changed):
     raise SystemExit("changedFiles must contain non-empty strings")
 if len(set(contracts)) != len(contracts) or len(set(changed)) != len(changed):
     raise SystemExit("release manifest arrays may not contain duplicates")
-required_contracts = {"release-lineage-v1", "phonetic-current-form-v1", "article-image-localization-v1"}
+required_contracts = {"release-lineage-v1", "phonetic-current-form-v1", "article-image-localization-v1", "static-asset-retention-v1"}
 missing_contracts = sorted(required_contracts - set(contracts))
 if missing_contracts:
     raise SystemExit("candidate is missing required protected contract: " + ", ".join(missing_contracts))
@@ -152,6 +153,10 @@ if [[ "$manifest_guard_version" -lt "$RELEASE_GUARD_VERSION" ]]; then
 fi
 if [[ ! -x "$CONTRACT_VERIFIER" ]]; then
   echo "stable release contract verifier is unavailable: $CONTRACT_VERIFIER" >&2
+  exit 69
+fi
+if [[ ! -x "$STATIC_ASSET_RETAINER" ]]; then
+  echo "stable static asset retainer is unavailable: $STATIC_ASSET_RETAINER" >&2
   exit 69
 fi
 
@@ -327,6 +332,12 @@ fi
 rm -f -- "$candidate_home"
 docker rm -f "$candidate_name" >/dev/null
 candidate_started=0
+
+# Preserve both sides BEFORE tagging/recreating app or Caddy. This stable
+# helper refuses collisions/disk pressure; it never expires old open-tab assets.
+"$STATIC_ASSET_RETAINER" \
+  --image "context-reader-app:accepted-$current_release_id" \
+  --image "$candidate_image"
 
 current_before_cutover="$(basename "$(readlink -f "$current_dir")")"
 if [[ "$current_before_cutover" != "$current_release_id" ]]; then
