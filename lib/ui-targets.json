@@ -681,7 +681,7 @@
   },
   {
     "id": "reader.edit-canvas",
-    "selector": "[data-block-id]",
+    "selector": "[data-learning-surface=\"reading\"] > [contenteditable=\"true\"]",
     "kind": "text",
     "status": "live",
     "capability": "style",

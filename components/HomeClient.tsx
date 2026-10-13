@@ -3,6 +3,8 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 const CetReader = dynamic(() => import("@/components/cet/CetReader").then(m => m.CetReader), { loading: () => <div className="p-10"><LoadingStatus>正在打开真题…</LoadingStatus></div> });
 import type { CetEntry } from "@/components/cet/CetLibrary";
+import { useContext } from "react";
+import { UiPreviewOpeningContext } from "./UiPreviewOpeningContext";
 import { HomeRedesign } from "@/components/HomeRedesign";
 import dynamic from "next/dynamic";
 const ArticleInput = dynamic(() => import("@/components/ArticleInput").then(module => module.ArticleInput));
@@ -67,7 +69,6 @@ interface HomeClientProps {
   homeVariant?: "immersive" | "book";
   forceGuestPreview?: boolean;
   forceMemberPreview?: boolean;
-  skipOpening?: boolean;
 }
 
 type PublicArticleDetails = Pick<
@@ -202,7 +203,8 @@ async function requestImageLayoutWords(file: File): Promise<ImportedImageLayoutW
   return data.words;
 }
 
-export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCatalogueComplete = true, initialCatalogueCounts, initialHomepageCuration, homeVariant = "immersive", forceGuestPreview = false, forceMemberPreview = false, skipOpening = false }: HomeClientProps) {
+export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCatalogueComplete = true, initialCatalogueCounts, initialHomepageCuration, homeVariant = "immersive", forceGuestPreview = false, forceMemberPreview = false }: HomeClientProps) {
+  const skipOpening = useContext(UiPreviewOpeningContext);
   const { account, isOffline, requireAccount } = useAccount();
   const [initialPublicArticles, setPublicArticles] = useState(bootstrapArticles);
   const [catalogueStatus, setCatalogueStatus] = useState<"idle" | "loading" | "ready" | "error">(initialCatalogueComplete ? "ready" : "idle");

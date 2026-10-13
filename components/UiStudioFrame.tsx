@@ -1,4 +1,5 @@
 "use client";
+import {UiPreviewOpeningContext} from './UiPreviewOpeningContext';
 import {UiStudioBridge as Bridge} from './UiStudioBridge';
 import {useEffect,useState,type ReactNode} from 'react';
 import type {AccountSessionState} from '@/types/account';
@@ -32,8 +33,8 @@ function Scene({scene,home}:{scene:UiScene;home:ReactNode}){
  if(scene==='admin')return <AdminPage/>;
  return home;
 }
-export function UiStudioFrame({account,scene,nonce,home}:{account:AccountSessionState;scene:UiScene;nonce:string;home:ReactNode}){
+export function UiStudioFrame({account,scene,nonce,home,skipOpening=true}:{account:AccountSessionState;scene:UiScene;nonce:string;home:ReactNode;skipOpening?:boolean}){
  const [ready,setReady]=useState(false);
  useEffect(()=>{const restore=installUiDesignPreview(account);setReady(true);return restore;},[account]);
- return ready?<AccountProvider><Scene scene={scene} home={home}/>{scene!=='study'&&<StudyHost/>}<Bridge nonce={nonce}/></AccountProvider>:null;
+ return ready?<UiPreviewOpeningContext.Provider value={skipOpening}><AccountProvider><Scene scene={scene} home={home}/>{scene!=='study'&&<StudyHost/>}<Bridge nonce={nonce}/></AccountProvider></UiPreviewOpeningContext.Provider>:null;
 }

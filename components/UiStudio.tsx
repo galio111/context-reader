@@ -13,8 +13,8 @@ const clone=(v:UiDesignRecipe)=>structuredClone(v);
 function ComponentPreview({item,patch,onChoose,selected}:{item:GalioItem;patch:UiVisualPatch;onChoose:()=>void;selected:boolean}){
  const latestPatch=useRef(patch);latestPatch.current=patch;
  const root=useRef<HTMLDivElement>(null),handle=useRef<GalioHandle|null>(null);const [failed,setFailed]=useState(false);
- useEffect(()=>{let active=true;void loadGalio().then(m=>{if(!active||!root.current)return;const h=m.createComponent(root.current,item,galioOptions(latestPatch.current));handle.current=h;void h.ready.catch(()=>setFailed(true));});return()=>{active=false;handle.current?.destroy();handle.current=null;};},[item]); // eslint-disable-line react-hooks/exhaustive-deps
- useEffect(()=>handle.current?.update(galioOptions(patch)),[patch]);
+ useEffect(()=>{let active=true;void loadGalio().then(m=>{if(!active||!root.current)return;const h=m.createComponent(root.current,item,galioOptions({...latestPatch.current,componentId:item.id}));handle.current=h;void h.ready.catch(()=>setFailed(true));});return()=>{active=false;handle.current?.destroy();handle.current=null;};},[item]);
+ useEffect(()=>handle.current?.update(galioOptions({...patch,componentId:item.id})),[patch]);
  return <article className={s.option} data-selected={selected}><div ref={root} className={s.sample}/>{failed&&<small>预览未加载</small>}<div><span>{item.title}</span><button onClick={onChoose}>{selected?'已使用':'使用'}</button></div><small>{item.source?.name}</small></article>;
 }
 export function UiStudio({initial}:{initial:UiDesignState}){
@@ -36,7 +36,7 @@ export function UiStudio({initial}:{initial:UiDesignState}){
   if(d.type==='undo'&&live.current.history.length){setFuture([clone(live.current.recipe),...live.current.future]);setRecipe(live.current.history.at(-1)!);setHistory(live.current.history.slice(0,-1));}
   if(d.type==='redo'&&live.current.future.length){setHistory([...live.current.history,clone(live.current.recipe)]);setRecipe(live.current.future[0]);setFuture(live.current.future.slice(1));}
   if(d.type==='ready'){setReady(true);send('update',{seq:++seq.current,recipe:live.current.compare?emptyUiDesignRecipe():live.current.recipe,selected:live.current.selected,editing:live.current.editing&&!live.current.compare});if(UI_SCENES.some(([id])=>id===d.screen)&&d.screen!==live.current.scene)setScene(d.screen);if(pendingLocate.current)send('locate',pendingLocate.current);}
-  if(d.type==='select'&&UI_TARGETS.some(t=>t.id===d.id)){setSelected(d.id);setSameCount(Number(d.count)||1);setAncestors(Array.isArray(d.ancestors)?d.ancestors:[]);}
+  if(d.type==='select'&&UI_TARGETS.some(t=>t.id===d.id)&&(!d.request||d.request===requestCounter.current)){pendingLocate.current=null;setMessage('');setSelected(d.id);setSameCount(Number(d.count)||1);setAncestors(Array.isArray(d.ancestors)?d.ancestors:[]);}
   if(d.type==='drag-start')dragStart.current=clone(live.current.recipe);
   if(d.type==='drag'&&typeof d.x==='number'&&typeof d.y==='number')patchTarget({offsetX:d.x,offsetY:d.y},d.id,false);
   if(d.type==='drag-end'&&dragStart.current){const previous=dragStart.current;if(d.moved){setHistory(h=>[...h.slice(-49),previous]);setFuture([]);}dragStart.current=null;}

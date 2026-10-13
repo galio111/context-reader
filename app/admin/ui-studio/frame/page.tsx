@@ -11,5 +11,5 @@ export default async function Page({searchParams}:{searchParams:Promise<{screen?
  const q=await searchParams;if(!q.nonce||!/^[a-f0-9-]{36}$/i.test(q.nonce))notFound();
  const scene=(UI_SCENES.some(([id])=>id===q.screen)?q.screen:'home') as UiScene;
  const account=previewAccount(await getAccountPlan(scene==='guest'?'guest':'plus'),'available');
- return <UiStudioFrame account={account} scene={scene} nonce={q.nonce} home={['home','guest'].includes(scene)?<HomePage skipOpening={q.opening!=='1'} searchParams={Promise.resolve({preview:scene==='guest'?'guest':undefined})}/>:null}/>;
+ return <UiStudioFrame skipOpening={q.opening!=='1'} account={account} scene={scene} nonce={q.nonce} home={['home','guest'].includes(scene)?<HomePage searchParams={Promise.resolve({preview:scene==='guest'?'guest':undefined})}/>:null}/>;
 }

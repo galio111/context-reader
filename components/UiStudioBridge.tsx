@@ -4,7 +4,7 @@ import {UI_TARGETS,UI_EFFECTS} from '@/lib/uiInventory';
 import {UI_DESIGN_TARGET_RULES,targetRule} from '@/lib/uiDesignRegistry';
 import {emptyUiDesignRecipe,validateUiDesignRecipe,type UiDesignRecipe} from '@/lib/uiDesign';
 import {mountUiDesign} from '@/lib/uiDesignRuntime';
-import {findVisibleUiNode,visibleUiNode,revealUiTarget} from '@/lib/uiDesignNavigation';
+import {findVisibleUiNode,visibleUiNode,revealUiTarget,prepareUiTarget} from '@/lib/uiDesignNavigation';
 const entries=[...UI_TARGETS,...UI_EFFECTS];
 
 export function UiStudioBridge({nonce}:{nonce:string}){
@@ -22,16 +22,17 @@ export function UiStudioBridge({nonce}:{nonce:string}){
     for(const t of UI_TARGETS)if(t.status==='live'&&t.selector&&cursor.matches(t.selector)&&visibleUiNode(cursor))hits.push({id:t.id,node:cursor});
    }return hits;
   };
-  const select=(id:string,node:HTMLElement)=>{current.selected=id;picked=node;hovered=null;const t=entries.find(t=>t.id===id);send('select',{id,count:t?.selector?[...document.querySelectorAll(t.selector)].filter(visibleUiNode).length:1,ancestors:matches(node).map(h=>h.id)});};
+  const select=(id:string,node:HTMLElement,request?:number)=>{current.selected=id;picked=node;hovered=null;const t=entries.find(t=>t.id===id);send('select',{id,request,count:t?.selector?[...document.querySelectorAll(t.selector)].filter(visibleUiNode).length:1,ancestors:matches(node).map(h=>h.id)});};
   const locate=async(id:string,request:number)=>{
    locating?.abort();const controller=new AbortController();locating=controller;
    const t=entries.find(t=>t.id===id);if(!t)return;
    current.editing=true;current.selected=id;picked=null;hovered=null;
    try{
+    revealing=true;await prepareUiTarget(id,t.group,t.selector??'',controller.signal);
     let node=t.selector?findVisibleUiNode(t.selector):null;const opened=new Set<string>();
     for(let attempt=0;attempt<35&&!controller.signal.aborted;attempt++){
      node=t.selector?findVisibleUiNode(t.selector):null;
-     if(node){node.closest('details')?.setAttribute('open','');node.scrollIntoView({block:'center',inline:'nearest',behavior:'instant'});select(id,node);send('located',{id,request});return;}
+     if(node){node.closest('details')?.setAttribute('open','');node.scrollIntoView({block:'center',inline:'nearest',behavior:'instant'});select(id,node,request);send('located',{id,request});return;}
      revealing=true;await revealUiTarget(id,t.group,controller.signal,opened);await new Promise(r=>setTimeout(r,100));
     }
     if(!controller.signal.aborted)send('missing',{id,request,message:`「${t.title}」在当前状态中未显示。可切换正常操作打开它，再选择组件。`});

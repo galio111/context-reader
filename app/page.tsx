@@ -22,9 +22,7 @@ export const metadata: Metadata = {
 
 export default async function HomePage({
   searchParams,
-  skipOpening = false,
 }: {
-  skipOpening?: boolean;
   searchParams: Promise<{ preview?: string }>;
 }) {
   const params = await searchParams;
@@ -46,7 +44,6 @@ export default async function HomePage({
       initialCatalogueCounts={bootstrap.counts}
       initialHomepageCuration={initialHomepageCuration}
       homeVariant="book"
-      skipOpening={skipOpening}
       forceGuestPreview={params.preview === "guest"}
       forceMemberPreview={params.preview === "member"}
     />

@@ -2,6 +2,7 @@ import {createRequire} from 'node:module';import fs from 'node:fs/promises';impo
 const {chromium}=createRequire(`${process.env.USERPROFILE}/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/package.json`)('playwright');
 const base=process.env.UI_STUDIO_URL||'http://127.0.0.1:3391',out=process.env.UI_STUDIO_EVIDENCE||'artifacts/ui-picking';await fs.mkdir(out,{recursive:true});
 const b=await chromium.launch({channel:'chrome',headless:true}),ctx=await b.newContext({viewport:{width:1600,height:1000}});if(process.env.UI_STUDIO_COOKIES)await ctx.addCookies(JSON.parse(await fs.readFile(process.env.UI_STUDIO_COOKIES,'utf8')).cookies);
+if(!process.env.UI_STUDIO_COOKIES&&new URL(base).hostname==='127.0.0.1')await ctx.addCookies([{name:'context_reader_access',value:'ui-studio-local-fixture',url:base}]);
 const p=await ctx.newPage(),errors=[],writes=[];p.on('pageerror',e=>errors.push(e.message));p.on('request',r=>{if(r.method()!=='GET'&&r.url().includes('/api/')&&r.frame().url().includes('/frame?'))writes.push(r.url());});
 try{
  await p.goto(base+'/admin/ui-studio',{waitUntil:'domcontentloaded',timeout:120000});const f=p.frameLocator('iframe');const menu=f.locator('[class*="HomeRedesign_menuButton"]');await menu.waitFor({timeout:90000});await menu.click();await p.locator('aside h2').filter({hasText:'右上角 Menu'}).waitFor();

@@ -4,6 +4,7 @@ const {chromium}=createRequire(`${process.env.USERPROFILE}/.cache/codex-runtimes
 const browser=await chromium.launch({channel:'chrome',headless:true});
 for (const kind of ['catalog','sdk']) {
  const ctx=await browser.newContext(),page=await ctx.newPage();const network=[],errors=[];
+ await ctx.addCookies([{name:'context_reader_access',value:'ui-studio-local-fixture',url:'http://127.0.0.1:3391'}]);
  page.on('pageerror',e=>errors.push(e.message));
  await page.route('**/galio/**',async route=>{const u=route.request().url();const delay=kind==='catalog'?u.includes('/content/components-'):u.endsWith('/sdk/components.js');if(delay){network.push({url:u,start:Date.now()});await new Promise(r=>setTimeout(r,1000));}await route.continue();});
  await page.goto('http://127.0.0.1:3391/api/connectivity');

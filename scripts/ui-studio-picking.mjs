@@ -6,6 +6,7 @@ const base=process.env.UI_STUDIO_URL||'http://127.0.0.1:3391',out=process.env.UI
 await fs.mkdir(out,{recursive:true});
 const browser=await chromium.launch({channel:'chrome',headless:true}),ctx=await browser.newContext({viewport:{width:1600,height:1000}});
 if(process.env.UI_STUDIO_COOKIES)await ctx.addCookies(JSON.parse(await fs.readFile(process.env.UI_STUDIO_COOKIES,'utf8')).cookies);
+if(!process.env.UI_STUDIO_COOKIES&&new URL(base).hostname==='127.0.0.1')await ctx.addCookies([{name:'context_reader_access',value:'ui-studio-local-fixture',url:base}]);
 const page=await ctx.newPage(),errors=[],writes=[],checks=[];
 page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(r.method()!=='GET'&&r.url().includes('/api/')&&r.frame().url().includes('/frame?'))writes.push(r.url());});
 const frame=()=>page.frameLocator('iframe');
