@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "nextVisibleMs": 35,
+  "pending": 1,
+  "generationQueries": [
+    "accessory"
+  ],
+  "quickAnswerGuardTested": true,
+  "errors": []
+}

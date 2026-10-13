@@ -1,0 +1,25 @@
+{
+  "capturedAt": "2026-10-13T07:06:40.3888956Z",
+  "releaseId": "20261013T145900",
+  "checks": [
+    {
+      "path": "/api/study",
+      "status": 401,
+      "elapsedMs": 900,
+      "bytes": 52
+    },
+    {
+      "path": "/api/account/sync?protocol=2",
+      "status": 401,
+      "elapsedMs": 152,
+      "bytes": 51
+    },
+    {
+      "path": "/api/admin/accounts",
+      "status": 401,
+      "elapsedMs": 175,
+      "bytes": 33
+    }
+  ],
+  "passed": true
+}

@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "entries": 3,
+  "projectedBytes": 2410,
+  "fullBytes": 6502,
+  "elapsedMs": 70.79,
+  "idWordAnkiCorrect": true,
+  "dictionaryResultExcluded": true,
+  "providerCalls": 0,
+  "fieldContract": "lookup-detail-ui-tests-1013/lib/studyStore.ts STUDY_ENTRY_FIELDS",
+  "measurement": "single internal PostgREST request; not a performance benchmark"
+}

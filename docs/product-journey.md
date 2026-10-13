@@ -1977,7 +1977,15 @@ humiliate重音试听B/D自然后，曾准备通用CMU词库校验；bibliograph
 
 接受 `20261013T031701`，parent `20261013T030124`，source `cc7280dcd65060acef641596e48199e910e5cdab`。前一轮接入 `20261013T030124`，parent `20261013T081227`，source `ee946ab9f9165f27d7785060618e1c6a89b7b45b`；最终补丁修正慢网络首次加载的材质竞态和词典预览。17 项协议/权限/样式、90 项关键、9 个发布契约、本机/服务器构建、实际 PostgreSQL 并发/回滚及浏览器编辑/撤销/移动/适配器验证通过。公网十个页面、真实草稿保存/还原、冲突、账号同步、匿名权限及慢资源回归通过；公开方案保持原样，预览业务写入/页面错误为零。七服务健康、备份 SHA、本轮 39 表恢复、父镜像及五个后端容器不重启通过。临时 QA 普通权限验证通过，账号/会话/令牌及其记录精确清理，未操作其他账号。用户视觉、真机与其他浏览器仍待确认，详见 [能力与证据](ui-design-studio.md)。
 
+## 2026-10-13 背词连续操作、关联查词与焦点反馈（已生产）
+
+用户指出关联词打开空白框、关闭或空格提示后留下黑框、保存阻塞换词，并要求增加正在背/待复习/今日新学三项计数，删除所有作答底部说明。关联词与 Reader 共用同一可拖动缩放的 DictionaryWindow；指针及程序回焦不留框，内容区域无外围焦点框，真实控件保留细中性键盘定位。个人设计库已记录这条明确反感项。作答先可靠落入按账号隔离的本地 outbox，再立即换词并后台重试；服务端继续控制 FSRS、时间、幂等和奖励。删除每次保存前的整库词典载荷读取；首次毕业才计今日新学。独立审计发现并修复跨日与多标签页回执竞态。
+
+接受 `20261013T063535`，parent `20261013T031701`，source `c95525c24986fb1c48ff11240a8f14fa9d7db636`。31文件精确累计发布通过稳定入口及公网身份核对。139项架构/关键、49项词典/学习、9契约、本机/服务器构建、74项本机浏览器观测与真实隔离 SQL 通过。公网 QA 三卡学习、复习、新词真实保存；延迟2500ms时84ms显示下一词，迟到回执不回退，重复答案仅一次写入。1440/390窗口、焦点、计数、底部、协议2、Admin与数据导出通过，零模型调用。健康、39表备份恢复、父版镜像和五个后端容器不重启通过。原空白框在本机Chrome未稳定复现，已验证替换后的真实窗口；Safari/实体手机及用户最终观感仍开放。详见 [实现与生产证据](study-flow-20261013.md)。
+
 ## 2026-10-13 — Study entry no longer waits for full account sync
+
+Accepted `20261013T145900`, parent `20261013T063535`, source `516a1724697f5b60de7e6281aafd737cab3d4f48`. The exact 43-file cumulative package passed the stable guard and public identity. Two public browser runs with synthetic APIs measured warm entry 120/19ms and 2,000-word shuffle 63/44ms; all sorting, keyboard, measured-row, pending-answer and stale-response checks passed. One earlier full-document recovery exceeded a 10s wait; later complete page recovery remained variable at 5.562/14.467s, so cold page loading is explicitly not claimed instant. Exact-source CI, 71 targeted/90 critical tests, builds, anonymous/recovery-Admin boundaries, latest SHA/39-table restore and rollback images passed. Only app/caddy changed. Existing guarded image retention resolved the 87% disk warning to 67%, retaining current/parent images and all backend containers. Temporary-account creation was rejected by automatic review; no real answer was submitted in this task. [Current behavior, evidence and remaining gates](study-entry-performance.md).
 
 During release, the stable guard rejected stale-parent candidate `20261013T144700` without cutover. Merged the newly accepted `20261013T063535` source `c95525c24986fb1c48ff11240a8f14fa9d7db636`, retaining durable background answers, cross-tab/midnight recovery, compact study projection, DictionaryWindow and focus behavior. Initial entry now tolerates either the outbox confirmation or initial start arriving first; 71 targeted and 90 critical tests pass after integration. Final public identity and evidence are maintained in the linked performance record.
 
