@@ -22,13 +22,19 @@ test("review distinguishes retryable day changes from real version conflicts wit
     getStudySettings:async()=>DEFAULT_STUDY_SETTINGS,
     getStudySnapshot:async()=>{snapshots++;return {serverNow:new Date().toISOString()};},
     reconcileStudyCards:async()=>{},
-    studyRpc:async(name:string)=>{if(name==="review_v3")return rpcResult;if(name==="daily_stats_v3")return [];if(name==="settle_rewards"){settlements++;return {};}throw new Error("unexpected rpc "+name);},
+    studyRpc:async(name:string)=>{if(name==="review_v3"||name==="present_v3")return rpcResult;if(name==="daily_stats_v3")return [];if(name==="settle_rewards"){settlements++;return {};}throw new Error("unexpected rpc "+name);},
   });
   try {
     const {POST}=await import("../app/api/study/route");
     const request=()=>new Request("https://context-reader.com/api/study",{method:"POST",headers:{origin:"https://context-reader.com","content-type":"application/json","X-Context-Account":owner},body:JSON.stringify({op:"review",id:"00000000-0000-4000-8000-000000000003",cardId,version:0,token,answer:"forgot",activeMs:1000})});
     for(const [state,code] of [[{dayChanged:true},"day_changed"],[{conflict:true},"state_changed"],[{tooFast:true},"too_fast"]] as const){
       rpcResult=state;const response=await POST(request());assert.equal(response.status,409);assert.equal((await response.json()).code,code);
+      assert.equal(snapshots,0);assert.equal(settlements,0);
+    }
+    for(const state of [{earlierStageFirst:true},{notDue:true},{notPlanned:true},{conflict:true},{paused:true},{ankiPending:true}]){
+      rpcResult=state;
+      const response=await POST(new Request("https://context-reader.com/api/study",{method:"POST",headers:{origin:"https://context-reader.com","content-type":"application/json"},body:JSON.stringify({op:"present",cardId,version:0})}));
+      assert.equal(response.status,409);assert.equal((await response.json()).code,"presentation_changed");
       assert.equal(snapshots,0);assert.equal(settlements,0);
     }
     rpcResult={duplicate:true};const response=await POST(request());

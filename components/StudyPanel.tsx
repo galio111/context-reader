@@ -80,7 +80,7 @@ export function StudyPanel({visible,onClose,onSource,notice,requestedTab="today"
   const confirmedReviews=useRef(new Map<string,StudyReviewReceipt>());
   const lastLoadedAt=useRef(0), mutationEpoch=useRef(0), mutations=useRef(0);
   const refreshRequested=useRef(true), refreshInFlight=useRef(false);
-  const presentationRetry=useRef(false), retriedCard=useRef("");
+  const presentationRetry=useRef(""), presentationFailures=useRef(0);
   const [refreshTick,setRefreshTick]=useState(0);
   const requestRefresh=useCallback(()=>{refreshRequested.current=true;setRefreshTick(n=>n+1);},[]);
   useDocumentScrollLock(visible);
@@ -106,7 +106,11 @@ export function StudyPanel({visible,onClose,onSource,notice,requestedTab="today"
     void snapshotCache.save(s);
     // A restored outbox can return a complete snapshot before the initial start.
     if(firstSnapshot&&!requestLock.current)setBusy(false);
-    if(presentationRetry.current){presentationRetry.current=false;setPresentation(n=>n+1);}
+    if(presentationRetry.current){
+      // A rejected prompt must be selected again from the authoritative queue.
+      if(displayed.current===presentationRetry.current){displayed.current="";setPresentation(n=>n+1);}
+      presentationRetry.current="";
+    }
   },[snapshotCache]);
   useEffect(()=>{
     let cancelled=false;
@@ -134,7 +138,7 @@ export function StudyPanel({visible,onClose,onSource,notice,requestedTab="today"
     const mutating=Boolean(op&&op!=="start"&&op!=="prepare"&&op!=="present");
     if(mutating){mutationEpoch.current++;mutations.current++;}
     try {
-    const response=await fetch("/api/study",{method:body?"POST":"GET",headers:{"Content-Type":"application/json","X-Context-Account":owner,"X-Study-Format":"compact-v1"},body:body?JSON.stringify(body):undefined,cache:"no-store",signal:body&&(body as {op?:string}).op==="review"?AbortSignal.timeout(20000):undefined});
+    const response=await fetch("/api/study",{method:body?"POST":"GET",headers:{"Content-Type":"application/json","X-Context-Account":owner,"X-Study-Format":"compact-v1"},body:body?JSON.stringify(body):undefined,cache:"no-store",signal:op==="review"?AbortSignal.timeout(20000):op==="present"?AbortSignal.timeout(15000):undefined});
     const data=await response.json();
     if(!response.ok)throw Object.assign(new Error(data.error||"暂时无法保存，请稍后重试。"),{code:data.code,status:response.status});
     return hydrateStudyResponse(data) as T;
@@ -234,7 +238,7 @@ export function StudyPanel({visible,onClose,onSource,notice,requestedTab="today"
   const queueProgress=useMemo(()=>planProgress((learningSnapshot?.cards??[]).filter(card=>!queuedIds.has(card.id)),snapshot?.today?.card_ids??[],new Date(tick+offset.current),snapshot?.today?.new_ids),[snapshot,learningSnapshot,tick,queuedIds]);
   for(const ready of queueProgress.ready)if(!randomRanks.current.has(ready.id))randomRanks.current.set(ready.id,Math.random());
   const card=chooseStudyCard(queueProgress.ready,displayed.current,order,randomRanks.current);
-  useEffect(()=>{displayed.current=card?.id??"";},[card?.id]);
+  useEffect(()=>{displayed.current=card?.id??"";},[card?.id,presentation]);
   const entrySummary=liveEntries.find(e=>e.id===card?.entry_id);
   const {entry,error:entryError,missing:entryMissing,retry:retryEntry}=useStudyEntry(entrySummary);
   useEffect(()=>{if(entryMissing)requestRefresh();},[entryMissing,requestRefresh]);
@@ -252,14 +256,23 @@ export function StudyPanel({visible,onClose,onSource,notice,requestedTab="today"
     setToken("");
     if(!visible||!authoritative||!card||!reviews.ready||reviews.pendingRef.current.length)return;
     let cancelled=false;
-    void api<{token:string}>({op:"present",cardId:card.id,version:card.version}).then(r=>{if(!cancelled){setToken(r.token);retriedCard.current="";}}).catch(e=>{
+    let retryTimer:ReturnType<typeof setTimeout>|undefined;
+    void api<{token:string}>({op:"present",cardId:card.id,version:card.version}).then(r=>{if(!cancelled){setToken(r.token);presentationFailures.current=0;}}).catch(e=>{
       if(cancelled)return;
-      // A different device may have advanced the retained card. Refresh once;
-      // never authorize an answer with its old version or presentation token.
-      if((e.status===409||e.code==="state_changed")&&retriedCard.current!==cardKey){retriedCard.current=cardKey;presentationRetry.current=true;requestRefresh();}
-      else setError((e as Error).message);
+      const changed=e.code==="presentation_changed"||e.code==="state_changed"||
+        (e.status===409&&e.message==="这张卡片暂时不能作答，请刷新学习记录。");
+      const transient=e instanceof TypeError||e.name==="TimeoutError"||e.status>=500||e.status===429;
+      if(changed||transient){
+        // Recover queue races without asking the learner to repair internal state.
+        const delay=Math.min(15000,750*2**Math.min(presentationFailures.current++,5));
+        retryTimer=setTimeout(()=>{
+          if(cancelled)return;
+          if(changed){presentationRetry.current=card.id;requestRefresh();}
+          else setPresentation(n=>n+1);
+        },delay);
+      }else setError((e as Error).message);
     });
-    return()=>{cancelled=true;};
+    return()=>{cancelled=true;clearTimeout(retryTimer);};
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[cardKey,api,presentation,visible,pending,reviews.ready,authoritative]);
   useEffect(()=>{

@@ -173,5 +173,32 @@ test("Study advances immediately, keeps a new answer visible across another tab'
     await waitFor(()=>assert.ok(ui.getByText("今日新学").textContent?.includes("1")));
     assert.equal(ui.getByText("正在背").textContent,"正在背 2");
     assert.equal(readStudyReviews(localStorage,owner).length,0);assert.equal(receiptWrites,3);
+    ui.unmount();localStorage.clear();
+    // A learning step becomes due after the next review is already on screen.
+    // Repeated presentation conflicts must reselect, not pin the rejected review.
+    base.cards=base.cards.map((c,i)=>({...c,version:0,memory:{...newMemory(new Date()),state:i===0?3:2,due:new Date(Date.now()+(i===0?3600000:-60000)).toISOString()}}));
+    base.daily=[];base.reviews=[];
+    let rejects=0,starts=0;const recovered:string[]=[];
+    globalThis.fetch=async(_url,init)=>{
+      const b=init?.body?JSON.parse(String(init.body)):null;
+      if(b?.op==="start"){starts++;return Response.json(copy());}
+      if(b?.op==="present"){
+        if(rejects<2){
+          rejects++;
+          base.cards[0].memory.due=new Date(Date.now()-60000).toISOString();
+          return Response.json({error:"这张卡片暂时不能作答，请刷新学习记录。",code:"presentation_changed"},{status:409});
+        }
+        recovered.push(b.cardId);return Response.json({token:"00000000-0000-4000-8000-000000000099"});
+      }
+      throw new Error("recovery must never fabricate a review");
+    };
+    ui=render(<StudyPanel {...props}/>);
+    await waitFor(()=>assert.equal(rejects,1));
+    assert.ok(ui.getByText("beta"));
+    await waitFor(()=>assert.equal(recovered.at(-1),ids[0]),{timeout:6000});
+    assert.ok(ui.getByText("alpha"));assert.equal(ui.queryByRole("alert"),null);
+    assert.equal(starts,3);assert.equal(readStudyReviews(localStorage,owner).length,0);
+    fireEvent.click(ui.getByRole("button",{name:/不记得/}));
+    await waitFor(()=>assert.equal(ui.getByRole("button",{name:"下一个"}).hasAttribute("disabled"),false));
   } finally {cleanup();globalThis.fetch=originalFetch;dom.window.close();}
 });

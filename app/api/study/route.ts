@@ -106,7 +106,7 @@ export async function POST(request: Request) {
       if (card.anki_pending && !(await getStudySettings(userId)).includeAnki) throw new StudyError("这个词的历史进度尚未迁移，暂不加入复习。", 409, "state_changed");
       if (op === "present") {
         const state = await studyRpc<Record<string,unknown>>("present_v3", { p_user: userId, p_card: cardId, p_version: body.version });
-        if (!state.token) throw new StudyError("这张卡片暂时不能作答，请刷新学习记录。", 409);
+        if (!state.token) throw new StudyError("这张卡片暂时不能作答，请刷新学习记录。", 409, "presentation_changed");
         return result(request, state);
       }
       const answer = body.answer as StudyAnswer;
