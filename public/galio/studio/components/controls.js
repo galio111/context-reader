@@ -205,7 +205,22 @@ export function applyToElement(element, item, options = {}) {
   const variant = item.variant;
   element.classList.add("gc-portable");
   element.dataset.gcVariant = variant;
-  const plainText = element.textContent.trim();
+  // Native capsule buttons carry two visual labels. Only their primary content is business text.
+  // For ordinary buttons preserve every original text node, excluding only known effect layers.
+  const readLabel = () => {
+    const primary = element.querySelector('[data-pill-primary]');
+    if (primary) return primary.textContent.trim();
+    const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        return node.parentElement?.closest('.gc-decoration,.gcp-visual,[data-pill-hover],[data-pill-circle]')
+          ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
+      },
+    });
+    let node, text = '';
+    while ((node = walker.nextNode())) text += node.textContent;
+    return text.trim();
+  };
+  let plainText = readLabel();
   element.dataset.gcLabel = plainText;
   const decoration = document.createElement("span");
   decoration.className = "gc-decoration";
@@ -214,8 +229,25 @@ export function applyToElement(element, item, options = {}) {
   element.append(decoration);
   const e = engine(element, item, { ...options, __ownedOnly: true });
   let destroyed = false;
+  const isDisabled = () => element.matches(':disabled,[aria-disabled="true"]');
+  const observer = new MutationObserver(() => {
+    syncLabel();
+    if (isDisabled()) e.cancel();
+  });
+  function syncLabel() {
+    if (destroyed) return;
+    observer.disconnect();
+    plainText = readLabel();
+    if (element.dataset.gcLabel !== plainText) element.dataset.gcLabel = plainText;
+    const copy = decoration.querySelector('.gc-deco-copy');
+    if (copy.textContent !== plainText) copy.textContent = plainText;
+    if (decoration.parentElement !== element) element.append(decoration);
+    observer.observe(element, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ['disabled', 'aria-disabled'] });
+  }
+  syncLabel();
   function play() {
     e.cancel();
+    if (isDisabled()) return;
     const target = decoration.querySelector(
       ["rolling", "roll"].includes(variant)
         ? ".gc-deco-copy"
@@ -379,7 +411,8 @@ export function applyToElement(element, item, options = {}) {
     );
   }
   e.on(element, "click", () => {
-    if (element.disabled) return;
+    if (isDisabled()) return;
+    syncLabel();
     e.action("activate", { label: plainText, value: e.options.data?.value });
     if (variant === "physical") play();
   });
@@ -387,12 +420,14 @@ export function applyToElement(element, item, options = {}) {
     replay: play,
     update(next) {
       e.update(next);
+      syncLabel();
     },
     pause: e.pause,
     seek: e.seek,
     destroy() {
       if (destroyed) return;
       destroyed = true;
+      observer.disconnect();
       e.destroy();
       decoration.remove();
       if (!previous.class) element.classList.remove("gc-portable");

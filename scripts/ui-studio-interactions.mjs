@@ -6,13 +6,14 @@ const browser=await chromium.launch({channel:'chrome',headless:true});
 const page=await browser.newPage({viewport:{width:1600,height:1000}}),errors=[];
 page.on('pageerror',e=>errors.push(e.message));
 const base='http://127.0.0.1:3391';
+await page.context().addCookies([{name:'context_reader_access',value:'ui-studio-local-fixture',url:'http://127.0.0.1:3391'}]);
 try{
  await page.goto(base+'/admin/ui-studio',{waitUntil:'networkidle'});
  await page.getByRole('button',{name:'选择页面',exact:true}).click();
  await page.getByRole('option',{name:'背单词',exact:true}).click();
  const frame=page.frameLocator('iframe'),card=frame.locator('[class*="StudyPanel_flashcard"]');
  await card.waitFor();
- await page.getByRole('button',{name:'选择 / 移动',exact:true}).click();
+ await page.getByRole('button',{name:'选择组件',exact:true}).click();
  await card.click({position:{x:20,y:20}});
  const x=page.getByRole('spinbutton',{name:'水平',exact:true});
  await x.fill('0');

@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "checks": [
+    "operate/select",
+    "目标记住率下拉",
+    "left opens stats",
+    "学习确认弹窗",
+    "账号与用量标题",
+    "Menu 外观设置",
+    "首屏标题",
+    "首页固定查词面板",
+    "按钮圆弧填充与文字上移",
+    "effect maps to editable button"
+  ],
+  "errors": [],
+  "frameBusinessWrites": 0
+}

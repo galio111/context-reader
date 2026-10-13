@@ -77,3 +77,7 @@
     transform: none !important;
   }
 }
+
+.pillAction[data-ui-effect-owner="galio"] .hoverCircle,
+.pillAction[data-ui-effect-owner="galio"] .hoverContent { display: none !important; }
+.pillAction[data-ui-effect-owner="galio"] .content:not(.hoverContent) { transform: none !important; opacity:1 !important; }
