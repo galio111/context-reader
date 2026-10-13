@@ -1,7 +1,7 @@
 {
   "status": "candidate validated; production acceptance pending",
-  "baseReleaseId": "20261013T084711",
-  "baseSourceRevision": "537e522f7fd1d29865b6aa024554d93422000ca6",
+  "baseReleaseId": "20261013T175502",
+  "baseSourceRevision": "a9df5542b60815c349b7130f9886933bc5fe2fa9",
   "tests": {
     "critical": 90,
     "provider": 8,
@@ -32,5 +32,6 @@
   "sources": [
     "https://webkit.org/blog/7734/auto-play-policy-changes-for-macos/",
     "https://bugs.webkit.org/show_bug.cgi?id=281566"
-  ]
+  ],
+  "integration": "Merged accepted predecode and stable-button release; reran audio/critical/contracts/build and browser matrix."
 }
