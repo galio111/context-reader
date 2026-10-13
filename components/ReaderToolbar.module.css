@@ -189,6 +189,10 @@
 .dictionaryWindow {
   position: fixed;
   z-index: 46;
+  margin: 0;
+  padding: 0;
+  max-width: none;
+  max-height: none;
   top: 92px;
   left: 132px;
   display: grid;
@@ -984,3 +988,5 @@
   :global(.cr-reader-root[data-cet-reader="true"]) .actions:not([data-start="true"]) { position: absolute; top: 62px; left: 8px; right: 8px; width: auto; }
   :global(.cr-reader-root[data-cet-reader="true"]) .readerLayout:not(:global(.cet-start-layout)) { padding-top: 180px; }
 }
+
+.dictionaryWindow::backdrop { background: transparent; }

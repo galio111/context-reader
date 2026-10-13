@@ -9,6 +9,7 @@ import { StudyDialog } from "./StudyDialog";
 import { StudyWord } from "./StudyWord";
 import { StudyDictionaryHint } from "./StudyDictionaryHint";
 import { BookDictionary } from "./BookDictionary";
+import { DictionaryWindow } from "./DictionaryWindow";
 import { useStudyVocabularyEntries } from "./useStudyVocabularyEntries";
 import { addVocabularyEntry, getVocabularyEntries, vocabularyIdentity } from "@/lib/vocabulary";
 import { createStandaloneVocabularyEntry } from "@/lib/standaloneDictionary";
@@ -261,10 +262,10 @@ export function StudyPanel({visible,onClose,onSource,notice,requestedTab="today"
       {visible&&pauseConfirm&&<StudyDialog title="暂时停一停？" icon="pause" busy={busy} onCancel={()=>setPauseConfirm(false)}><p>特殊情况时再暂停。连续天数会重新计算，已经获得的奖励保留。</p><div className={styles.dialogField}><span>暂停时长</span><CetSelect label="暂停时长" value={String(pauseDays)} options={[1,3,7,14,30].map(d=>({key:String(d),text:d+" 天"}))} onChange={d=>setPauseDays(Number(d))}/></div><p className={styles.caption}>记忆仍随时间变化。回来后，按每日计划分批复习。</p><div className={styles.dialogActions}><button autoFocus disabled={busy} onClick={()=>setPauseConfirm(false)}>继续坚持</button><button className={styles.primary} disabled={busy} onClick={()=>void run(async()=>{accept(await api<StudySnapshot>({op:"pause",days:pauseDays}));setPauseConfirm(false);setTab("today");})}>{busy?"保存中…":"暂停 "+pauseDays+" 天"}</button></div>{error&&<p className={styles.dialogError} role="alert">{error}</p>}</StudyDialog>}
       {visible&&confirm!==null&&<StudyDialog title={confirm==="profile"?"生成阅读画像？":"启用会员奖励？"} icon={typeof confirm==="number"?"gift":confirm==="profile"?"profile":"cards"} busy={busy} onCancel={()=>setConfirm(null)}><p>{confirm==="profile"?"本次消耗 "+snapshot?.policy.profileCost+" 点。再次查看结果免费。":"奖励从启用时开始计时。同档会员可延长，不同档位需要等当前会员到期。"}</p><div className={styles.dialogActions}><button autoFocus disabled={busy} onClick={()=>setConfirm(null)}>取消</button><button className={styles.primary} disabled={busy||isOffline} onClick={()=>{if(confirm==="profile"){setConfirm(null);void generateProfile();}else{const milestone=confirm;void run(async()=>{accept(await api<StudySnapshot>({op:"activateMembership",milestone}));await refreshAccount();setConfirm(null);setMessage("会员奖励已启用");});}}}>{busy?"保存中…":confirm==="profile"?"生成":"启用奖励"}</button></div>{error&&<p className={styles.dialogError} role="alert">{error}</p>}</StudyDialog>}
       {visible&&wordDetail&&<StudyDialog title={wordDetail.word} wide onCopy={()=>{void navigator.clipboard.writeText([wordDetail.word,wordDetail.contextMeaning,wordDetail.basicMeaning,wordDetail.sourceSentence,wordDetail.sentenceTranslation].filter(Boolean).join("\n")).then(()=>setMessage("已复制")).catch(()=>setMessage("复制失败，请重试"));}} onCancel={()=>setWordDetailId(null)}><div className={styles.wordDetail}><StudyWord entry={wordDetail} onSource={source} onLookup={openRelatedLookup}/></div></StudyDialog>}
-      {visible&&relatedQuery&&<StudyDialog title="单独查词" wide onCancel={()=>setRelatedQuery(null)}><BookDictionary key={relatedQuery} embedded compact panel offline={isOffline} initialQuery={relatedQuery} onAddToVocabulary={async result=>{
+      {visible&&relatedQuery&&<DictionaryWindow modal onClose={()=>setRelatedQuery(null)}><BookDictionary key={relatedQuery} embedded panel offline={isOffline} initialQuery={relatedQuery} onAddToVocabulary={async result=>{
         setRelatedEntries(addVocabularyEntry(createStandaloneVocabularyEntry(result)));
         try { await flushLearningStorage(); setMessage("已加入生词本"); } catch { setMessage("生词尚未可靠保存，请保留页面并重试。"); }
-      }} isInVocabulary={result=>relatedEntries.some(entry=>vocabularyIdentity(entry)===vocabularyIdentity(createStandaloneVocabularyEntry(result)))}/></StudyDialog>}
+      }} isInVocabulary={result=>relatedEntries.some(entry=>vocabularyIdentity(entry)===vocabularyIdentity(createStandaloneVocabularyEntry(result)))}/></DictionaryWindow>}
     </div>
   </dialog>;
 }
