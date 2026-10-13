@@ -1,0 +1,47 @@
+{
+  "release": {
+    "ok": true,
+    "checkedAt": "2026-10-13T15:41:42.178Z",
+    "releaseId": "20261013T233500",
+    "parentReleaseId": "20261013T230800",
+    "backendMode": "mainland_internal"
+  },
+  "receipts": [
+    {
+      "category": "learning",
+      "ms": 88,
+      "bytes": 1305,
+      "duplicateMs": 87,
+      "newWords": 0,
+      "savedOnce": true
+    },
+    {
+      "category": "review",
+      "ms": 82,
+      "bytes": 1302,
+      "duplicateMs": 78,
+      "newWords": 0,
+      "savedOnce": true
+    },
+    {
+      "category": "new",
+      "ms": 80,
+      "bytes": 1256,
+      "duplicateMs": 96,
+      "newWords": 1,
+      "savedOnce": true
+    }
+  ],
+  "checks": [
+    "authenticated account and vocabulary sync",
+    "learning-priority race uses recoverable protocol without changing memory",
+    "already answered / not yet due uses recoverable protocol without changing memory",
+    "already answered / not yet due uses recoverable protocol without changing memory",
+    "presenting an unanswered new word preserves New state and does not count as ongoing learning",
+    "already answered / not yet due uses recoverable protocol without changing memory",
+    "refresh preserves all three reviews and exact new-word count",
+    "ordinary account cannot access Admin",
+    "anonymous study rejected"
+  ],
+  "qaRemoved": true
+}
