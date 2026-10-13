@@ -1,5 +1,9 @@
 # Context Reader Architecture
 
+## Cross-release Reader availability
+
+Mainland Caddy serves `/_next/static/*` from the read-only permanent store `/opt/context-reader-shared/next-static`. The stable deployment helper preserves current and candidate build assets before cutover, validates public paths and immutable SHA-256 identity, and refuses capacity exhaustion without pruning historical assets. This route bypasses the application's legacy Brotli middleware; current Caddy uses dynamic gzip/zstd because its precompressed full-response path incorrectly returns 206. `RecoverableReader` supplies separate Reader/CET lazy-load and render boundaries, manual fresh-import retry and return-home without reloading HomeClient or consuming import quota again. Imported text remains available after returning home; private diagnostics exclude body text and arbitrary messages. Contract, incident and acceptance status: [Reading across releases](release-safe-reader.md).
+
 ## Reader 与学习数据的职责分离（2026-10-12 已生产）
 
 Reader 的正文派生模型移到 `lib/readerDocumentModel.ts`，UI 继续由原 `ReaderView` 渲染。单遍构建词、段落、句子、词源索引，当前文档的 token 缓存按仍在使用的 key 保留，避免长文因超过 400 块而每次整体失效。JSX、样式、布局、媒体和手势契约不由模型层决定。

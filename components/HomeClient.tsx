@@ -1,20 +1,22 @@
 "use client";
 
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
-const CetReader = dynamic(() => import("@/components/cet/CetReader").then(m => m.CetReader), { loading: () => <div className="p-10"><LoadingStatus>正在打开真题…</LoadingStatus></div> });
+import { useCallback, useEffect, useLayoutEffect, useRef, useState, type ComponentProps } from "react";
+import { createRecoverableReader } from "@/components/RecoverableReader";
+const CetReader = createRecoverableReader<ComponentProps<typeof import("@/components/cet/CetReader").CetReader>>(
+  () => import("@/components/cet/CetReader").then(module => ({ default: module.CetReader })), "cet",
+);
 import type { CetEntry } from "@/components/cet/CetLibrary";
 import { useContext } from "react";
 import { UiPreviewOpeningContext } from "./UiPreviewOpeningContext";
 import { HomeRedesign } from "@/components/HomeRedesign";
 import dynamic from "next/dynamic";
 const ArticleInput = dynamic(() => import("@/components/ArticleInput").then(module => module.ArticleInput));
-const ReaderView = dynamic(() => import("@/components/ReaderView").then(module => module.ReaderView), {
-  loading: () => <div className="min-h-screen bg-white p-8 text-center text-slate-600"><LoadingStatus>正在打开文章…</LoadingStatus></div>,
-});
+const ReaderView = createRecoverableReader<ComponentProps<typeof import("@/components/ReaderView").ReaderView>>(
+  () => import("@/components/ReaderView").then(module => ({ default: module.ReaderView })), "article",
+);
 import { fetchJson } from "@/lib/apiClient";
 import { coverSource, type CoverSource } from "@/lib/coverSources";
 import { preparePublicBilling } from "@/lib/billingClient";
-import { LoadingStatus } from "./LoadingStatus";
 import { warmCovers } from "@/lib/coverMediaQueue";
 import { orderHomepageRecommendations } from "@/lib/homepageRecommendations";
 import { emptyRecommendationPreferences } from "@/lib/recommendationPreferencesShared";
@@ -307,6 +309,7 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
   const homeReturnPositionedRef = useRef(false);
   const approvedReaderBackRef = useRef(false);
   const readerHomeExitPendingRef = useRef(false);
+  const preserveImportOnRecoveryExitRef = useRef(false);
   const readerSessionStackRef = useRef<ReaderSessionSnapshot[]>([]);
   const readerViewportAnchorRef = useRef<ReaderViewportAnchor | null>(null);
   const readerViewportCaptureRef = useRef<(() => ReaderViewportReport | null) | null>(null);
@@ -547,6 +550,8 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
 
   const leaveReaderToHome = useCallback(() => {
     flushReadingProgress();
+    const preserveImport = preserveImportOnRecoveryExitRef.current;
+    preserveImportOnRecoveryExitRef.current = false;
     const origin = readerOriginRef.current;
     if (homeVariant === "book" && origin?.publicArticleId && origin.cardTop !== undefined) {
       setPendingPublicReturn({ articleId: origin.publicArticleId, cardTop: origin.cardTop });
@@ -565,8 +570,10 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
     setReaderInitialViewportAnchor(null);
     setHomeDemoCompleted(true);
     setSavedArticles(getSavedArticles());
-    setArticle("");
-    setImportedArticle(null);
+    if (!preserveImport) {
+      setArticle("");
+      setImportedArticle(null);
+    }
     setPreloadedExplanations([]);
     setPreloadedArticleTranslations([]);
     setActiveArticleSource(undefined);
@@ -634,6 +641,14 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
     }
     leaveReaderToHome();
   }, [leaveReaderToHome]);
+
+  const handleReaderRecoveryBack = useCallback(() => {
+    const kind = readerOriginRef.current?.kind;
+    // The failed Reader cannot offer its usual save-before-exit flow. Keep an
+    // imported draft in the homepage input rather than discarding or uploading it.
+    preserveImportOnRecoveryExitRef.current = kind === "pasted-text" || kind === "url-import";
+    handleReaderBack();
+  }, [handleReaderBack]);
 
   const handleReaderViewportCaptureChange = useCallback((capture: (() => ReaderViewportReport | null) | null) => {
     readerViewportCaptureRef.current = capture;
@@ -1468,6 +1483,7 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
     return (
       <ReaderView
         key={readerSessionId}
+        onRecoveryBack={handleReaderRecoveryBack}
         onSelectCet={entry => { flushReadingProgress(); leaveReaderToHome(); cetHomeScrollRef.current=0; setCetEntry(entry); }}
         article={article}
         importedArticle={importedArticle}

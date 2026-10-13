@@ -15,6 +15,22 @@
     reverse_proxy storage:5000
   }
 
+  # static-asset-retention-v1: independent of the current app image, so a page
+  # opened before deployment can still lazy-load its exact original Reader.
+  handle_path /_next/static/* {
+    root * /srv/next-static
+    @staticWrite not method GET HEAD
+    header Cache-Control "no-store"
+    header {
+      Cache-Control "public, max-age=31536000, immutable"
+      match status 2xx 304
+    }
+    respond @staticWrite 405
+    # Caddy 2.10.2 returns a spurious 206 for precompressed sidecars (upstream
+    # #7250). Use the existing dynamic zstd/gzip encoder until Caddy is upgraded.
+    file_server
+  }
+
   # Reviewed original audio is immutable and read-only. Caddy serves byte
   # ranges without routing large media through the Next.js application.
   handle_path /cet-audio/* {

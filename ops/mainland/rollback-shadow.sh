@@ -14,7 +14,7 @@ esac
 SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 docker image inspect "context-reader-app:$TAG" >/dev/null
 docker tag "context-reader-app:$TAG" context-reader-app:latest
-docker compose --env-file "$SCRIPT_DIR/.env" -f "$SCRIPT_DIR/compose.yml" -f "$SCRIPT_DIR/compose.shadow.yml" up -d --no-build app caddy
+docker compose --env-file "$SCRIPT_DIR/.env" -f "$SCRIPT_DIR/compose.yml" -f "$SCRIPT_DIR/compose.shadow.yml" up -d --no-build --no-deps app caddy
 
 for _ in 1 2 3 4 5 6 7 8 9 10; do
   if curl --fail --silent --max-time 5 http://127.0.0.1:8080/api/connectivity >/dev/null; then

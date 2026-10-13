@@ -218,6 +218,7 @@ services:
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - /opt/context-reader-shared/cet-audio:/srv/cet-audio:ro
+      - /opt/context-reader-shared/next-static:/srv/next-static:ro
       - caddy-data:/data
       - caddy-config:/config
     depends_on:
