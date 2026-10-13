@@ -2,17 +2,25 @@
 
 ## Current behavior
 
-StudyPanel retains a verified account's snapshot. Account synchronization runs independently of entry: first-load controls require an authoritative snapshot, but never wait for the entire account sync. Reopening within 30 seconds reuses the snapshot immediately; older data refreshes in the background. Every re-entry still requests a server presentation token, and a version/deletion conflict refreshes and retries once.
+StudyPanel retains a verified account's snapshot and stores a disposable account-keyed view in IndexedDB for up to 24 hours. Reloads may show this view while a fresh request runs. Cache hydration does not set server-clock authority, refresh freshness or presentation tokens; writes and settings initialization wait for an authoritative response. Account synchronization remains independent of entry. Reopening within 30 seconds reuses the snapshot immediately; older data refreshes in the background. Every re-entry still requests a server presentation token, and a version/deletion conflict refreshes and retries once.
 
 Background responses use mutation epochs and server timestamps to reject stale state. Vocabulary merge events and debounced local upload completion invalidate the plan. Settings merge only their returned settings, without rewinding the snapshot clock. The accepted durable answer outbox, cross-tab reconciliation, Shanghai-day recovery, FSRS, rewards, Anki records and compact database entry projection remain intact.
 
 Pending outbox answers hide their own cards while the initial snapshot loads. Whichever authoritative response first supplies a complete snapshot ends the initial wait, including an outbox confirmation that beats start. A late initial request cannot clear a later foreground operation's busy state. Subsequent refreshes wait for pending answers to settle. Legacy session answers migrate with their original ids.
 
-Within prepare/start, reconciliation's already-read vocabulary is reused by the final snapshot. Cards and settings are reread after the plan operation for concurrent-device changes. There is no shared account cache or database migration.
+Within prepare/start, reconciliation's already-read vocabulary is reused by the final snapshot. Cards and settings are reread after the plan operation for concurrent-device changes. There is no shared server account cache or database migration. Logout clears the separate view cache and invalidates late writes from older tabs; durable answer outboxes remain separate.
 
 The notebook has three upper-right display orders: 收藏顺序 (default, original createdAt, oldest first), 字母 A–Z (case-insensitive English collation), and 随机 (reshuffle on every click). With at least two filtered entries each shuffle changes their order. New entries append to the existing random order. Sorting is local and does not change saved records or the FSRS queue.
 
 Above 100 entries, the notebook renders the viewport plus eight overscan rows. Each row uses its actual measured height, including long meanings, masking and viewport changes; 76px is only an initial estimate. The existing dialog remains the scroll container. Per-id keys retain reveal state, list semantics expose positions/count, and memoized content avoids unnecessary parent-timer rendering. Smaller lists retain normal document flow. Closing a detail restores its connected opener without scrolling.
+
+## Cold-entry follow-up (implementation complete, release verification pending)
+
+The user's screenshot identifies `snapshot === null`, not dynamic script or authentication loading. Real signed-in Chrome resource timings on the old full response were 11,947 / 9,852 / 7,076 ms, including 10,311 / 9,198 / 6,061 ms downloading approximately 714 KB compressed (2.72 MB decoded). Earlier mocked delays did not measure this network bottleneck.
+
+`X-Study-Format: compact-v1` now applies to direct and nested snapshots from every operation. It preserves all cards, plan ids, settings, review history, stats, rewards and Anki counts. Every notebook row retains its id, word, both meanings and collection/update timestamps; only the first eight ready entries carry full saved content inline. Explicit summary markers survive hydration. Current questions and detail dialogs resolve complete local content or an account-authorized `GET /api/study?entry=<id>` before using a prompt, source or full answer. Two next entries prefetch and duplicate reads coalesce; the bounded detail cache is keyed by account, id and saved version. These reads never generate dictionary content or modify progress.
+
+The reminder uses `GET /api/study?summary=1` for settings and day/completion only, eliminating a second full notebook download. Legacy clients keep their full response. Missing and changed entries, interrupted reads and failed local storage have explicit recovery paths. The cache does not turn a limited/offline identity into server authorization.
 
 ## Evidence and limits
 

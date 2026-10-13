@@ -4,6 +4,7 @@ import { randomUUID } from "node:crypto";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { resolve } from "node:path";
 import { fsrs,createEmptyCard } from "ts-fsrs";
+import { compactStudyResponse } from "../lib/studyTransport.ts";
 const require=createRequire(process.env.PLAYWRIGHT_PACKAGE||import.meta.url);
 const {chromium}=require("playwright");
 const output=process.env.STUDY_OUTPUT?pathToFileURL(resolve(process.env.STUDY_OUTPUT)+"/"):new URL("../artifacts/study-entry-performance/",import.meta.url);await mkdir(output,{recursive:true});
@@ -23,11 +24,15 @@ const stamp=()=>({...snapshot,serverNow:new Date().toISOString()});
 const account={configured:true,authenticated:true,profile:{userId:owner,nickname:"学习测试",status:"active",email:"",phone:"",readingInterests:[]},plan:{id:"free",displayName:"免费账号",priceCny:0,active:true,limits:[]},usage:[]};
 await page.route("**/api/**",async route=>{
  const url=new URL(route.request().url()),p=url.pathname;
- const json=async data=>route.fulfill({status:200,contentType:"application/json",body:JSON.stringify(data)});
+ const json=async data=>route.fulfill({status:200,contentType:"application/json",body:JSON.stringify(route.request().headers()["x-study-format"]==="compact-v1"?compactStudyResponse(data):data)});
  if(p==="/api/auth/session")return json({account});
  if(p==="/api/account/sync"){syncCalls++;if(!syncDelayed){syncDelayed=true;await new Promise(r=>setTimeout(r,5000));}return json({objects:[],nextOffset:null,snapshotCursor:"",nextCursor:"",hasMore:false});}
  if(p==="/api/study"){
-  if(route.request().method()==="GET")return json(stamp());
+  if(route.request().method()==="GET"){
+   if(url.searchParams.has("entry"))return json({entry:snapshot.entries.find(e=>e.id===url.searchParams.get("entry"))});
+   if(url.searchParams.get("summary")==="1")return json({settings:snapshot.settings,today:snapshot.today?{day:snapshot.today.day,completed_at:snapshot.today.completed_at}:null});
+   return json(stamp());
+  }
   const b=route.request().postDataJSON();
   if(b.op==="start"){
    starts++;firstStartAt ||= Date.now();
@@ -210,11 +215,22 @@ try {
   await page.keyboard.press('Enter');
   const detail=page.getByRole('dialog',{name:'word-1965',exact:true});
   await detail.waitFor();
+  await detail.getByText("中文释义",{exact:true}).waitFor();
+  report.summaryDetailResolved=true;
   await page.keyboard.press('Escape');
   await detail.waitFor({state:'hidden'});
   if(await page.evaluate(()=>document.activeElement?.getAttribute('aria-label'))!==focused)throw Error('Detail close lost the virtual row focus');
   report.measuredLargeRows.keyboardBeyondInitialRange=true;
   report.measuredLargeRows.detailFocusReturn=true;
+  holdStart=true;releaseStart=undefined;const cacheReloadAt=Date.now();
+  await page.goto((process.env.STUDY_BASE||"http://127.0.0.1:3226")+'/?study=1',{waitUntil:'domcontentloaded'});
+  await study.getByRole('navigation',{name:'学习导航'}).getByRole('button',{name:'生词本',exact:true}).click();
+  await rows.first().waitFor({state:'attached',timeout:15000});
+  if(!releaseStart||await rows.first().getAttribute('aria-setsize')!=='2000')throw Error('Reload did not show the complete cached notebook before the held network response');
+  report.cachedReloadBeforeNetworkMs=Date.now()-cacheReloadAt;
+  if(await study.getByText('正在连接学习记录…',{exact:true}).count())throw Error('Cache still blocked by the full-screen loader');
+  await page.screenshot({path:fileURLToPath(new URL(label+'-cached-reload.png',output))});
+  releaseStart();await new Promise(r=>setTimeout(r,200));
  }
  report.errors=errors.slice(errorsBefore);
  await writeFile(new URL(label+'.json',output),JSON.stringify(report,null,2));console.log(JSON.stringify(report));

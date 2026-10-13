@@ -28,6 +28,8 @@ jobs:
         run: npm run test:architecture
       - name: Provider fallback preserves one user charge
         run: node --import ./scripts/test-server-context.mjs --import tsx --test tests/provider-failover.test.ts tests/provider-billing.test.ts
+      - name: Study entry, cache and answer recovery
+        run: node --import ./scripts/test-server-context.mjs --import tsx --test tests/study-*.test.ts tests/study-*.test.tsx
       - name: Old-page assets and Reader failure recovery
         run: npm run test:release-safety
       - name: Durable study answers and live counters
