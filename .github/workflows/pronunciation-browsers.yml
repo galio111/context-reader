@@ -1,0 +1,54 @@
+name: Pronunciation browser compatibility
+
+on:
+  push:
+    branches: [main, 'codex/**']
+    paths:
+      - 'components/PronunciationButtons.tsx'
+      - 'lib/pronunciation*.ts'
+      - 'next.config.ts'
+      - 'tests/pronunciation*'
+      - 'tests/fixtures/pronunciation.mp3'
+      - 'scripts/pronunciation-browser-acceptance.mjs'
+      - '.github/workflows/pronunciation-browsers.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pronunciation-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  browser-audio:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: node --import tsx --test tests/pronunciation-browser-compat.test.tsx tests/pronunciation-csp.test.ts tests/pronunciation-playback.test.tsx
+      - run: npm install --no-save --package-lock=false playwright@1.64.0
+      - run: npx playwright install --with-deps chromium firefox webkit
+      - name: Start isolated audio output
+        run: |
+          sudo apt-get install -y pulseaudio
+          pulseaudio --start --exit-idle-time=-1
+          pactl load-module module-null-sink sink_name=ci-speakers
+          pactl set-default-sink ci-speakers
+      - name: Real MP3 playback with production security headers
+        env:
+          AUDIO_ENGINES: chromium,firefox,webkit
+          AUDIO_REQUIRE_ENGINES: '1'
+          AUDIO_FIXTURE: tests/fixtures/pronunciation.mp3
+          AUDIO_OUTPUT: artifacts/pronunciation-browser
+        run: node scripts/pronunciation-browser-acceptance.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pronunciation-browser-matrix
+          path: artifacts/pronunciation-browser

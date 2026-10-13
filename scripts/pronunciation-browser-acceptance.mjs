@@ -39,6 +39,7 @@ try {
       browser = await engines[chromium ? "chromium" : name].launch({ headless: true,
         ...(chromium ? { args: ["--autoplay-policy=user-gesture-required"], ...(name !== "chromium" ? {channel: name} : {}) } : {}) });
     } catch (error) {
+      if (process.env.AUDIO_REQUIRE_ENGINES === "1") process.exitCode = 1;
       results.push({engine: name, available: false, error: error.message});
       console.log(`${name}: unavailable (${error.message.split("\n")[0]})`);
       continue;
@@ -48,6 +49,7 @@ try {
       const capabilities = await probe.evaluate(() => ({ webAudio: typeof (window.AudioContext || window.webkitAudioContext) === "function", mp3: new Audio().canPlayType("audio/mpeg") }));
       await probe.close();
       if (!capabilities.webAudio) {
+        if (process.env.AUDIO_REQUIRE_ENGINES === "1") process.exitCode = 1;
         results.push({engine:name,available:false,capabilities,note:"This browser build has no Web Audio; it cannot validate the cold-playback matrix."});
         console.log(`${name}: Web Audio unavailable in this platform build`);
         continue;
