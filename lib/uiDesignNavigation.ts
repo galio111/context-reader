@@ -80,12 +80,14 @@ export async function revealUiTarget(id:string,group:string,signal:AbortSignal,o
 /** Clear unrelated transient layers before revealing an inventory target. */
 export async function prepareUiTarget(id:string,group:string,selector:string,signal:AbortSignal){
  const target=selector?findVisibleUiNode(selector):null;
+ if(!signal.aborted&&uiTargetScene(id,group)!=='study'&&!target?.closest('dialog[data-study-open="true"]'))
+  window.dispatchEvent(new Event('context-reader-leave-study'));
  const close=(selector:string)=>{if(!signal.aborted)findVisibleUiNode(selector)?.click();};
  if(group!=='menu'&&id!=='global.feedback'&&!target?.closest('[data-study-menu="true"]'))
   close('[data-study-menu="true"] button[aria-label="关闭生词本"],[data-study-menu="true"] button[aria-label="关闭保存文章"],[data-study-menu="true"] button[aria-label="关闭菜单"]');
  if(group==='study'&&!/confirm|dialog-|saved-details|vocab-detail/.test(id)&&!target?.closest('dialog[class*="StudyPanel_confirm"]'))
   close('dialog[class*="StudyPanel_confirm"][open] button[aria-label="关闭提示"]');
- if(group==='reader'&&!/dictionary/.test(id)&&!target?.closest('[aria-label="单独查词面板"]'))close('button[aria-label="隐藏单独查词窗口"]');
+ if(!/dictionary/.test(id)&&!target?.closest('[aria-label="单独查词面板"]'))close('button[aria-label="隐藏单独查词窗口"]');
  if(group==='reader'&&!/import-|work-layer|saved-/.test(id)&&!target?.closest('[aria-label="导入新文章"],[aria-label="我的文章"]'))close('[aria-label="导入新文章"] button[aria-label="返回原文"],[aria-label="我的文章"] button[aria-label="返回原文"]');
  await new Promise(r=>setTimeout(r,120));
 }
