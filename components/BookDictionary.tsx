@@ -19,6 +19,7 @@ import { notifyLookupCancellation } from "@/lib/lookupCancellationClient";
 import {
   migrateStandaloneDictionarySessionCache,
   findStandaloneDictionaryCache,
+  findStandaloneDictionaryCacheItem,
   recordStandaloneDictionaryCache,
   STANDALONE_DICTIONARY_CACHE_KEY,
 } from "@/lib/standaloneDictionaryCache";
@@ -149,6 +150,12 @@ interface BookDictionaryProps {
   onBack?: () => void;
   onAddToVocabulary?: (result: DictionaryResult) => void;
   isInVocabulary?: (result: DictionaryResult) => boolean;
+  /** A saved vocabulary detail uses this same result surface, without the search form. */
+  detailResult?: DictionaryResult;
+  detailUpdatedAt?: string;
+  initialQuery?: string;
+  onRelatedLookup?: (query: string) => void;
+  preload?: boolean;
 }
 
 function RelatedLookupButton({ query, label, disabled, onLookup }: {
@@ -350,6 +357,11 @@ export function BookDictionary({
   onBack,
   onAddToVocabulary,
   isInVocabulary,
+  detailResult,
+  detailUpdatedAt,
+  initialQuery,
+  onRelatedLookup,
+  preload = true,
 }: BookDictionaryProps) {
   const [query, setQuery] = useState("");
   const [result, setResult] = useState<DictionaryResult | null>(null);
@@ -382,6 +394,14 @@ export function BookDictionary({
   const accountState = useAccount();
   const accountOwner = accountState.account.profile?.userId ?? accountState.localAccount?.userId ?? "guest";
   const ownerRef = useRef("");
+  const [readyOwner, setReadyOwner] = useState("");
+  const detailRef = useRef(detailResult);
+  detailRef.current = detailResult;
+  const detailDateRef = useRef(detailUpdatedAt);
+  detailDateRef.current = detailUpdatedAt;
+  const currentRef = useRef({ result, loading });
+  currentRef.current = { result, loading };
+  const initialLookupRef = useRef("");
   const abortRef = useRef<AbortController | null>(null);
   const activeActionIdRef = useRef("");
   const historyRowRef = useRef<HTMLDivElement | null>(null);
@@ -404,6 +424,7 @@ export function BookDictionary({
     if (accountState.loading) return;
     let cancelled = false;
     abortActiveDictionaryRequest();
+    setReadyOwner("");
     setPendingHistorySave(false); setLoading(false); setQuery(""); setResult(null); setStreamText(""); setHistory([]);
     void (async () => {
       await initializeLearningStorage();
@@ -417,10 +438,23 @@ export function BookDictionary({
       const history = session.historyVersion === 1 ? readStandaloneDictionaryHistory()
         : await migrateStandaloneDictionarySessionHistory(legacy.map(c=>c.query), session.owner);
       if (cancelled || owner !== dictionaryHistoryOwner()) return;
-      setQuery(session.query); setResult(session.result); setHistory(history);
+      const detailCache = detailRef.current ? findStandaloneDictionaryCacheItem(detailRef.current.query) : null;
+      const savedDetail = detailCache && (!detailDateRef.current || detailCache.updatedAt >= detailDateRef.current)
+        ? detailCache.result : detailRef.current;
+      const seed = savedDetail ?? (session.result
+        ? findStandaloneDictionaryCache(session.result.query) ?? session.result : null);
+      setQuery(detailRef.current?.query ?? session.query); setResult(seed); setHistory(history);
+      setReadyOwner(owner);
     })().catch(()=>{if(!cancelled)setError("历史记录暂未可靠保存，请稍后重试；原数据已保留。");});
     return ()=>{cancelled = true; abortActiveDictionaryRequest();};
   }, [accountState.loading, accountOwner, abortActiveDictionaryRequest]);
+
+  useEffect(() => {
+    if (!detailResult || loading || readyOwner !== dictionaryHistoryOwner()) return;
+    const cached = findStandaloneDictionaryCacheItem(detailResult.query);
+    setQuery(detailResult.query);
+    setResult(cached && (!detailUpdatedAt || cached.updatedAt >= detailUpdatedAt) ? cached.result : detailResult);
+  }, [detailResult, detailUpdatedAt, readyOwner, loading]);
 
   useEffect(() => () => abortActiveDictionaryRequest(), [abortActiveDictionaryRequest]);
 
@@ -470,6 +504,15 @@ export function BookDictionary({
       ) return;
       if (ownerRef.current !== dictionaryHistoryOwner()) return;
       setHistory(readStandaloneDictionaryHistory());
+      const current = currentRef.current;
+      if (!current.loading && current.result) {
+        const latest = findStandaloneDictionaryCacheItem(current.result.query);
+        if (latest && (!detailDateRef.current || latest.updatedAt >= detailDateRef.current)
+          && JSON.stringify(latest.result) !== JSON.stringify(current.result)) {
+          setResult(latest.result);
+          writeSession({ query: latest.result.query, result: latest.result, cache: {} });
+        }
+      }
     };
     window.addEventListener(ACCOUNT_DATA_CHANGED_EVENT, refreshAccountDictionaryData);
     window.addEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshAccountDictionaryData);
@@ -534,7 +577,7 @@ export function BookDictionary({
         const data = await response.json();
         if (controller.signal.aborted || intent.owner !== dictionaryHistoryOwner()) return;
         const snapshot = normalizeStandaloneDictionaryCacheItem({
-          schemaVersion: 2, query: normalized, result: data.dictionary, updatedAt: new Date().toISOString(),
+          schemaVersion: 2, query: normalized, result: data.dictionary, updatedAt: data.updatedAt || new Date(0).toISOString(),
         });
         if (response.status === 404 && !options.history) {
           confirmedMiss = true;
@@ -544,9 +587,10 @@ export function BookDictionary({
             : "历史结果暂时无法读取，请稍后重试。");
           return;
         } else {
-          setResult(snapshot.result);
-          writeSession({ query: normalized, result: snapshot.result, cache: {} });
-          recordStandaloneDictionaryCache(snapshot.result);
+          const stored = recordStandaloneDictionaryCache(snapshot.result, { updatedAt: snapshot.updatedAt });
+          const dictionary = stored?.result ?? snapshot.result;
+          setResult(dictionary);
+          writeSession({ query: normalized, result: dictionary, cache: {} });
           rememberLookup(normalized, intent);
           await flushLearningStorage();
         }
@@ -568,11 +612,13 @@ export function BookDictionary({
     abortRef.current = controller;
     activeActionIdRef.current = actionId;
     setLoading(true);
+    const previousResult = options.force ? result : null;
+    let completed = false;
     setResult(null);
     try {
       const response = await fetch("/api/dictionary-stream", {
         method: "POST",
-        headers: { "Content-Type": "application/json", "x-context-action-id": actionId },
+        headers: { "Content-Type": "application/json", "x-context-action-id": actionId, "X-Context-Account": accountOwner },
         body: JSON.stringify({ query: normalized }),
         signal: controller.signal,
       });
@@ -605,12 +651,20 @@ export function BookDictionary({
         return;
       }
       const dictionary = parsed.result;
-      setResult(dictionary);
-      writeSession({ query: normalized, result: dictionary, cache: {} });
+      if (previousResult && dictionary.inputStatus === "misspelled") {
+        setError("重新生成未得到有效词条，原结果已保留。");
+        return;
+      }
+      completed = true;
       if (dictionary.inputStatus === "misspelled") {
+        setResult(dictionary);
+        writeSession({ query: normalized, result: dictionary, cache: {} });
         void deleteHistory(normalized);
       } else {
-        recordStandaloneDictionaryCache(dictionary);
+        const stored = recordStandaloneDictionaryCache(dictionary, { updatedAt: parsed.savedSnapshot?.updatedAt });
+        const finalResult = stored?.result ?? dictionary;
+        setResult(finalResult);
+        writeSession({ query: normalized, result: finalResult, cache: {} });
         rememberLookup(normalized, intent);
         await flushLearningStorage();
       }
@@ -623,6 +677,11 @@ export function BookDictionary({
         metadata: { query: normalized },
       }));
     } finally {
+      if (!completed && previousResult && intent.owner === dictionaryHistoryOwner()) {
+        const cached = findStandaloneDictionaryCacheItem(previousResult.query);
+        setResult(cached && (!detailDateRef.current || cached.updatedAt >= detailDateRef.current) ? cached.result : previousResult);
+        setStreamText("");
+      }
       if (abortRef.current === controller) {
         abortRef.current = null;
         activeActionIdRef.current = "";
@@ -630,6 +689,16 @@ export function BookDictionary({
       }
     }
   }
+
+  const lookupRef = useRef(lookup);
+  lookupRef.current = lookup;
+  useEffect(() => {
+    if (!initialQuery || !readyOwner || readyOwner !== dictionaryHistoryOwner()) return;
+    const key = `${readyOwner}:${initialQuery}`;
+    if (initialLookupRef.current === key) return;
+    initialLookupRef.current = key;
+    void lookupRef.current(initialQuery);
+  }, [initialQuery, readyOwner]);
 
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -655,8 +724,8 @@ export function BookDictionary({
   }
 
   return (
-    <section className={`${styles.dictionary} ${embedded ? styles.embedded : ""} ${compact ? styles.compact : ""} ${panel ? styles.panel : ""}`} aria-labelledby={headingId}>
-      <div className={styles.headingPage}>
+    <section data-standalone-dictionary className={`${styles.dictionary} ${embedded ? styles.embedded : ""} ${compact ? styles.compact : ""} ${panel ? styles.panel : ""} ${detailResult ? styles.savedDetail : ""}`} aria-labelledby={detailResult ? undefined : headingId} aria-label={detailResult ? "词条详情" : undefined}>
+      {!detailResult && <div className={styles.headingPage}>
         <div className={styles.pageTopline}>
           <span className={styles.pageLabel}>Dictionary · 03</span>
           {onBack && <button type="button" className={styles.backButton} onClick={onBack}>返回阅读工作台</button>}
@@ -807,9 +876,10 @@ export function BookDictionary({
           void flushLearningStorage().then(()=>{if(owner===dictionaryHistoryOwner()){setPendingHistorySave(false);setError("");}})
             .catch(()=>setError("删除仍未可靠保存，请稍后再次重试。"));
         }}>重试保存历史</button>}
-      </div>
+      </div>}
 
       <div className={styles.resultPage} data-pointer-quiet>
+        {detailResult && error && <p className={styles.error} role="alert">{error}{isQuotaMessage(error) && <button type="button" className="ml-3 font-semibold underline" onClick={openAccountUsage}>查看用量</button>}</p>}
         {(loading || result) && (
           <div className={styles.resultToolbar}>
             <span>{loading ? <LoadingStatus>正在生成完整词条</LoadingStatus> : result?.inputStatus === "misspelled" ? "请确认正确拼写" : "词条已生成"}</span>
@@ -839,9 +909,9 @@ export function BookDictionary({
           </div>
         )}
         {result ? (
-          <DictionaryResultContent result={result} streaming={false} onUseSuggestion={(suggestion) => void lookup(suggestion)} />
+          <DictionaryResultContent result={result} streaming={loading} preload={preload} onUseSuggestion={onRelatedLookup ?? ((suggestion) => void lookup(suggestion))} />
         ) : loading && progressive.eventCount > 0 ? (
-          <DictionaryResultContent result={progressive.result} streaming onUseSuggestion={(suggestion) => void lookup(suggestion)} />
+          <DictionaryResultContent result={progressive.result} streaming preload={preload} onUseSuggestion={onRelatedLookup ?? ((suggestion) => void lookup(suggestion))} />
         ) : loading ? (
           <div className={styles.streamStarting}><LoadingStatus>正在连接词典…</LoadingStatus></div>
         ) : (

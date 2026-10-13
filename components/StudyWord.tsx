@@ -4,16 +4,18 @@ import { normalizePartOfSpeechLabel, originalFormLabel } from "@/lib/displayLabe
 import { PronunciationButtons } from "./PronunciationButtons";
 import { VocabularyLearningDetails } from "./VocabularyLearningDetails";
 import { StudyIcon } from "./StudyIcon";
-import { DictionaryResultContent } from "./BookDictionary";
+import { BookDictionary } from "./BookDictionary";
+import { useAccount } from "./AccountProvider";
 import { useStudyDictionary } from "./useStudyDictionary";
 import styles from "./StudyPanel.module.css";
 
-export function StudyWord({entry,onSource}: {entry:VocabularyEntry;onSource:(entry:VocabularyEntry)=>void}) {
-  const {result}=useStudyDictionary(entry);
+export function StudyWord({entry,onSource,onLookup}: {entry:VocabularyEntry;onSource:(entry:VocabularyEntry)=>void;onLookup:(query:string)=>void}) {
+  const {isOffline}=useAccount();
+  const {result,updatedAt}=useStudyDictionary(entry);
   const standalone = !entry.sourceSentence.trim();
   const phonetic = currentFormPhonetic(entry);
   const lemma = originalFormLabel(entry.lemma,entry.word);
-  if(standalone && result)return <DictionaryResultContent result={result} streaming={false} preload={false}/>;
+  if(standalone && result)return <BookDictionary key={entry.id} embedded compact panel detailResult={result} detailUpdatedAt={updatedAt} offline={isOffline} preload={false} onRelatedLookup={onLookup} onAddToVocabulary={()=>{}} isInVocabulary={()=>true}/>;
   return <>
     <div className={styles.wordHeading}><h2 lang="en">{entry.word}</h2>{!standalone&&<button className={styles.sourceLink} onClick={()=>onSource(entry)} aria-label={`查看 ${entry.word} 的原文`}>原文<StudyIcon name="external"/></button>}</div>
     <div className={styles.pronunciation}>{phonetic&&<span>{phonetic}</span>}<span>{normalizePartOfSpeechLabel(entry.partOfSpeech)}</span>{lemma.toLowerCase()!==entry.word.toLowerCase()&&<span>原型 {lemma}</span>}<PronunciationButtons text={entry.word}/></div>

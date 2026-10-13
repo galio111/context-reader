@@ -23,6 +23,7 @@ import { VocabularyPanel } from "@/components/VocabularyPanel";
 import { useAccount } from "@/components/AccountProvider";
 import { ACCOUNT_DATA_MERGED_EVENT, accountDataEventKinds } from "@/lib/accountEvents";
 import { createExplanationCacheKey, getCachedExplanation, setCachedExplanation } from "@/lib/cache";
+import { dictionaryHistoryOwner } from "@/lib/standaloneDictionaryHistory";
 import {
   requestContextExplanation,
   requestContextExplanationStream,
@@ -1322,6 +1323,7 @@ export function BookHome({
 
     const controller = new AbortController();
     const actionId = crypto.randomUUID();
+    const expectedOwner = dictionaryHistoryOwner();
     explanationAbortRef.current = controller;
     setExplanationLoading(true);
     setExplanation(null);
@@ -1337,12 +1339,14 @@ export function BookHome({
         }
       },
       actionId,
+      expectedOwner,
     ).catch(() => "");
 
     try {
       const completedStreamText = await streamPromise;
       const nextExplanation = explanationFromCompletedStream(completedStreamText, context)
-        ?? await requestContextExplanation(context, controller.signal, actionId);
+        ?? await requestContextExplanation(context, controller.signal, actionId, expectedOwner);
+      if (controller.signal.aborted || expectedOwner !== dictionaryHistoryOwner()) return;
       setCachedExplanation(cacheKey, nextExplanation);
       setExplanation(nextExplanation);
       setExplanationStreamText(completedStreamText || explanationAsStreamText(nextExplanation));
@@ -1441,10 +1445,7 @@ export function BookHome({
   }
 
   function isStandaloneDictionaryInVocabulary(result: DictionaryResult): boolean {
-    const identity = vocabularyIdentity({
-      word: result.direction === "cn_to_en" ? result.lemma : result.query,
-      sourceSentence: "",
-    });
+    const identity = vocabularyIdentity(createStandaloneVocabularyEntry(result));
     return vocabularyEntries.some((entry) => vocabularyIdentity(entry) === identity);
   }
 

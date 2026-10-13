@@ -51,7 +51,7 @@ import {
   isRapidReaderScroll,
   isReaderAtBottom,
 } from "@/lib/readingProgressPolicy";
-import { ACCOUNT_DATA_MERGED_EVENT, accountDataEventKinds } from "@/lib/accountEvents";
+import { ACCOUNT_DATA_CHANGED_EVENT, ACCOUNT_DATA_MERGED_EVENT, accountDataEventKinds } from "@/lib/accountEvents";
 import { downloadVocabularyCsv } from "@/lib/csv";
 import {
   explanationAsStreamText,
@@ -85,6 +85,7 @@ import {
   replaceMatchingVocabularyEntry,
   vocabularyIdentity,
 } from "@/lib/vocabulary";
+import { dictionaryHistoryOwner } from "@/lib/standaloneDictionaryHistory";
 import { createStandaloneVocabularyEntry } from "@/lib/standaloneDictionary";
 import type { AnkiSettings } from "@/types/anki";
 import type { ArticleReadingStyle, ImportedArticle, ImportedArticleBlock, ImportedArticleInlineText, SavedArticle } from "@/types/article";
@@ -608,12 +609,14 @@ async function requestExplanation(
   context: WordContext,
   signal: AbortSignal,
   actionId: string,
+  expectedOwner: string,
 ): Promise<WordExplanation> {
   const { response, data } = await fetchJson<{ explanation?: WordExplanation; error?: string; code?: string }>("/api/explain-word", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       "x-context-action-id": actionId,
+      "X-Context-Account": expectedOwner,
     },
     body: JSON.stringify({
       word: context.word,
@@ -651,6 +654,7 @@ async function requestExplanationStream(
   onChunk: (chunk: string) => void,
   onComplete: (fullText: string) => void,
   actionId: string,
+  expectedOwner: string,
 ): Promise<string> {
   let response: Response;
   try {
@@ -659,6 +663,7 @@ async function requestExplanationStream(
       headers: {
         "Content-Type": "application/json",
         "x-context-action-id": actionId,
+        "X-Context-Account": expectedOwner,
       },
       body: JSON.stringify({
         word: context.word,
@@ -1706,8 +1711,12 @@ export function ReaderView({
       setVocabularyEntries(getVocabularyEntries());
     };
     refreshVocabularyEntries();
+    window.addEventListener(ACCOUNT_DATA_CHANGED_EVENT, refreshVocabularyEntries);
     window.addEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshVocabularyEntries);
-    return () => window.removeEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshVocabularyEntries);
+    return () => {
+      window.removeEventListener(ACCOUNT_DATA_CHANGED_EVENT, refreshVocabularyEntries);
+      window.removeEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshVocabularyEntries);
+    };
   }, []);
 
   useEffect(() => {
@@ -1720,10 +1729,31 @@ export function ReaderView({
   useEffect(() => {
     for (const item of preloadedExplanations) {
       if (!getCachedExplanation(item.cacheKey)) {
-        setCachedExplanation(item.cacheKey, item.explanation);
+        setCachedExplanation(item.cacheKey, item.explanation, { syncVocabulary: false, updatedAt: "1970-01-01T00:00:00.000Z" });
       }
     }
   }, [preloadedExplanations]);
+
+  useEffect(() => {
+    if (!selectedContext || !explanation || loading || examSurface?.locked) return;
+    const owner = account.profile?.userId ?? "guest";
+    const refreshSavedExplanation = (event?: Event) => {
+      const kinds = event ? accountDataEventKinds(event) : [];
+      if (owner !== dictionaryHistoryOwner() || (kinds.length > 0 && !kinds.includes("explanation"))) return;
+      const latest = getCachedExplanation(createExplanationCacheKey(selectedContext.word, selectedContext.sentence));
+      if (latest && JSON.stringify(latest) !== JSON.stringify(explanation)) {
+        setExplanation(latest);
+        setExplanationStreamText(explanationAsStreamText(latest));
+      }
+    };
+    refreshSavedExplanation();
+    window.addEventListener(ACCOUNT_DATA_CHANGED_EVENT, refreshSavedExplanation);
+    window.addEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshSavedExplanation);
+    return () => {
+      window.removeEventListener(ACCOUNT_DATA_CHANGED_EVENT, refreshSavedExplanation);
+      window.removeEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshSavedExplanation);
+    };
+  }, [selectedContext, explanation, loading, account.profile?.userId, examSurface?.locked]);
 
   function targetTokenIdsInSentence(sourceSentence: string, selectedText: string): string[] {
     return sourceTargetTokenIds(wordTokens, sourceSentence, selectedText);
@@ -2079,6 +2109,7 @@ export function ReaderView({
 
     const controller = new AbortController();
     const actionId = crypto.randomUUID();
+    const expectedOwner = account.profile?.userId ?? "guest";
     const finishForegroundLookup = beginForegroundLookup(controller.signal);
     abortRef.current = controller;
     activeExplanationActionIdRef.current = actionId;
@@ -2096,7 +2127,7 @@ export function ReaderView({
     let streamedExplanation: WordExplanation | null = null;
 
     function acceptCompletedStream(completedText: string) {
-      if (controller.signal.aborted || streamedExplanation) {
+      if (controller.signal.aborted || streamedExplanation || expectedOwner !== dictionaryHistoryOwner()) {
         return;
       }
       const completedExplanation = explanationFromCompletedStream(completedText, context);
@@ -2124,6 +2155,7 @@ export function ReaderView({
       },
       acceptCompletedStream,
       actionId,
+      expectedOwner,
     ).catch((error: unknown) => {
       if (error instanceof LookupQuotaError) throw error;
       return "";
@@ -2143,7 +2175,7 @@ export function ReaderView({
       // Only use the structured endpoint as a fallback. Starting both transports
       // together made a successful streamed lookup still produce parse-error
       // reports and provider mail from the losing request.
-      const structuredExplanation = await requestExplanation(context, controller.signal, actionId);
+      const structuredExplanation = await requestExplanation(context, controller.signal, actionId, expectedOwner);
       const nextExplanation = completedStreamText
         ? mergeStreamDisplayIntoExplanation(structuredExplanation, completedStreamText)
         : structuredExplanation;
@@ -2152,7 +2184,7 @@ export function ReaderView({
       // the structured fallback repaired it successfully.
       const durableDisplayText = explanationAsStreamText(nextExplanation);
 
-      if(controller.signal.aborted || assistanceLockedRef.current)return;
+      if(controller.signal.aborted || assistanceLockedRef.current || expectedOwner !== dictionaryHistoryOwner())return;
       setCachedExplanation(cacheKey, nextExplanation);
       setExplanation(nextExplanation);
       if (!examSurface?.locked) examSurface?.onAssistanceShown?.("lookup");
@@ -2519,10 +2551,7 @@ export function ReaderView({
   }
 
   function isStandaloneDictionaryInVocabulary(result: DictionaryResult) {
-    const identity = vocabularyIdentity({
-      word: result.direction === "cn_to_en" ? result.lemma : result.query,
-      sourceSentence: "",
-    });
+    const identity = vocabularyIdentity(createStandaloneVocabularyEntry(result));
     return vocabularyEntries.some((entry) => vocabularyIdentity(entry) === identity);
   }
 

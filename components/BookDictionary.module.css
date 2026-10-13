@@ -52,6 +52,7 @@
 .compact .examples,
 .compact .historyBlock { margin-top: 10px; }
 .compact .resultPage { margin-top: 22px; padding-top: 22px; border-top: 1px solid #dbe2e7; overflow: visible; }
+.compact.savedDetail .resultPage { margin-top: 0; padding-top: 0; border-top: 0; }
 .compact .empty { min-height: 220px; padding: 28px 18px; }
 .compact .empty > span { font-size: 58px; }
 .compact .empty h3 { font-size: 21px; }
@@ -918,3 +919,11 @@
 .historyRecent .historyRecentDelete { flex:0 0 28px;min-width:28px;padding:4px;min-height:32px;color:#63747b;background:transparent; }
 .historyRecent .historyRecentDelete:hover { background:#f4dfdc;color:#8f3028; }
 @media(pointer:coarse) { .historyRecent .historyRecentDelete { flex-basis:44px;min-width:44px;min-height:44px; } }
+
+/* Keep the shared result controls readable in both lookup and saved details. */
+:global(html[data-context-theme="night"]) .panel .senseOrigin b { color: #e5eef0; }
+:global(html[data-context-theme="night"]) .panel .senseOrigin span { color: #b3c4c9; }
+.panel .resultToolbar .regenerateButton { color: #315f7d; background: #f4f8fa; }
+.panel .resultToolbar .regenerateButton:hover { color: #fff; background: #2868ad; }
+:global(html[data-context-theme="night"]) .panel .resultToolbar .regenerateButton { color: #c8dde1; border-color: rgb(190 220 227 / 24%); background: #253b43; }
+:global(html[data-context-theme="night"]) .panel .resultToolbar .regenerateButton:hover { color: #f4fafb; background: #315f70; }
