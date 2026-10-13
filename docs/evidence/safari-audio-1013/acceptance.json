@@ -1,0 +1,36 @@
+{
+  "status": "candidate validated; production acceptance pending",
+  "baseReleaseId": "20261013T084711",
+  "baseSourceRevision": "537e522f7fd1d29865b6aa024554d93422000ca6",
+  "tests": {
+    "critical": 90,
+    "provider": 8,
+    "audioCacheListening": 22,
+    "releaseContracts": "passed",
+    "productionBuild": "passed",
+    "typecheck": "passed"
+  },
+  "browserScenarios": [
+    "cold",
+    "preload",
+    "denied-resume",
+    "hung-resume",
+    "decode-failure",
+    "background"
+  ],
+  "passedBrowsers": [
+    "Chromium",
+    "Chrome",
+    "Edge"
+  ],
+  "unverified": [
+    "Mac Safari default autoplay policy and physical listening",
+    "iOS Safari physical listening",
+    "Firefox Windows runtime launch failed: WinError 14001",
+    "Windows WebKit lacks Web Audio and MP3 playback support"
+  ],
+  "sources": [
+    "https://webkit.org/blog/7734/auto-play-policy-changes-for-macos/",
+    "https://bugs.webkit.org/show_bug.cgi?id=281566"
+  ]
+}

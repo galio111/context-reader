@@ -17,6 +17,10 @@ test("different readings exclusively own playback, including late requests, deco
   let delayDecode=false;
   class Context {
     destination={};
+    state="running";
+    get currentTime(){return performance.now()/1000;}
+    addEventListener() {}
+    removeEventListener() {}
     async resume() {}
     async decodeAudioData() {if(delayDecode)await new Promise<void>(resolve=>decodeQueue.push(resolve));return {};}
     createBufferSource() {

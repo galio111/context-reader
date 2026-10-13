@@ -1,0 +1,638 @@
+{
+  "results": [
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.4",
+      "scenario": "cold",
+      "events": [
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "buffer-start",
+          "gesture": false,
+          "state": "running"
+        },
+        {
+          "type": "buffer-ended",
+          "time": 2
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.4",
+      "scenario": "preload",
+      "events": [
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.4",
+      "scenario": "denied-resume",
+      "events": [
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.4",
+      "scenario": "hung-resume",
+      "events": [
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.4",
+      "scenario": "decode-failure",
+      "events": [
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.4",
+      "scenario": "background",
+      "events": [
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "buffer-start",
+          "gesture": false,
+          "state": "running"
+        },
+        {
+          "type": "buffer-ended",
+          "time": 2.712
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "chrome",
+      "version": "155.0.8059.40",
+      "scenario": "cold",
+      "events": [
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "buffer-start",
+          "gesture": false,
+          "state": "running"
+        },
+        {
+          "type": "buffer-ended",
+          "time": 1.992
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "chrome",
+      "version": "155.0.8059.40",
+      "scenario": "preload",
+      "events": [
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "chrome",
+      "version": "155.0.8059.40",
+      "scenario": "denied-resume",
+      "events": [
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "chrome",
+      "version": "155.0.8059.40",
+      "scenario": "hung-resume",
+      "events": [
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "chrome",
+      "version": "155.0.8059.40",
+      "scenario": "decode-failure",
+      "events": [
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "chrome",
+      "version": "155.0.8059.40",
+      "scenario": "background",
+      "events": [
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "buffer-start",
+          "gesture": false,
+          "state": "running"
+        },
+        {
+          "type": "buffer-ended",
+          "time": 2.6213333333333333
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "msedge",
+      "version": "155.0.4283.45",
+      "scenario": "cold",
+      "events": [
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "buffer-start",
+          "gesture": false,
+          "state": "running"
+        },
+        {
+          "type": "buffer-ended",
+          "time": 1.9813333333333334
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "msedge",
+      "version": "155.0.4283.45",
+      "scenario": "preload",
+      "events": [
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "msedge",
+      "version": "155.0.4283.45",
+      "scenario": "denied-resume",
+      "events": [
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "msedge",
+      "version": "155.0.4283.45",
+      "scenario": "hung-resume",
+      "events": [
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "msedge",
+      "version": "155.0.4283.45",
+      "scenario": "decode-failure",
+      "events": [
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "msedge",
+      "version": "155.0.4283.45",
+      "scenario": "background",
+      "events": [
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "resume",
+          "gesture": true
+        },
+        {
+          "type": "buffer-start",
+          "gesture": false,
+          "state": "running"
+        },
+        {
+          "type": "buffer-ended",
+          "time": 2.752
+        },
+        {
+          "type": "native-play",
+          "gesture": true
+        },
+        {
+          "type": "native-playing"
+        },
+        {
+          "type": "native-ended",
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "available": false,
+      "error": "browserType.launch: spawn UNKNOWN\nCall log:\n\u001b[2m  - <launching> C:\\Users\\娆ч槼瀛愭旦\\AppData\\Local\\ms-playwright\\firefox-1555\\firefox\\firefox.exe -no-remote -headless -profile C:\\Users\\娆ч槼瀛愭旦\\AppData\\Local\\Temp\\playwright_firefoxdev_profile-UlqiZo -juggler-pipe -silent\u001b[22m\n"
+    },
+    {
+      "engine": "webkit",
+      "available": false,
+      "observed": {
+        "AudioContext": "undefined",
+        "mp3CanPlayType": "probably",
+        "actualMp3Playback": "NotSupportedError"
+      },
+      "note": "Windows port lacks audio capabilities; not Mac Safari validation."
+    }
+  ],
+  "note": "Automated Windows engines with real MP3; Mac/iOS Safari default-policy and physical listening still require device acceptance."
+}

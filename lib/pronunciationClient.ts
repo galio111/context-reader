@@ -39,42 +39,39 @@ async function loadPronunciationMedia(
   accent: PronunciationAccent,
   phonetic = "",
 ): Promise<PronunciationMedia> {
-  let response: Response;
+  // AbortSignal.timeout is absent in older Safari; include body download in the bound.
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 20_000);
   try {
-    response = await fetch("/api/pronunciation", {
+    const response = await fetch("/api/pronunciation", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ text, accent, ...(phonetic ? { phonetic } : {}) }),
-      signal: AbortSignal.timeout(20_000),
+      signal: controller.signal,
     });
-  } catch {
-    throw new PronunciationRequestError(
-      "发音服务暂时无法连接。",
-      "pronunciation_network",
-    );
+    if (!response.ok) {
+      const payload = await response.json().catch(() => null) as { error?: string; code?: string } | null;
+      throw new PronunciationRequestError(
+        payload?.error || "发音服务暂时不可用。",
+        payload?.code || "pronunciation_failed",
+        response.status,
+      );
+    }
+    const buffer = await response.arrayBuffer();
+    if (buffer.byteLength === 0) {
+      throw new PronunciationRequestError("发音服务返回了空音频。", "pronunciation_empty");
+    }
+    return {
+      bytes: new Uint8Array(buffer),
+      contentType: response.headers.get("content-type") || "audio/mpeg",
+      filename: filenameFromHeader(response, accent),
+    };
+  } catch (error) {
+    if (error instanceof PronunciationRequestError) throw error;
+    throw new PronunciationRequestError("发音服务暂时无法连接。", "pronunciation_network");
+  } finally {
+    clearTimeout(timer);
   }
-
-  if (!response.ok) {
-    const payload = await response.json().catch(() => null) as {
-      error?: string;
-      code?: string;
-    } | null;
-    throw new PronunciationRequestError(
-      payload?.error || "发音服务暂时不可用。",
-      payload?.code || "pronunciation_failed",
-      response.status,
-    );
-  }
-
-  const buffer = await response.arrayBuffer();
-  if (buffer.byteLength === 0) {
-    throw new PronunciationRequestError("发音服务返回了空音频。", "pronunciation_empty");
-  }
-  return {
-    bytes: new Uint8Array(buffer),
-    contentType: response.headers.get("content-type") || "audio/mpeg",
-    filename: filenameFromHeader(response, accent),
-  };
 }
 
 export function requestPronunciationMedia(
