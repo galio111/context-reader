@@ -1,5 +1,11 @@
 # Production Release Governance
 
+## Current accepted release
+
+Accepted `20261013T031701`, parent `20261013T030124`, source `cc7280dcd65060acef641596e48199e910e5cdab`. Developer-only real-page UI studio and atomic draft/publish/rollback store are live. The initial 191-file release `20261013T030124` was followed by an exact 9-file patch through the stable locked entrypoint. Public identity, ten-scene browser checks, draft persistence/conflict/restore, account/sync/Admin boundaries, slow-asset regression, actual database concurrency/atomic audit, health, backup and parent image are verified. Only app/caddy changed; five backend container identities remained unchanged. No QA recipe was published. Full coverage, evidence and remaining user visual/device gates: [UI design studio](ui-design-studio.md). Later documentation-only commits do not change the deployed source identity.
+
+The dated records below describe earlier releases; the identity above is current.
+
 ## Accepted vocabulary refinement and activity evidence
 
 Accepted `20261010T223500`, parent `20261010T153500`, source `6a0829e0b454beec9d2e8795e5700c41d4393803`. Exact 62-file cumulative archive passed the stable single-writer guard. Public/state/current identity agrees with mainland_internal. Local/server builds; 90 critical, 19 targeted, 8 provider/billing, 9 contracts; isolated evidence SQL; real hook and mocked UI browser regressions; signed-in Flash reading core, native study/settings/stats/undo, protocol-2/Admin, public desktop/mobile day/night UI, 35-table SHA-verified restore and parent image passed. Only app/caddy replaced; five backend identities unchanged. Exact disposable QA removal preserved anonymized cost audit. User authorized retiring Anki UI, not historical data. [Evidence and remaining visual/device gates](study-refinement-20261010.md).

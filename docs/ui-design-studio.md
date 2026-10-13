@@ -1,6 +1,6 @@
 # 设计工作台
 
-当前实现：后台 `/admin/ui-studio`。发布身份与最终验收记录在本文末尾；未有正式发布身份前，不将本机实现称为已上线。
+已上线：后台 [设计工作台](https://context-reader.com/admin/ui-studio)，仅开发者账号可进入。
 
 ## 怎么使用
 
@@ -45,4 +45,13 @@
 
 本机已验证 17 项设计协议/API/权限/样式测试，90 项关键回归及 9 个发布保护契约。浏览器覆盖草稿不改变公开样式、发布/回退、拖动/撤销/重做、手机位置隔离、刷新后草稿保持、减少动态效果，以及 18 款增强样式循环切换、恢复原样、材质撤销和原有点击行为。慢网络首次加载时快速切换材质的竞态已通过延迟 SDK/目录的对照回归修复。实际 PostgreSQL、新发布公网与最终视觉接受分别记录，不用构建成功代替这些验收。
 
-待本轮发布完成后在这里写入精确 release、parent、source 和公开证据。实体手机、其他浏览器和用户最终观感尚未确认。
+正式接受 `20261013T031701`，parent `20261013T030124`，source `cc7280dcd65060acef641596e48199e910e5cdab`。首轮接入 `20261013T030124` 的 parent 为 `20261013T081227`，source 为 `ee946ab9f9165f27d7785060618e1c6a89b7b45b`；最终补丁修正首次 SDK/目录加载中的样式竞态和词典预览结果。两轮均通过稳定发布入口，分别为 191/9 个文件的精确累计差异；本文件后续证据提交不改变已部署源码身份。
+
+- [公网验证](evidence/ui-design-studio/public-qa.json)：精确 release/parent、十个实际预览页面、词典完整样例、材质与答题预览、390px 页面、367 条清单、账号/协议2、匿名边界。真实草稿保存、冲突拒绝、还原通过；公开方案未改，预览业务写入和页面错误均为 0。
+- [公网慢资源回归](evidence/ui-design-studio/public-delayed-assets.json)：延迟 SDK/目录时快速更换材质，均收敛为最后一次选择。
+- [数据库验证](evidence/ui-design-studio/database.json)：实际 PostgreSQL 事务、并发冲突、审计失败回滚、服务角色权限和空状态迁移通过，隔离库已清理。
+- [发布前](evidence/ui-design-studio/ops-before.json) / [发布后](evidence/ui-design-studio/ops-after.json)：仅 app/caddy 重建，五个后端容器身份/启动时间未变；健康、Admin 恢复只读检查、父镜像、备份 SHA 通过。39 表备份恢复使用本轮 11:01 的成功证据，复用时间明确记录。
+- [临时身份清理](evidence/ui-design-studio/cleanup.json)：降级后设计 API 为 403，编辑器/预览页为 404；测试账号、会话、令牌及其公共记录清理完成，无学习或费用记录。公开方案和草稿均为空，完整状态清理前后保持一致。
+- 正式网站仍使用原外观，未发布测试设计。开发者可以从空方案开始保存与应用。
+
+[电脑编辑截图](evidence/ui-design-studio/public-editor.png)、[手机页面预览](evidence/ui-design-studio/public-mobile-preview.png)、[效果清单](evidence/ui-design-studio/public-inventory.png)。实体手机、其他浏览器和用户最终观感尚未确认。
