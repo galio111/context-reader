@@ -129,5 +129,43 @@ test("Study advances immediately, keeps a new answer visible across another tab'
     await waitFor(()=>assert.equal(ui.getByRole("button",{name:/不记得/}).hasAttribute("disabled"),false));
     assert.equal(readStudyReviews(localStorage,owner).length,0,"fast queue confirmation unlocks the first snapshot before start finishes");
     delayStart=false;await act(async()=>{resolveStart(Response.json(copy()));});
+    ui.unmount();
+    // The real receipt protocol updates counts and active category immediately,
+    // even while the next complete snapshot is held indefinitely.
+    base.cards=base.cards.map((c,i)=>({...c,version:0,memory:{...newMemory(now),state:i===0?1:i===1?2:0}}));
+    base.reviews=[];base.daily=[];let receiptStarts=0,receiptWrites=0;
+    globalThis.fetch=async(_url,init)=>{
+      const b=init?.body?JSON.parse(String(init.body)):null;
+      if(b?.op==="start"){receiptStarts++;if(receiptStarts>1)return new Promise<Response>(()=>{});return Response.json(copy());}
+      if(b?.op==="present")return Response.json({token:"00000000-0000-4000-8000-000000000099"});
+      if(b?.op==="review"){
+        assert.equal(b.response,"receipt");receiptWrites++;
+        const c=base.cards.find(c=>c.id===b.cardId)!,previous={...c.memory};
+        c.version++;c.memory={...c.memory,state:previous.state===2?3:previous.state===0?1:2,last_review:new Date().toISOString(),due:new Date(now.getTime()+86400000).toISOString()};
+        const review={id:b.id,card_id:c.id,answer:b.answer,rating:3,reviewed_at:new Date().toISOString(),active_ms:1000,undone:false,previous,next:c.memory};
+        const todayStats={day:shanghaiDay(now),cards:receiptWrites,new_cards:previous.state===0?1:0,active_ms:1000,successes:1,reviews:receiptWrites};
+        return Response.json({saved:true,id:b.id,receipt:{serverNow:new Date().toISOString(),card:c,review,todayStats}});
+      }
+      return Response.json(copy());
+    };
+    ui=render(<StudyPanel {...props}/>);
+    const active=()=>ui.container.querySelector('[aria-current="step"]')?.textContent;
+    await waitFor(()=>assert.equal(active(),"正在背 1"));
+    fireEvent.click(ui.getByRole("button",{name:/^3\s*记得$/}));
+    await waitFor(()=>assert.equal(ui.getByRole("button",{name:"答对了"}).hasAttribute("disabled"),false));
+    fireEvent.click(ui.getByRole("button",{name:"答对了"}));
+    await waitFor(()=>assert.equal(active(),"待复习 1"));
+    await waitFor(()=>assert.ok(ui.getByText("正在背").textContent?.includes("0")));
+    assert.ok(ui.getByText("今日新学").textContent?.includes("0"));
+    fireEvent.click(ui.getByRole("button",{name:/^3\s*记得$/}));
+    await waitFor(()=>assert.equal(ui.getByRole("button",{name:"答对了"}).hasAttribute("disabled"),false));
+    fireEvent.click(ui.getByRole("button",{name:"答对了"}));
+    await waitFor(()=>assert.equal(active(),"今日新学 0"));
+    assert.ok(ui.getByText("待复习").textContent?.includes("0"));
+    fireEvent.click(ui.getByRole("button",{name:/^3\s*记得$/}));
+    await waitFor(()=>assert.equal(ui.getByRole("button",{name:"答对了"}).hasAttribute("disabled"),false));
+    fireEvent.click(ui.getByRole("button",{name:"答对了"}));
+    await waitFor(()=>assert.ok(ui.getByText("今日新学").textContent?.includes("1")));
+    assert.equal(readStudyReviews(localStorage,owner).length,0);assert.equal(receiptWrites,3);
   } finally {cleanup();globalThis.fetch=originalFetch;dom.window.close();}
 });

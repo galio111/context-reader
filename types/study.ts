@@ -20,6 +20,11 @@ export interface StudyReview {
   id: string; card_id: string; answer: StudyAnswer; rating: number; reviewed_at: string;
   active_ms: number; undone: boolean; previous: StudyMemory; next: StudyMemory;
 }
+/** Small authoritative acknowledgement; never contains the vocabulary library. */
+export interface StudyReviewReceipt {
+  serverNow: string; card: StudyCard; review: StudyReview;
+  todayStats?: StudySnapshot["daily"][number];
+}
 export interface StudyDay {
   day: string; card_ids: string[]; new_ids: string[]; settings: StudySettings;
   reward_points: number; completed_at: string | null; new_completed: number; streak: number;

@@ -5,7 +5,7 @@ import { requestExternalOrigin } from "@/lib/requestSecurity";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
 import { buildStudyPlan, sanitizeStudySettings, scheduleStudy, shanghaiDay, STUDY_ALGORITHM, studyPaused, studyRating } from "@/lib/studyScheduler";
 import { getStudySettings, getStudySnapshot, reconcileStudyCards, saveStudySettings, studyRpc, studyRows } from "@/lib/studyStore";
-import type { StudyAnswer, StudyCard, StudyDay } from "@/types/study";
+import type { StudyAnswer, StudyCard, StudyDay, StudyReview, StudySnapshot } from "@/types/study";
 import { recordServerError } from "@/lib/serverErrorReporting";
 
 export const dynamic = "force-dynamic";
@@ -32,7 +32,7 @@ async function failure(error: unknown,request:Request) {
   return NextResponse.json({ error: "学习记录暂时无法读取或保存，请稍后重试。进度不会被自动重置。" }, { status: 503 });
 }
 export async function GET(request: Request) {
-  try { return result(await getStudySnapshot(await owner(request))); } catch (error) { return failure(error,request); }
+  try { const userId=await owner(request);await studyRpc("settle_rewards",{p_user:userId});return result(await getStudySnapshot(userId)); } catch (error) { return failure(error,request); }
 }
 export async function POST(request: Request) {
   try {
@@ -51,6 +51,7 @@ export async function POST(request: Request) {
         const ids=buildStudyPlan(cards.filter(c=>!c.suspended),settings,new Date());
         await studyRpc("start_learning_v3",{p_user:userId,p_ids:ids,p_settings:settings});
       }
+      await studyRpc("settle_rewards",{p_user:userId});
       return result(await getStudySnapshot(userId,{entries}));
     }
     if (op === "settings" || op === "pause" || op === "resume") {
@@ -110,6 +111,18 @@ export async function POST(request: Request) {
       });
       if (saved.dayChanged) throw new StudyError("正在更新今日计划，本次答案仍然保留。", 409, "day_changed");
       if (!saved.saved && !saved.duplicate) throw new StudyError(saved.tooFast ? "请先回忆并核对答案，再记录结果。" : "学习状态已变化，本次没有重复记分。已保留服务器上的最新进度。", 409, saved.tooFast ? "too_fast" : "state_changed");
+      if (body.response === "receipt") {
+        // Confirm the committed ledger before any library reconciliation or reward
+        // refresh. Those reads must never turn a saved answer into a timeout.
+        const [cards,reviews,daily]=await Promise.all([
+          accountFetch<StudyCard[]>("study_cards?user_id=eq."+encodeURIComponent(userId)+"&id=eq."+cardId+"&select=id,entry_id,mode,memory,version,suspended,anki_pending,created_at&limit=1"),
+          accountFetch<StudyReview[]>("study_reviews?user_id=eq."+encodeURIComponent(userId)+"&id=eq."+encodeURIComponent(String(body.id))+"&select=id,card_id,answer,rating,reviewed_at,active_ms,undone,previous,next&limit=1"),
+          studyRpc<StudySnapshot["daily"]>("daily_stats_v3",{p_user:userId}),
+        ]);
+        if(!cards[0]||!reviews[0])throw new Error("Committed study receipt unavailable");
+        const serverNow=new Date();
+        return result({saved:true,id:body.id,receipt:{serverNow:serverNow.toISOString(),card:cards[0],review:reviews[0],todayStats:daily.find(d=>d.day===shanghaiDay(serverNow))}});
+      }
       if(scheduled.memory.state===2)await reconcileStudyCards(userId);
       await studyRpc("settle_rewards",{p_user:userId});
       const updated=await getStudySnapshot(userId);

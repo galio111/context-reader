@@ -31,13 +31,13 @@ begin
  t:=(study_present_v3(u,l,1)->>'token')::uuid;assert t is not null,'due learning returns';
  update study_cards set shown_at=now()-interval '2 seconds' where user_id=u and id=l;
  assert study_review_v3(u,gen_random_uuid(),l,1,t,'remembered',3,1000,m||jsonb_build_object('state',2,'last_review',now(),'due',now()+interval '3 days'),'FSRS-6','{}')->>'saved'='true';
- r:=study_daily_stats_v3(u);assert (r->0->>'new_cards')::int=1 and (r->0->>'learning_cards')::int=2,'graduation counts once';
- -- Cross-midnight learning counts on graduation day, never the first attempt day.
+ r:=study_daily_stats_v3(u);assert (r->0->>'new_cards')::int=1 and (r->0->>'learning_cards')::int=1,'first learning counts once independently of graduation';
+ -- Cross-midnight learning counts on its first learning day, never again on graduation.
  insert into study_cards(user_id,id,entry_id,mode,memory) values(u,late,'cross-day','basic_en_to_cn',m||'{"state":1}');
  insert into study_reviews(user_id,id,card_id,answer,rating,active_ms,previous,next,algorithm,parameters,version,reviewed_at) values
  (u,gen_random_uuid(),late,'forgot',1,1000,m,m||'{"state":1}','FSRS-6','{}',1,now()-interval '1 day'),
  (u,gen_random_uuid(),late,'remembered',3,1000,m||'{"state":1}',m||'{"state":2}','FSRS-6','{}',2,now());
- r:=study_daily_stats_v3(u);assert (r->0->>'new_cards')::int=0 and (r->1->>'new_cards')::int=2,'cross-day graduation statistics';
+ r:=study_daily_stats_v3(u);assert (r->0->>'new_cards')::int=1 and (r->1->>'new_cards')::int=1,'cross-day first-learning statistics';
  -- An outbox may replay yesterday's answer before today's start request finishes.
  insert into study_cards(user_id,id,entry_id,mode,memory) values(v,l,'pending-yesterday','basic_en_to_cn',m||'{"state":1}');
  perform study_start_learning_v3(v,to_jsonb(array[l]),'{"retention":0.9,"reviewsPerDay":1}');

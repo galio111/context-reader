@@ -30,6 +30,8 @@ jobs:
         run: node --import ./scripts/test-server-context.mjs --import tsx --test tests/provider-failover.test.ts tests/provider-billing.test.ts
       - name: Old-page assets and Reader failure recovery
         run: npm run test:release-safety
+      - name: Durable study answers and live counters
+        run: node --import ./scripts/test-server-context.mjs --import tsx --test tests/study-review-route.test.ts tests/study-review-queue.test.ts tests/study-review-receipt.test.ts tests/study-background-ui.test.tsx
       - run: npm run verify:release-contracts
       - run: npm run audit:egress
       - run: npm run build
