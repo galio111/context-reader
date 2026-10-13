@@ -1,0 +1,18 @@
+{
+  "incident": {
+    "account": "gggg",
+    "reviewedAt": "2026-10-13T07:49:28.502929Z",
+    "alreadyCommitted": true,
+    "responseBytes": 1678470,
+    "serverResponseSeconds": 18.189352909,
+    "clientTimeoutSeconds": 20
+  },
+  "validation": {
+    "studyTests": 34,
+    "criticalTests": 90,
+    "isolatedSql": "first learning, repeated answers, old review, prior-day learning, undo, grants passed",
+    "backup": "context-reader-20261013T081103Z.dump",
+    "restoreTables": 39
+  },
+  "acceptedParent": "20261013T075029"
+}

@@ -1,4 +1,4 @@
-import type { StudyAnswer, StudySnapshot } from "@/types/study";
+import type { StudyAnswer, StudySnapshot, StudyReviewReceipt } from "@/types/study";
 
 export interface PendingStudyReview {
   op: "review"; id: string; cardId: string; version: number; token: string;
@@ -50,6 +50,7 @@ export interface ReviewQueueCallbacks {
   active: () => boolean;
   changed: (pending: PendingStudyReview[], acknowledgedId: string) => void;
   saved: (snapshot: StudySnapshot) => void;
+  confirmed?: (receipt: StudyReviewReceipt) => void;
   conflict: () => void;
 }
 
@@ -62,11 +63,14 @@ export async function drainStudyReviews(
   while (callbacks.active()) {
     const review = readStudyReviews(storage, owner)[0];
     if (!review) return;
-    let snapshot: StudySnapshot;
+    let snapshot: StudySnapshot | undefined;
+    let receipt: StudyReviewReceipt | undefined;
     let conflict = false;
     try {
-      let response: { snapshot: StudySnapshot };
-      try { response = await api<{ snapshot: StudySnapshot }>(review); }
+      type Response = { snapshot?: StudySnapshot; saved?: boolean; id?: string; receipt?: StudyReviewReceipt };
+      let response: Response;
+      const request = callbacks.confirmed ? {...review,response:"receipt"} : review;
+      try { response = await api<Response>(request); }
       catch (error) {
         const code = (error as {code?: string}).code;
         if (code === "day_changed") {
@@ -76,9 +80,13 @@ export async function drainStudyReviews(
         } else if (code === "too_fast") await sleep(850);
         else throw error;
         if (!callbacks.active()) return;
-        response = await api<{ snapshot: StudySnapshot }>(review);
+        response = await api<Response>(request);
       }
       snapshot = response.snapshot;
+      receipt = response.receipt;
+      if(receipt){
+        if(!callbacks.confirmed||response.saved!==true||response.id!==review.id||receipt.review.id!==review.id||receipt.review.card_id!==review.cardId||receipt.review.answer!==review.answer||receipt.card.id!==review.cardId||receipt.card.version<=review.version||!Number.isFinite(Date.parse(receipt.serverNow)))throw new Error("Invalid study acknowledgement");
+      }else if(!snapshot)throw new Error("Missing study acknowledgement");
     } catch (error) {
       if ((error as {code?: string}).code !== "state_changed") throw error;
       // Confirm the authoritative state before resolving an answer invalidated elsewhere.
@@ -86,9 +94,11 @@ export async function drainStudyReviews(
       conflict = true;
     }
     if (!callbacks.active()) return;
+    // Apply authoritative state before removing the pending overlay.
+    if(receipt)callbacks.confirmed!(receipt);
+    else if(snapshot)callbacks.saved(snapshot);
     storage.removeItem(prefix(owner) + review.id);
     callbacks.changed(readStudyReviews(storage, owner), review.id);
-    callbacks.saved(snapshot);
     if (conflict) callbacks.conflict();
   }
 }

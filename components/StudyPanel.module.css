@@ -265,3 +265,6 @@
 .flashcard:focus,.answerBody:focus{outline:none!important}
 
 .remainingCounts{display:flex;flex-wrap:wrap;align-items:center;gap:2px 14px}.remainingCounts>span{white-space:nowrap}
+.remainingCounts>span{padding:3px 6px;border-radius:6px}
+.remainingCounts>span[data-active=true]{background:var(--study-accent-soft);color:var(--study-accent);font-weight:600}
+.remainingCounts>span[data-active=true] b{color:inherit;font-weight:600}

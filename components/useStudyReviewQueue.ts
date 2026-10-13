@@ -2,9 +2,9 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { drainStudyReviews, migrateStudyReview, readStudyReviews, storeStudyReview, studyReviewStorageEvent, type PendingStudyReview } from "@/lib/studyReviewQueue";
-import type { StudySnapshot } from "@/types/study";
+import type { StudySnapshot, StudyReviewReceipt } from "@/types/study";
 
-export function useStudyReviewQueue(owner: string, api: <T>(body?: unknown) => Promise<T>, accept: (snapshot: StudySnapshot) => void) {
+export function useStudyReviewQueue(owner: string, api: <T>(body?: unknown) => Promise<T>, accept: (snapshot: StudySnapshot) => void, confirm: (receipt: StudyReviewReceipt) => void) {
   const [pending, setPending] = useState<PendingStudyReview[]>([]);
   const [error, setError] = useState("");
   const [ready, setReady] = useState(false);
@@ -12,6 +12,7 @@ export function useStudyReviewQueue(owner: string, api: <T>(body?: unknown) => P
   const active = useRef(false), running = useRef(false), retry = useRef<ReturnType<typeof setTimeout> | null>(null);
   const failures = useRef(0), acceptRef = useRef(accept);
   acceptRef.current = accept;
+  const confirmRef = useRef(confirm);confirmRef.current=confirm;
   const changed = useCallback((items: PendingStudyReview[]) => { pendingRef.current = items; setPending(items); }, []);
   const mergeStored = useCallback((items: PendingStudyReview[], acknowledged = new Set<string>()) => {
     const ids = new Set(items.map(item => item.id));
@@ -47,6 +48,7 @@ export function useStudyReviewQueue(owner: string, api: <T>(body?: unknown) => P
         active: () => active.current,
         changed: (items, acknowledgedId) => mergeStored(items, new Set([acknowledgedId])),
         saved: snapshot => { failures.current = 0; setError(""); acceptRef.current(snapshot); },
+        confirmed: receipt => { confirmRef.current(receipt); failures.current=0;setError(""); },
         conflict: () => setError("这个词已在其他页面更新，已保留最新进度。请核对后继续。"),
       });
       await reconcileStored();

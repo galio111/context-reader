@@ -15,13 +15,14 @@ test("review distinguishes retryable day changes from real version conflicts wit
     if(path.startsWith("account_profiles?"))return [{status:"active"}];
     if(path.startsWith("study_cards?"))return [card];
     if(path.startsWith("study_days?")){assert.ok(path.includes("select=settings"));return [];}
+    if(path.startsWith("study_reviews?"))return [{id:"00000000-0000-4000-8000-000000000003",card_id:cardId,answer:"forgot"}];
     throw new Error("unexpected read "+path);
   }});
   mock("../lib/studyStore",{
     getStudySettings:async()=>DEFAULT_STUDY_SETTINGS,
     getStudySnapshot:async()=>{snapshots++;return {serverNow:new Date().toISOString()};},
     reconcileStudyCards:async()=>{},
-    studyRpc:async(name:string)=>{if(name==="review_v3")return rpcResult;if(name==="settle_rewards"){settlements++;return {};}throw new Error("unexpected rpc "+name);},
+    studyRpc:async(name:string)=>{if(name==="review_v3")return rpcResult;if(name==="daily_stats_v3")return [];if(name==="settle_rewards"){settlements++;return {};}throw new Error("unexpected rpc "+name);},
   });
   try {
     const {POST}=await import("../app/api/study/route");
@@ -32,5 +33,12 @@ test("review distinguishes retryable day changes from real version conflicts wit
     }
     rpcResult={duplicate:true};const response=await POST(request());
     assert.equal(response.status,200);assert.equal((await response.json()).saved,true);assert.equal(snapshots,1);assert.equal(settlements,1);
+    for(const state of [{saved:true},{duplicate:true}]){
+      rpcResult=state;const original=request();const body=await original.json();
+      const compact=await POST(new Request(original.url,{method:"POST",headers:original.headers,body:JSON.stringify({...body,response:"receipt"})}));
+      assert.equal(compact.status,200);const data=await compact.json();
+      assert.equal(data.saved,true);assert.equal(data.receipt.review.id,body.id);assert.equal(data.receipt.card.id,cardId);
+      assert.equal(data.snapshot,undefined);assert.equal(snapshots,1,"receipt must not wait for a full snapshot");assert.equal(settlements,1,"reward work cannot delay acknowledgement");
+    }
   } finally {restores.reverse().forEach(restore=>restore());}
 });

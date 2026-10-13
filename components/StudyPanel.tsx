@@ -25,10 +25,11 @@ import { StudyStats } from "./StudyStats";
 import { LoadingStatus } from "./LoadingStatus";
 import { CetSelect } from "./cet/CetSelect";
 import { activeStudySnapshot, chooseStudyCard, remainingStudyCounts } from "@/lib/studyPresentation";
+import { applyStudyReviewReceipt } from "@/lib/studyReviewReceipt";
 import type { VocabularyEntry } from "@/types/vocabulary";
 import { openStudySource } from "@/lib/studyNavigation";
 import { planProgress, shanghaiDay, studyPaused } from "@/lib/studyScheduler";
-import type { StudyAnswer, StudySnapshot } from "@/types/study";
+import type { StudyAnswer, StudySnapshot, StudyReviewReceipt } from "@/types/study";
 import styles from "./StudyPanel.module.css";
 import { readRecommendationPreferences, writeRecommendationPreferences, type RecommendationReadingLevel } from "@/lib/recommendationPreferences";
 
@@ -76,6 +77,7 @@ export function StudyPanel({visible,onClose,onSource,notice,requestedTab="today"
   const offset=useRef(0),requestLock=useRef(false);
   const acceptedAt=useRef(0);
   const snapshotRef=useRef<StudySnapshot|null>(null);
+  const confirmedReviews=useRef(new Map<string,StudyReviewReceipt>());
   const lastLoadedAt=useRef(0), mutationEpoch=useRef(0), mutations=useRef(0);
   const refreshRequested=useRef(true), refreshInFlight=useRef(false);
   const presentationRetry=useRef(false), retriedCard=useRef("");
@@ -85,6 +87,10 @@ export function StudyPanel({visible,onClose,onSource,notice,requestedTab="today"
   useEffect(()=>{alive.current=true;return()=>{alive.current=false;};},[]);
   const accept=useCallback((s:StudySnapshot)=>{
     if(!alive.current||Date.parse(s.serverNow)<acceptedAt.current)return;
+    for(const [id,receipt] of [...confirmedReviews.current].sort((a,b)=>Date.parse(a[1].serverNow)-Date.parse(b[1].serverNow))){
+      if(Date.parse(s.serverNow)>Date.parse(receipt.serverNow)&&(s.cards.find(c=>c.id===receipt.card.id)?.version??Infinity)>=receipt.card.version)confirmedReviews.current.delete(id);
+      else s=applyStudyReviewReceipt(s,receipt);
+    }
     const firstSnapshot=acceptedAt.current===0;
     acceptedAt.current=Date.parse(s.serverNow);
     // Any newer accepted state, including a foreground read/retry, supersedes
@@ -136,7 +142,23 @@ export function StudyPanel({visible,onClose,onSource,notice,requestedTab="today"
       if(mutating){mutationEpoch.current++;mutations.current--;if(alive.current)setRefreshTick(n=>n+1);}
     }
   },[owner]);
-  const reviews=useStudyReviewQueue(owner,api,accept);
+  const receiptRefresh=useRef<ReturnType<typeof setTimeout>|null>(null);
+  useEffect(()=>()=>{if(receiptRefresh.current)clearTimeout(receiptRefresh.current);},[]);
+  const confirmReview=useCallback((receipt:StudyReviewReceipt)=>{
+    if(!alive.current)return;
+    mutationEpoch.current++;
+    confirmedReviews.current.set(receipt.card.id,receipt);
+    const current=snapshotRef.current;
+    if(current){
+      // Merge only fields proved by the receipt; statistics and rewards remain
+      // server-owned and arrive independently without blocking the next answer.
+      const next=applyStudyReviewReceipt(current,receipt);
+      snapshotRef.current=next;setSnapshot(next);void snapshotCache.save(next);
+    }
+    if(receiptRefresh.current)clearTimeout(receiptRefresh.current);
+    receiptRefresh.current=setTimeout(requestRefresh,1500);
+  },[requestRefresh,snapshotCache]);
+  const reviews=useStudyReviewQueue(owner,api,accept,confirmReview);
   const pending=reviews.pending.length>0;
   const run=async(fn:()=>Promise<void>)=>{
     if(requestLock.current)return;
@@ -336,7 +358,7 @@ export function StudyPanel({visible,onClose,onSource,notice,requestedTab="today"
         {!snapshot?<LoadingStatus className={styles.caption}>正在连接学习记录…</LoadingStatus>:<>
           {tab!=="today"&&<header className={styles.pageHeader}><h1>{title}</h1><button onClick={()=>selectTab("today")}>继续背词<StudyIcon name="arrow"/></button></header>}
           {tab==="today"&&<article ref={questionSurface} tabIndex={-1} data-learning-surface="study" className={styles.flashcard} data-answer={Boolean(intent)} key={cardKey||"empty"} aria-label="当前复习卡片">
-            <div className={styles.cardTop}><span className={styles.remainingCounts}>{snapshot.today?<><span>正在背 <b>{remaining.learning}</b></span><span>待复习 <b>{remaining.review}</b></span><span>今日新学 <b>{learnedToday}</b></span></>:"今日学习"}</span>{undoButton}</div>
+            <div className={styles.cardTop}><span className={styles.remainingCounts} aria-live="polite" aria-atomic="true">{snapshot.today?<><span data-active={Boolean(card&&[1,3].includes(card.memory.state))} aria-current={card&&[1,3].includes(card.memory.state)?"step":undefined}>正在背 <b>{remaining.learning}</b></span><span data-active={card?.memory.state===2} aria-current={card?.memory.state===2?"step":undefined}>待复习 <b>{remaining.review}</b></span><span data-active={card?.memory.state===0} aria-current={card?.memory.state===0?"step":undefined}>今日新学 <b>{learnedToday}</b></span></>:"今日学习"}</span>{undoButton}</div>
             {!authoritative&&snapshot.today?.day!==currentDay?<div className={styles.empty}><LoadingStatus>正在准备今日学习…</LoadingStatus></div>:paused?<div className={styles.empty}><StudyIcon name="pause"/><h2>学习已暂停</h2><p>到 {new Date(snapshot.settings.pausedUntil!).toLocaleDateString("zh-CN")}。准备好时，随时回来。</p><button className={styles.primary} disabled={busy||isOffline} onClick={()=>void retryPrepare()}>恢复学习</button></div>:
             (!snapshot.today||progress.total===0)?<div className={styles.empty}><StudyIcon name="book"/><h2>{snapshot.entries.length?"今天没有待学的词":"从一个生词开始"}</h2><p>在阅读或词典里收藏单词，就能在这里复习。</p><button className={styles.primary} onClick={onClose}>去阅读<StudyIcon name="arrow"/></button>{fresh>0&&<button disabled={busy||isOffline} onClick={()=>void retryPrepare()}>检查待学单词</button>}</div>:
             card&&!entry?<div className={styles.empty}>{entryError?<><p role="alert">{entryError}</p><button onClick={retryEntry}>重试读取</button></>:<LoadingStatus>正在读取这个词…</LoadingStatus>}</div>:card&&entry?<>{!intent?<><div className={styles.prompt} lang={card.mode==="basic_cn_to_en"||card.mode==="basic_cn_to_en_dictionary"?"zh-CN":"en"}>{card.mode==="cloze_context"?<><p>{entry.anki.clozeSentence}</p><button className={styles.cue} aria-label={hint?entry.contextMeaning:"中文提示"} aria-expanded={hint} onClick={()=>setHint(v=>!v)}>{hint?entry.contextMeaning:<>中文提示 <kbd>空格</kbd></>}</button></>:card.mode==="basic_cn_to_en"||card.mode==="basic_cn_to_en_dictionary"?<><p>{entry.anki.basicCue||entry.basicMeaning}</p>{!entry.sourceSentence.trim()&&<StudyDictionaryHint entry={entry} visible={hint} onToggle={()=>setHint(v=>!v)}/>}</>:<><p className={styles.word}>{entry.word}</p>{!entry.sourceSentence.trim()?<StudyDictionaryHint entry={entry} visible={hint} onToggle={()=>setHint(v=>!v)}/>:<button className={styles.cue} aria-label={hint?entry.basicMeaning:"中文提示"} aria-expanded={hint} onClick={()=>setHint(v=>!v)}>{hint?entry.basicMeaning:<>中文提示 <kbd>空格</kbd></>}</button>}</>}</div><div className={styles.answers}>{([["forgot","不记得"],["unsure","模糊"],["remembered","记得"]] as const).map(([value,label],i)=><button key={value} data-rating={value} disabled={busy||!reviews.ready||isOffline} onClick={()=>setIntent(value)}><kbd>{i+1}</kbd>{label}</button>)}</div></>:<>
