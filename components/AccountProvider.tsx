@@ -121,6 +121,8 @@ export function AccountProvider({ children }: { children: ReactNode }) {
   const [localAccount, setLocalAccount] = useState<LocalAccountSession | null>(null);
   const [offlineActionNotice, setOfflineActionNotice] = useState("");
   const [offlineDetailsOpen, setOfflineDetailsOpen] = useState(false);
+  const [studyVisible,setStudyVisible]=useState(false);
+  useEffect(()=>{const update=(e:Event)=>setStudyVisible(Boolean((e as CustomEvent).detail));window.addEventListener("context-reader-study-view",update);return()=>window.removeEventListener("context-reader-study-view",update);},[]);
   const [connectivityChecking, setConnectivityChecking] = useState(false);
   const [connectivityToast, setConnectivityToast] = useState("");
   const [loginOpen, setLoginOpen] = useState(false);
@@ -647,7 +649,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
         </aside>
       )}
       <div inert={account.authenticated && !storageStatus.ready}>{children}</div>
-      {isOffline && (
+      {isOffline && !studyVisible && (
         <aside
           className="fixed left-1/2 top-2 z-[190] w-[min(94vw,760px)] -translate-x-1/2 rounded-xl bg-[#fff7df] px-3 py-2 text-[#533d17] shadow-[0_4px_8px_rgba(69,48,12,.16)] sm:top-3 sm:px-4 sm:py-3"
           role="status"

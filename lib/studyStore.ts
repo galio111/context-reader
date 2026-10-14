@@ -1,4 +1,5 @@
 import "server-only";
+import {issueStudyOfflinePermit} from "./studyOfflinePermit";
 import { createHash } from "node:crypto";
 import { accountFetch } from "@/lib/accountStore";
 import { DEFAULT_STUDY_SETTINGS, newMemory, shanghaiDay } from "@/lib/studyScheduler";
@@ -86,7 +87,7 @@ export async function getStudySnapshot(userId: string, prepared?: { entries: Voc
     getStudySettings(userId), studyRows<StudyCard>("study_cards", userId, "id,entry_id,mode,memory,version,suspended,anki_pending,created_at", "&order=id.asc"),
     prepared?.entries ?? getStudyEntries(userId),
     accountFetch<StudyDay[]>("study_days?user_id=eq." + encodeURIComponent(userId) + "&day=eq." + shanghaiDay(now) + "&select=*&limit=1"),
-    accountFetch<StudyReview[]>("study_reviews?user_id=eq." + encodeURIComponent(userId) + "&select=id,card_id,answer,rating,reviewed_at,active_ms,undone,previous,next&order=reviewed_at.desc&limit=20"),
+    studyRows<StudyReview>("study_reviews",userId,"id,card_id,answer,rating,reviewed_at,active_ms,undone,previous,next","&reviewed_at=gte."+encodeURIComponent(new Date(Date.parse(shanghaiDay(now)+"T00:00:00+08:00")-86400000).toISOString())+"&order=reviewed_at.desc,id.desc"),
     studyRpc<StudySnapshot["daily"]>("daily_stats_v3", { p_user: userId }), getStudyPolicy(),
     studyRows<{current:number;best:number;last_day:string|null}>("study_streaks",userId,"current,best,last_day"),
     studyRows<StudySnapshot["rewards"][number]>("study_rewards",userId,"milestone,points,plan,months,earned_at,activated_at,ends_at","&order=milestone.asc"),
@@ -96,7 +97,7 @@ export async function getStudySnapshot(userId: string, prepared?: { entries: Voc
   const active=cards.filter(c=>ids.has(c.entry_id)&&!c.suspended);
   const visible=active.filter(c=>!c.anki_pending||settings.includeAnki);
   const visibleIds=new Set(visible.map(c=>c.entry_id));
-  return { serverNow: now.toISOString(), settings, cards: visible, ankiPendingCount:active.filter(c=>c.anki_pending).length,
+  return { offlinePermit:issueStudyOfflinePermit(userId), serverNow: now.toISOString(), settings, cards: visible, ankiPendingCount:active.filter(c=>c.anki_pending).length,
     // Full dictionaries remain in synced vocabulary/cache objects. Read one saved
     // result when opening a card instead of repeating every dictionary per answer.
     entries:entries.filter(e=>visibleIds.has(e.id)).map(entry=>({...entry,dictionaryResult:undefined})), today: today[0] ?? null, reviews, daily, policy,

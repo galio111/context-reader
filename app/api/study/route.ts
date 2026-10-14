@@ -8,6 +8,7 @@ import { getStudyEntry, getStudyReminder, getStudySettings, getStudySnapshot, re
 import type { StudyAnswer, StudyCard, StudyDay, StudyReview, StudySnapshot } from "@/types/study";
 import { recordServerError } from "@/lib/serverErrorReporting";
 import { compactStudyResponse, STUDY_COMPACT_FORMAT } from "@/lib/studyTransport";
+import { saveStudyLocalEvent } from "@/lib/studyOfflineServer";
 
 export const dynamic = "force-dynamic";
 class StudyError extends Error { constructor(message: string, public status = 400, public code = "") { super(message); } }
@@ -57,15 +58,19 @@ export async function POST(request: Request) {
       throw new StudyError("请求格式不正确。");
     }
     const op = body.op;
+    if(op==="local_event")return result(request,await saveStudyLocalEvent(userId,body.event));
     if (op === "prepare") {const entries=await reconcileStudyCards(userId);return result(request, await getStudySnapshot(userId,{entries}));}
-    if (op === "start") {
+    if (op === "start" || op === "local_refresh") {
       const entries=await reconcileStudyCards(userId);
       const [settings,cards]=await Promise.all([getStudySettings(userId),studyRows<StudyCard>("study_cards",userId,"*","&order=id.asc")]);
       if (!studyPaused(settings,new Date())) {
         const ids=buildStudyPlan(cards.filter(c=>!c.suspended),settings,new Date());
         await studyRpc("start_learning_v3",{p_user:userId,p_ids:ids,p_settings:settings});
       }
-      await studyRpc("settle_rewards",{p_user:userId});
+      // Background local refreshes retain the fifteen-minute undo window.
+      // Explicit completion/claims remain server-only operations.
+      const recent=op==="local_refresh"?await accountFetch<Array<{id:string}>>("study_reviews?user_id=eq."+userId+"&undone=eq.false&reviewed_at=gt."+encodeURIComponent(new Date(Date.now()-15*60000).toISOString())+"&select=id&limit=1"):[];
+      if(!recent.length)await studyRpc("settle_rewards",{p_user:userId});
       return result(request, await getStudySnapshot(userId,{entries}));
     }
     if (op === "settings" || op === "pause" || op === "resume") {

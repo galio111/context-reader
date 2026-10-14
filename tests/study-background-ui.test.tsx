@@ -73,7 +73,7 @@ test("Study advances immediately, keeps a new answer visible across another tab'
     fireEvent.click(ui.getByRole("button",{name:/不记得/}));
     assert.ok(ui.getByText("beta answer"));
     assert.equal(ui.getByRole("button",{name:"准备中…"}).hasAttribute("disabled"),true);
-    base.cards[0]={...base.cards[0],version:1,memory:{...base.cards[0].memory,state:3,due:new Date(now.getTime()+300000).toISOString()}};
+    base.cards[0]={...base.cards[0],version:1,memory:{...base.cards[0].memory,state:2,last_review:now.toISOString(),due:new Date(now.getTime()+86400000).toISOString()}};
     // The other tab saved the same answer and removed its key. Our review HTTP
     // response is still pending: removing the overlay now would resurrect alpha
     // as a due review and remove beta's already-open answer.
@@ -108,7 +108,7 @@ test("Study advances immediately, keeps a new answer visible across another tab'
     // A held outbox write must not hold the initial snapshot or next-card recall.
     await waitFor(()=>assert.ok(ui.getByText("gamma")));
     assert.equal(ui.getByRole("button",{name:/不记得/}).hasAttribute("disabled"),false);
-    base.cards[1]={...base.cards[1],version:1,memory:{...base.cards[1].memory,state:1,due:new Date(now.getTime()+300000).toISOString()}};
+    base.cards[1]={...base.cards[1],version:1,memory:{...base.cards[1].memory,state:1,due:new Date(now.getTime()+86400000).toISOString()}};
     await act(async()=>{resolveReview(Response.json({snapshot:copy()}));});
     await waitFor(()=>assert.equal(readStudyReviews(localStorage,owner).length,0));
     assert.ok(ui.getByText("gamma"));
@@ -164,14 +164,14 @@ test("Study advances immediately, keeps a new answer visible across another tab'
     await waitFor(()=>assert.equal(active(),"今日新学 0"));
     assert.ok(ui.getByText("待复习").textContent?.includes("0"));
     // Merely presenting the untouched new word cannot add it to ongoing learning.
-    assert.equal(ui.getByText("正在背").textContent,"正在背 1");
+    assert.equal(ui.getByText("正在背").textContent,"正在背 0");
     assert.equal(base.cards[2].memory.state,0);
     assert.equal(receiptWrites,2);
     fireEvent.click(ui.getByRole("button",{name:/^3\s*记得$/}));
     await waitFor(()=>assert.equal(ui.getByRole("button",{name:"答对了"}).hasAttribute("disabled"),false));
     fireEvent.click(ui.getByRole("button",{name:"答对了"}));
     await waitFor(()=>assert.ok(ui.getByText("今日新学").textContent?.includes("1")));
-    assert.equal(ui.getByText("正在背").textContent,"正在背 2");
+    assert.equal(ui.getByText("正在背").textContent,"正在背 0");
     assert.equal(readStudyReviews(localStorage,owner).length,0);assert.equal(receiptWrites,3);
     ui.unmount();localStorage.clear();
     // A learning step becomes due after the next review is already on screen.

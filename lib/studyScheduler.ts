@@ -1,9 +1,10 @@
 import { BasicLearningStepsStrategy, createEmptyCard, fsrs, Rating, State, StrategyMode, type Card, type StepUnit } from "ts-fsrs";
-import type { StudyAnswer, StudyCard, StudyMemory, StudySettings } from "@/types/study";
+import type { StudyAnswer, StudyCard, StudyMemory, StudySettings, StudyReview } from "@/types/study";
 
 // Pin the library and store the identity with every event. No hand-written interval multiplier.
 export const STUDY_ALGORITHM = "FSRS-6/ts-fsrs-5.4.2";
 export const DEFAULT_STUDY_SETTINGS: StudySettings = {
+  learningOrder: "review_first", reviewsPerNew: 5,
   reviewsPerDay: 100, retention: 0.9, forgotMinutes:5, unsureMinutes:10, pausedUntil: null, reminders: true, includeAnki: false,
 };
 export function studyRating(answer: StudyAnswer): Rating.Again | Rating.Hard | Rating.Good {
@@ -56,7 +57,10 @@ export function sanitizeStudySettings(input: unknown, current = DEFAULT_STUDY_SE
   const retention = p.retention ?? current.retention;
   if (typeof retention !== "number" || !Number.isFinite(retention) || retention < .8 || retention > .95) throw new Error("目标记住概率应在 80%–95% 之间。");
   for (const key of ["reminders", "includeAnki"] as const) if (p[key] !== undefined && typeof p[key] !== "boolean") throw new Error("学习设置无效。");
+  if (p.learningOrder !== undefined && !["review_first","mixed"].includes(p.learningOrder)) throw new Error("学习顺序无效。");
   return { ...current,
+    learningOrder:p.learningOrder??current.learningOrder??"review_first",
+    reviewsPerNew:Math.max(1,integer(p.reviewsPerNew,current.reviewsPerNew??5,100)),
     forgotMinutes:Math.max(1,integer(p.forgotMinutes,current.forgotMinutes??5,120)),
     unsureMinutes:Math.max(1,integer(p.unsureMinutes,current.unsureMinutes??10,120)),
     reviewsPerDay: Math.max(1, integer(p.reviewsPerDay, current.reviewsPerDay, 300)), retention,
@@ -78,21 +82,28 @@ export function isStudyLearning(memory: StudyMemory): boolean {
 export function studyQueuePriority(card: StudyCard): number {
   return isStudyLearning(card.memory) ? 0 : card.memory.state === State.Review ? 1 : 2;
 }
-export function planProgress(cards: StudyCard[], ids: string[], now: Date, newIds?: string[]) {
+export function planProgress(cards: StudyCard[], ids: string[], now: Date, newIds?: string[], settings: StudySettings = DEFAULT_STUDY_SETTINGS, reviews: StudyReview[] = []) {
   const byId = new Map(cards.map(c => [c.id,c]));
   const selected = ids.flatMap(id => { const c = byId.get(id); return c && !c.suspended ? [c] : []; });
   const end = studyDayEnd(now).getTime();
   const finished = selected.filter(c => c.memory.last_review && shanghaiDay(new Date(c.memory.last_review)) === shanghaiDay(now)
     && c.memory.state === State.Review && Date.parse(c.memory.due) >= end);
   const finishedSet=new Set(finished);
-  const newSet=new Set(newIds??selected.filter(c=>c.memory.state===State.New).map(c=>c.id));
-  // A failed answer enters timed learning. Waiting for it must not hold up the
-  // first pass of the remaining reviews or the introduction of new words.
-  const reviewRemaining=selected.some(c=>c.memory.state===State.Review&&!finishedSet.has(c));
-  const available=selected.filter(c=>!finishedSet.has(c)&&(!reviewRemaining||c.memory.state!==State.New));
+  void newIds; // Kept for compatible callers; current state identifies untouched words.
+  const history=reviews.filter(r=>!r.undone&&shanghaiDay(new Date(r.reviewed_at))===shanghaiDay(now));
+  const introduced=new Set(history.filter(r=>r.previous.state===State.New).map(r=>r.card_id));
+  const lastNew=Math.max(0,...history.filter(r=>r.previous.state===State.New).map(r=>Date.parse(r.reviewed_at)));
+  // Only distinct old words finished for today count. Today's introduced words
+  // never fund another new word, including when their learning steps return.
+  const passed=new Set(history.filter(r=>!introduced.has(r.card_id)&&Date.parse(r.reviewed_at)>lastNew&&r.previous.state!==State.New&&r.next.state===State.Review&&Date.parse(r.next.due)>=end&&finished.some(c=>c.id===r.card_id)).map(r=>r.card_id)).size;
+  const reviewRemaining=selected.some(c=>c.memory.state!==State.New&&!introduced.has(c.id)&&!finishedSet.has(c)&&Date.parse(c.memory.due)<end);
+  const mixed=settings.learningOrder==="mixed";
+  const newTurn=mixed&&passed>=(settings.reviewsPerNew??5);
+  const allowNew=!reviewRemaining||newTurn;
+  const available=selected.filter(c=>!finishedSet.has(c)&&(allowNew||c.memory.state!==State.New));
   const ready = available.filter(c => Date.parse(c.memory.due) <= now.getTime())
-    .sort((a,b) => studyQueuePriority(a)-studyQueuePriority(b) || Date.parse(a.memory.due) - Date.parse(b.memory.due) || a.id.localeCompare(b.id));
+    .sort((a,b) => (newTurn?Number(b.memory.state===0)-Number(a.memory.state===0):0) || studyQueuePriority(a)-studyQueuePriority(b) || Date.parse(a.memory.due) - Date.parse(b.memory.due) || a.id.localeCompare(b.id));
   const readySet = new Set(ready);
   const waiting = available.filter(c => !readySet.has(c));
-  return { total: selected.length, finished: finished.length, ready, waiting, blockedNew:reviewRemaining?selected.filter(c=>newSet.has(c.id)&&c.memory.state===State.New).length:0 };
+  return { total: selected.length, finished: finished.length, ready, waiting, newTurn, blockedNew:!allowNew?selected.filter(c=>c.memory.state===State.New).length:0 };
 }

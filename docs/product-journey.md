@@ -2046,3 +2046,8 @@ User reported a long wait every time the vocabulary learning system opened and r
 ## 2026-10-13 — 出题队列冲突自动恢复（待生产验收）
 
 用户明确将正常背词过程中的内部冲突红条定为红线。修复已拒绝卡片被继续固定的问题，并为出题冲突增加可恢复协议及退避重试；不重置 gggg 数据。测试复现到期优先级与连续冲突，详见 `docs/study-presentation-recovery-20261013.md`。
+
+
+## 2026-10-14 — Study ordering and offline progress candidate
+
+Added review-first/mixed ordering, distinct-word interval accounting, stable undo selection, plan-consistent today forecast and an account-scoped durable offline event journal. Read-only gggg diagnosis explains 121 versus 99; no user learning records changed. Study, storage and controlled-browser regressions pass; production cutover and acceptance remain pending. See [evidence and boundaries](study-order-offline-20261014.md).

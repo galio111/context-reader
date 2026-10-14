@@ -30,8 +30,10 @@ export function StudySettings({value, save, onSaved, order, motion, onDisplay, p
     if(timer.current)clearTimeout(timer.current);
     timer.current=setTimeout(()=>void flush.current(),450);
   }
-  function number(key:"reviewsPerDay"|"forgotMinutes"|"unsureMinutes",label:string,max:number,unit:string){return <div className={styles.settingRow}><label htmlFor={"study-"+key}>{label}</label><div className={styles.fieldUnit}><input id={"study-"+key} aria-label={label} type="number" min="1" max={max} defaultValue={draft[key]} onBlur={e=>{const n=Math.max(1,Math.min(max,Math.round(Number(e.target.value)||value[key]||1)));e.target.value=String(n);if(n!==draft[key])change({[key]:n});}} onKeyDown={e=>{if(e.key==="Enter")e.currentTarget.blur();}}/><span>{unit}</span></div></div>;}
+  function number(key:"reviewsPerDay"|"forgotMinutes"|"unsureMinutes"|"reviewsPerNew",label:string,max:number,unit:string){return <div className={styles.settingRow}><label htmlFor={"study-"+key}>{label}</label><div className={styles.fieldUnit}><input id={"study-"+key} aria-label={label} type="number" min="1" max={max} defaultValue={draft[key]??(key==="reviewsPerNew"?5:undefined)} onBlur={e=>{const n=Math.max(1,Math.min(max,Math.round(Number(e.target.value)||value[key]||1)));e.target.value=String(n);if(n!==draft[key])change({[key]:n});}} onKeyDown={e=>{if(e.key==="Enter")e.currentTarget.blur();}}/><span>{unit}</span></div></div>;}
   return <section className={styles.surface}>
+    <div className={styles.settingRow}><span>学习顺序</span><CetSelect label="学习顺序" value={draft.learningOrder??"review_first"} options={[{key:"review_first",text:"先复习，再学新词"},{key:"mixed",text:"复习时穿插新词"}]} onChange={v=>change({learningOrder:v as Settings["learningOrder"]})}/></div>
+    {draft.learningOrder==="mixed"&&number("reviewsPerNew","每复习多少词，学 1 个新词",100,"词")}
     {number("reviewsPerDay","每日最多复习",300,"词")}
     <div className={styles.settingRow}><div><span>目标记住率</span><p>越高，复习越频繁</p></div><CetSelect label="目标记住率" value={String(draft.retention)} options={[.85,.9,.95].map(n=>({key:String(n),text:Math.round(n*100)+"%"}))} onChange={n=>change({retention:Number(n)})}/></div>
     {number("forgotMinutes","不记得后，再次出现",120,"分钟")}

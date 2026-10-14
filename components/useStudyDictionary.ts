@@ -12,8 +12,8 @@ import type { DictionaryResult } from "@/types/dictionary";
 
 /** Reading a study card is always free. Only explicit dictionary actions generate. */
 export function useStudyDictionary(entry: VocabularyEntry | undefined) {
-  const {account,isOffline}=useAccount();
-  const owner=account.profile?.userId;
+  const {account,isOffline,localAccount}=useAccount();
+  const owner=account.profile?.userId??(isOffline?localAccount?.userId:undefined);
   const [saved,setSaved]=useState<{owner:string;id:string;result:DictionaryResult|null;updatedAt:string}|null>(null);
   const [loading,setLoading]=useState(false);
   useEffect(()=>{

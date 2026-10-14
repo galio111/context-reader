@@ -41,8 +41,8 @@ export function preloadStudyEntry(owner: string, entry: VocabularyEntry): Promis
 
 /** A list summary must never become a question, source link or complete answer. */
 export function useStudyEntry(summary: VocabularyEntry | undefined) {
-  const {account, isOffline} = useAccount();
-  const owner = account.profile?.userId ?? "";
+  const {account, isOffline, localAccount} = useAccount();
+  const owner = account.profile?.userId ?? (isOffline?localAccount?.userId:undefined) ?? "";
   const [loaded, setLoaded] = useState<{key:string;entry:VocabularyEntry} | null>(null);
   const [failure, setFailure] = useState<{key:string;message:string;missing:boolean} | null>(null);
   const [attempt, setAttempt] = useState(0);

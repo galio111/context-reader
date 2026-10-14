@@ -11,6 +11,7 @@ export interface StudyCard {
   suspended: boolean; anki_pending: boolean; created_at: string;
 }
 export interface StudySettings {
+  learningOrder?: "review_first" | "mixed"; reviewsPerNew?: number;
   /** Retained for old plan snapshots; new plans do not cap new words. */
   newPerDay?: number; reviewsPerDay: number; retention: number;
   forgotMinutes?: number; unsureMinutes?: number;
@@ -38,6 +39,7 @@ export interface StudyPolicy {
   profileEnabled: boolean; profileCost: number; minimumReadingMinutes: number; minimumLookups: number;
 }
 export interface StudySnapshot {
+  offlinePermit?: string;
   ankiPendingCount?:number;
   serverNow: string; settings: StudySettings; cards: StudyCard[]; entries: VocabularyEntry[];
   today: StudyDay | null; reviews: StudyReview[];

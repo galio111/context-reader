@@ -1,5 +1,10 @@
 # Context Reader Architecture
 
+## Offline study queue (2026-10-14 candidate)
+
+`studyOffline` projects the signed, account-scoped server base plus immutable review/undo/settings events. `studyOfflineStore` commits journal and base atomically in IndexedDB; `useStudyOffline` retries background uploads and refreshes without selecting a different visible question. The server recomputes FSRS and `study_local_event_v1` serializes per account, checks versions, records idempotent event outcomes and returns a small card/ledger acknowledgement. Pending projections never create reward credit or server authority. Queue/forecast/UI rules and limitations are canonical in [vocabulary study](vocabulary-study.md).
+
+
 ## Cross-release Reader availability
 
 Mainland Caddy serves `/_next/static/*` from the read-only permanent store `/opt/context-reader-shared/next-static`. The stable deployment helper preserves current and candidate build assets before cutover, validates public paths and immutable SHA-256 identity, and refuses capacity exhaustion without pruning historical assets. This route bypasses the application's legacy Brotli middleware; current Caddy uses dynamic gzip/zstd because its precompressed full-response path incorrectly returns 206. `RecoverableReader` supplies separate Reader/CET lazy-load and render boundaries, manual fresh-import retry and return-home without reloading HomeClient or consuming import quota again. Imported text remains available after returning home; private diagnostics exclude body text and arbitrary messages. Contract, incident and acceptance status: [Reading across releases](release-safe-reader.md).

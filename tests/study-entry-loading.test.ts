@@ -38,7 +38,7 @@ function harness(count: number) {
  function load(file:string,imports:Record<string,unknown>){
   const module={exports:{}};
   const code=ts.transpileModule(readFileSync(file,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
-  runInNewContext(code,{module,exports:module.exports,require:(key:string)=>{if(key in imports)return imports[key];if(key==='@/lib/studyTransport')return transport;throw Error(key);},Date,Set,Map,URL,URLSearchParams,console,encodeURIComponent});
+  runInNewContext(code,{module,exports:module.exports,require:(key:string)=>{if(key in imports)return imports[key];if(key==='@/lib/studyTransport')return transport;if(key==='./studyOfflinePermit')return {issueStudyOfflinePermit:()=> 'test-permit'};if(key==='@/lib/studyOfflineServer')return {saveStudyLocalEvent:()=>{throw Error('unexpected offline event');}};throw Error(key);},Date,Set,Map,URL,URLSearchParams,console,encodeURIComponent});
   return module.exports as typeof import('../lib/studyStore') & typeof import('../app/api/study/route');
  }
  const store=load('lib/studyStore.ts',{'server-only':{},'node:crypto':{createHash},'@/lib/accountStore':{accountFetch},'@/lib/studyScheduler':scheduler});
