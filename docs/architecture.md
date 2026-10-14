@@ -1,6 +1,6 @@
 # Context Reader Architecture
 
-## Offline study queue (2026-10-14 candidate)
+## Offline study queue (accepted 20261014T111000)
 
 `studyOffline` projects the signed, account-scoped server base plus immutable review/undo/settings events. `studyOfflineStore` commits journal and base atomically in IndexedDB; `useStudyOffline` retries background uploads and refreshes without selecting a different visible question. The server recomputes FSRS and `study_local_event_v1` serializes per account, checks versions, records idempotent event outcomes and returns a small card/ledger acknowledgement. Pending projections never create reward credit or server authority. Queue/forecast/UI rules and limitations are canonical in [vocabulary study](vocabulary-study.md).
 

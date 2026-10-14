@@ -2051,3 +2051,7 @@ User reported a long wait every time the vocabulary learning system opened and r
 ## 2026-10-14 — Study ordering and offline progress candidate
 
 Added review-first/mixed ordering, distinct-word interval accounting, stable undo selection, plan-consistent today forecast and an account-scoped durable offline event journal. Read-only gggg diagnosis explains 121 versus 99; no user learning records changed. Study, storage and controlled-browser regressions pass; production cutover and acceptance remain pending. See [evidence and boundaries](study-order-offline-20261014.md).
+
+## 2026-10-14 — Study ordering and offline release accepted
+
+Accepted `20261014T111000`, parent `20261013T233500`, source `9218f41dc8d34e8466d2dff72badd5a796ffbc49` at 03:10:04 UTC. The first candidate `20261014T110000` was stopped before cutover to correct offline daily categories and never became production. The final release preserves first-answer new-word counts, review/learning distinctions and undo reversal. 68 Study tests, 139 architecture regressions, exact-source CI, builds and release contracts pass. Real public APIs and actual offline Chrome answer/undo/settings/reconnect passed, with both temporary accounts removed. Controlled mobile/mixed-sequence checks and old-page Reader across cutover passed. Public identity, Admin/account/sync, seven services, 40-table SHA restore, current/parent rollback images and unchanged five backend identities verified. Physical devices, other browsers and user visual acceptance remain open. [Full evidence](study-order-offline-20261014.md).

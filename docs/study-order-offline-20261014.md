@@ -2,7 +2,7 @@
 
 ## Status
 
-Candidate based on accepted production `20261013T233500`, parent `20261013T230800`, source `4ed49a47f7d891cc73bb3fdb94d1301b92979113`. The first candidate 20261014T110000 was deliberately stopped before cutover after finding a daily-category projection mismatch; the correction counts first answers, prior learning and ordinary reviews exactly as study_daily_stats_v3. Production release identity and post-cutover evidence remain pending. No gggg learning data was edited for diagnosis or tests.
+Accepted production `20261014T111000`, parent `20261013T233500`, source `9218f41dc8d34e8466d2dff72badd5a796ffbc49`, at 2026-10-14 03:10:04 UTC. Public connectivity, accepted state and the stable locked entrypoint agree. Exact reviewed delta: 36 files. Later documentation commits do not change the deployed source identity. No gggg learning data was edited for diagnosis or tests.
 
 ## Behavior
 
@@ -22,7 +22,13 @@ Read-only gggg snapshot on 2026-10-14: 93 ordinary reviews due now, 22 due later
 - 139 architecture/account/reading regressions passed.
 - Isolated `context_reader_study_1005` SQL transaction passed duplicate-event, id reuse, owner isolation, version conflict, undo and browser-role assertions; fixtures rolled back.
 - Real compiled UI with controlled API fixture passed desktop settings, 390px reduced-motion layout, offline old-old-new sequence, stable undo, reconnect and reload. Screenshots and JSON: `artifacts/study-offline-browser` (local evidence only; not packaged).
-- Final build, release contracts, exact-source CI, production API/browser checks, additive migration, health, backup restore and rollback evidence pending.
+- Local/server builds, 11 release contracts, nine release-safety tests and exact-source [CI](https://github.com/galio111/context-reader/actions/runs/38504301456) passed.
+- Public API tests with a temporary account passed protocol-2 vocabulary sync, duplicate retry, undo, settings, export and authorization boundaries. Receipt: 1,767 bytes / 104 ms; duplicate: 97 ms. The temporary account was removed.
+- Real Chrome with a separate temporary account and no API mocks passed actual offline answer/undo, stable restored card, no network warning, reconnect persistence, offline settings/reload and export. Three original events persisted; zero page errors. The temporary account was removed.
+- Controlled deployed UI passed desktop/390px reduced motion, default/mixed ordering, interval changes, offline old-old-new, undo, reconnect and reload. The old page held across cutover opened Reader with unchanged document timeOrigin and no failed static assets; that reading fixture intercepted business APIs.
+- Recovery Admin read-only session/models/study/accounts returned 200. Seven-service health passed; five backend identities and start times remained unchanged. Only app/caddy recreated.
+- Backup `20261014T031213Z` passed SHA verification and isolated 40-table restore. Current and direct-parent rollback images are available. Standard image retention completed; root disk is 71%.
+- Local evidence is under `artifacts/study-order-release-20261014/` in the shared repository. Physical devices, other browsers and final user visual acceptance remain open.
 
 ## Recovery
 
