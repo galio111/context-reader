@@ -268,3 +268,29 @@
 .remainingCounts>span{padding:3px 6px;border-radius:6px}
 .remainingCounts>span[data-active=true]{background:var(--study-accent-soft);color:var(--study-accent);font-weight:600}
 .remainingCounts>span[data-active=true] b{color:inherit;font-weight:600}
+
+/* Context-first study detail, shared by review and vocabulary. */
+.dialog .definitions{display:flex;flex-direction:column;gap:18px}
+.contextSentence{padding:0 0 22px;margin:0 0 22px;border-bottom:1px solid var(--study-line);overflow-wrap:anywhere}
+.contextSentence p{font-size:19px;line-height:1.85;margin:0;white-space:pre-wrap}
+.contextSentence p+p{font-size:14px;line-height:1.75;color:var(--study-muted);margin-top:10px}
+.learningSections section{margin-top:24px;padding-top:20px;border-top:1px solid var(--study-line)}
+.learningSections h3{font-size:12px;font-weight:500;color:var(--study-muted);margin:0 0 9px}
+.learningSections p,.learningSections li{font-size:14px;line-height:1.8;white-space:pre-line;overflow-wrap:anywhere;margin:0}
+.learningSections ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:7px}
+.learningSections .exampleTranslation{color:var(--study-muted);margin-top:7px}
+.spellingSlot{display:inline-grid;position:relative;vertical-align:baseline;max-width:100%;min-width:3em;border-bottom:1.5px solid var(--study-control);padding:0 .25em;margin:0 .12em;line-height:inherit}
+.spellingMeasure{grid-area:1/1;visibility:hidden;white-space:pre;padding:0 .2em;max-width:100%;overflow:hidden}
+.dialog .spellingInput{position:absolute;inset:0;width:100%;min-width:0;background:transparent;border:0;border-radius:0;padding:0 .2em;text-align:center;font:inherit;line-height:inherit;color:var(--study-ink);outline:none;box-shadow:none}
+.dialog .prompt .spellingSlot input.spellingInput:focus-visible{outline:none!important}
+.spellingSlot:focus-within{border-color:var(--study-accent)}
+.spellingInput::placeholder{font-size:12px;letter-spacing:.04em;color:var(--study-muted);opacity:.65}
+.spellingResult{overflow-wrap:anywhere}
+.spellingChange{color:var(--study-error)}
+.spellingChange del{text-decoration-thickness:1.5px;text-decoration-color:currentColor}
+.spellingChange ins{color:var(--study-ink);text-decoration:none;margin-left:.16em;font-weight:600}
+.spellingChange ins[data-missing=true]{color:var(--study-error);text-decoration:underline;text-underline-offset:.18em;text-decoration-thickness:1.5px;margin-left:0}
+.spellingCorrect{color:#26704a}
+.spellingCorrect svg{display:inline!important;width:.85em;height:.85em;vertical-align:baseline;margin-left:.15em}
+:global([data-context-theme=night]) .spellingCorrect{color:#8dd3a9}
+@media(max-width:760px){.contextSentence p{font-size:17px}.contextSentence p+p{font-size:13px}.contextSentence{padding-bottom:18px;margin-bottom:18px}.learningSections section{margin-top:20px;padding-top:17px}}

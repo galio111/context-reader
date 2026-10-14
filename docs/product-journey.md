@@ -2051,3 +2051,8 @@ User reported a long wait every time the vocabulary learning system opened and r
 ## 2026-10-14 — Study ordering and offline progress candidate
 
 Added review-first/mixed ordering, distinct-word interval accounting, stable undo selection, plan-consistent today forecast and an account-scoped durable offline event journal. Read-only gggg diagnosis explains 121 versus 99; no user learning records changed. Study, storage and controlled-browser regressions pass; production cutover and acceptance remain pending. See [evidence and boundaries](study-order-offline-20261014.md).
+
+
+## 2026-10-14：划词可选拼写与原句优先详情
+
+用户要求一个稳定长度的拼写空位、无需先点击直接输入、任一回忆选择后按字母批改，并否定横排释义、重复原句和收起详情。按错字/多字删除线、漏字下划线、正确绿色勾区分，短语空格保留；原句与句译在上，释义/用法/搭配/新例句单列全展开，共用于生词本。仅改变核对呈现，不改变真实评分与 FSRS。用户授权临时第 13 个独立工作区。实现与本地回归通过，生产身份及最终验证见 [发布记录](study-spelling-20261014.md)；用户最终视觉验收待确认。

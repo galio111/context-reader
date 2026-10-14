@@ -32,7 +32,7 @@ test("every cold word plays after one click without Web Audio; stale loads and g
   const originalFetch=globalThis.fetch, originalCreate=URL.createObjectURL, originalRevoke=URL.revokeObjectURL;
   const blobs=new Map<string,Blob>(), pending=new Map<string,(response:Response)=>void>();
   let serial=0,inClick=false,deny=false,requests=0;
-  URL.createObjectURL=blob=>{const url="blob:test-"+(++serial);blobs.set(url,blob);return url;};
+  URL.createObjectURL=blob=>{const url="blob:test-"+(++serial);assert.ok(blob instanceof Blob);blobs.set(url,blob);return url;};
   URL.revokeObjectURL=url=>{blobs.delete(url);};
   globalThis.fetch=async(_url,init)=>{requests++;const text=JSON.parse(String(init?.body)).text;return new Promise(resolve=>pending.set(text,resolve));};
   Object.defineProperty(dom.window,"AudioContext",{value:undefined,configurable:true});

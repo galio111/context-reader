@@ -8,6 +8,8 @@ import { useStudyReviewQueue } from "./useStudyReviewQueue";
 import { StudyRewards } from "./StudyRewards";
 import { StudyIcon, type StudyIconName } from "./StudyIcon";
 import { StudyDialog } from "./StudyDialog";
+import { StudySpellingInput } from "./StudySpelling";
+import { spellingSentence } from "@/lib/studySpelling";
 import { StudyWord } from "./StudyWord";
 import { StudyDictionaryHint } from "./StudyDictionaryHint";
 import { BookDictionary } from "./BookDictionary";
@@ -46,6 +48,8 @@ export function StudyPanel({visible,onClose,onSource,notice,requestedTab="today"
   const [busy,setBusy]=useState(false),[error,setError]=useState(""),[message,setMessage]=useState(notice);
   const [intent,setIntent]=useState<"forgot"|"unsure"|"remembered"|null>(null);
   const [assisted,setAssisted]=useState(false);
+  const [spelling,setSpelling]=useState("");
+  const spellingInput=useRef<HTMLInputElement>(null);
   const [token,setToken]=useState("");
   const [presentation,setPresentation]=useState(0);
   const [tick,setTick]=useState(Date.now());
@@ -255,7 +259,7 @@ export function StudyPanel({visible,onClose,onSource,notice,requestedTab="today"
   },[visible,isOffline,owner,card?.id,queueProgress.ready,liveEntries]);
   const cardKey=card?card.id+":"+card.version:"";
   useEffect(()=>{if(visible&&tab==="today"&&cardKey)questionSurface.current?.focus({preventScroll:true});},[visible,tab,cardKey]);
-  useEffect(()=>{setIntent(null);setHint(false);setAssisted(false);answerBody.current?.scrollTo(0,0);},[cardKey]);
+  useEffect(()=>{setIntent(null);setHint(false);setAssisted(false);setSpelling("");answerBody.current?.scrollTo(0,0);},[cardKey]);
   const activeMs=useStudyTimer(visible&&tab==="today"&&Boolean(card)&&Boolean(entry)&&Boolean(token)&&!busy&&!pending&&!pauseConfirm&&confirm===null&&!wordDetail&&!relatedQuery&&!rewardNotice&&!menuOpen,cardKey,owner);
   useEffect(()=>{
     setToken("");
@@ -283,7 +287,10 @@ export function StudyPanel({visible,onClose,onSource,notice,requestedTab="today"
   useEffect(()=>{
     const fn=(e:KeyboardEvent)=>{
       if(menuOpen||!visible||tab!=="today"||!card||!entry||confirm!==null||pauseConfirm||wordDetail||relatedQuery||rewardNotice||["INPUT","SELECT","TEXTAREA"].includes((e.target as HTMLElement)?.tagName))return;
-      if(e.repeat||e.altKey||e.ctrlKey||e.metaKey||(e.target as HTMLElement)?.isContentEditable)return;
+      if(e.isComposing||e.repeat||e.altKey||e.ctrlKey||e.metaKey||(e.target as HTMLElement)?.isContentEditable)return;
+      if(!intent&&card.mode==="cloze_context"&&spellingSentence(entry.sourceSentence,entry.word)&&e.key.length===1&&(e.key!==" "||!(e.target as HTMLElement)?.closest("button,a,[role=button]"))){
+        e.preventDefault();spellingInput.current?.focus({preventScroll:true});setSpelling(value=>(value+e.key).slice(0,256));return;
+      }
       if(!intent&&e.code==="Space"&&(!entry?.sourceSentence.trim()||(card.mode!=="basic_cn_to_en"&&card.mode!=="basic_cn_to_en_dictionary"))&&!(e.target as HTMLElement)?.closest("button,a,[role=button]")){e.preventDefault();setHint(value=>!value);return;}
       if(busy)return;
       if(!intent&&["1","2","3"].includes(e.key)){e.preventDefault();setIntent(e.key==="1"?"forgot":e.key==="2"?"unsure":"remembered");}
@@ -376,8 +383,8 @@ export function StudyPanel({visible,onClose,onSource,notice,requestedTab="today"
             <div className={styles.cardTop}><span className={styles.remainingCounts} aria-live="polite" aria-atomic="true">{snapshot.today?<><span data-active={Boolean(card&&[1,3].includes(card.memory.state))} aria-current={card&&[1,3].includes(card.memory.state)?"step":undefined}>正在背 <b>{remaining.learning}</b></span><span data-active={card?.memory.state===2} aria-current={card?.memory.state===2?"step":undefined}>待复习 <b>{remaining.review}</b></span><span data-active={card?.memory.state===0} aria-current={card?.memory.state===0?"step":undefined}>今日新学 <b>{learnedToday}</b></span></>:"今日学习"}</span>{undoButton}</div>
             {!authoritative&&snapshot.today?.day!==currentDay?<div className={styles.empty}><LoadingStatus>正在准备今日学习…</LoadingStatus></div>:paused?<div className={styles.empty}><StudyIcon name="pause"/><h2>学习已暂停</h2><p>到 {new Date(snapshot.settings.pausedUntil!).toLocaleDateString("zh-CN")}。准备好时，随时回来。</p><button className={styles.primary} disabled={busy||isOffline} onClick={()=>void retryPrepare()}>恢复学习</button></div>:
             (!snapshot.today||progress.total===0)?<div className={styles.empty}><StudyIcon name="book"/><h2>{snapshot.entries.length?"今天没有待学的词":"从一个生词开始"}</h2><p>在阅读或词典里收藏单词，就能在这里复习。</p><button className={styles.primary} onClick={onClose}>去阅读<StudyIcon name="arrow"/></button>{fresh>0&&<button disabled={busy||isOffline} onClick={()=>void retryPrepare()}>检查待学单词</button>}</div>:
-            card&&!entry?<div className={styles.empty}>{entryError?<><p role="alert">{entryError}</p><button onClick={retryEntry}>重试读取</button></>:<LoadingStatus>正在读取这个词…</LoadingStatus>}</div>:card&&entry?<>{!intent?<><div className={styles.prompt} lang={card.mode==="basic_cn_to_en"||card.mode==="basic_cn_to_en_dictionary"?"zh-CN":"en"}>{card.mode==="cloze_context"?<><p>{entry.anki.clozeSentence}</p><button className={styles.cue} aria-label={hint?entry.contextMeaning:"中文提示"} aria-expanded={hint} onClick={()=>setHint(v=>!v)}>{hint?entry.contextMeaning:<>中文提示 <kbd>空格</kbd></>}</button></>:card.mode==="basic_cn_to_en"||card.mode==="basic_cn_to_en_dictionary"?<><p>{entry.anki.basicCue||entry.basicMeaning}</p>{!entry.sourceSentence.trim()&&<StudyDictionaryHint entry={entry} visible={hint} onToggle={()=>setHint(v=>!v)}/>}</>:<><p className={styles.word}>{entry.word}</p>{!entry.sourceSentence.trim()?<StudyDictionaryHint entry={entry} visible={hint} onToggle={()=>setHint(v=>!v)}/>:<button className={styles.cue} aria-label={hint?entry.basicMeaning:"中文提示"} aria-expanded={hint} onClick={()=>setHint(v=>!v)}>{hint?entry.basicMeaning:<>中文提示 <kbd>空格</kbd></>}</button>}</>}</div><div className={styles.answers}>{([["forgot","不记得"],["unsure","模糊"],["remembered","记得"]] as const).map(([value,label],i)=><button key={value} data-rating={value} disabled={busy||!reviews.ready} onClick={()=>setIntent(value)}><kbd>{i+1}</kbd>{label}</button>)}</div></>:<>
-              <div ref={answerBody} className={styles.answerBody} key={cardKey+"answer"} tabIndex={0} aria-label="核对答案"><StudyWord entry={entry} onSource={source} onLookup={openRelatedLookup}/></div>
+            card&&!entry?<div className={styles.empty}>{entryError?<><p role="alert">{entryError}</p><button onClick={retryEntry}>重试读取</button></>:<LoadingStatus>正在读取这个词…</LoadingStatus>}</div>:card&&entry?<>{!intent?<><div className={styles.prompt} lang={card.mode==="basic_cn_to_en"||card.mode==="basic_cn_to_en_dictionary"?"zh-CN":"en"}>{card.mode==="cloze_context"?<><StudySpellingInput sentence={entry.sourceSentence} word={entry.word} value={spelling} onChange={setSpelling} inputRef={spellingInput} fallback={entry.anki.clozeSentence}/><button className={styles.cue} aria-label={hint?entry.contextMeaning:"中文提示"} aria-expanded={hint} onClick={()=>setHint(v=>!v)}>{hint?entry.contextMeaning:<>中文提示</>}</button></>:card.mode==="basic_cn_to_en"||card.mode==="basic_cn_to_en_dictionary"?<><p>{entry.anki.basicCue||entry.basicMeaning}</p>{!entry.sourceSentence.trim()&&<StudyDictionaryHint entry={entry} visible={hint} onToggle={()=>setHint(v=>!v)}/>}</>:<><p className={styles.word}>{entry.word}</p>{!entry.sourceSentence.trim()?<StudyDictionaryHint entry={entry} visible={hint} onToggle={()=>setHint(v=>!v)}/>:<button className={styles.cue} aria-label={hint?entry.basicMeaning:"中文提示"} aria-expanded={hint} onClick={()=>setHint(v=>!v)}>{hint?entry.basicMeaning:<>中文提示 <kbd>空格</kbd></>}</button>}</>}</div><div className={styles.answers}>{([["forgot","不记得"],["unsure","模糊"],["remembered","记得"]] as const).map(([value,label],i)=><button key={value} data-rating={value} disabled={busy||!reviews.ready} onClick={()=>setIntent(value)}>{card.mode!=="cloze_context"&&<kbd>{i+1}</kbd>}{label}</button>)}</div></>:<>
+              <div ref={answerBody} className={styles.answerBody} key={cardKey+"answer"} tabIndex={0} aria-label="核对答案"><StudyWord entry={entry} spelling={card.mode==="cloze_context"?spelling:undefined} onSource={source} onLookup={openRelatedLookup}/></div>
               <footer className={styles.answerFooter}><div className={styles.nextActions}>{intent==="forgot"||assisted?<button className={styles.primary} disabled={busy||!token} data-ui-target="study.next" onClick={()=>void submit("forgot")}>{busyLabel?<LoadingStatus>{busyLabel}</LoadingStatus>:"下一个"}<StudyIcon name="arrow"/></button>:<><button disabled={busy||!token} data-ui-target="study.answer-wrong" onClick={()=>void submit(intent==="unsure"?"unsure_wrong":"forgot")}>答错了</button><button className={styles.primary} disabled={busy||!token} data-ui-target="study.answer-right" onClick={()=>void submit(intent==="unsure"?"unsure_right":"remembered")}>{busyLabel?<LoadingStatus>{busyLabel}</LoadingStatus>:"答对了"}<StudyIcon name="arrow"/></button></>}</div></footer>
             </>}</>:
             pending?<div className={styles.empty}><StudyIcon name="cards"/><LoadingStatus>正在准备下一步…</LoadingStatus><button className={styles.primary} onClick={onClose}>先去阅读<StudyIcon name="arrow"/></button></div>:

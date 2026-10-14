@@ -10,7 +10,7 @@ test("different readings own one channel; late requests, rapid clicks, changes a
   const originalFetch=globalThis.fetch, originalCreate=URL.createObjectURL, originalRevoke=URL.revokeObjectURL;
   const pending=new Map<string,(response:Response)=>void>(), blobs=new Map<string,Blob>();
   let serial=0,playing=0,maxPlaying=0,wordStarts=0;
-  URL.createObjectURL=blob=>{const url="blob:test-"+(++serial);blobs.set(url,blob);return url;};
+  URL.createObjectURL=blob=>{const url="blob:test-"+(++serial);assert.ok(blob instanceof Blob);blobs.set(url,blob);return url;};
   URL.revokeObjectURL=url=>{blobs.delete(url);};
   globalThis.fetch=async(_url,init)=>new Promise(resolve=>{const body=JSON.parse(String(init?.body));pending.set(body.text+":"+body.phonetic,resolve);});
   class NativeAudio {

@@ -45,11 +45,11 @@ test("typing, clearing, state filters and sorting update the rendered notebook w
     fireEvent.change(search,{target:{value:"zzzz"}});assert.ok(ui.getByText("没有找到这个词"));
     fireEvent.change(search,{target:{value:""}});assert.equal(words().length,4);
     fireEvent.change(search,{target:{value:" Ｔ "}});assert.deepEqual(words(),["Take","tree"]);
-    fireEvent.click(ui.getByRole("button",{name:"已学",exact:true}));assert.equal(words().length,0);
-    fireEvent.click(ui.getByRole("button",{name:"全部",exact:true}));assert.deepEqual(words(),["Take","tree"]);
+    fireEvent.click(ui.getByRole("button",{name:"已学"}));assert.equal(words().length,0);
+    fireEvent.click(ui.getByRole("button",{name:"全部"}));assert.deepEqual(words(),["Take","tree"]);
     fireEvent.change(search,{target:{value:"树"}});assert.deepEqual(words(),["tree"]);
     fireEvent.change(search,{target:{value:""}});
-    fireEvent.click(ui.getByRole("button",{name:"字母 A–Z",exact:true}));assert.deepEqual(words(),["absorb","cat","Take","tree"]);
+    fireEvent.click(ui.getByRole("button",{name:"字母 A–Z"}));assert.deepEqual(words(),["absorb","cat","Take","tree"]);
     assert.equal(JSON.stringify(snapshot),before);
   } finally {cleanup();dom.window.close();}
 });
