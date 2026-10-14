@@ -3,7 +3,7 @@
 
 ## 站内背单词（已生产，2026-10-06）
 
-原生 FSRS-6 学习面板已部署，可从 `/study`、登录工作台、Menu 和生词本进入。支持本机背词记录、联网后台同步、可选新词穿插、原文往返、学习奖励及主动生成阅读画像。部署需增量执行 `docs/study-migration.sql` 与 `docs/study-flexible-rewards-migration.sql`，以及 `docs/study-evidence-v2-migration.sql`、`docs/study-learning-v3-migration.sql` 和 `docs/study-import-batches-migration.sql`；历史 Anki 字段保留，用户入口退休。规则与限制见[背单词说明](docs/vocabulary-study.md)，上线检查见[发布证据](docs/vocabulary-study-release.md)。
+原生 FSRS-6 学习面板已部署，可从 `/study`、登录工作台、Menu 和生词本进入。支持本机背词记录、联网后台同步、可选新词穿插、原文往返、学习奖励及主动生成阅读画像。部署需增量执行 `docs/study-migration.sql` 与 `docs/study-flexible-rewards-migration.sql`，以及 `docs/study-evidence-v2-migration.sql`、`docs/study-learning-v3-migration.sql`、`docs/study-import-batches-migration.sql` 和 `docs/study-offline-v1-migration.sql`；历史 Anki 字段保留，用户入口退休。规则与限制见[背单词说明](docs/vocabulary-study.md)，当前上线检查见[发布证据](docs/study-order-offline-20261014.md)。
 
 Unified points and one-time monthly/annual plans are available at `/pricing`; Admin → 付费管理 controls prices and points. WeChat Native checkout stays disabled until merchant setup. See [billing rules](docs/account-usage-plan.md), [WeChat onboarding](docs/wechat-pay-setup.md) and [release evidence](docs/unified-billing-release.md).
 

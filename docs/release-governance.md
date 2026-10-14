@@ -2,7 +2,7 @@
 
 ## Current accepted release
 
-Accepted `20261013T194152`, parent `20261013T190024`, source `df4a1882ba16f4c21bcbe5de750e0ca2fd3f8795`. Exact 20-file cumulative delta, stable locked entrypoint, public identity, builds, 20 audio/cache/phoneme/CSP tests, 90 critical tests, contracts, source CI and 48 browser scenarios passed. Real signed-in Study played three distinct words after exactly one click each, with 6.2-second delayed audio delivery, plus UK playback. Account/sync/Admin, seven healthy services, unchanged five backend containers, SHA-verified 39-table restore and parent image passed. Temporary QA and credentials were removed. Physical Mac Safari default-policy listening remains user verification. See [acceptance](pronunciation-first-click-20261013.md). Later documentation commits do not change deployed source identity.
+Accepted `20261014T111000`, parent `20261013T233500`, source `9218f41dc8d34e8466d2dff72badd5a796ffbc49`, at 2026-10-14 03:10:04 UTC. The stable locked entrypoint accepted the exact 36-file delta. Public identity, source CI and builds pass. Review-first/mixed ordering, plan-consistent counts, pinned undo and durable offline events passed automated tests, deployed controlled UI and real-account offline/reconnect browser checks. Account/protocol-2/Admin boundaries, old-page Reader entry across cutover, seven-service health, SHA-verified 40-table backup restore and current/parent rollback images pass. Five backend identities and start times remain unchanged. [Evidence and remaining limits](study-order-offline-20261014.md). Later documentation-only commits do not change the deployed source identity.
 
 ## Previous accepted cold study entry release
 
