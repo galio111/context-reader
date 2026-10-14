@@ -828,6 +828,7 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
         error?: string;
       }>("/api/import-url", {
         method: "POST",
+        signal: AbortSignal.timeout(35_000),
         headers: {
           "Content-Type": "application/json",
         },
@@ -872,6 +873,7 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
     try {
       const response = await fetch("/api/article-images/localize", {
         method: "POST",
+        signal: AbortSignal.timeout(60_000),
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ article: sourceArticle, freshImport: true, imageLocalizationToken }),
       });

@@ -360,3 +360,5 @@ Authenticated GET `/api/admin/public-articles?view=summary` and `/api/admin/arti
 ## UI design API
 
 `GET /api/ui-design` returns only published recipe/revision, no draft/history. Developer-account-only `/api/admin/ui-design` GET reads state; POST accepts `save` with recipe, or `publish`/`rollback`, always with `expectedRevision`. Same-origin JSON, strict fields/targets and 64KiB body bound; stale writes return409. Apply `ops/mainland/migrate-ui-design.sql` for service-role-only atomic RPC and audit; do not grant browser roles access. The settings key is `ui_design_v1`. See [usage and capability contract](ui-design-studio.md).
+
+URL import reads the complete bounded response inside its direct/overseas fallback operation. Client imports have a 35-second deadline; background image localization has a 60-second deadline. Extraction requires 80 body characters excluding headings/captions. See [URL import reliability](url-import-reliability.md).

@@ -162,9 +162,13 @@ function isHiddenElement(element: Element): boolean {
 }
 
 function hasNoiseIdentity(element: Element): boolean {
+  // Utility variants describe other elements (e.g. group-has-[...newsletter...]:pt-8),
+  // not this node. Matching their embedded selectors can delete an entire story.
+  const semanticClasses = Array.from(element.classList)
+    .filter((token) => !/[:\[\]\/]/.test(token)).join(" ");
   let identity = [
     element.id,
-    element.className || "",
+    semanticClasses,
     element.getAttribute("data-testid") ?? "",
     element.getAttribute("data-component") ?? "",
     element.getAttribute("aria-label") ?? "",
@@ -491,7 +495,27 @@ function walkContent(context: ExtractContext, parent: Element): void {
       continue;
     }
     if (tag === "p" || tag === "pre") {
-      addTextBlock(context, "paragraph", element);
+      const images = Array.from(element.querySelectorAll("img"));
+      if (!images.length) addTextBlock(context, "paragraph", element);
+      else {
+        // WordPress commonly puts full-width charts inside paragraphs. Preserve
+        // their position, including prose on both sides, rather than reading only textContent.
+        const range = element.ownerDocument.createRange();
+        range.setStart(element, 0);
+        const addRangeText = () => {
+          const fragment = element.ownerDocument.createElement("span");
+          fragment.append(range.cloneContents());
+          addTextBlock(context, "paragraph", fragment);
+        };
+        for (const image of images) {
+          range.setEndBefore(image);
+          addRangeText();
+          addImageBlock(context, image);
+          range.setStartAfter(image);
+        }
+        range.setEnd(element, element.childNodes.length);
+        addRangeText();
+      }
       continue;
     }
     if (tag === "blockquote") {
@@ -589,7 +613,10 @@ function candidateFromRoot(root: Element, kind: Candidate["kind"], baseUrl: stri
   const textBlocks = blocks.filter((block) => block.type !== "image");
   const textCharacters = textBlocks.reduce((sum, block) => sum + (block.text?.length ?? 0), 0);
   const substantiveBlocks = textBlocks.filter((block) => (block.text?.length ?? 0) >= 40 || block.type === "table").length;
-  if (textCharacters < 80 || substantiveBlocks === 0) return null;
+  const bodyCharacters = blocks
+    .filter((block) => ["paragraph", "quote", "list-item", "table"].includes(block.type))
+    .reduce((sum, block) => sum + (block.text?.trim().length ?? 0), 0);
+  if (bodyCharacters < 80 || substantiveBlocks === 0) return null;
   const density = linkDensity(root);
   const kindBonus = {
     readability: 2_600,

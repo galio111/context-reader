@@ -47,6 +47,7 @@ export async function POST(request: Request) {
       directTimeoutMs: 5_000,
       overseasTimeoutMs: 20_000,
       signal: request.signal,
+      maxBytes: MAX_HTML_BYTES,
     });
     const response = remote.response;
 

@@ -1,4 +1,4 @@
-import { assertSafeRemoteUrl, safeRemoteFetch, UnsafeRemoteUrlError } from "@/lib/safeRemoteFetch";
+import { assertSafeRemoteUrl, readResponseBytes, safeRemoteFetch, UnsafeRemoteUrlError } from "@/lib/safeRemoteFetch";
 
 export type RemoteDocumentMode = "html" | "feed";
 
@@ -69,6 +69,7 @@ export async function fetchRemoteDocument(
     directTimeoutMs?: number;
     overseasTimeoutMs?: number;
     signal?: AbortSignal | null;
+    maxBytes?: number;
   } = {},
 ): Promise<RemoteDocumentFetchResult> {
   const url = await assertSafeRemoteUrl(input);
@@ -76,13 +77,23 @@ export async function fetchRemoteDocument(
   const directTimeoutMs = options.directTimeoutMs ?? 5_000;
   const overseasTimeoutMs = options.overseasTimeoutMs ?? 20_000;
   let directError: unknown;
+  const complete = async (result: RemoteDocumentFetchResult): Promise<RemoteDocumentFetchResult> => {
+    if (!options.maxBytes || !result.response.ok) return result;
+    // Finish reading within the route's timeout and fallback boundary. Headers
+    // alone do not establish success: overseas publishers can stall mid-body.
+    const bytes = await readResponseBytes(result.response, options.maxBytes);
+    const headers = new Headers(result.response.headers);
+    headers.delete("content-encoding");
+    headers.delete("content-length");
+    return { ...result, response: new Response(bytes, { status: result.response.status, headers }) };
+  };
   try {
     const response = await safeRemoteFetch(url, {
       ...init,
       signal: combinedSignal(options.signal, directTimeoutMs),
     });
     if (!FALLBACK_STATUSES.has(response.status) || !overseasFetcherConfig()) {
-      return { response, finalUrl: url.toString(), route: "mainland-direct" };
+      return await complete({ response, finalUrl: response.url || url.toString(), route: "mainland-direct" });
     }
     await response.body?.cancel().catch(() => undefined);
   } catch (error) {
@@ -92,7 +103,7 @@ export async function fetchRemoteDocument(
   }
 
   try {
-    return await fetchThroughVercel(url, mode, options.signal, overseasTimeoutMs);
+    return await complete(await fetchThroughVercel(url, mode, options.signal, overseasTimeoutMs));
   } catch (error) {
     throw directError ?? error;
   }

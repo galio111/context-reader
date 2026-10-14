@@ -1333,7 +1333,7 @@ export function ReaderView({
   } = useReaderTranslationSession(translationSourceKey, translationBlocks, translationAccountOwner);
   const dictionaryLayer = useToolLayer(dictionaryMounted);
   const workLayer = useToolLayer(Boolean(readerWorkLayer));
-  useDocumentScrollLock(mobileViewport && (Boolean(readerWorkLayer) || dictionaryMounted));
+  useDocumentScrollLock(Boolean(readerWorkLayer) || Boolean(activeImageBlockId) || (mobileViewport && dictionaryMounted));
 
   useEffect(() => {
     const query = window.matchMedia("(max-width: 1023px)");
@@ -1487,15 +1487,6 @@ export function ReaderView({
   useEffect(() => {
     if (account.authenticated) setGuestLookupLocked(false);
   }, [account.authenticated]);
-
-  useEffect(() => {
-    if (!readerWorkLayer) return;
-    const previousOverflow = document.documentElement.style.overflow;
-    document.documentElement.style.overflow = "hidden";
-    return () => {
-      document.documentElement.style.overflow = previousOverflow;
-    };
-  }, [readerWorkLayer]);
 
   useEffect(() => {
     if (!readerWorkLayer && !dictionaryMounted) return;
@@ -1939,9 +1930,7 @@ export function ReaderView({
       return;
     }
 
-    const previousOverflow = document.body.style.overflow;
     const previousOverscrollBehavior = document.body.style.overscrollBehavior;
-    document.body.style.overflow = "hidden";
     document.body.style.overscrollBehavior = "contain";
 
     function handleKeyDown(event: KeyboardEvent) {
@@ -1953,7 +1942,6 @@ export function ReaderView({
     window.addEventListener("keydown", handleKeyDown);
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = previousOverflow;
       document.body.style.overscrollBehavior = previousOverscrollBehavior;
     };
   }, [activeImageBlockId]);
@@ -2660,6 +2648,7 @@ export function ReaderView({
     try {
       const response = await fetch("/api/import-url", {
         method: "POST",
+        signal: AbortSignal.timeout(35_000),
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url }),
       });
@@ -2675,7 +2664,10 @@ export function ReaderView({
       setReaderImportImageToken(data.imageLocalizationToken ?? "");
       setReaderImportStatus("正文已读取，确认后立即进入；配图会在后台保存。");
     } catch (importError) {
-      const message = importError instanceof Error ? importError.message : "这个网址暂时无法读取。";
+      const message = importError instanceof Error && importError.name === "TimeoutError"
+        ? "读取超时，请稍后重试。"
+        : importError instanceof TypeError ? "网络连接暂时中断，请稍后重试。"
+          : importError instanceof Error ? importError.message : "这个网址暂时无法读取。";
       setReaderImportStatus(`${message} 你仍可以切换到“粘贴文章”，直接带入正文。`);
     } finally {
       setReaderImportBusy(false);

@@ -1157,7 +1157,7 @@ test("temporary pasted and URL articles confirm before every route back to home"
 test("reader bottom sheets own gestures without locking the exposed article", () => {
   const reader = readFileSync(new URL("../components/ReaderView.tsx", import.meta.url), "utf8");
   const boundary = readFileSync(new URL("../components/useMobileSheetScrollBoundary.ts", import.meta.url), "utf8");
-  assert.match(reader, /useDocumentScrollLock\(mobileViewport && \(Boolean\(readerWorkLayer\) \|\| dictionaryMounted\)\)/);
+  assert.match(reader, /useDocumentScrollLock\(Boolean\(readerWorkLayer\) \|\| Boolean\(activeImageBlockId\) \|\| \(mobileViewport && dictionaryMounted\)\)/);
   assert.doesNotMatch(reader, /useDocumentScrollLock\([^\n]*mobileExplanationOpen/);
   assert.match(reader, /ref=\{mobileToolScrollBoundaryRef\}/);
   assert.match(boundary, /canConsumeVerticalScroll/);

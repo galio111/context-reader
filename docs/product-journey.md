@@ -2060,3 +2060,7 @@ Accepted `20261014T111000`, parent `20261013T233500`, source `9218f41dc8d34e8466
 ## 2026-10-14：划词可选拼写与原句优先详情
 
 用户要求一个稳定长度的拼写空位、无需先点击直接输入、任一回忆选择后按字母批改，并否定横排释义、重复原句和收起详情。按错字/多字删除线、漏字下划线、正确绿色勾区分，短语空格保留；原句与句译在上，释义/用法/搭配/新例句单列全展开，共用于生词本。仅改变核对呈现，不改变真实评分与 FSRS。用户授权临时第 13 个独立工作区。实现与本地回归通过，生产身份及最终验证见 [发布记录](study-spelling-20261014.md)；用户最终视觉验收待确认。
+
+## 2026-10-14 — URL import content and scroll recovery (validated, release pending)
+
+User-reported TIME title/image-only success was reproduced against production 20261014T115435. Utility-selector newsletter names deleted the body ancestor. The repair preserves all 24 substantial source paragraphs, rejects metadata-only success and retains a16z's 11 paragraph-wrapped charts. Shared Reader scroll locks replace overlapping manual overflow restoration; bounded client waits and mid-body overseas fallback improve recovery. 90 critical tests and targeted regressions passed. Browser control timed out; visual and repeated-use acceptance remains open. See [implementation and evidence](url-import-reliability.md).

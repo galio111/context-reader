@@ -1,0 +1,26 @@
+[
+  {
+    "name": "time",
+    "url": "https://time.com/article/2026/10/13/most-americans-think-trump-is-profiting-from-the-presidency-illegally-or-unethically-poll-finds/",
+    "characters": 7279,
+    "blocks": 29,
+    "images": 1,
+    "completeness": {
+      "referenceKind": "article",
+      "missingTextBlocks": 0,
+      "missingImages": 0
+    }
+  },
+  {
+    "name": "a16z",
+    "url": "https://a16z.com/how-are-consumers-using-generative-ai/",
+    "characters": 9619,
+    "blocks": 52,
+    "images": 11,
+    "completeness": {
+      "referenceKind": "readability",
+      "missingTextBlocks": 0,
+      "missingImages": 0
+    }
+  }
+]
