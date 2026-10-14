@@ -46,7 +46,7 @@ test("durable offline review, repeated learning, undo, midnight and duplicate pr
  const undo:StudyLocalEvent={kind:"undo",id:"undo",reviewId:"retry",permit:"signed",at:new Date(Date.parse(retry.at)+1000).toISOString()};
  const restored=applyLocalStudyEvent(second,undo);assert.deepEqual(restored.cards[0].memory,first.cards[0].memory);
  assert.equal(restored.reviews.find(r=>r.id==="retry")?.undone,true);
- const projected=projectStudyRecord({owner:"a",base,events:[a,retry,undo]},new Date(undo.at));assert.equal(projected.daily[0].learning_cards,1);assert.equal(projected.claims.length,0);
+ const projected=projectStudyRecord({owner:"a",base,events:[a,retry,undo]},new Date(undo.at));assert.equal(projected.daily[0].review_cards,1);assert.equal(projected.claims.length,0);
  assert.equal(localStudyDay(projected,studyDayEnd(now)).today?.day,"2026-10-15");
  const factory=new IDBFactory();await updateStudyLocalRecord("a",()=>({owner:"a",base,events:[a]}),factory);
  await Promise.all([updateStudyLocalRecord("a",r=>({...r!,events:[...r!.events,retry]}),factory),updateStudyLocalRecord("a",r=>({...r!,events:[...r!.events,undo]}),factory)]);
@@ -54,4 +54,15 @@ test("durable offline review, repeated learning, undo, midnight and duplicate pr
  assert.equal(await updateStudyLocalRecord("b",r=>r,factory),null);
  await assert.rejects(updateStudyLocalRecord("a",()=>{throw new Error("simulated failure");},factory));
  assert.equal((await updateStudyLocalRecord("a",r=>r,factory))?.events.length,3);
+});
+
+test("offline daily categories match the server: first answer, old learning and undo",()=>{
+ const base=snapshot([card("fresh",0),card("prior-learning",1),card("review",2)]);
+ const event=(id:string,answer:"forgot"|"remembered"):StudyLocalEvent=>({kind:"review",id:"r-"+id,cardId:id,answer,activeMs:1000,at:now.toISOString(),permit:"signed"});
+ const events=[event("fresh","forgot"),event("prior-learning","remembered"),event("review","forgot")];
+ const view=projectStudyRecord({owner:"a",base,events},now);
+ assert.equal(view.daily[0].new_cards,1);assert.equal(view.daily[0].learning_cards,1);assert.equal(view.daily[0].review_cards,1);
+ const undo:StudyLocalEvent={kind:"undo",id:"u",reviewId:"r-fresh",at:now.toISOString(),permit:"signed"};
+ const reverted=projectStudyRecord({owner:"a",base,events:[...events,undo]},now);
+ assert.equal(reverted.daily[0].new_cards,0);assert.equal(reverted.daily[0].cards,2);
 });

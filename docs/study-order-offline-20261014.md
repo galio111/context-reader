@@ -2,7 +2,7 @@
 
 ## Status
 
-Candidate based on accepted production `20261013T233500`, parent `20261013T230800`, source `4ed49a47f7d891cc73bb3fdb94d1301b92979113`. Production release identity and post-cutover evidence remain pending. No gggg learning data was edited for diagnosis or tests.
+Candidate based on accepted production `20261013T233500`, parent `20261013T230800`, source `4ed49a47f7d891cc73bb3fdb94d1301b92979113`. The first candidate 20261014T110000 was deliberately stopped before cutover after finding a daily-category projection mismatch; the correction counts first answers, prior learning and ordinary reviews exactly as study_daily_stats_v3. Production release identity and post-cutover evidence remain pending. No gggg learning data was edited for diagnosis or tests.
 
 ## Behavior
 
@@ -18,7 +18,7 @@ Read-only gggg snapshot on 2026-10-14: 93 ordinary reviews due now, 22 due later
 
 ## Validation
 
-- 67 Study tests passed, including offline reopen, lost response, exactly-once retry, account isolation, concurrent IndexedDB writes, failed local persistence, undo/timed arrival and mixed intervals.
+- 68 Study tests passed, including offline reopen, lost response, exactly-once retry, account isolation, concurrent IndexedDB writes, failed local persistence, undo/timed arrival and mixed intervals.
 - 139 architecture/account/reading regressions passed.
 - Isolated `context_reader_study_1005` SQL transaction passed duplicate-event, id reuse, owner isolation, version conflict, undo and browser-role assertions; fixtures rolled back.
 - Real compiled UI with controlled API fixture passed desktop settings, 390px reduced-motion layout, offline old-old-new sequence, stable undo, reconnect and reload. Screenshots and JSON: `artifacts/study-offline-browser` (local evidence only; not packaged).

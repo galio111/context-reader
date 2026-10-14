@@ -48,10 +48,11 @@ export function projectStudyRecord(record:StudyLocalRecord,now=new Date(Date.now
   for(const r of rows)grouped.set(r.card_id,[...(grouped.get(r.card_id)??[]),r]);
   let fresh=0,review=0,learning=0;
   for(const rs of grouped.values()){
-    rs.sort((a,b)=>Date.parse(b.reviewed_at)-Date.parse(a.reviewed_at));
-    if([1,3].includes(rs[0].next.state))learning++;
-    else if(rs.some(r=>[0,1].includes(r.previous.state)&&r.next.state===2))fresh++;
+    // Match study_daily_stats_v3: category follows what was actually studied,
+    // not the resulting memory state or whether the word graduated today.
+    if(rs.some(r=>r.previous.state===0))fresh++;
     else if(rs.some(r=>[2,3].includes(r.previous.state)))review++;
+    else learning++;
   }
   const daily={day,cards:grouped.size,new_cards:fresh,review_cards:review,learning_cards:learning,active_ms:rows.reduce((n,r)=>n+r.active_ms,0),successes:rows.filter(r=>r.rating>1).length,reviews:rows.length};
   return {...snapshot,serverNow:now.toISOString(),daily:[...snapshot.daily.filter(d=>d.day!==day),daily]};
