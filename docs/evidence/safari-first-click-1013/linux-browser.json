@@ -1,0 +1,2580 @@
+{
+  "contentSecurityPolicy": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https: http:; font-src 'self' data:; media-src 'self' blob:; connect-src 'self' http://127.0.0.1:8765 http://localhost:8765; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'",
+  "results": [
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.4",
+      "scenario": "cold",
+      "events": [
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 1
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 1
+        },
+        {
+          "type": "native-playing",
+          "id": 1
+        },
+        {
+          "type": "native-ended",
+          "id": 1,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": false,
+          "id": 2
+        },
+        {
+          "type": "native-playing",
+          "id": 2
+        },
+        {
+          "type": "native-ended",
+          "id": 2,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 3
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 3
+        },
+        {
+          "type": "native-playing",
+          "id": 3
+        },
+        {
+          "type": "native-ended",
+          "id": 3,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 4
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 4
+        },
+        {
+          "type": "native-playing",
+          "id": 4
+        },
+        {
+          "type": "native-ended",
+          "id": 4,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 5
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 5
+        },
+        {
+          "type": "native-playing",
+          "id": 5
+        },
+        {
+          "type": "native-ended",
+          "id": 5,
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.4",
+      "scenario": "preload",
+      "events": [
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": false,
+          "id": 1
+        },
+        {
+          "type": "native-playing",
+          "id": 1
+        },
+        {
+          "type": "native-ended",
+          "id": 1,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": false,
+          "id": 2
+        },
+        {
+          "type": "native-playing",
+          "id": 2
+        },
+        {
+          "type": "native-ended",
+          "id": 2,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": false,
+          "id": 3
+        },
+        {
+          "type": "native-playing",
+          "id": 3
+        },
+        {
+          "type": "native-ended",
+          "id": 3,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 4
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 4
+        },
+        {
+          "type": "native-playing",
+          "id": 4
+        },
+        {
+          "type": "native-ended",
+          "id": 4,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 5
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 5
+        },
+        {
+          "type": "native-playing",
+          "id": 5
+        },
+        {
+          "type": "native-ended",
+          "id": 5,
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.4",
+      "scenario": "no-web-audio",
+      "events": [
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 1
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 1
+        },
+        {
+          "type": "native-playing",
+          "id": 1
+        },
+        {
+          "type": "native-ended",
+          "id": 1,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": false,
+          "id": 2
+        },
+        {
+          "type": "native-playing",
+          "id": 2
+        },
+        {
+          "type": "native-ended",
+          "id": 2,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 3
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 3
+        },
+        {
+          "type": "native-playing",
+          "id": 3
+        },
+        {
+          "type": "native-ended",
+          "id": 3,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 4
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 4
+        },
+        {
+          "type": "native-playing",
+          "id": 4
+        },
+        {
+          "type": "native-ended",
+          "id": 4,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 5
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 5
+        },
+        {
+          "type": "native-playing",
+          "id": 5
+        },
+        {
+          "type": "native-ended",
+          "id": 5,
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.4",
+      "scenario": "denied-resume",
+      "events": [
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 1
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 1
+        },
+        {
+          "type": "native-playing",
+          "id": 1
+        },
+        {
+          "type": "native-ended",
+          "id": 1,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": false,
+          "id": 2
+        },
+        {
+          "type": "native-playing",
+          "id": 2
+        },
+        {
+          "type": "native-ended",
+          "id": 2,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 3
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 3
+        },
+        {
+          "type": "native-playing",
+          "id": 3
+        },
+        {
+          "type": "native-ended",
+          "id": 3,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 4
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 4
+        },
+        {
+          "type": "native-playing",
+          "id": 4
+        },
+        {
+          "type": "native-ended",
+          "id": 4,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 5
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 5
+        },
+        {
+          "type": "native-playing",
+          "id": 5
+        },
+        {
+          "type": "native-ended",
+          "id": 5,
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.4",
+      "scenario": "hung-resume",
+      "events": [
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 1
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 1
+        },
+        {
+          "type": "native-playing",
+          "id": 1
+        },
+        {
+          "type": "native-ended",
+          "id": 1,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": false,
+          "id": 2
+        },
+        {
+          "type": "native-playing",
+          "id": 2
+        },
+        {
+          "type": "native-ended",
+          "id": 2,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 3
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 3
+        },
+        {
+          "type": "native-playing",
+          "id": 3
+        },
+        {
+          "type": "native-ended",
+          "id": 3,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 4
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 4
+        },
+        {
+          "type": "native-playing",
+          "id": 4
+        },
+        {
+          "type": "native-ended",
+          "id": 4,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 5
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 5
+        },
+        {
+          "type": "native-playing",
+          "id": 5
+        },
+        {
+          "type": "native-ended",
+          "id": 5,
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.4",
+      "scenario": "decode-failure",
+      "events": [
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 1
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 1
+        },
+        {
+          "type": "native-playing",
+          "id": 1
+        },
+        {
+          "type": "native-ended",
+          "id": 1,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": false,
+          "id": 2
+        },
+        {
+          "type": "native-playing",
+          "id": 2
+        },
+        {
+          "type": "native-ended",
+          "id": 2,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 3
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 3
+        },
+        {
+          "type": "native-playing",
+          "id": 3
+        },
+        {
+          "type": "native-ended",
+          "id": 3,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 4
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 4
+        },
+        {
+          "type": "native-playing",
+          "id": 4
+        },
+        {
+          "type": "native-ended",
+          "id": 4,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 5
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 5
+        },
+        {
+          "type": "native-playing",
+          "id": 5
+        },
+        {
+          "type": "native-ended",
+          "id": 5,
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.4",
+      "scenario": "slow-load",
+      "events": [
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 1
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 1
+        },
+        {
+          "type": "native-playing",
+          "id": 1
+        },
+        {
+          "type": "native-ended",
+          "id": 1,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": false,
+          "id": 2
+        },
+        {
+          "type": "native-playing",
+          "id": 2
+        },
+        {
+          "type": "native-ended",
+          "id": 2,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 3
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 3
+        },
+        {
+          "type": "native-playing",
+          "id": 3
+        },
+        {
+          "type": "native-ended",
+          "id": 3,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 4
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 4
+        },
+        {
+          "type": "native-playing",
+          "id": 4
+        },
+        {
+          "type": "native-ended",
+          "id": 4,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 5
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 5
+        },
+        {
+          "type": "native-playing",
+          "id": 5
+        },
+        {
+          "type": "native-ended",
+          "id": 5,
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.4",
+      "scenario": "background",
+      "events": [
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 1
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 2
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 2
+        },
+        {
+          "type": "native-playing",
+          "id": 2
+        },
+        {
+          "type": "native-ended",
+          "id": 2,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": false,
+          "id": 3
+        },
+        {
+          "type": "native-playing",
+          "id": 3
+        },
+        {
+          "type": "native-ended",
+          "id": 3,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 4
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 4
+        },
+        {
+          "type": "native-playing",
+          "id": 4
+        },
+        {
+          "type": "native-ended",
+          "id": 4,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 5
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 5
+        },
+        {
+          "type": "native-playing",
+          "id": 5
+        },
+        {
+          "type": "native-ended",
+          "id": 5,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 6
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 6
+        },
+        {
+          "type": "native-playing",
+          "id": 6
+        },
+        {
+          "type": "native-ended",
+          "id": 6,
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "version": "157.0",
+      "scenario": "cold",
+      "events": [
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 1
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 1
+        },
+        {
+          "type": "native-playing",
+          "id": 1
+        },
+        {
+          "type": "native-ended",
+          "id": 1,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": false,
+          "id": 2
+        },
+        {
+          "type": "native-playing",
+          "id": 2
+        },
+        {
+          "type": "native-ended",
+          "id": 2,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 3
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 3
+        },
+        {
+          "type": "native-playing",
+          "id": 3
+        },
+        {
+          "type": "native-ended",
+          "id": 3,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 4
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 4
+        },
+        {
+          "type": "native-playing",
+          "id": 4
+        },
+        {
+          "type": "native-ended",
+          "id": 4,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 5
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 5
+        },
+        {
+          "type": "native-playing",
+          "id": 5
+        },
+        {
+          "type": "native-ended",
+          "id": 5,
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "version": "157.0",
+      "scenario": "preload",
+      "events": [
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": false,
+          "id": 1
+        },
+        {
+          "type": "native-playing",
+          "id": 1
+        },
+        {
+          "type": "native-ended",
+          "id": 1,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": false,
+          "id": 2
+        },
+        {
+          "type": "native-playing",
+          "id": 2
+        },
+        {
+          "type": "native-ended",
+          "id": 2,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": false,
+          "id": 3
+        },
+        {
+          "type": "native-playing",
+          "id": 3
+        },
+        {
+          "type": "native-ended",
+          "id": 3,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 4
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 4
+        },
+        {
+          "type": "native-playing",
+          "id": 4
+        },
+        {
+          "type": "native-ended",
+          "id": 4,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 5
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 5
+        },
+        {
+          "type": "native-playing",
+          "id": 5
+        },
+        {
+          "type": "native-ended",
+          "id": 5,
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "version": "157.0",
+      "scenario": "no-web-audio",
+      "events": [
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 1
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 1
+        },
+        {
+          "type": "native-playing",
+          "id": 1
+        },
+        {
+          "type": "native-ended",
+          "id": 1,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": false,
+          "id": 2
+        },
+        {
+          "type": "native-playing",
+          "id": 2
+        },
+        {
+          "type": "native-ended",
+          "id": 2,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 3
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 3
+        },
+        {
+          "type": "native-playing",
+          "id": 3
+        },
+        {
+          "type": "native-ended",
+          "id": 3,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 4
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 4
+        },
+        {
+          "type": "native-playing",
+          "id": 4
+        },
+        {
+          "type": "native-ended",
+          "id": 4,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 5
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 5
+        },
+        {
+          "type": "native-playing",
+          "id": 5
+        },
+        {
+          "type": "native-ended",
+          "id": 5,
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "version": "157.0",
+      "scenario": "denied-resume",
+      "events": [
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 1
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 1
+        },
+        {
+          "type": "native-playing",
+          "id": 1
+        },
+        {
+          "type": "native-ended",
+          "id": 1,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": false,
+          "id": 2
+        },
+        {
+          "type": "native-playing",
+          "id": 2
+        },
+        {
+          "type": "native-ended",
+          "id": 2,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 3
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 3
+        },
+        {
+          "type": "native-playing",
+          "id": 3
+        },
+        {
+          "type": "native-ended",
+          "id": 3,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 4
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 4
+        },
+        {
+          "type": "native-playing",
+          "id": 4
+        },
+        {
+          "type": "native-ended",
+          "id": 4,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 5
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 5
+        },
+        {
+          "type": "native-playing",
+          "id": 5
+        },
+        {
+          "type": "native-ended",
+          "id": 5,
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "version": "157.0",
+      "scenario": "hung-resume",
+      "events": [
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 1
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 1
+        },
+        {
+          "type": "native-playing",
+          "id": 1
+        },
+        {
+          "type": "native-ended",
+          "id": 1,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": false,
+          "id": 2
+        },
+        {
+          "type": "native-playing",
+          "id": 2
+        },
+        {
+          "type": "native-ended",
+          "id": 2,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 3
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 3
+        },
+        {
+          "type": "native-playing",
+          "id": 3
+        },
+        {
+          "type": "native-ended",
+          "id": 3,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 4
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 4
+        },
+        {
+          "type": "native-playing",
+          "id": 4
+        },
+        {
+          "type": "native-ended",
+          "id": 4,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 5
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 5
+        },
+        {
+          "type": "native-playing",
+          "id": 5
+        },
+        {
+          "type": "native-ended",
+          "id": 5,
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "version": "157.0",
+      "scenario": "decode-failure",
+      "events": [
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 1
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 1
+        },
+        {
+          "type": "native-playing",
+          "id": 1
+        },
+        {
+          "type": "native-ended",
+          "id": 1,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": false,
+          "id": 2
+        },
+        {
+          "type": "native-playing",
+          "id": 2
+        },
+        {
+          "type": "native-ended",
+          "id": 2,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 3
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 3
+        },
+        {
+          "type": "native-playing",
+          "id": 3
+        },
+        {
+          "type": "native-ended",
+          "id": 3,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 4
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 4
+        },
+        {
+          "type": "native-playing",
+          "id": 4
+        },
+        {
+          "type": "native-ended",
+          "id": 4,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 5
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 5
+        },
+        {
+          "type": "native-playing",
+          "id": 5
+        },
+        {
+          "type": "native-ended",
+          "id": 5,
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "version": "157.0",
+      "scenario": "slow-load",
+      "events": [
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 1
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 1
+        },
+        {
+          "type": "native-playing",
+          "id": 1
+        },
+        {
+          "type": "native-ended",
+          "id": 1,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": false,
+          "id": 2
+        },
+        {
+          "type": "native-playing",
+          "id": 2
+        },
+        {
+          "type": "native-ended",
+          "id": 2,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 3
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 3
+        },
+        {
+          "type": "native-playing",
+          "id": 3
+        },
+        {
+          "type": "native-ended",
+          "id": 3,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 4
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 4
+        },
+        {
+          "type": "native-playing",
+          "id": 4
+        },
+        {
+          "type": "native-ended",
+          "id": 4,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 5
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 5
+        },
+        {
+          "type": "native-playing",
+          "id": 5
+        },
+        {
+          "type": "native-ended",
+          "id": 5,
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "version": "157.0",
+      "scenario": "background",
+      "events": [
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 1
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 2
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 2
+        },
+        {
+          "type": "native-playing",
+          "id": 2
+        },
+        {
+          "type": "native-ended",
+          "id": 2,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": false,
+          "id": 3
+        },
+        {
+          "type": "native-playing",
+          "id": 3
+        },
+        {
+          "type": "native-ended",
+          "id": 3,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 4
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 4
+        },
+        {
+          "type": "native-playing",
+          "id": 4
+        },
+        {
+          "type": "native-ended",
+          "id": 4,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 5
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 5
+        },
+        {
+          "type": "native-playing",
+          "id": 5
+        },
+        {
+          "type": "native-ended",
+          "id": 5,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 6
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 6
+        },
+        {
+          "type": "native-playing",
+          "id": 6
+        },
+        {
+          "type": "native-ended",
+          "id": 6,
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "version": "27.2",
+      "scenario": "cold",
+      "events": [
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 1
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 1
+        },
+        {
+          "type": "native-playing",
+          "id": 1
+        },
+        {
+          "type": "native-ended",
+          "id": 1,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": false,
+          "id": 2
+        },
+        {
+          "type": "native-playing",
+          "id": 2
+        },
+        {
+          "type": "native-ended",
+          "id": 2,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 3
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 3
+        },
+        {
+          "type": "native-playing",
+          "id": 3
+        },
+        {
+          "type": "native-ended",
+          "id": 3,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 4
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 4
+        },
+        {
+          "type": "native-playing",
+          "id": 4
+        },
+        {
+          "type": "native-ended",
+          "id": 4,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 5
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 5
+        },
+        {
+          "type": "native-playing",
+          "id": 5
+        },
+        {
+          "type": "native-ended",
+          "id": 5,
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "version": "27.2",
+      "scenario": "preload",
+      "events": [
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": false,
+          "id": 1
+        },
+        {
+          "type": "native-playing",
+          "id": 1
+        },
+        {
+          "type": "native-ended",
+          "id": 1,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": false,
+          "id": 2
+        },
+        {
+          "type": "native-playing",
+          "id": 2
+        },
+        {
+          "type": "native-ended",
+          "id": 2,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": false,
+          "id": 3
+        },
+        {
+          "type": "native-playing",
+          "id": 3
+        },
+        {
+          "type": "native-ended",
+          "id": 3,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 4
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 4
+        },
+        {
+          "type": "native-playing",
+          "id": 4
+        },
+        {
+          "type": "native-ended",
+          "id": 4,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 5
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 5
+        },
+        {
+          "type": "native-playing",
+          "id": 5
+        },
+        {
+          "type": "native-ended",
+          "id": 5,
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "version": "27.2",
+      "scenario": "no-web-audio",
+      "events": [
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 1
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 1
+        },
+        {
+          "type": "native-playing",
+          "id": 1
+        },
+        {
+          "type": "native-ended",
+          "id": 1,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": false,
+          "id": 2
+        },
+        {
+          "type": "native-playing",
+          "id": 2
+        },
+        {
+          "type": "native-ended",
+          "id": 2,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 3
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 3
+        },
+        {
+          "type": "native-playing",
+          "id": 3
+        },
+        {
+          "type": "native-ended",
+          "id": 3,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 4
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 4
+        },
+        {
+          "type": "native-playing",
+          "id": 4
+        },
+        {
+          "type": "native-ended",
+          "id": 4,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 5
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 5
+        },
+        {
+          "type": "native-playing",
+          "id": 5
+        },
+        {
+          "type": "native-ended",
+          "id": 5,
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "version": "27.2",
+      "scenario": "denied-resume",
+      "events": [
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 1
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 1
+        },
+        {
+          "type": "native-playing",
+          "id": 1
+        },
+        {
+          "type": "native-ended",
+          "id": 1,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": false,
+          "id": 2
+        },
+        {
+          "type": "native-playing",
+          "id": 2
+        },
+        {
+          "type": "native-ended",
+          "id": 2,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 3
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 3
+        },
+        {
+          "type": "native-playing",
+          "id": 3
+        },
+        {
+          "type": "native-ended",
+          "id": 3,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 4
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 4
+        },
+        {
+          "type": "native-playing",
+          "id": 4
+        },
+        {
+          "type": "native-ended",
+          "id": 4,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 5
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 5
+        },
+        {
+          "type": "native-playing",
+          "id": 5
+        },
+        {
+          "type": "native-ended",
+          "id": 5,
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "version": "27.2",
+      "scenario": "hung-resume",
+      "events": [
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 1
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 1
+        },
+        {
+          "type": "native-playing",
+          "id": 1
+        },
+        {
+          "type": "native-ended",
+          "id": 1,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": false,
+          "id": 2
+        },
+        {
+          "type": "native-playing",
+          "id": 2
+        },
+        {
+          "type": "native-ended",
+          "id": 2,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 3
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 3
+        },
+        {
+          "type": "native-playing",
+          "id": 3
+        },
+        {
+          "type": "native-ended",
+          "id": 3,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 4
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 4
+        },
+        {
+          "type": "native-playing",
+          "id": 4
+        },
+        {
+          "type": "native-ended",
+          "id": 4,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 5
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 5
+        },
+        {
+          "type": "native-playing",
+          "id": 5
+        },
+        {
+          "type": "native-ended",
+          "id": 5,
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "version": "27.2",
+      "scenario": "decode-failure",
+      "events": [
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 1
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 1
+        },
+        {
+          "type": "native-playing",
+          "id": 1
+        },
+        {
+          "type": "native-ended",
+          "id": 1,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": false,
+          "id": 2
+        },
+        {
+          "type": "native-playing",
+          "id": 2
+        },
+        {
+          "type": "native-ended",
+          "id": 2,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 3
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 3
+        },
+        {
+          "type": "native-playing",
+          "id": 3
+        },
+        {
+          "type": "native-ended",
+          "id": 3,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 4
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 4
+        },
+        {
+          "type": "native-playing",
+          "id": 4
+        },
+        {
+          "type": "native-ended",
+          "id": 4,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 5
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 5
+        },
+        {
+          "type": "native-playing",
+          "id": 5
+        },
+        {
+          "type": "native-ended",
+          "id": 5,
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "version": "27.2",
+      "scenario": "slow-load",
+      "events": [
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 1
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 1
+        },
+        {
+          "type": "native-playing",
+          "id": 1
+        },
+        {
+          "type": "native-ended",
+          "id": 1,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": false,
+          "id": 2
+        },
+        {
+          "type": "native-playing",
+          "id": 2
+        },
+        {
+          "type": "native-ended",
+          "id": 2,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 3
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 3
+        },
+        {
+          "type": "native-playing",
+          "id": 3
+        },
+        {
+          "type": "native-ended",
+          "id": 3,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 4
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 4
+        },
+        {
+          "type": "native-playing",
+          "id": 4
+        },
+        {
+          "type": "native-ended",
+          "id": 4,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 5
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 5
+        },
+        {
+          "type": "native-playing",
+          "id": 5
+        },
+        {
+          "type": "native-ended",
+          "id": 5,
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "version": "27.2",
+      "scenario": "background",
+      "events": [
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 1
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 2
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 2
+        },
+        {
+          "type": "native-playing",
+          "id": 2
+        },
+        {
+          "type": "native-ended",
+          "id": 2,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": false,
+          "id": 3
+        },
+        {
+          "type": "native-playing",
+          "id": 3
+        },
+        {
+          "type": "native-ended",
+          "id": 3,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 4
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 4
+        },
+        {
+          "type": "native-playing",
+          "id": 4
+        },
+        {
+          "type": "native-ended",
+          "id": 4,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 5
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 5
+        },
+        {
+          "type": "native-playing",
+          "id": 5
+        },
+        {
+          "type": "native-ended",
+          "id": 5,
+          "time": 0
+        },
+        {
+          "type": "native-play",
+          "gesture": true,
+          "primer": true,
+          "id": 6
+        },
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 6
+        },
+        {
+          "type": "native-playing",
+          "id": 6
+        },
+        {
+          "type": "native-ended",
+          "id": 6,
+          "time": 0
+        }
+      ],
+      "errors": [],
+      "passed": true
+    }
+  ],
+  "note": "Automated linux engines with real MP3; Mac/iOS Safari default-policy and physical listening still require device acceptance."
+}

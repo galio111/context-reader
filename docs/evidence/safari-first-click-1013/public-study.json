@@ -1,0 +1,146 @@
+{
+  "identity": {
+    "ok": true,
+    "checkedAt": "2026-10-13T11:56:47.492Z",
+    "releaseId": "20261013T194152",
+    "parentReleaseId": "20261013T190024",
+    "backendMode": "mainland_internal"
+  },
+  "scenario": "real signed-in study answer flow, three different disposable-account cards, response delivery delayed 6.2 seconds after each first US click",
+  "rows": [
+    {
+      "word": "lever",
+      "firstClickEnded": true,
+      "delayedResponseMs": 6200,
+      "totalMs": 8039
+    },
+    {
+      "word": "contemplate",
+      "firstClickEnded": true,
+      "delayedResponseMs": 6200,
+      "totalMs": 8249
+    },
+    {
+      "word": "esteem",
+      "firstClickEnded": true,
+      "delayedResponseMs": 6200,
+      "totalMs": 8152
+    }
+  ],
+  "events": [
+    {
+      "type": "play",
+      "id": 1,
+      "primer": true
+    },
+    {
+      "type": "play",
+      "id": 1,
+      "primer": false
+    },
+    {
+      "type": "playing",
+      "id": 1
+    },
+    {
+      "type": "ended",
+      "id": 1
+    },
+    {
+      "type": "play",
+      "id": 2,
+      "primer": true
+    },
+    {
+      "type": "play",
+      "id": 2,
+      "primer": false
+    },
+    {
+      "type": "playing",
+      "id": 2
+    },
+    {
+      "type": "ended",
+      "id": 2
+    },
+    {
+      "type": "play",
+      "id": 3,
+      "primer": true
+    },
+    {
+      "type": "play",
+      "id": 3,
+      "primer": false
+    },
+    {
+      "type": "playing",
+      "id": 3
+    },
+    {
+      "type": "ended",
+      "id": 3
+    },
+    {
+      "type": "play",
+      "id": 4,
+      "primer": true
+    },
+    {
+      "type": "play",
+      "id": 4,
+      "primer": false
+    },
+    {
+      "type": "playing",
+      "id": 4
+    },
+    {
+      "type": "ended",
+      "id": 4
+    },
+    {
+      "type": "play",
+      "id": 5,
+      "primer": true
+    },
+    {
+      "type": "play",
+      "id": 5,
+      "primer": false
+    },
+    {
+      "type": "playing",
+      "id": 5
+    },
+    {
+      "type": "ended",
+      "id": 5
+    },
+    {
+      "type": "play",
+      "id": 6,
+      "primer": true
+    },
+    {
+      "type": "play",
+      "id": 6,
+      "primer": false
+    },
+    {
+      "type": "playing",
+      "id": 6
+    },
+    {
+      "type": "ended",
+      "id": 6
+    }
+  ],
+  "errors": [],
+  "syntheticAudio": false,
+  "headerOverrides": false,
+  "samePlayerAfterDownload": true,
+  "usAndUkEnded": 6,
+  "instrumentationLimit": "Initial document click-listener flag was invalid for the modal event path; not used as evidence of gesture timing. Separate window-capture probe records actual event context."
+}

@@ -1,0 +1,21 @@
+{
+  "contentSecurityPolicy": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https: http:; font-src 'self' data:; media-src 'self' blob:; connect-src 'self' http://127.0.0.1:8765 http://localhost:8765; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'",
+  "results": [
+    {
+      "engine": "chromium",
+      "scenario": "no-web-audio",
+      "passed": false,
+      "error": "page.waitForFunction: Timeout 16000ms exceeded.",
+      "events": [
+        {
+          "type": "native-play",
+          "gesture": false,
+          "primer": false,
+          "id": 1
+        }
+      ],
+      "text": "Change word\n▶美音▶英音\n\n声音未能启动，请再点一次发音按钮。"
+    }
+  ],
+  "note": "Automated win32 engines with real MP3; Mac/iOS Safari default-policy and physical listening still require device acceptance."
+}

@@ -1,0 +1,81 @@
+{
+  "identity": {
+    "ok": true,
+    "checkedAt": "2026-10-13T12:04:17.415Z",
+    "releaseId": "20261013T194152",
+    "parentReleaseId": "20261013T190024",
+    "backendMode": "mainland_internal"
+  },
+  "scenario": "real signed-in study flow with three disposable-account cards; real audio delivery held 6.2 seconds after each first click",
+  "headerOverrides": false,
+  "syntheticAudio": false,
+  "rows": [
+    {
+      "word": "lever",
+      "firstClickEnded": true,
+      "delayedResponseMs": 6200,
+      "totalMs": 8049
+    }
+  ],
+  "responses": [
+    {
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "status": 200,
+      "type": "audio/mpeg"
+    }
+  ],
+  "events": [
+    {
+      "type": "play",
+      "id": 1,
+      "primer": true,
+      "gesture": true,
+      "event": "click",
+      "phase": 3,
+      "active": true
+    },
+    {
+      "type": "play",
+      "id": 1,
+      "primer": false,
+      "gesture": false,
+      "active": true
+    },
+    {
+      "type": "playing",
+      "id": 1
+    },
+    {
+      "type": "ended",
+      "id": 1
+    },
+    {
+      "type": "play",
+      "id": 2,
+      "primer": true,
+      "gesture": true,
+      "event": "click",
+      "phase": 3,
+      "active": true
+    },
+    {
+      "type": "play",
+      "id": 2,
+      "primer": false,
+      "gesture": false,
+      "active": true
+    },
+    {
+      "type": "playing",
+      "id": 2
+    },
+    {
+      "type": "ended",
+      "id": 2
+    }
+  ],
+  "errors": []
+}
