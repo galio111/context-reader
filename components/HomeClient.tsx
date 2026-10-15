@@ -822,21 +822,19 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
     setUrlError("");
 
     try {
-      const { response, data } = await fetchJson<{
-        article?: ImportedArticle;
-        imageLocalizationToken?: string;
-        error?: string;
-      }>("/api/import-url", {
+      const response = await fetch("/api/import-url", {
         method: "POST",
         signal: AbortSignal.timeout(35_000),
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ url }),
-      }, "网址导入失败，请稍后重试。", {
-        operation: "url_import",
-        metadata: { hostname: (() => { try { return new URL(url).hostname; } catch { return ""; } })() },
       });
+      const data = await response.json() as {
+        article?: ImportedArticle;
+        imageLocalizationToken?: string;
+        error?: string;
+      };
 
       if (!response.ok || !data?.article?.text?.trim()) {
         throw new Error(data?.error || "网址导入失败，请稍后重试。");
@@ -852,7 +850,11 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
         imageLocalizationToken: data.imageLocalizationToken ?? "",
       };
     } catch (importError) {
-      setUrlError(importError instanceof Error ? importError.message : "网址导入失败，请稍后重试。");
+      setUrlError(importError instanceof Error && importError.name === "TimeoutError"
+        ? "读取超时，请稍后重试。"
+        : importError instanceof TypeError ? "网络连接暂时中断，请稍后重试。"
+          : importError instanceof SyntaxError ? "网址读取暂时失败，请稍后重试。"
+            : importError instanceof Error ? importError.message : "网址导入失败，请稍后重试。");
       return null;
     }
   }

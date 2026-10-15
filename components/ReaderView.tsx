@@ -2667,7 +2667,8 @@ export function ReaderView({
       const message = importError instanceof Error && importError.name === "TimeoutError"
         ? "读取超时，请稍后重试。"
         : importError instanceof TypeError ? "网络连接暂时中断，请稍后重试。"
-          : importError instanceof Error ? importError.message : "这个网址暂时无法读取。";
+          : importError instanceof SyntaxError ? "网址读取暂时失败，请稍后重试。"
+            : importError instanceof Error ? importError.message : "这个网址暂时无法读取。";
       setReaderImportStatus(`${message} 你仍可以切换到“粘贴文章”，直接带入正文。`);
     } finally {
       setReaderImportBusy(false);
