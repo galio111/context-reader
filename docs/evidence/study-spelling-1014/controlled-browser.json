@@ -1,0 +1,13 @@
+{
+  "checks": [
+    "direct typing",
+    "bounded long input",
+    "remembered substitution",
+    "unsure missing space",
+    "forgot exact spelling",
+    "always expanded details",
+    "desktop/mobile/night/reduced motion",
+    "unchanged answer submission"
+  ],
+  "errors": []
+}

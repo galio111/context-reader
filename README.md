@@ -200,3 +200,5 @@ Then use the cumulative versioned workflow under `ops/mainland/`. Package only a
 
 
 站内背词接入个人 UI 库：单卡、独立数据/奖励/设置、统一提示弹窗；每日复习默认上限 100，新词无每日目标，短期 Again/Hard 默认 5/10 分钟。奖励先获得后手动领取。详见 [站内学习](docs/vocabulary-study.md)。
+
+划词语境卡支持可选居中拼写与逐段批改；背词/生词本详情原句优先、单列全展开。已发布 `20261014T115435`，见 [验证与边界](docs/study-spelling-20261014.md)。
