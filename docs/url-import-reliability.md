@@ -2,7 +2,7 @@
 
 The importer distinguishes semantic module classes from CSS utility selectors. Responsive/group selectors mentioning newsletter or related modules do not identify their ancestor as advertising. Real hidden content and actual subscription/promotion modules remain excluded. A successful extraction requires at least 80 characters of paragraph, quote, list or table content; headings and captions alone cannot pass.
 
-Paragraph-wrapped images retain their position and surrounding prose, including WordPress charts. Mainland direct HTML reads finish inside the bounded fallback operation: a response that fails after headers can use the existing authenticated overseas relay. DNS pinning, destination restrictions, 1.5 MB response bounds and caller cancellation remain enforced. Client URL requests expire after 35 seconds; background image localization expires after 60 seconds and never gates entry into the article.
+Paragraph-wrapped images retain their position and surrounding prose, including WordPress charts. Mainland direct HTML reads finish inside the bounded fallback operation: a response that fails after headers can use the existing authenticated overseas relay. DNS lookups retry once within two bounded 1.5-second attempts and distinguish resolution failures from unsafe destinations. DNS pinning, destination restrictions, 1.5 MB response bounds and caller cancellation remain enforced. Client URL requests expire after 35 seconds; background image localization expires after 60 seconds and never gates entry into the article.
 
 Reader import/work panels, image viewer and mobile dictionary use the shared reference-counted document scroll lock. They no longer independently restore captured `overflow:hidden` values when closing overlapping surfaces.
 

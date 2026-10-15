@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
-import { readResponseText, UnsafeRemoteUrlError } from "@/lib/safeRemoteFetch";
+import { readResponseText, RemoteDnsError, UnsafeRemoteUrlError } from "@/lib/safeRemoteFetch";
 import { fetchRemoteDocument } from "@/lib/overseasFetch";
 import { extractImportedArticleFromHtml } from "@/lib/urlArticleExtractor";
 import { createUrlImportImageToken } from "@/lib/urlImportImageToken";
@@ -81,6 +81,9 @@ export async function POST(request: Request) {
   } catch (error) {
     if (error instanceof UnsafeRemoteUrlError) {
       return NextResponse.json({ error: "该网址指向受保护的内部地址，无法导入。" }, { status: 400 });
+    }
+    if (error instanceof RemoteDnsError) {
+      return NextResponse.json({ error: "暂时无法连接到这个网站，请稍后重试。" }, { status: 502 });
     }
     const message =
       error instanceof Error && error.name === "TimeoutError"

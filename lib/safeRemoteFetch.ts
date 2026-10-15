@@ -25,6 +25,30 @@ export class RemoteBodyTooLargeError extends Error {
   }
 }
 
+export class RemoteDnsError extends Error {
+  constructor() {
+    super("目标域名暂时无法解析，请稍后重试。");
+    this.name = "RemoteDnsError";
+  }
+}
+
+async function lookupRemoteAddresses(hostname: string): Promise<Array<{ address: string; family: number }>> {
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    try {
+      return await Promise.race([
+        lookup(hostname, { all: true, verbatim: true }),
+        new Promise<never>((_, reject) => { timer = setTimeout(() => reject(new RemoteDnsError()), 1_500); }),
+      ]);
+    } catch {
+      if (attempt === 1) throw new RemoteDnsError();
+    } finally {
+      if (timer) clearTimeout(timer);
+    }
+  }
+  throw new RemoteDnsError();
+}
+
 function stripIpv6Brackets(hostname: string): string {
   return hostname.startsWith("[") && hostname.endsWith("]") ? hostname.slice(1, -1) : hostname;
 }
@@ -125,12 +149,7 @@ export async function assertSafeRemoteUrl(input: URL | string): Promise<URL> {
     return url;
   }
 
-  let addresses: Array<{ address: string }>;
-  try {
-    addresses = await lookup(hostname, { all: true, verbatim: true });
-  } catch {
-    throw new UnsafeRemoteUrlError("目标域名无法解析。");
-  }
+  const addresses = await lookupRemoteAddresses(hostname);
   if (!keepSafeAddresses(addresses).length) {
     throw new UnsafeRemoteUrlError();
   }
@@ -142,7 +161,7 @@ async function resolveSafeAddresses(url: URL): Promise<Array<{ address: string; 
   if (isIP(hostname)) {
     return [{ address: hostname, family: isIP(hostname) }];
   }
-  const addresses = keepSafeAddresses(await lookup(hostname, { all: true, verbatim: true }));
+  const addresses = keepSafeAddresses(await lookupRemoteAddresses(hostname));
   if (!addresses.length) {
     throw new UnsafeRemoteUrlError();
   }
