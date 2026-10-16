@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { ACCOUNT_DATA_CHANGED_EVENT, ACCOUNT_DATA_MERGED_EVENT, accountDataEventKinds } from "@/lib/accountEvents";
-import { getVocabularyEntry } from "@/lib/vocabularyRepository";
+import { getVocabularyEntry, getVocabularyEntries } from "@/lib/vocabularyRepository";
 import { dictionaryHistoryOwner } from "@/lib/standaloneDictionaryHistory";
 import type { VocabularyEntry } from "@/types/vocabulary";
 
@@ -24,11 +24,13 @@ export function useStudyVocabularyEntries(entries: VocabularyEntry[] | undefined
   }, [owner]);
   return useMemo(() => {
     if (!entries || dictionaryHistoryOwner() !== owner) return entries ?? [];
-    return entries.map(entry => {
+    const known=new Set(entries.map(entry=>entry.id));
+    const added=getVocabularyEntries().filter(entry=>!known.has(entry.id));
+    return [...entries.map(entry => {
       const local = getVocabularyEntry(entry.id);
       if (!local || local.updatedAt < entry.updatedAt) return entry;
       // The full dictionary is read only for the visible card, not copied into every snapshot.
       return { ...local, dictionaryResult: undefined };
-    });
+    }),...added.map(entry=>({...entry,dictionaryResult:undefined}))];
   }, [entries, owner, revision]);
 }

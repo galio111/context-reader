@@ -57,7 +57,7 @@ test("cached Study views never replace live data, authorize answers, duplicate a
     await waitFor(() => assert.equal(starts.length, 1));
     await act(async () => { resolveDisk(snapshot("alpha", new Date(now.getTime() + 60_000))); });
     assert.ok(ui.getByText("alpha")); assert.equal(ui.queryByText("正在连接学习记录…"), null);
-    assert.equal(ui.queryByLabelText("每日最多复习"), null, "a cached settings draft must never mount before authoritative settings arrive");
+    assert.ok(ui.getByLabelText("每日最多复习").closest("fieldset")?.disabled,"cached settings remain readable but cannot save before authority arrives");
     assert.equal(ui.getByRole("button", { name: /不记得/ }).hasAttribute("disabled"), false);
     fireEvent.click(ui.getByRole("button", { name: /不记得/ }));
     assert.ok(ui.getByText("alpha answer")); assert.equal(presents, 0);
@@ -93,8 +93,9 @@ test("cached Study views never replace live data, authorize answers, duplicate a
     await act(async () => { await new Promise(resolve => setTimeout(resolve, 1100)); });
     assert.equal(starts.length, 3); assert.equal(presents, presentsBefore);
     await act(async () => { starts[2](Response.json({ error: "暂时无法读取学习记录" }, { status: 503 })); });
-    assert.ok(ui.getByText("暂时无法读取学习记录"));
-    getResponse = snapshot("recovered"); fireEvent.click(ui.getByRole("button", { name: "重试" }));
+    assert.equal(ui.queryByRole("alert"),null);
+    await waitFor(()=>assert.equal(starts.length,4),{timeout:2500});
+    await act(async()=>{starts[3](Response.json(snapshot("recovered")));});
     await waitFor(() => assert.ok(ui.getByText("recovered")));
     ui.unmount();
 
@@ -102,11 +103,11 @@ test("cached Study views never replace live data, authorize answers, duplicate a
     // first authoritative start. Later acceptance reconciles the queue as usual.
     storeStudyReview(localStorage, owner, { op: "review", id: "00000000-0000-4000-8000-000000000088", cardId: ids[0], version: 0, token: "00000000-0000-4000-8000-000000000099", answer: "forgot", activeMs: 2000, queuedAt: Date.now() });
     ui = render(<StudyPanel {...props} key={owner} />);
-    await waitFor(() => assert.equal(starts.length, 4));
+    await waitFor(() => assert.equal(starts.length, 5));
     await waitFor(() => assert.equal(reviewResponses.length, 1));
     await act(async () => { resolveDisk(snapshot()); });
     assert.ok(ui.getByText("beta")); assert.equal(ui.queryByText("alpha"), null);
-    await act(async () => { starts[3](Response.json(snapshot())); });
+    await act(async () => { starts[4](Response.json(snapshot())); });
     assert.ok(ui.getByText("beta")); assert.equal(readStudyReviews(localStorage, owner).length, 1);
     const acknowledged = snapshot(); acknowledged.cards[0].memory.due = new Date(now.getTime() + 300000).toISOString(); acknowledged.cards[0].memory.state = 1;
     await act(async () => { reviewResponses[0](Response.json({ snapshot: acknowledged })); });

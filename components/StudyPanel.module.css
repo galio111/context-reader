@@ -35,7 +35,7 @@
 .dialog .quietExit{background:transparent;font-size:12px;padding-left:10px;justify-content:flex-start;color:var(--study-muted)}
 .dialog .mobileExit{display:none}
 .stage{min-height:100svh;padding:38px 6vw 38px max(172px,6vw);display:flex;flex-direction:column;align-items:center;justify-content:center}
-.flashcard{width:min(800px,100%);height:min(606px,calc(100svh - 76px));min-height:420px;padding:22px 40px 30px;background:var(--study-surface);border-radius:var(--study-radius);box-shadow:var(--study-shadow);display:flex;flex-direction:column;animation:enter var(--study-duration) cubic-bezier(.22,1,.36,1)}
+.flashcard{width:min(800px,100%);height:min(668px,calc(100svh - 76px));min-height:420px;padding:22px 40px 30px;background:var(--study-surface);border-radius:var(--study-radius);box-shadow:var(--study-shadow);display:flex;flex-direction:column}
 .flashcard[data-answer=true]{height:min(668px,calc(100svh - 76px))}
 .cardTop{display:flex;align-items:center;justify-content:space-between;min-height:40px;font-size:12px;color:var(--study-muted);font-variant-numeric:tabular-nums;flex-shrink:0}
 .cardTop b{font-weight:500;color:var(--study-ink)}
@@ -201,10 +201,10 @@
 .notice button:last-child{background:transparent;color:var(--study-muted);padding:10px}
 :global([data-context-theme=night]) .notice button:first-of-type{color:#132641}
 .returnToStudy{position:fixed;z-index:80;bottom:calc(28px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:10px;min-height:48px;padding:12px 20px;border:1px solid var(--study-line);border-radius:24px;background:var(--study-glass);color:var(--study-accent);backdrop-filter:blur(20px);box-shadow:var(--study-shadow);font-size:13px;white-space:nowrap}
-@keyframes enter{from{opacity:.35;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+@keyframes enter{from{opacity:.85;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
 @keyframes reveal{from{opacity:.3;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
 @keyframes breathe{50%{opacity:.45}}
-.dialog[data-motion=off] :is(.flashcard,.answerBody,.confirm){animation:none}
+.dialog[data-motion=off] :is(.flashcard,.prompt,.answerBody,.confirm){animation:none}
 @media(min-width:1600px){.flashcard{width:850px}}
 @media(max-width:1060px){.rail{left:18px;width:105px}.dialog .rail nav button{width:105px;padding:10px 12px;gap:8px;font-size:12px}.stage{padding-left:148px;padding-right:28px}.flashcard{padding-left:28px;padding-right:28px}.page{padding-left:150px;padding-right:28px}.chartGrid{grid-template-columns:1fr}.distribution{min-height:140px}}
 @media(max-height:740px) and (min-width:761px){.stage{padding-top:20px;padding-bottom:20px}.flashcard,.flashcard[data-answer=true]{height:calc(100svh - 40px);padding-top:16px}.definitions{gap:8px 24px}.pronunciation{margin-bottom:8px}.sentence{margin-top:12px;padding-top:12px}.answerBody{padding-top:0}}
@@ -294,3 +294,7 @@
 .spellingCorrect svg{display:inline!important;width:.85em;height:.85em;vertical-align:baseline;margin-left:.15em}
 :global([data-context-theme=night]) .spellingCorrect{color:#8dd3a9}
 @media(max-width:760px){.contextSentence p{font-size:17px}.contextSentence p+p{font-size:13px}.contextSentence{padding-bottom:18px;margin-bottom:18px}.learningSections section{margin-top:20px;padding-top:17px}}
+
+.settingsFields{border:0;padding:0;margin:0;min-width:0}
+
+.prompt{animation:enter 160ms cubic-bezier(.22,1,.36,1)}

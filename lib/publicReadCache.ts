@@ -6,7 +6,9 @@ const globalCache = globalThis as typeof globalThis & { __publicReads?: {
 } };
 export const publicReadCache = globalCache.__publicReads ??= {
   articles: new BoundedAsyncCache(30_000, 64, 24 * 1024 * 1024),
-  summaries: new BoundedAsyncCache(30_000, 1, 4 * 1024 * 1024),
+  // The published metadata catalogue exceeds 4 MiB; an undersized cache
+  // silently discards it and repeats every database page on the next request.
+  summaries: new BoundedAsyncCache(300_000, 1, 16 * 1024 * 1024),
 };
 export function invalidatePublicReadCache(): void {
   publicReadCache.articles.clear();

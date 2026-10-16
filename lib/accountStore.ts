@@ -108,6 +108,7 @@ function serviceConfig(): { url: string; key: string } {
 
 export async function accountFetch<T>(path: string, init: RequestInit = {}): Promise<T> {
   const { url, key } = serviceConfig();
+  for(let attempt=0;;attempt++){
   const response = await fetch(`${url}/rest/v1/${path}`, {
     ...init,
     headers: {
@@ -120,7 +121,12 @@ export async function accountFetch<T>(path: string, init: RequestInit = {}): Pro
   });
 
   if (!response.ok) {
-    const data = (await response.json().catch(() => null)) as { message?: string; hint?: string } | null;
+    const data = (await response.json().catch(() => null)) as { message?: string; hint?: string; code?: string } | null;
+    // PGRST003 means no database connection was acquired: the statement never
+    // ran, so even a mutation can be retried safely. Never retry ambiguous writes.
+    if(response.status===504&&data?.code==="PGRST003"&&attempt<2){
+      await new Promise(resolve=>setTimeout(resolve,200*(attempt+1)));continue;
+    }
     throw new Error(data?.message || data?.hint || `Account database request failed with ${response.status}.`);
   }
 
@@ -132,6 +138,7 @@ export async function accountFetch<T>(path: string, init: RequestInit = {}): Pro
     return undefined as T;
   }
   return JSON.parse(responseText) as T;
+  }
 }
 
 async function ensureAccountRows(user: User): Promise<void> {

@@ -37,16 +37,16 @@ test("typing, clearing, state filters and sorting update the rendered notebook w
   const words=()=>Array.from(ui.container.querySelectorAll("li strong")).map(e=>e.textContent);
   const search=ui.getByRole("searchbox",{name:"搜索生词"});
   try {
-    assert.deepEqual(words(),["absorb","Take","tree","cat"]);
+    assert.deepEqual(words(),["cat","tree","Take","absorb"]);
     fireEvent.change(search,{target:{value:"t"}});
-    assert.deepEqual(words(),["Take","tree"]);assert.ok(ui.getByText("2 个词"));
+    assert.deepEqual(words(),["tree","Take"]);assert.ok(ui.getByText("2 个词"));
     fireEvent.change(search,{target:{value:"tr"}});assert.deepEqual(words(),["tree"]);
     fireEvent.click(ui.getByRole("button",{name:"查看 tree 详情"}));assert.equal(opened,"tr");
     fireEvent.change(search,{target:{value:"zzzz"}});assert.ok(ui.getByText("没有找到这个词"));
     fireEvent.change(search,{target:{value:""}});assert.equal(words().length,4);
-    fireEvent.change(search,{target:{value:" Ｔ "}});assert.deepEqual(words(),["Take","tree"]);
+    fireEvent.change(search,{target:{value:" Ｔ "}});assert.deepEqual(words(),["tree","Take"]);
     fireEvent.click(ui.getByRole("button",{name:"已学"}));assert.equal(words().length,0);
-    fireEvent.click(ui.getByRole("button",{name:"全部"}));assert.deepEqual(words(),["Take","tree"]);
+    fireEvent.click(ui.getByRole("button",{name:"全部"}));assert.deepEqual(words(),["tree","Take"]);
     fireEvent.change(search,{target:{value:"树"}});assert.deepEqual(words(),["tree"]);
     fireEvent.change(search,{target:{value:""}});
     fireEvent.click(ui.getByRole("button",{name:"字母 A–Z"}));assert.deepEqual(words(),["absorb","cat","Take","tree"]);

@@ -2064,3 +2064,7 @@ Accepted `20261014T111000`, parent `20261013T233500`, source `9218f41dc8d34e8466
 ## 2026-10-14 — URL import content and scroll recovery (validated, release pending)
 
 User-reported TIME title/image-only success was reproduced against production 20261014T115435. Utility-selector newsletter names deleted the body ancestor. The repair preserves all 24 substantial source paragraphs, rejects metadata-only success and retains a16z's 11 paragraph-wrapped charts. Shared Reader scroll locks replace overlapping manual overflow restoration; bounded client waits and mid-body overseas fallback improve recovery. 90 critical tests and targeted regressions passed. Browser control timed out; visual and repeated-use acceptance remains open. See [implementation and evidence](url-import-reliability.md).
+
+## 2026-10-16 — 背词点击稳定性、收藏顺序与保存恢复
+
+用户要求每次点击结果稳定，避免学习词、复习词和新词交界的闪帧与答案提前泄露。修复按词状态重置时机、整卡重挂载与高度跳变、设置空白、最新收藏排序及本机新增词的即时展示。后台确认学习保存错误为连接池等待超时，同时定位超过缓存容量的公共目录及分页再验证并发，修复缓存与安全恢复。当前算法和用户参数保留，Easy、新词预算与短期步骤通过独立问卷讨论。生产状态与证据见 [本轮记录](study-stability-20261016.md)，物理设备和用户最终体验验收仍开放。

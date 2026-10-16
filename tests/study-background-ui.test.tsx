@@ -22,7 +22,11 @@ test("Study advances immediately, keeps a new answer visible across another tab'
   mock("../components/AccountProvider",{useAccount:()=>({account:{profile:{userId:owner}},isOffline:false,syncNow:async()=>null,refreshAccount:async()=>{}})});
   mock("../components/useStudyVocabularyEntries",{useStudyVocabularyEntries:(entries:unknown[])=>entries??[]});
   mock("../components/useStudyTimer",{useStudyTimer:()=>()=>2000});
-  mock("../components/StudyWord",{StudyWord:({entry}:{entry:{word:string}})=><div>{entry.word} answer</div>});
+  const committedAnswers:string[]=[];
+  mock("../components/StudyWord",{StudyWord:({entry}:{entry:{word:string}})=>{
+    React.useLayoutEffect(()=>{committedAnswers.push(entry.word);});
+    return <div>{entry.word} answer</div>;
+  }});
   mock("../components/StudyDictionaryHint",{StudyDictionaryHint:()=>null});
   mock("../components/BookDictionary",{BookDictionary:()=>null});
   for(const name of ["StudyRewards","StudySettings","StudyVocabulary","StudyStats"])mock("../components/"+name,{[name]:()=>null});
@@ -60,6 +64,8 @@ test("Study advances immediately, keeps a new answer visible across another tab'
     await waitFor(()=>assert.equal(ui.getByRole("button",{name:/不记得/}).hasAttribute("disabled"),false));
     fireEvent.click(ui.getByRole("button",{name:/不记得/}));
     const next=await ui.findByRole("button",{name:"下一个"});
+    fireEvent.click(next,{detail:2});
+    assert.ok(ui.getByText("alpha answer"));assert.equal(requests.length,0,"double-click reveal must not accidentally submit");
     const originalSet=dom.window.Storage.prototype.setItem;
     dom.window.Storage.prototype.setItem=function(key,value){if(key.startsWith("context-reader-study-outbox:"))throw new Error("quota");originalSet.call(this,key,value);};
     fireEvent.click(next);
@@ -68,6 +74,7 @@ test("Study advances immediately, keeps a new answer visible across another tab'
     dom.window.Storage.prototype.setItem=originalSet;
     act(()=>{fireEvent.click(next);fireEvent.click(next);});
     assert.ok(ui.getByText("beta"));assert.equal(readStudyReviews(localStorage,owner).length,1);
+    assert.ok(!committedAnswers.includes("beta"),"the next answer must never commit, even for one frame");
     await waitFor(()=>assert.equal(requests.length,1));
     assert.equal(ui.queryByText("保存中…"),null);assert.equal(presented.length,1);
     fireEvent.click(ui.getByRole("button",{name:/不记得/}));

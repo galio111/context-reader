@@ -437,7 +437,9 @@ export async function listPublicArticleSummaries(): Promise<PublicArticle[]> {
   const projection = fields.map(field => `${field}:imported_article->recommendation->${field}`).join(",");
   const rows = await readAllArticleRows<SupabaseArticleRow & Partial<ArticleRecommendationMetadata> & { editorialVersion?: number }>(
     `public_articles?select=id,title,summary,source_url,source_name,created_at,updated_at,${projection},editorialVersion:imported_article->recommendation->editorialReview->version&published=eq.true&order=updated_at.desc,id.desc`,
-    path => supabaseFetch(path, { next: { revalidate: 300, tags: ["public-article-summaries"] } }),
+    // One catalogue-level single flight owns refresh. Per-page stale fetches
+    // can otherwise launch every page revalidation concurrently into the DB pool.
+    path => supabaseFetch(path),
   );
   return rows.map(row => {
     const recommendation = Object.fromEntries(fields.filter(field => row[field] != null).map(field => [field, row[field]])) as unknown as ArticleRecommendationMetadata;

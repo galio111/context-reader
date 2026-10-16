@@ -54,7 +54,7 @@ export const StudyVocabulary=memo(function StudyVocabulary({snapshot,onOpen}:{sn
   function toggle(lang:"en"|"zh"){setHidden({...hidden,[lang]:!hidden[lang]});setRevealed(new Set([...revealed].filter(k=>!k.endsWith(":"+lang))));}
   return <section className={styles.surface}>
     <div ref={headRef} className={`${styles.sectionHead} ${styles.vocabularyHead}`}><span>{entries.length} 个词</span><div className={styles.vocabularyTools}>
-      <div className={styles.wordOrder} role="group" aria-label="生词排序" data-ui-target="study.vocabulary-order">{([["collected","收藏顺序"],["alphabetical","字母 A–Z"],["random","随机"]] as const).map(([key,label])=><button type="button" key={key} aria-pressed={order===key} title={key==="collected"?"按收藏时间，从早到晚":key==="random"?"每次点击重新打乱":"按英文从 A 到 Z"} onClick={()=>changeOrder(key)}>{label}</button>)}</div>
+      <div className={styles.wordOrder} role="group" aria-label="生词排序" data-ui-target="study.vocabulary-order">{([["collected","收藏顺序"],["alphabetical","字母 A–Z"],["random","随机"]] as const).map(([key,label])=><button type="button" key={key} aria-pressed={order===key} title={key==="collected"?"按收藏时间，最新在前":key==="random"?"每次点击重新打乱":"按英文从 A 到 Z"} onClick={()=>changeOrder(key)}>{label}</button>)}</div>
       <label className={styles.search}><StudyIcon name="search"/><input type="search" value={query} onChange={e=>setQuery(e.target.value)} placeholder="输入词头或中文释义" aria-label="搜索生词"/></label>
     </div></div>
     <div className={styles.wordFilters} aria-label="单词筛选">{[["all","全部"],["studied","已学"],["learning","正在背"],["steady","熟悉"],["review","待巩固"],["new","未学"]].map(([key,label])=><button key={key} aria-pressed={filter===key} onClick={()=>setFilter(key)}>{label}</button>)}</div>

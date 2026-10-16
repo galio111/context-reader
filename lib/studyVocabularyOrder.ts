@@ -8,10 +8,10 @@ export function orderStudyVocabulary(entries: VocabularyEntry[], order: StudyVoc
   const ranks = new Map(shuffledIds.map((id, index) => [id, index]));
   const decorated = entries.map((entry, index) => {
     const time = Date.parse(entry.createdAt);
-    return { entry, index, time: Number.isFinite(time) ? time : Number.MAX_SAFE_INTEGER };
+    return { entry, index, time: Number.isFinite(time) ? time : -Infinity };
   });
   decorated.sort((a, b) => {
-    const chronological = () => a.time - b.time || a.index - b.index;
+    const chronological = () => b.time - a.time || a.index - b.index;
     if (order === "alphabetical") return alphabet.compare(a.entry.word, b.entry.word) || chronological();
     if (order === "random") return (ranks.get(a.entry.id) ?? Number.MAX_SAFE_INTEGER) - (ranks.get(b.entry.id) ?? Number.MAX_SAFE_INTEGER) || chronological();
     return chronological();

@@ -12,7 +12,7 @@ export async function updateStudyLocalRecord(owner:string,change:(record:StudyLo
   try{return await new Promise((resolve,reject)=>{
     const tx=db.transaction("sessions","readwrite"),store=tx.objectStore("sessions"),r=store.get(owner);
     let result:StudyLocalRecord|null=null;
-    r.onsuccess=()=>{try{result=change(r.result??null);if(result)store.put(result);}catch(e){tx.abort();reject(e);}};
+    r.onsuccess=()=>{try{result=change(r.result??null);if(result&&result!==r.result)store.put(result);}catch(e){tx.abort();reject(e);}};
     tx.oncomplete=()=>resolve(result);tx.onabort=tx.onerror=()=>reject(tx.error??new Error("本机无法保存学习记录，请释放空间后重试。"));
   });}finally{db.close();}
 }

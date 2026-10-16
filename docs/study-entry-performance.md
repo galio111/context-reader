@@ -10,7 +10,7 @@ Pending outbox answers hide their own cards while the initial snapshot loads. Wh
 
 Within prepare/start, reconciliation's already-read vocabulary is reused by the final snapshot. Cards and settings are reread after the plan operation for concurrent-device changes. There is no shared server account cache or database migration. Logout clears the separate view cache and invalidates late writes from older tabs; durable answer outboxes remain separate.
 
-The notebook has three upper-right display orders: 收藏顺序 (default, original createdAt, oldest first), 字母 A–Z (case-insensitive English collation), and 随机 (reshuffle on every click). With at least two filtered entries each shuffle changes their order. New entries append to the existing random order. Sorting is local and does not change saved records or the FSRS queue.
+The notebook has three upper-right display orders: 收藏顺序 (default, original createdAt, newest first), 字母 A–Z (case-insensitive English collation), and 随机 (reshuffle on every click). With at least two filtered entries each shuffle changes their order. New entries append to the existing random order. Sorting is local and does not change saved records or the FSRS queue.
 
 Above 100 entries, the notebook renders the viewport plus eight overscan rows. Each row uses its actual measured height, including long meanings, masking and viewport changes; 76px is only an initial estimate. The existing dialog remains the scroll container. Per-id keys retain reveal state, list semantics expose positions/count, and memoized content avoids unnecessary parent-timer rendering. Smaller lists retain normal document flow. Closing a detail restores its connected opener without scrolling.
 

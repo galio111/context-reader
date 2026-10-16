@@ -6,7 +6,7 @@ import type { VocabularyEntry } from "../types/vocabulary";
 const entry=(id:string,word:string,createdAt:string,updatedAt=createdAt)=>({id,word,createdAt,updatedAt}) as VocabularyEntry;
 test("collection order uses original creation time, including timezone offsets, never regeneration time",()=>{
  const entries=[entry("b","apple","2026-10-13T10:00:00+08:00"),entry("c","Zoo","2026-10-13T03:00:00Z"),entry("a","Banana","2026-10-13T01:00:00Z","2099-01-01")];
- assert.deepEqual(orderStudyVocabulary(entries,"collected").map(e=>e.id),["a","b","c"]);
+ assert.deepEqual(orderStudyVocabulary(entries,"collected").map(e=>e.id),["c","b","a"]);
  assert.deepEqual(entries.map(e=>e.id),["b","c","a"]);
  assert.deepEqual(orderStudyVocabulary(entries,"alphabetical").map(e=>e.word),["apple","Banana","Zoo"]);
 });
