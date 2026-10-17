@@ -881,7 +881,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
   }, [compactViewport, memberHome]);
 
   useEffect(() => {
-    if (props.skipMemberOpening || guestOpeningComplete || refreshResumed) {
+    if (isRefreshNavigation() || props.skipMemberOpening || guestOpeningComplete || refreshResumed) {
       setMemberOpeningVisible(false);
       setMemberBallpitReady(false);
       return;
