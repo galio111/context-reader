@@ -156,6 +156,18 @@ export function AccountProvider({ children }: { children: ReactNode }) {
 
   const refreshAccount = useCallback(async (): Promise<ConnectionResult> => {
     const storageReady = initializeLearningStorage().catch(() => {});
+    if (!navigator.onLine) {
+      await storageReady;
+      const snapshot = readLocalAccountSession();
+      const storage = getLearningStorage();
+      const sameOwner = storage.getItem("context-reader:local-account-owner:v1") === snapshot?.userId;
+      setLocalAccount(sameOwner ? snapshot : null);
+      setAccount(emptyAccount);
+      setIsOffline(true);
+      setLoading(false);
+      startupMark("account-resolved");
+      return "network";
+    }
     const controller = new AbortController();
     const timeoutId = window.setTimeout(() => controller.abort(), ACCOUNT_SESSION_TIMEOUT_MS);
     try {
@@ -198,12 +210,15 @@ export function AccountProvider({ children }: { children: ReactNode }) {
       return "online";
     } catch {
       await storageReady;
-      const reason = await canReachContextReader() ? "service" : "network";
       setIsOffline(true);
-      setOfflineReason(reason);
       setAccount(emptyAccount);
-      setLocalAccount(readLocalAccountSession());
+      const snapshot = readLocalAccountSession();
+      setLocalAccount(getLearningStorage().getItem("context-reader:local-account-owner:v1") === snapshot?.userId ? snapshot : null);
       setUsageNotice("");
+      // Do not add a second five-second request to the startup critical path.
+      setLoading(false);
+      const reason = await canReachContextReader() ? "service" : "network";
+      setOfflineReason(reason);
       return reason;
     } finally {
       window.clearTimeout(timeoutId);
@@ -296,7 +311,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
       void runConnectivityCheck();
     };
 
-    if (!navigator.onLine) markOffline();
+    // Initial offline resolution waits for account-scoped storage above.
     window.addEventListener("offline", markOffline);
     window.addEventListener("online", retryOnline);
     return () => {
@@ -651,7 +666,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
       <div inert={account.authenticated && !storageStatus.ready}>{children}</div>
       {isOffline && !studyVisible && (
         <aside
-          className="fixed left-1/2 top-2 z-[190] w-[min(94vw,760px)] -translate-x-1/2 rounded-xl bg-[#fff7df] px-3 py-2 text-[#533d17] shadow-[0_4px_8px_rgba(69,48,12,.16)] sm:top-3 sm:px-4 sm:py-3"
+            className="fixed left-1/2 top-16 z-[190] w-[min(94vw,760px)] -translate-x-1/2 rounded-xl bg-[#fff7df] px-3 py-2 text-[#533d17] shadow-[0_4px_8px_rgba(69,48,12,.16)] sm:top-3 sm:px-4 sm:py-3"
           role="status"
           aria-live="polite"
         >

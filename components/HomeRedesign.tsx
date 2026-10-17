@@ -12,6 +12,7 @@ import { ArticleCover } from "@/components/ArticleCover";
 import { useDailyPublicationNotice } from "@/components/useDailyPublicationNotice";
 import { useArticleSummary } from "@/components/useArticleSummary";
 import { startupMark } from "@/lib/startupPerformance";
+import { isRefreshNavigation, readRefreshState, writeRefreshState } from "@/lib/refreshContinuity";
 import { updateHomeCoverMotion } from "@/lib/homeCoverMotion";
 import { useArticleReveal } from "@/components/useArticleReveal";
 import { usePublicationMountCount } from "@/components/usePublicationMountCount";
@@ -25,7 +26,8 @@ import { useAccount } from "@/components/AccountProvider";
 import { BookLetterField } from "@/components/BookLetterField";
 import ClearableField from "@/components/ClearableField";
 import dynamic from "next/dynamic";
-import { HomeOptionMenu, type GuideSection, type PreviewKind } from "@/components/HomeOptionMenu";
+import type { GuideSection, PreviewKind } from "@/components/HomeOptionMenu";
+const HomeOptionMenu = dynamic(() => import("@/components/HomeOptionMenu").then(module => module.HomeOptionMenu));
 const BookDictionary = dynamic(() => import("@/components/BookDictionary").then(module => module.BookDictionary), {
   loading: () => <LoadingStatus >正在打开词典…</LoadingStatus>,
 });
@@ -305,6 +307,45 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const ballpitControllerRef = useRef<BallpitHandle | null>(null);
   const memberBallpitControllerRef = useRef<BallpitHandle | null>(null);
   const [resourceTab, setResourceTab] = useState<"articles" | "cet">("articles");
+  const refreshOwner = account.profile?.userId ?? (isOffline ? localAccount?.userId : undefined) ?? "guest";
+  const refreshViewRead = useRef(false);
+  const refreshScroll = useRef<number | null>(null);
+  const [refreshResumed, setRefreshResumed] = useState(false);
+  useEffect(() => {
+    if (accountLoading || refreshViewRead.current || guestPreviewAllowed || memberPreviewAllowed) return;
+    refreshViewRead.current = true;
+    if (!isRefreshNavigation()) return;
+    const saved = readRefreshState<{ scrollY: number; mode: "guest" | "member"; resource: "articles" | "cet"; menu: boolean; dictionary: boolean }>("home", refreshOwner, true);
+    if (!saved) return;
+    setRefreshResumed(true);
+    setJourneyHomeMode(saved.mode === "member" && !hasLocalAccountAccess ? "guest" : saved.mode);
+    if (saved.resource === "cet") setResourceTab("cet");
+    refreshScroll.current = Number.isFinite(saved.scrollY) ? Math.max(0, saved.scrollY) : 0;
+    if (saved.menu) { setMenuInitialPreview(readRefreshState<PreviewKind>("menu", refreshOwner)); setMenuOpen(true); }
+    if (saved.dictionary) setDictionaryMounted(true);
+  }, [accountLoading, guestPreviewAllowed, memberPreviewAllowed, refreshOwner, hasLocalAccountAccess]);
+  useEffect(() => {
+    if (!refreshResumed || journeyPending || !viewStateReady || refreshScroll.current === null) return;
+    const top = refreshScroll.current;
+    let frame = 0;
+    const restore = () => { frame = requestAnimationFrame(() => window.scrollTo({ top, behavior: "instant" })); };
+    const observer = new ResizeObserver(restore);
+    observer.observe(document.body); restore();
+    const stop = () => { observer.disconnect(); cancelAnimationFrame(frame); refreshScroll.current = null; };
+    const timer = window.setTimeout(stop, 2000);
+    window.addEventListener("wheel", stop, { once: true }); window.addEventListener("touchstart", stop, { once: true }); window.addEventListener("keydown", stop, { once: true });
+    return () => { stop(); clearTimeout(timer); window.removeEventListener("wheel", stop); window.removeEventListener("touchstart", stop); window.removeEventListener("keydown", stop); };
+  }, [refreshResumed, journeyPending, viewStateReady]);
+  useEffect(() => {
+    if (accountLoading || guestPreviewAllowed || memberPreviewAllowed) return;
+    const save = () => {
+      if (!refreshViewRead.current || !journeyHomeMode) return;
+      writeRefreshState("home", refreshOwner, { scrollY: window.scrollY, mode: journeyHomeMode, resource: resourceTab, menu: menuOpen, dictionary: dictionaryMounted });
+    };
+    const hidden = () => { if (document.hidden) save(); };
+    window.addEventListener("pagehide", save); document.addEventListener("visibilitychange", hidden);
+    return () => { window.removeEventListener("pagehide", save); document.removeEventListener("visibilitychange", hidden); };
+  }, [accountLoading, dictionaryMounted, guestPreviewAllowed, journeyHomeMode, memberPreviewAllowed, menuOpen, refreshOwner, resourceTab]);
   useEffect(() => {
     if (!props.skipMemberOpening) {
       try { sessionStorage.removeItem("context-reader:home-resource"); } catch { /* A fresh visit still starts with articles. */ }
@@ -501,12 +542,12 @@ export function HomeRedesign(props: HomeRedesignProps) {
   }, [props.forceGuestPreview, props.forceMemberPreview]);
 
   useEffect(() => {
-    if (guestPreviewAllowed || memberPreviewAllowed || accountLoading || journeyHomeMode !== null) return;
+    if (guestPreviewAllowed || memberPreviewAllowed || accountLoading || journeyHomeMode !== null || refreshScroll.current !== null) return;
     // Resolve the journey once per mounted homepage. A guest who signs in halfway
     // through a visit stays in the same guest surface; a fresh visit resolves to
     // the member workbench. This avoids surprising route/state replacement.
-    setJourneyHomeMode(account.authenticated ? "member" : "guest");
-  }, [account.authenticated, accountLoading, guestPreviewAllowed, journeyHomeMode, memberPreviewAllowed]);
+    setJourneyHomeMode(hasLocalAccountAccess ? "member" : "guest");
+  }, [hasLocalAccountAccess, accountLoading, guestPreviewAllowed, journeyHomeMode, memberPreviewAllowed]);
 
   useEffect(() => {
     const stored = readRecommendationPreferences();
@@ -840,7 +881,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
   }, [compactViewport, memberHome]);
 
   useEffect(() => {
-    if (journeyPending || props.skipMemberOpening) {
+    if (props.skipMemberOpening || guestOpeningComplete || refreshResumed) {
       setMemberOpeningVisible(false);
       setMemberBallpitReady(false);
       return;
@@ -889,7 +930,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
       window.removeEventListener("keydown", finishQuickly);
       if (memberOpeningFrameRef.current) window.cancelAnimationFrame(memberOpeningFrameRef.current);
     };
-  }, [journeyPending, memberBallpitReady, memberHome, memberOpeningVariant, props.skipMemberOpening]);
+  }, [refreshResumed, guestOpeningComplete, memberBallpitReady, memberHome, memberOpeningVariant, props.skipMemberOpening]);
 
   function beginArticleTransition(article: PublicArticle, event: ReactMouseEvent<HTMLButtonElement>) {
     if (openingArticle || props.openingPublicArticleId) return;
@@ -1150,7 +1191,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
     <main className={styles.root} data-catalogue-status={props.catalogueStatus ?? "ready"} data-catalogue-count={props.publicArticles.length} data-theme={homeTheme} data-home-mode={memberHome ? "member" : "guest"} data-nav-motion={navMotion} data-guest-preview={guestPreviewAllowed || undefined} data-member-preview={memberPreviewAllowed || undefined} data-standalone-tool-open={menuOpen && menuStandalonePreview || undefined}>
       {dailyNotice.count !== null && <div ref={dailyNotice.ref} className={styles.dailyUpdateNotice} role="status">今天更新了 {dailyNotice.count} 篇文章</div>}
       {articleSummary.summary && <div id="article-summary-tooltip" role="tooltip" className={styles.articleSummaryTooltip} style={{ left: articleSummary.summary.left, top: articleSummary.summary.top, width: articleSummary.summary.width, transform: articleSummary.summary.above ? "translateY(-100%)" : undefined }}>{articleSummary.summary.text}</div>}
-      {journeyPending && <div className={styles.accountResolving} role="status" aria-label="正在打开阅读空间"><span /><span /><span /></div>}
+      {journeyPending && !memberOpeningVisible && <div className={styles.accountResolving} role="status" aria-label="正在打开阅读空间"><span /><span /><span /></div>}
       <BookLetterField paused={memberOpeningVisible || !letterMotionEnabled} />
       <header className={styles.topbar}>
         <div className={`${styles.brandCluster} ${memberHome ? styles.brandClusterFixed : ""}`}>

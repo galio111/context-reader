@@ -1,5 +1,6 @@
 "use client";
 import { navigateExperiencePreview } from "@/lib/experiencePreview";
+import { writeRefreshState } from "@/lib/refreshContinuity";
 import { contextualLemma } from "@/lib/displayLabels";
 
 import {
@@ -205,6 +206,11 @@ export function HomeOptionMenu({
   const [hoveredVocabularyId, setHoveredVocabularyId] = useState<string | null>(null);
   const [vocabularySearchQuery, setVocabularySearchQuery] = useState("");
   const [pinnedPreview, setPinnedPreview] = useState<PreviewKind | null>(null);
+  useEffect(() => {
+    const save = () => { if (open) writeRefreshState("menu", account.profile?.userId ?? (isOffline ? localAccount?.userId : undefined) ?? "guest", pinnedPreview); };
+    window.addEventListener("pagehide", save);
+    return () => window.removeEventListener("pagehide", save);
+  }, [open, pinnedPreview, account.profile?.userId, isOffline, localAccount?.userId]);
   const [savedArticleContext, setSavedArticleContext] = useState<{
     articleId: string;
     x: number;

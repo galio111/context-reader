@@ -2078,3 +2078,7 @@ User requested exact day-based carryover without changing learning records. Repl
 ## 2026-10-17 — Remove forecast caption
 
 User requested removal of the entire explanatory paragraph below the review forecast. Removed only that paragraph; graph labels, numbers and scheduling remain unchanged. Accepted release `20261017T151000`, parent `20261017T123000`, source `412a9ba93634579c527c4b38323bb4924a21edb1`. Public release identity, desktop/mobile browser caption removal and retained chart/counts passed, with no page errors. Recovery Admin checks passed; rollback image and prior same-session 40-table restore verified. Health check reports root disk usage 86%; full health success is not claimed. No learning records were changed. Evidence: artifacts/study-caption-release-1017/.
+
+## 2026-10-17 — 刷新连续性与启动等待
+
+用户要求解决开场前长等待、刷新丢失当前位置、长期打开目录不更新和离线游客首页。实现同标签页按账号恢复展示状态、后台目录与编排检查、离线数据所有者核验、开场与账号请求并行及菜单代码拆分。正式发布身份和验证边界见 [本轮记录](refresh-continuity-20261017.md)。

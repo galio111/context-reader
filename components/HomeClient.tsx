@@ -62,6 +62,8 @@ import {
 } from "@/lib/temporaryReading";
 import type { HomepageCuration } from "@/lib/homepageCurationShared";
 import { STUDY_SOURCE_EVENT, STUDY_SOURCE_RESULT_EVENT } from "@/lib/studyNavigation";
+import { initializeLearningStorage } from "@/lib/learningStorage";
+import { isRefreshNavigation, readRefreshState, writeRefreshState } from "@/lib/refreshContinuity";
 
 interface HomeClientProps {
   initialPublicArticles: PublicArticle[];
@@ -207,7 +209,9 @@ async function requestImageLayoutWords(file: File): Promise<ImportedImageLayoutW
 
 export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCatalogueComplete = true, initialCatalogueCounts, initialHomepageCuration, homeVariant = "immersive", forceGuestPreview = false, forceMemberPreview = false }: HomeClientProps) {
   const skipOpening = useContext(UiPreviewOpeningContext);
-  const { account, isOffline, requireAccount } = useAccount();
+  const { account, isOffline, localAccount, loading: accountLoading, requireAccount } = useAccount();
+  const continuityOwner = account.profile?.userId ?? (isOffline ? localAccount?.userId : undefined) ?? "guest";
+  const [homepageCuration, setHomepageCuration] = useState(initialHomepageCuration);
   const [initialPublicArticles, setPublicArticles] = useState(bootstrapArticles);
   const [catalogueStatus, setCatalogueStatus] = useState<"idle" | "loading" | "ready" | "error">(initialCatalogueComplete ? "ready" : "idle");
   const catalogueRef = useRef({ articles: bootstrapArticles, complete: initialCatalogueComplete, pending: null as Promise<PublicArticle[]> | null });
@@ -230,6 +234,31 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
     }).catch(error => { setCatalogueStatus("error"); throw error; });
   }, [account.authenticated, isOffline, forceGuestPreview, loadPublicCatalogue]);
   const requestPublicCatalogue = useCallback(() => { void ensurePublicCatalogue().catch(() => {}); }, [ensurePublicCatalogue]);
+
+  useEffect(() => {
+    let lastCheck = Date.now(), pending = false;
+    const controller = new AbortController();
+    const refresh = async () => {
+      if (document.hidden || !navigator.onLine || pending || Date.now() - lastCheck < 60_000) return;
+      pending = true; lastCheck = Date.now();
+      try {
+        const response = await fetch("/api/public-articles?format=metadata-v2", { cache: "no-cache", signal: controller.signal });
+        if (!response.ok) return;
+        const data = await response.json();
+        if (!Array.isArray(data.articles) || controller.signal.aborted) return;
+        catalogueRef.current.articles = data.articles; catalogueRef.current.complete = true;
+        setPublicArticles(previous => JSON.stringify(previous) === JSON.stringify(data.articles) ? previous : data.articles);
+        if (data.homepageCuration) setHomepageCuration(data.homepageCuration);
+        setCatalogueStatus("ready");
+      } catch { /* Keep the visible catalogue during temporary disconnections. */ }
+      finally { pending = false; }
+    };
+    const timer = window.setInterval(refresh, 60_000);
+    window.addEventListener("focus", refresh);
+    window.addEventListener("online", refresh);
+    document.addEventListener("visibilitychange", refresh);
+    return () => { controller.abort(); clearInterval(timer); window.removeEventListener("focus", refresh); window.removeEventListener("online", refresh); document.removeEventListener("visibilitychange", refresh); };
+  }, []);
 
   useEffect(() => {
     if (isOffline) return;
@@ -286,6 +315,10 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
   const [reading, setReading] = useState(false);
   const [cetEntry, setCetEntry] = useState<CetEntry | null>(null);
   const [homeDemoCompleted, setHomeDemoCompleted] = useState(false);
+  useEffect(() => {
+    const navigation = performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming | undefined;
+    if (navigation?.type === "reload" || navigation?.type === "back_forward") setHomeDemoCompleted(true);
+  }, []);
   const [sourceSentenceToHighlight, setSourceSentenceToHighlight] = useState("");
   const [sourceWordToHighlight, setSourceWordToHighlight] = useState("");
   const [sourceJumpRequestId, setSourceJumpRequestId] = useState(0);
@@ -404,12 +437,12 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
     refreshSavedArticles();
     window.addEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshSavedArticles);
     return () => window.removeEventListener(ACCOUNT_DATA_MERGED_EVENT, refreshSavedArticles);
-  }, []);
+  }, [accountLoading, continuityOwner]);
 
   useEffect(() => {
-    const userId = account.authenticated ? account.profile?.userId ?? "" : "";
+    const userId = continuityOwner === "guest" ? "" : continuityOwner;
     setTemporaryReading(userId ? readTemporaryReading(userId) : null);
-  }, [account.authenticated, account.profile?.userId]);
+  }, [accountLoading, continuityOwner]);
 
   useEffect(() => {
     if (!sourceSentenceToHighlight) {
@@ -547,6 +580,45 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
     setReaderSessionId((sessionId) => sessionId + 1);
     setError("");
   }, [beginReadingProgressSession]);
+
+  const continuityRestored = useRef(false);
+  useEffect(() => {
+    if (accountLoading || continuityRestored.current || forceGuestPreview || forceMemberPreview) return;
+    let cancelled = false;
+    void initializeLearningStorage().then(() => {
+      if (cancelled) return;
+      continuityRestored.current = true;
+      if (!isRefreshNavigation()) return;
+      const saved = readRefreshState<{ reader?: ReaderSessionSnapshot; cet?: CetEntry; origin?: ReaderOriginSnapshot; scrollY?: number }>("page", continuityOwner, true);
+      if (!saved) return;
+      setHomeDemoCompleted(true);
+      if (saved.reader && typeof saved.reader.article === "string" && Array.isArray(saved.reader.preloadedExplanations) && Array.isArray(saved.reader.preloadedArticleTranslations)) {
+        restoreReaderSession(saved.reader);
+        readerOriginRef.current = saved.origin ?? null;
+        readingRef.current = true;
+        setReading(true);
+      } else if (saved.cet?.paperId) setCetEntry(saved.cet);
+    }).catch(() => {});
+    return () => { cancelled = true; };
+  }, [accountLoading, continuityOwner, forceGuestPreview, forceMemberPreview, restoreReaderSession]);
+
+  useEffect(() => {
+    if (accountLoading || forceGuestPreview || forceMemberPreview) return;
+    const save = () => {
+      if (!continuityRestored.current) return;
+      const snapshot = reading ? captureCurrentReaderSession() : undefined;
+      if (snapshot) {
+        snapshot.viewportAnchor = readerViewportCaptureRef.current?.()?.anchor ?? readerViewportAnchorRef.current;
+        // Restoring the viewport must not repeat an old vocabulary jump.
+        snapshot.sourceSentenceToHighlight = ""; snapshot.sourceWordToHighlight = "";
+      }
+      writeRefreshState("page", continuityOwner, { reader: snapshot, cet: cetEntry, origin: readerOriginRef.current });
+    };
+    const hidden = () => { if (document.hidden) save(); };
+    window.addEventListener("pagehide", save);
+    document.addEventListener("visibilitychange", hidden);
+    return () => { window.removeEventListener("pagehide", save); document.removeEventListener("visibilitychange", hidden); };
+  }, [accountLoading, captureCurrentReaderSession, cetEntry, continuityOwner, forceGuestPreview, forceMemberPreview, reading]);
 
   const leaveReaderToHome = useCallback(() => {
     flushReadingProgress();
@@ -1569,9 +1641,9 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
         openingPublicArticleId={openingPublicArticleId}
         publicArticles={initialPublicArticles}
         catalogueStatus={catalogueStatus}
-        catalogueCounts={initialCatalogueCounts}
+        catalogueCounts={catalogueStatus === "ready" ? undefined : initialCatalogueCounts}
         onRequestCatalogue={requestPublicCatalogue}
-        homepageCuration={initialHomepageCuration}
+        homepageCuration={homepageCuration}
         savedArticles={savedArticles}
         temporaryReading={temporaryReading}
         onArticleChange={(value) => {

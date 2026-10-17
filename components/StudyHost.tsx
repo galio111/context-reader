@@ -1,6 +1,7 @@
 "use client";
 import dynamic from "next/dynamic";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { isRefreshNavigation, readRefreshState, writeRefreshState } from "@/lib/refreshContinuity";
 import { useAccount } from "./AccountProvider";
 import { OPEN_STUDY_EVENT, STUDY_SOURCE_RESULT_EVENT, STUDY_VIEW_EVENT } from "@/lib/studyNavigation";
 import { getVocabularyEntries } from "@/lib/vocabulary";
@@ -14,6 +15,7 @@ export function StudyHost() {
   const [requestedTab,setRequestedTab]=useState<"today"|"profile">("today");
   const [requestKey,setRequestKey]=useState(0);
   const owner = account.profile?.userId ?? (isOffline?localAccount?.userId:undefined) ?? "";
+  const restoredOwner = useRef("");
   const launch = useCallback(() => {
     if (!requireLocalAccount("登录后即可保存复习进度。")) return;
     setRemind(false); setSource(false); setNotice(""); setOpen(true);
@@ -27,6 +29,19 @@ export function StudyHost() {
   useEffect(() => {
     setOpen(false); setSource(false); setRemind(false);
   },[owner]);
+  useEffect(() => {
+    if (loading || !owner || restoredOwner.current === owner) return;
+    restoredOwner.current = owner;
+    if (!isRefreshNavigation()) return;
+    const saved = readRefreshState<{ open: boolean; tab: "today" | "profile" }>("study", owner, true);
+    if (saved?.open) { setRequestedTab(saved.tab === "profile" ? "profile" : "today"); setOpen(true); }
+  }, [loading, owner]);
+  useEffect(() => {
+    const save = () => { if (owner && !loading) writeRefreshState("study", owner, { open: open && !source, tab: requestedTab }); };
+    const hidden = () => { if (document.hidden) save(); };
+    window.addEventListener("pagehide", save); document.addEventListener("visibilitychange", hidden);
+    return () => { window.removeEventListener("pagehide", save); document.removeEventListener("visibilitychange", hidden); };
+  }, [loading, open, owner, requestedTab, source]);
   useEffect(() => {
     if (loading) return;
     const q=new URLSearchParams(location.search);

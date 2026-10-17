@@ -2,6 +2,7 @@ import { createHash } from "node:crypto";
 import { NextResponse } from "next/server";
 import { listPublicArticleSummaries } from "@/lib/publicArticles";
 import { publicArticleSummary } from "@/lib/publicArticleSummary";
+import { getHomepageCuration } from "@/lib/homepageCuration";
 
 const PUBLIC_CACHE_HEADERS = {
   "Cache-Control": "public, max-age=60, s-maxage=300, stale-while-revalidate=86400",
@@ -9,8 +10,8 @@ const PUBLIC_CACHE_HEADERS = {
 
 export async function GET(request: Request) {
   try {
-    const articles = await listPublicArticleSummaries();
-    const body = JSON.stringify({ articles: articles.map(publicArticleSummary) });
+    const [articles, homepageCuration] = await Promise.all([listPublicArticleSummaries(), getHomepageCuration()]);
+    const body = JSON.stringify({ articles: articles.map(publicArticleSummary), homepageCuration });
     const etag = `"${createHash("sha256").update(body).digest("hex")}"`;
     const headers = { ...PUBLIC_CACHE_HEADERS, ETag: etag };
     // Next's compressed response appends `-gzip` to the ETag seen by the browser.

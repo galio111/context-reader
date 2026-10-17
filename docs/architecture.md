@@ -1,5 +1,12 @@
 # Context Reader Architecture
 
+## 刷新与离线连续性（2026-10-17）
+
+刷新或浏览器历史恢复会按同一标签页、当前账号恢复文章正文和视口、CET 入口、背词窗口，以及首页分类、筛选、资源页签、工具窗口和滚动位置。主动回首页和新标签页仍按正常入口进入。恢复只保存展示状态，不重放学习作答、不授予在线账号或 Admin 权限；存储不可用时不阻断当前操作。重复刷新跳过开场，首次开场不等待账号请求，Menu 内容按需加载。
+
+外刊目录在可见页面每分钟检查，切回窗口或联网时也检查（合并一分钟内重复请求），失败保留当前列表；更新包含公开编排，不中断 Reader。离线启动先等待本机存储就绪，只有历史身份和本机数据所有者一致时才能恢复该账号；首页使用本机账号访问状态选择工作台，在线权限仍需服务端确认。发布状态与证据见 [本轮记录](refresh-continuity-20261017.md)。
+
+
 ## Offline study queue (accepted 20261014T111000)
 
 `studyOffline` projects the signed, account-scoped server base plus immutable review/undo/settings events. `studyOfflineStore` commits journal and base atomically in IndexedDB; `useStudyOffline` retries background uploads and refreshes without selecting a different visible question. The server recomputes FSRS and `study_local_event_v1` serializes per account, checks versions, records idempotent event outcomes and returns a small card/ledger acknowledgement. Pending projections never create reward credit or server authority. Queue/forecast/UI rules and limitations are canonical in [vocabulary study](vocabulary-study.md).
