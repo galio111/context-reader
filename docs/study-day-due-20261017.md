@@ -18,3 +18,6 @@ References: https://docs.ankiweb.net/stats.html#future-due and https://docs.anki
 - Public controlled Chrome browser repeated desktop, 390px reduced-motion, evening review and forecast, mixed ordering, offline save/undo/reconnect with zero page errors. These use isolated mocked study data; actual authenticated APIs were separately tested above. Physical-device/Safari acceptance is not claimed.
 - Recovery Admin checks and health passed. Parent accepted image exists. All five backend container start times are unchanged; only app/caddy recreated. SHA-verified isolated 40-table backup restore passed before release; post-release SHA-verified 40-table restore also passed; see post-restore-and-state.log.
 - Evidence retained locally under `artifacts/study-day-release-1017/`: connectivity.json, migration.log, account-plan-verification.log, public-receipt.json, public-offline.json, browser-local/, browser-public/, operations.log and backend-before/after.txt. Build/test logs are `artifacts/study-day-*.log`.
+
+
+UI correction: the explanatory paragraph beneath the forecast is removed at the user request; the graph retains its date labels, counts and accessible description. Follow-up release acceptance pending.

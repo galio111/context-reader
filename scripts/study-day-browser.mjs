@@ -48,7 +48,7 @@ try{
  await page.goto(process.env.STUDY_TEST_URL||'http://127.0.0.1:3219/?study=1',{waitUntil:'domcontentloaded'});
  await dialog.getByText('alpha',{exact:true}).waitFor({timeout:60000});
  await dialog.getByRole('button',{name:'学习数据',exact:true}).click();
- assert.ok(await dialog.getByText(/今天待复习 6 个词/).count());
+ assert.ok(await dialog.getByRole('img',{name:/，6词/}).count());
  await page.screenshot({path:output+'/daily-counts.png'});
  await dialog.getByRole('button',{name:'设置',exact:true}).click();
  assert.equal(await dialog.getByRole('button',{name:'学习顺序',exact:true}).textContent(),'先复习，再学新词⌄');

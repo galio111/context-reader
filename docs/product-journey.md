@@ -2073,3 +2073,8 @@ User-reported TIME title/image-only success was reproduced against production 20
 ## 2026-10-17 — daily due reconciliation (accepted)
 
 User requested exact day-based carryover without changing learning records. Replaced mixed fixed-plan/full-day forecast with uncapped Shanghai-day inventory; ordinary reviews are available all day, short steps retain timing, existing plans add missing IDs. 77 study tests, 90 critical regressions, isolated SQL and controlled browser checks passed. Accepted release `20261017T123000`, parent `20261016T161500`, source `a5d699e43a162033641d99b33bd2da63313f0847`; public identity and actual evening-review/offline APIs passed. gggg now has 156 today-due = 156 planned and 55 tomorrow-due. Full card/review fingerprints unchanged during plan repair. Health, recovery Admin, parent rollback image and 40-table backup restore passed; backend containers unchanged. See study-day-due-20261017.md.
+
+
+## 2026-10-17 — Remove forecast caption
+
+User requested removal of the entire explanatory paragraph below the review forecast. Removed only that paragraph; graph labels, numbers and scheduling remain unchanged. Production acceptance pending.
