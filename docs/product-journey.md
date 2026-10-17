@@ -2068,3 +2068,8 @@ User-reported TIME title/image-only success was reproduced against production 20
 ## 2026-10-16 — 背词点击稳定性、收藏顺序与保存恢复
 
 用户要求每次点击结果稳定，避免学习词、复习词和新词交界的闪帧与答案提前泄露。修复按词状态重置时机、整卡重挂载与高度跳变、设置空白、最新收藏排序及本机新增词的即时展示。后台确认学习保存错误为连接池等待超时，同时定位超过缓存容量的公共目录及分页再验证并发，修复缓存与安全恢复。当前算法和用户参数保留，Easy、新词预算与短期步骤通过独立问卷讨论。生产状态与证据见 [本轮记录](study-stability-20261016.md)，物理设备和用户最终体验验收仍开放。
+
+
+## 2026-10-17 — daily due reconciliation (candidate)
+
+User requested exact day-based carryover without changing learning records. Replaced mixed fixed-plan/full-day forecast with uncapped Shanghai-day inventory; ordinary reviews are available all day, short steps retain timing, existing plans add missing IDs. 77 study tests, 90 critical regressions, isolated SQL and controlled browser checks passed. Release acceptance pending; see study-day-due-20261017.md.

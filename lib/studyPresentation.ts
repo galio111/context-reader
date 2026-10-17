@@ -38,29 +38,16 @@ export function studyHistoryDays(daily: StudySnapshot["daily"], today: string, c
     return byDay.get(day) ?? {day,cards:0,active_ms:0,successes:0,reviews:0};
   });
 }
-/** Allocate the current due inventory, including backlog, without inventing future FSRS answers. */
-export function studyForecast(cards: StudyCard[], now: Date, includeAnki: boolean, reviewsPerDay = 100, completedToday = 0, pausedUntil: string | null = null, todayIds?:string[]) {
+/** Date inventory, not a capped workload simulation. Overdue words belong to today. */
+export function studyForecast(cards: StudyCard[], now: Date, includeAnki: boolean, _reviewsPerDay = 100, _completedToday = 0, _pausedUntil: string | null = null, _todayIds?:string[]) {
+  void _reviewsPerDay; void _completedToday; void _pausedUntil; void _todayIds; // Legacy call compatibility; never cap inventory.
   const today = shanghaiDay(now);
-  const active=cards.filter(c=>!c.suspended&&(!c.anki_pending||includeAnki));
-  const planned=todayIds?new Set(todayIds):null;
-  const todayRemaining=planned?active.filter(c=>planned.has(c.id)&&c.memory.state!==0&&Date.parse(c.memory.due)<studyDayEnd(now).getTime()):[];
-  const consumed=new Set(todayRemaining.map(c=>c.id));
-  const inventory=planned?active.filter(c=>!consumed.has(c.id)):active;
-  const learning=inventory.filter(c=>isStudyLearning(c.memory)).map(c=>shanghaiDay(new Date(c.memory.due)));
-  const due = inventory.filter(c => c.memory.state === 2)
-    .map(c => shanghaiDay(new Date(c.memory.due))).sort();
-  let index = 0, backlog = 0;
-  return Array.from({length:7},(_,i)=>{
-    const day = new Date(Date.parse(today+"T00:00:00Z")+i*86400000).toISOString().slice(0,10);
-    if(i===0&&planned)return {day,count:pausedUntil&&Date.parse(pausedUntil)>now.getTime()?0:todayRemaining.length,remaining:0};
-    while (index < due.length && due[index] <= day) { backlog++; index++; }
-    const paused = pausedUntil && day < shanghaiDay(new Date(pausedUntil));
-    const capacity = paused ? 0 : Math.max(0, reviewsPerDay - (i === 0 ? completedToday : 0));
-    const reviews = Math.min(backlog, capacity);
-    const learningCount=paused?0:learning.filter(d=>d<=day).length;
-    if(!paused)for(let j=learning.length-1;j>=0;j--)if(learning[j]<=day)learning.splice(j,1);
-    const count=reviews+learningCount;
-    backlog -= reviews;
-    return {day,count,remaining:backlog};
-  });
+  const days = Array.from({length:7},(_,i)=>({day:new Date(Date.parse(today+"T00:00:00Z")+i*86400000).toISOString().slice(0,10),count:0,remaining:0}));
+  for (const card of cards) {
+    if (card.suspended || (card.anki_pending && !includeAnki) || card.memory.state === 0) continue;
+    const due = shanghaiDay(new Date(card.memory.due));
+    const bucket = days.find(d=>d.day === (due < today ? today : due));
+    if (bucket) bucket.count++;
+  }
+  return days;
 }

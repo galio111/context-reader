@@ -10,14 +10,15 @@ const now=new Date("2026-10-14T01:49:35Z");
 const card=(id:string,state=2):StudyCard=>({id,entry_id:id,mode:"basic_en_to_cn",version:0,memory:{...newMemory(now),state,...(state?{stability:5,difficulty:5,reps:3,last_review:"2026-10-10T01:00:00Z"}:{})},suspended:false,anki_pending:false,created_at:now.toISOString()});
 function snapshot(cards=[card("old"),card("new",0)]):StudySnapshot{return {offlinePermit:"signed",serverNow:now.toISOString(),settings:DEFAULT_STUDY_SETTINGS,cards,entries:[],today:{day:"2026-10-14",card_ids:cards.map(c=>c.id),new_ids:cards.filter(c=>c.memory.state===0).map(c=>c.id),settings:DEFAULT_STUDY_SETTINGS,reward_points:0,completed_at:null,new_completed:0,streak:0},reviews:[],daily:[],rewards:[],claims:[],streak:{current:0,best:0,last_day:null},policy:{} as StudySnapshot["policy"]};}
 function done(id:string,at:number):StudyReview{return {id:"r-"+id,card_id:id,answer:"remembered",rating:3,reviewed_at:new Date(now.getTime()+at).toISOString(),active_ms:1000,undone:false,previous:card(id).memory,next:{...card(id).memory,last_review:new Date(now.getTime()+at).toISOString(),due:"2026-10-16T01:00:00Z"}};}
-test("gggg screenshot: planned 93 plus 6 equals 99; the extra 22 move to the next plan",()=>{
+test("all 121 due today remain today even with an old incomplete plan",()=>{
  const old=Array.from({length:93},(_,i)=>card("r"+i)),learning=Array.from({length:6},(_,i)=>card("l"+i,3));
  const later=Array.from({length:22},(_,i)=>({...card("later"+i),memory:{...card("later"+i).memory,due:"2026-10-14T10:00:00Z"}}));
  const cards=[...old,...learning,...later],ids=[...old,...learning].map(c=>c.id);
  assert.equal(studyForecast(cards,now,true,200)[0].count,121);
  const forecast=studyForecast(cards,now,true,200,0,null,ids);
- assert.equal(forecast[0].count,99);assert.equal(forecast[1].count,22);
- const counts=remainingStudyCounts(cards,ids,now);assert.equal(counts.review+counts.learning,forecast[0].count);
+ assert.equal(forecast[0].count,121);assert.equal(forecast[1].count,0);
+ const view=localStudyDay({...snapshot(cards),today:{...snapshot(cards).today!,card_ids:ids}},now);
+ const counts=remainingStudyCounts(cards,view.today!.card_ids,now);assert.equal(counts.review+counts.learning,forecast[0].count);
 });
 test("default order, validation, mixed threshold, due collisions and new-card exclusion",()=>{
  assert.equal(sanitizeStudySettings({}).learningOrder,"review_first");assert.equal(sanitizeStudySettings({}).reviewsPerNew,5);

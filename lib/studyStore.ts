@@ -2,7 +2,7 @@ import "server-only";
 import {issueStudyOfflinePermit} from "./studyOfflinePermit";
 import { createHash } from "node:crypto";
 import { accountFetch } from "@/lib/accountStore";
-import { DEFAULT_STUDY_SETTINGS, newMemory, shanghaiDay } from "@/lib/studyScheduler";
+import { DEFAULT_STUDY_SETTINGS, newMemory, shanghaiDay, buildStudyPlan, studyPaused } from "@/lib/studyScheduler";
 import type { StudyCard, StudyDay, StudyPolicy, StudyReview, StudySettings, StudySnapshot } from "@/types/study";
 import type { VocabularyEntry } from "@/types/vocabulary";
 
@@ -97,6 +97,12 @@ export async function getStudySnapshot(userId: string, prepared?: { entries: Voc
   const active=cards.filter(c=>ids.has(c.entry_id)&&!c.suspended);
   const visible=active.filter(c=>!c.anki_pending||settings.includeAnki);
   const visibleIds=new Set(visible.map(c=>c.entry_id));
+  // Repair an existing day's membership, never card memories or historical answers.
+  if (today[0] && !studyPaused(settings,now)) {
+    const planned=buildStudyPlan(visible,settings,now);
+    if (planned.some(id=>!today[0].card_ids.includes(id)))
+      today[0]=await studyRpc<StudyDay>("start_day_v4",{p_user:userId,p_ids:planned,p_settings:settings});
+  }
   return { offlinePermit:issueStudyOfflinePermit(userId), serverNow: now.toISOString(), settings, cards: visible, ankiPendingCount:active.filter(c=>c.anki_pending).length,
     // Full dictionaries remain in synced vocabulary/cache objects. Read one saved
     // result when opening a card instead of repeating every dictionary per answer.

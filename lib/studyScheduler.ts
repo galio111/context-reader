@@ -70,11 +70,17 @@ export function buildStudyPlan(cards: StudyCard[], settings: StudySettings, now:
   if (studyPaused(settings, now)) return [];
   const eligible = cards.filter(c => !c.suspended && (!c.anki_pending || settings.includeAnki));
   const learning = eligible.filter(c => isStudyLearning(c.memory));
-  const due = eligible.filter(c => c.memory.state === State.Review && Date.parse(c.memory.due) <= now.getTime())
+  const due = eligible.filter(c => c.memory.state === State.Review && studyReady(c.memory, now))
     .sort((a, b) => Date.parse(a.memory.due) - Date.parse(b.memory.due) || a.id.localeCompare(b.id));
   // Catch up before introducing more work.
   const fresh = eligible.filter(c => c.memory.state === State.New).sort((a, b) => a.created_at.localeCompare(b.created_at) || a.id.localeCompare(b.id));
-  return [...learning, ...due.slice(0, settings.reviewsPerDay), ...fresh].map(c => c.id);
+  return [...learning, ...due, ...fresh].map(c => c.id);
+}
+/** Long-term reviews use the Shanghai calendar day; short steps retain their clock. */
+export function studyReady(memory: StudyMemory, now: Date): boolean {
+  return memory.state === State.Review
+    ? Date.parse(memory.due) < studyDayEnd(now).getTime()
+    : Date.parse(memory.due) <= now.getTime();
 }
 export function isStudyLearning(memory: StudyMemory): boolean {
   return memory.state === State.Learning || memory.state === State.Relearning;
@@ -101,7 +107,7 @@ export function planProgress(cards: StudyCard[], ids: string[], now: Date, newId
   const newTurn=mixed&&passed>=(settings.reviewsPerNew??5);
   const allowNew=!reviewRemaining||newTurn;
   const available=selected.filter(c=>!finishedSet.has(c)&&(allowNew||c.memory.state!==State.New));
-  const ready = available.filter(c => Date.parse(c.memory.due) <= now.getTime())
+  const ready = available.filter(c => studyReady(c.memory, now))
     .sort((a,b) => (newTurn?Number(b.memory.state===0)-Number(a.memory.state===0):0) || studyQueuePriority(a)-studyQueuePriority(b) || Date.parse(a.memory.due) - Date.parse(b.memory.due) || a.id.localeCompare(b.id));
   const readySet = new Set(ready);
   const waiting = available.filter(c => !readySet.has(c));

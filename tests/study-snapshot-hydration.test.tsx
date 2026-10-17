@@ -57,7 +57,7 @@ test("cached Study views never replace live data, authorize answers, duplicate a
     await waitFor(() => assert.equal(starts.length, 1));
     await act(async () => { resolveDisk(snapshot("alpha", new Date(now.getTime() + 60_000))); });
     assert.ok(ui.getByText("alpha")); assert.equal(ui.queryByText("正在连接学习记录…"), null);
-    assert.ok(ui.getByLabelText("每日最多复习").closest("fieldset")?.disabled,"cached settings remain readable but cannot save before authority arrives");
+    assert.ok(ui.getByLabelText("不记得后，再次出现").closest("fieldset")?.disabled,"cached settings remain readable but cannot save before authority arrives");
     assert.equal(ui.getByRole("button", { name: /不记得/ }).hasAttribute("disabled"), false);
     fireEvent.click(ui.getByRole("button", { name: /不记得/ }));
     assert.ok(ui.getByText("alpha answer")); assert.equal(presents, 0);
@@ -67,7 +67,7 @@ test("cached Study views never replace live data, authorize answers, duplicate a
     await waitFor(() => assert.equal(presents, 1));
     assert.ok(ui.getByText("alpha answer")); assert.equal(saves.length, 1);
     fireEvent.click(ui.getByRole("button", { name: "设置" }));
-    assert.equal((ui.getByLabelText("每日最多复习") as HTMLInputElement).value, "200");
+    assert.equal((ui.getByLabelText("不记得后，再次出现") as HTMLInputElement).value, String(DEFAULT_STUDY_SETTINGS.forgotMinutes));
     fireEvent.click(ui.getByRole("checkbox", { name: "打开网站时提醒" }));
     await waitFor(() => assert.equal(savedSettings.length, 1));
     assert.equal(savedSettings[0].reviewsPerDay, 200); assert.equal(savedSettings[0].retention, .95);

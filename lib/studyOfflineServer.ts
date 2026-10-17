@@ -19,7 +19,7 @@ export async function saveStudyLocalEvent(owner:string,input:unknown){
   const at=new Date(Math.max(Date.parse(event.at),Date.parse(card?.memory.last_review??event.at)));
   const next=event.kind==="settings"?sanitizeStudySettings(event.settings,settings):settings;
   const memory=card&&event.kind==="review"?scheduleStudy(card.memory,event.answer,at,settings.retention,settings).memory:null;
-  const outcome=await studyRpc<Record<string,boolean>>("local_event_v1",{p_user:owner,p_event:event,p_version:card?.version??0,p_memory:memory,p_settings:next,p_ids:buildStudyPlan(cards,settings,new Date(event.at)),p_algorithm:STUDY_ALGORITHM});
+  const outcome=await studyRpc<Record<string,boolean>>("local_event_day_v4",{p_user:owner,p_event:event,p_version:card?.version??0,p_memory:memory,p_settings:next,p_ids:buildStudyPlan(cards,settings,new Date(event.at)),p_algorithm:STUDY_ALGORITHM});
   if(outcome.retry)continue;
   if(outcome.blocked)throw new Error("Offline card not eligible");
   const reviewId=event.kind==="review"?event.id:event.kind==="undo"?event.reviewId:null;

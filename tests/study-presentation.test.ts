@@ -6,11 +6,11 @@ import { fsrs, Rating } from "ts-fsrs";
 import type { StudyCard, StudySnapshot } from "../types/study";
 const now=new Date("2026-10-10T02:00:00Z");
 const card=(id:string,state=0):StudyCard=>({id,entry_id:id,mode:"basic_en_to_cn",memory:{...newMemory(now),state},version:0,suspended:false,anki_pending:false,created_at:now.toISOString()});
-test("new words have no 5/50 ceiling and reviews default to 100",()=>{
+test("all due reviews are included regardless of legacy daily cap",()=>{
  assert.equal(DEFAULT_STUDY_SETTINGS.reviewsPerDay,100);
  const cards=Array.from({length:600},(_,i)=>card(String(i),i<160?2:0));
  const ids=buildStudyPlan(cards,DEFAULT_STUDY_SETTINGS,now);
- assert.equal(ids.length,540);assert.equal(ids.filter(id=>Number(id)<160).length,100);
+ assert.equal(ids.length,600);assert.equal(ids.filter(id=>Number(id)<160).length,160);
 });
 test("five and ten minute steps preserve upstream FSRS memory and long-term Hard",()=>{
  const original=newMemory(now),again=scheduleStudy(original,"forgot",now,.9),hard=scheduleStudy(original,"unsure_right",now,.9);
@@ -45,17 +45,17 @@ test("history fills missing days with zero and forecasts use Shanghai dates",()=
  assert.equal(studyForecast([{...c,anki_pending:true}],now,false)[0].count,0);
 });
 
-test("538 overdue words carry through the daily cap together with upcoming words",()=>{
+test("538 overdue words stay today, independent of cap and pause",()=>{
  const backlog=Array.from({length:538},(_,i)=>({...card(String(i),2),memory:{...card(String(i),2).memory,due:"2026-10-01T00:00:00Z"}}));
  const upcoming=Array.from({length:8},(_,i)=>({...card("future"+i,2),memory:{...card("future"+i,2).memory,due:"2026-10-11T00:00:00Z"}}));
- assert.deepEqual(studyForecast([...backlog,...upcoming],now,false).map(d=>d.count),[100,100,100,100,100,46,0]);
- assert.deepEqual(studyForecast(backlog,now,false,100,30).map(d=>d.count),[70,100,100,100,100,68,0]);
- assert.deepEqual(studyForecast(backlog,now,false,100,0,"2026-10-12T00:00:00Z").map(d=>d.count),[0,0,100,100,100,100,100]);
+ assert.deepEqual(studyForecast([...backlog,...upcoming],now,false).map(d=>d.count),[538,8,0,0,0,0,0]);
+ assert.deepEqual(studyForecast(backlog,now,false,100,30).map(d=>d.count),[538,0,0,0,0,0,0]);
+ assert.deepEqual(studyForecast(backlog,now,false,100,0,"2026-10-12T00:00:00Z").map(d=>d.count),[538,0,0,0,0,0,0]);
  assert.equal(studyForecast([...backlog.map(c=>({...c,suspended:true})),card("new")],now,false)[0].count,0);
 });
 
 test("ongoing learning joins its due day outside the ordinary review cap",()=>{
  const cards=[card("learning",1),card("relearning",3),card("old",2),card("backlog",2)];
- assert.deepEqual(studyForecast(cards,now,false,1).map(d=>d.count),[3,1,0,0,0,0,0]);
- assert.deepEqual(studyForecast(cards,now,false,1,0,"2026-10-11T00:00:00Z").map(d=>d.count),[0,3,1,0,0,0,0]);
+ assert.deepEqual(studyForecast(cards,now,false,1).map(d=>d.count),[4,0,0,0,0,0,0]);
+ assert.deepEqual(studyForecast(cards,now,false,1,0,"2026-10-11T00:00:00Z").map(d=>d.count),[4,0,0,0,0,0,0]);
 });

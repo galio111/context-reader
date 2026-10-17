@@ -55,7 +55,7 @@ test("Anki histories are excluded and review limits do not cap user-chosen new w
  assert.deepEqual(buildStudyPlan([base],{...DEFAULT_STUDY_SETTINGS,includeAnki:true},n),["a"]);
  const cards=Array.from({length:4},(_,i)=>({...base,id:String(i),anki_pending:false,memory:{...base.memory,state:2}}));
  cards.push({...base,id:"new",anki_pending:false});
- assert.deepEqual(buildStudyPlan(cards,{...DEFAULT_STUDY_SETTINGS,reviewsPerDay:2},n),["0","1","new"]);
+ assert.deepEqual(buildStudyPlan(cards,{...DEFAULT_STUDY_SETTINGS,reviewsPerDay:2},n),["0","1","2","3","new"]);
 });
 test("reject backwards review clocks rather than corrupting an existing memory",()=>{
  const m=scheduleStudy(newMemory(new Date("2026-10-05")),"remembered",new Date("2026-10-05"),.9).memory;
@@ -76,7 +76,7 @@ test("learning steps have priority and do not consume the review limit",()=>{
  const make=(id:string,state:number,due=now.toISOString()):StudyCard=>({id,entry_id:id,mode:"basic_en_to_cn",memory:{...newMemory(now),state,due},version:0,suspended:false,anki_pending:false,created_at:now.toISOString()});
  const learning=make("learning",1),relearning=make("relearning",3),review=make("review",2),extra=make("extra",2),fresh=make("new",0);
  const ids=buildStudyPlan([fresh,review,learning,extra,relearning],{...DEFAULT_STUDY_SETTINGS,reviewsPerDay:1},now);
- assert.ok(ids.includes(learning.id)&&ids.includes(relearning.id));assert.equal(ids.length,4);
+ assert.ok(ids.includes(learning.id)&&ids.includes(relearning.id));assert.equal(ids.length,5);
  const p=planProgress([fresh,review,learning,relearning],["new","review","learning","relearning"],now,["new","learning"]);
  assert.deepEqual(p.ready.map(c=>c.id),["learning","relearning","review"]);
  const waiting={...learning,memory:{...learning.memory,due:new Date(now.getTime()+300000).toISOString()}};

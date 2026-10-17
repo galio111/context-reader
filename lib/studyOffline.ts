@@ -16,8 +16,11 @@ export function acknowledgeStudyEvent(record:StudyLocalRecord,ack:StudyLocalAck)
 }
 
 export function localStudyDay(snapshot:StudySnapshot,now:Date):StudySnapshot {
-  if(snapshot.today?.day===shanghaiDay(now))return snapshot;
   const ids=buildStudyPlan(snapshot.cards,snapshot.settings,now);
+  if(snapshot.today?.day===shanghaiDay(now)) {
+    const merged=[...new Set([...snapshot.today.card_ids,...ids])];
+    return merged.length===snapshot.today.card_ids.length?snapshot:{...snapshot,today:{...snapshot.today,card_ids:merged}};
+  }
   return {...snapshot,today:{day:shanghaiDay(now),card_ids:ids,new_ids:snapshot.cards.filter(c=>ids.includes(c.id)&&[0,1].includes(c.memory.state)).map(c=>c.id),settings:snapshot.settings,reward_points:0,completed_at:null,new_completed:0,streak:0}};
 }
 export function applyLocalStudyEvent(snapshot:StudySnapshot,event:StudyLocalEvent):StudySnapshot {

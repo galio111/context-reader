@@ -65,7 +65,7 @@ export async function POST(request: Request) {
       const [settings,cards]=await Promise.all([getStudySettings(userId),studyRows<StudyCard>("study_cards",userId,"*","&order=id.asc")]);
       if (!studyPaused(settings,new Date())) {
         const ids=buildStudyPlan(cards.filter(c=>!c.suspended),settings,new Date());
-        await studyRpc("start_learning_v3",{p_user:userId,p_ids:ids,p_settings:settings});
+        await studyRpc("start_day_v4",{p_user:userId,p_ids:ids,p_settings:settings});
       }
       // Background local refreshes retain the fifteen-minute undo window.
       // Explicit completion/claims remain server-only operations.
@@ -110,7 +110,7 @@ export async function POST(request: Request) {
       if (!card || card.suspended) throw new StudyError("这个词条已移除。", 404, "state_changed");
       if (card.anki_pending && !(await getStudySettings(userId)).includeAnki) throw new StudyError("这个词的历史进度尚未迁移，暂不加入复习。", 409, "state_changed");
       if (op === "present") {
-        const state = await studyRpc<Record<string,unknown>>("present_v3", { p_user: userId, p_card: cardId, p_version: body.version });
+        const state = await studyRpc<Record<string,unknown>>("present_day_v4", { p_user: userId, p_card: cardId, p_version: body.version });
         if (!state.token) throw new StudyError("这张卡片暂时不能作答，请刷新学习记录。", 409, "presentation_changed");
         return result(request, state);
       }

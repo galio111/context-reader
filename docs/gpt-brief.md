@@ -291,7 +291,7 @@ CET 暂停划记/题目翻译已生产（20261002T225700，parent 20261002T20262
 
 ## 站内单词 UI 接入（2026-10-10，已发布）
 
-站内单词 UI 已接入：Design Lab 单卡/侧栏/底栏与统一弹窗；复习默认上限100，新词无目标，先完成安排的复习再学新词。5/10分钟是可改的短期 Again/Hard 步骤，长期 FSRS 保留。奖励先存待领取，再点击入账；连续日为完成安排复习+至少5首次完成新词。galio 已迁移965个历史词（908已学、57未学）和6345条作答，合并原站内201词后共1166词可用；原7条作答保留，复习上限100、奖励和连续天数不补发。退休用户入口，保留历史数据。
+站内单词 UI 已接入：Design Lab 单卡/侧栏/底栏与统一弹窗；复习包含全部到期词，新词无目标，先完成安排的复习再学新词。5/10分钟是可改的短期 Again/Hard 步骤，长期 FSRS 保留。奖励先存待领取，再点击入账；连续日为完成安排复习+至少5首次完成新词。galio 已迁移965个历史词（908已学、57未学）和6345条作答，合并原站内201词后共1166词可用；原7条作答保留，复习上限100、奖励和连续天数不补发。退休用户入口，保留历史数据。
 
 
 已生产接受 `20261010T153500`，parent `20261010T151700`，source `e4000f13a5438eeb714176cfb3b53bd615fe4feb`。首轮接入为 `20261010T151700`，parent `20261010T142500`，source `329d0650c6f655fbc5771452e9b495a4e4535e21`。39文件累计接入+2文件快速确认修正均经稳定发布入口；公网返回精确身份及 `mainland_internal`。真实答题/领取、日夜界面、Flash核心/单次扣点、Admin/同步、35表恢复与父镜像通过；快速确认自动等待后重试。详见 [学习UI证据](study-ui-20261010.md)。
@@ -303,3 +303,8 @@ CET 暂停划记/题目翻译已生产（20261002T225700，parent 20261002T20262
 ## UI 工作台点选修复（2026-10-13，已生产）
 
 正常操作与选择组件独立；选择不触发业务，清单自动打开对应状态，并在画布可见后清除无关遮挡弹窗。胶囊原版已加入 Galio（运行时 7cd7c1c，偏好文档 cb00895），替换效果独占动效、恢复原样完整；编辑器默认跳过开场，只在重播时显示。正式身份、覆盖和剩余验证边界见 [设计工作台](ui-design-studio.md)。用户最终观感仍待确认。
+
+
+## Study calendar-day inventory (2026-10-17)
+
+Calendar-day due inventory and queue use the same Asia/Shanghai boundary. All overdue and today-due Review cards join the plan without a count cap; intraday Learning/Relearning retain exact due times. Forecast buckets are raw due-date counts (overdue in today), independent of legacy reviewsPerDay, existing plan IDs or pause. Unanswered words carry into tomorrow without changing memory.due. Existing plans grow by union on read/start; original answers, versions, memory and completed IDs are preserved. Additive start_day_v4, present_day_v4 and local_event_day_v4 RPCs keep old RPCs for app rollback. See study-day-due-20261017.md for acceptance status.

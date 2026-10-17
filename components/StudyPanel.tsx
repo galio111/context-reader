@@ -1,4 +1,5 @@
 "use client";
+import { studyReady } from "@/lib/studyScheduler";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useAccount } from "./AccountProvider";
 import { useDocumentScrollLock } from "./useDocumentScrollLock";
@@ -250,7 +251,7 @@ export function StudyPanel({visible,onClose,onSource,notice,requestedTab="today"
   const queueProgress=useMemo(()=>planProgress((learningSnapshot?.cards??[]).filter(card=>!queuedIds.has(card.id)),snapshot?.today?.card_ids??[],new Date(tick+offset.current),snapshot?.today?.new_ids,snapshot?.settings,snapshot?.reviews),[snapshot,learningSnapshot,tick,queuedIds]);
   for(const ready of queueProgress.ready)if(!randomRanks.current.has(ready.id))randomRanks.current.set(ready.id,Math.random());
   const awaitingLocal=Boolean(snapshot?.offlinePermit&&reviews.pending.some(item=>learningSnapshot?.cards.find(c=>c.id===item.cardId)?.version===item.version));
-  const pinnedCard=learningSnapshot?.cards.find(c=>c.id===displayed.current&&!queuedIds.has(c.id)&&!c.suspended&&snapshot?.today?.card_ids.includes(c.id)&&Date.parse(c.memory.due)<=now.getTime());
+  const pinnedCard=learningSnapshot?.cards.find(c=>c.id===displayed.current&&!queuedIds.has(c.id)&&!c.suspended&&snapshot?.today?.card_ids.includes(c.id)&&studyReady(c.memory,now));
   const card=(awaitingLocal?learningSnapshot?.cards.find(c=>c.id===displayed.current):pinnedCard)??chooseStudyCard(queueProgress.ready,displayed.current,order,randomRanks.current,queueProgress.newTurn);
   useEffect(()=>{displayed.current=card?.id??"";},[card?.id,presentation]);
   const entrySummary=liveEntries.find(e=>e.id===card?.entry_id);
@@ -346,7 +347,7 @@ export function StudyPanel({visible,onClose,onSource,notice,requestedTab="today"
   useEffect(()=>{if(visible&&tab==="profile"&&snapshot&&!busy&&!profileAutoLoad.current){profileAutoLoad.current=true;void loadProfile();}});
   const paused=snapshot?studyPaused(snapshot.settings,now):false;
   const remaining=remainingStudyCounts(learningSnapshot?.cards??[],snapshot?.today?.card_ids??[],now,paused);
-  const due=learningSnapshot?.cards.filter(c=>c.memory.state!==0&&Date.parse(c.memory.due)<=now.getTime()).length??0;
+  const due=learningSnapshot?.cards.filter(c=>c.memory.state!==0&&studyReady(c.memory,now)).length??0;
   const fresh=learningSnapshot?.cards.filter(c=>c.memory.state===0).length??0;
   const completed=!pending&&progress.total>0&&progress.finished===progress.total;
   const lastReview=snapshot?.reviews.find(r=>!r.undone);

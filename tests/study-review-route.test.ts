@@ -22,7 +22,7 @@ test("review distinguishes retryable day changes from real version conflicts wit
     getStudySettings:async()=>DEFAULT_STUDY_SETTINGS,
     getStudySnapshot:async()=>{snapshots++;return {serverNow:new Date().toISOString()};},
     reconcileStudyCards:async()=>{},
-    studyRpc:async(name:string)=>{if(name==="review_v3"||name==="present_v3")return rpcResult;if(name==="daily_stats_v3")return [];if(name==="settle_rewards"){settlements++;return {};}throw new Error("unexpected rpc "+name);},
+    studyRpc:async(name:string)=>{if(name==="review_v3"||name==="present_day_v4")return rpcResult;if(name==="daily_stats_v3")return [];if(name==="settle_rewards"){settlements++;return {};}throw new Error("unexpected rpc "+name);},
   });
   try {
     const {POST}=await import("../app/api/study/route");
