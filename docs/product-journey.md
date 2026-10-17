@@ -2077,4 +2077,4 @@ User requested exact day-based carryover without changing learning records. Repl
 
 ## 2026-10-17 — Remove forecast caption
 
-User requested removal of the entire explanatory paragraph below the review forecast. Removed only that paragraph; graph labels, numbers and scheduling remain unchanged. Production acceptance pending.
+User requested removal of the entire explanatory paragraph below the review forecast. Removed only that paragraph; graph labels, numbers and scheduling remain unchanged. Accepted release `20261017T151000`, parent `20261017T123000`, source `412a9ba93634579c527c4b38323bb4924a21edb1`. Public release identity, desktop/mobile browser caption removal and retained chart/counts passed, with no page errors. Recovery Admin checks passed; rollback image and prior same-session 40-table restore verified. Health check reports root disk usage 86%; full health success is not claimed. No learning records were changed. Evidence: artifacts/study-caption-release-1017/.

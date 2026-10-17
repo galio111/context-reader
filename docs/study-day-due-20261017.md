@@ -20,4 +20,4 @@ References: https://docs.ankiweb.net/stats.html#future-due and https://docs.anki
 - Evidence retained locally under `artifacts/study-day-release-1017/`: connectivity.json, migration.log, account-plan-verification.log, public-receipt.json, public-offline.json, browser-local/, browser-public/, operations.log and backend-before/after.txt. Build/test logs are `artifacts/study-day-*.log`.
 
 
-UI correction: the explanatory paragraph beneath the forecast is removed at the user request; the graph retains its date labels, counts and accessible description. Follow-up release acceptance pending.
+UI correction: the explanatory paragraph beneath the forecast is removed at the user request; the graph retains its date labels, counts and accessible description. Caption removal accepted in `20261017T151000`, parent `20261017T123000`, source `412a9ba93634579c527c4b38323bb4924a21edb1`. Public desktop/mobile browser checks confirm no caption and intact chart/counts. Health check warned of 86% root disk usage; see product journey for acceptance limits.
