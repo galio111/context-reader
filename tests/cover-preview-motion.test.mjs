@@ -6,6 +6,7 @@ import ts from "typescript";
 import React, { act } from "react";
 import { createRoot } from "react-dom/client";
 import { JSDOM } from "jsdom";
+import { useCoverRecovery } from "../components/useCoverRecovery.ts";
 import { coverSource } from "../lib/coverSources.ts";
 import { renderToStaticMarkup } from "react-dom/server";
 
@@ -26,7 +27,7 @@ test("final clear cover retains pointer tilt, readiness does not remount its mot
   const context = {
     IntersectionObserver: Observer, ResizeObserver,
     prepareCover: (element, options) => { prepared = options; return () => {}; },
-    preparedCover: () => null, rememberCover: () => {}, coverSource,
+    preparedCover: () => null, rememberCover: () => {}, coverSource, useCoverRecovery,
     React, useRef: React.useRef, useState: React.useState, useEffect: React.useEffect, window: dom.window,
     styles: { coverSurface: "coverSurface", coverFeatured: "coverFeatured", coverFallback: "coverFallback" },
     Image: ({ unoptimized, fetchPriority, ...props }) => React.createElement("img", props),

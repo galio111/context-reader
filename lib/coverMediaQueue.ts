@@ -125,7 +125,12 @@ function pump() {
         image.removeAttribute("srcset"); image.removeAttribute("src");
         finish(true); return;
       }
-      nextDecode(() => { void image.decode().then(() => finish(false), () => finish(true)).finally(finishDecode); });
+      nextDecode(() => {
+        // Safari may reject decode after a successful load. Loaded pixels remain usable.
+        const usable = () => image.complete && image.naturalWidth > 0;
+        void Promise.resolve().then(() => typeof image.decode === "function" ? image.decode() : undefined)
+          .then(() => finish(false), () => finish(!usable())).finally(finishDecode);
+      });
       schedule();
     }
     if (decoded.has(job.key)) { complete(false); continue; }

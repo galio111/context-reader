@@ -17,7 +17,10 @@ test("warmup, viewport promotion, failures and cancellation obey shared network/
     removeAttribute(name: string) { if (name === "src" && !this.loaded) { this.loaded = true; active--; cancelledTransfers++; } }
     load() { if (this.loaded) return; this.loaded = true; active--; this.onload?.(); }
     fail() { if (this.loaded) return; this.loaded = true; active--; this.onerror?.(); }
+    get complete() { return this.loaded; }
+    get naturalWidth() { return this.loaded ? 480 : 0; }
     decode() {
+      if (this.url === "/warm-52.webp") return Promise.reject(new Error("EncodingError"));
       decodeActive++; maxDecode = Math.max(maxDecode, decodeActive);
       return new Promise<void>(resolve => decodes.push(() => { decodeActive--; resolve(); }));
     }
@@ -66,6 +69,7 @@ test("warmup, viewport promotion, failures and cancellation obey shared network/
     assert.ok(done.includes("shared"));
     assert.equal(images.length,100,"collapsed distant covers are downloaded too");
     assert.equal(maxNetwork,4); assert.ok(maxDecode<=2);
+    assert.ok(preparedCover(source(52)), "a rejected decode cannot discard successfully loaded pixels");
     assert.ok(preparedCover(source(99)),"download readiness survives decoded-window eviction");
     const before = images.length;
     const cancelReady = prepareCover(element(200),{...source(99),done:()=>done.push("cached")}); cancelReady();

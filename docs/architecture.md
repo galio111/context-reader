@@ -491,3 +491,8 @@ StudyPanel resets per-card answer/hint/spelling/token state during render before
 ## Study calendar-day inventory (2026-10-17)
 
 Calendar-day due inventory and queue use the same Asia/Shanghai boundary. All overdue and today-due Review cards join the plan without a count cap; intraday Learning/Relearning retain exact due times. Forecast buckets are raw due-date counts (overdue in today), independent of legacy reviewsPerDay, existing plan IDs or pause. Unanswered words carry into tomorrow without changing memory.due. Existing plans grow by union on read/start; original answers, versions, memory and completed IDs are preserved. Additive start_day_v4, present_day_v4 and local_event_day_v4 RPCs keep old RPCs for app rollback. See study-day-due-20261017.md for acceptance status.
+
+
+## Public cover recovery
+
+`ArticleCover` uses `useCoverRecovery` for queued and eager image failures. The initial attempt has two silent retries after 1 and 3 seconds; only exhaustion displays the existing source-labelled fallback. A browser online event reopens a failed cycle. URL changes and unmount cancel pending retry timers. Recovery remounts only the image, preserving the tilt surface. The media queue accepts a rejected decode only when the image is complete with positive natural width; genuine load failures and its 20-second transfer timeout remain failures. No image quality or request-concurrency limit changes.

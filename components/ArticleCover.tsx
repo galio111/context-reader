@@ -3,6 +3,7 @@ import { useEffect, useRef, useState, type PointerEvent } from "react";
 import type { PublicArticle } from "@/types/publicArticle";
 import { prepareCover, preparedCover, rememberCover } from "@/lib/coverMediaQueue";
 import { coverSource } from "@/lib/coverSources";
+import { useCoverRecovery } from "./useCoverRecovery";
 import styles from "./HomeRedesign.module.css";
 
 export function ArticleCover({ article, featured = false, priority = false, motion3dEnabled = true }: { article: PublicArticle; featured?: boolean; priority?: boolean; motion3dEnabled?: boolean }) {
@@ -18,13 +19,15 @@ export function ArticleCover({ article, featured = false, priority = false, moti
   const sizes = source?.sizes || "100vw";
   const eager = featured || priority;
   const [prepared, setPrepared] = useState<{ src: string; srcSet?: string; sizes: string; error?: boolean } | null>(() => source ? preparedCover(source) : null);
-  const [failedUrl, setFailedUrl] = useState<string | null>(null);
+  const recovery = useCoverRecovery(coverUrl);
   const [loadedCoverUrl, setLoadedCoverUrl] = useState<string | null>(null);
-  const coverFailed = Boolean(coverUrl && (failedUrl === coverUrl || (prepared?.src === coverUrl && prepared.error)));
+  const coverFailed = recovery.failed;
   const ready = prepared?.src === coverUrl ? prepared : null;
   useEffect(() => {
     const surface = surfaceRef.current;
     if (!surface || !coverUrl) return;
+    setPrepared(null);
+    setLoadedCoverUrl(null);
     if (eager) {
       const image = surface.querySelector("img");
       if (image?.complete && image.naturalWidth) {
@@ -36,9 +39,9 @@ export function ArticleCover({ article, featured = false, priority = false, moti
     return prepareCover(surface, {
       src: coverUrl, srcSet,
       sizes,
-      done: setPrepared,
+      done: result => { if (result.error) recovery.fail(); else { setPrepared(result); recovery.recover(); } },
     });
-  }, [coverUrl, srcSet, eager, sizes]);
+  }, [coverUrl, srcSet, eager, sizes, recovery.revision, recovery.fail, recovery.recover]);
 
   useEffect(() => () => {
     if (pointerFrameRef.current) window.cancelAnimationFrame(pointerFrameRef.current);
@@ -100,7 +103,7 @@ export function ArticleCover({ article, featured = false, priority = false, moti
     <span
       ref={surfaceRef}
       className={`${styles.coverSurface} ${featured ? styles.coverFeatured : ""}`}
-      data-image-pending={Boolean(coverUrl && !coverFailed && !coverReady) || undefined}
+      data-image-pending={Boolean(coverUrl && !recovery.exhausted && !coverReady) || undefined}
       data-image-ready={coverReady || undefined}
       data-image-eager={eager || undefined}
       data-tilt-disabled={!motion3dEnabled || undefined}
@@ -110,18 +113,18 @@ export function ArticleCover({ article, featured = false, priority = false, moti
       {coverUrl && !coverFailed && (eager || ready) ? (
         // Native srcset selects pre-generated immutable files; no visit-time conversion.
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={coverUrl} srcSet={srcSet} sizes={sizes} data-cover-eager={eager || undefined}
+        <img key={`${coverUrl}:${recovery.revision}`} src={coverUrl} srcSet={srcSet} sizes={sizes} data-cover-eager={eager || undefined}
           alt={article.recommendation?.coverImageAlt || article.title}
           width={validVariants?.width || 1920} height={validVariants?.height || 1440}
           loading="eager" decoding="async" fetchPriority={eager ? "high" : "auto"} draggable={false}
-          onLoad={event => { if (source) rememberCover(source, event.currentTarget); setLoadedCoverUrl(coverUrl); }} onError={() => setFailedUrl(coverUrl)} />
+          onLoad={event => { if (source) rememberCover(source, event.currentTarget); setLoadedCoverUrl(coverUrl); recovery.recover(); }} onError={recovery.fail} />
       ) : !coverUrl ? (
         <span className={styles.coverFallback} aria-label="纯文本外刊封面">
           <i>TEXT EDITION</i>
           <strong>{(article.sourceName || "Context Reader").slice(0, 28)}</strong>
           <small>{article.summary || "一篇值得慢慢读完的英文文章"}</small>
         </span>
-      ) : coverFailed ? (
+      ) : recovery.exhausted ? (
         <span className={styles.coverFallback} role="status"><i>封面暂时无法加载</i><strong>{article.sourceName || "Context Reader"}</strong></span>
       ) : null}
     </span>
