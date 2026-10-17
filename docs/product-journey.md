@@ -2070,6 +2070,6 @@ User-reported TIME title/image-only success was reproduced against production 20
 用户要求每次点击结果稳定，避免学习词、复习词和新词交界的闪帧与答案提前泄露。修复按词状态重置时机、整卡重挂载与高度跳变、设置空白、最新收藏排序及本机新增词的即时展示。后台确认学习保存错误为连接池等待超时，同时定位超过缓存容量的公共目录及分页再验证并发，修复缓存与安全恢复。当前算法和用户参数保留，Easy、新词预算与短期步骤通过独立问卷讨论。生产状态与证据见 [本轮记录](study-stability-20261016.md)，物理设备和用户最终体验验收仍开放。
 
 
-## 2026-10-17 — daily due reconciliation (candidate)
+## 2026-10-17 — daily due reconciliation (accepted)
 
-User requested exact day-based carryover without changing learning records. Replaced mixed fixed-plan/full-day forecast with uncapped Shanghai-day inventory; ordinary reviews are available all day, short steps retain timing, existing plans add missing IDs. 77 study tests, 90 critical regressions, isolated SQL and controlled browser checks passed. Release acceptance pending; see study-day-due-20261017.md.
+User requested exact day-based carryover without changing learning records. Replaced mixed fixed-plan/full-day forecast with uncapped Shanghai-day inventory; ordinary reviews are available all day, short steps retain timing, existing plans add missing IDs. 77 study tests, 90 critical regressions, isolated SQL and controlled browser checks passed. Accepted release `20261017T123000`, parent `20261016T161500`, source `a5d699e43a162033641d99b33bd2da63313f0847`; public identity and actual evening-review/offline APIs passed. gggg now has 156 today-due = 156 planned and 55 tomorrow-due. Full card/review fingerprints unchanged during plan repair. Health, recovery Admin, parent rollback image and 40-table backup restore passed; backend containers unchanged. See study-day-due-20261017.md.
