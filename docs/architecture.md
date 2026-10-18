@@ -496,3 +496,8 @@ Calendar-day due inventory and queue use the same Asia/Shanghai boundary. All ov
 ## Public cover recovery
 
 `ArticleCover` uses `useCoverRecovery` for queued and eager image failures. The initial attempt has two silent retries after 1 and 3 seconds; only exhaustion displays the existing source-labelled fallback. A browser online event reopens a failed cycle. URL changes and unmount cancel pending retry timers. Recovery remounts only the image, preserving the tilt surface. The media queue accepts a rejected decode only when the image is complete with positive natural width; genuine load failures and its 20-second transfer timeout remain failures. No image quality or request-concurrency limit changes.
+
+
+### Study cross-device freshness
+
+While the study panel is visible, `useStudyOffline` checks an authenticated account-scoped revision every 10 seconds and refreshes on focus, visibility restoration, reconnect, and panel opening. The revision hashes card versions, settings, today's plan and the latest vocabulary change; idle checks do not transfer dictionaries or review history. Changed revisions load the normal offline snapshot. Pending local events or acknowledgements that arrive during a read prevent that read from replacing the durable base; the next check retries. Uploads remain local-first and receipt/idempotency based. This polling interval is not an end-to-end latency guarantee.

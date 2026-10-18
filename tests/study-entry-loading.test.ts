@@ -70,3 +70,14 @@ test('the expected-account header still rejects a different authenticated owner'
  const response=await h.route.POST(new Request('https://context-reader.com/api/study',{method:'POST',headers:{Origin:'https://context-reader.com','X-Context-Account':'other'},body:JSON.stringify({op:'start'})}));
  assert.equal(response.status,409);assert.equal(h.reads.length,0);
 });
+
+test('device revision is stable until a card changes and does not load dictionaries or history',async()=>{
+ const h=harness(1200);
+ const first=await h.store.getStudyRevision('owner');
+ assert.equal(await h.store.getStudyRevision('owner'),first);
+ h.cards[1001].version++;
+ assert.notEqual(await h.store.getStudyRevision('owner'),first);
+ assert.ok(h.reads.every(p=>!p.startsWith('study_reviews?')&&!p.includes('payload')));
+ const response=await h.route.POST(new Request('https://context-reader.com/api/study',{method:'POST',headers:{Origin:'https://context-reader.com','X-Context-Account':'owner'},body:JSON.stringify({op:'local_revision'})}));
+ assert.equal(response.status,200);assert.ok((await response.text()).length<100);
+});

@@ -4,7 +4,7 @@ import { getAuthenticatedUser } from "@/lib/userAuth";
 import { requestExternalOrigin } from "@/lib/requestSecurity";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
 import { buildStudyPlan, sanitizeStudySettings, scheduleStudy, shanghaiDay, STUDY_ALGORITHM, studyPaused, studyRating } from "@/lib/studyScheduler";
-import { getStudyEntry, getStudyReminder, getStudySettings, getStudySnapshot, reconcileStudyCards, saveStudySettings, studyRpc, studyRows } from "@/lib/studyStore";
+import { getStudyEntry, getStudyReminder, getStudyRevision, getStudySettings, getStudySnapshot, reconcileStudyCards, saveStudySettings, studyRpc, studyRows } from "@/lib/studyStore";
 import type { StudyAnswer, StudyCard, StudyDay, StudyReview, StudySnapshot } from "@/types/study";
 import { recordServerError } from "@/lib/serverErrorReporting";
 import { compactStudyResponse, STUDY_COMPACT_FORMAT } from "@/lib/studyTransport";
@@ -58,6 +58,7 @@ export async function POST(request: Request) {
       throw new StudyError("请求格式不正确。");
     }
     const op = body.op;
+    if(op==="local_revision")return result(request,{revision:await getStudyRevision(userId)});
     if(op==="local_event")return result(request,await saveStudyLocalEvent(userId,body.event));
     if (op === "prepare") {const entries=await reconcileStudyCards(userId);return result(request, await getStudySnapshot(userId,{entries}));}
     if (op === "start" || op === "local_refresh") {

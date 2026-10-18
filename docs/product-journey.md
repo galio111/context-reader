@@ -2087,3 +2087,8 @@ User requested removal of the entire explanatory paragraph below the review fore
 ## 2026-10-17 封面短暂失败自动恢复
 
 用户报告大片封面临时失败后又恢复。截图三篇文章共六个封面资源复查全部为 200，23:18 至 23:25 服务日志 62 个封面请求均为 200，未证明原始失败原因。修复前端失败后不再尝试的问题：初次失败后静默等待 1 秒、3 秒重试，耗尽才显示现有占位；联网后重开恢复周期；浏览器 decode 拒绝但已有有效图片尺寸时保留图片。保持封面动效、尺寸、清晰度与并发限制。定向恢复测试与 13 项媒体回归通过；发布身份与最终验收见 cover-recovery-20261017.md。
+
+
+## 2026-10-18 — Study cross-device freshness
+
+Reported: phone study progress eventually appeared on desktop, but too late. Confirmed in the accepted production source: remote study refresh depended on other events and a 30-second local throttle, with no independent remote-progress poll. Added visible-panel 10-second revision checks plus immediate foreground/reconnect checks, and transactional rejection of snapshots racing local answers. 79 study tests pass, including remote changes, unchanged polling, hidden/closed panels and pending-answer races. Production build and release contracts pass; guarded public release verification pending. No user learning ledgers or schedules were manually edited.

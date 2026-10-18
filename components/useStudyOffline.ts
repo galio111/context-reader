@@ -4,9 +4,9 @@ import type {StudySnapshot} from "@/types/study";
 import {updateStudyLocalRecord} from "@/lib/studyOfflineStore";
 import {acknowledgeStudyEvent,canUndoStudy,localReceipt,projectStudyRecord,type StudyLocalEvent,type StudyLocalRecord,type StudyLocalAck} from "@/lib/studyOffline";
 
-export function useStudyOffline(owner:string,network:<T>(body?:unknown)=>Promise<T>,accept:(s:StudySnapshot)=>void){
+export function useStudyOffline(owner:string,network:<T>(body?:unknown)=>Promise<T>,accept:(s:StudySnapshot)=>void,active=true){
   const current=useRef<StudyLocalRecord|null>(null),alive=useRef(true),running=useRef(false);
-  const refreshing=useRef(false),refreshedAt=useRef(0);
+  const refreshing=useRef(false),refreshedAt=useRef(0),revision=useRef("");
   const callbacks=useRef({network,accept});callbacks.current={network,accept};
   const drainRef=useRef<()=>Promise<void>>(async()=>{});
   const publish=(r:StudyLocalRecord)=>{current.current=r;if(alive.current)callbacks.current.accept(projectStudyRecord(r));};
@@ -26,12 +26,45 @@ export function useStudyOffline(owner:string,network:<T>(body?:unknown)=>Promise
     finally{running.current=false;}
   },[owner]);
   drainRef.current=drain;
+  const refresh=useCallback(async(force=false)=>{
+    if(!owner||!alive.current||refreshing.current||!navigator.onLine||typeof indexedDB==="undefined")return;
+    refreshing.current=true;
+    try{
+      await drainRef.current();
+      if(running.current)return;
+      const before=await updateStudyLocalRecord(owner,r=>r);
+      if(!before||before.events.length)return;
+      const probe=await callbacks.current.network<{revision:string}>({op:"local_revision"});
+      if(!force&&probe.revision&&probe.revision===revision.current)return;
+      const seed=await callbacks.current.network<StudySnapshot>({op:"local_refresh"});
+      if(!alive.current)return;
+      let applied=false;
+      const merged=await updateStudyLocalRecord(owner,r=>{
+        // Local answers and acknowledgements during this request win.
+        // Retry later without replacing an unacknowledged answer.
+        if(!r||r.events.length||r.base.serverNow!==before.base.serverNow||Date.parse(seed.serverNow)<Date.parse(r.base.serverNow))return r;
+        applied=true;return {...r,base:seed,clockOffset:Date.parse(seed.serverNow)-Date.now()};
+      });
+      if(applied&&merged){revision.current=probe.revision;refreshedAt.current=Date.now();publish(merged);}
+    }catch{/* Keep the durable snapshot and retry silently. */}
+    finally{refreshing.current=false;}
+  },[owner]);
   useEffect(()=>{
     alive.current=true;
     const resume=()=>{void drainRef.current();};
     const timer=setInterval(resume,15000);window.addEventListener("online",resume);
     return()=>{alive.current=false;clearInterval(timer);window.removeEventListener("online",resume);};
   },[owner]);
+  useEffect(()=>{
+    if(!active)return;
+    const check=()=>{if(document.visibilityState==="visible")void refresh();};
+    const resume=()=>{if(document.visibilityState==="visible")void refresh(true);};
+    resume();
+    const timer=setInterval(check,10000);
+    window.addEventListener("focus",resume);window.addEventListener("online",resume);
+    document.addEventListener("visibilitychange",resume);
+    return()=>{clearInterval(timer);window.removeEventListener("focus",resume);window.removeEventListener("online",resume);document.removeEventListener("visibilitychange",resume);};
+  },[active,refresh]);
   const api=useCallback(async<T,>(body?:unknown):Promise<T>=>{
     const b=body as Record<string,unknown>|undefined,op=b?.op;
     if(typeof indexedDB==="undefined")return callbacks.current.network<T>(body);
@@ -48,16 +81,7 @@ export function useStudyOffline(owner:string,network:<T>(body?:unknown)=>Promise
     if(!op||op==="start"||op==="prepare"){
       // Return local state immediately. A background refresh may replace only
       // the base, never the unsent journal or the learner's displayed question.
-      void drainRef.current().then(async()=>{
-        if(!alive.current||running.current||refreshing.current||!navigator.onLine||Date.now()-refreshedAt.current<30000)return;
-        refreshing.current=true;
-        try{
-          const latest=await updateStudyLocalRecord(owner,r=>r);if(latest?.events.length)return;
-          const seed=await callbacks.current.network<StudySnapshot>({op:"local_refresh"});
-          const merged=await updateStudyLocalRecord(owner,r=>r&&Date.parse(seed.serverNow)>=Date.parse(r.base.serverNow)?{...r,base:seed}:r);
-          refreshedAt.current=Date.now();if(merged)publish(merged);
-        }finally{refreshing.current=false;}
-      }).catch(()=>{});
+      if(Date.now()-refreshedAt.current>=1000)void refresh(true);
       return projectStudyRecord(record) as T;
     }
     if(op==="present")return {token:crypto.randomUUID()} as T;
@@ -88,6 +112,6 @@ export function useStudyOffline(owner:string,network:<T>(body?:unknown)=>Promise
       if(merged){current.current=merged;const projected=projectStudyRecord(merged);return (envelope.snapshot?{...envelope,snapshot:projected}:projected) as T;}
     }
     return response;
-  },[owner]);
+  },[owner,refresh]);
   return {api};
 }

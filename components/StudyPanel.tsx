@@ -155,7 +155,7 @@ export function StudyPanel({visible,onClose,onSource,notice,requestedTab="today"
       if(mutating){mutationEpoch.current++;mutations.current--;if(alive.current)setRefreshTick(n=>n+1);}
     }
   },[owner]);
-  const {api}=useStudyOffline(owner,networkApi,accept);
+  const {api}=useStudyOffline(owner,networkApi,accept,visible);
   const receiptRefresh=useRef<ReturnType<typeof setTimeout>|null>(null);
   useEffect(()=>()=>{if(receiptRefresh.current)clearTimeout(receiptRefresh.current);},[]);
   const confirmReview=useCallback((receipt:StudyReviewReceipt)=>{

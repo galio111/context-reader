@@ -57,6 +57,17 @@ export async function getStudyReminder(userId: string): Promise<{ settings: Stud
   ]);
   return { settings, today: days[0] ?? null };
 }
+/** Idle polls transfer no dictionaries, FSRS memories, or review history. */
+export async function getStudyRevision(userId: string): Promise<string> {
+  const day=shanghaiDay(new Date());
+  const state=await Promise.all([
+    studyRows("study_cards",userId,"id,version,suspended,anki_pending","&order=id.asc"),
+    getStudySettings(userId),
+    accountFetch("study_days?user_id=eq."+encodeURIComponent(userId)+"&day=eq."+day+"&select=*&limit=1"),
+    accountFetch("user_data_objects?user_id=eq."+encodeURIComponent(userId)+"&kind=eq.vocabulary&select=object_key,updated_at,deleted_at&order=updated_at.desc,object_key.desc&limit=1"),
+  ]);
+  return createHash("sha256").update(JSON.stringify([day,state])).digest("hex");
+}
 export async function reconcileStudyCards(userId: string): Promise<VocabularyEntry[]> {
   const [entries, cards] = await Promise.all([getStudyEntries(userId), studyRows<StudyCard>("study_cards", userId, "*", "&order=id.asc")]);
   const existing = new Map(cards.map(c => [c.entry_id, c]));
