@@ -82,7 +82,9 @@ test("compact catalogue preserves article identity, preference/category order an
   for (let i = 0; i < articles.length; i++) {
     assert.equal(compact[i].summary, articles[i].summary);
     assert.deepEqual(compact[i].recommendation?.topics, articles[i].recommendation?.topics);
-    assert.equal(compact[i].recommendation?.coverPreviewDataUrl, articles[i].recommendation?.coverPreviewDataUrl);
+    assert.equal(compact[i].recommendation?.coverPreviewDataUrl, undefined);
+    assert.equal(compact[i].recommendation?.coverImageUrl, articles[i].recommendation?.coverImageUrl);
+    assert.ok(articles[i].recommendation?.coverPreviewDataUrl);
     assert.equal(compact[i].recommendation?.reviewNotes, undefined);
     assert.ok(articles[i].recommendation?.reviewNotes);
     assert.equal(compact[i].body, "");
