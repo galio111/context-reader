@@ -1,0 +1,42 @@
+[
+  {
+    "site": "time",
+    "attempt": 1,
+    "status": 200,
+    "seconds": 7.173954,
+    "characters": 7279,
+    "blocks": 29,
+    "images": 1,
+    "bodySha256": "b0a416e74a0fe8b8f94e74fd34b240f8ab93ddf88b7fa00df84eff3c0d27d916"
+  },
+  {
+    "site": "time",
+    "attempt": 2,
+    "status": 200,
+    "seconds": 6.618522,
+    "characters": 7279,
+    "blocks": 29,
+    "images": 1,
+    "bodySha256": "b0a416e74a0fe8b8f94e74fd34b240f8ab93ddf88b7fa00df84eff3c0d27d916"
+  },
+  {
+    "site": "a16z",
+    "attempt": 1,
+    "status": 200,
+    "seconds": 2.944634,
+    "characters": 9619,
+    "blocks": 52,
+    "images": 11,
+    "bodySha256": "6bb9f463d34bbb2385cf4bdd6e73b98ec203eaec885f2b81de5f2960bfe0e349"
+  },
+  {
+    "site": "a16z",
+    "attempt": 2,
+    "status": 200,
+    "seconds": 1.021942,
+    "characters": 9619,
+    "blocks": 52,
+    "images": 11,
+    "bodySha256": "6bb9f463d34bbb2385cf4bdd6e73b98ec203eaec885f2b81de5f2960bfe0e349"
+  }
+]

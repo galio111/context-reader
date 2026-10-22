@@ -1,0 +1,29 @@
+{
+  "checks": [
+    "real signed-in direct typing",
+    "forgot missing letter",
+    "remembered exact",
+    "unsure extra letters",
+    "three reviews saved exactly once",
+    "expanded notebook detail",
+    "390px"
+  ],
+  "first": "look after",
+  "second": "aspen",
+  "third": "forest",
+  "reviews": [
+    {
+      "answer": "unsure_wrong",
+      "undone": false
+    },
+    {
+      "answer": "remembered",
+      "undone": false
+    },
+    {
+      "answer": "forgot",
+      "undone": false
+    }
+  ],
+  "errors": []
+}

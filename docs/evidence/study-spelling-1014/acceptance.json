@@ -1,0 +1,22 @@
+{
+  "releaseId": "20261014T115435",
+  "parentReleaseId": "20261014T111000",
+  "sourceRevision": "8991775275750a71a5b32a577ec354fbfed25a77",
+  "localStudyTests": 74,
+  "criticalTests": 90,
+  "providerFailoverBillingTests": 8,
+  "typecheck": "passed",
+  "productionBuild": "passed",
+  "publicIdentity": "verified mainland_internal",
+  "liveBrowser": "three ratings and exactly three saved reviews, expanded notebook, 390px",
+  "readingCore": "contextual explanation with sentence translation, dictionary and full translation all deepseek-flash",
+  "health": "seven services healthy, five backend ids and start times unchanged",
+  "backup": "20261014T031213Z SHA verified, 40 tables restored into disposable database",
+  "rollback": "current and parent accepted images retained; no actual rollback performed",
+  "cleanup": "own QA account and private session files removed",
+  "remaining": [
+    "physical mobile keyboard",
+    "Edge/Safari spelling UI",
+    "user visual acceptance"
+  ]
+}

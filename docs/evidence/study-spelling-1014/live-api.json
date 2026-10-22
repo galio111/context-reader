@@ -1,0 +1,48 @@
+{
+  "release": {
+    "ok": true,
+    "checkedAt": "2026-10-14T04:02:49.199Z",
+    "releaseId": "20261014T115435",
+    "parentReleaseId": "20261014T111000",
+    "backendMode": "mainland_internal"
+  },
+  "contextualAndSentence": true,
+  "dictionary": true,
+  "translation": true,
+  "actions": [
+    {
+      "feature": "full_article_translation",
+      "status": "succeeded",
+      "quota_units": 10
+    },
+    {
+      "feature": "standalone_dictionary",
+      "status": "succeeded",
+      "quota_units": 5
+    },
+    {
+      "feature": "word_explanation",
+      "status": "succeeded",
+      "quota_units": 1
+    }
+  ],
+  "executions": [
+    {
+      "route": "/api/explain-word",
+      "model": "deepseek-flash",
+      "status": "succeeded"
+    },
+    {
+      "route": "/api/dictionary",
+      "model": "deepseek-flash",
+      "status": "succeeded"
+    },
+    {
+      "route": "/api/translate-article",
+      "model": "deepseek-flash",
+      "status": "succeeded"
+    }
+  ],
+  "accountSyncAdmin": true,
+  "readyForBrowser": true
+}
