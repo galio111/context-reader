@@ -1,4 +1,5 @@
 import { tokenizeArticle } from "@/lib/tokenizer";
+import { documentReadingContent, type DocumentTranslationScope } from "@/lib/documentReadingContent";
 import type { ImportedArticle } from "@/types/article";
 import type { ArticleTranslationBlock, ReaderToken } from "@/types/reader";
 
@@ -10,9 +11,12 @@ function isTranslationBlockType(type: string): type is ArticleTranslationBlock["
   return type === "heading" || type === "subheading" || type === "paragraph" || type === "quote" || type === "list-item" || type === "caption" || type === "table";
 }
 
-export function createArticleTranslationBlocks(article: string, importedArticle?: ImportedArticle | null): ArticleTranslationBlock[] {
+export function createArticleTranslationBlocks(article: string, importedArticle?: ImportedArticle | null, scope: DocumentTranslationScope | "context" = "body"): ArticleTranslationBlock[] {
   if (importedArticle?.blocks?.length) {
-    return importedArticle.blocks
+    const reading = importedArticle.document ? documentReadingContent(importedArticle.blocks) : null;
+    const selectedIds = reading && scope === "context" ? new Set([...reading.body, ...reading.captions].map(block => block.id)) : null;
+    const blocks = reading ? scope === "context" ? importedArticle.blocks.filter(block => selectedIds!.has(block.id)) : reading[scope] : importedArticle.blocks;
+    return blocks
       .filter((block) => block.type !== "image" && isTranslationBlockType(block.type))
       .map((block) => ({
         id: block.id,

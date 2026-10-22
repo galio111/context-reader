@@ -522,3 +522,8 @@ Uploads require live authentication and same origin; downloads derive the privat
 Document translations reuse existing billing, sequential requests, durable caches and explicit start. Page labels remain visible in translation. Papers within 60,000 characters / 230 blocks keep complete context; longer documents use opening definitions plus a target-centred bounded context window while still translating every target block. Figures and formulas stay unchanged in the original; extracted captions/prose are translated without inferring image contents. PDF reading-order heuristics and DOCX browser pagination have documented limits.
 
 New-device sync publishes articles before historical translation caches. A mounted translation session rebinds on relevant same-owner cache merge events; active jobs retain authority, account transitions still clear old results, and cache replay never starts a provider request or usage reservation.
+
+
+### PDF fidelity and translation scope (2026-10-22 correction)
+
+User requires the complete original PDF, including images, figure labels, annotations, font sizes and page layout. The correction renders source pages with selectable text, retries original loading without substituting plain text, and separates fit width from actual 100%. Translation selects academic body content; captions are optional, with Chinese-first reading, source comparison and page navigation. Saved source blocks and historical caches remain unchanged. The supplied paper has 51 body blocks and 6 captions; 127 metadata/reference blocks are excluded from translation, never from original display. Local 11-page browser verification passed; production acceptance pending. Current evidence: `docs/document-import-20261022.md` (relative to repository root).

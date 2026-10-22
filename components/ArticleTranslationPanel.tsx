@@ -2,7 +2,7 @@
 import { LoadingStatus } from "./LoadingStatus";
 import { openAccountUsage, isQuotaMessage } from "@/lib/accountUsageNavigation";
 
-import type { Ref } from "react";
+import { useState, type Ref } from "react";
 import type { ArticleTranslationBlock, ArticleTranslationItem } from "@/types/reader";
 
 interface ArticleTranslationPanelProps {
@@ -20,6 +20,8 @@ interface ArticleTranslationPanelProps {
   staleBlockIds?: string[];
   removedTranslationCount?: number;
   adminMode?: boolean;
+  documentScope?: "body" | "captions";
+  onDocumentScopeChange?: (scope: "body" | "captions") => void;
   onGenerate: () => void;
   onRegenerate: () => void;
   scrollContainerRef?: Ref<HTMLElement>;
@@ -29,8 +31,9 @@ interface ArticleTranslationPanelProps {
 export function ArticleTranslationPanel({
   blocks, translations, loading, error, requested, estimatedSecondsRemaining, retryAfterSeconds, retryReason,
   regenerating, completedTargetBlocks, totalTargetBlocks,
-  staleBlockIds = [], removedTranslationCount = 0, adminMode = false, onGenerate, onRegenerate, scrollContainerRef, onScrollPositionChange,
+  staleBlockIds = [], removedTranslationCount = 0, adminMode = false, documentScope, onDocumentScopeChange, onGenerate, onRegenerate, scrollContainerRef, onScrollPositionChange,
 }: ArticleTranslationPanelProps) {
+  const [showSource, setShowSource] = useState(false);
   const translationById = new Map(translations.map((item) => [item.id, item.translation]));
   const hasTranslations = translations.length > 0;
   const hasIncompleteTranslations = translations.length < blocks.length;
@@ -57,15 +60,21 @@ export function ArticleTranslationPanel({
     <aside onScroll={(event) => onScrollPositionChange?.(event.currentTarget.scrollTop)} ref={scrollContainerRef} className="cr-reader-panel cr-translation-panel h-full min-h-0 overflow-y-auto rounded-[14px] border border-[#e0e0e0] bg-white p-5 overscroll-contain [-webkit-overflow-scrolling:touch]" data-native-selection="blue">
       <header className="flex items-start justify-between gap-3 border-b border-[#e0e0e0] pb-4">
         <div className="min-w-0">
-          <h2 className="text-base font-semibold leading-6 tracking-[-0.224px] text-[#1d1d1f]">全文翻译</h2>
-          <p className="mt-1 text-xs leading-5 tracking-[-0.12px] text-[#7a7a7a]">{adminMode ? "候选文章已有完整译文时，精选后会自动同步给用户。" : "按原文段落对齐，优先保持术语、指代和上下文一致。"}</p>
+          <h2 className="text-base font-semibold leading-6 tracking-[-0.224px] text-[#1d1d1f]">{documentScope ? documentScope === "body" ? "正文翻译" : "图注翻译" : "全文翻译"}</h2>
+          <p className="mt-1 text-xs leading-5 tracking-[-0.12px] text-[#666]">{documentScope ? "原文档保持完整。译文按页对应，仅处理所选内容。" : adminMode ? "候选文章已有完整译文时，精选后会自动同步给用户。" : "按原文段落对齐，优先保持术语、指代和上下文一致。"}</p>
         </div>
         {hasTranslations && (
           <button type="button" className="cr-translation-regenerate flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#0066cc] text-lg leading-none text-[#0066cc] transition hover:bg-[#f5f9ff] active:scale-95 disabled:cursor-not-allowed disabled:border-[#d2d2d7] disabled:text-[#86868b]" onClick={onRegenerate} disabled={loading || blocks.length === 0} aria-label={updateButtonLabel} title={updateButtonLabel}>↻</button>
         )}
       </header>
 
-      {!requested && !hasTranslations && !loading && !error && (
+      {documentScope && <div className="border-b border-[#e0e0e0] py-4">
+        <div className="flex items-center justify-between gap-3"><div className="flex gap-1 rounded-full bg-[#f2f3f5] p-1" role="group" aria-label="文档翻译范围">{(["body", "captions"] as const).map(scope => <button key={scope} type="button" aria-pressed={documentScope === scope} onClick={() => onDocumentScopeChange?.(scope)} className={`min-h-11 rounded-full px-4 py-1.5 text-sm ${documentScope === scope ? "bg-[#1d1d1f] text-white" : "text-[#555]"}`}>{scope === "body" ? "正文" : "图注"}</button>)}</div><button type="button" aria-pressed={showSource} onClick={() => setShowSource(v => !v)} className="min-h-11 text-xs text-[#555] underline underline-offset-4">{showSource ? "隐藏原文" : "对照原文"}</button></div>
+        <p className="mt-3 text-xs leading-5 text-[#666]">{documentScope === "body" ? "摘要与正文；不含页眉页脚、作者信息和参考文献。" : "单独阅读图表说明，图中内容保留在原页。"}</p>
+        {blocks.length === 0 && <p className="mt-3 text-sm text-[#555]">未识别到{documentScope === "body" ? "正文" : "图注"}，可以直接在原页划词查看。</p>}
+      </div>}
+
+      {blocks.length > 0 && !requested && !hasTranslations && !loading && !error && (
         <div className="py-6">
           <p className="text-sm leading-6 tracking-[-0.224px] text-[#333333]">点击开始后，即使切回词句解释或打开其他文章，也会继续在后台翻译。</p>
           <button type="button" className="cr-translation-primary mt-4 h-10 rounded-full bg-[#0066cc] px-4 text-sm tracking-[-0.224px] text-white transition active:scale-95 disabled:bg-[#d2d2d7]" onClick={onGenerate} disabled={blocks.length === 0}>开始翻译</button>
@@ -103,7 +112,7 @@ export function ArticleTranslationPanel({
             const isHeading = block.type === "heading" || block.type === "subheading";
               const documentPage = block.id.match(/^doc-p(\d+)-/)?.[1];
               const showPage = documentPage && documentPage !== blocks[blockIndex - 1]?.id.match(/^doc-p(\d+)-/)?.[1];
-            return <section key={block.id} className="border-b border-[#f0f0f2] pb-4 last:border-b-0 last:pb-0">{showPage && <p className="mb-3 text-xs font-semibold text-[#555]">第 {documentPage} 页</p>}<p className="cr-translation-source text-xs leading-5 tracking-[-0.12px] text-[#7a7a7a]">{block.text}</p><p className={`cr-translation-target mt-2 tracking-[-0.224px] text-[#1d1d1f] ${isHeading ? "text-base font-semibold leading-7" : "text-sm leading-6"}`}>{translation}</p></section>;
+            return <section key={block.id} className={documentScope ? "pb-2" : "border-b border-[#f0f0f2] pb-4 last:border-b-0 last:pb-0"}>{showPage && <button type="button" onClick={() => document.querySelector(`[data-reader-block="doc-p${documentPage}-b0"]`)?.scrollIntoView({ block: "start", behavior: "auto" })} className="mb-3 min-h-11 text-xs font-semibold text-[#555] underline underline-offset-4" aria-label={`查看原文第 ${documentPage} 页`}>第 {documentPage} 页 ↗</button>}{(!documentScope || showSource) && <p className="cr-translation-source text-xs leading-5 tracking-[-0.12px] text-[#666]">{block.text}</p>}<p className={`cr-translation-target mt-2 tracking-[-0.224px] text-[#1d1d1f] ${isHeading ? "text-base font-semibold leading-7" : documentScope ? "text-[15px] leading-7" : "text-sm leading-6"}`}>{translation}</p></section>;
           })}
         </div>
       )}

@@ -1,7 +1,7 @@
 # Original document reading acceptance
 
-Status: production accepted as `20261022T180600`; real-account import, full translation and fresh-browser replay passed.
-Final parent: `20261022T175300`; source: `f6b074db224531f15eda49646e7a1f4b2048db68`. Public connectivity and server state match.
+Status: PDF fidelity and translation-scope correction implemented and locally verified; production acceptance pending.
+Candidate parent: `20261022T182100` (source `95eec72b4beae1f9f426539e542c6db323e4e65e`).
 
 Initial accepted import parent: `20261022T171700`; source: `41005eba857101429a96eb1aef975c5b11f6af27`. Initial parent was `20261018T172000`. The cumulative startup release `20261022T173700` retained this feature and is the replay-fix parent.
 
@@ -9,9 +9,21 @@ Initial accepted import parent: `20261022T171700`; source: `41005eba857101429a96
 
 Text PDFs and Word `.docx` can be imported from the real article panel. Live login is required; accepted imports save to My Articles and use normal protocol-2 sync. The private original is served only to its owner. PDF pages preserve columns, typography, figures and equations; Word preserves document layout as supported by browser rendering. Source editing is disabled; original download remains available. No OCR was enabled.
 
-Word/phrase selection uses the existing contextual explanation pipeline. Full translation starts on explicit action, preserves original pages, labels PDF page boundaries and caches translated blocks. The supplied 11-page paper extracts approximately 51k characters / 184 blocks, within the complete-context budget. Longer documents use bounded target-centred context with opening definitions; every target remains translatable.
+Word/phrase selection uses the existing contextual explanation pipeline. Source PDF pages, including images, vectors and stored annotation appearances, are rendered directly; transparent text adds selection. Failed original loads retry and then expose an explicit original retry, never a replacement plain-text article. Fit width and actual 100% (96 CSS pixels per inch) are separate controls.
 
-## Acceptance evidence
+Full translation starts on explicit action, preserves original pages and stable saved block IDs, labels PDF page boundaries and caches translated blocks. Academic body selection excludes repeated page furniture, front matter and reference/back matter. Captions have a separate optional scope; the sidebar defaults to Chinese reading with optional source comparison and page jumps. For this paper: 51 body blocks, 6 captions, 127 excluded; historical 184-block caches remain stored and unchanged blocks replay without a new provider request. The supplied 11-page paper extracts approximately 51k characters / 184 blocks, within the complete-context budget. Longer documents use bounded target-centred context with opening definitions; every target remains translatable.
+
+Body and caption jobs share the full selected reading context in original order, but translate and charge only their chosen targets. Switching scopes does not cancel existing jobs.
+
+## Current correction evidence
+
+- Real application browser rendered all 11 pages, saved page screenshots and checked image-bearing pages against independent original renders. Chemistry diagrams, experiment photos, figure labels and typography are present. Original supplied PDF has no annotation objects; figure labels are source artwork.
+- Body/caption scopes replay 51/6 cached translations, zero new translation requests and zero browser errors. Actual 100% width is 793.6875 CSS px for a 595.276pt page. Refresh and 390px reduced-motion rendering passed.
+- A separate source annotation fixture retained a highlight, rectangle markup and comment icon. Popup comment interaction was not added; this paper itself has no annotation objects.
+- Nine focused import/scope tests and all 139 architecture regressions passed. Original bytes and saved blocks are not rewritten.
+- The earlier acceptance inspected text pages insufficiently. A precise cause for the user's missing-image observation was not proven; source bytes and raw PDF.js rendering both contain the images. The confirmed plain-text replacement fallback has now been removed.
+
+## Initial release acceptance evidence
 
 - Browser: supplied PDF original-page screenshot, exact conjugate click context, zero page errors.
 - DOCX: actual two-page Word fixture with title, table and explicit page break rendered; zero page errors.
@@ -29,4 +41,4 @@ Word/phrase selection uses the existing contextual explanation pipeline. Full tr
 
 ## Limits
 
-20 MB per source, 150 PDF pages, 300k extracted characters. Scans/insufficient text, encrypted PDFs, old `.doc`, macro/embedded-object DOCX are not supported. PDF extraction follows content-stream order with geometric line grouping; irregular/untagged documents can need a better source export. DOCX complex layout, fonts and pagination can differ from Microsoft Word; export to PDF for the strongest fidelity. Binary documents need a network connection. Browser device emulation does not replace physical phone/Safari or user's final visual acceptance. Article deletion currently retains private source bytes conservatively for shared/recoverable references.
+20 MB per source, 150 PDF pages, 300k extracted characters. Scans/insufficient text, encrypted PDFs, old `.doc`, macro/embedded-object DOCX are not supported. Body/caption classification uses conservative heuristics and can require refinement for other layouts; it never removes anything from the original pages. PDF extraction follows content-stream order with geometric line grouping; irregular/untagged documents can need a better source export. DOCX complex layout, fonts and pagination can differ from Microsoft Word; export to PDF for the strongest fidelity. Binary documents need a network connection. Browser device emulation does not replace physical phone/Safari or user's final visual acceptance. Article deletion currently retains private source bytes conservatively for shared/recoverable references.

@@ -447,3 +447,8 @@ Menu 在手机上隐藏大号 `Menu` 标题；已登录时顶部以非点击文�
 ## 2026-10-22 文档入口补充
 
 已生产上线：在真实导入模块的“粘贴文章 / 输入网址”旁新增“导入文档”，支持文字型 PDF 和 Word `.docx`。登录后导入并保存到“我的文章”；保留原文排版，加上划词和侧边全文翻译。纯图片扫描件暂不支持。此增量不改变已确认首页顺序或品牌动效。上线验收见 `document-import-20261022.md`。
+
+
+### PDF fidelity and translation scope (2026-10-22 correction)
+
+User requires the complete original PDF, including images, figure labels, annotations, font sizes and page layout. The correction renders source pages with selectable text, retries original loading without substituting plain text, and separates fit width from actual 100%. Translation selects academic body content; captions are optional, with Chinese-first reading, source comparison and page navigation. Saved source blocks and historical caches remain unchanged. The supplied paper has 51 body blocks and 6 captions; 127 metadata/reference blocks are excluded from translation, never from original display. Local 11-page browser verification passed; production acceptance pending. Current evidence: `docs/document-import-20261022.md` (relative to repository root).

@@ -1227,9 +1227,11 @@ export function ReaderView({
   const revealInteractiveBlocks = useCallback((blockIds: string[]) => {
     readerBlockInteractivityStore.reveal(blockIds);
   }, [readerBlockInteractivityStore]);
+  const [documentTranslationScope, setDocumentTranslationScope] = useState<"body" | "captions">("body");
+  useEffect(() => { setDocumentTranslationScope("body"); }, [effectiveImportedArticle?.document?.id]);
   const translationBlocks = useMemo<ArticleTranslationBlock[]>(
-    () => examSurface?.translationBlocks ?? createArticleTranslationBlocks(currentArticle, effectiveImportedArticle),
-    [currentArticle, effectiveImportedArticle, examSurface?.translationBlocks],
+    () => examSurface?.translationBlocks ?? createArticleTranslationBlocks(currentArticle, effectiveImportedArticle, documentTranslationScope),
+    [currentArticle, effectiveImportedArticle, examSurface?.translationBlocks, documentTranslationScope],
   );
   const translationSourceKey = useMemo(
     () => createArticleTranslationCacheKey(translationBlocks),
@@ -2228,6 +2230,7 @@ export function ReaderView({
       force,
       initialTranslations,
       allBlocks: translationBlocks,
+      contextBlocks: currentImportedArticle?.document ? createArticleTranslationBlocks(currentArticle, effectiveImportedArticle, "context") : translationBlocks,
       publicArticleId: articleSource?.kind === "public" ? articleSource.id : undefined,
       ...(hasCompletePublicCache && articleSource?.kind === "public"
         ? { publicCache: { articleId: articleSource.id } }
@@ -3995,6 +3998,8 @@ export function ReaderView({
               <div className={rightPanelMode === "translation" ? "h-full min-h-0" : "hidden h-full min-h-0"}>
                 <ArticleTranslationPanel
                   blocks={translationBlocks}
+                  documentScope={currentImportedArticle?.document ? documentTranslationScope : undefined}
+                  onDocumentScopeChange={setDocumentTranslationScope}
                   translations={articleTranslations}
                   loading={translationLoading}
                   error={translationError}
@@ -4005,8 +4010,8 @@ export function ReaderView({
                   regenerating={translationRegenerating}
                   completedTargetBlocks={translationCompletedTargetBlocks}
                   totalTargetBlocks={translationTotalTargetBlocks}
-                  staleBlockIds={staleTranslationBlockIds}
-                  removedTranslationCount={removedTranslationCount}
+                  staleBlockIds={currentImportedArticle?.document ? [] : staleTranslationBlockIds}
+                  removedTranslationCount={currentImportedArticle?.document ? 0 : removedTranslationCount}
                   adminMode={editorialWorkbench}
                   onGenerate={() => generateArticleTranslation(false)}
                   onRegenerate={() => generateArticleTranslation(true)}
@@ -4280,6 +4285,8 @@ export function ReaderView({
             <div className={rightPanelMode === "translation" ? "h-full min-h-0" : "hidden h-full min-h-0"} aria-hidden={rightPanelMode !== "translation"} inert={rightPanelMode !== "translation"}>
               <ArticleTranslationPanel
                 blocks={translationBlocks}
+                  documentScope={currentImportedArticle?.document ? documentTranslationScope : undefined}
+                  onDocumentScopeChange={setDocumentTranslationScope}
                 translations={articleTranslations}
                 loading={translationLoading}
                 error={translationError}
@@ -4290,8 +4297,8 @@ export function ReaderView({
                 regenerating={translationRegenerating}
                 completedTargetBlocks={translationCompletedTargetBlocks}
                 totalTargetBlocks={translationTotalTargetBlocks}
-                staleBlockIds={staleTranslationBlockIds}
-                removedTranslationCount={removedTranslationCount}
+                staleBlockIds={currentImportedArticle?.document ? [] : staleTranslationBlockIds}
+                removedTranslationCount={currentImportedArticle?.document ? 0 : removedTranslationCount}
                 adminMode={editorialWorkbench}
                 onGenerate={() => generateArticleTranslation(false)}
                 onRegenerate={() => generateArticleTranslation(true)}

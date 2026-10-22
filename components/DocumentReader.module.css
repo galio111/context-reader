@@ -3,10 +3,13 @@
 .toolbar>div { display:flex; align-items:center; gap:12px; }
 .toolbar button { border:1px solid #ddd; border-radius:6px; width:32px; height:32px; background:white; }
 .toolbar button:disabled { opacity:.4; }
+.toolbar .scaleChoice { width:auto; padding:0 8px; }
+.toolbar>div { flex-wrap:wrap; gap:8px; }
+.pageStatus { position:absolute; left:16px; top:16px; font:13px/1.6 system-ui; color:#666; }
+.pageStatus button,.retry { color:#0066cc; text-decoration:underline; margin-left:8px; }
+.page canvas { display:block; max-width:none; }
 .toolbar a { color:#0066cc; }
 .scroll { overflow-x:auto; touch-action:pan-x pan-y; }
-.textFallback { font:17px/1.8 system-ui; color:#222; }
-.textFallback p { margin:0 0 1em; white-space:pre-wrap; }
 .page { position:relative; margin:0 0 20px; background:white; box-shadow:0 1px 5px #0002; }
 .page>div { position:relative; }
 .root :global(.textLayer) { position:absolute; inset:0; overflow:clip; opacity:1; line-height:1; text-align:initial; text-size-adjust:none; forced-color-adjust:none; transform-origin:0 0; caret-color:transparent; z-index:1; --min-font-size:1; --text-scale-factor:calc(var(--total-scale-factor) * var(--min-font-size)); --min-font-size-inv:calc(1 / var(--min-font-size)); }
@@ -15,3 +18,5 @@
 .root :global(.textLayer .markedContent) { display:contents; }
 .root :global(.textLayer) ::selection { background:rgba(0,102,204,.28); color:transparent; }
 .root :global(.textLayer) br::selection { background:transparent; }
+
+@media (pointer:coarse) { .toolbar button,.retry,.pageStatus button { min-width:44px; min-height:44px; } }

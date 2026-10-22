@@ -369,3 +369,8 @@ URL import reads the complete bounded response inside its direct/overseas fallba
 - `GET /api/documents/[sha256]?format=pdf|docx`: authenticated owner-scoped source download, `private, no-store`, attachment disposition and nosniff. No public object URL or service key reaches the client.
 - `scripts/prepare-document-runtime.mjs` runs before dev/build, copying the locked PDF.js module, worker, font, CMap and WASM assets to versioned `public/document-runtime/`. Generated assets are not source files and must be regenerated in each build.
 - Local-only developer identities cannot upload private documents without a configured account backend. No database schema migration or public storage policy is required. Scanned PDFs and old `.doc` are rejected with actionable messages.
+
+
+### PDF fidelity and translation scope (2026-10-22 correction)
+
+User requires the complete original PDF, including images, figure labels, annotations, font sizes and page layout. The correction renders source pages with selectable text, retries original loading without substituting plain text, and separates fit width from actual 100%. Translation selects academic body content; captions are optional, with Chinese-first reading, source comparison and page navigation. Saved source blocks and historical caches remain unchanged. The supplied paper has 51 body blocks and 6 captions; 127 metadata/reference blocks are excluded from translation, never from original display. Local 11-page browser verification passed; production acceptance pending. Current evidence: `docs/document-import-20261022.md` (relative to repository root).

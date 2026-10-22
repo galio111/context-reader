@@ -365,3 +365,8 @@ Reader 切换文章建立独立阅读会话，清空来源词高亮与旧翻译�
 The live HomeRedesign import panel adds `导入文档` beside paste/URL and calls HomeClient's real private-upload/save/open flow. Both member and guest homepage layouts expose the entry; live login is required to store documents. No disconnected demonstration route is used. Reader retains the original PDF/DOCX and routes lookups and translations into existing tools. See `document-import-20261022.md` for release evidence and fidelity boundaries.
 
 Production acceptance: `20261022T180600`, parent `20261022T175300`, source `f6b074db224531f15eda49646e7a1f4b2048db68`. gggg's supplied paper, private original, full 184-block translation and fresh-browser replay were verified. This does not constitute user acceptance of complex motion or physical-device layout.
+
+
+### PDF fidelity and translation scope (2026-10-22 correction)
+
+User requires the complete original PDF, including images, figure labels, annotations, font sizes and page layout. The correction renders source pages with selectable text, retries original loading without substituting plain text, and separates fit width from actual 100%. Translation selects academic body content; captions are optional, with Chinese-first reading, source comparison and page navigation. Saved source blocks and historical caches remain unchanged. The supplied paper has 51 body blocks and 6 captions; 127 metadata/reference blocks are excluded from translation, never from original display. Local 11-page browser verification passed; production acceptance pending. Current evidence: `docs/document-import-20261022.md` (relative to repository root).

@@ -34,16 +34,19 @@ function selectedContext(event: MouseEvent, root: HTMLElement, article: Imported
     previousSentence: article.blocks[index - 1]?.text?.slice(-2000) || "", nextSentence: article.blocks[index + 1]?.text?.slice(0, 2000) || "" };
 }
 
-function PdfPage({ pdf, number, width }: { pdf: PDFDocumentProxy; number: number; width: number }) {
+function PdfPage({ pdf, number, width, zoom }: { pdf: PDFDocumentProxy; number: number; width: number; zoom: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const [near, setNear] = useState(false);
   const [height, setHeight] = useState(width * 1.414);
+  const [pageWidth, setPageWidth] = useState(width);
+  const [attempt, setAttempt] = useState(0);
+  const [ready, setReady] = useState(false);
   const [error, setError] = useState("");
   useEffect(() => {
     let disposed = false;
-    void pdf.getPage(number).then(page => { const v = page.getViewport({ scale: 1 }); if (!disposed) setHeight(width * v.height / v.width); }).catch(() => undefined);
+    void pdf.getPage(number).then(page => { const base = page.getViewport({ scale: 1 }); const v = page.getViewport({ scale: zoom ? zoom * 96 / 72 : width / base.width }); if (!disposed) { setHeight(v.height); setPageWidth(v.width); } }).catch(() => undefined);
     return () => { disposed = true; };
-  }, [pdf, number, width]);
+  }, [pdf, number, width, zoom]);
   useEffect(() => {
     const observer = new IntersectionObserver(entries => setNear(entries.some(e => e.isIntersecting)), { rootMargin: "900px" });
     if (ref.current) observer.observe(ref.current);
@@ -51,15 +54,17 @@ function PdfPage({ pdf, number, width }: { pdf: PDFDocumentProxy; number: number
   }, []);
   useEffect(() => {
     const host = ref.current;
+    setReady(false);
     if (!host || !near) return;
+    setError("");
     let disposed = false;
     let render: ReturnType<Awaited<ReturnType<PDFDocumentProxy["getPage"]>>["render"]> | undefined;
     let layer: InstanceType<Awaited<ReturnType<typeof pdfLibrary>>["TextLayer"]> | undefined;
     void (async () => {
       const page = await pdf.getPage(number);
       if (disposed) return;
-      const viewport = page.getViewport({ scale: width / page.getViewport({ scale: 1 }).width });
-      setHeight(viewport.height);
+      const viewport = page.getViewport({ scale: zoom ? zoom * 96 / 72 : width / page.getViewport({ scale: 1 }).width });
+      setHeight(viewport.height); setPageWidth(viewport.width);
       const canvas = document.createElement("canvas");
       const ratio = Math.min(2, window.devicePixelRatio || 1);
       canvas.width = Math.ceil(viewport.width * ratio); canvas.height = Math.ceil(viewport.height * ratio);
@@ -68,17 +73,23 @@ function PdfPage({ pdf, number, width }: { pdf: PDFDocumentProxy; number: number
       const text = document.createElement("div"); text.className = "textLayer";
       text.style.setProperty("--total-scale-factor", String(viewport.scale));
       host.replaceChildren(canvas, text);
-      render = page.render({ canvas, viewport, transform: [ratio, 0, 0, ratio, 0, 0] });
       const library = await pdfLibrary();
       if (disposed) return;
-      layer = new library.TextLayer({ textContentSource: await page.getTextContent(), container: text, viewport });
+      // Paint source images, vectors and stored annotation appearances together;
+      // the transparent text layer adds selection without replacing source text.
+      render = page.render({ canvas, viewport, transform: [ratio, 0, 0, ratio, 0, 0], annotationMode: library.AnnotationMode.ENABLE_STORAGE });
+      const textContent = await page.getTextContent();
+      if (disposed) return;
+      layer = new library.TextLayer({ textContentSource: textContent, container: text, viewport });
       await Promise.all([render.promise, layer.render()]);
-    })().catch(() => { if (!disposed) setError("此页未能显示，请重新打开文档。"); });
+      if (!disposed) setReady(true);
+    })().catch(() => { if (!disposed) setError("此页未能完整显示。"); });
     return () => { disposed = true; render?.cancel(); layer?.cancel(); host.replaceChildren(); };
-  }, [pdf, number, width, near]);
-  return <section className={styles.page} data-reader-block={`doc-p${number}-b0`} aria-label={`第 ${number} 页`} style={{ width, minHeight: height }}>
-    <div ref={ref} data-document-page={number} style={{ minHeight: height }} />
-    {error && <p role="alert">{error}</p>}
+  }, [pdf, number, width, zoom, near, attempt]);
+  return <section className={styles.page} data-reader-block={`doc-p${number}-b0`} aria-label={`第 ${number} 页`} style={{ width: pageWidth, minHeight: height }}>
+    <div ref={ref} data-document-page={number} data-rendered={ready} style={{ minHeight: height }} />
+    {!ready && !error && <span className={styles.pageStatus}>第 {number} 页</span>}
+    {error && <p className={styles.pageStatus} role="alert">{error} <button type="button" onClick={() => setAttempt(v => v + 1)}>重新显示</button></p>}
   </section>;
 }
 
@@ -92,7 +103,8 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
   const [pdf, setPdf] = useState<PDFDocumentProxy | null>(null);
   const [wordBytes, setWordBytes] = useState<ArrayBuffer | null>(null);
   const [width, setWidth] = useState(700);
-  const [zoom, setZoom] = useState(1);
+  const [zoom, setZoom] = useState(0);
+  const [attempt, setAttempt] = useState(0);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
   const [frameReady, setFrameReady] = useState(false);
@@ -105,14 +117,23 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
   useEffect(() => {
     const controller = new AbortController();
     let task: ReturnType<Awaited<ReturnType<typeof pdfLibrary>>["getDocument"]> | undefined;
-    setLoading(true); setError("");
+    setLoading(true); setError(""); setPdf(null); setWordBytes(null);
     void (async () => {
-      const response = await fetch(documentUrl(source), { signal: controller.signal, cache: "no-store" });
+      let response: Response | undefined;
+      for (let retry = 0; retry < 3; retry++) {
+        try {
+          response = await fetch(documentUrl(source), { signal: AbortSignal.any([controller.signal, AbortSignal.timeout(30_000)]), cache: "no-store" });
+          if (response.ok || response.status < 500) break;
+        } catch (failure) { if (controller.signal.aborted || retry === 2) throw failure; }
+        await new Promise(resolve => setTimeout(resolve, 500 * (retry + 1)));
+      }
+      if (!response) throw new Error("原 PDF 暂时无法读取，请联网后重试。");
       if (!response.ok) throw new Error("文档暂时无法读取，请确认已联网并登录原账号。");
       const bytes = await response.arrayBuffer();
       if (controller.signal.aborted) return;
       if (source.format === "pdf") {
         const library = await pdfLibrary();
+        if (controller.signal.aborted) return;
         task = library.getDocument({ data: bytes, ...pdfOptions });
         const loaded = await task.promise;
         if (!controller.signal.aborted) setPdf(loaded);
@@ -120,7 +141,7 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
       setLoading(false);
     })().catch(e => { if (!controller.signal.aborted) { setError(e instanceof Error ? e.message : "文档打开失败。"); setLoading(false); } });
     return () => { controller.abort(); void task?.destroy(); };
-  }, [source.id, source.format]);
+  }, [source.id, source.format, attempt]);
   useEffect(() => {
     if (!wordBytes || !frameReady || !iframe.current?.contentDocument) return;
     const frame = iframe.current, doc = frame.contentDocument!;
@@ -138,7 +159,7 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
       doc.querySelectorAll("a").forEach(a => a.removeAttribute("href"));
       const contentWidth = doc.body.scrollWidth;
       frame.style.width = `${contentWidth}px`;
-      const scale = width * zoom / contentWidth;
+      const scale = zoom || width / contentWidth;
       frame.style.transform = `scale(${scale})`;
       frame.style.height = `${doc.body.scrollHeight}px`;
       frame.parentElement!.style.height = `${doc.body.scrollHeight * scale}px`;
@@ -149,19 +170,18 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
   return <div ref={root} className={styles.root} data-native-selection="blue" onPointerDown={e => e.stopPropagation()} onPointerMove={e => e.stopPropagation()} onPointerUp={e => e.stopPropagation()} onClick={e => e.stopPropagation()}>
     <div className={styles.toolbar}>
       <span>{source.format.toUpperCase()} · {source.format === "pdf" ? `${source.pageCount} 页` : "原文排版"}</span>
-      <div><button type="button" onClick={() => setZoom(v => Math.max(1, v - .25))} disabled={zoom === 1} aria-label="缩小文档">−</button><span>{Math.round(zoom * 100)}%</span><button type="button" onClick={() => setZoom(v => Math.min(2.5, v + .25))} disabled={zoom === 2.5} aria-label="放大文档">＋</button></div>
+      <div><button type="button" onClick={() => setZoom(v => Math.max(.25, (v || 1) - .25))} disabled={zoom === .25} aria-label="缩小文档">−</button><span>{zoom ? `${Math.round(zoom * 100)}%` : "适合宽度"}</span><button type="button" onClick={() => setZoom(v => Math.min(4, (v || 1) + .25))} disabled={zoom === 4} aria-label="放大文档">＋</button><button className={styles.scaleChoice} type="button" aria-label="原始比例 100%" onClick={() => setZoom(1)}>100%</button><button className={styles.scaleChoice} type="button" onClick={() => setZoom(0)}>适宽</button></div>
       <a href={documentUrl(source)} download={source.name}>下载原件</a>
     </div>
     {loading && <p role="status">正在打开文档…</p>}
-    {error && <p role="alert">{error}</p>}
+    {error && <p role="alert">原件暂时未能打开，页面、图片和标注仍保存在原文件中。<button className={styles.retry} type="button" onClick={() => setAttempt(v => v + 1)}>重新打开原件</button></p>}
     <div className={styles.scroll} onMouseUp={event => {
       if ((event.target as HTMLElement).closest("button,a")) return;
       const context = selectedContext(event.nativeEvent, event.currentTarget, article);
       if (context) callback.current(context);
     }}>
-      {error && <div className={styles.textFallback}><p>原件暂时不可用，以下为已保存的文字。</p>{article.blocks.map(block => <p key={block.id} data-reader-block={block.id}>{block.text}</p>)}</div>}
-      {pdf && Array.from({ length: pdf.numPages }, (_, i) => <PdfPage key={i} pdf={pdf} number={i + 1} width={Math.round(width * zoom)} />)}
-      {source.format === "docx" && <div style={{ position: "relative", width: width * zoom }}><iframe ref={iframe} title={source.name} sandbox="allow-same-origin" srcDoc={WORD_SHELL} onLoad={() => setFrameReady(true)} style={{ border: 0, transformOrigin: "top left", display: "block", width: 816, minHeight: 400 } as CSSProperties} /></div>}
+      {pdf && Array.from({ length: pdf.numPages }, (_, i) => <PdfPage key={i} pdf={pdf} number={i + 1} width={width} zoom={zoom} />)}
+      {source.format === "docx" && <div style={{ position: "relative", width: zoom ? 816 * zoom : width }}><iframe ref={iframe} title={source.name} sandbox="allow-same-origin" srcDoc={WORD_SHELL} onLoad={() => setFrameReady(true)} style={{ border: 0, transformOrigin: "top left", display: "block", width: 816, minHeight: 400 } as CSSProperties} /></div>}
     </div>
   </div>;
 }
