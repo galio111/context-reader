@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { withinStartupBudget } from "@/lib/startupBudget";
 import { preload } from "react-dom";
 import { HomeClient } from "@/components/HomeClient";
 import { getHomepageCuration } from "@/lib/homepageCuration";
@@ -26,10 +27,12 @@ export default async function HomePage({
   searchParams: Promise<{ preview?: string }>;
 }) {
   const params = await searchParams;
-  const [initialPublicArticles, initialHomepageCuration] = await Promise.all([
-    listPublicArticleSummaries().catch(() => []),
+  const seed = await withinStartupBudget(Promise.all([
+    listPublicArticleSummaries(),
     getHomepageCuration().catch(() => undefined),
-  ]);
+  ]));
+  const initialPublicArticles = seed?.[0] ?? [];
+  const initialHomepageCuration = seed?.[1];
 
   const bootstrap = homepageBootstrap(initialPublicArticles.map(publicArticleSummary), initialHomepageCuration, shanghaiDay(new Date().toISOString()));
   const showcase = homepageShowcaseArticles(orderHomepageRecommendations(bootstrap.articles, initialHomepageCuration, emptyRecommendationPreferences(), shanghaiDay(new Date().toISOString())), HOMEPAGE_RECOMMENDATION_TARGET);
@@ -40,8 +43,8 @@ export default async function HomePage({
   return (
     <HomeClient
       initialPublicArticles={bootstrap.articles}
-      initialCatalogueComplete={bootstrap.complete}
-      initialCatalogueCounts={bootstrap.counts}
+      initialCatalogueComplete={seed !== undefined && bootstrap.complete}
+      initialCatalogueCounts={seed ? bootstrap.counts : undefined}
       initialHomepageCuration={homepageBootstrapCuration(initialHomepageCuration, bootstrap.articles)}
       homeVariant="book"
       forceGuestPreview={params.preview === "guest"}

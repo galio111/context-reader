@@ -2101,3 +2101,5 @@ Reported: phone study progress eventually appeared on desktop, but too late. Con
 User requested original-layout document import beside existing article import, word/phrase lookup and full translation, with the supplied 11-page SCMs paper saved to gggg. Implemented private source storage, page-preserving PDF text layer, isolated DOCX view, save/sync descriptor and stable translation IDs. Original pages remain unchanged; translation is explicit and adjacent, using complete paper context when bounded and target-centred context for larger documents. Local paper screenshot and Word title/table/page-break checks passed; production/account acceptance is recorded in `document-import-20261022.md`. This entry is a functional increment, not acceptance of unrelated homepage motion.
 
 同轮公网复测未达到 2 秒，继续将全库编排从首屏移出（338,396 → 7,146 字节，五类展示不变），降低非首屏封面优先级，并移除 PWA 注册对 window.load 的依赖；最终验收见同一记录。
+
+第三轮定位到服务端目录冷启动的 24 秒等待及账号恢复前媒体预取竞争，追加 600ms SSR 目录等待预算、公开目录后台刷新与账号优先预取顺序。该预算只影响公开目录，不跳过身份校验。

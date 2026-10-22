@@ -264,7 +264,7 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
   }, []);
 
   useEffect(() => {
-    if (isOffline) return;
+    if (isOffline || accountLoading) return;
     let cancelled = false;
     let stopWarmup = () => {};
     let idle = 0;
@@ -276,6 +276,7 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
       // exposes member controls nor changes the current curated article order.
       void loadPublicCatalogue().then(articles => {
         if (cancelled) return;
+        if (!bootstrapArticles.length && !initialCatalogueComplete) { setPublicArticles(articles); setCatalogueStatus("ready"); }
         const ordered = orderHomepageRecommendations(articles, initialHomepageCuration, emptyRecommendationPreferences(), shanghaiDay(new Date().toISOString()));
         const seen = new Set(ordered.map(article => article.id));
         const sources = [...ordered, ...articles.filter(article => !seen.has(article.id))]
@@ -284,7 +285,7 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
         // Resolve the member catalogue during the workbench/opening, before
         // scrolling into the resource section can trigger its React update.
         if (account.authenticated && !forceGuestPreview) void ensurePublicCatalogue().catch(() => {});
-      }).catch(() => {});
+      }).catch(() => { if (!cancelled && !bootstrapArticles.length && !initialCatalogueComplete) setCatalogueStatus("error"); });
     };
     const start = () => {
       // Visible images keep priority in the queue; an offscreen lazy image must not block warmup.
@@ -302,7 +303,7 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
       document.removeEventListener("load", start, true);
       document.removeEventListener("error", start, true);
     };
-  }, [account.authenticated, ensurePublicCatalogue, forceGuestPreview, initialHomepageCuration, isOffline, loadPublicCatalogue]);
+  }, [account.authenticated, accountLoading, bootstrapArticles.length, initialCatalogueComplete, ensurePublicCatalogue, forceGuestPreview, initialHomepageCuration, isOffline, loadPublicCatalogue]);
 
   const [article, setArticle] = useState("");
   const [articleUrl, setArticleUrl] = useState("");

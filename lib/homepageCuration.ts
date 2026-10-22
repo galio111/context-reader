@@ -4,7 +4,7 @@ import { normalizeHomepageCuration, type HomepageCuration } from "@/lib/homepage
 import { BoundedAsyncCache } from "@/lib/boundedAsyncCache";
 
 const curationGlobal = globalThis as typeof globalThis & { __homepageCurationRead?: BoundedAsyncCache<HomepageCuration> };
-const curationCache = curationGlobal.__homepageCurationRead ??= new BoundedAsyncCache<HomepageCuration>(30_000, 1, 512 * 1024);
+const curationCache = curationGlobal.__homepageCurationRead ??= new BoundedAsyncCache<HomepageCuration>(30_000, 1, 512 * 1024, true);
 
 const SETTING_KEY = "homepage_publication_curation";
 export function invalidateHomepageCuration(): void { curationCache.clear(); }
