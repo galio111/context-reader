@@ -13,6 +13,7 @@ import type {
 } from "@/types/account";
 import { phoneFromUser } from "@/lib/userAuth";
 import { learningPoints, PLAN_NAMES } from "@/lib/billingPolicy";
+import { preserveDocumentArticlePayload } from "@/lib/documentArticleSync";
 
 interface ProfileRow {
   user_id: string;
@@ -621,9 +622,21 @@ export async function writeSyncObjects(userId: string, objects: AccountSyncObjec
   if (!objects.length) {
     return [];
   }
+  const articleKeys = [...new Set(objects.filter(object => object.kind === "article" && !object.deletedAt).map(object => object.objectKey))];
+  const originals = new Map<string, unknown>();
+  for (let offset = 0; offset < articleKeys.length; offset += 100) {
+    const params = new URLSearchParams({ user_id: `eq.${userId}`, kind: "eq.article", deleted_at: "is.null",
+      object_key: `in.(${articleKeys.slice(offset, offset + 100).map(postgrestQuoted).join(",")})`,
+      "payload->importedArticle->document": "not.is.null", select: "object_key,payload", limit: "100" });
+    const sources = await accountFetch<Array<{ object_key: string; payload: unknown }>>(`user_data_objects?${params}`);
+    for (const source of sources) originals.set(source.object_key, source.payload);
+  }
+  const protectedObjects = objects.map(object => object.kind === "article" && !object.deletedAt && originals.has(object.objectKey)
+    ? { ...object, payload: preserveDocumentArticlePayload(object.payload, originals.get(object.objectKey)) } : object);
+  // Keep the caller's expected version: a concurrent write must still fail CAS.
   const rows = await accountFetch<Array<SyncObjectRow & { accepted: boolean }>>("rpc/merge_user_data_objects", {
     method: "POST",
-    body: JSON.stringify({ p_user_id: userId, p_objects: objects }),
+    body: JSON.stringify({ p_user_id: userId, p_objects: protectedObjects }),
   });
   return rows.map((row) => ({
     kind: row.kind,

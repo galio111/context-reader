@@ -1,7 +1,6 @@
 # Original document reading acceptance
 
-Status: PDF fidelity and translation-scope correction implemented and locally verified; production acceptance pending.
-Candidate parent: `20261022T182100` (source `95eec72b4beae1f9f426539e542c6db323e4e65e`).
+Status: fidelity UI deployed as `20261022T192000`, parent `20261022T182100`, source `bd91fdc379c50fae31af0c06eefbae18ef393394`. Real-account verification found missing original-source metadata; source-preservation follow-up and account repair pending.
 
 Initial accepted import parent: `20261022T171700`; source: `41005eba857101429a96eb1aef975c5b11f6af27`. Initial parent was `20261018T172000`. The cumulative startup release `20261022T173700` retained this feature and is the replay-fix parent.
 
@@ -21,7 +20,10 @@ Body and caption jobs share the full selected reading context in original order,
 - Body/caption scopes replay 51/6 cached translations, zero new translation requests and zero browser errors. Actual 100% width is 793.6875 CSS px for a 595.276pt page. Refresh and 390px reduced-motion rendering passed.
 - A separate source annotation fixture retained a highlight, rectangle markup and comment icon. Popup comment interaction was not added; this paper itself has no annotation objects.
 - Nine focused import/scope tests and all 139 architecture regressions passed. Original bytes and saved blocks are not rewritten.
-- The earlier acceptance inspected text pages insufficiently. A precise cause for the user's missing-image observation was not proven; source bytes and raw PDF.js rendering both contain the images. The confirmed plain-text replacement fallback has now been removed.
+- Production fresh-account verification reproduced the user's plain-text display: the cloud article no longer contained `importedArticle.document`, so Reader chose the ordinary text path. Source bytes were intact. The exact historical writer is not known. Older serializers can drop unknown document fields, and unprotected sync accepted that loss.
+- Follow-up: server sync preserves the existing read-only document body, descriptor and stable blocks while allowing metadata/progress updates. Owner/key-scoped reads retain the caller's CAS version; deletion tombstones remain ordinary deletes. Duplicate merging prefers a document-bearing record over a richer plain-text projection. Tests cover legacy field loss, duplicate merge, owner scope, CAS rejection and deletion.
+- Signed-in core APIs on release 192000 passed; provider ledger confirmed DeepSeek Flash. Initial browser acceptance correctly failed at missing PDF pages, so this release alone is not the completed user-visible correction.
+- CI initially failed because the accepted parent added a fourth stale-refresh argument to the bounded catalogue cache and the static egress regex expected exactly three arguments. Developer-only guard commit `d9384dc` accepts the known optional true argument while retaining TTL/capacity checks. Its complete CI run passed: https://github.com/galio111/context-reader/actions/runs/39770155299.
 
 ## Initial release acceptance evidence
 

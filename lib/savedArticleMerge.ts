@@ -1,4 +1,5 @@
 import type { SavedArticle } from "../types/article";
+import { normalizeDocumentSource } from "./documentSource";
 
 const RECOVERY_ID_SUFFIX = /(?:-local-recovered-[a-z0-9]+)+$/i;
 const RECOVERY_TITLE_SUFFIX = /(?:\uFF08\u672C\u5730\u6062\u590D\u526F\u672C\uFF09)+$/u;
@@ -109,6 +110,7 @@ export function mergeDuplicateSavedArticles(source: SavedArticle[]): {
   const articles = Array.from(groups.values()).map((group) => {
     const original = canonicalOriginal(group);
     const richest = [...group].sort((left, right) => articleRichness(right) - articleRichness(left))[0];
+    const documentArticle = group.find(article => normalizeDocumentSource(article.importedArticle?.document));
     const canonicalId = original?.id || baseArticleId(group[0].id);
     const canonicalTitle = cleanArticleTitle(original?.title || richest.title) || cleanArticleTitle(richest.title);
     const createdAt = earliestDate(group.map((article) => article.createdAt)) || richest.createdAt;
@@ -122,6 +124,7 @@ export function mergeDuplicateSavedArticles(source: SavedArticle[]): {
 
     return {
       ...richest,
+      ...(documentArticle ? { body: documentArticle.body, importedArticle: documentArticle.importedArticle } : {}),
       id: canonicalId,
       title: canonicalTitle,
       createdAt,
