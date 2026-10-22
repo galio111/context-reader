@@ -14,7 +14,7 @@ if (/select=[^\n\"]*\bbody\b/.test(summaryFunction) || /select=[^\n\"]*\bimporte
 }
 const cacheSource = fs.readFileSync(path.join(root, "lib", "publicReadCache.ts"), "utf8");
 if (!/publicReadCache\.summaries\.get\("catalogue"/.test(summaryFunction) ||
-    !/summaries:\s*new BoundedAsyncCache\(300_000,\s*1,\s*16 \* 1024 \* 1024\)/.test(cacheSource)) {
+    !/summaries:\s*new BoundedAsyncCache\(300_000,\s*1,\s*16 \* 1024 \* 1024(?:,\s*true)?\)/.test(cacheSource)) {
   throw new Error("homepage catalogue requires a bounded five-minute cache large enough for current metadata");
 }
 if (/next:\s*\{\s*revalidate:/.test(summaryFunction)) {
