@@ -1,6 +1,6 @@
 # Original document reading acceptance
 
-Status: fidelity UI deployed as `20261022T192000`, parent `20261022T182100`, source `bd91fdc379c50fae31af0c06eefbae18ef393394`. Real-account verification found missing original-source metadata; source-preservation follow-up and account repair pending.
+Status: production accepted as `20261022T194500`, parent `20261022T192000`, source `dea08b179e6f14732920bc729910e4990d70f479`. Public release identity matches; gggg's original article association is repaired and protected.
 
 Initial accepted import parent: `20261022T171700`; source: `41005eba857101429a96eb1aef975c5b11f6af27`. Initial parent was `20261018T172000`. The cumulative startup release `20261022T173700` retained this feature and is the replay-fix parent.
 
@@ -22,8 +22,16 @@ Body and caption jobs share the full selected reading context in original order,
 - Nine focused import/scope tests and all 139 architecture regressions passed. Original bytes and saved blocks are not rewritten.
 - Production fresh-account verification reproduced the user's plain-text display: the cloud article no longer contained `importedArticle.document`, so Reader chose the ordinary text path. Source bytes were intact. The exact historical writer is not known. Older serializers can drop unknown document fields, and unprotected sync accepted that loss.
 - Follow-up: server sync preserves the existing read-only document body, descriptor and stable blocks while allowing metadata/progress updates. Owner/key-scoped reads retain the caller's CAS version; deletion tombstones remain ordinary deletes. Duplicate merging prefers a document-bearing record over a richer plain-text projection. Tests cover legacy field loss, duplicate merge, owner scope, CAS rejection and deletion.
-- Signed-in core APIs on release 192000 passed; provider ledger confirmed DeepSeek Flash. Initial browser acceptance correctly failed at missing PDF pages, so this release alone is not the completed user-visible correction.
+- Signed-in core APIs on release 192000 passed; provider ledger confirmed DeepSeek Flash. Initial browser acceptance correctly failed at missing PDF pages, so that intermediate release alone was not the completed user-visible correction.
 - CI initially failed because the accepted parent added a fourth stale-refresh argument to the bounded catalogue cache and the static egress regex expected exactly three arguments. Developer-only guard commit `d9384dc` accepts the known optional true argument while retaining TTL/capacity checks. Its complete CI run passed: https://github.com/galio111/context-reader/actions/runs/39770155299.
+
+## Final production acceptance
+
+- Existing gggg article `article-1792662150324` was repaired through owner-authenticated CAS sync (version 4 to 5), restoring only its original body/imported structure while keeping current metadata. A controlled legacy serializer then removed the descriptor/reindexed blocks in its submitted copy; server version 6 retained the original descriptor and every stable block, with title/summary unchanged.
+- Fresh production browser opened that article from My Articles and rendered all 11 pages. Chemistry figures and microscopy images were visually checked; word lookup displayed conjugate and sentence translation. Body/caption/source-comparison controls showed 51/6 translations, zero generation requests and zero page errors. Actual 100% width was 793.6875 CSS pixels. Reload and 390px reduced-motion view passed.
+- Signed-in contextual explanation including sentence translation, dictionary and full-article translation returned successful content; all three private execution-ledger entries confirmed `deepseek-flash`. Owner original SHA256 matched the source; anonymous download returned 401. The protected source survived the browser's subsequent sync writes.
+- All 150 architecture/core/document regressions passed, plus 8 provider failover/billing tests, release contracts, static egress guard and production build. Exact deployed source passed [CI](https://github.com/galio111/context-reader/actions/runs/39771999931).
+- Final health passed; five backend container IDs stayed unchanged. Parent rollback image `sha256:aa5e5c506d6010b7e69813d26bbfb84c36a788d9060967b79850a1e88f69637c` is retained; actual rollback was not run. The 20261022T094720Z backup restored all 40 tables into isolation. Only app/caddy were recreated.
 
 ## Initial release acceptance evidence
 
@@ -40,6 +48,12 @@ Body and caption jobs share the full selected reading context in original order,
 - Fresh-session replay exposed a mounted-reader gap: learning articles arrive before historical caches, but same-owner cache merges did not rebind translation state. The follow-up listens only for relevant cloud merge events and retains active job authority; it does not initiate translation or alter saved results.
 - Final public release `20261022T180600` / parent `20261022T175300` passed fresh-browser My Articles → original PDF → 184/184 translated-block replay, with zero new translation requests and zero page errors. Page 4, refresh restoration and 390px viewport were inspected. The isolated test session was signed out; the user's existing browser/session was untouched.
 - Final health passed after removing untagged build intermediates. Five backend identities stayed unchanged; accepted parent image `sha256:f62e33db92f9e7d0268476a9179777e09b8e5d30f7e17d78c247c3922fdfcd60` remains available. Actual rollback was not performed. Aborted `20261022T170500` and lock-rejected `20261022T180000` never became accepted releases.
+
+## Repeated-use diagnostic still open
+
+One additional fresh-browser repeat reported React error #185 (maximum update depth) while the PDF/translation flow remained visible. Its original stack was not captured. Two subsequent fresh-browser repeats with stack/phase capture both passed pages 1/5/7, lookup, 51/6 replay, refresh and desktop-to-mobile resizing with zero errors. The original association stayed present in cloud storage afterward. This is not a claimed fix of the intermittent error; its cause and whether it belongs to the document view remain unestablished. Retain `source-sync-repeat.log`, `source-sync-repeat-stack.log` and `source-sync-repeat-phases.log` as separate evidence. Do not collapse the failed run into the later passing runs.
+
+The isolated test session was signed out at completion; the user's existing browser was not operated.
 
 ## Limits
 
