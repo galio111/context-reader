@@ -26,6 +26,7 @@ import {
   deleteSavedArticle,
   findSavedArticle,
   getSavedArticles,
+  saveArticle,
   renameSavedArticle,
   replaceSavedArticleImportedArticle,
   resetArticleReadingProgress,
@@ -62,7 +63,7 @@ import {
 } from "@/lib/temporaryReading";
 import type { HomepageCuration } from "@/lib/homepageCurationShared";
 import { STUDY_SOURCE_EVENT, STUDY_SOURCE_RESULT_EVENT } from "@/lib/studyNavigation";
-import { initializeLearningStorage } from "@/lib/learningStorage";
+import { initializeLearningStorage, flushLearningStorage, getLearningStorage } from "@/lib/learningStorage";
 import { isRefreshNavigation, readRefreshState, writeRefreshState } from "@/lib/refreshContinuity";
 
 interface HomeClientProps {
@@ -1062,6 +1063,22 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
     if (prepared?.background) watchBackgroundImageLocalization(prepared.background);
   }
 
+  async function handleImportDocument(file: File, progress: (message: string) => void) {
+    if (!requireAccount("登录后才能导入文档并保存到我的文章。")) return;
+    const owner = account.profile?.userId;
+    const { prepareDocument } = await import("@/lib/documentClient");
+    const document = await prepareDocument(file, progress);
+    const response = await fetch("/api/auth/session", { cache: "no-store" });
+    const session = await response.json();
+    if (!response.ok || !owner || !session.account?.authenticated || session.account?.profile?.userId !== owner
+      || getLearningStorage().getItem("context-reader:local-account-owner:v1") !== owner) throw new Error("账号已变化或暂时离线，请重新导入文档。");
+    const saved = saveArticle(document.text, "", document);
+    await flushLearningStorage();
+    setSavedArticles(saved);
+    const record = saved.find(item => item.body === document.text);
+    if (record) handleOpenSavedArticle(record);
+  }
+
   async function handleImportUrl() {
     if (importingUrl) return;
     setImportingUrl(true);
@@ -1629,6 +1646,7 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
   if (homeVariant === "book") {
     return (
       <HomeRedesign
+        onImportDocument={handleImportDocument}
         onOpenCet={entry => { homeReturnPositionedRef.current = false; cetHomeScrollRef.current = window.scrollY; setCetEntry(entry); }}
         forceGuestPreview={forceGuestPreview}
         forceMemberPreview={forceMemberPreview}

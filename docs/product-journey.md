@@ -2092,3 +2092,7 @@ User requested removal of the entire explanatory paragraph below the review fore
 ## 2026-10-18 — Study cross-device freshness
 
 Reported: phone study progress eventually appeared on desktop, but too late. Confirmed in the accepted production source: remote study refresh depended on other events and a 30-second local throttle, with no independent remote-progress poll. Added visible-panel 10-second revision checks plus immediate foreground/reconnect checks, and transactional rejection of snapshots racing local answers. 79 study tests pass, including remote changes, unchanged polling, hidden/closed panels and pending-answer races. Production build and release contracts pass; guarded public release verification pending. No user learning ledgers or schedules were manually edited.
+
+## 2026-10-22 — Original PDF and Word document reading
+
+User requested original-layout document import beside existing article import, word/phrase lookup and full translation, with the supplied 11-page SCMs paper saved to gggg. Implemented private source storage, page-preserving PDF text layer, isolated DOCX view, save/sync descriptor and stable translation IDs. Original pages remain unchanged; translation is explicit and adjacent, using complete paper context when bounded and target-centred context for larger documents. Local paper screenshot and Word title/table/page-break checks passed; production/account acceptance is recorded in `document-import-20261022.md`. This entry is a functional increment, not acceptance of unrelated homepage motion.

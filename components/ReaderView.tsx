@@ -1,4 +1,5 @@
 "use client";
+import { DocumentReader } from "@/components/DocumentReader";
 import { LoadingStatus } from "./LoadingStatus";
 import { OPEN_ACCOUNT_USAGE_EVENT } from "@/lib/accountUsageNavigation";
 
@@ -2814,6 +2815,7 @@ export function ReaderView({
   }
 
   function beginArticleEditing() {
+    if (currentImportedArticle?.document) return;
     preserveArticleViewportAcrossModeChange();
     editingArticleBaselineRef.current = {
       article: currentArticle,
@@ -3566,6 +3568,7 @@ export function ReaderView({
             <PillNavAction
               className={toolbarStyles.action}
               label="编辑文章"
+              disabled={Boolean(currentImportedArticle?.document)}
               onClick={beginArticleEditing}
             />
           )}
@@ -3681,7 +3684,7 @@ export function ReaderView({
             onPointerCancel={handleArticlePointerCancel}
             onClick={handleArticleClick} onKeyDown={event=>{if(event.key!=="Enter" && event.key!==" ")return;const token=tokenFromEventTarget(event.target);if(token){event.preventDefault();handleTokenClick(token);}}}
           >
-            {editingArticle ? (
+            {currentImportedArticle?.document ? <DocumentReader article={currentImportedArticle} onLookup={context => { void explainContext(context, []); }} /> : editingArticle ? (
               !currentImportedArticle?.blocks?.length ? (
                 <div
                   key={`plain-article-editor-${articleEditRevision}`}
@@ -4324,7 +4327,7 @@ export function ReaderView({
                       <button type="button" onClick={() => void saveArticleEditing()} disabled={savingArticleEdit}>{savingArticleEdit ? <LoadingStatus>保存中…</LoadingStatus> : "保存编辑"}</button>
                     </>
                   ) : (
-                    <button type="button" onClick={() => { beginArticleEditing(); setMobileExplanationOpen(false); }}>编辑文章</button>
+                    <button type="button" disabled={Boolean(currentImportedArticle?.document)} onClick={() => { beginArticleEditing(); setMobileExplanationOpen(false); }}>编辑文章</button>
                   )}
                   <button type="button" onClick={handleCopyArticle} disabled={editingArticle}>复制文章内容</button>
                   <button type="button" onClick={handleSaveArticle} disabled={articleSaved || savingArticle || savingArticleEdit || editingArticle}>{saveButtonText}</button>

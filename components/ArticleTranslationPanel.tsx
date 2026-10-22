@@ -97,11 +97,13 @@ export function ArticleTranslationPanel({
             </div>
           )}
           {hasOutdatedTranslations && !loading && <div className="cr-translation-warning rounded-[14px] bg-[#fff8e5] px-3 py-2 text-xs leading-5 tracking-[-0.12px] text-[#6b4b00]">{staleBlockIds.length > 0 && removedTranslationCount > 0 ? `有 ${staleBlockIds.length} 段原文已修改，${removedTranslationCount} 段已删除。点击右上角只更新修改部分并同步移除旧译文。` : staleBlockIds.length > 0 ? `有 ${staleBlockIds.length} 段原文已修改。点击右上角只更新修改部分。` : `有 ${removedTranslationCount} 段原文已删除。点击右上角同步移除旧译文。`}</div>}
-          {blocks.map((block) => {
+            {blocks.map((block, blockIndex) => {
             const translation = translationById.get(block.id);
             if (!translation) return null;
             const isHeading = block.type === "heading" || block.type === "subheading";
-            return <section key={block.id} className="border-b border-[#f0f0f2] pb-4 last:border-b-0 last:pb-0"><p className="cr-translation-source text-xs leading-5 tracking-[-0.12px] text-[#7a7a7a]">{block.text}</p><p className={`cr-translation-target mt-2 tracking-[-0.224px] text-[#1d1d1f] ${isHeading ? "text-base font-semibold leading-7" : "text-sm leading-6"}`}>{translation}</p></section>;
+              const documentPage = block.id.match(/^doc-p(\d+)-/)?.[1];
+              const showPage = documentPage && documentPage !== blocks[blockIndex - 1]?.id.match(/^doc-p(\d+)-/)?.[1];
+            return <section key={block.id} className="border-b border-[#f0f0f2] pb-4 last:border-b-0 last:pb-0">{showPage && <p className="mb-3 text-xs font-semibold text-[#555]">第 {documentPage} 页</p>}<p className="cr-translation-source text-xs leading-5 tracking-[-0.12px] text-[#7a7a7a]">{block.text}</p><p className={`cr-translation-target mt-2 tracking-[-0.224px] text-[#1d1d1f] ${isHeading ? "text-base font-semibold leading-7" : "text-sm leading-6"}`}>{translation}</p></section>;
           })}
         </div>
       )}

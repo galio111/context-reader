@@ -65,7 +65,15 @@ export interface ArticleReadingStyle {
   imageWidth?: "small" | "medium" | "full";
 }
 
+export interface ImportedDocumentSource {
+  id: string;
+  format: "pdf" | "docx";
+  name: string;
+  pageCount: number;
+}
+
 export interface ImportedArticle {
+  document?: ImportedDocumentSource;
   title: string;
   url: string;
   siteName: string;

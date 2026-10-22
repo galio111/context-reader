@@ -315,3 +315,7 @@ CET 暂停划记/题目翻译已生产（20261002T225700，parent 20261002T20262
 ## Study calendar-day inventory (2026-10-17)
 
 Calendar-day due inventory and queue use the same Asia/Shanghai boundary. All overdue and today-due Review cards join the plan without a count cap; intraday Learning/Relearning retain exact due times. Forecast buckets are raw due-date counts (overdue in today), independent of legacy reviewsPerDay, existing plan IDs or pause. Unanswered words carry into tomorrow without changing memory.due. Existing plans grow by union on read/start; original answers, versions, memory and completed IDs are preserved. Additive start_day_v4, present_day_v4 and local_event_day_v4 RPCs keep old RPCs for app rollback. Accepted release 20261017T123000 (parent 20261016T161500, source a5d699e43a162033641d99b33bd2da63313f0847); gggg plan repair preserved complete card/review rows. See study-day-due-20261017.md for evidence.
+
+## 2026-10-22 document import increment
+
+Text PDF / Word `.docx` import is implemented on the real HomeRedesign → HomeClient → Reader path. PDF.js preserves original pages with text-layer selection; docx-preview preserves Word layout with browser-pagination limitations. Private account-owned files, stable page/block IDs, My Articles sync, existing lookup, explicit adjacent translation. 20 MB / 150 PDF pages / 300k extracted characters; scans and legacy `.doc` unsupported. Current release/evidence: `docs/document-import-20261022.md`.

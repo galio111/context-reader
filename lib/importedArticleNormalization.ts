@@ -1,4 +1,5 @@
 import type { ImportedArticle, ImportedArticleBlock } from "@/types/article";
+import { normalizeDocumentSource } from "@/lib/documentSource";
 
 function normalizedIdentity(value: string): string {
   return value
@@ -33,6 +34,9 @@ function stripTitlePrefix(value: string, title: string): string | null {
 export function normalizeImportedArticleStructure(
   article: ImportedArticle,
 ): ImportedArticle {
+  // Document block IDs encode page ownership. Repeated labels and footnotes are
+  // genuine source content, not duplicated website chrome.
+  if (normalizeDocumentSource(article.document)) return article;
   const title = article.title.trim();
   const hasHeading = article.blocks.some((block) => block.type === "heading");
   const withoutRepeatedTitle: ImportedArticleBlock[] = [];
