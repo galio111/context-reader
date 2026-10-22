@@ -1,4 +1,5 @@
 "use client";
+import { cacheDocument, documentCacheOwner } from "./documentBinaryCache";
 import type { ImportedArticle, ImportedArticleBlock } from "@/types/article";
 import { MAX_DOCUMENT_BYTES, MAX_DOCUMENT_PAGES, MAX_DOCUMENT_TEXT } from "./documentSource";
 import { validateDocumentBytes } from "./documentValidation";
@@ -15,6 +16,7 @@ export const pdfOptions = { isEvalSupported: false, cMapUrl: `${PDF_RUNTIME}cmap
   standardFontDataUrl: `${PDF_RUNTIME}standard_fonts/`, wasmUrl: `${PDF_RUNTIME}wasm/` };
 
 export async function prepareDocument(file: File, progress: (message: string) => void): Promise<ImportedArticle> {
+  const sourceOwner = documentCacheOwner();
   if (file.size > MAX_DOCUMENT_BYTES) throw new Error("文档不能超过 20MB。");
   const format = file.name.split(".").pop()?.toLowerCase();
   if (format !== "pdf" && format !== "docx") throw new Error("支持 PDF 和 .docx；旧版 .doc 请先另存为 .docx。");
@@ -72,6 +74,7 @@ export async function prepareDocument(file: File, progress: (message: string) =>
   const response = await fetch("/api/documents", { method: "POST", body: form, signal: AbortSignal.timeout(90_000) });
   const result = await response.json();
   if (!response.ok || !result.document) throw new Error(result.error || "文档未能保存，请稍后重试。");
+  void file.arrayBuffer().then(bytes => cacheDocument(sourceOwner, result.document.id, bytes));
   return { title: file.name.replace(/\.(pdf|docx)$/i, ""), url: "", siteName: format === "pdf" ? "PDF 文档" : "Word 文档",
     text, blocks, document: { ...result.document, pageCount } };
 }

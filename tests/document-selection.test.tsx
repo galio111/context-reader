@@ -5,9 +5,10 @@ import { IDBFactory } from "fake-indexeddb";
 import { documentSelectionMode, expandDocumentWordEdges, normalizeDocumentSelection } from "../lib/documentSelection";
 import { selectionTranslationBlocks, useDocumentSelectionTranslation } from "../components/DocumentSelectionTranslation";
 import { initializeLearningStorage, getLearningStorage } from "../lib/learningStorage";
-import { setCachedArticleTranslationForBlocks } from "../lib/cache";
+import { getCachedArticleTranslationForBlocks, setCachedArticleTranslationForBlocks } from "../lib/cache";
 import type { ImportedArticle } from "../types/article";
 import type { WordContext } from "../types/reader";
+import { cacheDocument, readCachedDocument } from "../lib/documentBinaryCache";
 
 const text = "The original paper retains all figures and labels.";
 const article = { document: { id: "a".repeat(64), format: "pdf", pageCount: 1, name: "paper.pdf" }, blocks: [{ id: "doc-p1-b0", type: "paragraph", text }] } as ImportedArticle;
@@ -40,10 +41,11 @@ test("only exact whole blocks reuse full-article translation identity and long s
 
 test("selected translation replays exact cache, cancels stale selection and hides previous owner results", async () => {
   const dom = new JSDOM("", { url: "https://context-reader.com" });
-  const keys = ["window", "document", "navigator", "CustomEvent", "IS_REACT_ACT_ENVIRONMENT"];
+  const keys = ["window", "document", "navigator", "CustomEvent", "IS_REACT_ACT_ENVIRONMENT", "indexedDB"];
   const saved = new Map(keys.map(key => [key, Object.getOwnPropertyDescriptor(globalThis,key)]));
   for (const key of keys) Object.defineProperty(globalThis,key,{configurable:true,writable:true,value:key === "IS_REACT_ACT_ENVIRONMENT" ? true : (dom.window as unknown as Record<string,unknown>)[key]});
   Object.defineProperty(dom.window,"indexedDB",{value:new IDBFactory()});
+  Object.defineProperty(globalThis,"indexedDB",{configurable:true,value:dom.window.indexedDB});
   const { renderHook, act, cleanup } = await import("@testing-library/react");
   const oldFetch = globalThis.fetch;
   const requests: { signal: AbortSignal; block: {id:string}; resolve: (r:Response)=>void }[] = [];
@@ -51,6 +53,10 @@ test("selected translation replays exact cache, cancels stale selection and hide
   const finish = (index: number, translation: string) => requests[index].resolve(new Response(JSON.stringify({type:"translation",translation:{id:requests[index].block.id,translation}})+"\n"));
   try {
     await initializeLearningStorage(); getLearningStorage().setItem("context-reader:local-account-owner:v1","A");
+    const original = new TextEncoder().encode("%PDF-original-source").buffer;
+    await cacheDocument("A","source-id",original);
+    assert.deepEqual(new Uint8Array((await readCachedDocument("A","source-id"))!),new Uint8Array(original));
+    assert.equal(await readCachedDocument("B","source-id"),null);
     setCachedArticleTranslationForBlocks(selectionTranslationBlocks(text,article),[{id:"doc-p1-b0",translation:"已有整段译文"}]);
     const ui = renderHook(({selected,owner})=>useDocumentSelectionTranslation(selected,article,owner,false), {initialProps:{selected:context(text),owner:"A"}});
     assert.equal(ui.result.current.text,"已有整段译文"); assert.equal(requests.length,0);
@@ -60,6 +66,16 @@ test("selected translation replays exact cache, cancels stale selection and hide
     assert.equal(requests[0].signal.aborted,true);
     await act(async()=>{finish(0,"不应出现的旧译文"); finish(1,"当前选区译文"); await new Promise(r=>setTimeout(r,10));});
     assert.equal(ui.result.current.text,"当前选区译文");
+    const oldContext = context("A pending result must never cross account boundaries");
+    await act(async()=>ui.rerender({selected:oldContext,owner:"A"}));
+    // Storage can switch before React renders the new profile. A ref alone is
+    // insufficient: the response must check prepared storage at the write point.
+    getLearningStorage().setItem("context-reader:local-account-owner:v1","B");
+    assert.equal(await readCachedDocument("A","source-id"),null);
+    await cacheDocument("A","late-source",original);
+    assert.equal(await readCachedDocument("B","late-source"),null);
+    await act(async()=>{finish(2,"旧账号译文");await new Promise(r=>setTimeout(r,10));});
+    assert.deepEqual(getCachedArticleTranslationForBlocks(selectionTranslationBlocks(oldContext.word,article)),[]);
     await act(async()=>ui.rerender({selected:context("Another selection with more than five words"),owner:"B"}));
     assert.equal(ui.result.current.text,"");
     await act(async()=>{ requests.at(-1)!.resolve(Response.json({error:"请求缺少 word、sentence 或 word 格式不正确。"},{status:400})); await new Promise(r=>setTimeout(r,10)); });

@@ -2138,3 +2138,8 @@ Final cumulative release accepted `20261022T180600`, parent `20261022T175300`, s
 ## 2026-10-22 — Imported-file selection correction (candidate)
 
 User screenshots exposed font-metric selection drift, long passages routed to lexical validation and serial PDF startup. Candidate calibrates glyph hit regions from source painting, completes partial words, scopes highlights to glyphs, ignores single clicks/punctuation, and routes selections over five words to translation only. Ordinary article interactions remain unchanged. Private source downloads now stream with ranges. 153 regressions and source-coordinate desktop drag checks passed; production deployment and public speed/account verification are pending.
+
+
+## 2026-10-22 — Selection loading and account follow-up (candidate)
+
+Release 20261022T205000 accepted the selection repair and passed real gggg PDF lookup, eight-word and long-passage translations (6.1 s / 7.0 s), cached replay, unchanged 51-block full-translation replay, refresh and private owner/Admin boundaries. Public range-load samples remained slow, so the speed claim was withheld. Follow-up removes the range waterfall, initializes runtime/worker in parallel with the source, and retains a bounded 40 MB owner-scoped original cache (zero original requests on local reload). A prepared-storage check protects selection cache writes during account transitions before React rerenders; regression reproduces that timing. Final public acceptance pending.

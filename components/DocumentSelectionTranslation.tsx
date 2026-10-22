@@ -5,6 +5,7 @@ import type { ArticleTranslationBlock, WordContext } from "@/types/reader";
 import { getCachedArticleTranslationForBlocks, setCachedArticleTranslationForBlocks } from "@/lib/cache";
 import { createArticleTranslationBlockCacheKey } from "@/lib/articleTranslationIdentity";
 import { normalizeDocumentSelection } from "@/lib/documentSelection";
+import { preparedTranslationOwner } from "./useReaderTranslationSession";
 
 export function selectionTranslationBlocks(text: string, article: ImportedArticle): ArticleTranslationBlock[] {
   const normalized = normalizeDocumentSelection(text);
@@ -22,7 +23,7 @@ export function useDocumentSelectionTranslation(context: WordContext | null, art
   const [retry, setRetry] = useState(0);
   const currentOwner = useRef(owner); currentOwner.current = owner;
   useEffect(() => {
-    if (!context || !article?.document || !owner) return;
+    if (!context || !article?.document || !owner || preparedTranslationOwner() !== owner) return;
     const controller = new AbortController();
     const blocks = selectionTranslationBlocks(context.word, article);
     const cached = new Map(getCachedArticleTranslationForBlocks(blocks).map(item => [item.id, item.translation]));
@@ -38,7 +39,7 @@ export function useDocumentSelectionTranslation(context: WordContext | null, art
         const response = await fetch("/api/translate-article", { method: "POST", signal: AbortSignal.any([controller.signal, AbortSignal.timeout(60_000)]),
           headers: { "Content-Type": "application/json", Accept: "application/x-ndjson", "x-context-action-id": crypto.randomUUID() },
           body: JSON.stringify({ blocks: [block], contextBlocks: neighbours }) });
-        if (controller.signal.aborted || currentOwner.current !== owner) return;
+        if (controller.signal.aborted || currentOwner.current !== owner || preparedTranslationOwner() !== owner) return;
         if (!response.ok || !response.body) {
           const failure = await response.json().catch(() => ({}));
           throw new Error(response.status === 401 || response.status === 403 ? "请登录后翻译所选内容。"
@@ -50,7 +51,7 @@ export function useDocumentSelectionTranslation(context: WordContext | null, art
           if (!line.trim()) return;
           const event = JSON.parse(line);
           if (event.type === "translation" && event.translation?.id === block.id && event.translation.translation?.trim()) {
-            if (controller.signal.aborted || currentOwner.current !== owner) return;
+            if (controller.signal.aborted || currentOwner.current !== owner || preparedTranslationOwner() !== owner) return;
             cached.set(block.id, event.translation.translation); completed = true;
             setCachedArticleTranslationForBlocks([block], [event.translation]);
             setState({ key, text: display(), loading: true, notice: "" });
@@ -65,9 +66,9 @@ export function useDocumentSelectionTranslation(context: WordContext | null, art
         } finally { reader.releaseLock(); }
         if (!completed) throw new Error("暂时未能取得译文，稍后可以重试。");
       }
-      if (!controller.signal.aborted) setState({ key, text: display(), loading: false, notice: "" });
+      if (!controller.signal.aborted && preparedTranslationOwner() === owner) setState({ key, text: display(), loading: false, notice: "" });
     })().catch(error => {
-      if (!controller.signal.aborted) setState({ key, text: display(), loading: false,
+      if (!controller.signal.aborted && preparedTranslationOwner() === owner) setState({ key, text: display(), loading: false,
         notice: error instanceof Error && /^(请登录|当前翻译额度|暂时未能)/.test(error.message) ? error.message : "连接暂时中断，稍后可以重试。" });
     });
     return () => controller.abort();

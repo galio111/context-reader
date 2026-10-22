@@ -3,6 +3,7 @@ import { useEffect, useRef, useState, type CSSProperties } from "react";
 import type { PDFDocumentProxy } from "pdfjs-dist";
 import type { ImportedArticle } from "@/types/article";
 import type { WordContext } from "@/types/reader";
+import { cacheDocument, documentCacheOwner, readCachedDocument } from "@/lib/documentBinaryCache";
 import { documentUrl } from "@/lib/documentSource";
 import { pdfLibrary, pdfOptions } from "@/lib/documentClient";
 import { readDocumentSelection, selectDocumentWord, documentCaretAtPoint, setDocumentDragRange, clearDocumentSelectionHighlight } from "@/lib/documentSelection";
@@ -99,19 +100,18 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
   useEffect(() => {
     const controller = new AbortController();
     let task: ReturnType<Awaited<ReturnType<typeof pdfLibrary>>["getDocument"]> | undefined;
+    let worker: InstanceType<Awaited<ReturnType<typeof pdfLibrary>>["PDFWorker"]> | undefined;
     setLoading(true); setError(""); setPdf(null); setWordBytes(null);
     void (async () => {
-      if (source.format === "pdf") {
-        const library = await pdfLibrary();
-        if (controller.signal.aborted) return;
-        task = library.getDocument({ url: documentUrl(source), withCredentials: true, rangeChunkSize: 262144, ...pdfOptions });
-        const timeout = setTimeout(() => { void task?.destroy(); }, 60_000);
-        try {
-          const loaded = await task.promise;
-          if (!controller.signal.aborted) { setPdf(loaded); setLoading(false); }
-        } finally { clearTimeout(timeout); }
-        return;
-      }
+      const owner = documentCacheOwner();
+      const libraryPromise = source.format === "pdf" ? pdfLibrary().then(async library => {
+        if (!controller.signal.aborted) { worker = new library.PDFWorker(); await worker.promise; }
+        return library;
+      }) : null;
+      void libraryPromise?.catch(() => undefined);
+      let bytes = await readCachedDocument(owner, source.id);
+      if (controller.signal.aborted) return;
+      if (!bytes) {
       let response: Response | undefined;
       for (let retry = 0; retry < 3; retry++) {
         try {
@@ -122,12 +122,20 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
       }
       if (!response) throw new Error("原 PDF 暂时无法读取，请联网后重试。");
       if (!response.ok) throw new Error("文档暂时无法读取，请确认已联网并登录原账号。");
-      const bytes = await response.arrayBuffer();
+      bytes = await response.arrayBuffer();
       if (controller.signal.aborted) return;
-      setWordBytes(bytes);
+      void cacheDocument(owner, source.id, bytes);
+      }
+      if (source.format === "pdf") {
+        const library = await libraryPromise!;
+        if (controller.signal.aborted) return;
+        task = library.getDocument({ data: bytes, worker, ...pdfOptions });
+        const loaded = await task.promise;
+        if (!controller.signal.aborted) setPdf(loaded);
+      } else setWordBytes(bytes);
       setLoading(false);
     })().catch(e => { if (!controller.signal.aborted) { setError(e instanceof Error ? e.message : "文档打开失败。"); setLoading(false); } });
-    return () => { controller.abort(); void task?.destroy(); };
+    return () => { controller.abort(); if (task) void task.destroy().finally(() => worker?.destroy()); else worker?.destroy(); };
   }, [source.id, source.format, attempt]);
   useEffect(() => {
     if (!wordBytes || !frameReady || !iframe.current?.contentDocument) return;
