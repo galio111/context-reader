@@ -1,4 +1,5 @@
 "use client";
+import { takeStartupSession } from "@/lib/startupSession";
 import { LoadingStatus } from "@/components/LoadingStatus";
 
 import { openAccountUsage } from "@/lib/accountUsageNavigation";
@@ -157,6 +158,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
   const refreshAccount = useCallback(async (): Promise<ConnectionResult> => {
     const storageReady = initializeLearningStorage().catch(() => {});
     if (!navigator.onLine) {
+      takeStartupSession(); // Never reuse an earlier response after reconnecting.
       await storageReady;
       const snapshot = readLocalAccountSession();
       const storage = getLearningStorage();
@@ -172,7 +174,9 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     const timeoutId = window.setTimeout(() => controller.abort(), ACCOUNT_SESSION_TIMEOUT_MS);
     try {
       startupMark("account-request");
-      const response = await fetch("/api/auth/session", { cache: "no-store", priority: "high", signal: controller.signal });
+      const initialSession = takeStartupSession();
+      const response = await (initialSession ?? fetch("/api/auth/session", { cache: "no-store", priority: "high", signal: controller.signal }));
+      if (!response) throw new Error("account service unavailable");
       const data = await response.json().catch(() => null) as { account?: AccountSessionState; unavailable?: boolean } | null;
       if (!response.ok || data?.unavailable) {
         throw new Error("account service unavailable");

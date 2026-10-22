@@ -2092,3 +2092,7 @@ User requested removal of the entire explanatory paragraph below the review fore
 ## 2026-10-18 — Study cross-device freshness
 
 Reported: phone study progress eventually appeared on desktop, but too late. Confirmed in the accepted production source: remote study refresh depended on other events and a 30-second local throttle, with no independent remote-progress poll. Added visible-panel 10-second revision checks plus immediate foreground/reconnect checks, and transactional rejection of snapshots racing local answers. 79 study tests pass, including remote changes, unchanged polling, hidden/closed panels and pending-answer races. Production build and release contracts pass; guarded public release verification pending. No user learning ledgers or schedules were manually edited.
+
+## 2026-10-22 取消开场与刷新关键路径优化
+
+用户取消粒子文字开场，刷新目标约 2 秒。移除首页开场状态与渲染，改为流式响应先交付、缓存后台写入，根页面慢网使用有效公开缓存并继续更新；账号检查提前并行。发布身份、前后实测和验证边界见 [本轮记录](startup-fast-20261022.md)。
