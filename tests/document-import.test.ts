@@ -6,7 +6,15 @@ import { normalizeDocumentSource, documentUrl } from "../lib/documentSource";
 import { pdfPageBlocks, type PdfTextItem } from "../lib/documentText";
 import { documentTranslationContext } from "../lib/documentTranslationContext";
 import { normalizeImportedArticleStructure } from "../lib/importedArticleNormalization";
+import { protectApiRequest } from "../lib/requestSecurity";
 const item = (str: string, x: number, y: number): PdfTextItem => ({ str, transform: [10,0,0,10,x,y], width: 100, height: 10, hasEOL: true });
+test("API middleware accepts the advertised document limit and still rejects oversized bodies", () => {
+  const request = (bytes: number, path = "/api/documents") => new Request(`https://context-reader.com${path}`, {method:"POST",headers:{"content-length":String(bytes),origin:"https://context-reader.com"}});
+  assert.equal(protectApiRequest(request(1_788_008)),null);
+  assert.equal(protectApiRequest(request(20*1024*1024+1000)),null);
+  assert.equal(protectApiRequest(request(21*1024*1024))?.status,413);
+  assert.equal(protectApiRequest(request(100_000,"/api/auth/phone-login"))?.status,413);
+});
 test("PDF reading order retains columns and joins line-wrap hyphens", () => {
   const blocks = pdfPageBlocks([item("The antibac-",40,700), item("terial treatment is effective.",40,688), item("Right column begins.",310,700)],1);
   assert.equal(blocks[0].text,"The antibacterial treatment is effective.");

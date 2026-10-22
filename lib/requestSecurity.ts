@@ -125,6 +125,7 @@ function routeRules(pathname: string, method: string): RateRule[] {
 }
 
 function maxRequestBytes(pathname: string): number {
+  if (pathname === "/api/documents") return 20 * 1024 * 1024 + 16 * 1024;
   if (/^\/api\/ocr-image(?:-layout)?$/.test(pathname)) {
     return 9 * 1024 * 1024;
   }
