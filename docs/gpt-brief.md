@@ -330,3 +330,5 @@ Calendar-day due inventory and queue use the same Asia/Shanghai boundary. All ov
 ## 2026-10-22 document import increment
 
 Text PDF / Word `.docx` import is implemented on the real HomeRedesign → HomeClient → Reader path. PDF.js preserves original pages with text-layer selection; docx-preview preserves Word layout with browser-pagination limitations. Private account-owned files, stable page/block IDs, My Articles sync, existing lookup, explicit adjacent translation. 20 MB / 150 PDF pages / 300k extracted characters; scans and legacy `.doc` unsupported. Current release/evidence: `docs/document-import-20261022.md`.
+
+Accepted `20261022T180600`, parent `20261022T175300`, source `f6b074db224531f15eda49646e7a1f4b2048db68`. The supplied 11-page SCMs paper is in gggg's My Articles with all 184 translations. Fresh-browser replay, refresh, source integrity and account isolation passed; replay made no new translation request. Late cloud caches now refresh an already-open Reader without changing active jobs or account isolation.

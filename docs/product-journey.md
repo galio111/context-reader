@@ -2109,6 +2109,8 @@ User requested original-layout document import beside existing article import, w
 
 Import accepted as `20261022T173000` (parent `20261022T171700`, source `41005eba857101429a96eb1aef975c5b11f6af27`). gggg contains the real 11-page paper and all 184 translated blocks in cloud storage. Privacy, exact source bytes, DOCX, health and isolated 40-table restore passed. Fresh-device acceptance found that late historical translation caches did not refresh a mounted Reader; a targeted follow-up and mounted-session regression cover that gap. Final replay acceptance is recorded in the release document.
 
+Final cumulative release accepted `20261022T180600`, parent `20261022T175300`, source `f6b074db224531f15eda49646e7a1f4b2048db68`. Fresh-browser My Articles, original-page display, automatic 184/184 translation replay with zero generation requests, refresh and mobile viewport passed with zero page errors. 139 architecture tests and the complete source CI passed; health, unchanged backends, backup restore and parent rollback image verified. All temporary QA account data and test sessions were cleaned up. Physical-device/Safari and user's visual acceptance remain open.
+
 ## 2026-10-22 Startup payload follow-up
 
 同轮公网复测未达到 2 秒，继续将全库编排从首屏移出（338,396 → 7,146 字节，五类展示不变），降低非首屏封面优先级，并移除 PWA 注册对 window.load 的依赖；最终验收见同一记录。
