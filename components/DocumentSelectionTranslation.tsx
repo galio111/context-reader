@@ -13,7 +13,7 @@ export function selectionTranslationBlocks(text: string, article: ImportedArticl
   if (exact) return [{ id: exact.id, type: exact.type as ArticleTranslationBlock["type"], text: exact.text! }];
   // Bound each request without silently dropping the end of a large selection.
   const chunks = text.match(/[\s\S]{1,4000}(?:\s|$)|[\s\S]{1,4000}/g) ?? [text];
-  return chunks.map(text => ({ id: `selection-${createArticleTranslationBlockCacheKey({ id: article.document!.id, type: "paragraph", text })}`, type: "paragraph", text }));
+  return chunks.map(text => ({ id: `selection-v2-${createArticleTranslationBlockCacheKey({ id: article.document!.id, type: "paragraph", text })}`, type: "paragraph", text }));
 }
 
 export function useDocumentSelectionTranslation(context: WordContext | null, article: ImportedArticle | null | undefined,
@@ -38,7 +38,10 @@ export function useDocumentSelectionTranslation(context: WordContext | null, art
         if (cached.has(block.id)) continue;
         const response = await fetch("/api/translate-article", { method: "POST", signal: AbortSignal.any([controller.signal, AbortSignal.timeout(60_000)]),
           headers: { "Content-Type": "application/json", Accept: "application/x-ndjson", "x-context-action-id": crypto.randomUUID() },
-          body: JSON.stringify({ blocks: [block], contextBlocks: neighbours }) });
+          // A partial selection is its complete translation source. Supplying
+          // its containing paragraph can make the provider translate unselected
+          // prose as well. Whole blocks retain normal contextual translation.
+          body: JSON.stringify({ blocks: [block], contextBlocks: block.id.startsWith("selection-v2-") ? [block] : neighbours }) });
         if (controller.signal.aborted || currentOwner.current !== owner || preparedTranslationOwner() !== owner) return;
         if (!response.ok || !response.body) {
           const failure = await response.json().catch(() => ({}));

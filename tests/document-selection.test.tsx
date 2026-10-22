@@ -48,8 +48,11 @@ test("selected translation replays exact cache, cancels stale selection and hide
   Object.defineProperty(globalThis,"indexedDB",{configurable:true,value:dom.window.indexedDB});
   const { renderHook, act, cleanup } = await import("@testing-library/react");
   const oldFetch = globalThis.fetch;
-  const requests: { signal: AbortSignal; block: {id:string}; resolve: (r:Response)=>void }[] = [];
-  globalThis.fetch = async (_, options) => new Promise(resolve => requests.push({signal: options!.signal as AbortSignal, block: JSON.parse(String(options!.body)).blocks[0], resolve}));
+  const requests: { signal: AbortSignal; block: {id:string; text:string}; contextBlocks: unknown[]; resolve: (r:Response)=>void }[] = [];
+  globalThis.fetch = async (_, options) => new Promise(resolve => {
+    const body = JSON.parse(String(options!.body));
+    requests.push({signal: options!.signal as AbortSignal, block: body.blocks[0], contextBlocks: body.contextBlocks, resolve});
+  });
   const finish = (index: number, translation: string) => requests[index].resolve(new Response(JSON.stringify({type:"translation",translation:{id:requests[index].block.id,translation}})+"\n"));
   try {
     await initializeLearningStorage(); getLearningStorage().setItem("context-reader:local-account-owner:v1","A");
@@ -62,6 +65,9 @@ test("selected translation replays exact cache, cancels stale selection and hide
     assert.equal(ui.result.current.text,"已有整段译文"); assert.equal(requests.length,0);
     await act(async()=>ui.rerender({selected:context("The original paper retains all figures"),owner:"A"}));
     assert.equal(ui.result.current.text,""); assert.equal(requests.length,1);
+    assert.deepEqual(requests[0].contextBlocks, [requests[0].block]);
+    assert.equal(requests[0].block.text, "The original paper retains all figures");
+    assert.match(requests[0].block.id, /^selection-v2-/);
     await act(async()=>ui.rerender({selected:context("The original paper retains all figures and"),owner:"A"}));
     assert.equal(requests[0].signal.aborted,true);
     await act(async()=>{finish(0,"不应出现的旧译文"); finish(1,"当前选区译文"); await new Promise(r=>setTimeout(r,10));});

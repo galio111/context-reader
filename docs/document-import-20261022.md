@@ -1,6 +1,6 @@
 # Original document reading acceptance
 
-Status: production accepted as `20261022T212000`, parent `20261022T205000`, source `5fb8d80087eec0efd77cdd7e3ba2234f5b8e8bf8`. Public identity matches. The existing gggg paper remains in My Articles; source association, original pages and historical translation caches are preserved.
+Status: production accepted as `20261022T221000`, parent `20261022T212000`, source `90ef35255775e40b7fef7ba0694b33bb6fa934a8`. Public identity matches. The existing gggg paper remains in My Articles; source association, original pages and historical translation caches are preserved.
 
 Initial accepted import parent: `20261022T171700`; source: `41005eba857101429a96eb1aef975c5b11f6af27`. Initial parent was `20261018T172000`. The cumulative startup release `20261022T173700` retained this feature and is the replay-fix parent.
 
@@ -71,4 +71,8 @@ The isolated test session was signed out at completion; the user's existing brow
 
 Final timing diagnostic: `selection-open-timing.json` captured React #185 again. Its last application frame maps to `useDailyPublicationNotice.ts` at `setShown(visible)` in the homepage notice animation callback (production chunk `3461-e4a317f989c434bd.js:1:46742`). This identifies the triggering frame, not the underlying update-loop cause. No fix of this separate notice lifecycle is claimed; the PDF still opened and reopened. Earlier clean selection/fidelity passes remain separate evidence.
 
-Word selection follow-up (candidate): on the actual gggg Word source, native dragging from an existing selection entered browser drag-and-drop and kept the old word instead of submitting a new range. Word now explicitly tracks mouse caret ranges, as PDF does, prevents native text dragging, submits on release within or outside the iframe, and handles keyboard expansion and touch release. The script-disabled iframe sandbox remains intact. The actual Word double-click followed by physical CDP mouse drag now submits the newly selected text. Ordinary articles are unchanged.
+Word selection follow-up (accepted 221000): on the actual gggg Word source, native dragging from an existing selection entered browser drag-and-drop and kept the old word instead of submitting a new range. Word now explicitly tracks mouse caret ranges, as PDF does, prevents native text dragging, submits on release within or outside the iframe, and handles keyboard expansion and touch release. The script-disabled iframe sandbox remains intact. The actual Word double-click followed by physical CDP mouse drag now submits the newly selected text. Ordinary articles are unchanged.
+
+Public Word acceptance: the existing gggg document `article-1792677040068` passed real single-click, double-click lookup and CDP mouse re-selection, with visible Chinese output and no page errors. The first harness run failed on a non-unique desktop/mobile DOM locator after translation was already visible; the corrected locator passed. A provider response also over-translated the containing paragraph once, while the next request translated only the selection. The next candidate therefore makes partial selections the complete provider context and versions their cache identity, retaining exact whole-block replay and normal article translation.
+
+221000 health passed after removing only two verified untagged, unused build stages; disk usage returned to 78%. Five backend container identities stayed unchanged; parent 212000 image is retained. A new 140912Z backup restored all 40 public tables.
