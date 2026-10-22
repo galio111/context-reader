@@ -220,9 +220,11 @@ export function HomeClient({ initialPublicArticles: bootstrapArticles, initialCa
     const current = catalogueRef.current;
     if (current.complete) return Promise.resolve(current.articles);
     if (current.pending) return current.pending;
-    current.pending = fetchJson<{ articles?: PublicArticle[] }>("/api/public-articles?format=metadata-v2", {}, "完整外刊目录暂时无法加载，请重试。").then(({ response, data }) => {
+    current.pending = fetchJson<{ articles?: PublicArticle[]; homepageCuration?: HomepageCuration }>("/api/public-articles?format=metadata-v2", {}, "完整外刊目录暂时无法加载，请重试。").then(({ response, data }) => {
       if (!response.ok || !Array.isArray(data?.articles)) throw new Error("完整外刊目录暂时无法加载，请重试。");
-      current.articles = data.articles; current.complete = true;
+      current.articles = data.articles;
+      if (data.homepageCuration) setHomepageCuration(data.homepageCuration);
+      current.complete = true;
       return data.articles;
     }).finally(() => { current.pending = null; });
     return current.pending;

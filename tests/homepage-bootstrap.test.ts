@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { homepageBootstrap } from "../lib/homepageBootstrap";
+import { homepageBootstrap, homepageBootstrapCuration } from "../lib/homepageBootstrap";
 import { normalizeHomepageCuration, HOME_CURATION_CATEGORIES } from "../lib/homepageCurationShared";
 import { homepageShowcaseArticles, orderHomepageCategoryArticles, orderHomepageRecommendations } from "../lib/homepageRecommendations";
 import { articleMatchesEditorialCategory } from "../lib/editorialCuration";
@@ -18,12 +18,18 @@ test("bootstrap keeps every category's desktop/mobile showcase, full counts and 
   const bootstrap = homepageBootstrap(articles, curation, "2026-09-22");
   assert.equal(bootstrap.complete, false);
   assert.ok(bootstrap.articles.length <= 50);
+  const compact = homepageBootstrapCuration(curation, bootstrap.articles)!;
+  assert.ok(JSON.stringify(compact).length < JSON.stringify(curation).length);
   const ordered = (input: PublicArticle[], category: typeof HOME_CURATION_CATEGORIES[number]) => category === "推荐"
     ? orderHomepageRecommendations(input, curation, emptyRecommendationPreferences(), "2026-09-22")
     : orderHomepageCategoryArticles(input.filter(a => articleMatchesEditorialCategory(a, category)), curation.categories[category], curation.selectedAtById, "2026-09-22");
   for (const category of HOME_CURATION_CATEGORIES) {
     const full = ordered(articles, category);
     assert.equal(bootstrap.counts[category], full.length);
+    const compactOrdered = category === "推荐"
+      ? orderHomepageRecommendations(bootstrap.articles, compact, emptyRecommendationPreferences(), "2026-09-22")
+      : orderHomepageCategoryArticles(bootstrap.articles.filter(a => articleMatchesEditorialCategory(a, category)), compact.categories[category], compact.selectedAtById, "2026-09-22");
+    for (const limit of [7, 10]) assert.deepEqual(homepageShowcaseArticles(compactOrdered, limit).map(a => a.id), homepageShowcaseArticles(full, limit).map(a => a.id));
     for (const limit of [7, 10]) assert.deepEqual(homepageShowcaseArticles(ordered(bootstrap.articles, category), limit).map(a => a.id), homepageShowcaseArticles(full, limit).map(a => a.id));
   }
   for (const article of bootstrap.articles) assert.strictEqual(article, articles.find(a => a.id === article.id));

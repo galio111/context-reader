@@ -7,7 +7,15 @@ self.addEventListener("install", (event) => {
   event.waitUntil(
     caches
       .open(CACHE_VERSION)
-      .then((cache) => cache.addAll(APP_SHELL))
+      .then(async (cache) => {
+        await cache.addAll(APP_SHELL);
+        const home = await cache.match("/");
+        if (home) {
+          const headers = new Headers(home.headers);
+          headers.set("X-SW-Cached-At", String(Date.now()));
+          await cache.put("/", new Response(home.body, { status: home.status, statusText: home.statusText, headers }));
+        }
+      })
       .then(() => self.skipWaiting()),
   );
 });
@@ -126,7 +134,9 @@ async function publicHomeNavigation(request, event) {
   const live = networkFirst(request, event);
   event.waitUntil(live.then(() => undefined, () => undefined));
   const cache = await caches.open(CACHE_VERSION);
-  const cached = await cache.match(request);
+  const url = new URL(request.url);
+  const diagnosticOnly = [...url.searchParams.keys()].every(key => key === "cr-perf");
+  const cached = await cache.match(request) || (diagnosticOnly ? await cache.match("/") : undefined);
   const cachedAt = Number(cached?.headers.get("X-SW-Cached-At") ?? 0);
   if (!cached || !cachedAt || Date.now() - cachedAt > PUBLIC_ARTICLE_TTL_MS) return live;
   let timer;

@@ -17,3 +17,14 @@ export function homepageBootstrap(articles: PublicArticle[], curation: HomepageC
   }
   return { articles: articles.filter(article => ids.has(article.id)), counts, complete: ids.size === articles.length };
 }
+
+/** Ship only ordering metadata for the SSR subset; full browsing loads its own metadata. */
+export function homepageBootstrapCuration(curation: HomepageCuration | undefined, articles: PublicArticle[]): HomepageCuration | undefined {
+  if (!curation) return undefined;
+  const ids = new Set(articles.map(article => article.id));
+  return {
+    ...curation,
+    categories: Object.fromEntries(HOME_CURATION_CATEGORIES.map(category => [category, curation.categories[category].filter(id => ids.has(id))])) as HomepageCuration["categories"],
+    selectedAtById: Object.fromEntries(Object.entries(curation.selectedAtById).filter(([id]) => ids.has(id))),
+  };
+}

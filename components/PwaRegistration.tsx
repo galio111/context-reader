@@ -24,11 +24,12 @@ export function PwaRegistration() {
     }
 
     const register = () => { void navigator.serviceWorker.register("/sw.js", { updateViaCache: "none" }).then(registration => registration.update()).catch(() => {}); };
-    if (document.readyState === "complete") register();
-    else window.addEventListener("load", register, { once: true });
+    // Distant media can keep window.load pending for seconds. Offline startup
+    // must become available as soon as the application mounts.
+    register();
     const check = () => { if (document.visibilityState === "visible") register(); };
     document.addEventListener("visibilitychange", check);
-    return () => { window.removeEventListener("load", register); document.removeEventListener("visibilitychange", check); };
+    return () => { document.removeEventListener("visibilitychange", check); };
 
   }, []);
 

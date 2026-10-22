@@ -2108,3 +2108,7 @@ Reported: phone study progress eventually appeared on desktop, but too late. Con
 User requested original-layout document import beside existing article import, word/phrase lookup and full translation, with the supplied 11-page SCMs paper saved to gggg. Implemented private source storage, page-preserving PDF text layer, isolated DOCX view, save/sync descriptor and stable translation IDs. Original pages remain unchanged; translation is explicit and adjacent, using complete paper context when bounded and target-centred context for larger documents. Local paper screenshot and Word title/table/page-break checks passed; production/account acceptance is recorded in `document-import-20261022.md`. This entry is a functional increment, not acceptance of unrelated homepage motion.
 
 Import accepted as `20261022T173000` (parent `20261022T171700`, source `41005eba857101429a96eb1aef975c5b11f6af27`). gggg contains the real 11-page paper and all 184 translated blocks in cloud storage. Privacy, exact source bytes, DOCX, health and isolated 40-table restore passed. Fresh-device acceptance found that late historical translation caches did not refresh a mounted Reader; a targeted follow-up and mounted-session regression cover that gap. Final replay acceptance is recorded in the release document.
+
+## 2026-10-22 Startup payload follow-up
+
+同轮公网复测未达到 2 秒，继续将全库编排从首屏移出（338,396 → 7,146 字节，五类展示不变），降低非首屏封面优先级，并移除 PWA 注册对 window.load 的依赖；最终验收见同一记录。

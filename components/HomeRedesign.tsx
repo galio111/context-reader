@@ -1395,7 +1395,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
                     onClick={(event) => beginArticleTransition(item, event)}
                     disabled={Boolean(props.openingPublicArticleId || openingArticle)}
                   >
-                  <ArticleCover article={item} featured={featured} priority={index < HOMEPAGE_RECOMMENDATION_TARGET} motion3dEnabled={recommendationMotionEnabled} />
+                  <ArticleCover article={item} featured={featured} priority={featured} motion3dEnabled={recommendationMotionEnabled} />
                     <span className={styles.cardCopy}>
                       <small>{item.sourceName || "Context Reader"}</small>
                       <strong data-summary-title onPointerEnter={event => articleSummary.show(item.id, item.summary || "", event.currentTarget)} onPointerLeave={articleSummary.hide}>{item.title}</strong>
