@@ -6,6 +6,7 @@ import { useReaderTranslationSession } from "../components/useReaderTranslationS
 import { startArticleTranslationJob } from "../lib/articleTranslationJobs";
 import { initializeLearningStorage, getLearningStorage, flushLearningStorage, isLearningStorage } from "../lib/learningStorage";
 import { prepareLocalAccountForUser } from "../lib/accountSyncClient";
+import { notifyAccountDataMerged } from "../lib/accountEvents";
 import type { ArticleTranslationBlock } from "../types/reader";
 
 const ownerKey = "context-reader:local-account-owner:v1";
@@ -43,6 +44,15 @@ test("mounted Reader translation session rebinds after login, survives panel cha
     assert.deepEqual(ui.result.current.translations, []);
     ui.rerender({ owner: "account-A", sourceKey: key, sourceBlocks: blocks });
     assert.equal(ui.result.current.ready, true);
+    const lateKey = `${key}-late-cloud`;
+    ui.rerender({ owner: "account-A", sourceKey: lateKey, sourceBlocks: blocks });
+    await act(async () => {
+      storage.setItem("context-reader:article-translations:v1", JSON.stringify({ [lateKey]: [{ id: "one", translation: "稍后同步到的译文" }] }));
+      notifyAccountDataMerged(["article_translation"]);
+    });
+    assert.deepEqual(ui.result.current.translations, [{ id: "one", translation: "稍后同步到的译文" }]);
+    assert.equal(starts, 0, "late cloud replay does not start or charge a translation job");
+    ui.rerender({ owner: "account-A", sourceKey: key, sourceBlocks: blocks });
     let running!: Promise<void>;
     await act(async () => {
       running = startArticleTranslationJob(key, blocks);

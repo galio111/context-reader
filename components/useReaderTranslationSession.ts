@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ACCOUNT_DATA_MERGED_EVENT } from "@/lib/accountEvents";
+import { ACCOUNT_DATA_MERGED_EVENT, accountDataEventKinds } from "@/lib/accountEvents";
 import { getLearningStorage, LEARNING_STORAGE_EVENT } from "@/lib/learningStorage";
 import { ACCOUNT_STORAGE_TRANSITION_EVENT, isAccountStorageTransition } from "@/lib/accountStorageTransition";
 import { getCachedArticleTranslation, getCachedArticleTranslationForBlocks } from "@/lib/cache";
@@ -80,14 +80,21 @@ export function useReaderTranslationSession(key: string, blocks: ArticleTranslat
       publish(emptySession());
       bind(false);
     }
+    function dataMerged(event: Event) {
+      if (preparedTranslationOwner() !== boundOwner) { ownerChanged(); return; }
+      const kinds = accountDataEventKinds(event);
+      // New-device bootstrap publishes articles before historical caches. A
+      // mounted Reader must pick up its later cache without starting a new job.
+      if (kinds.length === 0 || kinds.includes("article_translation") || kinds.includes("translation_block")) bind(true);
+    }
     window.addEventListener(LEARNING_STORAGE_EVENT, ownerChanged);
-    window.addEventListener(ACCOUNT_DATA_MERGED_EVENT, ownerChanged);
+    window.addEventListener(ACCOUNT_DATA_MERGED_EVENT, dataMerged);
     window.addEventListener(ACCOUNT_STORAGE_TRANSITION_EVENT, ownerChanged);
     bind(true);
     return () => {
       disposed = true; unsubscribe?.();
       window.removeEventListener(LEARNING_STORAGE_EVENT, ownerChanged);
-      window.removeEventListener(ACCOUNT_DATA_MERGED_EVENT, ownerChanged);
+      window.removeEventListener(ACCOUNT_DATA_MERGED_EVENT, dataMerged);
       window.removeEventListener(ACCOUNT_STORAGE_TRANSITION_EVENT, ownerChanged);
     };
   }, [key, blocks, expectedOwner]);
