@@ -2,7 +2,7 @@
 
 ## Current accepted release
 
-Accepted `20261014T111000`, parent `20261013T233500`, source `9218f41dc8d34e8466d2dff72badd5a796ffbc49`, at 2026-10-14 03:10:04 UTC. The stable locked entrypoint accepted the exact 36-file delta. Public identity, source CI and builds pass. Review-first/mixed ordering, plan-consistent counts, pinned undo and durable offline events passed automated tests, deployed controlled UI and real-account offline/reconnect browser checks. Account/protocol-2/Admin boundaries, old-page Reader entry across cutover, seven-service health, SHA-verified 40-table backup restore and current/parent rollback images pass. Five backend identities and start times remain unchanged. [Evidence and remaining limits](study-order-offline-20261014.md). Later documentation-only commits do not change the deployed source identity.
+已接受生产 `20261014T115435`，父版本 `20261014T111000`，源提交 `8991775275750a71a5b32a577ec354fbfed25a77`。公网身份与内部后端模式一致，精确 31 文件累计包通过稳定发布入口。74 项学习、90 项核心、8 项模型/计费回归，类型检查、生产构建、发布契约与源码 CI 通过；语音兼容 CI 通过。真实公网账号验证三种回忆选择、漏字/全对/多字批改、三次作答各保存一次、手机窄屏及全展开详情。划词含句译、词典、全文翻译均为 deepseek-flash 成功；账号/同步/Admin 边界、七服务健康、五后端身份不变、40 表备份校验与隔离恢复、当前/父回滚镜像通过。临时账号和凭据已精确清理。实际回滚未执行；真机移动键盘、Edge/Safari 拼写界面和用户视觉接受仍开放。 [Evidence](study-spelling-20261014.md). Later documentation-only commits do not change the deployed source identity.
 
 ## Previous accepted cold study entry release
 

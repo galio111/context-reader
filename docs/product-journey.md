@@ -2061,9 +2061,16 @@ Accepted `20261014T111000`, parent `20261013T233500`, source `9218f41dc8d34e8466
 
 用户要求一个稳定长度的拼写空位、无需先点击直接输入、任一回忆选择后按字母批改，并否定横排释义、重复原句和收起详情。按错字/多字删除线、漏字下划线、正确绿色勾区分，短语空格保留；原句与句译在上，释义/用法/搭配/新例句单列全展开，共用于生词本。仅改变核对呈现，不改变真实评分与 FSRS。用户授权临时第 13 个独立工作区。实现与本地回归通过，生产身份及最终验证见 [发布记录](study-spelling-20261014.md)；用户最终视觉验收待确认。
 
+已接受生产 `20261014T115435`，父版本 `20261014T111000`，源提交 `8991775275750a71a5b32a577ec354fbfed25a77`。公网身份与内部后端模式一致，精确 31 文件累计包通过稳定发布入口。74 项学习、90 项核心、8 项模型/计费回归，类型检查、生产构建、发布契约与源码 CI 通过；语音兼容 CI 通过。真实公网账号验证三种回忆选择、漏字/全对/多字批改、三次作答各保存一次、手机窄屏及全展开详情。划词含句译、词典、全文翻译均为 deepseek-flash 成功；账号/同步/Admin 边界、七服务健康、五后端身份不变、40 表备份校验与隔离恢复、当前/父回滚镜像通过。临时账号和凭据已精确清理。实际回滚未执行；真机移动键盘、Edge/Safari 拼写界面和用户视觉接受仍开放。 [证据](evidence/study-spelling-1014/acceptance.json)。
+
 ## 2026-10-14 — URL import content and scroll recovery (validated, release pending)
 
 User-reported TIME title/image-only success was reproduced against production 20261014T115435. Utility-selector newsletter names deleted the body ancestor. The repair preserves all 24 substantial source paragraphs, rejects metadata-only success and retains a16z's 11 paragraph-wrapped charts. Shared Reader scroll locks replace overlapping manual overflow restoration; bounded client waits and mid-body overseas fallback improve recovery. 90 critical tests and targeted regressions passed. Browser control timed out; visual and repeated-use acceptance remains open. See [implementation and evidence](url-import-reliability.md).
+
+
+## 2026-10-15 — URL import reliability release accepted
+
+Accepted `20261015T043000`, parent `20261014T115435`, source `5660a90a1e9cb6178eba8e1398afa467afea1569`. Both supplied URLs passed two public imports with matching full extracted-body hashes; TIME retains all 24 substantial source paragraphs and a16z retains 11 inline charts. 18 targeted and 90 critical tests, builds, release contracts and integration CI passed. Live desktop repeated import/return and mobile viewport/resizing restored scrolling, with no observed console errors. Account/session/protocol-2 sync, Admin boundaries, service health, backup SHA and 40-table isolated restore passed; temporary account removed, five backend identities unchanged, rollback images retained. Actual rollback, physical-device and other-browser acceptance remain open. [Final behavior and evidence](url-import-reliability.md).
 
 ## 2026-10-16 — 背词点击稳定性、收藏顺序与保存恢复
 
@@ -2099,6 +2106,10 @@ Reported: phone study progress eventually appeared on desktop, but too late. Con
 ## 2026-10-22 — Original PDF and Word document reading
 
 User requested original-layout document import beside existing article import, word/phrase lookup and full translation, with the supplied 11-page SCMs paper saved to gggg. Implemented private source storage, page-preserving PDF text layer, isolated DOCX view, save/sync descriptor and stable translation IDs. Original pages remain unchanged; translation is explicit and adjacent, using complete paper context when bounded and target-centred context for larger documents. Local paper screenshot and Word title/table/page-break checks passed; production/account acceptance is recorded in `document-import-20261022.md`. This entry is a functional increment, not acceptance of unrelated homepage motion.
+
+Import accepted as `20261022T173000` (parent `20261022T171700`, source `41005eba857101429a96eb1aef975c5b11f6af27`). gggg contains the real 11-page paper and all 184 translated blocks in cloud storage. Privacy, exact source bytes, DOCX, health and isolated 40-table restore passed. Fresh-device acceptance found that late historical translation caches did not refresh a mounted Reader; a targeted follow-up and mounted-session regression cover that gap. Final replay acceptance is recorded in the release document.
+
+## 2026-10-22 Startup payload follow-up
 
 同轮公网复测未达到 2 秒，继续将全库编排从首屏移出（338,396 → 7,146 字节，五类展示不变），降低非首屏封面优先级，并移除 PWA 注册对 window.load 的依赖；最终验收见同一记录。
 
