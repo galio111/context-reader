@@ -21,7 +21,7 @@ self.addEventListener("activate", (event) => {
   );
 });
 
-async function networkFirst(request) {
+async function networkFirst(request, event) {
   const cache = await caches.open(CACHE_VERSION);
   try {
     const response = await fetch(request);
@@ -33,10 +33,15 @@ async function networkFirst(request) {
         statusText: response.statusText,
         headers,
       });
-      // A cache write failure must not replace a fresh page with an old cached release.
-      try { await cache.put(request, cachedResponse); } catch {}
-      const articleRequests = (await cache.keys().catch(() => [])).filter((item) => new URL(item.url).pathname.startsWith("/api/public-articles"));
-      await Promise.all(articleRequests.slice(0, Math.max(0, articleRequests.length - MAX_PUBLIC_ARTICLE_ENTRIES)).map((item) => cache.delete(item).catch(() => false)));
+      // Stream the response immediately. Cache.put consumes the entire body;
+      // awaiting it here delays HTML parsing and all dependent script requests.
+      event.waitUntil((async () => {
+        try {
+          await cache.put(request, cachedResponse);
+          const articleRequests = (await cache.keys()).filter((item) => new URL(item.url).pathname.startsWith("/api/public-articles"));
+          await Promise.all(articleRequests.slice(0, Math.max(0, articleRequests.length - MAX_PUBLIC_ARTICLE_ENTRIES)).map((item) => cache.delete(item)));
+        } catch { /* Cache failure must not replace a successful live response. */ }
+      })());
     }
     return response;
   } catch {
@@ -95,21 +100,42 @@ async function cachedPublicCatalogue(request) {
   }
 }
 
-async function cacheFirst(request) {
+async function cacheFirst(request, event) {
   const cached = await caches.match(request);
   if (cached) {
     return cached;
   }
   const response = await fetch(request);
   if (response.ok) {
-    const cache = await caches.open(CACHE_VERSION);
-    try {
-      await cache.put(request, response.clone());
-      const scripts = (await cache.keys()).filter(item => new URL(item.url).pathname.startsWith("/_next/static/"));
-      await Promise.all(scripts.slice(0, Math.max(0, scripts.length - 120)).map(item => cache.delete(item)));
-    } catch {}
+    const copy = response.clone();
+    event.waitUntil((async () => {
+      try {
+        const cache = await caches.open(CACHE_VERSION);
+        await cache.put(request, copy);
+        const scripts = (await cache.keys()).filter(item => new URL(item.url).pathname.startsWith("/_next/static/"));
+        await Promise.all(scripts.slice(0, Math.max(0, scripts.length - 120)).map(item => cache.delete(item)));
+      } catch { /* Static assets remain usable if storage is full. */ }
+    })());
   }
   return response;
+}
+
+// Only the public root shell can fall back early. Account/Admin responses are
+// always live, and public catalogue revalidation runs independently in HomeClient.
+async function publicHomeNavigation(request, event) {
+  const live = networkFirst(request, event);
+  event.waitUntil(live.then(() => undefined, () => undefined));
+  const cache = await caches.open(CACHE_VERSION);
+  const cached = await cache.match(request);
+  const cachedAt = Number(cached?.headers.get("X-SW-Cached-At") ?? 0);
+  if (!cached || !cachedAt || Date.now() - cachedAt > PUBLIC_ARTICLE_TTL_MS) return live;
+  let timer;
+  try {
+    return await Promise.race([
+      live.catch(() => cached),
+      new Promise(resolve => { timer = setTimeout(() => resolve(cached), 600); }),
+    ]);
+  } finally { clearTimeout(timer); }
 }
 
 self.addEventListener("fetch", (event) => {
@@ -126,18 +152,18 @@ self.addEventListener("fetch", (event) => {
   }
 
   if (url.pathname.startsWith("/api/public-articles/")) {
-    event.respondWith(networkFirst(request));
+    event.respondWith(networkFirst(request, event));
     return;
   }
 
   if (url.pathname.startsWith("/_next/static/") || url.pathname === "/manifest.webmanifest" || url.pathname === "/icon.svg") {
-    event.respondWith(cacheFirst(request));
+    event.respondWith(cacheFirst(request, event));
     return;
   }
 
   if (request.mode === "navigate") {
     event.respondWith(
-      networkFirst(request).catch(async () => {
+      (url.pathname === "/" ? publicHomeNavigation(request, event) : networkFirst(request, event)).catch(async () => {
         return (await caches.match("/")) || caches.match("/offline.html");
       }),
     );

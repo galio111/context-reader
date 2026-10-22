@@ -82,7 +82,7 @@ test("a failed offline-cache write never replaces a freshly fetched page with an
   const cached = new Response("old release", { headers: { "X-SW-Cached-At": String(Date.now()) } });
   const context = vm.createContext({ self: { addEventListener() {} }, caches: { open: async () => ({ put: async () => { throw new DOMException("quota", "QuotaExceededError"); }, keys: async () => [], match: async () => cached }) }, fetch: async () => new Response("new release"), Response, Headers, URL, Date });
   vm.runInContext(readFileSync(new URL("../public/sw.js", import.meta.url), "utf8"), context);
-  const result = await vm.runInContext('networkFirst({url:"https://context-reader.com/"})', context) as Response;
+  const result = await vm.runInContext('networkFirst({url:"https://context-reader.com/"}, {waitUntil(p){p.catch(()=>{});}})', context) as Response;
   assert.equal(await result.text(), "new release");
 });
 

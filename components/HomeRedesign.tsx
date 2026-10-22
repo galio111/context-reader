@@ -44,7 +44,6 @@ import type { TemporaryReading } from "@/lib/temporaryReading";
 import type { BallpitHandle } from "@/components/Ballpit";
 const loadBallpit = () => import("@/components/Ballpit");
 const Ballpit = dynamic(loadBallpit, { ssr: false });
-import { FallingWordOpening } from "@/components/FallingWordOpening";
 import {
   emptyRecommendationPreferences,
   readRecommendationPreferences,
@@ -297,15 +296,11 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const [librarySearch, setLibrarySearch] = useState("");
   const [continueVariant, setContinueVariant] = useState<"editorial" | "cover">("cover");
   const [navMotion, setNavMotion] = useState<"slide" | "fill" | "icon">("icon");
-  const [memberOpeningVariant, setMemberOpeningVariant] = useState<"spiral" | "wordfall">("wordfall");
   const [heroSubtitleVariant, setHeroSubtitleVariant] = useState<keyof typeof HERO_SUBTITLES>("a");
-  const [memberOpeningVisible, setMemberOpeningVisible] = useState(false);
-  const [guestOpeningComplete, setGuestOpeningComplete] = useState(false);
   const [guestBallpitStarted, setGuestBallpitStarted] = useState(false);
   const [letterMotionEnabled, setLetterMotionEnabled] = useState(true);
   const [recommendationMotionEnabled, setRecommendationMotionEnabled] = useState(true);
   const [homeTheme, setHomeTheme] = useState<HomeTheme>("day");
-  const [memberBallpitReady, setMemberBallpitReady] = useState(false);
   const [openingArticle, setOpeningArticle] = useState<OpeningArticle | null>(null);
 
   const [feedbackOpen, setFeedbackOpen] = useState(false);
@@ -317,7 +312,6 @@ export function HomeRedesign(props: HomeRedesignProps) {
   const coverStageRef = useRef<HTMLElement | null>(null);
   const flowRef = useRef<HTMLDivElement | null>(null);
   const ballpitControllerRef = useRef<BallpitHandle | null>(null);
-  const memberBallpitControllerRef = useRef<BallpitHandle | null>(null);
   const [resourceTab, setResourceTab] = useState<"articles" | "cet">("articles");
   const refreshOwner = account.profile?.userId ?? (isOffline ? localAccount?.userId : undefined) ?? "guest";
   const refreshViewRead = useRef(false);
@@ -404,11 +398,6 @@ export function HomeRedesign(props: HomeRedesignProps) {
   }, [guestBallpitStarted, journeyPending, memberHome]);
   const closingRef = useRef<HTMLElement | null>(null);
   const coverProgressRef = useRef(0);
-  const memberOpeningFrameRef = useRef(0);
-  const memberOpeningStartRef = useRef(0);
-  const memberOpeningProgressRef = useRef(0);
-  const memberOpeningFastStartRef = useRef(0);
-  const memberOpeningFastProgressRef = useRef(0);
   const openingTimerRef = useRef<number | null>(null);
   const dictionaryCloseTimerRef = useRef<number | null>(null);
   const categorySwitchTimerRef = useRef<number | null>(null);
@@ -418,7 +407,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
   useDocumentScrollLock(dictionaryMounted && compactViewport);
 
   const category = CATEGORY_FILTERS.find((item) => item.label === activeCategory) ?? CATEGORY_FILTERS[0];
-  const dailyNotice = useDailyPublicationNotice(account.profile?.userId, !accountLoading && account.authenticated && !isOffline, !journeyPending && !memberOpeningVisible && !menuOpen && !openingArticle && !props.openingPublicArticleId && !feedbackOpen && !dictionaryMounted);
+  const dailyNotice = useDailyPublicationNotice(account.profile?.userId, !accountLoading && account.authenticated && !isOffline, !journeyPending && !menuOpen && !openingArticle && !props.openingPublicArticleId && !feedbackOpen && !dictionaryMounted);
   const recommendationDayKey = dailyNotice.day;
   const articleSummary = useArticleSummary(`${resourceTab}:${activeCategory}:${menuOpen}:${Boolean(openingArticle || props.openingPublicArticleId)}`);
 
@@ -548,7 +537,6 @@ export function HomeRedesign(props: HomeRedesignProps) {
     setContinueVariant(params.get("continue") === "editorial" ? "editorial" : "cover");
     const requestedNavMotion = params.get("navmotion");
     setNavMotion(requestedNavMotion === "fill" || requestedNavMotion === "slide" ? requestedNavMotion : "icon");
-    setMemberOpeningVariant(params.get("opening") === "spiral" ? "spiral" : "wordfall");
     const requestedSubtitle = params.get("subtitle");
     setHeroSubtitleVariant(requestedSubtitle === "b" || requestedSubtitle === "c" ? requestedSubtitle : "a");
   }, [props.forceGuestPreview, props.forceMemberPreview]);
@@ -736,7 +724,6 @@ export function HomeRedesign(props: HomeRedesignProps) {
   }, [resourceTab, memberHome]);
 
   useEffect(() => () => {
-    if (memberOpeningFrameRef.current) window.cancelAnimationFrame(memberOpeningFrameRef.current);
     if (openingTimerRef.current !== null) window.clearTimeout(openingTimerRef.current);
     if (dictionaryCloseTimerRef.current !== null) window.clearTimeout(dictionaryCloseTimerRef.current);
     if (categorySwitchTimerRef.current !== null) window.clearTimeout(categorySwitchTimerRef.current);
@@ -892,57 +879,6 @@ export function HomeRedesign(props: HomeRedesignProps) {
     };
   }, [compactViewport, memberHome]);
 
-  useEffect(() => {
-    if (isRefreshNavigation() || props.skipMemberOpening || guestOpeningComplete || refreshResumed) {
-      setMemberOpeningVisible(false);
-      setMemberBallpitReady(false);
-      return;
-    }
-    setMemberOpeningVisible(true);
-    // Guests use the same readable word-fall opening. The alternate Ballpit
-    // gathering path remains a member-only visual preview.
-    if (!memberHome || memberOpeningVariant === "wordfall") return;
-    if (!memberBallpitReady) return;
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    memberOpeningStartRef.current = 0;
-    memberOpeningProgressRef.current = 0;
-    memberOpeningFastStartRef.current = 0;
-    memberOpeningFastProgressRef.current = 0;
-
-    const finishQuickly = () => {
-      if (!memberOpeningFastStartRef.current) {
-        memberOpeningFastStartRef.current = performance.now();
-        memberOpeningFastProgressRef.current = memberOpeningProgressRef.current;
-      }
-    };
-    const tick = (time: number) => {
-      if (!memberOpeningStartRef.current) memberOpeningStartRef.current = time;
-      const elapsed = time - memberOpeningStartRef.current;
-      const naturalProgress = reducedMotion ? Math.min(1, elapsed / 360) : Math.min(1, Math.max(0, elapsed - 120) / 1_400);
-      const quickProgress = memberOpeningFastStartRef.current
-        ? memberOpeningFastProgressRef.current + (1 - memberOpeningFastProgressRef.current) * Math.min(1, (time - memberOpeningFastStartRef.current) / 220)
-        : 0;
-      const progress = Math.max(naturalProgress, quickProgress);
-      memberOpeningProgressRef.current = progress;
-      memberBallpitControllerRef.current?.setGatherProgress(progress);
-      if (progress < 1) {
-        memberOpeningFrameRef.current = window.requestAnimationFrame(tick);
-      } else {
-        memberOpeningFrameRef.current = 0;
-        setMemberOpeningVisible(false);
-      }
-    };
-    memberOpeningFrameRef.current = window.requestAnimationFrame(tick);
-    window.addEventListener("pointerdown", finishQuickly, { passive: true });
-    window.addEventListener("wheel", finishQuickly, { passive: true });
-    window.addEventListener("keydown", finishQuickly);
-    return () => {
-      window.removeEventListener("pointerdown", finishQuickly);
-      window.removeEventListener("wheel", finishQuickly);
-      window.removeEventListener("keydown", finishQuickly);
-      if (memberOpeningFrameRef.current) window.cancelAnimationFrame(memberOpeningFrameRef.current);
-    };
-  }, [refreshResumed, guestOpeningComplete, memberBallpitReady, memberHome, memberOpeningVariant, props.skipMemberOpening]);
 
   function beginArticleTransition(article: PublicArticle, event: ReactMouseEvent<HTMLButtonElement>) {
     if (openingArticle || props.openingPublicArticleId) return;
@@ -1210,8 +1146,8 @@ export function HomeRedesign(props: HomeRedesignProps) {
     <main className={styles.root} data-catalogue-status={props.catalogueStatus ?? "ready"} data-catalogue-count={props.publicArticles.length} data-theme={homeTheme} data-home-mode={memberHome ? "member" : "guest"} data-nav-motion={navMotion} data-guest-preview={guestPreviewAllowed || undefined} data-member-preview={memberPreviewAllowed || undefined} data-standalone-tool-open={menuOpen && menuStandalonePreview || undefined}>
       {dailyNotice.count !== null && <div ref={dailyNotice.ref} className={styles.dailyUpdateNotice} role="status">今天更新了 {dailyNotice.count} 篇文章</div>}
       {articleSummary.summary && <div id="article-summary-tooltip" role="tooltip" className={styles.articleSummaryTooltip} style={{ left: articleSummary.summary.left, top: articleSummary.summary.top, width: articleSummary.summary.width, transform: articleSummary.summary.above ? "translateY(-100%)" : undefined }}>{articleSummary.summary.text}</div>}
-      {journeyPending && !memberOpeningVisible && <div className={styles.accountResolving} role="status" aria-label="正在打开阅读空间"><span /><span /><span /></div>}
-      <BookLetterField paused={memberOpeningVisible || !letterMotionEnabled} />
+      {journeyPending && <div className={styles.accountResolving} role="status" aria-label="正在打开阅读空间"><span /><span /><span /></div>}
+      <BookLetterField paused={!letterMotionEnabled} />
       <header className={styles.topbar}>
         <div className={`${styles.brandCluster} ${memberHome ? styles.brandClusterFixed : ""}`}>
           <PillNavAction className={styles.brand} href="/" label="Context Reader" ariaLabel="Context Reader 首页" />
@@ -1240,36 +1176,6 @@ export function HomeRedesign(props: HomeRedesignProps) {
           renderIcon={() => <span className={styles.menuGlyph} aria-hidden="true"><i /><i /></span>}
         />
       </header>
-
-      {memberOpeningVisible && (
-        <div className={styles.memberOpening} data-ready={memberOpeningVariant === "wordfall" || memberBallpitReady || undefined} aria-hidden="true">
-          <div className={styles.memberOpeningBalls}>
-            {!memberHome || memberOpeningVariant === "wordfall" ? (
-              <FallingWordOpening
-                motionEnabled={letterMotionEnabled}
-                className={styles.wordFallCanvas}
-                onComplete={() => { setMemberOpeningVisible(false); setGuestOpeningComplete(true); }}
-              />
-            ) : (
-              <Ballpit
-                className={styles.ballCanvas}
-                count={compactViewport ? 28 : 52}
-                maxX={compactViewport ? 8 : 17}
-                maxY={compactViewport ? 10 : 9}
-                gravity={0}
-                driftSpeed={0.012}
-                friction={0.983}
-                wallBounce={0.95}
-                colors={BALL_COLORS}
-                followCursor={false}
-                showCursorBall={false}
-                controllerRef={memberBallpitControllerRef}
-                onReady={() => setMemberBallpitReady(true)}
-              />
-            )}
-          </div>
-        </div>
-      )}
 
       <div ref={flowRef} className={styles.flow}>
         <section ref={coverStageRef} className={`${styles.coverStage} ${memberHome ? styles.memberStage : ""}`}>
@@ -1381,7 +1287,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
           </section>
         )}
 
-        {!memberHome && <FeatureShowcase sectionRef={featureShowcaseRef} prepareEnabled={!journeyPending && showcaseCoversReady} enabled={!journeyPending && (guestOpeningComplete || Boolean(props.skipMemberOpening))} onGuide={() => { setMenuStandalonePreview(false); setMenuInitialPreview("guide"); setMenuGuideSection(null); setMenuOpen(true); }} guideOpen={menuOpen} motionEnabled={recommendationMotionEnabled} />}
+        {!memberHome && <FeatureShowcase sectionRef={featureShowcaseRef} prepareEnabled={!journeyPending && showcaseCoversReady} enabled={!journeyPending} onGuide={() => { setMenuStandalonePreview(false); setMenuInitialPreview("guide"); setMenuGuideSection(null); setMenuOpen(true); }} guideOpen={menuOpen} motionEnabled={recommendationMotionEnabled} />}
 
         <section ref={recommendationsRef} className={styles.recommendations} aria-labelledby="selected-reading-title">
           <div ref={resourceHeadRef} className={styles.sectionHead}>

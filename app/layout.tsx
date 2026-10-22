@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { startupSessionScript } from "@/lib/startupSession";
 import { AppProviders } from "@/components/AppProviders";
 import "./globals.css";
 import {publishedDesignState} from '@/lib/uiDesignPublished';
@@ -27,6 +28,7 @@ export default async function RootLayout({
   return (
     <html lang="zh-CN" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: startupSessionScript }} />
         <style data-ui-design="initial">{compileUiDesign(design)}</style>
         <script
           dangerouslySetInnerHTML={{
