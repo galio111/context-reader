@@ -17,7 +17,9 @@
     "build": "next build && node scripts/precompress-static.mjs",
     "start": "next start",
     "lint": "eslint .",
-    "audit:egress": "node scripts/audit-public-article-egress.mjs"
+    "audit:egress": "node scripts/audit-public-article-egress.mjs",
+    "prebuild": "node scripts/prepare-document-runtime.mjs",
+    "predev": "node scripts/prepare-document-runtime.mjs"
   },
   "dependencies": {
     "@mozilla/readability": "^0.6.0",
@@ -29,14 +31,17 @@
     "@types/qrcode": "^1.5.6",
     "@vercel/functions": "^3.7.5",
     "ai": "^7.0.107",
+    "docx-preview": "^0.3.7",
     "gsap": "^3.15.0",
     "jsdom": "^29.1.1",
+    "jszip": "^3.10.1",
     "lz-string": "^1.5.0",
     "meshline": "^3.3.1",
     "next": "15.5.23",
     "nodemailer": "9.0.5",
     "openai": "4.103.0",
     "page-flip": "^2.0.7",
+    "pdfjs-dist": "^5.4.624",
     "qrcode": "^1.5.4",
     "react": "19.0.0",
     "react-dom": "19.0.0",

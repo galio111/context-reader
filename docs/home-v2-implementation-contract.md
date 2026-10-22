@@ -355,3 +355,7 @@ Reader 切换文章建立独立阅读会话，清空来源词高亮与旧翻译�
 用户确认图片动效仅在“真题 → 外刊”后失效，要求优先恢复原效果并检查整条切换链路。原因是资源切换重建卡片，但原观察器只依赖分类与文章 ID；原 scale(.90) → 1、520ms 曲线、双帧准备和离开重播均保留。修复重新绑定网格与桥接区观察器；图片在开场结束后有界预备前四张，其余提前 1200px 准备，图片真正加载后才释放缩放起点，移动端两列使用匹配的 sizes。应用专用持久图片缓存避免发布后全库重新处理。切换关闭悬空偏好面板、取消未完成分类切换，真题筛选保留且旧请求中止，返回真题首页恢复进入位置。浏览器连接故障，实际视觉验收仍未完成，不以自动测试替代。近五年扩库资料保留并继续核对。
 
 已上线 `20260922T153000`（parent `20260922T133000`，source `4ae326b46bb21ec85b2bdebcf1889bb9af9583b5`）。119 项关键/CET/切换回归、7 项用量报告测试、正式构建和发布契约通过。公共身份与大陆后台一致；签入查词及句译、词典、两段全文翻译均成功且执行模型为 deepseek-flash。账号同步、恢复 Admin、七服务、16 表隔离备份恢复和当前/父回滚镜像通过。图片卷挂载正确，四张既有 768px 图片在应用重建后的八次请求均 HIT，约 0.185–0.362s（仅网络样本，不等于页面可见时间）。仅重建 app/caddy。
+
+## Document entry addition (2026-10-22)
+
+The live HomeRedesign import panel adds `导入文档` beside paste/URL and calls HomeClient's real private-upload/save/open flow. Both member and guest homepage layouts expose the entry; live login is required to store documents. No disconnected demonstration route is used. Reader retains the original PDF/DOCX and routes lookups and translations into existing tools. See `document-import-20261022.md` for release evidence and fidelity boundaries.

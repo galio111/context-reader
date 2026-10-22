@@ -89,3 +89,7 @@ Support reduced-motion expectations by avoiding unnecessary animation in the rea
 ## 阅读与等待反馈
 
 等待应有连续、明确的动态反馈，并遵循降低动态设置；已加载内容先显示，重新进入保留结果和位置。工作台背词入口在导入文章上方，继续阅读的长标题不拉长全页。学习统计只显示有证据的活动：文章有效阅读、真题提交成绩和背词各自计算；不把打开页面当成阅读。开发者在隔离的真实组件预览中检查游客/套餐及额度状态。
+
+## Original document reading
+
+Text PDF and Word `.docx` are an additional article entry beside paste and URL. Preserve the original reading surface and add contextual lookup and an adjacent Chinese translation. Preserve PDF pages, columns, images, and equations; do not claim exact Word pagination when browser fonts/layout differ. Document originals are private to their account, saved into My Articles, and read-only. Scanned documents remain outside the shipped OCR boundary.

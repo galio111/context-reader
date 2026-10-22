@@ -200,3 +200,7 @@ Then use the cumulative versioned workflow under `ops/mainland/`. Package only a
 
 
 站内背词接入个人 UI 库：单卡、独立数据/奖励/设置、统一提示弹窗；每日复习默认上限 100，新词无每日目标，短期 Again/Hard 默认 5/10 分钟。奖励先获得后手动领取。详见 [站内学习](docs/vocabulary-study.md)。
+
+## Document reading
+
+The import panel supports signed-in text PDF and Word `.docx` uploads (20 MB, PDF up to 150 pages, extracted text up to 300,000 characters). PDFs retain their original canvas plus selectable text layer; Word uses an isolated original-layout renderer. Imports save to My Articles and synchronize private document references. Scans and legacy `.doc` are unsupported. Source files are read-only; translation appears beside the unchanged original. See `docs/document-import-20261022.md`.

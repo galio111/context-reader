@@ -22,7 +22,7 @@ test('new local favourites appear before cloud refresh without crossing account 
   assert.equal(ui.container.textContent,'old,new');assert.equal(entries.length,1);
   activeOwner='bob';locals=[{...old,id:'private',word:'bob-private'}];ui.rerender(<Notebook/>);
   act(()=>window.dispatchEvent(new CustomEvent(ACCOUNT_DATA_CHANGED_EVENT,{detail:{kinds:['vocabulary']}})));
-  assert.ok(!ui.container.textContent?.includes('bob-private'));
+  assert.ok(!String(ui.container.textContent).includes('bob-private'));
  }finally{cleanup();dom.window.close();}
 });
 

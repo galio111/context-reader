@@ -2096,3 +2096,6 @@ Reported: phone study progress eventually appeared on desktop, but too late. Con
 ## 2026-10-22 取消开场与刷新关键路径优化
 
 用户取消粒子文字开场，刷新目标约 2 秒。移除首页开场状态与渲染，改为流式响应先交付、缓存后台写入，根页面慢网使用有效公开缓存并继续更新；账号检查提前并行。发布身份、前后实测和验证边界见 [本轮记录](startup-fast-20261022.md)。
+## 2026-10-22 — Original PDF and Word document reading
+
+User requested original-layout document import beside existing article import, word/phrase lookup and full translation, with the supplied 11-page SCMs paper saved to gggg. Implemented private source storage, page-preserving PDF text layer, isolated DOCX view, save/sync descriptor and stable translation IDs. Original pages remain unchanged; translation is explicit and adjacent, using complete paper context when bounded and target-centred context for larger documents. Local paper screenshot and Word title/table/page-break checks passed; production/account acceptance is recorded in `document-import-20261022.md`. This entry is a functional increment, not acceptance of unrelated homepage motion.

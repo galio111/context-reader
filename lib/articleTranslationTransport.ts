@@ -1,4 +1,5 @@
 import type { ArticleTranslationBlock, ArticleTranslationItem } from "@/types/reader";
+import { documentTranslationContext } from "@/lib/documentTranslationContext";
 
 const MAX_RETRY_ATTEMPTS = 8;
 const MAX_CONSECUTIVE_ZERO_PROGRESS_ATTEMPTS = 3;
@@ -65,7 +66,7 @@ export async function requestArticleTranslation(
           "x-context-translation-action-id": actionId,
           Accept: "application/x-ndjson",
         },
-        body: JSON.stringify({ blocks: pendingBlocks, contextBlocks }),
+        body: JSON.stringify({ blocks: pendingBlocks, contextBlocks: documentTranslationContext(contextBlocks, pendingBlocks) }),
         signal,
       });
     } catch (error) {

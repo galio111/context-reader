@@ -29,3 +29,6 @@ ops/mainland/.env
 ops/mainland/.env.runtime
 
 .env*
+
+/public/document-runtime/
+/tmp-document-audit.json

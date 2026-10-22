@@ -1,5 +1,6 @@
 
 import { getLearningStorage } from "@/lib/learningStorage";
+import { normalizeDocumentSource } from "@/lib/documentSource";
 import type {
   ArticleReadingStyle,
   ImportedArticle,
@@ -285,6 +286,7 @@ function normalizeImportedArticle(value: unknown, body: string): ImportedArticle
       ? decodeBrowserHtmlEntities(importedArticle.text)
       : body,
     blocks,
+    ...(normalizeDocumentSource(importedArticle.document) ? { document: normalizeDocumentSource(importedArticle.document) } : {}),
     ...(typeof importedArticle.byline === "string" ? { byline: decodeBrowserHtmlEntities(importedArticle.byline) } : {}),
     ...(typeof importedArticle.publishedTime === "string" ? { publishedTime: importedArticle.publishedTime } : {}),
     ...(typeof importedArticle.language === "string" ? { language: importedArticle.language } : {}),
@@ -445,7 +447,7 @@ export function saveArticle(article: string, summary = "", importedArticle?: Imp
   const nextArticles = [
     {
       id: `article-${Date.now()}`,
-      title: titleFromArticle(body),
+      title: normalizedImportedArticle?.document ? normalizedImportedArticle.title : titleFromArticle(body),
       summary,
       body,
       ...(normalizedImportedArticle ? { importedArticle: normalizedImportedArticle } : {}),

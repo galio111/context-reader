@@ -127,7 +127,7 @@ const HERO_SUBTITLES = {
   c: "精选值得读的外刊，也让你带来的长文，在语境中变得可读。",
 } as const;
 
-type InputMode = "paste" | "url";
+type InputMode = "paste" | "url" | "document";
 type QuickActionKind = "import" | "dictionary" | "vocabulary" | "articles";
 
 function QuickActionIcon({ kind }: { kind: QuickActionKind }) {
@@ -166,6 +166,7 @@ interface HomeRedesignProps {
   onArticleUrlChange: (value: string) => void;
   onStartReading: () => Promise<void> | void;
   onImportUrl: () => Promise<void> | void;
+  onImportDocument: (file: File, progress: (message: string) => void) => Promise<void>;
   onOpenDemoArticle: (article: ImportedArticle) => void;
   onOpenSavedArticle: (article: SavedArticle) => void;
   onOpenTemporaryReading: (article: TemporaryReading) => void;
@@ -273,6 +274,17 @@ export function HomeRedesign(props: HomeRedesignProps) {
   );
   const [dictionaryClosing, setDictionaryClosing] = useState(false);
   const [inputMode, setInputMode] = useState<InputMode>("paste");
+  const [documentFile, setDocumentFile] = useState<File | null>(null);
+  const [documentBusy, setDocumentBusy] = useState(false);
+  const [documentStatus, setDocumentStatus] = useState("");
+  const [documentError, setDocumentError] = useState("");
+  async function importDocument() {
+    if (!documentFile || documentBusy) return;
+    setDocumentBusy(true); setDocumentError(""); setDocumentStatus("正在读取文档…");
+    try { await props.onImportDocument(documentFile, setDocumentStatus); }
+    catch (error) { setDocumentError(error instanceof Error && /[\u3400-\u9fff]/.test(error.message) ? error.message : "文档导入未完成，请检查文件和网络后重试。"); }
+    finally { setDocumentBusy(false); setDocumentStatus(""); }
+  }
   const [activeCategory, setActiveCategory] = useState("推荐");
   const [categorySwitching, setCategorySwitching] = useState(false);
   const [recommendationPreferences, setRecommendationPreferences] = useState<RecommendationPreferences>(emptyRecommendationPreferences);
@@ -1068,9 +1080,16 @@ export function HomeRedesign(props: HomeRedesignProps) {
         <div className={styles.importModes}>
           <button type="button" aria-pressed={inputMode === "paste"} onClick={() => setInputMode("paste")}>粘贴文章</button>
           <button type="button" aria-pressed={inputMode === "url"} onClick={() => setInputMode("url")}>输入网址</button>
+          <button type="button" aria-pressed={inputMode === "document"} onClick={() => setInputMode("document")}>导入文档</button>
         </div>
         <div className={styles.importFieldSlot}>
-          {inputMode === "paste" ? (
+          {inputMode === "document" ? (
+            <div className={styles.documentField}>
+              <label htmlFor={compact ? "member-document" : "article-document"}>选择 PDF 或 Word 文档</label>
+              <input id={compact ? "member-document" : "article-document"} type="file" accept=".pdf,.docx" disabled={documentBusy} onChange={event => { setDocumentFile(event.target.files?.[0] ?? null); setDocumentError(""); }} />
+              <p>文字型 PDF、Word .docx，最大 20MB。导入后保留原文排版并保存到我的文章。</p>
+            </div>
+          ) : inputMode === "paste" ? (
             <ClearableField value={props.article} onClear={() => props.onArticleChange("")} label="清空粘贴文章" multiline>
               <textarea
                 value={props.article}
@@ -1096,10 +1115,10 @@ export function HomeRedesign(props: HomeRedesignProps) {
             </div>
           )}
         </div>
-        <button type="button" className={styles.importSubmit} onClick={submitImport} disabled={props.importingUrl}>
-          {inputMode === "url" && props.importingUrl ? <LoadingStatus>正在准备文章…</LoadingStatus> : "开始阅读"}
+        <button type="button" className={styles.importSubmit} onClick={inputMode === "document" ? importDocument : submitImport} disabled={props.importingUrl || documentBusy || (inputMode === "document" && !documentFile)}>
+          {inputMode === "document" && documentBusy ? <LoadingStatus>{documentStatus}</LoadingStatus> : inputMode === "url" && props.importingUrl ? <LoadingStatus>正在准备文章…</LoadingStatus> : "开始阅读"}
         </button>
-        <p className={styles.importError} role="alert">{inputMode === "url" ? props.urlError : props.error}</p>
+        <p className={styles.importError} role="alert">{inputMode === "document" ? documentError : inputMode === "url" ? props.urlError : props.error}</p>
         {inputMode === "url" && props.urlError && (
           <button type="button" className={styles.pasteFallback} onClick={() => setInputMode("paste")}>改为粘贴文章正文</button>
         )}
