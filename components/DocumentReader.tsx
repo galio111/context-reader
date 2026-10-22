@@ -141,12 +141,38 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
     if (!wordBytes || !frameReady || !iframe.current?.contentDocument) return;
     const frame = iframe.current, doc = frame.contentDocument!;
     let disposed = false;
-    const click = (event: MouseEvent) => {
-      if (event.detail > 1) return;
+    let anchor: Range | null = null;
+    let moved = false;
+    let startX = 0, startY = 0;
+    const down = (event: MouseEvent) => {
+      if (event.button !== 0) return;
+      anchor = documentCaretAtPoint(doc.body, event.clientX, event.clientY);
+      moved = false; startX = event.clientX; startY = event.clientY;
+      if (!anchor) return;
+      // Starting inside an existing selection must select again, not start the
+      // browser's native text drag-and-drop operation inside the iframe.
       event.preventDefault();
+      doc.getSelection()?.removeAllRanges();
+    };
+    const move = (event: MouseEvent) => {
+      if (!anchor || event.buttons !== 1) return;
+      if (!moved && Math.hypot(event.clientX - startX, event.clientY - startY) < 3) return;
+      const focus = documentCaretAtPoint(doc.body, event.clientX, event.clientY);
+      if (focus) { moved = true; setDocumentDragRange(anchor, focus); }
+    };
+    const submit = () => {
       const context = readDocumentSelection(doc.body, article);
       if (context) callback.current(context);
     };
+    const up = () => {
+      const selected = moved;
+      anchor = null; moved = false;
+      if (selected) submit();
+    };
+    const keyup = (event: KeyboardEvent) => {
+      if (event.shiftKey && event.key.startsWith("Arrow")) submit();
+    };
+    const touchend = () => requestAnimationFrame(() => { if (!disposed) submit(); });
     const doubleClick = (event: MouseEvent) => {
       const context = selectDocumentWord(event, doc.body, article);
       if (context) callback.current(context);
@@ -163,10 +189,21 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
       frame.style.transform = `scale(${scale})`;
       frame.style.height = `${doc.body.scrollHeight}px`;
       frame.parentElement!.style.height = `${doc.body.scrollHeight * scale}px`;
-      doc.body.addEventListener("mouseup", click);
-      doc.body.addEventListener("dblclick", doubleClick);
+      doc.addEventListener("mousedown", down);
+      doc.addEventListener("mousemove", move);
+      doc.addEventListener("mouseup", up);
+      doc.addEventListener("dblclick", doubleClick);
+      doc.addEventListener("keyup", keyup);
+      doc.addEventListener("touchend", touchend);
+      frame.ownerDocument.addEventListener("mouseup", up);
     }).catch(() => { if (!disposed) setError("Word 排版未能读取，请将文档另存为 PDF 后导入。"); });
-    return () => { disposed = true; doc.body.removeEventListener("mouseup", click); doc.body.removeEventListener("dblclick", doubleClick); };
+    return () => {
+      disposed = true;
+      doc.removeEventListener("mousedown", down); doc.removeEventListener("mousemove", move);
+      doc.removeEventListener("mouseup", up); doc.removeEventListener("dblclick", doubleClick);
+      doc.removeEventListener("keyup", keyup); doc.removeEventListener("touchend", touchend);
+      frame.ownerDocument.removeEventListener("mouseup", up);
+    };
   }, [wordBytes, frameReady, article, width, zoom]);
   return <div ref={root} className={styles.root} data-native-selection="blue" onPointerDown={e => e.stopPropagation()} onPointerMove={e => e.stopPropagation()} onPointerUp={e => e.stopPropagation()} onClick={e => e.stopPropagation()}>
     <div className={styles.toolbar}>
