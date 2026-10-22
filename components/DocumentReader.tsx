@@ -5,34 +5,10 @@ import type { ImportedArticle } from "@/types/article";
 import type { WordContext } from "@/types/reader";
 import { documentUrl } from "@/lib/documentSource";
 import { pdfLibrary, pdfOptions } from "@/lib/documentClient";
+import { readDocumentSelection, selectDocumentWord, documentCaretAtPoint, setDocumentDragRange, clearDocumentSelectionHighlight } from "@/lib/documentSelection";
+import { recordPdfGlyphs, alignPdfTextLayer } from "@/lib/pdfSelectionGeometry";
 import styles from "./DocumentReader.module.css";
 
-function selectedContext(event: MouseEvent, root: HTMLElement, article: ImportedArticle): WordContext | null {
-  const doc = root.ownerDocument;
-  const selection = doc.getSelection();
-  let word = selection?.toString().trim() ?? "";
-  if (word && (!selection?.anchorNode || !root.contains(selection.anchorNode))) return null;
-  let node = selection?.anchorNode;
-  if (!word) {
-    const range = (doc as Document & { caretRangeFromPoint?: (x: number, y: number) => Range | null }).caretRangeFromPoint?.(event.clientX, event.clientY);
-    if (!range || range.startContainer.nodeType !== Node.TEXT_NODE || !root.contains(range.startContainer)) return null;
-    node = range.startContainer;
-    const text = node.textContent ?? "";
-    const offset = range.startOffset;
-    const match = Array.from(text.matchAll(/[A-Za-z]+(?:['’\-][A-Za-z]+)*/g)).find(m => m.index! <= offset && m.index! + m[0].length >= offset);
-    if (!match) return null;
-    word = match[0];
-  }
-  word = word.replace(/([a-z])-\s*\n\s*([a-z])/g, "$1$2").replace(/\s+/g, " ");
-  if (!/[a-z]/i.test(word) || word.length > 500) return null;
-  const page = (node?.parentElement?.closest("[data-document-page]") as HTMLElement | null)?.dataset.documentPage;
-  const nearby = node?.parentElement?.closest("p,td,h1,h2,h3")?.textContent?.trim();
-  const candidates = article.blocks.filter(b => !page || b.id.startsWith(`doc-p${page}-`));
-  const block = candidates.find(b => b.text?.includes(nearby || node?.textContent || word)) ?? candidates.find(b => b.text?.includes(word));
-  const index = block ? article.blocks.indexOf(block) : -1;
-  return { word, sentence: (block?.text || nearby || word).slice(0, 6000), paragraphIndex: index, tokenIndex: 0,
-    previousSentence: article.blocks[index - 1]?.text?.slice(-2000) || "", nextSentence: article.blocks[index + 1]?.text?.slice(0, 2000) || "" };
-}
 
 function PdfPage({ pdf, number, width, zoom }: { pdf: PDFDocumentProxy; number: number; width: number; zoom: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -77,11 +53,16 @@ function PdfPage({ pdf, number, width, zoom }: { pdf: PDFDocumentProxy; number: 
       if (disposed) return;
       // Paint source images, vectors and stored annotation appearances together;
       // the transparent text layer adds selection without replacing source text.
-      render = page.render({ canvas, viewport, transform: [ratio, 0, 0, ratio, 0, 0], annotationMode: library.AnnotationMode.ENABLE_STORAGE });
-      const textContent = await page.getTextContent();
-      if (disposed) return;
+      const [textContent, recording] = await Promise.all([page.getTextContent(), recordPdfGlyphs(page, canvas.getContext("2d")!, ratio, library.OPS)]);
+      if (disposed) { recording.restore(); return; }
+      text.lang = textContent.lang || "en";
       layer = new library.TextLayer({ textContentSource: textContent, container: text, viewport });
-      await Promise.all([render.promise, layer.render()]);
+      render = page.render({ canvas, viewport, transform: [ratio, 0, 0, ratio, 0, 0], annotationMode: library.AnnotationMode.ENABLE_STORAGE });
+      try {
+        await Promise.all([render.promise, layer.render()]);
+        if (!disposed && viewport.rotation === 0) alignPdfTextLayer(text, recording.glyphs, viewport.scale,
+          textContent.items.filter((item): item is import("pdfjs-dist/types/src/display/api").TextItem => "str" in item), viewport.height);
+      } finally { recording.restore(); }
       if (!disposed) setReady(true);
     })().catch(() => { if (!disposed) setError("此页未能完整显示。"); });
     return () => { disposed = true; render?.cancel(); layer?.cancel(); host.replaceChildren(); };
@@ -100,6 +81,7 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
   const root = useRef<HTMLDivElement>(null);
   const iframe = useRef<HTMLIFrameElement>(null);
   const callback = useRef(onLookup); callback.current = onLookup;
+  const drag = useRef<{ anchor: Range; x: number; y: number; moved: boolean } | null>(null);
   const [pdf, setPdf] = useState<PDFDocumentProxy | null>(null);
   const [wordBytes, setWordBytes] = useState<ArrayBuffer | null>(null);
   const [width, setWidth] = useState(700);
@@ -119,6 +101,17 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
     let task: ReturnType<Awaited<ReturnType<typeof pdfLibrary>>["getDocument"]> | undefined;
     setLoading(true); setError(""); setPdf(null); setWordBytes(null);
     void (async () => {
+      if (source.format === "pdf") {
+        const library = await pdfLibrary();
+        if (controller.signal.aborted) return;
+        task = library.getDocument({ url: documentUrl(source), withCredentials: true, rangeChunkSize: 262144, ...pdfOptions });
+        const timeout = setTimeout(() => { void task?.destroy(); }, 60_000);
+        try {
+          const loaded = await task.promise;
+          if (!controller.signal.aborted) { setPdf(loaded); setLoading(false); }
+        } finally { clearTimeout(timeout); }
+        return;
+      }
       let response: Response | undefined;
       for (let retry = 0; retry < 3; retry++) {
         try {
@@ -131,13 +124,7 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
       if (!response.ok) throw new Error("文档暂时无法读取，请确认已联网并登录原账号。");
       const bytes = await response.arrayBuffer();
       if (controller.signal.aborted) return;
-      if (source.format === "pdf") {
-        const library = await pdfLibrary();
-        if (controller.signal.aborted) return;
-        task = library.getDocument({ data: bytes, ...pdfOptions });
-        const loaded = await task.promise;
-        if (!controller.signal.aborted) setPdf(loaded);
-      } else setWordBytes(bytes);
+      setWordBytes(bytes);
       setLoading(false);
     })().catch(e => { if (!controller.signal.aborted) { setError(e instanceof Error ? e.message : "文档打开失败。"); setLoading(false); } });
     return () => { controller.abort(); void task?.destroy(); };
@@ -147,8 +134,13 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
     const frame = iframe.current, doc = frame.contentDocument!;
     let disposed = false;
     const click = (event: MouseEvent) => {
+      if (event.detail > 1) return;
       event.preventDefault();
-      const context = selectedContext(event, doc.body, article);
+      const context = readDocumentSelection(doc.body, article);
+      if (context) callback.current(context);
+    };
+    const doubleClick = (event: MouseEvent) => {
+      const context = selectDocumentWord(event, doc.body, article);
       if (context) callback.current(context);
     };
     void import("docx-preview").then(async ({ renderAsync }) => {
@@ -164,8 +156,9 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
       frame.style.height = `${doc.body.scrollHeight}px`;
       frame.parentElement!.style.height = `${doc.body.scrollHeight * scale}px`;
       doc.body.addEventListener("mouseup", click);
+      doc.body.addEventListener("dblclick", doubleClick);
     }).catch(() => { if (!disposed) setError("Word 排版未能读取，请将文档另存为 PDF 后导入。"); });
-    return () => { disposed = true; doc.body.removeEventListener("mouseup", click); };
+    return () => { disposed = true; doc.body.removeEventListener("mouseup", click); doc.body.removeEventListener("dblclick", doubleClick); };
   }, [wordBytes, frameReady, article, width, zoom]);
   return <div ref={root} className={styles.root} data-native-selection="blue" onPointerDown={e => e.stopPropagation()} onPointerMove={e => e.stopPropagation()} onPointerUp={e => e.stopPropagation()} onClick={e => e.stopPropagation()}>
     <div className={styles.toolbar}>
@@ -175,10 +168,36 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
     </div>
     {loading && <p role="status">正在打开文档…</p>}
     {error && <p role="alert">原件暂时未能打开，页面、图片和标注仍保存在原文件中。<button className={styles.retry} type="button" onClick={() => setAttempt(v => v + 1)}>重新打开原件</button></p>}
-    <div className={styles.scroll} onMouseUp={event => {
+    <div className={styles.scroll} data-document-selection-root onMouseDown={event => {
+      if (event.button !== 0 || !(event.target as Element).closest(".textLayer")) return;
+      const anchor = documentCaretAtPoint(event.currentTarget, event.clientX, event.clientY);
+      drag.current = anchor ? { anchor, x: event.clientX, y: event.clientY, moved: false } : null;
+      // Per-glyph positioned nodes need an explicit range across glyph boundaries.
+      event.preventDefault();
+      event.currentTarget.ownerDocument.getSelection()?.removeAllRanges();
+      clearDocumentSelectionHighlight(event.currentTarget);
+    }} onMouseMove={event => {
+      const current = drag.current;
+      if (!current || event.buttons !== 1) return;
+      if (Math.hypot(event.clientX - current.x, event.clientY - current.y) < 3 && !current.moved) return;
+      const focus = documentCaretAtPoint(event.currentTarget, event.clientX, event.clientY);
+      if (focus) { current.moved = true; setDocumentDragRange(current.anchor, focus); }
+    }} onMouseUp={event => {
+      const current = drag.current; drag.current = null;
+      if (current && !current.moved) return;
+      if (event.detail > 1) return;
       if ((event.target as HTMLElement).closest("button,a")) return;
-      const context = selectedContext(event.nativeEvent, event.currentTarget, article);
+      const context = readDocumentSelection(event.currentTarget, article);
       if (context) callback.current(context);
+    }} onDoubleClick={event => {
+      event.stopPropagation();
+      const context = selectDocumentWord(event.nativeEvent, event.currentTarget, article);
+      if (context) callback.current(context);
+    }} onKeyUp={event => {
+      if (event.shiftKey && event.key.startsWith("Arrow")) {
+        const context = readDocumentSelection(event.currentTarget, article);
+        if (context) callback.current(context);
+      }
     }}>
       {pdf && Array.from({ length: pdf.numPages }, (_, i) => <PdfPage key={i} pdf={pdf} number={i + 1} width={width} zoom={zoom} />)}
       {source.format === "docx" && <div style={{ position: "relative", width: zoom ? 816 * zoom : width }}><iframe ref={iframe} title={source.name} sandbox="allow-same-origin" srcDoc={WORD_SHELL} onLoad={() => setFrameReady(true)} style={{ border: 0, transformOrigin: "top left", display: "block", width: 816, minHeight: 400 } as CSSProperties} /></div>}

@@ -3,7 +3,8 @@ import type { ImportedArticle, ImportedArticleBlock } from "@/types/article";
 import { MAX_DOCUMENT_BYTES, MAX_DOCUMENT_PAGES, MAX_DOCUMENT_TEXT } from "./documentSource";
 import { validateDocumentBytes } from "./documentValidation";
 import { pdfPageBlocks, type PdfTextItem } from "./documentText";
-import { version as pdfVersion } from "pdfjs-dist/package.json";
+import pdfPackage from "pdfjs-dist/package.json";
+const pdfVersion = pdfPackage.version;
 export const PDF_RUNTIME = `/document-runtime/${pdfVersion}/`;
 export async function pdfLibrary() {
   const pdf: typeof import("pdfjs-dist") = await import(/* webpackIgnore: true */ `${PDF_RUNTIME}pdf.min.mjs`);

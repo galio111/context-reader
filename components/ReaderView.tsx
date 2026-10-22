@@ -1,4 +1,6 @@
 "use client";
+import { DocumentSelectionTranslation, useDocumentSelectionTranslation } from "@/components/DocumentSelectionTranslation";
+import { documentSelectionMode } from "@/lib/documentSelection";
 import { DocumentReader } from "@/components/DocumentReader";
 import { LoadingStatus } from "./LoadingStatus";
 import { OPEN_ACCOUNT_USAGE_EVENT } from "@/lib/accountUsageNavigation";
@@ -1251,6 +1253,8 @@ export function ReaderView({
   const [dragStartToken, setDragStartToken] = useState<ReaderToken | null>(null);
   const [dragCurrentToken, setDragCurrentToken] = useState<ReaderToken | null>(null);
   const [selectedContext, setSelectedContext] = useState<WordContext | null>(null);
+  const documentPassage = currentImportedArticle?.document && selectedContext && documentSelectionMode(selectedContext.word) === "translation" ? selectedContext : null;
+
   const [explanation, setExplanation] = useState<WordExplanation | null>(null);
   useReadingEvidence(account.authenticated && !isOffline && !examSurface ? account.profile?.userId ?? "" : "", articleSource?.id || currentArticle.slice(0, 160), explanation?.word ?? "");
   const [explanationStream] = useState(createExplanationStreamStore);
@@ -1334,6 +1338,8 @@ export function ReaderView({
     totalTargetBlocks: translationTotalTargetBlocks, staleBlockIds: staleTranslationBlockIds,
     removedCount: removedTranslationCount, ready: translationOwnerReady, showCachedTranslations,
   } = useReaderTranslationSession(translationSourceKey, translationBlocks, translationAccountOwner);
+  const documentPassageResult = useDocumentSelectionTranslation(documentPassage, currentImportedArticle,
+    translationOwnerReady && account.authenticated ? account.profile?.userId : undefined, isOffline);
   const dictionaryLayer = useToolLayer(dictionaryMounted);
   const workLayer = useToolLayer(Boolean(readerWorkLayer));
   useDocumentScrollLock(Boolean(readerWorkLayer) || Boolean(activeImageBlockId) || (mobileViewport && dictionaryMounted));
@@ -2195,6 +2201,17 @@ export function ReaderView({
     }
   }
 
+  function handleDocumentSelection(context: WordContext) {
+    const mode = documentSelectionMode(context.word);
+    if (mode === "ignore") return;
+    if (mode === "lookup") { void explainContext(context, []); return; }
+    if (!requireAccount("登录后可翻译所选内容。")) return;
+    abortActiveExplanationTransport();
+    closeQuestions(); setExplanation(null); setExplanationStreamText(""); setExplanationStreaming(false); setLoading(false);
+    setSelectedTokenIds([]); setSelectedContext(context); setError("");
+    setMobileExplanationOpen(true); setReaderMenuOpen(false); setRightPanelMode("explanation");
+  }
+
   function generateArticleTranslation(force = false) {
     if (!requireAccount("全文翻译需要登录；公开推荐文章中管理员预先发布的翻译仍可直接查看。")) return;
     if (!translationOwnerReady || preparedTranslationOwner() !== translationAccountOwner || (!force && translationLoading) || translationBlocks.length === 0) {
@@ -2245,7 +2262,7 @@ export function ReaderView({
       openLogin("今天的游客查词次数已用完，登录后可继续查词并同步学习数据。");
       return;
     }
-    if (!selectedContext || selectedTokenIds.length === 0) {
+    if (!selectedContext || (!currentImportedArticle?.document && selectedTokenIds.length === 0)) {
       return;
     }
     void explainContext(selectedContext, selectedTokenIds, {
@@ -3687,7 +3704,7 @@ export function ReaderView({
             onPointerCancel={handleArticlePointerCancel}
             onClick={handleArticleClick} onKeyDown={event=>{if(event.key!=="Enter" && event.key!==" ")return;const token=tokenFromEventTarget(event.target);if(token){event.preventDefault();handleTokenClick(token);}}}
           >
-            {currentImportedArticle?.document ? <DocumentReader article={currentImportedArticle} onLookup={context => { void explainContext(context, []); }} /> : editingArticle ? (
+            {currentImportedArticle?.document ? <DocumentReader article={currentImportedArticle} onLookup={handleDocumentSelection} /> : editingArticle ? (
               !currentImportedArticle?.blocks?.length ? (
                 <div
                   key={`plain-article-editor-${articleEditRevision}`}
@@ -4018,7 +4035,8 @@ export function ReaderView({
                 />
               </div>
               <div className={rightPanelMode === "explanation" ? "h-full min-h-0" : "hidden h-full min-h-0"}>
-                <ExplanationPanel
+                {documentPassage ? <DocumentSelectionTranslation context={documentPassage} result={documentPassageResult} /> : <ExplanationPanel
+                  documentMode={Boolean(currentImportedArticle?.document)}
                   explanation={explanation}
                   streamSource={explanationStream}
                   streaming={explanationStreaming}
@@ -4029,7 +4047,7 @@ export function ReaderView({
                   vocabularyMatchNotice={vocabularyMatchNotice}
                   onAddToVocabulary={handleAddToVocabulary}
                   onRegenerate={handleRegenerateExplanation}
-                />
+                />}
               </div>
             </div>
             </>}
@@ -4263,7 +4281,8 @@ export function ReaderView({
           <div className={toolbarStyles.mobileSheetBody} data-local-scroll-surface hidden={questionDock.open} inert={questionDock.open}>
             {rightPanelMode === "explanation" && (
               hasExplanationPanelContent ? (
-                <ExplanationPanel
+                documentPassage ? <DocumentSelectionTranslation context={documentPassage} result={documentPassageResult} /> : <ExplanationPanel
+                  documentMode={Boolean(currentImportedArticle?.document)}
                   explanation={explanation}
                   streamSource={explanationStream}
                   streaming={explanationStreaming}
@@ -4277,8 +4296,8 @@ export function ReaderView({
                 />
               ) : (
                 <div className={toolbarStyles.mobileToolEmpty}>
-                  <strong>先点击一个英文词</strong>
-                  <p>直接点击查单词；需要查短语时，横向拖动或长按后选择。上下滑动始终用于阅读。</p>
+                  <strong>{currentImportedArticle?.document ? "双击单词或拖选内容" : "先点击一个英文词"}</strong>
+                  <p>{currentImportedArticle?.document ? "选择完整单词可查释义；超过 5 个词直接翻译所选内容。" : "直接点击查单词；需要查短语时，横向拖动或长按后选择。上下滑动始终用于阅读。"}</p>
                 </div>
               )
             )}

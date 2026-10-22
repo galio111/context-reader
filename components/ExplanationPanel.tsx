@@ -25,6 +25,7 @@ interface ExplanationPanelProps {
   showLearningActions?: boolean;
   onAddToVocabulary: () => void;
   onRegenerate?: () => void;
+  documentMode?: boolean;
 }
 
 function buildExplanationText(explanation: WordExplanation, context: WordContext | null): string {
@@ -73,6 +74,7 @@ export function ExplanationPanel({
   showLearningActions = true,
   onAddToVocabulary,
   onRegenerate,
+  documentMode = false,
 }: ExplanationPanelProps) {
   const [sentenceQuestion, setSentenceQuestion] = useState("");
   const [sentenceAnswer, setSentenceAnswer] = useState("");
@@ -185,7 +187,7 @@ export function ExplanationPanel({
   return (
     <aside ref={panelRef} className="cr-reader-panel relative h-full min-h-0 w-full flex-1 overflow-y-auto rounded-[14px] border border-[#e0e0e0] bg-white p-5 overscroll-contain [scrollbar-gutter:stable] [-webkit-overflow-scrolling:touch] lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)]">
       {!selectedContext && !loading && !explanation && (
-        <p className="text-sm leading-6 tracking-[-0.224px] text-[#7a7a7a]">点击文章中的任意英文单词查看语境解释。</p>
+        <p className="text-sm leading-6 tracking-[-0.224px] text-[#7a7a7a]">{documentMode ? "双击查单词，拖选查短语；超过 5 个词直接翻译。" : "点击文章中的任意英文单词查看语境解释。"}</p>
       )}
 
       {loading && !streamText && <LoadingStatus className="text-sm leading-6 tracking-[-0.224px] text-[#333333]">正在分析语境...</LoadingStatus>}

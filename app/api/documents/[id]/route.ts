@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { getAuthenticatedUser } from "@/lib/userAuth";
-import { DOCUMENT_BUCKET, documentStore } from "@/lib/documentStore";
+import { DOCUMENT_BUCKET } from "@/lib/documentStore";
 export const runtime = "nodejs";
 export async function GET(request: Request, context: { params: Promise<{ id: string }> }) {
   const user = await getAuthenticatedUser();
@@ -8,8 +8,28 @@ export async function GET(request: Request, context: { params: Promise<{ id: str
   const { id } = await context.params;
   const format = new URL(request.url).searchParams.get("format");
   if (!/^[a-f0-9]{64}$/.test(id) || (format !== "pdf" && format !== "docx")) return new Response(null, { status: 400 });
-  const { data, error } = await documentStore().storage.from(DOCUMENT_BUCKET).download(`${user.id}/${id}.${format}`);
-  if (error || !data) return NextResponse.json({ error: "文档暂时无法读取，请检查网络后重试。" }, { status: 404 });
-  return new Response(data, { headers: { "Content-Type": format === "pdf" ? "application/pdf" : "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-    "Cache-Control": "private, no-store", "X-Content-Type-Options": "nosniff", "Content-Disposition": `attachment; filename="document.${format}"` } });
+  const range = request.headers.get("range");
+  if (range && !/^bytes=\d+-\d*$/.test(range)) return new Response(null, { status: 416 });
+  // Stream the private owner-scoped object instead of buffering it in the app
+  // and then buffering it a second time in the browser before PDF.js can start.
+  try {
+    const key = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+    const upstream = await fetch(`${process.env.SUPABASE_URL}/storage/v1/object/${DOCUMENT_BUCKET}/${user.id}/${id}.${format}`, {
+      headers: { apikey: key, Authorization: `Bearer ${key}`, ...(range ? { Range: range } : {}) },
+      cache: "no-store", signal: AbortSignal.any([request.signal, AbortSignal.timeout(60_000)]),
+    });
+    if (!upstream.ok || !upstream.body) {
+      await upstream.body?.cancel();
+      return NextResponse.json({ error: "文档暂时无法读取，请检查网络后重试。" }, { status: upstream.status === 416 ? 416 : [400,403,404].includes(upstream.status) ? 404 : 502 });
+    }
+    const headers = new Headers({ "Content-Type": format === "pdf" ? "application/pdf" : "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "Cache-Control": "private, no-store", "X-Content-Type-Options": "nosniff", "Content-Disposition": `attachment; filename="document.${format}"` });
+    for (const name of ["content-length", "content-range", "accept-ranges"]) {
+      if (name === "content-length" && upstream.headers.has("content-encoding")) continue;
+      const value = upstream.headers.get(name); if (value) headers.set(name, value);
+    }
+    return new Response(upstream.body, { status: upstream.status, headers });
+  } catch {
+    return NextResponse.json({ error: "文档暂时无法读取，请检查网络后重试。" }, { status: 502 });
+  }
 }

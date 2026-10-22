@@ -2133,3 +2133,8 @@ Final cumulative release accepted `20261022T180600`, parent `20261022T175300`, s
 已上线 `20261022T194500`，parent `20261022T192000`，source `dea08b179e6f14732920bc729910e4990d70f479`。修复 gggg 同一篇文章的原件关联，保留标题、摘要、阅读进度和其他数据；受控旧版同步未再抹去 descriptor 与原块 ID。真实浏览器逐页显示 11 页，含化学结构、实验图片与图内标注；划词与句译正常。正文 51 段、可选图注 6 段缓存回放，无新翻译请求；对照原文、实际 100%、刷新、390px 检查通过。150 项架构/核心/文档测试、8 项供应商故障与单次计费测试、构建、完整 CI、实账号三类核心 API 和 DeepSeek Flash 账本验证通过。health、40 表隔离备份恢复及父版本回滚镜像可用，五个后台容器未重建。证据见 document-import-20261022.md；物理手机/Safari 与最终用户视觉确认不由模拟浏览器代替。
 
 重复使用补充：一次额外新浏览器测试报告 React #185，原件和译文仍可见；随后带堆栈/阶段记录的两次新浏览器复测通过，关联未再丢失。原因未查明，不将未复现表述为已修复；详见验收文档的未决诊断。
+
+
+## 2026-10-22 — Imported-file selection correction (candidate)
+
+User screenshots exposed font-metric selection drift, long passages routed to lexical validation and serial PDF startup. Candidate calibrates glyph hit regions from source painting, completes partial words, scopes highlights to glyphs, ignores single clicks/punctuation, and routes selections over five words to translation only. Ordinary article interactions remain unchanged. Private source downloads now stream with ranges. 153 regressions and source-coordinate desktop drag checks passed; production deployment and public speed/account verification are pending.
