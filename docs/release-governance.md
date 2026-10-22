@@ -2,6 +2,10 @@
 
 ## Current accepted release
 
+Accepted `20261022T212000`, parent `20261022T205000`, source `5fb8d80087eec0efd77cdd7e3ba2234f5b8e8bf8`. Public identity and mainland_internal agree. The reviewed nine-file follow-up adds parallel original/runtime loading, a bounded owner-scoped original cache and prepared-storage owner checks to the accepted document-selection repair. Production builds, exact-source CI, 153 regressions, real gggg selection/cache/full-translation replay, signed-in Flash core APIs, private/Admin boundaries, health, unchanged backend identities, 40-table restore and retained parent image passed. Cold-first-open performance remains network-dependent and was 22.9 s in the recorded sample; cached reload was 5.5 s with no original transfer. Actual rollback and physical phone/Safari acceptance were not performed. [Evidence](document-import-20261022.md). Later documentation commits do not change the deployed source identity.
+
+## Previous accepted spelling release
+
 已接受生产 `20261014T115435`，父版本 `20261014T111000`，源提交 `8991775275750a71a5b32a577ec354fbfed25a77`。公网身份与内部后端模式一致，精确 31 文件累计包通过稳定发布入口。74 项学习、90 项核心、8 项模型/计费回归，类型检查、生产构建、发布契约与源码 CI 通过；语音兼容 CI 通过。真实公网账号验证三种回忆选择、漏字/全对/多字批改、三次作答各保存一次、手机窄屏及全展开详情。划词含句译、词典、全文翻译均为 deepseek-flash 成功；账号/同步/Admin 边界、七服务健康、五后端身份不变、40 表备份校验与隔离恢复、当前/父回滚镜像通过。临时账号和凭据已精确清理。实际回滚未执行；真机移动键盘、Edge/Safari 拼写界面和用户视觉接受仍开放。 [Evidence](study-spelling-20261014.md). Later documentation-only commits do not change the deployed source identity.
 
 ## Previous accepted cold study entry release
