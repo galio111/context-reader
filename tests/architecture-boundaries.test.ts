@@ -41,7 +41,8 @@ test("reading runtime layers keep their documented import boundaries", () => {
   const allowed = new Map<string, string[]>([
     ["lib/readerDocumentModel.ts", ["@/lib/readerBlockTokens", "@/lib/readerTokenIdentity", "@/lib/sourceMatching"]],
     ["lib/articleTranslationProgress.ts", []],
-    ["lib/articleTranslationTransport.ts", []],
+    ["lib/articleTranslationTransport.ts", ["@/lib/documentTranslationContext"]],
+    ["lib/documentTranslationContext.ts", []],
     ["lib/accountStorageTransition.ts", []],
     ["lib/translationCacheRepository.ts", ["@/lib/learningStorage", "@/lib/articleTranslationIdentity"]],
     ["lib/vocabularyRepository.ts", ["@/lib/learningStorage", "@/lib/ankiData", "lz-string", "@/lib/accountEvents", "@/lib/vocabularyMerge", "@/lib/dictionaryResultSnapshot"]],
@@ -58,7 +59,7 @@ test("domain/runtime modules do not import UI components or server adapters", ()
       assert.doesNotMatch(dependency, /(?:^react(?:\/|$)|components\/|app\/|server-only|supabase|deepseek)/, `${path} acquired a UI/server dependency`);
     }
   }
-  for (const path of ["lib/readerDocumentModel.ts", "lib/articleTranslationProgress.ts"]) {
+  for (const path of ["lib/readerDocumentModel.ts", "lib/articleTranslationProgress.ts", "lib/documentTranslationContext.ts"]) {
     const source = readFileSync(new URL(`../${path}`, import.meta.url), "utf8");
     assert.doesNotMatch(source, /\b(?:window|document|localStorage|sessionStorage|fetch)\s*[.(]/, `${path} remains pure without browser, storage or network effects`);
   }
