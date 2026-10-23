@@ -2,7 +2,7 @@
 
 ## Current production release; performance acceptance open
 
-Production `20261023T231000`, parent `20261023T185600`, source `eb55b6d08f048c4e1810bf455ec9ee0ecbaa2d9b`. Exact public identity, 33-file package, CI 39975346053, 160 regressions, real gggg large/old PDF opening and cache refresh, three live deepseek-flash reading routes, source integrity, health, unchanged persistent backend IDs, fresh 40-table backup restore and retained rollback image pass. An actual emergency rollback restored 185600 before this recovery. WPS-equivalent performance is NOT accepted: public cold opens still measure 17.627–19.690 s; cached refreshes 2.313–4.377 s. Physical Safari/WPS and user acceptance remain open. See [recovery evidence](document-controls-20261023.md). Later documentation commits do not change the deployed source identity.
+Production `20261023T234000`, parent `20261023T231000`, source `4f3aa8eea09cdc5a92173c4e65adbefbab80e7e6`. Public identity, reviewed 10-file delta, source CI 39979589968, 160 regressions, real gggg large/old PDFs, three live deepseek-flash routes, original integrity, health, unchanged persistent backends and fresh 40-table backup restore pass. WPS-equivalent performance remains NOT accepted: large PDF cold first page 19.705 s, page five 13.604 s after jumping, all pages 78.988 s; cached reopen 1.133 s. Server outbound measured 3.08 Mbps; bypassing the local proxy did not improve cold loading. No paid file-delivery service has been created. See [evidence and next step](document-controls-20261023.md). Later documentation commits do not change the deployed source identity.
 
 ## Previous accepted Word selection repair
 
