@@ -8,6 +8,7 @@ import { documentUrl } from "@/lib/documentSource";
 import { pdfLibrary, pdfOptions } from "@/lib/documentClient";
 import { readDocumentSelection, selectDocumentWord, documentCaretAtPoint, setDocumentDragRange, clearDocumentSelectionHighlight } from "@/lib/documentSelection";
 import { recordPdfGlyphs, alignPdfTextLayer } from "@/lib/pdfSelectionGeometry";
+import { observeSandboxedSelection } from "@/lib/documentSelectionObserver";
 import styles from "./DocumentReader.module.css";
 
 
@@ -81,6 +82,7 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
   const source = article.document!;
   const root = useRef<HTMLDivElement>(null);
   const iframe = useRef<HTMLIFrameElement>(null);
+  const wordMouseSurface = useRef<HTMLDivElement>(null);
   const callback = useRef(onLookup); callback.current = onLookup;
   const drag = useRef<{ anchor: Range; x: number; y: number; moved: boolean } | null>(null);
   const [pdf, setPdf] = useState<PDFDocumentProxy | null>(null);
@@ -142,9 +144,12 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
     const frame = iframe.current, doc = frame.contentDocument!;
     let disposed = false;
     let anchor: Range | null = null;
+    let eventsUntil = 0;
+    let stopObserving: (() => void) | undefined;
     let moved = false;
     let startX = 0, startY = 0;
     const down = (event: MouseEvent) => {
+      eventsUntil = Date.now() + 500;
       if (event.button !== 0) return;
       anchor = documentCaretAtPoint(doc.body, event.clientX, event.clientY);
       moved = false; startX = event.clientX; startY = event.clientY;
@@ -166,17 +171,36 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
     };
     const up = () => {
       const selected = moved;
+      if (anchor) eventsUntil = Date.now() + 500;
       anchor = null; moved = false;
       if (selected) submit();
     };
     const keyup = (event: KeyboardEvent) => {
+      eventsUntil = Date.now() + 500;
       if (event.shiftKey && event.key.startsWith("Arrow")) submit();
     };
-    const touchend = () => requestAnimationFrame(() => { if (!disposed) submit(); });
+    const touchend = () => requestAnimationFrame(() => { if (!disposed) { eventsUntil = Date.now() + 500; submit(); } });
     const doubleClick = (event: MouseEvent) => {
+      eventsUntil = Date.now() + 500;
       const context = selectDocumentWord(event, doc.body, article);
       if (context) callback.current(context);
     };
+    // Mouse events in a script-disabled iframe are suppressed by WebKit. The
+    // transparent parent surface owns mouse selection; source pixels stay in
+    // the sandbox and native touch/keyboard ranges use the observer below.
+    const surface = wordMouseSurface.current;
+    const frameEvent = (event: MouseEvent) => {
+      const bounds = frame.getBoundingClientRect();
+      return new MouseEvent(event.type, { button: event.button, buttons: event.buttons,
+        clientX: (event.clientX - bounds.left) * frame.clientWidth / bounds.width,
+        clientY: (event.clientY - bounds.top) * frame.clientHeight / bounds.height });
+    };
+    const surfaceDown = (event: MouseEvent) => {
+      if (event.button !== 0) return;
+      event.preventDefault(); frame.contentWindow?.focus(); down(frameEvent(event));
+    };
+    const surfaceMove = (event: MouseEvent) => { if (anchor) move(frameEvent(event)); };
+    const surfaceDoubleClick = (event: MouseEvent) => { event.preventDefault(); doubleClick(frameEvent(event)); };
     void import("docx-preview").then(async ({ renderAsync }) => {
       await renderAsync(wordBytes, doc.body, undefined, { inWrapper: true, ignoreWidth: false, ignoreHeight: false,
         breakPages: true, renderHeaders: true, renderFooters: true, renderFootnotes: true, renderEndnotes: true,
@@ -188,6 +212,7 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
       const scale = zoom || width / contentWidth;
       frame.style.transform = `scale(${scale})`;
       frame.style.height = `${doc.body.scrollHeight}px`;
+      frame.parentElement!.style.width = `${contentWidth * scale}px`;
       frame.parentElement!.style.height = `${doc.body.scrollHeight * scale}px`;
       doc.addEventListener("mousedown", down);
       doc.addEventListener("mousemove", move);
@@ -196,13 +221,21 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
       doc.addEventListener("keyup", keyup);
       doc.addEventListener("touchend", touchend);
       frame.ownerDocument.addEventListener("mouseup", up);
+      surface?.addEventListener("mousedown", surfaceDown);
+      surface?.addEventListener("dblclick", surfaceDoubleClick);
+      frame.ownerDocument.addEventListener("mousemove", surfaceMove);
+      stopObserving = observeSandboxedSelection(frame, () => Boolean(anchor) || Date.now() < eventsUntil, submit);
     }).catch(() => { if (!disposed) setError("Word 排版未能读取，请将文档另存为 PDF 后导入。"); });
     return () => {
       disposed = true;
+      stopObserving?.();
       doc.removeEventListener("mousedown", down); doc.removeEventListener("mousemove", move);
       doc.removeEventListener("mouseup", up); doc.removeEventListener("dblclick", doubleClick);
       doc.removeEventListener("keyup", keyup); doc.removeEventListener("touchend", touchend);
       frame.ownerDocument.removeEventListener("mouseup", up);
+      surface?.removeEventListener("mousedown", surfaceDown);
+      surface?.removeEventListener("dblclick", surfaceDoubleClick);
+      frame.ownerDocument.removeEventListener("mousemove", surfaceMove);
     };
   }, [wordBytes, frameReady, article, width, zoom]);
   return <div ref={root} className={styles.root} data-native-selection="blue" onPointerDown={e => e.stopPropagation()} onPointerMove={e => e.stopPropagation()} onPointerUp={e => e.stopPropagation()} onClick={e => e.stopPropagation()}>
@@ -245,7 +278,7 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
       }
     }}>
       {pdf && Array.from({ length: pdf.numPages }, (_, i) => <PdfPage key={i} pdf={pdf} number={i + 1} width={width} zoom={zoom} />)}
-      {source.format === "docx" && <div style={{ position: "relative", width: zoom ? 816 * zoom : width }}><iframe ref={iframe} title={source.name} sandbox="allow-same-origin" srcDoc={WORD_SHELL} onLoad={() => setFrameReady(true)} style={{ border: 0, transformOrigin: "top left", display: "block", width: 816, minHeight: 400 } as CSSProperties} /></div>}
+      {source.format === "docx" && <div style={{ position: "relative", width: zoom ? 816 * zoom : width }}><iframe ref={iframe} title={source.name} sandbox="allow-same-origin" srcDoc={WORD_SHELL} onLoad={() => setFrameReady(true)} style={{ border: 0, transformOrigin: "top left", display: "block", width: 816, minHeight: 400 } as CSSProperties} /><div ref={wordMouseSurface} className={styles.wordMouseSurface} aria-hidden="true" /></div>}
     </div>
   </div>;
 }

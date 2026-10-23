@@ -9,6 +9,38 @@ import { getCachedArticleTranslationForBlocks, setCachedArticleTranslationForBlo
 import type { ImportedArticle } from "../types/article";
 import type { WordContext } from "../types/reader";
 import { cacheDocument, readCachedDocument } from "../lib/documentBinaryCache";
+import { observeSandboxedSelection } from "../lib/documentSelectionObserver";
+
+test("script-disabled frame selection submits without mouse callbacks, deduplicates and stops on cleanup", async () => {
+  const dom = new JSDOM('<iframe></iframe>', { pretendToBeVisual: true });
+  const frame = dom.window.document.querySelector("iframe")!;
+  const doc = frame.contentDocument!;
+  doc.body.textContent = "Solubilize the original compound at room temperature.";
+  const node = doc.body.firstChild!;
+  const selection = doc.getSelection()!;
+  const select = (end: number) => { const r = doc.createRange(); r.setStart(node, 0); r.setEnd(node, end); selection.removeAllRanges(); selection.addRange(r); };
+  let events = false;
+  const calls: string[] = [];
+  const stop = observeSandboxedSelection(frame, () => events, () => { calls.push(selection.toString()); select(10); });
+  try {
+    select(5);
+    await new Promise(resolve => setTimeout(resolve, 420));
+    assert.deepEqual(calls, ["Solub"]);
+    await new Promise(resolve => setTimeout(resolve, 350));
+    assert.equal(calls.length, 1, "expanded highlight must not repeat the lookup");
+    selection.removeAllRanges();
+    await new Promise(resolve => setTimeout(resolve, 110));
+    select(5);
+    await new Promise(resolve => setTimeout(resolve, 420));
+    assert.equal(calls.length, 2, "a fresh deliberate selection can submit again");
+    events = true; select(24);
+    await new Promise(resolve => setTimeout(resolve, 420));
+    assert.equal(calls.length, 2, "mouse-event browsers must not double-submit");
+    stop(); events = false; select(34);
+    await new Promise(resolve => setTimeout(resolve, 350));
+    assert.equal(calls.length, 2);
+  } finally { stop(); dom.window.close(); }
+});
 
 const text = "The original paper retains all figures and labels.";
 const article = { document: { id: "a".repeat(64), format: "pdf", pageCount: 1, name: "paper.pdf" }, blocks: [{ id: "doc-p1-b0", type: "paragraph", text }] } as ImportedArticle;

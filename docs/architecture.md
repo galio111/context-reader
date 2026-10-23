@@ -536,3 +536,5 @@ PDF/DOCX only: single-click does not look up; double-click or drag selects compl
 Imported Word selection uses iframe-document mouse listeners and explicit caret ranges so dragging from a prior selection cannot become browser text drag-and-drop. Release is observed in both the frame and its owner document; keyboard expansion and native touch selection also submit. The iframe stays script-disabled.
 
 For partial imported-file selections, the provider receives only the selected block as target and context. This prevents a containing paragraph from being translated beyond the selected range. Partial cache IDs use `selection-v2-`; exact whole-block selections retain their existing full-translation identity and contextual behavior.
+
+Word mouse selection is bridged from a transparent parent surface into the script-disabled iframe using its rendered scale. WebKit suppresses event callbacks inside that sandbox, so native touch/keyboard selections also have a parent-side stable-range observer. Neither path enables scripts in imported documents. See document-import-20261022.md for deployment status.

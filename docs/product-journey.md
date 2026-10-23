@@ -2158,3 +2158,7 @@ Accepted `20261022T221000`, parent `20261022T212000`, source `90ef35255775e40b7f
 ### 2026-10-22 — Bound imported selection translation
 
 Accepted `20261022T223000`, parent `20261022T221000`, source `b73364d5fdd9c855c54da67a3aac7e997b7d09f6`. A real Word selection response had translated its containing paragraph instead of just the selected fragment. Partial selections now provide only their selected source to the provider and use a new cache identity; exact whole-block replay and normal article translation remain unchanged. The actual gggg Word passed physical double-click/re-selection and an eight-word, cross-run selection with visible Chinese output in 1.311 s and zero page errors. 153 tests, builds, exact-source CI 39795227692, public lineage, owner/Admin boundaries, health, unchanged backend IDs, 40-table backup restore and retained parent image passed. The older PDF cold-start and homepage-notice diagnostic remain separate open limitations.
+
+## 2026-10-23 — Safari Word selection diagnosis and candidate
+
+User clarified the gggg Word displays text and blue selection in Safari but no translation. Reproduced on current production with WebKit: zero mouse callbacks and zero lookup requests inside the script-disabled frame. Added parent-side mouse coordinate bridging and a deduplicated observer for native ranges, retaining sandbox, original layout and normal-article behavior. Local WebKit double-click, repeated dragging and zoom checks pass; 154 regressions pass. Production acceptance pending.
