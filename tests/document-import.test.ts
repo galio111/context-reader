@@ -122,10 +122,13 @@ test("document range cache reopens without downloading an original and deduplica
   const [a, b] = await Promise.all([first.read(size, size * 2 + 10), first.read(size + 7, size * 2 + 5)]);
   assert.deepEqual(a, source.slice(size, size * 2 + 10));
   assert.deepEqual(b, source.slice(size + 7, size * 2 + 5));
-  assert.equal(requests.length, 3, "first chunk plus two requested chunks, never a whole-file request");
+  assert.equal(requests.length, 4, "header, adjacent resources and tail share bounded requests");
+  await first.warm();
+  assert.deepEqual(new Uint8Array(cache.get("paper")!), source, "background ranges reconstruct an intact cached original");
+  assert.equal(requests.length, 4, "warming shares every existing request");
   const reopened = await openDocumentRanges("owner", "paper", "/source", signal, io);
   assert.deepEqual(await reopened.read(0, size * 2 + 10), source.slice(0, size * 2 + 10));
-  assert.equal(requests.length, 3, "reopening uses the persisted chunks");
+  assert.equal(requests.length, 4, "reopening uses the persisted chunks");
 });
 
 test("invalid range responses fail instead of leaving a blank page waiting forever", async () => {

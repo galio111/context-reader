@@ -1,7 +1,7 @@
 import { cacheDocument, readCachedDocument } from "./documentBinaryCache";
 import { MAX_DOCUMENT_BYTES } from "./documentSource";
 
-export const DOCUMENT_RANGE_CHUNK = 256 * 1024;
+export const DOCUMENT_RANGE_CHUNK = 1024 * 1024;
 interface RangeIO {
   read(key: string): Promise<ArrayBuffer | null>;
   write(key: string, bytes: ArrayBuffer): Promise<void>;
@@ -18,7 +18,7 @@ export async function openDocumentRanges(owner: string | null, id: string, url: 
   let full: ArrayBuffer | null = null;
   const pending = new Map<number, Promise<ArrayBuffer>>();
   async function chunk(begin: number): Promise<ArrayBuffer> {
-    const key = `${id}:range-v1:${begin}`;
+    const key = `${id}:range-v2:${begin}`;
     if (length) {
       const cached = await io.read(key);
       if (cached?.byteLength === Math.min(DOCUMENT_RANGE_CHUNK, length - begin)) return cached;
@@ -60,8 +60,33 @@ export async function openDocumentRanges(owner: string | null, id: string, url: 
     return job;
   };
   const initialData = new Uint8Array((await load(0)).slice(0));
+  // PDF indexes usually live at the end, while page-one resources follow the
+  // header. Fetch both in parallel instead of paying serial network round trips.
+  if (!full) {
+    const tail = Math.floor((length - 1) / DOCUMENT_RANGE_CHUNK) * DOCUMENT_RANGE_CHUNK;
+    for (const begin of new Set([DOCUMENT_RANGE_CHUNK, tail - DOCUMENT_RANGE_CHUNK, tail])) {
+      if (begin > 0 && begin < length) void load(begin).catch(() => undefined);
+    }
+  }
   return {
     length, initialData, full,
+    async warm(): Promise<void> {
+      if (full) return;
+      let cursor = 0;
+      // Two bounded background readers leave capacity for visible page reads.
+      await Promise.all(Array.from({ length: 2 }, async () => {
+        while (cursor < length) {
+          signal.throwIfAborted();
+          const begin = cursor; cursor += DOCUMENT_RANGE_CHUNK;
+          await load(begin);
+        }
+      }));
+      signal.throwIfAborted();
+      const original = new Uint8Array(length);
+      for (let begin = 0; begin < length; begin += DOCUMENT_RANGE_CHUNK) original.set(new Uint8Array(await load(begin)), begin);
+      // Reopening can now use the local original without any range requests.
+      await io.write(id, original.buffer);
+    },
     async read(begin: number, end: number): Promise<Uint8Array> {
       signal.throwIfAborted();
       if (begin < 0 || end > length || begin >= end) throw new Error("Invalid document range");

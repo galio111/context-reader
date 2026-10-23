@@ -166,9 +166,12 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
     window.addEventListener("scroll", onScroll, { capture: true, passive: true });
     return () => { clearTimeout(timer); window.removeEventListener("scroll", onScroll, true); };
   }, []);
-  const [localOriginal, setLocalOriginal] = useState(false);
+  const warmOriginal = useRef<(() => Promise<void>) | null>(null);
   const [firstPaint, setFirstPaint] = useState(false);
   const markPaint = useCallback(() => setFirstPaint(true), []);
+  useEffect(() => {
+    if (firstPaint) void warmOriginal.current?.().catch(() => undefined);
+  }, [firstPaint]);
   const [pdf, setPdf] = useState<PDFDocumentProxy | null>(null);
   const [wordBytes, setWordBytes] = useState<ArrayBuffer | null>(null);
   const [width, setWidth] = useState(700);
@@ -187,7 +190,7 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
     const controller = new AbortController();
     let task: ReturnType<Awaited<ReturnType<typeof pdfLibrary>>["getDocument"]> | undefined;
     let worker: InstanceType<Awaited<ReturnType<typeof pdfLibrary>>["PDFWorker"]> | undefined;
-    setLoading(true); setError(""); setPdf(null); setWordBytes(null); setFirstPaint(false); setLocalOriginal(false);
+    setLoading(true); setError(""); setPdf(null); setWordBytes(null); setFirstPaint(false); warmOriginal.current = null;
     void (async () => {
       const owner = documentCacheOwner();
       const libraryPromise = source.format === "pdf" ? pdfLibrary().then(async library => {
@@ -202,6 +205,7 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
         if (controller.signal.aborted) return;
         const ranges = await openDocumentRanges(owner, source.id, documentUrl(source), controller.signal);
         if (controller.signal.aborted) return;
+        warmOriginal.current = () => ranges.warm();
         const transport = new class extends library.PDFDataRangeTransport {
           requestDataRange(begin: number, end: number) {
             void ranges.read(begin, end).then(chunk => {
@@ -238,7 +242,6 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
       void cacheDocument(owner, source.id, bytes);
       }
       if (source.format === "pdf") {
-        setLocalOriginal(true);
         const library = await libraryPromise!;
         if (controller.signal.aborted) return;
         task = library.getDocument({ data: bytes, worker, ...pdfOptions });
@@ -387,7 +390,7 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
         if (context) callback.current(context);
       }
     }}>
-      {pdf && Array.from({ length: pdf.numPages }, (_, i) => <PdfPage key={i} pdf={pdf} number={i + 1} width={width} zoom={zoom} preload={localOriginal && firstPaint && pdf.numPages <= 24} settled={!scrollBusy} onPaint={markPaint} />)}
+      {pdf && Array.from({ length: pdf.numPages }, (_, i) => <PdfPage key={i} pdf={pdf} number={i + 1} width={width} zoom={zoom} preload={firstPaint && pdf.numPages <= 24} settled={!scrollBusy} onPaint={markPaint} />)}
       {source.format === "docx" && <div style={{ position: "relative", width: zoom ? 816 * zoom : width }}><iframe ref={iframe} title={source.name} sandbox="allow-same-origin" srcDoc={WORD_SHELL} onLoad={() => setFrameReady(true)} style={{ border: 0, transformOrigin: "top left", display: "block", width: 816, minHeight: 400 } as CSSProperties} /><div ref={wordMouseSurface} className={styles.wordMouseSurface} aria-hidden="true" /></div>}
     </div>
   </div>;
