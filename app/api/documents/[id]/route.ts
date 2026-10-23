@@ -13,7 +13,7 @@ export async function GET(request: Request, context: { params: Promise<{ id: str
     if (format !== "pdf" || !/^[1-9]\d{0,2}$/.test(page) || Number(page) > 500) return new Response(null, { status: 400 });
     try {
       const { readDocumentPage } = await import("@/lib/documentPageStore");
-      const bytes = await readDocumentPage(user.id, id, Number(page));
+      const bytes = await readDocumentPage(user.id, id, Number(page), new URL(request.url).searchParams.get("preview") === "1");
       return new Response(new Uint8Array(bytes).buffer, { headers: { "Content-Type": "application/pdf", "Cache-Control": "private, no-store", "X-Content-Type-Options": "nosniff" } });
     } catch {
       // A source with document-level forms/color/layer state must keep using

@@ -16,7 +16,7 @@ import { cleanDocumentText } from "@/lib/documentUnicode";
 import styles from "./DocumentReader.module.css";
 
 
-function PdfPage({ pdf, number, width, zoom, preload, settled, enabled, onPaint }: { pdf: ReadingPdf; enabled: boolean; number: number; width: number; zoom: number; preload: boolean; settled: boolean; onPaint: () => void }) {
+function PdfPage({ pdf, number, width, zoom, preload, settled, enabled, detailReady, onPaint }: { pdf: ReadingPdf; enabled: boolean; detailReady: boolean; number: number; width: number; zoom: number; preload: boolean; settled: boolean; onPaint: (number: number) => void }) {
   const ref = useRef<HTMLDivElement>(null);
   const pageSection = useRef<HTMLElement>(null);
   const painted = useRef<{ width: number; key: string; full: boolean; ratio: number } | null>(null);
@@ -28,6 +28,13 @@ function PdfPage({ pdf, number, width, zoom, preload, settled, enabled, onPaint 
   const [pageWidth, setPageWidth] = useState(width);
   const [attempt, setAttempt] = useState(0);
   const [ready, setReady] = useState(false);
+  const [detail, setDetail] = useState(false);
+  const [originalReady, setOriginalReady] = useState(false);
+  useEffect(() => {
+    if (!ready || !full || !pdf.getFullPage || (!detailReady && zoom <= 1)) return;
+    const timer = setTimeout(() => setDetail(true), 250);
+    return () => clearTimeout(timer);
+  }, [ready, full, pdf, detailReady, zoom]);
   const [error, setError] = useState("");
   useLayoutEffect(() => {
     const scale = zoom ? zoom * 96 / 72 : width / baseSize.current.width;
@@ -51,11 +58,11 @@ function PdfPage({ pdf, number, width, zoom, preload, settled, enabled, onPaint 
   }, [pageWidth]);
   useEffect(() => {
     const host = ref.current;
-    if (!host || !enabled || (!near && !preload)) return;
+    if (!host || (!enabled && !visible) || (!near && !preload)) return;
     // After preparation, keep distant frames scaled instead of repainting the
     // entire paper for every zoom click. Sharpen when the page approaches view.
     if (!near && painted.current) return;
-    const key = `${width}:${zoom}:${attempt}`;
+    const key = `${width}:${zoom}:${attempt}:${detail}`;
     if (!settled && painted.current) return;
     if (painted.current?.key === key && (!full || painted.current.full)) return;
     setError("");
@@ -73,7 +80,7 @@ function PdfPage({ pdf, number, width, zoom, preload, settled, enabled, onPaint 
       const bounds = host.getBoundingClientRect();
       release = await acquirePdfRender(controller.signal, Math.max(0, bounds.top - innerHeight, -bounds.bottom));
       if (disposed) return;
-      const page = await pdf.getPage(number);
+      const page = await (detail && pdf.getFullPage ? pdf.getFullPage(number) : pdf.getPage(number));
       if (disposed) return;
       const base = page.getViewport({ scale: 1 }); baseSize.current = { width: base.width, height: base.height };
       const viewport = page.getViewport({ scale: zoom ? zoom * 96 / 72 : width / page.getViewport({ scale: 1 }).width });
@@ -83,6 +90,8 @@ function PdfPage({ pdf, number, width, zoom, preload, settled, enabled, onPaint 
         : Math.min(window.devicePixelRatio || 1, Math.sqrt(1_500_000 / (viewport.width * viewport.height)));
       const library = await pdfLibrary();
       if (disposed) return;
+      const retainedText = detail && painted.current?.full && painted.current.width === viewport.width
+        ? host.querySelector<HTMLElement>(":scope > .textLayer") : null;
       if (full && painted.current?.key === key && painted.current.ratio >= ratio * .95) {
         // The prepared source canvas is already sharp enough. Add selection
         // without decoding and painting the same page a second time on scroll.
@@ -97,7 +106,7 @@ function PdfPage({ pdf, number, width, zoom, preload, settled, enabled, onPaint 
         if (!disposed) {
           host.querySelectorAll(".textLayer").forEach(previous => { if (previous !== text) previous.remove(); });
           text.style.visibility = ""; staging = undefined;
-          painted.current = { ...painted.current, full: true }; onPaint();
+          painted.current = { ...painted.current, full: true }; onPaint(number);
         }
         return;
       }
@@ -113,7 +122,7 @@ function PdfPage({ pdf, number, width, zoom, preload, settled, enabled, onPaint 
       host.append(staging);
       // Paint source images, vectors and stored annotation appearances together;
       // the transparent text layer adds selection without replacing source text.
-      if (full) {
+      if (full && !retainedText) {
         const textContent = await page.getTextContent();
         if (disposed) return;
         const cleanContent = { ...textContent, items: textContent.items.map(item => "str" in item ? { ...item, str: cleanDocumentText(item.str) } : item) };
@@ -128,18 +137,24 @@ function PdfPage({ pdf, number, width, zoom, preload, settled, enabled, onPaint 
         await render.promise;
       }
       if (!disposed) {
-        host.replaceChildren(canvas, text);
+        if (retainedText) {
+          host.querySelector(":scope > canvas")?.replaceWith(canvas); staging?.remove();
+        } else host.replaceChildren(canvas, text);
         host.style.width = `${viewport.width}px`;
         host.style.height = `${viewport.height}px`;
         host.style.transform = "none";
         painted.current = { width: viewport.width, key, full, ratio };
-        setReady(true); onPaint();
+        setReady(true); setOriginalReady(detail || !pdf.getFullPage); onPaint(number);
       }
-    })().catch(() => { staging?.remove(); if (!disposed) setError("此页未能完整显示。"); }).finally(() => release?.());
+    })().catch(() => {
+      staging?.remove();
+      // A failed detail upgrade must not replace a usable page with an alert.
+      if (!disposed && !painted.current) setError("此页未能完整显示。");
+    }).finally(() => release?.());
     return () => { disposed = true; controller.abort(); render?.cancel(); layer?.cancel(); staging?.remove(); };
-  }, [pdf, number, width, zoom, near, full, settled, preload, enabled, onPaint, attempt]);
+  }, [pdf, number, width, zoom, near, full, settled, preload, enabled, visible, detail, onPaint, attempt]);
   return <section ref={pageSection} className={styles.page} data-reader-block={`doc-p${number}-b0`} aria-label={`第 ${number} 页`} style={{ width: pageWidth, height }}>
-    <div ref={ref} data-document-page={number} data-rendered={ready} style={{ transformOrigin: "top left" }} />
+    <div ref={ref} data-document-page={number} data-rendered={ready} data-original={originalReady} style={{ transformOrigin: "top left" }} />
     {!ready && !error && <span className={styles.pageStatus}>第 {number} 页</span>}
     {error && <p className={styles.pageStatus} role="alert">{error} <button type="button" onClick={() => setAttempt(v => v + 1)}>重新显示</button></p>}
   </section>;
@@ -164,7 +179,11 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
   }, []);
   const warmOriginal = useRef<(() => Promise<void>) | null>(null);
   const [firstPaint, setFirstPaint] = useState(false);
-  const markPaint = useCallback(() => setFirstPaint(true), []);
+  const [preparedPages, setPreparedPages] = useState<Set<number>>(() => new Set());
+  const markPaint = useCallback((number: number) => {
+    setFirstPaint(true);
+    setPreparedPages(previous => previous.has(number) ? previous : new Set([...previous, number]));
+  }, []);
   useEffect(() => {
     if (firstPaint) void warmOriginal.current?.().catch(() => undefined);
   }, [firstPaint]);
@@ -187,7 +206,7 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
     let task: ReturnType<Awaited<ReturnType<typeof pdfLibrary>>["getDocument"]> | undefined;
     let pages: ReturnType<typeof createPageReader> | undefined;
     let worker: InstanceType<Awaited<ReturnType<typeof pdfLibrary>>["PDFWorker"]> | undefined;
-    setLoading(true); setError(""); setPdf(null); setWordBytes(null); setFirstPaint(false); warmOriginal.current = null;
+    setLoading(true); setError(""); setPdf(null); setWordBytes(null); setFirstPaint(false); setPreparedPages(new Set()); warmOriginal.current = null;
     void (async () => {
       const owner = documentCacheOwner();
       const libraryPromise = source.format === "pdf" ? pdfLibrary().then(async library => {
@@ -398,7 +417,7 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
         if (context) callback.current(context);
       }
     }}>
-      {pdf && Array.from({ length: pdf.numPages }, (_, i) => <PdfPage key={i} pdf={pdf} number={i + 1} width={width} zoom={zoom} enabled={i === 0 || firstPaint} preload={firstPaint && pdf.numPages <= 24} settled={!scrollBusy} onPaint={markPaint} />)}
+      {pdf && Array.from({ length: pdf.numPages }, (_, i) => <PdfPage key={i} pdf={pdf} number={i + 1} width={width} zoom={zoom} enabled={i === 0 || firstPaint} detailReady={preparedPages.size === pdf.numPages} preload={firstPaint && pdf.numPages <= 24} settled={!scrollBusy} onPaint={markPaint} />)}
       {source.format === "docx" && <div style={{ position: "relative", width: zoom ? 816 * zoom : width }}><iframe ref={iframe} title={source.name} sandbox="allow-same-origin" srcDoc={WORD_SHELL} onLoad={() => setFrameReady(true)} style={{ border: 0, transformOrigin: "top left", display: "block", width: 816, minHeight: 400 } as CSSProperties} /><div ref={wordMouseSurface} className={styles.wordMouseSurface} aria-hidden="true" /></div>}
     </div>
   </div>;

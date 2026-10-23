@@ -196,3 +196,26 @@ test("page delivery recovers once from interrupted transfer and stops on reader 
     await source.destroy(); assert.equal(destroyed, 1);
   } finally { globalThis.fetch = originalFetch; }
 });
+
+test("disposable reading previews reduce heavy images without mutating the original page", async () => {
+  const { PDFDocument, PDFName, PDFRawStream } = await import("pdf-lib");
+  const sharp = (await import("sharp")).default;
+  const { copyReadingPage } = await import("../lib/documentPageStore");
+  let random = 12345;
+  const pixels = Buffer.alloc(900 * 900 * 3);
+  for (let i = 0; i < pixels.length; i++) { random ^= random << 13; random ^= random >>> 17; random ^= random << 5; pixels[i] = random & 255; }
+  const jpeg = await sharp(pixels, { raw: { width: 900, height: 900, channels: 3 } }).jpeg({ quality: 100, chromaSubsampling: "4:4:4" }).toBuffer();
+  const source = await PDFDocument.create();
+  const image = await source.embedJpg(jpeg);
+  source.addPage([600, 800]).drawImage(image, { x: 30, y: 100, width: 540, height: 540 });
+  source.getPage(0).drawText("Native selectable caption", { x: 30, y: 60 });
+  const original = await source.save();
+  const preview = await copyReadingPage(source, 1, true);
+  assert.ok(preview.length < original.length * .75);
+  assert.deepEqual(await source.save(), original);
+  const parsed = await PDFDocument.load(preview);
+  assert.deepEqual(parsed.getPage(0).getSize(), { width: 600, height: 800 });
+  const images = parsed.context.enumerateIndirectObjects().filter(([, value]) => value instanceof PDFRawStream && value.dict.get(PDFName.of("Subtype")) === PDFName.of("Image"));
+  assert.equal(images.length, 1, "the image is reduced, never removed");
+  assert.ok(parsed.getPage(0).node.Resources());
+});
