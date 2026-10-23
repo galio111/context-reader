@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { MAX_DOCUMENT_BYTES } from "./lib/documentSource";
 
 const isDevelopment = process.env.NODE_ENV === "development";
 
@@ -55,6 +56,9 @@ const nextConfig: NextConfig = {
   },
   experimental: {
     cpus: 1,
+    // Include multipart overhead above the document limit. Otherwise
+    // middleware truncates valid uploads at its default 10 MiB boundary.
+    middlewareClientMaxBodySize: MAX_DOCUMENT_BYTES + 16384,
   },
   async headers() {
     return [

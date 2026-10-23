@@ -1,5 +1,6 @@
 "use client";
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
+import { DocumentViewportControls } from "./DocumentViewportControls";
 import type { PDFDocumentProxy } from "pdfjs-dist";
 import type { ImportedArticle } from "@/types/article";
 import type { WordContext } from "@/types/reader";
@@ -9,11 +10,13 @@ import { pdfLibrary, pdfOptions } from "@/lib/documentClient";
 import { readDocumentSelection, selectDocumentWord, documentCaretAtPoint, setDocumentDragRange, clearDocumentSelectionHighlight } from "@/lib/documentSelection";
 import { recordPdfGlyphs, alignPdfTextLayer } from "@/lib/pdfSelectionGeometry";
 import { observeSandboxedSelection } from "@/lib/documentSelectionObserver";
+import { acquirePdfRender } from "@/lib/pdfRenderQueue";
 import styles from "./DocumentReader.module.css";
 
 
 function PdfPage({ pdf, number, width, zoom }: { pdf: PDFDocumentProxy; number: number; width: number; zoom: number }) {
   const ref = useRef<HTMLDivElement>(null);
+  const painted = useRef<{ width: number; key: string } | null>(null);
   const [near, setNear] = useState(false);
   const [height, setHeight] = useState(width * 1.414);
   const [pageWidth, setPageWidth] = useState(width);
@@ -26,31 +29,50 @@ function PdfPage({ pdf, number, width, zoom }: { pdf: PDFDocumentProxy; number: 
     return () => { disposed = true; };
   }, [pdf, number, width, zoom]);
   useEffect(() => {
-    const observer = new IntersectionObserver(entries => setNear(entries.some(e => e.isIntersecting)), { rootMargin: "900px" });
+    const observer = new IntersectionObserver(entries => setNear(entries.some(e => e.isIntersecting)), { rootMargin: "3000px" });
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
+  useLayoutEffect(() => {
+    const host = ref.current;
+    if (host && painted.current) {
+      // Keep the complete previous frame and its selection geometry visible
+      // immediately while a sharper frame is rendered offscreen.
+      host.style.width = `${painted.current.width}px`;
+      host.style.transform = `scale(${pageWidth / painted.current.width})`;
+    }
+  }, [pageWidth]);
   useEffect(() => {
     const host = ref.current;
-    setReady(false);
     if (!host || !near) return;
+    const key = `${width}:${zoom}:${attempt}`;
+    if (painted.current?.key === key) return;
     setError("");
     let disposed = false;
+    let staging: HTMLDivElement | undefined;
+    const controller = new AbortController();
+    let release: (() => void) | undefined;
     let render: ReturnType<Awaited<ReturnType<PDFDocumentProxy["getPage"]>>["render"]> | undefined;
     let layer: InstanceType<Awaited<ReturnType<typeof pdfLibrary>>["TextLayer"]> | undefined;
     void (async () => {
+      const bounds = host.getBoundingClientRect();
+      release = await acquirePdfRender(controller.signal, Math.max(0, bounds.top - innerHeight, -bounds.bottom));
+      if (disposed) return;
       const page = await pdf.getPage(number);
       if (disposed) return;
       const viewport = page.getViewport({ scale: zoom ? zoom * 96 / 72 : width / page.getViewport({ scale: 1 }).width });
       setHeight(viewport.height); setPageWidth(viewport.width);
       const canvas = document.createElement("canvas");
-      const ratio = Math.min(2, window.devicePixelRatio || 1);
+      const ratio = Math.min(2, window.devicePixelRatio || 1, Math.sqrt(6_000_000 / (viewport.width * viewport.height)));
       canvas.width = Math.ceil(viewport.width * ratio); canvas.height = Math.ceil(viewport.height * ratio);
       canvas.style.width = `${viewport.width}px`; canvas.style.height = `${viewport.height}px`;
       canvas.setAttribute("aria-hidden", "true");
       const text = document.createElement("div"); text.className = "textLayer";
       text.style.setProperty("--total-scale-factor", String(viewport.scale));
-      host.replaceChildren(canvas, text);
+      staging = document.createElement("div");
+      staging.style.cssText = "position:absolute;left:0;top:0;visibility:hidden;pointer-events:none";
+      staging.append(canvas, text);
+      host.append(staging);
       const library = await pdfLibrary();
       if (disposed) return;
       // Paint source images, vectors and stored annotation appearances together;
@@ -65,12 +87,19 @@ function PdfPage({ pdf, number, width, zoom }: { pdf: PDFDocumentProxy; number: 
         if (!disposed && viewport.rotation === 0) alignPdfTextLayer(text, recording.glyphs, viewport.scale,
           textContent.items.filter((item): item is import("pdfjs-dist/types/src/display/api").TextItem => "str" in item), viewport.height);
       } finally { recording.restore(); }
-      if (!disposed) setReady(true);
-    })().catch(() => { if (!disposed) setError("此页未能完整显示。"); });
-    return () => { disposed = true; render?.cancel(); layer?.cancel(); host.replaceChildren(); };
+      if (!disposed) {
+        host.replaceChildren(canvas, text);
+        host.style.width = `${viewport.width}px`;
+        host.style.height = `${viewport.height}px`;
+        host.style.transform = "none";
+        painted.current = { width: viewport.width, key };
+        setReady(true);
+      }
+    })().catch(() => { staging?.remove(); if (!disposed) setError("此页未能完整显示。"); }).finally(() => release?.());
+    return () => { disposed = true; controller.abort(); render?.cancel(); layer?.cancel(); staging?.remove(); };
   }, [pdf, number, width, zoom, near, attempt]);
-  return <section className={styles.page} data-reader-block={`doc-p${number}-b0`} aria-label={`第 ${number} 页`} style={{ width: pageWidth, minHeight: height }}>
-    <div ref={ref} data-document-page={number} data-rendered={ready} style={{ minHeight: height }} />
+  return <section className={styles.page} data-reader-block={`doc-p${number}-b0`} aria-label={`第 ${number} 页`} style={{ width: pageWidth, height }}>
+    <div ref={ref} data-document-page={number} data-rendered={ready} style={{ transformOrigin: "top left" }} />
     {!ready && !error && <span className={styles.pageStatus}>第 {number} 页</span>}
     {error && <p className={styles.pageStatus} role="alert">{error} <button type="button" onClick={() => setAttempt(v => v + 1)}>重新显示</button></p>}
   </section>;
@@ -81,6 +110,7 @@ const WORD_SHELL = `<!doctype html><html><head><meta http-equiv="Content-Securit
 export function DocumentReader({ article, onLookup }: { article: ImportedArticle; onLookup: (context: WordContext) => void }) {
   const source = article.document!;
   const root = useRef<HTMLDivElement>(null);
+  const scroller = useRef<HTMLDivElement>(null);
   const iframe = useRef<HTMLIFrameElement>(null);
   const wordMouseSurface = useRef<HTMLDivElement>(null);
   const callback = useRef(onLookup); callback.current = onLookup;
@@ -239,14 +269,14 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
     };
   }, [wordBytes, frameReady, article, width, zoom]);
   return <div ref={root} className={styles.root} data-native-selection="blue" onPointerDown={e => e.stopPropagation()} onPointerMove={e => e.stopPropagation()} onPointerUp={e => e.stopPropagation()} onClick={e => e.stopPropagation()}>
-    <div className={styles.toolbar}>
+    <DocumentViewportControls root={root} scroller={scroller}>
       <span>{source.format.toUpperCase()} · {source.format === "pdf" ? `${source.pageCount} 页` : "原文排版"}</span>
       <div><button type="button" onClick={() => setZoom(v => Math.max(.25, (v || 1) - .25))} disabled={zoom === .25} aria-label="缩小文档">−</button><span>{zoom ? `${Math.round(zoom * 100)}%` : "适合宽度"}</span><button type="button" onClick={() => setZoom(v => Math.min(4, (v || 1) + .25))} disabled={zoom === 4} aria-label="放大文档">＋</button><button className={styles.scaleChoice} type="button" aria-label="原始比例 100%" onClick={() => setZoom(1)}>100%</button><button className={styles.scaleChoice} type="button" onClick={() => setZoom(0)}>适宽</button></div>
       <a href={documentUrl(source)} download={source.name}>下载原件</a>
-    </div>
+    </DocumentViewportControls>
     {loading && <p role="status">正在打开文档…</p>}
     {error && <p role="alert">原件暂时未能打开，页面、图片和标注仍保存在原文件中。<button className={styles.retry} type="button" onClick={() => setAttempt(v => v + 1)}>重新打开原件</button></p>}
-    <div className={styles.scroll} data-document-selection-root onMouseDown={event => {
+    <div ref={scroller} className={styles.scroll} data-document-selection-root onMouseDown={event => {
       if (event.button !== 0 || !(event.target as Element).closest(".textLayer")) return;
       const anchor = documentCaretAtPoint(event.currentTarget, event.clientX, event.clientY);
       drag.current = anchor ? { anchor, x: event.clientX, y: event.clientY, moved: false } : null;

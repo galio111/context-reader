@@ -38,7 +38,7 @@ export async function readCachedDocument(owner: string | null, id: string): Prom
   finally { db?.close(); }
 }
 
-/** Private local cache, never synced or served across owners. Bounded to 40 MB.
+/** Private local cache, never synced or served across owners. Bounded to 100 MB.
  * Cache failures never prevent opening an original from its authenticated route.
  */
 export async function cacheDocument(owner: string | null, id: string, bytes: ArrayBuffer): Promise<void> {

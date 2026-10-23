@@ -1,8 +1,8 @@
 import type { ImportedDocumentSource } from "@/types/article";
 
-export const MAX_DOCUMENT_BYTES = 20 * 1024 * 1024;
-export const MAX_DOCUMENT_PAGES = 150;
-export const MAX_DOCUMENT_TEXT = 300_000;
+export const MAX_DOCUMENT_BYTES = 50 * 1024 * 1024;
+export const MAX_DOCUMENT_PAGES = 500;
+export const MAX_DOCUMENT_TEXT = 1_000_000;
 export function normalizeDocumentSource(value: unknown): ImportedDocumentSource | undefined {
   const v = value as Partial<ImportedDocumentSource> | undefined;
   if (!v || !/^[a-f0-9]{64}$/.test(v.id ?? "") || (v.format !== "pdf" && v.format !== "docx")) return;

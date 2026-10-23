@@ -25,7 +25,7 @@ export async function POST(request: Request) {
     bytes = new Uint8Array(await file.arrayBuffer());
     validateDocumentBytes(bytes, format);
   } catch (error) {
-    return NextResponse.json({ error: error instanceof RequestBodyTooLargeError ? "文档不能超过 20MB。" : error instanceof Error && /[\u3400-\u9fff]/.test(error.message) ? error.message : "文档格式无效。" }, { status: 400 });
+    return NextResponse.json({ error: error instanceof RequestBodyTooLargeError ? "文档不能超过 50MB。" : error instanceof Error && /[\u3400-\u9fff]/.test(error.message) ? error.message : "上传内容不完整，请重新选择文档后重试。" }, { status: 400 });
   }
   try {
     const client = documentStore();

@@ -2,6 +2,10 @@
 
 ## Project
 
+### Current priority: personal use (2026-10-23)
+
+目前网站只有站主本人使用，短期内只服务其开发者账号，目标是帮助本人阅读、科研、学习和自我提升。以该账号的真实使用体验为第一优先级，充分利用现有资源优化加载、刷新、滚动、缩放、划词和翻译的速度与连续性；不要为假设中的其他用户、多租户规模或未来并发牺牲当前体验，也不要仅为这些假设增加限流、等待、保守缓存或不必要的架构复杂度。性能优化须用本人实际文档和操作验证，不以构建成功代替体验验收。仍须保留账号认证、私人文档保护、学习记录完整性、备份与可恢复性；单人使用不代表允许丢数据或无界资源消耗。直到站主明确改变方向为止，本条优先于旧的公共产品或规模化假设。
+
 Context Reader is a Next.js 15 / React 19 reading tool for Chinese-speaking learners reading real English articles. Reading flow is primary; lookup, translation, vocabulary, recommendations, accounts and native vocabulary study support it. Historical Anki records remain compatibility data.
 
 Primary production is `https://context-reader.com` on the mainland-China stack. `https://context-reader-ten.vercel.app` and the managed Supabase project are rollback/reference environments only. The canonical homepage is the bare domain root; legacy `/home-v2` links permanently redirect to `/` while preserving their query string.

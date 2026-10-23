@@ -1087,7 +1087,7 @@ export function HomeRedesign(props: HomeRedesignProps) {
             <div className={styles.documentField}>
               <label htmlFor={compact ? "member-document" : "article-document"}>选择 PDF 或 Word 文档</label>
               <input id={compact ? "member-document" : "article-document"} type="file" accept=".pdf,.docx" disabled={documentBusy} onChange={event => { setDocumentFile(event.target.files?.[0] ?? null); setDocumentError(""); }} />
-              <p>文字型 PDF、Word .docx，最大 20MB。导入后保留原文排版并保存到我的文章。</p>
+              <p>文字型 PDF、Word .docx，最大 50MB。导入后保留原文排版并保存到我的文章。</p>
             </div>
           ) : inputMode === "paste" ? (
             <ClearableField value={props.article} onClear={() => props.onArticleChange("")} label="清空粘贴文章" multiline>

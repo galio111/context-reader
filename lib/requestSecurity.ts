@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { ipAddress } from "@vercel/functions/headers";
 import { staticAssetParts } from "./staticEncoding";
+import { MAX_DOCUMENT_BYTES } from "./documentSource";
 
 interface RateWindow {
   count: number;
@@ -125,7 +126,7 @@ function routeRules(pathname: string, method: string): RateRule[] {
 }
 
 function maxRequestBytes(pathname: string): number {
-  if (pathname === "/api/documents") return 20 * 1024 * 1024 + 16 * 1024;
+  if (pathname === "/api/documents") return MAX_DOCUMENT_BYTES + 16 * 1024;
   if (/^\/api\/ocr-image(?:-layout)?$/.test(pathname)) {
     return 9 * 1024 * 1024;
   }

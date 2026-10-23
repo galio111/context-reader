@@ -17,7 +17,7 @@ export const pdfOptions = { isEvalSupported: false, cMapUrl: `${PDF_RUNTIME}cmap
 
 export async function prepareDocument(file: File, progress: (message: string) => void): Promise<ImportedArticle> {
   const sourceOwner = documentCacheOwner();
-  if (file.size > MAX_DOCUMENT_BYTES) throw new Error("文档不能超过 20MB。");
+  if (file.size > MAX_DOCUMENT_BYTES) throw new Error("文档不能超过 50MB。");
   const format = file.name.split(".").pop()?.toLowerCase();
   if (format !== "pdf" && format !== "docx") throw new Error("支持 PDF 和 .docx；旧版 .doc 请先另存为 .docx。");
   const buffer = await file.arrayBuffer();
@@ -30,7 +30,7 @@ export async function prepareDocument(file: File, progress: (message: string) =>
     try {
       const pdf = await loading.promise;
       pageCount = pdf.numPages;
-      if (pageCount > MAX_DOCUMENT_PAGES) throw new Error("文档最多支持 150 页，请拆分后导入。");
+      if (pageCount > MAX_DOCUMENT_PAGES) throw new Error("文档最多支持 500 页，请拆分后导入。");
       for (let i = 1; i <= pageCount; i++) {
         progress(`正在读取第 ${i} / ${pageCount} 页…`);
         const page = await pdf.getPage(i);
@@ -39,7 +39,7 @@ export async function prepareDocument(file: File, progress: (message: string) =>
         page.cleanup();
       }
     } catch (error) {
-      if (error instanceof Error && /150/.test(error.message)) throw error;
+      if (error instanceof Error && /500/.test(error.message)) throw error;
       throw new Error("PDF 无法读取，请确认文件未加密且没有损坏。");
     } finally { await loading.destroy(); }
   } else {

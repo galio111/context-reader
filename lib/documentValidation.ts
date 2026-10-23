@@ -2,7 +2,7 @@ import { MAX_DOCUMENT_BYTES } from "./documentSource";
 
 // Inspect the ZIP directory before any decompression (also used in the browser).
 export function validateDocumentBytes(bytes: Uint8Array, format: "pdf" | "docx") {
-  if (!bytes.length || bytes.length > MAX_DOCUMENT_BYTES) throw new Error("文档不能超过 20MB。");
+  if (!bytes.length || bytes.length > MAX_DOCUMENT_BYTES) throw new Error("文档不能超过 50MB。");
   if (format === "pdf") {
     if (new TextDecoder().decode(bytes.slice(0, 5)) !== "%PDF-") throw new Error("这不是有效的 PDF 文件。");
     return;

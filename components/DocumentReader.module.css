@@ -10,6 +10,12 @@
 .page canvas { display:block; max-width:none; }
 .toolbar a { color:#0066cc; }
 .scroll { overflow-x:auto; touch-action:pan-x pan-y; }
+.pinnedToolbar { position:fixed; z-index:28; padding:8px 12px; box-sizing:border-box; background:#fff; border:1px solid #ddd; border-radius:8px; box-shadow:0 2px 8px #0001; }
+.floatingScroll { position:fixed; z-index:28; display:flex; align-items:center; padding:4px 12px; box-sizing:border-box; min-height:32px; border:1px solid #ddd; border-radius:8px; background:#fffffff2; box-shadow:0 2px 8px #0001; }
+.floatingScroll input { width:100%; margin:0; cursor:ew-resize; accent-color:#666; }
+.floatingScroll input:focus-visible { outline:2px solid #666; outline-offset:3px; }
+:global(html[data-context-theme="night"]) .pinnedToolbar,:global(html[data-context-theme="night"]) .floatingScroll { background:#252528; color:#eee; border-color:#555; }
+:global(html[data-context-theme="night"]) .pinnedToolbar button { background:#303034; color:#eee; border-color:#666; }
 .wordMouseSurface { display:none; }
 @media (hover:hover) and (pointer:fine) { .wordMouseSurface { display:block; position:absolute; inset:0; cursor:text; } }
 .page { position:relative; margin:0 0 20px; background:white; box-shadow:0 1px 5px #0002; }

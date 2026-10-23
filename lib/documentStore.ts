@@ -8,7 +8,15 @@ export function documentStore() {
 }
 export async function ensureDocumentBucket(client: ReturnType<typeof documentStore>) {
   const { data, error: readError } = await client.storage.getBucket(DOCUMENT_BUCKET);
-  if (data) { if (data.public) throw new Error("Document bucket must be private"); return; }
+  if (data) {
+    if (data.public) throw new Error("Document bucket must be private");
+    if (Number(data.file_size_limit) < MAX_DOCUMENT_BYTES) {
+      const { error } = await client.storage.updateBucket(DOCUMENT_BUCKET, { public: false, fileSizeLimit: MAX_DOCUMENT_BYTES,
+        allowedMimeTypes: ["application/pdf", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"] });
+      if (error) throw error;
+    }
+    return;
+  }
   const { error } = await client.storage.createBucket(DOCUMENT_BUCKET, { public: false, fileSizeLimit: MAX_DOCUMENT_BYTES,
     allowedMimeTypes: ["application/pdf", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"] });
   if (error && !/already exists/i.test(error.message)) throw error || readError;
