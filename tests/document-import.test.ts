@@ -30,8 +30,18 @@ test("visible page rendering overtakes queued preloads and cancelled work leaves
   cancelled.abort(); await cancelledAssertion;
   first(); const releaseVisible = await visible;
   assert.deepEqual(order, ["visible"]);
-  releaseVisible(); (await distant)(); second();
+  releaseVisible();
+  await Promise.resolve(); assert.deepEqual(order, ["visible"], "background waits while a visible page still owns a slot");
+  second(); (await distant)();
   assert.deepEqual(order, ["visible", "distant"]);
+});
+test("one background page is prepared at a time while a newly visible page can start immediately", async () => {
+  const first = await acquirePdfRender(new AbortController().signal, 1000);
+  let backgroundStarted = false;
+  const next = acquirePdfRender(new AbortController().signal, 2000).then(release => { backgroundStarted = true; return release; });
+  const visible = await acquirePdfRender(new AbortController().signal, 0);
+  assert.equal(backgroundStarted, false);
+  visible(); first(); (await next)();
 });
 test("middleware preserves the entire advertised 50 MiB multipart document", async () => {
   const form = new FormData();
