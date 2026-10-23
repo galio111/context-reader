@@ -2166,3 +2166,8 @@ User clarified the gggg Word displays text and blue selection in Safari but no t
 ### 2026-10-23 — Safari Word selection accepted
 
 Accepted `20261023T185600`, parent `20261022T223000`, source `7442855c98f63070ee083f675cb7c0151d1d1ff9`; exact public identities match. The actual gggg Word now passes WebKit single-click no-op, double-click lookup, re-drag from a highlight and cross-line selection with Chinese output in one 2.624 s sample and no page errors. Local zoom and Chrome regression, 154 architecture/document tests, eight fallback/billing tests, builds and source CI 39940999462 pass. Core AI routes and ledger, private/Admin boundaries, backend identity, health, 103938Z 40-table restore and retained rollback images pass. Candidate 184500 was interrupted before cutover and never became accepted; stable server-managed deployment completed 185600. Three verified unused build images were removed under the release lock, retaining accepted images and reducing disk use to 78%. Physical Mac Safari acceptance remains a user/device gate; no previous cold-PDF or homepage-notice fix is claimed.
+
+
+## 2026-10-23 PDF 恢复与性能优化（已上线，性能验收未完成）
+
+用户要求以同设备 WPS 的打开、滚动、缩放体验为硬性验收，而不是仅能看到页面。213500 候选造成空白反馈后实际回退到 185600；用户确认可见但仍严重卡顿。恢复版 231000（parent 185600，source eb55b6d08f048c4e1810bf455ec9ee0ecbaa2d9b）改用原生文字层、保留已绘制画面、缩放仅更新近处页面、256 KiB 缓存范围请求和更大的私人本地缓存。原件图文标注保留，普通导入文章交互不变。真实 gggg 两篇旧论文可打开，缓存刷新不重新下载 PDF；160 回归、源码 CI、三项真实 Flash、健康、备份隔离恢复及回退镜像验证通过。但公网首次冷开仍约18–20秒，缓存刷新约2.3–4.4秒，不能宣称达到 WPS 流畅度。此硬性验收保持开放，详见 [恢复记录](document-controls-20261023.md)。

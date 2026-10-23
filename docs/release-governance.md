@@ -1,6 +1,10 @@
 # Production Release Governance
 
-## Current accepted release
+## Current production release; performance acceptance open
+
+Production `20261023T231000`, parent `20261023T185600`, source `eb55b6d08f048c4e1810bf455ec9ee0ecbaa2d9b`. Exact public identity, 33-file package, CI 39975346053, 160 regressions, real gggg large/old PDF opening and cache refresh, three live deepseek-flash reading routes, source integrity, health, unchanged persistent backend IDs, fresh 40-table backup restore and retained rollback image pass. An actual emergency rollback restored 185600 before this recovery. WPS-equivalent performance is NOT accepted: public cold opens still measure 17.627–19.690 s; cached refreshes 2.313–4.377 s. Physical Safari/WPS and user acceptance remain open. See [recovery evidence](document-controls-20261023.md). Later documentation commits do not change the deployed source identity.
+
+## Previous accepted Word selection repair
 
 Accepted `20261023T185600`, parent `20261022T223000`, source `7442855c98f63070ee083f675cb7c0151d1d1ff9`. Public identity matches. This cumulative 11-file package adds a parent-side Word selection bridge for Safari without enabling scripts in the original frame. Real gggg WebKit double-click, re-drag and cross-line translation pass with visible Chinese output and no page errors. Local WebKit zoom and Chrome regression pass. 154 regressions, eight required fallback/billing tests, builds and exact-source CI 39940999462 pass. Live core AI routes prove deepseek-flash; private/Admin boundaries, health, unchanged backend IDs, fresh 40-table backup restore and retained current/parent images pass. Interrupted candidate 184500 never became production. See [evidence and remaining limitations](document-import-20261022.md). Physical Mac Safari and actual rollback were not performed. Later documentation commits do not change the deployed source identity.
 

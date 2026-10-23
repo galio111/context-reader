@@ -1,6 +1,6 @@
 # Original document reading acceptance
 
-Status: production accepted as `20261023T185600`, parent `20261022T223000`, source `7442855c98f63070ee083f675cb7c0151d1d1ff9`. Public identity matches. The existing gggg paper remains in My Articles; source association, original pages and historical translation caches are preserved.
+Status: production is `20261023T231000`, parent `20261023T185600`, source `eb55b6d08f048c4e1810bf455ec9ee0ecbaa2d9b`. The original Word repair below was accepted as 185600; current PDF recovery and outstanding WPS performance acceptance are in [recovery evidence](document-controls-20261023.md). Public identity matches. The existing gggg paper remains in My Articles; source association, original pages and historical translation caches are preserved.
 
 Initial accepted import parent: `20261022T171700`; source: `41005eba857101429a96eb1aef975c5b11f6af27`. Initial parent was `20261018T172000`. The cumulative startup release `20261022T173700` retained this feature and is the replay-fix parent.
 
