@@ -160,3 +160,29 @@ test("reading pages preserve text resources and geometry without changing the or
     source.catalog.delete(PDFName.of(feature));
   }
 });
+
+test("page delivery recovers once from interrupted transfer and stops on reader cancellation", async () => {
+  const { createPageReader } = await import("../lib/documentPageReader");
+  const originalFetch = globalThis.fetch;
+  let reads = 0, destroyed = 0;
+  const page = { pageNumber: 1 };
+  const library = { getDocument: ({ data }: { data: ArrayBuffer }) => {
+    assert.deepEqual([...new Uint8Array(data)], [1, 2, 3]);
+    return { promise: Promise.resolve({ getPage: async () => page }), destroy: async () => { destroyed++; } };
+  } } as unknown as typeof import("pdfjs-dist");
+  const controller = new AbortController();
+  try {
+    globalThis.fetch = (async () => {
+      reads++;
+      if (reads === 1) throw new TypeError("Interrupted transfer");
+      return new Response(new Uint8Array([1, 2, 3]));
+    }) as typeof fetch;
+    const source = createPageReader(library, {} as InstanceType<typeof library.PDFWorker>, null, "test-page", "/source?format=pdf", 2, controller.signal);
+    const [a, b] = await Promise.all([source.reader.getPage(1), source.reader.getPage(1)]);
+    assert.equal(a, page); assert.equal(b, page); assert.equal(reads, 2);
+    controller.abort();
+    await assert.rejects(source.reader.getPage(2), { name: "AbortError" });
+    assert.equal(reads, 2);
+    await source.destroy(); assert.equal(destroyed, 1);
+  } finally { globalThis.fetch = originalFetch; }
+});

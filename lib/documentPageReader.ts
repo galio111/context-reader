@@ -17,9 +17,18 @@ export function createPageReader(library: typeof import("pdfjs-dist"), worker: I
           let bytes = await readCachedDocument(owner, key);
           signal.throwIfAborted();
           if (!bytes) {
-            const response = await fetch(`${url}&page=${number}`, { cache: "no-store", signal: AbortSignal.any([signal, AbortSignal.timeout(30_000)]) });
-            if (!response.ok) throw new Error("Page source unavailable");
-            bytes = await response.arrayBuffer();
+            for (let attempt = 0; ; attempt++) {
+              try {
+                // An image-heavy page can exceed 5 MB: it must not inherit
+                // the short timeout used for a single 1 MB original range.
+                const response = await fetch(`${url}&page=${number}`, { cache: "no-store", signal: AbortSignal.any([signal, AbortSignal.timeout(180_000)]) });
+                if (!response.ok) throw new Error("Page source unavailable");
+                bytes = await response.arrayBuffer();
+                break;
+              } catch (error) {
+                if (signal.aborted || attempt >= 1) throw error;
+              }
+            }
             signal.throwIfAborted();
             // Cache and PDF worker each own their bytes, including on refresh.
             void cacheDocument(owner, key, bytes).catch(() => undefined);
