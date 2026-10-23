@@ -1,6 +1,6 @@
 # Private PDF delivery proposal
 
-Status: deferred by the user on 2026-10-24. No added cloud-service spending is authorized. Continue optimizing the existing server; no billable resource created. Current application release is 20261023T234000. Cold reading still fails the user's WPS-level acceptance requirement.
+Status: deferred by the user on 2026-10-24. No added cloud-service spending is authorized. Continue optimizing the existing server; no billable resource created. Current application release is 20261024T013000. The user subsequently relaxed exact WPS parity to practical reading fluency; existing-server native PDF previews substantially reduce cold reading waits. See document-controls-20261023.md.
 
 ## Proposed delivery path
 
@@ -18,7 +18,7 @@ Upgrading the whole server is an alternative, but eligible upgrades and restart 
 
 ## Acceptance before cutover
 
-Measure the actual 16-page IJBM and older SCM originals under fresh and populated browser caches. Record first visible page, immediate jumps to pages four/five, complete page preparation, continuous scroll, zoom, selection and reopen. Verify source hashes, unauthenticated and cross-account denial, URL expiration and fallback. Keep cold download and local rendering timings separate. Physical WPS comparison and user acceptance remain explicit gates; a faster transport test alone is insufficient.
+Measure the actual 16-page IJBM and older SCM originals under fresh and populated browser caches. Record first visible page, immediate jumps to pages four/five, complete page preparation, continuous scroll, zoom, selection and reopen. Verify source hashes, unauthenticated and cross-account denial, URL expiration and fallback. Keep cold download and local rendering timings separate. If this paid plan is revisited, user acceptance remains an explicit gate; exact WPS parity is no longer required; a faster transport test alone is insufficient.
 
 ## Official references
 
