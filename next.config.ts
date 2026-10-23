@@ -62,10 +62,17 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     return [
+      { source: "/document-runtime/:version/:path*", headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }] },
       { source: "/showcase/:path*", headers: [{ key: "Cache-Control", value: "public, max-age=604800, stale-while-revalidate=2592000" }] },
       {
         source: "/:path*",
         headers: securityHeaders,
+      },
+      {
+        source: "/document-runtime/:version/:path*",
+        // The PDF worker needs WASM for image/color decoding. Its response CSP
+        // applies independently of the reader page; JavaScript eval stays off.
+        headers: [{ key: "Content-Security-Policy", value: contentSecurityPolicy.replace("script-src 'self'", "script-src 'self' 'wasm-unsafe-eval'") }],
       },
       {
         source: "/admin/experience/frame",

@@ -11,11 +11,12 @@ export function DocumentViewportControls({ root, scroller, children }: {
 }) {
   const slot = useRef<HTMLDivElement>(null);
   const toolbar = useRef<HTMLDivElement>(null);
-  const [geometry, setGeometry] = useState({ left: 0, width: 0, top: 80, height: 48, pinned: false, bottom: 16, showScroll: false, max: 0, value: 0 });
+  const [geometry, setGeometry] = useState({ left: 0, width: 0, top: 0, height: 48, pinned: false, bottom: 16, showScroll: false, max: 0, value: 0 });
   useEffect(() => {
     const host = root.current, content = scroller.current, placeholder = slot.current;
     if (!host || !content || !placeholder) return;
     let frame = 0;
+    let watchedSheet: Element | null = null;
     const measure = () => {
       frame = 0;
       const bounds = host.getBoundingClientRect();
@@ -25,8 +26,17 @@ export function DocumentViewportControls({ root, scroller, children }: {
       const viewportTop = viewport?.offsetTop || 0;
       const viewportBottom = viewportTop + (viewport?.height || window.innerHeight);
       const dock = document.querySelector('nav[aria-label="阅读工具"]')?.getBoundingClientRect();
-      const lowerEdge = Math.min(viewportBottom - 16, dock && dock.height > 0 ? dock.top - 8 : viewportBottom);
-      const top = viewportTop + 80;
+      const sheet = document.querySelector('[aria-label="拖动调整面板高度"]')?.parentElement ?? null;
+      if (sheet !== watchedSheet) {
+        if (watchedSheet) observer.unobserve(watchedSheet);
+        if (sheet) observer.observe(sheet);
+        watchedSheet = sheet;
+      }
+      const sheetBounds = sheet?.getBoundingClientRect();
+      const lowerEdge = Math.min(viewportBottom - 16,
+        dock && dock.height > 0 ? dock.top - 8 : viewportBottom,
+        sheetBounds && sheetBounds.height > 0 ? sheetBounds.top - 8 : viewportBottom);
+      const top = viewportTop;
       const max = Math.max(0, content.scrollWidth - content.clientWidth);
       const next = { left: bounds.left, width: bounds.width, height,
         top: Math.min(top, bounds.bottom - height - 40),
@@ -42,13 +52,15 @@ export function DocumentViewportControls({ root, scroller, children }: {
     // PDF page sizes and Word's iframe wrapper can change after lazy rendering.
     const mutation = new MutationObserver(schedule);
     mutation.observe(content, { childList: true, subtree: true, attributes: true, attributeFilter: ["style"] });
+    const panels = new MutationObserver(schedule);
+    panels.observe(document.body, { childList: true, subtree: true });
     window.addEventListener("scroll", schedule, true);
     window.addEventListener("resize", schedule);
     window.visualViewport?.addEventListener("resize", schedule);
     window.visualViewport?.addEventListener("scroll", schedule);
     measure();
     return () => {
-      cancelAnimationFrame(frame); observer.disconnect(); mutation.disconnect();
+      cancelAnimationFrame(frame); observer.disconnect(); mutation.disconnect(); panels.disconnect();
       window.removeEventListener("scroll", schedule, true);
       window.removeEventListener("resize", schedule);
       window.visualViewport?.removeEventListener("resize", schedule);

@@ -11,6 +11,13 @@ import nextConfig from "../next.config";
 import { MAX_DOCUMENT_BYTES } from "../lib/documentSource";
 import { readFormDataBody } from "../lib/limitedBody";
 import { acquirePdfRender } from "../lib/pdfRenderQueue";
+test("PDF worker permits bundled WASM decoding without permitting JavaScript eval", async () => {
+  const rules = await nextConfig.headers!();
+  const workerPolicy = rules.filter(rule => rule.source === "/document-runtime/:version/:path*")
+    .flatMap(rule => rule.headers).find(header => header.key === "Content-Security-Policy")?.value;
+  assert.ok(workerPolicy?.includes("'wasm-unsafe-eval'"));
+  if (process.env.NODE_ENV !== "development") assert.ok(!workerPolicy?.includes("'unsafe-eval'"));
+});
 test("visible page rendering overtakes queued preloads and cancelled work leaves the queue", async () => {
   const first = await acquirePdfRender(new AbortController().signal, 0);
   const second = await acquirePdfRender(new AbortController().signal, 0);
@@ -89,4 +96,44 @@ test("file validation rejects disguised files, encryption and expanded ZIP bombs
   assert.throws(()=>validateDocumentBytes(new TextEncoder().encode("not a zip"),"docx"));
   const macro=await zip.generateAsync({type:"uint8array"});
   assert.throws(()=>validateDocumentBytes(macro,"docx"),/宏/);
+});
+
+
+test("document range cache reopens without downloading an original and deduplicates overlapping reads", async () => {
+  const { openDocumentRanges, DOCUMENT_RANGE_CHUNK: size } = await import("../lib/documentRangeReader");
+  const source = Uint8Array.from({ length: size * 3 + 17 }, (_, i) => i % 251);
+  const cache = new Map<string, ArrayBuffer>();
+  const requests: string[] = [];
+  const io = {
+    read: async (key: string) => cache.get(key)?.slice(0) ?? null,
+    write: async (key: string, bytes: ArrayBuffer) => { cache.set(key, bytes.slice(0)); },
+    fetch: (async (_: unknown, options: RequestInit) => {
+      const range = (options.headers as Record<string,string>).Range;
+      requests.push(range);
+      const [begin, inclusive] = range.slice(6).split("-").map(Number);
+      const end = Math.min(inclusive + 1, source.length);
+      return new Response(source.slice(begin, end), { status: 206, headers: { "content-range": `bytes ${begin}-${end-1}/${source.length}` } });
+    }) as typeof fetch,
+  };
+  const signal = new AbortController().signal;
+  const first = await openDocumentRanges("owner", "paper", "/source", signal, io);
+  structuredClone(first.initialData, { transfer: [first.initialData.buffer] });
+  assert.deepEqual(await first.read(0, 100), source.slice(0, 100), "PDF worker transfer cannot detach the reader cache");
+  const [a, b] = await Promise.all([first.read(size, size * 2 + 10), first.read(size + 7, size * 2 + 5)]);
+  assert.deepEqual(a, source.slice(size, size * 2 + 10));
+  assert.deepEqual(b, source.slice(size + 7, size * 2 + 5));
+  assert.equal(requests.length, 3, "first chunk plus two requested chunks, never a whole-file request");
+  const reopened = await openDocumentRanges("owner", "paper", "/source", signal, io);
+  assert.deepEqual(await reopened.read(0, size * 2 + 10), source.slice(0, size * 2 + 10));
+  assert.equal(requests.length, 3, "reopening uses the persisted chunks");
+});
+
+test("invalid range responses fail instead of leaving a blank page waiting forever", async () => {
+  const { openDocumentRanges } = await import("../lib/documentRangeReader");
+  let requests = 0;
+  await assert.rejects(openDocumentRanges(null, "paper", "/source", new AbortController().signal, {
+    read: async () => null, write: async () => undefined,
+    fetch: (async () => { requests++; return new Response(new Uint8Array(3), { status: 206, headers: { "content-range": "bytes 0-4/1000" } }); }) as typeof fetch,
+  }), /读取不完整/);
+  assert.equal(requests, 2);
 });

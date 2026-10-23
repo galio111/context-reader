@@ -75,7 +75,7 @@ export async function prepareDocument(file: File, progress: (message: string) =>
   const response = await fetch("/api/documents", { method: "POST", body: form, signal: AbortSignal.timeout(180_000) });
   const result = await response.json();
   if (!response.ok || !result.document) throw new Error(result.error || "文档未能保存，请稍后重试。");
-  void file.arrayBuffer().then(bytes => cacheDocument(sourceOwner, result.document.id, bytes));
+  await cacheDocument(sourceOwner, result.document.id, await file.arrayBuffer());
   return { title: file.name.replace(/\.(pdf|docx)$/i, ""), url: "", siteName: format === "pdf" ? "PDF 文档" : "Word 文档",
     text, blocks, document: { ...result.document, pageCount } };
 }

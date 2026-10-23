@@ -18,7 +18,7 @@
 :global(html[data-context-theme="night"]) .pinnedToolbar button { background:#303034; color:#eee; border-color:#666; }
 .wordMouseSurface { display:none; }
 @media (hover:hover) and (pointer:fine) { .wordMouseSurface { display:block; position:absolute; inset:0; cursor:text; } }
-.page { position:relative; margin:0 0 20px; background:white; box-shadow:0 1px 5px #0002; }
+.page { position:relative; overflow:clip; content-visibility:auto; margin:0 0 20px; background:white; box-shadow:0 1px 5px #0002; }
 .page>div { position:relative; }
 .root :global(.textLayer) { position:absolute; inset:0; overflow:clip; opacity:1; line-height:1; text-align:initial; text-size-adjust:none; forced-color-adjust:none; transform-origin:0 0; caret-color:transparent; z-index:1; --min-font-size:1; --text-scale-factor:calc(var(--total-scale-factor) * var(--min-font-size)); --min-font-size-inv:calc(1 / var(--min-font-size)); }
 .root :global(.textLayer) :is(span,br) { position:absolute; color:transparent; white-space:pre; cursor:text; transform-origin:0% 0%; user-select:text; -webkit-user-select:text; }

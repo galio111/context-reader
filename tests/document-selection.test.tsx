@@ -89,7 +89,23 @@ test("selected translation replays exact cache, cancels stale selection and hide
   try {
     await initializeLearningStorage(); getLearningStorage().setItem("context-reader:local-account-owner:v1","A");
     const original = new TextEncoder().encode("%PDF-original-source").buffer as ArrayBuffer;
-    await cacheDocument("A","source-id",original);
+    await new Promise<void>((resolve, reject) => {
+      const request = indexedDB.open("context-reader-private-documents-v1", 1);
+      request.onupgradeneeded = () => request.result.createObjectStore("originals", { keyPath: "key" });
+      request.onerror = () => reject(request.error);
+      request.onsuccess = () => {
+        const db = request.result, tx = db.transaction("originals", "readwrite");
+        tx.objectStore("originals").put({ key:"A:legacy", owner:"A", id:"legacy", bytes:original, touched:1 });
+        tx.oncomplete = () => { db.close(); resolve(); }; tx.onerror = () => reject(tx.error);
+      };
+    });
+    assert.deepEqual(new Uint8Array((await readCachedDocument("A", "legacy"))!), new Uint8Array(original), "cache metadata upgrade preserves existing original bytes");
+    const pendingOriginal = cacheDocument("A","source-id",original);
+    const immediate = (await readCachedDocument("A","source-id"))!;
+    assert.deepEqual(new Uint8Array(immediate),new Uint8Array(original), "import opens from its local bytes before persistence completes");
+    structuredClone(immediate, { transfer: [immediate] });
+    assert.equal(immediate.byteLength, 0);
+    await pendingOriginal;
     assert.deepEqual(new Uint8Array((await readCachedDocument("A","source-id"))!),new Uint8Array(original));
     assert.equal(await readCachedDocument("B","source-id"),null);
     setCachedArticleTranslationForBlocks(selectionTranslationBlocks(text,article),[{id:"doc-p1-b0",translation:"已有整段译文"}]);

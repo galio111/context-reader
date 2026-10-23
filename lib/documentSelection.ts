@@ -114,6 +114,8 @@ function paintDocumentSelection(root: HTMLElement, selected: Range) {
   for (const page of root.querySelectorAll<HTMLElement>("[data-document-page]")) {
     if (!selected.intersectsNode(page)) continue;
     const bounds = page.getBoundingClientRect();
+    const scaleX = page.offsetWidth ? bounds.width / page.offsetWidth : 1;
+    const scaleY = page.offsetHeight ? bounds.height / page.offsetHeight : scaleX;
     const boxes: { left: number; top: number; right: number; height: number }[] = [];
     for (const span of page.querySelectorAll<HTMLElement>(".textLayer span:not(.pdfGlyphLine)")) {
       const node = span.firstChild;
@@ -133,7 +135,7 @@ function paintDocumentSelection(root: HTMLElement, selected: Range) {
     overlay.style.cssText = "position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:2";
     for (const box of boxes) {
       const mark = root.ownerDocument.createElement("i");
-      mark.style.cssText = `position:absolute;left:${box.left-bounds.left}px;top:${box.top-bounds.top}px;width:${box.right-box.left}px;height:${box.height}px;background:rgba(0,102,204,.25)`;
+      mark.style.cssText = `position:absolute;left:${(box.left-bounds.left)/scaleX}px;top:${(box.top-bounds.top)/scaleY}px;width:${(box.right-box.left)/scaleX}px;height:${box.height/scaleY}px;background:rgba(0,102,204,.25)`;
       overlay.append(mark);
     }
     page.append(overlay);
