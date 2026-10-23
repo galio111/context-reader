@@ -14,7 +14,7 @@ export async function pdfLibrary() {
   return pdf;
 }
 export const pdfOptions = { isEvalSupported: false, cMapUrl: `${PDF_RUNTIME}cmaps/`, cMapPacked: true,
-  standardFontDataUrl: `${PDF_RUNTIME}standard_fonts/`, wasmUrl: `${PDF_RUNTIME}wasm/` };
+  standardFontDataUrl: `${PDF_RUNTIME}standard_fonts/`, wasmUrl: `${PDF_RUNTIME}wasm/`, iccUrl: `${PDF_RUNTIME}iccs/` };
 
 export async function prepareDocument(file: File, progress: (message: string) => void): Promise<ImportedArticle> {
   const sourceOwner = documentCacheOwner();

@@ -57,6 +57,9 @@ function PdfPage({ pdf, number, width, zoom, preload, settled, onPaint }: { pdf:
   useEffect(() => {
     const host = ref.current;
     if (!host || (!near && !preload)) return;
+    // After preparation, keep distant frames scaled instead of repainting the
+    // entire paper for every zoom click. Sharpen when the page approaches view.
+    if (!near && painted.current) return;
     const key = `${width}:${zoom}:${attempt}`;
     if (!settled && painted.current) return;
     if (painted.current?.key === key && (!full || painted.current.full)) return;
@@ -68,6 +71,10 @@ function PdfPage({ pdf, number, width, zoom, preload, settled, onPaint }: { pdf:
     let render: ReturnType<Awaited<ReturnType<PDFDocumentProxy["getPage"]>>["render"]> | undefined;
     let layer: InstanceType<Awaited<ReturnType<typeof pdfLibrary>>["TextLayer"]> | undefined;
     void (async () => {
+      if (painted.current && painted.current.key !== key) {
+        await new Promise(resolve => setTimeout(resolve, 120));
+        if (disposed) return;
+      }
       const bounds = host.getBoundingClientRect();
       release = await acquirePdfRender(controller.signal, Math.max(0, bounds.top - innerHeight, -bounds.bottom));
       if (disposed) return;
