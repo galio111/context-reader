@@ -1,4 +1,5 @@
 import type { PDFPageProxy } from "pdfjs-dist";
+import { cleanDocumentText } from "./documentUnicode";
 
 interface Glyph { unicode: string; fontChar: string }
 interface PaintedGlyph { text: string; x: number; y: number; width: number; height: number }
@@ -22,7 +23,7 @@ export async function recordPdfGlyphs(page: PDFPageProxy, ctx: CanvasRenderingCo
     let map = fonts.get(font);
     if (!map) fonts.set(font, map = new Map());
     for (const glyph of args[0] as Glyph[]) {
-      if (glyph?.unicode && glyph.fontChar) map.set(glyph.fontChar, glyph.unicode.normalize("NFKC"));
+      if (glyph?.unicode && glyph.fontChar) map.set(glyph.fontChar, cleanDocumentText(glyph.unicode).normalize("NFKC"));
     }
   }
   const glyphs: PaintedGlyph[] = [];

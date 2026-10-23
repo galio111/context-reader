@@ -11,6 +11,7 @@ import { readDocumentSelection, selectDocumentWord, documentCaretAtPoint, setDoc
 import { recordPdfGlyphs, alignPdfTextLayer } from "@/lib/pdfSelectionGeometry";
 import { observeSandboxedSelection } from "@/lib/documentSelectionObserver";
 import { acquirePdfRender } from "@/lib/pdfRenderQueue";
+import { cleanDocumentText } from "@/lib/documentUnicode";
 import styles from "./DocumentReader.module.css";
 
 
@@ -79,13 +80,14 @@ function PdfPage({ pdf, number, width, zoom }: { pdf: PDFDocumentProxy; number: 
       // the transparent text layer adds selection without replacing source text.
       const [textContent, recording] = await Promise.all([page.getTextContent(), recordPdfGlyphs(page, canvas.getContext("2d")!, ratio, library.OPS)]);
       if (disposed) { recording.restore(); return; }
+      const cleanContent = { ...textContent, items: textContent.items.map(item => "str" in item ? { ...item, str: cleanDocumentText(item.str) } : item) };
       text.lang = textContent.lang || "en";
-      layer = new library.TextLayer({ textContentSource: textContent, container: text, viewport });
+      layer = new library.TextLayer({ textContentSource: cleanContent, container: text, viewport });
       render = page.render({ canvas, viewport, transform: [ratio, 0, 0, ratio, 0, 0], annotationMode: library.AnnotationMode.ENABLE_STORAGE });
       try {
         await Promise.all([render.promise, layer.render()]);
         if (!disposed && viewport.rotation === 0) alignPdfTextLayer(text, recording.glyphs, viewport.scale,
-          textContent.items.filter((item): item is import("pdfjs-dist/types/src/display/api").TextItem => "str" in item), viewport.height);
+          cleanContent.items.filter((item): item is import("pdfjs-dist/types/src/display/api").TextItem => "str" in item), viewport.height);
       } finally { recording.restore(); }
       if (!disposed) {
         host.replaceChildren(canvas, text);

@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { writeSyncObjects } from "../lib/accountStore";
 import { cleanDocumentArticlePayload, preserveDocumentArticlePayload } from "../lib/documentArticleSync";
 import { cleanDocumentText } from "../lib/documentUnicode";
+import { normalizeDocumentSelection } from "../lib/documentSelection";
 import { mergeDuplicateSavedArticles } from "../lib/savedArticleMerge";
 import type { SavedArticle } from "../types/article";
 
@@ -12,6 +13,7 @@ test("PDF hidden Unicode cannot break JSONB persistence and meaningful Unicode s
   const text = "hydro\u0000gel α β 中文 𝛼 😀 \ud800 / \udc00";
   const expected = "hydrogel α β 中文 𝛼 😀 � / �";
   assert.equal(cleanDocumentText(text), expected);
+  assert.equal(normalizeDocumentSelection("hydro\u0000gel"), "hydrogel");
   const input = { ...original, body: text, importedArticle: { ...importedArticle, text, blocks: [{ ...importedArticle.blocks[0], text }] } };
   const cleaned = cleanDocumentArticlePayload(input) as SavedArticle;
   assert.equal(cleaned.body, expected);

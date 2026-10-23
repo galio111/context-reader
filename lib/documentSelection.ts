@@ -1,9 +1,10 @@
 import type { ImportedArticle } from "@/types/article";
 import type { WordContext } from "@/types/reader";
 import { LATIN_PHRASE_PATTERN } from "./latinWords";
+import { cleanDocumentText } from "./documentUnicode";
 
 export function normalizeDocumentSelection(text: string): string {
-  return text.normalize("NFKC").replace(/([a-z])-\s*\n\s*([a-z]+)/g, (_, before, after) =>
+  return cleanDocumentText(text).normalize("NFKC").replace(/([a-z])-\s*\n\s*([a-z]+)/g, (_, before, after) =>
     `${before}${/^(resistant|negative|positive|dependent|induced|responsive|activated|targeting|functionalized|associated|treated)\b/.test(after) ? "-" : ""}${after}`)
     .replace(/\s+/g, " ").trim();
 }
