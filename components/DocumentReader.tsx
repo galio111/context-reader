@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
 import { DocumentViewportControls } from "./DocumentViewportControls";
 import type { PDFDocumentProxy } from "pdfjs-dist";
 import type { ImportedArticle } from "@/types/article";
@@ -15,8 +15,9 @@ import { cleanDocumentText } from "@/lib/documentUnicode";
 import styles from "./DocumentReader.module.css";
 
 
-function PdfPage({ pdf, number, width, zoom }: { pdf: PDFDocumentProxy; number: number; width: number; zoom: number }) {
+function PdfPage({ pdf, number, width, zoom, onPaint }: { pdf: PDFDocumentProxy; number: number; width: number; zoom: number; onPaint: () => void }) {
   const ref = useRef<HTMLDivElement>(null);
+  const paintCallback = useRef(onPaint); paintCallback.current = onPaint;
   const painted = useRef<{ width: number; key: string } | null>(null);
   const [near, setNear] = useState(false);
   const [height, setHeight] = useState(width * 1.414);
@@ -96,6 +97,8 @@ function PdfPage({ pdf, number, width, zoom }: { pdf: PDFDocumentProxy; number: 
         host.style.transform = "none";
         painted.current = { width: viewport.width, key };
         setReady(true);
+        const paintedBounds = host.getBoundingClientRect();
+        if (paintedBounds.bottom > 0 && paintedBounds.top < innerHeight) paintCallback.current();
       }
     })().catch(() => { staging?.remove(); if (!disposed) setError("此页未能完整显示。"); }).finally(() => release?.());
     return () => { disposed = true; controller.abort(); render?.cancel(); layer?.cancel(); staging?.remove(); };
@@ -113,6 +116,8 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
   const source = article.document!;
   const root = useRef<HTMLDivElement>(null);
   const scroller = useRef<HTMLDivElement>(null);
+  const cacheAfterPaint = useRef<(() => void) | null>(null);
+  const handlePaint = useCallback(() => { const start = cacheAfterPaint.current; cacheAfterPaint.current = null; start?.(); }, []);
   const iframe = useRef<HTMLIFrameElement>(null);
   const wordMouseSurface = useRef<HTMLDivElement>(null);
   const callback = useRef(onLookup); callback.current = onLookup;
@@ -133,6 +138,7 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
   }, []);
   useEffect(() => {
     const controller = new AbortController();
+    cacheAfterPaint.current = null;
     let task: ReturnType<Awaited<ReturnType<typeof pdfLibrary>>["getDocument"]> | undefined;
     let worker: InstanceType<Awaited<ReturnType<typeof pdfLibrary>>["PDFWorker"]> | undefined;
     setLoading(true); setError(""); setPdf(null); setWordBytes(null);
@@ -151,13 +157,21 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
         // Render from streaming/range reads instead of waiting for the entire
         // large original to download. Keep the full original cache asynchronous.
         task = library.getDocument({ url: documentUrl(source), worker, ...pdfOptions,
-          withCredentials: true, rangeChunkSize: 256 * 1024 });
+          withCredentials: true, rangeChunkSize: 256 * 1024, disableAutoFetch: true, disableStream: true });
         const loaded = await task.promise;
         if (controller.signal.aborted) return;
+        // getData() merges all missing PDF chunks into a large blocking range.
+        // Keep page requests independent; start a separate low-priority cache
+        // transfer only after the first visible frame has completed.
+        cacheAfterPaint.current = () => {
+          void fetch(documentUrl(source), { signal: controller.signal, cache: "no-store", priority: "low" })
+            .then(async response => {
+              if (!response.ok) return;
+              const original = await response.arrayBuffer();
+              if (!controller.signal.aborted) await cacheDocument(owner, source.id, original);
+            }).catch(() => undefined);
+        };
         setPdf(loaded); setLoading(false);
-        void loaded.getData().then(data => {
-          if (!controller.signal.aborted) return cacheDocument(owner, source.id, data.slice().buffer as ArrayBuffer);
-        }).catch(() => undefined);
         return;
       }
       if (!bytes) {
@@ -184,7 +198,7 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
       } else setWordBytes(bytes);
       setLoading(false);
     })().catch(e => { if (!controller.signal.aborted) { setError(e instanceof Error ? e.message : "文档打开失败。"); setLoading(false); } });
-    return () => { controller.abort(); if (task) void task.destroy().finally(() => worker?.destroy()); else worker?.destroy(); };
+    return () => { controller.abort(); cacheAfterPaint.current = null; if (task) void task.destroy().finally(() => worker?.destroy()); else worker?.destroy(); };
   }, [source.id, source.format, attempt]);
   useEffect(() => {
     if (!wordBytes || !frameReady || !iframe.current?.contentDocument) return;
@@ -324,7 +338,7 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
         if (context) callback.current(context);
       }
     }}>
-      {pdf && Array.from({ length: pdf.numPages }, (_, i) => <PdfPage key={i} pdf={pdf} number={i + 1} width={width} zoom={zoom} />)}
+      {pdf && Array.from({ length: pdf.numPages }, (_, i) => <PdfPage key={i} pdf={pdf} number={i + 1} width={width} zoom={zoom} onPaint={handlePaint} />)}
       {source.format === "docx" && <div style={{ position: "relative", width: zoom ? 816 * zoom : width }}><iframe ref={iframe} title={source.name} sandbox="allow-same-origin" srcDoc={WORD_SHELL} onLoad={() => setFrameReady(true)} style={{ border: 0, transformOrigin: "top left", display: "block", width: 816, minHeight: 400 } as CSSProperties} /><div ref={wordMouseSurface} className={styles.wordMouseSurface} aria-hidden="true" /></div>}
     </div>
   </div>;
