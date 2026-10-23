@@ -1,7 +1,21 @@
 import { normalizeDocumentSource } from "@/lib/documentSource";
+import { cleanDocumentText } from "./documentUnicode";
 
 function record(value: unknown): Record<string, unknown> | undefined {
   return value && typeof value === "object" && !Array.isArray(value) ? value as Record<string, unknown> : undefined;
+}
+
+/** Also repairs pending imports created by older browser tabs before JSONB. */
+export function cleanDocumentArticlePayload(value: unknown): unknown {
+  const article = record(value);
+  if (!normalizeDocumentSource(record(article?.importedArticle)?.document)) return value;
+  function clean(item: unknown): unknown {
+    if (typeof item === "string") return cleanDocumentText(item);
+    if (Array.isArray(item)) return item.map(clean);
+    const object = record(item);
+    return object ? Object.fromEntries(Object.entries(object).map(([key, child]) => [key, clean(child)])) : item;
+  }
+  return clean(value);
 }
 
 /** Older tabs may serialize only fields they understand. A read-only document's

@@ -3,6 +3,7 @@ import { cacheDocument, documentCacheOwner } from "./documentBinaryCache";
 import type { ImportedArticle, ImportedArticleBlock } from "@/types/article";
 import { MAX_DOCUMENT_BYTES, MAX_DOCUMENT_PAGES, MAX_DOCUMENT_TEXT } from "./documentSource";
 import { validateDocumentBytes } from "./documentValidation";
+import { cleanDocumentText } from "./documentUnicode";
 import { pdfPageBlocks, type PdfTextItem } from "./documentText";
 import pdfPackage from "pdfjs-dist/package.json";
 const pdfVersion = pdfPackage.version;
@@ -56,7 +57,7 @@ export async function prepareDocument(file: File, progress: (message: string) =>
   // A Word paragraph can span tens of thousands of characters. Keep every word
   // while ensuring no target is silently truncated by the translation endpoint.
   blocks = blocks.flatMap(block => {
-    let remaining = block.text ?? "";
+    let remaining = cleanDocumentText(block.text ?? "");
     const parts: ImportedArticleBlock[] = [];
     while (remaining.length > 3500) {
       const space = remaining.lastIndexOf(" ", 3500);
@@ -64,14 +65,14 @@ export async function prepareDocument(file: File, progress: (message: string) =>
       parts.push({ ...block, id: `${block.id}-part${parts.length}`, text: remaining.slice(0, end) });
       remaining = remaining.slice(end).trimStart();
     }
-    return parts.length ? [...parts, { ...block, id: `${block.id}-part${parts.length}`, text: remaining }] : [block];
+    return parts.length ? [...parts, { ...block, id: `${block.id}-part${parts.length}`, text: remaining }] : [{ ...block, text: remaining }];
   });
   const text = blocks.map(b => b.text).join("\n\n");
   if (text.trim().length < 30) throw new Error("文档没有足够的可读取文字，暂不支持扫描件或纯图片文档。");
   if (text.length > MAX_DOCUMENT_TEXT) throw new Error("文档文字过多，请拆分后导入。");
   progress("正在保存文档…");
   const form = new FormData(); form.set("file", file);
-  const response = await fetch("/api/documents", { method: "POST", body: form, signal: AbortSignal.timeout(90_000) });
+  const response = await fetch("/api/documents", { method: "POST", body: form, signal: AbortSignal.timeout(180_000) });
   const result = await response.json();
   if (!response.ok || !result.document) throw new Error(result.error || "文档未能保存，请稍后重试。");
   void file.arrayBuffer().then(bytes => cacheDocument(sourceOwner, result.document.id, bytes));

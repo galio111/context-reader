@@ -24,13 +24,15 @@ export function DocumentViewportControls({ root, scroller, children }: {
       const viewport = window.visualViewport;
       const viewportTop = viewport?.offsetTop || 0;
       const viewportBottom = viewportTop + (viewport?.height || window.innerHeight);
+      const dock = document.querySelector('nav[aria-label="阅读工具"]')?.getBoundingClientRect();
+      const lowerEdge = Math.min(viewportBottom - 16, dock && dock.height > 0 ? dock.top - 8 : viewportBottom);
       const top = viewportTop + 80;
       const max = Math.max(0, content.scrollWidth - content.clientWidth);
       const next = { left: bounds.left, width: bounds.width, height,
         top: Math.min(top, bounds.bottom - height - 40),
         pinned: position.top < top && bounds.bottom > top + height + 40,
-        bottom: Math.max(16, window.innerHeight - Math.min(viewportBottom - 16, bounds.bottom)),
-        showScroll: max > 1 && bounds.bottom > top + height + 40 && position.bottom < viewportBottom - 56,
+        bottom: Math.max(16, window.innerHeight - Math.min(lowerEdge, bounds.bottom)),
+        showScroll: max > 1 && bounds.bottom > top + height + 40 && position.bottom < lowerEdge - 40,
         max, value: content.scrollLeft };
       setGeometry(previous => Object.keys(next).every(key => previous[key as keyof typeof next] === next[key as keyof typeof next]) ? previous : next);
     };

@@ -13,7 +13,7 @@ import type {
 } from "@/types/account";
 import { phoneFromUser } from "@/lib/userAuth";
 import { learningPoints, PLAN_NAMES } from "@/lib/billingPolicy";
-import { preserveDocumentArticlePayload } from "@/lib/documentArticleSync";
+import { cleanDocumentArticlePayload, preserveDocumentArticlePayload } from "@/lib/documentArticleSync";
 
 interface ProfileRow {
   user_id: string;
@@ -636,7 +636,8 @@ export async function writeSyncObjects(userId: string, objects: AccountSyncObjec
   // Keep the caller's expected version: a concurrent write must still fail CAS.
   const rows = await accountFetch<Array<SyncObjectRow & { accepted: boolean }>>("rpc/merge_user_data_objects", {
     method: "POST",
-    body: JSON.stringify({ p_user_id: userId, p_objects: protectedObjects }),
+    body: JSON.stringify({ p_user_id: userId, p_objects: protectedObjects.map(object => object.kind === "article" && !object.deletedAt
+      ? { ...object, payload: cleanDocumentArticlePayload(object.payload) } : object) }),
   });
   return rows.map((row) => ({
     kind: row.kind,

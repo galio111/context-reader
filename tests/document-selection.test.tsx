@@ -88,7 +88,7 @@ test("selected translation replays exact cache, cancels stale selection and hide
   const finish = (index: number, translation: string) => requests[index].resolve(new Response(JSON.stringify({type:"translation",translation:{id:requests[index].block.id,translation}})+"\n"));
   try {
     await initializeLearningStorage(); getLearningStorage().setItem("context-reader:local-account-owner:v1","A");
-    const original = new TextEncoder().encode("%PDF-original-source").buffer;
+    const original = new TextEncoder().encode("%PDF-original-source").buffer as ArrayBuffer;
     await cacheDocument("A","source-id",original);
     assert.deepEqual(new Uint8Array((await readCachedDocument("A","source-id"))!),new Uint8Array(original));
     assert.equal(await readCachedDocument("B","source-id"),null);

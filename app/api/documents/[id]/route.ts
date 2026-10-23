@@ -16,7 +16,7 @@ export async function GET(request: Request, context: { params: Promise<{ id: str
     const key = process.env.SUPABASE_SERVICE_ROLE_KEY!;
     const upstream = await fetch(`${process.env.SUPABASE_URL}/storage/v1/object/${DOCUMENT_BUCKET}/${user.id}/${id}.${format}`, {
       headers: { apikey: key, Authorization: `Bearer ${key}`, ...(range ? { Range: range } : {}) },
-      cache: "no-store", signal: AbortSignal.any([request.signal, AbortSignal.timeout(60_000)]),
+      cache: "no-store", signal: AbortSignal.any([request.signal, AbortSignal.timeout(180_000)]),
     });
     if (!upstream.ok || !upstream.body) {
       await upstream.body?.cancel();

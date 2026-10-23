@@ -143,11 +143,26 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
       void libraryPromise?.catch(() => undefined);
       let bytes = await readCachedDocument(owner, source.id);
       if (controller.signal.aborted) return;
+      if (!bytes && source.format === "pdf") {
+        const library = await libraryPromise!;
+        if (controller.signal.aborted) return;
+        // Render from streaming/range reads instead of waiting for the entire
+        // large original to download. Keep the full original cache asynchronous.
+        task = library.getDocument({ url: documentUrl(source), worker, ...pdfOptions,
+          withCredentials: true, rangeChunkSize: 256 * 1024 });
+        const loaded = await task.promise;
+        if (controller.signal.aborted) return;
+        setPdf(loaded); setLoading(false);
+        void loaded.getData().then(data => {
+          if (!controller.signal.aborted) return cacheDocument(owner, source.id, data.slice().buffer as ArrayBuffer);
+        }).catch(() => undefined);
+        return;
+      }
       if (!bytes) {
       let response: Response | undefined;
       for (let retry = 0; retry < 3; retry++) {
         try {
-          response = await fetch(documentUrl(source), { signal: AbortSignal.any([controller.signal, AbortSignal.timeout(30_000)]), cache: "no-store" });
+          response = await fetch(documentUrl(source), { signal: AbortSignal.any([controller.signal, AbortSignal.timeout(180_000)]), cache: "no-store" });
           if (response.ok || response.status < 500) break;
         } catch (failure) { if (controller.signal.aborted || retry === 2) throw failure; }
         await new Promise(resolve => setTimeout(resolve, 500 * (retry + 1)));
