@@ -1,6 +1,6 @@
 # Private PDF delivery proposal
 
-Status: proposed, no billable resource created. Current application release is 20261023T234000. Cold reading still fails the user's WPS-level acceptance requirement.
+Status: deferred by the user on 2026-10-24. No added cloud-service spending is authorized. Continue optimizing the existing server; no billable resource created. Current application release is 20261023T234000. Cold reading still fails the user's WPS-level acceptance requirement.
 
 ## Proposed delivery path
 

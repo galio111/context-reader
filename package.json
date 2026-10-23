@@ -41,6 +41,7 @@
     "nodemailer": "9.0.5",
     "openai": "4.103.0",
     "page-flip": "^2.0.7",
+    "pdf-lib": "1.17.1",
     "pdfjs-dist": "^5.4.624",
     "qrcode": "^1.5.4",
     "react": "19.0.0",

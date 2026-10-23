@@ -8,6 +8,19 @@ export async function GET(request: Request, context: { params: Promise<{ id: str
   const { id } = await context.params;
   const format = new URL(request.url).searchParams.get("format");
   if (!/^[a-f0-9]{64}$/.test(id) || (format !== "pdf" && format !== "docx")) return new Response(null, { status: 400 });
+  const page = new URL(request.url).searchParams.get("page");
+  if (page !== null) {
+    if (format !== "pdf" || !/^[1-9]\d{0,2}$/.test(page) || Number(page) > 500) return new Response(null, { status: 400 });
+    try {
+      const { readDocumentPage } = await import("@/lib/documentPageStore");
+      const bytes = await readDocumentPage(user.id, id, Number(page));
+      return new Response(new Uint8Array(bytes).buffer, { headers: { "Content-Type": "application/pdf", "Cache-Control": "private, no-store", "X-Content-Type-Options": "nosniff" } });
+    } catch {
+      // A source with document-level forms/color/layer state must keep using
+      // the intact PDF. The reader silently falls back to its existing path.
+      return new Response(null, { status: 422 });
+    }
+  }
   const range = request.headers.get("range");
   if (range && !/^bytes=\d+-\d*$/.test(range)) return new Response(null, { status: 416 });
   // Stream the private owner-scoped object instead of buffering it in the app

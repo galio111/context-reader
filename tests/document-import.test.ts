@@ -140,3 +140,23 @@ test("invalid range responses fail instead of leaving a blank page waiting forev
   }), /读取不完整/);
   assert.equal(requests, 2);
 });
+
+test("reading pages preserve text resources and geometry without changing the original", async () => {
+  const { PDFDocument, PDFName } = await import("pdf-lib");
+  const { copyReadingPage } = await import("../lib/documentPageStore");
+  const source = await PDFDocument.create();
+  source.addPage([300, 500]).drawText("First page");
+  source.addPage([500, 300]).drawText("Second page");
+  const original = await source.save();
+  const page = await PDFDocument.load(await copyReadingPage(source, 2));
+  assert.equal(page.getPageCount(), 1);
+  assert.deepEqual(page.getPage(0).getSize(), { width: 500, height: 300 });
+  assert.ok(page.getPage(0).node.Resources());
+  assert.deepEqual(await source.save(), original);
+  await assert.rejects(copyReadingPage(source, 3));
+  for (const feature of ["AcroForm", "OCProperties", "OutputIntents"]) {
+    source.catalog.set(PDFName.of(feature), source.context.obj({}));
+    await assert.rejects(copyReadingPage(source, 1), /Original document required/);
+    source.catalog.delete(PDFName.of(feature));
+  }
+});

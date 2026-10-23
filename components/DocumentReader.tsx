@@ -10,12 +10,13 @@ import { pdfLibrary, pdfOptions } from "@/lib/documentClient";
 import { readDocumentSelection, selectDocumentWord, documentCaretAtPoint, setDocumentDragRange, clearDocumentSelectionHighlight } from "@/lib/documentSelection";
 import { observeSandboxedSelection } from "@/lib/documentSelectionObserver";
 import { acquirePdfRender } from "@/lib/pdfRenderQueue";
+import { createPageReader, type ReadingPdf } from "@/lib/documentPageReader";
 import { DOCUMENT_RANGE_CHUNK, openDocumentRanges } from "@/lib/documentRangeReader";
 import { cleanDocumentText } from "@/lib/documentUnicode";
 import styles from "./DocumentReader.module.css";
 
 
-function PdfPage({ pdf, number, width, zoom, preload, settled, onPaint }: { pdf: PDFDocumentProxy; number: number; width: number; zoom: number; preload: boolean; settled: boolean; onPaint: () => void }) {
+function PdfPage({ pdf, number, width, zoom, preload, settled, enabled, onPaint }: { pdf: ReadingPdf; enabled: boolean; number: number; width: number; zoom: number; preload: boolean; settled: boolean; onPaint: () => void }) {
   const ref = useRef<HTMLDivElement>(null);
   const pageSection = useRef<HTMLElement>(null);
   const painted = useRef<{ width: number; key: string; full: boolean; ratio: number } | null>(null);
@@ -32,12 +33,6 @@ function PdfPage({ pdf, number, width, zoom, preload, settled, onPaint }: { pdf:
     const scale = zoom ? zoom * 96 / 72 : width / baseSize.current.width;
     setHeight(baseSize.current.height * scale); setPageWidth(baseSize.current.width * scale);
   }, [width, zoom]);
-  useEffect(() => {
-    if (!near) return;
-    let disposed = false;
-    void pdf.getPage(number).then(page => { const base = page.getViewport({ scale: 1 }); baseSize.current = { width: base.width, height: base.height }; const v = page.getViewport({ scale: zoom ? zoom * 96 / 72 : width / base.width }); if (!disposed) { setHeight(v.height); setPageWidth(v.width); } }).catch(() => undefined);
-    return () => { disposed = true; };
-  }, [pdf, number, width, zoom, near]);
   useEffect(() => {
     const observer = new IntersectionObserver(entries => setNear(entries.some(e => e.isIntersecting)), { rootMargin: "3000px" });
     // Observe the sized page, never the initially empty zero-height paint host.
@@ -56,7 +51,7 @@ function PdfPage({ pdf, number, width, zoom, preload, settled, onPaint }: { pdf:
   }, [pageWidth]);
   useEffect(() => {
     const host = ref.current;
-    if (!host || (!near && !preload)) return;
+    if (!host || !enabled || (!near && !preload)) return;
     // After preparation, keep distant frames scaled instead of repainting the
     // entire paper for every zoom click. Sharpen when the page approaches view.
     if (!near && painted.current) return;
@@ -80,6 +75,7 @@ function PdfPage({ pdf, number, width, zoom, preload, settled, onPaint }: { pdf:
       if (disposed) return;
       const page = await pdf.getPage(number);
       if (disposed) return;
+      const base = page.getViewport({ scale: 1 }); baseSize.current = { width: base.width, height: base.height };
       const viewport = page.getViewport({ scale: zoom ? zoom * 96 / 72 : width / page.getViewport({ scale: 1 }).width });
       setHeight(viewport.height); setPageWidth(viewport.width);
       const ratio = full
@@ -141,7 +137,7 @@ function PdfPage({ pdf, number, width, zoom, preload, settled, onPaint }: { pdf:
       }
     })().catch(() => { staging?.remove(); if (!disposed) setError("此页未能完整显示。"); }).finally(() => release?.());
     return () => { disposed = true; controller.abort(); render?.cancel(); layer?.cancel(); staging?.remove(); };
-  }, [pdf, number, width, zoom, near, full, settled, preload, onPaint, attempt]);
+  }, [pdf, number, width, zoom, near, full, settled, preload, enabled, onPaint, attempt]);
   return <section ref={pageSection} className={styles.page} data-reader-block={`doc-p${number}-b0`} aria-label={`第 ${number} 页`} style={{ width: pageWidth, height }}>
     <div ref={ref} data-document-page={number} data-rendered={ready} style={{ transformOrigin: "top left" }} />
     {!ready && !error && <span className={styles.pageStatus}>第 {number} 页</span>}
@@ -172,7 +168,7 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
   useEffect(() => {
     if (firstPaint) void warmOriginal.current?.().catch(() => undefined);
   }, [firstPaint]);
-  const [pdf, setPdf] = useState<PDFDocumentProxy | null>(null);
+  const [pdf, setPdf] = useState<ReadingPdf | null>(null);
   const [wordBytes, setWordBytes] = useState<ArrayBuffer | null>(null);
   const [width, setWidth] = useState(700);
   const [zoom, setZoom] = useState(0);
@@ -189,6 +185,7 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
   useEffect(() => {
     const controller = new AbortController();
     let task: ReturnType<Awaited<ReturnType<typeof pdfLibrary>>["getDocument"]> | undefined;
+    let pages: ReturnType<typeof createPageReader> | undefined;
     let worker: InstanceType<Awaited<ReturnType<typeof pdfLibrary>>["PDFWorker"]> | undefined;
     setLoading(true); setError(""); setPdf(null); setWordBytes(null); setFirstPaint(false); warmOriginal.current = null;
     void (async () => {
@@ -203,6 +200,17 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
       if (!bytes && source.format === "pdf") {
         const library = await libraryPromise!;
         if (controller.signal.aborted) return;
+        // Fetch only the first source page before displaying the reader. Other
+        // pages enter the existing visible-first render queue after first paint.
+        pages = createPageReader(library, worker!, owner, source.id, documentUrl(source), source.pageCount, controller.signal);
+        try {
+          await pages.reader.getPage(1);
+          if (controller.signal.aborted) return;
+          setPdf(pages.reader); setLoading(false); return;
+        } catch {
+          await pages.destroy(); pages = undefined;
+          if (controller.signal.aborted) return;
+        }
         const ranges = await openDocumentRanges(owner, source.id, documentUrl(source), controller.signal);
         if (controller.signal.aborted) return;
         warmOriginal.current = () => ranges.warm();
@@ -250,7 +258,7 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
       } else setWordBytes(bytes);
       setLoading(false);
     })().catch(e => { if (!controller.signal.aborted) { setError(e instanceof Error ? e.message : "文档打开失败。"); setLoading(false); } });
-    return () => { controller.abort(); if (task) void task.destroy().finally(() => worker?.destroy()); else worker?.destroy(); };
+    return () => { controller.abort(); if (pages) { void pages.destroy().finally(() => worker?.destroy()); return; } if (task) void task.destroy().finally(() => worker?.destroy()); else worker?.destroy(); };
   }, [source.id, source.format, attempt]);
   useEffect(() => {
     if (!wordBytes || !frameReady || !iframe.current?.contentDocument) return;
@@ -390,7 +398,7 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
         if (context) callback.current(context);
       }
     }}>
-      {pdf && Array.from({ length: pdf.numPages }, (_, i) => <PdfPage key={i} pdf={pdf} number={i + 1} width={width} zoom={zoom} preload={firstPaint && pdf.numPages <= 24} settled={!scrollBusy} onPaint={markPaint} />)}
+      {pdf && Array.from({ length: pdf.numPages }, (_, i) => <PdfPage key={i} pdf={pdf} number={i + 1} width={width} zoom={zoom} enabled={i === 0 || firstPaint} preload={firstPaint && pdf.numPages <= 24} settled={!scrollBusy} onPaint={markPaint} />)}
       {source.format === "docx" && <div style={{ position: "relative", width: zoom ? 816 * zoom : width }}><iframe ref={iframe} title={source.name} sandbox="allow-same-origin" srcDoc={WORD_SHELL} onLoad={() => setFrameReady(true)} style={{ border: 0, transformOrigin: "top left", display: "block", width: 816, minHeight: 400 } as CSSProperties} /><div ref={wordMouseSurface} className={styles.wordMouseSurface} aria-hidden="true" /></div>}
     </div>
   </div>;
