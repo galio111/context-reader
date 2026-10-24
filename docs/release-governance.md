@@ -1,8 +1,8 @@
 # Production Release Governance
 
-## Current production release; performance acceptance open
+## Current production release
 
-Production `20261023T234000`, parent `20261023T231000`, source `4f3aa8eea09cdc5a92173c4e65adbefbab80e7e6`. Public identity, reviewed 10-file delta, source CI 39979589968, 160 regressions, real gggg large/old PDFs, three live deepseek-flash routes, original integrity, health, unchanged persistent backends and fresh 40-table backup restore pass. WPS-equivalent performance remains NOT accepted: large PDF cold first page 19.705 s, page five 13.604 s after jumping, all pages 78.988 s; cached reopen 1.133 s. Server outbound measured 3.08 Mbps; bypassing the local proxy did not improve cold loading. No paid file-delivery service has been created. See [evidence and next step](document-controls-20261023.md). Later documentation commits do not change the deployed source identity.
+Accepted `20261025T000500`, parent `20261024T013000`, source `166866d727b55facdb008354c2bfc0eae535911a`. Atlantic official Atom article intake is deployed and its daily source is verified/enabled in the existing 06:00 Asia/Shanghai task. Public release identity, two real article/image samples, replay provenance, 16 targeted regressions, local/server builds, seven-service health, unchanged five persistent backends, 40-table backup restore and current/parent rollback images passed. Anonymous Admin/account-sync denial remains intact. No new service was added. First scheduled Atlantic collection is still future; actual rollback was not performed. Existing PDF performance and device acceptance limits remain independent.
 
 ## Previous accepted Word selection repair
 
