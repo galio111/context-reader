@@ -2176,3 +2176,8 @@ Accepted `20261023T185600`, parent `20261022T223000`, source `7442855c98f63070ee
 ## 2026-10-24：PDF 云端预读与传输瓶颈
 
 234000 已上线（parent 231000，source 4f3aa8eea09cdc5a92173c4e65adbefbab80e7e6），补齐云端逐页准备和完整原件缓存。gggg 实测缓存重开约1.1秒，但大论文冷开19.705秒、第5页仍等待13.604秒，硬性验收未通过。服务器出口实测3.08 Mbps；独立无代理浏览器同样慢，未修改用户代理。源码CI、160回归、真实三项Flash、健康及40表备份恢复通过。下一步私人文件直连方案需先核实价格，未开通任何收费服务。详见 [证据](document-controls-20261023.md) 与 [方案](document-delivery-plan-20261023.md)。
+
+
+## 2026-10-25 — The Atlantic daily-source integration
+
+Requested actual onboarding after direct mainland DNS/HTTPS failures. The existing overseas transport reads the official Atom feed, but article HTML returns 403. Added narrowly matched public Atom-body intake with unchanged sanitizer and quality gates. Three parser regressions and 13 import/media/overseas regressions pass. Real syndicated samples retain 423, 1744 and 1080 words with zero detected missing text/image blocks; the 239-word video item is excluded. Source was saved disabled; production deployment and verification remain pending at this source commit. No new cloud service, paid resource, login-wall bypass or user-session change.

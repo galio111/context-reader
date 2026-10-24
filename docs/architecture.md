@@ -538,3 +538,8 @@ Imported Word selection uses iframe-document mouse listeners and explicit caret 
 For partial imported-file selections, the provider receives only the selected block as target and context. This prevents a containing paragraph from being translated beyond the selected range. Partial cache IDs use `selection-v2-`; exact whole-block selections retain their existing full-translation identity and contextual behavior.
 
 Word mouse selection is bridged from a transparent parent surface into the script-disabled iframe using its rendered scale. WebKit suppresses event callbacks inside that sandbox, so native touch/keyboard selections also have a parent-side stable-range observer. Neither path enables scripts in imported documents. See document-import-20261022.md for deployment status.
+
+
+## The Atlantic official Atom article intake
+
+The URL importer can use the public `https://www.theatlantic.com/feed/all/` Atom content for an exact matching Atlantic article URL. It uses the existing bounded, authenticated overseas transport when mainland access fails; no additional cloud service or browser session is required. Only HTML content with at least 401 words and no explicit subscription/excerpt marker is considered. The normal sanitizer, image checks and editorial quality gates still apply. Short entries and older articles absent from the feed fall back to normal webpage import. Completeness metadata names `publisher-atom-content`: it measures preservation of the publicly syndicated content, not a comparison with an inaccessible publisher webpage. Source configuration must pass the real production two-article/image verification before daily collection is enabled.

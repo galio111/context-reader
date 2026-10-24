@@ -4,6 +4,7 @@ import { readResponseText, RemoteDnsError, UnsafeRemoteUrlError } from "@/lib/sa
 import { fetchRemoteDocument } from "@/lib/overseasFetch";
 import { extractImportedArticleFromHtml } from "@/lib/urlArticleExtractor";
 import { createUrlImportImageToken } from "@/lib/urlImportImageToken";
+import { fetchAtlanticFeedArticle } from "@/lib/atlanticFeedArticle";
 
 const MAX_HTML_BYTES = 1_500_000;
 
@@ -35,6 +36,14 @@ export async function POST(request: Request) {
   }
 
   try {
+    const feedHtml = await fetchAtlanticFeedArticle(url, request.signal);
+    if (feedHtml) {
+      const extracted = extractImportedArticleFromHtml(feedHtml, url.toString());
+      if (extracted?.article.text) {
+        if (extracted.metadata?.completeness) extracted.metadata.completeness.referenceKind = "publisher-atom-content";
+        return NextResponse.json({ ...extracted, imageLocalizationToken: createUrlImportImageToken(extracted.article) }, { headers: { "Cache-Control": "no-store" } });
+      }
+    }
     const remote = await fetchRemoteDocument(url, {
       headers: {
         Accept: "text/html,application/xhtml+xml",
