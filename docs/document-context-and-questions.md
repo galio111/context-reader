@@ -1,6 +1,6 @@
 # Imported document context and research follow-up
 
-Status: candidate under verification, not yet accepted in production. Existing production remains 20261025T000500 until the public release gate passes.
+Status: deployed as 20261026T200500 (parent 20261026T193500, source 5d718fd5af8148449afc26333aff35ca05d69386); final live scientific-answer and complete-translation checks are in progress. The cumulative release preserves the parent account-switching work.
 
 Imported PDF/Word selection resolves the sentence containing the selected occurrence, instead of sending an entire paragraph and truncating its beginning. The exact sentence is also the explanation-cache identity, so previously generated paragraph-context mistakes are not replayed for the corrected sentence. Unlabelled abstracts are included in body translation; first-page Received/Accepted and affiliations do not terminate the paper. Journal page furniture and fragmented numeric tables are excluded, while captions remain a separate explicit scope. Source files, stored blocks and article identities are unchanged. Document translation sends one target block per request, with bounded paper context, retaining completed output.
 

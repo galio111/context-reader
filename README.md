@@ -216,3 +216,7 @@ User requires the complete original PDF, including images, figure labels, annota
 
 
 Imported PDF/DOCX reading: single-click does not look up; double-click or drag selects whole words. Selections over five words show translation only, and punctuation is ignored. Original pages stay intact. A private account-scoped local original cache avoids re-downloading reopened files; cold opening still depends on network transfer. See [current document acceptance](docs/document-import-20261022.md).
+
+### Document context and research questions
+
+Imported PDF/Word lookup uses the selected occurrence’s actual sentence. Body translation includes unlabelled abstracts and continues past first-page submission dates; captions remain separate. Both lookup and passage translation offer “继续问 AI” for paper-wide scientific questions, with optional external encyclopedia/academic-abstract sources. See [current behavior and acceptance](docs/document-context-and-questions.md).
