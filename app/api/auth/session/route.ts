@@ -1,3 +1,4 @@
+import { listSavedAccounts } from "@/lib/savedAccountSessions";
 import { NextResponse } from "next/server";
 import { getAccountPlan, getAccountSessionState, getUsageBalances, recordDailyActivity } from "@/lib/accountStore";
 import {
@@ -5,7 +6,7 @@ import {
   isCloudBackedLocalDeveloperUser,
   isLocalOnlyDeveloperUser,
 } from "@/lib/localDeveloper";
-import { getAuthenticatedUser, isAccountSystemConfigured } from "@/lib/userAuth";
+import { getAuthenticatedUser, isAccountSystemConfigured, rememberCurrentAccount } from "@/lib/userAuth";
 import { resolveUsageIdentity } from "@/lib/usageIdentity";
 import type { AccountSessionState } from "@/types/account";
 
@@ -32,6 +33,7 @@ export async function GET(request: Request) {
       const plan = await getAccountPlan("guest");
       await recordDailyActivity(identity).catch(() => undefined);
       return NextResponse.json({
+        savedAccounts: await listSavedAccounts(),
         account: {
           ...anonymousState,
           plan,
@@ -39,9 +41,11 @@ export async function GET(request: Request) {
         },
       });
     }
+    await rememberCurrentAccount(user);
     const account = await getAccountSessionState(user);
     await recordDailyActivity({ ownerKey: `user:${user.id}`, userId: user.id }).catch(() => undefined);
     return NextResponse.json({
+      savedAccounts: await listSavedAccounts(),
       account: isCloudBackedLocalDeveloperUser(user)
         ? { ...account, localDirect: true }
         : account,

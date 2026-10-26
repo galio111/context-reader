@@ -1,4 +1,6 @@
 "use client";
+import type { SavedAccount } from "@/lib/savedAccountSessions";
+import { pauseAccountSync, resumeAccountSync } from "@/lib/accountSyncClient";
 import { takeStartupSession } from "@/lib/startupSession";
 import { LoadingStatus } from "@/components/LoadingStatus";
 
@@ -39,6 +41,9 @@ import {
 const emptyAccount: AccountSessionState = { configured: true, authenticated: false, profile: null, plan: null, usage: [] };
 
 interface AccountContextValue {
+  savedAccounts: SavedAccount[];
+  switchAccount: (userId: string) => Promise<void>;
+  removeAccount: (userId: string) => Promise<void>;
   account: AccountSessionState;
   loading: boolean;
   isOffline: boolean;
@@ -114,6 +119,9 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     window.addEventListener("beforeunload", protectPendingSave);
     return () => window.removeEventListener("beforeunload", protectPendingSave);
   }, [storageStatus.pending]);
+  const [savedAccounts, setSavedAccounts] = useState<SavedAccount[]>([]);
+  const accountTransition = useRef(false);
+  const [changingAccount, setChangingAccount] = useState(false);
   const [account, setAccount] = useState<AccountSessionState>(emptyAccount);
   const [loading, setLoading] = useState(true);
   const [isOffline, setIsOffline] = useState(false);
@@ -177,12 +185,13 @@ export function AccountProvider({ children }: { children: ReactNode }) {
       const initialSession = takeStartupSession();
       const response = await (initialSession ?? fetch("/api/auth/session", { cache: "no-store", priority: "high", signal: controller.signal }));
       if (!response) throw new Error("account service unavailable");
-      const data = await response.json().catch(() => null) as { account?: AccountSessionState; unavailable?: boolean } | null;
+      const data = await response.json().catch(() => null) as { account?: AccountSessionState; savedAccounts?: SavedAccount[]; unavailable?: boolean } | null;
       if (!response.ok || data?.unavailable) {
         throw new Error("account service unavailable");
       }
       await storageReady;
       const nextAccount = data?.account ?? emptyAccount;
+      setSavedAccounts(data?.savedAccounts ?? []);
       if (nextAccount.authenticated && nextAccount.profile?.userId) {
         await prepareLocalAccountForUser(nextAccount.profile.userId, { preserveExistingData: nextAccount.localDirect });
         await flushLearningStorage();
@@ -266,7 +275,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ accessToken, refreshToken }),
           });
-          const data = await response.json() as { account?: AccountSessionState; error?: string };
+          const data = await response.json() as { account?: AccountSessionState; savedAccounts?: SavedAccount[]; error?: string };
           if (!response.ok || !data.account) {
             setLoginOpen(true);
             setMessage(await describeApiFailure(response, data, {
@@ -531,24 +540,25 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     const credentialValid = loginMode === "login"
       ? isAcceptedAccountLoginPassword(pin)
       : isStrongAccountPassword(pin);
-    if (!account.authenticated && !credentialValid) {
+    if (!credentialValid) {
       setMessage(loginMode === "login" ? "请输入注册时设置的密码。" : accountPasswordRequirement());
       return;
     }
-    if (!account.authenticated && loginMode === "register" && !isStrongAccountPassword(confirmPin)) {
+    if (loginMode === "register" && !isStrongAccountPassword(confirmPin)) {
       setConfirmPinTouched(true);
       setMessage(accountPasswordRequirement());
       return;
     }
-    if (!account.authenticated && loginMode === "register" && pin !== confirmPin) {
+    if (loginMode === "register" && pin !== confirmPin) {
       setConfirmPinTouched(true);
       setMessage("两次输入的密码不一致。");
       return;
     }
-    let signedIn = account.authenticated;
+    let signedIn = false;
     setSubmitting(true); setSyncingLogin(false); setMessage("");
     try {
       if (!signedIn) {
+        if (account.authenticated) await pauseAccountSync();
         loginController.current = new AbortController();
         const loginTimeout = window.setTimeout(() => loginController.current?.abort(), 15_000);
         let response: Response;
@@ -558,7 +568,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(loginMode === "register" ? { phone, nickname, pin } : { phone, pin }),
         }); } finally { window.clearTimeout(loginTimeout); }
-        const data = await response.json() as { account?: AccountSessionState; error?: string };
+        const data = await response.json() as { account?: AccountSessionState; savedAccounts?: SavedAccount[]; error?: string };
         if (!response.ok || !data.account) {
           setMessage(await describeApiFailure(response, data, {
             operation: loginMode === "register" ? "phone_register" : "phone_login",
@@ -567,7 +577,13 @@ export function AccountProvider({ children }: { children: ReactNode }) {
           }));
           return;
         }
+        setSavedAccounts(data.savedAccounts ?? []);
         signedIn = true;
+        if (account.authenticated) {
+          try { localStorage.setItem("context-reader:account-switched", String(Date.now())); } catch {}
+          window.location.replace("/account/usage");
+          return;
+        }
         await initializeLearningStorage();
         if (data.account.profile?.userId) await prepareLocalAccountForUser(data.account.profile.userId);
         await flushLearningStorage();
@@ -595,7 +611,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
       });
       setMessage(signedIn ? `账号已登录，但数据同步没有完成：${detail} 可以重试同步，或关闭窗口后在“账号与数据”中继续。` : detail);
     }
-    finally { setSyncingLogin(false); setSubmitting(false); }
+    finally { if (!signedIn) resumeAccountSync(); setSyncingLogin(false); setSubmitting(false); }
   }
 
   const logout = useCallback(async () => {
@@ -638,11 +654,46 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     window.location.href = "/";
   }, [account.localDirect, account.localOnly]);
 
+  const removeAccount = useCallback(async (userId: string) => {
+    const response = await fetch("/api/auth/accounts", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: "remove", userId }) });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error || "账号暂时无法移除。");
+    setSavedAccounts(data.savedAccounts);
+  }, []);
+  const switchAccount = useCallback(async (userId: string) => {
+    if (accountTransition.current || userId === account.profile?.userId) return;
+    accountTransition.current = true;
+    setChangingAccount(true);
+    try {
+      await pauseAccountSync();
+      const response = await fetch("/api/auth/accounts", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: "switch", userId }) });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || "账号暂时无法切换。");
+      // Start a fresh document so no outgoing reader/study callbacks can write into
+      // the incoming owner's local archive. Cached assets and owner data are reused.
+      try { localStorage.setItem("context-reader:account-switched", String(Date.now())); } catch {}
+      window.location.replace("/account/usage");
+    } catch (error) {
+      resumeAccountSync(); accountTransition.current = false; setChangingAccount(false);
+      throw error;
+    }
+  }, [account.profile?.userId]);
+  useEffect(() => {
+    const changed = (event: StorageEvent) => {
+      if (event.key === "context-reader:account-switched") {
+        setChangingAccount(true);
+        void pauseAccountSync().then(() => window.location.reload());
+      }
+    };
+    window.addEventListener("storage", changed);
+    return () => window.removeEventListener("storage", changed);
+  }, []);
+
   const value = useMemo<AccountContextValue>(() => ({
-    account, loading, isOffline, hasLocalAccountAccess, localAccount, loginOpen, openLogin, closeLogin,
+    savedAccounts, switchAccount, removeAccount, account, loading, isOffline, hasLocalAccountAccess, localAccount, loginOpen, openLogin, closeLogin,
     requireAccount, requireLocalAccount, refreshAccount, logout, syncNow,
   }), [
-    account, loading, isOffline, hasLocalAccountAccess, localAccount, loginOpen, openLogin, closeLogin,
+    savedAccounts, switchAccount, removeAccount, account, loading, isOffline, hasLocalAccountAccess, localAccount, loginOpen, openLogin, closeLogin,
     requireAccount, requireLocalAccount, refreshAccount, logout, syncNow,
   ]);
 
@@ -667,7 +718,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
           <button className="mt-2 min-h-11 rounded-full bg-[#174f82] px-4 text-white" type="button" onClick={() => { void initializeLearningStorage().then(flushLearningStorage).catch(() => {}); }}>重试本机保存</button>
         </aside>
       )}
-      <div inert={account.authenticated && !storageStatus.ready}>{children}</div>
+      <div inert={changingAccount || (account.authenticated && !storageStatus.ready)}>{children}</div>
       {isOffline && !studyVisible && (
         <aside
             className="fixed left-1/2 top-16 z-[190] w-[min(94vw,760px)] -translate-x-1/2 rounded-xl bg-[#fff7df] px-3 py-2 text-[#533d17] shadow-[0_4px_8px_rgba(69,48,12,.16)] sm:top-3 sm:px-4 sm:py-3"
@@ -786,7 +837,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
               </label>}
               {syncingLogin && <p className="mt-4 rounded-xl bg-[#e3edf4] px-3 py-2 text-sm leading-6 text-[#405d70]" role="status">登录成功，正在同步当前账号的生词本、文章和缓存，请稍候…</p>}
               {message && <p className="mt-4 text-sm leading-6 text-[#8a3d34]" role="alert">{message}</p>}
-              <button className="mt-6 w-full rounded-full bg-[#174f82] px-5 py-3.5 font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2868ad] disabled:cursor-not-allowed disabled:opacity-50" disabled={!account.configured || submitting || (!account.authenticated && (phone.trim().length < 11 || !pinIsValid || (loginMode === "register" && (!nickname.trim() || !confirmPinIsValid))))} type="submit">{syncingLogin ? <LoadingStatus>正在同步账号数据…</LoadingStatus> : submitting ? <LoadingStatus>{loginMode === "login" ? "正在登录…" : "正在创建账号…"}</LoadingStatus> : account.authenticated ? "重试同步" : loginMode === "login" ? "登录" : "创建账号并登录"}</button>
+              <button className="mt-6 w-full rounded-full bg-[#174f82] px-5 py-3.5 font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2868ad] disabled:cursor-not-allowed disabled:opacity-50" disabled={!account.configured || submitting || ((phone.trim().length < 11 || !pinIsValid || (loginMode === "register" && (!nickname.trim() || !confirmPinIsValid))))} type="submit">{syncingLogin ? <LoadingStatus>正在同步账号数据…</LoadingStatus> : submitting ? <LoadingStatus>{loginMode === "login" ? "正在登录…" : "正在创建账号…"}</LoadingStatus> : loginMode === "login" ? "登录" : "创建账号并登录"}</button>
             </form>
           </section>
         </div>

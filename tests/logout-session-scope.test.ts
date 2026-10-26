@@ -10,7 +10,7 @@ test("ordinary logout revokes only its own session and clears this browser cooki
   t.after(() => { delete require.cache[localPath]; });
   const headerModule = require("next/headers");
   const removed: string[] = [];
-  t.mock.method(headerModule, "cookies", async () => ({ get: (name: string) => ({ value: name === "context_reader_access" ? "own-access-token" : "own-refresh-token" }), set: (name: string, value: string, options: { maxAge: number }) => { assert.equal(value, ""); assert.equal(options.maxAge, 0); removed.push(name); } }));
+  t.mock.method(headerModule, "cookies", async () => ({ get: (name: string) => name === "context_reader_access" || name === "context_reader_refresh" ? ({ value: name === "context_reader_access" ? "own-access-token" : "own-refresh-token" }) : undefined, set: (name: string, value: string, options: { maxAge: number }) => { assert.equal(value, ""); assert.equal(options.maxAge, 0); removed.push(name); } }));
   const oldURL = process.env.SUPABASE_URL, oldKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
   process.env.SUPABASE_URL = "https://logout-test.invalid";
   process.env.SUPABASE_SERVICE_ROLE_KEY = "test-service-key-".repeat(4);

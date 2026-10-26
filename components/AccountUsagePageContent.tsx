@@ -1,4 +1,5 @@
 "use client";
+import { AccountSwitcher } from "./AccountSwitcher";
 import { LoadingStatus } from "./LoadingStatus";
 import { AccountLearningSummary } from "./AccountLearningSummary";
 
@@ -169,6 +170,8 @@ export function AccountUsagePageContent({ embedded = false }: { embedded?: boole
           <h1 className="cr-account-title text-4xl font-semibold tracking-[-.04em] sm:text-5xl">账号与用量</h1>
           <p className="mt-4 text-sm text-[#657582]">把时间留给阅读。</p>
         </section>
+
+        {!loading && <AccountSwitcher />}
 
         {loading ? <LoadingStatus className="cr-account-state mt-12 text-[#657582]">正在读取账号…</LoadingStatus> : isOffline ? (
           <section className="cr-account-state mt-12 rounded-[16px] bg-[#fff7df] p-7 text-[#533d17] shadow-[0_4px_8px_rgb(69_48_12_/_12%)] sm:p-9">

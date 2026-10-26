@@ -51,6 +51,8 @@ The complete current-function and UI compatibility inventory is in [the architec
 
 ### Accounts And Offline
 
+- Account and usage supports up to three saved logins in this browser, explicit switching and inactive-session removal. See [behavior and verification limits](docs/multi-account-switching.md).
+
 - Public beta registration uses nickname + mainland-China phone identifier + a password of 8–72 non-space printable ASCII characters containing at least one letter and one digit; existing six-digit numeric passwords remain login-compatible until voluntarily changed. No SMS or phone-ownership verification is provided.
 - Guest trials use separate Shanghai-day pools: 10 article lookups, 5 standalone dictionary lookups, 2 pasted-text imports and 2 URL imports. Cache hits, failures and timely cancellations do not consume them; Admin can change all four allowances.
 - Registered plans expose separate Shanghai-month summary and full-translation allowances. A new full-translation job costs one action regardless of paragraph count; replay is free, regeneration costs another. A curated prepublished translation costs one action on the member's first click but creates no DeepSeek execution.

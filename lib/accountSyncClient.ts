@@ -846,8 +846,20 @@ export class AccountSyncSessionError extends Error {
   constructor() { super("登录状态已失效，请重新登录后同步。"); this.name = "AccountSyncSessionError"; }
 }
 
+let accountSwitchPaused = false;
+const syncRequests = new Set<AbortController>();
+export async function pauseAccountSync(): Promise<void> {
+  accountSwitchPaused = true;
+  for (const request of syncRequests) request.abort();
+  await activeSync?.promise.catch(() => undefined);
+  await flushLearningStorage();
+}
+export function resumeAccountSync(): void { accountSwitchPaused = false; }
+
 export async function syncFetch(input: string, init: RequestInit = {}, retries = 3): Promise<Response> {
+  if (accountSwitchPaused) throw new Error("正在切换账号。");
   const controller = new AbortController();
+  syncRequests.add(controller);
   const timeout = window.setTimeout(() => controller.abort(), 20_000);
   const owner = getLearningStorage().getItem(ACCOUNT_LOCAL_OWNER_KEY);
   const headers = new Headers(init.headers);
@@ -863,7 +875,11 @@ export async function syncFetch(input: string, init: RequestInit = {}, retries =
         window.clearTimeout(timeout);
         await response.body?.cancel();
         reportProgress({ phase: "waiting", initial: false, pulledCount: 0, pushedCount: 0 });
-        await new Promise(resolve => window.setTimeout(resolve, Math.max(250, seconds * 1000)));
+        await new Promise<void>((resolve, reject) => {
+          if (controller.signal.aborted) { reject(new Error("正在切换账号。")); return; }
+          const timer = window.setTimeout(resolve, Math.max(250, seconds * 1000));
+          controller.signal.addEventListener("abort", () => { window.clearTimeout(timer); reject(new Error("正在切换账号。")); }, { once: true });
+        });
         if (getLearningStorage().getItem(ACCOUNT_LOCAL_OWNER_KEY) !== owner) throw new Error("账号已切换，已停止上一账号的数据恢复。");
         return syncFetch(input, init, retries - 1);
       }
@@ -873,7 +889,7 @@ export async function syncFetch(input: string, init: RequestInit = {}, retries =
   catch (error) {
     if (controller.signal.aborted) throw new Error("同步请求超时，已保存进度，可重试继续。");
     throw error;
-  } finally { window.clearTimeout(timeout); }
+  } finally { syncRequests.delete(controller); window.clearTimeout(timeout); }
 }
 
 async function readInitialSnapshot(
@@ -1118,6 +1134,7 @@ function reportProgress(progress: AccountSyncProgress): void {
 export async function syncAccountData(options: AccountSyncOptions = {}): Promise<AccountSyncResult> {
   await initializeLearningStorage();
   await flushLearningStorage();
+  if (accountSwitchPaused) throw new Error("正在切换账号。");
   if (options.onProgress) progressListeners.add(options.onProgress);
   const mode = options.mode ?? "full";
 
@@ -1139,7 +1156,9 @@ export async function syncAccountData(options: AccountSyncOptions = {}): Promise
 
   const startedAt = Date.now();
   reportProgress({ phase: "waiting", initial: !readSyncState().initialized, pulledCount: 0, pushedCount: 0 });
-  const run = () => performAccountSync(
+  const run = () => {
+    if (accountSwitchPaused) throw new Error("正在切换账号。");
+    return performAccountSync(
     3,
     reportProgress,
     startedAt,
@@ -1148,6 +1167,7 @@ export async function syncAccountData(options: AccountSyncOptions = {}): Promise
     options.deferLocalWork,
     options.reconcile,
   );
+  };
   const lockedSync = typeof navigator !== "undefined" && navigator.locks
     ? navigator.locks.request("context-reader:account-sync", { mode: "exclusive" }, run)
     : run();

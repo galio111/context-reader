@@ -1,3 +1,4 @@
+import { rememberSession, rememberSavedSession, forgetSavedRefreshToken, savedSessionSlots } from "@/lib/savedAccountSessions";
 import { createClient, type Session, type User } from "@supabase/supabase-js";
 import { randomInt } from "node:crypto";
 import { cookies } from "next/headers";
@@ -9,6 +10,9 @@ import {
 } from "@/lib/passwordPolicy";
 import { USER_SESSION_MAX_AGE_SECONDS } from "@/lib/sessionPolicy";
 
+const ACTIVE_ACCOUNT_COOKIE = "context_reader_active_account";
+// Selection is not authorization: each encrypted session still expires independently.
+const ACCOUNT_SELECTION_MAX_AGE = 365 * 24 * 60 * 60;
 const ACCESS_COOKIE = "context_reader_access";
 const REFRESH_COOKIE = "context_reader_refresh";
 const PHONE_ACCOUNT_DOMAIN = "phone.context-reader.invalid";
@@ -242,6 +246,10 @@ async function writeSessionCookies(session: Session): Promise<void> {
 }
 
 export async function establishUserSession(session: Session): Promise<void> {
+  await rememberSession(session);
+  (await cookies()).set(ACTIVE_ACCOUNT_COOKIE, session.user.id, {
+    httpOnly: true, sameSite: "lax", secure: process.env.NODE_ENV === "production", path: "/", maxAge: ACCOUNT_SELECTION_MAX_AGE,
+  });
   await writeSessionCookies(session);
 }
 
@@ -249,12 +257,18 @@ export async function clearUserSession(): Promise<void> {
   const cookieStore = await cookies();
   const secure = process.env.NODE_ENV === "production";
   const options = { httpOnly: true, sameSite: "lax" as const, secure, path: "/", maxAge: 0 };
+  if (cookieStore.get(ACTIVE_ACCOUNT_COOKIE)?.value) cookieStore.set(ACTIVE_ACCOUNT_COOKIE, "", options);
   cookieStore.set(ACCESS_COOKIE, "", options);
   cookieStore.set(REFRESH_COOKIE, "", options);
 }
 
-async function readTokens(): Promise<{ accessToken: string; refreshToken: string }> {
+export async function readTokens(): Promise<{ accessToken: string; refreshToken: string }> {
   const cookieStore = await cookies();
+  const selected = cookieStore.get(ACTIVE_ACCOUNT_COOKIE)?.value;
+  if (selected) {
+    const saved = (await savedSessionSlots()).find(slot => slot.session?.userId === selected)?.session;
+    return { accessToken: saved?.accessToken ?? "", refreshToken: saved?.refreshToken ?? "" };
+  }
   return {
     accessToken: cookieStore.get(ACCESS_COOKIE)?.value ?? "",
     refreshToken: cookieStore.get(REFRESH_COOKIE)?.value ?? "",
@@ -281,18 +295,37 @@ export async function getAuthenticatedUser(): Promise<User | null> {
 
   const { data, error } = await client.auth.refreshSession({ refresh_token: refreshToken });
   if (error || !data.session || !data.user) {
-    await clearUserSession();
+    // A late response for A must never clear the selected account B.
+    if (!(await cookies()).get(ACTIVE_ACCOUNT_COOKIE)?.value) await clearUserSession();
     return null;
   }
 
-  await writeSessionCookies(data.session);
+  await rememberSession(data.session);
+  if (!(await cookies()).get(ACTIVE_ACCOUNT_COOKIE)?.value) await writeSessionCookies(data.session);
   return data.user;
 }
 
 export async function signOutAuthenticatedUser(): Promise<void> {
-  const { accessToken } = await readTokens();
+  const { accessToken, refreshToken } = await readTokens();
+  await forgetSavedRefreshToken(refreshToken);
   if (accessToken && isAccountSystemConfigured()) {
     await authClient().auth.admin.signOut(accessToken, "local").catch(() => undefined);
   }
   await clearUserSession();
+}
+
+export async function rememberCurrentAccount(user: User): Promise<void> {
+  const { accessToken, refreshToken } = await readTokens();
+  await rememberSavedSession(user, refreshToken, accessToken);
+  if (refreshToken && !(await cookies()).get(ACTIVE_ACCOUNT_COOKIE)?.value) {
+    (await cookies()).set(ACTIVE_ACCOUNT_COOKIE, user.id, { httpOnly: true, sameSite: "lax", secure: process.env.NODE_ENV === "production", path: "/", maxAge: ACCOUNT_SELECTION_MAX_AGE });
+  }
+}
+export async function restoreSavedAccount(userId: string): Promise<Session | null> {
+  const saved = (await savedSessionSlots()).find(s => s.session?.userId === userId)?.session;
+  if (!saved) return null;
+  const { data, error } = await authClient().auth.refreshSession({ refresh_token: saved.refreshToken });
+  if (error || !data.session || data.user?.id !== userId) return null;
+  await rememberSession(data.session);
+  return data.session;
 }

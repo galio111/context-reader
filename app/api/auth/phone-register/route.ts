@@ -1,3 +1,4 @@
+import { listSavedAccounts } from "@/lib/savedAccountSessions";
 import { NextResponse } from "next/server";
 import { getAccountSessionState } from "@/lib/accountStore";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
@@ -14,6 +15,8 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "账号服务尚未配置。" }, { status: 503 });
   }
 
+  if ((await listSavedAccounts()).length >= 3) return NextResponse.json({ error: "已登录三个账号，请先移除一个账号再添加。" }, { status: 409 });
+
   let body: RequestBody;
   try {
     body = await readJsonBody<RequestBody>(request, 4 * 1024);
@@ -28,7 +31,7 @@ export async function POST(request: Request) {
     const session = await registerPhonePinAccount(body.phone ?? "", body.nickname ?? "", body.pin ?? "");
     const account = await getAccountSessionState(session.user);
     await establishUserSession(session);
-    return NextResponse.json({ account }, { headers: { "Cache-Control": "no-store" } });
+    return NextResponse.json({ account, savedAccounts: await listSavedAccounts() }, { headers: { "Cache-Control": "no-store" } });
   } catch (error) {
     const message = error instanceof Error ? error.message : "注册失败，请稍后重试。";
     return NextResponse.json(
