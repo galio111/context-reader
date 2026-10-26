@@ -160,8 +160,11 @@ function getCombinedCachedArticleTranslation(
 ): ArticleTranslationItem[] {
   const perBlock = getCachedArticleTranslationForBlocks(blocks);
   const exact = getCachedArticleTranslation(key) ?? [];
-  const byId = new Map(perBlock.map((item) => [item.id, item]));
-  for (const item of exact) {
+  // Exact source-keyed blocks are updated independently during regeneration.
+  // An older aggregate arriving from cloud sync must not overwrite them.
+  const preferBlocks = blocks.some(block => block.id.startsWith("doc-"));
+  const byId = new Map((preferBlocks ? exact : perBlock).map((item) => [item.id, item]));
+  for (const item of preferBlocks ? perBlock : exact) {
     byId.set(item.id, item);
   }
   return blocks

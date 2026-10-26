@@ -1,4 +1,5 @@
 import test from "node:test";
+import { createArticleTranslationBlockCacheKey } from "../lib/articleTranslationIdentity";
 import assert from "node:assert/strict";
 import { JSDOM } from "jsdom";
 import { IDBFactory } from "fake-indexeddb";
@@ -52,6 +53,20 @@ test("mounted Reader translation session rebinds after login, survives panel cha
     });
     assert.deepEqual(ui.result.current.translations, [{ id: "one", translation: "稍后同步到的译文" }]);
     assert.equal(starts, 0, "late cloud replay does not start or charge a translation job");
+    const documentBlocks = blocks.map((block, index) => ({ ...block, id: `doc-p1-b${index}` }));
+    ui.rerender({ owner: "account-A", sourceKey: lateKey, sourceBlocks: documentBlocks });
+    await act(async () => {
+      storage.setItem("context-reader:article-translation-blocks:v1", JSON.stringify({ [createArticleTranslationBlockCacheKey(documentBlocks[0])]: { id: "doc-p1-b0", translation: "新生成的分段译文" } }));
+      notifyAccountDataMerged(["translation_block"]);
+    });
+    assert.equal(ui.result.current.translations[0].translation, "新生成的分段译文");
+    await act(async () => {
+      storage.setItem("context-reader:article-translations:v1", JSON.stringify({ [lateKey]: [{ id: "doc-p1-b0", translation: "后到达的旧整篇缓存" }] }));
+      notifyAccountDataMerged(["article_translation"]);
+    });
+    assert.equal(ui.result.current.translations[0].translation, "新生成的分段译文", "late aggregate must not overwrite exact regenerated blocks");
+    assert.equal(starts, 0, "cache reconciliation is read-only and uncharged");
+
     ui.rerender({ owner: "account-A", sourceKey: key, sourceBlocks: blocks });
     let running!: Promise<void>;
     await act(async () => {

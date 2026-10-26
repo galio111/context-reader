@@ -59,8 +59,13 @@ export function useReaderTranslationSession(key: string, blocks: ArticleTranslat
       if (running) {
         publish({ ...running, owner, staleBlockIds: [], removedCount: 0 });
       } else {
-        const byId = new Map(getCachedArticleTranslationForBlocks(blocks).map(item => [item.id, item]));
-        for (const item of getCachedArticleTranslation(key) ?? []) byId.set(item.id, item);
+        // Per-block cache matches the exact current source and may be newer than
+        // a separately synchronized whole-article snapshot.
+        const perBlock = getCachedArticleTranslationForBlocks(blocks);
+        const aggregate = getCachedArticleTranslation(key) ?? [];
+        const preferBlocks = blocks.some(block => block.id.startsWith("doc-"));
+        const byId = new Map((preferBlocks ? aggregate : perBlock).map(item => [item.id, item]));
+        for (const item of preferBlocks ? perBlock : aggregate) byId.set(item.id, item);
         const exact = blocks.map(block => byId.get(block.id)).filter((item): item is ArticleTranslationItem => Boolean(item?.translation.trim()));
         const exactIds = new Set(exact.map(item => item.id));
         const previousById = new Map(previous.translations.map(item => [item.id, item.translation]));
