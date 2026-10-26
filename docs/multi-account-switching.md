@@ -12,7 +12,7 @@ Switching validates the target session and active profile on the server. The bro
 
 ## Validation and acceptance
 
-Candidate based on production `20261025T000500`, source `166866d727b55facdb008354c2bfc0eae535911a`. Production identity is recorded after guarded deployment.
+Candidate rebased onto current production `20261026T191500`, source `115464fc943ea0a5c0cad8c83bd0818bfcb7c954`; the paper-context/question update is retained. Production identity is recorded after guarded deployment.
 
 - 103 targeted/core regression checks passed, including encrypted session limits, tampering, selected-account authority, logout scope, IndexedDB/CET isolation, sync recovery and switcher interactions.
 - Production build, TypeScript check and 11 protected release contracts passed. Existing unrelated lint warnings remain.
