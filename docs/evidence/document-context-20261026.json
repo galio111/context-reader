@@ -1,0 +1,39 @@
+{
+  "releaseId": "20261026T204500",
+  "parentReleaseId": "20261026T200500",
+  "sourceRevision": "b70a1b4db87562c72303a5191af4751c3a072e06",
+  "archiveSha256": "7159527fd1958e7d81fb07931e5bc2fc57a426e8bc5df00e24d7ee1f581d225b",
+  "ciRun": 40324212935,
+  "architectureTests": 167,
+  "document": {
+    "pages": 10,
+    "sourceBytes": 5831284,
+    "sourceSha256": "1ca6eaf8671fb97614b2a072e4be769ab6899e76de0bd18cf621676e68bfc74f",
+    "bodyBlocks": 33,
+    "captionBlocks": 6,
+    "lastBodyPage": 9
+  },
+  "liveChecks": {
+    "providerRelease": "20261026T200500",
+    "bodyTranslationResponses": 33,
+    "scientificQuestions": 2,
+    "retrievedSources": 3,
+    "freshCacheReplayBlocks": 33,
+    "cacheReplayRegenerationRequests": 0,
+    "nativeLookup": true,
+    "passageQuestionEntry": true,
+    "refreshAndMobileReader": true
+  },
+  "operations": {
+    "health": true,
+    "persistentBackendIdentitiesUnchanged": true,
+    "backup": "context-reader-20261026T125243Z.dump",
+    "restoredPublicTables": 40,
+    "currentAndParentImagesRetained": true
+  },
+  "notPerformed": [
+    "physical Mac Safari",
+    "actual rollback"
+  ],
+  "separateObservation": "Cold-homepage React #185 in cover/daily-notice callbacks; outside document acceptance."
+}
