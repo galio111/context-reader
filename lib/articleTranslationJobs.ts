@@ -258,7 +258,7 @@ export async function startArticleTranslationJob(
     }
 
     const progress = createArticleTranslationProgress(allBlocks, initialTranslations);
-    for (const batch of createArticleTranslationBatches(blocks)) {
+    for (const batch of (blocks.some(block => block.id.startsWith("doc-")) ? blocks.map(block => [block]) : createArticleTranslationBatches(blocks))) {
       await requestArticleTranslation(batch, controller.signal, options.contextBlocks ?? allBlocks, actionId, (delaySeconds, reason) => {
         // This callback also runs from an interval; abort the transport without
         // throwing out of the browser's timer callback.

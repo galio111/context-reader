@@ -67,7 +67,7 @@ function sentenceBoundaryEnd(paragraph: string, punctuationIndex: number): numbe
   return end;
 }
 
-function getSentenceSpans(paragraph: string): SentenceSpan[] {
+export function getSentenceSpans(paragraph: string): SentenceSpan[] {
   const spans: SentenceSpan[] = [];
   let start = 0;
 

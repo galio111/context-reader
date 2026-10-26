@@ -26,6 +26,7 @@ interface ExplanationPanelProps {
   onAddToVocabulary: () => void;
   onRegenerate?: () => void;
   documentMode?: boolean;
+  documentQuestion?: React.ReactNode;
 }
 
 function buildExplanationText(explanation: WordExplanation, context: WordContext | null): string {
@@ -75,6 +76,7 @@ export function ExplanationPanel({
   onAddToVocabulary,
   onRegenerate,
   documentMode = false,
+  documentQuestion,
 }: ExplanationPanelProps) {
   const [sentenceQuestion, setSentenceQuestion] = useState("");
   const [sentenceAnswer, setSentenceAnswer] = useState("");
@@ -186,6 +188,7 @@ export function ExplanationPanel({
 
   return (
     <aside ref={panelRef} className="cr-reader-panel relative h-full min-h-0 w-full flex-1 overflow-y-auto rounded-[14px] border border-[#e0e0e0] bg-white p-5 overscroll-contain [scrollbar-gutter:stable] [-webkit-overflow-scrolling:touch] lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)]">
+      {documentQuestion}
       {!selectedContext && !loading && !explanation && (
         <p className="text-sm leading-6 tracking-[-0.224px] text-[#7a7a7a]">{documentMode ? "双击查单词，拖选查短语；超过 5 个词直接翻译。" : "点击文章中的任意英文单词查看语境解释。"}</p>
       )}
@@ -269,7 +272,7 @@ export function ExplanationPanel({
                 <p className="text-xs leading-5 tracking-[-0.12px] text-[#7a7a7a]">{vocabularyMatchNotice}</p>
               )}
 
-              <section className="border-t border-[#e0e0e0] pt-5">
+              <section hidden={Boolean(documentQuestion)} className="border-t border-[#e0e0e0] pt-5">
                 <h3 className="text-sm font-semibold tracking-[-0.224px] text-[#1d1d1f]">向 AI 追问这句</h3>
                 <p className="mt-1 text-xs leading-5 tracking-[-0.12px] text-[#7a7a7a]">
                   当前问题会带上所划词和它所在的完整句子。
@@ -419,7 +422,7 @@ export function ExplanationPanel({
             <p className="text-xs leading-5 tracking-[-0.12px] text-[#7a7a7a]">{vocabularyMatchNotice}</p>
           )}
 
-          <section className="border-t border-[#e0e0e0] pt-5">
+          <section hidden={Boolean(documentQuestion)} className="border-t border-[#e0e0e0] pt-5">
             <h3 className="text-sm font-semibold tracking-[-0.224px] text-[#1d1d1f]">向 AI 追问这句话</h3>
             <p className="mt-1 text-xs leading-5 tracking-[-0.12px] text-[#7a7a7a]">
               当前问题会带上所划词和它所在的完整句子。

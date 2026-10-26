@@ -1,3 +1,4 @@
+import { searchDocumentKnowledge } from "@/lib/documentKnowledge";
 import { LATIN_PHRASE_PATTERN } from "@/lib/latinWords";
 import {withModelContext} from '@/lib/modelSettings';
 import { NextResponse } from "next/server";
@@ -24,7 +25,13 @@ function isValidRequestBody(body: unknown): body is SentenceQuestionRequest {
     typeof input.nextSentence === "string" &&
     typeof input.question === "string" &&
     input.question.trim().length > 0 &&
-    WORD_OR_PHRASE_PATTERN.test(input.word.trim())
+    (input.document ? input.word.length <= 12000 && typeof input.document.title === "string"
+      && Array.isArray(input.document.blocks) && input.document.blocks.length <= 240
+      && input.document.blocks.every(b => b && typeof b.id === "string" && typeof b.text === "string" && b.text.length <= 32000)
+      && input.document.blocks.reduce((n,b) => n+b.text.length,0) <= 64000
+      : WORD_OR_PHRASE_PATTERN.test(input.word.trim()))
+    && (input.searchQuery === undefined || typeof input.searchQuery === "string")
+    && (input.history === undefined || Array.isArray(input.history) && input.history.length <= 4 && input.history.every(t => t && typeof t.question === "string" && typeof t.answer === "string"))
   );
 }
 
@@ -33,7 +40,7 @@ async function handlePOST(request: Request) {
   let actionId = "";
 
   try {
-    body = await readJsonBody(request, 32 * 1024);
+    body = await readJsonBody(request, 384 * 1024);
   } catch (error) {
     if (error instanceof RequestBodyTooLargeError) {
       return NextResponse.json({ error: "请求内容过大。" }, { status: 413 });
@@ -68,10 +75,11 @@ async function handlePOST(request: Request) {
 
   try {
     const safeRequest = sanitizeSentenceQuestionRequest(body);
-    const result = await answerSentenceQuestionWithDeepSeek(safeRequest);
+    const knowledge = safeRequest.document && safeRequest.searchQuery ? await searchDocumentKnowledge(safeRequest.searchQuery, request.signal) : { sources: [], notice: "" };
+    const result = await answerSentenceQuestionWithDeepSeek(safeRequest, knowledge.sources, request.signal);
     await recordUsageExecution({ actionId, route: "/api/ask-sentence", provider: result.provider, model: result.model, promptTokens: result.usage.prompt_tokens, promptCacheHitTokens: result.usage.prompt_cache_hit_tokens, promptCacheMissTokens: result.usage.prompt_cache_miss_tokens, completionTokens: result.usage.completion_tokens, estimatedCostMicrousd: estimateDeepSeekCostMicrousd(result.model, result.usage), status: "succeeded" }).catch(() => undefined);
     await finishUsage(actionId, "succeeded").catch(() => undefined);
-    return NextResponse.json({ answer: result.answer });
+    return NextResponse.json({ answer: result.answer, sources: knowledge.sources.map(({ title, url }) => ({ title, url })), searchNotice: knowledge.notice });
   } catch (error) {
     await refundUsage(actionId, "failed", error instanceof Error ? error.name : "unknown").catch(() => undefined);
     const configurationError = error instanceof MissingDeepSeekEnvError;

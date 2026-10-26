@@ -311,7 +311,7 @@ export function sanitizeExplanationRequest(input: ExplanationRequest): Explanati
     return {
       ...request,
       previousSentence: request.previousSentence.slice(0, 220),
-      sentence: request.sentence.slice(0, 620),
+      sentence: request.sentence.slice(Math.max(0, request.sentence.toLowerCase().indexOf(request.word.toLowerCase()) - 250), Math.max(620, request.sentence.toLowerCase().indexOf(request.word.toLowerCase()) + request.word.length + 250)),
       nextSentence: request.nextSentence.slice(0, 220),
     };
   }
@@ -323,6 +323,9 @@ export function sanitizeSentenceQuestionRequest(input: SentenceQuestionRequest):
   return {
     ...sanitizeExplanationRequest(input),
     question: trimField(input.question).slice(0, MAX_QUESTION_CHARS),
+    ...(input.document ? { document: { title: input.document.title.slice(0, 300), blocks: input.document.blocks } } : {}),
+    history: input.history?.slice(-4).map(turn => ({ question: turn.question.slice(0, 1000), answer: turn.answer.slice(0, 4000) })),
+    searchQuery: input.searchQuery?.trim().slice(0, 150),
   };
 }
 

@@ -1,6 +1,7 @@
 import type { ImportedArticle } from "@/types/article";
 import type { WordContext } from "@/types/reader";
 import { LATIN_PHRASE_PATTERN } from "./latinWords";
+import { getSentenceSpans } from "./tokenizer";
 import { cleanDocumentText } from "./documentUnicode";
 
 export function normalizeDocumentSelection(text: string): string {
@@ -58,11 +59,18 @@ export function readDocumentSelection(root: HTMLElement, article: ImportedArticl
   }
   const page = (first.node.parentElement?.closest("[data-document-page]") as HTMLElement | null)?.dataset.documentPage;
   const candidates = article.blocks.filter(b => !page || b.id.startsWith(`doc-p${page}-`));
-  const block = candidates.find(b => normalizeDocumentSelection(b.text ?? "").includes(word));
+  const nearby = normalizeDocumentSelection(text.slice(Math.max(0, start - 90), end + 90));
+  const terms = nearby.toLowerCase().match(/[\p{L}\p{N}]+/gu) ?? [];
+  const matching = candidates.filter(b => normalizeDocumentSelection(b.text ?? "").toLowerCase().includes(word.toLowerCase()));
+  const score = (value: string) => terms.reduce((n, term) => n + (value.toLowerCase().includes(term) ? 1 : 0), 0);
+  matching.sort((a,b) => score(b.text ?? "") - score(a.text ?? ""));
+  const block = matching[0];
   const index = block ? article.blocks.indexOf(block) : -1;
-  return { word, sentence: block?.text || word, paragraphIndex: index, tokenIndex: 0,
-    previousSentence: article.blocks[index - 1]?.text?.slice(-2000) || "",
-    nextSentence: article.blocks[index + 1]?.text?.slice(0, 2000) || "" };
+  const source = normalizeDocumentSelection(block?.text || text);
+  // Select the actual sentence containing this occurrence, never paragraph one.
+  const resolved = documentSentenceContext(source, word, nearby);
+  return { word, ...resolved, paragraphIndex: index, tokenIndex: 0 };
+
 }
 
 export function selectDocumentWord(event: MouseEvent, root: HTMLElement, article: ImportedArticle): WordContext | null {
@@ -140,4 +148,16 @@ function paintDocumentSelection(root: HTMLElement, selected: Range) {
     }
     page.append(overlay);
   }
+}
+
+export function documentSentenceContext(source: string, word: string, nearby = "") {
+  const spans = getSentenceSpans(source);
+  const matches = spans.map((span, index) => ({ span, index }))
+    .filter(({ span }) => span.text.toLowerCase().includes(word.toLowerCase()));
+  const tokens = nearby.toLowerCase().match(/[\p{L}\p{N}]+/gu) ?? [];
+  const score = (text: string) => tokens.reduce((n, token) => n + (text.toLowerCase().includes(token) ? 1 : 0), 0);
+  matches.sort((a,b) => score(b.span.text) - score(a.span.text));
+  const match = matches[0];
+  if (!match) return { sentence: word, previousSentence: "", nextSentence: "" };
+  return { sentence: match.span.text, previousSentence: spans[match.index - 1]?.text ?? "", nextSentence: spans[match.index + 1]?.text ?? "" };
 }

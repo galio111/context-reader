@@ -89,6 +89,9 @@ export interface ExplanationRequest {
 
 export interface SentenceQuestionRequest extends ExplanationRequest {
   question: string;
+  document?: { title: string; blocks: ArticleTranslationBlock[] };
+  history?: { question: string; answer: string }[];
+  searchQuery?: string;
 }
 
 export interface SentenceQuestionAnswer {

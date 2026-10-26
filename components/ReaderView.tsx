@@ -1,5 +1,6 @@
 "use client";
 import { DocumentSelectionTranslation, useDocumentSelectionTranslation } from "@/components/DocumentSelectionTranslation";
+import DocumentQuestionPanel from "@/components/DocumentQuestionPanel";
 import { documentSelectionMode } from "@/lib/documentSelection";
 import { DocumentReader } from "@/components/DocumentReader";
 import { LoadingStatus } from "./LoadingStatus";
@@ -2201,6 +2202,10 @@ export function ReaderView({
     }
   }
 
+  const documentQuestion = currentImportedArticle?.document ? <DocumentQuestionPanel
+    key={`${translationAccountOwner}:${currentImportedArticle.document.id}:${selectedContext?.word ?? ""}:${selectedContext?.sentence ?? ""}`}
+    article={currentImportedArticle} context={selectedContext} /> : undefined;
+
   function handleDocumentSelection(context: WordContext) {
     const mode = documentSelectionMode(context.word);
     if (mode === "ignore") return;
@@ -4035,8 +4040,9 @@ export function ReaderView({
                 />
               </div>
               <div className={rightPanelMode === "explanation" ? "h-full min-h-0" : "hidden h-full min-h-0"}>
-                {documentPassage ? <DocumentSelectionTranslation context={documentPassage} result={documentPassageResult} /> : <ExplanationPanel
+                {documentPassage ? <DocumentSelectionTranslation context={documentPassage} result={documentPassageResult} documentQuestion={documentQuestion} /> : <ExplanationPanel
                   documentMode={Boolean(currentImportedArticle?.document)}
+                  documentQuestion={documentQuestion}
                   explanation={explanation}
                   streamSource={explanationStream}
                   streaming={explanationStreaming}
@@ -4281,8 +4287,9 @@ export function ReaderView({
           <div className={toolbarStyles.mobileSheetBody} data-local-scroll-surface hidden={questionDock.open} inert={questionDock.open}>
             {rightPanelMode === "explanation" && (
               hasExplanationPanelContent ? (
-                documentPassage ? <DocumentSelectionTranslation context={documentPassage} result={documentPassageResult} /> : <ExplanationPanel
+                documentPassage ? <DocumentSelectionTranslation context={documentPassage} result={documentPassageResult} documentQuestion={documentQuestion} /> : <ExplanationPanel
                   documentMode={Boolean(currentImportedArticle?.document)}
+                  documentQuestion={documentQuestion}
                   explanation={explanation}
                   streamSource={explanationStream}
                   streaming={explanationStreaming}

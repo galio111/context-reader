@@ -28,3 +28,18 @@ test("numbered method prose is not mistaken for a bibliography",()=>{
  const blocks=[block(1,0,"Abstract This paper discusses methods."),block(1,1,"Introduction This is the introduction."),block(2,0,"1 Add water and stir for 30 minutes."),block(2,1,"References to the control group are given in the text."),block(3,0,"Conclusions The process works.")];
  assert.equal(documentReadingContent(blocks).body.length,5);
 });
+
+
+test("unlabelled abstract and body survive first-page submission dates and affiliations", () => {
+ const abstract="Natural polymeric hydrogels are expected to serve as potential structural biomaterials. ".repeat(4);
+ const blocks=[block(1,0,"A scientific title"),block(1,1,abstract),block(1,2,"Introduction"),block(1,3,"The introduction explains the research."),block(1,4,"College of Chemistry, University"),block(1,5,"Received 4th June 2021, Accepted 2nd July 2021"),block(1,6,"New concepts "+abstract),block(2,0,"Results and discussion"),block(2,1,"Ethanol changes the hydrophobic interactions."),block(3,0,"Conclusions"),block(3,1,"The hydrogels are strong."),block(3,2,"References"),block(3,3,"1 Author A, 2021.")];
+ const texts=documentReadingContent(blocks).body.map(b=>b.text);
+ assert.ok(texts.includes(abstract));assert.ok(texts.includes("Ethanol changes the hydrophobic interactions."));assert.ok(texts.includes("The hydrogels are strong."));
+ assert.ok(!texts.some(t=>t?.startsWith("Received")));assert.ok(!texts.includes("References"));
+});
+
+
+test("page-number journal footers and fragmented numeric tables stay outside body translation", () => {
+ const blocks=[block(1,0,"Abstract This paper explains a hydrogel."),block(1,1,"College of Chemistry, University X"),block(1,2,"Received 1 June 2021, Accepted 2 July 2021"),block(2,0,"2504 | Mater. Horiz., 2021, 8, 2503–2512"),block(2,1,"Table 1 Physical properties of the hydrogels"),block(2,2,"Samples"),block(2,3,"Compression"),block(2,4,"CHTA2-60 2"),block(3,0,"Conclusions The material performs well.")];
+ const result=documentReadingContent(blocks);assert.deepEqual(result.body.map(b=>b.id),["doc-p1-b0","doc-p3-b0"]);assert.equal(result.captions.length,1);
+});

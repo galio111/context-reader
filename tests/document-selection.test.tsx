@@ -142,3 +142,12 @@ test("selected translation replays exact cache, cancels stale selection and hide
     for(const [key,descriptor] of saved) { if(descriptor)Object.defineProperty(globalThis,key,descriptor);else Reflect.deleteProperty(globalThis,key); }
   }
 });
+
+
+test("late selected terms resolve their own sentence rather than the abstract opening", async () => {
+ const {documentSentenceContext}=await import("../lib/documentSelection");
+ const source="Natural polymeric hydrogels are soft. "+"An introductory sentence explains the method. ".repeat(20)+"High-density crosslinking endowed the PMS hydrogels with strength. The mechanical properties depended on ethanol aqueous coagulation. The final sentence discusses applications.";
+ assert.equal(documentSentenceContext(source,"ethanol").sentence,"The mechanical properties depended on ethanol aqueous coagulation.");
+ assert.equal(documentSentenceContext(source,"the PMS hydrogels").sentence,"High-density crosslinking endowed the PMS hydrogels with strength.");
+ assert.equal(documentSentenceContext("First ethanol was added. Later ethanol was removed.","ethanol","Later ethanol was removed.").sentence,"Later ethanol was removed.");
+});

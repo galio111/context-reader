@@ -79,9 +79,10 @@ export function useDocumentSelectionTranslation(context: WordContext | null, art
   return { ...(state.key === key ? state : { text: "", loading: Boolean(context) && !offline, notice: "" }), retry: () => setRetry(value => value + 1) };
 }
 
-export function DocumentSelectionTranslation({ context, result }: { context: WordContext; result: ReturnType<typeof useDocumentSelectionTranslation> }) {
+export function DocumentSelectionTranslation({ context, result, documentQuestion }: { documentQuestion?: React.ReactNode; context: WordContext; result: ReturnType<typeof useDocumentSelectionTranslation> }) {
   const [showSource, setShowSource] = useState(false);
   return <section className="cr-reader-panel h-full overflow-y-auto rounded-[14px] border border-[#e0e0e0] bg-white p-5" aria-label="所选内容翻译">
+    {documentQuestion}
     <div className="mb-5 flex items-center justify-between gap-3 text-sm text-zinc-500"><span>所选内容翻译</span>
       <button type="button" aria-expanded={showSource} className="underline" onClick={() => setShowSource(value => !value)}>{showSource ? "隐藏原文" : "对照原文"}</button></div>
     {showSource && <p className="mb-5 whitespace-pre-wrap text-sm leading-relaxed text-zinc-500" data-selection-source>{context.word}</p>}
