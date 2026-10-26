@@ -91,6 +91,8 @@ Production requests receive security headers and pass through bounded-body, same
 
 ## Accounts, Usage, and Sync
 
+`GET /api/auth/accounts` lists saved account identities; `POST` accepts `{action: "switch" | "remove", userId}` with same-origin validation. Authentication routes return `savedAccounts` alongside the active account. Saved credentials remain encrypted HttpOnly cookies and never enter browser-readable storage. No schema or new cloud resource is needed. [Contract and acceptance](multi-account-switching.md).
+
 Sync response pages are capped by serialized byte size. Protocol 2 performs a one-time snapshot bootstrap (active payloads first, then lightweight tombstone metadata) and then reads only rows after an opaque `(updated_at, kind, object_key)` cursor. The browser stores only versions, deletion flags, and stable payload hashes in its sync manifest; it does not refetch all historical objects to decide what changed. `/admin` does not auto-sync learning data; normal client tabs share a Web Lock so only one tab writes account versions at a time.
 
 The browser talks only to Context Reader server routes; it never receives the Supabase service-role key or a public Supabase client key. `/api/auth/phone-register` creates the nickname + phone + password account and `/api/auth/phone-login` signs it in. The legacy `/api/auth/request-otp`, `/api/auth/verify-otp`, and `/api/auth/adopt-session` routes remain for email compatibility but are hidden from the current UI. `/api/auth/session` reads or refreshes the seven-day server-managed account session and `/api/auth/logout` requires a successful final sync before clearing account-associated local data.

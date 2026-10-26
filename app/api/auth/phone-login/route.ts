@@ -1,3 +1,4 @@
+import { listSavedAccounts } from "@/lib/savedAccountSessions";
 import { NextResponse } from "next/server";
 import { getAccountSessionState } from "@/lib/accountStore";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
@@ -30,7 +31,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "账号已停用，请联系管理员。" }, { status: 403 });
     }
     await establishUserSession(session);
-    return NextResponse.json({ account }, { headers: { "Cache-Control": "no-store" } });
+    return NextResponse.json({ account, savedAccounts: await listSavedAccounts() }, { headers: { "Cache-Control": "no-store" } });
   } catch (error) {
     return NextResponse.json(
       { error: error instanceof Error ? error.message : "登录失败，请稍后重试。" },

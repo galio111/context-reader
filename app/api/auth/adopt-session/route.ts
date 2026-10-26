@@ -1,3 +1,4 @@
+import { listSavedAccounts } from "@/lib/savedAccountSessions";
 import { NextResponse } from "next/server";
 import { getAccountSessionState } from "@/lib/accountStore";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
@@ -27,7 +28,7 @@ export async function POST(request: Request) {
     const session = await adoptSupabaseSession(body.accessToken ?? "", body.refreshToken ?? "");
     const account = await getAccountSessionState(session.user);
     await establishUserSession(session);
-    return NextResponse.json({ account });
+    return NextResponse.json({ account, savedAccounts: await listSavedAccounts() }, { headers: { "Cache-Control": "no-store" } });
   } catch (error) {
     return NextResponse.json(
       { error: error instanceof Error ? error.message : "登录链接无效或已过期。" },
