@@ -76,3 +76,28 @@ Candidate evidence: 161 architecture tests and production build pass. All 27 pag
 
 
 The first page-isolated release 20261024T003000 (parent 234000, source d912b24b9ab132ba1bff875f3972792c0c987c3d, CI 39985433096) passed local checks but failed the full public gate. Its large-paper first frame was 4.409 s; after 20 seconds reading, page four appeared in 28 ms and page five in 4.923 s. However page 11's 5.25 MB transfer stopped at the inherited 30-second deadline after approximately 5.05 MB. The entire-document assertion failed. Production was restored to 234000 under the deployment lock while correcting this page-sized transfer timeout. Do not describe 003000 as a fully accepted reading fix. The follow-up allows 180 seconds for an entire page and one silent transport retry, with cancellation and request deduplication regression coverage (162 checks).
+
+
+## Current production: 20261024T013000 — practical reading on existing resources
+
+The user declined COS/new cloud charges and explicitly relaxed exact WPS equivalence. AGENTS.md now records personal developer-account reading fluency as the priority, retaining private-document authentication and recoverability.
+
+Intermediate releases 004500 (source 08d6d0325b703388f936359e841fed8c4ac26471) and 005500 (source aacc02d7545db68cab63c8580331d16a62ef50cb) fixed the page timeout and limited background concurrency. Both rendered all 16 pages publicly, but page five still took 4.714/7.042 seconds after a 20-second reading interval. These were not sufficient performance outcomes.
+
+Current release 013000, parent 005500, source 3e5101b06c5977e1d6901b87894be406ea08eb5e, prepares authenticated per-page native PDFs. For papers up to 24 pages, eligible large RGB JPEGs use a temporary ICC-preserving reading copy; text, fonts, layout and annotations remain native. Large masked, CMYK or unsupported images are left intact. Full original detail replaces the visible canvas after previews are prepared, or on zoom above 100%, while retaining the text layer and selection. A failed detail upgrade retains the usable reading frame. Original objects, downloads and account article records are unchanged; no reimport or additional service.
+
+The large paper's preview transfer is 6,136,307 bytes versus approximately 21.47 MB for all full isolated pages; page five falls from 3.161 MB to 669 KB and page eleven from 5.246 MB to 975 KB. Preview raster pixels are intentionally not identical. The 27-page geometry/text comparison passes; full original page copies separately passed pixel equality. Original SHA-256 remains 2d53aca13095a8538b541b97934b7590346494e97b04cb0bc8b7ae1342d1c5e3, 19,687,887 bytes.
+
+Final public Edge, fresh isolated gggg session using existing My Articles:
+- Large-paper first usable page: 6.462 s. This is not instant loading.
+- After 20 s reading page one, page four: 37 ms; page five: 32 ms, both with nonblank canvas checks. These are preloaded-page timings, not immediate cold jumps.
+- All 16 reading pages prepared by 42.676 s in background. Page five subsequently restored original detail while preserving a selected native range.
+- Cached refresh: 3.621 s, zero new page requests. Reopen: 1.044 s, zero new requests.
+- Older SCM opened in 3.688 s with the PDF runtime already loaded; all 11 pages appeared.
+- Zoom, fixed controls and mobile slider checks passed. Real word explanation, dictionary and article translation returned Chinese; all three fresh ledger entries succeeded on deepseek-flash.
+
+Final WebKit fixture additionally passed double-click, partial-word completion, six-word passage translation, original-detail selection preservation, zoom and mobile controls. Under a 2 Mbps fixture, first reading frame was 2.415 s and pages four/five after 20 s appeared in 36/33 ms; these fixture timings are not public Internet timings. Deliberate original-detail failure was disclosed and tested only in an isolated fixture; the reading frame remained usable without an alert. Physical Mac Safari, WPS comparison, arbitrary immediate jumps before preparation, and subjective user acceptance are not claimed.
+
+Release checks: exact-source CI 39993037301; 164 architecture/document tests; clean sequential production build. Public identity/parent and unchanged postgres/auth/rest/storage/gateway identities verified. Backup context-reader-20261023T173415Z.dump passed SHA and an isolated 40-table restore. Current/direct-parent images remain available, plus earlier 234000/185600 recovery images. Narrow checked removal of unreferenced build layers and superseded 003000/004500/231000/213500 image tags restored health to 81% filesystem use; archived source/releases and backups remain. No user data or storage volumes were removed.
+
+Evidence is outside Git at D:/codex_test/release-artifacts/document-controls-1023/evidence/previews/ (public, local WebKit/failure, visual, source hash, core/ledger, health/backup and release logs). Account tokens and private source documents are excluded.

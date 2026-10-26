@@ -2178,6 +2178,10 @@ Accepted `20261023T185600`, parent `20261022T223000`, source `7442855c98f63070ee
 234000 已上线（parent 231000，source 4f3aa8eea09cdc5a92173c4e65adbefbab80e7e6），补齐云端逐页准备和完整原件缓存。gggg 实测缓存重开约1.1秒，但大论文冷开19.705秒、第5页仍等待13.604秒，硬性验收未通过。服务器出口实测3.08 Mbps；独立无代理浏览器同样慢，未修改用户代理。源码CI、160回归、真实三项Flash、健康及40表备份恢复通过。下一步私人文件直连方案需先核实价格，未开通任何收费服务。详见 [证据](document-controls-20261023.md) 与 [方案](document-delivery-plan-20261023.md)。
 
 
+## 2026-10-24：现有服务器渐进 PDF 阅读
+
+用户明确不新增费用，也不再要求完全达到 WPS，只要求本人实际阅读流畅。013000（parent 005500，source 3e5101b06c5977e1d6901b87894be406ea08eb5e）先提供保留原生文字和排版的轻量页面，再恢复原图细节，恢复过程保留选区。真实 gggg 16 页论文冷开 6.462 秒；读首页 20 秒后，第 4/5 页显示只需 37/32 毫秒；缓存刷新 3.621 秒、重开 1.044 秒。旧 11 页论文完整显示，原件哈希不变，无重复导入。164 回归、源码 CI 39993037301、WebKit 划词与故障保留画面、三项真实 Flash、健康、40 表备份恢复通过。首开尚非秒开，物理 Safari 与用户主观验收不冒称完成。详见 [证据](document-controls-20261023.md)。
+
 ## 2026-10-25 — The Atlantic daily-source integration
 
 Requested actual onboarding after direct mainland DNS/HTTPS failures. The existing overseas transport reads the official Atom feed, but article HTML returns 403. Added narrowly matched public Atom-body intake with unchanged sanitizer and quality gates. Three parser regressions and 13 import/media/overseas regressions pass. Real syndicated samples retain 423, 1744 and 1080 words with zero detected missing text/image blocks; the 239-word video item is excluded. Accepted production 20261025T000500 (parent 20261024T013000, source 166866d727b55facdb008354c2bfc0eae535911a). Public identity matches; production source verification passed on 1304-word and 423-word samples with readable images, then source enabled state was read back. Existing 06:00 Asia/Shanghai timer is enabled/active. Production replay uses publisher-atom-content provenance. Local/server builds, 16 targeted tests, health, unchanged five persistent services, 40-table backup restore and current/parent rollback images verified. Temporary build images from this release were removed to restore disk health (76% used). Actual rollback was not executed; the first scheduled run remains future. No new cloud service, paid resource, login-wall bypass or user-session change.
@@ -2186,3 +2190,4 @@ Requested actual onboarding after direct mainland DNS/HTTPS failures. The existi
 ## 2026-10-26 — Three-account switching
 
 User requested up to three simultaneous saved logins and fast selection in account/usage. Implemented encrypted per-account sessions, legacy migration, explicit capacity/removal UI, selected-account refresh isolation and local archive reuse. 103 regressions, production build, typecheck, 11 contracts and temporary real-account API scenarios passed. Nine local/tunnel switch API samples: 579–673 ms. Candidate release pending public identity and operational checks. Browser interaction/speed acceptance remains open because Windows Computer Use stopped on uncertain current URL; API results are not fluidity acceptance. See [evidence](multi-account-switching.md).
+
