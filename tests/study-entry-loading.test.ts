@@ -27,7 +27,7 @@ function harness(count: number) {
   if(table==='study_policy')return [{policy:{rewardsEnabled:true}}];
   if(table==='account_profiles')return [{status:'active'}];
   if(table==='rpc/study_settle_rewards')return {};
-  if(table==='rpc/study_start_day_v4'){
+  if(table==='rpc/study_start_day_budget_v5'){
    // Another device can review while this request is preparing its plan.
    cards[0].version=4;cards[0].memory.reps=4;return {};
   }

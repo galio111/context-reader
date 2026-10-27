@@ -1,11 +1,11 @@
 import { BasicLearningStepsStrategy, createEmptyCard, fsrs, Rating, State, StrategyMode, type Card, type StepUnit } from "ts-fsrs";
-import type { StudyAnswer, StudyCard, StudyMemory, StudySettings, StudyReview } from "@/types/study";
+import type { StudyAnswer, StudyCard, StudyMemory, StudySettings, StudyReview, StudyDay } from "@/types/study";
 
 // Pin the library and store the identity with every event. No hand-written interval multiplier.
 export const STUDY_ALGORITHM = "FSRS-6/ts-fsrs-5.4.2";
 export const DEFAULT_STUDY_SETTINGS: StudySettings = {
   learningOrder: "review_first", reviewsPerNew: 5,
-  reviewsPerDay: 100, retention: 0.9, forgotMinutes:5, unsureMinutes:10, pausedUntil: null, reminders: true, includeAnki: false,
+  reviewsPerDay: 40, reviewBudgetVersion: 1, retention: 0.9, forgotMinutes:5, unsureMinutes:10, pausedUntil: null, reminders: true, includeAnki: false,
 };
 export function studyRating(answer: StudyAnswer): Rating.Again | Rating.Hard | Rating.Good {
   switch (answer) {
@@ -58,7 +58,10 @@ export function sanitizeStudySettings(input: unknown, current = DEFAULT_STUDY_SE
   if (typeof retention !== "number" || !Number.isFinite(retention) || retention < .8 || retention > .95) throw new Error("目标记住概率应在 80%–95% 之间。");
   for (const key of ["reminders", "includeAnki"] as const) if (p[key] !== undefined && typeof p[key] !== "boolean") throw new Error("学习设置无效。");
   if (p.learningOrder !== undefined && !["review_first","mixed"].includes(p.learningOrder)) throw new Error("学习顺序无效。");
-  return { ...current,
+  if(p.reviewExtraDay!==undefined&&!/^\d{4}-\d{2}-\d{2}$/.test(p.reviewExtraDay))throw new Error("追加日期无效。");
+  return { ...current, reviewBudgetVersion:1,
+    reviewExtraDay:p.reviewExtraDay??current.reviewExtraDay,
+    reviewExtraCount:integer(p.reviewExtraCount,current.reviewExtraCount??0,300),
     learningOrder:p.learningOrder??current.learningOrder??"review_first",
     reviewsPerNew:Math.max(1,integer(p.reviewsPerNew,current.reviewsPerNew??5,100)),
     forgotMinutes:Math.max(1,integer(p.forgotMinutes,current.forgotMinutes??5,120)),
@@ -66,15 +69,41 @@ export function sanitizeStudySettings(input: unknown, current = DEFAULT_STUDY_SE
     reviewsPerDay: Math.max(1, integer(p.reviewsPerDay, current.reviewsPerDay, 300)), retention,
     reminders: p.reminders ?? current.reminders, includeAnki: p.includeAnki ?? current.includeAnki };
 }
-export function buildStudyPlan(cards: StudyCard[], settings: StudySettings, now: Date): string[] {
+/** Older saved settings carried an unused limit, not an active user budget. */
+export function budgetSettings(settings: StudySettings): StudySettings {
+  return settings.reviewBudgetVersion===1?settings:{...settings,reviewsPerDay:40,reviewBudgetVersion:1};
+}
+export function studyReviewBudget(settings: StudySettings, now: Date) {
+  const s=budgetSettings(settings);
+  return s.reviewsPerDay+(s.reviewExtraDay===shanghaiDay(now)?s.reviewExtraCount??0:0);
+}
+export function studyIntroducedToday(reviews: StudyReview[], now: Date) {
+  return new Set(reviews.filter(r=>shanghaiDay(new Date(r.reviewed_at))===shanghaiDay(now)&&r.previous.state===State.New).map(r=>r.card_id));
+}
+export function buildStudyPlan(cards: StudyCard[], settings: StudySettings, now: Date, today?: StudyDay|null, reviews: StudyReview[]=[]): string[] {
   if (studyPaused(settings, now)) return [];
   const eligible = cards.filter(c => !c.suspended && (!c.anki_pending || settings.includeAnki));
-  const learning = eligible.filter(c => isStudyLearning(c.memory));
-  const due = eligible.filter(c => c.memory.state === State.Review && studyReady(c.memory, now))
-    .sort((a, b) => Date.parse(a.memory.due) - Date.parse(b.memory.due) || a.id.localeCompare(b.id));
-  // Catch up before introducing more work.
-  const fresh = eligible.filter(c => c.memory.state === State.New).sort((a, b) => a.created_at.localeCompare(b.created_at) || a.id.localeCompare(b.id));
-  return [...learning, ...due, ...fresh].map(c => c.id);
+  const introduced=studyIntroducedToday(reviews,now), day=shanghaiDay(now), end=studyDayEnd(now).getTime();
+  // Even an undone answer reserves its word's slot; undo must not introduce a 41st word.
+  const touched=new Set(reviews.filter(r=>shanghaiDay(new Date(r.reviewed_at))===day&&!introduced.has(r.card_id)&&r.previous.state!==State.New).map(r=>r.card_id));
+  const byId=new Map(eligible.map(c=>[c.id,c]));
+  const selected=[...touched].sort();
+  const budget=studyReviewBudget(settings,now);
+  if(today?.day===day&&today.settings.reviewBudgetVersion===1){
+    for(const id of today.card_ids){const c=byId.get(id);if(selected.length<budget&&c&&c.memory.state!==State.New&&!introduced.has(id)&&!selected.includes(id))selected.push(id);}
+  }
+  const due=eligible.filter(c=>c.memory.state!==State.New&&!introduced.has(c.id)&&!selected.includes(c.id)&&Date.parse(c.memory.due)<end);
+  const oldest=[...due].sort((a,b)=>Date.parse(a.memory.due)-Date.parse(b.memory.due)||a.id.localeCompare(b.id));
+  const slots=Math.max(0,budget-selected.length);
+  // Reserve one fifth for the longest-waiting words; the rest follows FSRS risk.
+  // This is a workload policy, not a change to FSRS memory or due dates.
+  const fair=oldest.slice(0,Math.min(slots,Math.ceil(slots/5)));
+  const fairIds=new Set(fair.map(c=>c.id));
+  const risks=new Map(due.map(c=>[c.id,recallProbability(c.memory,now)??0]));
+  const ranked=due.filter(c=>!fairIds.has(c.id)).sort((a,b)=>(risks.get(a.id)!-risks.get(b.id)!)||Date.parse(a.memory.due)-Date.parse(b.memory.due)||a.id.localeCompare(b.id));
+  selected.push(...[...fair,...ranked].slice(0,slots).map(c=>c.id));
+  const fresh=eligible.filter(c=>c.memory.state===State.New||introduced.has(c.id)).sort((a,b)=>a.created_at.localeCompare(b.created_at)||a.id.localeCompare(b.id));
+  return [...selected.filter(id=>byId.has(id)),...fresh.map(c=>c.id)];
 }
 /** Long-term reviews use the Shanghai calendar day; short steps retain their clock. */
 export function studyReady(memory: StudyMemory, now: Date): boolean {

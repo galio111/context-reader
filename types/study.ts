@@ -11,6 +11,8 @@ export interface StudyCard {
   suspended: boolean; anki_pending: boolean; created_at: string;
 }
 export interface StudySettings {
+  reviewBudgetVersion?: number;
+  reviewExtraDay?: string; reviewExtraCount?: number;
   learningOrder?: "review_first" | "mixed"; reviewsPerNew?: number;
   /** Retained for old plan snapshots; new plans do not cap new words. */
   newPerDay?: number; reviewsPerDay: number; retention: number;

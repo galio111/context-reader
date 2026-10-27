@@ -6,11 +6,11 @@ import { fsrs, Rating } from "ts-fsrs";
 import type { StudyCard, StudySnapshot } from "../types/study";
 const now=new Date("2026-10-10T02:00:00Z");
 const card=(id:string,state=0):StudyCard=>({id,entry_id:id,mode:"basic_en_to_cn",memory:{...newMemory(now),state},version:0,suspended:false,anki_pending:false,created_at:now.toISOString()});
-test("all due reviews are included regardless of legacy daily cap",()=>{
- assert.equal(DEFAULT_STUDY_SETTINGS.reviewsPerDay,100);
+test("daily budget caps old words while retaining all new words",()=>{
+ assert.equal(DEFAULT_STUDY_SETTINGS.reviewsPerDay,40);
  const cards=Array.from({length:600},(_,i)=>card(String(i),i<160?2:0));
  const ids=buildStudyPlan(cards,DEFAULT_STUDY_SETTINGS,now);
- assert.equal(ids.length,600);assert.equal(ids.filter(id=>Number(id)<160).length,160);
+ assert.equal(ids.length,480);assert.equal(ids.filter(id=>Number(id)<160).length,40);
 });
 test("five and ten minute steps preserve upstream FSRS memory and long-term Hard",()=>{
  const original=newMemory(now),again=scheduleStudy(original,"forgot",now,.9),hard=scheduleStudy(original,"unsure_right",now,.9);

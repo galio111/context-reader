@@ -2191,3 +2191,7 @@ Requested actual onboarding after direct mainland DNS/HTTPS failures. The existi
 
 User requested up to three simultaneous saved logins and fast selection in account/usage. Implemented encrypted per-account sessions, legacy migration, explicit capacity/removal UI, selected-account refresh isolation and local archive reuse. 103 regressions, production build, typecheck, 11 contracts and temporary real-account API scenarios passed. Nine local/tunnel switch API samples: 579–673 ms. Candidate release pending public identity and operational checks. Browser interaction/speed acceptance remains open because Windows Computer Use stopped on uncertain current URL; API results are not fluidity acceptance. See [evidence](multi-account-switching.md).
 
+
+## 2026-10-28 — Daily review budget
+
+Implemented the user's accepted 40-distinct-old-words budget, same-word retry exclusion, risk/oldest scheduling, explicit daily extra, and quiet completion. New-word mixed/review-first settings are unchanged. The 2026-10-27 gggg snapshot selects 40 out of 353 old due words without rescheduling or deleting any memory/history. Production acceptance is pending; see [current budget state](study-budget-20261028.md).

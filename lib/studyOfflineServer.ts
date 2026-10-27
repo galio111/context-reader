@@ -19,8 +19,15 @@ export async function saveStudyLocalEvent(owner:string,input:unknown){
   const at=new Date(Math.max(Date.parse(event.at),Date.parse(card?.memory.last_review??event.at)));
   const next=event.kind==="settings"?sanitizeStudySettings(event.settings,settings):settings;
   const memory=card&&event.kind==="review"?scheduleStudy(card.memory,event.answer,at,settings.retention,settings).memory:null;
-  const outcome=await studyRpc<Record<string,boolean>>("local_event_day_v4",{p_user:owner,p_event:event,p_version:card?.version??0,p_memory:memory,p_settings:next,p_ids:buildStudyPlan(cards,settings,new Date(event.at)),p_algorithm:STUDY_ALGORITHM});
+  const day=shanghaiDay(new Date(event.at));
+  const [daysBefore,history]=await Promise.all([
+   accountFetch<StudyDay[]>("study_days?user_id=eq."+owner+"&day=eq."+day+"&select=*&limit=1"),
+   studyRows<StudyReview>("study_reviews",owner,"*","&reviewed_at=gte."+encodeURIComponent(day+"T00:00:00+08:00")+"&reviewed_at=lt."+encodeURIComponent(new Date(Date.parse(day+"T00:00:00+08:00")+86400000).toISOString())+"&order=reviewed_at.asc,id.asc")]);
+  const planned=buildStudyPlan(cards,next,new Date(event.at),daysBefore[0],history);
+  const outcome=await studyRpc<Record<string,boolean>>("local_event_day_v4",{p_user:owner,p_event:event,p_version:card?.version??0,p_memory:memory,p_settings:next,p_ids:planned,p_algorithm:STUDY_ALGORITHM});
   if(outcome.retry)continue;
+  if(!next.pausedUntil||Date.parse(next.pausedUntil)<=Date.parse(event.at))
+   await studyRpc("start_day_budget_v5",{p_user:owner,p_ids:planned,p_settings:next,p_at:event.at});
   if(outcome.blocked)throw new Error("Offline card not eligible");
   const reviewId=event.kind==="review"?event.id:event.kind==="undo"?event.reviewId:null;
   const reviews=reviewId?await accountFetch<StudyReview[]>("study_reviews?user_id=eq."+owner+"&id=eq."+reviewId+"&select=id,card_id,answer,rating,reviewed_at,active_ms,undone,previous,next&limit=1"):[];

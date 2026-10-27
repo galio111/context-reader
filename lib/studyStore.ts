@@ -2,7 +2,7 @@ import "server-only";
 import {issueStudyOfflinePermit} from "./studyOfflinePermit";
 import { createHash } from "node:crypto";
 import { accountFetch } from "@/lib/accountStore";
-import { DEFAULT_STUDY_SETTINGS, newMemory, shanghaiDay, buildStudyPlan, studyPaused } from "@/lib/studyScheduler";
+import { DEFAULT_STUDY_SETTINGS, newMemory, shanghaiDay, buildStudyPlan, studyPaused, budgetSettings } from "@/lib/studyScheduler";
 import type { StudyCard, StudyDay, StudyPolicy, StudyReview, StudySettings, StudySnapshot } from "@/types/study";
 import type { VocabularyEntry } from "@/types/vocabulary";
 
@@ -20,7 +20,7 @@ export async function studyRows<T>(table: string, userId: string, select = "*", 
 }
 export async function getStudySettings(userId: string): Promise<StudySettings> {
   const rows = await accountFetch<Array<{ settings: Partial<StudySettings> }>>("study_settings?user_id=eq." + encodeURIComponent(userId) + "&select=settings&limit=1");
-  return { ...DEFAULT_STUDY_SETTINGS, ...rows[0]?.settings };
+  return budgetSettings({ ...DEFAULT_STUDY_SETTINGS, ...rows[0]?.settings, reviewBudgetVersion:rows[0]?.settings.reviewBudgetVersion });
 }
 export async function getStudyPolicy(): Promise<StudyPolicy> {
   const rows = await accountFetch<Array<{ policy: StudyPolicy }>>("study_policy?id=eq.true&select=policy");
@@ -110,9 +110,9 @@ export async function getStudySnapshot(userId: string, prepared?: { entries: Voc
   const visibleIds=new Set(visible.map(c=>c.entry_id));
   // Repair an existing day's membership, never card memories or historical answers.
   if (today[0] && !studyPaused(settings,now)) {
-    const planned=buildStudyPlan(visible,settings,now);
-    if (planned.some(id=>!today[0].card_ids.includes(id)))
-      today[0]=await studyRpc<StudyDay>("start_day_v4",{p_user:userId,p_ids:planned,p_settings:settings});
+    const planned=buildStudyPlan(visible,settings,now,today[0],reviews);
+    if (JSON.stringify(planned)!==JSON.stringify(today[0].card_ids)||JSON.stringify(today[0].settings)!==JSON.stringify({...today[0].settings,...settings}))
+      today[0]=await studyRpc<StudyDay>("start_day_budget_v5",{p_user:userId,p_ids:planned,p_settings:settings});
   }
   return { offlinePermit:issueStudyOfflinePermit(userId), serverNow: now.toISOString(), settings, cards: visible, ankiPendingCount:active.filter(c=>c.anki_pending).length,
     // Full dictionaries remain in synced vocabulary/cache objects. Read one saved

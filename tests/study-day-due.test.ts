@@ -11,7 +11,7 @@ test('193 = 96 carried + 97 due, including 37 evening reviews; midnight excludes
  const prev=studyForecast(cards,yesterday,false,1), today=studyForecast(cards,now,false,1);
  assert.equal(prev[0].count+prev[1].count,today[0].count);assert.equal(today[0].count,193);
  const ids=buildStudyPlan(cards,{...DEFAULT_STUDY_SETTINGS,reviewsPerDay:1},now);
- assert.equal(ids.length,193);assert.equal(planProgress(cards,ids,now).ready.length,193);
+ assert.equal(ids.length,1);assert.equal(planProgress(cards,ids,now).ready.length,1);
  assert.equal(today[1].count,1);assert.deepEqual(cards,before);
 });
 test('short steps keep exact waiting; tomorrow review cannot be presented today',()=>{

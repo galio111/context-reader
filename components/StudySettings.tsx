@@ -34,7 +34,8 @@ export function StudySettings({value, save, onSaved, order, motion, onDisplay, p
   return <section className={styles.surface}>
     <div className={styles.settingRow}><span>学习顺序</span><CetSelect label="学习顺序" value={draft.learningOrder??"review_first"} options={[{key:"review_first",text:"先复习，再学新词"},{key:"mixed",text:"复习时穿插新词"}]} onChange={v=>change({learningOrder:v as Settings["learningOrder"]})}/></div>
     {draft.learningOrder==="mixed"&&number("reviewsPerNew","每复习多少词，学 1 个新词",100,"词")}
-    <p className={styles.caption}>每天包含全部到期和逾期词，不设复习数量上限；未完成的自动结转。</p>
+    {number("reviewsPerDay","每日最多复习",300,"个旧词")}
+    <p className={styles.caption}>同一个词当天重练不重复占名额。其余词按记忆状态分批安排，新词沿用上面的学习顺序。</p>
     <div className={styles.settingRow}><div><span>目标记住率</span><p>越高，复习越频繁</p></div><CetSelect label="目标记住率" value={String(draft.retention)} options={[.85,.9,.95].map(n=>({key:String(n),text:Math.round(n*100)+"%"}))} onChange={n=>change({retention:Number(n)})}/></div>
     {number("forgotMinutes","不记得后，再次出现",120,"分钟")}
     {number("unsureMinutes","模糊但正确，再次出现",120,"分钟")}

@@ -1,5 +1,5 @@
 import type { StudyAnswer, StudySnapshot, StudyReviewReceipt,StudyCard,StudyReview,StudySettings,StudyDay } from "@/types/study";
-import { buildStudyPlan, scheduleStudy, shanghaiDay, studyDayEnd, studyRating, sanitizeStudySettings } from "./studyScheduler";
+import { buildStudyPlan, scheduleStudy, shanghaiDay, studyDayEnd, studyRating, sanitizeStudySettings, budgetSettings } from "./studyScheduler";
 
 export type StudyLocalEvent = {id:string; at:string; permit:string} & (
   {kind:"review";cardId:string;answer:StudyAnswer;activeMs:number} |
@@ -16,17 +16,17 @@ export function acknowledgeStudyEvent(record:StudyLocalRecord,ack:StudyLocalAck)
 }
 
 export function localStudyDay(snapshot:StudySnapshot,now:Date):StudySnapshot {
-  const ids=buildStudyPlan(snapshot.cards,snapshot.settings,now);
+  const settings=budgetSettings(snapshot.settings);
+  const ids=buildStudyPlan(snapshot.cards,settings,now,snapshot.today,snapshot.reviews);
   if(snapshot.today?.day===shanghaiDay(now)) {
-    const merged=[...new Set([...snapshot.today.card_ids,...ids])];
-    return merged.length===snapshot.today.card_ids.length?snapshot:{...snapshot,today:{...snapshot.today,card_ids:merged}};
+    return {...snapshot,settings,today:{...snapshot.today,card_ids:ids,settings:{...snapshot.today.settings,...settings}}};
   }
-  return {...snapshot,today:{day:shanghaiDay(now),card_ids:ids,new_ids:snapshot.cards.filter(c=>ids.includes(c.id)&&[0,1].includes(c.memory.state)).map(c=>c.id),settings:snapshot.settings,reward_points:0,completed_at:null,new_completed:0,streak:0}};
+  return {...snapshot,settings,today:{day:shanghaiDay(now),card_ids:ids,new_ids:snapshot.cards.filter(c=>ids.includes(c.id)&&[0,1].includes(c.memory.state)).map(c=>c.id),settings,reward_points:0,completed_at:null,new_completed:0,streak:0}};
 }
 export function applyLocalStudyEvent(snapshot:StudySnapshot,event:StudyLocalEvent):StudySnapshot {
   const now=new Date(event.at);
   snapshot=localStudyDay(snapshot,now);
-  if(event.kind==="settings")return {...snapshot,settings:sanitizeStudySettings(event.settings,snapshot.settings)};
+  if(event.kind==="settings")return localStudyDay({...snapshot,settings:sanitizeStudySettings(event.settings,snapshot.settings)},now);
   if(event.kind==="undo"){
     const review=snapshot.reviews.find(r=>r.id===event.reviewId);
     if(!review||review.undone)return snapshot;

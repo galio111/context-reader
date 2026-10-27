@@ -320,7 +320,7 @@ CET 暂停划记/题目翻译已生产（20261002T225700，parent 20261002T20262
 
 ## 站内单词 UI 接入（2026-10-10，已发布）
 
-站内单词 UI 已接入：Design Lab 单卡/侧栏/底栏与统一弹窗；复习包含全部到期词，新词无目标，先完成安排的复习再学新词。5/10分钟是可改的短期 Again/Hard 步骤，长期 FSRS 保留。奖励先存待领取，再点击入账；连续日为完成安排复习+至少5首次完成新词。galio 已迁移965个历史词（908已学、57未学）和6345条作答，合并原站内201词后共1166词可用；原7条作答保留，复习上限100、奖励和连续天数不补发。退休用户入口，保留历史数据。
+站内单词 UI 已接入：Design Lab 单卡/侧栏/底栏与统一弹窗；复习按每日预算选择旧词（默认 40），新词无目标，先完成安排的复习再学新词。5/10分钟是可改的短期 Again/Hard 步骤，长期 FSRS 保留。奖励先存待领取，再点击入账；连续日为完成安排复习+至少5首次完成新词。galio 已迁移965个历史词（908已学、57未学）和6345条作答，合并原站内201词后共1166词可用；原7条作答保留，复习上限100、奖励和连续天数不补发。退休用户入口，保留历史数据。
 
 
 已生产接受 `20261010T153500`，parent `20261010T151700`，source `e4000f13a5438eeb714176cfb3b53bd615fe4feb`。首轮接入为 `20261010T151700`，parent `20261010T142500`，source `329d0650c6f655fbc5771452e9b495a4e4535e21`。39文件累计接入+2文件快速确认修正均经稳定发布入口；公网返回精确身份及 `mainland_internal`。真实答题/领取、日夜界面、Flash核心/单次扣点、Admin/同步、35表恢复与父镜像通过；快速确认自动等待后重试。详见 [学习UI证据](study-ui-20261010.md)。
@@ -336,7 +336,7 @@ CET 暂停划记/题目翻译已生产（20261002T225700，parent 20261002T20262
 
 ## Study calendar-day inventory (2026-10-17)
 
-Calendar-day due inventory and queue use the same Asia/Shanghai boundary. All overdue and today-due Review cards join the plan without a count cap; intraday Learning/Relearning retain exact due times. Forecast buckets are raw due-date counts (overdue in today), independent of legacy reviewsPerDay, existing plan IDs or pause. Unanswered words carry into tomorrow without changing memory.due. Existing plans grow by union on read/start; original answers, versions, memory and completed IDs are preserved. Additive start_day_v4, present_day_v4 and local_event_day_v4 RPCs keep old RPCs for app rollback. Accepted release 20261017T123000 (parent 20261016T161500, source a5d699e43a162033641d99b33bd2da63313f0847); gggg plan repair preserved complete card/review rows. See study-day-due-20261017.md for evidence.
+Daily review budget defaults to 40 distinct previously studied words (1–300 configurable), including prior-day Learning/Relearning. Today introductions and repeated answers do not consume additional old-word slots. The same Shanghai-day plan is retained across refresh; answered/undone words reserve their slots and lowering the limit never deletes history. One fifth of available slots is reserved for oldest due dates; remaining slots use ascending FSRS retrievability, then due/id. This is a workload heuristic, not a modified or clinically validated memory algorithm. Unselected cards retain their true due and memory. New-word ordering/mixed thresholds are unchanged. Completion hides backlog behind details; explicit extra adds ten slots for this day only. Raw due forecast remains uncapped inventory. `study_start_day_budget_v5` reconciles plan membership under the existing account advisory lock, preserving old RPCs and reward classification for rollback. Offline answers remain receipt-first and are never discarded to force a numerical cap; independently changed plans on disconnected devices can exceed the budget on reconciliation. See [budget implementation and acceptance](study-budget-20261028.md).
 
 ## 2026-10-22 document import increment
 

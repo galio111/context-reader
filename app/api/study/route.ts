@@ -4,7 +4,7 @@ import { getAuthenticatedUser } from "@/lib/userAuth";
 import { requestExternalOrigin } from "@/lib/requestSecurity";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
 import { buildStudyPlan, sanitizeStudySettings, scheduleStudy, shanghaiDay, STUDY_ALGORITHM, studyPaused, studyRating } from "@/lib/studyScheduler";
-import { getStudyEntry, getStudyReminder, getStudyRevision, getStudySettings, getStudySnapshot, reconcileStudyCards, saveStudySettings, studyRpc, studyRows } from "@/lib/studyStore";
+import { getStudyEntry, getStudyReminder, getStudyRevision, getStudySettings, getStudySnapshot, reconcileStudyCards, saveStudySettings, studyRpc } from "@/lib/studyStore";
 import type { StudyAnswer, StudyCard, StudyDay, StudyReview, StudySnapshot } from "@/types/study";
 import { recordServerError } from "@/lib/serverErrorReporting";
 import { compactStudyResponse, STUDY_COMPACT_FORMAT } from "@/lib/studyTransport";
@@ -63,10 +63,10 @@ export async function POST(request: Request) {
     if (op === "prepare") {const entries=await reconcileStudyCards(userId);return result(request, await getStudySnapshot(userId,{entries}));}
     if (op === "start" || op === "local_refresh") {
       const entries=await reconcileStudyCards(userId);
-      const [settings,cards]=await Promise.all([getStudySettings(userId),studyRows<StudyCard>("study_cards",userId,"*","&order=id.asc")]);
-      if (!studyPaused(settings,new Date())) {
-        const ids=buildStudyPlan(cards.filter(c=>!c.suspended),settings,new Date());
-        await studyRpc("start_day_v4",{p_user:userId,p_ids:ids,p_settings:settings});
+      const seed=await getStudySnapshot(userId,{entries});
+      if (!studyPaused(seed.settings,new Date())) {
+        const ids=buildStudyPlan(seed.cards,seed.settings,new Date(),seed.today,seed.reviews);
+        await studyRpc("start_day_budget_v5",{p_user:userId,p_ids:ids,p_settings:seed.settings});
       }
       // Background local refreshes retain the fifteen-minute undo window.
       // Explicit completion/claims remain server-only operations.
