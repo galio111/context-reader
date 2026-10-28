@@ -516,6 +516,10 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     setSyncingLogin(false);
   }, [submitting]);
   const requireAccount = useCallback((reason = "此操作需要登录") => {
+    if (loading || accountTransition.current) {
+      announceConnectivity("正在恢复账号，请稍候再试。");
+      return false;
+    }
     if (account.authenticated) return true;
     if (isOffline) {
       setOfflineActionNotice("当前处于离线状态，这项操作需要联网。你仍可阅读本机文章、查看生词本和使用已有缓存。");
@@ -523,7 +527,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     }
     openLogin(reason);
     return false;
-  }, [account.authenticated, isOffline, openLogin]);
+  }, [account.authenticated, loading, isOffline, openLogin, announceConnectivity]);
   const hasLocalAccountAccess = account.authenticated || (isOffline && Boolean(localAccount));
   const requireLocalAccount = useCallback((reason = "此操作需要登录") => {
     if (hasLocalAccountAccess) return true;

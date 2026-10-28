@@ -93,6 +93,15 @@ export function documentCaretAtPoint(root: HTMLElement, x: number, y: number): R
     range.setStart(glyph.firstChild, x < rect.left + rect.width / 2 ? 0 : glyph.firstChild.textContent!.length);
     range.collapse(true); return range;
   }
+  // Browser caret hit-testing snaps blank PDF gutters/margins to arbitrary
+  // positioned DOM runs, sometimes several pages later. Freeze the last valid
+  // endpoint in blank space; resume when the pointer reaches actual text.
+  if (root.querySelector(".textLayer")) {
+    const run = doc.elementFromPoint(x, y)?.closest(".textLayer span:not(.pdfGlyphLine)");
+    if (!run || !root.contains(run)) return null;
+    const bounds = run.getBoundingClientRect();
+    if (x < bounds.left || x > bounds.right || y < bounds.top || y > bounds.bottom) return null;
+  }
   const compatible = doc as Document & { caretRangeFromPoint?: (x: number, y: number) => Range | null;
     caretPositionFromPoint?: (x: number, y: number) => { offsetNode: Node; offset: number } | null };
   let range = compatible.caretRangeFromPoint?.(x, y);
@@ -100,7 +109,16 @@ export function documentCaretAtPoint(root: HTMLElement, x: number, y: number): R
     const position = compatible.caretPositionFromPoint?.(x, y);
     if (position) { range = doc.createRange(); range.setStart(position.offsetNode, position.offset); range.collapse(true); }
   }
-  return range && root.contains(range.startContainer) ? range : null;
+  if (!range || !root.contains(range.startContainer)) return null;
+  if (!root.querySelector(".textLayer") && range.startContainer.nodeType === Node.TEXT_NODE) {
+    const probe = range.cloneRange(), length = range.startContainer.textContent?.length ?? 0;
+    if (!length) return null;
+    const offset = Math.min(range.startOffset, length - 1);
+    probe.setStart(range.startContainer, offset); probe.setEnd(range.startContainer, offset + 1);
+    if (typeof probe.getClientRects === "function" && !Array.from(probe.getClientRects()).some(rect =>
+      x >= rect.left - 4 && x <= rect.right + 4 && y >= rect.top - 2 && y <= rect.bottom + 2)) return null;
+  }
+  return range;
 }
 
 export function setDocumentDragRange(anchor: Range, focus: Range) {

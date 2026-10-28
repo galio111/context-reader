@@ -7,6 +7,32 @@ const RETRY_BASE_DELAY_MS = 2_000;
 const RETRY_MAX_DELAY_MS = 30_000;
 export const FALLBACK_ERROR = "全文翻译生成失败，请稍后重试。";
 
+/** Bound even a stalled response body; some intermediaries leave streams open. */
+export async function withTranslationTimeout<T>(operation: (signal: AbortSignal) => Promise<T>, timeoutMs: number, parent?: AbortSignal): Promise<T> {
+  const controller = new AbortController();
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  let rejectWait: (error: Error) => void = () => {};
+  const aborted = () => {
+    controller.abort();
+    rejectWait(new DOMException("Aborted", "AbortError"));
+  };
+  const deadline = new Promise<never>((_, reject) => {
+    rejectWait = reject;
+    timer = setTimeout(() => {
+      controller.abort();
+      reject(new Error("翻译响应超时，已完成的译文已保留，请稍后继续。"));
+    }, timeoutMs);
+  });
+  parent?.addEventListener("abort", aborted, { once: true });
+  try {
+    if (parent?.aborted) throw new DOMException("Aborted", "AbortError");
+    return await Promise.race([operation(controller.signal), deadline]);
+  } finally {
+    clearTimeout(timer);
+    parent?.removeEventListener("abort", aborted);
+  }
+}
+
 export interface TranslationApiResponse {
   translations?: ArticleTranslationItem[];
   error?: string;
@@ -59,7 +85,7 @@ export async function requestArticleTranslation(
     const collectedBeforeAttempt = collected.size;
     let response: Response;
     try {
-      response = await fetch("/api/translate-article", {
+      response = await withTranslationTimeout((requestSignal) => fetch("/api/translate-article", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -67,10 +93,11 @@ export async function requestArticleTranslation(
           Accept: "application/x-ndjson",
         },
         body: JSON.stringify({ blocks: pendingBlocks, contextBlocks: documentTranslationContext(contextBlocks, pendingBlocks) }),
-        signal,
-      });
+        signal: requestSignal,
+      }), 45_000, signal);
     } catch (error) {
-      if (signal.aborted || attempt === MAX_RETRY_ATTEMPTS) {
+      consecutiveZeroProgressAttempts += 1;
+      if (signal.aborted || attempt === MAX_RETRY_ATTEMPTS || consecutiveZeroProgressAttempts >= MAX_CONSECUTIVE_ZERO_PROGRESS_ATTEMPTS) {
         throw error;
       }
       const delayMs = Math.min(RETRY_MAX_DELAY_MS, RETRY_BASE_DELAY_MS * 2 ** attempt);
@@ -83,6 +110,7 @@ export async function requestArticleTranslation(
       const reader = response.body.getReader();
       const decoder = new TextDecoder();
       let buffer = "";
+      const streamDeadline = Date.now() + 130_000;
       let streamError: TranslationApiResponse | null = null;
       const consumeLine = (line: string) => {
           if (!line.trim()) return;
@@ -90,7 +118,7 @@ export async function requestArticleTranslation(
           try { event = JSON.parse(line); }
           catch { streamError = { error: "翻译流数据不完整。", code: "provider_temporary" }; return; }
           if (signal.aborted) throw new DOMException("Aborted", "AbortError");
-          if (event.type === "translation" && event.translation?.id && event.translation.translation?.trim()) {
+          if (event.type === "translation" && event.translation?.id && blocks.some(b => b.id === event.translation?.id) && event.translation.translation?.trim()) {
             if (!collected.has(event.translation.id)) {
               collected.set(event.translation.id, event.translation);
               onTranslation(event.translation);
@@ -101,7 +129,7 @@ export async function requestArticleTranslation(
       };
       try {
         while (true) {
-          const { done, value } = await reader.read();
+          const { done, value } = await withTranslationTimeout(() => reader.read(), Math.max(1, streamDeadline - Date.now()), signal);
           buffer += decoder.decode(value, { stream: !done });
           const lines = buffer.split(/\r?\n/);
           buffer = lines.pop() ?? "";
@@ -112,6 +140,7 @@ export async function requestArticleTranslation(
         if (signal.aborted) throw error;
         streamError = { error: "翻译流连接中断。", code: "provider_temporary" };
       } finally {
+        void reader.cancel().catch(() => undefined);
         reader.releaseLock();
       }
       if (!streamError && blocks.every((block) => collected.has(block.id))) {
@@ -133,7 +162,7 @@ export async function requestArticleTranslation(
       }
     }
 
-    const data = await response.json().catch(() => null) as TranslationApiResponse | null;
+    const data = await withTranslationTimeout(() => response.json(), 15_000, signal).catch(() => null) as TranslationApiResponse | null;
 
     const message = data?.error || FALLBACK_ERROR;
     const canRetry =

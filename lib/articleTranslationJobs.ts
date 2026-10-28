@@ -7,7 +7,7 @@ import {
 import { fetchJson } from "@/lib/apiClient";
 import type { ArticleTranslationBlock, ArticleTranslationItem } from "@/types/reader";
 import { createArticleTranslationBatches } from "@/lib/articleTranslationBatching";
-import { requestArticleTranslation, FALLBACK_ERROR, type TranslationApiResponse } from "@/lib/articleTranslationTransport";
+import { requestArticleTranslation, withTranslationTimeout, FALLBACK_ERROR, type TranslationApiResponse } from "@/lib/articleTranslationTransport";
 import { createArticleTranslationProgress } from "@/lib/articleTranslationProgress";
 import { getLearningStorage, LEARNING_STORAGE_EVENT } from "@/lib/learningStorage";
 import { ACCOUNT_DATA_MERGED_EVENT } from "@/lib/accountEvents";
@@ -110,7 +110,8 @@ async function startTranslationUsage(
   source: "generated" | "public_cache",
   publicArticleId?: string,
 ): Promise<TranslationStartResponse> {
-  const { response, data } = await fetchJson<TranslationStartResponse>("/api/translate-article/start", {
+  const { response, data } = await withTranslationTimeout(signal => fetchJson<TranslationStartResponse>("/api/translate-article/start", {
+    signal,
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -122,18 +123,19 @@ async function startTranslationUsage(
       articleCharacters: blocks.reduce((sum, block) => sum + block.text.length, 0),
       blockCount: blocks.length,
     }),
-  }, "全文翻译次数校验失败，请稍后重试。", { operation: "article_translation_start" });
+  }, "全文翻译次数校验失败，请稍后重试。", { operation: "article_translation_start" }), 30_000);
   if (!response.ok || !data?.actionId) throw new Error(data?.error || "全文翻译次数校验失败，请稍后重试。");
   return data;
 }
 
 async function finishTranslationUsage(actionId: string, status: "succeeded" | "failed" | "cancelled"): Promise<void> {
-  await fetch("/api/translate-article/finish", {
+  await withTranslationTimeout(signal => fetch("/api/translate-article/finish", {
+    signal,
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ actionId, status }),
     keepalive: true,
-  }).catch(() => undefined);
+  }), 10_000).catch(() => undefined);
 }
 
 function finishJobUsage(job: ArticleTranslationJob, status: "succeeded" | "failed" | "cancelled"): Promise<void> {
@@ -292,14 +294,12 @@ export async function startArticleTranslationJob(
     job.retryReason = null;
     setCachedArticleTranslation(key, job.translations);
     setCachedArticleTranslationForBlocks(allBlocks, job.translations);
-    await finishJobUsage(job, "succeeded");
     notifyJob(key);
+    await finishJobUsage(job, "succeeded");
   } catch (translationRequestError) {
     // The failed response may also arrive after logout/account replacement.
     try { ensureCurrentJob(); } catch { return; }
     if (controller.signal.aborted) return;
-    await finishJobUsage(job, "failed");
-    try { ensureCurrentJob(); } catch { return; }
     job.loading = false;
     job.retryAfterSeconds = null;
     job.retryReason = null;
@@ -309,5 +309,6 @@ export async function startArticleTranslationJob(
       setCachedArticleTranslationForBlocks(options.allBlocks ?? blocks, job.translations);
     }
     notifyJob(key);
+    await finishJobUsage(job, "failed");
   }
 }

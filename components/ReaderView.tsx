@@ -3432,7 +3432,7 @@ export function ReaderView({
   const articleShellClassName = [
     "mx-auto overflow-x-hidden break-words [overflow-wrap:anywhere]",
     editingArticle || examSurface?.locked ? "select-text touch-pan-y" : "select-none touch-pan-y",
-    activeArticleStyle.contentWidth === "narrow" ? "max-w-2xl" : activeArticleStyle.contentWidth === "wide" ? "max-w-4xl" : "max-w-[52rem]",
+    currentImportedArticle?.document ? "max-w-none w-full" : activeArticleStyle.contentWidth === "narrow" ? "max-w-2xl" : activeArticleStyle.contentWidth === "wide" ? "max-w-4xl" : "max-w-[52rem]",
     activeArticleStyle.fontFamily === "serif" ? "font-serif" : activeArticleStyle.fontFamily === "mono" ? "font-mono" : "font-sans",
   ].join(" ");
   const paragraphStyle = {
@@ -3570,7 +3570,7 @@ export function ReaderView({
       </aside>
       <header className={toolbarStyles.toolbar} aria-label="文章工具">
         <PillNavAction
-          className={`${toolbarStyles.action} ${toolbarStyles.backAction} ${toolbarStyles.mobileBackAction}`}
+          className={`${toolbarStyles.action} ${toolbarStyles.backAction} ${editorialWorkbench ? "" : toolbarStyles.mobileBackAction}`}
           label={backLabel}
           onClick={() => void handleBackToHome()}
           disabled={savingArticleEdit}
@@ -3650,7 +3650,7 @@ export function ReaderView({
         }`}
         style={{ "--mobile-sheet-height": `${mobileToolSheet.height}dvh` } as CSSProperties}
       >
-        <article className="cr-reader-article min-w-0 overflow-x-hidden rounded-[16px] bg-white px-4 py-7 sm:min-h-[70vh] sm:px-10 sm:py-8 lg:px-12 lg:py-14">
+        <article className={`cr-reader-article min-w-0 overflow-x-hidden rounded-[16px] bg-white sm:min-h-[70vh] ${currentImportedArticle?.document ? "p-2" : "px-4 py-7 sm:px-10 sm:py-8 lg:px-12 lg:py-14"}`}>
           {examSurface ? <ReaderTextContext.Provider value={{register: registerExternalText, selected: selectedTokenIdSet}}><div data-learning-surface="reading" ref={articleShellRef} className={articleShellClassName} style={paragraphStyle} onPointerDown={handleArticlePointerDown} onPointerMove={handleArticlePointerMove} onPointerUp={handleArticlePointerUp} onPointerCancel={handleArticlePointerCancel} onClick={handleArticleClick} onKeyDown={event=>{if(event.key!=="Enter" && event.key!==" ")return;const token=tokenFromEventTarget(event.target);if(token){event.preventDefault();handleTokenClick(token);}}}>{examSurface.render(context => { void explainContext(context, []); })}</div></ReaderTextContext.Provider> : !articleMediaReady ? (
             <div
               className={loadingStyles.stage}
@@ -3675,7 +3675,7 @@ export function ReaderView({
             </div>
           ) : (
           <>
-          {currentImportedArticle && (
+          {currentImportedArticle && !currentImportedArticle.document && (
             <header className="mx-auto mb-10 max-w-[52rem] border-b border-[#e0e0e0] pb-6">
               <div className="flex items-start justify-between gap-4">
                 <div className="min-w-0 text-sm leading-5 tracking-[-0.1px] text-[#6e6e73]">

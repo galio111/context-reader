@@ -1,6 +1,7 @@
 import { billingRpc } from "@/lib/billingStore";
 import { translationBlockCharge } from "@/lib/translationBilling";
 import { englishWordCount } from "@/lib/billingPolicy";
+import { documentTranslationContext } from "@/lib/documentTranslationContext";
 import {anyTextKey} from '@/lib/modelSettings';
 import {withModelContext} from '@/lib/modelSettings';
 import { fetchWithProviderFailover, responseModel, providerName } from "@/lib/providerFailover";
@@ -30,6 +31,8 @@ const SCIENTIFIC_TERMINOLOGY = ' Scientific terminology must preserve the exact 
 
 const TRANSLATION_SYSTEM_PROMPT =
   'You are a rigorous English-to-Chinese long-form contextual translation assistant. The input "target" is the set of article blocks that must be translated now, and "context" is the full current article context. Read the full context first, keep names, terms, pronouns, tense, and logical connections consistent, then translate only target. Preserve target order and ids. Do not omit information, add explanations, or output Markdown. Return strict JSON only: {"translations":[{"id":"original id","translation":"Chinese translation"}]}.' + SCIENTIFIC_TERMINOLOGY;
+
+const TARGET_ONLY_RULE = ' CRITICAL: Translate ONLY text in target. context is read-only background, not translation work. Never emit a translation for context or append its sentences to target. Return exactly one translation for each target id, no other ids.';
 
 const STREAMING_TRANSLATION_SYSTEM_PROMPT =
   'You are a rigorous English-to-Chinese long-form contextual translation assistant. Translate every target block in its original order. If context is empty, target itself is the complete article context; otherwise read the supplied full context before translating target. Keep names, terms, pronouns, tense, and logical connections consistent. For academic documents preserve equations, chemical formulas, units, citation numbers, figure/table labels, and reference identifiers. Translate captions and prose, without inventing content from images. Repair obvious PDF line-wrap artifacts only when unambiguous. Do not omit information or add explanations. Stream one complete JSON object per line as soon as each block is translated, with exactly this shape: {"id":"original id","translation":"Chinese translation"}. Use one physical line per object, escape any newline inside a JSON string, and output no array, Markdown fence, commentary, blank line, or extra key.' + SCIENTIFIC_TERMINOLOGY;
@@ -162,7 +165,11 @@ async function handlePOST(request: Request) {
     && block.type === contextBlocks[index]?.type
     && block.text === contextBlocks[index]?.text
   ));
-  const providerContextBlocks = contextMatchesTarget ? [] : contextBlocks;
+  const documentRequest = blocks.every(block => block.id.startsWith("doc-"));
+  const targetIds = new Set(blocks.map(block => block.id));
+  const providerContextBlocks = contextMatchesTarget ? [] : documentRequest
+    ? documentTranslationContext(contextBlocks, blocks).filter(block => !targetIds.has(block.id))
+    : contextBlocks;
 
 
   const managedActionId = request.headers.get("x-context-translation-action-id")?.trim() ?? "";
@@ -290,17 +297,17 @@ async function handlePOST(request: Request) {
           model,
           user_id: providerUserId,
           temperature: 0,
-          max_tokens: Math.min(12_000, Math.max(3_600, Math.ceil(blocks.reduce((sum, block) => sum + block.text.length, 0) * 0.8))),
+          max_tokens: Math.min(12_000, Math.max(documentRequest ? 512 : 3_600, Math.ceil(blocks.reduce((sum, block) => sum + block.text.length, 0) * 0.8) + 256)),
           thinking: { type: "disabled" },
           stream: true,
           stream_options: { include_usage: true },
           messages: [
-            { role: "system", content: STREAMING_TRANSLATION_SYSTEM_PROMPT },
+            { role: "system", content: STREAMING_TRANSLATION_SYSTEM_PROMPT + TARGET_ONLY_RULE + ' If there is one target, return exactly one JSON object and stop.' },
             {
               role: "user",
               content: JSON.stringify({
-                target: blocks.map((block) => [block.id, block.type, block.text]),
-                context: providerContextBlocks.map((block) => [block.id, block.type, block.text]),
+                context: providerContextBlocks.map((block) => block.text).join("\n\n"),
+                target: blocks.map((block) => ({ id: block.id, text: block.text })),
               }),
             },
           ],
@@ -475,13 +482,13 @@ async function handlePOST(request: Request) {
         messages: [
           {
             role: "system",
-            content: TRANSLATION_SYSTEM_PROMPT,
+            content: TRANSLATION_SYSTEM_PROMPT + TARGET_ONLY_RULE,
           },
           {
             role: "user",
             content: JSON.stringify({
-              target: blocks.map((block) => [block.id, block.type, block.text]),
-              context: providerContextBlocks.map((block) => [block.id, block.type, block.text]),
+              context: providerContextBlocks.map((block) => block.text).join("\n\n"),
+              target: blocks.map((block) => ({ id: block.id, text: block.text })),
             }),
           },
         ],

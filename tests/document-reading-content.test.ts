@@ -43,3 +43,19 @@ test("page-number journal footers and fragmented numeric tables stay outside bod
  const blocks=[block(1,0,"Abstract This paper explains a hydrogel."),block(1,1,"College of Chemistry, University X"),block(1,2,"Received 1 June 2021, Accepted 2 July 2021"),block(2,0,"2504 | Mater. Horiz., 2021, 8, 2503–2512"),block(2,1,"Table 1 Physical properties of the hydrogels"),block(2,2,"Samples"),block(2,3,"Compression"),block(2,4,"CHTA2-60 2"),block(3,0,"Conclusions The material performs well.")];
  const result=documentReadingContent(blocks);assert.deepEqual(result.body.map(b=>b.id),["doc-p1-b0","doc-p3-b0"]);assert.equal(result.captions.length,1);
 });
+
+test("continued landscape tables are excluded without losing the conclusion after them", () => {
+ const cells=Array.from({length:40},(_,i)=>block(2,i+2,`Property cell ${i}`));
+ const items=[block(1,0,"Abstract This paper studies films."),block(2,0,"TABLE 5"),block(2,1,"(Continued)"),...cells,block(3,0,"The conclusion continues after the landscape table.")];
+ const before=JSON.stringify(items), result=documentReadingContent(items);
+ assert.deepEqual(result.body.map(b=>b.id),["doc-p1-b0","doc-p3-b0"]);
+ assert.equal(JSON.stringify(items),before);
+ // Fragmentation alone is not evidence of a table.
+ const prose=items.filter(b=>!/^TABLE|Continued/.test(b.text||"")).map(b=>({...b,text:b.text==='(Continued)'?'A small note':b.text}));
+ assert.ok(documentReadingContent(prose).body.length>30);
+});
+
+test("labelled abstracts exclude long multilingual affiliation metadata",()=>{
+ const items=[block(1,0,"Departamento de Ingeniería ".repeat(20)),block(1,1,"ABSTRACT Scientific content begins here."),block(1,2,"Introduction More scientific content.")];
+ assert.deepEqual(documentReadingContent(items).body,items.slice(1));
+});

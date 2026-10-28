@@ -90,7 +90,8 @@ test("long document translation includes the final target and its neighbours", (
   assert.ok(selected.some(b=>b.id===all[397].id));
   assert.ok(selected.some(b=>b.id===all[0].id));
   assert.ok(selected.reduce((n,b)=>n+b.text.length,0)<=60000);
-  assert.equal(documentTranslationContext(all.slice(0,20),[all[5]]).length,20);
+  assert.ok(selected.reduce((n,b)=>n+b.text.length,0)<=4000);
+  assert.equal(documentTranslationContext(all.slice(0,3),[all[1]]).length,3);
 });
 test("file validation rejects disguised files, encryption and expanded ZIP bombs", async () => {
   assert.throws(()=>validateDocumentBytes(new TextEncoder().encode("<script>"),"pdf"));

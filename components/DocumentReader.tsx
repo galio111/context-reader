@@ -170,6 +170,22 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
   const wordMouseSurface = useRef<HTMLDivElement>(null);
   const callback = useRef(onLookup); callback.current = onLookup;
   const drag = useRef<{ anchor: Range; x: number; y: number; moved: boolean } | null>(null);
+  useEffect(() => {
+    const releaseOutside = (event: MouseEvent) => {
+      const container = scroller.current;
+      if (!drag.current || !container || container.contains(event.target as Node)) return;
+      const moved = drag.current.moved;
+      drag.current = null;
+      if (moved) {
+        const context = readDocumentSelection(container, article);
+        if (context) callback.current(context);
+      }
+    };
+    const cancel = () => { drag.current = null; };
+    window.addEventListener("mouseup", releaseOutside);
+    window.addEventListener("blur", cancel);
+    return () => { window.removeEventListener("mouseup", releaseOutside); window.removeEventListener("blur", cancel); };
+  }, [article]);
   const [scrollBusy, setScrollBusy] = useState(false);
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout>;

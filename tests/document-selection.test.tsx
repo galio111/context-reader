@@ -151,3 +151,18 @@ test("late selected terms resolve their own sentence rather than the abstract op
  assert.equal(documentSentenceContext(source,"the PMS hydrogels").sentence,"High-density crosslinking endowed the PMS hydrogels with strength.");
  assert.equal(documentSentenceContext("First ethanol was added. Later ethanol was removed.","ethanol","Later ethanol was removed.").sentence,"Later ethanol was removed.");
 });
+
+// A blank gutter must not invoke the browser's nearest-caret fallback.
+test("PDF blank-space hit testing cannot jump to a distant paragraph",async()=>{
+ const {documentCaretAtPoint}=await import('../lib/documentSelection');
+ const dom=new JSDOM('<div id="root"><div class="textLayer"><span class="pdfGlyph">word</span></div><p>Unrelated later paragraph</p></div>');
+ const doc=dom.window.document,root=doc.getElementById('root')!,layer=root.querySelector('.textLayer')!,glyph=root.querySelector('.pdfGlyph')!;
+ let fallbackCalls=0;
+ Object.defineProperty(doc,'elementFromPoint',{value:()=>layer,configurable:true});
+ Object.defineProperty(doc,'caretRangeFromPoint',{value:()=>{fallbackCalls++;const r=doc.createRange();r.setStart(root.querySelector('p')!.firstChild!,0);return r;}});
+ assert.equal(documentCaretAtPoint(root,500,500),null);assert.equal(fallbackCalls,0);
+ Object.defineProperty(doc,'elementFromPoint',{value:()=>glyph,configurable:true});
+ Object.defineProperty(glyph,'getBoundingClientRect',{value:()=>({left:10,top:10,width:30,height:15,right:40,bottom:25})});
+ assert.equal(documentCaretAtPoint(root,12,12)?.startContainer,glyph.firstChild);
+ dom.window.close();
+});

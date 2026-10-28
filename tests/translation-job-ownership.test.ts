@@ -46,7 +46,7 @@ test("forced regeneration rejects a late old stream even when transport ignores 
     await until(() => Boolean(oldStream));
     await startArticleTranslationJob(key, [block], { force: true });
     assert.equal(getCachedArticleTranslation(key)?.[0].translation, "新的译文");
-    oldStream!.enqueue(line("迟到的旧译文")); oldStream!.close();
+    assert.throws(() => oldStream!.enqueue(line("迟到的旧译文")), /closed/, "superseded stream is actively cancelled");
     await old;
     assert.equal(getCachedArticleTranslation(key)?.[0].translation, "新的译文");
     assert.equal(getArticleTranslationJobSnapshot(key)?.translations[0].translation, "新的译文");
@@ -178,7 +178,7 @@ test("real account prepare blocks stale streams and new jobs throughout archive 
       assert.equal(storage.getItem(ownerKey), "prepare-A", "owner is not prematurely rewritten");
       assert.equal(isAccountStorageTransition(storage), true);
       assert.equal(getArticleTranslationJobSnapshot(key), null);
-      stream!.enqueue(line("不得进入新账号的旧译文")); stream!.close(); await old;
+      assert.throws(() => stream!.enqueue(line("不得进入新账号的旧译文")), /closed/); await old;
       confirmPendingStart!(Response.json({ actionId: "confirmed-during-archive" })); await pendingStart;
       assert.equal(providers, 1, "a previously pending start confirmed inside the archive window cannot invoke its provider");
       assert.equal(getCachedArticleTranslation(key), null);
