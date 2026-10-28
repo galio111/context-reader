@@ -1,0 +1,48 @@
+{
+  "releaseId": "20261028T223400",
+  "parentReleaseId": "20261028T074000",
+  "sourceRevision": "cf4bec029aafe69c0d8dd8fbb58fb591a2c26dea",
+  "ciRun": 40707382031,
+  "sourcePaper": {
+    "sha256": "0fa5bbde490c3056d0cd67a2368b4c91997dccf22373129bb86e69d7b8561ddb",
+    "bytes": 1467198,
+    "pages": 19,
+    "bodyBefore": 307,
+    "bodyAfter": 83
+  },
+  "local": {
+    "architecture": 169,
+    "critical": 90,
+    "focused": 24,
+    "provider": 8
+  },
+  "public": {
+    "pdfTextWidthBefore": 832,
+    "pdfTextWidthAfter": 960,
+    "articlePadding": "8px",
+    "automaticTranslationCalls": 0,
+    "blankMarginSelection": true,
+    "partialWordCompletion": "Engineering",
+    "readerPageErrors": 0,
+    "models": [
+      "deepseek-flash"
+    ]
+  },
+  "sampleCost": {
+    "calls": 3,
+    "inputTokens": 3167,
+    "outputTokens": 735,
+    "estimatedCny": 0.010708,
+    "naive83CallExtrapolationCny": 0.2962546667,
+    "fullPaperMeasured": false
+  },
+  "backup": {
+    "name": "context-reader-20261028T143126Z.dump",
+    "shaVerified": true,
+    "isolatedRestoredPublicTables": 40
+  },
+  "persistentBackendsUnchanged": true,
+  "actualRollbackPerformed": false,
+  "physicalMacSafariTested": false,
+  "qaSessionsRevoked": 2
+}
