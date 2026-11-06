@@ -4,7 +4,7 @@ import type { ImportedArticle } from "@/types/article";
 import type { WordContext } from "@/types/reader";
 import { createArticleTranslationBlocks } from "@/lib/articleTranslationBlocks";
 import { documentTranslationContext } from "@/lib/documentTranslationContext";
-import { documentQuestionScope, readDocumentQuestions, saveDocumentQuestion, type DocumentQuestionTurn as Turn } from "@/lib/documentQuestionHistory";
+import { DOCUMENT_QUESTION_EVENT, documentQuestionScope, readDocumentQuestions, saveDocumentQuestion, type DocumentQuestionTurn as Turn } from "@/lib/documentQuestionHistory";
 
 export default function DocumentQuestionPanel({ article, context, owner }: {article:ImportedArticle;context:WordContext|null;owner:string}) {
   const [question,setQuestion]=useState(""), [turns,setTurns]=useState<Turn[]>([]), [busy,setBusy]=useState(false), [notice,setNotice]=useState("");
@@ -14,10 +14,17 @@ export default function DocumentQuestionPanel({ article, context, owner }: {arti
   const active=useRef<AbortController|null>(null);
   useEffect(()=>{
     let current=true;
+    let revision=0;
     setReady(false);setTurns([]);
-    readDocumentQuestions(scope).then(rows=>{if(current){setTurns(rows);setReady(true);}})
-      .catch(()=>{if(current){setReady(true);setNotice("暂时无法读取本机问答历史，仍可提问；请刷新后重试读取。");}});
-    return ()=>{current=false;active.current?.abort();};
+    const reload=()=>{
+      const request=++revision;
+      readDocumentQuestions(scope).then(rows=>{if(current && request===revision){setTurns(rows);setReady(true);}})
+        .catch(()=>{if(current && request===revision){setReady(true);setNotice("暂时无法读取本机问答历史，仍可提问；请刷新后重试读取。");}});
+    };
+    const onHistory=(event:Event)=>{const changed=(event as CustomEvent<{scope?:string}>).detail?.scope;if(!changed || changed===scope)reload();};
+    window.addEventListener(DOCUMENT_QUESTION_EVENT,onHistory);
+    reload();
+    return ()=>{current=false;window.removeEventListener(DOCUMENT_QUESTION_EVENT,onHistory);active.current?.abort();};
   },[scope]);
   useEffect(()=>()=>active.current?.abort(),[]);
   async function ask(event:React.FormEvent) {
@@ -39,7 +46,7 @@ export default function DocumentQuestionPanel({ article, context, owner }: {arti
   }
   return <details className="mb-5 border-b border-[#e0e0e0] pb-4" data-document-question>
     <summary className="cursor-pointer text-sm font-semibold">继续问 AI{turns.length>0?` · ${turns.length} 条历史`:""}</summary>
-    <p className="mt-2 text-xs leading-5 text-zinc-600">直接解答知识问题，再结合论文解释。历史按账号和 PDF 保存在本机，重新打开可继续查看。</p>
+    <p className="mt-2 text-xs leading-5 text-zinc-600">直接解答知识问题，再结合论文解释。历史按账号和 PDF 自动同步到云端；同一账号在其他设备同步后可继续查看，离线记录会在联网后补传。</p>
     {!ready && !notice && <p role="status" className="mt-2 text-xs">正在读取历史…</p>}
     <div className="mt-3 max-h-[55vh] overflow-y-auto space-y-4" aria-live="polite">{turns.map(turn=><div key={turn.id}>
       <p className="text-sm font-semibold">{turn.question}</p><p className="mt-2 whitespace-pre-wrap text-sm leading-6">{turn.answer}</p>

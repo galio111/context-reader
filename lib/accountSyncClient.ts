@@ -13,6 +13,7 @@ import { explanationFromSync, explanationSyncIdentity } from "@/lib/explanationS
 import { hasForegroundLookup } from "@/lib/explanationStreamStore";
 import { ACCOUNT_SYNC_TOMBSTONES_KEY, notifyAccountDataMerged } from "@/lib/accountEvents";
 import { mergeDuplicateSavedArticles } from "@/lib/savedArticleMerge";
+import { documentQuestionObjectKey, readOwnerDocumentQuestions, mergeDocumentQuestionObjects } from "@/lib/documentQuestionHistory";
 import {
   clearStandaloneDictionaryRuntimeCache,
   findStandaloneDictionaryCacheItem,
@@ -93,6 +94,7 @@ const LAST_SYNC_KEY = "context-reader:last-sync:v1";
 const SYNC_STATE_KEY = "context-reader:sync-state:v2";
 const ARTICLE_STORAGE_RECOVERY_KEY = "context-reader:article-storage-recovery:20260905";
 const INDEXEDDB_RECOVERY_KEY = "context-reader:indexeddb-sync-recovery:v1";
+const DOCUMENT_QUESTION_RECOVERY_KEY = "context-reader:document-question-sync-recovery:v1";
 const SYNC_STORAGE_RECOVERY_KEY = "context-reader:sync-storage-recovery:20260913";
 const ACCOUNT_LOCAL_DATA_KEYS = [
   ...Object.values(KEYS),
@@ -105,6 +107,7 @@ const ACCOUNT_LOCAL_DATA_KEYS = [
   ARTICLE_STORAGE_RECOVERY_KEY,
   SYNC_STORAGE_RECOVERY_KEY,
   INDEXEDDB_RECOVERY_KEY,
+  DOCUMENT_QUESTION_RECOVERY_KEY,
 ];
 
 interface SyncManifestEntry {
@@ -402,10 +405,10 @@ function writeTombstones(storage: Storage, tombstones: Record<string, string>): 
   storage.setItem(ACCOUNT_SYNC_TOMBSTONES_KEY, JSON.stringify(tombstones));
 }
 
-function mergeCloudIntoLocal(
+async function mergeCloudIntoLocal(
   objects: AccountSyncObject[],
   manifest: Record<string, SyncManifestEntry>,
-): boolean {
+): Promise<boolean> {
   if (objects.length === 0) return false;
   let projectedVocabularyChanged = false;
   const storage = getLearningStorage();
@@ -704,6 +707,7 @@ function mergeCloudIntoLocal(
   if (needsDictionaryHistory) writeStandaloneDictionaryHistory(storage, Array.from(localDictionaryHistoryByQuery.values()));
   if (needsDictionaryCache) writeStandaloneDictionaryCache(storage, Array.from(localDictionaryCacheByQuery.values()));
   writeTombstones(storage, tombstones);
+  await mergeDocumentQuestionObjects(storage.getItem(ACCOUNT_LOCAL_OWNER_KEY) || "", objects);
   return projectedVocabularyChanged;
 }
 
@@ -733,6 +737,11 @@ async function collectLocalObjects(
     });
   };
 
+  // Always backfill previously local-only paper histories on a full sync, even
+  // when the caller's dirty-kind list predates support for this preference type.
+  for(const record of await readOwnerDocumentQuestions(storage.getItem(ACCOUNT_LOCAL_OWNER_KEY) || "")) {
+    add("preferences",documentQuestionObjectKey(record),record,record.turn.createdAt);
+  }
   if (wants("article")) {
     const localArticleMerge = mergeDuplicateSavedArticles(
       readStoredArticles(storage),
@@ -935,7 +944,7 @@ async function readInitialSnapshot(
     report({ phase: "pulling", initial: true, pulledCount: objects.length, pushedCount: 0 });
     // Make learning content available before downloading historical explanation caches.
     if (database && resume.phase === 2 && resume.offset === 0) {
-      mergeCloudIntoLocal(objects, mergeManifest(readSyncState().manifest, objects));
+      await mergeCloudIntoLocal(objects, mergeManifest(readSyncState().manifest, objects));
       await flushLearningStorage();
       notifyAccountDataMerged(["article", "vocabulary", "reading_state"]);
     }
@@ -1001,7 +1010,11 @@ async function performAccountSync(
   const recoveringArticleStorage = getLearningStorage().getItem(ARTICLE_STORAGE_RECOVERY_KEY) !== "complete";
   const recoveringSyncStorage = getLearningStorage().getItem(SYNC_STORAGE_RECOVERY_KEY) !== "complete";
   const recoveringIndexedDB = isLearningStorage(getLearningStorage()) && getLearningStorage().getItem(INDEXEDDB_RECOVERY_KEY) !== "complete";
-  const initial = !state.initialized || recoveringArticleStorage || recoveringSyncStorage || recoveringIndexedDB || reconcile;
+  // An older client may have acknowledged unknown question preferences without
+  // projecting them locally. Replay one snapshot when this owner gains support.
+  const questionOwner = getLearningStorage().getItem(ACCOUNT_LOCAL_OWNER_KEY) || "";
+  const recoveringDocumentQuestions = getLearningStorage().getItem(DOCUMENT_QUESTION_RECOVERY_KEY) !== questionOwner;
+  const initial = !state.initialized || recoveringArticleStorage || recoveringSyncStorage || recoveringIndexedDB || recoveringDocumentQuestions || reconcile;
   const cloud = initial
     ? await readInitialSnapshot(report)
     : await readCloudChanges(state, report);
@@ -1012,7 +1025,7 @@ async function performAccountSync(
   let manifest = mergeManifest(state.manifest, cloud.objects);
   report({ phase: "merging", initial, pulledCount: cloud.objects.length, pushedCount: 0 });
   if (cloud.objects.length > 0) {
-    const projectedVocabularyChanged = mergeCloudIntoLocal(cloud.objects, manifest);
+    const projectedVocabularyChanged = await mergeCloudIntoLocal(cloud.objects, manifest);
     notifyAccountDataMerged(Array.from(new Set([
       ...cloud.objects.map((object) => object.kind),
       ...(projectedVocabularyChanged ? ["vocabulary" as const] : []),
@@ -1090,6 +1103,7 @@ async function performAccountSync(
   }
   if (recoveringSyncStorage && mode === "full" && verified) getLearningStorage().setItem(SYNC_STORAGE_RECOVERY_KEY, "complete");
   if (recoveringIndexedDB && mode === "full" && verified) getLearningStorage().setItem(INDEXEDDB_RECOVERY_KEY, "complete");
+  if (recoveringDocumentQuestions) getLearningStorage().setItem(DOCUMENT_QUESTION_RECOVERY_KEY, questionOwner);
   if (mode === "full") await pruneAcknowledgedExplanations(getLearningStorage(), async (key, value) => {
     const identity = await explanationSyncIdentity(key, value as Parameters<typeof explanationSyncIdentity>[1]);
     const entry = manifest[`explanation:${identity.objectKey}`];
