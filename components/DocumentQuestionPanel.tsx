@@ -16,7 +16,7 @@ export default function DocumentQuestionPanel({ article, context, owner }: {arti
     let current=true;
     setReady(false);setTurns([]);
     readDocumentQuestions(scope).then(rows=>{if(current){setTurns(rows);setReady(true);}})
-      .catch(()=>{if(current)setNotice("暂时无法读取本机问答历史，请刷新后重试。");});
+      .catch(()=>{if(current){setReady(true);setNotice("暂时无法读取本机问答历史，仍可提问；请刷新后重试读取。");}});
     return ()=>{current=false;active.current?.abort();};
   },[scope]);
   useEffect(()=>()=>active.current?.abort(),[]);

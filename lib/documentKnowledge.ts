@@ -13,7 +13,26 @@ export async function searchDocumentKnowledge(query: string, signal?: AbortSigna
   const results = await Promise.allSettled([wiki, papers, chemical].map(async url => {
     const response = await safeRemoteFetch(url, {signal:timeout,headers:{Accept:"application/json"}}, {maxRedirects:0});
     if (!response.ok) throw new Error("Reference unavailable");
-    return JSON.parse(await readResponseText(response, 256 * 1024));
+    const data=JSON.parse(await readResponseText(response, 256 * 1024));
+    if(url===chemical){
+      const cid=data.InformationList?.Information?.find((item:{CID?:number})=>Number.isSafeInteger(item.CID))?.CID;
+      if(cid)try{
+        const properties=await safeRemoteFetch(new URL(`https://pubchem.ncbi.nlm.nih.gov/rest/pug_view/data/compound/${cid}/JSON?heading=Color%2FForm`),{signal:timeout,headers:{Accept:"application/json"}},{maxRedirects:0});
+        if(properties.ok){
+          const view=JSON.parse(await readResponseText(properties,256*1024));
+          const texts:string[]=[];
+          function collect(node:unknown):void {
+            if(!node || typeof node!=="object")return;
+            const value=node as {StringWithMarkup?:{String?:string}[];Section?:unknown[];Information?:unknown[];Record?:unknown};
+            for(const row of value.StringWithMarkup ?? [])if(typeof row.String==="string")texts.push(row.String.slice(0,2000));
+            for(const child of [...(value.Section ?? []),...(value.Information ?? []),...(value.Record?[value.Record]:[])])collect(child);
+          }
+          collect(view);
+          if(texts.length)data.InformationList.Information.unshift({CID:cid,Description:`Color/Form: ${texts.join("; ").slice(0,4000)}`});
+        }
+      }catch{ /* Description remains usable if the optional property read fails. */ }
+    }
+    return data;
   }));
   const sources: KnowledgeSource[] = [];
   if(results[2].status === "fulfilled") for(const item of results[2].value.InformationList?.Information ?? []) {
