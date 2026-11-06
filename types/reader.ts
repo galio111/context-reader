@@ -92,6 +92,7 @@ export interface SentenceQuestionRequest extends ExplanationRequest {
   document?: { title: string; blocks: ArticleTranslationBlock[] };
   history?: { question: string; answer: string }[];
   searchQuery?: string;
+  autoSearch?: boolean;
 }
 
 export interface SentenceQuestionAnswer {

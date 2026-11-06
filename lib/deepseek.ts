@@ -326,6 +326,7 @@ export function sanitizeSentenceQuestionRequest(input: SentenceQuestionRequest):
     ...(input.document ? { document: { title: input.document.title.slice(0, 300), blocks: input.document.blocks } } : {}),
     history: input.history?.slice(-4).map(turn => ({ question: turn.question.slice(0, 1000), answer: turn.answer.slice(0, 4000) })),
     searchQuery: input.searchQuery?.trim().slice(0, 150),
+    autoSearch: input.autoSearch === true,
   };
 }
 

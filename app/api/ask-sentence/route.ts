@@ -1,9 +1,10 @@
 import { searchDocumentKnowledge } from "@/lib/documentKnowledge";
+import { providerName } from "@/lib/providerFailover";
 import { LATIN_PHRASE_PATTERN } from "@/lib/latinWords";
 import {withModelContext} from '@/lib/modelSettings';
 import { NextResponse } from "next/server";
 import { DeepSeekParseError, MissingDeepSeekEnvError, sanitizeSentenceQuestionRequest } from "@/lib/deepseek";
-import { answerSentenceQuestionWithDeepSeek } from "@/lib/sentenceQuestion";
+import { answerSentenceQuestionWithDeepSeek, planDocumentKnowledgeSearch } from "@/lib/sentenceQuestion";
 import type { SentenceQuestionRequest } from "@/types/reader";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
 import { acquireAiSlot } from "@/lib/costConcurrency";
@@ -31,6 +32,7 @@ function isValidRequestBody(body: unknown): body is SentenceQuestionRequest {
       && input.document.blocks.reduce((n,b) => n+b.text.length,0) <= 64000
       : WORD_OR_PHRASE_PATTERN.test(input.word.trim()))
     && (input.searchQuery === undefined || typeof input.searchQuery === "string")
+    && (input.autoSearch === undefined || typeof input.autoSearch === "boolean")
     && (input.history === undefined || Array.isArray(input.history) && input.history.length <= 4 && input.history.every(t => t && typeof t.question === "string" && typeof t.answer === "string"))
   );
 }
@@ -75,11 +77,20 @@ async function handlePOST(request: Request) {
 
   try {
     const safeRequest = sanitizeSentenceQuestionRequest(body);
-    const knowledge = safeRequest.document && safeRequest.searchQuery ? await searchDocumentKnowledge(safeRequest.searchQuery, request.signal) : { sources: [], notice: "" };
+    let searchQuery=safeRequest.searchQuery ?? "";
+    let planningFailed=false;
+    if(safeRequest.document && safeRequest.autoSearch && !searchQuery){
+      try{
+        const plan=await planDocumentKnowledgeSearch(safeRequest,request.signal);
+        searchQuery=plan.query;
+        await recordUsageExecution({actionId,route:"/api/ask-sentence/search-plan",provider:providerName(plan.model),model:plan.model,promptTokens:plan.usage.prompt_tokens,promptCacheHitTokens:plan.usage.prompt_cache_hit_tokens,promptCacheMissTokens:plan.usage.prompt_cache_miss_tokens,completionTokens:plan.usage.completion_tokens,estimatedCostMicrousd:estimateDeepSeekCostMicrousd(plan.model,plan.usage),status:"succeeded"}).catch(()=>undefined);
+      }catch{request.signal.throwIfAborted();planningFailed=true;}
+    }
+    const knowledge = safeRequest.document && searchQuery ? await searchDocumentKnowledge(searchQuery, request.signal) : { sources: [], notice: planningFailed ? "自动检索暂时不可用，本次使用一般知识与论文内容回答，未取得外部来源。" : "" };
     const result = await answerSentenceQuestionWithDeepSeek(safeRequest, knowledge.sources, request.signal);
     await recordUsageExecution({ actionId, route: "/api/ask-sentence", provider: result.provider, model: result.model, promptTokens: result.usage.prompt_tokens, promptCacheHitTokens: result.usage.prompt_cache_hit_tokens, promptCacheMissTokens: result.usage.prompt_cache_miss_tokens, completionTokens: result.usage.completion_tokens, estimatedCostMicrousd: estimateDeepSeekCostMicrousd(result.model, result.usage), status: "succeeded" }).catch(() => undefined);
     await finishUsage(actionId, "succeeded").catch(() => undefined);
-    return NextResponse.json({ answer: result.answer, sources: knowledge.sources.map(({ title, url }) => ({ title, url })), searchNotice: knowledge.notice });
+    return NextResponse.json({ answer: result.answer, sources: knowledge.sources.map(({ title, url }) => ({ title, url })), searchNotice: knowledge.notice, searchQuery });
   } catch (error) {
     await refundUsage(actionId, "failed", error instanceof Error ? error.name : "unknown").catch(() => undefined);
     const configurationError = error instanceof MissingDeepSeekEnvError;

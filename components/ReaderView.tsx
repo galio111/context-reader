@@ -2206,8 +2206,8 @@ export function ReaderView({
   }
 
   const documentQuestion = currentImportedArticle?.document ? <DocumentQuestionPanel
-    key={`${translationAccountOwner}:${currentImportedArticle.document.id}:${selectedContext?.word ?? ""}:${selectedContext?.sentence ?? ""}`}
-    article={currentImportedArticle} context={selectedContext} /> : undefined;
+    key={`${translationAccountOwner}:${currentImportedArticle.document.id}`}
+    owner={translationAccountOwner ?? "guest"} article={currentImportedArticle} context={selectedContext} /> : undefined;
 
   function handleDocumentSelection(context: WordContext) {
     const mode = documentSelectionMode(context.word);
