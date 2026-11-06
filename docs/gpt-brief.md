@@ -1,8 +1,8 @@
 # Context Reader GPT 项目上下文包
 
-## 导入文档翻译与科研追问（2026-10-26）
+## 导入文档翻译与科研追问（2026-11-06）
 
-划词按实际选中位置取所在句，不再误用长段落开头。论文正文筛选保留无标题摘要，收稿日期不再截断全文。单词/短语与长句翻译均可“继续问 AI”，结合整篇论文问术语、材料、方法和主旨；可选百科/学术摘要检索并显示来源，无新增收费服务。原文和图片不改写。术语严格区分 chitin（甲壳素）与 chitosan（壳聚糖）。已上线 20261026T204500；gggg 实测 33 段正文、真实选句、科研追问及新会话缓存重开通过。文档分段缓存优先，旧整篇缓存不再盖回新译文。验收状态及限制见 [文档说明](document-context-and-questions.md)。
+Imported-document lookup uses the actual selected sentence; body translation retains unlabelled abstracts, and exact source-keyed caches remain authoritative. PDF questions now explain independent knowledge first, then paper evidence. Automatic concept lookup retrieves Wikipedia/PubChem/Europe PMC references; chemical Color/Form values are supported. Completed turns and sources persist per account/document in browser IndexedDB across selection changes and reopen, without cross-device sync. The model receives four recent turns as actual conversation messages, with the current question last. Accepted `20261106T125200`, parent `20261106T123100`, source `b1c2ae0e5e6935f66ac7fd8a8094581e228ab701`. Two live questions, history/panel/conversation tests, builds and operational checks passed; physical-browser interaction verification remains incomplete. See [document behavior and limits](document-context-and-questions.md).
 
 ## 多账号切换（2026-10-26）
 

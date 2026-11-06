@@ -1,0 +1,35 @@
+{
+  "releaseId": "20261106T125200",
+  "parentReleaseId": "20261106T123100",
+  "sourceRevision": "b1c2ae0e5e6935f66ac7fd8a8094581e228ab701",
+  "buildAndProtectedContracts": "passed",
+  "architectureChecks": 170,
+  "focusedChecks": 4,
+  "liveApi": {
+    "questions": 2,
+    "seconds": [
+      22.1,
+      22.6
+    ],
+    "sourceCounts": [
+      4,
+      4
+    ],
+    "distinctAnswers": true,
+    "pubchemColorCitation": true,
+    "sourceLinksUnique": true
+  },
+  "historyValidation": "React/JSDOM + fake IndexedDB; reopen, selection continuity, account/document isolation, concurrent appends",
+  "crossDeviceHistorySync": false,
+  "browserVerification": "incomplete: access host unavailable; minimized native Edge binding failed",
+  "operations": {
+    "health": "passed after image retention",
+    "persistentBackendsUnchanged": 5,
+    "backup": "context-reader-20261105T192240Z.dump",
+    "isolatedRestoreTables": 40,
+    "currentAndParentImagesRetained": true,
+    "actualRollbackExecuted": false,
+    "testAccountsRemoved": true
+  },
+  "otherChecks": "Direct tsc --noEmit reported pre-existing test-file typing errors in reader-translation-session and study-budget-ui; Next production builds passed."
+}

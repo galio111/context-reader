@@ -1,6 +1,6 @@
 # Context Reader Architecture
 
-PDF question changes (November 6, production verification pending): automatic public-concept lookup via Wikipedia / PubChem / Europe PMC, independent-knowledge-first prompting, and append-per-turn browser IndexedDB history partitioned by account and document. Source PDFs, translation caches and cloud-sync protocol remain intact. History has no cross-device sync in this iteration. See [document questions](document-context-and-questions.md).
+PDF question changes (accepted production 20261106T125200): automatic public-concept lookup via Wikipedia / PubChem / Europe PMC, independent-knowledge-first prompting, and append-per-turn browser IndexedDB history partitioned by account and document. Source PDFs, translation caches and cloud-sync protocol remain intact. History has no cross-device sync in this iteration. See [document questions](document-context-and-questions.md).
 
 ## 多账号切换（2026-10-26）
 
