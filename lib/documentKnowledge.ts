@@ -23,9 +23,9 @@ export async function searchDocumentKnowledge(query: string, signal?: AbortSigna
           const texts:string[]=[];
           function collect(node:unknown):void {
             if(!node || typeof node!=="object")return;
-            const value=node as {StringWithMarkup?:{String?:string}[];Section?:unknown[];Information?:unknown[];Record?:unknown};
+            const value=node as {StringWithMarkup?:{String?:string}[];Section?:unknown[];Information?:unknown[];Record?:unknown;Value?:unknown};
             for(const row of value.StringWithMarkup ?? [])if(typeof row.String==="string")texts.push(row.String.slice(0,2000));
-            for(const child of [...(value.Section ?? []),...(value.Information ?? []),...(value.Record?[value.Record]:[])])collect(child);
+            for(const child of [...(value.Section ?? []),...(value.Information ?? []),...(value.Record?[value.Record]:[]),...(value.Value?[value.Value]:[])])collect(child);
           }
           collect(view);
           if(texts.length)data.InformationList.Information.unshift({CID:cid,Description:`Color/Form: ${texts.join("; ").slice(0,4000)}`});
@@ -45,7 +45,9 @@ export async function searchDocumentKnowledge(query: string, signal?: AbortSigna
   if (results[1].status === "fulfilled") for (const item of results[1].value.resultList?.result ?? []) {
     if (typeof item.title === "string" && typeof item.abstractText === "string" && /^[\w-]+$/.test(item.id) && /^[A-Z]+$/.test(item.source)) sources.push({title:item.title,url:`https://europepmc.org/article/${item.source}/${item.id}`,text:item.abstractText.replace(/<[^>]*>/g, " ").slice(0,2400)});
   }
-  const selected=sources.slice(0,5);
+  const unique=new Map<string,KnowledgeSource>();
+  for(const source of sources){const existing=unique.get(source.url);if(existing)existing.text=(existing.text+"\n"+source.text).slice(0,6000);else unique.set(source.url,{...source});}
+  const selected=[...unique.values()].slice(0,5);
   const providers=[...new Set(selected.map(s=>new URL(s.url).hostname.replace(/^(en|zh)\./,"")))].join(" / ");
   return {sources:selected,notice:selected.length ? `检索关键词：${term}。来源：${providers}（条目 / 摘要）。` : `检索关键词：${term}。外部资料暂不可用或未找到结果，本次使用一般知识与论文回答，未取得外部来源。`};
 }
