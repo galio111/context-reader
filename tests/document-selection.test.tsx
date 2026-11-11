@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { JSDOM } from "jsdom";
 import { IDBFactory } from "fake-indexeddb";
-import { documentSelectionMode, expandDocumentWordEdges, normalizeDocumentSelection, readDocumentSelection } from "../lib/documentSelection";
+import { documentSelectionMode, expandDocumentWordEdges, normalizeDocumentSelection, readDocumentSelection, documentSentenceAtOffset } from "../lib/documentSelection";
 import { selectionTranslationBlocks, useDocumentSelectionTranslation } from "../components/DocumentSelectionTranslation";
 import { initializeLearningStorage, getLearningStorage } from "../lib/learningStorage";
 import { getCachedArticleTranslationForBlocks, setCachedArticleTranslationForBlocks } from "../lib/cache";
@@ -208,4 +208,18 @@ test("PDF sentence context follows the selected occurrence through interleaved c
     assert.equal(choose(0)?.nextSentence, "A new test followed.");
     assert.equal(choose(1)?.sentence, "The gel retained ethanol before freezing.");
   } finally { dom.window.close(); }
+});
+
+
+test("scientific figure references retain the rest of the selected PDF sentence across lines", () => {
+  const text = "The specimens were measured. Moreover, as shown in Fig.\nS19, the gel recovered after loading. An independent test followed.";
+  const expected = "Moreover, as shown in Fig. S19, the gel recovered after loading.";
+  for (const word of ["shown", "recovered"]) {
+    const start = text.indexOf(word);
+    assert.deepEqual(documentSentenceAtOffset(text, start, start + word.length), {
+      sentence: expected,
+      previousSentence: "The specimens were measured.",
+      nextSentence: "An independent test followed.",
+    });
+  }
 });

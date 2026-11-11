@@ -93,7 +93,12 @@ function documentTextEntries(root: HTMLElement) {
 }
 
 export function documentSentenceAtOffset(text: string, start: number, end: number) {
-  const spans = getSentenceSpans(text);
+  // Scientific references can wrap before a supplement label such as Fig. S19.
+  // Keep the source offsets and original punctuation for the submitted sentence.
+  const boundaries = text.replace(/\b(?:figs?|eqs?|refs?|secs?|tabs?)\.(?=\s*(?:[[(]\s*)?(?:[a-z]\s*)?\d)/gi,
+    abbreviation => abbreviation.slice(0, -1) + "·");
+  const spans = getSentenceSpans(boundaries);
+  const sourceText = (span: typeof spans[number] | undefined) => span ? text.slice(span.start, span.end) : "";
   const index = spans.findIndex(span => span.start <= start && start < span.end);
   const lastIndex = spans.findIndex(span => span.start < end && end <= span.end);
   if (index < 0 || lastIndex < index) {
@@ -101,8 +106,8 @@ export function documentSentenceAtOffset(text: string, start: number, end: numbe
   }
   return {
     sentence: normalizeDocumentSelection(text.slice(spans[index].start, spans[lastIndex].end)),
-    previousSentence: normalizeDocumentSelection(spans[index - 1]?.text ?? ""),
-    nextSentence: normalizeDocumentSelection(spans[lastIndex + 1]?.text ?? ""),
+    previousSentence: normalizeDocumentSelection(sourceText(spans[index - 1])),
+    nextSentence: normalizeDocumentSelection(sourceText(spans[lastIndex + 1])),
   };
 }
 
