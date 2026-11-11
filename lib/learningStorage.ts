@@ -24,6 +24,7 @@ const LEGACY_KEYS = new Set([
   "context-reader:local-account-owner:v1", "context-reader:recommendation-preferences:v1",
   "context-reader:cache-access:v1",
   "context-reader:document-question-sync-recovery:v1",
+  "context-reader:article-notes:v1",
 ]);
 const managed = (key: string) => LEGACY_KEYS.has(key) || key.startsWith("context-reader:temporary-reading:v1:");
 type Descriptor = { key: string; format: "array" | "map" | "sync" | "scalar"; header?: Record<string, unknown> };

@@ -3,6 +3,7 @@ import type { WordContext } from "@/types/reader";
 import { LATIN_PHRASE_PATTERN } from "./latinWords";
 import { getSentenceSpans } from "./tokenizer";
 import { cleanDocumentText } from "./documentUnicode";
+import { pdfSelectionText } from "./pdfSelectionContext";
 
 export function normalizeDocumentSelection(text: string): string {
   return cleanDocumentText(text).normalize("NFKC").replace(/([a-z])-\s*\n\s*([a-z]+)/g, (_, before, after) =>
@@ -31,22 +32,15 @@ export function readDocumentSelection(root: HTMLElement, article: ImportedArticl
   if (!selection?.rangeCount || selection.isCollapsed) return null;
   const range = selection.getRangeAt(0);
   if (!root.contains(range.startContainer) || !root.contains(range.endContainer)) return null;
-  const walker = root.ownerDocument.createTreeWalker(root, NodeFilter.SHOW_TEXT);
-  const entries: { node: Text; start: number; end: number }[] = [];
-  let text = "", previousLine: Element | null = null;
-  while (walker.nextNode()) {
-    const node = walker.currentNode as Text;
-    if (node.parentElement?.closest("style,script,[aria-hidden=true]")) continue;
-    const line = node.parentElement?.closest("[data-pdf-line],.textLayer>span,p,td,h1,h2,h3") ?? null;
-    if (previousLine && line !== previousLine) text += "\n";
-    previousLine = line;
-    entries.push({ node, start: text.length, end: text.length + node.length });
-    text += node.data;
-  }
+  const pageElement = range.startContainer.parentElement?.closest<HTMLElement>("[data-document-page]");
+  const layout = pageElement ? pdfSelectionText(range) : null;
+  const samePage = pageElement?.contains(range.endContainer);
+  const { text, entries } = layout ?? documentTextEntries(samePage ? pageElement! : root);
   const first = entries.find(e => e.node === range.startContainer);
   const last = entries.find(e => e.node === range.endContainer);
   if (!first || !last) return null;
   const [start, end] = expandDocumentWordEdges(text, first.start + range.startOffset, last.start + range.endOffset);
+  if (end <= start) return null;
   const word = normalizeDocumentSelection(text.slice(start, end));
   if (documentSelectionMode(word) === "ignore") return null;
   const from = entries.find(e => e.start <= start && e.end > start);
@@ -54,11 +48,20 @@ export function readDocumentSelection(root: HTMLElement, article: ImportedArticl
   if (from && to) {
     const expanded = root.ownerDocument.createRange();
     expanded.setStart(from.node, start - from.start); expanded.setEnd(to.node, end - to.start);
-    selection.removeAllRanges(); selection.addRange(expanded);
-    paintDocumentSelection(root, expanded);
+    if (!expanded.collapsed) { selection.removeAllRanges(); selection.addRange(expanded); }
+    paintDocumentSelection(root, expanded.collapsed ? range : expanded);
   }
-  const page = (first.node.parentElement?.closest("[data-document-page]") as HTMLElement | null)?.dataset.documentPage;
-  const candidates = article.blocks.filter(b => !page || b.id.startsWith(`doc-p${page}-`));
+  const page = pageElement?.dataset.documentPage;
+  if (page) {
+    const resolved = layout
+      ? documentSentenceAtOffset(text, start, end)
+      : { sentence: word, previousSentence: "", nextSentence: "" };
+    const sentence = resolved.sentence || word;
+    const paragraphIndex = article.blocks.findIndex(block => block.id.startsWith(`doc-p${page}-`)
+      && normalizeDocumentSelection(block.text ?? "").includes(sentence));
+    return { word, ...resolved, sentence, paragraphIndex, tokenIndex: 0 };
+  }
+  const candidates = article.blocks;
   const nearby = normalizeDocumentSelection(text.slice(Math.max(0, start - 90), end + 90));
   const terms = nearby.toLowerCase().match(/[\p{L}\p{N}]+/gu) ?? [];
   const matching = candidates.filter(b => normalizeDocumentSelection(b.text ?? "").toLowerCase().includes(word.toLowerCase()));
@@ -73,12 +76,42 @@ export function readDocumentSelection(root: HTMLElement, article: ImportedArticl
 
 }
 
+function documentTextEntries(root: HTMLElement) {
+  const walker = root.ownerDocument.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  const entries: { node: Text; start: number; end: number }[] = [];
+  let text = "", previousLine: Element | null = null;
+  while (walker.nextNode()) {
+    const node = walker.currentNode as Text;
+    if (node.parentElement?.closest("style,script,[aria-hidden=true]")) continue;
+    const line = node.parentElement?.closest("[data-pdf-line],.textLayer>span,p,td,h1,h2,h3") ?? null;
+    if (previousLine && line !== previousLine) text += "\n";
+    previousLine = line;
+    entries.push({ node, start: text.length, end: text.length + node.length });
+    text += node.data;
+  }
+  return { text, entries };
+}
+
+export function documentSentenceAtOffset(text: string, start: number, end: number) {
+  const spans = getSentenceSpans(text);
+  const index = spans.findIndex(span => span.start <= start && start < span.end);
+  const lastIndex = spans.findIndex(span => span.start < end && end <= span.end);
+  if (index < 0 || lastIndex < index) {
+    return { sentence: normalizeDocumentSelection(text.slice(start, end)), previousSentence: "", nextSentence: "" };
+  }
+  return {
+    sentence: normalizeDocumentSelection(text.slice(spans[index].start, spans[lastIndex].end)),
+    previousSentence: normalizeDocumentSelection(spans[index - 1]?.text ?? ""),
+    nextSentence: normalizeDocumentSelection(spans[lastIndex + 1]?.text ?? ""),
+  };
+}
+
 export function selectDocumentWord(event: MouseEvent, root: HTMLElement, article: ImportedArticle): WordContext | null {
   const doc = root.ownerDocument;
   const hit = (event.target as Element)?.closest?.(".pdfGlyph");
   const caret = documentCaretAtPoint(root, event.clientX, event.clientY);
   const node = hit?.firstChild ?? caret?.startContainer;
-  if (!node || node.nodeType !== Node.TEXT_NODE || !root.contains(node) || !node.textContent?.length) return null;
+  if (!node || node.nodeType !== node.TEXT_NODE || !root.contains(node) || !node.textContent?.length) return null;
   const offset = hit ? 0 : Math.min(caret!.startOffset, node.textContent.length - 1);
   const range = doc.createRange(); range.setStart(node, offset); range.setEnd(node, offset + 1);
   const selection = doc.getSelection(); selection?.removeAllRanges(); selection?.addRange(range);
@@ -145,7 +178,7 @@ function paintDocumentSelection(root: HTMLElement, selected: Range) {
     const boxes: { left: number; top: number; right: number; height: number }[] = [];
     for (const span of page.querySelectorAll<HTMLElement>(".textLayer span:not(.pdfGlyphLine)")) {
       const node = span.firstChild;
-      if (!node || node.nodeType !== Node.TEXT_NODE || !selected.intersectsNode(node)) continue;
+      if (!node || node.nodeType !== node.TEXT_NODE || !selected.intersectsNode(node)) continue;
       const part = root.ownerDocument.createRange(); part.selectNodeContents(node);
       if (selected.startContainer === node) part.setStart(node, selected.startOffset);
       if (selected.endContainer === node) part.setEnd(node, selected.endOffset);

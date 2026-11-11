@@ -117,6 +117,10 @@ export function mergeDuplicateSavedArticles(source: SavedArticle[]): {
     const updatedAt = latestDate(group.map((article) => article.updatedAt)) || richest.updatedAt;
     const lastOpenedAt = latestDate(group.map((article) => article.lastOpenedAt)) || updatedAt;
     const readingProgress = latestReadingProgress(group);
+    const priorArticleIds = [...new Set(group.flatMap(article => [
+      article.id,
+      ...(Array.isArray(article.priorArticleIds) ? article.priorArticleIds : []),
+    ]))].filter(id => id !== canonicalId).sort();
 
     for (const article of group) {
       if (article.id !== canonicalId) removedIds.add(article.id);
@@ -131,6 +135,7 @@ export function mergeDuplicateSavedArticles(source: SavedArticle[]): {
       updatedAt,
       lastOpenedAt,
       ...(readingProgress ? { readingProgress } : {}),
+      ...(priorArticleIds.length ? { priorArticleIds } : {}),
     };
   });
 

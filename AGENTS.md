@@ -133,6 +133,7 @@ After each completed and validated change, automatically commit and push its rev
 - `docs/architecture.md`: internal flows and implementation invariants.
 - `docs/integration-guide.md`: API, environment, Supabase-compatible backend, OCR and Anki integration.
 - `docs/home-v2-implementation-contract.md`: current homepage status, accepted redesign and UI verification contract.
+- `docs/fixed-issues.md`: regression history. Read the matching entry before fixing a returning symptom, then record the verified reproduction, current fix and remaining gaps there.
 - `docs/product-journey.md`: chronological product history. Append every completed UI, function, infrastructure or major decision milestone with status, reason, validation and evidence.
 - `docs/gpt-brief.md`: compact portable context for conversations that cannot read the repository.
 - `docs/account-usage-plan.md` and its SQL: account gating, quotas and sync.

@@ -59,12 +59,12 @@ test("mounted Reader translation session rebinds after login, survives panel cha
       storage.setItem("context-reader:article-translation-blocks:v1", JSON.stringify({ [createArticleTranslationBlockCacheKey(documentBlocks[0])]: { id: "doc-p1-b0", translation: "新生成的分段译文" } }));
       notifyAccountDataMerged(["translation_block"]);
     });
-    assert.equal(ui.result.current.translations[0].translation, "新生成的分段译文");
+    assert.equal((ui.result.current.translations as { translation: string }[])[0].translation, "新生成的分段译文");
     await act(async () => {
       storage.setItem("context-reader:article-translations:v1", JSON.stringify({ [lateKey]: [{ id: "doc-p1-b0", translation: "后到达的旧整篇缓存" }] }));
       notifyAccountDataMerged(["article_translation"]);
     });
-    assert.equal(ui.result.current.translations[0].translation, "新生成的分段译文", "late aggregate must not overwrite exact regenerated blocks");
+    assert.equal((ui.result.current.translations as { translation: string }[])[0].translation, "新生成的分段译文", "late aggregate must not overwrite exact regenerated blocks");
     assert.equal(starts, 0, "cache reconciliation is read-only and uncharged");
 
     ui.rerender({ owner: "account-A", sourceKey: key, sourceBlocks: blocks });

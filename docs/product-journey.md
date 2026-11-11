@@ -2219,3 +2219,12 @@ Accepted `20261106T125200`, parent `20261106T123100`, source `b1c2ae0e5e6935f66a
 ## 2026-11-06 - PDF question history across devices (implementation; production pending)
 
 The user requested device synchronization after the local-history release. Each completed turn now syncs as an independent preferences object through existing authenticated protocol-2/CAS. Existing owner-scoped local rows stay in place and backfill on full sync; offline additions union across devices instead of replacing a whole conversation. Account/document identity isolation, cloud tombstones, idempotent replay and live panel refresh are covered. Seven focused sync/history/conversation/panel/dictionary checks and 170 architecture checks passed. Production build and live two-session/two-store API acceptance are pending. No new cloud service or schema migration. A one-time owner-bound protocol-2 snapshot replay recovers question objects that older clients may have acknowledged without projecting locally; it does not clear existing histories.
+
+
+## 2026-11-11：背词导航、桌面篇内记录与 PDF 句境复发修复
+
+背词左栏接入现有独立词典，收起正在背、待复习、今日新学和复习安排；悬停显示并保留展开、追加旧词操作。桌面普通 Reader 左栏添加本篇记录，覆盖粘贴、网址、PDF 和 Word。每条笔记单独保存并同步；文章合并保留原关联，手机布局隐藏入口。
+
+旧 PDF 路径按选中词和附近词汇给导入段落打分，会误把另一栏或另一处同词的句子发给模型。现用页面文本层和确切选区位置取句。对 galioo 的 6 篇原件、78 页使用实际 PDF.js 文本层和 Edge，独立核对 24 个重复词选区，旧版 19 个正确，新版 24 个正确。增加跨栏错序回归。真实文件仅用于只读验收；记录不含论文原文或账号信息。
+
+本地候选通过生产构建、171 项架构回归、11 项聚焦回归与发布契约。PDF 浏览器入口实测、生产发布和验收身份以本节后续记录为准。新增 [已修问题与复发验证](fixed-issues.md) 并在项目 AGENTS 中列为复发问题入口。

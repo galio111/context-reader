@@ -88,6 +88,7 @@ export interface ImportedArticle {
 
 export interface SavedArticle {
   id: string;
+  priorArticleIds?: string[];
   title: string;
   summary: string;
   body: string;

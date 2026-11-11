@@ -13,6 +13,7 @@ import { explanationFromSync, explanationSyncIdentity } from "@/lib/explanationS
 import { hasForegroundLookup } from "@/lib/explanationStreamStore";
 import { ACCOUNT_SYNC_TOMBSTONES_KEY, notifyAccountDataMerged } from "@/lib/accountEvents";
 import { mergeDuplicateSavedArticles } from "@/lib/savedArticleMerge";
+import { ARTICLE_NOTES_KEY, articleNoteObjectKey, mergeArticleNoteObjects, readArticleNotes } from "@/lib/articleNotes";
 import { documentQuestionObjectKey, readOwnerDocumentQuestions, mergeDocumentQuestionObjects } from "@/lib/documentQuestionHistory";
 import {
   clearStandaloneDictionaryRuntimeCache,
@@ -74,6 +75,7 @@ const KEYS = {
   cetFinalizations: CET_FINALIZATIONS_KEY,
   cetExposures: CET_EXPOSURES_KEY,
   articles: "context-reader:articles:v1",
+  articleNotes: ARTICLE_NOTES_KEY,
   vocabulary: "context-reader:vocabulary:v1",
   explanations: "context-reader:explanations:v5",
   translations: "context-reader:article-translations:v1",
@@ -202,6 +204,7 @@ async function waitForBrowserProcessingWindow(
 export function accountSyncKindsForStorageKey(key: string | null): SyncObjectKind[] {
   if (!key) return [];
   if (key === KEYS.articles) return ["article"];
+  if (key === KEYS.articleNotes) return ["preferences"];
   if (key === KEYS.vocabulary) return ["vocabulary"];
   if (key === KEYS.explanations) return ["explanation"];
   if (key === KEYS.translations) return ["article_translation"];
@@ -528,8 +531,10 @@ async function mergeCloudIntoLocal(
 
       const localUpdatedAt = timestamp(local.updatedAt);
       const cloudUpdatedAt = timestamp(object.clientUpdatedAt);
-      if (localUpdatedAt >= cloudUpdatedAt) continue;
-      localArticleById.set(cloud.id, cloud);
+      const priorArticleIds = [...new Set([local, cloud].flatMap(item =>
+        Array.isArray(item.priorArticleIds) ? item.priorArticleIds : []))].sort();
+      const latest = localUpdatedAt >= cloudUpdatedAt ? local : cloud;
+      localArticleById.set(cloud.id, { ...latest, ...(priorArticleIds.length ? { priorArticleIds } : {}) });
     } else if (object.kind === "vocabulary") {
       const cloud = normalizeVocabularyEntries([object.payload])[0];
       if (!cloud?.id) continue;
@@ -707,7 +712,9 @@ async function mergeCloudIntoLocal(
   if (needsDictionaryHistory) writeStandaloneDictionaryHistory(storage, Array.from(localDictionaryHistoryByQuery.values()));
   if (needsDictionaryCache) writeStandaloneDictionaryCache(storage, Array.from(localDictionaryCacheByQuery.values()));
   writeTombstones(storage, tombstones);
-  await mergeDocumentQuestionObjects(storage.getItem(ACCOUNT_LOCAL_OWNER_KEY) || "", objects);
+  const owner = storage.getItem(ACCOUNT_LOCAL_OWNER_KEY) || "";
+  mergeArticleNoteObjects(storage, owner, objects);
+  await mergeDocumentQuestionObjects(owner, objects);
   return projectedVocabularyChanged;
 }
 
@@ -741,6 +748,11 @@ async function collectLocalObjects(
   // when the caller's dirty-kind list predates support for this preference type.
   for(const record of await readOwnerDocumentQuestions(storage.getItem(ACCOUNT_LOCAL_OWNER_KEY) || "")) {
     add("preferences",documentQuestionObjectKey(record),record,record.turn.createdAt);
+  }
+  if (wants("preferences")) {
+    for (const note of readArticleNotes(storage, storage.getItem(ACCOUNT_LOCAL_OWNER_KEY) || "")) {
+      add("preferences", articleNoteObjectKey(note), note, note.createdAt);
+    }
   }
   if (wants("article")) {
     const localArticleMerge = mergeDuplicateSavedArticles(
@@ -1010,10 +1022,11 @@ async function performAccountSync(
   const recoveringArticleStorage = getLearningStorage().getItem(ARTICLE_STORAGE_RECOVERY_KEY) !== "complete";
   const recoveringSyncStorage = getLearningStorage().getItem(SYNC_STORAGE_RECOVERY_KEY) !== "complete";
   const recoveringIndexedDB = isLearningStorage(getLearningStorage()) && getLearningStorage().getItem(INDEXEDDB_RECOVERY_KEY) !== "complete";
-  // An older client may have acknowledged unknown question preferences without
-  // projecting them locally. Replay one snapshot when this owner gains support.
+  // Older clients may acknowledge unfamiliar document histories or reading notes.
+  // Replay the snapshot once when the owner's local projection gains support.
   const questionOwner = getLearningStorage().getItem(ACCOUNT_LOCAL_OWNER_KEY) || "";
-  const recoveringDocumentQuestions = getLearningStorage().getItem(DOCUMENT_QUESTION_RECOVERY_KEY) !== questionOwner;
+  const documentPreferenceVersion = questionOwner + ":article-notes-v1";
+  const recoveringDocumentQuestions = getLearningStorage().getItem(DOCUMENT_QUESTION_RECOVERY_KEY) !== documentPreferenceVersion;
   const initial = !state.initialized || recoveringArticleStorage || recoveringSyncStorage || recoveringIndexedDB || recoveringDocumentQuestions || reconcile;
   const cloud = initial
     ? await readInitialSnapshot(report)
@@ -1103,7 +1116,7 @@ async function performAccountSync(
   }
   if (recoveringSyncStorage && mode === "full" && verified) getLearningStorage().setItem(SYNC_STORAGE_RECOVERY_KEY, "complete");
   if (recoveringIndexedDB && mode === "full" && verified) getLearningStorage().setItem(INDEXEDDB_RECOVERY_KEY, "complete");
-  if (recoveringDocumentQuestions) getLearningStorage().setItem(DOCUMENT_QUESTION_RECOVERY_KEY, questionOwner);
+  if (recoveringDocumentQuestions) getLearningStorage().setItem(DOCUMENT_QUESTION_RECOVERY_KEY, documentPreferenceVersion);
   if (mode === "full") await pruneAcknowledgedExplanations(getLearningStorage(), async (key, value) => {
     const identity = await explanationSyncIdentity(key, value as Parameters<typeof explanationSyncIdentity>[1]);
     const entry = manifest[`explanation:${identity.objectKey}`];

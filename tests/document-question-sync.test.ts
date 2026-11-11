@@ -5,6 +5,7 @@ import { IDBFactory } from "fake-indexeddb";
 import { initializeLearningStorage,getLearningStorage,isLearningStorage } from "../lib/learningStorage";
 import { prepareLocalAccountForUser,syncAccountData } from "../lib/accountSyncClient";
 import { documentQuestionScope,documentQuestionObjectKey,normalizeDocumentQuestionRecord,readDocumentQuestions,saveDocumentQuestion,mergeDocumentQuestionObjects } from "../lib/documentQuestionHistory";
+import { articleNoteObjectKey, readArticleNotes, saveArticleNote } from "../lib/articleNotes";
 import type { AccountSyncObject } from "../types/account";
 
 test("existing owner-scoped histories backfill through protocol-2; offline devices union turns without duplicates or account leakage",async()=>{
@@ -67,6 +68,32 @@ test("existing owner-scoped histories backfill through protocol-2; offline devic
     const old=cloud.get("A")!.get(key)!;cloud.get("A")!.set(key,{...old,serverVersion:old.serverVersion+1,deletedAt:new Date().toISOString()});
     await syncAccountData();assert.deepEqual((await readDocumentQuestions(a)).map(t=>t.id),["3","4"]);
     await select(second);await syncAccountData();assert.deepEqual((await readDocumentQuestions(a)).map(t=>t.id),["3","4"]);
+    const record = (articleKey: string, text: string) => ({
+      id: crypto.randomUUID(), articleKey, text, createdAt: new Date().toISOString(),
+    });
+    const pdf = "document:" + "a".repeat(64);
+    const paperNote = record(pdf, "Paper note");
+    const articleNote = record("article:article-qa", "Separate article note");
+    await saveArticleNote("A", paperNote);
+    await saveArticleNote("A", articleNote);
+    await syncAccountData({ dirtyKinds: ["preferences"] });
+    assert.deepEqual(cloud.get("A")?.get("preferences:" + articleNoteObjectKey(paperNote))?.payload, paperNote);
+    await select(first);
+    await syncAccountData();
+    const localAddition = record(pdf, "Independent offline addition");
+    await saveArticleNote("A", localAddition);
+    await syncAccountData();
+    await select(second);
+    await syncAccountData();
+    const noteIds = () => readArticleNotes(getLearningStorage(), "A").map(note => note.id).sort();
+    assert.deepEqual(noteIds(), [paperNote.id, articleNote.id, localAddition.id].sort());
+    await select(second, "B");
+    assert.deepEqual(noteIds(), []);
+    await syncAccountData();
+    assert.equal(cloud.get("B")?.size, 0);
+    await select(second, "A");
+    assert.deepEqual(noteIds(), [paperNote.id, articleNote.id, localAddition.id].sort());
+
   }finally{
     globalThis.fetch=oldFetch;
     for(const dom of devices){Object.assign(globalThis,{window:dom.window});const storage=getLearningStorage();if(isLearningStorage(storage))storage.close();dom.window.close();}

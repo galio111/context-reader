@@ -44,6 +44,8 @@ The complete current-function and UI compatibility inventory is in [the architec
 ### Learning Data
 
 - Save articles and vocabulary locally, then synchronize versioned objects after login.
+- On desktop, use 本篇记录 below the reading shortcuts to add private notes to a text, URL, PDF or Word article. Saving the first note on an unsaved text article also adds the article to 我的文章. Notes reopen with the source and synchronize with the account.
+- 背单词 includes 单独查词 in the navigation. Hover over 今日学习进度 to reveal the three counters and open 复习安排详情, or activate the control from a keyboard or touch screen.
 - Preserve source sentence, contextual meaning, phonetics, study state and historical import identity.
 - Export vocabulary as CSV or study it with the native FSRS scheduler.
 - Use identical cloud-generated US/UK pronunciation audio across website surfaces.

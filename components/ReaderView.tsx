@@ -2,6 +2,7 @@
 import { DocumentSelectionTranslation, useDocumentSelectionTranslation } from "@/components/DocumentSelectionTranslation";
 import DocumentQuestionPanel from "@/components/DocumentQuestionPanel";
 import { documentSelectionMode } from "@/lib/documentSelection";
+import { ArticleNotes } from "@/components/ArticleNotes";
 import { DocumentReader } from "@/components/DocumentReader";
 import { LoadingStatus } from "./LoadingStatus";
 import { OPEN_ACCOUNT_USAGE_EVENT } from "@/lib/accountUsageNavigation";
@@ -3566,6 +3567,27 @@ export function ReaderView({
         </div>
         {!examSurface && onSelectCet && <div className={toolbarStyles.railActions}><button type="button" onClick={() => setCetLibraryOpen(true)}><ReaderRailIcon kind="articles" /><span>选择真题</span><small>按试卷或题型选择</small></button></div>}
         {examSurface?.rail}
+        {!examSurface && !editorialWorkbench && <ArticleNotes
+          key={translationAccountOwner ?? "guest"}
+          owner={translationAccountOwner}
+          articleKey={currentImportedArticle?.document ? "document:" + currentImportedArticle.document.id
+            : savedCurrentArticle ? "article:" + savedCurrentArticle.id : undefined}
+          priorIds={currentImportedArticle?.document ? undefined : savedCurrentArticle?.priorArticleIds}
+          resolveArticleKey={async () => {
+            if (!requireLocalAccount("登录后可保存这篇文章的记录。")) return null;
+            if (!translationAccountOwner || preparedTranslationOwner() !== translationAccountOwner) {
+              throw new Error("账号数据尚未准备好");
+            }
+            if (currentImportedArticle?.document) return "document:" + currentImportedArticle.document.id;
+            if (savedCurrentArticle) return "article:" + savedCurrentArticle.id;
+            saveArticle(currentArticle, "", effectiveImportedArticle);
+            await flushLearningStorage();
+            const saved = findSavedArticle(currentArticle);
+            if (!saved) throw new Error("文章未能保存");
+            onArticleSaved(saved);
+            return "article:" + saved.id;
+          }}
+        />}
         {editorialWorkbench && editorialRailActions && <div className={toolbarStyles.editorialRailActions} aria-label="文章队列">{editorialRailActions}</div>}
       </aside>
       <header className={toolbarStyles.toolbar} aria-label="文章工具">

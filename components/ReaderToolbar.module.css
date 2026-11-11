@@ -990,3 +990,37 @@
 }
 
 .dictionaryWindow::backdrop { background: transparent; }
+
+
+.articleNotes {
+  width: 100%;
+  display: grid;
+  gap: 8px;
+  color: #444954;
+  font-size: 12px;
+}
+
+.articleNotes textarea {
+  display: block;
+  width: 100%;
+  min-height: 65px;
+  padding: 8px;
+  resize: vertical;
+  border: 1px solid #d8dbe1;
+  border-radius: 10px;
+  background: #fff;
+  color: #252934;
+  font: inherit;
+  line-height: 1.5;
+}
+
+.articleNoteActions { display: grid; justify-items: start; gap: 4px; margin-top: 5px; }
+.articleNoteActions button { padding: 4px 8px; border-radius: 7px; background: #e9ebf0; color: #333946; }
+.articleNoteActions button:disabled { opacity: .55; }
+.articleNotes ul { max-height: min(26vh, 220px); overflow: auto; overscroll-behavior: contain; margin: 0; padding: 0; }
+.articleNotes li { padding: 7px 2px; border-top: 1px solid #d8dbe1; white-space: pre-wrap; overflow-wrap: anywhere; }
+
+:global(html[data-context-theme="night"]) .articleNotes { color: #cbd1db; }
+:global(html[data-context-theme="night"]) .articleNotes textarea { color: #eef0f4; background: #272a31; border-color: #474e5b; }
+:global(html[data-context-theme="night"]) .articleNoteActions button { color: #e3e7ed; background: #383e4b; }
+:global(html[data-context-theme="night"]) .articleNotes li { border-color: #474e5b; }

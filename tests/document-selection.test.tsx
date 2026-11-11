@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { JSDOM } from "jsdom";
 import { IDBFactory } from "fake-indexeddb";
-import { documentSelectionMode, expandDocumentWordEdges, normalizeDocumentSelection } from "../lib/documentSelection";
+import { documentSelectionMode, expandDocumentWordEdges, normalizeDocumentSelection, readDocumentSelection } from "../lib/documentSelection";
 import { selectionTranslationBlocks, useDocumentSelectionTranslation } from "../components/DocumentSelectionTranslation";
 import { initializeLearningStorage, getLearningStorage } from "../lib/learningStorage";
 import { getCachedArticleTranslationForBlocks, setCachedArticleTranslationForBlocks } from "../lib/cache";
@@ -165,4 +165,47 @@ test("PDF blank-space hit testing cannot jump to a distant paragraph",async()=>{
  Object.defineProperty(glyph,'getBoundingClientRect',{value:()=>({left:10,top:10,width:30,height:15,right:40,bottom:25})});
  assert.equal(documentCaretAtPoint(root,12,12)?.startContainer,glyph.firstChild);
  dom.window.close();
+});
+
+
+test("PDF sentence context follows the selected occurrence through interleaved columns", () => {
+  const dom = new JSDOM('<main><div data-document-page="1"><div class="textLayer"></div></div></main>');
+  const doc = dom.window.document;
+  const root = doc.querySelector("main")!;
+  const layer = doc.querySelector(".textLayer")!;
+  Object.defineProperty(dom.window.Range.prototype, "getClientRects", { value: () => [] });
+  const rows = [
+    { text: "The gel retained ethanol and", x: 10, y: 50 },
+    { text: "The gel retained ethanol before freezing.", x: 325, y: 50 },
+    { text: "water after drying. A new test followed.", x: 10, y: 64 },
+    { text: "A different control followed.", x: 325, y: 64 },
+  ];
+  try {
+    const spans = rows.map(({ text, x, y }) => {
+      const span = doc.createElement("span");
+      span.textContent = text;
+      Object.defineProperty(span, "getBoundingClientRect", { value: () => ({
+        left: x, right: x + text.length * 5, top: y, bottom: y + 11, height: 11, width: text.length * 5,
+      }) });
+      layer.append(span);
+      return span;
+    });
+    const selection = doc.getSelection()!;
+    const choose = (i: number) => {
+      const range = doc.createRange();
+      const offset = rows[i].text.indexOf("ethanol");
+      range.setStart(spans[i].firstChild!, offset + 1);
+      range.setEnd(spans[i].firstChild!, offset + 4);
+      selection.removeAllRanges();
+      selection.addRange(range);
+      return readDocumentSelection(root, { ...article, blocks: [
+        { id: "doc-p1-b0", type: "paragraph", text: rows[1].text },
+        { id: "doc-p1-b1", type: "paragraph", text: "The gel retained ethanol and water after drying. A new test followed." },
+      ] });
+    };
+    assert.equal(choose(0)?.word, "ethanol");
+    assert.equal(choose(0)?.sentence, "The gel retained ethanol and water after drying.");
+    assert.equal(choose(0)?.nextSentence, "A new test followed.");
+    assert.equal(choose(1)?.sentence, "The gel retained ethanol before freezing.");
+  } finally { dom.window.close(); }
 });

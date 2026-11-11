@@ -333,6 +333,7 @@ function normalizeArticle(value: unknown): SavedArticle | null {
     updatedAt: typeof article.updatedAt === "string" ? article.updatedAt : now,
     ...(typeof article.lastOpenedAt === "string" ? { lastOpenedAt: article.lastOpenedAt } : {}),
     ...(readingProgress ? { readingProgress } : {}),
+    ...(Array.isArray(article.priorArticleIds) ? { priorArticleIds: article.priorArticleIds.filter(id => typeof id === "string" && id.length <= 180) } : {}),
   };
 }
 

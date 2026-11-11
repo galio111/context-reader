@@ -34,10 +34,12 @@ test('finished budget shows completion, hides backlog, and only explicit extra a
   await ui.findByRole('heading',{name:'今日复习完成'});
   assert.equal(ui.queryByRole('button',{name:/不记得/}),null);
   assert.equal(ui.getByText('复习安排详情').closest('details')?.open,false);
+  assert.equal(ui.queryByRole('button',{name:'今天再复习 10 个'}),null);
+  fireEvent.click(ui.getByRole('button',{name:'今日学习进度'}));
   fireEvent.click(ui.getByText('复习安排详情'));fireEvent.click(ui.getByRole('button',{name:'今天再复习 10 个'}));
   await waitFor(()=>assert.equal(settingsCalls,1));await waitFor(()=>assert.equal(ui.queryByRole('heading',{name:'今日复习完成'}),null));
   assert.ok(await ui.findByRole('button',{name:/不记得/}));assert.equal(seed.settings.reviewExtraCount,10);
-  fireEvent.click(ui.getByRole('button',{name:'设置',exact:true}));
+  fireEvent.click(ui.getByRole('button',{name:'设置'}));
   assert.equal((ui.getByLabelText('每日最多复习') as HTMLInputElement).value,'40');
  }finally{cleanup();globalThis.fetch=originalFetch;dom.window.close();}
 });

@@ -63,10 +63,12 @@ export function StudyPanel({visible,onClose,onSource,notice,requestedTab="today"
   const [confirm,setConfirm]=useState<"profile"|number|null>(null);
   const [wordDetailId,setWordDetailId]=useState<string|null>(null);
   const openVocabularyEntry=useCallback((entry:VocabularyEntry)=>setWordDetailId(entry.id),[]);
-  const [relatedQuery,setRelatedQuery]=useState<string|null>(null);
+  const [relatedQuery,setRelatedQuery]=useState<{query?: string}|null>(null);
   const [relatedEntries,setRelatedEntries]=useState<VocabularyEntry[]>([]);
   useEffect(()=>{if(!visible)setRelatedQuery(null);},[visible]);
-  const openRelatedLookup=(query:string)=>{setRelatedEntries(getVocabularyEntries());setRelatedQuery(query);};
+  const openRelatedLookup=(query?:string)=>{setRelatedEntries(getVocabularyEntries());setRelatedQuery({query});};
+  const [reviewPlanOpen,setReviewPlanOpen]=useState(false);
+  useEffect(()=>{if(!visible||tab!=="today")setReviewPlanOpen(false);},[visible,tab]);
   const liveEntries=useStudyVocabularyEntries(snapshot?.entries,owner);
   const wordDetail=liveEntries.find(entry=>entry.id===wordDetailId)??null;
   const {entry:completeWordDetail}=useStudyEntry(wordDetail??undefined);
@@ -397,7 +399,7 @@ export function StudyPanel({visible,onClose,onSource,notice,requestedTab="today"
     <div className={styles.shell}>
       <button className={styles.studyMenu} onClick={()=>window.dispatchEvent(new Event("context-reader-open-main-menu"))}>Menu <span aria-hidden="true">＋</span></button>
       <aside className={styles.rail}><button className={styles.brand} onClick={onClose} aria-label="返回阅读" title="返回阅读"><StudyIcon name="book"/></button>
-        <nav aria-label="学习导航">{navigation.map(([key,label,icon])=><button key={key} aria-current={tab===key?"page":undefined} onClick={()=>selectTab(key)}><StudyIcon name={icon}/><span>{label}</span></button>)}</nav>
+        <nav aria-label="学习导航">{navigation.map(([key,label,icon])=><button key={key} aria-current={tab===key?"page":undefined} onClick={()=>selectTab(key)}><StudyIcon name={icon}/><span>{label}</span></button>)}<button type="button" onClick={()=>openRelatedLookup()}><StudyIcon name="search"/><span>单独查词</span></button></nav>
         <button className={styles.quietExit} onClick={onClose}><StudyIcon name="back"/>返回阅读</button>
       </aside>
       <button className={styles.mobileExit} onClick={onClose} aria-label="关闭背单词"><StudyIcon name="close"/></button>
@@ -409,8 +411,23 @@ export function StudyPanel({visible,onClose,onSource,notice,requestedTab="today"
         {!snapshot?<LoadingStatus className={styles.caption}>正在连接学习记录…</LoadingStatus>:<>
           {tab!=="today"&&<header className={styles.pageHeader}><h1>{title}</h1><button onClick={()=>selectTab("today")}>继续背词<StudyIcon name="arrow"/></button></header>}
           {tab==="today"&&<article ref={questionSurface} tabIndex={-1} data-learning-surface="study" className={styles.flashcard} data-card-key={cardKey} data-answer={Boolean(intent)} aria-label="当前复习卡片">
-            <div className={styles.cardTop}><span className={styles.remainingCounts} aria-live="polite" aria-atomic="true">{snapshot.today?<><span data-active={Boolean(card&&[1,3].includes(card.memory.state))} aria-current={card&&[1,3].includes(card.memory.state)?"step":undefined}>正在背 <b>{remaining.learning}</b></span><span data-active={card?.memory.state===2} aria-current={card?.memory.state===2?"step":undefined}>待复习 <b>{remaining.review}</b></span><span data-active={card?.memory.state===0} aria-current={card?.memory.state===0?"step":undefined}>今日新学 <b>{learnedToday}</b></span></>:"今日学习"}</span>{undoButton}</div>
-            <details className={styles.caption}><summary>复习安排详情</summary><p>今日已完成 {oldProgress.finished} / {oldProgress.total} 个旧词 · 每日上限 {snapshot.settings.reviewsPerDay}{budget>snapshot.settings.reviewsPerDay?" · 今日追加 "+(budget-snapshot.settings.reviewsPerDay):""}</p><p>其余待安排 {backlog} 个。新词与重练次数不计入旧词名额。</p>{backlog>0&&<button disabled={busy||Boolean(pending)||!authoritative||budget-snapshot.settings.reviewsPerDay>=300} onClick={()=>void addReviews()}>今天再复习 10 个</button>}</details>
+            <div className={styles.cardTop}>
+              <div className={styles.reviewProgress}
+                onPointerLeave={event=>{if(event.pointerType==="mouse")setReviewPlanOpen(false);}}
+                onKeyDown={event=>{if(event.key==="Escape"&&reviewPlanOpen){event.preventDefault();event.stopPropagation();setReviewPlanOpen(false);}}}>
+                <button type="button" className={styles.iconButton} aria-label="今日学习进度" title="今日学习进度"
+                  aria-controls="study-review-progress" aria-expanded={reviewPlanOpen}
+                  onPointerEnter={event=>{if(event.pointerType==="mouse")setReviewPlanOpen(true);}}
+                  onClick={event=>{if(!window.matchMedia("(hover: hover) and (pointer: fine)").matches || event.detail===0)setReviewPlanOpen(open=>!open);else setReviewPlanOpen(true);}}>
+                  <StudyIcon name="chart"/>
+                </button>
+                <div id="study-review-progress" className={styles.reviewProgressBody} hidden={!reviewPlanOpen}>
+                  <span className={styles.remainingCounts} aria-live="polite" aria-atomic="true">{snapshot.today?<><span data-active={Boolean(card&&[1,3].includes(card.memory.state))} aria-current={card&&[1,3].includes(card.memory.state)?"step":undefined}>正在背 <b>{remaining.learning}</b></span><span data-active={card?.memory.state===2} aria-current={card?.memory.state===2?"step":undefined}>待复习 <b>{remaining.review}</b></span><span data-active={card?.memory.state===0} aria-current={card?.memory.state===0?"step":undefined}>今日新学 <b>{learnedToday}</b></span></>:"今日学习"}</span>
+                  <details className={styles.caption}><summary>复习安排详情</summary><p>今日已完成 {oldProgress.finished} / {oldProgress.total} 个旧词 · 每日上限 {snapshot.settings.reviewsPerDay}{budget>snapshot.settings.reviewsPerDay?" · 今日追加 "+(budget-snapshot.settings.reviewsPerDay):""}</p><p>其余待安排 {backlog} 个。新词与重练次数不计入旧词名额。</p>{backlog>0&&<button disabled={busy||Boolean(pending)||!authoritative||budget-snapshot.settings.reviewsPerDay>=300} onClick={()=>void addReviews()}>今天再复习 10 个</button>}</details>
+                </div>
+              </div>
+              {undoButton}
+            </div>
             {!authoritative&&snapshot.today?.day!==currentDay?<div className={styles.empty}><LoadingStatus>正在准备今日学习…</LoadingStatus></div>:paused?<div className={styles.empty}><StudyIcon name="pause"/><h2>学习已暂停</h2><p>到 {new Date(snapshot.settings.pausedUntil!).toLocaleDateString("zh-CN")}。准备好时，随时回来。</p><button className={styles.primary} disabled={busy||isOffline} onClick={()=>void retryPrepare()}>恢复学习</button></div>:
             (!snapshot.today||progress.total===0)?<div className={styles.empty}><StudyIcon name="book"/><h2>{snapshot.entries.length?"今天没有待学的词":"从一个生词开始"}</h2><p>在阅读或词典里收藏单词，就能在这里复习。</p><button className={styles.primary} onClick={onClose}>去阅读<StudyIcon name="arrow"/></button>{fresh>0&&<button disabled={busy||isOffline} onClick={()=>void retryPrepare()}>检查待学单词</button>}</div>:
             reviewDone&&!continueNew&&!keepRevealedNew?<div className={styles.empty}><StudyIcon name="check"/><h2>今日复习完成</h2><p>完成了 {oldProgress.finished} 个旧词。</p><button className={styles.primary} onClick={onClose}>去阅读<StudyIcon name="arrow"/></button>{(fresh>0||remaining.learning>0)&&<button onClick={()=>setContinueNew(true)}>继续学新词</button>}</div>:
@@ -434,7 +451,7 @@ export function StudyPanel({visible,onClose,onSource,notice,requestedTab="today"
       {visible&&pauseConfirm&&<StudyDialog title="暂时停一停？" icon="pause" busy={busy} onCancel={()=>setPauseConfirm(false)}><p>特殊情况时再暂停。连续天数会重新计算，已经获得的奖励保留。</p><div className={styles.dialogField}><span>暂停时长</span><CetSelect label="暂停时长" value={String(pauseDays)} options={[1,3,7,14,30].map(d=>({key:String(d),text:d+" 天"}))} onChange={d=>setPauseDays(Number(d))}/></div><p className={styles.caption}>记忆仍随时间变化。回来后，按每日计划分批复习。</p><div className={styles.dialogActions}><button autoFocus disabled={busy} onClick={()=>setPauseConfirm(false)}>继续坚持</button><button className={styles.primary} disabled={busy||pending} onClick={()=>void run(async()=>{accept(await api<StudySnapshot>({op:"pause",days:pauseDays}));setPauseConfirm(false);setTab("today");})}>{busy?"保存中…":"暂停 "+pauseDays+" 天"}</button></div>{error&&<p className={styles.dialogError} role="alert">{error}</p>}</StudyDialog>}
       {visible&&confirm!==null&&<StudyDialog title={confirm==="profile"?"生成阅读画像？":"启用会员奖励？"} icon={typeof confirm==="number"?"gift":confirm==="profile"?"profile":"cards"} busy={busy} onCancel={()=>setConfirm(null)}><p>{confirm==="profile"?"本次消耗 "+snapshot?.policy.profileCost+" 点。再次查看结果免费。":"奖励从启用时开始计时。同档会员可延长，不同档位需要等当前会员到期。"}</p><div className={styles.dialogActions}><button autoFocus disabled={busy} onClick={()=>setConfirm(null)}>取消</button><button className={styles.primary} disabled={busy||isOffline} onClick={()=>{if(confirm==="profile"){setConfirm(null);void generateProfile();}else{const milestone=confirm;void run(async()=>{accept(await api<StudySnapshot>({op:"activateMembership",milestone}));await refreshAccount();setConfirm(null);setMessage("会员奖励已启用");});}}}>{busy?"保存中…":confirm==="profile"?"生成":"启用奖励"}</button></div>{error&&<p className={styles.dialogError} role="alert">{error}</p>}</StudyDialog>}
       {visible&&wordDetail&&<StudyDialog title={wordDetail.word} wide onCopy={completeWordDetail?()=>{void navigator.clipboard.writeText([completeWordDetail.word,completeWordDetail.contextMeaning,completeWordDetail.basicMeaning,completeWordDetail.sourceSentence,completeWordDetail.sentenceTranslation].filter(Boolean).join("\n")).then(()=>setMessage("已复制")).catch(()=>setMessage("复制失败，请重试"));}:undefined} onCancel={()=>setWordDetailId(null)}><div className={styles.wordDetail}><StudyWord entry={wordDetail} onSource={source} onLookup={openRelatedLookup}/></div></StudyDialog>}
-      {visible&&relatedQuery&&<DictionaryWindow modal onClose={()=>setRelatedQuery(null)}><BookDictionary key={relatedQuery} embedded panel offline={isOffline} initialQuery={relatedQuery} onAddToVocabulary={async result=>{
+      {visible&&relatedQuery&&<DictionaryWindow modal onClose={()=>setRelatedQuery(null)}><BookDictionary key={relatedQuery.query ?? "standalone"} embedded panel offline={isOffline} initialQuery={relatedQuery.query} onAddToVocabulary={async result=>{
         setRelatedEntries(addVocabularyEntry(createStandaloneVocabularyEntry(result)));
         try { await flushLearningStorage(); setMessage("已加入生词本"); } catch { setMessage("生词尚未可靠保存，请保留页面并重试。"); }
       }} isInVocabulary={result=>relatedEntries.some(entry=>vocabularyIdentity(entry)===vocabularyIdentity(createStandaloneVocabularyEntry(result)))}/></DictionaryWindow>}
