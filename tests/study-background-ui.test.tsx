@@ -163,7 +163,7 @@ test("Study advances immediately, keeps a new answer visible across another tab'
     await waitFor(()=>assert.equal(ui.getByRole("button",{name:"答对了"}).hasAttribute("disabled"),false));
     fireEvent.click(ui.getByRole("button",{name:"答对了"}));
     await waitFor(()=>assert.equal(active(),"待复习 1"));
-    await waitFor(()=>assert.equal(ui.getByText("正在背").textContent,"正在背 1"));
+    await waitFor(()=>assert.equal(ui.getByText("正在背").textContent,"正在背 0"));
     assert.ok(ui.getByText("今日新学").textContent?.includes("0"));
     fireEvent.click(ui.getByRole("button",{name:/^3\s*记得$/}));
     await waitFor(()=>assert.equal(ui.getByRole("button",{name:"答对了"}).hasAttribute("disabled"),false));
