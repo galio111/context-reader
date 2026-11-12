@@ -71,12 +71,12 @@ test("review-first waits for old learning steps before introducing new words",()
  assert.equal(planProgress([fresh,done],["old","new"],now,["new"]).ready[0].id,"new");
 });
 
-test("old learning steps share the daily budget and retain queue priority",()=>{
+test("ongoing steps keep their queue priority beside the old-review budget",()=>{
  const now=new Date("2026-10-12T08:00:00Z");
  const make=(id:string,state:number,due=now.toISOString()):StudyCard=>({id,entry_id:id,mode:"basic_en_to_cn",memory:{...newMemory(now),state,due},version:0,suspended:false,anki_pending:false,created_at:now.toISOString()});
  const learning=make("learning",1),relearning=make("relearning",3),review=make("review",2),extra=make("extra",2),fresh=make("new",0);
  const ids=buildStudyPlan([fresh,review,learning,extra,relearning],{...DEFAULT_STUDY_SETTINGS,reviewsPerDay:1},now);
- assert.equal(ids.filter(id=>id!=="new").length,1);assert.equal(ids.length,2);
+ assert.equal(ids.length,4);assert.ok(ids.includes("learning")&&ids.includes("relearning"));
  const p=planProgress([fresh,review,learning,relearning],["new","review","learning","relearning"],now,["new","learning"]);
  assert.deepEqual(p.ready.map(c=>c.id),["learning","relearning","review"]);
  const waiting={...learning,memory:{...learning.memory,due:new Date(now.getTime()+300000).toISOString()}};

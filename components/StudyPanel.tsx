@@ -32,7 +32,7 @@ import { activeStudySnapshot, chooseStudyCard, remainingStudyCounts } from "@/li
 import { applyStudyReviewReceipt } from "@/lib/studyReviewReceipt";
 import type { VocabularyEntry } from "@/types/vocabulary";
 import { openStudySource } from "@/lib/studyNavigation";
-import { planProgress, shanghaiDay, studyPaused, studyIntroducedToday, studyReviewBudget } from "@/lib/studyScheduler";
+import { planProgress, shanghaiDay, studyPaused, studyDayCardHistory, studyReviewBudget, isStudyLearning } from "@/lib/studyScheduler";
 import type { StudyAnswer, StudySnapshot, StudyReviewReceipt } from "@/types/study";
 import styles from "./StudyPanel.module.css";
 import { readRecommendationPreferences, writeRecommendationPreferences, type RecommendationReadingLevel } from "@/lib/recommendationPreferences";
@@ -254,11 +254,12 @@ export function StudyPanel({visible,onClose,onSource,notice,requestedTab="today"
   const queueProgress=useMemo(()=>planProgress((learningSnapshot?.cards??[]).filter(card=>!queuedIds.has(card.id)),snapshot?.today?.card_ids??[],new Date(tick+offset.current),snapshot?.today?.new_ids,snapshot?.settings,snapshot?.reviews),[snapshot,learningSnapshot,tick,queuedIds]);
   for(const ready of queueProgress.ready)if(!randomRanks.current.has(ready.id))randomRanks.current.set(ready.id,Math.random());
   const awaitingLocal=Boolean(snapshot?.offlinePermit&&reviews.pending.some(item=>learningSnapshot?.cards.find(c=>c.id===item.cardId)?.version===item.version));
-  const introduced=studyIntroducedToday(snapshot?.reviews??[],now);
+  const {introduced,reviewed,continued}=studyDayCardHistory(snapshot?.reviews??[],now);
   const plannedIds=new Set(snapshot?.today?.card_ids??[]);
-  const oldIds=(learningSnapshot?.cards??[]).filter(c=>plannedIds.has(c.id)&&c.memory.state!==0&&!introduced.has(c.id)).map(c=>c.id);
+  const oldIds=(learningSnapshot?.cards??[]).filter(c=>plannedIds.has(c.id)&&(reviewed.has(c.id)||(c.memory.state===2&&!introduced.has(c.id)&&!continued.has(c.id)))).map(c=>c.id);
   const oldProgress=planProgress(learningSnapshot?.cards??[],oldIds,now);
-  const reviewDone=oldProgress.total>0&&oldProgress.finished===oldProgress.total&&!pending;
+  const hasLearningSteps=progress.ready.some(c=>isStudyLearning(c.memory))||progress.waiting.some(c=>isStudyLearning(c.memory));
+  const reviewDone=oldProgress.total>0&&oldProgress.finished===oldProgress.total&&!pending&&!hasLearningSteps;
   const pinnedCard=learningSnapshot?.cards.find(c=>c.id===displayed.current&&!queuedIds.has(c.id)&&!c.suspended&&snapshot?.today?.card_ids.includes(c.id)&&studyReady(c.memory,now));
   const keepRevealedNew=Boolean(pinnedCard&&pinnedCard.memory.state===0&&intent);
   useEffect(()=>{if(reviewDone&&keepRevealedNew)setContinueNew(true);},[reviewDone,keepRevealedNew]);
@@ -361,7 +362,7 @@ export function StudyPanel({visible,onClose,onSource,notice,requestedTab="today"
   const fresh=learningSnapshot?.cards.filter(c=>c.memory.state===0).length??0;
   const completed=!pending&&progress.total>0&&progress.finished===progress.total;
   const budget=snapshot?studyReviewBudget(snapshot.settings,now):40;
-  const backlog=learningSnapshot?.cards.filter(c=>c.memory.state!==0&&!introduced.has(c.id)&&studyReady(c.memory,now)&&!oldIds.includes(c.id)).length??0;
+  const backlog=learningSnapshot?.cards.filter(c=>c.memory.state===2&&!introduced.has(c.id)&&!continued.has(c.id)&&studyReady(c.memory,now)&&!oldIds.includes(c.id)).length??0;
   useEffect(()=>setContinueNew(false),[currentDay,budget]);
   const addReviews=()=>run(async()=>{
     if(!snapshot)return;

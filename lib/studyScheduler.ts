@@ -77,22 +77,38 @@ export function studyReviewBudget(settings: StudySettings, now: Date) {
   const s=budgetSettings(settings);
   return s.reviewsPerDay+(s.reviewExtraDay===shanghaiDay(now)?s.reviewExtraCount??0:0);
 }
-export function studyIntroducedToday(reviews: StudyReview[], now: Date) {
-  return new Set(reviews.filter(r=>shanghaiDay(new Date(r.reviewed_at))===shanghaiDay(now)&&r.previous.state===State.New).map(r=>r.card_id));
+export function studyDayCardHistory(reviews: StudyReview[], now: Date) {
+  const day = shanghaiDay(now);
+  const introduced = new Set<string>();
+  const reviewed = new Set<string>();
+  const continued = new Set<string>();
+  for (const review of reviews) {
+    if (shanghaiDay(new Date(review.reviewed_at)) !== day) continue;
+    if (review.previous.state === State.New) introduced.add(review.card_id);
+    else if (review.previous.state === State.Review) reviewed.add(review.card_id);
+    else if (isStudyLearning(review.previous)) continued.add(review.card_id);
+  }
+  // Even an undone answer reserves the original old-word slot.
+  for (const id of introduced) reviewed.delete(id);
+  return { introduced, reviewed, continued };
 }
 export function buildStudyPlan(cards: StudyCard[], settings: StudySettings, now: Date, today?: StudyDay|null, reviews: StudyReview[]=[]): string[] {
   if (studyPaused(settings, now)) return [];
   const eligible = cards.filter(c => !c.suspended && (!c.anki_pending || settings.includeAnki));
-  const introduced=studyIntroducedToday(reviews,now), day=shanghaiDay(now), end=studyDayEnd(now).getTime();
-  // Even an undone answer reserves its word's slot; undo must not introduce a 41st word.
-  const touched=new Set(reviews.filter(r=>shanghaiDay(new Date(r.reviewed_at))===day&&!introduced.has(r.card_id)&&r.previous.state!==State.New).map(r=>r.card_id));
-  const byId=new Map(eligible.map(c=>[c.id,c]));
-  const selected=[...touched].sort();
-  const budget=studyReviewBudget(settings,now);
-  if(today?.day===day&&today.settings.reviewBudgetVersion===1){
-    for(const id of today.card_ids){const c=byId.get(id);if(selected.length<budget&&c&&c.memory.state!==State.New&&!introduced.has(id)&&!selected.includes(id))selected.push(id);}
+  const { introduced, reviewed, continued } = studyDayCardHistory(reviews, now);
+  const day = shanghaiDay(now), end = studyDayEnd(now).getTime();
+  const byId = new Map(eligible.map(c => [c.id, c]));
+  const selected = [...reviewed].sort();
+  const budget = studyReviewBudget(settings, now);
+  const isReviewCandidate = (card: StudyCard) => card.memory.state === State.Review
+    && !introduced.has(card.id) && !continued.has(card.id) && !selected.includes(card.id);
+  if (today?.day === day && today.settings.reviewBudgetVersion === 1) {
+    for (const id of today.card_ids) {
+      const card = byId.get(id);
+      if (selected.length < budget && card && isReviewCandidate(card)) selected.push(id);
+    }
   }
-  const due=eligible.filter(c=>c.memory.state!==State.New&&!introduced.has(c.id)&&!selected.includes(c.id)&&Date.parse(c.memory.due)<end);
+  const due = eligible.filter(c => isReviewCandidate(c) && Date.parse(c.memory.due) < end);
   const oldest=[...due].sort((a,b)=>Date.parse(a.memory.due)-Date.parse(b.memory.due)||a.id.localeCompare(b.id));
   const slots=Math.max(0,budget-selected.length);
   // Reserve one fifth for the longest-waiting words; the rest follows FSRS risk.
@@ -102,8 +118,10 @@ export function buildStudyPlan(cards: StudyCard[], settings: StudySettings, now:
   const risks=new Map(due.map(c=>[c.id,recallProbability(c.memory,now)??0]));
   const ranked=due.filter(c=>!fairIds.has(c.id)).sort((a,b)=>(risks.get(a.id)!-risks.get(b.id)!)||Date.parse(a.memory.due)-Date.parse(b.memory.due)||a.id.localeCompare(b.id));
   selected.push(...[...fair,...ranked].slice(0,slots).map(c=>c.id));
-  const fresh=eligible.filter(c=>c.memory.state===State.New||introduced.has(c.id)).sort((a,b)=>a.created_at.localeCompare(b.created_at)||a.id.localeCompare(b.id));
-  return [...selected.filter(id=>byId.has(id)),...fresh.map(c=>c.id)];
+  const other = eligible.filter(c => !reviewed.has(c.id)
+    && (c.memory.state === State.New || isStudyLearning(c.memory) || introduced.has(c.id) || continued.has(c.id)))
+    .sort((a, b) => a.created_at.localeCompare(b.created_at) || a.id.localeCompare(b.id));
+  return [...selected.filter(id => byId.has(id)), ...other.map(c => c.id)];
 }
 /** Long-term reviews use the Shanghai calendar day; short steps retain their clock. */
 export function studyReady(memory: StudyMemory, now: Date): boolean {
@@ -126,11 +144,11 @@ export function planProgress(cards: StudyCard[], ids: string[], now: Date, newId
   const finishedSet=new Set(finished);
   void newIds; // Kept for compatible callers; current state identifies untouched words.
   const history=reviews.filter(r=>!r.undone&&shanghaiDay(new Date(r.reviewed_at))===shanghaiDay(now));
-  const introduced=new Set(history.filter(r=>r.previous.state===State.New).map(r=>r.card_id));
+  const { introduced, reviewed } = studyDayCardHistory(history, now);
   const lastNew=Math.max(0,...history.filter(r=>r.previous.state===State.New).map(r=>Date.parse(r.reviewed_at)));
   // Only distinct old words finished for today count. Today's introduced words
   // never fund another new word, including when their learning steps return.
-  const passed=new Set(history.filter(r=>!introduced.has(r.card_id)&&Date.parse(r.reviewed_at)>lastNew&&r.previous.state!==State.New&&r.next.state===State.Review&&Date.parse(r.next.due)>=end&&finished.some(c=>c.id===r.card_id)).map(r=>r.card_id)).size;
+  const passed=new Set(history.filter(r=>reviewed.has(r.card_id)&&Date.parse(r.reviewed_at)>lastNew&&r.previous.state!==State.New&&r.next.state===State.Review&&Date.parse(r.next.due)>=end&&finished.some(c=>c.id===r.card_id)).map(r=>r.card_id)).size;
   const reviewRemaining=selected.some(c=>c.memory.state!==State.New&&!introduced.has(c.id)&&!finishedSet.has(c)&&Date.parse(c.memory.due)<end);
   const mixed=settings.learningOrder==="mixed";
   const newTurn=mixed&&passed>=(settings.reviewsPerNew??5);

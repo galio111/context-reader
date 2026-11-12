@@ -163,22 +163,22 @@ test("Study advances immediately, keeps a new answer visible across another tab'
     await waitFor(()=>assert.equal(ui.getByRole("button",{name:"答对了"}).hasAttribute("disabled"),false));
     fireEvent.click(ui.getByRole("button",{name:"答对了"}));
     await waitFor(()=>assert.equal(active(),"待复习 1"));
-    await waitFor(()=>assert.ok(ui.getByText("正在背").textContent?.includes("0")));
+    await waitFor(()=>assert.equal(ui.getByText("正在背").textContent,"正在背 1"));
     assert.ok(ui.getByText("今日新学").textContent?.includes("0"));
     fireEvent.click(ui.getByRole("button",{name:/^3\s*记得$/}));
     await waitFor(()=>assert.equal(ui.getByRole("button",{name:"答对了"}).hasAttribute("disabled"),false));
     fireEvent.click(ui.getByRole("button",{name:"答对了"}));
     await waitFor(()=>assert.equal(active(),"今日新学 0"));
     assert.ok(ui.getByText("待复习").textContent?.includes("0"));
-    // Merely presenting the untouched new word cannot add it to ongoing learning.
-    assert.equal(ui.getByText("正在背").textContent,"正在背 0");
+    // The unfinished relearning step remains counted; presenting a new word adds nothing.
+    assert.equal(ui.getByText("正在背").textContent,"正在背 1");
     assert.equal(base.cards[2].memory.state,0);
     assert.equal(receiptWrites,2);
     fireEvent.click(ui.getByRole("button",{name:/^3\s*记得$/}));
     await waitFor(()=>assert.equal(ui.getByRole("button",{name:"答对了"}).hasAttribute("disabled"),false));
     fireEvent.click(ui.getByRole("button",{name:"答对了"}));
     await waitFor(()=>assert.ok(ui.getByText("今日新学").textContent?.includes("1")));
-    assert.equal(ui.getByText("正在背").textContent,"正在背 0");
+    assert.equal(ui.getByText("正在背").textContent,"正在背 2");
     assert.equal(readStudyReviews(localStorage,owner).length,0);assert.equal(receiptWrites,3);
     ui.unmount();localStorage.clear();
     // A learning step becomes due after the next review is already on screen.

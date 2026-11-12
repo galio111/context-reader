@@ -64,9 +64,10 @@ export async function POST(request: Request) {
     if (op === "start" || op === "local_refresh") {
       const entries=await reconcileStudyCards(userId);
       const seed=await getStudySnapshot(userId,{entries});
-      if (!studyPaused(seed.settings,new Date())) {
-        const ids=buildStudyPlan(seed.cards,seed.settings,new Date(),seed.today,seed.reviews);
-        await studyRpc("start_day_budget_v5",{p_user:userId,p_ids:ids,p_settings:seed.settings});
+      const now = new Date(seed.serverNow);
+      if (!studyPaused(seed.settings, now)) {
+        const ids=buildStudyPlan(seed.cards,seed.settings,now,seed.today,seed.reviews);
+        await studyRpc("start_day_budget_v6",{p_user:userId,p_ids:ids,p_settings:seed.settings,p_at:seed.serverNow});
       }
       // Background local refreshes retain the fifteen-minute undo window.
       // Explicit completion/claims remain server-only operations.

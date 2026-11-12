@@ -18,7 +18,7 @@ test("121 due inventory remains intact while the daily plan is capped",()=>{
  const forecast=studyForecast(cards,now,true,200,0,null,ids);
  assert.equal(forecast[0].count,121);assert.equal(forecast[1].count,0);
  const view=localStudyDay({...snapshot(cards),today:{...snapshot(cards).today!,card_ids:ids}},now);
- const counts=remainingStudyCounts(cards,view.today!.card_ids,now);assert.equal(counts.review+counts.learning,40);
+ const counts=remainingStudyCounts(cards,view.today!.card_ids,now);assert.deepEqual(counts,{review:40,learning:6});
 });
 test("default order, validation, mixed threshold, due collisions and new-card exclusion",()=>{
  assert.equal(sanitizeStudySettings({}).learningOrder,"review_first");assert.equal(sanitizeStudySettings({}).reviewsPerNew,5);

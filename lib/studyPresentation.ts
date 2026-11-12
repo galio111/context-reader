@@ -26,7 +26,7 @@ export function remainingStudyCounts(cards: StudyCard[], ids: string[], now: Dat
   const planned = new Set(ids), end = studyDayEnd(now).getTime();
   const active = cards.filter(card => planned.has(card.id) && !card.suspended);
   return {
-    learning: active.filter(card => isStudyLearning(card.memory)&&Date.parse(card.memory.due)<end).length,
+    learning: active.filter(card => isStudyLearning(card.memory)).length,
     review: active.filter(card => card.memory.state === 2 && Date.parse(card.memory.due) < end).length,
   };
 }

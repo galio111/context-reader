@@ -27,7 +27,7 @@ export async function saveStudyLocalEvent(owner:string,input:unknown){
   const outcome=await studyRpc<Record<string,boolean>>("local_event_day_v4",{p_user:owner,p_event:event,p_version:card?.version??0,p_memory:memory,p_settings:next,p_ids:planned,p_algorithm:STUDY_ALGORITHM});
   if(outcome.retry)continue;
   if(!next.pausedUntil||Date.parse(next.pausedUntil)<=Date.parse(event.at))
-   await studyRpc("start_day_budget_v5",{p_user:owner,p_ids:planned,p_settings:next,p_at:event.at});
+   await studyRpc("start_day_budget_v6",{p_user:owner,p_ids:planned,p_settings:next,p_at:event.at});
   if(outcome.blocked)throw new Error("Offline card not eligible");
   const reviewId=event.kind==="review"?event.id:event.kind==="undo"?event.reviewId:null;
   const reviews=reviewId?await accountFetch<StudyReview[]>("study_reviews?user_id=eq."+owner+"&id=eq."+reviewId+"&select=id,card_id,answer,rating,reviewed_at,active_ms,undone,previous,next&limit=1"):[];

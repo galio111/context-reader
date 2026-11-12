@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {buildStudyPlan,DEFAULT_STUDY_SETTINGS,newMemory,shanghaiDay,studyReviewBudget,budgetSettings} from '../lib/studyScheduler';
+import {buildStudyPlan,DEFAULT_STUDY_SETTINGS,newMemory,planProgress,shanghaiDay,studyReviewBudget,budgetSettings} from '../lib/studyScheduler';
 import {localStudyDay,projectStudyRecord} from '../lib/studyOffline';
 import type {StudyCard,StudyDay,StudyReview,StudySnapshot} from '../types/study';
 const now=new Date('2026-10-27T08:00:00Z');
@@ -24,11 +24,29 @@ test('legacy unlimited plans are narrowed, completed and undone answers keep the
  const ids=buildStudyPlan(cards,settings,now,{...plan(cards.map(c=>c.id)),settings:{...settings,reviewBudgetVersion:undefined}},history);
  assert.equal(ids.filter(id=>Number(id)<310).length,40);for(const r of history)assert.ok(ids.includes(r.card_id));
 });
-test('learning from prior days costs a slot, today introductions and their retries do not',()=>{
- const c=cards[0],fresh=cards[310];const introduced={...review(fresh),previous:{...fresh.memory,state:0},next:{...fresh.memory,state:1}};
- const list=[{...c,memory:{...c.memory,state:1}},...cards.slice(1,310),{...fresh,memory:introduced.next}];
- const ids=buildStudyPlan(list,{...settings,reviewsPerDay:1},now,null,[introduced]);
- assert.equal(ids.length,2);assert.ok(ids.includes(fresh.id));
+test('Shanghai midnight carries both short-step states beside all 40 new old-review slots',()=>{
+ const midnight=new Date('2026-10-27T16:00:00Z');
+ const before=new Date(midnight.getTime()-60000);
+ const learning={...cards[310],memory:{...cards[310].memory,state:1,last_review:before.toISOString(),due:'2026-10-27T16:04:00Z'}};
+ const relearning={...cards[309],memory:{...cards[309].memory,state:3,last_review:before.toISOString(),due:'2026-10-27T15:59:30Z'}};
+ const list=[...cards.slice(0,309),relearning,learning,cards[311]];
+ const prior={...plan([learning.id,relearning.id]),day:shanghaiDay(before)};
+ const seed={settings,cards:list,reviews:[],today:prior,serverNow:before.toISOString(),daily:[]} as unknown as StudySnapshot;
+ const view=localStudyDay(seed,midnight);
+ assert.equal(view.today!.card_ids.filter(id=>Number(id)<309).length,40);
+ assert.ok(view.today!.card_ids.includes(learning.id));
+ assert.ok(view.today!.card_ids.includes(relearning.id));
+ assert.ok(view.today!.new_ids.includes(learning.id));
+ assert.ok(!view.today!.new_ids.includes(relearning.id));
+ assert.equal(planProgress(list,view.today!.card_ids,midnight).ready[0].id,relearning.id);
+ assert.ok(planProgress(list,view.today!.card_ids,midnight).waiting.some(c=>c.id===learning.id));
+ assert.deepEqual(view.cards,list);
+ const completed={...review(learning),reviewed_at:'2026-10-27T16:04:00Z',
+  next:{...learning.memory,state:2,last_review:'2026-10-27T16:04:00Z',due:'2026-11-01T00:00:00Z'}};
+ const resumed=list.map(c=>c.id===learning.id?{...c,memory:completed.next}:c);
+ const repaired=buildStudyPlan(resumed,settings,new Date(completed.reviewed_at),view.today,[completed]);
+ assert.equal(repaired.filter(id=>Number(id)<309).length,40);
+ assert.ok(repaired.includes(learning.id),"completed carried steps remain in today's record");
 });
 test('risk priority and oldest-waiting reserve coexist, deterministic across clients',()=>{
  const list=cards.slice(0,20).map((c,i)=>({...c,memory:{...c.memory,stability:i===19?.1:100,due:i===0?'2026-09-01T00:00:00Z':c.memory.due}}));

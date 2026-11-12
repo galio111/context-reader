@@ -112,7 +112,7 @@ export async function getStudySnapshot(userId: string, prepared?: { entries: Voc
   if (today[0] && !studyPaused(settings,now)) {
     const planned=buildStudyPlan(visible,settings,now,today[0],reviews);
     if (JSON.stringify(planned)!==JSON.stringify(today[0].card_ids)||JSON.stringify(today[0].settings)!==JSON.stringify({...today[0].settings,...settings}))
-      today[0]=await studyRpc<StudyDay>("start_day_budget_v5",{p_user:userId,p_ids:planned,p_settings:settings});
+      today[0]=await studyRpc<StudyDay>("start_day_budget_v6",{p_user:userId,p_ids:planned,p_settings:settings,p_at:now.toISOString()});
   }
   return { offlinePermit:issueStudyOfflinePermit(userId), serverNow: now.toISOString(), settings, cards: visible, ankiPendingCount:active.filter(c=>c.anki_pending).length,
     // Full dictionaries remain in synced vocabulary/cache objects. Read one saved
