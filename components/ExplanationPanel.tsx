@@ -21,6 +21,7 @@ interface ExplanationPanelProps {
   loading: boolean;
   error: string;
   isInVocabulary: boolean;
+  savingToVocabulary?: boolean;
   vocabularyMatchNotice?: string;
   showLearningActions?: boolean;
   onAddToVocabulary: () => void;
@@ -71,6 +72,7 @@ export function ExplanationPanel({
   loading,
   error,
   isInVocabulary,
+  savingToVocabulary = false,
   vocabularyMatchNotice = "",
   showLearningActions = true,
   onAddToVocabulary,
@@ -256,9 +258,9 @@ export function ExplanationPanel({
                   type="button"
                   className="h-10 min-w-[112px] shrink-0 whitespace-nowrap rounded-full bg-[#0066cc] px-4 text-sm tracking-[-0.224px] text-white transition active:scale-95 disabled:bg-[#d2d2d7]"
                   onClick={onAddToVocabulary}
-                  disabled={isInVocabulary}
+                  disabled={isInVocabulary || savingToVocabulary}
                 >
-                  {isInVocabulary ? "已加入生词本" : "加入生词本"}
+                  {savingToVocabulary ? "正在保存…" : isInVocabulary ? "已加入生词本" : "加入生词本"}
                 </button>
                 <button
                   type="button"
@@ -406,9 +408,9 @@ export function ExplanationPanel({
               type="button"
               className="h-10 min-w-[112px] shrink-0 whitespace-nowrap rounded-full bg-[#0066cc] px-4 text-sm tracking-[-0.224px] text-white transition active:scale-95 disabled:bg-[#d2d2d7]"
               onClick={onAddToVocabulary}
-              disabled={isInVocabulary}
+              disabled={isInVocabulary || savingToVocabulary}
             >
-              {isInVocabulary ? "已加入生词本" : "加入生词本"}
+              {savingToVocabulary ? "正在保存…" : isInVocabulary ? "已加入生词本" : "加入生词本"}
             </button>
             <button
               type="button"

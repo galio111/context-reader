@@ -1,5 +1,7 @@
 # Context Reader Architecture
 
+Chrome 扩展（2026-11-14）：下载/目标账号设置位于 `/browser-extension`。扩展用独立可撤销凭证和服务端请求身份复用现有模型、用量与生词 CAS，打包复用解释面板；不共享网站会话密钥，也不改变网站当前账号。结构、权限与验证边界见 [Chrome 网页划词助手](browser-extension.md)。
+
 PDF question changes (accepted production 20261106T125200): automatic public-concept lookup via Wikipedia / PubChem / Europe PMC, independent-knowledge-first prompting, and append-per-turn browser IndexedDB history partitioned by account and document. Source PDFs, translation caches and cloud-sync protocol remain intact. Device-sync implementation pending deployment: per-turn preferences objects reuse protocol-2/CAS and retain the existing owner-scoped history store; old local rows backfill and open panels react to cloud merges. See [document questions](document-context-and-questions.md).
 
 ## 多账号切换（2026-10-26）

@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import extensionIdentity from "@/chrome-extension/identity.json";
 import { ipAddress } from "@vercel/functions/headers";
 import { staticAssetParts } from "./staticEncoding";
 import { MAX_DOCUMENT_BYTES } from "./documentSource";
@@ -34,6 +35,8 @@ const MINUTE = 60_000;
 const DAY = 24 * 60 * MINUTE;
 
 const COSTLY_ROUTE_RULES: Array<[RegExp, RateRule[]]> = [
+  [/^\/api\/extension\/execute\/(?:explain|stream|dictionary|ask)$/, [{ bucket: "extension-ai", limit: 40, windowMs: MINUTE }]],
+  [/^\/api\/extension\/execute\/pronunciation$/, [{ bucket: "pronunciation", limit: 120, windowMs: MINUTE }]],
   [/^\/api\/documents$/, [{ bucket: "document-import", limit: 10, windowMs: 10 * MINUTE }]],
   [/^\/api\/study\/profile$/, [{ bucket: "study-profile", limit: 4, windowMs: MINUTE }]],
   [/^\/api\/study\/reading$/, [{ bucket: "study-reading", limit: 20, windowMs: MINUTE }]],
@@ -197,7 +200,9 @@ export function protectApiRequest(request: Request): NextResponse | null {
 
   if (request.method !== "GET" && request.method !== "HEAD" && request.method !== "OPTIONS") {
     const fetchSite = request.headers.get("sec-fetch-site");
-    if (fetchSite === "cross-site") {
+    const extensionExecution = /^\/api\/extension\/execute\/[a-z]+$/.test(pathname)
+      && request.headers.get("origin") === `chrome-extension://${extensionIdentity.id}`;
+    if (fetchSite === "cross-site" && !extensionExecution) {
       return jsonError("不允许跨站请求。", 403);
     }
 

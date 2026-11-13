@@ -1,5 +1,9 @@
 # Context Reader GPT 项目上下文包
 
+## Chrome 网页划词扩展（2026-11-14）
+
+新增 `/browser-extension` 下载与账号连接页面，Menu 有“浏览器扩展”。支持 Chrome 网页选词后快捷键/右键查询，可选自动划词；浮窗可移动、缩放并调背景不透明度和颜色。语境模式打包复用真实 `ExplanationPanel`、流式/结构化接口与云端发音；取不到完整句时降级词典。保存目标由网站现有有效登录明确选择，独立于网站当前账号，后续切号不自动改变扩展归属。随机连接凭证只在扩展 trusted storage，服务端仅存摘要并允许撤销，保存复用账号对象/CAS。浏览器交互已有合成响应测试；真实线上与 Mac 验收边界以 `docs/browser-extension.md` 为准。下载 ZIP 需手动加载，尚未上架商店，不能承诺网页静默安装。图片/OCR 与内置 PDF 不支持。
+
 ## 导入文档翻译与科研追问（2026-11-06）
 
 Imported-document lookup uses the actual selected sentence; body translation retains unlabelled abstracts, and exact source-keyed caches remain authoritative. PDF questions now explain independent knowledge first, then paper evidence. Automatic concept lookup retrieves Wikipedia/PubChem/Europe PMC references; chemical Color/Form values are supported. Completed turns and sources persist per account/document in browser IndexedDB across selection changes and reopen, with per-turn protocol-2 cloud synchronization, offline backfill and owner isolation (device-sync deployment pending). The model receives four recent turns as actual conversation messages, with the current question last. Accepted `20261106T125200`, parent `20261106T123100`, source `b1c2ae0e5e6935f66ac7fd8a8094581e228ab701`. Two live questions, history/panel/conversation tests, builds and operational checks passed; physical-browser interaction verification remains incomplete. See [document behavior and limits](document-context-and-questions.md).

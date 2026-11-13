@@ -1,5 +1,7 @@
 # Context Reader
 
+Chrome 网页划词助手：在网站 Menu 选择“浏览器扩展”，或打开 `/browser-extension`，下载扩展并设置生词保存账号。支持可调大小、背景透明度和颜色的语境解释浮窗。安装与开发说明见 [Chrome 扩展说明](docs/browser-extension.md)。
+
 
 ## 站内背单词（已生产，2026-10-06）
 

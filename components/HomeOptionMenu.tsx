@@ -106,7 +106,7 @@ export interface HomeMenuVocabularyTools {
 
 export type PreviewKind = "guide" | "vocabulary" | "saved" | "account" | "invite" | "feedback" | "settings";
 export type GuideSection = "study" | "updates";
-type MenuAction = "import" | "dictionary" | "study";
+type MenuAction = "import" | "dictionary" | "study" | "browser-extension";
 interface MenuItem {
   label: string;
   preview?: PreviewKind;
@@ -120,6 +120,7 @@ const MAX_FEEDBACK_IMAGES = 3;
 const MAX_FEEDBACK_IMAGE_BYTES = 5 * 1024 * 1024;
 
 const menuItems: MenuItem[] = [
+  { label: "浏览器扩展", action: "browser-extension" },
   { label: "背单词", action: "study" },
   { label: "账号与用量", preview: "account" },
   { label: "兑换邀请码", preview: "invite" },
@@ -479,6 +480,7 @@ export function HomeOptionMenu({
       window.setTimeout(() => {
         if (item.action !== "study") window.dispatchEvent(new Event("context-reader-leave-study"));
         if (item.action === "import") onOpenImport?.();
+        else if (item.action === "browser-extension") navigate("/browser-extension");
         else if (item.action === "study") openStudy();
         else onOpenDictionary?.();
       }, 380);

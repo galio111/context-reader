@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "build:extension": "node scripts/build-chrome-extension.mjs",
+    "test:extension": "node --import ./scripts/test-server-context.mjs --import tsx --test tests/browser-extension.test.ts",
     "dev": "next dev",
     "test:critical": "node --import ./scripts/test-server-context.mjs --import tsx --test tests/critical-regressions.test.ts",
     "test:release-safety": "node scripts/test-release-safety.mjs",
@@ -62,6 +64,7 @@
     "@types/react-dom": "19.0.4",
     "@types/three": "^0.185.1",
     "autoprefixer": "10.4.21",
+    "esbuild": "0.28.2",
     "eslint": "9.27.0",
     "eslint-config-next": "15.5.23",
     "fake-indexeddb": "^6.2.5",

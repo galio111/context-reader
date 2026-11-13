@@ -19,6 +19,8 @@ The public beta uses an unverified mainland-China phone identifier, nickname and
 
 ## Commands And Release
 
+Chrome 扩展相关改动还要运行 `npm.cmd run build:extension`（更新网站下载 ZIP）和 `npm.cmd run test:extension`。扩展入口为 `/browser-extension`，保存目标由网站已验证登录选择，不能把网站切号自动应用到扩展。保留稳定的 `chrome-extension/identity.json` 公钥身份、按连接隔离的缓存/请求、封闭 Shadow DOM 与随机 nonce 的 iframe 授权。不要将 Supabase 会话或服务密钥放入扩展。首次发布须应用 `ops/mainland/extension-connections.sql`；详细边界见 `docs/browser-extension.md`。
+
 ```powershell
 npm install
 npm run dev

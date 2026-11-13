@@ -2,6 +2,7 @@ import { rememberSession, rememberSavedSession, forgetSavedRefreshToken, savedSe
 import { createClient, type Session, type User } from "@supabase/supabase-js";
 import { randomInt } from "node:crypto";
 import { cookies } from "next/headers";
+import { extensionRequestUser } from "@/lib/extensionIdentity";
 import { getLocalDeveloperUser, isLocalDeveloperEnvironment } from "@/lib/localDeveloper";
 import {
   accountPasswordRequirement,
@@ -276,6 +277,8 @@ export async function readTokens(): Promise<{ accessToken: string; refreshToken:
 }
 
 export async function getAuthenticatedUser(): Promise<User | null> {
+  const extensionUser = extensionRequestUser();
+  if (extensionUser) return extensionUser;
   const localDeveloper = await getLocalDeveloperUser();
   if (localDeveloper) return localDeveloper;
 
@@ -302,6 +305,27 @@ export async function getAuthenticatedUser(): Promise<User | null> {
 
   await rememberSession(data.session);
   if (!(await cookies()).get(ACTIVE_ACCOUNT_COOKIE)?.value) await writeSessionCookies(data.session);
+  return data.user;
+}
+
+export async function getExtensionAccountUser(id: string): Promise<User | null> {
+  const { data, error } = await authClient().auth.admin.getUserById(id);
+  return error ? null : data.user;
+}
+
+// Authorize a save target using an existing, verified browser login without
+// switching the website's active account or exporting its session credentials.
+export async function getAuthenticatedExtensionTarget(id?: string): Promise<User | null> {
+  const current = await getAuthenticatedUser();
+  if (!id || current?.id === id) return current;
+  const slot = (await savedSessionSlots()).find(s => s.session?.userId === id)?.session;
+  if (!slot) return null;
+  const client = authClient();
+  const { data, error } = slot.accessToken
+    ? await client.auth.setSession({ access_token: slot.accessToken, refresh_token: slot.refreshToken })
+    : await client.auth.refreshSession({ refresh_token: slot.refreshToken });
+  if (error || !data.session || data.user?.id !== id) return null;
+  await rememberSavedSession(data.user, data.session.refresh_token, data.session.access_token);
   return data.user;
 }
 
