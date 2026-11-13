@@ -139,6 +139,6 @@ After each completed and validated change, automatically commit and push its rev
 - `docs/account-usage-plan.md` and its SQL: account gating, quotas and sync.
 - `docs/mainland-deployment-and-migration-plan.md`: production topology, migration, backup and rollback.
 
-When behavior changes, update final-state documents in place instead of appending history to them. Put chronology only in `docs/product-journey.md`. Always distinguish shipped behavior, accepted-but-pending direction and rejected/superseded ideas.
+After every completed task, update the affected fix records, current status and validation limits, and append a concise durable memory note under the configured memory extension directory. Never claim local or candidate work is deployed. When behavior changes, update final-state documents in place instead of appending history to them. Put chronology only in `docs/product-journey.md`. Always distinguish shipped behavior, accepted-but-pending direction and rejected/superseded ideas.
 
 For homepage redesign continuity, update the current decision register, interview archive, implementation contract, GPT brief and product journey in the same discussion round. Historical text is evidence, not authority; never recover an older decision merely because keyword search finds it first.

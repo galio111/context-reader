@@ -1,5 +1,6 @@
 import { tokenizeArticle } from "@/lib/tokenizer";
 import { documentReadingContent, type DocumentTranslationScope } from "@/lib/documentReadingContent";
+import { documentTranslationBlocks } from "@/lib/documentTranslationBlocks";
 import type { ImportedArticle } from "@/types/article";
 import type { ArticleTranslationBlock, ReaderToken } from "@/types/reader";
 
@@ -16,7 +17,7 @@ export function createArticleTranslationBlocks(article: string, importedArticle?
     const reading = importedArticle.document ? documentReadingContent(importedArticle.blocks) : null;
     const selectedIds = reading && scope === "context" ? new Set([...reading.body, ...reading.captions].map(block => block.id)) : null;
     const blocks = reading ? scope === "context" ? importedArticle.blocks.filter(block => selectedIds!.has(block.id)) : reading[scope] : importedArticle.blocks;
-    return blocks
+    const targets = blocks
       .filter((block) => block.type !== "image" && isTranslationBlockType(block.type))
       .map((block) => ({
         id: block.id,
@@ -24,6 +25,7 @@ export function createArticleTranslationBlocks(article: string, importedArticle?
         text: block.text ?? "",
       }))
       .filter((block) => block.text.length > 0);
+    return importedArticle.document?.format === "pdf" ? documentTranslationBlocks(targets) : targets;
   }
 
   return tokenizeArticle(article)

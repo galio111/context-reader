@@ -12,6 +12,30 @@ const BLOCK = "context-reader:article-translation-blocks:v1";
 const one: ArticleTranslationBlock = { id: "audit-one", type: "paragraph", text: "Careful readers preserve context." };
 const two: ArticleTranslationBlock = { id: "audit-two", type: "paragraph", text: "A later paragraph adds detail." };
 const translation = (block: ArticleTranslationBlock, text: string): ArticleTranslationItem & Pick<ArticleTranslationBlock, "type"> => ({ id: block.id, type: block.type, translation: text });
+
+test("PDF jobs batch targets while persisting each streamed result and retaining one usage action", async () => browserFixture(async () => {
+  await initializeLearningStorage();
+  const blocks: ArticleTranslationBlock[] = Array.from({ length: 25 }, (_, i) => ({ id: `doc-p5-b${i}`, type: "paragraph", text: `Complete source sentence number ${i}.` }));
+  const batches: string[][] = [];
+  const settlements: string[] = [];
+  let starts = 0;
+  globalThis.fetch = async (input, init) => {
+    const path = String(input), body = JSON.parse(String(init?.body));
+    if (path.endsWith("/start")) { starts++; return Response.json({ actionId: "pdf-batch-action", source: "generated" }); }
+    if (path.endsWith("/finish")) { settlements.push(body.status); return Response.json({ ok: true }); }
+    const targets = body.blocks as ArticleTranslationBlock[];
+    batches.push(targets.map(b => b.id));
+    return new Response(targets.map(b => JSON.stringify({ type: "translation", translation: translation(b, "完整译文。") })).join("\n") + "\n");
+  };
+  const key = "pdf-batches-" + crypto.randomUUID();
+  await startArticleTranslationJob(key, blocks, { allBlocks: blocks });
+  assert.deepEqual(batches.map(b => b.length), [10, 10, 5]);
+  assert.deepEqual(batches.flat(), blocks.map(b => b.id));
+  assert.equal(starts, 1);
+  assert.deepEqual(settlements, ["succeeded"]);
+  assert.equal(getArticleTranslationJobSnapshot(key)?.completedTargetBlocks, 25);
+  assert.equal(getCachedArticleTranslationForBlocks(blocks).length, 25);
+}));
 async function browserFixture(run: (dom: JSDOM, factory: IDBFactory) => Promise<void>) {
   const dom = new JSDOM("", { url: "https://context-reader.com" });
   const original = new Map(["window", "document", "CustomEvent"].map(key => [key, Object.getOwnPropertyDescriptor(globalThis, key)]));

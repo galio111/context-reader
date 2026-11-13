@@ -97,7 +97,7 @@ export function ArticleTranslationPanel({
       )}
 
       {hasTranslations && (
-        <div className="space-y-5 py-5">
+        <div className={documentScope ? "space-y-3 py-5" : "space-y-5 py-5"}>
           {loading && <div className="cr-translation-status rounded-[14px] bg-[#f5f5f7] px-3 py-2 text-xs leading-5 tracking-[-0.12px] text-[#333333]"><LoadingStatus>{retryText ?? activeProgressText}</LoadingStatus></div>}
           {!loading && !error && hasIncompleteTranslations && (
             <div className="cr-translation-status flex items-center justify-between gap-3 rounded-[14px] bg-[#f5f5f7] px-3 py-2 text-xs leading-5 tracking-[-0.12px] text-[#333333]">
