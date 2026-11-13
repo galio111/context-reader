@@ -29,7 +29,7 @@ try {
   const page = await ctx.newPage(); page.on("pageerror", e => errors.push(e.message));
   await ctx.route("https://reading.example.test/**", route => route.fulfill({ contentType: "text/html", body: '<!doctype html><html><head><title>Extension acceptance fixture</title><style>body{font:22px/2 Georgia;margin:100px;background:#eef2f5}p{max-width:700px}</style></head><body><h1>A river walk</h1><p>The bank is closed. We reached the river <b id="word">bank</b> before sunset. The water was cold.</p></body></html>' }));
   await page.goto("https://reading.example.test/article"); await page.waitForTimeout(500);
-  await page.evaluate(() => { const range = document.createRange(); range.selectNodeContents(document.getElementById("word")); const s = document.getSelection(); s.removeAllRanges(); s.addRange(range); });
+  await page.locator("#word").dblclick();
   await page.bringToFront(); await worker.evaluate(async () => { const [tab] = await chrome.tabs.query({ active: true, currentWindow: true }); await chrome.tabs.sendMessage(tab.id, { type: "lookup-selection" }); });
   await page.waitForTimeout(500); const panel = page.frames().find(f => f.url().startsWith(`chrome-extension://${identity.id}/panel.html`)); assert.ok(panel);
   await panel.getByRole("button", { name: "加入生词本", exact: true }).waitFor({ timeout: 120000 });
