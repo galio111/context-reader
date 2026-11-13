@@ -1,6 +1,6 @@
 # PDF translation batches and sentence layout
 
-Status: candidate, based on accepted production 20261112T121900 / source 69d399c3324a650b4827c6e366bb733e3410f0b0. Not deployed yet.
+Status: accepted production **20261114T000312**, parent **20261112T121900**, source **9ce4be095085b83915ca67a578fb3bd31c44ec1a**. Public `/api/connectivity` and the stable server release state agree. Later documentation-only commits do not change the deployed source identity.
 
 The November 13 report exposed two independent causes: document jobs bypassed the existing article batcher and submitted exactly one target per request; a double-spaced manuscript exceeded the source extractor's line-continuation spacing and retained each line as a paragraph. The November 11 native PDF sentence-selection fix did not introduce this policy. The single-target document rule was recorded in the October 28 cost repair.
 
@@ -10,4 +10,8 @@ Private 42-page manuscript: 765 old body targets become 178 targets in 18 reques
 
 At the user's request the exact active galioo job was cancelled through the existing refund RPC; server status is cancelled and the provider execution count stabilized at 414. Already-dispatched work may complete once; subsequent requests reject the closed action. No old caches were deleted.
 
-Validation: 52 focused document, selection, batching, cache, timeout and ownership regressions pass, including actual PDF-job batching (10/10/5 targets with one usage action). Critical regressions, protected release contracts, release safety and production build pass. Admin publishing and public cache replay use the same target compiler. Production candidate: 20261114T000312; public acceptance and complete regeneration remain pending.
+Validation: 52 focused document, selection, batching, cache, timeout and ownership regressions pass, including actual PDF-job batching (10/10/5 targets with one usage action). Critical regressions, protected release contracts, release safety and production build pass. Admin publishing and public cache replay use the same target compiler. The public release identity is accepted. The real account regeneration completed all 178 targets across 18 batches, with three missing-only retries (21 upstream executions total, 28,694 input / 13,865 output tokens). The initial ten generated targets were retained through a sync CAS conflict and were not sent to AI again; the interrupted action settled failed/refunded through existing semantics, and the resumed action settled succeeded. A separate protocol-2 read matched all 178 exact block-cache payloads and the 178-item aggregate. No original, article source, selection or old cache was rewritten or deleted.
+
+Production checks: homepage/public recommendations/session/protocol-2 reads return 200; anonymous Admin returns 401; the healthcheck passes. Five persistent backend container IDs are unchanged. Latest daily backup SHA and isolated 40-table restore pass; accepted current/parent images remain available. Actual rollback was not performed. The first public recommendation API probe timed out; its independent retry returned 200.
+
+Visual self-review: the actual compiled translation panel was rendered in headless Edge at 480 px with real regenerated Chinese, showing continuous sentences and 12 px section spacing. This verifies the component layout; a complete signed-in browser reopen, physical-phone behavior and final user visual acceptance were not performed in this session. Cached results have been independently read from the public account-sync API.
