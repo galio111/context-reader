@@ -38,4 +38,3 @@ test("new document lookups scroll below expanded questions immediately, without 
     assert.ok(passage.getByText("正在翻译…"));
   } finally { cleanup();require.extensions[".css"]=oldCss;dom.window.close(); }
 });
-
