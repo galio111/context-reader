@@ -32,5 +32,5 @@ export function useDocumentZoomAnchor(root:RefObject<HTMLDivElement|null>,scroll
  }
  // Keep the hook tied to document identity without resetting between zoom clicks.
  useEffect(()=>()=>stop.current?.(),[revision]);
- return capture;
+ return Object.assign(capture,{cancel:()=>stop.current?.()});
 }

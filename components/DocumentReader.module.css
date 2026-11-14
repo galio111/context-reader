@@ -40,3 +40,21 @@
 :global(html[data-context-theme="night"]) .penHint { color:#b3c4c9; }
 
 :global(html[data-context-theme="night"]) .toolbar .penButton > span { color:inherit!important; }
+
+.pageNavigation { gap:6px!important; }
+.pageNavigation form { display:flex; align-items:center; gap:6px; }
+.pageNavigation input { width:44px; height:32px; padding:0 4px; border:1px solid #888; border-radius:6px; text-align:center; background:#fff; color:#27272a; }
+.pageDirectory { position:fixed; z-index:32; width:256px; max-width:calc(100vw - 16px); max-height:min(60vh,420px); overflow:auto; padding:12px; border:1px solid #888; border-radius:10px; background:#fff; color:#27272a; font:13px/1.5 system-ui; }
+.directoryHeading { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+.directoryHeading button { min-width:32px; min-height:32px; }
+.pageDirectory p { margin:6px 0 10px; color:#555; }
+.directoryPages { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px; }
+.directoryPages button { min-height:36px; border:1px solid #888; border-radius:6px; }
+.directoryPages button:hover,.directoryPages button[aria-current] { background:#e8edf2; color:#17212b; }
+.pageDirectory button:focus-visible,.pageNavigation input:focus-visible { outline:1px solid currentColor; outline-offset:2px; }
+:global(html[data-context-theme="night"]) .pageDirectory { background:#17272e; color:#e8f1f3; border-color:#91a7af; }
+:global(html[data-context-theme="night"]) .pageDirectory p { color:#b3c4c9; }
+:global(html[data-context-theme="night"]) .directoryPages button { border-color:#91a7af; }
+:global(html[data-context-theme="night"]) .directoryPages button:hover,:global(html[data-context-theme="night"]) .directoryPages button[aria-current] { background:#29454f; color:#e8f1f3; }
+:global(html[data-context-theme="night"]) .pageNavigation input { background:#102229; color:#e8f1f3; border-color:#91a7af; }
+@media(pointer:coarse) { .pageNavigation input,.pageDirectory button { min-height:44px; } .directoryHeading button { min-width:44px; } }
