@@ -52,6 +52,11 @@ try {
   await headerButton("固定弹窗位置"); const box=await position(); await page.mouse.move(box.x+100,box.y+18); await page.mouse.down(); await page.mouse.move(160,60,{steps:8}); await page.mouse.up(); const moved=await position();
   const wordUrl=frame.url(); await dragSelect("#phrase"); frame=await waitPanel(wordUrl); await frame.getByRole("heading",{name:"in spite of",exact:true}).waitFor(); assert.deepEqual(await position(),moved);
   checks.push("A three-word native drag keeps phrase explanation and the pinned position");
+  const partialUrl=frame.url();
+  const partial=await page.locator("#second").evaluate(el=>{const r=document.createRange();r.setStart(el.firstChild,1);r.setEnd(el.firstChild,4);const b=r.getBoundingClientRect();return{x:b.x,y:b.y,width:b.width,height:b.height}});
+  await page.mouse.move(partial.x+1,partial.y+partial.height/2);await page.mouse.down();await page.mouse.move(partial.x+partial.width-1,partial.y+partial.height/2,{steps:8});await page.mouse.up();
+  frame=await waitPanel(partialUrl);await frame.getByRole("heading",{name:"stable",exact:true}).waitFor();assert.equal(await page.evaluate(()=>getSelection().toString()),"stable");assert.deepEqual(await position(),moved);
+  checks.push("Native partial-word selection automatically expands the highlight and query to the complete source word");
   const before=await worker.evaluate(()=>globalThis.__calls.length), phraseUrl=frame.url(); await dragSelect("#sentence"); frame=await waitPanel(phraseUrl); await frame.getByRole("heading",{name:"句子翻译",exact:true}).waitFor(); await frame.locator(".translation-result").waitFor();
   const calls=await worker.evaluate(n=>globalThis.__calls.slice(n),before); assert.ok(calls.some(c=>c.op==="translate"&&c.body.text==="This is very useful.")); assert.ok(!calls.some(c=>["explain","stream","dictionary"].includes(c.op)));
   assert.doesNotMatch(await frame.locator("body").innerText(),/ACCOUNT_MUST_NOT_APPEAR|保存到|加入生词本/); assert.deepEqual(await position(),moved);
