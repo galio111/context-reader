@@ -15,7 +15,7 @@ export function normalizeDocxImageCrops(document:DocxParsed):number {
    const style=child.cssStyle;
    if(!style?.width || !style.height || ![left,top,right,bottom].every(Number.isFinite) || sx<=.001 || sy<=.001)return child;
    const image:DocxNode={...child,srcRect:undefined,rotation:0,cssStyle:{...style,position:'absolute',left:`${-100*left/sx}%`,top:`${-100*top/sy}%`,width:`${100/sx}%`,height:`${100/sy}%`,transform:'none'}};
-   const wrapper:DocxNode={type:'drawing',cssStyle:{position:'relative',display:'inline-block',overflow:'hidden','vertical-align':'top',width:style.width,height:style.height,...(child.rotation?{transform:`rotate(${child.rotation}deg)`}:{})},children:[image]};
+   const wrapper:DocxNode={type:'drawing',cssStyle:{position:'relative',display:'block',overflow:'hidden',width:style.width,height:style.height,...(child.rotation?{transform:`rotate(${child.rotation}deg)`}:{})},children:[image]};
    count++;return wrapper;
   });
  }
