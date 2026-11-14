@@ -15,6 +15,7 @@ export default function DocumentQuestionPanel({ article, context, owner }: { art
   const [notice, setNotice] = useState("");
   const [ready, setReady] = useState(false);
   const [currentId, setCurrentId] = useState("");
+  const currentIdRef = useRef("");
   const [preview, setPreview] = useState<{ id: string; question: string; top: number } | null>(null);
   const scope = documentQuestionScope(owner, article.document!.id);
   const job = useSyncExternalStore(
@@ -26,6 +27,7 @@ export default function DocumentQuestionPanel({ article, context, owner }: { art
   const busy = job?.loading ?? false;
   const history = useRef<HTMLDivElement>(null);
   const shell = useRef<HTMLDivElement>(null);
+  const directory = useRef<HTMLElement>(null);
   const turnNodes = useRef(new Map<string, HTMLElement>());
   const jumpTarget = useRef<string | null>(null);
   const previewId = useId();
@@ -39,13 +41,13 @@ export default function DocumentQuestionPanel({ article, context, owner }: { art
     const top = viewport.scrollTop + node.getBoundingClientRect().top - viewport.getBoundingClientRect().top;
     // Scroll only history, never the surrounding paper or explanation panel.
     viewport.scrollTo?.({ top, behavior: smooth && !window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ? "smooth" : "instant" });
-    setCurrentId(id);
+    currentIdRef.current = id; setCurrentId(id);
   }
 
   useEffect(() => {
     let current = true;
     let revision = 0;
-    jumpTarget.current = null;
+    jumpTarget.current = null; currentIdRef.current = "";
     setReady(false); setTurns([]);
     const existing = getDocumentQuestionJob(scope);
     if (existing) jumpTarget.current = existing.turn.id;
@@ -80,9 +82,18 @@ export default function DocumentQuestionPanel({ article, context, owner }: { art
   useEffect(() => {
     if (job?.turn.answer) {
       setQuestion(value => value.trim() === job.turn.question ? "" : value);
-      if (currentId === job.turn.id) jumpTo(job.turn.id);
+      if (currentIdRef.current === job.turn.id) jumpTo(job.turn.id);
     }
   }, [job]);
+
+  useEffect(() => {
+    const rail = directory.current;
+    const marker = rail?.querySelector<HTMLElement>("[aria-current]");
+    if (!rail || !marker) return;
+    const bounds = rail.getBoundingClientRect(), target = marker.getBoundingClientRect();
+    if (target.top < bounds.top) rail.scrollTop += target.top - bounds.top;
+    else if (target.bottom > bounds.bottom) rail.scrollTop += target.bottom - bounds.bottom;
+  }, [currentId, visibleTurns.length]);
 
   function trackPosition() {
     const viewport = history.current;
@@ -95,7 +106,7 @@ export default function DocumentQuestionPanel({ article, context, owner }: { art
       id = turn.id;
     }
     if (viewport.scrollTop + viewport.clientHeight >= viewport.scrollHeight - 2) id = visibleTurns.at(-1)?.id ?? id;
-    setCurrentId(id); setPreview(null);
+    currentIdRef.current = id; setCurrentId(id); setPreview(null);
   }
 
   function showPreview(turn: Turn, button: HTMLButtonElement) {
@@ -137,10 +148,10 @@ export default function DocumentQuestionPanel({ article, context, owner }: { art
       <div ref={history} className="cr-document-question-turns" onScroll={trackPosition} aria-label="文档问答历史">
         {visibleTurns.map(turn => <section key={turn.id} id={`${sectionPrefix}-${turn.id}`} data-question-id={turn.id} ref={node => { if (node) turnNodes.current.set(turn.id, node); else turnNodes.current.delete(turn.id); }}>
           <h3 className="text-sm font-semibold">{turn.question}</h3>
-          {turn.id === pending?.id && !turn.answer ? <p role="status" className={busy ? "cr-document-question-waiting mt-2 text-sm" : "mt-2 text-sm"}>{busy ? "正在检索并回答…" : "回答暂未完成，可重新发送此问题。"}</p> : <p className="mt-2 whitespace-pre-wrap text-sm leading-6">{turn.answer}</p>}
+          {turn.id === pending?.id && !turn.answer ? <p role="status" className={busy ? "cr-document-question-waiting mt-2 text-sm" : "mt-2 text-sm"}>{busy ? "正在检索并回答…" : "回答暂未完成，可重新发送此问题。"}</p> : <p aria-live={turn.id === job?.turn.id ? "polite" : undefined} className="mt-2 whitespace-pre-wrap text-sm leading-6">{turn.answer}</p>}
         </section>)}
       </div>
-      {visibleTurns.length > 0 && <nav className="cr-document-question-directory" aria-label="问题目录" onKeyDown={event => { if (event.key === "Escape") setPreview(null); }}>
+      {visibleTurns.length > 0 && <nav ref={directory} className="cr-document-question-directory" aria-label="问题目录" onKeyDown={event => { if (event.key === "Escape") setPreview(null); }}>
         {visibleTurns.map((turn, index) => <button key={turn.id} type="button" className="cr-document-question-marker" aria-label={`跳转到问题 ${index + 1}：${turn.question}`} aria-controls={`${sectionPrefix}-${turn.id}`} aria-current={(currentId || visibleTurns[0]?.id) === turn.id ? "location" : undefined} aria-describedby={preview?.id === turn.id ? previewId : undefined} onPointerEnter={event => showPreview(turn, event.currentTarget)} onFocus={event => showPreview(turn, event.currentTarget)} onBlur={() => setPreview(null)} onClick={() => { jumpTo(turn.id, true); setPreview(null); }}><span aria-hidden="true" /></button>)}
       </nav>}
       {preview && <div id={previewId} role="tooltip" className="cr-document-question-preview" style={{ top: preview.top }}>{preview.question}</div>}

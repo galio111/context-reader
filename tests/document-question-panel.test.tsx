@@ -83,4 +83,3 @@ test("question panel restores paper history across selection changes and remount
     await waitFor(()=>assert.equal(reopened.queryByText("New answer"),null));
   }finally{globalThis.fetch=oldFetch;cleanup();dom.window.close();}
 });
-

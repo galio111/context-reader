@@ -114,6 +114,8 @@ export function ExplanationPanel({
     ? currentFormPhonetic(explanation)
     : "";
 
+  const hasDocumentQuestion = Boolean(documentQuestion);
+  const selectedWord = selectedContext?.word;
   useEffect(() => {
     setSentenceQuestion("");
     setSentenceAnswer("");
@@ -121,11 +123,11 @@ export function ExplanationPanel({
     setAskingSentenceQuestion(false);
     const panel = panelRef.current;
     const anchor = lookupStartRef.current;
-    const top = documentQuestion && selectedContext && panel && anchor
+    const top = hasDocumentQuestion && selectedWord && panel && anchor
       ? panel.scrollTop + anchor.getBoundingClientRect().top - panel.getBoundingClientRect().top - 20
       : 0;
     panel?.scrollTo?.({ top: Math.max(0, top), left: 0, behavior: "instant" });
-  }, [selectedContext?.word, selectedContext?.sentence]);
+  }, [selectedWord, selectedContext?.sentence, hasDocumentQuestion]);
 
   async function handleCopy() {
     if (!explanation) {
