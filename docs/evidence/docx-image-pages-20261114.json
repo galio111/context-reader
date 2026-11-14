@@ -1,0 +1,106 @@
+{
+  "releaseId": "20261114T223628",
+  "parentReleaseId": "20261114T214500",
+  "sourceRevision": "c4209dd8a5acb311598295451fb25ca7ead27111",
+  "targetedTests": 26,
+  "criticalTests": 90,
+  "independentFallbackBillingTests": 8,
+  "localAndServerBuild": "passed",
+  "protectedContracts": "passed",
+  "publicChecks": [
+    {
+      "path": "/api/connectivity",
+      "status": 200,
+      "releaseId": "20261114T223628",
+      "parentReleaseId": "20261114T214500"
+    },
+    {
+      "path": "/api/auth/session",
+      "status": 200,
+      "expected": 200
+    },
+    {
+      "path": "/api/admin/accounts",
+      "status": 401,
+      "expected": 401
+    },
+    {
+      "path": "/api/account/sync",
+      "status": 401,
+      "expected": 401
+    },
+    {
+      "path": "/api/ask-sentence",
+      "status": 401,
+      "expected": 401
+    },
+    {
+      "path": "/_next/static/chunks/6243-7bfc3495b3eed85c.js",
+      "status": 200,
+      "directoryAndEnterCode": true,
+      "sha256": "35e1c1579ec9e7cde07f23142e3f5970676ed118e6dbaacfd952c43ccde8a326"
+    }
+  ],
+  "coreAi": {
+    "contextualAndSentence": true,
+    "dictionary": true,
+    "fullTranslation": true,
+    "actions": [
+      {
+        "feature": "full_article_translation",
+        "status": "succeeded",
+        "quota_units": 10
+      },
+      {
+        "feature": "standalone_dictionary",
+        "status": "succeeded",
+        "quota_units": 5
+      },
+      {
+        "feature": "word_explanation",
+        "status": "succeeded",
+        "quota_units": 1
+      }
+    ],
+    "executions": [
+      {
+        "route": "/api/explain-word",
+        "model": "deepseek-flash",
+        "status": "succeeded"
+      },
+      {
+        "route": "/api/dictionary-stream",
+        "model": "deepseek-flash",
+        "status": "succeeded"
+      },
+      {
+        "route": "/api/translate-article",
+        "model": "deepseek-flash",
+        "status": "succeeded"
+      }
+    ],
+    "passed": true,
+    "recoveredAfterQaCleanupForeignKey": true,
+    "syntheticAccountRemoved": true
+  },
+  "persistentServicesUnchanged": 5,
+  "isolatedRestoreTables": 41,
+  "health": "passed",
+  "rollbackImages": "current and parent retained",
+  "privateDocxProjection": {
+    "croppedImages": 4,
+    "floatingAnchors": 0,
+    "textUnchanged": true,
+    "sourceCommitted": false
+  },
+  "pagination": {
+    "PDF": "original pages",
+    "Word": "web-layout reading pages; may differ from Word software"
+  },
+  "unrelatedExistingFailure": "tests/model-routing.test.ts:43 editorial category distribution assertion (unchanged files)",
+  "unverified": [
+    "real desktop/mobile visual and keyboard/touch experience",
+    "both themes in real browser",
+    "actual rollback"
+  ]
+}
