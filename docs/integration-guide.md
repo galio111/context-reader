@@ -398,3 +398,8 @@ Apply additive `docs/study-budget-v6-migration.sql` before deploying this app. `
 ### PDF translation target compatibility
 
 `createArticleTranslationBlocks` joins same-page incomplete PDF sentences at the translation layer, preserving saved source blocks, their IDs and native PDF lookup. Joined targets have distinct IDs and content-keyed caches. Both document and ordinary jobs use at most 10 targets / 5,000 characters per streamed request; document context remains bounded to 4,000 characters / 24 blocks. Streamed target completion still drives cache updates and missing-only retries. Admin publishing and public replay use the same target compiler; changed target hashes invalidate an incompatible old aggregate rather than silently replaying individual line fragments. Existing source caches are retained.
+
+
+### Complete word-explanation targets
+
+The structured and streaming explanation routes share target preparation. `sentence` remains complete within the existing bounded JSON request; only previous/next context is shortened (220 characters each). Fresh results contain optional `sentenceContextVersion: 2`, including client-assembled completed streams. A legacy explanation for a source longer than 500 characters is retained for recovery but skipped for lookup/Admin preload until regenerated with this marker. Keys, account synchronization, saved vocabulary IDs and public payload compatibility remain unchanged.

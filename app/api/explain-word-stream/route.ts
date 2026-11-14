@@ -1,3 +1,4 @@
+import { sanitizeExplanationRequest } from "@/lib/explanationRequest";
 import { LATIN_PHRASE_PATTERN } from "@/lib/latinWords";
 import {anyTextKey} from '@/lib/modelSettings';
 import {withModelContext} from '@/lib/modelSettings';
@@ -29,19 +30,6 @@ interface DeepSeekStreamChunk {
     };
   }>;
   usage?: ProviderTokenUsage;
-}
-
-function trimField(value: string): string {
-  return value.trim().slice(0, 500);
-}
-
-function sanitizeExplanationRequest(input: ExplanationRequest): ExplanationRequest {
-  return {
-    word: trimField(input.word),
-    sentence: trimField(input.sentence),
-    previousSentence: trimField(input.previousSentence ?? ""),
-    nextSentence: trimField(input.nextSentence ?? ""),
-  };
 }
 
 function isValidRequestBody(body: unknown): body is ExplanationRequest {

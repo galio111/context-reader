@@ -11,6 +11,7 @@ export {
 import { notifyAccountDataChanged } from "@/lib/accountEvents";
 import { currentFormPhonetic } from "@/lib/pronunciation";
 import { replaceMatchingVocabularyEntry } from "@/lib/vocabulary";
+import { EXPLANATION_SENTENCE_CONTEXT_VERSION } from "@/lib/explanationRequest";
 
 const EXPLANATION_CACHE_KEY = "context-reader:explanations:v5";
 
@@ -48,11 +49,17 @@ export function createExplanationCacheKey(word: string, sentence: string): strin
   return `${word.trim().toLowerCase()}::${sentence.trim().toLowerCase()}`;
 }
 
+function hasCompleteSentenceContext(key: string, explanation: WordExplanation): boolean {
+  const separator = key.indexOf("::");
+  return separator < 0 || key.slice(separator + 2).length <= 500
+    || explanation.sentenceContextVersion === EXPLANATION_SENTENCE_CONTEXT_VERSION;
+}
+
 export function getCachedExplanation(key: string): WordExplanation | null {
   const storage = typeof window === "undefined" ? null : getLearningStorage();
   const cached = storage && isLearningStorage(storage) ? storage.getRecord(EXPLANATION_CACHE_KEY, key) as WordExplanation | undefined : readCache()[key];
   if (cached && storage && isLearningStorage(storage)) storage.setRecord("context-reader:cache-access:v1", key, Date.now());
-  if (!cached) {
+  if (!cached || !hasCompleteSentenceContext(key, cached)) {
     return null;
   }
   const selectedWord = key.split("::", 1)[0].trim();
@@ -103,7 +110,7 @@ export function setCachedExplanation(
 }
 
 export function getExplanationCacheEntries(): Array<{ cacheKey: string; explanation: WordExplanation }> {
-  return Object.entries(readCache()).map(([cacheKey, explanation]) => ({
+  return Object.entries(readCache()).filter(([key, explanation]) => hasCompleteSentenceContext(key, explanation)).map(([cacheKey, explanation]) => ({
     cacheKey,
     explanation: {
       ...explanation,

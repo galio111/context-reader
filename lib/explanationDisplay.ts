@@ -1,3 +1,4 @@
+import { EXPLANATION_SENTENCE_CONTEXT_VERSION } from "@/lib/explanationRequest";
 import { contextualLemma } from "@/lib/displayLabels";
 import { normalizeDifficultyLabel, normalizePartOfSpeechLabel } from "@/lib/displayLabels";
 import { normalizeAnkiInfo } from "@/lib/ankiData";
@@ -188,6 +189,7 @@ export function explanationFromCompletedStream(
 
   return {
     ...explanationWithoutAnki,
+    sentenceContextVersion: EXPLANATION_SENTENCE_CONTEXT_VERSION,
     anki: normalizeAnkiInfo(explanationWithoutAnki, context.sentence),
   };
 }

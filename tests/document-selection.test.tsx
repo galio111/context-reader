@@ -273,3 +273,12 @@ test("PDF run splits preserve small word spaces and overlapping punctuation with
   assert.equal(readDocumentSelection(root,article)?.sentence,"The material controls kinetics, with gelatin-based repairs.");
   dom.window.close();
 });
+
+test("a later repeated word stays in its own sentence through missing PDF spaces and genus initials", () => {
+  const text="The efficacy of a different dressing was reported. Another fact was understood.Two systems were compared for therapeutic efficacy in a murine S. aureus-infected wound model.Despite identical loading, they differed.";
+  const start=text.indexOf("efficacy in a murine");
+  const result=documentSentenceAtOffset(text,start,start+8);
+  assert.equal(result.sentence,"Two systems were compared for therapeutic efficacy in a murine S. aureus-infected wound model.");
+  assert.equal(result.previousSentence,"Another fact was understood.");
+  assert.equal(result.nextSentence,"Despite identical loading, they differed.");
+});

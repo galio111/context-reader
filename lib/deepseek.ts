@@ -1,3 +1,5 @@
+import { sanitizeExplanationRequest, EXPLANATION_SENTENCE_CONTEXT_VERSION } from "@/lib/explanationRequest";
+export { sanitizeExplanationRequest } from "@/lib/explanationRequest";
 import {anyTextKey} from '@/lib/modelSettings';
 import { fetchWithProviderFailover, responseModel, providerName } from "@/lib/providerFailover";
 import { contextualLemma } from "@/lib/displayLabels";
@@ -14,7 +16,6 @@ import type {
 
 const DEFAULT_MODEL = "deepseek-flash";
 const DEFAULT_BASE_URL = "https://api.deepseek.com";
-const MAX_CONTEXT_CHARS = 1100;
 const MAX_SINGLE_FIELD_CHARS = 500;
 const MAX_QUESTION_CHARS = 500;
 const REQUEST_TIMEOUT_MS = 26000;
@@ -293,32 +294,6 @@ function getProviderProfiles(): ProviderProfile[] {
   return profiles;
 }
 
-export function sanitizeExplanationRequest(input: ExplanationRequest): ExplanationRequest {
-  const request = {
-    word: trimField(input.word),
-    sentence: trimField(input.sentence),
-    previousSentence: trimField(input.previousSentence ?? ""),
-    nextSentence: trimField(input.nextSentence ?? ""),
-  };
-
-  const totalLength =
-    request.word.length +
-    request.sentence.length +
-    request.previousSentence.length +
-    request.nextSentence.length;
-
-  if (totalLength > MAX_CONTEXT_CHARS) {
-    return {
-      ...request,
-      previousSentence: request.previousSentence.slice(0, 220),
-      sentence: request.sentence.slice(Math.max(0, request.sentence.toLowerCase().indexOf(request.word.toLowerCase()) - 250), Math.max(620, request.sentence.toLowerCase().indexOf(request.word.toLowerCase()) + request.word.length + 250)),
-      nextSentence: request.nextSentence.slice(0, 220),
-    };
-  }
-
-  return request;
-}
-
 export function sanitizeSentenceQuestionRequest(input: SentenceQuestionRequest): SentenceQuestionRequest {
   return {
     ...sanitizeExplanationRequest(input),
@@ -356,6 +331,7 @@ function normalizeExplanation(value: unknown, request: ExplanationRequest): Word
 
   return {
     word: request.word,
+    sentenceContextVersion: EXPLANATION_SENTENCE_CONTEXT_VERSION,
     lemma: contextualLemma(normalizeLemma(data.lemma, request.word), request.word, text(data.partOfSpeech)),
     phonetic: pronunciationTargetMatches(text(data.phoneticFor), request.word)
       ? text(data.phonetic, "")

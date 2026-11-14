@@ -61,6 +61,8 @@ export interface WordContext {
 }
 
 export interface WordExplanation {
+  /** Generated with an intact target sentence rather than the legacy 500-char crop. */
+  sentenceContextVersion?: 2;
   /** Local save time shared by exact-context cache and vocabulary sync. */
   cacheUpdatedAt?: string;
   word: string;

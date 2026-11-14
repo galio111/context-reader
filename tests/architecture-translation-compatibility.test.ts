@@ -5,6 +5,7 @@ import { IDBFactory } from "fake-indexeddb";
 import { getLearningStorage, initializeLearningStorage, isLearningStorage, LearningStorage } from "../lib/learningStorage";
 import { createArticleTranslationBlockCacheKey, getCachedArticleTranslation, getCachedArticleTranslationForBlocks, removeCachedArticleTranslation, removeCachedArticleTranslationForBlocks, setCachedArticleTranslation, setCachedArticleTranslationForBlocks } from "../lib/cache";
 import { getArticleTranslationJobSnapshot, startArticleTranslationJob } from "../lib/articleTranslationJobs";
+import { createExplanationCacheKey, getCachedExplanation, getExplanationCacheEntries } from "../lib/cache";
 import type { ArticleTranslationBlock, ArticleTranslationItem } from "../types/reader";
 
 const FULL = "context-reader:article-translations:v1";
@@ -12,6 +13,23 @@ const BLOCK = "context-reader:article-translation-blocks:v1";
 const one: ArticleTranslationBlock = { id: "audit-one", type: "paragraph", text: "Careful readers preserve context." };
 const two: ArticleTranslationBlock = { id: "audit-two", type: "paragraph", text: "A later paragraph adds detail." };
 const translation = (block: ArticleTranslationBlock, text: string): ArticleTranslationItem & Pick<ArticleTranslationBlock, "type"> => ({ id: block.id, type: block.type, translation: text });
+
+test("legacy long-sentence explanations are retained but cannot replay or publish as complete context", async () => browserFixture(async () => {
+  await initializeLearningStorage();
+  const storage=getLearningStorage();assert.ok(isLearningStorage(storage));
+  const longKey=createExplanationCacheKey("efficacy","A long sentence ".repeat(50));
+  const shortKey=createExplanationCacheKey("efficacy","A short efficacy sentence.");
+  const legacy={word:"efficacy",lemma:"efficacy",basicMeaning:"功效",contextMeaning:"治疗效果",sentenceTranslation:"旧残句",anki:{canMakeCloze:false,cardMode:"basic_cn_to_en",basicCue:"治疗效果"}};
+  storage.setRecord("context-reader:explanations:v5",longKey,legacy);
+  storage.setRecord("context-reader:explanations:v5",shortKey,legacy);
+  assert.equal(getCachedExplanation(longKey),null);
+  assert.ok(storage.getRecord("context-reader:explanations:v5",longKey),"legacy data is not deleted");
+  assert.ok(getCachedExplanation(shortKey),"short contexts keep their cache");
+  assert.ok(!getExplanationCacheEntries().some(row=>row.cacheKey===longKey),"Admin cannot preload a known cropped context");
+  storage.setRecord("context-reader:explanations:v5",longKey,{...legacy,sentenceContextVersion:2,sentenceTranslation:"完整句译"});
+  assert.equal(getCachedExplanation(longKey)?.sentenceTranslation,"完整句译");
+  assert.ok(getExplanationCacheEntries().some(row=>row.cacheKey===longKey));
+}));
 
 test("PDF jobs batch targets while persisting each streamed result and retaining one usage action", async () => browserFixture(async () => {
   await initializeLearningStorage();

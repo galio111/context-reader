@@ -96,7 +96,12 @@ export function documentSentenceAtOffset(text: string, start: number, end: numbe
   // Scientific references can wrap before a supplement label such as Fig. S19.
   // Keep the source offsets and original punctuation for the submitted sentence.
   const boundaries = text.replace(/\b(?:figs?|eqs?|refs?|secs?|tabs?)\.(?=\s*(?:[[(]\s*)?(?:[a-z]\s*)?\d)/gi,
-    abbreviation => abbreviation.slice(0, -1) + "·");
+    abbreviation => abbreviation.slice(0, -1) + "·")
+    // Genus initials are not sentence endings, including mixed italic runs.
+    .replace(/\b[A-Z]\.(?=\s*[a-z][a-z-]{2,}\b)/g, abbreviation => abbreviation[0] + "·")
+    // Some PDFs omit the space after a sentence period. Use a same-length
+    // boundary shadow so native source offsets and punctuation stay intact.
+    .replace(/(?<=[a-z]{2})\.(?=[A-Z][a-z])/g, "!");
   const spans = getSentenceSpans(boundaries);
   const sourceText = (span: typeof spans[number] | undefined) => span ? text.slice(span.start, span.end) : "";
   const index = spans.findIndex(span => span.start <= start && start < span.end);
