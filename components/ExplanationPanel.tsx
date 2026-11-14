@@ -85,6 +85,7 @@ export function ExplanationPanel({
   const [sentenceQuestionError, setSentenceQuestionError] = useState("");
   const [askingSentenceQuestion, setAskingSentenceQuestion] = useState(false);
   const panelRef = useRef<HTMLElement | null>(null);
+  const lookupStartRef = useRef<HTMLDivElement | null>(null);
   const streamText = useSyncExternalStore(
     streamSource?.subscribe ?? (() => () => {}),
     streamSource?.getSnapshot ?? (() => initialStreamText),
@@ -118,7 +119,12 @@ export function ExplanationPanel({
     setSentenceAnswer("");
     setSentenceQuestionError("");
     setAskingSentenceQuestion(false);
-    panelRef.current?.scrollTo({ top: 0, left: 0 });
+    const panel = panelRef.current;
+    const anchor = lookupStartRef.current;
+    const top = documentQuestion && selectedContext && panel && anchor
+      ? panel.scrollTop + anchor.getBoundingClientRect().top - panel.getBoundingClientRect().top - 20
+      : 0;
+    panel?.scrollTo?.({ top: Math.max(0, top), left: 0, behavior: "instant" });
   }, [selectedContext?.word, selectedContext?.sentence]);
 
   async function handleCopy() {
@@ -191,6 +197,7 @@ export function ExplanationPanel({
   return (
     <aside ref={panelRef} className="cr-reader-panel relative h-full min-h-0 w-full flex-1 overflow-y-auto rounded-[14px] border border-[#e0e0e0] bg-white p-5 overscroll-contain [scrollbar-gutter:stable] [-webkit-overflow-scrolling:touch] lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)]">
       {documentQuestion}
+      <div ref={lookupStartRef} data-document-lookup-start style={documentQuestion && selectedContext ? { minHeight: "100%" } : undefined}>
       {!selectedContext && !loading && !explanation && (
         <p className="text-sm leading-6 tracking-[-0.224px] text-[#7a7a7a]">{documentMode ? "双击查单词，拖选查短语；超过 5 个词直接翻译。" : "点击文章中的任意英文单词查看语境解释。"}</p>
       )}
@@ -464,6 +471,7 @@ export function ExplanationPanel({
           </section>
         </div>
       )}
+      </div>
     </aside>
   );
 }
