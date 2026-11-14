@@ -2,9 +2,11 @@ import React, { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { ExplanationPanel } from "@/components/ExplanationPanel";
 import { PronunciationButtons } from "@/components/PronunciationButtons";
+import { LoadingStatus } from "@/components/LoadingStatus";
 import { mergeStreamDisplayIntoExplanation, explanationFromCompletedStream, explanationAsStreamText } from "@/lib/explanationDisplay";
 import type { WordContext, WordExplanation } from "@/types/reader";
 import type { DictionaryResult } from "@/types/dictionary";
+import { extensionSelectionMode } from "@/lib/browserExtensionSelection";
 import "./panel.css";
 
 const rpc = async (body: unknown) => { const r = await chrome.runtime.sendMessage(body); if (r?.error) throw new Error(r.error); return r; };
@@ -25,15 +27,23 @@ window.fetch = async (input, init) => {
 };
 
 function App() {
-  const [context, setContext] = useState<WordContext | null>(null), [nickname, setNickname] = useState("");
+  const [context, setContext] = useState<WordContext | null>(null);
+  const [translation, setTranslation] = useState("");
   const [explanation, setExplanation] = useState<WordExplanation | null>(null), [dictionary, setDictionary] = useState<DictionaryResult | null>(null);
   const [streamText, setStreamText] = useState(""), [loading, setLoading] = useState(false), [error, setError] = useState("");
   const [saved, setSaved] = useState(false), [saving, setSaving] = useState(false);
   const task = useRef(0), activePort = useRef<any>(null);
   const applyPreferences = (p: Record<string, unknown>) => { document.documentElement.style.setProperty("--cr-ext-ink", String(p.text)); document.documentElement.style.setProperty("--cr-ext-accent", String(p.accent)); };
   async function lookup(ctx: WordContext, force = false) {
-    const ticket = ++task.current; activePort.current?.disconnect(); setContext(ctx); setLoading(true); setError(""); setSaved(false); setSaving(false); setDictionary(null); setExplanation(null); setStreamText("");
+    const ticket = ++task.current; activePort.current?.disconnect(); setContext(ctx); setLoading(true); setError(""); setSaved(false); setSaving(false); setDictionary(null); setExplanation(null); setStreamText(""); setTranslation("");
     try {
+      if (extensionSelectionMode(ctx.word) === "translation") {
+        const result = await proxy("translate", { text: ctx.word, sentence: ctx.sentence, previousSentence: ctx.previousSentence, nextSentence: ctx.nextSentence });
+        if (ticket !== task.current) return;
+        const text = result.data.translations?.find((item: { id: string; translation: string }) => item.id === "extension-selection")?.translation;
+        if (!text?.trim()) throw new Error("未取得完整译文，请重试。");
+        setTranslation(text); setLoading(false); return;
+      }
       if (!ctx.sentence) {
         const result = await proxy("dictionary", { query: ctx.word });
         if (ticket !== task.current) return; setDictionary(result.data.dictionary); setLoading(false); return;
@@ -72,8 +82,8 @@ function App() {
     } catch (e) { if (ticket === task.current) { setError(e instanceof Error ? e.message : "查询失败，请重试。"); setLoading(false); } }
   }
   useEffect(() => {
-    rpc({ type: "session", nonce: location.hash.slice(1) }).then(s => { setNickname(s.nickname); applyPreferences(s.preferences); lookup({ ...s.context, paragraphIndex: 0, tokenIndex: 0 }); }).catch(e => setError(e.message));
-    const change = (changes: Record<string, { newValue: any }>) => { if (changes.preferences) applyPreferences(changes.preferences.newValue); if (changes.connection) { task.current++; activePort.current?.disconnect(); setLoading(false); setExplanation(null); setDictionary(null); setStreamText(""); setError("保存账号已变更，请重新划词。"); } };
+    rpc({ type: "session", nonce: location.hash.slice(1) }).then(s => { applyPreferences(s.preferences); lookup({ ...s.context, paragraphIndex: 0, tokenIndex: 0 }); }).catch(e => setError(e.message));
+    const change = (changes: Record<string, { newValue: any }>) => { if (changes.preferences) applyPreferences(changes.preferences.newValue); if (changes.connection) { task.current++; activePort.current?.disconnect(); setLoading(false); setExplanation(null); setDictionary(null); setStreamText(""); setTranslation(""); setError("保存账号已变更，请重新划词。"); } };
     chrome.storage.onChanged.addListener(change);
     const keyboard = (e: KeyboardEvent) => { if (e.key === "Escape") parent.postMessage({ type: "cr-close-panel" }, "*"); };
     document.addEventListener("keydown", keyboard);
@@ -86,11 +96,13 @@ function App() {
     catch (e) { if (ticket === task.current) setError(e instanceof Error ? e.message : "保存失败，请重试。"); }
     finally { if (ticket === task.current) setSaving(false); }
   }
-  return <><div className="target">保存到 <strong>{nickname || "尚未连接"}</strong><a href="https://context-reader.com/browser-extension" target="_blank" rel="noreferrer">更换账号</a></div>
+  const translating = Boolean(context && extensionSelectionMode(context.word) === "translation");
+  return <>
     {error && <div role="alert" className="error">{error}<button onClick={() => context && lookup(context, true)}>重试查询</button></div>}
-    {context?.sentence ? <div className="explanation"><ExplanationPanel explanation={explanation} streamText={streamText} streaming={loading} selectedContext={context} loading={loading} error="" isInVocabulary={saved} savingToVocabulary={saving} vocabularyMatchNotice={saving ? "正在保存到账号…" : saved ? "已保存到账号，网站生词本会同步显示。" : ""} onAddToVocabulary={save} onRegenerate={() => lookup(context, true)} /></div>
+    {translating ? <section className="sentence-translation" aria-label="句子翻译"><header><h2>句子翻译</h2><button className="regenerate" aria-label="重新翻译所选内容" disabled={loading} onClick={() => context && lookup(context, true)}>↻</button></header>{loading ? <LoadingStatus>正在翻译所选内容…</LoadingStatus> : translation && <p className="translation-result">{translation}</p>}<details className="translation-original"><summary>所选原文</summary><p>{context?.word}</p></details>{translation && <button className="copy-translation" onClick={async () => { try { await navigator.clipboard.writeText(translation); } catch { setError("复制失败，请检查浏览器剪贴板权限。"); } }}>复制译文</button>}</section>
+      : context?.sentence ? <div className="explanation"><ExplanationPanel explanation={explanation} streamText={streamText} streaming={loading} selectedContext={context} loading={loading} error="" isInVocabulary={saved} savingToVocabulary={saving} vocabularyMatchNotice={saving ? "正在保存…" : saved ? "已加入生词本。" : ""} onAddToVocabulary={save} onRegenerate={() => lookup(context, true)} /></div>
       : <div className="dictionary"><p className="hint">未取得完整原句，当前显示词典释义。</p>{loading && <p role="status">正在查询…</p>}{dictionary && <><h2>{dictionary.query}</h2><p>{dictionary.phonetic}</p><PronunciationButtons text={dictionary.query} />{dictionary.senses.map((sense, i) => <section key={i}><h3>{sense.partOfSpeech}</h3><p>{sense.meaning}</p><p>{sense.usageNote}</p><blockquote>{sense.exampleEnglish}<br />{sense.exampleChinese}</blockquote></section>)}<p>{dictionary.usageGuide}</p><button className="save" disabled={saved || saving || dictionary.inputStatus === "misspelled"} onClick={save}>{saved ? "已加入生词本" : saving ? "正在保存…" : "加入生词本"}</button></>}</div>}
-    {context?.sentence && <details className="source"><summary>查看取到的原句</summary><p>{context.sentence}</p></details>}
+    {!translating && context?.sentence && <details className="source"><summary>查看取到的原句</summary><p>{context.sentence}</p></details>}
   </>;
 }
 createRoot(document.getElementById("root")!).render(<App />);

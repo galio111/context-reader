@@ -35,7 +35,7 @@ const MINUTE = 60_000;
 const DAY = 24 * 60 * MINUTE;
 
 const COSTLY_ROUTE_RULES: Array<[RegExp, RateRule[]]> = [
-  [/^\/api\/extension\/execute\/(?:explain|stream|dictionary|ask)$/, [{ bucket: "extension-ai", limit: 40, windowMs: MINUTE }]],
+  [/^\/api\/extension\/execute\/(?:explain|stream|dictionary|ask|translate)$/, [{ bucket: "extension-ai", limit: 40, windowMs: MINUTE }]],
   [/^\/api\/extension\/execute\/pronunciation$/, [{ bucket: "pronunciation", limit: 120, windowMs: MINUTE }]],
   [/^\/api\/documents$/, [{ bucket: "document-import", limit: 10, windowMs: 10 * MINUTE }]],
   [/^\/api\/study\/profile$/, [{ bucket: "study-profile", limit: 4, windowMs: MINUTE }]],

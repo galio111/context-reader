@@ -21,6 +21,8 @@ The public beta uses an unverified mainland-China phone identifier, nickname and
 
 Chrome 扩展相关改动还要运行 `npm.cmd run build:extension`（更新网站下载 ZIP）和 `npm.cmd run test:extension`。扩展入口为 `/browser-extension`，保存目标由网站已验证登录选择，不能把网站切号自动应用到扩展。保留稳定的 `chrome-extension/identity.json` 公钥身份、按连接隔离的缓存/请求、封闭 Shadow DOM 与随机 nonce 的 iframe 授权。不要将 Supabase 会话或服务密钥放入扩展。首次发布须应用 `ops/mainland/extension-connections.sql`；详细边界见 `docs/browser-extension.md`。
 
+Chrome 扩展 1.1：1–3 个词继续解释，至少 4 个英文词只翻译所选内容；周边句子只能作为上下文，不能扩大翻译目标。弹窗不展示保存账号。固定图钉保留本页窗口位置并在新查询时替换结果 iframe，不能仅修改 hash 而停留旧结果；未固定时任何外部点击（含空白）立即关闭，迟到响应不得重开。版本统一取 `chrome-extension/release.json`，更新 ZIP 时保留扩展身份和已有设置。
+
 ```powershell
 npm install
 npm run dev
