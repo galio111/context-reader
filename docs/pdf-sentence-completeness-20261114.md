@@ -1,29 +1,26 @@
-# PDF sentence completeness regression
+# PDF 当前句译完整性修复（2026-11-14）
 
-Status: native line-spacing fix accepted 20261114T101330 (parent 20261114T100145, source 831a4dfe0da61c53eb43f95daa5ad702f5b7342b). Run-spacing follow-up accepted 20261114T102830 (parent 20261114T101330, source 52a7f6e7a035fccf19f4edf0d80d96c5fd5ffb23). Complete-target request fix accepted 20261114T104730 (parent 20261114T102830, source d434f98ac3b4816535704831986e8206577ff1c1). The current candidate 20261114T110530 replaces CSS font-box context geometry with native PDF text-item geometry; production reopen acceptance is pending.
+已接受生产：`https://context-reader.com`，release `20261114T110530`，parent `20261114T104730`，source `6b59d910fa35785ea4cb8f876eeee0da82efc4eb`。公网身份与服务器接受状态一致。本文为最终状态；中间发布过程见 product-journey.md。
 
-The November 14 screenshot showed a selected word whose sentence translation contained only its visual line. In the real 42-page manuscript, the native PDF context resolver rejected adjacent double-spaced lines because baseline spacing exceeded its 1.85-glyph-height ceiling. The November 13 full-translation repair changed translation targets only; it did not change this independent native-selection path. Earlier PDF sentence acceptance did not cover this double-spacing case.
+## 原因与修复
 
-The fix accommodates normal double-spacing up to 2.65 glyph heights and first-line indentation up to 2.5 heights, retaining horizontal overlap, font-size compatibility, column boundaries, exact native node identity and selected character offsets. Source PDFs, saved article blocks, full-translation batching and provider prompts remain unchanged. Full-sentence cache keys differ from earlier fragment keys; no unrelated cache or vocabulary is erased.
+1. 双倍行距超过旧的 1.85 字高阈值，原生选区只带当前行。现在兼容双倍行距及首行缩进，保留同栏、字号和原生选区端点约束。
+2. 嵌入字体加载后，正常/斜体 CSS 字框会重叠或改变高度，使重开后的上下文丢失中间短语。DocumentReader 将 PDF.js TextLayer 节点绑定原生文字项的位置、基线和宽高，按 viewport 缩放后分组，避免依赖字体显示框。小词间距、重叠标点和连字符边界保持稳定。
+3. 缺空格句界与科学属名缩写合并了前后句。原样例曾产生 759 字符上下文，选中词在第 736 字符。结构化与流式服务端各自截取前 500 字符，移除了选中词，继而翻译上文同词所在句。现在用保留偏移的句界影子识别句界/缩写，两路共用完整目标句归一化，只缩短前后背景；仍保留 16 KiB 请求体上限。
+4. 新结果携带 `sentenceContextVersion: 2`。旧的长于 500 字符源句缓存保留但跳过查词和 Admin 预载，避免再次回放残缺句译。短句缓存及持久学习记录不清除。缓存键格式不改；长键账号同步继续使用现有 SHA-256 封装与解包函数。
 
-Evidence: the actual DocumentReader component and real original PDF rendered in Edge reproduce 77 source characters before the fix, missing both ends, and 332 characters after the fix, including both sentence ends. Original ratio, increased zoom, fit width and cached reload repeat the exact 332-character context. The production explanation routes received that exact context through their normal parallel structured/stream flow; the stream-authoritative merged Chinese includes the opening study design, network control of release/antibacterial efficacy and closing healing outcome. The exact explanation was synchronized to galioo. Private source, input/output and credentials are excluded from Git.
+## 实际验证
 
-Twenty focused document/selection/batching/cache tests and 25 extension integration tests pass, including zoom-scaled double-spacing/indentation with a repeated word in a separate column, plus small word gaps and overlapping comma boxes. Critical regressions, release contracts, release safety and production build pass. The first release passed public production first-lookup acceptance in galioo with the complete Chinese sentence. The automated reopen probe detected the same complete sentence with two missing spaces (330 characters), not missing sentence ends. The original PDF and derived reading copy split words differently: one real gap was 0.087 glyph heights (below the former 0.1 threshold); a comma-containing run overlapped the next word box. The follow-up preserves gaps above 0.075 heights and normal prose punctuation separators, while preserving hyphens/decimals. Replaying captured original-page runs now produces exactly the same 332-character context/cache key. Native Edge original ratio, zoom, fit width and fixture cached reload pass. Production galioo first lookup and cached reopen both pass on 20261114T102830, with complete Chinese, zero new explanation provider requests and no page errors. No physical-phone or every-PDF-layout acceptance is claimed.
+- 使用 galioo 原始 42 页 PDF 和真实 DocumentReader，在 Edge 重现 kinetics 的 77 字符片段并恢复为完整 332 字符句子；efficacy 定位为正确的 514 字符句子，包括所选的后一个同词及句末。
+- 实际线上结构化与流式请求输入完整目标句，合并后的可见中文覆盖句首和句末，正确结果已同步并独立回读。成功结果未因验证脚本重试而再次生成。
+- 最终生产 `20261114T110530` 中，两例均完成真实账号首次选词、刷新重开、完整中文和原生几何标记检查；每例 `providerRequests: []`、`pageErrors: 0`。截图目视确认 efficacy 的句译对应所选后一个词所在句。
+- 原始比例、放大、适宽和 fixture 缓存重开通过；50 项相关请求/缓存/PDF/扩展集成回归、90 项核心回归、发布契约及正式构建通过。
+- 仅重建 app/caddy；五个持久后台容器保持原 ID。最新备份 SHA 校验及 41 表隔离恢复通过，当前/父版本回滚镜像保留；未实际执行生产回滚。清理本轮无用构建镜像和上传临时包后 healthcheck 通过，根盘 83%，约 6.6 GB 可用。
 
+## 范围与证据
 
-## Later selected occurrence and 500-character target crop
+原 PDF 字节、canvas 展示、保存块 ID 和全文翻译批处理均未改；上一轮已生成的全文翻译不重跑。Admin 发布/预载继续通过共享缓存过滤逻辑，回归覆盖旧长句记录保留而不预载。
 
-The second user screenshot selected a later occurrence in the same page. With the prior sentence splitter, a missing sentence-space and the genus initial in mixed italic text produced 759 target characters; the selected occurrence was at offset 736. Both explanation implementations independently cropped the target to its first 500 characters, removing the selected word while retaining the earlier occurrence in previous-sentence background. This explains why a fluent but unrelated opening-sentence translation could appear.
+本轮真实验收针对用户提供的横排英文正文、双倍行距与正常/斜体混排。物理手机、旋转标注、所有表格/多栏及任意 PDF 布局没有穷尽验证，用户最终视觉确认仍待反馈。
 
-The boundary shadow now recognizes missing-space sentence transitions and scientific genus initials while retaining native offsets and original punctuation. Actual original and production-derived page geometry both resolve the correct 514-character sentence, including its selected occurrence and wound-model ending. Structured and streaming routes share one request normalizer: preserve the entire target within their existing bounded request body; shorten only preceding/following background. A context-version marker on fresh structured and streamed explanations prevents old >500-character cropped caches from replaying or being Admin-preloaded. Short caches and durable legacy records remain intact.
-
-Current validation: 49 focused document/cache/request/extension integration tests and 90 critical tests pass. Production build passes. The real efficacy translation now includes the two-system comparison and murine wound-model therapeutic outcome, with context version 2. It is synchronized and independently replayed through the existing SHA-256 explanation-sync envelope. The first manual sync probe bypassed that helper and failed the 500-character key check; the harness was corrected without changing product cache identity or regenerating the successful model result. Production initial lookup passed; cached reopen revealed the remaining mixed-font geometry issue below. Both explanation routes retain their 16 KiB request-body bounds; only the target field crop is removed. Admin publishing/replay was audited through the shared cache-entry filter and a regression that retains old records while excluding cropped long contexts.
-
-
-## Native advances instead of font display boxes
-
-Production cached-original reopen returned only 370 characters, dropping middle fragments from normal/italic runs. CSS text boxes overlapped and differed in height after embedded-font loading, causing coherent source fragments to be treated as separate lines. The source PDF itself and its text were unchanged.
-
-DocumentReader now attaches each selectable TextLayer node to its original PDF text-item x position, baseline, advance width and height, scaled by the viewport. Context grouping uses those source metrics; native range endpoints remain the selected occurrence. Unsupported/non-horizontal runs are not used to invent context. Older/non-PDF test surfaces retain the existing fallback. No canvas layout, page rendering, original bytes or stored article IDs change. A synthetic regression deliberately distorts overlapping normal/italic CSS boxes at multiple zooms while the source geometry keeps the full sentence. Both actual document cases and cached fixture reopen pass.
-
-Validation: 50 focused request/cache/document/extension integration tests, 90 critical tests and production build pass. Candidate public identity and final signed-in cached-original acceptance remain pending.
+本地证据归档：`artifacts/pdf-sentence-completeness-1114/`。公开记录及计数不包含论文正文、账号凭据或私人截图内容；原件和输入/输出截图仅在本地 private 证据目录。
