@@ -1,0 +1,11 @@
+# PDF sentence completeness regression
+
+Status: candidate 20261114T100430, parent 20261113T163321, based on source 185aacbfb2237c381a8f4bf6539b6c8ff8b58461. Not yet production accepted.
+
+The November 14 screenshot showed a selected word whose sentence translation contained only its visual line. In the real 42-page manuscript, the native PDF context resolver rejected adjacent double-spaced lines because baseline spacing exceeded its 1.85-glyph-height ceiling. The November 13 full-translation repair changed translation targets only; it did not change this independent native-selection path. Earlier PDF sentence acceptance did not cover this double-spacing case.
+
+The fix accommodates normal double-spacing up to 2.65 glyph heights and first-line indentation up to 2.5 heights, retaining horizontal overlap, font-size compatibility, column boundaries, exact native node identity and selected character offsets. Source PDFs, saved article blocks, full-translation batching and provider prompts remain unchanged. Full-sentence cache keys differ from earlier fragment keys; no unrelated cache or vocabulary is erased.
+
+Evidence: the actual DocumentReader component and real original PDF rendered in Edge reproduce 77 source characters before the fix, missing both ends, and 332 characters after the fix, including both sentence ends. Original ratio, increased zoom, fit width and cached reload repeat the exact 332-character context. The production explanation routes received that exact context through their normal parallel structured/stream flow; the stream-authoritative merged Chinese includes the opening study design, network control of release/antibacterial efficacy and closing healing outcome. The exact explanation was synchronized to galioo. Private source, input/output and credentials are excluded from Git.
+
+Nineteen focused document/selection/batching/cache tests pass, including a new zoom-scaled double-spacing/indentation fixture with a repeated word in a separate column. Critical regressions, release contracts, release safety and production build pass. Public production identity and post-release browser acceptance remain pending. No physical-phone or every-PDF-layout acceptance is claimed.

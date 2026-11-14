@@ -70,7 +70,10 @@ function nextLine(lines: Line[], from: Line, direction: -1 | 1): Line | undefine
     const dy = (candidate.y - from.y) * direction;
     const indent = Math.abs(candidate.left - from.left);
     const overlap = Math.min(candidate.right, from.right) - Math.max(candidate.left, from.left);
-    if (dy < height * .65 || dy > height * 1.85 || indent > height * 2
+    // Manuscript PDFs commonly use double spacing: their baseline advance is
+    // about twice the text-layer glyph box height. Treat that as a line wrap,
+    // while retaining overlap/alignment checks that keep columns separate.
+    if (dy < height * .65 || dy > height * 2.65 || indent > height * 2.5
       || overlap < Math.min(8, height * .5) || Math.abs(candidate.height - from.height) > height * .3) continue;
     const score = dy + indent * .45;
     if (score < best) { nearest = candidate; best = score; }

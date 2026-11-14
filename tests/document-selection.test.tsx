@@ -223,3 +223,34 @@ test("scientific figure references retain the rest of the selected PDF sentence 
     });
   }
 });
+
+test("double-spaced and indented PDF sentences retain both sides of the selected word at every zoom", () => {
+  for (const scale of [.7, 1, 2]) {
+    const dom = new JSDOM('<main><div data-document-page="2"><div class="textLayer"></div></div></main>');
+    const doc = dom.window.document, root = doc.querySelector("main")!, layer = root.querySelector(".textLayer")!;
+    Object.defineProperty(dom.window.Range.prototype, "getClientRects", { value: () => [] });
+    const rows = [
+      { text: "The previous experiment ended.", x: 10, y: 10 },
+      { text: "The trial constructs a polymer network that", x: 34, y: 50 },
+      { text: "controls drug release kinetics and antibacterial", x: 10, y: 73.4 },
+      { text: "activity, thereby accelerating tissue repair.", x: 10, y: 96.8 },
+      { text: "A different kinetics result belongs to the other column.", x: 420, y: 73.4 },
+      { text: "The next experiment starts.", x: 10, y: 140 },
+    ];
+    const spans = rows.map(({text,x,y}) => {
+      const span = doc.createElement("span"); span.textContent = text;
+      Object.defineProperty(span, "getBoundingClientRect", { value: () => ({left:x*scale,right:(x+text.length*5)*scale,top:y*scale,bottom:(y+12)*scale,height:12*scale,width:text.length*5*scale}) });
+      layer.append(span); return span;
+    });
+    const range = doc.createRange(), start = rows[2].text.indexOf("kinetics");
+    range.setStart(spans[2].firstChild!, start); range.setEnd(spans[2].firstChild!, start+8);
+    doc.getSelection()!.addRange(range);
+    const before = root.textContent;
+    const selected = readDocumentSelection(root, article);
+    assert.equal(selected?.word, "kinetics");
+    assert.equal(selected?.sentence, rows.slice(1,4).map(r=>r.text).join(" "));
+    assert.ok(!selected?.sentence.includes("other column"));
+    assert.equal(root.textContent, before);
+    dom.window.close();
+  }
+});
