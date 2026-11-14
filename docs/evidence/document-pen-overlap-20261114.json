@@ -1,0 +1,21 @@
+{
+  "releaseId": "20261114T214500",
+  "parentReleaseId": "20261114T180530",
+  "sourceRevision": "aa73df4272528d5d20b3edfb31862da08182dbc3",
+  "acceptedAt": "2026-11-14T13:53:02.039099+00:00",
+  "focusedTests": 21,
+  "criticalTests": 90,
+  "localAndServerBuild": "passed",
+  "protectedContracts": "passed",
+  "publicChecks": 6,
+  "persistentServicesUnchanged": 5,
+  "backupRestorePublicTables": 41,
+  "health": "passed",
+  "rollbackImages": "current and parent retained",
+  "storage": "legacy strokes unchanged; display projection only",
+  "unverified": [
+    "actual original-paper browser visual acceptance",
+    "physical phone",
+    "actual production rollback"
+  ]
+}
