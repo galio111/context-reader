@@ -1,3 +1,4 @@
+import { documentConversation } from "./documentConversation";
 import { sanitizeExplanationRequest, EXPLANATION_SENTENCE_CONTEXT_VERSION } from "@/lib/explanationRequest";
 export { sanitizeExplanationRequest } from "@/lib/explanationRequest";
 import {anyTextKey} from '@/lib/modelSettings';
@@ -299,7 +300,7 @@ export function sanitizeSentenceQuestionRequest(input: SentenceQuestionRequest):
     ...sanitizeExplanationRequest(input),
     question: trimField(input.question).slice(0, MAX_QUESTION_CHARS),
     ...(input.document ? { document: { title: input.document.title.slice(0, 300), blocks: input.document.blocks } } : {}),
-    history: input.history?.slice(-4).map(turn => ({ question: turn.question.slice(0, 1000), answer: turn.answer.slice(0, 4000) })),
+    history: documentConversation(input.history),
     searchQuery: input.searchQuery?.trim().slice(0, 150),
     autoSearch: input.autoSearch === true,
   };

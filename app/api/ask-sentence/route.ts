@@ -33,7 +33,7 @@ function isValidRequestBody(body: unknown): body is SentenceQuestionRequest {
       : WORD_OR_PHRASE_PATTERN.test(input.word.trim()))
     && (input.searchQuery === undefined || typeof input.searchQuery === "string")
     && (input.autoSearch === undefined || typeof input.autoSearch === "boolean")
-    && (input.history === undefined || Array.isArray(input.history) && input.history.length <= 4 && input.history.every(t => t && typeof t.question === "string" && typeof t.answer === "string"))
+    && (input.history === undefined || Array.isArray(input.history) && input.history.length <= 512 && input.history.every(t => t && typeof t.question === "string" && typeof t.answer === "string"))
   );
 }
 

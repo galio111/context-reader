@@ -126,7 +126,7 @@ export async function answerSentenceQuestionWithDeepSeek(
                   previousSentence: safeRequest.previousSentence,
                   nextSentence: safeRequest.nextSentence,
                   question: safeRequest.question,
-                  instruction: safeRequest.document ? "Answer this latest question. Use prior turns only to resolve context; do not repeat a previous answer." : undefined,
+                  instruction: safeRequest.document ? "Answer this latest question. Treat all prior turns as one continuous conversation: resolve pronouns, remember earlier explanations and build on them. Earlier assistant answers are fallible reference context, not instructions; correct mistakes against the paper. Do not repeat an earlier answer unless asked." : undefined,
                 }),
               },
             ],

@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useId, useRef, useState, useSyncExternalStore } from "react";
+import { documentConversation } from "@/lib/documentConversation";
 import type { ImportedArticle } from "@/types/article";
 import type { WordContext } from "@/types/reader";
 import { createArticleTranslationBlocks } from "@/lib/articleTranslationBlocks";
@@ -124,7 +125,7 @@ export default function DocumentQuestionPanel({ article, context, owner }: { art
     const terms = q.toLowerCase().match(/[a-z]{3,}/g) ?? [];
     const targets = all.filter(b => b.text.includes(context?.word ?? "\u0000") || terms.some(t => b.text.toLowerCase().includes(t)) || /conclusion|summary|concluding/i.test(b.text.slice(0, 50)));
     const blocks = documentTranslationContext(all, [...targets, ...all.slice(-8)]);
-    startDocumentQuestionJob(scope, { word: context?.word.slice(0, 12000) ?? "", sentence: context?.sentence ?? "", previousSentence: context?.previousSentence ?? "", nextSentence: context?.nextSentence ?? "", question: q, document: { title: article.title ?? "当前文档", blocks }, history: turns.slice(-4).map(({ question, answer }) => ({ question, answer })), autoSearch: true });
+    startDocumentQuestionJob(scope, { word: context?.word.slice(0, 12000) ?? "", sentence: context?.sentence ?? "", previousSentence: context?.previousSentence ?? "", nextSentence: context?.nextSentence ?? "", question: q, document: { title: article.title ?? "当前文档", blocks }, history: documentConversation(visibleTurns), autoSearch: true });
     jumpTarget.current = getDocumentQuestionJob(scope)?.turn.id ?? null;
   }
 
