@@ -1,0 +1,18 @@
+{
+  "releaseId": "20261114T180530",
+  "parentReleaseId": "20261114T163304",
+  "sourceRevision": "f13f1ef8a0dad1a4848b42cdd248d07bcf1dddde",
+  "targetedTests": 18,
+  "criticalTests": 90,
+  "localAndServerBuild": "passed",
+  "protectedContracts": "passed",
+  "publicChecks": 6,
+  "persistentServicesUnchanged": 5,
+  "restoreTables": 41,
+  "health": "passed",
+  "legacyMarks": "render projection only; records unchanged",
+  "unverified": [
+    "physical desktop/mobile visual and zoom interaction",
+    "actual rollback"
+  ]
+}
