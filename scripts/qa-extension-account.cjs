@@ -5,7 +5,7 @@ const base = process.env.SUPABASE_URL, key = process.env.SUPABASE_SERVICE_ROLE_K
 if (!base || !key) throw new Error("Run inside the configured app container");
 async function api(path, method = "GET", body) {
   const r = await fetch(base + path, { method, headers: { apikey: key, Authorization: `Bearer ${key}`, "Content-Type": "application/json" }, ...(body ? { body: JSON.stringify(body) } : {}) });
-  if (!r.ok) throw new Error(`QA service returned ${r.status}`);
+  if (!r.ok) { const detail = await r.json().catch(() => ({})); throw new Error(`QA service returned ${r.status} for ${method} ${path}: ${String(detail.message || detail.msg || detail.error || "").slice(0, 300)}`); }
   return r.status === 204 ? null : r.json().catch(() => null);
 }
 (async () => {
@@ -22,6 +22,10 @@ async function api(path, method = "GET", body) {
     const id = process.argv[3]; if (!/^[0-9a-f-]{36}$/i.test(id || "")) throw new Error("Expected exact test user UUID");
     const data = await api(`/auth/v1/admin/users/${id}`), user = data.user || data;
     if (!user.email?.startsWith("extension-qa-") || user.user_metadata?.extension_qa !== true) throw new Error("Refusing to remove a non-QA account");
+    const grants = await api(`/rest/v1/billing_grants?user_id=eq.${id}&select=id,plan_id`);
+    if (grants.some(grant => grant.plan_id !== "free")) throw new Error("Refusing to remove non-free billing records");
+    for (const grant of grants) await api(`/rest/v1/billing_allocations?grant_id=eq.${grant.id}`, "DELETE");
+    await api(`/rest/v1/billing_grants?user_id=eq.${id}`, "DELETE");
     await api(`/rest/v1/user_data_objects?user_id=eq.${id}`, "DELETE");
     await api(`/auth/v1/admin/users/${id}`, "DELETE");
     const remaining = await api(`/rest/v1/browser_extension_connections?user_id=eq.${id}&select=id`);

@@ -7,6 +7,9 @@ import { POST as stream } from "@/app/api/explain-word-stream/route";
 import { POST as dictionary } from "@/app/api/dictionary/route";
 import { POST as ask } from "@/app/api/ask-sentence/route";
 import { POST as pronunciation } from "@/app/api/pronunciation/route";
+import { POST as translate } from "@/app/api/translate-article/route";
+import { extensionTranslationInput } from "@/lib/browserExtensionSelection";
+import { LATIN_PHRASE_PATTERN } from "@/lib/latinWords";
 import { accountFetch, writeSyncObjects } from "@/lib/accountStore";
 import { createStandaloneVocabularyEntry } from "@/lib/standaloneDictionary";
 import { normalizeAnkiInfo } from "@/lib/ankiData";
@@ -22,7 +25,7 @@ const json = (value: unknown, status = 200) => NextResponse.json(value, { status
 async function saveVocabulary(request: Request, userId: string) {
   const body = await readJsonBody<{ context: ExplanationRequest; explanation?: WordExplanation; dictionary?: DictionaryResult }>(request, 48 * 1024);
   const ctx = body?.context;
-  if (!ctx || typeof ctx.word !== "string" || !/^[A-Za-z]+(?:['-][A-Za-z]+)*(?:\s+[A-Za-z]+(?:['-][A-Za-z]+)*){0,7}$/.test(ctx.word)
+  if (!ctx || typeof ctx.word !== "string" || !LATIN_PHRASE_PATTERN.test(ctx.word)
     || ![ctx.sentence, ctx.previousSentence, ctx.nextSentence].every(v => typeof v === "string" && v.length <= 5000)) return json({ error: "保存的词和语境无效。" }, 400);
   let entry: VocabularyEntry;
   if (body.dictionary) {
@@ -56,6 +59,14 @@ export async function POST(request: Request, args: { params: Promise<{ operation
         case "dictionary": return dictionary(request);
         case "ask": return ask(request);
         case "pronunciation": return pronunciation(request);
+        case "translate": {
+          const input = extensionTranslationInput(await readJsonBody(request, 48 * 1024));
+          if (!input) return json({ error: "请选择至少 4 个英文词，且不超过 5000 字符。" }, 400);
+          const headers = new Headers(request.headers);
+          headers.delete("x-context-translation-action-id"); headers.delete("content-length"); headers.set("Accept", "application/json");
+          const url = new URL(request.url); url.search = "";
+          return translate(new Request(url, { method: "POST", headers, body: JSON.stringify(input), signal: request.signal }));
+        }
         case "save": return saveVocabulary(request, auth.user.id);
         case "account": return json({ id: auth.user.id, nickname: auth.nickname, connectionId: auth.connection.id });
         case "disconnect": {

@@ -2,7 +2,7 @@ import { normalizePreferences } from "./preferences.mjs";
 
 const SITE = "https://context-reader.com";
 const extensionOrigin = chrome.runtime.getURL("").replace(/\/$/, "");
-const operations = new Set(["explain", "stream", "dictionary", "ask", "pronunciation", "save", "account"]);
+const operations = new Set(["explain", "stream", "dictionary", "ask", "pronunciation", "save", "account", "translate"]);
 chrome.storage.local.setAccessLevel({ accessLevel: "TRUSTED_CONTEXTS" });
 async function state() { const s = await chrome.storage.local.get(["preferences", "connection"]); return { preferences: normalizePreferences(s.preferences), connection: s.connection || null }; }
 function panelNonce(sender) {

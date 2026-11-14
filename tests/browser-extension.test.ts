@@ -12,6 +12,35 @@ import { withExtensionUser, extensionRequestUser } from "../lib/extensionIdentit
 import { authenticateExtension, createExtensionConnection, extensionTokenHash, ExtensionAuthError } from "../lib/browserExtension";
 import identity from "../chrome-extension/identity.json";
 import { POST as execute } from "../app/api/extension/execute/[operation]/route";
+import { extensionSelectionMode, extensionTranslationInput, completeExtensionSelection } from "../lib/browserExtensionSelection";
+
+test("one to three words use explanation, four and more words use selected-text translation", () => {
+  for (const text of ["bank", "river bank", "in spite of"]) assert.equal(extensionSelectionMode(text), "word");
+  for (const text of ["This is very useful", "As a result of", "The river bank is quiet.", "We don’t need well-known examples."]) assert.equal(extensionSelectionMode(text), "translation");
+  for (const text of ["", "<script>", "2026", "word.", "a ".repeat(3000)]) assert.equal(extensionSelectionMode(text), null);
+});
+test("sentence translation targets exactly the selected text and keeps surrounding context read-only", () => {
+  const payload = extensionTranslationInput({ text: "This is very useful", sentence: "Earlier finding: This is very useful for the next experiment.", previousSentence: "An earlier sentence.", nextSentence: "A later sentence." });
+  assert.deepEqual(payload?.blocks, [{ id: "extension-selection", type: "paragraph", text: "This is very useful" }]);
+  assert.equal(payload?.contextBlocks.length, 3); assert.ok(payload?.contextBlocks.every(v => v.id !== "extension-selection"));
+  assert.equal(extensionTranslationInput({ text: "in spite of" }), null);
+});
+test("partial word and phrase edges expand to the source's complete words only", () => {
+  const text = "The highly stable material is useful.";
+  const middle = text.indexOf("stable") + 1;
+  assert.equal(completeExtensionSelection(text, middle, middle + 3).text, "stable");
+  const phrase = completeExtensionSelection(text, text.indexOf("highly") + 3, text.indexOf("material") + 4);
+  assert.equal(phrase.text, "highly stable material"); assert.equal(extensionSelectionMode(phrase.text), "word");
+  assert.equal(completeExtensionSelection(text, 0, 0).text, "");
+  assert.equal(completeExtensionSelection(text, text.indexOf("stable"), text.indexOf("stable") + 6).text, "stable");
+});
+test("completion retains contractions, hyphenated words and accented Latin letters", () => {
+  for (const word of ["don’t", "well-known", "résumé", "café"]) {
+    const source = `The ${word} matters.`, start = source.indexOf(word);
+    assert.equal(completeExtensionSelection(source, start + 1, start + 2).text, word);
+    assert.equal(extensionSelectionMode(word), "word");
+  }
+});
 
 test("selection uses the selected occurrence instead of the first repeated word", () => {
   const text = "The bank is closed. We reached the river bank before sunset. The water was cold.";
@@ -43,6 +72,27 @@ function select(html: string, selector: string, start: number, end: number) {
 test("inline markup preserves the surrounding complete sentence", () => {
   const { result, dom } = select('<p>The <b>material</b> is highly stable. It lasts.</p>', "b", 0, 8);
   assert.equal(result.word, "material"); assert.equal(result.sentence, "The material is highly stable."); assert.equal(result.nextSentence, "It lasts."); dom.window.close();
+});
+test("whole inline-element selections retain their actual sentence instead of losing context", () => {
+  const { dom } = select('<p>The <b>material</b> is highly stable.</p>', "b", 0, 8), document = dom.window.document;
+  const range = document.createRange(); range.selectNodeContents(document.querySelector("b")!);
+  document.getSelection()!.removeAllRanges(); document.getSelection()!.addRange(range);
+  assert.equal(extractSelection(document).sentence, "The material is highly stable."); dom.window.close();
+});
+test("partial selections expand across inline nodes and visibly select the completed source word", () => {
+  const { dom } = select('<p>The <b>ma</b><span>terial</span> is stable.</p>', "b", 1, 2), document = dom.window.document;
+  const result = extractSelection(document);
+  assert.equal(result.word, "material"); assert.equal(result.sentence, "The material is stable."); assert.equal(document.getSelection()!.toString(), "material"); dom.window.close();
+});
+test("incomplete sentence edges complete before the four-word translation decision", () => {
+  const text = "This is very useful.";
+  const { dom, result } = select(`<p>${text}</p>`, "p", 1, text.indexOf("useful") + 3);
+  assert.equal(result.word, "This is very useful"); assert.equal(result.mode, "translation"); assert.equal(dom.window.getSelection()!.toString(), "This is very useful"); dom.window.close();
+});
+test("sentence selections preserve punctuation and select translation mode", () => {
+  const text = "The river bank is quiet.";
+  const { result, dom } = select(`<p>${text}</p>`, "p", 0, text.length);
+  assert.equal(result.mode, "translation"); assert.equal(result.word, text); dom.window.close();
 });
 test("hidden and script text are excluded from model context", () => {
   const { result, dom } = select('<p>The <i hidden>private secret</i><b>material</b><script>password</script> is stable.</p>', "b", 0, 8);

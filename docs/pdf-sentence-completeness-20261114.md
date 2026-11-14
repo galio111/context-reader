@@ -1,6 +1,6 @@
 # PDF sentence completeness regression
 
-Status: candidate 20261114T100430, parent 20261113T163321, based on source 185aacbfb2237c381a8f4bf6539b6c8ff8b58461. Not yet production accepted.
+Status: candidate 20261114T101330, parent 20261114T100145, based on source 8ef3cd980746ddb9c746def56cd1657921c8bc0a. Not yet production accepted.
 
 The November 14 screenshot showed a selected word whose sentence translation contained only its visual line. In the real 42-page manuscript, the native PDF context resolver rejected adjacent double-spaced lines because baseline spacing exceeded its 1.85-glyph-height ceiling. The November 13 full-translation repair changed translation targets only; it did not change this independent native-selection path. Earlier PDF sentence acceptance did not cover this double-spacing case.
 

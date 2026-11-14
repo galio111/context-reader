@@ -8,7 +8,8 @@ import autoprefixer from "autoprefixer";
 import JSZip from "jszip";
 import sharp from "sharp";
 
-const root = process.cwd(), dir = resolve(root, "chrome-extension"), out = resolve(root, "artifacts/chrome-extension-1113/unpacked");
+const root = process.cwd(), dir = resolve(root, "chrome-extension"), out = resolve(process.env.CONTEXT_READER_EXTENSION_OUT_DIR || "artifacts/chrome-extension-1113/unpacked");
+const extensionRelease = JSON.parse(await readFile(resolve(dir, "release.json"), "utf8"));
 await mkdir(out, { recursive: true });
 let identity;
 try { identity = JSON.parse(await readFile(resolve(dir, "identity.json"), "utf8")); }
@@ -20,7 +21,7 @@ catch {
   identity = { id, key: key.toString("base64") }; await writeFile(resolve(dir, "identity.json"), JSON.stringify(identity, null, 2) + "\n");
 }
 const manifest = {
-  manifest_version: 3, name: "Context Reader 划词助手", version: "1.0.0", minimum_chrome_version: "120",
+  manifest_version: 3, name: "Context Reader 划词助手", version: extensionRelease.version, minimum_chrome_version: "120",
   description: "网页划词、语境解释与账号生词本。快捷键、浮窗大小、颜色和透明度可自定义。", key: identity.key,
   permissions: ["storage", "contextMenus"], host_permissions: ["https://context-reader.com/*"],
   icons: { 16: "icon16.png", 32: "icon32.png", 48: "icon48.png", 128: "icon128.png" },
