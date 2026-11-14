@@ -568,3 +568,8 @@ PDF sentence boundaries use an offset-preserving shadow for figure references, s
 
 
 For rendered PDFs, `retainPdfSelectionGeometry` aligns TextLayer `textDivs` with text-content items and stores source positions, baseline, advance width and height. `pdfSelectionContext` uses these viewport-scaled metrics rather than CSS font boxes, which can overlap or change after embedded fonts load. Original and disposable page text retain the same native source identity. This metadata is presentation-only and never edits original bytes or saved article blocks.
+
+
+## Document pen annotations
+
+PDF/Word 原文工具栏增加画笔开关和撤销划线。开启画笔时复用现有鼠标/触摸/键盘选区通道，但拦截查词回调，在选中文字下画红色下划线；关闭后恢复查词。标记按账号/文档保存在本机学习数据库，以页内归一化坐标覆盖呈现，缩放和重渲染后重画，不修改原件或文章块。此版不进行标记云同步，也不把标记写入下载原件。 验证和发布状态见 [画笔记录](document-pen-20261114.md)。

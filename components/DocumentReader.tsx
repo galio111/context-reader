@@ -15,6 +15,7 @@ import { DOCUMENT_RANGE_CHUNK, openDocumentRanges } from "@/lib/documentRangeRea
 import { cleanDocumentText } from "@/lib/documentUnicode";
 import { retainPdfSelectionGeometry } from "@/lib/pdfSelectionGeometry";
 import styles from "./DocumentReader.module.css";
+import { useDocumentPen } from "./useDocumentPen";
 
 
 function PdfPage({ pdf, number, width, zoom, preload, settled, enabled, detailReady, onPaint }: { pdf: ReadingPdf; enabled: boolean; detailReady: boolean; number: number; width: number; zoom: number; preload: boolean; settled: boolean; onPaint: (number: number) => void }) {
@@ -171,7 +172,7 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
   const scroller = useRef<HTMLDivElement>(null);
   const iframe = useRef<HTMLIFrameElement>(null);
   const wordMouseSurface = useRef<HTMLDivElement>(null);
-  const callback = useRef(onLookup); callback.current = onLookup;
+  const callback = useRef(onLookup);
   const drag = useRef<{ anchor: Range; x: number; y: number; moved: boolean } | null>(null);
   useEffect(() => {
     const releaseOutside = (event: MouseEvent) => {
@@ -214,6 +215,8 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
   const [frameReady, setFrameReady] = useState(false);
+  const pen = useDocumentPen(source.id, scroller, iframe, source.format === "pdf", `${source.id}:${width}:${zoom}:${frameReady}:${Boolean(wordBytes)}`);
+  callback.current = context => { if (!pen.capture()) onLookup(context); };
   useEffect(() => {
     const host = root.current;
     if (!host) return;
@@ -401,8 +404,10 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
     <DocumentViewportControls root={root} scroller={scroller}>
       <span>{source.format.toUpperCase()} · {source.format === "pdf" ? `${source.pageCount} 页` : "原文排版"}</span>
       <div><button type="button" onClick={() => setZoom(v => Math.max(.25, (v || 1) - .25))} disabled={zoom === .25} aria-label="缩小文档">−</button><span>{zoom ? `${Math.round(zoom * 100)}%` : "适合宽度"}</span><button type="button" onClick={() => setZoom(v => Math.min(4, (v || 1) + .25))} disabled={zoom === 4} aria-label="放大文档">＋</button><button className={styles.scaleChoice} type="button" aria-label="原始比例 100%" onClick={() => setZoom(1)}>100%</button><button className={styles.scaleChoice} type="button" onClick={() => setZoom(0)}>适宽</button></div>
-      <a href={documentUrl(source)} download={source.name}>下载原件</a>
+      <div><button className={styles.penButton} type="button" aria-label="画笔：选句划线" aria-pressed={pen.enabled} disabled={!pen.ready} onClick={pen.toggle} title={pen.enabled ? "关闭画笔，恢复划词翻译" : "开启画笔，选句划线"}><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true"><path d="m15 4 5 5M4 20l5-1L20 8a2.1 2.1 0 0 0-3-3L6 16l-2 4Z"/><path d="M4 22h16"/></svg><span>画笔</span></button><button type="button" className={styles.scaleChoice} disabled={!pen.count || !pen.ready} onClick={pen.undo} aria-label="撤销上一处划线">撤销划线</button><a href={documentUrl(source)} download={source.name}>下载原件</a></div>
     </DocumentViewportControls>
+    {pen.enabled && <p className={styles.penHint} role="status">画笔已开启：拖选句子添加下划线</p>}
+    {pen.notice && <p role="alert">{pen.notice}</p>}
     {loading && <p role="status">正在打开文档…</p>}
     {error && <p role="alert">原件暂时未能打开，页面、图片和标注仍保存在原文件中。<button className={styles.retry} type="button" onClick={() => setAttempt(v => v + 1)}>重新打开原件</button></p>}
     <div ref={scroller} className={styles.scroll} data-document-selection-root onMouseDown={event => {

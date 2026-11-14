@@ -30,3 +30,11 @@
 @media (pointer:coarse) { .toolbar button,.retry,.pageStatus button { min-width:44px; min-height:44px; } }
 .root :global(.textLayer .pdfGlyphLine) { display:contents; }
 .root :global(.textLayer .pdfGlyph) { position:absolute; color:transparent!important; font-kerning:none; letter-spacing:0; white-space:pre; transform-origin:0 0; }
+
+.toolbar .penButton { display:inline-flex; align-items:center; justify-content:center; gap:5px; width:auto; padding:0 9px; color:#444; }
+.toolbar .penButton[aria-pressed="true"] { background:#333; border-color:#333; color:#fff; }
+.toolbar .penButton:focus-visible { outline:1px solid #555; outline-offset:2px; }
+.penHint { margin:0 0 10px; font:13px/1.5 system-ui; color:#555; }
+:global(html[data-context-theme="night"]) .toolbar .penButton { background:#303034; border-color:#666; color:#eee; }
+:global(html[data-context-theme="night"]) .toolbar .penButton[aria-pressed="true"] { background:#e8f1f3; border-color:#e8f1f3; color:#17272e; }
+:global(html[data-context-theme="night"]) .penHint { color:#b3c4c9; }
