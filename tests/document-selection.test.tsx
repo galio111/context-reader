@@ -10,6 +10,7 @@ import type { ImportedArticle } from "../types/article";
 import type { WordContext } from "../types/reader";
 import { cacheDocument, readCachedDocument } from "../lib/documentBinaryCache";
 import { observeSandboxedSelection } from "../lib/documentSelectionObserver";
+import { retainPdfSelectionGeometry } from "../lib/pdfSelectionGeometry";
 
 test("script-disabled frame selection submits without mouse callbacks, deduplicates and stops on cleanup", async () => {
   const dom = new JSDOM('<iframe></iframe>', { pretendToBeVisual: true });
@@ -281,4 +282,25 @@ test("a later repeated word stays in its own sentence through missing PDF spaces
   assert.equal(result.sentence,"Two systems were compared for therapeutic efficacy in a murine S. aureus-infected wound model.");
   assert.equal(result.previousSentence,"Another fact was understood.");
   assert.equal(result.nextSentence,"Despite identical loading, they differed.");
+});
+
+test("native PDF advances retain mixed-font fragments even when CSS font boxes overlap or change height", () => {
+  for (const scale of [.7, 1, 2]) {
+    const dom=new JSDOM('<main><div data-document-page="4"><div class="textLayer"></div></div></main>');
+    const doc=dom.window.document,root=doc.querySelector("main")!,layer=doc.querySelector<HTMLElement>(".textLayer")!;
+    Object.defineProperty(dom.window.Range.prototype,"getClientRects",{value:()=>[]});
+    Object.defineProperty(layer,"getBoundingClientRect",{value:()=>({left:0,top:0,width:600*scale,height:800*scale})});
+    const rows=[
+      {text:"Two systems were",x:30,y:50,width:140},
+      {text:"compared for therapeutic efficacy in a murine",x:10,y:73.4,width:260},
+      {text:"S.",x:275,y:73.4,width:10},
+      {text:"aureus-infected wound model.",x:290,y:73.4,width:160},
+    ];
+    const spans=rows.map((r,i)=>{const el=doc.createElement("span");el.textContent=r.text;Object.defineProperty(el,"getBoundingClientRect",{value:()=>({left:r.x*scale,right:(r.x+r.width+(i%2?150:0))*scale,top:(r.y-i*2)*scale,bottom:(r.y+12+i*2)*scale,height:(12+i*4)*scale,width:(r.width+150)*scale})});layer.append(el);return el;});
+    const items=rows.map(r=>({str:r.text,width:r.width,height:12,transform:[12,0,0,12,r.x,800-r.y-12]}));
+    retainPdfSelectionGeometry(layer,{textDivs:spans},{items},{width:600,height:800,scale:1,convertToViewportPoint:(x,y)=>[x,800-y]});
+    const range=doc.createRange(),offset=rows[1].text.indexOf("efficacy");range.setStart(spans[1].firstChild!,offset);range.setEnd(spans[1].firstChild!,offset+8);doc.getSelection()!.addRange(range);
+    assert.equal(readDocumentSelection(root,article)?.sentence,"Two systems were compared for therapeutic efficacy in a murine S. aureus-infected wound model.");
+    dom.window.close();
+  }
 });

@@ -565,3 +565,6 @@ Imported-document translation and selection bounds: translation background is re
 
 
 PDF sentence boundaries use an offset-preserving shadow for figure references, scientific genus initials and missing-space sentence transitions. Structured/streaming word explanation share `lib/explanationRequest.ts`: the existing route body bound remains the outer limit, the complete target is preserved, and only adjacent background is shortened. Generated explanations carry optional `sentenceContextVersion: 2`; old caches whose source key exceeds 500 characters are retained but not used or Admin-preloaded until regenerated with complete context. Cache keys and vocabulary identities remain unchanged.
+
+
+For rendered PDFs, `retainPdfSelectionGeometry` aligns TextLayer `textDivs` with text-content items and stores source positions, baseline, advance width and height. `pdfSelectionContext` uses these viewport-scaled metrics rather than CSS font boxes, which can overlap or change after embedded fonts load. Original and disposable page text retain the same native source identity. This metadata is presentation-only and never edits original bytes or saved article blocks.

@@ -13,6 +13,7 @@ import { acquirePdfRender } from "@/lib/pdfRenderQueue";
 import { createPageReader, type ReadingPdf } from "@/lib/documentPageReader";
 import { DOCUMENT_RANGE_CHUNK, openDocumentRanges } from "@/lib/documentRangeReader";
 import { cleanDocumentText } from "@/lib/documentUnicode";
+import { retainPdfSelectionGeometry } from "@/lib/pdfSelectionGeometry";
 import styles from "./DocumentReader.module.css";
 
 
@@ -103,6 +104,7 @@ function PdfPage({ pdf, number, width, zoom, preload, settled, enabled, detailRe
         const cleanContent = { ...textContent, items: textContent.items.map(item => "str" in item ? { ...item, str: cleanDocumentText(item.str) } : item) };
         layer = new library.TextLayer({ textContentSource: cleanContent, container: text, viewport });
         await layer.render();
+        retainPdfSelectionGeometry(text, layer, cleanContent, viewport);
         if (!disposed) {
           host.querySelectorAll(".textLayer").forEach(previous => { if (previous !== text) previous.remove(); });
           text.style.visibility = ""; staging = undefined;
@@ -130,6 +132,7 @@ function PdfPage({ pdf, number, width, zoom, preload, settled, enabled, detailRe
         layer = new library.TextLayer({ textContentSource: cleanContent, container: text, viewport });
         render = page.render({ canvas, viewport, transform: [ratio, 0, 0, ratio, 0, 0], annotationMode: library.AnnotationMode.ENABLE_STORAGE });
         await Promise.all([render.promise, layer.render()]);
+        retainPdfSelectionGeometry(text, layer, cleanContent, viewport);
       } else {
         // Warm local originals without building thousands of offscreen glyph nodes.
         render = page.render({ canvas, viewport, transform: [ratio, 0, 0, ratio, 0, 0], annotationMode: library.AnnotationMode.ENABLE_STORAGE });
