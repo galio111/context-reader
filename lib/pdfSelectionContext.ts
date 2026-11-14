@@ -26,11 +26,23 @@ function pageLayout(layer: HTMLElement) {
   const existing = layouts.get(layer);
   if (existing) return existing;
   const runs: Run[] = [];
+  const pageBox = layer.getBoundingClientRect();
+  const viewport = layer.dataset.pdfViewport?.split(",").map(Number);
+  const scaleX = viewport?.[0] ? pageBox.width / viewport[0] : 0;
+  const scaleY = viewport?.[1] ? pageBox.height / viewport[1] : 0;
   const walker = layer.ownerDocument.createTreeWalker(layer, 4);
   while (walker.nextNode()) {
     const node = walker.currentNode as Text;
     if (!node.data.trim()) continue;
-    const box = node.parentElement!.getBoundingClientRect();
+    const geometry = node.parentElement!.dataset.pdfRun?.split(",").map(Number);
+    if (viewport && (!geometry || !scaleX || !scaleY)) continue;
+    const box = geometry && scaleX && scaleY ? {
+      left: pageBox.left + geometry[0] * scaleX,
+      right: pageBox.left + (geometry[0] + geometry[2]) * scaleX,
+      bottom: pageBox.top + geometry[1] * scaleY,
+      width: geometry[2] * scaleX,
+      height: geometry[3] * scaleY,
+    } : node.parentElement!.getBoundingClientRect();
     if (box.width <= 0 || box.height <= 0) continue;
     runs.push({ node, left: box.left, right: box.right, y: box.bottom, height: box.height });
   }
