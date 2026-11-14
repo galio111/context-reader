@@ -38,3 +38,5 @@
 :global(html[data-context-theme="night"]) .toolbar .penButton { background:#303034; border-color:#666; color:#eee; }
 :global(html[data-context-theme="night"]) .toolbar .penButton[aria-pressed="true"] { background:#e8f1f3; border-color:#e8f1f3; color:#17272e; }
 :global(html[data-context-theme="night"]) .penHint { color:#b3c4c9; }
+
+:global(html[data-context-theme="night"]) .toolbar .penButton > span { color:inherit!important; }
