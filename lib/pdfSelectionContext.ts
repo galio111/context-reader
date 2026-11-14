@@ -108,8 +108,15 @@ export function pdfSelectionText(range: Range): { text: string; entries: TextEnt
     if (entries.length) text += "\n";
     let previous: Run | undefined;
     for (const run of line.runs) {
-      if (previous && run.left - previous.right > Math.max(previous.height, run.height) * .1
-        && !/\s$/.test(previous.node.data) && !/^\s/.test(run.node.data)) text += " ";
+      if (previous && !/\s$/.test(previous.node.data) && !/^\s/.test(run.node.data)) {
+        // Original and copied reading pages can split the same words into
+        // different runs. Small real word gaps and punctuation must survive
+        // those splits, including slightly overlapping font boxes.
+        const wordGap = run.left - previous.right > Math.max(previous.height, run.height) * .075;
+        const proseBoundary = /[,;:!?]$/.test(previous.node.data) && previous.node.length > 1
+          && /^\p{L}/u.test(run.node.data) && run.node.length > 1;
+        if (wordGap || proseBoundary) text += " ";
+      }
       entries.push({ node: run.node, start: text.length, end: text.length + run.node.length });
       text += run.node.data;
       previous = run;

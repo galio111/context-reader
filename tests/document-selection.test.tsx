@@ -254,3 +254,22 @@ test("double-spaced and indented PDF sentences retain both sides of the selected
     dom.window.close();
   }
 });
+
+test("PDF run splits preserve small word spaces and overlapping punctuation without splitting hyphens", () => {
+  const dom = new JSDOM('<main><div data-document-page="2"><div class="textLayer"></div></div></main>');
+  const doc = dom.window.document, root = doc.querySelector("main")!, layer = root.querySelector(".textLayer")!;
+  Object.defineProperty(dom.window.Range.prototype, "getClientRects", { value: () => [] });
+  const runs = [
+    {text:"The material",x:10,width:65}, {text:"controls",x:76,width:35},
+    {text:"kinetics,",x:112,width:45}, {text:"with",x:154,width:20},
+    {text:"gelatin",x:180,width:35}, {text:"-",x:213,width:4}, {text:"based repairs.",x:217,width:80},
+  ];
+  const spans = runs.map(({text,x,width}) => {
+    const span=doc.createElement("span");span.textContent=text;
+    Object.defineProperty(span,"getBoundingClientRect",{value:()=>({left:x,right:x+width,top:10,bottom:22,height:12,width})});
+    layer.append(span);return span;
+  });
+  const range=doc.createRange();range.setStart(spans[2].firstChild!,0);range.setEnd(spans[2].firstChild!,8);doc.getSelection()!.addRange(range);
+  assert.equal(readDocumentSelection(root,article)?.sentence,"The material controls kinetics, with gelatin-based repairs.");
+  dom.window.close();
+});
