@@ -1,0 +1,43 @@
+{
+  "version": "1.1.0",
+  "releaseId": "20261114T100145",
+  "parentReleaseId": "20261113T163321",
+  "sourceRevision": "8ef3cd980746ddb9c746def56cd1657921c8bc0a",
+  "downloadSha256": "59fa1f7e1b3625b7153ee0f4ac862f810f49d5fcbc8ecc428d9e54d8060e6864",
+  "checks": {
+    "extensionTests": 25,
+    "criticalTests": 90,
+    "architectureTests": 173,
+    "providerAndSingleChargeTests": 8,
+    "githubCodeCiRun": 43544057165,
+    "githubCodeCiConclusion": "success",
+    "productionBuildAndReleaseContracts": true,
+    "nativeMousePinAndBlankDismissal": true,
+    "pinnedPositionUnchangedAcrossQueries": true,
+    "nativePartialWordCompletionAndExpandedHighlight": true,
+    "threeWordExplanationAndFourWordTranslation": true,
+    "noAccountLabelInPopup": true,
+    "lateReplyDoesNotReopenDismissedWindow": true,
+    "realContextExplanationAndCloudVocabularyRoundtrip": true,
+    "realStandaloneDictionary": true,
+    "realSelectionTranslation": true,
+    "realSignedInFullArticleTranslation": true,
+    "revokedCredentialStatus": 401,
+    "onlineZipHashMatches": true,
+    "healthcheck": "passed",
+    "persistentBackendContainersUnchanged": 5,
+    "authorizedAdminReads": "passed",
+    "currentAndParentRollbackImagesPresent": true,
+    "backupShaAndIsolatedRestore": "passed",
+    "restoredPublicTables": 41
+  },
+  "actualModels": {
+    "/api/explain-word": "deepseek-flash",
+    "/api/explain-word-stream": "deepseek-flash",
+    "/api/dictionary": "deepseek-flash",
+    "/api/translate-article": "deepseek-flash"
+  },
+  "syntheticCleanup": { "authUsers": 0, "syncObjects": 0, "connections": 0, "billingGrants": 0 },
+  "remaining": ["Mac physical device", "Physical keyboard shortcut invocation", "Arbitrary third-party webpage compatibility", "User visual acceptance", "Actual rollback not executed"],
+  "distribution": "Overwrite the previous unpacked directory, reload the extension and refresh webpages; no Web Store auto-update"
+}

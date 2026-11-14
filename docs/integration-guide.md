@@ -403,3 +403,5 @@ Apply additive `docs/study-budget-v6-migration.sql` before deploying this app. `
 ### Complete word-explanation targets
 
 The structured and streaming explanation routes share target preparation. `sentence` remains complete within the existing bounded JSON request; only previous/next context is shortened (220 characters each). Fresh results contain optional `sentenceContextVersion: 2`, including client-assembled completed streams. A legacy explanation for a source longer than 500 characters is retained for recovery but skipped for lookup/Admin preload until regenerated with this marker. Keys, account synchronization, saved vocabulary IDs and public payload compatibility remain unchanged.
+
+Long explanation keys must use the existing `explanationSyncIdentity` SHA-256 envelope and `explanationFromSync` replay helper. The sync object key has a 500-character limit; sending a raw long cache key bypasses this established compatibility path. No new cache identity format is introduced by the complete-target fix.
