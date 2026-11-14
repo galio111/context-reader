@@ -8,7 +8,11 @@
 
 ## 导入文档翻译与科研追问（2026-11-06）
 
-Imported-document lookup uses the actual selected sentence; body translation retains unlabelled abstracts, and exact source-keyed caches remain authoritative. PDF questions now explain independent knowledge first, then paper evidence. Automatic concept lookup retrieves Wikipedia/PubChem/Europe PMC references; chemical Color/Form values are supported. Completed turns and sources persist per account/document in browser IndexedDB across selection changes and reopen, with per-turn protocol-2 cloud synchronization, offline backfill and owner isolation (device-sync deployment pending). The model receives four recent turns as actual conversation messages, with the current question last. Accepted `20261106T125200`, parent `20261106T123100`, source `b1c2ae0e5e6935f66ac7fd8a8094581e228ab701`. Two live questions, history/panel/conversation tests, builds and operational checks passed; physical-browser interaction verification remains incomplete. See [document behavior and limits](document-context-and-questions.md).
+Imported-document lookup uses the actual selected sentence; body translation retains unlabelled abstracts, and exact source-keyed caches remain authoritative. PDF questions now explain independent knowledge first, then paper evidence. Automatic concept lookup retrieves Wikipedia/PubChem/Europe PMC references; chemical Color/Form values are supported. Completed turns and sources persist per account/document in browser IndexedDB across selection changes and reopen, with per-turn protocol-2 cloud synchronization, offline backfill and owner isolation (device-sync accepted in 20261106T233432). The model receives four recent turns as actual conversation messages, with the current question last. Accepted `20261106T125200`, parent `20261106T123100`, source `b1c2ae0e5e6935f66ac7fd8a8094581e228ab701`. Two live questions, history/panel/conversation tests, builds and operational checks passed; physical-browser interaction verification remains incomplete. See [document behavior and limits](document-context-and-questions.md).
+
+## PDF / Word 问答交互
+
+PDF/Word 问答：输入框位于标题下方、历史之前。Enter 发送，Shift+Enter 换行，IME 确认不误发送。右侧短横条目录可悬停/键盘预览、点击定位；新问题立即显示并定位，完成不打断正在阅读的旧回答。独立账号/文档任务在收起、换选区、切工具或返回首页后继续，完成无视图也保存同步；失败保留问题，切账号取消旧任务并阻止迟到结果。新划词/选段将工具滚到下方词解/译文，不移动原文。自动检索固定开启，关键词由 AI 确定；隐藏检索设置、关键词/来源说明及链接，新回答提示词禁止参考文献、来源列表和引用编号。旧回答和来源元数据保留。刷新/关闭网页仍可中断未完成请求。详见 [本轮状态与验收边界](document-question-navigation-20261114.md)。
 
 ## 多账号切换（2026-10-26）
 

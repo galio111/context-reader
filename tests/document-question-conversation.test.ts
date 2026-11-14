@@ -13,6 +13,8 @@ test("latest follow-up is the final user turn, with reference data and prior ans
   };
   try{
     const result=await answerSentenceQuestionWithDeepSeek({word:"acid",sentence:"",previousSentence:"",nextSentence:"",question:"Why does it strengthen the gel?",document:{title:"Paper",blocks:[]},history:[{question:"What is it?",answer:"Prior definition"}]},[{title:"Source",url:"https://example.org",text:"Reference facts"}]);
+    assert.ok(messages[0].content.includes("不输出参考文献、来源列表、链接或 [1] 这类引用编号"));
+    assert.ok(!messages[0].content.includes("引用时使用给定编号 [1]"));
     assert.equal(messages.at(-1)?.role,"user");
     assert.equal(JSON.parse(messages.at(-1)!.content).question,"Why does it strengthen the gel?");
     assert.equal(messages.at(-2)?.role,"assistant");

@@ -81,13 +81,22 @@ export function useDocumentSelectionTranslation(context: WordContext | null, art
 
 export function DocumentSelectionTranslation({ context, result, documentQuestion }: { documentQuestion?: React.ReactNode; context: WordContext; result: ReturnType<typeof useDocumentSelectionTranslation> }) {
   const [showSource, setShowSource] = useState(false);
-  return <section className="cr-reader-panel h-full overflow-y-auto rounded-[14px] border border-[#e0e0e0] bg-white p-5" aria-label="所选内容翻译">
+  const panelRef = useRef<HTMLElement>(null);
+  const translationStart = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    setShowSource(false);
+    const panel = panelRef.current, anchor = translationStart.current;
+    if (panel && anchor) panel.scrollTo?.({ top: Math.max(0, panel.scrollTop + anchor.getBoundingClientRect().top - panel.getBoundingClientRect().top - 20), behavior: "instant" });
+  }, [context.word, context.sentence]);
+  return <section ref={panelRef} className="cr-reader-panel h-full overflow-y-auto rounded-[14px] border border-[#e0e0e0] bg-white p-5" aria-label="所选内容翻译">
     {documentQuestion}
+    <div ref={translationStart} data-document-lookup-start style={documentQuestion ? { minHeight: "100%" } : undefined}>
     <div className="mb-5 flex items-center justify-between gap-3 text-sm text-zinc-500"><span>所选内容翻译</span>
       <button type="button" aria-expanded={showSource} className="underline" onClick={() => setShowSource(value => !value)}>{showSource ? "隐藏原文" : "对照原文"}</button></div>
     {showSource && <p className="mb-5 whitespace-pre-wrap text-sm leading-relaxed text-zinc-500" data-selection-source>{context.word}</p>}
     <div className="whitespace-pre-wrap text-base leading-relaxed" data-selection-translation aria-live="polite">{result.text}</div>
     {result.loading && <p className="mt-4 text-sm text-zinc-500" role="status">正在翻译…</p>}
     {result.notice && <p className="mt-4 text-sm text-zinc-500" role="status">{result.notice} <button type="button" className="underline" onClick={result.retry}>重试</button></p>}
+    </div>
   </section>;
 }
