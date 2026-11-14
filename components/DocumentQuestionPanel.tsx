@@ -146,7 +146,7 @@ export default function DocumentQuestionPanel({ article, context, owner }: { art
     {!ready && !notice && <p role="status" className="mt-2 text-xs">正在读取历史…</p>}
     <div className="cr-document-question-history" ref={shell} onPointerLeave={() => setPreview(null)}>
       <div ref={history} className="cr-document-question-turns" onScroll={trackPosition} aria-label="文档问答历史">
-        {visibleTurns.map(turn => <section key={turn.id} id={`${sectionPrefix}-${turn.id}`} data-question-id={turn.id} ref={node => { if (node) turnNodes.current.set(turn.id, node); else turnNodes.current.delete(turn.id); }}>
+        {visibleTurns.map(turn => <section key={turn.id} id={`${sectionPrefix}-${turn.id}`} data-question-id={turn.id} style={turn.id === job?.turn.id ? { minHeight: "55vh" } : undefined} ref={node => { if (node) turnNodes.current.set(turn.id, node); else turnNodes.current.delete(turn.id); }}>
           <h3 className="text-sm font-semibold">{turn.question}</h3>
           {turn.id === pending?.id && !turn.answer ? <p role="status" className={busy ? "cr-document-question-waiting mt-2 text-sm" : "mt-2 text-sm"}>{busy ? "正在检索并回答…" : "回答暂未完成，可重新发送此问题。"}</p> : <p aria-live={turn.id === job?.turn.id ? "polite" : undefined} className="mt-2 whitespace-pre-wrap text-sm leading-6">{turn.answer}</p>}
         </section>)}
