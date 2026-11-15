@@ -27,6 +27,7 @@ interface ExplanationPanelProps {
   onAddToVocabulary: () => void;
   onRegenerate?: () => void;
   documentMode?: boolean;
+  hideQuestion?: boolean;
   documentQuestion?: React.ReactNode;
 }
 
@@ -78,6 +79,7 @@ export function ExplanationPanel({
   onAddToVocabulary,
   onRegenerate,
   documentMode = false,
+  hideQuestion = false,
   documentQuestion,
 }: ExplanationPanelProps) {
   const [sentenceQuestion, setSentenceQuestion] = useState("");
@@ -283,7 +285,7 @@ export function ExplanationPanel({
                 <p className="text-xs leading-5 tracking-[-0.12px] text-[#7a7a7a]">{vocabularyMatchNotice}</p>
               )}
 
-              <section hidden={Boolean(documentQuestion)} className="border-t border-[#e0e0e0] pt-5">
+              <section hidden={hideQuestion || Boolean(documentQuestion)} className="border-t border-[#e0e0e0] pt-5">
                 <h3 className="text-sm font-semibold tracking-[-0.224px] text-[#1d1d1f]">向 AI 追问这句</h3>
                 <p className="mt-1 text-xs leading-5 tracking-[-0.12px] text-[#7a7a7a]">
                   当前问题会带上所划词和它所在的完整句子。
@@ -433,7 +435,7 @@ export function ExplanationPanel({
             <p className="text-xs leading-5 tracking-[-0.12px] text-[#7a7a7a]">{vocabularyMatchNotice}</p>
           )}
 
-          <section hidden={Boolean(documentQuestion)} className="border-t border-[#e0e0e0] pt-5">
+          <section hidden={hideQuestion || Boolean(documentQuestion)} className="border-t border-[#e0e0e0] pt-5">
             <h3 className="text-sm font-semibold tracking-[-0.224px] text-[#1d1d1f]">向 AI 追问这句话</h3>
             <p className="mt-1 text-xs leading-5 tracking-[-0.12px] text-[#7a7a7a]">
               当前问题会带上所划词和它所在的完整句子。

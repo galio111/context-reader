@@ -298,11 +298,13 @@ function getProviderProfiles(): ProviderProfile[] {
 export function sanitizeSentenceQuestionRequest(input: SentenceQuestionRequest): SentenceQuestionRequest {
   return {
     ...sanitizeExplanationRequest(input),
+    ...(input.webSearch ? { word: input.word.trim().slice(0, 5000) } : {}),
     question: trimField(input.question).slice(0, MAX_QUESTION_CHARS),
     ...(input.document ? { document: { title: input.document.title.slice(0, 300), blocks: input.document.blocks } } : {}),
     history: documentConversation(input.history),
     searchQuery: input.searchQuery?.trim().slice(0, 150),
     autoSearch: input.autoSearch === true,
+    webSearch: input.webSearch === true,
   };
 }
 

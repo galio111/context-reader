@@ -95,6 +95,8 @@ export interface SentenceQuestionRequest extends ExplanationRequest {
   history?: { question: string; answer: string }[];
   searchQuery?: string;
   autoSearch?: boolean;
+  /** Server-established extension question scope. */
+  webSearch?: boolean;
 }
 
 export interface SentenceQuestionAnswer {

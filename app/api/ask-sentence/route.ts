@@ -1,3 +1,5 @@
+import { extensionRequestUser } from "@/lib/extensionIdentity";
+import { searchExtensionWeb } from "@/lib/extensionWebSearch";
 import { searchDocumentKnowledge } from "@/lib/documentKnowledge";
 import { providerName } from "@/lib/providerFailover";
 import { LATIN_PHRASE_PATTERN } from "@/lib/latinWords";
@@ -30,7 +32,7 @@ function isValidRequestBody(body: unknown): body is SentenceQuestionRequest {
       && Array.isArray(input.document.blocks) && input.document.blocks.length <= 240
       && input.document.blocks.every(b => b && typeof b.id === "string" && typeof b.text === "string" && b.text.length <= 32000)
       && input.document.blocks.reduce((n,b) => n+b.text.length,0) <= 64000
-      : WORD_OR_PHRASE_PATTERN.test(input.word.trim()))
+      : extensionRequestUser() ? input.word.trim().length > 0 && input.word.length <= 5000 : WORD_OR_PHRASE_PATTERN.test(input.word.trim()))
     && (input.searchQuery === undefined || typeof input.searchQuery === "string")
     && (input.autoSearch === undefined || typeof input.autoSearch === "boolean")
     && (input.history === undefined || Array.isArray(input.history) && input.history.length <= 512 && input.history.every(t => t && typeof t.question === "string" && typeof t.answer === "string"))
@@ -76,17 +78,18 @@ async function handlePOST(request: Request) {
   }
 
   try {
-    const safeRequest = sanitizeSentenceQuestionRequest(body);
+    const webSearch = Boolean(extensionRequestUser());
+    const safeRequest = sanitizeSentenceQuestionRequest({ ...body, webSearch });
     let searchQuery=safeRequest.searchQuery ?? "";
     let planningFailed=false;
-    if(safeRequest.document && safeRequest.autoSearch && !searchQuery){
+    if((webSearch || safeRequest.document && safeRequest.autoSearch) && !searchQuery){
       try{
         const plan=await planDocumentKnowledgeSearch(safeRequest,request.signal);
         searchQuery=plan.query;
         await recordUsageExecution({actionId,route:"/api/ask-sentence/search-plan",provider:providerName(plan.model),model:plan.model,promptTokens:plan.usage.prompt_tokens,promptCacheHitTokens:plan.usage.prompt_cache_hit_tokens,promptCacheMissTokens:plan.usage.prompt_cache_miss_tokens,completionTokens:plan.usage.completion_tokens,estimatedCostMicrousd:estimateDeepSeekCostMicrousd(plan.model,plan.usage),status:"succeeded"}).catch(()=>undefined);
       }catch{request.signal.throwIfAborted();planningFailed=true;}
     }
-    const knowledge = safeRequest.document && searchQuery ? await searchDocumentKnowledge(searchQuery, request.signal) : { sources: [], notice: planningFailed ? "自动检索暂时不可用，本次使用一般知识与论文内容回答，未取得外部来源。" : "" };
+    const knowledge = webSearch ? (searchQuery ? await searchExtensionWeb(searchQuery, request.signal) : { sources: [], notice: planningFailed ? "未能确定检索关键词，本次未取得联网资料。" : "本次根据语言知识回答，未调用联网搜索。" }) : safeRequest.document && searchQuery ? await searchDocumentKnowledge(searchQuery, request.signal) : { sources: [], notice: planningFailed ? "自动检索暂时不可用，本次使用一般知识与论文内容回答，未取得外部来源。" : "" };
     const result = await answerSentenceQuestionWithDeepSeek(safeRequest, knowledge.sources, request.signal);
     await recordUsageExecution({ actionId, route: "/api/ask-sentence", provider: result.provider, model: result.model, promptTokens: result.usage.prompt_tokens, promptCacheHitTokens: result.usage.prompt_cache_hit_tokens, promptCacheMissTokens: result.usage.prompt_cache_miss_tokens, completionTokens: result.usage.completion_tokens, estimatedCostMicrousd: estimateDeepSeekCostMicrousd(result.model, result.usage), status: "succeeded" }).catch(() => undefined);
     await finishUsage(actionId, "succeeded").catch(() => undefined);

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build:extension": "node scripts/build-chrome-extension.mjs",
-    "test:extension": "node --import ./scripts/test-server-context.mjs --import tsx --test tests/browser-extension.test.ts",
+    "test:extension": "node --import ./scripts/test-server-context.mjs --import tsx --test tests/browser-extension.test.ts tests/extension-web-search.test.ts tests/extension-question.test.tsx",
     "dev": "next dev",
     "test:critical": "node --import ./scripts/test-server-context.mjs --import tsx --test tests/critical-regressions.test.ts",
     "test:release-safety": "node scripts/test-release-safety.mjs",

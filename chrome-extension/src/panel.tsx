@@ -1,3 +1,4 @@
+import { ExtensionQuestion } from "./question";
 import React, { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { ExplanationPanel } from "@/components/ExplanationPanel";
@@ -83,7 +84,7 @@ function App() {
   }
   useEffect(() => {
     rpc({ type: "session", nonce: location.hash.slice(1) }).then(s => { applyPreferences(s.preferences); lookup({ ...s.context, paragraphIndex: 0, tokenIndex: 0 }); }).catch(e => setError(e.message));
-    const change = (changes: Record<string, { newValue: any }>) => { if (changes.preferences) applyPreferences(changes.preferences.newValue); if (changes.connection) { task.current++; activePort.current?.disconnect(); setLoading(false); setExplanation(null); setDictionary(null); setStreamText(""); setTranslation(""); setError("保存账号已变更，请重新划词。"); } };
+    const change = (changes: Record<string, { newValue: any }>) => { if (changes.preferences) applyPreferences(changes.preferences.newValue); if (changes.connection) { setContext(null); task.current++; activePort.current?.disconnect(); setLoading(false); setExplanation(null); setDictionary(null); setStreamText(""); setTranslation(""); setError("保存账号已变更，请重新划词。"); } };
     chrome.storage.onChanged.addListener(change);
     const keyboard = (e: KeyboardEvent) => { if (e.key === "Escape") parent.postMessage({ type: "cr-close-panel" }, "*"); };
     document.addEventListener("keydown", keyboard);
@@ -100,8 +101,9 @@ function App() {
   return <>
     {error && <div role="alert" className="error">{error}<button onClick={() => context && lookup(context, true)}>重试查询</button></div>}
     {translating ? <section className="sentence-translation" aria-label="句子翻译"><header><h2>句子翻译</h2><button className="regenerate" aria-label="重新翻译所选内容" disabled={loading} onClick={() => context && lookup(context, true)}>↻</button></header>{loading ? <LoadingStatus>正在翻译所选内容…</LoadingStatus> : translation && <p className="translation-result">{translation}</p>}<details className="translation-original"><summary>所选原文</summary><p>{context?.word}</p></details>{translation && <button className="copy-translation" onClick={async () => { try { await navigator.clipboard.writeText(translation); } catch { setError("复制失败，请检查浏览器剪贴板权限。"); } }}>复制译文</button>}</section>
-      : context?.sentence ? <div className="explanation"><ExplanationPanel explanation={explanation} streamText={streamText} streaming={loading} selectedContext={context} loading={loading} error="" isInVocabulary={saved} savingToVocabulary={saving} vocabularyMatchNotice={saving ? "正在保存…" : saved ? "已加入生词本。" : ""} onAddToVocabulary={save} onRegenerate={() => lookup(context, true)} /></div>
+      : context?.sentence ? <div className="explanation"><ExplanationPanel hideQuestion explanation={explanation} streamText={streamText} streaming={loading} selectedContext={context} loading={loading} error="" isInVocabulary={saved} savingToVocabulary={saving} vocabularyMatchNotice={saving ? "正在保存…" : saved ? "已加入生词本。" : ""} onAddToVocabulary={save} onRegenerate={() => lookup(context, true)} /></div>
       : <div className="dictionary"><p className="hint">未取得完整原句，当前显示词典释义。</p>{loading && <p role="status">正在查询…</p>}{dictionary && <><h2>{dictionary.query}</h2><p>{dictionary.phonetic}</p><PronunciationButtons text={dictionary.query} />{dictionary.senses.map((sense, i) => <section key={i}><h3>{sense.partOfSpeech}</h3><p>{sense.meaning}</p><p>{sense.usageNote}</p><blockquote>{sense.exampleEnglish}<br />{sense.exampleChinese}</blockquote></section>)}<p>{dictionary.usageGuide}</p><button className="save" disabled={saved || saving || dictionary.inputStatus === "misspelled"} onClick={save}>{saved ? "已加入生词本" : saving ? "正在保存…" : "加入生词本"}</button></>}</div>}
+    {context && <ExtensionQuestion key={`${context.word}\n${context.sentence}`} context={context} />}
     {!translating && context?.sentence && <details className="source"><summary>查看取到的原句</summary><p>{context.sentence}</p></details>}
   </>;
 }
