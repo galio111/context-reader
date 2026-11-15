@@ -1,0 +1,128 @@
+{
+  "releaseId": "20261115T103832",
+  "parentReleaseId": "20261114T223628",
+  "sourceRevision": "4caf9a1c17691cda8053804659d4215c43a1d9ca",
+  "architectureTests": 178,
+  "criticalTestsIncluded": 90,
+  "extendedFocused": {
+    "passed": 51,
+    "failedUnchangedLegacyTests": 2,
+    "failures": [
+      "quota-diagnostics: old low-pool presentation expectation",
+      "quota-diagnostics: VM omits performance global for existing stream code"
+    ]
+  },
+  "newRegressionCases": 5,
+  "independentProviderFallbackBilling": "passed in extended suite",
+  "builds": "local/server passed",
+  "contracts": 11,
+  "publicChecks": [
+    {
+      "check": "public identity",
+      "passed": true
+    },
+    {
+      "path": "/api/auth/session",
+      "status": 200
+    },
+    {
+      "path": "/api/admin/accounts",
+      "status": 401
+    },
+    {
+      "path": "/api/account/sync",
+      "status": 401
+    },
+    {
+      "path": "/api/ask-sentence",
+      "status": 401
+    },
+    {
+      "check": "520 alternating word stream/JSON requests",
+      "statuses": {
+        "400": 520
+      },
+      "modelRequests": 0
+    },
+    {
+      "check": "reading does not consume ordinary API budget",
+      "passed": true
+    },
+    {
+      "check": "exhausted Study bucket isolates reading and ordinary API",
+      "passed": true
+    },
+    {
+      "check": "exhausted ordinary API bucket cannot block reading/session",
+      "passed": true
+    },
+    {
+      "check": "body and cross-site protection retained",
+      "passed": true
+    },
+    {
+      "check": "new Study refresh client asset",
+      "path": "/_next/static/chunks/4373-1989c8a6750a00b9.js",
+      "sha256": "fdceb858119763e71a0f79112fca2ff1d070d5aef096c7e872d947507f029bfb"
+    }
+  ],
+  "coreAi": {
+    "contextualAndSentence": true,
+    "dictionary": true,
+    "fullTranslation": true,
+    "actions": [
+      {
+        "feature": "full_article_translation",
+        "status": "succeeded",
+        "quota_units": 10
+      },
+      {
+        "feature": "standalone_dictionary",
+        "status": "succeeded",
+        "quota_units": 5
+      },
+      {
+        "feature": "word_explanation",
+        "status": "succeeded",
+        "quota_units": 1
+      }
+    ],
+    "executions": [
+      {
+        "route": "/api/explain-word",
+        "model": "deepseek-flash",
+        "status": "succeeded"
+      },
+      {
+        "route": "/api/dictionary-stream",
+        "model": "deepseek-flash",
+        "status": "succeeded"
+      },
+      {
+        "route": "/api/translate-article",
+        "model": "deepseek-flash",
+        "status": "succeeded"
+      }
+    ],
+    "passed": true,
+    "syntheticAccountRemoved": true
+  },
+  "persistentServicesUnchanged": 5,
+  "backupRestoredTables": 41,
+  "rollbackImages": "current and parent retained",
+  "unverified": [
+    "physical browser and phone interaction",
+    "owner refreshed-session continuous use",
+    "actual rollback"
+  ],
+  "beforeAudit": {
+    "observedLimitHeader": 120,
+    "blockedPaths": [
+      "/api/explain-word",
+      "/api/explain-word-stream",
+      "/api/pronunciation"
+    ],
+    "dominantTraffic": "Study revision/base background POSTs; operation types inferred from fixed body lengths; no request contents retained"
+  },
+  "verificationNote": "Intentional ordinary-bucket exhaustion caused one health probe from the same synthetic test address to receive 429; the final full health/restore check passed after that window expired. Reader-address connectivity remained 200."
+}
