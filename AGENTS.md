@@ -149,3 +149,6 @@ After each completed and validated change, automatically commit and push its rev
 After every completed task, update the affected fix records, current status and validation limits, and append a concise durable memory note under the configured memory extension directory. Never claim local or candidate work is deployed. When behavior changes, update final-state documents in place instead of appending history to them. Put chronology only in `docs/product-journey.md`. Always distinguish shipped behavior, accepted-but-pending direction and rejected/superseded ideas.
 
 For homepage redesign continuity, update the current decision register, interview archive, implementation contract, GPT brief and product journey in the same discussion round. Historical text is evidence, not authority; never recover an older decision merely because keyword search finds it first.
+
+
+Chrome 扩展 1.2 联网问答：用户于 2026-11-15 明确授权 DeepSeek Search 费用，复用服务端 DEEPSEEK_API_KEY，EXTENSION_WEB_SEARCH_ENABLED=false 可关闭。仅认证扩展作用域启用通用搜索；不能信任客户端 webSearch 标记。搜索只发送规划后的公共关键词，回答携带真实来源，语法问题可跳过，检索失败须明示。单词、词典和句译后都保留问答，连续追问按当前弹窗/连接隔离；切号清理问答，不能重现旧账号内容。

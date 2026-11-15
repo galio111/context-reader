@@ -1,0 +1,156 @@
+{
+  "status": "production accepted",
+  "release": {
+    "ok": true,
+    "checkedAt": "2026-11-15T11:59:34.135Z",
+    "releaseId": "20261115T195040",
+    "parentReleaseId": "20261115T130457",
+    "backendMode": "mainland_internal"
+  },
+  "sourceRevision": "6a8d91fe02fff5fb1a5c272ff0135ad38cc43ea3",
+  "extensionVersion": "1.2.0",
+  "zipSha256": "fa2955a8c98927c9fe3bfb679d248c74e8f3b13e6c6d07842fe772fbf38ea754",
+  "tests": {
+    "extension": 28,
+    "critical": 90,
+    "providerAndBilling": 8,
+    "releaseContracts": 11,
+    "localAndServerBuild": "passed"
+  },
+  "live": {
+    "contextualAndSentence": true,
+    "dictionary": true,
+    "fullTranslation": true,
+    "actions": [
+      {
+        "feature": "full_article_translation",
+        "status": "succeeded",
+        "quota_units": 10
+      },
+      {
+        "feature": "standalone_dictionary",
+        "status": "succeeded",
+        "quota_units": 5
+      },
+      {
+        "feature": "word_explanation",
+        "status": "succeeded",
+        "quota_units": 1
+      }
+    ],
+    "executions": [
+      {
+        "route": "/api/explain-word",
+        "model": "deepseek-flash",
+        "status": "succeeded"
+      },
+      {
+        "route": "/api/dictionary-stream",
+        "model": "deepseek-flash",
+        "status": "succeeded"
+      },
+      {
+        "route": "/api/translate-article",
+        "model": "deepseek-flash",
+        "status": "succeeded"
+      }
+    ],
+    "webQuestions": {
+      "person": {
+        "sources": [
+          {
+            "title": "Ada Lovelace - National Portrait Gallery",
+            "url": "https://www.npg.org.uk/collections/search/person/mp50509/augusta-ada-king-nee-byron-countess-of-lovelace"
+          },
+          {
+            "title": "Ada Lovelace - National Portrait Gallery",
+            "url": "https://www.npg.org.uk/collections/search/portrait/mw304536/Ada-Lovelace"
+          },
+          {
+            "title": "Ada's algorithm : how Lord Byron's daughter Ada Lovelace launched the digital age | WorldCat.org - 资料",
+            "url": "https://search.worldcat.org/zh-cn/title/1156071844#1"
+          },
+          {
+            "title": "Ada Lovelace - National Portrait Gallery",
+            "url": "https://dev.npg.org.uk/collections/search/portrait/mw39468/Ada-Lovelace?LinkID=mp50509&displayStyle=thumb&role=sit&rNo=5"
+          },
+          {
+            "title": "Ada's Legacy: Cultures of Computing from the Victorian to the Digital Age: | ACM Books | ACM Digital Library - 10.1145/2809523.2809539acmbooksArticle/Chapter ViewBasic AbstractPublication PagesBookacm-pubtype",
+            "url": "https://dl.acm.org/doi/10.1145/2809523.2809539#1"
+          }
+        ],
+        "ms": 10534
+      },
+      "event": {
+        "sources": [
+          {
+            "title": "earth today exhibit: Topics by Science.gov - Millions of people on Earth watched via television as a message for all mankind was delivered to the Mare Tranquilitatis (Sea of...",
+            "url": "https://www.science.gov/topicpages/e/earth+today+exhibit#22"
+          },
+          {
+            "title": "11-by 11-foot transonic: Topics by Science.gov - Millions of people on Earth watched via television as a message for all mankind was delivered to the Mare Tranquilitatis (Sea of...",
+            "url": "https://www.science.gov/topicpages/0-9/11-by+11-foot+transonic#22"
+          },
+          {
+            "title": "aldrin astronomcal center: Topics by Science.gov - The Apollo 11 mission, the first manned lunar mission, launched from the Kennedy Space Center, Florida via a Saturn V launch veh...",
+            "url": "https://www.science.gov/topicpages/a/aldrin+astronomcal+center.html#7"
+          },
+          {
+            "title": "Full text of \"Softalk V2n08 Apr 1982\" - Six  months  later,  before  Cape  Canaveral  had  had  a  chance",
+            "url": "http://archive.org/stream/softalkv2n08apr1982/softalkv2n08apr1982_djvu.txt#34"
+          },
+          {
+            "title": "Full text of \"The Daily Colonist (1969-07-22)\" - Full text of \"The Daily Colonist (1969-07-22)\"",
+            "url": "https://archive.org/stream/dailycolonist19690722/1969_07_22_djvu.txt#1"
+          }
+        ],
+        "ms": 3803
+      },
+      "followUp": {
+        "sources": 5,
+        "ms": 2485
+      },
+      "recentEvent": {
+        "sources": [
+          {
+            "title": "Change Log | DeepSeek API Docs",
+            "url": "https://api-docs.deepseek.com/updates/"
+          },
+          {
+            "title": "DeepSeek发布全家桶应用API",
+            "url": "https://www.163.com/dy/article/LBLAGNHH05198CJN.html?spss=dy_author"
+          },
+          {
+            "title": "DeepSeek开放“全家桶”应用API，开发者可1:1复刻完整App",
+            "url": "https://ishare.ifeng.com/c/s/v0069M--PerMb1L3oHwMy--Jd-_W6l2CgdrNd8SzZDrDHoG88FF1CR7nsupN4ttdEVzZQ21"
+          },
+          {
+            "title": "DeepSeek 发布全家桶应用 API：开发者将能 1:1 复刻完整 DeepSeek App",
+            "url": "https://www.ithome.com/1/026/960.htm"
+          },
+          {
+            "title": "DeepSeek 发布全家桶应用 API- DoNews",
+            "url": "https://www.donews.com/news/detail/1/6772103.html"
+          }
+        ],
+        "ms": 3593
+      },
+      "grammarSkipped": true
+    },
+    "revocation": true,
+    "passed": true,
+    "syntheticAccountRemoved": true
+  },
+  "operations": {
+    "admin": "passed",
+    "health": "passed after standard image retention cleanup",
+    "durableBackendContainers": "all five IDs unchanged",
+    "backup": "context-reader-20261115T115148Z.dump",
+    "isolatedRestorePublicTables": 41,
+    "currentAndParentRollbackImages": "present; actual rollback not executed"
+  },
+  "limitations": [
+    "Chrome/physical Mac visual interaction unavailable: browser inventory only empty MCP Apps",
+    "GitHub CI fails inherited study-device-sync.test.tsx:37 (0 != 1); same failure verified on parent main run 43680355750 and candidate run 43711173569. Study code unchanged."
+  ]
+}

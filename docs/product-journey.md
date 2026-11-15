@@ -2338,3 +2338,6 @@ DOCX 裁剪图使用固定尺寸且 overflow:hidden 的渲染容器，图片按 
 
 
 用户随后明确同意 DeepSeek 搜索费用。已改用 DeepSeek Search，复用现有服务端密钥；服务器直连真实人物检索返回 HTTP 200 与结构化网页来源。28 项扩展、90 项核心、8 项提供商降级/计费和发布契约通过，准备累计发布。
+
+
+联网问答已发布：生产接受 20261115T195040，parent 20261115T130457，source 6a8d91fe02fff5fb1a5c272ff0135ad38cc43ea3。公网扩展 1.2.0 与本地 ZIP SHA 一致。临时账号真实完成人物介绍、Apollo 11 事件、连续追问、2026-11-13 DeepSeek 新发布查询，均有外部来源；纯语法问题未搜索。原有语境解释含句译、词典和全文翻译成功，执行模型均为 deepseek-flash；连接撤销返回 401，临时账号已删除并核验。五个持久服务 ID 未变；Admin、健康及 41 表隔离备份恢复通过，当前/父版回滚镜像保留，未实际回滚。按既有镜像保留脚本清理缓存后磁盘 73%。浏览器工具仅空 MCP Apps，Chrome/Mac 真实外观保持待验。GitHub CI 的 study-device-sync.test.tsx:37 失败与父版 main 完全一致，未修改学习同步实现，不标记全绿。详见 docs/evidence/extension-web-search-20261115.json。
