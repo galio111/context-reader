@@ -1,0 +1,120 @@
+{
+  "releaseId": "20261115T130457",
+  "parentReleaseId": "20261115T103832",
+  "sourceRevision": "4784f095432205ec35d01786f432f6ae8a40aef5",
+  "targetedTests": 24,
+  "architectureTests": 178,
+  "criticalTestsIncluded": 90,
+  "independentProviderFallbackBillingTests": 8,
+  "protectedContracts": 11,
+  "localAndServerBuild": "passed",
+  "publicChecks": [
+    {
+      "path": "/api/connectivity",
+      "status": 200,
+      "releaseId": "20261115T130457",
+      "parentReleaseId": "20261115T103832"
+    },
+    {
+      "path": "/api/auth/session",
+      "status": 200,
+      "expected": 200
+    },
+    {
+      "path": "/api/admin/accounts",
+      "status": 401,
+      "expected": 401
+    },
+    {
+      "path": "/api/account/sync",
+      "status": 401,
+      "expected": 401
+    },
+    {
+      "path": "/api/ask-sentence",
+      "status": 401,
+      "expected": 401
+    },
+    {
+      "path": "/_next/static/chunks/3193-77915dd58cb0fd8f.js",
+      "status": 200,
+      "threePenColorsAndReaderCode": true,
+      "sha256": "6cad948b3fbce9f0a4adfba611a0bab603ef7558faa709665c4774763b011de3"
+    },
+    {
+      "path": "/_next/static/css/0aa8fcf65c76fbdb.css",
+      "status": 200,
+      "penColorsResponsiveAndThemeCss": true,
+      "sha256": "95fefe94f7b1744612cf9894abc69cce8f80dcb06700af25344390a9ad5ab1b1"
+    }
+  ],
+  "coreAi": {
+    "contextualAndSentence": true,
+    "dictionary": true,
+    "fullTranslation": true,
+    "actions": [
+      {
+        "feature": "full_article_translation",
+        "status": "succeeded",
+        "quota_units": 10
+      },
+      {
+        "feature": "standalone_dictionary",
+        "status": "succeeded",
+        "quota_units": 5
+      },
+      {
+        "feature": "word_explanation",
+        "status": "succeeded",
+        "quota_units": 1
+      }
+    ],
+    "executions": [
+      {
+        "route": "/api/explain-word",
+        "model": "deepseek-flash",
+        "status": "succeeded"
+      },
+      {
+        "route": "/api/dictionary-stream",
+        "model": "deepseek-flash",
+        "status": "succeeded"
+      },
+      {
+        "route": "/api/translate-article",
+        "model": "deepseek-flash",
+        "status": "succeeded"
+      }
+    ],
+    "passed": true,
+    "syntheticAccountRemoved": true
+  },
+  "persistentServicesUnchanged": 5,
+  "backupRestoredTables": 41,
+  "currentAndParentRollbackImages": "retained",
+  "penColors": [
+    "red",
+    "blue",
+    "yellow"
+  ],
+  "legacyMarks": "unchanged v1, absent color paints red",
+  "persistence": "local account/document scoped; optional per-stroke color",
+  "paint": "stroke order retained across color changes; consecutive same-color overlap unions",
+  "contrastCalculation": {
+    "red": 5.83,
+    "blue": 5.17,
+    "yellow": 3.29,
+    "controlText": {
+      "day": 14.89,
+      "daySelected": 13.83,
+      "night": 11.46,
+      "nightSelected": 8.89
+    }
+  },
+  "unverified": [
+    "real desktop/mobile browser appearance and gestures",
+    "both themes in a real browser",
+    "owner visual acceptance",
+    "actual rollback"
+  ]
+}
