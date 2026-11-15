@@ -3,30 +3,29 @@ import { test } from 'node:test';
 import { parseWebSources, searchExtensionWeb } from '../lib/extensionWebSearch';
 
 test('search sources retain dates and reject executable or malformed links', () => {
-  const sources = parseWebSources({ search_result: [
-    { title: 'Unsafe', link: 'javascript:alert(1)', content: 'bad' },
-    { title: 'Empty', link: 'https://example.com/empty', content: '' },
-    { title: 'Report', link: 'https://example.com/news', content: 'An event happened.', publish_date: '2026-11-15' },
-    { title: 'Duplicate', link: 'https://example.com/news', content: 'Updated report', publish_date: '2026-11-15' },
+  const sources = parseWebSources({ results: [
+    { title: 'Unsafe', url: 'javascript:alert(1)', summary: 'bad' },
+    { title: 'Empty', url: 'https://example.com/empty', summary: '' },
+    { title: 'Report', url: 'https://example.com/news', summary: 'An event happened.', date: '2026-11-15' },
+    { title: 'Duplicate', url: 'https://example.com/news', summary: 'Updated report', date: '2026-11-15' },
   ] });
   assert.equal(sources.length, 1);
   assert.match(sources[0].text, /2026-11-15/);
   assert.equal(parseWebSources(null).length, 0);
 });
 
-test('search is disabled without approval; enabled calls are bounded and failures honest', async () => {
-  const priorFetch = globalThis.fetch, priorEnabled = process.env.EXTENSION_WEB_SEARCH_ENABLED, priorKey = process.env.ZHIPU_API_KEY;
+test('search supports emergency disable; approved calls are bounded and failures honest', async () => {
+  const priorFetch = globalThis.fetch, priorEnabled = process.env.EXTENSION_WEB_SEARCH_ENABLED, priorKey = process.env.DEEPSEEK_API_KEY;
   let calls = 0;
   try {
-    process.env.ZHIPU_API_KEY = 'synthetic-test-only';
-    delete process.env.EXTENSION_WEB_SEARCH_ENABLED;
+    process.env.DEEPSEEK_API_KEY = 'synthetic-test-only';
+    process.env.EXTENSION_WEB_SEARCH_ENABLED = 'false';
     globalThis.fetch = async (_url, init) => {
       calls++;
       const body = JSON.parse(String(init?.body));
-      assert.equal(body.search_engine, 'search_std');
-      assert.ok(body.search_query.length <= 150);
+      assert.ok(body.query.length <= 128);
       assert.equal(body.count, 5);
-      return Response.json({ search_result: [{ title: 'Person', link: 'https://example.com/person', content: 'Public biography' }] });
+      return Response.json({ results: [{ title: 'Person', url: 'https://example.com/person', summary: 'Public biography' }] });
     };
     assert.equal((await searchExtensionWeb('Ada Lovelace')).sources.length, 0);
     assert.equal(calls, 0);
@@ -42,6 +41,6 @@ test('search is disabled without approval; enabled calls are bounded and failure
   } finally {
     globalThis.fetch = priorFetch;
     if (priorEnabled === undefined) delete process.env.EXTENSION_WEB_SEARCH_ENABLED; else process.env.EXTENSION_WEB_SEARCH_ENABLED = priorEnabled;
-    if (priorKey === undefined) delete process.env.ZHIPU_API_KEY; else process.env.ZHIPU_API_KEY = priorKey;
+    if (priorKey === undefined) delete process.env.DEEPSEEK_API_KEY; else process.env.DEEPSEEK_API_KEY = priorKey;
   }
 });
