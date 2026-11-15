@@ -2,19 +2,20 @@
 import { useEffect, useRef, useState, type RefObject } from "react";
 import { documentCacheOwner } from "@/lib/documentBinaryCache";
 import { getLearningStorage, flushLearningStorage } from "@/lib/learningStorage";
-import { captureDocumentPenRects, documentPenKey, paintDocumentPen, readDocumentPenMarks, type DocumentPenMark } from "@/lib/documentPen";
+import { captureDocumentPenRects, documentPenKey, paintDocumentPen, readDocumentPenMarks, type DocumentPenMark, type DocumentPenColor } from "@/lib/documentPen";
 import { clearDocumentSelectionHighlight } from "@/lib/documentSelection";
 
 export function useDocumentPen(id: string, root: RefObject<HTMLDivElement|null>, iframe: RefObject<HTMLIFrameElement|null>, pdf: boolean, revision: string) {
   const [enabled,setEnabled]=useState(false);
+  const [color,setColor]=useState<DocumentPenColor>("red");
   const [marks,setMarks]=useState<DocumentPenMark[]>([]);
   const [notice,setNotice]=useState("");
   const [ready,setReady]=useState(false);
-  const current=useRef({enabled,marks,ready});current.current={enabled,marks,ready};
+  const current=useRef({enabled,marks,ready,color});current.current={enabled,marks,ready,color};
   const key=documentPenKey(documentCacheOwner(),id);
   const content=()=>pdf?root.current:iframe.current?.contentDocument?.body ?? null;
   useEffect(()=>{
-    setEnabled(false);setReady(false);setNotice("");setMarks([]);
+    setEnabled(false);setColor("red");setReady(false);setNotice("");setMarks([]);
     try{setMarks(readDocumentPenMarks(getLearningStorage(),key));setReady(true);}
     catch{setNotice("本机划线暂时无法读取，请刷新后重试。");}
   },[key]);
@@ -40,10 +41,11 @@ export function useDocumentPen(id: string, root: RefObject<HTMLDivElement|null>,
     if(rects.length){
       if(current.current.marks.length>=1000 || current.current.marks.reduce((n,m)=>n+m.rects.length,0)+rects.length>5000){setNotice("本篇划线已达上限，请先撤销部分划线。");return true;}
       const last=current.current.marks.at(-1);
-      if(!last || JSON.stringify(last.rects)!==JSON.stringify(rects))save([...current.current.marks,{id:crypto.randomUUID(),rects}]);
+      if(!last || (last.color??"red")!==current.current.color || JSON.stringify(last.rects)!==JSON.stringify(rects))save([...current.current.marks,{id:crypto.randomUUID(),rects,color:current.current.color}]);
       host.ownerDocument.getSelection()?.removeAllRanges();clearDocumentSelectionHighlight(host);
     }
     return true;
   }
-  return {enabled,ready,count:marks.length,notice,capture,toggle:()=>{setEnabled(value=>!value);const host=content();host?.ownerDocument.getSelection()?.removeAllRanges();if(host)clearDocumentSelectionHighlight(host);},undo:()=>save(current.current.marks.slice(0,-1))};
+  function clearSelection(){const host=content();host?.ownerDocument.getSelection()?.removeAllRanges();if(host)clearDocumentSelectionHighlight(host);}
+  return {enabled,color,ready,count:marks.length,notice,capture,selectColor:(next:DocumentPenColor)=>{setColor(next);setEnabled(true);clearSelection();},toggle:()=>{setEnabled(value=>!value);clearSelection();},undo:()=>save(current.current.marks.slice(0,-1))};
 }

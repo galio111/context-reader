@@ -1,6 +1,7 @@
 "use client";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
 import { DocumentPageNavigation } from "./DocumentPageNavigation";
+import { DocumentPenColors } from "./DocumentPenColors";
 import { DocumentViewportControls } from "./DocumentViewportControls";
 import type { PDFDocumentProxy } from "pdfjs-dist";
 import type { ImportedArticle } from "@/types/article";
@@ -414,7 +415,7 @@ export function DocumentReader({ article, onLookup }: { article: ImportedArticle
       <span>{source.format.toUpperCase()} · {source.format === "pdf" ? `${source.pageCount} 页` : "原文排版"}</span>
       <DocumentPageNavigation root={root} iframe={iframe} documentId={source.id} word={source.format!=="pdf"} revision={`${width}:${zoom}:${frameReady}:${Boolean(wordBytes)}:${firstPaint}`} onJump={()=>captureZoomAnchor.cancel()} afterJump={()=>captureZoomAnchor()}/>
       <div><button type="button" onClick={() => changeZoom(v => Math.max(.25, (v || 1) - .25))} disabled={zoom === .25} aria-label="缩小文档">−</button><span>{zoom ? `${Math.round(zoom * 100)}%` : "适合宽度"}</span><button type="button" onClick={() => changeZoom(v => Math.min(4, (v || 1) + .25))} disabled={zoom === 4} aria-label="放大文档">＋</button><button className={styles.scaleChoice} type="button" aria-label="原始比例 100%" onClick={() => changeZoom(1)}>100%</button><button className={styles.scaleChoice} type="button" onClick={() => changeZoom(0)}>适宽</button></div>
-      <div><button className={styles.penButton} type="button" aria-label="画笔：选句划线" aria-pressed={pen.enabled} disabled={!pen.ready} onClick={pen.toggle} title={pen.enabled ? "关闭画笔，恢复划词翻译" : "开启画笔，选句划线"}><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true"><path d="m15 4 5 5M4 20l5-1L20 8a2.1 2.1 0 0 0-3-3L6 16l-2 4Z"/><path d="M4 22h16"/></svg><span>画笔</span></button><button type="button" className={styles.scaleChoice} disabled={!pen.count || !pen.ready} onClick={pen.undo} aria-label="撤销上一处划线">撤销划线</button><a href={documentUrl(source)} download={source.name}>下载原件</a></div>
+      <div><button className={styles.penButton} type="button" aria-label="画笔：选句划线" aria-pressed={pen.enabled} disabled={!pen.ready} onClick={pen.toggle} title={pen.enabled ? "关闭画笔，恢复划词翻译" : "开启画笔，选句划线"}><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true"><path d="m15 4 5 5M4 20l5-1L20 8a2.1 2.1 0 0 0-3-3L6 16l-2 4Z"/><path d="M4 22h16"/></svg><span>画笔</span></button><DocumentPenColors color={pen.color} disabled={!pen.ready} onChange={pen.selectColor}/><button type="button" className={styles.scaleChoice} disabled={!pen.count || !pen.ready} onClick={pen.undo} aria-label="撤销上一处划线">撤销划线</button><a href={documentUrl(source)} download={source.name}>下载原件</a></div>
     </DocumentViewportControls>
     {pen.enabled && <p className={styles.penHint} role="status">画笔已开启：拖选句子添加下划线</p>}
     {pen.notice && <p role="alert">{pen.notice}</p>}

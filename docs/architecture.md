@@ -590,3 +590,8 @@ DOCX 裁剪图使用固定尺寸且 overflow:hidden 的渲染容器，图片按 
 ## Personal reading request isolation
 
 Middleware keeps body/origin checks ahead of its exact reading method/path allowance. Word stream/JSON, dictionary, questions, summaries, translation start/batches/finish, pronunciation, cache confirmation and corresponding extension POSTs, plus session/dictionary-history GETs, do not consume IP time-window counters. Route-level identity, durable usage/billing and bounded AI concurrency remain authoritative. Study reconciliation has its own bounded bucket. The mounted Study offline refresher coalesces focus/visibility/start triggers at the polling cadence, honors Retry-After with failure backoff and stops revision polling while hidden; pending durable answers still drain. Revision/base reads do not advance the foreground answer-mutation epoch. See [evidence and limits](personal-reading-rate-20261115.md).
+
+
+## PDF / Word pen colors
+
+The local v1 pen mark optionally stores red/blue/yellow; absent color means legacy red. The toolbar uses labeled color buttons shared by PDF and Word; selecting a color enables the pen without recoloring existing strokes. Paint keeps stroke order across colors and unions only consecutive same-color groups on the original native PDF baselines. Undo retains original per-stroke records, and no document/cache/publishing protocol changes. See [status and tests](document-pen-colors-20261115.md).

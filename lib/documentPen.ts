@@ -1,12 +1,21 @@
 export interface DocumentPenRect { page: string; x: number; y: number; width: number; height?: number }
-export interface DocumentPenMark { id: string; rects: DocumentPenRect[] }
+export const DOCUMENT_PEN_COLORS = {
+  red: { label: "红", stroke: "#b63832" },
+  blue: { label: "蓝", stroke: "#2563eb" },
+  yellow: { label: "黄", stroke: "#b38700" },
+} as const;
+export type DocumentPenColor = keyof typeof DOCUMENT_PEN_COLORS;
+export function isDocumentPenColor(value: unknown): value is DocumentPenColor {
+  return typeof value === "string" && Object.hasOwn(DOCUMENT_PEN_COLORS, value);
+}
+export interface DocumentPenMark { id: string; rects: DocumentPenRect[]; color?: DocumentPenColor }
 export const DOCUMENT_PEN_PREFIX = "context-reader:document-pen:v1:";
 export function documentPenKey(owner: string | null, documentId: string) { return DOCUMENT_PEN_PREFIX + JSON.stringify([owner, documentId]); }
 export function readDocumentPenMarks(storage: Pick<Storage,"getItem">, key: string): DocumentPenMark[] {
   const raw = storage.getItem(key);
   if (!raw) return [];
   const rows: unknown = JSON.parse(raw);
-  if (!Array.isArray(rows) || rows.length > 1000 || rows.some(mark => !mark || typeof mark.id !== "string" || !Array.isArray(mark.rects) || mark.rects.length > 400 || mark.rects.some((r: DocumentPenRect) => !r || typeof r.page !== "string" || ![r.x,r.y,r.width].every(Number.isFinite) || r.x<0 || r.y<0 || r.x>1 || r.y>1 || r.width<=0 || r.width>1 || (r.height!==undefined && (!Number.isFinite(r.height) || r.height<=0 || r.height>1))))) throw Error("Invalid document annotations");
+  if (!Array.isArray(rows) || rows.length > 1000 || rows.some(mark => !mark || typeof mark.id !== "string" || (mark.color !== undefined && !isDocumentPenColor(mark.color)) || !Array.isArray(mark.rects) || mark.rects.length > 400 || mark.rects.some((r: DocumentPenRect) => !r || typeof r.page !== "string" || ![r.x,r.y,r.width].every(Number.isFinite) || r.x<0 || r.y<0 || r.x>1 || r.y>1 || r.width<=0 || r.width>1 || (r.height!==undefined && (!Number.isFinite(r.height) || r.height<=0 || r.height>1))))) throw Error("Invalid document annotations");
   return rows;
 }
 export function captureDocumentPenRects(root: HTMLElement): DocumentPenRect[] {
@@ -85,17 +94,26 @@ export function documentPenPages(root: HTMLElement) {
 }
 export function paintDocumentPen(root: HTMLElement, marks: DocumentPenMark[]) {
   root.querySelectorAll("[data-document-pen-layer]").forEach(node=>node.remove());
-  const grouped=new Map<string,DocumentPenRect[]>();
-  for(const mark of marks)for(const rect of mergeDocumentPenRects(mark.rects)){const rows=grouped.get(rect.page)??[];rows.push(rect);grouped.set(rect.page,rows);}
+  const grouped=new Map<string,Array<{color:DocumentPenColor;rects:DocumentPenRect[]}>>();
+  for(const mark of marks)for(const rect of mergeDocumentPenRects(mark.rects)){
+    const color=mark.color??"red",groups=grouped.get(rect.page)??[];
+    let group=groups.at(-1);
+    // Merge consecutive same-color strokes, preserving paint order when a
+    // later stroke changes color over an existing underline.
+    if(!group||group.color!==color){group={color,rects:[]};groups.push(group);}
+    group.rects.push(rect);grouped.set(rect.page,groups);
+  }
   for(const {key,element} of documentPenPages(root)) {
     const stored=grouped.get(key);if(!stored?.length)continue;
     // Union overlapping strokes only in the display. Undo retains every stroke,
     // and separate selections with a real gap must not acquire a connecting line.
-    const rows=mergeDocumentPenRects(alignPdfPenRects(element,stored),0);
     element.style.position="relative";
     const layer=root.ownerDocument.createElement("div");layer.dataset.documentPenLayer="";layer.setAttribute("aria-hidden","true");
     Object.assign(layer.style,{position:"absolute",inset:"0",pointerEvents:"none",zIndex:"3"});
-    for(const rect of rows){const line=root.ownerDocument.createElement("i");Object.assign(line.style,{position:"absolute",left:`${rect.x*100}%`,top:`${rect.y*100}%`,width:`${rect.width*100}%`,height:"2px",background:"#b63832",borderRadius:"1px"});layer.append(line);}
+    for(const group of stored){
+      const rows=mergeDocumentPenRects(alignPdfPenRects(element,group.rects),0);
+      for(const rect of rows){const line=root.ownerDocument.createElement("i");line.dataset.documentPenColor=group.color;Object.assign(line.style,{position:"absolute",left:`${rect.x*100}%`,top:`${rect.y*100}%`,width:`${rect.width*100}%`,height:"2px",background:DOCUMENT_PEN_COLORS[group.color].stroke,borderRadius:"1px"});layer.append(line);}
+    }
     element.append(layer);
   }
 }
