@@ -585,3 +585,8 @@ PDF 新划线只测量实际选中的叶子文本范围，以原生 PDF run 基�
 ## DOCX bounded image crops and document page navigation
 
 DOCX 裁剪图使用固定尺寸且 overflow:hidden 的渲染容器，图片按 srcRect 的保留比例定位于容器内，避免 docx-preview 的中心缩放把图像画到正文上；源文件、文章文字与原有分段不改写。页工具栏增加当前页/总页数、输入页码跳转及可点击页目录。PDF 按原页；Word 长流式区段按网页纸张高度划分阅读页，目录明确提示其页码由网页排版计算，不承诺与 Word 软件的自动分页相同。页面跳转解除旧缩放锚点并在新位置建立短期定位保护。 验证及发布状态见 [图文与页导航记录](docx-image-pages-20261114.md)。
+
+
+## Personal reading request isolation
+
+Middleware keeps body/origin checks ahead of its exact reading method/path allowance. Word stream/JSON, dictionary, questions, summaries, translation start/batches/finish, pronunciation, cache confirmation and corresponding extension POSTs, plus session/dictionary-history GETs, do not consume IP time-window counters. Route-level identity, durable usage/billing and bounded AI concurrency remain authoritative. Study reconciliation has its own bounded bucket. The mounted Study offline refresher coalesces focus/visibility/start triggers at the polling cadence, honors Retry-After with failure backoff and stops revision polling while hidden; pending durable answers still drain. Revision/base reads do not advance the foreground answer-mutation epoch. See [evidence and limits](personal-reading-rate-20261115.md).

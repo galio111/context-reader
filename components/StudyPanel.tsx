@@ -147,12 +147,12 @@ export function StudyPanel({visible,onClose,onSource,notice,requestedTab="today"
   },[accept]);
   const networkApi=useCallback(async <T,>(body?:unknown):Promise<T>=>{
     const op=(body as {op?:string}|undefined)?.op;
-    const mutating=Boolean(op&&op!=="start"&&op!=="prepare"&&op!=="present");
+    const mutating=Boolean(op&&!["start","prepare","present","local_revision","local_refresh"].includes(op));
     if(mutating){mutationEpoch.current++;mutations.current++;}
     try {
     const response=await fetch("/api/study",{method:body?"POST":"GET",headers:{"Content-Type":"application/json","X-Context-Account":owner,"X-Study-Format":"offline-v1"},body:body?JSON.stringify(body):undefined,cache:"no-store",signal:op==="review"||op==="local_event"?AbortSignal.timeout(20000):op==="present"?AbortSignal.timeout(15000):AbortSignal.timeout(20000)});
     const data=await response.json();
-    if(!response.ok)throw Object.assign(new Error(data.error||"暂时无法保存，请稍后重试。"),{code:data.code,status:response.status});
+    if(!response.ok)throw Object.assign(new Error(data.error||"暂时无法保存，请稍后重试。"),{code:data.code,status:response.status,retryAfterMs:Number(response.headers.get("Retry-After")||0)*1000});
     return hydrateStudyResponse(data) as T;
     } finally {
       if(mutating){mutationEpoch.current++;mutations.current--;if(alive.current)setRefreshTick(n=>n+1);}

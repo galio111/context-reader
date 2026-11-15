@@ -34,35 +34,36 @@ globalRateStore.__contextReaderRateStore = store;
 const MINUTE = 60_000;
 const DAY = 24 * 60 * MINUTE;
 
+// Personal reading is controlled by route-level identity, durable usage/billing
+// and bounded AI concurrency, not by counts of HTTP requests from one IP. One
+// lookup starts both stream and JSON work; translations and cache/session reads
+// add more traffic without representing additional user questions. Do not let
+// either those requests or unrelated API traffic exhaust a reading time window.
+// Keep this an exact method/path allowlist, never a cookie-based auth bypass.
+const READING_POST_ROUTES = new Set([
+  "/api/explain-word", "/api/explain-word-stream", "/api/dictionary", "/api/dictionary-stream",
+  "/api/ask-sentence", "/api/summarize-article", "/api/pronunciation", "/api/usage/cache-lookup",
+  "/api/translate-article", "/api/translate-article/start", "/api/translate-article/finish",
+  ...["explain", "stream", "dictionary", "ask", "translate", "pronunciation"].map(operation => `/api/extension/execute/${operation}`),
+]);
+const READING_GET_ROUTES = new Set(["/api/auth/session", "/api/dictionary-history"]);
+
 const COSTLY_ROUTE_RULES: Array<[RegExp, RateRule[]]> = [
-  [/^\/api\/extension\/execute\/(?:explain|stream|dictionary|ask|translate)$/, [{ bucket: "extension-ai", limit: 40, windowMs: MINUTE }]],
-  [/^\/api\/extension\/execute\/pronunciation$/, [{ bucket: "pronunciation", limit: 120, windowMs: MINUTE }]],
   [/^\/api\/documents$/, [{ bucket: "document-import", limit: 10, windowMs: 10 * MINUTE }]],
   [/^\/api\/study\/profile$/, [{ bucket: "study-profile", limit: 4, windowMs: MINUTE }]],
   [/^\/api\/study\/reading$/, [{ bucket: "study-reading", limit: 20, windowMs: MINUTE }]],
   [/^\/api\/billing$/, [{ bucket: "billing", limit: 30, windowMs: MINUTE }]],
-  [/^\/api\/translate-article\/start$/, [{ bucket: "translation-start", limit: 10, windowMs: MINUTE }]],
   [/^\/api\/admin\/login$/, [{ bucket: "admin-login", limit: 5, windowMs: 15 * MINUTE }]],
   [/^\/api\/auth\/request-otp$/, [{ bucket: "auth-otp", limit: 5, windowMs: 15 * MINUTE }]],
   [/^\/api\/auth\/verify-otp$/, [{ bucket: "auth-verify", limit: 10, windowMs: 15 * MINUTE }]],
   [/^\/api\/auth\/phone-register$/, [{ bucket: "auth-phone-register", limit: 3, windowMs: 15 * MINUTE }]],
   [/^\/api\/auth\/phone-login$/, [{ bucket: "auth-phone-login", limit: 5, windowMs: 15 * MINUTE }]],
   [/^\/api\/account\/invitation-code$/, [{ bucket: "invitation-redeem", limit: 10, windowMs: 15 * MINUTE }]],
-  [/^\/api\/explain-word(?:-stream)?$/, [{ bucket: "ai-explain", limit: 20, windowMs: MINUTE }]],
-  [/^\/api\/ask-sentence$/, [{ bucket: "ai-question", limit: 10, windowMs: MINUTE }]],
-  [/^\/api\/summarize-article$/, [{ bucket: "ai-summary", limit: 6, windowMs: MINUTE }]],
-  // Full-article translation intentionally sends one sequential request per text block.
-  // Keep abuse protection without treating a normal multi-paragraph article as a burst.
-  [/^\/api\/translate-article$/, [{ bucket: "ai-translation", limit: 60, windowMs: MINUTE }]],
   [/^\/api\/ocr-image(?:-layout|-url)?$/, [{ bucket: "ocr", limit: 4, windowMs: MINUTE }]],
   [/^\/api\/(?:import-url|download-image|article-images\/localize)$/, [{ bucket: "remote-fetch", limit: 15, windowMs: MINUTE }]],
-  [/^\/api\/pronunciation$/, [
-    { bucket: "pronunciation", limit: 120, windowMs: MINUTE },
-    { bucket: "pronunciation-daily", limit: 2_000, windowMs: DAY },
-  ]],
 ];
 
-const COSTLY_ROUTE = /^\/api\/(?:explain-word(?:-stream)?|ask-sentence|summarize-article|translate-article|ocr-image(?:-layout|-url)?)$/;
+const DAILY_LIMITED_ROUTE = /^\/api\/ocr-image(?:-layout|-url)?$/;
 
 function clientAddress(request: Request): string {
   return ipAddress(request)?.slice(0, 64) || "unknown";
@@ -97,6 +98,8 @@ function consume(key: string, rule: RateRule, now: number): { allowed: boolean; 
 }
 
 function routeRules(pathname: string, method: string): RateRule[] {
+  if ((method === "POST" && READING_POST_ROUTES.has(pathname))
+    || (method === "GET" && READING_GET_ROUTES.has(pathname))) return [];
   // Cold page loads fetch many immutable build files. Keep their bounded read
   // budget independent of API work, using the same decoded-path guard as the
   // serving route. Encoded separators, traversal and unsupported methods must
@@ -112,6 +115,11 @@ function routeRules(pathname: string, method: string): RateRule[] {
   // A bounded sync bootstrap can span many pages. It must not exhaust the
   // separate login, lookup or connectivity budget for the same connection.
   if (pathname === "/api/account/sync") return [{ bucket: "account-sync", limit: 120, windowMs: MINUTE }];
+  // Study reconciliation is background data work, not another reading action.
+  // A stale client must not spend the ordinary API budget for the same IP.
+  if (pathname === "/api/study" && (method === "GET" || method === "POST")) {
+    return [{ bucket: "study-sync", limit: 120, windowMs: MINUTE }];
+  }
   const rules: RateRule[] = [{ bucket: "api-all", limit: 120, windowMs: MINUTE }];
   for (const [pattern, matchingRules] of COSTLY_ROUTE_RULES) {
     if (pattern.test(pathname)) {
@@ -122,7 +130,7 @@ function routeRules(pathname: string, method: string): RateRule[] {
       break;
     }
   }
-  if (COSTLY_ROUTE.test(pathname)) {
+  if (DAILY_LIMITED_ROUTE.test(pathname)) {
     rules.push({ bucket: "costly-daily", limit: 500, windowMs: DAY });
   }
   return rules;

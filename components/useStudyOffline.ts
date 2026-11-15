@@ -7,6 +7,8 @@ import {acknowledgeStudyEvent,canUndoStudy,localReceipt,projectStudyRecord,type 
 export function useStudyOffline(owner:string,network:<T>(body?:unknown)=>Promise<T>,accept:(s:StudySnapshot)=>void,active=true){
   const current=useRef<StudyLocalRecord|null>(null),alive=useRef(true),running=useRef(false);
   const refreshing=useRef(false),refreshedAt=useRef(0),revision=useRef("");
+  const refreshAfter=useRef(0),refreshFailures=useRef(0),visible=useRef(active);
+  visible.current=active;
   const callbacks=useRef({network,accept});callbacks.current={network,accept};
   const drainRef=useRef<()=>Promise<void>>(async()=>{});
   const publish=(r:StudyLocalRecord)=>{current.current=r;if(alive.current)callbacks.current.accept(projectStudyRecord(r));};
@@ -27,15 +29,18 @@ export function useStudyOffline(owner:string,network:<T>(body?:unknown)=>Promise
   },[owner]);
   drainRef.current=drain;
   const refresh=useCallback(async(force=false)=>{
-    if(!owner||!alive.current||refreshing.current||!navigator.onLine||typeof indexedDB==="undefined")return;
+    if(!owner||!alive.current||!visible.current||refreshing.current||Date.now()<refreshAfter.current||!navigator.onLine||typeof indexedDB==="undefined")return;
     refreshing.current=true;
+    // Focus/visibility/start events can arrive together or repeatedly. Force
+    // means recheck the base, not bypass single-flight or the polling cadence.
+    refreshAfter.current=Date.now()+10000;
     try{
       await drainRef.current();
       if(running.current)return;
       const before=await updateStudyLocalRecord(owner,r=>r);
       if(!before||before.events.length)return;
       const probe=await callbacks.current.network<{revision:string}>({op:"local_revision"});
-      if(!force&&probe.revision&&probe.revision===revision.current)return;
+      if(!force&&probe.revision&&probe.revision===revision.current){refreshedAt.current=Date.now();refreshFailures.current=0;return;}
       const seed=await callbacks.current.network<StudySnapshot>({op:"local_refresh"});
       if(!alive.current)return;
       let applied=false;
@@ -46,7 +51,14 @@ export function useStudyOffline(owner:string,network:<T>(body?:unknown)=>Promise
         applied=true;return {...r,base:seed,clockOffset:Date.parse(seed.serverNow)-Date.now()};
       });
       if(applied&&merged){revision.current=probe.revision;refreshedAt.current=Date.now();publish(merged);}
-    }catch{/* Keep the durable snapshot and retry silently. */}
+      refreshFailures.current=0;
+    }catch(error){
+      // A rejected revision probe must not become a tight background retry loop.
+      // Preserve the local base/journal and honor the server's Retry-After.
+      const delay=Math.min(60000,10000*2**Math.min(refreshFailures.current++,3));
+      const retryAfter=(error as {retryAfterMs?:number})?.retryAfterMs;
+      refreshAfter.current=Date.now()+Math.max(delay,Number.isFinite(retryAfter)?retryAfter!:0);
+    }
     finally{refreshing.current=false;}
   },[owner]);
   useEffect(()=>{

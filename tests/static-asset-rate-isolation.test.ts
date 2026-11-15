@@ -16,18 +16,15 @@ function client() {
   }));
 }
 
-test("141 and 240 cold static reads leave the original AI and API limits available", () => {
+test("141 and 240 cold static reads preserve unlimited reading and the separate API budget", () => {
   for (const count of [141, 240]) {
     const request = client();
     for (let index = 0; index < count; index++) {
       assert.equal(request(index % 2 ? staticPath : "/api/static-asset/chunks/app/page-a123.js"), null);
     }
-    for (let index = 0; index < 20; index++) assert.equal(request("/api/explain-word-stream", "POST"), null);
-    const aiLimit = request("/api/explain-word-stream", "POST");
-    assert.equal(aiLimit?.status, 429);
-    assert.equal(aiLimit?.headers.get("RateLimit-Limit"), "20");
-    // The rejected AI request also consumes one ordinary API request, as before.
-    for (let index = 0; index < 99; index++) assert.equal(request("/api/connectivity"), null);
+    for (let index = 0; index < 600; index++) assert.equal(request("/api/explain-word-stream", "POST"), null);
+    // Personal reading does not consume the ordinary non-reading API bucket.
+    for (let index = 0; index < 120; index++) assert.equal(request("/api/connectivity"), null);
     assert.equal(request("/api/connectivity")?.headers.get("RateLimit-Limit"), "120");
   }
 });
