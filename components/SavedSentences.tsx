@@ -35,7 +35,7 @@ function SentenceRow({ entry, onDelete, onStudyChange }: SentenceListActions & {
       if (!response.ok || data.entry?.id !== entry.id) throw new Error(data.error || "背诵设置更新失败，请重试。");
       setLastSave(data.entry);
       onStudyChange?.();
-      void syncNow({ dirtyKinds: ["vocabulary"] }).catch(() => undefined);
+      void syncNow({ mode: "pull-only", dirtyKinds: ["vocabulary"] }).catch(() => undefined);
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : "背诵设置更新失败，请重试。");
     } finally { setPending(false); }
@@ -70,7 +70,7 @@ export function SavedSentences({ entries, ...actions }: SentenceListActions & { 
   return <div className={styles.collection}>
     {saved.length > 0 && <input className={styles.search} type="search" aria-label="搜索好句" placeholder="搜索原文或中文译文" value={query}
       onChange={event => { setQuery(event.target.value); if (scroll.current) scroll.current.scrollTop = 0; }}/>}
-    <div ref={scroll} className={styles.list}>
+    <div ref={scroll} className={styles.list} data-local-scroll-surface>
       {!matches.length && <p className={styles.empty}>{saved.length ? "没有匹配的好句。" : "还没有好句。在网页里划选句子，翻译后点「收藏到好句」。"}</p>}
       {virtual ? <div style={{ height: rows.getTotalSize(), position: "relative" }}>{rows.getVirtualItems().map(row =>
         <div key={row.key} data-index={row.index} ref={rows.measureElement} style={{position:"absolute",top:0,width:"100%",transform:`translateY(${row.start}px)`}}>

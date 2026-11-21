@@ -38,7 +38,7 @@ import type { LocalAccountSession } from "@/lib/localAccountSession";
 import { savedArticleOpenTimestamp } from "@/lib/savedArticleMerge";
 import { sortVocabularyEntriesByCreatedAt } from "@/lib/vocabularyMerge";
 import {
-  clearVocabularyEntries,
+  clearVocabularyWords,
   deleteVocabularyEntry,
 } from "@/lib/vocabulary";
 import { createVocabularySearchIndex, searchVocabularyIndex } from "@/lib/vocabularySearch";
@@ -48,6 +48,7 @@ import type { SavedArticle } from "@/types/article";
 import type { VocabularyEntry } from "@/types/vocabulary";
 import styles from "./HomeOptionMenu.module.css";
 import { useAccount } from "./AccountProvider";
+import { NotebookSections, SavedSentences, type NotebookSection } from "./SavedSentences";
 import { openStudy } from "@/lib/studyNavigation";
 
 interface HomeOptionMenuProps {
@@ -206,6 +207,7 @@ export function HomeOptionMenu({
   const [mounted, setMounted] = useState(open);
   const [hoveredVocabularyId, setHoveredVocabularyId] = useState<string | null>(null);
   const [vocabularySearchQuery, setVocabularySearchQuery] = useState("");
+  const [notebookSection, setNotebookSection] = useState<NotebookSection>("words");
   const [pinnedPreview, setPinnedPreview] = useState<PreviewKind | null>(null);
   useEffect(() => {
     const save = () => { if (open) writeRefreshState("menu", account.profile?.userId ?? (isOffline ? localAccount?.userId : undefined) ?? "guest", pinnedPreview); };
@@ -238,7 +240,7 @@ export function HomeOptionMenu({
     [savedArticles],
   );
   const orderedVocabularyEntries = useMemo(
-    () => sortVocabularyEntriesByCreatedAt(vocabularyEntries),
+    () => sortVocabularyEntriesByCreatedAt(vocabularyEntries.filter(entry => entry.entryKind !== "sentence")),
     [vocabularyEntries],
   );
   const deferredVocabularySearch = useDeferredValue(vocabularySearchQuery);
@@ -378,6 +380,7 @@ export function HomeOptionMenu({
 
   useEffect(() => {
     if (open) return;
+    setNotebookSection("words");
     setHoveredVocabularyId(null);
     setVocabularySearchQuery("");
     setSavedArticleContext(null);
@@ -449,17 +452,17 @@ export function HomeOptionMenu({
   }
 
   const deleteVocabulary = vocabularyTools?.onDelete ?? ((id: string) => {
-    if (!window.confirm("确定删除这个生词吗？")) return;
+    if (!window.confirm(notebookSection === "sentences" ? "确定删除这条好句吗？" : "确定删除这个生词吗？")) return;
     onVocabularyEntriesChange?.(deleteVocabularyEntry(id));
     setHoveredVocabularyId(null);
   });
   const clearVocabulary = vocabularyTools?.onClear ?? (() => {
-    if (!window.confirm(`将删除生词本中的 ${vocabularyEntries.length} 条词条，此操作无法撤销。`)) return;
-    clearVocabularyEntries();
-    onVocabularyEntriesChange?.([]);
+    if (!window.confirm(`将删除 ${orderedVocabularyEntries.length} 个生词，好句将保留。确定清空生词吗？`)) return;
+    const remaining = clearVocabularyWords();
+    onVocabularyEntriesChange?.(remaining);
     setHoveredVocabularyId(null);
   });
-  const exportVocabulary = vocabularyTools?.onExportCsv ?? (() => downloadVocabularyCsv(vocabularyEntries));
+  const exportVocabulary = vocabularyTools?.onExportCsv ?? (() => downloadVocabularyCsv(orderedVocabularyEntries));
   const copyVocabulary = vocabularyTools?.onCopy ?? ((entry: VocabularyEntry) => {
     void navigator.clipboard.writeText(vocabularyEntryClipboardText(entry)).catch(() => {
       window.alert("复制失败，请检查浏览器剪贴板权限。");
@@ -687,7 +690,7 @@ export function HomeOptionMenu({
 
       <section
         ref={standalonePreview && visiblePreview === "vocabulary" ? dialogRef : undefined}
-        className={`${styles.savedPreview} ${orderedVocabularyEntries.length ? "" : styles.previewCompact} ${visiblePreview === "vocabulary" ? styles.savedPreviewVisible : ""}`}
+        className={`${styles.savedPreview} ${vocabularyEntries.length ? "" : styles.previewCompact} ${visiblePreview === "vocabulary" ? styles.savedPreviewVisible : ""}`}
         style={{ "--preview-anchor-y": `${previewAnchorY ?? window.innerHeight / 2}px` } as CSSProperties}
         role={standalonePreview ? "dialog" : undefined}
         aria-modal={standalonePreview && !(readerTool && mobileMenu) ? "true" : undefined}
@@ -700,11 +703,11 @@ export function HomeOptionMenu({
         <header className={styles.savedHeader}>
           <div>
             <h3>生词本</h3>
-            <p>最近收录的词语与语境</p>
+            <p>{notebookSection === "sentences" ? "按收藏时间查看好句" : "最近收录的词语与语境"}</p>
             <button type="button" onClick={() => { onClose(); window.setTimeout(openStudy, 380); }}>开始复习 →</button>
           </div>
           <div className={styles.savedHeaderActions}>
-            <span>{vocabularyEntries.length} 条</span>
+            <span>{notebookSection === "sentences" ? vocabularyEntries.length - orderedVocabularyEntries.length : orderedVocabularyEntries.length} 条</span>
             {standalonePreview && visiblePreview === "vocabulary" && (
               <button
                 ref={closeButtonRef}
@@ -720,11 +723,12 @@ export function HomeOptionMenu({
             )}
           </div>
         </header>
-        {orderedVocabularyEntries.length ? (
+        <NotebookSections value={notebookSection} onChange={next => { setNotebookSection(next); setHoveredVocabularyId(null); }}/>
+        {notebookSection === "sentences" ? <SavedSentences entries={vocabularyEntries} onDelete={deleteVocabulary}/> : orderedVocabularyEntries.length ? (
           <>
             <div className={styles.vocabularyManageBar}>
               <button type="button" onClick={exportVocabulary}>导出 CSV</button>
-              <button type="button" onClick={clearVocabulary}>清空生词本</button>
+              <button type="button" onClick={clearVocabulary}>清空生词</button>
             </div>
             <label className={styles.vocabularySearch}>
               <span className={styles.srOnly}>检索生词本</span>
