@@ -1,8 +1,13 @@
 import type { KnowledgeSource } from "./documentKnowledge";
 import {anyTextKey} from '@/lib/modelSettings';
-import { fetchWithProviderFailover as fetchConfiguredProvider, responseModel, providerName } from "@/lib/providerFailover";
+import { EmptyProviderCompletionError, fetchWithProviderFailover as fetchConfiguredProvider, responseModel, providerName } from "@/lib/providerFailover";
+import { ClientRequestCancelledError } from "@/lib/requestCancellation";
 import {
   DeepSeekParseError,
+  DeepSeekEmptyContentError,
+  DeepSeekHttpError,
+  DeepSeekTimeoutError,
+  DeepSeekTransportError,
   MissingDeepSeekEnvError,
   sanitizeSentenceQuestionRequest,
 } from "@/lib/deepseek";
@@ -134,12 +139,12 @@ export async function answerSentenceQuestionWithDeepSeek(
           signal: signal ? AbortSignal.any([signal, controller.signal]) : controller.signal,
         });
 
-    profile.model = responseModel(response, profile.model);
-    profile.label = providerName(profile.model);
+        profile.model = responseModel(response, profile.model);
+        profile.label = providerName(profile.model);
         const completion = (await response.json().catch(() => null)) as DeepSeekChatCompletionResponse | null;
-        if (!response.ok || !completion) {
+        if (!response.ok) {
           const message = friendlyDeepSeekError(completion?.error?.message, response.status);
-          lastError = new DeepSeekParseError(message);
+          lastError = new DeepSeekHttpError(message, response.status);
           if (
             attempt < MAX_ATTEMPTS_PER_PROFILE &&
             (response.status === 429 || response.status === 503 || isDeepSeekBusy(completion?.error?.message))
@@ -150,19 +155,23 @@ export async function answerSentenceQuestionWithDeepSeek(
           break;
         }
 
-        const answer = completion.choices?.[0]?.message?.content?.trim();
+        if (!completion || !Array.isArray(completion.choices)) throw new DeepSeekParseError("问答服务返回格式异常。");
+        const answer = completion.choices[0]?.message?.content?.trim();
         if (answer) {
           return { answer: answer.replace(/\\n\\n/g, "\n\n"), usage: completion.usage ?? {}, model: profile.model, provider: profile.label };
         }
 
-        lastError = new DeepSeekParseError("DeepSeek 没有返回问答内容，请换一种问法再试。");
+        lastError = new DeepSeekEmptyContentError("问答服务没有返回回答。");
         break;
       } catch (error) {
-        const message =
-          error instanceof Error && error.name === "AbortError"
-            ? "DeepSeek 响应超时，请稍后重试。"
-            : "DeepSeek 请求失败，请检查网络或 API 配置。";
-        lastError = new DeepSeekParseError(message);
+        if (signal?.aborted) throw new ClientRequestCancelledError();
+        if (controller.signal.aborted || error instanceof Error && ["TimeoutError", "AbortError"].includes(error.name)) {
+          lastError = new DeepSeekTimeoutError();
+        } else if (error instanceof EmptyProviderCompletionError) {
+          lastError = new DeepSeekEmptyContentError("问答服务没有返回回答。");
+        } else {
+          lastError = error instanceof DeepSeekParseError ? error : new DeepSeekTransportError();
+        }
         if (attempt < MAX_ATTEMPTS_PER_PROFILE) {
           await wait(500);
           continue;
@@ -180,6 +189,16 @@ export async function answerSentenceQuestionWithDeepSeek(
   }
 
   throw lastError ?? new DeepSeekParseError("DeepSeek 请求失败，请稍后重试。");
+}
+
+export function sentenceQuestionFailure(error: unknown) {
+  if (error instanceof MissingDeepSeekEnvError) return { code: "missing_provider_configuration", status: 500, message: "问答服务尚未配置，请联系管理员。" };
+  if (error instanceof DeepSeekTimeoutError) return { code: "provider_timeout", status: 504, message: "问答服务响应超时，请稍后重试。" };
+  if (error instanceof DeepSeekTransportError) return { code: "provider_connection_failed", status: 503, message: "暂时无法连接问答服务，请稍后重试。" };
+  if (error instanceof DeepSeekHttpError) return { code: "provider_http_error", status: 502, message: "问答服务未能处理本次请求，请稍后重试。" };
+  if (error instanceof DeepSeekEmptyContentError) return { code: "provider_empty_content", status: 502, message: "问答服务没有返回回答，请重试。" };
+  if (error instanceof DeepSeekParseError) return { code: "provider_parse_error", status: 502, message: "问答服务返回格式异常，请重试。" };
+  return { code: "provider_request_failed", status: 502, message: "问答服务暂时不可用，请稍后重试。" };
 }
 
 function fetchWithProviderFailover(url:string,init:RequestInit){return fetchConfiguredProvider(url,init,"question");}

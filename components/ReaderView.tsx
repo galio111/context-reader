@@ -82,7 +82,7 @@ import { cursorAnchoredImageZoom, interpolateImageZoom, type ImageZoomPoint, typ
 import { createReaderBlockInteractivityStore, type ReaderBlockInteractivityStore } from "@/lib/readerBlockInteractivity";
 import {
   addVocabularyEntry,
-  clearVocabularyEntries,
+  clearVocabularyWords,
   createVocabularyEntry,
   deleteVocabularyEntry,
   getVocabularyEntries,
@@ -2791,20 +2791,19 @@ export function ReaderView({
   }
 
   function handleClearVocabulary() {
-    const entryCount = vocabularyEntries.length;
+    const entryCount = vocabularyEntries.filter(entry => entry.entryKind !== "sentence").length;
     const confirmed = window.confirm(
-      `将删除生词本中的 ${entryCount} 条词条，此操作无法撤销。\n\n确定要清空生词本吗？`,
+      `将删除生词本中的 ${entryCount} 条词条，此操作无法撤销。\n\n确定要清空生词吗？好句将保留。`,
     );
     if (!confirmed) {
       return;
     }
-    clearVocabularyEntries();
-    setVocabularyEntries([]);
+    setVocabularyEntries(clearVocabularyWords());
   }
 
   function handleExportCsv() {
     try {
-      downloadVocabularyCsv(vocabularyEntries);
+      downloadVocabularyCsv(vocabularyEntries.filter(entry => entry.entryKind !== "sentence"));
     } catch (csvError) {
       setImportError(csvError instanceof Error ? csvError.message : "CSV 导出失败，请稍后重试。");
     }
@@ -3335,7 +3334,7 @@ export function ReaderView({
 
   async function handleImportAllAnki() {
     if (importingId) return;
-    const unimportedEntries = vocabularyEntries.filter((entry) => !entry.anki.ankiNoteId);
+    const unimportedEntries = vocabularyEntries.filter((entry) => entry.entryKind !== "sentence" && !entry.anki.ankiNoteId);
     if (unimportedEntries.length === 0) {
       setImportError("没有未导入的词条。");
       return;

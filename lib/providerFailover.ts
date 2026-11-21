@@ -1,7 +1,9 @@
 import {resolveModelRoute,modelCredentials,modelBody} from './modelSettings';
 import {recordModelHealth} from './modelHealth';
+import {providerDeclinedContent} from './providerContentRestriction';
 import type {ModelFeature} from './modelCatalog';
 // Server-only transport. A provider change never creates a second user action.
+export class EmptyProviderCompletionError extends Error {}
 const circuits = new Map<string,number>();
 export function resetProviderCircuitForTests() { circuits.clear(); }
 export function providerName(model: string): string { return /^glm-/i.test(model) ? "zhipu" : /^mimo-/i.test(model) ? "mimo" : /jev/i.test(model) ? "jev" : "deepseek"; }
@@ -56,7 +58,11 @@ export async function fetchWithProviderFailover(url: string, init: RequestInit, 
           // Preserve the final response for caller-specific parsing diagnostics.
           return new Response(text, { status: response.status, headers: outputHeaders });
         }
-        if (!completion.choices?.[0]?.message?.content?.trim() || completion.error) throw new Error("Empty provider completion");
+        if (providerDeclinedContent(completion)) {
+          cleanup();
+          return Response.json({ error: { code: "content_restricted" } }, { status: 422, headers: { "x-context-model": model } });
+        }
+        if (!completion.choices?.[0]?.message?.content?.trim() || completion.error) throw new EmptyProviderCompletionError("Empty provider completion");
         await recordModelHealth(model,200,Date.now()-started);
         cleanup();
         return new Response(text, { status: response.status, headers: outputHeaders });
@@ -83,6 +89,12 @@ export async function fetchWithProviderFailover(url: string, init: RequestInit, 
           if (!value || value === "[DONE]") continue;
           let event;
           try { event = JSON.parse(value); } catch { throw new Error("Invalid provider event"); }
+          if (providerDeclinedContent(event)) {
+            controller.abort();
+            void reader.cancel().catch(() => undefined);
+            cleanup();
+            return Response.json({ error: { code: "content_restricted" } }, { status: 422, headers: { "x-context-model": model } });
+          }
           if (event.error) throw new Error("Provider stream error");
           if (event.choices?.[0]?.delta?.content?.trim()) content = true;
         }

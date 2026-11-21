@@ -1,0 +1,16 @@
+.sections { display: inline-flex; align-self: flex-start; gap: 3px; margin: 12px 20px; padding: 3px; background: #f2f3f5; border-radius: 10px; }
+.sections button { padding: 5px 18px; color: #515459; border-radius: 7px; font-size: 14px; }
+.sections button[aria-pressed=true] { background: white; color: #1d1d1f; font-weight: 600; box-shadow: 0 1px 3px #0002; }
+.collection { display: flex; flex-direction: column; flex: 1; min-height: 0; padding: 0 20px 14px; }
+.search { width: 100%; margin: 2px 0 10px; padding: 9px 12px; border: 1px solid #cbced1; border-radius: 9px; }
+.list { overflow-y: auto; overscroll-behavior: contain; min-height: 0; max-height: 65vh; }
+.row { padding: 14px 1px; border-bottom: 1px solid #e3e4e5; overflow-wrap: anywhere; }
+.row p { white-space: pre-wrap; line-height: 1.65; margin: 0; }
+.row p[lang=en] { font-size: 17px; font-weight: 550; color: #242629; }
+.row p[lang=zh-CN], .empty { font-size: 14px; color: #50555b; }
+.row p + p { margin-top: 5px; }
+.actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 6px; }
+.actions button { padding: 5px 0; font-size: 13px; color: #165f59; }
+.actions button + button { color: #65676c; }
+.row p[role=alert] { color: #9b3730; font-size: 13px; }
+.sections button:focus-visible, .actions button:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }

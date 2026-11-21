@@ -1,4 +1,5 @@
 import { sanitizeExplanationRequest } from "@/lib/explanationRequest";
+import { extensionRequestUser } from "@/lib/extensionIdentity";
 import { LATIN_PHRASE_PATTERN } from "@/lib/latinWords";
 import {anyTextKey} from '@/lib/modelSettings';
 import {withModelContext} from '@/lib/modelSettings';
@@ -25,6 +26,7 @@ export const maxDuration = 60;
 
 interface DeepSeekStreamChunk {
   choices?: Array<{
+    finish_reason?: string | null;
     delta?: {
       content?: string | null;
     };
@@ -43,21 +45,26 @@ function isValidRequestBody(body: unknown): body is ExplanationRequest {
   );
 }
 
-function parseSseContent(line: string, onUsage?: (usage: ProviderTokenUsage) => void): string {
+function parseSseContent(line: string, state: { done: boolean; invalid: boolean }, onUsage: (usage: ProviderTokenUsage) => void): string {
   if (!line.startsWith("data:")) {
     return "";
   }
 
   const payload = line.slice(5).trim();
+  if (payload === "[DONE]") state.done = true;
   if (!payload || payload === "[DONE]") {
     return "";
   }
 
   try {
-    const parsed = JSON.parse(payload) as DeepSeekStreamChunk;
-    if (parsed.usage) onUsage?.(parsed.usage);
-    return parsed.choices?.[0]?.delta?.content ?? "";
+    const parsed = JSON.parse(payload) as DeepSeekStreamChunk & { error?: unknown };
+    const reason = parsed.choices?.[0]?.finish_reason;
+    if (reason === "stop") state.done = true;
+    if (parsed.error || (reason && reason !== "stop")) state.invalid = true;
+    if (parsed.usage) onUsage(parsed.usage);
+    return (parsed.choices?.[0]?.delta?.content || "").replaceAll(EXPLANATION_STREAM_COMPLETE_MARKER, "");
   } catch {
+    state.invalid = true;
     return "";
   }
 }
@@ -113,6 +120,7 @@ async function handlePOST(request: Request) {
 
   slotAt = performance.now();
   const safeRequest = sanitizeExplanationRequest(body);
+  const extensionLookup = Boolean(extensionRequestUser());
   const baseURL = process.env.DEEPSEEK_BASE_URL ?? DEFAULT_BASE_URL;
   const modelCandidates = coreDeepSeekModelCandidates(process.env.DEEPSEEK_LOOKUP_MODEL?.trim() || DEFAULT_MODEL);
   let activeModel = modelCandidates[0];
@@ -212,6 +220,7 @@ async function handlePOST(request: Request) {
         let buffer = "";
         let displayText = "";
         let displayOverflow = false;
+        const streamState = { done: false, invalid: false };
         const rememberDisplay = (chunk: string) => {
           const elapsed = Math.round(performance.now() - startedAt);
           firstContentMs ??= elapsed;
@@ -235,7 +244,7 @@ async function handlePOST(request: Request) {
             buffer = lines.pop() ?? "";
 
             for (const line of lines) {
-              const content = parseSseContent(line, captureUsage);
+              const content = parseSseContent(line, streamState, captureUsage);
               if (content) {
                 rememberDisplay(content);
                 controller.enqueue(encoder.encode(content));
@@ -243,7 +252,7 @@ async function handlePOST(request: Request) {
             }
           }
 
-          const tail = parseSseContent(buffer, captureUsage);
+          const tail = parseSseContent(buffer + decoder.decode(), streamState, captureUsage);
           if (tail) {
             rememberDisplay(tail);
             controller.enqueue(encoder.encode(tail));
@@ -251,7 +260,7 @@ async function handlePOST(request: Request) {
           // Transport EOF is not a successful lookup. Use the same completeness
           // check as the Reader; leave incomplete reservations for fallback to
           // finish or refund, instead of prematurely making them non-refundable.
-          complete = !displayOverflow && Boolean(explanationFromCompletedStream(displayText, safeRequest));
+          complete = streamState.done && !streamState.invalid && !displayOverflow && Boolean(explanationFromCompletedStream(displayText, safeRequest, extensionLookup));
           if (complete) controller.enqueue(encoder.encode(EXPLANATION_STREAM_COMPLETE_MARKER));
           await recordUsageExecution({
             actionId,

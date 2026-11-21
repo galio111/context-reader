@@ -36,7 +36,7 @@ import { createStandaloneVocabularyEntry } from "@/lib/standaloneDictionary";
 import { tokenizeArticle } from "@/lib/tokenizer";
 import {
   addVocabularyEntry,
-  clearVocabularyEntries,
+  clearVocabularyWords,
   createVocabularyEntry,
   deleteVocabularyEntry,
   getVocabularyEntries,
@@ -1455,9 +1455,8 @@ export function BookHome({
   }
 
   function handleClearVocabulary() {
-    if (!window.confirm(`将删除生词本中的 ${vocabularyEntries.length} 条词条，此操作无法撤销。\n\n确定要清空生词本吗？`)) return;
-    clearVocabularyEntries();
-    setVocabularyEntries([]);
+    if (!window.confirm(`将删除生词本中的 ${vocabularyEntries.filter(entry => entry.entryKind !== "sentence").length} 个生词，此操作无法撤销。\n\n确定要清空生词吗？好句将保留。`)) return;
+    setVocabularyEntries(clearVocabularyWords());
   }
 
   async function handleCopyVocabularyEntry(entry: VocabularyEntry) {
@@ -2105,7 +2104,7 @@ export function BookHome({
         onDelete={(id) => setVocabularyEntries(deleteVocabularyEntry(id))}
         onClear={handleClearVocabulary}
         onExportCsv={() => {
-          try { downloadVocabularyCsv(vocabularyEntries); }
+          try { downloadVocabularyCsv(vocabularyEntries.filter(entry => entry.entryKind !== "sentence")); }
           catch (csvError) { setVocabularyError(csvError instanceof Error ? csvError.message : "CSV 导出失败，请稍后重试。"); }
         }}
         onCopy={handleCopyVocabularyEntry}

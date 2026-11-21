@@ -3,6 +3,7 @@
 import { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 import { useVirtualizer } from "@tanstack/react-virtual";
 import { AnkiPreviewModal } from "@/components/AnkiPreviewModal";
+import { NotebookSections, SavedSentences, type NotebookSection } from "./SavedSentences";
 import { openStudy } from "@/lib/studyNavigation";
 import ClearableField from "@/components/ClearableField";
 import { PronunciationButtons } from "@/components/PronunciationButtons";
@@ -106,6 +107,7 @@ export function VocabularyPanel({
 }: VocabularyPanelProps) {
   const [previewEntry, setPreviewEntry] = useState<VocabularyEntry | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [section, setSection] = useState<NotebookSection>("words");
   const [expandedEntryIds, setExpandedEntryIds] = useState<Set<string>>(() => new Set());
   const [narrowViewport, setNarrowViewport] = useState(false);
   const listRef = useRef<HTMLDivElement | null>(null);
@@ -146,6 +148,7 @@ export function VocabularyPanel({
   useEffect(() => {
     if (!open) {
       setPreviewEntry(null);
+      setSection("words");
       setSearchQuery("");
       setExpandedEntryIds(new Set());
       return;
@@ -158,7 +161,7 @@ export function VocabularyPanel({
     });
   }, [open]);
 
-  const orderedEntries = useMemo(() => sortVocabularyEntriesByCreatedAt(entries), [entries]);
+  const orderedEntries = useMemo(() => sortVocabularyEntriesByCreatedAt(entries.filter(e => e.entryKind !== "sentence")), [entries]);
   const deferredSearchQuery = useDeferredValue(searchQuery);
   const vocabularySearchIndex = useMemo(
     () => createVocabularySearchIndex(orderedEntries),
@@ -201,8 +204,8 @@ export function VocabularyPanel({
     rowVirtualizer.measure();
   }, [narrowViewport, rowVirtualizer]);
   const unimportedCount = useMemo(
-    () => entries.filter((entry) => !entry.anki.ankiNoteId).length,
-    [entries],
+    () => orderedEntries.filter((entry) => !entry.anki.ankiNoteId).length,
+    [orderedEntries],
   );
   const importingAll = importingId === "__all__";
   const reconcilingAnki = importingId === "__reconcile__";
@@ -230,7 +233,7 @@ export function VocabularyPanel({
         <header className="flex items-center justify-between border-b border-[#e0e0e0] px-5 py-4">
           <div>
             <h2 className="text-[21px] font-semibold leading-[1.19] tracking-[0.231px] text-[#1d1d1f]">生词本</h2>
-            <p className="mt-1 text-sm leading-5 tracking-[-0.224px] text-[#7a7a7a]">{entries.length} 个词条</p>
+            <p className="mt-1 text-sm leading-5 tracking-[-0.224px] text-[#7a7a7a]">{orderedEntries.length} 个生词 · {entries.length - orderedEntries.length} 条好句</p>
           </div>
           <button
             type="button"
@@ -241,6 +244,8 @@ export function VocabularyPanel({
           </button>
         </header>
 
+        <NotebookSections value={section} onChange={setSection} />
+        {section === "sentences" ? <SavedSentences entries={entries} onDelete={onDelete} /> : <>
         <div className="grid gap-3 border-b border-[#e0e0e0] px-5 py-3">
           <button type="button" className="rounded-lg bg-emerald-50 px-4 py-3 text-left text-emerald-900" onClick={() => { onClose(); window.setTimeout(openStudy, 380); }}>开始复习这些词 →</button>
           <label className="block">
@@ -323,7 +328,7 @@ export function VocabularyPanel({
           ref={listRef}
           className="min-h-0 flex-1 touch-pan-y overscroll-contain overflow-y-auto px-5 py-4 [scrollbar-gutter:stable] [-webkit-overflow-scrolling:touch]"
         >
-          {entries.length === 0 ? (
+          {orderedEntries.length === 0 ? (
             <p className="text-sm tracking-[-0.224px] text-[#7a7a7a]">还没有加入生词。</p>
           ) : filteredEntries.length === 0 ? (
             <p className="text-sm tracking-[-0.224px] text-[#7a7a7a]">没有匹配的生词。</p>
@@ -518,6 +523,7 @@ export function VocabularyPanel({
             </div>
           )}
         </div>
+        </>}
       </div>
 
       {showAnkiActions && (

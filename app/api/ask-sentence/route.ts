@@ -5,8 +5,9 @@ import { providerName } from "@/lib/providerFailover";
 import { LATIN_PHRASE_PATTERN } from "@/lib/latinWords";
 import {withModelContext} from '@/lib/modelSettings';
 import { NextResponse } from "next/server";
-import { DeepSeekParseError, MissingDeepSeekEnvError, sanitizeSentenceQuestionRequest } from "@/lib/deepseek";
-import { answerSentenceQuestionWithDeepSeek, planDocumentKnowledgeSearch } from "@/lib/sentenceQuestion";
+import { DeepSeekHttpError, MissingDeepSeekEnvError, sanitizeSentenceQuestionRequest } from "@/lib/deepseek";
+import { ClientRequestCancelledError } from "@/lib/requestCancellation";
+import { answerSentenceQuestionWithDeepSeek, planDocumentKnowledgeSearch, sentenceQuestionFailure } from "@/lib/sentenceQuestion";
 import type { SentenceQuestionRequest } from "@/types/reader";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/limitedBody";
 import { acquireAiSlot } from "@/lib/costConcurrency";
@@ -73,6 +74,10 @@ async function handlePOST(request: Request) {
 
   const releaseSlot = await acquireAiSlot(request.signal);
   if (!releaseSlot) {
+    if (request.signal.aborted) {
+      await refundUsage(actionId, "cancelled", "client_cancelled").catch(() => undefined);
+      return new Response(null, { status: 499 });
+    }
     await refundUsage(actionId, "failed", "local_concurrency").catch(() => undefined);
     return NextResponse.json({ error: "AI 服务当前请求较多，请稍后再试。" }, { status: 503, headers: { "Retry-After": "3" } });
   }
@@ -95,22 +100,26 @@ async function handlePOST(request: Request) {
     await finishUsage(actionId, "succeeded").catch(() => undefined);
     return NextResponse.json({ answer: result.answer, sources: knowledge.sources.map(({ title, url }) => ({ title, url })), searchNotice: knowledge.notice, searchQuery });
   } catch (error) {
-    await refundUsage(actionId, "failed", error instanceof Error ? error.name : "unknown").catch(() => undefined);
+    if (request.signal.aborted || error instanceof ClientRequestCancelledError) {
+      await refundUsage(actionId, "cancelled", "client_cancelled").catch(() => undefined);
+      return new Response(null, { status: 499 });
+    }
+    const { status, code, message } = sentenceQuestionFailure(error);
+    await refundUsage(actionId, "failed", code).catch(() => undefined);
     const configurationError = error instanceof MissingDeepSeekEnvError;
-    const parseError = error instanceof DeepSeekParseError;
-    const status = configurationError ? 500 : 502;
     const report = await recordServerError(request, {
       category: configurationError ? "configuration" : "provider",
       severity: configurationError ? "critical" : "error",
       operation: "sentence_question",
       endpoint: "/api/ask-sentence",
-      userMessage: "句子提问服务暂时不可用，开发者已收到异常并正在处理。",
-      code: configurationError ? "missing_provider_configuration" : parseError ? "provider_parse_error" : "provider_request_failed",
+      userMessage: message,
+      code,
+      metadata: error instanceof DeepSeekHttpError ? { upstreamStatus: error.status } : undefined,
       httpStatus: status,
     }, error);
     console.error("Sentence question request failed", error);
     return NextResponse.json(
-      { error: "句子提问服务暂时不可用，开发者已收到异常并正在处理。", ...reportReference(report) },
+      { error: message, code, ...reportReference(report) },
       { status },
     );
   } finally {

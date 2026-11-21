@@ -32,7 +32,7 @@ export function compactStudyResponse<T>(data: T): T {
     const inline = new Set(planProgress(snapshot.cards, snapshot.today?.card_ids ?? [], new Date(snapshot.serverNow), snapshot.today?.new_ids)
       .ready.slice(0, STUDY_INLINE_ENTRY_COUNT).map(card => card.entry_id));
     return { ...snapshot, entries: snapshot.entries.map(entry => {
-      if (inline.has(entry.id)) {
+      if (inline.has(entry.id) || entry.entryKind === "sentence") {
         // A saved dictionary is available from the single-entry endpoint.
         const { dictionaryResult: _dictionary, ...full } = entry;
         void _dictionary;

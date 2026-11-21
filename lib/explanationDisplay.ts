@@ -132,6 +132,7 @@ export function mergeStreamDisplayIntoExplanation(
 export function explanationFromCompletedStream(
   streamText: string,
   context: Pick<WordContext, "word" | "sentence">,
+  allowMissingPhonetic = false,
 ): WordExplanation | null {
   const sections = parseExplanationStream(streamText);
   const partOfSpeech = streamField(sections, "partOfSpeech");
@@ -165,7 +166,7 @@ export function explanationFromCompletedStream(
     || !collocation
     || !exampleEnglish
     || !exampleChinese
-    || (requiresCurrentFormPhonetic(context.word) && !phonetic)
+    || (requiresCurrentFormPhonetic(context.word) && !phonetic && (!allowMissingPhonetic || Boolean(streamField(sections, "phonetic"))))
   ) {
     return null;
   }

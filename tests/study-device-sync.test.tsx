@@ -13,6 +13,9 @@ test('remote progress refreshes on focus and visible polling; unchanged polls st
  for(const [key,value] of Object.entries({window:dom.window,document:dom.window.document,navigator:dom.window.navigator,indexedDB:new IDBFactory(),React,IS_REACT_ACT_ENVIRONMENT:true}))Object.defineProperty(globalThis,key,{configurable:true,writable:true,value});
  const {renderHook,act,waitFor,cleanup}=await import('@testing-library/react');
  const realInterval=globalThis.setInterval,realClear=globalThis.clearInterval;
+ const realNow=Date.now;
+ let elapsed=0;
+ Date.now=()=>realNow()+elapsed;
  let poll:()=>void=()=>{};
  globalThis.setInterval=((fn:()=>void,ms:number)=>{if(ms===10000){poll=fn;return 123456;}return realInterval(fn,ms);}) as typeof setInterval;
  globalThis.clearInterval=((id:ReturnType<typeof setInterval>)=>{if(Number(id)!==123456)realClear(id);}) as typeof clearInterval;
@@ -33,22 +36,27 @@ test('remote progress refreshes on focus and visible polling; unchanged polls st
  try{
   const hook=renderHook(({active})=>useStudyOffline(owner,network,s=>{accepted=s;},active),{initialProps:{active:true}});
   await waitFor(()=>assert.equal(accepted?.cards[0].version,0));
+  const initialProbes=probes;
+  await act(async()=>{dom.window.dispatchEvent(new dom.window.Event('focus'));});
+  assert.equal(probes,initialProbes,'focus during the active polling interval is coalesced');
+  elapsed+=10000;
   advance();await act(async()=>{dom.window.dispatchEvent(new dom.window.Event('focus'));});
   await waitFor(()=>assert.equal(accepted?.cards[0].version,1));
   const priorReads=reads,priorProbes=probes;
-  await act(async()=>{poll();});await waitFor(()=>assert.equal(probes,priorProbes+1));
+  const nextPoll=()=>{elapsed+=10000;poll();};
+  await act(async()=>{nextPoll();});await waitFor(()=>assert.equal(probes,priorProbes+1));
   assert.equal(reads,priorReads,'unchanged idle poll downloads no snapshot');
-  advance();await act(async()=>{poll();});await waitFor(()=>assert.equal(accepted?.cards[0].version,2));
+  advance();await act(async()=>{nextPoll();});await waitFor(()=>assert.equal(accepted?.cards[0].version,2));
   Object.defineProperty(dom.window.document,'visibilityState',{configurable:true,value:'hidden'});
-  const hiddenProbes=probes;await act(async()=>{poll();});assert.equal(probes,hiddenProbes);
+  const hiddenProbes=probes;await act(async()=>{nextPoll();});assert.equal(probes,hiddenProbes);
   Object.defineProperty(dom.window.document,'visibilityState',{configurable:true,value:'visible'});
-  advance();hold=true;await act(async()=>{poll();});await waitFor(()=>assert.ok(release));
+  advance();hold=true;await act(async()=>{nextPoll();});await waitFor(()=>assert.ok(release));
   await act(async()=>{await hook.result.current.api({op:'review',id:'pending-answer',cardId:'a',answer:'forgot',activeMs:1000});});
   await act(async()=>{release!();});
   await waitFor(async()=>assert.equal((await updateStudyLocalRecord(owner,r=>r))?.events.length,1));
   const record=await updateStudyLocalRecord(owner,r=>r);assert.equal(record?.base.cards[0].version,2,'in-flight snapshot must not replace base after a local answer');
   hook.rerender({active:false});
   const closedProbes=probes;await act(async()=>{dom.window.dispatchEvent(new dom.window.Event('focus'));});assert.equal(probes,closedProbes);
- }finally{cleanup();globalThis.setInterval=realInterval;globalThis.clearInterval=realClear;dom.window.close();}
+ }finally{cleanup();Date.now=realNow;globalThis.setInterval=realInterval;globalThis.clearInterval=realClear;dom.window.close();}
 });
 

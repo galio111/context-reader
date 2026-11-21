@@ -15,6 +15,7 @@ import { gateUsage, usageErrorResponse } from "@/lib/usageGate";
 import { resolveUsageIdentity } from "@/lib/usageIdentity";
 import { estimateDeepSeekCostMicrousd, type ProviderTokenUsage } from "@/lib/usageCost";
 import { recordServerError, reportReference } from "@/lib/serverErrorReporting";
+import { providerDeclinedContent, TRANSLATION_CONTENT_RESTRICTION } from "@/lib/providerContentRestriction";
 import { extractArticleTranslationText, IncrementalJsonObjectParser } from "@/lib/incrementalJsonObjects";
 
 const DEFAULT_BASE_URL = "https://api.deepseek.com";
@@ -41,17 +42,21 @@ export const maxDuration = 180;
 
 interface DeepSeekTranslationResponse {
   choices?: Array<{
+    finish_reason?: string | null;
     message?: {
       content?: string | null;
     };
   }>;
   error?: {
+    code?: string | number;
+    type?: string;
     message?: string;
   };
   usage?: ProviderTokenUsage;
 }
 
 interface DeepSeekTranslationStreamChunk {
+  error?: DeepSeekTranslationResponse["error"];
   choices?: Array<{ delta?: { content?: string | null }; finish_reason?: string | null }>;
   usage?: ProviderTokenUsage | null;
 }
@@ -317,6 +322,7 @@ async function handlePOST(request: Request) {
     } catch (error) {
       const timedOut = error instanceof Error && error.name === "AbortError";
       await recordFailedProviderExecution(timedOut ? "provider_timeout" : "provider_connection_failed");
+      if (!managedTranslationAction) await refundUsage(actionId, "failed", "provider_connection_failed").catch(() => undefined);
       clearTimeout(timeout);
       request.signal.removeEventListener("abort", abortFromClient);
       await saveBlockResult(false).catch(() => undefined);
@@ -330,15 +336,16 @@ async function handlePOST(request: Request) {
     model = responseModel(providerResponse, model);
     if (!providerResponse.ok || !providerResponse.body) {
       const data = (await providerResponse.json().catch(() => ({}))) as DeepSeekTranslationResponse;
-      const classified = providerError(data.error?.message || providerResponse.statusText, providerResponse.status);
+      const classified = providerDeclinedContent(data) ? TRANSLATION_CONTENT_RESTRICTION : providerError(data.error?.message || providerResponse.statusText, providerResponse.status);
       await recordFailedProviderExecution(classified.code, data.usage);
+      if (!managedTranslationAction) await refundUsage(actionId, "failed", classified.code).catch(() => undefined);
       clearTimeout(timeout);
       request.signal.removeEventListener("abort", abortFromClient);
       await saveBlockResult(false).catch(() => undefined);
       releaseSlot();
       return NextResponse.json(
         { error: classified.error, code: classified.code },
-        { status: classified.status, headers: { "Retry-After": "5" } },
+        { status: classified.status, headers: classified.status === 503 ? { "Retry-After": "5" } : undefined },
       );
     }
 
@@ -407,25 +414,32 @@ async function handlePOST(request: Request) {
                 if (!payload || payload === "[DONE]") continue;
                 const chunk = JSON.parse(payload) as DeepSeekTranslationStreamChunk;
                 if (chunk.usage) usage = chunk.usage;
+                if (providerDeclinedContent(chunk)) {
+                  streamErrorCode = TRANSLATION_CONTENT_RESTRICTION.code;
+                  break;
+                }
                 const delta = chunk.choices?.[0]?.delta?.content;
                 if (delta) {
                   fullContent += delta;
                   for (const object of jsonObjects.push(delta)) emitTranslationPayload(object);
                 }
               }
+              if (streamErrorCode) break;
             }
+            if (streamErrorCode) { await providerReader.cancel().catch(() => undefined); break; }
             if (done) break;
           }
-          if (completedIds.size < blocks.length) emitFallbackDocument();
-          if (completedIds.size === blocks.length) streamErrorCode = "";
+          if (!streamErrorCode && completedIds.size < blocks.length) emitFallbackDocument();
+          // A terminal refusal still applies if earlier chunks contained complete blocks.
           const missing = blocks.filter((block) => !completedIds.has(block.id));
           if (missing.length || streamErrorCode) {
             streamErrorCode ||= "provider_incomplete";
             await recordFailedProviderExecution(streamErrorCode, usage);
-            const error = completedIds.size > 0
+            const restricted = streamErrorCode === TRANSLATION_CONTENT_RESTRICTION.code;
+            const error = restricted ? TRANSLATION_CONTENT_RESTRICTION.error : completedIds.size > 0
               ? `AI 生成中断，本次已生成 ${completedIds.size}/${blocks.length} 段。`
               : "AI 生成中断，本次未生成可用译文。";
-            output.enqueue(encoder.encode(`${JSON.stringify({ type: "error", error, code: "provider_temporary" })}\n`));
+            output.enqueue(encoder.encode(`${JSON.stringify({ type: "error", error, code: restricted ? streamErrorCode : "provider_temporary" })}\n`));
           } else {
             await saveBlockResult(true);
             usageSucceeded = true;
@@ -498,6 +512,11 @@ async function handlePOST(request: Request) {
 
     model = responseModel(response, model);
     const data = (await response.json().catch(() => ({}))) as DeepSeekTranslationResponse;
+    if (providerDeclinedContent(data)) {
+      const { code, error, status } = TRANSLATION_CONTENT_RESTRICTION;
+      await recordFailedProviderExecution(code, data.usage);
+      return NextResponse.json({ error, code }, { status });
+    }
     if (!response.ok) {
       const errorMessage = data.error?.message || response.statusText || "DeepSeek request failed.";
       const classified = providerError(errorMessage, response.status);

@@ -51,6 +51,8 @@
 .dialog .answers button[data-rating=forgot]:hover{color:var(--study-error);background:var(--study-error-bg)}
 .dialog .answers button[data-rating=remembered]:hover{color:var(--study-accent);background:var(--study-accent-soft)}
 .answers kbd{font-family:inherit;font-size:11px;line-height:19px;min-width:17px;border:1px solid var(--study-line);border-radius:4px;color:var(--study-muted)}
+.sentenceAnswer{margin:auto;max-width:60ch;padding:18px 10px;font-size:clamp(21px,3vw,30px);line-height:1.6;text-align:center;white-space:pre-wrap;overflow-wrap:anywhere}
+.answerBody:has(.sentenceAnswer){display:flex}
 .answerBody{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;padding:8px 4px 14px 0;scrollbar-width:thin;animation:reveal var(--study-duration) cubic-bezier(.22,1,.36,1)}
 .wordHeading{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
 .wordHeading h2{margin:0;font-size:35px;font-weight:600;line-height:1.25;letter-spacing:-.8px;overflow-wrap:anywhere}

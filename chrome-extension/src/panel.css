@@ -17,4 +17,6 @@ html,body,#root{height:100%;margin:0;background:transparent!important;color:var(
 .explanation .cr-reader-panel { height: auto; overflow: visible; }
 .dictionary, .sentence-translation { flex: none; overflow: visible; }
 .extension-question { flex-shrink: 0; }
+.sentence-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.sentence-actions button:disabled { opacity: .7; cursor: default; }
 .extension-question button { background: var(--cr-ext-accent, #0066cc); }

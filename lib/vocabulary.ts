@@ -158,6 +158,14 @@ export function deleteVocabularyEntry(id: string): VocabularyEntry[] {
   return nextEntries;
 }
 
+export function clearVocabularyWords(): VocabularyEntry[] {
+  const entries = getVocabularyEntries();
+  const sentences = entries.filter(entry => entry.entryKind === "sentence");
+  notifyAccountObjectsDeleted("vocabulary", entries.filter(entry => entry.entryKind !== "sentence").map(entry => entry.id));
+  saveVocabularyEntries(sentences);
+  return sentences;
+}
+
 export function clearVocabularyEntries(): void {
   notifyAccountObjectsDeleted("vocabulary", getVocabularyEntries().map((entry) => entry.id));
   saveVocabularyEntries([]);

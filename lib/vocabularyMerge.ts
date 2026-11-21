@@ -98,7 +98,8 @@ function mergeVocabularyGroup(entries: VocabularyEntry[]): VocabularyEntry {
   return merged;
 }
 
-export function vocabularyIdentity(entry: Pick<VocabularyEntry, "word" | "sourceSentence"> & Partial<Pick<VocabularyEntry, "anki" | "dictionaryResult">>): string {
+export function vocabularyIdentity(entry: Pick<VocabularyEntry, "word" | "sourceSentence"> & Partial<Pick<VocabularyEntry, "anki" | "dictionaryResult" | "entryKind">>): string {
+  if (entry.entryKind === "sentence") return `sentence::${entry.sourceSentence.trim().normalize("NFC")}`;
   const query = entry.anki ? standaloneVocabularyQuery({ ...entry, anki: entry.anki }) : null;
   if (query) return `dictionary::${normalizeDictionaryQuery(query)}`;
   return `${normalizedIdentityPart(entry.word)}::${normalizedIdentityPart(entry.sourceSentence)}`;

@@ -593,14 +593,17 @@ export async function explainWordWithDeepSeek(
         // A repair can fix one field while omitting another that was already valid.
         // Keep validated original fields; never weaken current-form IPA ownership.
         diagnostics.repairInvalidFields = [...missingChineseFields(retryParsed), ...missingTextFields(retryParsed, safeRequest)].join(", ");
-        retryParsed = mergeExplanationRepair(parsed, retryParsed, safeRequest);
-        invalidFields = [...missingChineseFields(retryParsed), ...missingTextFields(retryParsed, safeRequest)];
-        if (invalidFields.length > 0) {
+        const repaired = mergeExplanationRepair(parsed, retryParsed, safeRequest);
+        invalidFields = [...missingChineseFields(repaired), ...missingTextFields(repaired, safeRequest)];
+        if (invalidFields.some(field => field !== "phonetic" && field !== "phoneticFor")) {
           diagnostics.invalidFields = invalidFields.join(", ");
-          diagnostics.fieldIssues = explanationFieldIssues(retryParsed, safeRequest).join("; ");
+          diagnostics.fieldIssues = explanationFieldIssues(repaired, safeRequest).join("; ");
           throw new DeepSeekParseError("DeepSeek 返回的释义不完整，请重新生成。");
         }
-        return { explanation: normalizeExplanation(retryParsed, safeRequest), model: profile.model, provider: profile.label, usage: sumUsage(completion.usage, retryCompletion.usage) };
+        // IPA is useful only when it belongs to the selected form. After one repair,
+        // keep the complete learning content and leave an unverified pair empty.
+        if (invalidFields.length) { repaired.phonetic = ""; repaired.phoneticFor = ""; }
+        return { explanation: normalizeExplanation(repaired, safeRequest), model: profile.model, provider: profile.label, usage: sumUsage(completion.usage, retryCompletion.usage) };
       }
 
       return { explanation: normalizeExplanation(parsed, safeRequest), model: profile.model, provider: profile.label, usage: sumUsage(completion.usage) };

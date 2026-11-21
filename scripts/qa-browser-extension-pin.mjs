@@ -17,12 +17,18 @@ try {
   await worker.evaluate(async () => {
     globalThis.__calls = []; globalThis.__delay = 0;
     globalThis.fetch = async (url, init) => {
-      const op = new URL(String(url)).pathname.split("/").at(-1), body = JSON.parse(init.body); globalThis.__calls.push({ op, body });
+      const op = new URL(String(url)).pathname.split("/").at(-1), body = JSON.parse(init.body);
+      globalThis.__calls.push({ op, body, actionId: new Headers(init.headers).get("x-context-action-id") });
       if (globalThis.__delay) await new Promise(r => setTimeout(r, globalThis.__delay));
       if (op === "translate") return Response.json({ translations: [{ id: "extension-selection", translation: "所选内容的中文译文：" + body.text }] });
       if (op === "pronunciation") return new Response(new Uint8Array([1,2,3]), { headers: { "Content-Type": "audio/mpeg" } });
       const e = { word: body.word, lemma: body.word, phonetic: "/bæŋk/", phoneticFor: body.word, partOfSpeech: "名词", basicMeaning: "测试释义", contextMeaning: "当前语境释义", sentenceTranslation: "当前原句译文", usageNote: "用法说明", collocation: "river bank（河岸）", exampleEnglish: "We reached the bank.", exampleChinese: "我们到达河岸。", difficulty: "easy", shouldAddToVocabulary: true, anki: {} };
+      if (op === "save" || op === "save-sentence") return Response.json({ saved: true });
+      if (op === "explain" && ["stream-only", "both-fail"].includes(globalThis.__mode)) return Response.json({ error: "解释暂时不可用" }, { status: 502 });
       if (op === "explain") return Response.json({ explanation: e });
+      if (op === "stream" && ["partial", "both-fail"].includes(globalThis.__mode)) {
+        return new Response("基础释义：来自流的完整释义\n当前语境含义：这个分段被截");
+      }
       if (op === "stream") return new Response(`原型：${body.word}\n当前词音标：/bæŋk/\n当前词音标归属：${body.word}\n词性：名词\n难度：easy\n基础释义：测试释义\n当前语境含义：当前语境释义\n当前句子翻译：当前原句译文\n用法说明：用法说明\n常见搭配：river bank（河岸）\n英文例句：We reached the bank.\n例句中文翻译：我们到达河岸。\n\u001e`);
       if (op === "dictionary") return Response.json({ dictionary: { query: body.query, phonetic: "/x/", inputStatus: "valid", senses: [{ meaning: "词典释义", partOfSpeech: "名词" }] } });
       throw new Error("Unexpected operation " + op);
@@ -60,6 +66,11 @@ try {
   const before=await worker.evaluate(()=>globalThis.__calls.length), phraseUrl=frame.url(); await dragSelect("#sentence"); frame=await waitPanel(phraseUrl); await frame.getByRole("heading",{name:"句子翻译",exact:true}).waitFor(); await frame.locator(".translation-result").waitFor();
   const calls=await worker.evaluate(n=>globalThis.__calls.slice(n),before); assert.ok(calls.some(c=>c.op==="translate"&&c.body.text==="This is very useful.")); assert.ok(!calls.some(c=>["explain","stream","dictionary"].includes(c.op)));
   assert.doesNotMatch(await frame.locator("body").innerText(),/ACCOUNT_MUST_NOT_APPEAR|保存到|加入生词本/); assert.deepEqual(await position(),moved);
+  await frame.getByRole("button",{name:"收藏到好句"}).click();
+  await frame.getByRole("button",{name:"已收藏到好句"}).waitFor();
+  const sentenceSave = await worker.evaluate(() => globalThis.__calls.findLast(call => call.op === "save-sentence").body);
+  assert.deepEqual(sentenceSave,{ original:"This is very useful.",translation:"所选内容的中文译文：This is very useful." });
+  checks.push("Four-word selections save the exact displayed translation and chosen original to the sentence collection");
   await page.screenshot({path:resolve(out,"pinned-sentence.png")});
   const sentenceUrl=frame.url(); await dragSelect("#long"); frame=await waitPanel(sentenceUrl); await frame.locator(".translation-result").filter({hasText:"We reached the river bank before sunset, and returned home."}).waitFor();
   const last=await worker.evaluate(()=>globalThis.__calls.filter(c=>c.op==="translate").at(-1)); assert.equal(last.body.text,"We reached the river bank before sunset, and returned home.");
@@ -67,6 +78,41 @@ try {
   await headerButton("取消固定弹窗位置"); await page.locator("#blank").click(); await worker.evaluate(()=>{globalThis.__delay=700});
   await page.locator("#first").dblclick(); await waitPanel(); await page.locator("#blank").click(); await page.waitForTimeout(1100); assert.equal(panel(),undefined);
   checks.push("Outside clicks also cancel a pending unpinned display; delayed replies cannot reopen it");
+  await worker.evaluate(async () => {
+    globalThis.__delay = 0;
+    globalThis.__mode = "partial";
+    const {preferences} = await chrome.storage.local.get("preferences");
+    await chrome.storage.local.set({preferences: {...preferences, width: 300, height: 240}});
+  });
+  // A fresh word avoids replaying the earlier bank lookup from session storage.
+  await page.locator("#first").evaluate(el => el.textContent = "harbor");
+  await page.locator("#first").dblclick(); frame = await waitPanel();
+  const save = frame.getByRole("button", {name:"加入生词本",exact:true});
+  await save.waitFor();
+  assert.equal(await frame.getByRole("alert").count(),0);
+  await frame.getByText("来自流的完整释义", {exact:true}).waitFor();
+  await frame.getByText("当前语境释义", {exact:true}).waitFor();
+  assert.ok(!(await frame.locator("body").innerText()).includes("这个分段被截"));
+  const lastField = frame.getByText("我们到达河岸。",{exact:true});
+  await lastField.scrollIntoViewIfNeeded();
+  const visible = await lastField.evaluate(el => { const r=el.getBoundingClientRect(); return r.top>=0 && r.bottom<=innerHeight+1; });
+  assert.ok(visible,"last translation must scroll fully into the smallest popup");
+  await page.screenshot({path:resolve(out,"recovered-last-field.png")});
+  await save.click(); await frame.getByRole("button",{name:"已加入生词本",exact:true}).waitFor();
+  const pair = await worker.evaluate(() => globalThis.__calls.filter(c => ["stream","explain"].includes(c.op) && c.body.word === "harbor"));
+  assert.equal(pair.length,2); assert.ok(pair[0].actionId); assert.equal(pair[0].actionId,pair[1].actionId);
+  const stored = await worker.evaluate(() => globalThis.__calls.findLast(c=>c.op==="save").body.explanation);
+  assert.equal(stored.basicMeaning,"来自流的完整释义"); assert.equal(stored.exampleChinese,"我们到达河岸。");
+  checks.push("Interrupted stream recovers from JSON, preserves closed fields, scrolls to the last example at 300 × 240, and saves the displayed result under one lookup action");
+  await worker.evaluate(() => globalThis.__mode = "both-fail");
+  await frame.getByRole("button",{name:/重新生成/}).first().click();
+  await frame.getByRole("alert").waitFor(); assert.equal(await save.count(),0);
+  assert.ok(!(await frame.locator("body").innerText()).includes("这个分段被截"));
+  await worker.evaluate(() => globalThis.__mode = "stream-only");
+  await frame.getByRole("button",{name:"重试查询"}).click();
+  await save.waitFor(); assert.equal(await frame.getByRole("alert").count(),0);
+  await frame.getByText("我们到达河岸。",{exact:true}).waitFor();
+  checks.push("When both results fail the partial is discarded; retry clears the alert and a complete stream alone restores save actions");
   assert.deepEqual(errors,[]); await writeFile(resolve(out,"browser-qa.json"),JSON.stringify({ok:true,checks,errors},null,2)); console.log(JSON.stringify({ok:true,checks}));
 } catch (error) {
   if (debugPage) { await debugPage.screenshot({path:resolve(out,"failure.png")}); console.log(JSON.stringify({selection:await debugPage.evaluate(()=>getSelection()?.toString()),frames:debugPage.frames().map(f=>f.url()),errors,calls:await debugWorker.evaluate(()=>globalThis.__calls.map(c=>({op:c.op,word:c.body.word,text:c.body.text}))).catch(()=>[])})); }

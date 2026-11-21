@@ -8,7 +8,8 @@ import { POST as dictionary } from "@/app/api/dictionary/route";
 import { POST as ask } from "@/app/api/ask-sentence/route";
 import { POST as pronunciation } from "@/app/api/pronunciation/route";
 import { POST as translate } from "@/app/api/translate-article/route";
-import { extensionTranslationInput } from "@/lib/browserExtensionSelection";
+import { extensionSelectionMode, extensionTranslationInput } from "@/lib/browserExtensionSelection";
+import { saveSelectedSentence, SavedSentenceWriteError } from "@/lib/savedSentencesServer";
 import { LATIN_PHRASE_PATTERN } from "@/lib/latinWords";
 import { accountFetch, writeSyncObjects } from "@/lib/accountStore";
 import { createStandaloneVocabularyEntry } from "@/lib/standaloneDictionary";
@@ -67,6 +68,15 @@ export async function POST(request: Request, args: { params: Promise<{ operation
           const url = new URL(request.url); url.search = "";
           return translate(new Request(url, { method: "POST", headers, body: JSON.stringify(input), signal: request.signal }));
         }
+        case "save-sentence": {
+          const body = await readJsonBody<{ original?: string; translation?: string }>(request, 128 * 1024);
+          if (typeof body?.original !== "string" || extensionSelectionMode(body.original) !== "translation" ||
+              typeof body.translation !== "string" || !body.translation.trim() || body.translation.length > 24000) {
+            return json({ error: "请等待所选句子的译文完成后再收藏。" }, 400);
+          }
+          const entry = await saveSelectedSentence(auth.user.id, body.original.trim(), body.translation.trim());
+          return json({ saved: true, id: entry.id });
+        }
         case "save": return saveVocabulary(request, auth.user.id);
         case "account": return json({ id: auth.user.id, nickname: auth.nickname, connectionId: auth.connection.id });
         case "disconnect": {
@@ -77,6 +87,7 @@ export async function POST(request: Request, args: { params: Promise<{ operation
       }
     });
   } catch (error) {
+    if (error instanceof SavedSentenceWriteError) return json({ error: error.message }, error.status);
     if (error instanceof ExtensionAuthError) return json({ error: error.message }, 401);
     console.error("Browser extension request failed", error instanceof Error ? error.name : "unknown");
     return json({ error: "扩展服务暂时不可用，请稍后重试。" }, 503);

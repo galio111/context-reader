@@ -11,7 +11,7 @@ import { ACCOUNT_DATA_MERGED_EVENT, accountDataEventKinds } from "@/lib/accountE
 import { isValidArticleSummary } from "@/lib/articles";
 import { currentFormPhonetic } from "@/lib/pronunciation";
 import { downloadVocabularyCsv } from "@/lib/csv";
-import { clearVocabularyEntries, deleteVocabularyEntry, getVocabularyEntries } from "@/lib/vocabulary";
+import { clearVocabularyWords, deleteVocabularyEntry, getVocabularyEntries } from "@/lib/vocabulary";
 import type { SavedArticle } from "@/types/article";
 import type { PublicArticle } from "@/types/publicArticle";
 import type { VocabularyEntry } from "@/types/vocabulary";
@@ -138,16 +138,15 @@ export function ArticleInput({
 
   function handleClearVocabulary() {
     const confirmed = window.confirm(
-      `将删除生词本中的 ${vocabularyEntries.length} 条词条，此操作无法撤销。\n\n确定要清空生词本吗？`,
+      `将删除生词本中的 ${vocabularyEntries.filter(entry => entry.entryKind !== "sentence").length} 个生词，此操作无法撤销。\n\n确定要清空生词吗？好句将保留。`,
     );
     if (!confirmed) return;
-    clearVocabularyEntries();
-    setVocabularyEntries([]);
+    setVocabularyEntries(clearVocabularyWords());
   }
 
   function handleExportVocabularyCsv() {
     try {
-      downloadVocabularyCsv(vocabularyEntries);
+      downloadVocabularyCsv(vocabularyEntries.filter(entry => entry.entryKind !== "sentence"));
     } catch (csvError) {
       setVocabularyError(csvError instanceof Error ? csvError.message : "CSV 导出失败，请稍后重试。");
     }

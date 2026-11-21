@@ -1,6 +1,7 @@
 import type { ArticleTranslationBlock, ArticleTranslationItem } from "@/types/reader";
 import { documentTranslationContext } from "@/lib/documentTranslationContext";
 
+
 const MAX_RETRY_ATTEMPTS = 8;
 const MAX_CONSECUTIVE_ZERO_PROGRESS_ATTEMPTS = 3;
 const RETRY_BASE_DELAY_MS = 2_000;
@@ -148,6 +149,7 @@ export async function requestArticleTranslation(
       }
       streamError ??= { error: "AI 服务没有返回完整译文。", code: "provider_temporary" };
       if (streamError) {
+        if (streamError.code === "provider_content_restricted") throw new Error(streamError.error || FALLBACK_ERROR);
         consecutiveZeroProgressAttempts = collected.size > collectedBeforeAttempt
           ? 0
           : consecutiveZeroProgressAttempts + 1;

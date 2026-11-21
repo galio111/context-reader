@@ -2,7 +2,7 @@ import { normalizePreferences } from "./preferences.mjs";
 
 const SITE = "https://context-reader.com";
 const extensionOrigin = chrome.runtime.getURL("").replace(/\/$/, "");
-const operations = new Set(["explain", "stream", "dictionary", "ask", "pronunciation", "save", "account", "translate"]);
+const operations = new Set(["explain", "stream", "dictionary", "ask", "pronunciation", "save", "save-sentence", "account", "translate"]);
 chrome.storage.local.setAccessLevel({ accessLevel: "TRUSTED_CONTEXTS" });
 async function state() { const s = await chrome.storage.local.get(["preferences", "connection"]); return { preferences: normalizePreferences(s.preferences), connection: s.connection || null }; }
 function panelNonce(sender) {
@@ -18,9 +18,9 @@ async function lookupSession(sender, suppliedNonce) {
   if (!connection || connection.connectionId !== session.connectionId) throw new Error("保存账号已变更，请重新划词。");
   return { ...session, connection };
 }
-async function api(connection, operation, body, signal) {
+async function api(connection, operation, body, signal, actionId) {
   const response = await fetch(`${SITE}/api/extension/execute/${operation}`, { method: "POST", credentials: "omit", cache: "no-store",
-    headers: { "Content-Type": "application/json", Authorization: `Bearer ${connection.token}` }, body: JSON.stringify(body || {}), signal });
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${connection.token}`, ...(actionId ? { "x-context-action-id": actionId } : {}) }, body: JSON.stringify(body || {}), signal });
   if (!response.ok) {
     const data = await response.json().catch(() => ({}));
     throw new Error(data.error || (response.status === 429 ? "查询较频繁，请稍后重试。" : "解释服务暂时不可用，请稍后重试。"));
@@ -65,7 +65,7 @@ async function handle(message, sender) {
   if (message?.type === "proxy") {
     const s = await lookupSession(sender);
     if (!operations.has(message.operation) || message.operation === "stream") throw new Error("不支持这项操作。");
-    const r = await api(s.connection, message.operation, message.body, AbortSignal.timeout(120000));
+    const r = await api(s.connection, message.operation, message.body, AbortSignal.timeout(120000), message.operation === "explain" ? message.actionId : undefined);
     if (message.operation === "pronunciation") {
       const bytes = new Uint8Array(await r.arrayBuffer());
       if (bytes.length > 2 * 1024 * 1024) throw new Error("发音文件过大。");
@@ -111,7 +111,7 @@ chrome.runtime.onConnect.addListener(port => {
     const timer = setTimeout(() => controller.abort(), 120000);
     try {
       const session = await lookupSession(port.sender);
-      const response = await api(session.connection, "stream", message.context, controller.signal);
+      const response = await api(session.connection, "stream", message.context, controller.signal, message.actionId);
       const reader = response.body.getReader(), decoder = new TextDecoder();
       while (true) { const { value, done } = await reader.read(); if (done) break; port.postMessage({ chunk: decoder.decode(value, { stream: true }) }); }
       const tail = decoder.decode(); if (tail) port.postMessage({ chunk: tail });

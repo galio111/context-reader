@@ -10,6 +10,7 @@ import { recordServerError } from "@/lib/serverErrorReporting";
 import { compactStudyResponse, STUDY_COMPACT_FORMAT } from "@/lib/studyTransport";
 import { saveStudyLocalEvent } from "@/lib/studyOfflineServer";
 
+
 export const dynamic = "force-dynamic";
 class StudyError extends Error { constructor(message: string, public status = 400, public code = "") { super(message); } }
 async function owner(request: Request) {
@@ -27,6 +28,7 @@ async function owner(request: Request) {
 }
 function result(request: Request, data: unknown) { return NextResponse.json(request.headers.get("X-Study-Format") === STUDY_COMPACT_FORMAT ? compactStudyResponse(data) : data, { headers: { "Cache-Control": "private, no-store", Vary: "Cookie, X-Study-Format" } }); }
 async function failure(error: unknown,request:Request) {
+
   if (error instanceof StudyError) return NextResponse.json({ error: error.message, code: error.code }, { status: error.status });
   if (error instanceof RequestBodyTooLargeError) return NextResponse.json({ error: "请求内容过大。" }, { status: 413 });
   console.error("[study]", error instanceof Error ? error.message : "unknown");
@@ -58,6 +60,18 @@ export async function POST(request: Request) {
       throw new StudyError("请求格式不正确。");
     }
     const op = body.op;
+    if (op === "sentence_study") {
+      if (typeof body.id !== "string" || !/^sentence-[a-f0-9]{64}$/.test(body.id) || typeof body.enabled !== "boolean") throw new StudyError("好句或背诵选项无效。");
+      const { setSentenceStudyEnabled, SavedSentenceWriteError } = await import("@/lib/savedSentencesServer");
+      try {
+        const entry = await setSentenceStudyEnabled(userId, body.id, body.enabled);
+        await reconcileStudyCards(userId, entry);
+        return result(request, { entry });
+      } catch (error) {
+        if (error instanceof SavedSentenceWriteError) throw new StudyError(error.message, error.status);
+        throw error;
+      }
+    }
     if(op==="local_revision")return result(request,{revision:await getStudyRevision(userId)});
     if(op==="local_event")return result(request,await saveStudyLocalEvent(userId,body.event));
     if (op === "prepare") {const entries=await reconcileStudyCards(userId);return result(request, await getStudySnapshot(userId,{entries}));}

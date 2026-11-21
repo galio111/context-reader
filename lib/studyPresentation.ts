@@ -11,7 +11,7 @@ export function activeStudySnapshot(snapshot: StudySnapshot): StudySnapshot {
   if(snapshot.settings.includeAnki)return snapshot;
   const cards=snapshot.cards.filter(card=>!card.anki_pending);
   const ids=new Set(cards.map(card=>card.entry_id));
-  return {...snapshot,cards,entries:snapshot.entries.filter(entry=>ids.has(entry.id))};
+  return {...snapshot,cards,entries:snapshot.entries.filter(entry=>ids.has(entry.id)||entry.entryKind==="sentence")};
 }
 
 export function chooseStudyCard(ready: StudyCard[], current: string, order: "ordered" | "random", ranks: Map<string, number>, newTurn=false) {

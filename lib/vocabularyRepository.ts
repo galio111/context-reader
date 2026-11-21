@@ -56,6 +56,7 @@ function normalizeVocabularyEntry(value: unknown): VocabularyEntry | null {
         }
       : undefined;
   const normalizedBase = {
+    ...(entry.entryKind === "sentence" ? { entryKind: "sentence" as const, sentenceStudyEnabled: entry.sentenceStudyEnabled === true } : {}),
     ...(entry.dictionaryResult && normalizeDictionaryQuery(entry.dictionaryResult.query || "") === normalizeDictionaryQuery(dictionaryQuery)
       && normalizeStandaloneDictionaryCacheItem({
       schemaVersion: 2, query: entry.dictionaryResult.query, result: entry.dictionaryResult,
@@ -99,7 +100,7 @@ function normalizeVocabularyEntry(value: unknown): VocabularyEntry | null {
         ...normalizedBase,
         anki: entry.anki,
       },
-      normalizedBase.sourceSentence,
+      entry.entryKind === "sentence" ? "" : normalizedBase.sourceSentence,
     ),
   };
 }

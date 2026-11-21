@@ -9,6 +9,8 @@ export interface VocabularySourceArticle {
 }
 
 export interface VocabularyEntry {
+  entryKind?: "sentence";
+  sentenceStudyEnabled?: boolean;
   dictionaryResult?: DictionaryResult;
   dictionaryUpdatedAt?: string;
   explanationUpdatedAt?: string;
