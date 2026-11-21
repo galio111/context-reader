@@ -1,0 +1,109 @@
+{
+  "release": "20261121T112807",
+  "parent": "20261115T195040",
+  "source": "e015971061c56cf738b9892dedb5b51719761b38",
+  "auditWindow": "2026-11-14 00:00 through 2026-11-21, Asia/Shanghai",
+  "recentGroups": 6,
+  "occurrences": 10,
+  "categories": {
+    "lookup_missing_verified_ipa": 3,
+    "translation_provider_refusal": 1,
+    "question_transport_classified_as_parse": 1,
+    "historical_acceptance_fixture": 5
+  },
+  "otherProxyFailures": {
+    "pronunciation": 1,
+    "ui_design": 1
+  },
+  "admin": {
+    "inspected": 6,
+    "nowResolved": 6,
+    "changed": 6,
+    "newGroupsSinceAudit": []
+  },
+  "extension": {
+    "releaseId": "20261121T112807",
+    "parentReleaseId": "20261115T195040",
+    "backendMode": "mainland_internal",
+    "zipSha256": "5c924e7b4bb4d3625f517f48aa7fab6338b4235b23f8c1201032df3b534a98b5",
+    "version": "1.3.0",
+    "downloadPage": true
+  },
+  "backend": {
+    "currentRelease": "20261121T112807",
+    "health": true,
+    "persistentContainersUnchanged": 5,
+    "currentAndParentRollbackImages": true,
+    "gatewayIdleSeconds": 3
+  },
+  "chrome": [
+    "Paired downloaded extension 1.3.0 from the signed-in public website",
+    "Saved the selected sentence and the displayed live Chinese translation",
+    "Enrolled from the separate sentence notebook on the live website",
+    "Chinese-only front, original-only reverse and durable FSRS rating",
+    "Reloaded the account and kept both text and enrollment",
+    "Each of the five filtered tables reset to newest collection first after a different manual sort"
+  ],
+  "syntheticAccountsRemoved": true,
+  "localTests": {
+    "extensionAndIncidents": 34,
+    "architectureIncludingCritical": 178,
+    "study": 89,
+    "critical": 90,
+    "fallbackAndBilling": 8,
+    "releaseContracts": 11,
+    "releaseSafety": 9
+  },
+  "signedInCore": {
+    "contextAndSentence": true,
+    "dictionary": true,
+    "articleTranslation": true,
+    "models": [
+      {
+        "route": "/api/explain-word",
+        "model": "deepseek-flash",
+        "status": "succeeded"
+      },
+      {
+        "route": "/api/dictionary-stream",
+        "model": "deepseek-flash",
+        "status": "succeeded"
+      },
+      {
+        "route": "/api/translate-article",
+        "model": "deepseek-flash",
+        "status": "succeeded"
+      }
+    ],
+    "oneLookupActionTwoResults": true,
+    "question": true,
+    "pronunciationAndDesign": true
+  },
+  "qaLimits": [
+    "Windows desktop Chrome; macOS hardware and physical shortcuts were not tested.",
+    "Previous release rollback image and isolated database restore verified; no live rollback."
+  ],
+  "adminHealth": {
+    "session": 200,
+    "accounts": 200,
+    "public_articles": 200,
+    "recommendation_automation": 200
+  },
+  "healthcheck": true,
+  "backupIsolatedRestoreTables": 41,
+  "popupFaultAndInteractionChecks": [
+    "Pin keeps the window in the exact same position for another word and blank clicks, without repeating a stale lookup",
+    "Unpinned window closes on blank space, stays closed, and the next selection anchors beside its word",
+    "A three-word native drag keeps phrase explanation and the pinned position",
+    "Native partial-word selection automatically expands the highlight and query to the complete source word",
+    "Four-word selections save the exact displayed translation and chosen original to the sentence collection",
+    "Exactly four words and longer punctuated selections use translation only; unselected surrounding sentences are not targets",
+    "Outside clicks also cancel a pending unpinned display; delayed replies cannot reopen it",
+    "Interrupted stream recovers from JSON, preserves closed fields, scrolls to the last example at 300 × 240, and saves the displayed result under one lookup action",
+    "When both results fail the partial is discarded; retry clears the alert and a complete stream alone restores save actions"
+  ],
+  "ciForRuntimeSource": {
+    "run": "44861324580",
+    "conclusion": "success"
+  }
+}

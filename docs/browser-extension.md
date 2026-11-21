@@ -28,7 +28,7 @@
 
 - 从真实 DOM Range 定位所选词的具体出现位置，保留 inline 文本，复用网站 tokenizer 的句界规则，并保留 `Fig. S19` 等跨行图号。
 - 只采集所选块的当前句和相邻句。跳过输入框、可编辑区、script/style 和隐藏内容；不能取得完整句时改用独立词典。
-- 语境模式直接打包复用 `ExplanationPanel` 与 `PronunciationButtons`，并行请求现有结构化与流式路由。完整流式文本为可见权威，合并后再启用保存；不完整流保留显示并要求重试。
+- 语境模式直接打包复用 `ExplanationPanel` 与 `PronunciationButtons`，并行请求现有结构化与流式路由。完整流式文本为可见权威，合并后再启用保存；流中断后用完整结构化释义补齐已显示的字段。两路都没有完整结果时清除半截内容，提供重试。
 - 扩展凭证仅留在 Chrome trusted storage/后台，不传给宿主网页。网页收到的只是封闭 Shadow DOM 内的扩展 iframe；每次用户取词生成随机 nonce，后台同时校验 nonce、标签页与连接，拒绝未授权嵌入。
 - 网站 API 原有 CSP、账号 Cookie、安全策略不放宽。仅精确扩展来源可跨站调用 `/api/extension/execute/*`，各操作仍需有效扩展凭证及活跃账号。
 - 保存写入该账号的 `user_data_objects`，复用协议 2 的 CAS，正常同步进入网站生词本。相同词/原句复用现有 id、创建时间和 Anki 导入记录。扩展不直接执行 Anki 导入，可在网站生词本导入。
@@ -52,22 +52,16 @@ npm.cmd run build
 
 `scripts/qa-browser-extension.mjs` 在隔离 Chrome 配置中加载真实扩展，使用合成模型/账号响应检查交互。可以设置 `PLAYWRIGHT_MODULE` 和 `PLAYWRIGHT_CHROMIUM_EXECUTABLE` 指向已安装的测试运行时；新版正式 Chrome 用 `USE_CDP_EXTENSION_LOAD=1` 在该隔离配置中加载开发扩展，不修改用户日常 Chrome 配置。
 
-## 验证状态
+## 当前验收
 
-1.1.0 已接受生产 `20261114T100145`，parent `20261113T163321`，source `8ef3cd980746ddb9c746def56cd1657921c8bc0a`。公网版本、服务器接受状态和线上 ZIP 哈希均已核对。25 项扩展测试、90 项核心、173 项架构、8 项提供方与单次计费回退测试、发布契约、Next 构建以及源码提交的 GitHub CI 通过。
+生产版本 `20261121T112807`，父版 `20261115T195040`，运行源码 `e015971061c56cf738b9892dedb5b51719761b38`。公开下载包为 1.3.0。Windows Chrome 复现了 1.2.0 在流中断后的半截解释及报错。1.3.0 在最小浮窗可滚至最后的例句、保存与重试。公开下载包通过网站实际连接、划句翻译、收藏、加入背诵、翻面评分与重载检查。Mac 真机和实体快捷键待验。[本轮验收](evidence/lookup-and-sentences-20261121.json)。早期版本的安装、图钉、选择和外观验收见 [1.1](evidence/browser-extension-20261114/acceptance-1.1.json) 和 [1.0](evidence/browser-extension-20261114/acceptance.json)。
 
-实际 Windows Chrome 使用原生双击、拖选和空白点击验证固定/取消固定、跨查询位置保持、迟到结果不重开，以及不完整单词的原文补全和高亮扩展。三词短语仍显示解释，恰好四词及更长的带标点选区只显示译文；弹窗和标题均不显示账号。既有外观、拖动、缩放、快捷键注册、Esc、词典降级、账号隔离和严格 CSP 测试仍保留。
-
-线上临时账号已通过连接、真实语境解释、云端生词回读、独立词典、四词选区翻译和签入状态的全文翻译；执行记录确认全部为 `deepseek-flash`。网站解除连接后旧凭证返回 401。桌面与 390px 下载/账号页通过，临时账号、同步对象、连接和免费计费记录核对清零。
-
-健康检查、五个持久后端容器标识、恢复 Admin 授权读取、当前与直接父版回滚镜像、最新备份 SHA 和 41 表隔离恢复通过。见 [1.1 验收](evidence/browser-extension-20261114/acceptance-1.1.json)；[1.0 记录](evidence/browser-extension-20261114/acceptance.json) 作为历史保留。Mac 真机、实体键盘快捷键、任意第三方站点兼容、用户视觉接受及实际回滚仍未验证。后续提交仅补充交付文档，运行源码仍为上述 sourceRevision。
-
-## 1.2.0: DeepSeek web questions
+## DeepSeek web questions
 
 The owner approved DeepSeek metered search on 2026-11-15. Questions are available after contextual explanations, dictionary lookup and selected-sentence translation. Public person/event keywords are resolved from selected text, surrounding sentences and recent conversation; grammar-only questions skip search. Follow-up history is scoped to the popup and reset on account change.
 
 Search uses the existing server-side DEEPSEEK_API_KEY and https://api.deepseek.com/v1/tools/search. It defaults on; EXTENSION_WEB_SEARCH_ENABLED=false disables it. Search is billed at $0.75 per 1,000 successful nonempty requests, separately from model inference. Only bounded planned keywords are sent to search, not raw webpage/conversation. DeepSeek summaries and publication dates are passed to the answering model; up to five clickable sources accompany the answer. Search failures are disclosed and never claimed as successful retrieval. Website paper-reference behavior remains unchanged. The authenticated extension identity establishes scope server-side.
 
-Validation before release: 28 extension/search/mounted question tests, 90 critical and 8 provider/fallback billing tests, release contracts passed. Direct production-server DeepSeek Search probe returned HTTP 200 and structured sources. Extension ZIP preserves stable identity. Production accepted release 20261115T195040 (parent 20261115T130457, source 6a8d91fe02fff5fb1a5c272ff0135ad38cc43ea3). Live authenticated person, historical event, recent event and follow-up questions returned sources; grammar skipped search. Core reading, connection revocation, synthetic account cleanup, Admin, health and 41-table restore passed. Public ZIP hash matches. Physical browser/Mac interaction remains unverified. GitHub CI retains the pre-existing study-device-sync.test.tsx:37 failure also observed on the parent main run; this is not claimed passed. See [acceptance evidence](evidence/extension-web-search-20261115.json).
+Version 1.2.0 search acceptance (2026-11-15): authenticated person, event, recent event and follow-up questions returned cited results. Grammar skipped search. See the [web search acceptance record](evidence/extension-web-search-20261115.json).
 
 Official API: https://api-docs.deepseek.com/api/search/ ; billing: https://api-docs.deepseek.com/guides/search/ .

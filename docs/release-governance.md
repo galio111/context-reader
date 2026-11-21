@@ -2,6 +2,14 @@
 
 ## Current production release
 
+Accepted `20261121T112807`, parent `20261115T195040`, source `e015971061c56cf738b9892dedb5b51719761b38`. The public download serves Chrome extension 1.3.0. Signed-in reading, sentence collection and review, Admin, health, gateway configuration, database restore and the current and parent images were verified. See the [acceptance record](evidence/lookup-and-sentences-20261121.json).
+
+## Previous accepted extension web search release
+
+Accepted `20261115T195040`, source `6a8d91fe02fff5fb1a5c272ff0135ad38cc43ea3`. See the [production search acceptance](evidence/extension-web-search-20261115.json).
+
+## Previous accepted document pen release
+
 Accepted `20261115T130457`, parent `20261115T103832`, source `4784f095432205ec35d01786f432f6ae8a40aef5`. Shared PDF/Word toolbar adds labeled red/blue/yellow pen choices, with per-stroke local persistence and legacy-v1 red compatibility. Color changes preserve old marks; paint order and per-stroke undo survive, with overlap union confined to consecutive same-color groups. 24 targeted, 178 architecture including 90 core, eight independent provider/billing regressions, 11 contracts and local/server builds pass. Seven public identity/asset/CSS/boundary checks and signed-in three-function deepseek-flash smoke pass; synthetic account removed. Five persistent services unchanged; health, SHA-verified 41-table isolated restore and current/parent images pass. Real browser/phone visual acceptance and actual rollback remain unverified. See [release details](document-pen-colors-20261115.md). Documentation-only integration does not change deployed source.
 
 ## Previous accepted personal reading request release
