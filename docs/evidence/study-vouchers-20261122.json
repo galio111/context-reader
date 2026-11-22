@@ -1,0 +1,149 @@
+{
+  "release": "20261122T112204",
+  "parent": "20261122T110734",
+  "source": "2a8a7c66e2f1dcbd2226079e5e6aa653ef5af0f5",
+  "firstFunctionalRelease": {
+    "release": "20261122T110734",
+    "parent": "20261121T112807",
+    "source": "5d2cf659bafd008008f78ef67c6556c586c30c44",
+    "buildingAndCoreCIRun": "44979223516"
+  },
+  "sourceCI": {
+    "run": "44980271812",
+    "conclusion": "success"
+  },
+  "recoveredCollection": {
+    "total": 4,
+    "previouslyVisible": 2,
+    "nowClassified": 4,
+    "autoEnrolled": 4,
+    "activeCards": 4,
+    "originalTranslationAndCreationTimesMatched": true
+  },
+  "scope": {
+    "checkin": "30 distinct due Review cards per Shanghai day, including answers moved into Relearning. New cards, continuation steps, undone answers and repeated answers do not add slots.",
+    "vouchers": "Each milestone pays once. At 180 days, two cups can be redeemed separately. At 365 days, the user chooses clothes or shoes on redemption. No expiry or new billing grants.",
+    "sort": "Studied, familiar and reinforcement use last effective FSRS study time descending. Other lists use collection time."
+  },
+  "phoneBefore": {
+    "width": 308,
+    "content": 727,
+    "scrollLeft": 0,
+    "todayVisible": false
+  },
+  "signedInChrome": [
+    "Paired downloaded extension 1.3.0 from the signed-in public website",
+    "Saved the selected sentence and the displayed live Chinese translation",
+    "Sentence entered the account and FSRS without an enrollment step",
+    "The 30th different Review graduated the check-in even though the answer was forgotten",
+    "180-day cups redeem individually; annual clothing/shoes choice persists",
+    "Studied, familiar and needs reinforcement ordered by actual study dates",
+    "Touch Chrome at 390 and 320 pixels showed today, its counts, and previous/next month; both themes passed contrast checks for the calendar, words, sentences and wallet",
+    "A new successful review moved zebra from behind amber to first place in both studied and familiar"
+  ],
+  "mobileCalendarTouchTargets": {
+    "320": {
+      "width": 44,
+      "height": 44,
+      "center": true
+    },
+    "390": {
+      "width": 44.421875,
+      "height": 44,
+      "center": true
+    }
+  },
+  "compiledTouchWidths": [
+    [
+      320,
+      44,
+      44
+    ],
+    [
+      345,
+      44,
+      44
+    ],
+    [
+      360,
+      45.140625,
+      44
+    ],
+    [
+      375,
+      45.5,
+      44
+    ],
+    [
+      390,
+      44.421875,
+      44
+    ],
+    [
+      400,
+      44,
+      44
+    ],
+    [
+      430,
+      48,
+      44
+    ]
+  ],
+  "syntheticAccountsRemoved": true,
+  "public": {
+    "releaseId": "20261122T112204",
+    "parentReleaseId": "20261122T110734",
+    "backendMode": "mainland_internal",
+    "zipSha256": "5c924e7b4bb4d3625f517f48aa7fab6338b4235b23f8c1201032df3b534a98b5",
+    "version": "1.3.0",
+    "downloadPage": true
+  },
+  "operations": {
+    "currentRelease": "20261122T112204",
+    "health": true,
+    "persistentContainersUnchanged": 5,
+    "currentAndParentRollbackImages": true,
+    "gatewayIdleSeconds": 3,
+    "releaseBuildDisk": {
+      "beforePercent": 87,
+      "afterPercent": 84,
+      "temporaryBuildImagesRemoved": 1,
+      "protectedImagesUnchanged": true
+    }
+  },
+  "admin": {
+    "session": 200,
+    "accounts": 200,
+    "public_articles": 200,
+    "recommendation_automation": 200
+  },
+  "serverCore": {
+    "contextualAndSentence": true,
+    "dictionary": true,
+    "fullTranslation": true,
+    "question": true,
+    "oneLookupActionTwoResults": true,
+    "gatewayPaths": true,
+    "revocation": true
+  },
+  "verification": {
+    "architecture": 178,
+    "extensionAndRecovery": 34,
+    "study": 89,
+    "providerAndBilling": 8,
+    "releaseContracts": 11,
+    "releaseSafety": 9,
+    "backupTablesBeforeMigration": 41,
+    "isolatedLedgerAndRedemptionSQL": true,
+    "backupTablesAfterMigration": 42,
+    "backupVerifiedAfterMigration": true,
+    "touchHitChecks": true,
+    "themes": [
+      "light",
+      "night"
+    ],
+    "testFixturesTypeCheck": "Standalone all-files tsc reports six pre-existing type errors in document test fixtures. The production build and executed regression tests passed.",
+    "reviewedApps": "Windows Chrome in 320 px and 390 px touch viewports. Physical phone verification remains open."
+  }
+}

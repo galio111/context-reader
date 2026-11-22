@@ -2,6 +2,12 @@
 
 ## Current production release
 
+Accepted `20261122T112204`, parent `20261122T110734`, source `2a8a7c66e2f1dcbd2226079e5e6aa653ef5af0f5`. Two hidden sentences were restored, and all four saved sentences entered study. Recent-study word ordering, the mobile monthly calendar and personal vouchers for review streaks passed verification. See the [production acceptance](evidence/study-vouchers-20261122.json).
+
+The first functional cutover was `20261122T110734`, built from `5d2cf659bafd008008f78ef67c6556c586c30c44` with parent `20261121T112807`. The follow-up enlarged the date and month controls to 44 px or more on narrow touch screens.
+
+## Previous accepted sentence collection release
+
 Accepted `20261121T112807`, parent `20261115T195040`, source `e015971061c56cf738b9892dedb5b51719761b38`. The public download serves Chrome extension 1.3.0. Signed-in reading, sentence collection and review, Admin, health, gateway configuration, database restore and the current and parent images were verified. See the [acceptance record](evidence/lookup-and-sentences-20261121.json).
 
 ## Previous accepted extension web search release

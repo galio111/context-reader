@@ -54,6 +54,10 @@ npm.cmd run build
 
 ## 当前验收
 
+网站版本 `20261122T112204` 接受现有扩展 1.3.0 的收藏请求并自动建立背诵卡，保留已有四条好句的原文、译文及收藏时间。[本轮验收](evidence/study-vouchers-20261122.json)。
+
+## 1.3.0 扩展发布验收
+
 生产版本 `20261121T112807`，父版 `20261115T195040`，运行源码 `e015971061c56cf738b9892dedb5b51719761b38`。公开下载包为 1.3.0。Windows Chrome 复现了 1.2.0 在流中断后的半截解释及报错。1.3.0 在最小浮窗可滚至最后的例句、保存与重试。公开下载包通过网站实际连接、划句翻译、收藏、加入背诵、翻面评分与重载检查。Mac 真机和实体快捷键待验。[本轮验收](evidence/lookup-and-sentences-20261121.json)。早期版本的安装、图钉、选择和外观验收见 [1.1](evidence/browser-extension-20261114/acceptance-1.1.json) 和 [1.0](evidence/browser-extension-20261114/acceptance.json)。
 
 ## DeepSeek web questions
