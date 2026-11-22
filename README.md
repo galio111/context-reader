@@ -1,6 +1,6 @@
 # Context Reader
 
-Chrome 网页划词助手：在网站 Menu 选择“浏览器扩展”，或打开 `/browser-extension`，下载扩展并设置生词保存账号。浮窗的大小、背景透明度和颜色可调。选中至少 4 个英文词可获得句译，并可点「收藏到好句」。在网站生词本的「好句」中选择「加入背诵」，卡片正面显示中文，背面显示原文。背词生词本的各个词表默认按收藏时间从新到旧排列。安装与开发说明见 [Chrome 扩展说明](docs/browser-extension.md)。
+Chrome 网页划词助手：在网站 Menu 选择“浏览器扩展”，或打开 `/browser-extension`，下载扩展并设置生词保存账号。浮窗的大小、背景透明度和颜色可调。选中至少 4 个英文词可获得句译，并可点「收藏到好句」。收藏后自动进入网站背诵，卡片正面显示中文，背面显示原文。「已学」「熟悉」「待巩固」按最近学习时间排序，其余词表按收藏时间排序。安装与开发说明见 [Chrome 扩展说明](docs/browser-extension.md)。
 
 
 ## 站内背单词（已生产，2026-10-06）
@@ -205,7 +205,7 @@ Then use the cumulative versioned workflow under `ops/mainland/`. Package only a
 部分真题现已具备听力实现（62套），音频、提交后原文及缺失清单见 [听力来源与缺项报告](docs/cet-listening-supplement-report.md)；生产发布状态见 [本轮进度](docs/cet-listening-progress.md)，来源水印与页脚清理见 [修复证据](docs/cet-listening-watermark-release.md)。
 
 
-站内背词接入个人 UI 库：单卡、独立数据/奖励/设置、统一提示弹窗；每日复习默认上限 100，新词无每日目标，短期 Again/Hard 默认 5/10 分钟。奖励先获得后手动领取。详见 [站内学习](docs/vocabulary-study.md)。
+站内背词接入个人 UI 库：单卡、独立数据/奖励/设置、统一提示弹窗；每日复习默认上限 100，新词无每日目标，短期 Again/Hard 默认 5/10 分钟。每日复习 30 个不同的到期旧词即可打卡，连续里程碑的个人券可手动兑换。详见 [站内学习](docs/vocabulary-study.md)。
 
 划词语境卡支持可选居中拼写与逐段批改；背词/生词本详情原句优先、单列全展开。已发布 `20261014T115435`，见 [验证与边界](docs/study-spelling-20261014.md)。
 

@@ -55,8 +55,13 @@ function normalizeVocabularyEntry(value: unknown): VocabularyEntry | null {
           title: typeof entry.sourceArticle.title === "string" ? entry.sourceArticle.title : "",
         }
       : undefined;
+  // Older clients kept the original and translation but stripped the discriminator.
+  const isSentence = entry.entryKind === "sentence" || (
+    typeof entry.id === "string" && /^sentence-[a-f0-9]{64}$/.test(entry.id) &&
+    entry.word === entry.sourceSentence && typeof entry.sentenceTranslation === "string" && Boolean(entry.sentenceTranslation.trim())
+  );
   const normalizedBase = {
-    ...(entry.entryKind === "sentence" ? { entryKind: "sentence" as const, sentenceStudyEnabled: entry.sentenceStudyEnabled === true } : {}),
+    ...(isSentence ? { entryKind: "sentence" as const, sentenceStudyEnabled: true } : {}),
     ...(entry.dictionaryResult && normalizeDictionaryQuery(entry.dictionaryResult.query || "") === normalizeDictionaryQuery(dictionaryQuery)
       && normalizeStandaloneDictionaryCacheItem({
       schemaVersion: 2, query: entry.dictionaryResult.query, result: entry.dictionaryResult,
@@ -100,7 +105,7 @@ function normalizeVocabularyEntry(value: unknown): VocabularyEntry | null {
         ...normalizedBase,
         anki: entry.anki,
       },
-      entry.entryKind === "sentence" ? "" : normalizedBase.sourceSentence,
+      isSentence ? "" : normalizedBase.sourceSentence,
     ),
   };
 }

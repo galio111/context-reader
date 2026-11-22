@@ -148,6 +148,7 @@
 .streak{font-size:45px;letter-spacing:-1px;font-weight:550;line-height:1.2}
 .streak small{font-size:14px;color:var(--study-muted);margin-left:6px}
 .rewardDaily{font-size:14px;margin:0}
+.voucherActions{display:flex;align-items:center;flex-wrap:wrap;gap:8px}.voucherActions select{color:inherit;background:var(--study-surface);border:1px solid var(--study-line);padding:7px}
 .rewardDaily strong{color:var(--study-accent);font-weight:600}
 .milestones{margin-top:18px}
 .milestones>div{display:flex;align-items:center;gap:17px;padding:16px 0;border-bottom:1px solid var(--study-line);font-size:14px}
@@ -252,6 +253,20 @@
 .vocabularyRows{list-style:none;padding:0;margin:0}.vocabularyRows li{border-top:1px solid var(--study-line);min-height:72px}.dialog .vocabularyRows .wordCell,.dialog .vocabularyRows .concealed{display:block;text-align:left;background:transparent;padding:15px 0;min-width:0;border-radius:0;overflow-wrap:anywhere}.wordCell strong{font-size:16px;font-weight:550}.wordCell span{color:var(--study-muted);font-size:13px}.dialog .vocabularyRows .concealed{color:var(--study-control);letter-spacing:4px}.concealed span{background:var(--study-soft);border-radius:6px;padding:6px 12px}
 .trendToolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:26px;flex-wrap:wrap}.trendLegend{display:flex;gap:16px;font-size:12px;color:var(--study-muted)}.trendLegend span{display:flex;align-items:center;gap:6px}.trendLegend i{width:8px;height:8px;border-radius:2px;background:var(--study-accent)}.trendLegend span:last-child i{background:var(--study-chart)}
 .dialog .trendBar{flex:1;min-width:0;min-height:0;padding:0;gap:0;border-radius:3px 3px 0 0;overflow:hidden;display:flex;flex-direction:column;background:transparent}.trendBar i{width:100%;background:var(--study-chart);min-height:0}.trendBar i+i{background:var(--study-accent)}.dialog .trendBar:hover{background:transparent;opacity:.8}
+.statsLayout{display:flex;flex-direction:column;min-width:0}.statsLayout>*{min-width:0}.monthCalendar,.monthNav{display:none}
+@media(max-width:760px){
+ .calendarSurface{order:-1}.yearCalendar{display:none}.monthCalendar{display:block}
+ .monthNav{display:flex;align-items:center;gap:3px}.monthNav span{font-variant-numeric:tabular-nums}
+ .dialog .monthNav button{min-width:36px;min-height:42px;padding:4px;font-size:20px;background:transparent}
+ .monthGrid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;align-items:center;text-align:center;font-variant-numeric:tabular-nums}
+ .monthGrid>span{font-size:12px;color:var(--study-muted)}
+ .dialog .monthGrid button{position:relative;min-width:0;min-height:34px;padding:0;border-radius:6px;background:var(--study-soft);color:var(--study-ink)}
+ .dialog .monthGrid button[data-level="1"]{background:var(--study-accent-soft)}
+ .dialog .monthGrid button[data-level="2"]:after,.dialog .monthGrid button[data-level="3"]:after{content:"";position:absolute;bottom:2px;width:5px;height:3px;border-radius:2px;background:var(--study-accent)}
+ .dialog .monthGrid button[data-level="3"]:after{width:13px}
+ .dialog .monthGrid button[aria-pressed="true"]{box-shadow:inset 0 0 0 2px var(--study-accent)}
+ .monthCalendar .caption{margin:12px 0 0}
+}
 .calendarScroll{overflow-x:auto;padding:5px 1px;overscroll-behavior:contain}.heatmap{width:max-content;grid-template-rows:repeat(7,11px);grid-auto-columns:11px;gap:3px}.dialog .heatmap button{display:block;width:11px;height:11px;min-height:0;padding:0;border-radius:1px;background:var(--study-soft)}.dialog .heatmap button[data-level="1"]{background:var(--study-accent-soft)}.dialog .heatmap button[data-level="2"]{background:var(--study-chart)}.dialog .heatmap button[data-level="3"]{background:var(--study-accent)}
 .chartTooltip{position:fixed;transform:translateX(-50%);z-index:12;pointer-events:none;padding:7px 11px;border-radius:7px;background:var(--study-ink);color:var(--study-surface);font-size:11px;max-width:270px;text-align:center}
 .dialog :global(.cet-select-trigger){min-width:110px;justify-content:space-between;background:var(--study-soft)}.dialog :global(.cet-select-list){color:var(--study-ink);background:var(--study-surface);border-color:var(--study-line);box-shadow:none;width:180px}.dialog :global(.cet-select-list [data-active=true]){background:var(--study-soft)}.dialog :global(.cet-select-list [aria-selected=true]){color:var(--study-ink)}.dialog :global(.cet-select-list:focus-visible){outline:1px solid var(--study-muted)}

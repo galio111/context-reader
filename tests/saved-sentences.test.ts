@@ -8,7 +8,7 @@ import { vocabularyIdentity } from "../lib/vocabularyMerge";
 import { activeStudySnapshot } from "../lib/studyPresentation";
 import { compactStudyResponse, hydrateStudyResponse } from "../lib/studyTransport";
 
-test("sentence collection is per owner, deduplicated, opt-in, and preserves review memory after removal and re-enrollment", async t => {
+test("sentence collection is per owner, automatic and restores sentence identity without resetting review memory", async t => {
   const require=createRequire(import.meta.url);
   const path=require.resolve("../lib/accountStore"), prior=require.cache[path];
   t.after(()=>{if(prior)require.cache[path]=prior;else delete require.cache[path];});
@@ -39,11 +39,13 @@ test("sentence collection is per owner, deduplicated, opt-in, and preserves revi
   const original="It was worth the wait.",zh="这次等待是值得的。";conflict=true;
   const first=await saveSelectedSentence("A",original,zh);
   assert.equal(first.entryKind,"sentence");assert.equal(first.sourceSentence,original);assert.equal(first.sentenceTranslation,zh);
-  assert.equal(first.sentenceStudyEnabled,false);assert.equal(first.anki.cardMode,"basic_cn_to_en");
+  assert.equal(first.sentenceStudyEnabled,true);assert.equal(first.anki.cardMode,"basic_cn_to_en");
   assert.equal(normalizeVocabularyEntries([first])[0].entryKind,"sentence");
-  assert.notEqual(vocabularyIdentity(first),vocabularyIdentity({...first,entryKind:undefined}));
+  const oldClient={...first,entryKind:undefined,sentenceStudyEnabled:undefined};
+  assert.equal(vocabularyIdentity(normalizeVocabularyEntries([oldClient])[0]),vocabularyIdentity(first));
+  assert.equal(normalizeVocabularyEntries([{...oldClient,id:"ordinary-word"}])[0].entryKind,undefined);
   await saveSelectedSentence("A",original,zh);assert.equal(writes,1);
-  await reconcileStudyCards("A",first); assert.equal(cards.size,0);
+  await reconcileStudyCards("A",first); assert.equal(cards.size,1);
   await assert.rejects(setSentenceStudyEnabled("B",first.id,true),/已移除/);
   const included=await setSentenceStudyEnabled("A",first.id,true);
   await reconcileStudyCards("A",included);const card=cards.get("A:"+first.id)!;assert.ok(card);card.memory.reps=7;
@@ -51,6 +53,6 @@ test("sentence collection is per owner, deduplicated, opt-in, and preserves revi
   const snapshot={serverNow:new Date().toISOString(),settings:{includeAnki:false},cards:[],entries:[updated],today:null} as unknown as StudySnapshot;
   assert.equal(activeStudySnapshot(snapshot).entries[0].id,first.id);
   assert.deepEqual(hydrateStudyResponse(compactStudyResponse(snapshot)).entries[0],updated);
-  await reconcileStudyCards("A",await setSentenceStudyEnabled("A",first.id,false));assert.equal(card.suspended,true);
+  assert.throws(()=>setSentenceStudyEnabled("A",first.id,false),/自动加入背诵/);
   await reconcileStudyCards("A",await setSentenceStudyEnabled("A",first.id,true));assert.equal(card.suspended,false);assert.equal(card.memory.reps,7);assert.equal(cards.size,1);
 });

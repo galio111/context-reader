@@ -30,10 +30,12 @@ export interface StudyReviewReceipt {
 }
 export interface StudyDay {
   day: string; card_ids: string[]; new_ids: string[]; settings: StudySettings;
-  reward_points: number; completed_at: string | null; new_completed: number; streak: number;
+  reward_points: number; review_checkin?: boolean; completed_at: string | null; new_completed: number; streak: number;
 }
 export interface StudyMilestone { days:number; points:number; plan:"basic"|"plus"|"max"|null; months:number; }
 export interface StudyReward { milestone:number; points:number; plan:string|null; months:number; earned_at:string; activated_at:string|null; ends_at:string|null; }
+export type VoucherChoice = "clothes" | "shoes";
+export interface StudyVoucher { milestone:number; unit:number; earned_day:string; redeemed_at:string|null; choice:VoucherChoice|null; }
 export interface StudyClaim { id:string; day:string|null; milestone:number|null; points:number; claimed_points:number; plan:string|null; months:number; earned_at:string; claimed_at:string|null; }
 export interface StudyPolicy {
   rewardsEnabled: boolean; pointsPerNew: number; dailyRewardCap: number; rewardDays: number;
@@ -49,4 +51,5 @@ export interface StudySnapshot {
   policy: StudyPolicy;
   streak: { current:number; best:number; last_day:string|null }; rewards:StudyReward[];
   claims:StudyClaim[];
+  vouchers?:StudyVoucher[];
 }

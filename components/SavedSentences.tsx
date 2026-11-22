@@ -2,7 +2,6 @@
 
 import { useMemo, useRef, useState } from "react";
 import { useVirtualizer } from "@tanstack/react-virtual";
-import { useAccount } from "./AccountProvider";
 import { orderStudyVocabulary } from "@/lib/studyVocabularyOrder";
 import type { VocabularyEntry } from "@/types/vocabulary";
 import styles from "./SavedSentences.module.css";
@@ -16,45 +15,14 @@ export function NotebookSections({ value, onChange }: { value: NotebookSection; 
   </div>;
 }
 
-function SentenceRow({ entry, onDelete, onStudyChange }: SentenceListActions & { entry: VocabularyEntry }) {
-  const { account, syncNow } = useAccount();
-  const [lastSave, setLastSave] = useState<VocabularyEntry | null>(null);
-  const [pending, setPending] = useState(false);
-  const [error, setError] = useState("");
-  const current = lastSave && lastSave.updatedAt >= entry.updatedAt ? lastSave : entry;
+type SentenceListActions = { onDelete?(id: string): void };
 
-  async function toggleStudy() {
-    const owner = account.profile?.userId;
-    if (pending || !owner) return;
-    setPending(true); setError("");
-    try {
-      const response = await fetch("/api/study", { method: "POST", cache: "no-store",
-        headers: { "Content-Type": "application/json", "X-Context-Account": owner },
-        body: JSON.stringify({ op: "sentence_study", id: entry.id, enabled: !current.sentenceStudyEnabled }) });
-      const data = await response.json();
-      if (!response.ok || data.entry?.id !== entry.id) throw new Error(data.error || "背诵设置更新失败，请重试。");
-      setLastSave(data.entry);
-      onStudyChange?.();
-      void syncNow({ mode: "pull-only", dirtyKinds: ["vocabulary"] }).catch(() => undefined);
-    } catch (cause) {
-      setError(cause instanceof Error ? cause.message : "背诵设置更新失败，请重试。");
-    } finally { setPending(false); }
-  }
-
+function SentenceRow({ entry, onDelete }: SentenceListActions & { entry: VocabularyEntry }) {
   return <article className={styles.row}>
     <p lang="en">{entry.sourceSentence}</p><p lang="zh-CN">{entry.sentenceTranslation}</p>
-    <div className={styles.actions}>
-      <button type="button" disabled={pending || !account.profile?.userId} aria-pressed={Boolean(current.sentenceStudyEnabled)}
-        title={current.sentenceStudyEnabled ? "从背诵队列移除" : "加入网站背诵队列"} onClick={toggleStudy}>
-        {pending ? "正在保存…" : current.sentenceStudyEnabled ? "已加入背诵" : "加入背诵"}
-      </button>
-      {onDelete && <button type="button" onClick={() => onDelete(entry.id)}>删除好句</button>}
-    </div>
-    {error && <p role="alert">{error}</p>}
+    {onDelete && <div className={styles.actions}><button type="button" onClick={() => onDelete(entry.id)}>删除好句</button></div>}
   </article>;
 }
-
-type SentenceListActions = { onDelete?(id: string): void; onStudyChange?(): void };
 
 export function SavedSentences({ entries, ...actions }: SentenceListActions & { entries: VocabularyEntry[] }) {
   const [query, setQuery] = useState("");

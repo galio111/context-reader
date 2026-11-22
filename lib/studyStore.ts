@@ -3,7 +3,7 @@ import {issueStudyOfflinePermit} from "./studyOfflinePermit";
 import { createHash } from "node:crypto";
 import { accountFetch } from "@/lib/accountStore";
 import { DEFAULT_STUDY_SETTINGS, newMemory, shanghaiDay, buildStudyPlan, studyPaused, budgetSettings } from "@/lib/studyScheduler";
-import type { StudyCard, StudyDay, StudyPolicy, StudyReview, StudySettings, StudySnapshot } from "@/types/study";
+import type { StudyCard, StudyDay, StudyPolicy, StudyReview, StudySettings, StudySnapshot, StudyVoucher } from "@/types/study";
 import type { VocabularyEntry } from "@/types/vocabulary";
 
 export async function studyRpc<T>(name: string, args: Record<string, unknown>): Promise<T> {
@@ -63,6 +63,7 @@ export async function getStudyRevision(userId: string): Promise<string> {
   const state=await Promise.all([
     studyRows("study_cards",userId,"id,version,suspended,anki_pending","&order=id.asc"),
     getStudySettings(userId),
+    studyRows("study_vouchers",userId,"milestone,unit,redeemed_at,choice","&order=milestone.asc,unit.asc"),
     accountFetch("study_days?user_id=eq."+encodeURIComponent(userId)+"&day=eq."+day+"&select=*&limit=1"),
     accountFetch("user_data_objects?user_id=eq."+encodeURIComponent(userId)+"&kind=eq.vocabulary&select=object_key,updated_at,deleted_at&order=updated_at.desc,object_key.desc&limit=1"),
   ]);
@@ -71,10 +72,9 @@ export async function getStudyRevision(userId: string): Promise<string> {
 export async function reconcileStudyCards(userId: string, changedSentence?: VocabularyEntry): Promise<VocabularyEntry[]> {
   const cardFilter = changedSentence ? "&entry_id=eq." + encodeURIComponent(changedSentence.id) : "&order=id.asc";
   const [entries, cards] = await Promise.all([changedSentence ? [changedSentence] : getStudyEntries(userId), studyRows<StudyCard>("study_cards", userId, "*", cardFilter)]);
-  const enrolled = entries.filter(e => e.entryKind !== "sentence" || e.sentenceStudyEnabled);
   const existing = new Map(cards.map(c => [c.entry_id, c]));
   const now = new Date();
-  const fresh = enrolled.filter(e => !existing.has(e.id)).map(e => ({
+  const fresh = entries.filter(e => !existing.has(e.id)).map(e => ({
     user_id: userId, id: createHash("sha256").update(e.id).digest("hex").slice(0, 40),
     entry_id: e.id, mode: e.anki.cardMode, memory: newMemory(now), anki_pending: Boolean(e.anki.ankiNoteId),
     reward_key:createHash("sha256").update(e.word.normalize("NFKC").toLowerCase().trim().replace(/\s+/g," ")).digest("hex"),
@@ -83,7 +83,7 @@ export async function reconcileStudyCards(userId: string, changedSentence?: Voca
     await accountFetch("study_cards?on_conflict=user_id,id", { method: "POST",
       headers: { Prefer: "resolution=ignore-duplicates,return=minimal" }, body: JSON.stringify(fresh.slice(offset, offset + 100)) });
   }
-  const active = new Set(enrolled.map(e => e.id));
+  const active = new Set(entries.map(e => e.id));
   const imported = new Map(entries.map(e => [e.id, Boolean(e.anki.ankiNoteId)]));
   for (const card of cards) {
     const suspended = !active.has(card.entry_id);
@@ -96,7 +96,7 @@ export async function reconcileStudyCards(userId: string, changedSentence?: Voca
 }
 export async function getStudySnapshot(userId: string, prepared?: { entries: VocabularyEntry[] }): Promise<StudySnapshot> {
   const now = new Date();
-  const [settings, cards, entries, today, reviews, daily, policy, streakRows, rewards, claims] = await Promise.all([
+  const [settings, cards, entries, today, reviews, daily, policy, streakRows, rewards, claims, vouchers] = await Promise.all([
     getStudySettings(userId), studyRows<StudyCard>("study_cards", userId, "id,entry_id,mode,memory,version,suspended,anki_pending,created_at", "&order=id.asc"),
     prepared?.entries ?? getStudyEntries(userId),
     accountFetch<StudyDay[]>("study_days?user_id=eq." + encodeURIComponent(userId) + "&day=eq." + shanghaiDay(now) + "&select=*&limit=1"),
@@ -105,8 +105,9 @@ export async function getStudySnapshot(userId: string, prepared?: { entries: Voc
     studyRows<{current:number;best:number;last_day:string|null}>("study_streaks",userId,"current,best,last_day"),
     studyRows<StudySnapshot["rewards"][number]>("study_rewards",userId,"milestone,points,plan,months,earned_at,activated_at,ends_at","&order=milestone.asc"),
     studyRows<StudySnapshot["claims"][number]>("study_claims",userId,"id,day,milestone,points,claimed_points,plan,months,earned_at,claimed_at","&order=earned_at.desc"),
+    studyRows<StudyVoucher>("study_vouchers",userId,"milestone,unit,earned_day,redeemed_at,choice","&order=earned_day.desc,milestone.asc,unit.asc"),
   ]);
-  const ids = new Set(entries.filter(e => e.entryKind !== "sentence" || e.sentenceStudyEnabled).map(e => e.id));
+  const ids = new Set(entries.map(e => e.id));
   const active=cards.filter(c=>ids.has(c.entry_id)&&!c.suspended);
   const visible=active.filter(c=>!c.anki_pending||settings.includeAnki);
   const visibleIds=new Set(visible.map(c=>c.entry_id));
@@ -120,7 +121,7 @@ export async function getStudySnapshot(userId: string, prepared?: { entries: Voc
     // Full dictionaries remain in synced vocabulary/cache objects. Read one saved
     // result when opening a card instead of repeating every dictionary per answer.
     entries:entries.filter(e=>visibleIds.has(e.id) || e.entryKind === "sentence").map(entry=>({...entry,dictionaryResult:undefined})), today: today[0] ?? null, reviews, daily, policy,
-    streak:streakRows[0]??{current:0,best:0,last_day:null},rewards,claims };
+    streak:streakRows[0]??{current:0,best:0,last_day:null},rewards,claims,vouchers };
 }
 export async function saveStudySettings(userId: string, settings: StudySettings) {
   await accountFetch("study_settings?on_conflict=user_id", { method: "POST",

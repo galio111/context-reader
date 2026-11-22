@@ -29,11 +29,11 @@ async function updateSentence(owner: string, id: string, change: (previous: Voca
 export function saveSelectedSentence(owner: string, original: string, translation: string) {
   const id = "sentence-" + createHash("sha256").update(original.normalize("NFC")).digest("hex");
   return updateSentence(owner, id, previous => {
-    if (previous?.sentenceTranslation === translation) return previous;
+    if (previous?.sentenceStudyEnabled && previous.sentenceTranslation === translation) return previous;
     const now = new Date().toISOString();
     return {
       entryKind: "sentence", id, word: original, sourceSentence: original, sentenceTranslation: translation,
-      sentenceStudyEnabled: previous?.sentenceStudyEnabled === true,
+      sentenceStudyEnabled: true,
       lemma: "", phonetic: "", partOfSpeech: "", basicMeaning: "", contextMeaning: "",
       usageNote: "", collocation: "", exampleEnglish: "", exampleChinese: "", previousSentence: "", nextSentence: "",
       difficulty: "medium", shouldAddToVocabulary: true, createdAt: previous?.createdAt || now, updatedAt: now,
@@ -43,6 +43,7 @@ export function saveSelectedSentence(owner: string, original: string, translatio
 }
 
 export function setSentenceStudyEnabled(owner: string, id: string, enabled: boolean) {
+  if (!enabled) throw new SavedSentenceWriteError("收藏的好句会自动加入背诵，请刷新页面。", 409);
   return updateSentence(owner, id, previous => {
     if (!previous) throw new SavedSentenceWriteError("这条好句已移除，请刷新生词本。", 404);
     return previous.sentenceStudyEnabled === enabled ? previous :

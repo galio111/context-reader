@@ -1,5 +1,11 @@
 import type { StudyPolicy } from "@/types/study";
 
+export const PERSONAL_STUDY_REWARDS = [
+ {days:2,label:"2 元加餐券"}, {days:3,label:"3 元加餐券"}, {days:7,label:"7 元加餐券"},
+ {days:21,label:"一杯奶茶"}, {days:30,label:"一杯奶茶"}, {days:60,label:"一杯奶茶"},
+ {days:180,label:"两杯奶茶，可分开兑换"}, {days:365,label:"一件衣服或一双鞋"},
+] as const;
+
 export const DEFAULT_STUDY_POLICY:StudyPolicy={
  rewardsEnabled:true,pointsPerNew:1,dailyRewardCap:50,rewardDays:90,streakMinNew:5,
  profileEnabled:true,profileCost:5,minimumReadingMinutes:60,minimumLookups:50,

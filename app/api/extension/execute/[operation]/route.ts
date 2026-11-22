@@ -9,6 +9,7 @@ import { POST as ask } from "@/app/api/ask-sentence/route";
 import { POST as pronunciation } from "@/app/api/pronunciation/route";
 import { POST as translate } from "@/app/api/translate-article/route";
 import { extensionSelectionMode, extensionTranslationInput } from "@/lib/browserExtensionSelection";
+import { reconcileStudyCards } from "@/lib/studyStore";
 import { saveSelectedSentence, SavedSentenceWriteError } from "@/lib/savedSentencesServer";
 import { LATIN_PHRASE_PATTERN } from "@/lib/latinWords";
 import { accountFetch, writeSyncObjects } from "@/lib/accountStore";
@@ -75,6 +76,7 @@ export async function POST(request: Request, args: { params: Promise<{ operation
             return json({ error: "请等待所选句子的译文完成后再收藏。" }, 400);
           }
           const entry = await saveSelectedSentence(auth.user.id, body.original.trim(), body.translation.trim());
+          await reconcileStudyCards(auth.user.id, entry);
           return json({ saved: true, id: entry.id });
         }
         case "save": return saveVocabulary(request, auth.user.id);

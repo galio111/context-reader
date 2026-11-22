@@ -1,10 +1,10 @@
 import type { VocabularyEntry } from "@/types/vocabulary";
 
-export type StudyVocabularyOrder = "collected" | "alphabetical" | "random";
+export type StudyVocabularyOrder = "collected" | "recentStudy" | "alphabetical" | "random";
 const alphabet = new Intl.Collator("en", { sensitivity: "base", numeric: true });
 
 /** Presentation only: never mutate saved entries or the FSRS queue. */
-export function orderStudyVocabulary(entries: VocabularyEntry[], order: StudyVocabularyOrder, shuffledIds: string[] = []): VocabularyEntry[] {
+export function orderStudyVocabulary(entries: VocabularyEntry[], order: StudyVocabularyOrder, shuffledIds: string[] = [], lastStudy?: ReadonlyMap<string, number>): VocabularyEntry[] {
   const ranks = new Map(shuffledIds.map((id, index) => [id, index]));
   const decorated = entries.map((entry, index) => {
     const time = Date.parse(entry.createdAt);
@@ -12,6 +12,7 @@ export function orderStudyVocabulary(entries: VocabularyEntry[], order: StudyVoc
   });
   decorated.sort((a, b) => {
     const chronological = () => b.time - a.time || a.index - b.index;
+    if (order === "recentStudy") return (lastStudy?.get(b.entry.id) ?? 0) - (lastStudy?.get(a.entry.id) ?? 0) || chronological();
     if (order === "alphabetical") return alphabet.compare(a.entry.word, b.entry.word) || chronological();
     if (order === "random") return (ranks.get(a.entry.id) ?? Number.MAX_SAFE_INTEGER) - (ranks.get(b.entry.id) ?? Number.MAX_SAFE_INTEGER) || chronological();
     return chronological();

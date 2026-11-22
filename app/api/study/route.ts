@@ -112,6 +112,14 @@ export async function POST(request: Request) {
       if(!reward.activated)throw new StudyError(reward.existingPlan?"你正在使用不同档位的会员。奖励已保留，可在当前会员到期后启用。":"没有可启用的会员奖励。",409);
       return result(request, await getStudySnapshot(userId));
     }
+    if(op==="redeemVoucher"){
+      if(!Number.isInteger(body.milestone)||!Number.isInteger(body.unit)||
+        (body.choice!=null && body.choice!=="clothes" && body.choice!=="shoes")) throw new StudyError("兑换选项无效。");
+      const redeemed=await studyRpc<{redeemed?:boolean;invalidChoice?:boolean}>("redeem_voucher",{
+        p_user:userId,p_milestone:body.milestone,p_unit:body.unit,p_choice:body.choice??null});
+      if(!redeemed.redeemed) throw new StudyError(redeemed.invalidChoice?"请选择衣服或鞋。":"没有找到这张奖励券。",409);
+      return result(request,await getStudySnapshot(userId));
+    }
     if(op==="claimReward"){
       const id=String(body.id??"");
       if(!/^(daily:\d{4}-\d{2}-\d{2}|milestone:\d{1,5})$/.test(id))throw new StudyError("奖励记录无效。");
