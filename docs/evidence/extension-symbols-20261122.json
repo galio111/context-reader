@@ -1,0 +1,147 @@
+{
+  "release": "20261122T212344",
+  "parent": "20261122T112204",
+  "source": "de7adfd8f0e85744e30e1f13fe42365d2afed6c6",
+  "extension": "1.3.1",
+  "publishedZipSha256": "8d8af7d450fd627a17f5d9891d857d742564ac3ecfa1f938a343a266b5ae5d4d",
+  "extensionId": "eaokebbnflkgbhgpfenkbkfmfoeccpei",
+  "regression": {
+    "sample": "forward P/E",
+    "previousVersions": [
+      "1.1.0",
+      "1.3.0"
+    ],
+    "selectionPresentButNoPopup": true,
+    "previousPlainPhraseOpened": true,
+    "chrome": [
+      {
+        "name": "plain",
+        "selected": "market value",
+        "word": "market value",
+        "mode": "word",
+        "popup": true
+      },
+      {
+        "name": "reported",
+        "selected": "forward P/E",
+        "word": "forward P/E",
+        "mode": "word",
+        "popup": true
+      },
+      {
+        "name": "partial-inline",
+        "selected": "forward P/E",
+        "word": "forward P/E",
+        "mode": "word",
+        "popup": true
+      },
+      {
+        "name": "quote",
+        "selected": "forward P/E",
+        "word": "forward P/E",
+        "mode": "word",
+        "popup": true
+      },
+      {
+        "name": "ampersand",
+        "selected": "R&D",
+        "word": "R&D",
+        "mode": "word",
+        "popup": true
+      },
+      {
+        "name": "two-ratios",
+        "selected": "compare P/E ratios",
+        "word": "compare P/E ratios",
+        "mode": "word",
+        "popup": true
+      },
+      {
+        "name": "compound",
+        "selected": "risk‑adjusted",
+        "word": "risk‑adjusted",
+        "mode": "word",
+        "popup": true
+      },
+      {
+        "name": "4-word",
+        "selected": "Forward P/E rose sharply.",
+        "word": "Forward P/E rose sharply.",
+        "mode": "translation",
+        "popup": true
+      },
+      {
+        "name": "no-letters",
+        "selected": "/%&",
+        "word": null,
+        "mode": null,
+        "popup": false
+      }
+    ]
+  },
+  "publicAccountChecks": [
+    "Publicly downloaded ZIP paired to temporary signed-in account",
+    "Actual drag over inline text retained forward P/E, returned Chinese valuation meaning, and saved the contextual explanation",
+    "A heading with only the quoted ratio reached the live standalone dictionary and saved its exact spelling",
+    "Four-word selection translated the exact sentence and saved it to the sentence notebook"
+  ],
+  "persistence": {
+    "contextSaved": 1,
+    "dictionarySaved": 1,
+    "sentenceSaved": 1,
+    "successfulFeatures": [
+      "full_article_translation",
+      "standalone_dictionary",
+      "word_explanation"
+    ],
+    "removed": true
+  },
+  "serverCore": {
+    "contextualAndSentence": true,
+    "dictionary": true,
+    "fullTranslation": true,
+    "oneLookupActionTwoResults": true,
+    "question": true,
+    "revocation": true
+  },
+  "operations": {
+    "release": "20261122T212344",
+    "parent": "20261122T112204",
+    "currentAndParentRollbackImages": true,
+    "persistentServicesUnchanged": 5,
+    "health": true,
+    "admin": {
+      "session": 200,
+      "accounts": 200,
+      "public_articles": 200,
+      "recommendation_automation": 200
+    },
+    "buildDisk": {
+      "before": 85,
+      "after": 83,
+      "removedDisposableBuildImages": 2
+    }
+  },
+  "testCounts": {
+    "extension": 39,
+    "critical": 90,
+    "architecture": 178,
+    "providerAndLookup": 15
+  },
+  "databaseRestoreVerified": true,
+  "sourceCI": [
+    {
+      "conclusion": "success",
+      "databaseId": 45027264409,
+      "status": "completed",
+      "workflowName": "Architecture and reading regressions"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 45027264411,
+      "status": "completed",
+      "workflowName": "Pronunciation browser compatibility"
+    }
+  ],
+  "testedPlatforms": "Windows desktop Chrome. macOS hardware and OS-level shortcut presses were not exercised."
+}

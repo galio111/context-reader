@@ -2,6 +2,10 @@
 
 ## Current production release
 
+Accepted `20261122T212344`, parent `20261122T112204`, source `de7adfd8f0e85744e30e1f13fe42365d2afed6c6`. Chrome extension 1.3.1 preserves punctuation in English terms such as `forward P/E`. The public ZIP, live contextual lookup and dictionary, saved words, reading core, Admin, backup and rollback images passed verification. See the [acceptance record](evidence/extension-symbols-20261122.json).
+
+## Previous accepted mobile calendar and study rewards release
+
 Accepted `20261122T112204`, parent `20261122T110734`, source `2a8a7c66e2f1dcbd2226079e5e6aa653ef5af0f5`. Two hidden sentences were restored, and all four saved sentences entered study. Recent-study word ordering, the mobile monthly calendar and personal vouchers for review streaks passed verification. See the [production acceptance](evidence/study-vouchers-20261122.json).
 
 The first functional cutover was `20261122T110734`, built from `5d2cf659bafd008008f78ef67c6556c586c30c44` with parent `20261121T112807`. The follow-up enlarged the date and month controls to 44 px or more on narrow touch screens.
