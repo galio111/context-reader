@@ -1,4 +1,4 @@
-import { LATIN_PHRASE_PATTERN } from "./latinWords";
+import { LATIN_PHRASE_PATTERN, isLookupPhrase } from "./latinWords";
 export type PronunciationAccent = "en-US" | "en-GB";
 
 export const PRONUNCIATION_ACCENTS: PronunciationAccent[] = ["en-US", "en-GB"];
@@ -62,7 +62,7 @@ export function isValidPronunciationText(value: string): boolean {
   return (
     normalized.length > 0
     && normalized.length <= MAX_PRONUNCIATION_TEXT_LENGTH
-    && WORD_OR_PHRASE_PATTERN.test(normalized)
+    && isLookupPhrase(normalized)
   );
 }
 

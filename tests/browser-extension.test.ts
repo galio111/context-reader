@@ -12,13 +12,44 @@ import { withExtensionUser, extensionRequestUser } from "../lib/extensionIdentit
 import { authenticateExtension, createExtensionConnection, extensionTokenHash, ExtensionAuthError } from "../lib/browserExtension";
 import identity from "../chrome-extension/identity.json";
 import { POST as execute } from "../app/api/extension/execute/[operation]/route";
-import { extensionSelectionMode, extensionTranslationInput, completeExtensionSelection } from "../lib/browserExtensionSelection";
+import { isLookupPhrase } from "../lib/latinWords";
+import { isValidStandaloneDictionaryQuery } from "../lib/deepseekDictionary";
+import { isValidPronunciationText } from "../lib/pronunciation";
+import { extensionSelectionTarget, extensionSelectionMode, extensionTranslationInput, completeExtensionSelection } from "../lib/browserExtensionSelection";
 
 test("one to three words use explanation, four and more words use selected-text translation", () => {
   for (const text of ["bank", "river bank", "in spite of"]) assert.equal(extensionSelectionMode(text), "word");
   for (const text of ["This is very useful", "As a result of", "The river bank is quiet.", "We don’t need well-known examples."]) assert.equal(extensionSelectionMode(text), "translation");
-  for (const text of ["", "<script>", "2026", "word.", "a ".repeat(3000)]) assert.equal(extensionSelectionMode(text), null);
+  for (const text of ["", "<script>", "2026", "/", "a ".repeat(3000)]) assert.equal(extensionSelectionMode(text), null);
 });
+test("punctuated terms keep their spelling across selection, lookup, dictionary and speech", () => {
+  for (const phrase of ["forward P/E", "P/E", "R&D", "S&P 500", "and/or", "U.S. markets", "COVID‑19", "C++", "C#", "risk—reward"]) {
+    assert.equal(extensionSelectionTarget(phrase)?.text, phrase);
+    assert.equal(extensionSelectionMode(phrase), "word");
+    assert.ok(isLookupPhrase(phrase));
+    assert.ok(isValidStandaloneDictionaryQuery(phrase));
+    assert.ok(isValidPronunciationText(phrase));
+  }
+  assert.equal(extensionSelectionMode("forward P/E ratio"), "word");
+  assert.equal(extensionSelectionMode("forward P/E ratio fell"), "translation");
+  const sentence = "“Forward P/E fell again.”";
+  assert.equal(extensionTranslationInput({text: sentence})?.blocks[0].text, sentence);
+  for (const bad of ["/ & --", "<script>", "词P/E", "P//E", "https://example.com", "P\u0000/E"]) {
+    assert.equal(extensionSelectionMode(bad), null, bad);
+    assert.equal(isLookupPhrase(bad), false, bad);
+  }
+});
+
+test("quotes and sentence punctuation only trim the outside of short lookup targets", () => {
+  const source = "  “forward P/E,”  ";
+  const target = extensionSelectionTarget(source);
+  assert.equal(target?.mode, "word");
+  assert.equal(target?.text, "forward P/E");
+  assert.equal(source.slice(target!.start, target!.end), "forward P/E");
+  assert.equal(extensionSelectionTarget("(U.S.)")?.text, "U.S.");
+  assert.equal(extensionSelectionTarget("earnings, however")?.text, "earnings, however");
+});
+
 test("sentence translation targets exactly the selected text and keeps surrounding context read-only", () => {
   const payload = extensionTranslationInput({ text: "This is very useful", sentence: "Earlier finding: This is very useful for the next experiment.", previousSentence: "An earlier sentence.", nextSentence: "A later sentence." });
   assert.deepEqual(payload?.blocks, [{ id: "extension-selection", type: "paragraph", text: "This is very useful" }]);
@@ -59,7 +90,7 @@ test("headings containing only the word fall back to dictionary mode", () => ass
 test("unbounded paragraphs are not sent to the server", () => assert.equal(sentenceContext("word " + "x".repeat(6000), 0, 4, "word").sentence, ""));
 test("phrase limits reject sentences, numbers and markup", () => {
   assert.equal(validWord("in spite of"), true); assert.equal(validWord("don’t"), true);
-  for (const value of ["a b c d e f g h i", "<script>", "2026", "word."]) assert.equal(validWord(value), false);
+  for (const value of ["a b c d e f g h i", "<script>", "2026", "!"]) assert.equal(validWord(value), false);
 });
 function select(html: string, selector: string, start: number, end: number) {
   const dom = new JSDOM(html, { url: "https://example.test/article" });
@@ -83,6 +114,26 @@ test("partial selections expand across inline nodes and visibly select the compl
   const { dom } = select('<p>The <b>ma</b><span>terial</span> is stable.</p>', "b", 1, 2), document = dom.window.document;
   const result = extractSelection(document);
   assert.equal(result.word, "material"); assert.equal(result.sentence, "The material is stable."); assert.equal(document.getSelection()!.toString(), "material"); dom.window.close();
+});
+test("a partial inline P/E completes through the slash and keeps the exact surrounding sentence", () => {
+  const {dom, result} = select('<p>The forward <b>P</b><i>/</i><em>E</em> ratio fell.</p>', "b", 0, 1);
+  assert.equal(result.mode, "word");
+  assert.equal(result.word, "P/E");
+  assert.equal(result.sentence, "The forward P/E ratio fell.");
+  assert.equal(dom.window.getSelection()!.toString(), "P/E");
+  dom.window.close();
+});
+test("a quoted standalone ratio opens the dictionary and highlighting excludes the enclosing punctuation", () => {
+  const text = "“forward P/E,”";
+  const {dom, result} = select("<p>"+text+"</p>", "p", 0, text.length);
+  assert.equal(result.word, "forward P/E");
+  assert.equal(result.sentence, "");
+  assert.equal(dom.window.getSelection()!.toString(), "forward P/E");
+  dom.window.close();
+});
+test("a slash alone inside a ratio does not query the whole term", () => {
+  const {dom, result} = select("<p>P/E</p>", "p", 1, 2);
+  assert.equal(result, null); dom.window.close();
 });
 test("incomplete sentence edges complete before the four-word translation decision", () => {
   const text = "This is very useful.";

@@ -11,7 +11,7 @@ import { POST as translate } from "@/app/api/translate-article/route";
 import { extensionSelectionMode, extensionTranslationInput } from "@/lib/browserExtensionSelection";
 import { reconcileStudyCards } from "@/lib/studyStore";
 import { saveSelectedSentence, SavedSentenceWriteError } from "@/lib/savedSentencesServer";
-import { LATIN_PHRASE_PATTERN } from "@/lib/latinWords";
+import { isLookupPhrase } from "@/lib/latinWords";
 import { accountFetch, writeSyncObjects } from "@/lib/accountStore";
 import { createStandaloneVocabularyEntry } from "@/lib/standaloneDictionary";
 import { normalizeAnkiInfo } from "@/lib/ankiData";
@@ -27,7 +27,7 @@ const json = (value: unknown, status = 200) => NextResponse.json(value, { status
 async function saveVocabulary(request: Request, userId: string) {
   const body = await readJsonBody<{ context: ExplanationRequest; explanation?: WordExplanation; dictionary?: DictionaryResult }>(request, 48 * 1024);
   const ctx = body?.context;
-  if (!ctx || typeof ctx.word !== "string" || !LATIN_PHRASE_PATTERN.test(ctx.word)
+  if (!ctx || typeof ctx.word !== "string" || !isLookupPhrase(ctx.word)
     || ![ctx.sentence, ctx.previousSentence, ctx.nextSentence].every(v => typeof v === "string" && v.length <= 5000)) return json({ error: "保存的词和语境无效。" }, 400);
   let entry: VocabularyEntry;
   if (body.dictionary) {

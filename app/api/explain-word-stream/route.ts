@@ -1,6 +1,6 @@
 import { sanitizeExplanationRequest } from "@/lib/explanationRequest";
 import { extensionRequestUser } from "@/lib/extensionIdentity";
-import { LATIN_PHRASE_PATTERN } from "@/lib/latinWords";
+import { isLookupPhrase } from "@/lib/latinWords";
 import {anyTextKey} from '@/lib/modelSettings';
 import {withModelContext} from '@/lib/modelSettings';
 import { fetchWithProviderFailover, providerName } from "@/lib/providerFailover";
@@ -20,7 +20,6 @@ import { coreDeepSeekModelCandidates, fetchWithDeepSeekModelFailover } from "@/l
 const DEFAULT_MODEL = "deepseek-flash";
 const DEFAULT_BASE_URL = "https://api.deepseek.com";
 const REQUEST_TIMEOUT_MS = 30000;
-const WORD_OR_PHRASE_PATTERN = LATIN_PHRASE_PATTERN;
 
 export const maxDuration = 60;
 
@@ -41,7 +40,7 @@ function isValidRequestBody(body: unknown): body is ExplanationRequest {
     typeof input.sentence === "string" &&
     typeof input.previousSentence === "string" &&
     typeof input.nextSentence === "string" &&
-    WORD_OR_PHRASE_PATTERN.test(input.word.trim())
+    isLookupPhrase(input.word.trim())
   );
 }
 

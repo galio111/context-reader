@@ -1,24 +1,42 @@
-import { LATIN_WORD_SOURCE } from "./latinWords";
-const SHORT_PHRASE = new RegExp(`^${LATIN_WORD_SOURCE}(?:\\s+${LATIN_WORD_SOURCE}){0,2}$`, "u");
+import { hasLatinLetter, isLookupPhrase, lookupTerms } from "./latinWords";
+
+type ExtensionTarget = { mode: "word" | "translation"; text: string; start: number; end: number };
+const EDGE_PUNCTUATION = /^[\s.,!?;:()[\]{}"'“”‘’«»…—–，。！？、：；（）【】]*$/u;
+
 export function completeExtensionSelection(text: string, start: number, end: number) {
   start = Math.max(0, Math.min(text.length, start)); end = Math.max(start, Math.min(text.length, end));
   while (start < end && /\s/.test(text[start])) start++;
   while (end > start && /\s/.test(text[end - 1])) end--;
   if (start === end) return { text: "", start, end };
-  for (const match of text.matchAll(new RegExp(LATIN_WORD_SOURCE, "gu"))) {
+  for (const match of lookupTerms(text)) {
     const left = match.index, right = left + match[0].length;
+    if (left >= end) break;
     if (left < start && start < right) start = left;
     if (left < end && end < right) end = right;
   }
   return { text: text.slice(start, end), start, end };
 }
-export function extensionSelectionMode(value: unknown): "word" | "translation" | null {
-  if (typeof value !== "string") return null;
+
+/** Offsets refer to the supplied selection. Sentence translations keep their original punctuation. */
+export function extensionSelectionTarget(value: unknown): ExtensionTarget | null {
+  if (typeof value !== "string" || value.length > 5000 || /[\u0000-\u0008\u000b\u000c\u000e-\u001f]/.test(value)) return null;
   const text = value.trim();
-  if (!text || text.length > 5000 || /[\u0000-\u0008\u000b\u000c\u000e-\u001f]/.test(text)) return null;
-  const words = text.match(new RegExp(LATIN_WORD_SOURCE, "gu")) || [];
-  if (words.length >= 4) return "translation";
-  return SHORT_PHRASE.test(text) && text.length <= 160 ? "word" : null;
+  if (!text) return null;
+  const offset = value.length - value.trimStart().length;
+  const terms = Array.from(lookupTerms(text));
+  if (terms.filter(term => hasLatinLetter(term[0])).length >= 4) {
+    return { mode: "translation", text, start: offset, end: offset + text.length };
+  }
+  const first = terms[0], last = terms.at(-1);
+  if (!first || !last || text.length > 160) return null;
+  const start = first.index, end = last.index + last[0].length;
+  const phrase = text.slice(start, end);
+  if (!EDGE_PUNCTUATION.test(text.slice(0, start)) || !EDGE_PUNCTUATION.test(text.slice(end)) || !isLookupPhrase(phrase)) return null;
+  return { mode: "word", text: phrase.replace(/[’ʼ]/g, "'").replace(/\s+/g, " "), start: offset + start, end: offset + end };
+}
+
+export function extensionSelectionMode(value: unknown) {
+  return extensionSelectionTarget(value)?.mode ?? null;
 }
 
 /** Only the selection is a target. Nearby sentences are read-only context. */

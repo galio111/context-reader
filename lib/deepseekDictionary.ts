@@ -1,4 +1,4 @@
-import { LATIN_PHRASE_PATTERN } from "./latinWords";
+import { isLookupPhrase } from "./latinWords";
 import {anyTextKey} from '@/lib/modelSettings';
 import { fetchWithProviderFailover as fetchConfiguredProvider, responseModel, providerName } from "@/lib/providerFailover";
 import { DeepSeekParseError, MissingDeepSeekEnvError } from "@/lib/deepseek";
@@ -173,11 +173,10 @@ export function sanitizeDictionaryQuery(value: string): string {
   return value.trim().replace(/\s+/g, " ").slice(0, 80);
 }
 
-const ENGLISH_QUERY_PATTERN = LATIN_PHRASE_PATTERN;
 const CHINESE_QUERY_PATTERN = /^[\u3400-\u9fff\uf900-\ufaff·\s]{1,24}$/u;
 
 export function isValidStandaloneDictionaryQuery(query: string): boolean {
-  if (ENGLISH_QUERY_PATTERN.test(query)) return true;
+  if (isLookupPhrase(query)) return true;
   return CHINESE_QUERY_PATTERN.test(query) && query.replace(/\s/g, "").length <= 16;
 }
 

@@ -1,4 +1,5 @@
-import { LATIN_PHRASE_PATTERN } from "../lib/latinWords";
+import { sanitizeExplanationRequest } from "../lib/explanationRequest";
+import { isLookupPhrase } from "../lib/latinWords";
 import assert from "node:assert/strict";
 import test from "node:test";
 import { DeepSeekParseError, explainWordWithDeepSeek } from "../lib/deepseek";
@@ -37,8 +38,8 @@ test("guest, disabled feature and insufficient units give distinct recovery inst
 });
 
 test("an exhausted pool takes precedence over a merely low pool", () => {
-  assert.match(lowUsageNotice([{ ...quota, remaining: 5 }, { ...quota, metricKey: "article_summary" }]), /^文章摘要额度已用完/);
-  assert.match(lowUsageNotice([{ ...quota, remaining: 6 }]), /查词与问答剩余 6 \/ 30/);
+  assert.match(lowUsageNotice([{ ...quota, remaining: 1 }, { ...quota, metricKey: "article_summary" }]), /^文章摘要额度已用完/);
+  assert.match(lowUsageNotice([{ ...quota, remaining: 1 }]), /查词与问答剩余 1 \/ 30/);
 });
 
 test("failed repair records exact field reasons and truncation without retaining user text", async (t) => {
@@ -103,7 +104,7 @@ test("stream EOF with missing fields cannot finalize a quota reservation", async
     let finished = 0;
     const statuses: string[] = [];
     const post = runInNewContext(js + "\nPOST", {
-      withModelContext: (_feature: string, fn: () => unknown) => fn(), anyTextKey: () => "test", LATIN_PHRASE_PATTERN, providerName: () => "test", NextResponse, Response, ReadableStream, TextEncoder, TextDecoder, AbortController, setTimeout, clearTimeout,
+      withModelContext: (_feature: string, fn: () => unknown) => fn(), anyTextKey: () => "test", performance, sanitizeExplanationRequest, extensionRequestUser: () => null, isLookupPhrase, providerName: () => "test", NextResponse, Response, ReadableStream, TextEncoder, TextDecoder, AbortController, setTimeout, clearTimeout,
       process: { env: { DEEPSEEK_API_KEY: "test" } },
       readJsonBody: (request: Request) => request.json(), RequestBodyTooLargeError: class extends Error {},
       acquireAiSlot: async () => () => {}, gateUsage: async () => ({ actionId: "test-action" }), usageErrorResponse: () => null,

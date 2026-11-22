@@ -1,4 +1,4 @@
-import { LATIN_PHRASE_PATTERN } from "@/lib/latinWords";
+import { isLookupPhrase } from "@/lib/latinWords";
 import {withModelContext} from '@/lib/modelSettings';
 import { NextResponse } from "next/server";
 import {
@@ -23,7 +23,6 @@ import { registerActiveLookupRequest, waitForLookupPeersOrCancellation } from "@
 
 export const maxDuration = 60;
 
-const WORD_OR_PHRASE_PATTERN = LATIN_PHRASE_PATTERN;
 
 function isValidRequestBody(body: unknown): body is ExplanationRequest {
   const input = body as Partial<ExplanationRequest>;
@@ -32,7 +31,7 @@ function isValidRequestBody(body: unknown): body is ExplanationRequest {
     typeof input.sentence === "string" &&
     typeof input.previousSentence === "string" &&
     typeof input.nextSentence === "string" &&
-    WORD_OR_PHRASE_PATTERN.test(input.word.trim())
+    isLookupPhrase(input.word.trim())
   );
 }
 
