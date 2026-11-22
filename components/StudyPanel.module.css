@@ -254,13 +254,13 @@
 .trendToolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:26px;flex-wrap:wrap}.trendLegend{display:flex;gap:16px;font-size:12px;color:var(--study-muted)}.trendLegend span{display:flex;align-items:center;gap:6px}.trendLegend i{width:8px;height:8px;border-radius:2px;background:var(--study-accent)}.trendLegend span:last-child i{background:var(--study-chart)}
 .dialog .trendBar{flex:1;min-width:0;min-height:0;padding:0;gap:0;border-radius:3px 3px 0 0;overflow:hidden;display:flex;flex-direction:column;background:transparent}.trendBar i{width:100%;background:var(--study-chart);min-height:0}.trendBar i+i{background:var(--study-accent)}.dialog .trendBar:hover{background:transparent;opacity:.8}
 .statsLayout{display:flex;flex-direction:column;min-width:0}.statsLayout>*{min-width:0}.monthCalendar,.monthNav{display:none}
-@media(max-width:760px){
- .calendarSurface{order:-1}.yearCalendar{display:none}.monthCalendar{display:block}
+@media(max-width:760px),(pointer:coarse){
+ .calendarSurface{order:-1;margin-inline:clamp(-19px,calc((100vw - 402px) / 2),0px);padding-inline:clamp(6px,calc((100vw - 308px) / 2),22px)}.yearCalendar{display:none}.monthCalendar{display:block}
  .monthNav{display:flex;align-items:center;gap:3px}.monthNav span{font-variant-numeric:tabular-nums}
- .dialog .monthNav button{min-width:36px;min-height:42px;padding:4px;font-size:20px;background:transparent}
- .monthGrid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;align-items:center;text-align:center;font-variant-numeric:tabular-nums}
+ .dialog .monthNav button{min-width:44px;min-height:44px;padding:4px;font-size:20px;background:transparent}
+ .monthGrid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));row-gap:4px;column-gap:clamp(0px,calc((100vw - 372px) / 12),2px);align-items:center;text-align:center;font-variant-numeric:tabular-nums}
  .monthGrid>span{font-size:12px;color:var(--study-muted)}
- .dialog .monthGrid button{position:relative;min-width:0;min-height:34px;padding:0;border-radius:6px;background:var(--study-soft);color:var(--study-ink)}
+ .dialog .monthGrid button{position:relative;min-width:0;min-height:44px;padding:0;border-radius:6px;background:var(--study-soft);color:var(--study-ink)}
  .dialog .monthGrid button[data-level="1"]{background:var(--study-accent-soft)}
  .dialog .monthGrid button[data-level="2"]:after,.dialog .monthGrid button[data-level="3"]:after{content:"";position:absolute;bottom:2px;width:5px;height:3px;border-radius:2px;background:var(--study-accent)}
  .dialog .monthGrid button[data-level="3"]:after{width:13px}
