@@ -1,0 +1,11 @@
+[Unit]
+Description=Check private task deadlines each minute
+
+[Timer]
+OnCalendar=*-*-* *:*:00
+AccuracySec=1s
+Persistent=true
+Unit=context-reader-todo-reminders.service
+
+[Install]
+WantedBy=timers.target

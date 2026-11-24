@@ -137,6 +137,7 @@ function routeRules(pathname: string, method: string): RateRule[] {
 }
 
 function maxRequestBytes(pathname: string): number {
+  if (pathname === "/api/todo") return 4 * 1024 * 1024;
   if (pathname === "/api/documents") return MAX_DOCUMENT_BYTES + 16 * 1024;
   if (/^\/api\/ocr-image(?:-layout)?$/.test(pathname)) {
     return 9 * 1024 * 1024;
@@ -214,7 +215,7 @@ export function protectApiRequest(request: Request): NextResponse | null {
       return jsonError("不允许跨站请求。", 403);
     }
 
-    if (pathname.startsWith("/api/admin/")) {
+    if (pathname.startsWith("/api/admin/") || pathname === "/api/todo" || pathname.startsWith("/api/todo/")) {
       const origin = request.headers.get("origin");
       if (!origin && process.env.NODE_ENV === "production") {
         return jsonError("管理操作缺少可信来源。", 403);

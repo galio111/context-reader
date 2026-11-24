@@ -14,13 +14,18 @@ export function middleware(request: NextRequest) {
     return response;
   }
   const blocked = protectApiRequest(request);
+  const privateTodo = /^\/(?:api\/)?todo(?:\/|$)/.test(request.nextUrl.pathname);
   if (blocked) {
+    if (privateTodo) {
+      blocked.headers.set("Cache-Control", "private, no-store");
+      blocked.headers.set("Vary", "Cookie");
+    }
     return blocked;
   }
 
   const response = NextResponse.next();
   response.headers.set("X-Request-Id", crypto.randomUUID());
-  if (request.nextUrl.pathname.startsWith("/api/admin/")) {
+  if (request.nextUrl.pathname.startsWith("/api/admin/") || privateTodo) {
     response.headers.set("Cache-Control", "private, no-store");
     response.headers.set("Vary", "Cookie");
   }
@@ -28,5 +33,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/api/:path*", "/_next/static/:path*"],
+  matcher: ["/api/:path*", "/_next/static/:path*", "/todo/:path*"],
 };

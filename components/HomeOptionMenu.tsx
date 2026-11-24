@@ -107,7 +107,7 @@ export interface HomeMenuVocabularyTools {
 
 export type PreviewKind = "guide" | "vocabulary" | "saved" | "account" | "invite" | "feedback" | "settings";
 export type GuideSection = "study" | "updates";
-type MenuAction = "import" | "dictionary" | "study" | "browser-extension";
+type MenuAction = "import" | "dictionary" | "study" | "browser-extension" | "private-todo";
 interface MenuItem {
   label: string;
   preview?: PreviewKind;
@@ -121,6 +121,7 @@ const MAX_FEEDBACK_IMAGES = 3;
 const MAX_FEEDBACK_IMAGE_BYTES = 5 * 1024 * 1024;
 
 const menuItems: MenuItem[] = [
+  { label: "私人待办", action: "private-todo", adminOnly: true },
   { label: "浏览器扩展", action: "browser-extension" },
   { label: "背单词", action: "study" },
   { label: "账号与用量", preview: "account" },
@@ -226,12 +227,22 @@ export function HomeOptionMenu({
   const [mobileMenu, setMobileMenu] = useState(false);
   const mobileSheet = useMobileBottomSheet(open, mobileMenu, readerTool ? 48 : undefined, onClose);
   const [guideScrollTarget, setGuideScrollTarget] = useState<GuideSection | null>(null);
+  const [todoOwner, setTodoOwner] = useState<string | null>(null);
+  const menuAccountId = account.profile?.userId;
+  useEffect(() => {
+    if (!open || !menuAccountId || !isAdmin || isOffline) return;
+    const controller = new AbortController();
+    void fetch("/api/todo", { method: "HEAD", cache: "no-store", signal: controller.signal })
+      .then(response => { if (!controller.signal.aborted) setTodoOwner(response.status === 204 ? menuAccountId : null); })
+      .catch(() => {});
+    return () => controller.abort();
+  }, [open, menuAccountId, isAdmin, isOffline]);
   const items = useMemo(
     () => [
       ...(mobileMenu ? mobileQuickItems : []),
       ...menuItems,
-    ].filter((item) => !item.adminOnly || isAdmin),
-    [isAdmin, mobileMenu],
+    ].filter(item => (!item.adminOnly || isAdmin) && (item.action !== "private-todo" || (!isOffline && !!menuAccountId && menuAccountId === todoOwner))),
+    [isAdmin, mobileMenu, isOffline, menuAccountId, todoOwner],
   );
   const sortedSavedArticles = useMemo(
     () => [...savedArticles].sort(
@@ -483,6 +494,7 @@ export function HomeOptionMenu({
       window.setTimeout(() => {
         if (item.action !== "study") window.dispatchEvent(new Event("context-reader-leave-study"));
         if (item.action === "import") onOpenImport?.();
+        else if (item.action === "private-todo") window.location.assign("/todo");
         else if (item.action === "browser-extension") navigate("/browser-extension");
         else if (item.action === "study") openStudy();
         else onOpenDictionary?.();

@@ -156,6 +156,9 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
+  // Private tasks and login responses are always served by the network.
+  if (/^\/(?:api\/)?todo(?:\/|$)/.test(url.pathname)) return;
+
   if (url.pathname === "/api/public-articles") {
     event.respondWith(cachedPublicCatalogue(request));
     return;

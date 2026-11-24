@@ -1,0 +1,94 @@
+.tc-dialog {
+  --tc-ink: #283342;
+  --tc-sub: #536677;
+  --tc-accent: #355b87;
+  --tc-line: #dce3e8;
+  color: var(--tc-ink);
+  background: #fffefb;
+  border: 1px solid #d3dce2;
+  border-radius: 22px;
+  padding: 0;
+  box-sizing: border-box;
+  width: min(560px, calc(100vw - 28px));
+  max-width: none;
+  max-height: min(90dvh, 790px);
+  margin: auto;
+  box-shadow: 0 18px 70px #25395030, 0 3px 12px #25395010;
+  font: 15px/1.5 "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+.tc-dialog::backdrop { background: #18253553; }
+.tc-dialog :where(*) { box-sizing: border-box; }
+.tc-dialog [hidden] { display: none !important; }
+.tc-dialog button, .tc-dialog input, .tc-dialog select { color: inherit; font: inherit; }
+.tc-dialog button { appearance: none; border: 0; cursor: pointer; margin: 0; }
+.tc-dialog button:disabled { cursor: default; opacity: .6; }
+.tc-dialog :is(button, input, select, summary):focus-visible { outline: 2px solid #627689; outline-offset: 2px; }
+.tc-dialog .tc-frame { display: flex; flex-direction: column; max-height: min(90dvh, 790px); }
+.tc-header, .tc-footer { flex: none; display: flex; align-items: center; padding: 16px 24px; gap: 10px; }
+.tc-header { justify-content: space-between; border-bottom: 1px solid var(--tc-line); }
+.tc-header h2 { margin: 0; font-size: 22px; color: var(--tc-ink); line-height: 1.45; letter-spacing: -.04em; }
+.tc-body { min-height: 0; padding: 16px 24px 12px; overflow: auto; overscroll-behavior: contain; scroll-padding-block: 16px; }
+.tc-footer { justify-content: flex-end; border-top: 1px solid var(--tc-line); }
+.tc-dialog :is(.tc-back,.tc-link) { color: var(--tc-accent); background: transparent; min-height: 38px; padding: 4px 5px; font-size: 13px; }
+.tc-dialog :is(.tc-back,.tc-link):hover { text-decoration: underline; }
+.tc-dialog :is(.tc-save,.tc-secondary) { min-height: 42px; padding: 8px 20px; border-radius: 12px; }
+.tc-dialog .tc-save { background: var(--tc-accent); color: #fff; min-width: 110px; font-weight: 650; }
+.tc-dialog .tc-secondary { background: #e6edf3; color: var(--tc-accent); }
+.tc-note { margin: 0 0 12px; color: var(--tc-sub); font-size: 13px; }
+.tc-dialog .tc-error { color: #953c2d; }
+.tc-items { display: grid; gap: 3px; border-bottom: 1px solid var(--tc-line); padding-bottom: 12px; margin-bottom: 13px; }
+.tc-item { display: flex; align-items: center; gap: 7px; padding: 0 10px; border-left: 3px solid transparent; border-radius: 6px; }
+.tc-item.tc-current { border-left-color: var(--tc-accent); background: #edf2f6; }
+.tc-dialog input[type=checkbox] { width: 18px; height: 18px; flex-shrink: 0; accent-color: var(--tc-accent); }
+.tc-dialog .tc-item-select { display: flex; justify-content: space-between; align-items: baseline; text-align: left; gap: 8px; flex: 1; min-width: 0; padding: 7px 0; min-height: 39px; background: transparent; }
+.tc-item-select span { overflow-wrap: anywhere; }
+.tc-item-select small { flex-shrink: 0; font-size: 12px; color: var(--tc-sub); }
+.tc-editor, .tc-field, .tc-extra { display: grid; }
+.tc-editor { gap: 15px; }
+.tc-field { gap: 5px; min-width: 0; margin: 0; align-content: start; }
+.tc-field > span, .tc-label-row strong { font-size: 13px; font-weight: 650; color: var(--tc-ink); }
+.tc-dialog :is(input:not([type=checkbox]),select) {
+  width: 100%; min-width: 0; min-height: 40px; padding: 6px 10px; border-radius: 9px; border: 1px solid #aebcc7; background: white;
+}
+.tc-dialog input:disabled { border-color: var(--tc-line); color: var(--tc-sub); background: #f2f4f5; }
+.tc-label-row { display: flex; align-items: baseline; flex-wrap: wrap; gap: 3px 10px; }
+.tc-timing, .tc-hint, .tc-category-reason { font-size: 12px; color: var(--tc-sub); }
+.tc-when { min-width: 0; }
+.tc-options { display: flex; flex-wrap: wrap; gap: 6px; margin: 7px 0; }
+.tc-dialog .tc-chip { min-height: 36px; padding: 5px 12px; border-radius: 999px; background: #ecf0f2; color: #354958; }
+.tc-dialog .tc-chip[aria-pressed=true], .tc-dialog .tc-chip[aria-expanded=true] { color: var(--tc-accent); background: #dce7f1; }
+.tc-calendar { margin: 7px 0 9px; padding: 9px; background: #f5f6f6; border: 1px solid var(--tc-line); border-radius: 12px; }
+.tc-calendar-head { display: flex; align-items: center; gap: 4px; }
+.tc-calendar-head strong { flex: 1; font-size: 14px; font-weight: 650; }
+.tc-dialog .tc-icon { width: 36px; height: 32px; color: var(--tc-accent); background: transparent; font-size: 23px; line-height: 1; }
+.tc-calendar-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 2px; }
+.tc-weekday { text-align: center; font-size: 12px; font-weight: 550; color: var(--tc-sub); }
+.tc-dialog .tc-date-cell { background: transparent; min-height: 32px; border-radius: 7px; font-size: 14px; font-variant-numeric: tabular-nums; }
+.tc-dialog .tc-date-cell.tc-outside { color: #687787; }
+.tc-dialog .tc-date-cell.tc-today { box-shadow: inset 0 0 0 1px #8d9eac; }
+.tc-dialog .tc-date-cell:hover { background: #e1e8ed; }
+.tc-dialog .tc-date-cell[aria-pressed=true] { background: var(--tc-accent); color: #fff; }
+.tc-time-row { display: flex; gap: 8px; align-items: end; margin-top: 7px; }
+.tc-time-row .tc-field { width: min(160px, 65%); }
+.tc-basics { display: grid; grid-template-columns: 1.25fr 1fr; gap: 14px; }
+.tc-category { display: grid; grid-template-columns: 1fr auto; gap: 1px 4px; align-content: start; align-items: end; }
+.tc-category-reason, .tc-add-category { grid-column: 1 / -1; }
+.tc-add-category { display: flex; align-items: center; gap: 4px; }
+.tc-add-category input { flex: 1; }
+.tc-add-category button { flex-shrink: 0; }
+.tc-details { border-top: 1px solid var(--tc-line); margin-top: 1px; }
+.tc-details > summary { cursor: pointer; padding: 10px 0 7px; color: var(--tc-accent); font-size: 14px; }
+.tc-extra { gap: 5px; margin: 5px 0; }
+.tc-extra > .tc-field { max-width: 240px; }
+.tc-check { display: flex; align-items: center; gap: 7px; min-height: 38px; }
+@media (max-width: 520px) {
+  .tc-dialog { width: calc(100vw - 14px); border-radius: 16px; max-height: 94dvh; }
+  .tc-dialog .tc-frame { max-height: 94dvh; }
+  .tc-header, .tc-footer { padding: 11px 14px; }
+  .tc-body { padding: 12px 14px 8px; }
+  .tc-dialog :is(input:not([type=checkbox]),select) { font-size: 16px; }
+  .tc-basics { grid-template-columns: minmax(0, 1.25fr) minmax(0, .8fr); gap: 8px; }
+  .tc-category { grid-template-columns: 1fr; }
+  .tc-category > .tc-link { text-align: left; justify-self: start; }
+  .tc-dialog .tc-item-select { flex-wrap: wrap; gap: 0 8px; }
+}

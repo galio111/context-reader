@@ -282,7 +282,13 @@ export async function getAuthenticatedUser(): Promise<User | null> {
   const localDeveloper = await getLocalDeveloperUser();
   if (localDeveloper) return localDeveloper;
 
+  return getVerifiedBrowserUser();
+}
+
+// Read-only server components cannot set renewed cookies. Route handlers can.
+export async function getVerifiedBrowserUser(allowRefresh = true): Promise<User | null> {
   const { accessToken, refreshToken } = await readTokens();
+  if (!accessToken && !refreshToken) return null;
   const client = authClient();
 
   if (accessToken) {
@@ -292,7 +298,7 @@ export async function getAuthenticatedUser(): Promise<User | null> {
     }
   }
 
-  if (!refreshToken) {
+  if (!refreshToken || !allowRefresh) {
     return null;
   }
 
