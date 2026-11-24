@@ -30,6 +30,18 @@ const nav: [View,string][]=[["today","今天"],["upcoming","未来 24 小时"],[
 const labels = Object.fromEntries(nav);
 const clock = new Intl.DateTimeFormat("zh-CN",{hour:"2-digit",minute:"2-digit",hourCycle:"h23",timeZone:"Asia/Shanghai"});
 type Notice={text:string; undo?:string};
+function CategoryAdd({category,ready}:{category:string;ready:boolean}) {
+  const [open,setOpen]=useState(false),[draft,setDraft]=useState("");
+  const addButton=useRef<HTMLButtonElement>(null);
+  const name=category || "未分类";
+  return <><button type="button" ref={addButton} className="td-group-add" aria-label={"在"+name+"添加待办"} aria-expanded={open} onClick={()=>setOpen(!open)} disabled={!ready}>＋</button>
+    {open && <form className="td-category-input" onSubmit={e=>{
+      e.preventDefault();
+      if (!draft.trim()) return;
+      document.getElementById("quick-form")?.dispatchEvent(new CustomEvent("todo-category-add",{detail:{text:draft,category,returnFocus:()=>addButton.current,onSaved:()=>{setDraft("");setOpen(false)}}}));
+    }}><input autoFocus aria-label={name+"的新待办"} placeholder="输入待办…" maxLength={4000} value={draft} onChange={e=>setDraft(e.target.value)} onKeyDown={e=>{if(e.key==="Enter" && (e.nativeEvent.isComposing || e.nativeEvent.keyCode===229))e.preventDefault();if(e.key==="Escape"){setOpen(false);addButton.current?.focus()}}}/><button type="submit" disabled={!draft.trim()}>记下</button></form>}
+  </>;
+}
 export default function PrivateTodoWorkspace() {
   const {snapshot,current,mutate,error,refresh} = useTodoStore();
   const state=snapshot?.state, ready=!!state;
@@ -69,7 +81,7 @@ export default function PrivateTodoWorkspace() {
     window.todoApp=api;
     void (async()=>{
       try {
-        await captureScript("/todo-ui/capture-parser.js?v=1124a");await captureScript("/todo-ui/capture-v2.js?v=1124a");
+        await captureScript("/todo-ui/capture-parser.js?v=1124a");await captureScript("/todo-ui/capture-v2.js?v=1124b");
         if(active){if(!window.PrivateTodoCapture)throw Error();window.PrivateTodoCapture.mount();setCaptureReady(true)}
       }catch{if(active)setCaptureIssue("录入工具加载失败，请刷新后重试。")}
     })();
@@ -78,8 +90,8 @@ export default function PrivateTodoWorkspace() {
   const displayState=useMemo(()=>state && (settling.length?{...state,history:state.history.filter(h=>!settling.includes(h.key))}:state),[state,settling]);
   const groups=useMemo(()=>{
     if(!displayState)return [];
-    const filtered=view==="all" && categoryFilter?{...displayState,tasks:displayState.tasks.filter(t=>t.category===categoryFilter)}:displayState;
-    return taskGroups(filtered,view,today,selected,now);
+    const grouped=taskGroups(displayState,view,today,selected,now);
+    return view==="all" && categoryFilter ? grouped.filter(group=>group.category===categoryFilter) : grouped;
   },[displayState,view,today,selected,now,categoryFilter]);
   const history=useMemo(()=>[...(displayState?.history||[])].sort((a,b)=>b.finished-a.finished),[displayState]);
   const historyDates=useMemo(()=>{const days=new Map<string,Completed[]>();for(const h of history){const d=h.importedWithoutCompletionDate?"完成日期未记录":isoDay(h.finished);if(!days.has(d))days.set(d,[]);days.get(d)!.push(h)}return days},[history]);
@@ -139,8 +151,8 @@ export default function PrivateTodoWorkspace() {
     {!ready ? <p className="td-loading" role="status">{error?"暂时无法打开清单。":"正在打开你的清单…"}</p> : <div className="td-grid" data-view={view}>
       <aside className="td-rail">
         <form id="quick-form" className="td-capture" onSubmit={e=>e.preventDefault()}>
-          <label htmlFor="task-input">随手记</label><textarea ref={input} id="task-input" rows={2} maxLength={4000} placeholder="记件事，回车整理…" disabled={!captureReady}/>
-          <div className="td-capture-foot"><span>Shift + Enter 换行</span><button type="submit" disabled={!captureReady} aria-label="整理待办">记下 ↵</button></div>
+          <label htmlFor="task-input">随手记</label><textarea ref={input} id="task-input" rows={1} maxLength={4000} placeholder="随手记…" disabled={!captureReady}/>
+          <div className="td-capture-foot"><button type="submit" disabled={!captureReady} aria-label="整理待办">记下 ↵</button></div>
           <div id="record-status" role="status"/>{captureIssue && <p role="alert">{captureIssue}</p>}
         </form>
         <nav aria-label="清单范围">{nav.map(([value,title])=><button key={value} aria-current={view===value?"page":undefined} onClick={()=>{setView(value);setEditing(null)}}>{title}</button>)}</nav>
@@ -151,7 +163,7 @@ export default function PrivateTodoWorkspace() {
         {view==="all" && <label className="td-filter">分类<select value={categoryFilter} onChange={e=>{setCategoryFilter(e.target.value);setEditing(null)}}><option value="">所有分类</option>{state!.categories.map(c=><option key={c}>{c}</option>)}</select></label>}
         {view==="upcoming" && <p className="td-caption">接下来 24 小时内截止，全天事项按当天结束计算。</p>}
         {view==="history"?historyDates.size?[...historyDates].map(([day,records])=><section key={day} className="td-group"><h2>{day}</h2>{renderHistory(records)}</section>):<p className="td-empty">勾选完成的待办会按日期留在这里。</p>:
-          groups.length?groups.map(group=><section key={group.title} className="td-group"><h2>{group.title}</h2>{group.rows.map(renderRow)}</section>):
+          groups.length?groups.map(group=><section key={group.category===undefined ? group.title : "category:"+group.category} className="td-group"><div className="td-group-head"><h2>{group.title}</h2>{group.category!==undefined && <CategoryAdd key={group.category} category={group.category} ready={captureReady}/>}</div>{group.rows.map(renderRow)}</section>):
           <p className="td-empty">{view==="today"?"今天还没有要开工、到期或例行的待办。":view==="day"?"这一天没有待完成的事项。":"这个范围内没有待完成的事项。"}</p>}
         {view==="today" && <>
           {nextDue && <button className="td-next" onClick={()=>jump(nextDue.date)}><span>下一项截止 · {dateLabel(nextDue.date)}{nextDue.time&&" "+nextDue.time}</span><b>{nextDue.title}</b></button>}

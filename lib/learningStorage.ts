@@ -3,6 +3,7 @@
 import LZString from "lz-string";
 import { experiencePreviewStorage } from "./experiencePreview";
 
+export const LEARNING_OWNER_CHANGED = "账号已在其他标签页切换，本页更改已保留，请先导出备份再刷新。";
 export const LEARNING_STORAGE_EVENT = "context-reader:learning-storage";
 const DATABASE = "context-reader-learning-v1";
 const LEGACY_KEYS = new Set([
@@ -284,7 +285,7 @@ export class LearningStorage implements Storage {
           const loaded = await this.readBuckets();
           const ownerBucket = loaded.get("context-reader:local-account-owner:v1");
           const owner = ownerBucket ? join(ownerBucket) : null;
-          if (owner !== this.persistedOwner && this.reloadChanges.length) throw new Error("账号已在其他标签页切换，本页更改已保留，请先导出备份再刷新。");
+          if (owner !== this.persistedOwner && this.reloadChanges.length) throw new Error(LEARNING_OWNER_CHANGED);
           this.buckets = loaded; this.rawCache.clear(); this.persistedOwner = owner;
           for (const change of this.reloadChanges) this.apply(change);
           this.announce([...loaded.keys()]);
@@ -307,7 +308,7 @@ export class LearningStorage implements Storage {
       ownerRequest.onsuccess = () => {
         try {
           const currentOwner = ownerRequest.result ? JSON.parse((ownerRequest.result as Row).json) : null;
-          if (currentOwner !== this.persistedOwner) throw new Error("账号已在其他标签页切换，本页更改已保留，请先导出备份再刷新。");
+          if (currentOwner !== this.persistedOwner) throw new Error(LEARNING_OWNER_CHANGED);
           for (const change of changes) {
             if (change.descriptor === null) tx.objectStore("collections").delete(change.bucket);
             else if (change.descriptor) tx.objectStore("collections").put(change.descriptor);

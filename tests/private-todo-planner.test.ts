@@ -21,6 +21,17 @@ test("daily carry advances one unpaid instance and skip starts fresh",()=>{
   s.tasks=[{...task,missed:"skip"}];
   assert.equal(taskGroups(s,"today",day,day,now)[0].rows[0].occ,day);
 });
+test("daily tasks only appear in Today and categories can accept their first task",()=>{
+  const s=workspace([{...base,id:"routine",daily:true,date:day,priority:"high",category:"Daily"},
+    {...base,id:"regular",date:day,category:"Work"},{...base,id:"unscheduled",date:""}]);
+  s.categories=["Work","Empty","Daily"];
+  assert.deepEqual(dayEntries(s.tasks,day).map(e=>e.task.id),["regular"]);
+  for(const view of ["today","upcoming","all","day"] as const) {
+    assert.equal(taskGroups(s,view,day,day,now).some(g=>g.rows.some(e=>e.task.id==="routine")),view==="today");
+  }
+  assert.deepEqual(taskGroups(s,"all",day,day,now).map(g=>[g.title,g.rows.map(e=>e.task.id)]),
+    [["Work",["regular"]],["Empty",[]],["Daily",[]],["未分类",["unscheduled"]]]);
+});
 test("24 hour view spans midnight and excludes untimed backlog",()=>{
   const s=workspace([{...base,id:"none",date:""},{...base,id:"past",date:day,time:"09:00"},
     {...base,id:"future",date:"2026-04-11",time:"12:00"},{...base,id:"all-day",date:day}]);

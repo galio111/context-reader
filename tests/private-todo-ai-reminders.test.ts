@@ -46,7 +46,7 @@ test("deadline windows distinguish timed, all-day, skipped, recurring, and compl
   assert.equal(dueTodoReminders({...state,history:[{key:"a@once"}]},baseTime).length,0);
   assert.equal(dueTodoReminders({...state,settings:{...state.settings,emailEnabled:false}},baseTime).length,0);
   const recurring = {...state,tasks:[{...sampleTask,daily:true}]};
-  assert.equal(dueTodoReminders(recurring,baseTime)[0].key,"a@2026-11-24");
+  assert.deepEqual(dueTodoReminders(recurring,baseTime),[]);
   assert.equal(dueTodoReminders({...state,tasks:[{...sampleTask,daily:true,skippedDates:["2026-11-24"]}]},baseTime).length,0);
   const allday = {...state,tasks:[{...sampleTask,time:""}]};
   assert.equal(dueTodoReminders(allday,baseTime).length,0);
@@ -72,23 +72,10 @@ test("duplicate worker ticks share the dispatch claim and a fresh completion sup
   await processTodoReminders({...deps,load:async()=>++reads === 1 ? row : {...row,revision:2,state:{...state,history:[{key:"a@once"}]}}});
   assert.equal(delivered,1);
 });
-test("multi-day recurring leads trigger each future occurrence even when today's delivery is already claimed", async () => {
-  for (const days of [2,7,365]) {
-    const multi = {...state,settings:{...state.settings,remindMinutes:days*1440},tasks:[{...sampleTask,daily:true}]};
-    const now = Date.parse("2026-11-24T15:00:15+08:00");
-    const upcoming = shanghaiDay(now + days*86400000);
-    assert.deepEqual(dueTodoReminders(multi,now).map(r=>r.key),["a@2026-11-24","a@"+upcoming]);
-    const found:string[]=[];
-    await processTodoReminders({
-      load:async()=>({owner_id:"test",revision:8,state:multi}),
-      start:async (_row,key) => key !== "a@2026-11-24",
-      send:async (_to,_subject,text) => {found.push(text); return "sent";},
-      finish:async()=>undefined,
-      now:()=>now
-    });
-    assert.equal(found.length,1);
-    assert.ok(found[0].includes(upcoming));
+test("daily tasks never enter the mail queue, independently of lead time or missed policy", () => {
+  for (const time of ["","15:00"]) for (const minutes of [0,60,2880]) {
+    const daily = {...sampleTask,daily:true,time};
+    const multi = {...state,settings:{...state.settings,remindMinutes:minutes},tasks:[daily]};
+    assert.deepEqual(dueTodoReminders(multi,baseTime+4*3600000),[]);
   }
-  const evening = {...state,settings:{...state.settings,remindMinutes:18*60},tasks:[{...sampleTask,daily:true,time:"10:00"}]};
-  assert.equal(dueTodoReminders(evening, Date.parse("2026-11-24T16:00:20+08:00"))[0].key,"a@2026-11-25");
 });

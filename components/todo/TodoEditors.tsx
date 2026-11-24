@@ -48,7 +48,7 @@ export function SettingsEditor({settings,categories,onSave,close}: {settings:Set
   return <EditorDialog close={()=>{if(!saving)close()}} title="待办设置"><form onSubmit={submit}>
     <fieldset><legend>邮件提醒</legend>
       <label className="td-check-label"><input type="checkbox" checked={draft.emailEnabled} onChange={e=>change("emailEnabled",e.target.checked)}/>临近截止且还没勾选时发邮件</label>
-      <p>每次待办单独提醒，邮件包含标题和时间。时间按上海时区计算。</p>
+      <p>仅一次性待办发送提醒，邮件包含标题和时间。时间按上海时区计算。</p>
       <label>收件邮箱<input type="email" autoComplete="email" required={draft.emailEnabled} value={draft.emailAddress} onChange={e=>change("emailAddress",e.target.value)}/></label>
       <div className="td-fields"><label>有时刻的事项提前几分钟<input type="number" min={0} max={10080} required value={draft.remindMinutes} onChange={e=>change("remindMinutes",Number(e.target.value))}/></label>
       <label>全天事项当天几点发信<input type="time" required value={draft.allDayTime} onChange={e=>change("allDayTime",e.target.value)}/></label></div>

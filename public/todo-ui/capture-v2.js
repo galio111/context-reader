@@ -50,6 +50,7 @@
     activeForm = form;
     const lifecycle = new AbortController();
     const listen = (node, type, listener) => node?.addEventListener(type, listener, {signal: lifecycle.signal});
+    let groupSource = null;
     let items = [], selected = 0, revision = 0, touched = false, saving = false, period = "", stageNote = "", errorText = "", savedSource = "";
     let calMonth = "", alwaysCalendar = false, assistController = null;
     let editor, itemNav, notes, mainTitle, saveButton;
@@ -58,7 +59,7 @@
     const settings = () => app.getSettings() || {};
     const dirty = () => { touched = true; };
     const active = () => items[selected];
-    const wrap = (obj) => ({...obj, id: crypto.randomUUID(), chosen: true, dateAnswer: Boolean(obj.explicitlyUndated || (obj.date && !obj.needsDate)), timeAnswer: !obj.timeAmbiguous, expanded: Boolean(obj.lead)});
+    const wrap = (obj) => ({...obj, ...(groupSource ? {category:groupSource.category, categoryReason:""} : {}), id: crypto.randomUUID(), chosen: true, dateAnswer: Boolean(obj.explicitlyUndated || (obj.date && !obj.needsDate)), timeAnswer: !obj.timeAmbiguous, expanded: Boolean(obj.lead)});
     const shortTiming = (item) => {
       const date = item.date ? shortDate(item.date) : item.dateAnswer ? "先不定" : "待选日期";
       return [item.daily ? "每天" : "", date, item.time].filter(Boolean).join(" · ");
@@ -293,7 +294,8 @@
       try {
         await app.saveTasks(records);
         if (ticket !== revision || !dialog.isConnected) return;
-        if (input.value.trim() === savedSource) input.value = "";
+        if (groupSource) groupSource.onSaved();
+        else if (input.value.trim() === savedSource) input.value = "";
         status.textContent = records.length === 1 ? "已记下「" + records[0].title + "」。" : "已记下 " + records.length + " 项待办。";
         saving = false; close();
       } catch {
@@ -346,10 +348,11 @@
       }).filter(Boolean);
     }
 
-    async function launch(event) {
+    async function launch(event, source = null) {
       event?.preventDefault();
       if (dialog.open || saving) return;
-      const text = input.value.trim();
+      groupSource = source;
+      const text = (source ? source.text : input.value).trim();
       if (!text) { input.focus(); return; }
       const opts = settings();
       const candidates = parser.parse(text, {today: today(), categories: categories(), defaultMissed: opts.defaultMissed,
@@ -380,6 +383,7 @@
     }
 
     listen(form, "submit", launch);
+    listen(form, "todo-category-add", event => launch(event, event.detail));
     listen(input, "keydown", (e) => {
       if (e.key !== "Enter" || e.shiftKey || e.isComposing || e.keyCode === 229) return;
       e.preventDefault(); form.requestSubmit();
@@ -387,7 +391,7 @@
     listen(dialog, "cancel", (e) => { if (saving) e.preventDefault(); });
     listen(dialog, "pointerdown", dirty);
     listen(dialog, "compositionstart", dirty);
-    listen(dialog, "close", () => { revision++; stopAssist(); saving = false; input.focus(); });
+    listen(dialog, "close", () => { revision++; stopAssist(); saving = false; (groupSource?.returnFocus() || input).focus({preventScroll:true}); groupSource = null; });
     listen(dialog, "keydown", (e) => {
       if (e.key !== "Enter" || e.shiftKey || e.isComposing || e.keyCode === 229 || e.defaultPrevented) return;
       if (e.target.closest("button,select,summary") || e.target.type === "checkbox" || e.target.type === "time") return;

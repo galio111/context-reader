@@ -8,7 +8,7 @@ import { openAccountUsage } from "@/lib/accountUsageNavigation";
 import { lowUsageNotice } from "@/lib/usagePresentation";
 
 import { startupMark } from "@/lib/startupPerformance";
-import { getLearningStorage, downloadLearningBackup, initializeLearningStorage, flushLearningStorage, isLearningStorage, LEARNING_STORAGE_EVENT, type LearningStorageStatus } from "@/lib/learningStorage";
+import { getLearningStorage, downloadLearningBackup, initializeLearningStorage, flushLearningStorage, isLearningStorage, LEARNING_OWNER_CHANGED, LEARNING_STORAGE_EVENT, type LearningStorageStatus } from "@/lib/learningStorage";
 import Link from "next/link";
 import { useAccountActivity } from "./useAccountActivity";
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
@@ -715,7 +715,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
 
   return (
     <AccountContext.Provider value={value}>
-      {storageStatus.error && (
+      {storageStatus.error && storageStatus.error !== LEARNING_OWNER_CHANGED && (
         <aside className="fixed bottom-3 left-1/2 z-[220] w-[min(94vw,640px)] -translate-x-1/2 rounded-xl border border-black/10 bg-white px-4 py-3 text-sm text-[#243b45] shadow-lg" role="alert">
           <p>{storageStatus.error}</p>
           {storageStatus.error && <button className="mr-2 mt-2 min-h-11 rounded-full border border-black/20 px-4" type="button" onClick={() => void downloadLearningBackup()}>导出本机备份</button>}

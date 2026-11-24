@@ -29,7 +29,7 @@ export function nextMonth(month: string, step: number) {
   return start.toISOString().slice(0, 7);
 }
 export function dayEntries(tasks: Task[], day: string): Entry[] {
-  return tasks.filter(t => t.daily ? day >= dailyStart(t) && !t.skippedDates?.includes(day) : t.date === day).map(task => ({task, occ: day}));
+  return tasks.filter(t => !t.daily && t.date === day).map(task => ({task, occ: day}));
 }
 function byDeadline(a: Entry, b: Entry) {
   return (a.occ || "9999").localeCompare(b.occ || "9999") || (a.task.time || "24:00").localeCompare(b.task.time || "24:00") || a.task.title.localeCompare(b.task.title, "zh-CN");
@@ -38,10 +38,22 @@ const rank = {high: 0, normal: 1, "": 1, low: 2};
 export function taskGroups(state: TodoData, view: View, today: string, selected: string, now: number) {
   const completed = new Set(state.history.map(h => h.key));
   const pending = (e: Entry) => !completed.has(occurrenceKey(e.task, e.occ));
-  const groups: {title: string; rows: Entry[]}[] = [];
+  const groups: {title: string; category?: string; rows: Entry[]}[] = [];
   function add(title: string, entries: Entry[], prioritySort = false) {
     const rows = entries.filter(pending).sort((a, b) => (prioritySort ? rank[a.task.priority] - rank[b.task.priority] : 0) || byDeadline(a, b));
     if (rows.length) groups.push({title, rows});
+  }
+  if (view === "all") {
+    const byCategory = new Map<string, Entry[]>(state.categories.map(category => [category, []]));
+    for (const task of state.tasks) {
+      const entry = {task, occ: task.date};
+      if (task.daily || !pending(entry)) continue;
+      if (!byCategory.has(task.category)) byCategory.set(task.category, []);
+      byCategory.get(task.category)!.push(entry);
+    }
+    for (const [category, entries] of byCategory)
+      groups.push({title: category || "未分类", category, rows: entries.sort((a,b) => rank[a.task.priority] - rank[b.task.priority] || byDeadline(a,b))});
+    return groups;
   }
   if (view === "day") {
     const entries = dayEntries(state.tasks, selected);
@@ -57,24 +69,23 @@ export function taskGroups(state: TodoData, view: View, today: string, selected:
     }
     return groups;
   }
-  const overdue: Entry[] = [], attention: Entry[] = [], daily: Entry[] = [], later: Entry[] = [], anytime: Entry[] = [];
+  const overdue: Entry[] = [], attention: Entry[] = [], daily: Entry[] = [];
   for (const task of state.tasks) {
     if (task.daily) {
       const start = dailyStart(task);
-      if (start > today) { later.push({task, occ: start}); continue }
+      if (start > today) continue;
       let occ = task.missed === "carry" ? start : today;
       while (occ <= today && (completed.has(occurrenceKey(task, occ)) || task.skippedDates?.includes(occ))) occ = plusDays(occ, 1);
       if (occ <= today) daily.push({task, occ});
       continue;
     }
     const row = {task, occ: task.date};
-    if (!task.date) anytime.push(row);
+    if (!task.date) continue;
     else if (dueTime(task.date, task.time) < now) overdue.push(row);
     else if (plusDays(task.date, -task.lead) <= today) attention.push(row);
-    else later.push(row);
   }
   add("已过截止", overdue, true); add("该动手了", attention, true); add("每日任务", daily, true);
-  if (view === "all") { add("以后要做", later); add("未定日期", anytime, true) }
+
   return groups;
 }
 export function timing({task: t, occ}: Entry, today: string) {
