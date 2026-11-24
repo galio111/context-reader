@@ -2,6 +2,10 @@
 
 ## Current production release
 
+Accepted 20261124T223132, parent 20261124T220835, source 14f7673ebc67e70fd49cb2a4acbe1655285fd9a8. The calendar displays pending tasks and one-time, week-unscheduled, weekly or monthly events. [Evidence](evidence/todo-recurring-calendar-20261124.json)
+
+## Previous planner category release
+
 Accepted 20261124T220835, parent 20261124T213933, source c26666ed3f57d3599a0caf0d65f9df6247cc3ca3. The private planner supports date-scoped capture and category management. [Evidence](evidence/todo-day-categories-20261124.json)
 
 ## Previous planner grouping release
