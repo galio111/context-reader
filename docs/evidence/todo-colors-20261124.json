@@ -1,0 +1,58 @@
+{
+  "release": "20261124T213933",
+  "parent": "20261124T205937",
+  "source": "8a47f1056a25d4fa8c71312f3ac86c7bcef47b31",
+  "site": "https://context-reader.com/todo",
+  "local": {
+    "build": true,
+    "plannerTests": 14,
+    "criticalTests": 90,
+    "architectureTests": 178,
+    "retryableProviderBilling": true,
+    "contracts": true,
+    "desktop": 1440,
+    "mobile": 390,
+    "uiChecks": [
+      "daily filtering",
+      "compact capture",
+      "category entry preserves other draft",
+      "urgency labels",
+      "custom color and automatic reset",
+      "settings survive refresh"
+    ]
+  },
+  "production": {
+    "public": {
+      "release": "20261124T213933",
+      "parent": "20261124T205937",
+      "page": 200,
+      "login": true,
+      "privateForm": 0,
+      "cache": "private, no-store",
+      "api": 401,
+      "head": 401,
+      "parse": 401,
+      "cron": 401,
+      "ownerDataCache": "private, no-store",
+      "capture": 200,
+      "home": 200,
+      "account": 200,
+      "browserErrors": []
+    },
+    "readingCore": true,
+    "syntheticAccountRemoved": true,
+    "ordinaryAccountCannotAccessTodo": true,
+    "admin": {
+      "session": 200,
+      "accounts": 200,
+      "public_articles": 200,
+      "recommendation_automation": 200
+    },
+    "timer": "active",
+    "health": true,
+    "persistentServices": 5,
+    "rollbackImages": true,
+    "productionOwnerDataEditedByVerification": false,
+    "testEmailSent": false
+  }
+}

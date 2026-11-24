@@ -2,6 +2,10 @@
 
 ## Current production release
 
+Accepted 20261124T213933, parent 20261124T205937, source 8a47f1056a25d4fa8c71312f3ac86c7bcef47b31. Private planner grouping, daily exclusions and color preferences passed the release checks. [Evidence](evidence/todo-colors-20261124.json)
+
+## Previous private planner release
+
 Accepted `20261124T205937`, parent `20261122T212344`, source `a5c0ffb29d0fc13ae4ac2357a1e409084628612b`. The owner-only planner is available at `/todo`. Public identity, private cache controls, anonymous denial and the normal login entry were verified. [Release evidence](evidence/private-todo-20261124.json)
 
 ## Previous accepted extension lookup release
